@@ -1,5 +1,6 @@
 ---
 title: "Fulcio Overview"
+type: "article"
 description: "Fulcio: Certificate Authority"
 lead: "Fulcio: Certificate Authority"
 date: 2020-11-12T13:26:54+01:00

@@ -13,7 +13,7 @@ description = "Guardian Academy is an educational hub created by Chainguard to e
 images = ["doks.png"]
 ogLocale = "en_US"
 domainTLD = "doks.netlify.app"
-titleHome = "Doks Theme"
+titleHome = "Guardian Academy"
 
 ## Twitter Cards
 twitterSite = "@chainguard_dev"
