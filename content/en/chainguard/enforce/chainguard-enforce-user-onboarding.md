@@ -2,6 +2,7 @@
 title: "Chainguard Enforce User Onboarding"
 description: "Walkthrough of Chainguard Enforce"
 lead: ""
+type: "article"
 date: 2020-10-06T08:48:57+00:00
 lastmod: 2020-10-06T08:48:57+00:00
 draft: false
@@ -13,7 +14,7 @@ weight: 100
 toc: true
 ---
 
-Chainguard Enforce is a supply chain security solution for containerized workloads. Enforce enables you to build, manage, ensure continuous compliance, and enforce policies that protect organizations from supply chain threats. Using open source projects and standards that are trusted by the community — like Cosign and Fulcio from the Sigstore project — Chainguard Enforce offers a robust approach to securing your workloads. 
+Chainguard Enforce is a supply chain security solution for containerized workloads. Enforce enables you to build, manage, ensure continuous compliance, and enforce policies that protect organizations from supply chain threats. Using open source projects and standards that are trusted by the community — like Cosign and Fulcio from the Sigstore project — Chainguard Enforce offers a robust approach to securing your workloads.
 
 This guide will walk you through a demonstration of Chainguard Enforce on a Kubernetes cluster running on Google Cloud Platform (GCP). We will be using Enforce to achieve the following:
 
@@ -22,14 +23,14 @@ This guide will walk you through a demonstration of Chainguard Enforce on a Kube
 * Automation — we will use GitHub Actions to call and implement our policy automatically
 * Enforce — we will verify that Chainguard Enforce stops the deployment of an unsigned image
 
-We will walk through a product journey together in this guide — from setting up an example cluster, to drafting a policy and observing how it behaves, to improving the policy, and finally enforcing that policy. Ultimately, our goal is to improve our software security in deployment contexts by enforcing the use of signed containers and rejecting any containers that are unsigned. 
+We will walk through a product journey together in this guide — from setting up an example cluster, to drafting a policy and observing how it behaves, to improving the policy, and finally enforcing that policy. Ultimately, our goal is to improve our software security in deployment contexts by enforcing the use of signed containers and rejecting any containers that are unsigned.
 
-## Prerequisites 
+## Prerequisites
 
-Before running Chainguard Enforce on GCP, you’ll need to ensure you have the following installed: 
+Before running Chainguard Enforce on GCP, you’ll need to ensure you have the following installed:
 
-* **gcloud CLI** tool — to interact with GCP infrastructure on the command line. You can download and install gcloud for your relevant operating system by following the [Installing the gcloud CLI guide](https://cloud.google.com/sdk/docs/install). 
-* **[Wget](https://www.gnu.org/software/wget/)** — to retrieve files from the web. 
+* **gcloud CLI** tool — to interact with GCP infrastructure on the command line. You can download and install gcloud for your relevant operating system by following the [Installing the gcloud CLI guide](https://cloud.google.com/sdk/docs/install).
+* **[Wget](https://www.gnu.org/software/wget/)** — to retrieve files from the web.
     * On Ubuntu or Debian Linux, you can install Wget with `apt install wget`
     * On Red Hat, Fedora, or CentOS Linux, you can install it with `dnf install wget`
     * On macOS, install with Homebrew by running `brew install wget`
@@ -38,24 +39,24 @@ Before running Chainguard Enforce on GCP, you’ll need to ensure you have the f
     * On Ubuntu or Debian Linux, you can install jq with `apt install jq`
     * On Red Hat, Fedora, or CentOS Linux, you can install it with `dnf install jq`
     * On macOS, install with Homebrew by running `brew install jq`
-    * On Windows, use Chocolatey to install Wget with `choco install jq` 
+    * On Windows, use Chocolatey to install Wget with `choco install jq`
 
-One last note — if you are running macOS, you’ll need to ensure you are using bash version 4 or higher, which is not preinstalled in the machine. Please follow our guide on how to update your version if you are getting version 3 or below when you run `bash --version`. 
+One last note — if you are running macOS, you’ll need to ensure you are using bash version 4 or higher, which is not preinstalled in the machine. Please follow our guide on how to update your version if you are getting version 3 or below when you run `bash --version`.
 
 With gcloud CLI, Wget, and jq installed you’re ready to begin.
 
-## Step 1 — Install chainctl 
+## Step 1 — Install chainctl
 
-Our command line interface (CLI) tool, chainctl, will help you interact with the account model that Chainguard Enforce provides, and enable you to make queries into the state of your clusters and policies registered with the platform. The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions For example, to list groups within the context of Chainguard Identity and Access Management (IAM) groups, you can run `chainctl iam groups list` to receive relevant output. 
+Our command line interface (CLI) tool, chainctl, will help you interact with the account model that Chainguard Enforce provides, and enable you to make queries into the state of your clusters and policies registered with the platform. The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions For example, to list groups within the context of Chainguard Identity and Access Management (IAM) groups, you can run `chainctl iam groups list` to receive relevant output.
 
-To install chainctl, let’s create variables that simplify our commands and export them to be used by child processes. 
+To install chainctl, let’s create variables that simplify our commands and export them to be used by child processes.
 
 ```sh
 export BUCKET="us.artifacts.chainguard-poc.appspot.com"
 export BASE_URL="https://storage.googleapis.com/${BUCKET}"
 ```
 
-Here, we are using the bucket of our Chainguard POC, and calling that bucket within the base URL of our application hosted by Google. 
+Here, we are using the bucket of our Chainguard POC, and calling that bucket within the base URL of our application hosted by Google.
 
 We’ll use the `wget` command to pull the application down.
 
@@ -99,7 +100,7 @@ BuildDate:     2022-05-04T17:21:47Z
 …
 ```
 
-If you received different output, check your bash profile to make sure that your system is using the expected GOPATH. If your version of chainctl is a few weeks or months old, you may consider updating it so that you can use the most up to date version. 
+If you received different output, check your bash profile to make sure that your system is using the expected GOPATH. If your version of chainctl is a few weeks or months old, you may consider updating it so that you can use the most up to date version.
 
 With chainctl successfully installed, we can continue through the demo.
 
@@ -129,9 +130,9 @@ You’ll be asked whether you want to continue. Press `y`. Once the group is cre
 
 ```
 Continue? [Y,n]: y
-                                      ID                                   |        NAME        | DESCRIPTION  
+                                      ID                                   |        NAME        | DESCRIPTION
 ---------------------------------------------------------------------------+--------------------+--------------
-  ... <Group ID> ...                                                       | tutorial-group     |              
+  ... <Group ID> ...                                                       | tutorial-group     |
 ```
 
 
@@ -289,10 +290,10 @@ If you didn’t specify the `$CLUSTER_ID`, the CLI will ask you to select from a
 Your output may be wide, and may have some extra lines. From this output, you should be able to determine the different categories of containers on your cluster, including containers from the vendor (such as GKE or EKS), the Chainguard agent, and the application image itself.
 
 ```
-                CLUSTER                |                                                                     IMAGE                                                                     |        LAST SEEN         |         LAST REFRESHED          
+                CLUSTER                |                                                                     IMAGE                                                                     |        LAST SEEN         |         LAST REFRESHED
 ---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--------------------------+---------------------------------
 ...
-  d823a5fb-8335-4c17-aa6a-95fc2398fe16 | gcr.io/chainguard-demo/demo-app@sha256:aa3fe90bee1aa72caad355a18916eb0cb315697a0cee2bdbead4ccd50003b26c                                       | 2022-03-31T17:42:39.168Z | sbom:2022-03-31T17:42:47.47Z       
+  d823a5fb-8335-4c17-aa6a-95fc2398fe16 | gcr.io/chainguard-demo/demo-app@sha256:aa3fe90bee1aa72caad355a18916eb0cb315697a0cee2bdbead4ccd50003b26c                                       | 2022-03-31T17:42:39.168Z | sbom:2022-03-31T17:42:47.47Z
 ...
 ```
 

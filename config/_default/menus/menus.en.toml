@@ -1,68 +1,72 @@
 [[docs]]
   name = "Chainguard"
-  weight = 10
   identifier = "chainguard"
-  url = "/docs/chainguard/"
+  url = "/chainguard/"
+  weight = 10
 
 [[docs]]
-  name = "Sigstore"
-  weight = 60
-  identifier = "sigstore"
-  url = "/docs/sigstore/"
+  name = "Open Source"
+  identifier = "opensource"
+  url = "/opensource/"
+  weight = 20
 
-# [[docs]]
-#   name = "Lorem"
-#   weight = 70
-#   identifier = "lorem"
-#   url = "/docs/lorem/"
-
-[[guide]]
-  name = "Lorem"
-  weight = 10
-  identifier = "lorem"
-  url = "/guide/lorem/"
-
-[[tutorial]]
-  name = "Lorem"
-  weight = 10
-  identifier = "lorem"
-  url = "/tutorial/lorem/"
-
-[[main]]
-  name = "Docs"
-  url = "/docs/chainguard/chainguard-enforce-user-onboarding/"
-# url = "/docs/1.0/chainguard/chainguard-enforce-user-onboarding/"
-  weight = 10
-
-# [[main]]
-#   name = "Tutorial"
-#   url = "/tutorial/lorem/ipsum/"
-#   weight = 15
-
-[[main]]
-  name = "Blog"
-  url = "/blog/"
+[[docs]]
+  name = "Software Security"
+  identifier = "security"
+  url = "/software-security/"
   weight = 20
 
 [[main]]
-  name = "User Onboarding"
+  name = "Chainguard"
+  identifier = "menu-chainguard"
+  weight = 10
+
+[[main]]
+  name = "Open Source"
+  identifier = "menu-oss"
+  weight = 20
+
+[[main]]
+  name = "Enforce"
+  url = "/chainguard/enforce/"
+  parent = "menu-chainguard"
+  weight = 10
+
+[[main]]
+  name = "Sigstore"
+  url = "/opensource/sigstore/"
+  parent = "menu-oss"
+  weight = 15
+
+[[main]]
+  name = "Apko"
+  url = "/opensource/apko/"
+  parent = "menu-oss"
+  weight = 20
+
+[[main]]
+  name = "Melange"
+  url = "/opensource/melange/"
+  parent = "menu-oss"
   weight = 30
-  identifier = "chainguard-enforce-user-onboarding"
-  url = "/docs/chainguard/chainguard-enforce-user-onboarding/"
 
 [[main]]
-  name = "User Onboarding"
+  name = "Software Security"
+  identifier = "menu-security"
+  weight = 20
+
+[[main]]
+  name = "Glossary"
+  url = "/software-security/glossary/"
+  parent = "menu-security"
   weight = 40
-  identifier = "chainguard-enforce-user-onboarding"
-  url = "/docs/chainguard/chainguard-enforce-user-onboarding/"
-  parent = "get-started"
 
-[[main]]
-  name = "Tutorial"
-  weight = 50
-  identifier = "tutorial"
-  url = "https://getdoks.org/tutorial/introduction/"
-  parent = "get-started"
+  [[main]]
+    name = "Getting Started"
+    url = "/software-security/getting-started/"
+    parent = "menu-security"
+    weight = 20
+
 
 [[social]]
   name = "GitHub"
