@@ -2,13 +2,14 @@
 title: "Chainguard Glossary"
 description: "Software supply chain security vocabulary"
 lead: "Software supply chain security vocabulary"
+type: "article"
 date: 2020-10-13T15:21:01+02:00
 lastmod: 2020-10-13T15:21:01+02:00
 draft: false
 images: []
 menu:
   docs:
-    parent: "software-security"
+    parent: "security"
 weight: 130
 toc: true
 ---

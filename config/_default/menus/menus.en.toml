@@ -1,13 +1,19 @@
 [[docs]]
   name = "Chainguard"
-  identifier = "docs-chainguard"
+  identifier = "chainguard"
   url = "/chainguard/"
-  weight = 200
+  weight = 10
 
 [[docs]]
   name = "Open Source"
-  identifier = "docs-opensource"
+  identifier = "opensource"
   url = "/opensource/"
+  weight = 20
+
+[[docs]]
+  name = "Software Security"
+  identifier = "security"
+  url = "/software-security/"
   weight = 20
 
 [[main]]
@@ -16,39 +22,37 @@
   weight = 10
 
 [[main]]
+  name = "Open Source"
+  identifier = "menu-oss"
+  weight = 20
+
+[[main]]
   name = "Enforce"
   url = "/chainguard/enforce/"
   parent = "menu-chainguard"
   weight = 10
 
 [[main]]
-  name = "Open Source"
-  identifier = "menu-oss"
-  url = "/opensource/"
-  weight = 20
-
-[[main]]
   name = "Sigstore"
-  url = "/chainguard/sigstore/"
+  url = "/opensource/sigstore/"
   parent = "menu-oss"
   weight = 15
 
 [[main]]
   name = "Apko"
-  url = "/chainguard/apko/"
+  url = "/opensource/apko/"
   parent = "menu-oss"
   weight = 20
 
 [[main]]
   name = "Melange"
-  url = "/chainguard/melange/"
+  url = "/opensource/melange/"
   parent = "menu-oss"
   weight = 30
 
 [[main]]
   name = "Software Security"
   identifier = "menu-security"
-  url = "/software-security/"
   weight = 20
 
 [[main]]
@@ -56,6 +60,13 @@
   url = "/software-security/glossary/"
   parent = "menu-security"
   weight = 40
+
+  [[main]]
+    name = "Getting Started"
+    url = "/software-security/getting-started/"
+    parent = "menu-security"
+    weight = 20
+
 
 [[social]]
   name = "GitHub"
