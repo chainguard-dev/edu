@@ -1,12 +1,13 @@
 ---
 title: "Rekor CLI"
+type: "article"
 description: "An intro to the Rekor CLI"
 lead: "An intro to the Rekor CLI"
 date: 2020-11-12T15:22:20+01:00
 lastmod: 2020-11-12T15:22:20+01:00
 draft: false
 images: []
-menu: 
+menu:
   docs:
     parent: "sigstore"
 weight: 620
