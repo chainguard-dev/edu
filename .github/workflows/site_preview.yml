@@ -18,8 +18,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Check for linting errors
-        run: npm test
+      #- name: Check for linting errors
+      #  run: npm test
 
       - name: Build production website
         run: npm run build
