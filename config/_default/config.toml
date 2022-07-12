@@ -1,5 +1,5 @@
-baseurl = "https://chainguard-dev.github.io/edu/"
-canonifyURLs = true
+baseurl = "/"
+canonifyURLs = false
 disableAliases = true
 disableHugoGeneratorInject = true
 enableEmoji = true
