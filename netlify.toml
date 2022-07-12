@@ -1,0 +1,7 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "0"
+    X-Content-Type-Options = "nosniff"
+    Content-Security-Policy = "default-src 'self'; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net https://fonts.googleapis.com *.netlify.app; form-action 'self'; font-src 'self' https://fonts.googleapis.com; script-src 'self' *.googleapis.com cdn.jsdelivr.net *.netlify.app; connect-src 'self'; img-src 'self'; base-uri 'self';"
