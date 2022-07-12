@@ -1,9 +1,11 @@
 /** Custom styles */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Urbanist&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Urbanist&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family:
+    Inter,
+    sans-serif;
   font-size: medium;
 }
 
@@ -11,8 +13,13 @@ body {
   line-height: 2rem;
 }
 
-h1, h2, h3, .navbar  {
-  font-family: 'Urbanist', sans-serif;
+h1,
+h2,
+h3,
+.navbar {
+  font-family:
+    Urbanist,
+    sans-serif;
 }
 
 .featured-icon {
@@ -20,5 +27,5 @@ h1, h2, h3, .navbar  {
 }
 
 .chainguard-blue {
-  color: #454CE4;
+  color: #454ce4;
 }
