@@ -1,5 +1,5 @@
-baseurl = "https://doks-child-theme.netlify.app/"
-canonifyURLs = false
+baseurl = "https://chainguard-dev.github.io/edu/"
+canonifyURLs = true
 disableAliases = true
 disableHugoGeneratorInject = true
 enableEmoji = true
