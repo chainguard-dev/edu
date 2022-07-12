@@ -1,0 +1,27 @@
+{{ if .Params.terminalImage }}
+<div id="terminal-init" data-image="{{ .Params.terminalImage }}">
+</div>
+
+<div id="terminal-nav">
+  <nav>
+    <ul>
+      <li id="note">Ephemeral: no data will be saved</li>
+      <li id="timer"></li>
+      <li>X</li>
+    </ul>
+  </nav>
+</div>
+
+{{/* Add concatenation and minification to these */}}
+{{- $terminal := resources.Get "js/terminal.js" -}}
+{{ $scss := resources.Get "scss/terminal.scss" }}
+{{ $terminal_style := $scss | resources.ToCSS }}
+
+
+{{/* Add terminal.css styling */}}
+<link rel="stylesheet" href="{{ $terminal_style.Permalink }}" />
+
+{{/*  Display terminal.js script   */}}
+<script src="{{ $terminal.Permalink }}" integrity="{{ $terminal.Data.Integrity }}"></script>
+
+{{ end }}
