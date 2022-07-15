@@ -77,12 +77,6 @@ Compiler:      gc
 Platform:      linux/amd64
 ```
 
-Login
-
-```sh
-chainctl auth login --register
-```
-
 If you received different output, run `which chainctl` to check that you are using the right chainctl. 
 
 If your version of chainctl is a few weeks or months old, you may consider updating it so that you can use the most up to date version. You can update by following the steps in this section again.
