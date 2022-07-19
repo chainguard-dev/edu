@@ -3,8 +3,8 @@ title: "Overview of Enforce IAM model"
 description: "Chainguard Enforce Identity and Access Management"
 lead: "Chainguard Enforce Identity and Access Management"
 type: "article"
-date: 2020-11-16T13:59:39+01:00
-lastmod: 2020-11-16T13:59:39+01:00
+date: 2022-11-16T13:59:39+01:00
+lastmod: 2022-11-16T13:59:39+01:00
 draft: false
 images: []
 menu:
