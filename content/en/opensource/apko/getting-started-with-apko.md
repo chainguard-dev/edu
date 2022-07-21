@@ -16,10 +16,10 @@ toc: true
 
 [apko](http://github.com/chainguard-dev/apko) is a command-line tool that allows users to build images that are compatible with the [OCI](https://opencontainers.org/) (Open Container Initiative) standard, using a declarative language based on YAML files. The name _apko_ references APK, the [Alpine Package Manager](https://wiki.alpinelinux.org/wiki/Package_management), since this is the package management system used by apko to build container images.
 
-## Why Apko
+## Why apko
 Using a declarative language to build container images has many advantages when compared to traditional Dockerfiles. Generally speaking, YAML definitions are easier to parse through and understand. This methodology facilitates automation and removes noise from image definitions, allowing users to "do more" with fewer lines of configuration.
 
-In addition to that, apko builds are fully reproducible and automatically generate [SBOM](https://www.cisa.gov/sbom) files for every image built, which adds a new layer of security to your container images. Apko images are also smaller and faster to build than traditional Dockerfile-based images.
+In addition to that, apko builds are fully reproducible and automatically generate [SBOM](https://www.cisa.gov/sbom) files for every image built, which adds a new layer of security to your container images. apko images are also smaller and faster to build than traditional Dockerfile-based images.
 
 It's worth noting that apko images are fully compatible with Docker.
 
@@ -31,15 +31,15 @@ If you want to run apko on CI/CD pipelines built on top of GitHub Actions, check
 
 The instructions in this document were validated on an Ubuntu 22.04 workstation running Docker 20.10.
 
-## Step 1 — Download the Apko Image
+## Step 1 — Download the apko Image
 
-Start by pulling the official Apko image into your local system:
+Start by pulling the official apko image into your local system:
 
 ```shell
 docker pull distroless.dev/apko
 ```
 
-This will download the latest version of the distroless Apko image, which is rebuilt every night for extra freshness.
+This will download the latest version of the distroless apko image, which is rebuilt every night for extra freshness.
 
 Check that you're able to run apko with:
 
@@ -120,7 +120,7 @@ export APKO_HOME=/home/nonroot
 docker run --rm -v ${PWD}:${APKO_HOME} distroless.dev/apko build ${APKO_HOME}/alpine-base.yaml alpine-base:test ${APKO_HOME}/alpine-test.tar
 ```
 
-You should see output similar to this:
+You should get output similar to this:
 
 ```
 Jul 20 17:20:34.187 [INFO] loading config file: /home/nonroot/alpine-base.yaml
@@ -159,10 +159,7 @@ Jul 20 17:20:35.595 [WARNING] [arch:x86_64] multiple SBOM formats requested, upl
 Jul 20 17:20:35.597 [INFO] [arch:x86_64] output OCI image file to /home/nonroot/alpine-test.tar
 ```
 
-{{< alert icon="ℹ️" text="By default and when no specific building instructions are provided, apko builds images for the `x86_64` architecture." />}}
-
-
-From the output, you can see that the image was successfully built at the location `/home/nonroot/alpine-test.tar` in the container, which is shared with your local folder on the host thanks to the volume you created when running the `docker exec` command. Because tagging happens inside the container, before using this image you'll need to load the generated `tar` image artifact into Docker with the `docker load` command, on the host machine (your main system).
+From the output, you can notice that the image was successfully built at the location `/home/nonroot/alpine-test.tar` in the container, which is shared with your local folder on the host thanks to the volume you created when running the `docker exec` command. Because tagging happens inside the container, before using this image you'll need to load the generated `tar` image artifact into Docker with the `docker load` command, on the host machine (your main system).
 
 To load the tar file into a Docker image, run:
 
@@ -189,7 +186,7 @@ Now you can run the image with:
 docker run -it alpine-base:test
 ```
 
-This will get you into a container running the apko-built image `alpine-base:test`. It's a regular shell that you can explore to see what's included - just keep in mind that this is a minimalist image with only the base Alpine system. To include additional software packages, check the [Alpine APK repositories](https://pkgs.alpinelinux.org/packages) to find the packages you'll need for your specific use case, or check out [melange](), apko's companion project that allows users to build their own APK packages from source.
+This will get you into a container running the apko-built image `alpine-base:test`. It's a regular shell that you can explore to learn what's included - just keep in mind that this is a minimalist image with only the base Alpine system. To include additional software packages, check the [Alpine APK repositories](https://pkgs.alpinelinux.org/packages) to find the packages you'll need for your specific use case, or check out [melange](), apko's companion project that allows users to build their own APK packages from source.
 
 ## Conclusion
 
