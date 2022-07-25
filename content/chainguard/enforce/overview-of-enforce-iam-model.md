@@ -1,16 +1,16 @@
 ---
 title: "Overview of Enforce IAM model"
+type: "article"
 description: "Chainguard Enforce Identity and Access Management"
 lead: "Chainguard Enforce Identity and Access Management"
-type: "article"
-date: 2020-11-16T13:59:39+01:00
-lastmod: 2020-11-16T13:59:39+01:00
+date: 2022-15-07T15:22:20+01:00
+lastmod: 2022-15-07T15:22:20+01:00
 draft: false
 images: []
 menu:
   docs:
-    parent: "chainguard"
-weight: 110
+    parent: "enforce"
+weight: 620
 toc: true
 ---
 

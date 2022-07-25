@@ -13,7 +13,6 @@ menu:
 weight: 630
 toc: true
 ---
-
 [apko](http://github.com/chainguard-dev/apko) is a command-line tool that allows users to build container images using a declarative language based on YAML. apko is so named as it uses the [APK](https://wiki.alpinelinux.org/wiki/Package_management) package format and is inspired by the [ko](https://github.com/google/ko) build tool.
 
 ## Why apko
@@ -121,7 +120,6 @@ docker run --rm -v ${PWD}:/work distroless.dev/apko build /work/alpine-base.yaml
 You should get output similar to this:
 
 ```
-
 Jul 25 17:14:52.623 [INFO] loading config file: /work/alpine-base.yaml
 Jul 25 17:14:52.625 [INFO] [arch:x86_64] building image 'alpine-base:test'
 Jul 25 17:14:52.625 [INFO] [arch:x86_64] build context:
@@ -159,7 +157,6 @@ Jul 25 17:14:53.984 [INFO] [arch:x86_64] output OCI image file to /work/alpine-t
 ```
 
 From the output, you can notice that the image was successfully built at the location `/work/alpine-test.tar` in the container, which is shared with your local folder on the host thanks to the volume you created when running the `docker run` command.
-
 
 ## Step 3 — Test the Image with Docker
 

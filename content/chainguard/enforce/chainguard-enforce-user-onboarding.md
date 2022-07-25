@@ -1,16 +1,16 @@
 ---
 title: "Chainguard Enforce User Onboarding"
-description: "Walkthrough of Chainguard Enforce"
-lead: ""
 type: "article"
-date: 2020-10-06T08:48:57+00:00
-lastmod: 2020-10-06T08:48:57+00:00
+description: "Walkthrough of Chainguard Enforce"
+lead: "Onboard to Chainguard Enforce"
+date: 2022-15-07T15:22:20+01:00
+lastmod: 2022-15-07T15:22:20+01:00
 draft: false
 images: []
 menu:
   docs:
-    parent: "chainguard"
-weight: 100
+    parent: "enforce"
+weight: 620
 toc: true
 ---
 

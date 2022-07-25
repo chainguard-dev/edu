@@ -2,7 +2,7 @@
 
 ## Homepage
 title = "Guardian Academy"
-titleSeparator = "-"
+titleSeparator = "—"
 titleAddition = "Software Supply Chain Security Knowledge Base"
 description = "Guardian Academy is an educational hub created by Chainguard to educate developers about software supply chain security."
 
@@ -10,9 +10,9 @@ description = "Guardian Academy is an educational hub created by Chainguard to e
 # docsVersion = "0.3"
 
 ## Open Graph
-images = ["doks.png"]
+images = ["chainguard.png"]
 ogLocale = "en_US"
-domainTLD = "doks.netlify.app"
+domainTLD = "chainguard.dev"
 titleHome = "Guardian Academy"
 
 ## Twitter Cards
@@ -28,15 +28,15 @@ schemaAuthorTwitter = "https://twitter.com/chainguard_dev"
 schemaAuthorLinkedIn = "https://www.linkedin.com/company/chainguard-dev"
 schemaAuthorGitHub = "https://github.com/chainguard-dev"
 schemaLocale = "en-US"
-schemaLogo = "logo-doks.png"
+schemaLogo = "chainguard.png"
 schemaLogoWidth = 512
 schemaLogoHeight = 512
-schemaImage = "doks.png"
+schemaImage = "chainguard.png"
 schemaImageWidth = 1280
 schemaImageHeight = 640
 schemaTwitter = "https://twitter.com/chainguard_dev"
 schemaLinkedIn = "https://www.linkedin.com/company/chainguard-dev"
-schemaGitHub = "https://github.com/chainguard-dev/edu"
+schemaGitHub = "https://github.com/chainguard-dev"
 schemaSection = "blog"
 
 ## Sitelinks Search Box
@@ -54,7 +54,7 @@ lqipWidth = "20x"
 smallLimit = "300"
 
 # Footer
-footer = "Find us on <a class=\"text-muted\" href=\"https://github.com/chainguard-dev/edu/\">GitHub</a>"
+footer = "©2022 <a class=\"text-muted\" href=\"https://www.chainguard.dev\">Chainguard</a>, <a class=\"text-muted\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">CC BY-NC-SA 4.0</a>"
 
 # Feed
 copyRight = "Copyright (c) 2022 Chainguard"
@@ -62,7 +62,7 @@ copyRight = "Copyright (c) 2022 Chainguard"
 # Alert
 alert = false
 alertDismissable = true
-# alertText = "Introducing the Doks child theme, several DX + UX updates, and more! <a class=\"alert-link stretched-link\" href=\"https://getdoks.org/blog/doks-v0.2/\" target=\"_blank\" rel=\"noopener\">Check out Doks v0.2</a>"
+# alertText = " "
 
 # Edit Page
 # repoHost [Github | Gitea | GitLab | Bitbucket | BitbucketServer ] is used for building the edit link based on git hoster
