@@ -195,7 +195,7 @@ metadata:
 spec:
   images:
   - glob: "gcr.io/chainguard-demo/*"
-  - glob: “ttl.sh/*”
+  - glob: "ttl.sh/*"
   - glob: "index.docker.io/*"
   - glob: "index.docker.io/*/*"
   authorities:
