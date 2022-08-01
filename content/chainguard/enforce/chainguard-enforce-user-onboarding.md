@@ -20,7 +20,6 @@ This guide will walk you through a demonstration of Chainguard Enforce on a Kube
 
 * Policy management — we will create a policy and show it being applied to the cluster, this will involve the use of signed containers and SBOMs (software bills of materials)
 * Observation and monitoring — we will use the chainctl command line tool to understand our images from a security standpoint
-* Automation — we will use GitHub Actions to call and implement our policy automatically
 * Enforce — we will verify that Chainguard Enforce stops the deployment of an unsigned image
 
 We will walk through a product journey together in this guide — from setting up an example cluster, to drafting a policy and observing how it behaves, to improving the policy, and finally enforcing that policy. Ultimately, our goal is to improve our software security in deployment contexts by enforcing the use of signed containers and rejecting any containers that are unsigned.
@@ -326,25 +325,51 @@ chainctl cluster records list \
    $(kubectl get ns gulfstream -ojson | jq -r .metadata.uid)
 ```
 
+We can manually verify the signature matches our policy by using `cosign verify`:
+
+```sh
+cosign verify $TUTORIAL_IMAGE | jq
+```
+
 You’ll receive output that the container was signed and validated.
 
 ```
-Verification for gcr.io/chainguard-demo/demo-app@sha256:b6eb1074c8058171ae57db872530b3ab3f1bdfbea64b3390cbbd8b5d788ceb1a --
+Verification for ttl.sh/example-user/enforce-tutorial/busybox:latest --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
   - Existence of the claims in the transparency log was verified offline
   - Any certificates were verified against the Fulcio roots.
-...
+
+[
+  {
+    "critical": {
+      "identity": {
+        "docker-reference": "ttl.sh/example-user/enforce-tutorial/busybox"
+      },
+      "image": {
+        "docker-manifest-digest": "sha256:98de1ad411c6d08e50f26f392f3bc6cd65f686469b7c22a85c7b5fb1b820c154"
+      },
+      "type": "cosign container image signature"
+    },
+    "optional": {
+      "Bundle": {
+        "SignedEntryTimestamp": "MEUCIH2IZ4rrU9VMzDW9DpxebBvIy0Nf+AHq+Ip41tGTwt+4AiEAsQAsT9hu8i55hmP7340gj+hOXvOx2qLFfKaafmG/BXs=",
+        "Payload": {
+          "body": "....",
+          "integratedTime": 1659373771,
+          "logIndex": 3081249,
+          "logID": "c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d"
+        }
+      },
+      "Issuer": "https://accounts.google.com",
+      "Subject": "user@example.dev"
+    }
+  }
+]
 ```
 
-Within the JSON file, you can notice that it was the GitHub Action that signed the image.
-
-```
-...
-      "Issuer": "https://token.actions.githubusercontent.com",
-      "Subject": "https://github.com/chainguard-dev/gke-demo/.github/workflows/release.yaml@refs/heads/main"
-...
-```
+Note here that the `Issuer` and `Subject` fields in the output match the issuer
+and account your used to sign the image previously.
 
 This was achieved through the keyless signing we completed in the previous step.
 
