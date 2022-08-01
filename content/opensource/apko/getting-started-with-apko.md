@@ -3,8 +3,8 @@ title: "Getting Started with apko"
 type: "article"
 description: "One-pager quickstart to get apko up and running"
 lead: "Minimalist OCI image builder based on APK"
-date: 2021-07-06T08:49:31+00:00
-lastmod: 2021-07-06T08:49:31+00:00
+date: 2022-07-06T08:49:31+00:00
+lastmod: 2022-07-06T08:49:31+00:00
 draft: false
 images: []
 menu:
