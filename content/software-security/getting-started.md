@@ -9,7 +9,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "security"
+    parent: "software-security"
 weight: 10
 toc: true
 ---
