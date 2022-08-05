@@ -3,8 +3,9 @@ title: "What is software supply chain security"
 description: "Software supply chain security - an explanation"
 lead: "A beginner's guide to software supply chain security"
 type: "article"
-date: 2020-10-13T15:21:01+02:00
-lastmod: 2020-10-13T15:21:01+02:00
+date: 2022-08-04T15:21:01+02:00
+lastmod: 2022-08-04T15:21:01+02:00
+contributors: ["John Speed Meyers"]
 draft: false
 images: []
 menu:

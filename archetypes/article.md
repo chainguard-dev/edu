@@ -4,6 +4,8 @@ description: ""
 lead: ""
 date: {{ .Date }}
 lastmod: {{ .Date }}
+tags: []
+contributors: []
 draft: true
 images: []
 menu:
