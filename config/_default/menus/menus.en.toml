@@ -61,11 +61,11 @@
   parent = "menu-security"
   weight = 40
 
-  [[main]]
-    name = "Getting Started"
-    url = "/software-security/getting-started/"
-    parent = "menu-security"
-    weight = 20
+[[main]]
+  name = "What is Software Supply Chain Security"
+  url = "/software-security/what-is-software-supply-chain-security/"
+  parent = "menu-security"
+  weight = 20
 
 
 [[social]]
