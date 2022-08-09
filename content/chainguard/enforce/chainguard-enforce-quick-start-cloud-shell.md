@@ -1,8 +1,7 @@
 ---
 title: "Chainguard Enforce Quickstart with Google Cloud Shell"
 type: "article"
-description: "Set up Chainguard Enforce quickly with Google Cloud Shell and Kind"
-lead: "Quick setup of Chainguard Enforce using Kind and Cloud Shell"
+lead: "Set up Chainguard Enforce quickly with Google Cloud Shell and Kind"
 date: 2022-15-07T15:22:20+01:00
 lastmod: 2022-15-07T15:22:20+01:00
 draft: false
