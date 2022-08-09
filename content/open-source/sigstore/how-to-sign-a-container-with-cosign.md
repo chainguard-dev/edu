@@ -1,7 +1,6 @@
 ---
 title: "How to Sign a Container with Cosign"
 type: "article"
-description: "Signing containers with Cosign"
 lead: "Container signing using Cosign"
 date: 2022-13-07T13:26:54+01:00
 lastmod: 2022-13-07T13:26:54+01:00

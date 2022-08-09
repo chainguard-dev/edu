@@ -1,8 +1,7 @@
 ---
 title: "Chainguard Enforce on Cloud Shell User Onboarding"
 type: "article"
-description: "Set up Chainguard Enforce with Google Cloud Shell and Kind"
-lead: "Setup of Chainguard Enforce using Kind and Cloud Shell"
+lead: "Set up of Chainguard Enforce with Google Cloud Shell and Kind"
 date: 2022-15-07T15:22:20+01:00
 lastmod: 2022-15-07T15:22:20+01:00
 draft: false
