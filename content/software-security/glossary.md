@@ -1,6 +1,5 @@
 ---
 title: "Chainguard Glossary"
-description: "Software supply chain security vocabulary"
 lead: "Software supply chain security vocabulary"
 type: "article"
 date: 2022-08-01T15:21:01+02:00
