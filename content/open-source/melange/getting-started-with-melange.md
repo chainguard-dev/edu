@@ -32,7 +32,17 @@ Our guide is compatible with operating systems that support Docker and shared vo
 
 You won't need PHP or Composer installed on your system, since we'll be using Docker to build the demo app.
 
-The instructions in this document were validated on an Ubuntu 22.04 workstation running Docker 20.10.
+### Note for Linux Users
+
+In order to be able to build apks for multiple architectures using Docker, you'll need to register additional QEMU headers within your kernel. This is done automatically for Docker Desktop users, so if you are on MacOS you don't need to run this additional step.
+
+Run the following command to register the necessary handlers within your kernel, using the [multiarch/qemu-user-static](https://github.com/multiarch/qemu-user-static) image.
+
+```shell
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+```
+
+You should now be able to build apks for all architectures that melange supports.
 
 ## Step 1 — Downloading the melange Image
 
@@ -64,7 +74,7 @@ GitVersion:    v0.1.0-67-g108fd6a
 GitCommit:     108fd6a5e400bd100ef6db813380de44516de6e6
 GitTreeState:  clean
 BuildDate:     2022-08-01T13:36:41
-GoVersion:     go1.18.4
+GoVersion:     go1.18.5
 Compiler:      gc
 Platform:      linux/amd64
 ```
@@ -186,7 +196,7 @@ Gratitude is said to be the secret to happiness.
 
 With the application ready, you can start building your package.
 
-## Step 3 — Creating the `melange.yaml` File
+## Step 3 — Creating the melange YAML File
 The `melange.yaml` file is where you'll declare the details and specifications of your apk package. For code that generates self-contained binaries, this is typically where you'll build your application artifacts with compiler tools. In the case of interpreted languages, you'll likely build your application by downloading vendor dependencies, setting up relevant paths, and setting the environment up for production.
 
 Create a new file in your `hello-minicli` folder called `melange.yaml`:
@@ -257,7 +267,7 @@ Our build pipeline will set up two distinct directories, separating the applicat
 
 ## Step 4 — Building your apk
 
-First make sure you're at the `/hello-minicli` directory.
+First make sure you're at the `~/hello-minicli` directory.
 
 To get started, create a temporary keypair to sign your melange packages:
 
@@ -275,22 +285,30 @@ This will generate a `melange.rsa` and `melange.rsa.pub` files in the current di
 Next, build the apk defined in the `melange.yaml` file with the following command:
 
 ```shell
-docker run --privileged --rm -v "${PWD}":/work distroless.dev/melange build melange.yaml --arch x86,amd64 --keyring-append melange.rsa
+docker run --privileged --rm -v "${PWD}":/work \
+  distroless.dev/melange build melange.yaml \
+  --arch x86,amd64,aarch64,armv7 \
+  --keyring-append melange.rsa
 ```
-This will set up a volume sharing your current folder with the location `/work` inside the container. We'll build `x86` and `x86_64` packages and sign them using the `melange.rsa` key.
+This will set up a volume sharing your current folder with the location `/work` inside the container. We'll build packages for `x86`, `amd64`, `aarch64`, and `armv7` platforms and sign them using the `melange.rsa` key.
 
 When the build is finished, you should be able to find a `packages` folder containing the generated apks:
 
 ```
 packages
+├── aarch64
+│   └── hello-minicli-0.1.0-r0.apk
+├── armv7
+│   └── hello-minicli-0.1.0-r0.apk
 ├── x86
-│   └── hello-minicli-0.1.0-r0.apk
+│   └── hello-minicli-0.1.0-r0.apk
 └── x86_64
     └── hello-minicli-0.1.0-r0.apk
 
-2 directories, 2 files
-
+4 directories, 4 files
 ```
+
+You have successfully built a multi-architecture software package with melange!
 
 The only thing left to do now is to create an apk index for your packages. This is necessary to install the apks later on within your container image.
 
@@ -303,13 +321,13 @@ docker run --rm -v "${PWD}":/work \
         'cd packages && for d in `find . -type d -mindepth 1`; do \
             ( \
                 cd $d && \
-                apk index -o apkINDEX.tar.gz *.apk && \
-                melange sign-index --signing-key=../../melange.rsa apkINDEX.tar.gz\
+                apk index -o APKINDEX.tar.gz *.apk && \
+                melange sign-index --signing-key=../../melange.rsa APKINDEX.tar.gz\
             ) \
         done'
 ```
 
-For each architecture you've built your package, you should get output similar to this:
+For each architecture that you have specified with `--arch` when running the melange build command, you should get output similar to this:
 
 ```
 Index has 1 packages (of which 1 are new)
@@ -318,13 +336,14 @@ Index has 1 packages (of which 1 are new)
 2022/08/05 14:57:29 writing signed index to apkINDEX.tar.gz
 2022/08/05 14:57:29 signed index apkINDEX.tar.gz with key ../../melange.rsa
 ```
-_Note: this step will be automated in the near future._
 
-## 4 — Building a Container Image with apko
+_Note: It is currently in the roadmap of the melange project to [automate this step](https://github.com/chainguard-dev/melange/issues/96), so that the package index is built automatically when you run the melange build command._
+
+## Step 5 — Building a Container Image with apko
 
 With the apk packages and apk index in place, you can now build a container image and have your apk(s) installed within it.
 
-Create a new file called `apko.yaml` on your current folder:
+Create a new file called `apko.yaml` in your `~/hello-minicli` directory:
 
 ```shell
 nano apko.yaml
@@ -332,9 +351,9 @@ nano apko.yaml
 
 The following apko specification will create a container image tailored to the application we built in the previous steps. Because we defined the PHP dependencies as runtime dependencies within the apk, you don't need to require these packages again here. The container entrypoint command will be set to `/usr/bin/minicli`, where the application executable is located.
 
-One important thing to note is how we reference the apk as a local package within the `repositories` section of the YAML file. The `@local` notation tells apko to search for apks in the specified directory, in this case `/work/packages`.
+One important thing to note is how we reference the `hello-minicli` apk as a local package within the `repositories` section of the YAML file. The `@local` notation tells apko to search for apks in the specified directory, in this case `/work/packages`.
 
-Place the following content in your `apko.yaml` file:
+Place the following text in your `apko.yaml` file:
 
 ```yaml
 contents:
@@ -363,15 +382,17 @@ Save and close the file when you're done. You are now ready to build your contai
 The following command will set up a volume sharing your current folder with the location `/work` in the apko container, running the `apko build` command to generate an image based on your `apko.yaml` definition file.
 
 ```shell
-docker run --rm -v ${PWD}:/work distroless.dev/apko build /work/apko.yaml hello-minicli:test /work/hello-minicli.tar -k melange.rsa.pub
+docker run --rm -v ${PWD}:/work distroless.dev/apko \
+  build /work/apko.yaml hello-minicli:test /work/hello-minicli.tar \
+  -k melange.rsa.pub
 ```
-This will build an OCI image based on your host system's architecture - most likely this will be `x86_64`.
+This will build an OCI image based on your host system's architecture — most likely this will be `x86_64`.
 
 The command will generate a few new files in the app's directory:
 
-- `hello-minicli.tar` - the packaged OCI image that can be imported with a `docker load` command
-- `sbom-x86_64.cdx` - an SBOM file for `x86_64` architecture in `cdx` format
-- `sbom-x86_64.spdx.json` - an SBOM file for `x86_64` architecture in `spdx-json` format
+- `hello-minicli.tar` — the packaged OCI image that can be imported with a `docker load` command
+- `sbom-x86_64.cdx` — an SBOM file for `x86_64` architecture in `cdx` format
+- `sbom-x86_64.spdx.json` — an SBOM file for `x86_64` architecture in `spdx-json` format
 
 Next, load your image within Docker:
 
@@ -390,11 +411,13 @@ docker run --rm hello-minicli:test
 The demo should output an advice slip such as:
 
 ```
-Don't feed Mogwais after midnight.
+Only those who attempt the impossible can achieve the absurd.
 ```
+
+You have successfully built a minimalist container image with your apk package installed on it. This image is fully [OCI](https://opencontainers.org/) compatible and can be signed with [Cosign](/open-source/sigstore/how-to-sign-a-container-with-cosign/) for provenance attestation.
 
 ## Conclusion
 
-In this guide, we built a demo command line application and packaged it with melange. We also built a container image to install and run our custom apk, using the apko tool. For more information about apko, check our [Getting Started with apko]() guide.
+In this guide, we built a demo command line application and packaged it with melange. We also built a container image to install and run our custom apk, using the apko tool. For more information about apko, check our [Getting Started with apko](/open-source/apko/getting-started-with-apko/) guide.
 
 The demo files are available at the repository [melange-php-demos](https://github.com/chainguard-dev/melange-php-demos), in the `hello-minicli` subfolder. For more information on how to debug your builds, please refer to the demo's [README](https://github.com/chainguard-dev/melange-php-demos/tree/main/hello-minicli) file and check the official documentation for [melange](https://github.com/chainguard-dev/melange) and [apko](https://github.com/chainguard-dev/apko).
