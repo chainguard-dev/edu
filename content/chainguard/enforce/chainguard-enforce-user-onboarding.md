@@ -1,8 +1,7 @@
 ---
 title: "Chainguard Enforce User Onboarding"
 type: "article"
-description: "Walkthrough of Chainguard Enforce"
-lead: "Onboard to Chainguard Enforce"
+lead: ""
 date: 2022-15-07T15:22:20+01:00
 lastmod: 2022-15-07T15:22:20+01:00
 draft: false

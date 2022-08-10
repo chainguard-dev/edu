@@ -1,8 +1,7 @@
 ---
 title: "How to Install Cosign"
 type: "article"
-description: "Details for installing Cosign across operating systems"
-lead: "Install Cosign to sign software artifacts"
+lead: "Details for installing Cosign across operating systems to sign software artifacts"
 date: 2022-13-07T08:49:31+00:00
 lastmod: 2022-13-07T08:49:31+00:00
 draft: false

@@ -1,10 +1,10 @@
 # Meta Data for SEO
 
 ## Homepage
-title = "Guardian Academy"
+title = "Chainguard Academy"
 titleSeparator = "—"
 titleAddition = "Software Supply Chain Security Knowledge Base"
-description = "Guardian Academy is an educational hub created by Chainguard to educate developers about software supply chain security."
+description = "Education about software supply chain security"
 
 ## Documentation
 # docsVersion = "0.3"
@@ -13,7 +13,7 @@ description = "Guardian Academy is an educational hub created by Chainguard to e
 images = ["chainguard.png"]
 ogLocale = "en_US"
 domainTLD = "chainguard.dev"
-titleHome = "Guardian Academy"
+titleHome = "Chainguard Academy"
 
 ## Twitter Cards
 twitterSite = "@chainguard_dev"

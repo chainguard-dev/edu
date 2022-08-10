@@ -6,8 +6,8 @@
 
 [[docs]]
   name = "Open Source"
-  identifier = "opensource"
-  url = "/opensource/"
+  identifier = "open-source"
+  url = "/open-source/"
   weight = 20
 
 [[docs]]
@@ -34,19 +34,19 @@
 
 [[main]]
   name = "Sigstore"
-  url = "/opensource/sigstore/"
+  url = "/open-source/sigstore/"
   parent = "menu-oss"
   weight = 15
 
 [[main]]
-  name = "Apko"
-  url = "/opensource/apko/"
+  name = "apko"
+  url = "/open-source/apko/"
   parent = "menu-oss"
   weight = 20
 
 [[main]]
-  name = "Melange"
-  url = "/opensource/melange/"
+  name = "melange"
+  url = "/open-source/melange/"
   parent = "menu-oss"
   weight = 30
 
