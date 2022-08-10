@@ -1,7 +1,6 @@
 ---
 title: "Getting Started with melange"
 type: "article"
-description: "The declarative apk builder"
 lead: "The declarative apk builder"
 date: 2022-07-21T11:07:52+02:00
 lastmod: 2022-07-21T11:07:52+02:00
