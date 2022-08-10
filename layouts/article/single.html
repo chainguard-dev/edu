@@ -26,8 +26,8 @@
       {{ end }}
       <h1>{{ .Title }}</h1>
       <p class="lead">{{ .Params.lead | safeHTML }}</p>
-      <p class="contributors"><small>By
-        {{ if .Params.contributors -}}
+      <p class="contributors">
+        {{ if .Params.contributors -}} <small>By
         {{ range $index, $contributor := .Params.contributors }}
         {{ if gt $index 0 }}{{ if eq $index }} and {{ else }}, {{ end }}{{ end }}
         <a class="stretched-link position-relative" href="{{ "/contributors/" | relURL }}{{ . | urlize }}/">{{ . }}</a>{{ end -}}{{ end -}}</small></p>
