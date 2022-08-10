@@ -383,7 +383,7 @@ The following command will set up a volume sharing your current folder with the 
 
 ```shell
 docker run --rm -v ${PWD}:/work distroless.dev/apko \
-  build /work/apko.yaml hello-minicli:test /work/hello-minicli.tar \
+  build apko.yaml hello-minicli:test hello-minicli.tar \
   -k melange.rsa.pub
 ```
 This will build an OCI image based on your host system's architecture — most likely this will be `x86_64`.
