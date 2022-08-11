@@ -33,7 +33,7 @@ You won't need PHP or Composer installed on your system, since we'll be using Do
 
 ### Note for Linux Users
 
-In order to be able to build apks for multiple architectures using Docker, you'll need to register additional QEMU headers within your kernel. This is done automatically for Docker Desktop users, so if you are on MacOS you don't need to run this additional step.
+In order to be able to build apks for multiple architectures using Docker, you'll need to register additional QEMU headers within your kernel. This is done automatically for Docker Desktop users, so if you are on macOS you don't need to run this additional step.
 
 Run the following command to register the necessary handlers within your kernel, using the [multiarch/qemu-user-static](https://github.com/multiarch/qemu-user-static) image.
 
@@ -326,7 +326,7 @@ docker run --rm -v "${PWD}":/work \
         done'
 ```
 
-For each architecture that you have specified with `--arch` when running the melange build command, you should get output similar to this:
+For each architecture that you have specified with `--arch` when running the `melange build` command, you should get output similar to this:
 
 ```
 Index has 1 packages (of which 1 are new)
@@ -335,8 +335,9 @@ Index has 1 packages (of which 1 are new)
 2022/08/05 14:57:29 writing signed index to apkINDEX.tar.gz
 2022/08/05 14:57:29 signed index apkINDEX.tar.gz with key ../../melange.rsa
 ```
+If you receive warnings about unsatisfiable package names at this point, feel free to ignore those as the melange image may not have every runtime dependency installed within it. These dependencies will be brought in automatically when the generated apks are installed.
 
-_Note: It is currently in the roadmap of the melange project to [automate this step](https://github.com/chainguard-dev/melange/issues/96), so that the package index is built automatically when you run the melange build command._
+Note that it is currently in the roadmap of the melange project to [automate this step](https://github.com/chainguard-dev/melange/issues/96), so that the package index is built automatically when you run the `melange build` command.
 
 ## Step 5 — Building a Container Image with apko
 
@@ -385,7 +386,7 @@ docker run --rm -v ${PWD}:/work distroless.dev/apko \
   build apko.yaml hello-minicli:test hello-minicli.tar \
   -k melange.rsa.pub
 ```
-This will build an OCI image based on your host system's architecture — most likely this will be `x86_64`.
+This will build an OCI image based on your host system's architecture. If you receive warnings at this point, those are likely related to the types of SBOMs being uploaded and can be safely ignored.
 
 The command will generate a few new files in the app's directory:
 
