@@ -8,20 +8,20 @@ contributors: ["Erika Heidi"]
 draft: false
 images: []
 menu:
-  docs:
-    parent: "melange"
-weight: 100
+docs:
+  parent: "melange"
+    weight: 100
 toc: true
 ---
 
-[melange](https://github.com/chainguard-dev/melange) is an [apk](https://wiki.alpinelinux.org/wiki/Package_management) builder tool that uses declarative pipelines to create apk packages. From a single YAML file, users are able to generate multi-architecture apks that can be injected directly into [apko](https://github.com/chainguard-dev/apko) builds, which renders apko + melange a [powerful combination for any container image factory](https://blog.chainguard.dev/secure-your-software-factory-with-melange-and-apko/).
+[melange](https://github.com/chainguard-dev/melange) is an [apk](https://wiki.alpinelinux.org/wiki/Package_management) builder tool that uses declarative pipelines to create apk packages. From a single YAML file, users are able to generate multi-architecture apks that can be injected directly into [apko](https://github.com/chainguard-dev/apko) builds, which renders apko and melange a [powerful combination for any container image factory](https://blog.chainguard.dev/secure-your-software-factory-with-melange-and-apko/).
 
 
 ## Why melange
 
 Software supply chain threats have been growing exponentially in the last few years, according to [industry leaders and security researchers (PDF)](https://www.usenix.org/system/files/login/articles/login_winter20_17_geer.pdf). With the popularization of automated workflows and cloud native deployments, it is more important than ever to provide users with the ability to attest the provenance of all relevant software artifacts.
 
-Instead of building your application together with your components and system dependencies, you can build your application once and compose it into different architectures and distributions using melange, as if they were any other component of an image
+Instead of building your application together with your components and system dependencies, you can build your application once and compose it into different architectures and distributions using melange, as if they were any other component of an image.
 
 In this guide, you'll learn how to build a software package with melange. To demonstrate the versatile combination of melange and apko builds, we'll package a small command-line PHP script and build a minimalist container image with the generated apk. All files used in this demo are open source and available at the [melange-php-demos](https://github.com/chainguard-dev/melange-php-demos/tree/main/hello-minicli) repository.
 
@@ -296,11 +296,11 @@ When the build is finished, you should be able to find a `packages` folder conta
 ```
 packages
 ├── aarch64
-│   └── hello-minicli-0.1.0-r0.apk
+│   └── hello-minicli-0.1.0-r0.apk
 ├── armv7
-│   └── hello-minicli-0.1.0-r0.apk
+│   └── hello-minicli-0.1.0-r0.apk
 ├── x86
-│   └── hello-minicli-0.1.0-r0.apk
+│   └── hello-minicli-0.1.0-r0.apk
 └── x86_64
     └── hello-minicli-0.1.0-r0.apk
 
