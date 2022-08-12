@@ -2,6 +2,7 @@
 title: "Why apk"
 type: "article"
 lead: "How apk-tools is different from other package managers"
+description: "How apk-tools is different from other package managers"
 date: 2022-07-06T08:49:31+00:00
 lastmod: 2022-07-06T08:49:31+00:00
 contributors: ["Ariadne Conill"]
