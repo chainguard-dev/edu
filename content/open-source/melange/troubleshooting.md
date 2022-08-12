@@ -28,7 +28,9 @@ pipeline:
 ```
 ## Common Errors
 
->Error: failed to build package: unable to run pipeline: exit status 127
+When melange is unable to finish a build successfully, you will get an error similar to this:
+
+{{< alert context="danger" text="Error: failed to build package: unable to run pipeline: exit status 127" />}}
 
 The build could not be completed due to an error at some point of your pipeline. Enable debug by including `set -x` at the beginning of your build pipeline so that you can nail down where the issue occurs.
 
@@ -41,3 +43,6 @@ To enable additional architectures, you'll need to enable them within your kerne
 ```shell
 docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 ```
+## Further Resources
+
+For additional guidance, please refer to the [melange repository](https://github.com/chainguard-dev/melange) on GitHub, where you can find [more examples](https://github.com/chainguard-dev/melange/tree/main/examples) or [open an issue](https://github.com/chainguard-dev/melange/issues/new/choose) in case of problems.
