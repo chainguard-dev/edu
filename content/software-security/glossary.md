@@ -56,6 +56,8 @@ An attestation allows consumers of a software artifact to verify the quality of 
 
 Provenance is the verifiable information about software artifacts describing _where_, _when_ and _how_ something was produced.
 
+---
+
 ## Security tools and frameworks
 
 ### Certificate authority
@@ -127,6 +129,8 @@ Tekton provides a cloud-native solution for building CI/CD systems with a focus 
 ### TUF
 
 **T**he **U**pdate **F**ramework, known as TUF, offers a framework for securing software update systems.
+
+---
 
 ## Attacks and vulnerabilities
 
