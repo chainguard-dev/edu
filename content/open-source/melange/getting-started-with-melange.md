@@ -1,16 +1,17 @@
 ---
 title: "Getting Started with melange"
-type: "article"
 lead: "The declarative apk builder"
-date: 2022-07-21T11:07:52+02:00
-lastmod: 2022-07-21T11:07:52+02:00
+type: "article"
+description: "The declarative apk builder"
+date: 2022-07-21T15:21:01+02:00
+lastmod: 2022-07-21T15:21:01+02:00
 contributors: ["Erika Heidi"]
 draft: false
 images: []
 menu:
-docs:
-  parent: "melange"
-    weight: 100
+  docs:
+    parent: "melange"
+weight: 100
 toc: true
 ---
 
