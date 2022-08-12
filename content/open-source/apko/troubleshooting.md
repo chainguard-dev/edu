@@ -25,17 +25,22 @@ docker run --rm -v ${PWD}:/work distroless.dev/apko build --debug \
 ```
 ## Common Errors
 
->Error: failed to build layer image: initializing apk: failed to fixate apk world: exit status 1
+When the apk package manager is unable to resolve your requirements to a set of installable packages, you will get an error similar to this:
 
-This error typically means that one of the requested apk packages could not be resolved or the apk index is missing.
+{{< alert context="danger" text="Error: failed to build layer image: initializing apk: failed to fixate apk world: exit status 1" />}}
+
+
+There are two main root causes for this error, which we'll explain in more detail in the upcoming section:
+
+- apk cannot find the package in the included repositories, or
+- apk cannot find the apk index for your custom-built packages.
 
 ### The requested package is not in the included repositories
 For Alpine packages, make sure you've added the relevant package repositories you need and the package name is correct - search the [Alpine APK index](https://pkgs.alpinelinux.org/packages) for reference.
 
 If this is your case, you should find error messages similar to this when enabling debug info with the `--debug` flag:
 
-> ERROR: unable to select packages:
->  hello-minicli (no such package)
+{{< alert context="danger" text="ERROR: unable to select packages: hello-minicli (no such package)" />}}
 
 ### apko is unable to find the local packages folder
 With melange-built package(s), make sure you have a volume sharing your apko / melange files with the location `/work` inside the apko container.
@@ -45,9 +50,9 @@ If you have a functional volume sharing your packages with the apko container an
 
 If this is your case, you should find error messages similar to this when enabling debug info with the `--debug` flag:
 
-> ERROR: Not committing changes due to missing repository tags. Use --force-broken-world to override.
+{{< alert context="danger" text="ERROR: Not committing changes due to missing repository tags. Use --force-broken-world to override." />}}
 
-This is how your packages directory tree should look like, including the `APKINDEX.tgz` file for each architecture:
+This is how your packages directory tree should be set up, including the `APKINDEX.tgz` file for each architecture:
 
 ```
 packages
@@ -66,3 +71,6 @@ packages
 
 4 directories, 8 files
 ```
+## Further Resources
+
+For additional guidance, please refer to the [apko repository](https://github.com/chainguard-dev/apko) on GitHub, where you can find [more examples](https://github.com/chainguard-dev/apko/tree/main/examples) or [open an issue](https://github.com/chainguard-dev/apko/issues/new/choose) in case of problems.
