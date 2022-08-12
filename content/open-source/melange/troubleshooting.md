@@ -32,7 +32,7 @@ pipeline:
 
 The build could not be completed due to an error at some point of your pipeline. Enable debug by including `set -x` at the beginning of your build pipeline so that you can nail down where the issue occurs.
 
-### Missing QEMU kernel headers
+### Missing QEMU user-space emulation packages
 
 Linux users using the Docker melange image may get errors when building packages for other architectures than `x86` and `x86_64`. This won't happen for Docker Desktop users, since the additional architectures are automatically enabled upon installation.
 
