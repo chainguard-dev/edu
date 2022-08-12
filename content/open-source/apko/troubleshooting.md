@@ -2,6 +2,7 @@
 title: "Troubleshooting apko Builds"
 type: "article"
 lead: "Debugging and common errors"
+description: "Debugging and common errors in apko"
 date: 2022-08-10T11:07:52+02:00
 lastmod: 2022-08-10T11:07:52+02:00
 contributors: ["Erika Heidi"]
@@ -36,7 +37,7 @@ There are two main root causes for this error, which we'll explain in more detai
 - apk cannot find the apk index for your custom-built packages.
 
 ### The requested package is not in the included repositories
-For Alpine packages, make sure you've added the relevant package repositories you need and the package name is correct - search the [Alpine APK index](https://pkgs.alpinelinux.org/packages) for reference.
+For Alpine packages, make sure you've added the relevant package repositories you need and the package name is correct — search the [Alpine APK index](https://pkgs.alpinelinux.org/packages) for reference.
 
 If this is your case, you should find error messages similar to this when enabling debug info with the `--debug` flag:
 

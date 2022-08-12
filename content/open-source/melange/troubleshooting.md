@@ -2,14 +2,15 @@
 title: "Troubleshooting melange Builds"
 type: "article"
 lead: "Debugging and common errors"
+description: "Debugging and common errors with melange build"
 date: 2022-08-10T11:07:52+02:00
 lastmod: 2022-08-10T11:07:52+02:00
 contributors: ["Erika Heidi"]
 draft: false
 images: []
 menu:
-  docs:
-    parent: "melange"
+docs:
+  parent: "melange"
 weight: 200
 toc: true
 ---
