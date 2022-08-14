@@ -8,93 +8,113 @@ draft: false
 images: []
 ---
 
-Git signature verification and enforcement for your GitHub repos!
+Chainguard Enforce for GitHub offers git signature verification and enforcement for your GitHub repos. With Enforce for GitHub, you can verify [Sigstore Gitsign](https://docs.sigstore.dev/gitsign/overview) commits and have greater trust in commits by signing commits with ephemeral keys tied to user identities.
 
-NOTE: This app is currently alpha - Permissions may change, and features may be added/removed without notice during this time.
+Enforce for GitHub currently works with public or private repos on [github.com](https://github.com).
 
-## Features
-
-- Verify Sigstore Gitsign commits — have greater trust in commit by signing commits with ephemeral keys tied to user identities.
-  - Currently works with public or private repos on `github.com`.
+**Note**: This app is currently alpha: permissions may change, and features may be added or removed without notice during this time.
 
 ## Installation
 
-1. Register your org for early access
+This section will walk you through installing and setting up Chainguard Enforce for GitHub. 
 
-   During early access, Chainguard is requiring users to manually register the orgs they wish to use with the app. While skipping this step will not prevent you from installing the app on GitHub, the app will not respond to repository webhooks until this is done.
+### Prerequisites
 
-   - Point of contact for feedback / announcements.
-   - What orgs / repos you would like to enable.
+This app assumes that you have a GitHub account, and that mosty likely you are already connected to a GitHub organization and collaborating on code repositories. 
 
-2. Navigate to the App installation page -
-   https://github.com/apps/chainguard-enforce
+Before you can install, you'll need to register your organization for early access.
 
-   <img src="/chainguard/enforce/configure.png">
+During early access, Chainguard is requiring users to manually register the organizations they wish to use with Enforce for GitHub. While skipping this step will not prevent you from installing the app on GitHub, the app will not respond to repository webhooks until you are registered.
 
-   - Select `Configure`
+To register, you will need to provide the following information:
 
-3. Select your desired user/org
+- Point of contact for feedback and announcements.
+- What orgs and repos you would like to enable.
 
-   <img src="/chainguard/enforce/user-select.png">
+### Navigate to app on GitHub 
 
-4. Review permissions and install
+Navigate to the GitHub app installation page available at [https://github.com/apps/chainguard-enforce](https://github.com/apps/chainguard-enforce).
 
-   <img src="/chainguard/enforce/permissions.png">
+<img src="/chainguard/enforce/configure.png">
 
-   - (optional): Restrict app to certain repos within your organization.
+From here, select the **Configure** button towards the right of the page. 
 
-   | Permission                      | Why it's needed                                                           |
-   | ------------------------------- | ------------------------------------------------------------------------- |
-   | Read access to metadata         | Required by GitHub Apps                                                   |
-   | Read access to code             | Used to fetch commit signatures and receive push events.                  |
-   | Read access to pull requests    | Used to resolve pull requests to commits and receive pull request events. |
-   | Read and write access to checks | Used to write pull request status checks.                                 |
+### Select user or organization
+
+Once you click on the **Configure** button, you'll be directed to a page where you can select your desired user or orgization.
+
+<img src="/chainguard/enforce/user-select.png">
+
+If you select your user, you will be able to install onto your personal account and will be able to select either the all of your repos or specific ones. If you select an organization, you will install Enforce for GitHub onto your GitHub organization. You will need administative access or approval to do this. Within this workflow you can also select either all of the organization's repos or specific ones. 
+
+### Review and install
+
+At this point, you should review your permissions. You can restrict Enforce for GitHub to only have access to certain repos within your account or organization.
+
+<img src="/chainguard/enforce/permissions.png">
+
+The following table explains the permissions that the app is granted and why each permission is needed. 
+
+| Permission                      | Why it's needed                                                           |
+| ------------------------------- | ------------------------------------------------------------------------- |
+| Read access to metadata         | Required by GitHub Apps                                                   |
+| Read access to code             | Used to fetch commit signatures and receive push events.                  |
+| Read access to pull requests    | Used to resolve pull requests to commits and receive pull request events. |
+| Read and write access to checks | Used to write pull request status checks.                                 |
+
+Once you are satisfied with the permissions and the location where you want the app installed, you can continue the workflow to install Chainguard Enforce for GitHub.
 
 ## Usage
 
-Currently the app supports Gitsign signatures from the public Sigstore instance.
+Currently, Enforce for GitHub supports Gitsign signatures from the public Sigstore instance.
 
-To get started:
+### Installation
 
-- [Install the app on your org](#installation).
-- On your development machine,
-  [install and configure Gitsign](https://github.com/sigstore/gitsign/blob/main/README.md).
+To get started, you'll need to [install the app on GitHub](#installation) to either your personal accoun or your organization.
 
-Once this is done, the Enforce app will automatically respond to new pull requests events (note: the app will only respond to existing pull requests if there is new commit activity).
+Additionally, you will need to [install and configure Gitsign](https://docs.sigstore.dev/gitsign/installation) on your development machine. You may also wish to consulst the [Gitsign repo README](https://github.com/sigstore/gitsign/blob/main/README.md).
+
+Once this is done, the Enforce for GitHub app will automatically respond to new pull requests events.
 
 <img src="/chainguard/enforce/check.png">
 
+Note that the app will only respond to existing pull requests if there is new commit activity/
+
 ### Require Enforce for submission
 
-To require the Enforce app to succeed before pull request submission, enable the [`Require status checks before merging`](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging) feature on the desired branch for the `Enforce - Commit Signing` check.
+To require the Enforce for GitHub app to succeed before pull request submission, enable the **[Require status checks before merging](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)** feature on the desired branch for the `Enforce - Commit Signing` check.
 
 <img src="/chainguard/enforce/protected-branch.png">
 
-### Enable/disable repositories
+You can find this page by navigating to a given repository's **Settings** and then clicking on **Branches** (under **Code and automation**).
 
-If you wish to add or remove repositories that Enforce for GitHub responds to in an organization you can do so via the installation settings page. This page can be found by:
+### Enable or disable repositories
 
-- From a repository page: Settings > Integrations > GitHub apps > Installed GitHub Apps > Chainguard Enforce > Configure
-- From an organization page: Settings > Integrations > Applications > Installed GitHub Apps > Chainguard Enforce > Configure
+If you wish to add or remove repositories that Enforce for GitHub responds to in an organization, you can do so via the installation settings page. This page can be found by:
 
-From here, the `Repository Access` configuration can be used to add / remove
-repos from the app installation.
+- From a repository page: **Settings** > **Integrations** > **GitHub apps** > **Installed GitHub Apps** > **Chainguard Enforce** > **Configure**
+- From an organization page: **Settings** > **Integrations** > **Applications** > **Installed GitHub Apps** > **Chainguard Enforce** > **Configure**
+
+From here, the **Repository Access** configuration can be used to add or remove repos from the app installation.
 
 <img src="/chainguard/enforce/repo-access.png">
 
 This page may also be used to completely uninstall the Enforce app from your organization.
 
-NOTE: If you want to add a new organization / repo, follow the [Installation instructions](#installation).
+Note that if you want to add a new organization or repo, return to the [Installation section](#installation) for relevant instructions.
 
 ## Roadmap
 
+Chainguard Enforce for GitHub has a number of features on its roadmap.
+
 - Bring your own Sigstore instance
-- Policies - define policies for what identities can/must sign your code.
-- Supply Chain Security Insights
-- And more to come!
+- Policies — define policies for what identities can or must sign your code.
+- Supply chain security insights
+
+And there's more to come!
 
 ## Support
 
-If you encounter any issues, please reach out at [support@chainguard.dev](mailto:support@chainguard.dev).
+If you encounter any issues, please reach out to the team via [support@chainguard.dev](mailto:support@chainguard.dev).
 
 Want to learn more about Chainguard Enforce? Have a feature request? Let us know at [https://www.chainguard.dev/contact](https://www.chainguard.dev/contact).
