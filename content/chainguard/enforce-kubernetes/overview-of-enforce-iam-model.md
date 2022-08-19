@@ -9,7 +9,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "enforce"
+    parent: "enforce-kubernets"
 weight: 620
 toc: true
 ---
