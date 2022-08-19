@@ -32,15 +32,34 @@ If you identify something that is a major change, please file an [issue](https:/
 
 Please reduce the image's file size prior to adding the image to this project to make page loadtimes faster and more accessible. You can use a tool such as [TinyPNG](https://tinypng.com/). 
 
-Place images within the `/static` directory. This is organized by folders that mirror the folders of the `/content` directory. 
+If you are using images, it's best to bundle it together with the appropriate markdown file. Create a directory with the name of the new page. Within the directory, create an `index.md` file and add the images within the directory as well.
 
-Add images with an HTML tag and use `alt` text:
+In practice, this will look like the following, with images in place for both the `getting-started-enforce-github` directory and the `install-enforce-github` directory and the relevant tutorials:
 
 ```
-<img src="/static/image.png" alt="image description">
+├── chainguard
+│   ├── _index.md
+│   ├── enforce-github
+│   │   ├── _index.md
+│   │   ├── getting-started-enforce-github
+│   │   │   ├── check.png
+│   │   │   ├── index.md
+│   │   │   ├── protected-branch.png
+│   │   │   └── repo-access.png
+│   │   └── install-enforce-github
+│   │       ├── configure.png
+│   │       ├── index.md
+│   │       ├── permissions.png
+│   │       └── user-select.png
 ```
 
-Use the absolute path, as above, for the image link. 
+Within the markdown file, add images like so, with the alt text at the front:
+
+```
+![Protect branches with Chainguard Enforce](protected-branch.png)
+```
+
+Run a local development environment to ensure that your file structure is set up as intended.
 
 ### Adding Videos
 

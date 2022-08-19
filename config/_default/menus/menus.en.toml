@@ -27,10 +27,16 @@
   weight = 20
 
 [[main]]
-  name = "Enforce"
-  url = "/chainguard/enforce/"
+  name = "Enforce for GitHub"
+  url = "/chainguard/enforce-github/"
   parent = "menu-chainguard"
   weight = 10
+
+[[main]]
+  name = "Enforce for Kubernetes"
+  url = "/chainguard/enforce-kubernetes/"
+  parent = "menu-chainguard"
+  weight = 12
 
 [[main]]
   name = "Sigstore"

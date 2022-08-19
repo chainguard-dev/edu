@@ -16,6 +16,7 @@ toc: true
 
 {{< youtube nB3xw3Nazgc >}}
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nB3xw3Nazgc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Hi, I’m Dan Lorenc, CEO & Co-founder of Chainguard & I’ve been working in the open source software supply chain security space for a long time.
 
@@ -32,6 +33,6 @@ But we don't know how bad this one really could have been if it hadn't been noti
 So what can you do to protect yourself against stuff like this?  
 There's a couple of different ways:
 
-[GitHub repo image] As an end user, pay very close attention to your dependencies, it's going to be hard to notice typosquatting attacks like this, but these are all very recently created repositories with very few stars and little activity as a maintainer. 
+As an end user, pay very close attention to your dependencies, it's going to be hard to notice typosquatting attacks like this, but these are all very recently created repositories with very few stars and little activity as a maintainer. 
 
 To prevent someone from creating an imposter repository, the only protection really available today is to sign your commits. There's a bunch of different tooling to do this, including a new one called Gitsign, it's part of the Sigstore project. None of these are perfect and solve it completely. But if you pay enough attention, and if enough people start signing their commits, it will be easier for us to detect these across the open source ecosystem at scale.
