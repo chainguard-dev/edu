@@ -1,5 +1,5 @@
 ---
-title: "Cosign"
+title: "Fulcio"
 lead: ""
 type: "article"
 date: 2020-10-06T08:49:15+00:00
@@ -8,4 +8,4 @@ draft: false
 images: []
 ---
 
-Allowing you to sign and verify software artifacts
+A new kind of root certificate authority for code signing
