@@ -9,7 +9,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "sigstore"
+    parent: "cosign"
 weight: 630
 toc: true
 ---
