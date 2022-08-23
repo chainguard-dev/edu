@@ -5,13 +5,14 @@
     X-XSS-Protection = "0"
     X-Content-Type-Options = "nosniff"
     Content-Security-Policy = "
-    default-src 'self' https://cse.google.com https://player.vimeo.com www.youtube.com www.youtube-nocookie.com https://platform.twitter.com https://syndication.twitter.com https://www.google.com;  
-    style-src 'self' 'unsafe-inline' cdn.jsdelivr.net https://fonts.googleapis.com *.netlify.app; 
-    form-action 'self'; 
-    font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net; 
-    script-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net *.netlify.app; 
-    connect-src 'self'; 
-    img-src 'self'; 
+    default-src 'self' https://cse.google.com https://player.vimeo.com www.youtube.com www.youtube-nocookie.com https://platform.twitter.com https://syndication.twitter.com https://www.google.com;
+    frame-src 'self' https://player.vimeo.com https://www.youtube.com www.youtube-nocookie.com;
+    style-src 'self' 'unsafe-inline' cdn.jsdelivr.net https://fonts.googleapis.com *.netlify.app;
+    form-action 'self';
+    font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net;
+    script-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net *.netlify.app;
+    connect-src 'self';
+    img-src 'self';
     base-uri 'self';"
 
 
