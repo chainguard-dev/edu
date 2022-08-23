@@ -1,3 +1,4 @@
+**/*.min.js
 assets/js/index.js
 assets/js/katex.js
 assets/js/vendor
