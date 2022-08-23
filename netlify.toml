@@ -9,7 +9,10 @@
     form-action 'self'; 
     font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net; 
     script-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net *.netlify.app; 
-    media-src 'self' https://www.youtube.com https://youtube.com;
+    frame-src https://www.youtube-nocookie.com/embed/;
+    frame-src 'self' https://cse.google.com https://player.vimeo.com www.youtube.com www.youtube-nocookie.com https://platform.twitter.com https://syndication.twitter.com https://www.google.com; 
     connect-src 'self'; 
     img-src 'self'; 
     base-uri 'self';"
+
+
