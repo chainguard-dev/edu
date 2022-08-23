@@ -1,0 +1,28 @@
+runtime: python310
+instance_class: F1
+# disable automatic scaling to avoid incurring costs
+automatic_scaling:
+  target_cpu_utilization: 0.65
+  min_instances: 0
+  max_instances: 1
+  min_pending_latency: 30ms  # default value
+  max_pending_latency: automatic
+  max_concurrent_requests: 50
+
+handlers:
+## static content routing
+- url: /
+  static_files: public/index.html
+  upload: public/*
+
+# hugo generates pages in directories so check for index.html first
+- url: /(.*)/
+  static_files: public/\1/index.html
+  upload: public/*
+
+- url: /
+  static_dir: public/
+  
+error_handlers:
+  - file: default_error.html
+

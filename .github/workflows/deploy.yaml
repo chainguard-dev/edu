@@ -1,0 +1,43 @@
+name: Deploy to App Engine
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+    - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
+      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
+
+    - name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
+      with:
+        workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
+        service_account: '${{ secrets.GCP_SERVICE_ACCOUNT }}'
+        
+    - uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # v3
+      with:
+        node-version: 16
+
+    - name: Update themes
+      run: git submodule update --init --recursive
+        
+    - name: npm install
+      run: npm install
+        
+    - name: npm run build
+      run: npm run build
+      
+    - name: Deploy site to appengine
+      uses: google-github-actions/deploy-appengine@c0374ce7602000a1b1dbcf28f7a4ab4361464b5f # v0
+      with:
+        deliverables: 'app.yaml'
+
