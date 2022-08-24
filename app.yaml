@@ -10,18 +10,21 @@ automatic_scaling:
   max_concurrent_requests: 50
 
 handlers:
-## static content routing
+- url: /(.+)/
+  static_files: public/\1/index.html
+  upload: public/(.+)/index.html
+
 - url: /
   static_files: public/index.html
-  upload: public/*
+  upload: public/index.html
 
-# hugo generates pages in directories so check for index.html first
-- url: /(.*)/
-  static_files: public/\1/index.html
-  upload: public/*
+- url: /([^\.]+)([^/])
+  static_files: public/\1\2/index.html
+  upload: public/(.+)
 
-- url: /
-  static_dir: public/
+- url: /(.+)
+  static_files: public/\1
+  upload: public/(.+)
   
 error_handlers:
   - file: default_error.html
