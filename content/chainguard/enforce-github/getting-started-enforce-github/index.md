@@ -19,7 +19,7 @@ Chainguard Enforce for GitHub currently supports Gitsign signatures from the pub
 
 ## Installation
 
-To get started, you'll need to [install the app on GitHub](../install-enforce-github/) to either your personal accoun or your organization.
+To get started, you'll need to [install the app on GitHub](../install-enforce-github/) to either your personal account or your organization.
 
 Additionally, you will need to [install and configure Gitsign](https://docs.sigstore.dev/gitsign/installation) on your development machine. You may also wish to consulst the [Gitsign repo README](https://github.com/sigstore/gitsign/blob/main/README.md).
 
