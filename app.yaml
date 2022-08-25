@@ -10,6 +10,11 @@ automatic_scaling:
   max_concurrent_requests: 50
 
 handlers:
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: public/\1
+  upload: public/(.*\.css)
+
 - url: /(.+)/
   static_files: public/\1/index.html
   upload: public/(.+)/index.html
