@@ -1,5 +1,5 @@
-var suggestions = document.getElementById('suggestions');
-var search = document.getElementById('search');
+let suggestions = document.getElementById('suggestions');
+let search = document.getElementById('search');
 
 if (search !== null) {
   document.addEventListener('keydown', inputFocus);
@@ -18,18 +18,13 @@ function inputFocus(e) {
 
 document.addEventListener('click', function(event) {
 
-  var isClickInsideElement = suggestions.contains(event.target);
+  let isClickInsideElement = suggestions.contains(event.target);
 
   if (!isClickInsideElement) {
     suggestions.classList.add('d-none');
   }
 
 });
-
-/*
-Source:
-  - https://dev.to/shubhamprakash/trap-focus-using-javascript-6a3
-*/
 
 document.addEventListener('keydown',suggestionFocus);
 
@@ -55,15 +50,9 @@ function suggestionFocus(e) {
 
 }
 
-/*
-Source:
-  - https://github.com/nextapps-de/flexsearch#index-documents-field-search
-  - https://raw.githack.com/nextapps-de/flexsearch/master/demo/autocomplete.html
-*/
-
 (function(){
 
-  var index = new FlexSearch.Document({
+  let index = new FlexSearch.Document({
     tokenize: "forward",
     cache: 100,
     document: {
@@ -75,25 +64,7 @@ Source:
     }
   });
 
-
-  // Not yet supported: https://github.com/nextapps-de/flexsearch#complex-documents
-
-  /*
-  var docs = [
-    {{ range $index, $page := (where .Site.Pages "Section" "docs") -}}
-      {
-        id: {{ $index }},
-        href: "{{ .Permalink }}",
-        title: {{ .Title | jsonify }},
-        description: {{ .Params.description | jsonify }},
-        content: {{ .Content | jsonify }}
-      },
-    {{ end -}}
-  ];
-  */
-
-  // https://discourse.gohugo.io/t/range-length-or-last-element/3803/2
-
+  /* build document index */
     {{ $list := .Site.AllPages -}}
     {{ $len := (len $list) -}}
 
@@ -117,8 +88,8 @@ Source:
 
   function show_results(){
     const maxResult = 5;
-    var searchQuery = this.value;
-    var results = index.search(searchQuery, {limit: maxResult, enrich: true});
+    let searchQuery = this.value;
+    let results = index.search(searchQuery, {limit: maxResult, enrich: true});
 
     // flatten results since index.search() returns results for each indexed field
     const flatResults = new Map(); // keyed by href to dedupe results
