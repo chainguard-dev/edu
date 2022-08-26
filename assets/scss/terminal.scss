@@ -1,23 +1,7 @@
-$chainguard-blue: blue;
-
-#terminal-container.old {
-  position: fixed;
-  bottom: 1rem;
-  width: 39rem;
-  background: white;
-  font-family: monospace;
-  padding: 0;
-  margin: 0 auto;
-  z-index: 1000 !important;
-
-  iframe {
-    border: 1px solid $chainguard-blue;
-    display: block;
-    height: 350px;
-    margin: 0 2rem 0 0;
-    width: 100%;
-  }
-}
+$dark: #080808;
+$light: #f8f8f8;
+$chainguard--dark-blue: #3878c8;
+$chainguard--light-blue: #48a8e8;
 
 #terminal-container {
   position: fixed;
@@ -30,7 +14,7 @@ $chainguard-blue: blue;
   z-index: 1000 !important;
 
   iframe {
-    border: 1px solid #1d2d35;
+    border: 1px solid $chainguard--light-blue;
     display: block;
     height: 350px;
     margin: 0 auto;
@@ -51,7 +35,7 @@ $chainguard-blue: blue;
   z-index: 1001 !important;
 
   nav {
-    background: #1d2d35;
+    background: $chainguard--dark-blue;
     width: 55rem;
     margin: 0 auto;
     padding: 0rem;
