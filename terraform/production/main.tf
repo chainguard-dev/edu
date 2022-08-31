@@ -1,7 +1,7 @@
 resource "google_project" "chainguard-academy" {
   name = var.project_id
   project_id = var.project_id
-  folder_id = 688879595725
+  folder_id = var.project_folder_id
   billing_account = var.billing_account
 }
 
@@ -29,6 +29,6 @@ resource "google_iap_web_iam_binding" "binding" {
 }
 
 resource "google_iap_brand" "project_brand" {
-  support_email     = "jamon@chainguard.dev"
+  support_email     = var.oauth_support_email
   application_title = "Chainguard Academy"
 }
