@@ -4,4 +4,8 @@ resources
 .netlify
 .hugo_build.lock
 .DS_Store
+
+# Editor / IDE config
 .idea
+.vscode
+*.swp
