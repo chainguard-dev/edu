@@ -9,13 +9,13 @@ images: []
 menu:
   docs:
     parent: "enforce-kubernetes"
-weight: 620
+weight: 100
 toc: true
 ---
 
 Chainguard Enforce is a supply chain security solution for containerized workloads. Enforce enables you to build, manage, ensure continuous compliance, and enforce policies that protect organizations from supply chain threats. Using open source projects and standards that are trusted by the community — like Cosign and Fulcio from the Sigstore project — Chainguard Enforce offers a robust approach to securing your workloads.
 
-This guide will walk you through a demonstration of Chainguard Enforce on a Kubernetes cluster running on Google Cloud Platform (GCP). We will be using Enforce to achieve the following:
+This guide will walk you through a demonstration of Chainguard Enforce on a Kubernetes cluster running on your laptop with [Kind](https://kind.sigs.k8s.io/). We will be using Enforce to achieve the following:
 
 * Policy management — we will create a policy and show it being applied to the cluster, this will involve the use of signed containers and SBOMs (software bills of materials)
 * Observation and monitoring — we will use the chainctl command line tool to understand our images from a security standpoint
@@ -27,17 +27,24 @@ We will walk through a product journey together in this guide — from setting u
 
 Before running Chainguard Enforce on GCP, you’ll need to ensure you have the following installed:
 
-* **gcloud CLI** tool — to interact with GCP infrastructure on the command line. You can download and install gcloud for your relevant operating system by following the [Installing the gcloud CLI guide](https://cloud.google.com/sdk/docs/install).
-* **[Wget](https://www.gnu.org/software/wget/)** — to retrieve files from the web.
+* **[`kind`][kind-about]** — to create a Kind Kubernetes cluster on our laptop.
+  You can download and install `kind` for your relevant operating system by
+following the [`kind` install docs][kind-install].
+* **[`wget`][wget-about]** — to retrieve files from the web.
     * On Ubuntu or Debian Linux, you can install Wget with `apt install wget`
     * On Red Hat, Fedora, or CentOS Linux, you can install it with `dnf install wget`
     * On macOS, install with Homebrew by running `brew install wget`
     * On Windows, use Chocolatey to install Wget with `choco install wget` or get Wget binaries via [SourceForge](http://gnuwin32.sourceforge.net/packages/wget.htm)
-* **[jq](https://stedolan.github.io/jq/)**  — to process JSON on the CLI.
+* **[`jq`][jq-about]**  — to process JSON on the CLI.
     * On Ubuntu or Debian Linux, you can install jq with `apt install jq`
     * On Red Hat, Fedora, or CentOS Linux, you can install it with `dnf install jq`
     * On macOS, install with Homebrew by running `brew install jq`
     * On Windows, use Chocolatey to install Wget with `choco install jq`
+
+[kind-about]: https://kind.sigs.k8s.io/
+[kind-install]: https://kind.sigs.k8s.io/docs/user/quick-start/#installation
+[wget-about]: https://www.gnu.org/software/wget/
+[jq-about]: https://stedolan.github.io/jq/
 
 One last note — if you are running macOS, you’ll need to ensure you are using bash version 4 or higher, which is not preinstalled in the machine. Please follow our guide on how to update your version if you are getting version 3 or below when you run `bash --version`.
 
@@ -50,7 +57,7 @@ Our command line interface (CLI) tool, chainctl, will help you interact with the
 To install chainctl, let’s create variables that simplify our commands and export them to be used by child processes.
 
 ```sh
-export BUCKET="us.artifacts.chainguard-poc.appspot.com"
+export BUCKET="us.artifacts.prod-enforce-fabc.appspot.com"
 export BASE_URL="https://storage.googleapis.com/${BUCKET}"
 ```
 
@@ -90,11 +97,13 @@ You should receive output similar to the following.
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 
-GitVersion:    f1165a9
-GitCommit:     f1165a93c277766cdf60c998bc2847236b92c705
+GitVersion:    c5415ea
+GitCommit:     c5415eabba2fc396b198be050432ae66bb1dc3db
 GitTreeState:  clean
-BuildDate:     2022-05-04T17:21:47Z
-...
+BuildDate:     2022-08-30T19:57:26Z
+GoVersion:     go1.18.5
+Compiler:      gc
+Platform:      darwin/arm64
 …
 ```
 
@@ -170,10 +179,16 @@ docker tag busybox $TUTORIAL_IMAGE
 docker push $TUTORIAL_IMAGE
 ```
 
+Next, create a Kubernetes cluster using `kind`
+
+```sh
+kind create cluster --name chainguard-enforce-demo
+```
+
 Inside your Kubernetes cluster, let’s create a Pod to run the unsigned image.
 
 ```sh
-kubectl run example --image=$TUTORIAL_IMAGE
+kubectl run example --image=$TUTORIAL_IMAGE --context kind-chainguard-enforce-demo
 ```
 
 We now have a Kubernetes cluster setup that’s running an application.
@@ -233,7 +248,7 @@ Now that we have a policy created that we would like to roll out, we can install
 We’ll use chainctl to install Chainguard Enforce into our cluster, and at the same time assign the cluster to the `$SAMPLE_GROUP` that you created.
 
 ```sh
-chainctl cluster install --group=$SAMPLE_GROUP
+chainctl cluster install --group=$SAMPLE_GROUP --private --context kind-chainguard-enforce-demo
 ```
 
 When you run this command, you’ll get a few lines of output that end with the confirmation that the cluster was successfully configured and that the temporary invite code was cleaned up, similar to the output below.
@@ -297,7 +312,7 @@ Your output may be wide, and may have some extra lines. From this output, you sh
 
 You may notice that the Chainguard image also has one additional feature. In the above image output, we have confirmation that the **chainguard-demo** image has an SBOM associated with it. In the sample output above, it reads as `sbom:2022-03-31T17:42:47.47Z`.
 
-Alternatively, you can run the following command to find out your cluster ID, and click on the corresponding cluster at [https://console.guak.dev/clusters](https://console.guak.dev/clusters) to see the same information using the Enforce Console. This will allow you to verify the compliance records of containers using the web UI.
+Alternatively, you can run the following command to find out your cluster ID, and click on the corresponding cluster at [https://console.enforce.dev/clusters](https://console.enforce.dev/clusters) to see the same information using the Enforce Console. This will allow you to verify the compliance records of containers using the web UI.
 
 ```sh
 kubectl get ns gulfstream -ojson | jq -r .metadata.uid
@@ -397,7 +412,6 @@ index.docker.io/library/ubuntu@sha256:bea6d19168bbfd6af8d77c2cc3c572114eb5d113e6
 ```
 
 Congratulations! You now have a policy in place to install Cosign, sign container images, and enforce that only signed images are deployed.
-
 
 ## Customization options on the policy
 
