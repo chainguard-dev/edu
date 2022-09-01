@@ -7,6 +7,7 @@ lastmod: {{ .Date }}
 tags: []
 contributors: []
 draft: true
+unlisted: false
 images: []
 menu:
   docs:
