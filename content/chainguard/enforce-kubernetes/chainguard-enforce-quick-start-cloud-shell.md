@@ -6,6 +6,7 @@ lead: "Quick setup of Chainguard Enforce using Kind and Cloud Shell"
 date: 2022-15-07T15:22:20+01:00
 lastmod: 2022-15-07T15:22:20+01:00
 draft: false
+unlisted: true
 images: []
 menu:
   docs:
