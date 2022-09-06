@@ -39,6 +39,12 @@
   weight = 12
 
 [[main]]
+  name = "Chainguard Images"
+  url = "/chainguard/chainguard-images/"
+  parent = "menu-chainguard"
+  weight = 17
+
+[[main]]
   name = "Sigstore"
   url = "/open-source/sigstore/"
   parent = "menu-oss"
@@ -55,6 +61,12 @@
   url = "/open-source/melange/"
   parent = "menu-oss"
   weight = 30
+
+[[main]]
+  name = "Wolfi"
+  url = "/open-source/wolfi/"
+  parent = "menu-oss"
+  weight = 40
 
 [[main]]
   name = "Software Security"
