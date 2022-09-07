@@ -17,7 +17,7 @@ _An earlier version of this material was published in the [Fulcio chapter](https
 
 In this tutorial, we are going to create and examine a Fulcio certificate to demonstrate how Fulcio can work in practice. To follow along, you will need Cosign installed on your local system. If you haven't installed Cosign yet, you can follow the instructions described in [How to Install Cosign](../../cosign/how-to-install-cosign), or you can follow one of the installation methods described in the [official documentation](https://docs.sigstore.dev/cosign/installation/).
 
-Also, please note that using Cosign requires Go v1.16 or higher. The Go Project provides [official download instructions](https://go.dev/doc/install).
+Pease note that using Cosign requires Go v1.16 or higher. The Go Project provides [official download instructions](https://go.dev/doc/install).
 
 To get started, set the `COSIGN_EXPERIMENTAL` variable to `1`. This is required in order to enable the keyless signing flow functionality, which is currently in beta.
 
@@ -45,7 +45,7 @@ Then, use Cosign to sign this test-file.txt, outputting a Fulcio certificate nam
 cosign sign-blob test-file.txt --output-certificate fulcio.crt.base64 --output-signature fulcio.sig
 ```
 
-After authentication, you can close the browser tab. In your terminal, you will see output similar to this:
+After authentication, you can close the browser tab. In your terminal, you will receive output similar to this:
 
 ```
 Using payload from: test-file.txt
