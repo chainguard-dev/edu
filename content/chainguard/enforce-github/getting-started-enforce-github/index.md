@@ -27,7 +27,59 @@ Once this is done, the Enforce for GitHub app will automatically respond to new 
 
 ![Review that checks have passed](check.png)
 
-Note that the app will only respond to existing pull requests if there is new commit activity/
+Note that the app will only respond to existing pull requests if there is new commit activity.
+
+## Configuration
+
+### Verification Policy
+
+To configure a policy to define what identities are / are not allowed to sign
+commits, add a file called `.chainguard/source.yaml` to the root of your
+repository:
+
+```yaml
+spec:
+  authorities:
+    - keyless:
+        identities:
+          - issuer: https://accounts.google.com
+          - subjectRegExp: .*@chainguard.dev$
+    - key:
+        kms: https://github.com/web-flow.gpg
+```
+
+
+This config corresponds to a
+[Sigstore Authority](https://pkg.go.dev/github.com/sigstore/policy-controller/pkg/apis/policy/v1beta1#Authority)
+policy. For now, only the following fields are respected:
+
+- keyless
+  - identities
+      - issuer
+      - issuerRegExp
+      - subject
+      - subjectRegExp
+- key
+  - kms (`https` only, restricted to `github.com`, `gitlab.com`)
+
+For now, only the public `sigstore.dev` instance is used.
+
+#### Trusting GitHub signed commits
+
+[Commits made by the GitHub API or UI are signed with a special key managed by GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification).
+To configure Enforce to trust this key, add it as an authority to your
+verification policy.
+
+```yaml
+- key:
+    kms: https://github.com/web-flow.gpg
+```
+
+You can add keys for other users by adding `https://github.com/<user>.gpg`.
+
+Note: Commits signed with GitHub GPG are **not** present on Rekor by default. If
+the key is revoked or otherwise changed, Enforce will no longer recognize the
+signatures as valid.
 
 ## Require Enforce for submission
 
@@ -37,7 +89,7 @@ To require the Enforce for GitHub app to succeed before pull request submission,
 
 You can find this page by navigating to a given repository's **Settings** and then clicking on **Branches** (under **Code and automation**).
 
-### Enable or disable repositories
+## Enable or disable repositories
 
 If you wish to add or remove repositories that Enforce for GitHub responds to in an organization, you can do so via the installation settings page. This page can be found by:
 
