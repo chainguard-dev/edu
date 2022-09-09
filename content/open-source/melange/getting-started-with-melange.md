@@ -288,57 +288,32 @@ Next, build the apk defined in the `melange.yaml` file with the following comman
 docker run --privileged --rm -v "${PWD}":/work \
   distroless.dev/melange build melange.yaml \
   --arch x86,amd64,aarch64,armv7 \
-  --keyring-append melange.rsa
+  --keyring-append melange.rsa \
+  --signing-key melange.rsa
 ```
 This will set up a volume sharing your current folder with the location `/work` inside the container. We'll build packages for `x86`, `amd64`, `aarch64`, and `armv7` platforms and sign them using the `melange.rsa` key.
 
-When the build is finished, you should be able to find a `packages` folder containing the generated apks:
+When the build is finished, you should be able to find a `packages` folder containing the generated apks (and associated apk index files):
 
 ```
 packages
 ├── aarch64
+│   ├── APKINDEX.tar.gz
 │   └── hello-minicli-0.1.0-r0.apk
 ├── armv7
+│   ├── APKINDEX.tar.gz
 │   └── hello-minicli-0.1.0-r0.apk
 ├── x86
+│   ├── APKINDEX.tar.gz
 │   └── hello-minicli-0.1.0-r0.apk
 └── x86_64
+│   ├── APKINDEX.tar.gz
     └── hello-minicli-0.1.0-r0.apk
 
-4 directories, 4 files
+4 directories, 8 files
 ```
 
 You have successfully built a multi-architecture software package with melange!
-
-The only thing left to do now is to create an apk index for your packages. This is necessary to install the apks later on within your container image.
-
-Run the following command, which will loop through your `packages` folder, generate an index, and sign it with the melange key:
-
-```shell
-docker run --rm -v "${PWD}":/work \
-    --entrypoint sh \
-    distroless.dev/melange -c \
-        'cd packages && for d in `find . -type d -mindepth 1`; do \
-            ( \
-                cd $d && \
-                apk index -o APKINDEX.tar.gz *.apk && \
-                melange sign-index --signing-key=../../melange.rsa APKINDEX.tar.gz\
-            ) \
-        done'
-```
-
-For each architecture that you have specified with `--arch` when running the `melange build` command, you should get output similar to this:
-
-```
-Index has 1 packages (of which 1 are new)
-2022/08/05 14:57:29 signing index apkINDEX.tar.gz with key ../../melange.rsa
-2022/08/05 14:57:29 appending signature to index apkINDEX.tar.gz
-2022/08/05 14:57:29 writing signed index to apkINDEX.tar.gz
-2022/08/05 14:57:29 signed index apkINDEX.tar.gz with key ../../melange.rsa
-```
-If you receive warnings about unsatisfiable package names at this point, feel free to ignore those as the melange image may not have every runtime dependency installed within it. These dependencies will be brought in automatically when the generated apks are installed.
-
-Note that it is currently in the roadmap of the melange project to [automate this step](https://github.com/chainguard-dev/melange/issues/96), so that the package index is built automatically when you run the `melange build` command.
 
 ## Step 5 — Building a Container Image with apko
 
