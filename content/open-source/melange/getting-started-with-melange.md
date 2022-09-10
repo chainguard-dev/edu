@@ -288,7 +288,6 @@ Next, build the apk defined in the `melange.yaml` file with the following comman
 docker run --privileged --rm -v "${PWD}":/work \
   distroless.dev/melange build melange.yaml \
   --arch x86,amd64,aarch64,armv7 \
-  --keyring-append melange.rsa \
   --signing-key melange.rsa
 ```
 This will set up a volume sharing your current folder with the location `/work` inside the container. We'll build packages for `x86`, `amd64`, `aarch64`, and `armv7` platforms and sign them using the `melange.rsa` key.
