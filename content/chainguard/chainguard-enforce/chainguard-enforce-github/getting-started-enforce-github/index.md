@@ -8,7 +8,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "enforce-github"
+    parent: "chainguard-enforce-github"
 weight: 620
 toc: true
 ---
@@ -33,9 +33,7 @@ Note that the app will only respond to existing pull requests if there is new co
 
 ### Verification Policy
 
-To configure a policy to define what identities are / are not allowed to sign
-commits, add a file called `.chainguard/source.yaml` to the root of your
-repository:
+To configure a policy to define what identities are or are not allowed to sign commits, add a file called `.chainguard/source.yaml` to the root of your repository:
 
 ```yaml
 spec:
@@ -49,20 +47,18 @@ spec:
 ```
 
 
-This config corresponds to a
-[Sigstore Authority](https://pkg.go.dev/github.com/sigstore/policy-controller/pkg/apis/policy/v1beta1#Authority)
-policy. For now, only the following fields are respected:
+This config file corresponds to a [Sigstore Authority](https://pkg.go.dev/github.com/sigstore/policy-controller/pkg/apis/policy/v1beta1#Authority) policy. Currently, the following fields are respected:
 
-- keyless
-  - identities
-      - issuer
-      - issuerRegExp
-      - subject
-      - subjectRegExp
-- key
-  - kms (`https` only, restricted to `github.com`, `gitlab.com`)
+- `keyless`
+  - `identities`
+      - `issuer`
+      - `issuerRegExp`
+      - `subject`
+      - `subjectRegExp`
+- `key`
+  - `kms` (`https` only, restricted to `github.com`, `gitlab.com`)
 
-For now, only the public `sigstore.dev` instance is used.
+Only the public `sigstore.dev` instance is used at this time. 
 
 #### Trusting GitHub signed commits
 
@@ -77,9 +73,7 @@ verification policy.
 
 You can add keys for other users by adding `https://github.com/<user>.gpg`.
 
-Note: Commits signed with GitHub GPG are **not** present on Rekor by default. If
-the key is revoked or otherwise changed, Enforce will no longer recognize the
-signatures as valid.
+Note: Commits signed with GitHub GPG are **not** present on Rekor by default. If the key is revoked or otherwise changed, Enforce will no longer recognize the signatures as valid.
 
 ## Require Enforce for submission
 
