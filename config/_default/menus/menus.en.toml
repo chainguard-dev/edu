@@ -17,7 +17,7 @@
   weight = 20
 
 [[main]]
-  name = "Chainguard"
+  name = "Product Docs"
   identifier = "menu-chainguard"
   weight = 10
 
@@ -27,16 +27,11 @@
   weight = 20
 
 [[main]]
-  name = "Enforce for GitHub"
-  url = "/chainguard/enforce-github/"
+  name = "Chainguard Enforce"
+  identifier = "chainguard-enforce"
+  url = "/chainguard/chainguard-enforce/"
   parent = "menu-chainguard"
   weight = 10
-
-[[main]]
-  name = "Enforce for Kubernetes"
-  url = "/chainguard/enforce-kubernetes/"
-  parent = "menu-chainguard"
-  weight = 12
 
 [[main]]
   name = "Chainguard Images"
