@@ -9,7 +9,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "enforce-kubernets"
+    parent: "chainguard-enforce-kubernetes"
 weight: 620
 toc: true
 ---

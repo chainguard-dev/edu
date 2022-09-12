@@ -8,7 +8,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "enforce-github"
+    parent: "chainguard-enforce-github"
 weight: 620
 toc: true
 ---
