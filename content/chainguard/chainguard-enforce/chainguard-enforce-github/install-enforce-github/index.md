@@ -1,6 +1,6 @@
 ---
-title : "How to Install Chainguard Enforce for GitHub"
-description: "Enforcing commit signatures with GitHub"
+title : "How to Install Chainguard Enforce for Git"
+description: "Enforcing commit signatures with Git"
 type: "article"
 date: 2022-08-11T13:41:00+00:00
 lastmod: 2022-08-11T13:41:00+00:00
@@ -8,14 +8,14 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "chainguard-enforce-github"
+    parent: "chainguard-enforce-git"
 weight: 620
 toc: true
 ---
 
-Chainguard Enforce for GitHub offers Git signature verification and enforcement for your GitHub repositories. With Enforce for GitHub, you can verify [Sigstore Gitsign](https://docs.sigstore.dev/gitsign/overview) commits and have greater trust in commits by signing commits with ephemeral keys tied to user identities.
+Chainguard Enforce for Git offers Git signature verification and enforcement for your GitHub repositories. With Enforce for Git, you can verify [Sigstore Gitsign](https://docs.sigstore.dev/gitsign/overview) commits and have greater trust in commits by signing commits with ephemeral keys tied to user identities.
 
-Enforce for GitHub currently works with public or private repos on [github.com](https://github.com).
+Enforce for Git currently works with public or private repos on [github.com](https://github.com).
 
 **Note**: This app is currently in alpha, so permissions may change, and features may be added or removed without notice during this time.
 
@@ -65,7 +65,7 @@ The following table explains the permissions that the app is granted and why eac
 | Read access to pull requests    | Used to resolve pull requests to commits and receive pull request events. |
 | Read and write access to checks | Used to write pull request status checks.                                 |
 
-Once you are satisfied with the permissions and the location where you want the app installed, you can continue the workflow to install Chainguard Enforce for GitHub.
+Once you are satisfied with the permissions and the location where you want the app installed, you can continue the workflow to install Chainguard Enforce for Git.
 
 ## Support
 
