@@ -1,3 +1,18 @@
+---
+title: "Chainguard Enforce User Onboarding (Quickstart)"
+type: "article"
+description: "Quick setup of Chainguard Enforce using Kind"
+date: 2022-15-07T15:22:20+01:00
+lastmod: 2022-12-09T15:22:20+01:00
+draft: false
+images: []
+menu:
+  docs:
+    parent: "chainguard-enforce-kubernetes"
+weight: 100
+toc: true
+---
+
 This walkthrough will quickly get Chainguard Enforce installed and running locally — from setting up an example cluster, to drafting a policy and observing how it behaves, to improving the policy, and finally enforcing that policy. If you'd like more information on working with Chainguard Enforce, we encourage you to to check out the [detailed tutorial on Chainguard Academy](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/).
 
 
@@ -277,4 +292,5 @@ kind delete cluster --name enforce-demo
 ```
 
 To learn more about Chainguard Enforce, please review our documentation and other resources on Chainguard Academy. 
+
 
