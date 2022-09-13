@@ -1,3 +1,19 @@
+---
+title: "Excess Enforce"
+type: "article"
+lead: "Setup of Chainguard Enforce with Google Cloud Shell and Kind"
+description: "Set up Chainguard Enforce with Google Cloud Shell and Kind"
+date: 2022-15-07T15:22:20+01:00
+lastmod: 2022-15-07T15:22:20+01:00
+draft: false
+unlisted: true
+images: []
+menu:
+  docs:
+    parent: "chainguard-enforce-kubernetes"
+weight: 620
+toc: true
+---
 
 ## Customization options on the policy
 
