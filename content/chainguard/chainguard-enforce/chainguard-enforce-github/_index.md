@@ -1,5 +1,5 @@
 ---
-title: "Chainguard Enforce for GitHub"
+title: "Chainguard Enforce for Git"
 lead: ""
 type: "article"
 date: 2020-10-06T08:49:15+00:00
@@ -8,4 +8,4 @@ draft: false
 images: []
 ---
 
-Offering Git signature verification and enforcement for GitHub repos
+Offering Git signature verification and enforcement for Git repos
