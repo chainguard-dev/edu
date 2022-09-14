@@ -389,7 +389,7 @@ The demo should output an advice slip such as:
 Only those who attempt the impossible can achieve the absurd.
 ```
 
-You have successfully built a minimalist container image with your apk package installed on it. This image is fully [OCI](https://opencontainers.org/) compatible and can be signed with [Cosign](/open-source/sigstore/how-to-sign-a-container-with-cosign/) for provenance attestation.
+You have successfully built a minimalist container image with your apk package installed on it. This image is fully [OCI](https://opencontainers.org/) compatible and can be signed with [Cosign](../../sigstore/cosign/how-to-sign-a-container-with-cosign/) for provenance attestation.
 
 ## Conclusion
 
