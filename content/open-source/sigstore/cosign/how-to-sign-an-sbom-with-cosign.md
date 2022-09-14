@@ -22,7 +22,7 @@ For example, a [software bill of materials](https://www.cisa.gov/sbom), or **SBO
 
 As a developer leveraging the software that others make, an SBOM can help you understand what goes into the software that you’re using. As a developer releasing software into the world, including an SBOM with what you ship can help others trust the provenance of the software. You can instill greater trust in your software products by signing your SBOMs along with other software artifacts. 
 
-Let’s demonstrate how to create an SBOM and sign the SBOM using the `hello-container` example from the [How to Sign a Container with Cosign](/how-to-sign-a-container-with-cosign) tutorial. Alternatively, you can use another container that you have on hand.
+Let’s demonstrate how to create an SBOM and sign the SBOM using the `hello-container` example from the [How to Sign a Container with Cosign](../how-to-sign-a-container-with-cosign) tutorial. Alternatively, you can use another container that you have on hand.
 
 ## Install Syft
 
