@@ -5,6 +5,7 @@ description: "Update bash to version 4 or above on macOS"
 date: 2022-06-09T15:22:20+01:00
 lastmod: 2022-06-09T15:22:20+01:00
 draft: false
+unlisted: true
 images: []
 menu:
   docs:
