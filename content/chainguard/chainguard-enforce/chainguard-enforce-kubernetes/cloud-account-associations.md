@@ -72,8 +72,7 @@ terraform plan
 terraform apply
 ```
 
-More documentation and examples are available in the module source repository
-https://github.com/chainguard-dev/terraform-aws-chainguard-account-association.
+More documentation and examples are available in the [module source repository](https://github.com/chainguard-dev/terraform-aws-chainguard-account-association).
 
 Once your AWS Account is configured, you can check that the account association
 is configured correctly:

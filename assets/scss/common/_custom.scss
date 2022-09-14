@@ -22,6 +22,16 @@ h3,
     sans-serif;
 }
 
+blockquote {
+  // background: #f9f9f9;
+  font-size: 0.85em;
+  border-left: 2px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+}
+blockquote > p {
+  margin-bottom: 0px;
+}
 .featured-icon {
   font-size: 4rem;
 }

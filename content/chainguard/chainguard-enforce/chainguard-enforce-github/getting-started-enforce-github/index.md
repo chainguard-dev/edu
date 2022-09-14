@@ -15,7 +15,7 @@ toc: true
 
 Chainguard Enforce for Git currently supports Gitsign signatures from the public Sigstore instance.
 
-**Note**: This app is currently in alpha and available for GitHub, so permissions may change, and features may be added or removed without notice during this time.
+> **Note**: This app is currently in alpha and available for GitHub, so permissions may change, and features may be added or removed without notice during this time.
 
 ## Installation
 
