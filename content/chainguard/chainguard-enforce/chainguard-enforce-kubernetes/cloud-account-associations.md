@@ -56,8 +56,11 @@ this:
 
 ```sh
 cat  <<EOF > main.tf
+provider "aws" {}
+
 module "chainguard-account-association" {
-  source = "chainguard-dev/chainguard-account-association/aws"
+  source  = "chainguard-dev/chainguard-account-association/aws"
+  version = "0.0.4"
 
   enforce_group_id = "$ENFORCE_GROUP_ID"
 }
@@ -109,8 +112,17 @@ Next, configure your GCP project to allow access from Enforce to specific IAM ro
 
 ```sh
 cat  <<EOF > main.tf
+provider "google" {
+  project = "$PROJECT_ID"
+}
+
+provider "google-beta" {
+  project = "$PROJECT_ID"
+}
+
 module "chainguard-account-association" {
-  source = "chainguard-dev/chainguard-account-association/google"
+  source  = "chainguard-dev/chainguard-account-association/google"
+  version = "0.0.1-alpha"
 
   enforce_group_id  = "$ENFORCE_GROUP_ID"
   google_project_id = "$PROJECT_ID"
