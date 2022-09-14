@@ -17,7 +17,7 @@ Chainguard Enforce for Git offers Git signature verification and enforcement for
 
 Enforce for Git currently works with public or private repos on [github.com](https://github.com).
 
-**Note**: This app is currently in alpha, so permissions may change, and features may be added or removed without notice during this time.
+> **Note**: This app is currently in alpha, so permissions may change, and features may be added or removed without notice during this time.
 
 This guide will walk you through installing and setting up Chainguard Enforce for GitHub. 
 

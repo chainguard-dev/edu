@@ -44,7 +44,7 @@ kubectl create secret docker-registry regcreds \
     --docker-email=$email
 ```
 
-> NOTE: It is important to ensure the secret is created in the cosign-system
+> **Note**: It is important to ensure the secret is created in the `cosign-system`
 > namespace, as this ensures the Chainguard Enforce agent can use this secret
 > to authenticate images from all namespaces in the cluster.
 
@@ -107,9 +107,9 @@ spec:
 Replace the variables pointing to your private Docker namespace next to `glob`
 and `oci`. 
 
-> NOTE: For legacy Docker Hub reasons that have propagated to how container
-> runtimes identify images, privatenamespace/* is equivalent to
-> index.docker.io/privatenamespace/* — both will work!
+> **Note**: For legacy Docker Hub reasons that have propagated to how container
+> runtimes identify images, `privatenamespace/*` is equivalent to
+> `index.docker.io/privatenamespace/*` — both will work!
 
 ## Cloud Account Associations
 
