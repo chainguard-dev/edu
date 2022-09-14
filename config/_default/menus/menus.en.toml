@@ -43,6 +43,12 @@
   name = "Sigstore"
   url = "/open-source/sigstore/"
   parent = "menu-oss"
+  weight = 10
+
+[[main]]
+  name = "Wolfi"
+  url = "/open-source/wolfi/"
+  parent = "menu-oss"
   weight = 15
 
 [[main]]
@@ -56,12 +62,6 @@
   url = "/open-source/melange/"
   parent = "menu-oss"
   weight = 30
-
-[[main]]
-  name = "Wolfi"
-  url = "/open-source/wolfi/"
-  parent = "menu-oss"
-  weight = 40
 
 [[main]]
   name = "Software Security"
