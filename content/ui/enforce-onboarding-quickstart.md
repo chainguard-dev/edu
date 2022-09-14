@@ -120,7 +120,7 @@ In order to put Chainguard Enforce into action within a cluster, we'll now creat
 kind create cluster --name enforce-demo
 ```
 
-Inside the Kubernetes cluster, create a Pod to run the unsigned image.
+Install the Enforce agent in your cluster:
 
 ```sh
 chainctl cluster install --group=$GROUP --private --context kind-enforce-demo
@@ -192,7 +192,7 @@ sample-policy     68s
 Next, we’ll verify the compliance records of containers via the CLI. First, obtain the cluster ID and load it into a variable for usage.
 
 ```sh
-export CLUSTER_ID=$(kubectl get ns gulfstream -ojson | jq -r .metadata.uid)
+export CLUSTER_ID=$(chainctl cluster list -ojson | jq -r '.items[0].name')
 ```
 
 With this set up, we can run the following command to list the records of the scanned images.
