@@ -122,11 +122,8 @@ no long term access credentials are stored by our platform.
 
 ### Configuring your cloud account association
 
-Detailed instructions on setting up cloud account associations can be found in
-our dedicated article [here](cloud-account-associations). Once you have a
-cloud account association configured at a specified group level, policies at or
-below that group can be verified against private registries in the associated
-cloud account. 
+Detailed instructions can be found in
+our dedicated article on [Setting up Chainguard Enforce Cloud Account Associations](../cloud-account-associations). Once you have a cloud account association configured at a specified group level, policies at or below that group can be verified against private registries in the associated cloud account. 
 
 ### Using Google Container Registry Images in Policies
 

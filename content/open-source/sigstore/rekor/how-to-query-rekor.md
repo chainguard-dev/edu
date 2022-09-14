@@ -15,7 +15,7 @@ toc: true
 
 _An earlier version of this material was published in the [Rekor chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@e785fae1be184e2c929db62dbe7444fa/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@a48c33126e2c4ee6ad3bfa6b7bc9c957) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._
 
-Rekor is the transparency log of Sigstore, which stores records of artifact metadata. Before querying Rekor, you should have the `rekor-cli` installed, which you can achieve by following the "[How to Install the Rekor CLI](how-to-install-rekor.md)" tutorial.
+Rekor is the transparency log of Sigstore, which stores records of artifact metadata. Before querying Rekor, you should have the `rekor-cli` installed, which you can achieve by following the "[How to Install the Rekor CLI](../how-to-install-rekor)" tutorial.
 
 In order to access the data stored in Rekor, the `rekor-cli` requires either the log index of an entry or the UUID of a software artifact.
 

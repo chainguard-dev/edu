@@ -25,7 +25,7 @@ Let’s step through signing a container with Cosign. We are using a container t
 
 Before beginning this section, ensure that you have Docker installed and that you are running Docker Desktop if that is relevant for your operating system. For guidance on installing and using Docker, refer to the [official Docker documentation](https://docs.docker.com/get-docker/). In order to push to the Docker container registry, you will need a [Docker Hub account](https://hub.docker.com/signup). If you are familiar with using a different container registry, feel free to use that. 
 
-Additionally, you will need Cosign installed, which you can achieve by following our [How to Install Cosign guide](/how-to-install-cosign/).
+Additionally, you will need Cosign installed, which you can achieve by following our [How to Install Cosign guide](../how-to-install-cosign/).
 
 ## Generating a Cosign Key Pair
 

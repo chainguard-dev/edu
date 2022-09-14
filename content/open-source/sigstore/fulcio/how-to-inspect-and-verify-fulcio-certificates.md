@@ -23,7 +23,7 @@ In addition to having `base64` and `step` installed on your machine, you should 
 
 With these prerequisites in place, you are ready to begin. 
 
-First, we'll decode the certificate with Base64. If you don't have a certificate ready to inspect, you can generate one by following [How to Generate a Fulcio Certificate](how-to-generate-a-fulcio-certificate).
+First, we'll decode the certificate with Base64. If you don't have a certificate ready to inspect, you can generate one by following [How to Generate a Fulcio Certificate](../how-to-generate-a-fulcio-certificate).
 
 ```sh
 base64 -d < fulcio.crt.base64 > fulcio.crt
