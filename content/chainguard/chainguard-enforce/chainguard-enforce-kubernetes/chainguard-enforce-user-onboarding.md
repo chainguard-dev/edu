@@ -27,24 +27,20 @@ In this guide, we will set up an example cluster, draft a policy and observe how
 
 Before running Chainguard Enforce locally, you’ll need to ensure you have the following installed:
 
-* **`kind`** — to create a Kind Kubernetes cluster on our laptop, you can download and install Kind for your relevant operating system by following the [Kind install docs][kind].
-* **`curl`** — to retrieve files from the web, follow the relevant [curl download docs](curl) for your machine.
-* **`jq`**  — to process JSON on the CLI, visit the [jq downloads page](jq) to set it up.
-* **Docker** — you'll need Docker installed and running in order to step through this tutorial. 
+* **`kind`** — to create a kind Kubernetes cluster on our laptop, you can download and install kind for your relevant operating system by following the [kind install docs](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
+* **`curl`** — to retrieve files from the web, follow the relevant [curl download docs](https://curl.se/download.html) for your machine.
+* **`jq`**  — to process JSON, visit the [jq downloads page](https://stedolan.github.io/jq/download/) to set it up.
+* **Docker** — you’ll need [Docker installed](https://docs.docker.com/get-docker/) and running in order to step through this tutorial. 
 
-[kind]: https://kind.sigs.k8s.io/docs/user/quick-start/#installation
-[curl]: https://curl.se/download.html
-[jq]: https://stedolan.github.io/jq/download/
-
-One last note — if you are running macOS, you’ll need to ensure you are using bash version 4 or higher, which is not preinstalled in the machine. Please [follow our guide](../../../open-source/update-bash-macos/) on how to update your version if you are getting version 3 or below when you run `bash --version`.
+One last note — if you are running macOS, you’ll need to ensure you are using bash version 4 or higher, which is not preinstalled in the machine. Please [follow our guide](../../../../open-source/update-bash-macos) on how to update your version if you are getting version 3 or below when you run `bash --version`.
 
 With these prerequisites in place, you’re ready to begin.
 
 ## Step 1 — Install chainctl
 
-Our command line interface (CLI) tool, `chainctl`, will help you interact with the account model that Chainguard Enforce provides, and enable you to make queries into the state of your clusters and policies registered with the platform. The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. For example, to list groups within the context of Chainguard Identity and Access Management (IAM) groups, you can run `chainctl iam groups list` to receive relevant output.
+Our command line interface (CLI) tool, `chainctl`, will help you interact with the account model that Chainguard Enforce provides, and enable you to make queries into the state of your clusters and policies registered with the platform. The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. For example, to list groups within the context of Chainguard Identity and Access Management (IAM), you can run `chainctl iam groups list` to receive relevant output.
 
-Before we begin, let's move into a directory that we can work in. For our example, we'll create a new directory called `enforce-demo`.
+Before we begin, let’s move into a directory that we can work in. For our example, we’ll create a new directory called `enforce-demo`.
 
 ```sh
 mkdir ~/enforce-demo && cd $_
@@ -102,7 +98,7 @@ Compiler:      gc
 Platform:      darwin/arm64
 ```
 
-If you received different output, check your bash profile to make sure that your system is using the expected GOPATH. If your version of `chainctl` is a few weeks or months old, you may consider updating it so that you can use the most up to date version.
+If you received different output, check your bash profile to make sure that your system is using the expected GOPATH. If your version of `chainctl` is a few weeks or months old, you may consider updating it by following the steps above so that you can use the most up to date version.
 
 With `chainctl` successfully installed, we can continue through the demo.
 
@@ -149,14 +145,14 @@ Note you can use `ls` or `list` in this command.
 You’ll receive output in the form of a table of your current groups, similar to the following.
 
 ```
-                     ID                    |       NAME       | DESCRIPTION  
--------------------------------------------+------------------+--------------
-  0bed35fb980e8f8ba6d0757e01c950974cfd2593 | production-group |              
-  a4de00fd08b377db719e52b0b19f58bc7ac5b45e | testing-group    |   
-  b9adda06841c1d34dfa73d5902ed44b5448b7958 | enforce-demo-group |         
+                     ID                    |       NAME          | DESCRIPTION  
+-------------------------------------------+---------------------+--------------
+  0bed35fb980e8f8ba6d0757e01c950974cfd2593 | production-group    |              
+  a4de00fd08b377db719e52b0b19f58bc7ac5b45e | testing-group       |   
+  b9adda06841c1d34dfa73d5902ed44b5448b7958 | enforce-demo-group  |         
 ```
 
-Let’s create a variable that stores that ID for later steps in the tutorial. Replace `$GROUP_ID` with the relevant ID, for exmaple in the case of `enforce-demo-group` above, you would enter `b9adda06841c1d34dfa73d5902ed44b5448b7958` instead of `$GROUP_ID` in the command below. 
+Let’s create a variable that stores that ID for later steps in the tutorial. Replace `$GROUP_ID` below with the relevant ID; for exmaple, in the case of `enforce-demo-group` above, you would enter `b9adda06841c1d34dfa73d5902ed44b5448b7958` instead of `$GROUP_ID` in the command below. 
 
 ```sh
 export GROUP=$GROUP_ID
@@ -166,7 +162,7 @@ You can learn more about our IAM model by reading our [Overview of Chainguard En
 
 ## Step 3 — Prepare your Kubernetes cluster
 
-In order to put Chainguard Enforce into action within a cluster, we’ll now create a Kubernetes cluster using kind. We will name our cluster `enforce-demo` by passing that to the `--name` flag, but you may opt to use an alternate name. 
+In order to put Chainguard Enforce into action within a cluster, we’ll now create a Kubernetes cluster using kind. For demonstration purposes, we will name our cluster `enforce-demo` by passing that to the `--name` flag, but you may opt to use an alternate name. 
 
 ```sh
 kind create cluster --name enforce-demo
@@ -184,7 +180,7 @@ If you have multiple groups and clusters, you may need to select the relevant gr
 
 At this point, we want to roll out a policy ensuring that our development teams only deploy signed containers with no disruptions.
 
-To achieve this, we will create a new policy to require that developers only deploy signed containers. We’ll associate a `sample-policy.yaml` file with the demo group in our IAM.
+To achieve this, we will create a new policy to require that only signed containers are deployed. We’ll associate a `sample-policy.yaml` file with the demo group in our IAM.
 
 ```sh
 cat > sample-policy.yaml <<EOF
@@ -217,7 +213,8 @@ You should get feedback about the group selected and that the policy was applied
 ```
                              ID                             |     NAME      | DESCRIPTION  
 ------------------------------------------------------------+---------------+--------------
-  a4de00fd08b377db719e52b0b19f58bc7ac5b45e/f265297c59250570 | sample-policy |  ```
+  a4de00fd08b377db719e52b0b19f58bc7ac5b45e/f265297c59250570 | sample-policy |  
+```
 
 We have confirmed that we’ve created the **sample-policy** based on the `sample-policy.yaml` file, and we are applying it to the demo group that we have set up in our environment. We can ensure that everything is as expected by listing the policies with `chainctl`. Note that you can pass `policy` or `policies` to the command.
 
@@ -231,7 +228,7 @@ You should now be able to review the policy that you set up. With this policy de
 
 ## Step 5 — Inspect compliance of containers
 
-Under the hood, we leverage upstream Sigstore components like the `ClusterImagePolicy` CRD. We can verify that the **sample-policy** was distributed to the cluster by using kubectl.
+Under the hood, we leverage upstream Sigstore components like the `ClusterImagePolicy` CRD. We can verify that the **sample-policy** was distributed to the cluster by using `kubectl`.
 
 ```sh
 kubectl get clusterimagepolicies
@@ -240,13 +237,13 @@ kubectl get clusterimagepolicies
 We’ll get feedback that the **sample-policy** was distributed and how long ago.
 
 ```
-NAME                AGE
+NAME              AGE
 sample-policy     68s
 ```
 
 Next, we’ll verify the compliance records of containers via the CLI.
 
-First, obtain the cluster ID and load it into a variable for usage. We are using `kubectl` to get an UUID that Chainguard Enforce uses to identify the agent running on your cluster.
+First, obtain the cluster ID and load it into a variable for usage. We are using `kubectl` to get an UUID (universally unique identifier) that Chainguard Enforce uses to identify the agent running on your cluster.
 
 ```sh
 export CLUSTER_ID=$(kubectl get ns gulfstream -ojson | jq -r .metadata.uid)
@@ -258,7 +255,7 @@ With this set up, we can run the following command to list the records of the sc
 chainctl cluster records list $CLUSTER_ID
 ```
 
-If you didn’t specify the `$CLUSTER_ID`, the CLI will ask you to select from a drop-down instead.
+If you didn’t specify the `$CLUSTER_ID`, the CLI will ask you to select from a menu instead.
 
 Your output may be wide, and may have some extra lines. From this output, you should be able to determine the different categories of containers on your cluster, including containers from the vendor (such as GKE or EKS), the Chainguard agent, and the application image itself.
 
@@ -305,7 +302,7 @@ This image passes the policy because it has both an SBOM and a signature.
 
 ## Step 6 – Enforce policy
 
-We have improved our compliance by introducing and requiring a signing and SBOM policy. We now want to enforce this policy requirement. We can use `kubectl` and `namespace` label selectors to do this.
+We have improved our compliance by introducing and requiring a signing and SBOM policy. We now want to enforce this policy requirement. We can use `kubectl` and `namespace` label selectors to achieve this.
 
 ```sh
 kubectl label ns default policy.sigstore.dev/include=true --overwrite
