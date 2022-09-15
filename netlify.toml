@@ -6,7 +6,7 @@
     X-Content-Type-Options = "nosniff"
     Content-Security-Policy = '''
        default-src 'self';
-       frame-src 'self' https://player.vimeo.com https://www.youtube.com www.youtube-nocookie.com https://platform.twitter.com https://syndication.twitter.com;
+       frame-src 'self' https://player.vimeo.com https://www.youtube.com www.youtube-nocookie.com https://platform.twitter.com https://syndication.twitter.com https://visualization-ui.chainguard.app;
        style-src 'self' 'unsafe-inline' cdn.jsdelivr.net https://fonts.googleapis.com *.netlify.app;
        form-action 'self';
        font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net;
