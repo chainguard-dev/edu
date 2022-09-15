@@ -10,7 +10,6 @@ images: []
 menu:
   docs:
     parent: "cosign"
-terminalImage: ubuntu:jammy
 weight: 610
 toc: true
 ---
