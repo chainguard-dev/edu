@@ -15,10 +15,6 @@ toc: true
 
 On this page you can find comparison graphs showing the number of CVEs (common vulnerabilities and exposures) detected by [Trivy](https://github.com/aquasecurity/trivy) on popular official base images versus Chainguard Images.
 
-### Nginx
+{{< rumble title="Nginx" description="Comparing the latest official Nginx image with distroless.dev/nginx" left="nginx:latest" right="distroless.dev/nginx:latest" >}}
 
-{{< rumble left="nginx:latest" right="distroless.dev/nginx:latest" >}}
-
-### PHP
-
-{{< rumble left="php:latest" right="distroless.dev/php:latest" >}}
+{{< rumble title="PHP" description="Comparing the latest official PHP image with distroless.dev/php" left="php:latest" right="distroless.dev/php:latest" >}}
