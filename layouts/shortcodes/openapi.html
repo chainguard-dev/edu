@@ -1,0 +1,30 @@
+<script src="https://unpkg.com/@stoplight/elements/web-components.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@stoplight/elements/styles.min.css">
+
+<elements-api
+      apiDescriptionUrl='{{ .Get "spec-url"}}'
+      router="hash"
+      hideTryIt="true"
+    />
+
+<style>
+  nav .nav-item svg {
+    display: inherit !important;
+  }
+  .docs-sidebar {
+    display: none !important;
+  }
+  main.docs-content {
+    width: 100% !important;
+  }
+  main h1 {
+    font-size: 2.5rem !important;
+    margin: 2rem 0 1rem;
+  }
+  nav.docs-toc {
+    display: none !important;
+  }
+  elements-api {
+    display: block;
+  }
+</style>
