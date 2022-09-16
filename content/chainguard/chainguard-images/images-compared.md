@@ -1,7 +1,7 @@
 ---
-title: "Images Comparison: CVEs across time"
+title: "Comparison of Vulnerabilities in Container Images Over Time"
 type: "article"
-description: "Comparing popular base images with Chainguard Images in number of CVEs detected"
+description: "Comparing popular base images with Chainguard Images in number of CVEs (common vulnerabilities and exposures) detected"
 date: 2022-09-15T08:49:31+00:00
 lastmod: 2022-09-15T08:49:31+00:00
 draft: false
