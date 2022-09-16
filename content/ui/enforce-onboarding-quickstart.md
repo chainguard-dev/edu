@@ -5,14 +5,10 @@ This walkthrough will quickly get Chainguard Enforce installed and running local
 
 Before running Chainguard Enforce locally, you’ll need to ensure you have the following installed:
 
-* **`kind`** — install kind for local Kubernetes orchestration via the [kind install docs][kind].
-* **`curl`** — follow the relevant [curl download docs](curl) for your machine.
-* **`jq`**  — visit the [jq downloads page](jq) to set it up.
+* **`kind`** — install kind for local Kubernetes orchestration via the [kind install docs](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
+* **`curl`** — follow the relevant [curl download docs]( https://curl.se/download.html) for your machine.
+* **`jq`**  — visit the [jq downloads page](https://stedolan.github.io/jq/download/) to set it up.
 * **Docker** — [install for your machine](https://docs.docker.com/get-docker/) and run it in order to complete this tutorial.
-
-[kind]: https://kind.sigs.k8s.io/docs/user/quick-start/#installation
-[curl]: https://curl.se/download.html
-[jq]: https://stedolan.github.io/jq/download/
 
 If you are running macOS, you’ll need to ensure you are using bash version 4 or higher, which is not preinstalled in the machine. Please [follow our guide](https://edu.chainguard.dev/open-source/update-bash-macos/) on how to update your version if you are getting version 3 or older when you run `bash --version`.
 
@@ -73,24 +69,17 @@ Platform:      darwin/arm64
 ```
 
 
-## Step 2 — Create an IAM group to try Enforce
+## Step 2 — Check your IAM group
 
-Authenticate to the Chainguard Enforce platform.
-
-```sh
-chainctl auth login
-```
-
-A web browser window will open to prompt you to log in via an OIDC flow. Select the account you wish to register with and create a group.  For demonstration purposes, we’ll create a group called `enforce-demo-group`, but feel free to replace it with an alternate name.
+Authenticate to the Chainguard Enforce platform with the invite code you have received.
 
 ```sh
-chainctl iam groups create enforce-demo-group --no-parent
+chainctl auth login --invite-code <YOUR-CODE>
 ```
 
-You’ll be asked whether you want to continue and to confirm logging in again. Press `y` in response to each prompt.
+A web browser window will open to prompt you to log in via an OIDC flow. 
 
-
-Next, find the ID for the group you just created.
+Once authenticated, you can check for the ID of the your group.
 
 ```sh
 chainctl iam groups ls -o table
@@ -111,6 +100,11 @@ Create a variable that stores the ID in the left column for later steps in the t
 export GROUP=$GROUP_ID
 ```
 
+In the UI, you will also be able to check for any groups to which you belong from the filter modal, which you can open by clicking on the icon.
+
+<screenshot>
+
+At any time, you can check here to see the groups to which you belong and filter resources based on group ownership.
 
 ## Step 3 — Prepare your Kubernetes cluster
 
@@ -126,13 +120,24 @@ Install the Enforce agent in your cluster:
 chainctl cluster install --group=$GROUP --private --context kind-enforce-demo
 ```
 
+If you navigate to the **Clusters** in the UI, you should now see your cluster in the cluster list table.
+
+<screenshot>
+
+From here, you can explore a detailed view of the cluster, including any policies that apply to it.
+
 
 ## Step 4 — Create a policy to require signatures on images
 
-Now we will associate a `sample-policy.yaml` file with the demo group in our IAM.
+You can create a policy directly from the UI by navigating to the **Policies** tab. In the policy list table menu, you will see a **Create policy** button. Clicking this button will open a dropdown menu, which will allow you to create a policy from scratch or use a predefined template, to require that images have signatures.
 
-```sh
-cat > sample-policy.yaml <<EOF
+For now, we can create a policy using the **Custom** option from the dropdown.
+
+<screenshot>
+
+On the policy create page, ensure that the correct group is displayed in the group field, `enforce-demo`. Then paste the following code into the code editor:
+
+```
 apiVersion: policy.sigstore.dev/v1alpha1
 kind: ClusterImagePolicy
 metadata:
@@ -146,26 +151,13 @@ spec:
   authorities:
   - keyless:
       url: https://fulcio.sigstore.dev
-EOF
 ```
 
 This policy creates a cluster image policy with the Sigstore alpha API, and with Fulcio as a keyless authority. Here, we are requiring that all images from container registries be signed.
 
-Let’s now associate this new policy with our group.
+After you click the **Publish** button at the bottom of the create modal, your new policy will be active. The next time you land on the policy list page, you will see the policy listed, as well as any violations it has and its group hierarchy.
 
-```sh
-chainctl policies apply -f sample-policy.yaml --group=$GROUP
-```
-
-You will get feedback about the group selected and that the policy was applied.
-
-```
-                             ID                             |     NAME      | DESCRIPTION  
-------------------------------------------------------------+---------------+--------------
-  a4de00fd08b377db719e52b0b19f58bc7ac5b45e/f265297c59250570 | sample-policy |
-```
-
-Now we can ensure that everything is as expected by listing the policies with `chainctl`.
+You can also list your policies with `chainctl`.
 
 ```sh
 chainctl policies ls
@@ -173,10 +165,21 @@ chainctl policies ls
 
 A few policies will be in place in addition to the policy you just created.
 
-
 ## Step 5 — Inspect compliance of containers
 
-We can check that the **sample-policy** was distributed to the cluster by using `kubectl`.
+The first place we can look for information about container compliance is the clusters main page, which you can find by clicking on the **Clusters** tab in the main navigation menu.
+
+With our new policy, `sample-policy`, in place, information about policy compliance should be visible in the **Policy** column, next to the cluster name.
+
+<screenshot>
+
+You can also find more information about policy compliance by clicking on either of the cards in the cluster list page, which will take you to views that provide more information on any policies that have failed, and the exact images that are failing policies.
+
+Additionally, the buttons on top of the cluster table will allow you to filter your clusters by compliance.
+
+<screenshot>
+
+You can also check that the **sample-policy** was distributed to the cluster by using `kubectl`.
 
 ```sh
 kubectl get clusterimagepolicies
@@ -189,60 +192,35 @@ NAME                AGE
 sample-policy     68s
 ```
 
-Next, we’ll verify the compliance records of containers via the CLI. First, obtain the cluster ID and load it into a variable for usage.
+## Step 6 — Test new record compliance
 
-```sh
-export CLUSTER_ID=$(chainctl cluster list -ojson | jq -r '.items[0].name')
-```
+So far, the information we have been seeing about our cluster is information about the containers and images in the cluster's control plane.
 
-With this set up, we can run the following command to list the records of the scanned images.
-
-```sh
-chainctl cluster records list $CLUSTER_ID
-```
-
-From this output, you will be able to determine the different categories of containers on your cluster, including containers from the vendor, the Chainguard agent, and the application image itself.
-
-Let’s deploy a new image, starting with a generic NGINX image.
+Now, let’s deploy a new image, starting with a generic NGINX image.
 
 ```sh
 kubectl create deployment nginx --image=nginx
 ```
 
-Give this a few seconds to populate and then check what’s running again.
+Give this a few seconds to populate and then check what’s running again by navigation to the cluster's detail page. You can do this by clicking on the cluster's name from the cluster list table.
 
-```sh
-chainctl cluster records list $CLUSTER_ID
-```
+In the **Policy violations** table, you will see the image listed.
 
-You should get feedback that this fails the policy because this generic NGINX image has neither a signature nor an SBOM.
+<screenshot>
 
-```
-                              IMAGE                             |        POLICIES        |   WORKLOADS   | LAST SEEN  
-----------------------------------------------------------------+------------------------+---------------+------------
-  index.docker.io/library/nginx@sha256:0b9700…                  | sample-policy:fail:11s | Pod:1         | 82s
+Clicking on the **Show diagnostic** button in the table will provide more information about the violation.
 
-```
+<screenshot>
 
 Next, let’s pull in an image that has an SBOM and signature. This is an NGINX image from Chainguard.
 
 ```sh
 kubectl create deployment good-nginx --image=ghcr.io/chainguard-dev/nginx-image-demo
 ```
+You won't see this image listed in the violations table, but if you navigate to the **Images** table, you will see it there.
 
-Again, check the output with `chainctl cluster records list $CLUSTER_ID`.
+<screenshot>
 
-You’ll get feedback that this passes the policy with both an SBOM and signature.
-
-
-```
-                              IMAGE                             |        POLICIES        |   WORKLOADS   | PACKAGES | LAST SEEN | LAST REFRESHED  
-----------------------------------------------------------------+------------------------+---------------+----------+-----------+-----------------
-  ghcr.io/chainguard-dev/nginx-image-demo@sha256:4b3990…        | sample-policy:pass:2s  | Pod:1         | apk:45   | 47s       | sbom:1s         
-                                                                |                        |               |          |           | sig:2s  
-
- ```
- 
 This image passes the policy because it has both an SBOM and a signature.
 
 
