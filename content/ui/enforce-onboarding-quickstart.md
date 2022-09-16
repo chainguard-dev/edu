@@ -120,7 +120,7 @@ Install the Enforce agent in your cluster:
 chainctl cluster install --group=$GROUP --private --context kind-enforce-demo
 ```
 
-If you navigate to the **Clusters** in the UI, you should now see your cluster in the cluster list table.
+If you click on the **Clusters** tab in the main navigation menu, you should now see your cluster in the cluster table.
 
 <screenshot>
 
@@ -129,13 +129,13 @@ From here, you can explore a detailed view of the cluster, including any policie
 
 ## Step 4 — Create a policy to require signatures on images
 
-You can create a policy directly from the UI by navigating to the **Policies** tab. In the policy list table menu, you will see a **Create policy** button. Clicking this button will open a dropdown menu, which will allow you to create a policy from scratch or use a predefined template, to require that images have signatures.
+You can create a policy directly from the UI by navigating to the **Policies** tab. In the policy table menu, you will see a **Create policy** button. Clicking this button will open a dropdown menu, which will allow you to create a policy from scratch or use a predefined template.
 
 For now, we can create a policy using the **Custom** option from the dropdown.
 
 <screenshot>
 
-On the policy create page, ensure that the correct group is displayed in the group field, `enforce-demo`. Then paste the following code into the code editor:
+On the policy create page, ensure that the correct group is displayed in the group field: `enforce-demo`. Then paste the following code into the code editor:
 
 ```
 apiVersion: policy.sigstore.dev/v1alpha1
@@ -155,7 +155,7 @@ spec:
 
 This policy creates a cluster image policy with the Sigstore alpha API, and with Fulcio as a keyless authority. Here, we are requiring that all images from container registries be signed.
 
-After you click the **Publish** button at the bottom of the create modal, your new policy will be active. The next time you land on the policy list page, you will see the policy listed, as well as any violations it has and its group hierarchy.
+After you click the **Publish** button at the bottom of the modal, your new policy will be active. The next time you land on the policy list page, you will see the policy listed, as well as any violations it has and its group hierarchy.
 
 You can also list your policies with `chainctl`.
 
@@ -194,7 +194,7 @@ sample-policy     68s
 
 ## Step 6 — Test new record compliance
 
-So far, the information we have been seeing about our cluster is information about the containers and images in the cluster's control plane.
+So far, the information we have been seeing about our cluster concerns the containers and images running in the cluster's control plane.
 
 Now, let’s deploy a new image, starting with a generic NGINX image.
 
@@ -202,7 +202,7 @@ Now, let’s deploy a new image, starting with a generic NGINX image.
 kubectl create deployment nginx --image=nginx
 ```
 
-Give this a few seconds to populate and then check what’s running again by navigation to the cluster's detail page. You can do this by clicking on the cluster's name from the cluster list table.
+Give this a few seconds to populate and then check what’s running again by navigating to the cluster's detail page. You can do this by clicking on the cluster's name from the cluster list table.
 
 In the **Policy violations** table, you will see the image listed.
 
