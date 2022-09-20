@@ -154,21 +154,15 @@ chainctl policies ls
 
 A few policies will be in place in addition to the policy you just created.
 
-```
-                             ID                             |     NAME      | DESCRIPTION  
-------------------------------------------------------------+---------------+--------------
-  a4de00fd08b377db719e52b0b19f58bc7ac5b45e/f265297c59250570 | sample-policy |
-```
-
 ## Step 5 — Inspect compliance of containers
 
-he first place we can obtain information about container compliance is the clusters main page, which you can find by clicking on the [**Clusters** tab](https://console.enforce.dev/clusters) in the main navigation menu.
+The first place we can look for information about container compliance is the clusters main page, which you can find by clicking on the [**Clusters** tab](https://console.enforce.dev/clusters) in the main navigation menu.
 
 With our new policy, `sample-policy`, in place, information about policy compliance should be visible in the **Policy** column, next to the cluster name.
 
 <screenshot>
 
-You can find more information about policy compliance by clicking on either of the cards in the cluster list page. The links on these cards will take you to views that provide more information on policies that have failed, and the exact images that are failing policies.
+You can also find more information about policy compliance by clicking on either of the cards in the cluster list page. The links on these cards will take you to views that provide more information on policies that have failed, and the exact images that are failing policies.
 
 Additionally, the buttons on top of the cluster table will allow you to filter your clusters by compliance.
 
@@ -187,7 +181,7 @@ NAME                AGE
 sample-policy     68s
 ```
 
-## Step 6 — Test new record compliance
+## Step 6 — Test new record compliance
 
 So far, the information we have been seeing about our cluster concerns the containers and images running in the cluster's control plane.
 

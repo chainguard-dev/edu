@@ -1,0 +1,1898 @@
+consumes:
+  - application/json
+definitions:
+  AccountAssociationsAmazon:
+    properties:
+      account:
+        type: string
+    type: object
+  AccountAssociationsGoogle:
+    properties:
+      projectId:
+        type: string
+      projectNumber:
+        type: string
+    type: object
+  ClusterAuthInfo:
+    description: |-
+      This is based off of k8s.io/client-go/tools/clientcmd/api/v1.AuthInfo
+      This should only ever be used with KinD clusters during testing, it WILL
+      NOT be stored securely.
+    properties:
+      clientCertificateData:
+        description:
+          client_certificate_data contains PEM-encoded data from a client
+          cert file for TLS.
+        format: byte
+        type: string
+      clientKeyData:
+        description:
+          client_key_data contains PEM-encoded data from a client key file
+          for TLS.
+        format: byte
+        type: string
+    type: object
+  ClusterInfo:
+    properties:
+      CertificateAuthorityData:
+        format: byte
+        title: |-
+          CertificateAuthorityData contains PEM-encoded certificate authority certificates.
+          Overrides CertificateAuthority
+        type: string
+      server:
+        description: Server is the address of the kubernetes cluster (https://hostname:port).
+        type: string
+    title: |-
+      This is based off of k8s.io/client-go/tools/clientcmd/api/v1.Cluster
+      This can be extracted from kubectl for a named cluster (replace CLUSTER_NAME) with:
+        kubectl config view \
+          --flatten -o jsonpath='{.clusters[?(@.name == "CLUSTER_NAME")].cluster}'
+    type: object
+  ClusterProvider:
+    default: UNKNOWN
+    description: " - KIND: For testing."
+    enum:
+      - UNKNOWN
+      - GKE
+      - EKS
+      - KIND
+    type: string
+  ContextAncestry:
+    description: |-
+      Ancestry relationships are added to records when a "base image"
+      relationship has been uncovered.  This context is added to BOTH
+      records with their respective roles.  The base image will get
+      the Role BASE, and the derivative image will get the Rile DERIVED.
+    properties:
+      id:
+        description: |-
+          The id of the other image's record in this ancestry relationship.
+          If our Role is BASE, then this will hold the ID of the DERIVED
+          image's record, and vice versa.
+        type: string
+      role:
+        $ref: "#/definitions/ContextAncestryRole"
+    type: object
+  ContextAncestryRole:
+    default: UNKNOWN
+    enum:
+      - UNKNOWN
+      - BASE
+      - DERIVED
+    type: string
+  ContextVariant:
+    description: |-
+      Variant relationships are added to records when we find an "index"
+      containing multiple different variations (typically os/arch) of the
+      same logical image.  These are referred to as "OCI Image Index",
+      "Docker Manifest List", and occasionally "fat images".  This context
+      is added to ALL records including the INDEX and all VARIANTs of that
+      index.  The INDEX will typically contain N contexts carrying the Role
+      INDEX, the id of the VARIANT's record, and the version information
+      that discriminates that VARIANT from other VARIANTs.  The VARIANT
+      will typically (but not always!) contain 1 context varrying the Role
+      VARIANT, the id of the INDEX's record, and the version information
+      that discriminates it among the other VARIANTs in the INDEX.
+    properties:
+      id:
+        description: |-
+          The id of the image index's record linking this
+          image (transitively) to the cluster.
+        type: string
+      role:
+        $ref: "#/definitions/ContextVariantRole"
+      version:
+        description: |-
+          The version information distinguishing this variant
+          from other possible variants of the index.
+        type: string
+    type: object
+  ContextVariantRole:
+    default: UNKNOWN
+    enum:
+      - UNKNOWN
+      - INDEX
+      - VARIANT
+    type: string
+  ContextWorkload:
+    description: |-
+      Workload contexts are added to existence records that have been
+      observed running on a cluster.
+    properties:
+      kind:
+        $ref: "#/definitions/tenantGroupVersionKind"
+      name:
+        type: string
+      namespace:
+        type: string
+      uid:
+        type: string
+    type: object
+  PolicyAttestation:
+    properties:
+      signature:
+        $ref: "#/definitions/PolicySignature"
+        description: The signature's ID serves as the attestation ID.
+    type: object
+  PolicyAttestations:
+    properties:
+      attestations:
+        items:
+          $ref: "#/definitions/PolicyAttestation"
+        type: array
+    title: |-
+      This mainly exists because you cannot have:
+         map<string, repeated Attestation>
+    type: object
+  PolicyAuthorityMatch:
+    properties:
+      attestations:
+        additionalProperties:
+          $ref: "#/definitions/PolicyAttestations"
+        description: |-
+          A mapping from the name of an attestation clause within the authority
+          to the attestations that match it.
+        type: object
+      signatures:
+        items:
+          $ref: "#/definitions/PolicySignature"
+        type: array
+    type: object
+  PolicySignature:
+    properties:
+      github:
+        $ref: "#/definitions/SignatureGithub"
+        description: |-
+          github holds the github-specific extensions encoded
+          into the certificate chain used to sign.
+      issuer:
+        description: issuer that was found to match on the Cert.
+        type: string
+      signatureId:
+        description: signature_id is a generated unique ID, output only.
+        type: string
+      subject:
+        description: subject that was found to match on the Cert.
+        type: string
+    type: object
+  RoleBindingListBinding:
+    properties:
+      email:
+        description: email of the bound identity.
+        type: string
+      group:
+        $ref: "#/definitions/iamGroup"
+        description: group of the bound role.
+      id:
+        description: id, the UID of this role binding.
+        type: string
+      identity:
+        description: identity, UID of the Identity bound.
+        type: string
+      role:
+        $ref: "#/definitions/iamRole"
+        description: role of the bound identity.
+    type: object
+  SignatureGithub:
+    properties:
+      workflowName:
+        title: "OID: 1.3.6.1.4.1.57264.1.4"
+        type: string
+      workflowRef:
+        title: "OID: 1.3.6.1.4.1.57264.1.6"
+        type: string
+      workflowRepo:
+        title: "OID: 1.3.6.1.4.1.57264.1.5"
+        type: string
+      workflowSha:
+        title: "OID: 1.3.6.1.4.1.57264.1.3"
+        type: string
+      workflowTrigger:
+        title: "OID: 1.3.6.1.4.1.57264.1.2"
+        type: string
+    type: object
+  StatusState:
+    default: UNKNOWN
+    enum:
+      - UNKNOWN
+      - Ready
+      - NotReady
+    type: string
+  authRegistrationRequest:
+    properties:
+      clusterId:
+        description: |-
+          cluster_id is an optional cluster id, which simultaneously registers
+          a Cluster with the Identity.  This path must specify an invite code, so
+          we know where in the IAM hierarchy to link the cluster.
+        type: string
+      code:
+        title: |-
+          code is an optional encoded invite code, which allows us to register
+          the caller's identity as a member of a particular group as a particular
+          role.
+          +optional
+        type: string
+      identityId:
+        title: |-
+          identity_id is an optional identity id. If the user already exists, this
+          by-passes identity registration and continues on to cluster registration
+          (if applicable)
+        type: string
+    type: object
+  authSession:
+    properties:
+      group:
+        description: |-
+          group, the group this identity has joined by invitation, when an invite
+          code was supplied.
+        type: string
+      identity:
+        description: identity, the Chainguard identity id.
+        type: string
+    type: object
+  authWhoAmI:
+    properties:
+      audience:
+        description: Audience is who the token is intended for.
+        items:
+          type: string
+        type: array
+      capabilities:
+        description: The capabilities referenced in the token.
+        items:
+          $ref: "#/definitions/authWhoAmICapability"
+        type: array
+      email:
+        description: The upstream email for this token.
+        type: string
+      expiry:
+        description: When the token expires.
+        format: date-time
+        type: string
+      issuedAt:
+        description: With the token was issued.
+        format: date-time
+        type: string
+      issuer:
+        description: Issuer is the issuer of the token.
+        type: string
+      subject:
+        description: The subject of the token.
+        type: string
+    type: object
+  authWhoAmICapability:
+    properties:
+      group:
+        $ref: "#/definitions/iamGroup"
+        description: group of the bound role.
+      role:
+        $ref: "#/definitions/iamRole"
+        description: role of the bound identity.
+    title: "--- Upstream fields ---"
+    type: object
+  commonUIDPFilter:
+    properties:
+      ancestorsOf:
+        description:
+          ancestors_of are groups reachable by repeated proceeding from
+          parent to child.
+        type: string
+      descendantsOf:
+        description:
+          descendants_of are groups reachable by repeated proceeding from
+          child to parent.
+        type: string
+    type: object
+  eventsIdentity:
+    properties:
+      expiration:
+        description: |-
+          Expiration of identity / issuer keys. After this date /time the issuer
+          keys will not be trusted. Defaults / maximum of 30 days after creation
+          time.
+        format: date-time
+        type: string
+      id:
+        description: id is unique identifier of this specific identity.
+        type: string
+      issuer:
+        description: |-
+          issuer of the OIDC ID tokens issued for this identity. Matches the `iss`
+          claim.
+        type: string
+      issuerKeys:
+        description: |-
+          Optional JWKS formatted public keys for the issuer. If supplied
+          verification of ID tokens is attempted using these keys instead of the
+          normal OIDC discovery path. This enables e.g clusters behing NAT to
+          authenticate.
+        type: string
+      subject:
+        description: |-
+          subject of OIDC ID tokens issued for this identity. Matchs the `sub`
+          claim.
+        type: string
+    type: object
+  eventsSubscription:
+    properties:
+      id:
+        description: id is identifier of this specific subscription.
+        type: string
+      sink:
+        description:
+          sink is the address to which events shall be delivered using
+          the selected protocol.
+        type: string
+    type: object
+  eventsSubscriptionList:
+    properties:
+      items:
+        items:
+          $ref: "#/definitions/eventsSubscription"
+        type: array
+    type: object
+  googlerpcStatus:
+    properties:
+      code:
+        format: int32
+        type: integer
+      details:
+        items:
+          $ref: "#/definitions/protobufAny"
+        type: array
+      message:
+        type: string
+    type: object
+  iamAccountAssociations:
+    properties:
+      amazon:
+        $ref: "#/definitions/AccountAssociationsAmazon"
+        description:
+          amazon holds information associating an Amazon account with the
+          group.
+      description:
+        description: a short description of this association.
+        type: string
+      google:
+        $ref: "#/definitions/AccountAssociationsGoogle"
+        description:
+          google holds information associating a Google project with the
+          group.
+      group:
+        description: group is the group with which this account information is associated.
+        type: string
+      name:
+        description: name of the association.
+        type: string
+    type: object
+  iamAccountAssociationsList:
+    properties:
+      items:
+        items:
+          $ref: "#/definitions/iamAccountAssociations"
+        type: array
+    type: object
+  iamGroup:
+    properties:
+      description:
+        description: description, human readable of group.
+        type: string
+      id:
+        description: id, The group UIDP under which this group resides.
+        type: string
+      name:
+        description: name, human readable name of group.
+        type: string
+    type: object
+  iamGroupInvite:
+    properties:
+      code:
+        description: code is the json-encoded authentication code.
+        type: string
+      expiration:
+        description: expiration, timestamp this invite becomes no longer valid.
+        format: date-time
+        type: string
+      id:
+        description: id, The group UIDP under which this invite resides.
+        type: string
+      keyId:
+        description: key_id is used to identify the verification key for this code.
+        type: string
+      role:
+        $ref: "#/definitions/iamRole"
+        description:
+          role is the role the invited identity will be role-bound to the
+          group with.
+    type: object
+  iamGroupInviteList:
+    properties:
+      items:
+        items:
+          $ref: "#/definitions/iamStoredGroupInvite"
+        type: array
+    type: object
+  iamGroupList:
+    properties:
+      items:
+        items:
+          $ref: "#/definitions/iamGroup"
+        type: array
+    type: object
+  iamPolicy:
+    properties:
+      description:
+        description: description, human readable description of policy.
+        type: string
+      document:
+        description: document, YAML encoded policy document.
+        type: string
+      id:
+        description: id is identifier of this specific policy.
+        type: string
+      name:
+        description: name, human readable name of policy.
+        type: string
+    type: object
+  iamPolicyList:
+    properties:
+      items:
+        items:
+          $ref: "#/definitions/iamPolicy"
+        type: array
+    type: object
+  iamRole:
+    properties:
+      capabilities:
+        description:
+          capabilities, human readable list of capabilities supported by
+          the group.
+        items:
+          type: string
+        type: array
+      description:
+        description: description, human readable description of group.
+        type: string
+      id:
+        description: id, The Group path under which this Role resides.
+        type: string
+      name:
+        description: name, human readable name of group.
+        type: string
+    type: object
+  iamRoleBinding:
+    properties:
+      group:
+        description: group, UIDP of the group to bind.
+        type: string
+      id:
+        description: id, the UID of this role binding.
+        type: string
+      identity:
+        description: identity, UID of the Identity to bind.
+        type: string
+      role:
+        title: role, UIDP of the Role to bind
+        type: string
+    type: object
+  iamRoleBindingList:
+    properties:
+      items:
+        items:
+          $ref: "#/definitions/RoleBindingListBinding"
+        type: array
+    type: object
+  iamRoleList:
+    properties:
+      items:
+        items:
+          $ref: "#/definitions/iamRole"
+        type: array
+    type: object
+  iamStoredGroupInvite:
+    properties:
+      expiration:
+        description: expiration, timestamp this invite becomes no longer valid.
+        format: date-time
+        type: string
+      id:
+        description: id, The group UIDP under which this invite resides.
+        type: string
+      keyId:
+        description: key_id is used to identify the verification key for this code.
+        type: string
+      role:
+        $ref: "#/definitions/iamRole"
+        description:
+          role is the role the invited identity will be role-bound to the
+          group with.
+    type: object
+  oidcRawToken:
+    properties:
+      token:
+        type: string
+    type: object
+  protobufAny:
+    additionalProperties: {}
+    properties:
+      "@type":
+        type: string
+    type: object
+  rpcStatus:
+    properties:
+      code:
+        format: int32
+        type: integer
+      details:
+        items:
+          $ref: "#/definitions/protobufAny"
+        type: array
+      message:
+        type: string
+    type: object
+  tenantCluster:
+    properties:
+      activity:
+        additionalProperties:
+          $ref: "#/definitions/tenantClusterActivity"
+        description: |-
+          activity is a mapping from "Source" URLs to an activity record summarizing
+          recent activity from this source.
+        type: object
+      agentVersion:
+        description:
+          agent_version holds the version of the Chainguard agent last
+          reported by the cluster.
+        type: string
+      authInfo:
+        $ref: "#/definitions/ClusterAuthInfo"
+        description:
+          auth_info holds authentication details for connecting to KinD
+          in test scenarios.
+      description:
+        description: a short description of this cluster.
+        type: string
+      group:
+        $ref: "#/definitions/iamGroup"
+        title: group the cluster resides in
+      id:
+        description: id, The Cluster UIDP under which this Cluster resides.
+        type: string
+      info:
+        $ref: "#/definitions/ClusterInfo"
+        description: info contains the cluster information from the kubeconfig context.
+      issuer:
+        description: issuer is the identity issuer tied to this cluster.
+        type: string
+      lastSeen:
+        description:
+          last_seen tracks the timestamp at which this cluster was last
+          seen.
+        format: date-time
+        type: string
+      managedName:
+        description: |-
+          managed_name is the unique name we have given to this cluster's managed agent.
+          This field is output-only, and is populated only when this cluster is "managed".
+        type: string
+      name:
+        description: name of the cluster.
+        type: string
+      provider:
+        $ref: "#/definitions/ClusterProvider"
+        description: |-
+          provider holds the flavor of cluster provider, which is used to determine how we
+          authenticate with the cluster.
+      registered:
+        description: registered tracks the timestamp at which this cluster was registered.
+        format: date-time
+        type: string
+      remoteId:
+        description: remote_id is the remote ID of this cluster.
+        type: string
+      status:
+        $ref: "#/definitions/tenantClusterStatus"
+        description: status contains the managed cluster's status.
+      version:
+        description: version holds the Kubernetes version last reported by the cluster.
+        type: string
+    type: object
+  tenantClusterActivity:
+    properties:
+      controllerName:
+        description: |-
+          controller_name is the name of the Controller CRD which was the source of this
+          activity on the tenant cluster.
+        type: string
+      lastSeen:
+        description:
+          last_seen tracks the timestamp at which this source was last
+          active.
+        format: date-time
+        type: string
+      namespace:
+        description:
+          namespace is the namespace in which the source of this cluster
+          activity lives.
+        type: string
+      specHash:
+        description: |-
+          spec_hash is the hash of the Controller or Webhook CRD's spec, which forms a
+          loose form of versioning.
+        type: string
+      webhookName:
+        description: |-
+          webhook_name is the name of the Webhook CRD which was the source of this
+          activity on the tenant cluster.
+        type: string
+    type: object
+  tenantClusterList:
+    properties:
+      items:
+        items:
+          $ref: "#/definitions/tenantCluster"
+        type: array
+    type: object
+  tenantClusterStatus:
+    properties:
+      message:
+        type: string
+      ready:
+        $ref: "#/definitions/StatusState"
+      reason:
+        type: string
+    type: object
+  tenantContext:
+    properties:
+      ancestry:
+        $ref: "#/definitions/ContextAncestry"
+      contextId:
+        description: context_id is a unique ID, output only.
+        type: string
+      lastSeen:
+        description: last_seen is the last time we've seen the image_id in this context.
+        format: date-time
+        type: string
+      variant:
+        $ref: "#/definitions/ContextVariant"
+      workload:
+        $ref: "#/definitions/ContextWorkload"
+    type: object
+  tenantGroupVersionKind:
+    description: "TODO: Replace with upstream proto messages wherever possible."
+    properties:
+      group:
+        type: string
+      kind:
+        type: string
+      version:
+        type: string
+    type: object
+  tenantPackage:
+    properties:
+      name:
+        type: string
+      purl:
+        type: string
+      version:
+        type: string
+    type: object
+  tenantPolicy:
+    properties:
+      authorityMatches:
+        additionalProperties:
+          $ref: "#/definitions/PolicyAuthorityMatch"
+        description: |-
+          This loosely tracks the policy-controller's PolicyResult type found here:
+          https://github.com/sigstore/policy-controller/blob/f777dcc2e/pkg/webhook/validator_result.go
+          The keys of this map are the authority names from within the policy.
+        type: object
+      diagnostic:
+        description: diagnostic holds any messages surfaced by the policy evaluation.
+        type: string
+      lastChecked:
+        description: last_checked holds when this policy was last evaluated.
+        format: date-time
+        type: string
+      valid:
+        description: valid holds whether the policy evaluation was successful.
+        type: boolean
+    type: object
+  tenantRecord:
+    properties:
+      cluster:
+        description: cluster identifies the specific cluster for the record.
+        type: string
+      contexts:
+        description: contexts in which we have seen this image id.
+        items:
+          $ref: "#/definitions/tenantContext"
+        type: array
+      id:
+        title: id holds the UIDP for this image's record
+        type: string
+      image:
+        description: image is the container image for the record.
+        type: string
+      lastRefreshed:
+        additionalProperties:
+          format: date-time
+          type: string
+        description: |-
+          last_refreshed will hold a PredicateType => Last time it was successfully
+          refreshed.
+        type: object
+      lastSeen:
+        description:
+          last_seen is the last time we've seen this image anywhere on
+          this cluster.
+        format: date-time
+        type: string
+      policies:
+        additionalProperties:
+          $ref: "#/definitions/tenantPolicy"
+        description: |-
+          policies will hold a policy name => policy struct, containing the
+          last time it was checked and whether it is pass or fail.
+          refreshed.
+        type: object
+      sboms:
+        items:
+          $ref: "#/definitions/tenantSbom"
+        type: array
+    type: object
+  tenantRecordList:
+    properties:
+      items:
+        items:
+          $ref: "#/definitions/tenantRecord"
+        type: array
+    type: object
+  tenantSbom:
+    properties:
+      packages:
+        items:
+          $ref: "#/definitions/tenantPackage"
+        type: array
+    type: object
+info:
+  title: Chainguard Enforce OpenAPI Specification
+  version: "v0.0.18"
+paths:
+  /auth/v1/ok:
+    get:
+      operationId: Auth_Validate
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/authWhoAmI"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Auth
+  /auth/v1/register:
+    post:
+      operationId: Auth_Register
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/authRegistrationRequest"
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/authSession"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Auth
+  /tenant/v1/clusters:
+    get:
+      operationId: Clusters_List
+      parameters:
+        - description: id is the exact UID of the record.
+          in: query
+          name: id
+          required: false
+          type: string
+        - description: |-
+            active_since is the timestamp after which returned clusters should have been active.
+            This applies to both cluster registration and when it was "last seen".
+          format: date-time
+          in: query
+          name: activeSince
+          required: false
+          type: string
+        - description:
+            ancestors_of are groups reachable by repeated proceeding from
+            parent to child.
+          in: query
+          name: uidp.ancestorsOf
+          required: false
+          type: string
+        - description:
+            descendants_of are groups reachable by repeated proceeding from
+            child to parent.
+          in: query
+          name: uidp.descendantsOf
+          required: false
+          type: string
+        - description: remote_id is the remote ID of this cluster.
+          in: query
+          name: remoteId
+          required: false
+          type: string
+        - description: name is the exact name of the cluster.
+          in: query
+          name: name
+          required: false
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/tenantClusterList"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/googlerpcStatus"
+      tags:
+        - Clusters
+  /tenant/v1/clusters/{id}:
+    delete:
+      operationId: Clusters_Delete
+      parameters:
+        - description: id is the exact UIDP of the record.
+          in: path
+          name: id
+          pattern: .+
+          required: true
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/googlerpcStatus"
+      tags:
+        - Clusters
+    put:
+      operationId: Clusters_Update
+      parameters:
+        - description: id, The Cluster UIDP under which this Cluster resides.
+          in: path
+          name: id
+          pattern: .+
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            properties:
+              activity:
+                additionalProperties:
+                  $ref: "#/definitions/tenantClusterActivity"
+                description: |-
+                  activity is a mapping from "Source" URLs to an activity record summarizing
+                  recent activity from this source.
+                type: object
+              agentVersion:
+                description:
+                  agent_version holds the version of the Chainguard agent
+                  last reported by the cluster.
+                type: string
+              authInfo:
+                $ref: "#/definitions/ClusterAuthInfo"
+                description:
+                  auth_info holds authentication details for connecting to
+                  KinD in test scenarios.
+              description:
+                description: a short description of this cluster.
+                type: string
+              group:
+                $ref: "#/definitions/iamGroup"
+                title: group the cluster resides in
+              info:
+                $ref: "#/definitions/ClusterInfo"
+                description:
+                  info contains the cluster information from the kubeconfig
+                  context.
+              issuer:
+                description: issuer is the identity issuer tied to this cluster.
+                type: string
+              lastSeen:
+                description:
+                  last_seen tracks the timestamp at which this cluster was
+                  last seen.
+                format: date-time
+                type: string
+              managedName:
+                description: |-
+                  managed_name is the unique name we have given to this cluster's managed agent.
+                  This field is output-only, and is populated only when this cluster is "managed".
+                type: string
+              name:
+                description: name of the cluster.
+                type: string
+              provider:
+                $ref: "#/definitions/ClusterProvider"
+                description: |-
+                  provider holds the flavor of cluster provider, which is used to determine how we
+                  authenticate with the cluster.
+              registered:
+                description:
+                  registered tracks the timestamp at which this cluster was
+                  registered.
+                format: date-time
+                type: string
+              remoteId:
+                description: remote_id is the remote ID of this cluster.
+                type: string
+              status:
+                $ref: "#/definitions/tenantClusterStatus"
+                description: status contains the managed cluster's status.
+              version:
+                description:
+                  version holds the Kubernetes version last reported by the
+                  cluster.
+                type: string
+            type: object
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/tenantCluster"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/googlerpcStatus"
+      tags:
+        - Clusters
+  /tenant/v1/clusters/{parentId}:
+    post:
+      operationId: Clusters_Create
+      parameters:
+        - description: parent_id, The Group under which this Cluster resides.
+          in: path
+          name: parentId
+          pattern: .+
+          required: true
+          type: string
+        - description: Cluster is the definition of the managed cluster to create.
+          in: body
+          name: cluster
+          required: true
+          schema:
+            $ref: "#/definitions/tenantCluster"
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/tenantCluster"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/googlerpcStatus"
+      tags:
+        - Clusters
+  /tenant/v1/clusters/{cluster}/records:
+    get:
+      operationId: Records_List
+      parameters:
+        - description: |-
+            cluster is specified if restricting to a given cluster id.
+            This field is required.
+          in: path
+          name: cluster
+          required: true
+          type: string
+        - description: id is the exact UID of the record.
+          in: query
+          name: id
+          required: false
+          type: string
+        - description:
+            ancestors_of are groups reachable by repeated proceeding from
+            parent to child.
+          in: query
+          name: uidp.ancestorsOf
+          required: false
+          type: string
+        - description:
+            descendants_of are groups reachable by repeated proceeding from
+            child to parent.
+          in: query
+          name: uidp.descendantsOf
+          required: false
+          type: string
+        - description: image is specified if a specific Record is desired.
+          in: query
+          name: image
+          required: false
+          type: string
+        - description: |-
+            predicate specifies to fetch Records where either there's no
+            LastRefreshed for this predicate type, or if it needs to be refreshed.
+          in: query
+          name: predicate
+          required: false
+          type: string
+        - description: |-
+            active_since is the timestamp after which returned records should have been active.
+            This applies to when an image was "last seen".
+          format: date-time
+          in: query
+          name: activeSince
+          required: false
+          type: string
+        - description:
+            violations specifies to fetch Records where at least one policy
+            is not valid.
+          in: query
+          name: violations
+          required: false
+          type: boolean
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/tenantRecordList"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Clusters
+  /iam/v1/account_associations:
+    get:
+      operationId: GroupAccountAssociations_List
+      parameters:
+        - description:
+            group is the exact UIDP of the group whose associations we want
+            to list.
+          in: query
+          name: group
+          required: false
+          type: string
+        - description: name is the exact name of the association.
+          in: query
+          name: name
+          required: false
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamAccountAssociationsList"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - GroupAccountAssociations
+  /iam/v1/account_associations/{group}:
+    delete:
+      operationId: GroupAccountAssociations_Delete
+      parameters:
+        - description:
+            group is the exact UIDP of the group whose associations we want
+            to delete.
+          in: path
+          name: group
+          pattern: .+
+          required: true
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - GroupAccountAssociations
+    post:
+      operationId: GroupAccountAssociations_Create
+      parameters:
+        - description: group is the group with which this account information is associated.
+          in: path
+          name: group
+          pattern: .+
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            properties:
+              amazon:
+                $ref: "#/definitions/AccountAssociationsAmazon"
+                description:
+                  amazon holds information associating an Amazon account
+                  with the group.
+              description:
+                description: a short description of this association.
+                type: string
+              google:
+                $ref: "#/definitions/AccountAssociationsGoogle"
+                description:
+                  google holds information associating a Google project with
+                  the group.
+              name:
+                description: name of the association.
+                type: string
+            type: object
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamAccountAssociations"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - GroupAccountAssociations
+    put:
+      operationId: GroupAccountAssociations_Update
+      parameters:
+        - description: group is the group with which this account information is associated.
+          in: path
+          name: group
+          pattern: .+
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            properties:
+              amazon:
+                $ref: "#/definitions/AccountAssociationsAmazon"
+                description:
+                  amazon holds information associating an Amazon account
+                  with the group.
+              description:
+                description: a short description of this association.
+                type: string
+              google:
+                $ref: "#/definitions/AccountAssociationsGoogle"
+                description:
+                  google holds information associating a Google project with
+                  the group.
+              name:
+                description: name of the association.
+                type: string
+            type: object
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamAccountAssociations"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - GroupAccountAssociations
+  /iam/v1/group_invites:
+    get:
+      operationId: GroupInvites_List
+      parameters:
+        - description: group is used to identify the group this record is rooted under.
+          in: query
+          name: group
+          required: false
+          type: string
+        - description: id is the exact UID of the record.
+          in: query
+          name: id
+          required: false
+          type: string
+        - description: key_id is the identify the verification key for this code.
+          in: query
+          name: keyId
+          required: false
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamGroupInviteList"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - GroupInvites
+  /iam/v1/group_invites/{group}:
+    post:
+      operationId: GroupInvites_Create
+      parameters:
+        - description: group, The Group UIDP path under which the new group Invite targets.
+          in: path
+          name: group
+          pattern: .+
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            properties:
+              role:
+                description:
+                  role is the Role UIDP the invited identity will be role-bound
+                  to the group with.
+                type: string
+              ttl:
+                description: expiration, timestamp this invite becomes no longer valid.
+                type: string
+            type: object
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamGroupInvite"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - GroupInvites
+  /iam/v1/group_invites/{id}:
+    delete:
+      operationId: GroupInvites_Delete
+      parameters:
+        - description: id is the exact UIDP of the record.
+          in: path
+          name: id
+          pattern: .+
+          required: true
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - GroupInvites
+  /iam/v1/groups:
+    get:
+      operationId: Groups_List
+      parameters:
+        - description: id is the exact UID of the record.
+          in: query
+          name: id
+          required: false
+          type: string
+        - description:
+            ancestors_of are groups reachable by repeated proceeding from
+            parent to child.
+          in: query
+          name: uidp.ancestorsOf
+          required: false
+          type: string
+        - description:
+            descendants_of are groups reachable by repeated proceeding from
+            child to parent.
+          in: query
+          name: uidp.descendantsOf
+          required: false
+          type: string
+        - description: name is the exact name of the record.
+          in: query
+          name: name
+          required: false
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamGroupList"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Groups
+  /iam/v1/groups/{id}:
+    delete:
+      operationId: Groups_Delete
+      parameters:
+        - description: id is the exact UIDP of the record.
+          in: path
+          name: id
+          pattern: .+
+          required: true
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Groups
+    put:
+      operationId: Groups_Update
+      parameters:
+        - description: id, The group UIDP under which this group resides.
+          in: path
+          name: id
+          pattern: .+
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            properties:
+              description:
+                description: description, human readable of group.
+                type: string
+              name:
+                description: name, human readable name of group.
+                type: string
+            type: object
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamGroup"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Groups
+  /iam/v1/groups/{parent}:
+    post:
+      operationId: Groups_Create
+      parameters:
+        - description: |-
+            parent, The Group UIDP path under which the new Group resides.
+            This is effectively the iam_scope for Create requests, but because
+            we also allow users to create new "root" groups, we check the scoping
+            manually. Parent is allowed to be a prefix of a UIDP of a Group within
+            scope, or the name of a Group in scope.
+          in: path
+          name: parent
+          pattern: .+
+          required: true
+          type: string
+        - description: Group to create.
+          in: body
+          name: group
+          required: true
+          schema:
+            $ref: "#/definitions/iamGroup"
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamGroup"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Groups
+  /iam/v1/identities:
+    post:
+      operationId: Identities_Create
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/eventsIdentity"
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/eventsIdentity"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Identities
+  /iam/v1/policies:
+    get:
+      operationId: Policies_List
+      parameters:
+        - description: id is the exact UIDP of the record.
+          in: query
+          name: id
+          required: false
+          type: string
+        - description:
+            ancestors_of are groups reachable by repeated proceeding from
+            parent to child.
+          in: query
+          name: uidp.ancestorsOf
+          required: false
+          type: string
+        - description:
+            descendants_of are groups reachable by repeated proceeding from
+            child to parent.
+          in: query
+          name: uidp.descendantsOf
+          required: false
+          type: string
+        - description: name is the exact name of the record.
+          in: query
+          name: name
+          required: false
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamPolicyList"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Policies
+  /iam/v1/policies/{id}:
+    delete:
+      operationId: Policies_Delete
+      parameters:
+        - description: id is the exact UIDP of the record.
+          in: path
+          name: id
+          pattern: .+
+          required: true
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Policies
+    put:
+      operationId: Policies_Update
+      parameters:
+        - description: id is identifier of this specific policy.
+          in: path
+          name: id
+          pattern: .+
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            properties:
+              description:
+                description: description, human readable description of policy.
+                type: string
+              document:
+                description: document, YAML encoded policy document.
+                type: string
+              name:
+                description: name, human readable name of policy.
+                type: string
+            type: object
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamPolicy"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Policies
+  /iam/v1/policies/{parentId}:
+    post:
+      operationId: Policies_Create
+      parameters:
+        - description:
+            parent_id, The Group UIDP path under which the new policy is
+            associated.
+          in: path
+          name: parentId
+          pattern: .+
+          required: true
+          type: string
+        - description: Policy is the policy to create;
+          in: body
+          name: policy
+          required: true
+          schema:
+            $ref: "#/definitions/iamPolicy"
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamPolicy"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Policies
+  /iam/v1/rolebindings:
+    get:
+      operationId: RoleBindings_List
+      parameters:
+        - description: id is the exact UID of the record.
+          in: query
+          name: id
+          required: false
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamRoleBindingList"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - RoleBindings
+    post:
+      operationId: RoleBindings_Create
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/iamRoleBinding"
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamRoleBinding"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - RoleBindings
+  /iam/v1/rolebindings/{id}:
+    delete:
+      operationId: RoleBindings_Delete
+      parameters:
+        - description: id is the exact UID of the record.
+          in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - RoleBindings
+    put:
+      operationId: RoleBindings_Update
+      parameters:
+        - description: id, the UID of this role binding.
+          in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            properties:
+              group:
+                description: group, UIDP of the group to bind.
+                type: string
+              identity:
+                description: identity, UID of the Identity to bind.
+                type: string
+              role:
+                title: role, UIDP of the Role to bind
+                type: string
+            type: object
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamRoleBinding"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - RoleBindings
+  /iam/v1/roles:
+    get:
+      operationId: Roles_List
+      parameters:
+        - description: id is the exact UIDP of the record.
+          in: query
+          name: id
+          required: false
+          type: string
+        - description: name is the exact name of the record
+          in: query
+          name: name
+          required: false
+          type: string
+        - description: parent is the exact UIDP of the parent, or / for root
+          in: query
+          name: parent
+          required: false
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamRoleList"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Roles
+  /iam/v1/roles/{id}:
+    delete:
+      operationId: Roles_Delete
+      parameters:
+        - description: id is the exact UIDP of the record.
+          in: path
+          name: id
+          pattern: .+
+          required: true
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Roles
+    put:
+      operationId: Roles_Update
+      parameters:
+        - description: id, The Group path under which this Role resides.
+          in: path
+          name: id
+          pattern: .+
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            properties:
+              capabilities:
+                description:
+                  capabilities, human readable list of capabilities supported
+                  by the group.
+                items:
+                  type: string
+                type: array
+              description:
+                description: description, human readable description of group.
+                type: string
+              name:
+                description: name, human readable name of group.
+                type: string
+            type: object
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamRole"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Roles
+  /iam/v1/roles/{parentId}:
+    post:
+      operationId: Roles_Create
+      parameters:
+        - description: parent_id, The Group UIDP path under which the new Role resides.
+          in: path
+          name: parentId
+          pattern: .+
+          required: true
+          type: string
+        - description: Role to create.
+          in: body
+          name: role
+          required: true
+          schema:
+            $ref: "#/definitions/iamRole"
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/iamRole"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Roles
+  /sts/exchange:
+    post:
+      operationId: SecurityTokenService_Exchange
+      parameters:
+        - collectionFormat: multi
+          in: query
+          items:
+            type: string
+          name: aud
+          required: false
+          type: array
+        - in: query
+          name: scope
+          required: false
+          type: string
+        - in: query
+          name: cluster
+          required: false
+          type: string
+        - in: query
+          name: identity
+          required: false
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/oidcRawToken"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - SecurityTokenService
+  /events/v1/subscriptions:
+    get:
+      operationId: Subscriptions_List
+      parameters:
+        - description: id is the exact UIDP of the record.
+          in: query
+          name: id
+          required: false
+          type: string
+        - description:
+            ancestors_of are groups reachable by repeated proceeding from
+            parent to child.
+          in: query
+          name: uidp.ancestorsOf
+          required: false
+          type: string
+        - description:
+            descendants_of are groups reachable by repeated proceeding from
+            child to parent.
+          in: query
+          name: uidp.descendantsOf
+          required: false
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/eventsSubscriptionList"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Subscriptions
+  /events/v1/subscriptions/{id}:
+    delete:
+      operationId: Subscriptions_Delete
+      parameters:
+        - description: id is the exact UIDP of the record.
+          in: path
+          name: id
+          pattern: .+
+          required: true
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Subscriptions
+  /events/v1/subscriptions/{parentId}:
+    post:
+      operationId: Subscriptions_Create
+      parameters:
+        - description:
+            parent_id, The Group UIDP path under which the new subscription
+            is associated.
+          in: path
+          name: parentId
+          pattern: .+
+          required: true
+          type: string
+        - description: Subscription is the subscription to create;
+          in: body
+          name: subscription
+          required: true
+          schema:
+            $ref: "#/definitions/eventsSubscription"
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: "#/definitions/eventsSubscription"
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: "#/definitions/rpcStatus"
+      tags:
+        - Subscriptions
+
+produces:
+  - application/json
+swagger: "2.0"
