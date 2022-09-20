@@ -14,7 +14,7 @@ weight: 10
 toc: true
 ---
 
-{{< youtube nB3xw3Nazgc >}}
+{{< youtube veiCVgDpYcY >}}
 
 Sigstore
 
