@@ -1,12 +1,11 @@
-This walkthrough will quickly get Chainguard Enforce installed and running locally — from setting up an example cluster, to drafting a policy and observing how it behaves, to improving the policy, and finally enforcing that policy. If you'd like more information on working with Chainguard Enforce, we encourage you to to check out the [detailed tutorial on Chainguard Academy](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/).
-
-
 ## Prerequisites
+
+This walkthrough will quickly get Chainguard Enforce installed and running locally — from setting up an example cluster, to drafting a policy and observing how it behaves, to improving the policy, and finally enforcing that policy. If you'd like more information on working with Chainguard Enforce, we encourage you to to check out the [detailed tutorial on Chainguard Academy](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/).
 
 Before running Chainguard Enforce locally, you’ll need to ensure you have the following installed:
 
 * **`kind`** — install kind for local Kubernetes orchestration via the [kind install docs](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
-* **`curl`** — follow the relevant [curl download docs]( https://curl.se/download.html) for your machine.
+* **`curl`** — follow the relevant [curl download docs](https://curl.se/download.html) for your machine.
 * **`jq`**  — visit the [jq downloads page](https://stedolan.github.io/jq/download/) to set it up.
 * **Docker** — [install for your machine](https://docs.docker.com/get-docker/) and run it in order to complete this tutorial.
 
@@ -40,7 +39,7 @@ Next, elevate the permissions of chainctl so that it can execute as needed.
 chmod +x chainctl
 ```
 
-Finally, add chainctl to our PATH so that we can use chainctl on the command line.
+Finally, add chainctl to your PATH so that you can use it on the command line.
 
 ```sh
 alias chainctl=$PWD/chainctl
@@ -85,7 +84,7 @@ Once authenticated, you can check for the ID of the your group.
 chainctl iam groups ls -o table
 ```
 
-You'll receive output in the form of a table of your current groups, similar to the following.
+You'll receive output in the form of a table with information about your current groups, similar to the following.
 
 ```
                      ID                    |       NAME       | DESCRIPTION  
@@ -94,13 +93,13 @@ You'll receive output in the form of a table of your current groups, similar to 
   b9adda06841c1d34dfa73d5902ed44b5448b7958 | enforce-demo-group |              
 ```
 
-Create a variable that stores the ID in the left column for later steps in the tutorial. In the following command, replace `$GROUP_ID` with the relevant ID.
+Next, create a variable that stores the ID in the left column for later steps in this tutorial. In the following command, replace `$GROUP_ID` with the relevant ID.
 
 ```sh
 export GROUP=$GROUP_ID
 ```
 
-In the UI, you will also be able to check for any groups to which you belong from the filter modal, which you can open by clicking on the icon.
+In the UI, you can also check for groups to which you belong from the filter modal, which you can open by clicking on the filter icon in the top-level navigation menu.
 
 <screenshot>
 
@@ -120,7 +119,7 @@ Install the Enforce agent in your cluster:
 chainctl cluster install --group=$GROUP --private --context kind-enforce-demo
 ```
 
-If you click on the **Clusters** tab in the main navigation menu, you should now see your cluster in the cluster table.
+If you click on the [**Clusters** tab](https://console.enforce.dev/clusters) in the main navigation menu, you should now see your cluster in the cluster table.
 
 <screenshot>
 
@@ -129,9 +128,9 @@ From here, you can explore a detailed view of the cluster, including any policie
 
 ## Step 4 — Create a policy to require signatures on images
 
-You can create a policy directly from the UI by navigating to the **Policies** tab. In the policy table menu, you will see a **Create policy** button. Clicking this button will open a dropdown menu, which will allow you to create a policy from scratch or use a predefined template.
+You can create a policy directly from the UI by navigating to the [**Policies** tab](https://console.enforce.dev/policies). In the policy table menu, you will see a **Create policy** button. Clicking this button will open a dropdown menu, which will allow you to create a policy from scratch or use a predefined template.
 
-For now, we can create a policy using the **Custom** option from the dropdown.
+For now, we can create a policy using the [**Custom** option from the dropdown](https://console.enforce.dev/policies/create/custom).
 
 <screenshot>
 
@@ -167,13 +166,13 @@ A few policies will be in place in addition to the policy you just created.
 
 ## Step 5 — Inspect compliance of containers
 
-The first place we can look for information about container compliance is the clusters main page, which you can find by clicking on the **Clusters** tab in the main navigation menu.
+The first place we can look for information about container compliance is the clusters main page, which you can find by clicking on the [**Clusters** tab](https://console.enforce.dev/clusters) in the main navigation menu.
 
 With our new policy, `sample-policy`, in place, information about policy compliance should be visible in the **Policy** column, next to the cluster name.
 
 <screenshot>
 
-You can also find more information about policy compliance by clicking on either of the cards in the cluster list page, which will take you to views that provide more information on any policies that have failed, and the exact images that are failing policies.
+You can also find more information about policy compliance by clicking on either of the cards in the cluster list page. The links on these cards will take you to views that provide more information on policies that have failed, and the exact images that are failing policies.
 
 Additionally, the buttons on top of the cluster table will allow you to filter your clusters by compliance.
 
