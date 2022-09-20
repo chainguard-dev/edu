@@ -70,15 +70,7 @@ Platform:      darwin/arm64
 
 ## Step 2 — Check your IAM group
 
-Authenticate to the Chainguard Enforce platform with the invite code you have received.
-
-```sh
-chainctl auth login --invite-code <YOUR-CODE>
-```
-
-A web browser window will open to prompt you to log in via an OIDC flow. 
-
-Once authenticated, you can check for the ID of the your group.
+Using chainctl, you can check for the ID of the your group.
 
 ```sh
 chainctl iam groups ls -o table
@@ -137,7 +129,7 @@ For now, we can create a policy using the [**Custom** option from the dropdown](
 On the policy create page, ensure that the correct group is displayed in the group field: `enforce-demo`. Then paste the following code into the code editor:
 
 ```
-apiVersion: policy.sigstore.dev/v1alpha1
+apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
   name: sample-policy
