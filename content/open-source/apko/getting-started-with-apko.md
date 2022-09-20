@@ -37,7 +37,7 @@ The instructions in this document were validated on an Ubuntu 22.04 workstation 
 Start by pulling the official apko image into your local system:
 
 ```shell
-docker pull distroless.dev/apko
+docker pull cgr.dev/chainguard/apko
 ```
 
 This will download the latest version of the distroless apko image, which is rebuilt every night for extra freshness.
@@ -45,7 +45,7 @@ This will download the latest version of the distroless apko image, which is reb
 Check that you're able to run apko with:
 
 ```shell
-docker run --rm distroless.dev/apko version
+docker run --rm cgr.dev/chainguard/apko version
 ```
 
 You should get output similar to this:
@@ -113,10 +113,10 @@ Save and close the file after you're done including these contents. With `nano`,
 The only thing left to do now is run apko to build this image. The following build command will:
 
 - set up a volume share in the current directory, synchronizing its contents with apko's image workdir; this way, the generated artifacts will be available on your host system.
-- execute the `distroless.dev/apko` image with the `build` command, tagging the image as `alpine-base:test` and saving the build as `alpine-test.rar`.
+- execute the `cgr.dev/chainguard/apko` image with the `build` command, tagging the image as `alpine-base:test` and saving the build as `alpine-test.rar`.
 
 ```shell
-docker run --rm -v ${PWD}:/work distroless.dev/apko build /work/alpine-base.yaml alpine-base:test /work/alpine-test.tar
+docker run --rm -v ${PWD}:/work cgr.dev/chainguard/apko build /work/alpine-base.yaml alpine-base:test /work/alpine-test.tar
 ```
 
 You should get output similar to this:
