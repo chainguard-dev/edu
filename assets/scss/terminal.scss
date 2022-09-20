@@ -51,6 +51,10 @@ $chainguard--light-blue: #48a8e8;
         float: left;
       }
 
+      li#close-button {
+        cursor: pointer;
+      }
+
       li {
         display: inline;
         margin: 0 1rem;
@@ -60,4 +64,8 @@ $chainguard--light-blue: #48a8e8;
       }
     }
   }
+}
+
+footer {
+    margin-bottom: 375px;
 }
