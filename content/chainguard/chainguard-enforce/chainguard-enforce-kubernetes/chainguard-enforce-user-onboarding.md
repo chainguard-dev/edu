@@ -27,12 +27,12 @@ In this guide, we will set up an example cluster, draft a policy and observe how
 
 Before running Chainguard Enforce locally, you’ll need to ensure you have the following installed:
 
-* **`kind`** — to create a kind Kubernetes cluster on our laptop, you can download and install kind for your relevant operating system by following the [kind install docs](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
-* **`curl`** — to retrieve files from the web, follow the relevant [curl download docs](https://curl.se/download.html) for your machine.
-* **`jq`**  — to process JSON, visit the [jq downloads page](https://stedolan.github.io/jq/download/) to set it up.
+* **curl** — to retrieve files from the web, follow the relevant [curl download docs](https://curl.se/download.html) for your machine.
 * **Docker** — you’ll need [Docker installed](https://docs.docker.com/get-docker/) and running in order to step through this tutorial. 
-
-One last note — if you are running macOS, you’ll need to ensure you are using bash version 4 or higher, which is not preinstalled in the machine. Please [follow our guide](../../../../open-source/update-bash-macos) on how to update your version if you are getting version 3 or below when you run `bash --version`.
+* **kind** — to create a kind Kubernetes cluster on our laptop, you can download and install kind for your relevant operating system by following the [kind install docs](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
+* **kubectl** — to work with your kind cluster, you can install for your operating system by following the official [Kubernetes kubectl documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
+* **jq**  — to process JSON, visit the [jq downloads page](https://stedolan.github.io/jq/download/) to set it up.
+* For macOS users, you'll need to update to bash version 4 or higher, which is not preinstalled in the machine. Please [follow our guide](../../../../open-source/update-bash-macos) on how to update your version if you are getting version 3 or below when you run `bash --version`.
 
 With these prerequisites in place, you’re ready to begin.
 
@@ -124,12 +124,12 @@ For demonstration purposes, we’ll create a group called `enforce-demo-group`, 
 chainctl iam groups create enforce-demo-group --no-parent
 ```
 
-You’ll be asked whether you want to continue and to confirm logging in again. As long as you are willing to continue, press `y` in response to each prompt. 
+You’ll be asked whether you want to continue and to confirm logging in again. As long as you are willing to continue, press `y` (case insensitive) or `ENTER` in response to each prompt. 
 
 ```
-Continue? [Y,n]: y
+Continue? [Y,n]: 
 Changes to your account require you to login again to be reflected locally.
-Continue? [Y,n]: y
+Continue? [Y,n]: 
 ```
 
 You’ll receive feedback that your token was successfully exchanged and that your ID is valid. 
@@ -184,7 +184,7 @@ To achieve this, we will create a new policy to require that only signed contain
 
 ```sh
 cat > sample-policy.yaml <<EOF
-> apiVersion: policy.sigstore.dev/v1alpha1
+> apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
   name: sample-policy
@@ -200,7 +200,7 @@ spec:
 EOF
 ```
 
-This policy creates a cluster image policy with the Sigstore alpha API, and with Fulcio as a keyless authority. Here, we are requiring not only that Chainguard demo images be signed, but that all images from Docker be signed as well.
+This policy creates a cluster image policy with the Sigstore beta API, and with Fulcio as a keyless authority. Here, we are requiring not only that Chainguard demo images be signed, but that all images from Docker be signed as well.
 
 We have already set up the `SAMPLE_GROUP` variable in with the group we created above in Step 2. Let’s now associate this new policy with that group.
 
@@ -246,7 +246,7 @@ Next, we’ll verify the compliance records of containers via the CLI.
 First, obtain the cluster ID and load it into a variable for usage. We are using `kubectl` to get an UUID (universally unique identifier) that Chainguard Enforce uses to identify the agent running on your cluster.
 
 ```sh
-export CLUSTER_ID=$(kubectl get ns gulfstream -ojson | jq -r .metadata.uid)
+export CLUSTER_ID=$(chainctl cluster list -o json | jq -r '.items[0].name')
 ```
 
 With this set up, we can run the following command to list the records of the scanned images.
