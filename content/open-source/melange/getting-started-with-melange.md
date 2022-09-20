@@ -49,7 +49,7 @@ You should now be able to build apks for all architectures that melange supports
 The fastest way to get melange up and running on your system is by using the [official melange image](https://github.com/distroless/melange) with Docker. Start by pulling the official melange image into your local system:
 
 ```shell
-docker pull distroless.dev/melange:latest
+docker pull cgr.dev/chainguard/melange:latest
 ```
 
 This will download the latest version of the distroless melange image, which is rebuilt every night for extra freshness.
@@ -57,7 +57,7 @@ This will download the latest version of the distroless melange image, which is 
 Check that you're able to run melange with `docker run`.
 
 ```shell
-docker run --rm distroless.dev/melange version
+docker run --rm cgr.dev/chainguard/melange version
 ```
 
 You should get output similar to the following:
@@ -272,7 +272,7 @@ First make sure you're at the `~/hello-minicli` directory.
 To get started, create a temporary keypair to sign your melange packages:
 
 ```shell
-docker run --rm -v "${PWD}":/work distroless.dev/melange keygen
+docker run --rm -v "${PWD}":/work cgr.dev/chainguard/melange keygen
 ```
 This will generate a `melange.rsa` and `melange.rsa.pub` files in the current directory.
 
@@ -286,7 +286,7 @@ Next, build the apk defined in the `melange.yaml` file with the following comman
 
 ```shell
 docker run --privileged --rm -v "${PWD}":/work \
-  distroless.dev/melange build melange.yaml \
+  cgr.dev/chainguard/melange build melange.yaml \
   --arch x86,amd64,aarch64,armv7 \
   --signing-key melange.rsa
 ```
@@ -357,7 +357,7 @@ Save and close the file when you're done. You are now ready to build your contai
 The following command will set up a volume sharing your current folder with the location `/work` in the apko container, running the `apko build` command to generate an image based on your `apko.yaml` definition file.
 
 ```shell
-docker run --rm -v ${PWD}:/work distroless.dev/apko \
+docker run --rm -v ${PWD}:/work cgr.dev/chainguard/apko \
   build apko.yaml hello-minicli:test hello-minicli.tar \
   -k melange.rsa.pub
 ```

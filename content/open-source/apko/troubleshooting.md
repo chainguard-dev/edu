@@ -20,7 +20,7 @@ toc: true
 To include debug-level information on apko builds, add `--debug` to your build command:
 
 ```shell
-docker run --rm -v ${PWD}:/work distroless.dev/apko build --debug \
+docker run --rm -v ${PWD}:/work cgr.dev/chainguard/apko build --debug \
   apko.yaml hello-minicli:test hello-minicli.tar \
   -k melange.rsa.pub
 ```
