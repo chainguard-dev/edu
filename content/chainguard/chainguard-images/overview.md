@@ -33,6 +33,8 @@ Chainguard Images are available [on Github](https://github.com/chainguard-images
 
 [Distroless images](https://blog.chainguard.dev/minimal-container-images-towards-a-more-secure-future/) are the result of pushing minimalism in containers to the next level. When compared to traditional base images such as [alpine](https://hub.docker.com/_/alpine) or [debian](https://hub.docker.com/_/debian), they are more stripped back, lacking even a shell or package managers. However, compared to the empty “scratch” image, they do contain structure essential for the majority of Linux applications such as root certificates for TLS and core files like `/etc/passwd`.
 
-The major advantage of distroless images is the reduced size and complexity, which results in a vastly reduced attack surface. This is evidenced by the results from security scanners, which detect far fewer potential vulnerabilities in Chainguard Images. The following graph shows a comparison between the official Nginx image and Chainguard's Nginx image, based on the number of CVEs (common vulnerabilities and exposures) detected by Trivy:
+The following graph shows a comparison between the official Nginx image and Chainguard's Nginx image, based on the number of CVEs (common vulnerabilities and exposures) detected by Trivy:
 
-{{< rumble left="nginx:latest" right="distroless.dev/nginx:latest" >}}
+{{< rumble title="Nginx" description="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx" left="nginx:latest" right="cgr.dev/chainguard/nginx:latest" >}}
+
+The major advantage of distroless images is the reduced size and complexity, which results in a vastly reduced attack surface. This is evidenced by the results from security scanners, which detect far fewer potential vulnerabilities in Chainguard Images. 
