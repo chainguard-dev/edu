@@ -99,7 +99,7 @@ export GROUP=$GROUP_ID
 
 In the UI, you can also check for groups to which you belong from the filter modal, which you can open by clicking on the filter icon in the top-level navigation menu.
 
-<screenshot>
+![Group dropdown](/images/group-dropdown.png)
 
 You can check here to see the groups to which you belong and filter resources based on group ownership.
 
@@ -119,7 +119,7 @@ chainctl cluster install --group=$GROUP --private --context kind-enforce-demo
 
 If you click on the [**Clusters** tab](https://console.enforce.dev/clusters) in the main navigation menu, you should now see your cluster in the cluster table.
 
-<screenshot>
+![Cluster list](/images/cluster-list.png)
 
 From here, you can explore a detailed view of the cluster, including any policies that apply to it.
 
@@ -129,7 +129,7 @@ You can create a policy directly from the UI by navigating to the [**Policies** 
 
 For now, we can create a policy using the [**Custom** option from the dropdown](https://console.enforce.dev/policies/create/custom).
 
-<screenshot>
+![Create policy](/images/create-policy.png)
 
 On the policy create page, ensure that the correct group is displayed in the group field: `enforce-demo`. Then paste the following code into the code editor:
 
@@ -167,7 +167,7 @@ The first place we can look for information about container compliance is the cl
 
 With our new policy, `sample-policy`, in place, information about policy compliance should be visible in the **Policy** column, next to the cluster name.
 
-<screenshot>
+![Cluster compliance](/images/cluster-compliance.png)
 
 You can also find more information about policy compliance by clicking on either of the cards in the cluster list page. The links on these cards will take you to views that provide more information on policies that have failed, and the exact images that are failing policies.
 
@@ -200,7 +200,7 @@ Give this a few seconds to populate and then check what’s running again by nav
 
 In the **Policy violations** table, the image will be listed.
 
-<screenshot>
+![Image with violations](/images/problem-nginx.png)
 
 Clicking on the **Show diagnostic** button in the table will provide more information about the violation.
 
@@ -212,7 +212,7 @@ kubectl create deployment good-nginx --image=ghcr.io/chainguard-dev/nginx-image-
 
 This image won't be listed in the violations table, but you can navigate to the **Images** table to retrieve it.
 
-<screenshot>
+![Image without violations](/images/good-nginx.png)
  
 This image passes the policy because it has both an SBOM and a signature.
 
