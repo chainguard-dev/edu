@@ -1,56 +1,29 @@
 {{ define "main" }}
-<section class="section container-fluid mt-n3 pb-3">
-  <div class="row justify-content-center">
-    <div class="col-lg-12 text-center">
-      <h1 class="mt-0">{{ .Site.Params.Title }}</h1>
-    </div>
-    <div class="col-lg-9 col-xl-8 text-center">
-      <p class="lead">{{ .Site.Params.description | safeHTML }}</p>
-    </div>
-  </div>
-</section>
-{{ end }}
+  <img src="chainguard-academy-banner.jpg" alt="Chainguard Academy: Learn how to make your software supply chain secure by default">
+<p></p>
+  {{ end }}
 
 {{ define "sidebar-prefooter" }}
 <section class="section section-sm">
   <div class="container">
     <div class="row justify-content-center text-center">
       <div class="col-lg-5">
-        <a href="/software-security/glossary/"><i class="bi-sort-alpha-down featured-icon chainguard-blue"></i></a>
-        <a href="/software-security/glossary/"><h2 class="h4">Glossary</h2></a>
-        <p>The <a href="/software-security/glossary/">Software Supply Chain Glossary</a> contains definitions for relevant acronyms, tools, and projects in the software supply chain ecosystem. </p>
+        <a href="/chainguard/chainguard-enforce"><i class="bi-lock featured-icon chainguard-blue"></i></a>
+        <a href="/chainguard/chainguard-enforce"><h2 class="h4">Chainguard Enforce</h2></a>
+        <p>Check out <a href="/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/">Chainguard Enforce user onboarding</a> to learn about this comprehensive solution for software supply chain risk management.</p>
       </div>
       <div class="col-lg-5">
-        <a href="/chainguard/chainguard-enforce/"><i class="bi-file-text featured-icon chainguard-blue"></i></a>
-        <a href="/chainguard/chainguard-enforce/"><h2 class="h4">Chainguard Enforce Docs</h2></a>
-        <p>Our articles cover software supply chain security in practice, including how to implement recommendations and how to automate compliance checks.</p>
+        <a href="/open-source/wolfi/"><i class="bi-boxes featured-icon chainguard-blue"></i></a>
+        <a href="/open-source/wolfi/"><h2 class="h4">Wolfi</h2></a>
+        <p>A Linux undistro for secure container images designed for the cloud-native era. Read our <a href="/open-source/wolfi/overview/">Wolfi overview</a> to find out more.</p>
       </div>
       <div class="col-lg-5">
-        <a href="https://www.edx.org/course/securing-your-software-supply-chain-with-sigstore" target="_blank"><i class="bi-person-workspace featured-icon chainguard-blue"></i></a>
-        <a href="https://www.edx.org/course/securing-your-software-supply-chain-with-sigstore" target="_blank"><h2 class="h4">Courses</h2></a>
-        <p>Learn about software supply chain security with the <a href="https://www.edx.org/course/securing-your-software-supply-chain-with-sigstore" target="_blank">Sigstore edX course</a>, brought to you by the Linux Foundation in partnership with Chainguard.</p>
+        <a href="/open-source/sigstore/" target="_blank"><i class="bi-tools featured-icon chainguard-blue"></i></a>
+        <a href="/open-source/sigstore/" target="_blank"><h2 class="h4">Sigstore</h2></a>
+        <p>Offering open source security tooling, get up to speed with the <a href="https://www.edx.org/course/securing-your-software-supply-chain-with-sigstore" target="_blank">Sigstore edX course</a>, brought to you by the Linux Foundation.</p>
       </div>
     </div>
 
-    <!--
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-5">
-        <i class="bi-play-btn featured-icon chainguard-blue"></i>
-        <h2 class="h4">Videos</h2>
-        <p>Search your site with FlexSearch.</p>
-      </div>
-      <div class="col-lg-5">
-        <i class="bi-person-video3 featured-icon chainguard-blue"></i>
-        <h2 class="h4">Talks</h2>
-        <p>Build pages with a landing page, blog, or documentation layout. Add custom sections and components to suit your needs.</p>
-      </div>
-      <div class="col-lg-5">
-        <i class="bi-chat featured-icon chainguard-blue"></i>
-        <h2 class="h4">Get in Touch</h2>
-        <p>Get in touch by joining the Sigstore Slack.</p>
-      </div>
-    </div>
-    !-->
   </div>
 </section>
 
@@ -58,7 +31,7 @@
   <div class=container>
     <div class="row justify-content-center">
       <div class="col-lg-12 text-center">
-        <p><br><img src="Chainguard_Lockup_Blue.svg" alt="Chainguard logo"></p>
+        <p><a href="https://chainguard.dev"><img src="Chainguard_Lockup_Blue.svg" alt="Chainguard logo"></a></p>
       </div>
   </div>
 </section>
@@ -67,6 +40,7 @@
 
 {{ define "sidebar-footer" }}
 <section class="section section-sm container-fluid">
+  
   <div class="row justify-content-center text-center">
     <div class="col-lg-9">
       {{- .Content -}}

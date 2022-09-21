@@ -4,7 +4,7 @@
 title = "Chainguard Academy"
 titleSeparator = "—"
 titleAddition = "Software Supply Chain Security Knowledge Base"
-description = "Learn to make the software supply chain secure by default"
+description = "Learn how to make your software supply chain secure by default"
 
 ## Documentation
 # docsVersion = "0.3"
@@ -81,7 +81,7 @@ lastMod = false
   flexSearch = true
   darkMode = true
   bootStrapJs = true
-  breadCrumb = true
+  breadCrumb = false
   highLight = true
   kaTex = false
   multilingualMode = false

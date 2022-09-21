@@ -5,7 +5,7 @@ description: "chainctl Reference Documentation"
 type: "article"
 date: 2022-09-20
 lastmod: 2020-09-20
-draft: true
+draft: false
 images: []
-toc: true
+toc: false
 ---

@@ -16,6 +16,7 @@ toc: true
 
 {{< youtube nB3xw3Nazgc >}}
 
+<br>
 Hi, I’m Dan Lorenc, CEO & Co-founder of Chainguard & I’ve been working in the open source software supply chain security space for a long time.
 
 Today, we’re going to recap the massive typo squatting attack that was carried out against a bunch of open source projects on GitHub on August 3, 2022. 

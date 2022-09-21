@@ -12,6 +12,7 @@ menu:
   docs:
     parent: "melange"
 weight: 100
+terminalImage: gcloud:latest
 toc: true
 ---
 

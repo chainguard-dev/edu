@@ -6,7 +6,7 @@
     {{ range .Sections }}
       {{ $active := in $currentPage.RelPermalink .RelPermalink }}
       <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
+        <button class="btn btn-toggle align-items-center rounded collapsed"  data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
           {{ .Title }}
         </button>
         <div class="collapse{{ if $active }} show{{ end }}" id="section-{{ md5 .Title }}">
@@ -15,7 +15,7 @@
               {{ if .IsNode }}
                 {{ $active := in $currentPage.RelPermalink .RelPermalink }}
                 <li class="my-1 ms-3">
-                  <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
+                  <button class="btn btn-toggle align-items-center rounded collapsed" style="text-align:left" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
                     {{ .Title }}
                   </button>
                   <div class="collapse{{ if $active }} show{{ end }}" id="section-{{ md5 .Title }}">

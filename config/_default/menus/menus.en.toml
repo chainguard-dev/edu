@@ -72,6 +72,12 @@
   name = "Glossary"
   url = "/software-security/glossary/"
   parent = "menu-security"
+  weight = 30
+
+[[main]]
+  name = "Videos"
+  url = "/software-security/videos/"
+  parent = "menu-security"
   weight = 40
 
 [[main]]
