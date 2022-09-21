@@ -11,6 +11,7 @@ menu:
   docs:
     parent: "cosign"
 weight: 620
+terminalImage: gcloud:latest
 toc: true
 ---
 

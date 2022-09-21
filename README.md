@@ -2,7 +2,7 @@
 
 Our mission is to provide education on software supply chain security. 
 
-TODO: visit our website at [edu.chainguard.dev]()
+Visit our website at [edu.chainguard.dev](https://edu.chainguard.dev)
 
 You can find the educational resource files in markdown under the `content` directory.
 
@@ -68,3 +68,13 @@ Use a liquid tag within markdown to embed a YouTube video. For example, if you w
 ```
 {{< youtube rqIcDrg1XOs >}}
 ```
+
+### Adding an Interactive Terminal
+
+To include an interactive terminal in a given tutorial page, add the following line in the Hugo frontmatter:
+
+```
+terminalImage: gcloud:latest
+```
+
+The interactive terminal is under active development and not every tool is currently available within the environment.
