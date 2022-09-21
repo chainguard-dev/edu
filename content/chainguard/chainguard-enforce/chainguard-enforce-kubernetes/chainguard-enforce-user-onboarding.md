@@ -57,20 +57,22 @@ Here, we are using the bucket our Chainguard Enforce tool is hosted in, and call
 
 We’ll use the `curl` command to pull the application down.
 
+Move `chainctl` into your `/usr/local/bin` directory.
+
 ```sh
-curl -o chainctl "$BASE_URL/chainctl_$(uname -s)_$(uname -m)"
+sudo mv ./chainctl /usr/local/bin/chainctl
 ```
 
-Next, we need to elevate the permissions of `chainctl` so that it can execute as needed.
+Next, elevate the permissions of `chainctl` so that it can execute as needed.
 
 ```sh
-chmod +x chainctl
+chmod +x /usr/local/bin/chainctl
 ```
 
-Finally, let’s add `chainctl` to our PATH so that we can use the command in the terminal.
+Finally, alias its path so that you can use `chainctl` on the command line.
 
 ```sh
-alias chainctl=$PWD/chainctl
+alias chainctl=/usr/local/bin/chainctl
 ```
 
 You can verify that everything was set up correctly by checking the `chainctl` version.
@@ -89,10 +91,10 @@ You should receive output similar to the following.
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 
-GitVersion:    2c1ff2c
-GitCommit:     2c1ff2cf9e038e1fd3bbc9ec01df619e23b4a27a
+GitVersion:    e01c38b
+GitCommit:     e01c38b452ee34e44cf5f8663d7730a2cf69f0c3
 GitTreeState:  clean
-BuildDate:     2022-09-12T17:50:34Z
+BuildDate:     2022-09-21T00:10:26Z
 GoVersion:     go1.18.6
 Compiler:      gc
 Platform:      darwin/arm64
@@ -102,53 +104,25 @@ If you received different output, check your bash profile to make sure that your
 
 With `chainctl` successfully installed, we can continue through the demo.
 
-## Step 2 — Create an IAM group
+## Step 2 — Check IAM group
 
 Chainguard provides a way to organize Policies and Clusters into a hierarchy of **groups** through its [Identity and Access Management (IAM) model](../overview-of-enforce-iam-model). Chainguard Enforce provides a rich IAM model similar to those available through AWS and GCP.
 
 Each Chainguard Policy needs to be associated with a group, and will be effective for that group as well as all the groups descending from it. Each Cluster needs to be associated with a group and will be enforced based on that group’s policies.
 
-Let’s begin by authenticating to the Chainguard Enforce platform.
-
-```sh
-chainctl auth login
-```
-
-A web browser window will open to prompt you to login via an OIDC flow. Currently, Chainguard Enforce supports Google and GitHub as OIDC providers. Select the account you wish to register with, and once authenticated, you can create a group.
-
-Now you can create a root group for your organization. This will be tied to the account you just used to authenticate to Chainguard Enforce.
-
-For demonstration purposes, we’ll create a group called `enforce-demo-group`, but feel free to replace it with a name that will be meaningful to you. The `--no-parent` flag sets this up as a standalone group that can be a parent group to other child groups.
-
-```sh
-chainctl iam groups create enforce-demo-group --no-parent
-```
-
-You’ll be asked whether you want to continue and to confirm logging in again. As long as you are willing to continue, press `y` (case insensitive) or `ENTER` in response to each prompt. 
-
-```
-Continue? [Y,n]: 
-Changes to your account require you to login again to be reflected locally.
-Continue? [Y,n]: 
-```
-
-You’ll receive feedback that your token was successfully exchanged and that your ID is valid. 
-
-Next, find the ID for the group you just created. You can do that by listing your current groups.
+When you are invited to Chainguard Enforce, your account will already be associated with a group. You can check which group or groups you belong to, and grab the ID of the group with `chainctl`. 
 
 ```sh
 chainctl iam groups ls -o table
 ```
 
-Note you can use `ls` or `list` in this command.
+You may be asked to authenticate to the Chainguard Enforce platform through an OIDC flow within a browser window. Go through the authentication by selecting the relevant accounts. 
 
-You’ll receive output in the form of a table of your current groups, similar to the following.
+You’ll receive output in the form of a table of your current group (or groups), similar to the following.
 
 ```
                      ID                    |       NAME          | DESCRIPTION  
 -------------------------------------------+---------------------+--------------
-  0bed35fb980e8f8ba6d0757e01c950974cfd2593 | production-group    |              
-  a4de00fd08b377db719e52b0b19f58bc7ac5b45e | testing-group       |   
   b9adda06841c1d34dfa73d5902ed44b5448b7958 | enforce-demo-group  |         
 ```
 
@@ -160,7 +134,7 @@ export GROUP=$GROUP_ID
 
 You can learn more about our IAM model by reading our [Overview of Chainguard Enforce IAM](../overview-of-enforce-iam-model) article. This document will provide you with guidance on creating a group hierarchy that enables policies to be inherited from parent groups, and discrete policies for different groups depending on your needs.
 
-## Step 3 — Prepare your Kubernetes cluster
+## Step 3 — Prepare Kubernetes cluster
 
 In order to put Chainguard Enforce into action within a cluster, we’ll now create a Kubernetes cluster using kind. For demonstration purposes, we will name our cluster `enforce-demo` by passing that to the `--name` flag, but you may opt to use an alternate name. 
 
@@ -168,23 +142,23 @@ In order to put Chainguard Enforce into action within a cluster, we’ll now cre
 kind create cluster --name enforce-demo
 ```
 
-Inside your Kubernetes cluster, let’s create a Pod to run the unsigned image.
+Install the Chainguard Enforce agent in your cluster:
 
 ```sh
 chainctl cluster install --group=$GROUP --private --context kind-enforce-demo
 ```
 
-If you have multiple groups and clusters, you may need to select the relevant group and cluster. Once everything is set up, your terminal output will indicate that the cluster was successfully configured. We now have a Kubernetes cluster setup that’s running an application.
+ Once everything is set up, your terminal output will indicate that the cluster was successfully configured. We now have a Kubernetes cluster setup that’s running an application.
 
-## Step 4 — Create a policy to require signatures on images
+## Step 4 — Create a security policy
 
-At this point, we want to roll out a policy ensuring that our development teams only deploy signed containers with no disruptions.
+At this point, we want to roll out a policy ensuring that our development teams only deploy containers that have signatures and SBOMs without disruption.
 
-To achieve this, we will create a new policy to require that only signed containers are deployed. We’ll associate a `sample-policy.yaml` file with the demo group in our IAM.
+To achieve this, we will create a new policy to require that only signed containers with SBOMs are deployed. We’ll associate a `sample-policy.yaml` file with the demo group in our IAM.
 
 ```sh
 cat > sample-policy.yaml <<EOF
-> apiVersion: policy.sigstore.dev/v1beta1
+apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
   name: sample-policy
@@ -202,7 +176,7 @@ EOF
 
 This policy creates a cluster image policy with the Sigstore beta API, and with Fulcio as a keyless authority. Here, we are requiring not only that Chainguard demo images be signed, but that all images from Docker be signed as well.
 
-We have already set up the `SAMPLE_GROUP` variable in with the group we created above in Step 2. Let’s now associate this new policy with that group.
+We have already set up the `GROUP` variable in with the group we created above in Step 2. Let’s now associate this new policy with that group.
 
 ```sh
 chainctl policies apply -f sample-policy.yaml --group=$GROUP
@@ -228,7 +202,7 @@ You should now be able to review the policy that you set up. With this policy de
 
 ## Step 5 — Inspect compliance of containers
 
-Under the hood, we leverage upstream Sigstore components like the `ClusterImagePolicy` CRD. We can verify that the **sample-policy** was distributed to the cluster by using `kubectl`.
+Under the hood, Chainguard Enforce leverages upstream Sigstore components like `ClusterImagePolicy`, a Kubernetes CustomResourceDefinition (CRD). Verify that the **sample-policy** was distributed to the cluster by using `kubectl`.
 
 ```sh
 kubectl get clusterimagepolicies
@@ -241,7 +215,7 @@ NAME              AGE
 sample-policy     68s
 ```
 
-Next, we’ll verify the compliance records of containers via the CLI.
+Next, verify the compliance records of containers via the CLI.
 
 First, obtain the cluster ID and load it into a variable for usage. We are using `kubectl` to get an UUID (universally unique identifier) that Chainguard Enforce uses to identify the agent running on your cluster.
 
@@ -266,7 +240,7 @@ Let’s step through adding new images to the cluster to see how the policy is w
 kubectl create deployment nginx --image=nginx
 ```
 
-Give this a few seconds to populate and then check what’s running now that we have a new image in the cluster.
+Give this some time (a few seconds up to a few minuts) to populate and then check what’s running now that we have a new image in the cluster.
 
 ```sh
 chainctl cluster records list $CLUSTER_ID
@@ -298,7 +272,7 @@ Again, check the output with `chainctl cluster records list $CLUSTER_ID`.
 
  ```
  
-This image passes the policy because it has both an SBOM and a signature.
+This image passes the policy we set up above because it has both an SBOM and a signature.
 
 ## Step 6 – Enforce policy
 
@@ -322,6 +296,8 @@ Error from server (BadRequest): admission webhook "enforcer.chainguard.dev" deni
 
 Congratulations! You now have a policy in place to install Cosign, sign container images, and enforce that only signed images are deployed.
 
+## Clean up and next steps
+
 If you would like, you can now clean up your work by uninstalling `chainctl` from the cluster.
 
 ```sh
@@ -334,4 +310,8 @@ You may also want to delete the kind cluster you created.
 kind delete cluster --name enforce-demo
 ```
 
-You can read more about Chainguard Enforce on [Chainguard Academy](https://edu.chainguard.dev/chainguard/chainguard-enforce/).
+To learn more visit our [Chainguard Enforce for Kubernetes](../chainguard-enforce-kubernetes/) documentation page.
+
+If you would like to learn about how you can use this product alongside signing Git commits, check out [Chainguard Enforce for Git](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-github/). 
+
+You can read all about software supply chain security on[Chainguard Academy](https://edu.chainguard.dev/chainguard/chainguard-enforce/). 
