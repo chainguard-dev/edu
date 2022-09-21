@@ -8,7 +8,7 @@ Before running Chainguard Enforce locally, you’ll need to ensure you have the 
 * **Docker** — you’ll need [Docker installed](https://docs.docker.com/get-docker/) and running in order to step through this tutorial. 
 * **kind** — to create a kind Kubernetes cluster on our laptop, you can download and install kind for your relevant operating system by following the [kind install docs](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
 * **kubectl** — to work with your kind cluster, you can install for your operating system by following the official [Kubernetes kubectl documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
-* For macOS users, you'll need to update to bash version 4 or higher, which is not preinstalled in the machine. Please [follow our guide](../../../../open-source/update-bash-macos) on how to update your version if you are getting version 3 or below when you run `bash --version`.
+* For macOS users, you'll need to update to bash version 4 or higher, which is not preinstalled in the machine. Please [follow our guide](https://edu.chainguard.dev/open-source/update-bash-macos/) on how to update your version if you are getting version 3 or below when you run `bash --version`.
 
 ## Step 1 — Install chainctl
 
@@ -173,8 +173,6 @@ You can also find more information about policy compliance by clicking on either
 
 Additionally, the buttons on top of the cluster table will allow you to filter your clusters by compliance.
 
-<screenshot>
-
 You can also check that the **sample-policy** was distributed to the cluster by using `kubectl`.
 
 ```sh
@@ -206,8 +204,6 @@ In the **Policy violations** table, the image will be listed.
 
 Clicking on the **Show diagnostic** button in the table will provide more information about the violation.
 
-<screenshot>
-
 Next, let’s pull in an image that has an SBOM and signature. This is an NGINX image from Chainguard.
 
 ```sh
@@ -215,6 +211,8 @@ kubectl create deployment good-nginx --image=ghcr.io/chainguard-dev/nginx-image-
 ```
 
 This image won't be listed in the violations table, but you can navigate to the **Images** table to retrieve it.
+
+<screenshot>
  
 This image passes the policy because it has both an SBOM and a signature.
 
