@@ -310,8 +310,8 @@ You may also want to delete the kind cluster you created.
 kind delete cluster --name enforce-demo
 ```
 
-To learn more visit our [Chainguard Enforce for Kubernetes](../chainguard-enforce-kubernetes/) documentation page.
+To learn more visit our [Chainguard Enforce for Kubernetes](../) documentation page.
 
-If you would like to learn about how you can use this product alongside signing Git commits, check out [Chainguard Enforce for Git](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-github/). 
+If you would like to learn about how you can use this product alongside signing Git commits, check out [Chainguard Enforce for Git](../../chainguard-enforce-github/). 
 
-You can read all about software supply chain security on[Chainguard Academy](https://edu.chainguard.dev/chainguard/chainguard-enforce/). 
+You can read all about software supply chain security on[Chainguard Academy](https://edu.chainguard.dev). 

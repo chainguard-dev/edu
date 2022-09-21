@@ -1,8 +1,8 @@
 ---
-title: "Connecting to Private Registries"
+title: "How to Connect Chainguard Enforce to Private Container Registries"
 type: "article"
 lead: ""
-description: "How to connect enforce to a private container registry"
+description: "How to connect Chainguard Enforce to a private container registry"
 date: 2022-09-02T15:56:52-07:00
 lastmod: 2022-09-02T15:56:52-07:00
 draft: false
