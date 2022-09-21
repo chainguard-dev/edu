@@ -21,7 +21,7 @@ So far in this scenario, everything seems to be working smoothly and going as ex
 
 In a real world scenario like this, an organization might not have any way of knowing about these vulnerabilities until the next deployment, which might be days or weeks into the future. Until then, any undetected vulnerabilities could seriously jeopardize their application or even their customers' data.
 
-Continuous verification continually checks whether software artifacts are compliant with the latest defined policies and known information. It enables your organization to have aninventory of everything currently running in your Kubernetes clusters, as well as everything that ran in the past. This includes what packages are deployed, SBOMs, provenance, signature data, etc. It’s now possible to understand if, where and when a vulnerable image previously ran. The time to resolution thus turns into seconds instead of weeks.
+Chainguard Enforce's continuous verification continually checks whether software artifacts are compliant with the latest defined policies and known information. It enables your organization to have an inventory of everything currently running in your Kubernetes clusters, as well as everything that ran in the past. This includes what packages are deployed, SBOMs (software bills of materials), provenance, signature data, and more. It’s now possible to understand if, where and when a vulnerable image previously ran. The time to resolution thus turns into seconds instead of weeks.
 
 
 ## How Continuous Verification Works
