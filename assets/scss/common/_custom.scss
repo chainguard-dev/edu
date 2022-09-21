@@ -47,3 +47,7 @@ blockquote > p {
 .chainguard-med {
   color: #8087fc;
 }
+
+h2#chainctl, h2[id^="chainctl"] {
+  display: none;
+}
