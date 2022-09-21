@@ -47,7 +47,7 @@ kubectl create serviceaccount example-sa
 
 Then run the following command to create a pod manifest named `pod.yaml`. Be sure to change the `serviceAccountName` value if yours is different from the given example.
 
-``sh
+```sh
 cat <<EOF > pod.yaml
 apiVersion: v1
 kind: Pod

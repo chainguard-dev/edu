@@ -1,7 +1,7 @@
 ---
-title: "WTF is sigstore?"
+title: "WTF is Sigstore?"
 lead: ""
-description: "sigstore explained in 2 minutes"
+description: "Sigstore explained in 2 minutes"
 type: "article"
 date: 2022-08-01T15:21:01+02:00
 lastmod: 2022-08-01T15:21:01+02:00
@@ -15,9 +15,7 @@ toc: true
 ---
 
 {{< youtube veiCVgDpYcY >}}
-
-Sigstore
-
+<br>
 Let’s talk about software supply chain security. 
 
 Vulnerabilities and attacks in software have been increasing in recent years, and the U.S. government recently passed a Bill in the House that would forbid the Department of Defense (DoD) from procuring any software applications that contain a single security vulnerability or CVE (short for common vulnerability or exposure). Attacks and other security issues can exist all across the software supply chain, from the dependencies or packages you leverage in your code, to the code you write, to your deployment and integration strategy, to your packaging. 
