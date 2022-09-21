@@ -11,6 +11,7 @@ menu:
   docs:
     parent: "rekor"
 weight: 630
+terminalImage: gcloud:latest
 toc: true
 ---
 

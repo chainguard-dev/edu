@@ -1,7 +1,7 @@
 ---
-title: "What really happened with GitHub’s Typo Squatting attack?"
+title: "WTF happened with the PyPI phishing attack?"
 lead: ""
-description: "GitHub’s Typo Squatting attack"
+description: "The PyPI phishing attack and multi-factor authentication"
 type: "article"
 date: 2022-08-01T15:21:01+02:00
 lastmod: 2022-08-01T15:21:01+02:00
@@ -16,8 +16,7 @@ toc: true
 
 {{< youtube nB3xw3Nazgc >}}
 
-WTF happened with the PyPI phishing attack and why is MFA important? 
-
+<br>
 On 8/24/22, PyPI, an open source repository of software for the Python programming language, announced an active phishing campaign targeting PyPI users. How did it happen and how can we prevent future attacks? Let’s recap: 
 
 Before we cover the phishing attack, it’s worthwhile to mention that on July eighth, PyPI announced it would require the implementation of two-factor authentication (2FA) for projects deemed critical — that is, any project in the top 1% of downloads of the past 6 months. It is a huge step forward for open source security, and as of August twenty-fourth (today/yesterday), nearly ~30k PyPI maintainers have 2FA enabled. 
