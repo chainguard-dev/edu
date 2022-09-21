@@ -1,5 +1,5 @@
 ---
-title: "Understanding Continuous Verification in Chainguard Enforce
+title: "Understanding Continuous Verification in Chainguard Enforce"
 type: "article"
 description: "A Conceptual Article Outlining Enforce's Continuous Verification Feature"
 date: 2022-21-09T15:22:20+01:00
