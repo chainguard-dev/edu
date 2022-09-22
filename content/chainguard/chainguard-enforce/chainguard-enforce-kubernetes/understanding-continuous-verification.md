@@ -13,6 +13,8 @@ weight: 100
 toc: true
 ---
 
+> _This documentation is related to Chainguard Enforce. You can request access to the product selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+
 One feature unique to Chainguard Enforce is its ability to check whether a container or cluster contains any vulnerabilities continually over time. This feature is referred to as "continuous verification."
 
 To better understand why this might be useful, imagine an organization using typical container analysis tools to scan its containers before each deployment. Say that one day, prior to a new deployment, the organization scans all its running containers like usual. Not finding any vulnerabilities, they continue on with the deployment.

@@ -14,6 +14,8 @@ weight: 690
 toc: true
 ---
 
+> _This documentation is related to Chainguard Enforce. You can request access to the product selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+
 Chainguard Enforce supports two methods of authenticating to private registries:
 
 - Using image pull secrets in your tenant clusters
@@ -28,10 +30,10 @@ To support the widest set of private registries, you can authenticate using a
 Kubernetes image pull secret. This is configured on a per-policy basis, and
 applies to all the images scoped to that policy. 
 
-### Configuring your Image Pull Secret
+### Configuring your image pull secret
 
 To verify policies using attestation and signatures for images in a private
-registry, create an image pull secret in the cosign-system namespace of your
+registry, create an image pull secret in the `cosign-system` namespace of your
 cluster, filling in your own details for the private registry, username,
 password, and email:
 
@@ -48,14 +50,14 @@ kubectl create secret docker-registry regcreds \
 > namespace, as this ensures the Chainguard Enforce agent can use this secret
 > to authenticate images from all namespaces in the cluster.
 
-The same image pull secret must be added to the cosign-system namespace of
+The same image pull secret must be added to the `cosign-system` namespace of
 every cluster that you’d like to enforce policies in.
 
-### Using your Image Pull Secret in a policy
+### Using your image pull secret in a policy
 
 Once you’ve created your image pull secret, you can reference it in a cluster
 image policy using the authority’s source specification. This example requires
-all containers from a private registry with hostname registry.example.com to be
+all containers from a private registry with hostname `registry.example.com` to be
 signed by the public Fulcio instance:
 
 ```yaml
@@ -85,7 +87,7 @@ Some registries, like Docker Hub, can issue credentials that are scoped to a
 particular private namespace in the registry. To use these namespace scoped
 credentials in a cluster image policy, modify the authority’s source
 specification to include the namespace. This example uses credentials scoped to
-the Docker hub namespace "privatenamespace":
+the Docker hub namespace `"privatenamespace"`:
 
 ```yaml
 apiVersion: policy.sigstore.dev/v1alpha1
@@ -111,7 +113,7 @@ and `oci`.
 > runtimes identify images, `privatenamespace/*` is equivalent to
 > `index.docker.io/privatenamespace/*` — both will work!
 
-## Cloud Account Associations
+## Cloud account associations
 
 If your private registry is either AWS’s Elastic Container Registry (ECR) or
 Google Cloud’s Google Container Registry (GCR), you can leverage Enforce for
@@ -123,9 +125,9 @@ no long term access credentials are stored by our platform.
 ### Configuring your cloud account association
 
 Detailed instructions can be found in
-our dedicated article on [Setting up Chainguard Enforce Cloud Account Associations](../cloud-account-associations). Once you have a cloud account association configured at a specified group level, policies at or below that group can be verified against private registries in the associated cloud account. 
+our dedicated article on [How to Set Up Chainguard Enforce Cloud Account Associations](../cloud-account-associations). Once you have a cloud account association configured at a specified group level, policies at or below that group can be verified against private registries in the associated cloud account. 
 
-### Using Google Container Registry Images in Policies
+### Using Google Container Registry images in policies
 
 In GCP, you can verify that an account association is correctly configured by
 running:
@@ -140,7 +142,7 @@ If successful, you will receive a message similar to the following:
 2022/09/01 11:26:47 GCP role impersonation was successful!
 ```
 
-You can now write policies under $group_name that refer to images in your
+You can now write policies under `$group_name` that refer to images in your
 associated GCP project:
 
 ```yaml
@@ -156,7 +158,7 @@ spec:
       url: https://fulcio.sigstore.dev
 ```
 
-Be sure to replace your-gcp-project with your relevant project name. 
+Be sure to replace `$your-gcp-project` with your relevant project name. 
 
 ### Using AWS Elastic Container Registry Images in Policies
 
@@ -173,7 +175,7 @@ If successful, you will receive a message back that’s similar to this output:
 2022/09/01 11:26:47 AWS role impersonation was successful!
 ```
 
-You can now write policies under $group_name that refer to images in your
+You can now write policies under `$group_name` that refer to images in your
 associated AWS Account:
 
 ```yaml

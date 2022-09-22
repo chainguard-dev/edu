@@ -11,13 +11,12 @@ menu:
   docs:
     parent: "cosign"
 weight: 620
-terminalImage: gcloud:latest
 toc: true
 ---
 
 _An earlier version of this material was published in the [Cosign chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@204b98f35bca48c194d1868e0356bef1/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@2f0ad9cb8f124a39ab555ac8bf1a114c) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._
 
-Cosign can sign more than just containers. Blobs, or binary large objects, and standard files can be signed in a similar way. You can publish a blob or other artifact to an OCI (Open Container Initiative) registry with Cosign. 
+Cosign can sign more than just containers. Blobs, or binary large objects, and standard files can be signed in a similar way. You can publish a blob or other artifact to an OCI (Open Container Initiative) registry with Cosign. This tutorial assumes you have a Cosign key pair set up, which you can achieve by following our [How to Sign a Container with Cosign](../how-to-sign-a-container-with-cosign/) tutorial.
 
 First, we’ll create an artifact (in this case, a standard file that contains text). We’ll call the file `artifact` and fill it with the “hello, cosign” text.
 

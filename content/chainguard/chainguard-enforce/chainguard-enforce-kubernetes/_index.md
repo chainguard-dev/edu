@@ -10,5 +10,3 @@ images: []
 ---
 
 Chainguard Enforce is a comprehensive solution for software supply chain risk management.
-
-Review the [chainctl](chainctl-docs/chainctl/) docs to use Chainguard Enforce on your command line. 
