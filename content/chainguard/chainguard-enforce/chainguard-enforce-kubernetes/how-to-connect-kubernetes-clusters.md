@@ -14,22 +14,24 @@ weight: 700
 toc: true
 ---
 
+> _This documentation is related to Chainguard Enforce. You can request access to the product selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo)._
+
 Connecting Kubernetes clusters to Chainguard Enforce allows you to assess the
 current state of the supply chain of your containerized workloads and enforce
 policy once your workloads match your desired state. There are two ways to
 connect Kubernetes clusters to enforce:
 
-- [Enforce Agent](#enforce-agent) – A lightweight agent that runs in your cluster
-- [Agentless](#agentless-connections) – A zero footprint connection for
+- [Chainguard Enforce Agent](#chainguard-enforce-agent) – A lightweight agent that runs in your cluster
+- [Chainguard Enforce Agentless](#agentless-connections) – A zero footprint connection for
   Kubernetes clusters running in supported cloud providers. Currently supports
   AWS EKS and GCP GKE clusters.
 
 In this article, we’ll discuss when and how to use each of these options.
 
-## Enforce Agent
+## Chainguard Enforce Agent
 
 The Enforce Agent is a flexible, general purpose way to connect your clusters
-to Enforce. Clusters using the Enforce Agent are required to have [Service
+to Chainguard Enforce. Clusters using the Enforce Agent are required to have [Service
 Account Token Volume Projection][k8s-docs-volume-projection] and [Service
 Account Issuer Discovery][k8s-docs-issuer-discover] enabled. 
 
@@ -157,7 +159,7 @@ chainctl cluster install
 ### How to connect a private cluster using Enforce Agent
 
 If your cluster API endpoint isn’t public, or the issuer discovery endpoints
-require authentication, you can still use the Enforce agent to connect your
+require authentication, you can still use the Chainguard Enforce Agent to connect your
 Kubernetes cluster. In this case your cluster is considered private and to
 connect you would run the following command.
 
@@ -182,7 +184,7 @@ again.
 
 ## Agentless Connections
 
-Agentless connections allow you to connect a cluster with zero resource
+Chainguard Enforce Agentless connections allow you to connect a cluster with zero resource
 footprint. Agentless connections are currently limited to GKE and EKS clusters.
 Agentless connections also require clusters to have a public API endpoint.
 
