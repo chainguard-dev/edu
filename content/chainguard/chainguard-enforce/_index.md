@@ -10,5 +10,3 @@ images: []
 ---
 
 The Chainguard Enforce security platform offers a suite of tools for increased security across your software supply chain. 
-
-Review the [chainctl](chainctl-docs/chainctl/) docs to use Chainguard Enforce on your command line. 
