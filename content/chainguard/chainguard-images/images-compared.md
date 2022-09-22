@@ -13,7 +13,7 @@ weight: 400
 toc: true
 ---
 
-On this page you can find comparison graphs showing the number of CVEs (common vulnerabilities and exposures) detected by [Trivy](https://github.com/aquasecurity/trivy) on popular official base images versus Chainguard Images.
+On this page you can find comparison graphs showing the number of CVEs (common vulnerabilities and exposures) detected by [Trivy](https://github.com/aquasecurity/trivy) on popular official base images versus [Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs).
 
 {{< rumble title="Nginx" description="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx" left="nginx:latest" right="cgr.dev/chainguard/nginx:latest" >}}
 
