@@ -13,7 +13,7 @@ weight: 100
 toc: true
 ---
 
-> _This provides user onboarding for Chainguard Enforce. In order to follow the onboarding, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo)._
+> _This provides user onboarding for Chainguard Enforce. In order to follow the onboarding, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
 
 Chainguard Enforce for Kubernetes allows users to create their own security policies that they can enforce in their clusters. Here are a few example policies to help you get started. You may also want to review the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview).
 
