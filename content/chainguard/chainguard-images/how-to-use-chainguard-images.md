@@ -13,7 +13,8 @@ menu:
 weight: 300
 toc: true
 ---
-Chainguard Images are distroless images based on [Wolfi](/open-source/wolfi/overview/), our Linux _undistro_. You can have a look at [Chainguard Image's GitHub org](https://github.com/chainguard-images) in order to find out which images are already available for general usage.
+
+[Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs) are distroless images based on [Wolfi](/open-source/wolfi/overview/), our Linux _undistro_. You can have a look at [Chainguard Image's GitHub org](https://github.com/chainguard-images) in order to find out which images are already available for general usage.
 
 Each image has its own usage instructions, which is detailed in their READMEs. All images are hosted on the `cgr.dev` registry.
 

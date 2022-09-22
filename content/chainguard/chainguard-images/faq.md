@@ -28,7 +28,7 @@ An SBOM is a Software Bill of Materials, which is a list containing detailed inf
 SBOMs provide visibility into the software you depend on. They can allow automated systems to quickly identify issues such as unpatched vulnerabilities, since SBOMs typically include the version of each dependency listed.
 
 ### Who maintains Chainguard Images?
-Chainguard Images are officially maintained by [Chainguard](https://chainguard.dev) employees, but they are also open source, which means any community member is welcome to suggest improvements.
+[Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs) are officially maintained by [Chainguard](https://chainguard.dev) employees, but they are also open source, which means any community member is welcome to suggest improvements.
 
 ### Can I simply replace my current base image with a Chainguard Image and it will work out of the box?
 Chainguard Images are distroless, which means they are minimalist and most of them don't come with a package manager. Depending on your stack, you may need to include additional software by copying artifacts from multi-stage builds.

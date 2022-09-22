@@ -13,6 +13,8 @@ weight: 100
 toc: true
 ---
 
+> _This provides user onboarding for Chainguard Enforce. In order to follow the onboarding, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+
 Chainguard Enforce is a supply chain security solution for containerized workloads. Chainguard Enforce enables you to build, manage, ensure continuous compliance, and enforce policies that protect organizations from supply chain threats. Using open source projects and standards that are trusted by the community — like [Cosign](https://docs.sigstore.dev/cosign/overview) and [Fulcio](https://docs.sigstore.dev/fulcio/overview) from the [Sigstore](https://sigstore.dev) project — Chainguard Enforce offers a robust approach to securing your workloads.
 
 This guide will walk you through using Chainguard Enforce on a Kubernetes cluster running on your laptop with [kind](https://kind.sigs.k8s.io/). We will be using Chainguard Enforce to achieve the following:
@@ -100,7 +102,7 @@ Compiler:      gc
 Platform:      darwin/arm64
 ```
 
-If you received different output, check your bash profile to make sure that your system is using the expected GOPATH. If your version of `chainctl` is a few weeks or months old, you may consider updating it by following the steps above so that you can use the most up to date version.
+If you received different output, check your bash profile to make sure that your system is using the expected PATH. If your version of `chainctl` is a few weeks or months old, you may consider updating it by following the steps above so that you can use the most up to date version.
 
 With `chainctl` successfully installed, we can continue through the demo.
 
