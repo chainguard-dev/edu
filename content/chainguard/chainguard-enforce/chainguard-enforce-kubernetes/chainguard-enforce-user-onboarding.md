@@ -59,6 +59,23 @@ Here, we are using the bucket our Chainguard Enforce tool is hosted in, and call
 
 We’ll use the `curl` command to pull the application down.
 
+* **Darwin ARM 64**
+  ```sh
+  curl "${BASE_URL}/chainctl_Darwin_arm64" --output ./chainctl
+  ```
+* **Darwin Intel 64**
+    ```sh
+    curl "${BASE_URL}/chainctl_Darwin_x86_64" --output ./chainctl
+    ```
+* **Linux ARM 64**
+    ```sh
+    curl "${BASE_URL}/chainctl_Linux_arm64" --output ./chainctl
+    ```
+* **Linux Intel 64**
+    ```sh
+    curl "${BASE_URL}/chainctl_Linux_x86_64" --output ./chainctl
+    ```
+
 Move `chainctl` into your `/usr/local/bin` directory.
 
 ```sh
