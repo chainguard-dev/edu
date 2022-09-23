@@ -16,6 +16,14 @@ toc: true
 ### Are Chainguard Images based on Alpine?
 Some of our images are still based on Alpine, but going forward the majority will be based on  [Wolfi](/open-source/wolfi/), a Linux _undistro_ we built specifically to address software supply chain security issues.
 
+### How do Chainguard Images relate to the Google Distroless Images? 
+The [Google distroless](https://github.com/GoogleContainerTools/distroless) images follow a similar
+philosophy to many of our images: they are minimal images that don't include package managers or
+shells. The main difference is in the implementation. The Google distroless images are built with
+[Bazel](https://bazel.build) and based on the Debian distribution, whereas Chainguard Images are
+built with [apko](/open-source/apko) based on the [Wolfi](/open-source/wolfi) or Alpine
+distributions. We believe our approach is more maintainable and extensible.
+
 ### What is an "undistro"?
 We call Wolfi an undistro because unlike a typical Linux distribution, Wolfi is a stripped-down distribution designed for the cloud-native era. Most notably, we don’t include a Linux kernel, instead relying on the environment (such as the container runtime) to provide this.
 
