@@ -18,7 +18,7 @@ toc: true
 
 Many of the images are distroless; they contain only an application and its runtime dependencies. These images do not even contain a shell or package manager.
 
-Most of the images are built with [Wolfi](/open-source/wolfi/getting-started-with-wolfi), our Linux _undistro_ designed from the ground up to produce container images that meet the requirements of a secure software supply chain.
+Most of the images are built with [Wolfi](/open-source/wolfi/overview), our Linux _undistro_ designed from the ground up to produce container images that meet the requirements of a secure software supply chain.
 
 Main features include:
 
@@ -37,4 +37,4 @@ The following graph shows a comparison between the official Nginx image and Chai
 
 {{< rumble title="Nginx" description="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx" left="nginx:latest" right="cgr.dev/chainguard/nginx:latest" >}}
 
-The major advantage of distroless images is the reduced size and complexity, which results in a vastly reduced attack surface. This is evidenced by the results from security scanners, which detect far fewer potential vulnerabilities in Chainguard Images. 
+The major advantage of distroless images is the reduced size and complexity, which results in a vastly reduced attack surface. This is evidenced by the results from security scanners, which detect far fewer potential vulnerabilities in Chainguard Images.
