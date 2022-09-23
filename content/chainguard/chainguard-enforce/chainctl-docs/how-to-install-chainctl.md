@@ -35,6 +35,10 @@ Here, we are using the bucket our Chainguard Enforce tool is hosted in, and call
 
 We’ll use the `curl` command to pull the application down.
 
+```sh
+curl -o chainctl "$BASE_URL/chainctl_$(uname -s)_$(uname -m)"
+```
+
 Move `chainctl` into your `/usr/local/bin` directory.
 
 ```sh
