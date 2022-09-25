@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "rekor"
-weight: 630
+weight: 002
 toc: true
 ---
 
