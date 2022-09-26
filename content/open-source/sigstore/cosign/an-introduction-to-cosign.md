@@ -10,7 +10,7 @@ images: []
 menu:
   docs:
     parent: "cosign"
-weight: 630
+weight: 001
 toc: true
 ---
 
