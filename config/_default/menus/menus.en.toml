@@ -37,7 +37,13 @@
   name = "Chainguard Images"
   url = "/chainguard/chainguard-images/"
   parent = "menu-chainguard"
-  weight = 17
+  weight = 15
+
+[[main]]
+  name = "chainctl"
+  url = "/chainguard/chainguard-enforce/chainctl-docs/"
+  parent = "menu-chainguard"
+  weight = 20
 
 [[main]]
   name = "Sigstore"
