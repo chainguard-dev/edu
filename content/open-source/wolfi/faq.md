@@ -18,6 +18,9 @@ Wolfi is our Linux _undistro_  designed from the ground up to support newer comp
 ### Is Wolfi free to use?
 Yes, Wolfi is free and will always be.
 
+## Can I mix packages from Alpine repositories into a Wolfi-based image?
+No, it's not possible to mix Alpine apks with Wolfi apks. If your image requires dependencies that are currently only available for Alpine, you might consider opening a new issue in the [wolfi-os](https://github.com/chainguard-dev/wolfi-os/) repository to suggest the new package addition, or use [melange](https://github.com/chainguard-dev/melange) to build a custom apk for your image.
+
 ### Can I use Wolfi on the Desktop?
 No. Wolfi is an un-distro, or distroless base to be used within the container / OCI ecosystem. Desktop distributions require additional software that is out of scope for Wolfi's roadmap.
 
