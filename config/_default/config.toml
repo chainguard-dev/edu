@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://edu.chainguard.dev/"
 canonifyURLs = false
 disableAliases = true
 disableHugoGeneratorInject = true
