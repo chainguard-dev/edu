@@ -132,6 +132,8 @@ You’ll receive output in the form of a table of your current group (or groups)
   b9adda06841c1d34dfa73d5902ed44b5448b7958 | enforce-demo-group  |         
 ```
 
+> **Note**: If you don't receive output like the above at all, you can create a new group by running `chainctl iam groups create --no-parent` to create a new group. After group creation, you can run `chainctl iam groups ls -o table` again.
+
 Let’s create a variable that stores that ID for later steps in the tutorial. Replace `$GROUP_ID` below with the relevant ID; for exmaple, in the case of `enforce-demo-group` above, you would enter `b9adda06841c1d34dfa73d5902ed44b5448b7958` instead of `$GROUP_ID` in the command below. 
 
 ```sh
