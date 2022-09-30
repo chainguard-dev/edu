@@ -14,7 +14,7 @@ weight: 10
 toc: true
 ---
 
-{{< youtube nB3xw3Nazgc >}}
+{{< youtube IvxWXk5jSsc >}}
 
 <br>
 On 8/24/22, PyPI, an open source repository of software for the Python programming language, announced an active phishing campaign targeting PyPI users. How did it happen and how can we prevent future attacks? Let’s recap: 
