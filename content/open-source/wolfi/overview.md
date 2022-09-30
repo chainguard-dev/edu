@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Wolfi Overview"
 type: "article"
 description: "Getting started with Wolfi, the Linux undistro for secure container images"
 lead: "Introducing Wolfi, the Linux undistro for secure container images"

@@ -1,5 +1,5 @@
 ---
-title: "FAQ"
+title: "Chainguard Images FAQs"
 type: "article"
 description: "Frequently asked questions about Chainguard Images"
 date: 2022-09-01T08:49:31+00:00
