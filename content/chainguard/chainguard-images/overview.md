@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Overview of Chainguard Images"
 type: "article"
 description: "Chainguard Images Overview"
 lead: "A primer on Chainguard Images and the distroless approach"
