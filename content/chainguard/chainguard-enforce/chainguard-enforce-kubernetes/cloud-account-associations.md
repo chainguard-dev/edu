@@ -1,7 +1,6 @@
 ---
 title: "How to Set Up Chainguard Enforce Cloud Account Associations"
 type: "article"
-lead: ""
 description: "How to bind Chainguard Enforce to your cloud provider"
 date: 2022-09-02T15:56:52-07:00
 lastmod: 2022-09-02T15:56:52-07:00
