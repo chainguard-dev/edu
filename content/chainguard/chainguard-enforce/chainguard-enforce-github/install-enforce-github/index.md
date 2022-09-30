@@ -1,6 +1,6 @@
 ---
 title : "How to Install Chainguard Enforce for Git"
-description: "Enforcing commit signatures with Git"
+description: "Installing Chainguard Enforce for Git to require commit signatures"
 type: "article"
 date: 2022-08-11T13:41:00+00:00
 lastmod: 2022-08-11T13:41:00+00:00

@@ -1,6 +1,6 @@
 ---
 title: "melange"
-description: "The declarative APK builder"
+description: "An apk builder tool"
 lead: "The declarative APK builder"
 type: "article"
 date: 2020-10-06T08:49:15+00:00
