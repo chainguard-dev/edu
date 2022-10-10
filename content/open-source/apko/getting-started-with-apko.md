@@ -117,13 +117,13 @@ The only thing left to do now is run apko to build this image. The following bui
 - execute the `cgr.dev/chainguard/apko` image with the `build` command, tagging the image as `alpine-base:test` and saving the build as `alpine-test.rar`.
 
 ```shell
-docker run --rm -v ${PWD}:/work cgr.dev/chainguard/apko build /work/alpine-base.yaml alpine-base:test /work/alpine-test.tar
+docker run --rm -v ${PWD}:/work -w /work cgr.dev/chainguard/apko build alpine-base.yaml alpine-base:test alpine-test.tar
 ```
 
 You should get output similar to this:
 
 ```
-Jul 25 17:14:52.623 [INFO] loading config file: /work/alpine-base.yaml
+Jul 25 17:14:52.623 [INFO] loading config file: alpine-base.yaml
 Jul 25 17:14:52.625 [INFO] [arch:x86_64] building image 'alpine-base:test'
 Jul 25 17:14:52.625 [INFO] [arch:x86_64] build context:
 Jul 25 17:14:52.625 [INFO] [arch:x86_64]   working directory: /tmp/apko-912607687
@@ -156,7 +156,7 @@ Jul 25 17:14:53.913 [INFO] [arch:x86_64] building OCI image from layer '/tmp/apk
 Jul 25 17:14:53.981 [INFO] [arch:x86_64] OCI layer digest: sha256:d1354df643e7c9ad2e88ec505bf9566f8034038affafd7f119a4e269d1803d68
 Jul 25 17:14:53.981 [INFO] [arch:x86_64] OCI layer diffID: sha256:d34e58ab1ef2c3d4aff216116728afb18183fb4d6d4abe9a31ff83049a739524
 Jul 25 17:14:53.982 [WARNING] [arch:x86_64] multiple SBOM formats requested, uploading SBOM with media type: spdx+json
-Jul 25 17:14:53.984 [INFO] [arch:x86_64] output OCI image file to /work/alpine-test.tar
+Jul 25 17:14:53.984 [INFO] [arch:x86_64] output OCI image file to alpine-test.tar
 ```
 
 From the output, you can notice that the image was successfully built at the location `/work/alpine-test.tar` in the container, which is shared with your local folder on the host thanks to the volume you created when running the `docker run` command.
