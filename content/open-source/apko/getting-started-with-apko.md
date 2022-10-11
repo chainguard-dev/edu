@@ -29,7 +29,7 @@ In this guide, we'll learn how to use apko to build a base Alpine image.
 
 The fastest way to get apko up and running on your system is by using the [official apko image](https://github.com/distroless/apko) with Docker. This method is compatible with all operating systems that support Docker and shared volumes. Please follow the [appropriate Docker installation instructions](https://docs.docker.com/get-docker/) for your operating system.
 
-If you want to run apko on CI/CD pipelines built on top of GitHub Actions, check the [apko build action](https://github.com/chainguard-dev/actions/tree/main/apko-build) on GitHub.
+If you want to run apko on CI/CD pipelines built on top of GitHub Actions, check the [apko build action](https://github.com/chainguard-images/actions/tree/main/apko-build) on GitHub.
 
 The instructions in this document were validated on an Ubuntu 22.04 workstation running Docker 20.10.
 
