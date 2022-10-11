@@ -48,19 +48,10 @@ Before we begin, let’s move into a directory that we can work in. For our exam
 mkdir ~/enforce-demo && cd $_
 ```
 
-To install `chainctl`, let’s create variables that simplify our commands and export them to be used by child processes.
+To install `chainctl`, we’ll use the `curl` command to pull the application down.
 
 ```sh
-export BUCKET="us.artifacts.prod-enforce-fabc.appspot.com"
-export BASE_URL="https://storage.googleapis.com/${BUCKET}"
-```
-
-Here, we are using the bucket our Chainguard Enforce tool is hosted in, and calling that bucket within the base URL of our application hosted by Google.
-
-We’ll use the `curl` command to pull the application down.
-
-```sh
-curl -o chainctl "$BASE_URL/chainctl_$(uname -s)_$(uname -m)"
+curl -o chainctl "https://dl.enforce.dev/chainctl_$(uname -s)_$(uname -m)"
 ```
 
 Move `chainctl` into your `/usr/local/bin` directory.
