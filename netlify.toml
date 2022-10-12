@@ -6,13 +6,13 @@
     X-Content-Type-Options = "nosniff"
     Content-Security-Policy = '''
        default-src 'self';
-       frame-src 'self' https://player.vimeo.com https://www.youtube.com www.youtube-nocookie.com https://platform.twitter.com https://syndication.twitter.com https://visualization-ui.chainguard.app;
-       style-src 'self' 'unsafe-inline' cdn.jsdelivr.net https://fonts.googleapis.com *.netlify.app;
+       frame-src 'self' *.chainguard.dev https://player.vimeo.com https://www.youtube.com www.youtube-nocookie.com https://platform.twitter.com https://syndication.twitter.com https://visualization-ui.chainguard.app;
+       style-src 'self' *.chainguard.dev 'unsafe-inline' cdn.jsdelivr.net https://fonts.googleapis.com *.netlify.app;
        form-action 'self';
-       font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net;
-       script-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net *.netlify.app *.googletagmanager.com;
+       font-src 'self' *.chainguard.dev https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net;
+       script-src 'self' *.chainguard.dev 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net *.netlify.app *.googletagmanager.com;
        connect-src 'self' *.google-analytics.com;
-       img-src 'self' *.chainguard.dev;
+       img-src 'self' *.chainguard.dev *.chainguard.dev;
        base-uri 'self';
     '''
 
