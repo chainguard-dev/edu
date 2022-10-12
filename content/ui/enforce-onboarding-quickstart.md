@@ -20,17 +20,10 @@ Create a new directory called `enforce-demo`.
 mkdir ~/enforce-demo && cd $_
 ```
 
-To simplify later commands, create the following variables and export them to be used by child processes.
+To install `chainctl`, we’ll use the `curl` command to pull the application down.
 
 ```sh
-export BUCKET="us.artifacts.prod-enforce-fabc.appspot.com"
-export BASE_URL="https://storage.googleapis.com/${BUCKET}"
-```
-
-Then use `curl` to pull the application down.
-
-```sh
-curl -o chainctl "$BASE_URL/chainctl_$(uname -s)_$(uname -m)"
+curl -o chainctl "https://dl.enforce.dev/chainctl_$(uname -s)_$(uname -m)"
 ```
 
 Move `chainctl` into your `/usr/local/bin` directory.
