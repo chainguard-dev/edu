@@ -170,6 +170,9 @@ spec:
   authorities:
   - keyless:
       url: https://fulcio.sigstore.dev
+      identities:
+        - issuer: "*"
+          subject: "*"
 EOF
 ```
 

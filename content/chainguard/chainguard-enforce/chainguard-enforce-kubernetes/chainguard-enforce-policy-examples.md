@@ -33,6 +33,9 @@ spec:
   authorities:
   - keyless:
       url: https://fulcio.sigstore.dev
+      identities:
+        - issuer: "*"
+          subject: "*"
 ```
 
 An example using Docker Hub images:
