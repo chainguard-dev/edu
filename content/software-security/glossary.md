@@ -34,12 +34,6 @@ The methodology and process for planning, designing, creating, testing, deployin
 
 ---
 
-### Software supply chain attacks
-
-An intentional act of inserting malicious functionality into — or taking advantage of a known vulnerability within — the build, source, components or deployment software or infrastructure with the goal of propagating that harmful functionality through current distribution methods.
-
----
-
 ### Software artifact
 
 An artifact is an immutable blob of data. Examples of artifacts include a file, a git commit, a container image, a firmware image.
