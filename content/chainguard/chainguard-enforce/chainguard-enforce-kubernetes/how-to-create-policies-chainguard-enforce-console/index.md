@@ -33,7 +33,7 @@ If you were invited to a group, you may already have policies available. From th
 
 ![Chainguard Enforce policies page](policies-page.png)
 
-These are displayed in a table by the policy's **Name**, **Violations** and **Groups**, similar to the screenshot below.
+These are displayed in a table by the policy's **Name**, **Violations** and **Groups**, similar to the following screenshot.
 
 ![Chainguard Enforce policy table](policy-table.png)
 
