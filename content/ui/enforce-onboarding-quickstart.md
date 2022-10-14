@@ -26,16 +26,10 @@ To install `chainctl`, we’ll use the `curl` command to pull the application do
 curl -o chainctl "https://dl.enforce.dev/chainctl_$(uname -s)_$(uname -m)"
 ```
 
-Move `chainctl` into your `/usr/local/bin` directory.
+Move `chainctl` into your `/usr/local/bin` directory and elevate its permissions so that it can execute as needed.
 
 ```sh
-sudo mv ./chainctl /usr/local/bin/chainctl
-```
-
-Next, elevate the permissions of `chainctl` so that it can execute as needed.
-
-```sh
-chmod +x /usr/local/bin/chainctl
+sudo install -o $UID -g $GID 0755 chainctl /usr/local/bin/chainctl
 ```
 
 Finally, alias its path so that you can use `chainctl` on the command line.
@@ -58,14 +52,16 @@ chainctl version
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 
-GitVersion:    e01c38b
-GitCommit:     e01c38b452ee34e44cf5f8663d7730a2cf69f0c3
+GitVersion:    bf36b2b
+GitCommit:     bf36b2be08c0dca8e4d2174ee21c31b9679c4ece
 GitTreeState:  clean
-BuildDate:     2022-09-21T00:10:26Z
-GoVersion:     go1.18.6
+BuildDate:     2022-10-13T21:13:11Z
+GoVersion:     go1.18.7
 Compiler:      gc
 Platform:      darwin/arm64
 ```
+
+You can update `chainctl` at any time to ensure you have the most up-to-date version by running `chainctl update`.
 
 ## Step 2 — Check IAM group
 
@@ -244,4 +240,13 @@ chainctl cluster uninstall
 kind delete cluster --name enforce-demo
 ```
 
-To learn more about Chainguard Enforce, please review our documentation and other resources on Chainguard Academy.
+## Learn more
+
+To get up and running with Chainguard Enforce, you may want to review the following docs and resources:
+
+* [Overview of IAM model](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/overview-of-enforce-iam-model/)
+* [How to manage IAM groups in Chainguard Enforce](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-manage-iam-groups-in-chainguard-enforce/)
+* [Example policies to use with Chainguard Enforce](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-policy-examples/)
+* [`chainctl` reference](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/) to effective use our CLI tool to interact with the account model that Chainguard Enforce provides, and enable you to make queries into the state of your clusters and policies registered with the platform]
+
+Please review more of our [documentation on Chainguard Enforce](https://edu.chainguard.dev/chainguard/chainguard-enforce/) and other resources on [Chainguard Academy](https://edu.chainguard.dev) to learn more about software supply chain security.
