@@ -1,7 +1,7 @@
 ---
-title: "YAML Reference"
+title: "apko YAML Reference"
 type: "article"
-description: "apko YAML Reference"
+description: "A reference guide for writing YAML for apko"
 date: 2022-10-10T11:07:52+02:00
 lastmod: 2022-10-10T11:07:52+02:00
 draft: false
@@ -13,15 +13,15 @@ weight: 150
 toc: true
 ---
 
-In this page you can find a reference for apko's YAML specification.
+This page provides a reference for apko's YAML specification.
 
 ## contents
 This section defines sources and packages you want to include in your image.
 
-| Directive    | Description                                                                                  |
-|--------------|:---------------------------------------------------------------------------------------------|
-| repositories | A list of apk repositories for this image. Supports either Alpine or Wolfi apk repositories. |
-| packages     | A list containing all packages that should be installed as part of this image requirements.  |
+| Directive    | Description                                                                                      |
+|--------------|:-------------------------------------------------------------------------------------------------|
+| repositories | A list of apk repositories for this image. Supports either Alpine or Wolfi apk repositories.     |
+| packages     | A list containing all packages that should be installed as part of a given image's requirements. |
 
 _*It is not recommended to mix Alpine apks with Wolfi apks._
 
@@ -40,7 +40,7 @@ This section defines an entry point command for your image.
 
 | Directive | Description                                                                                 |
 |-----------|:--------------------------------------------------------------------------------------------|
-| command   | The command that should ne executed as entry point for this image.                          |
+| command   | The command that should be executed as entry point for this image.                          |
 
 
 #### Example:
