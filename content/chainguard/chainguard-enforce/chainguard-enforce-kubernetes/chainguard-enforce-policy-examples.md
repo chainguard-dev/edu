@@ -17,6 +17,16 @@ toc: true
 
 Chainguard Enforce for Kubernetes allows users to create their own security policies that they can enforce in their clusters. Here are a few example policies to help you get started. You may also want to review the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview).
 
+## Applying a policy
+
+To apply a policy to a cluster, you can use the `chainctl` command. Be sure to replace `$POLICY` with the name of your policy, and `$GROUP` with the name of your group. 
+
+```sh
+chainctl policies apply -f $POLICY.yaml --group=$GROUP
+```
+
+Alternately, you can follow our guide on [How to Create Policies in the Chainguard Enforce UI](how-to-create-policies-chainguard-enforce-ui).
+
 ## Policy enforcing signed containers from Chainguard Images
 
 ```
@@ -30,6 +40,7 @@ spec:
   - glob: "ghcr.io/chainguard-dev/*"
   - glob: "index.docker.io/*"
   - glob: "index.docker.io/*/*"
+  - glob: "cgr.dev/chainguard/**"
   authorities:
   - keyless:
       url: https://fulcio.sigstore.dev
@@ -143,4 +154,58 @@ spec:
         # Matches a specific GitHub workflow on main branch. Here we use the
         # Sigstore policy controller example testing workflow as an example.
         subject: "https://github.com/sigstore/policy-controller/.github/workflows/release.yaml@refs/tags/v0.3.0"
+```
+
+## Policy allowing all images
+
+```
+apiVersion: policy.sigstore.dev/v1beta1
+kind: ClusterImagePolicy
+metadata:
+  name: allow-all
+spec:
+  images:
+  - glob: "**"
+  - glob: "*"
+  authorities:
+  - static:
+      action: pass
+```
+
+## Policy allowing GKE images
+
+```
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: ClusterImagePolicy
+metadata:
+  name: allow-gke-policy
+spec:
+  images:
+  # Chainguard images are signed.
+  - glob: "gke.gcr.io/**"
+  - glob: "gke.gcr.io/*"
+  - glob: "gke.gcr.io/*/*"
+  - glob: "gcr.io/gke-release/*"
+  authorities:
+  - static:
+      action: pass
+```
+
+## Policy allowing keyless signed distroless images
+
+```
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: ClusterImagePolicy
+metadata:
+  name: signed-keyless-distroless
+spec:
+  images:
+  - glob: "ghcr.io/distroless/*"
+  - glob: "distroless.dev/*"
+  authorities:
+  - keyless:
+      url: https://fulcio.sigstore.dev
+      identities:
+        - issuer: "*"
+          subject: "*"
 ```
