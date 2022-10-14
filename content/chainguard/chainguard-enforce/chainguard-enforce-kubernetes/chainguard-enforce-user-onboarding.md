@@ -167,6 +167,7 @@ spec:
   - glob: "ghcr.io/chainguard-dev/*"
   - glob: "index.docker.io/*"
   - glob: "index.docker.io/*/*"
+  - glob: "cgr.dev/chainguard/**"
   authorities:
   - keyless:
       url: https://fulcio.sigstore.dev

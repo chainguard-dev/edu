@@ -1,4 +1,4 @@
-baseurl = "https://edu.chainguard.dev/"
+baseURL = "https://edu.chainguard.dev/"
 canonifyURLs = false
 disableAliases = true
 disableHugoGeneratorInject = true
@@ -55,7 +55,7 @@ rel  = "sitemap"
     maxAge = "10s"
 
 [sitemap]
-  changefreq = "hourly"
+  changefreq = "daily"
   filename = "sitemap.xml"
   priority = 0.5
 
