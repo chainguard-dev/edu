@@ -16,7 +16,7 @@ terminalImage: gcloud:latest
 toc: true
 ---
 
-[apko](http://github.com/chainguard-dev/apko) is a command-line tool that allows users to build container images using a declarative language based on YAML. apko is so named as it uses the [APK](https://wiki.alpinelinux.org/wiki/Package_management) package format and is inspired by the [ko](https://github.com/google/ko) build tool.
+[apko](http://github.com/chainguard-dev/apko) is a command-line tool that allows users to build container images using a declarative language based on YAML. apko is so named as it uses the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format and is inspired by the [ko](https://github.com/google/ko) build tool.
 
 ## Why apko
 Container images are typically assembled in multiple steps. A tool like Docker, for example, combines building steps (as in, running commands to copy files, build and deploy applications) and composition (as in, composing a base image with pre-built packages) in a single piece of software. apko, on the other hand, is solely a **composition** tool that focuses on producing lightweight, "flat" base images that are fully reproducible and contain auto generated [SBOM](https://www.cisa.gov/sbom) files for every successful build.
