@@ -3,7 +3,7 @@ title: "Chainguard Enforce User Onboarding"
 type: "article"
 description: "Walkthrough of Chainguard Enforce"
 date: 2022-15-07T15:22:20+01:00
-lastmod: 2022-13-09T15:22:20+01:00
+lastmod: 2022-14-10T15:22:20+01:00
 draft: false
 images: []
 menu:
@@ -54,16 +54,10 @@ To install `chainctl`, we’ll use the `curl` command to pull the application do
 curl -o chainctl "https://dl.enforce.dev/chainctl_$(uname -s)_$(uname -m)"
 ```
 
-Move `chainctl` into your `/usr/local/bin` directory.
+Move `chainctl` into your `/usr/local/bin` directory and elevate its permissions so that it can execute as needed.
 
 ```sh
-sudo mv ./chainctl /usr/local/bin/chainctl
-```
-
-Next, elevate the permissions of `chainctl` so that it can execute as needed.
-
-```sh
-chmod +x /usr/local/bin/chainctl
+sudo install -o $UID -g $GID 0755 chainctl /usr/local/bin/chainctl
 ```
 
 Finally, alias its path so that you can use `chainctl` on the command line.
@@ -88,16 +82,20 @@ You should receive output similar to the following.
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 
-GitVersion:    e01c38b
-GitCommit:     e01c38b452ee34e44cf5f8663d7730a2cf69f0c3
+GitVersion:    bf36b2b
+GitCommit:     bf36b2be08c0dca8e4d2174ee21c31b9679c4ece
 GitTreeState:  clean
-BuildDate:     2022-09-21T00:10:26Z
-GoVersion:     go1.18.6
+BuildDate:     2022-10-13T21:13:11Z
+GoVersion:     go1.18.7
 Compiler:      gc
 Platform:      darwin/arm64
 ```
 
-If you received different output, check your bash profile to make sure that your system is using the expected PATH. If your version of `chainctl` is a few weeks or months old, you may consider updating it by following the steps above so that you can use the most up to date version.
+If you received different output, check your bash profile to make sure that your system is using the expected PATH. If your version of `chainctl` is a few weeks or months old, you may consider updating it so that you can use the most up to date version. You can update `chainctl` as follows.
+
+```sh
+sudo chainctl update
+```
 
 With `chainctl` successfully installed, we can continue through the demo.
 
@@ -167,6 +165,7 @@ spec:
   - glob: "ghcr.io/chainguard-dev/*"
   - glob: "index.docker.io/*"
   - glob: "index.docker.io/*/*"
+  - glob: "cgr.dev/chainguard/**"
   authorities:
   - keyless:
       url: https://fulcio.sigstore.dev
