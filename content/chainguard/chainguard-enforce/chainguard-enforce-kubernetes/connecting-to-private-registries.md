@@ -71,6 +71,9 @@ spec:
   authorities:
   - keyless:
       url: https://fulcio.sigstore.dev
+      identities:
+        - issuer: "*"
+          subject: "*"
     source:
     - oci: "registry.example.com"
       signaturePullSecrets:
@@ -100,6 +103,9 @@ spec:
   authorities:
   - keyless:
       url: https://fulcio.sigstore.dev
+      identities:
+        - issuer: "*"
+          subject: "*"
     source:
     - oci: "index.docker.io/privatenamespace/$image"
       signaturePullSecrets:
@@ -156,6 +162,9 @@ spec:
   authorities:
   - keyless:
       url: https://fulcio.sigstore.dev
+      identities:
+        - issuer: "*"
+          subject: "*"
 ```
 
 Be sure to replace `$your-gcp-project` with your relevant project name. 
@@ -189,6 +198,9 @@ spec:
   authorities:
   - keyless:
       url: https://fulcio.sigstore.dev
+      identities:
+        - issuer: "*"
+          subject: "*"
 ```
 
 Be sure to replace the variable next to glob with your relevant account
