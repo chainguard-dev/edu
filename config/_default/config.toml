@@ -55,7 +55,7 @@ rel  = "sitemap"
     maxAge = "10s"
 
 [sitemap]
-  changefreq = "hourly"
+  changefreq = "daily"
   filename = "sitemap.xml"
   priority = 0.5
 
