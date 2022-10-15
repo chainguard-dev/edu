@@ -1,9 +1,9 @@
 ---
 title: "Wolfi FAQs"
 type: "article"
-description: "Frequently asked questions about Wolfi"
+description: "Frequently asked questions about Wolfi, a Linux undistro"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2022-09-01T08:49:31+00:00
+lastmod: 2022-10-15T08:49:31+00:00
 draft: false
 images: []
 menu:
@@ -30,3 +30,5 @@ Wolfi was created and is currently maintained by [Chainguard](https://chainguard
 ### What are the plans for long-term Wolfi governance?
 We intend for Wolfi to be a community-driven project, which means over time it will have multi-vendor governance and maintainers. For now we're focused on building the project and community, and will revisit this in several months when a community has formed.
 
+## Where can I get security feeds for Wolfi?
+See [SECURITY.md](https://github.com/wolfi-dev/.github/blob/main/SECURITY.md) for information about reporting security incidents concerning and consuming security data about Wolfi.
