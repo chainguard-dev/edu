@@ -2,14 +2,14 @@
 title: "How to create policies in the Chainguard Enforce Console"
 type: "article"
 description: "Creating policies in the Chainguard Enforce UI"
-date: 2022-12-10T15:22:20+01:00
-lastmod: 2022-12-10T15:22:20+01:00
+date: 2022-16-10T11:07:52+02:00
+lastmod: 2022-16-10T11:07:52+02:00
 draft: false
 images: []
 menu:
   docs:
     parent: "chainguard-enforce-kubernetes"
-weight: 100
+weight: 500
 toc: true
 ---
 
