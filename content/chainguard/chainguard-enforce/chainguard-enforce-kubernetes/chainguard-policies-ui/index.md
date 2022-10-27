@@ -3,7 +3,7 @@ title: "How to create policies in the Chainguard Enforce Console"
 type: "article"
 description: "Creating policies in the Chainguard Enforce UI"
 date: 2022-16-10T11:07:52+02:00
-lastmod: 2022-16-10T11:07:52+02:00
+lastmod: 2022-27-10T11:07:52+02:00
 draft: false
 images: []
 menu:
@@ -29,7 +29,7 @@ At the top of the page will be three icons you can click on: **Clusters**, **Pol
 
 ## Inspect any existing policies
 
-If you were invited to a group, you may already have policies available. From the Policy landing page, you can review any existing policies and any existing violations of those poicies. 
+If you were invited to a group, you may already have policies available. From the Policy landing page, you can review any existing policies and any existing violations of those policies. 
 
 ![Chainguard Enforce policies page](policies-page.png)
 
@@ -54,7 +54,7 @@ With either option you won't start from scratch but have some of the boilerplate
 
 ## Write and publish a policy
 
-Whether you choose to begin with the **Custom** or **Singature** policy, a new sidebar will be displayed that has fields to choose the **Group**, and write a **Description** for your new policy. You can also edit the YAML file itself. 
+Whether you choose to begin with the **Custom** or **Signature** policy, a new sidebar will be displayed that has fields to choose the **Group**, and write a **Description** for your new policy. You can also edit the YAML file itself. 
 
 In the **Signature** policy, you'll have an additional field for the policy's **Name**, a field for **Image**, and an option to add more images. 
 
@@ -62,7 +62,7 @@ In the **Signature** policy, you'll have an additional field for the policy's **
 
 Fill in the fields for this policy until you are satisfied. In the policy below, we are requiring signatures for all Docker and GitHub container images. We have associated it with the `chainguard-demos` group. 
 
-![Example Chainguard Enforce singature policy requiring signatures for Docker and GHCR images](example-policy.png)
+![Example Chainguard Enforce signature policy requiring signatures for Docker and GHCR images](example-policy.png)
 
 Once you are satisfied with the new policy, you can click the **Publish** button towards the bottom of the form.
 
@@ -70,7 +70,7 @@ This new policy will now appear on your policy table within the Chainguard Enfor
 
 ## Edit policies
 
-To modify an existing policy, click on the relvant policy within your Chainguard Enforce Console table. This will take you to a view allowing you to edit or delete the policy. 
+To modify an existing policy, click on the relevant policy within your Chainguard Enforce Console table. This will take you to a view allowing you to edit or delete the policy. 
 
 ![Edit a Chainguard Enforce policy](edit-a-policy.png)
 
