@@ -68,7 +68,7 @@ The process of digitally signing software artifacts to verify the author of the 
 
 ### OCI
 
-OCI stands for the **O**pen **C**ontainer **I**nitiative, whcih is an open governance structure that was set up to create and foster open industry standards around software container formats and runtimes.
+OCI stands for the **O**pen **C**ontainer **I**nitiative, which is an open governance structure that was set up to create and foster open industry standards around software container formats and runtimes.
 
 ---
 
