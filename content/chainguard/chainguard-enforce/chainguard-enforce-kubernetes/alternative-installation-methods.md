@@ -3,14 +3,14 @@ title: "Alternative Enforce Agent Installation Methods"
 type: "article"
 lead: ""
 description: "Alternative installation methods and instructions."
-date: 2022-09-02T15:56:52-07:00
-lastmod: 2022-09-02T15:56:52-07:00
+date: 2022-11-04T15:56:52-07:00
+lastmod: 2022-11-04T15:56:52-07:00
 draft: false
 images: []
 menu:
   docs:
     parent: "chainguard-enforce-kubernetes"
-weight: 100
+weight: 700
 toc: true
 ---
 
@@ -23,9 +23,11 @@ We'll refer to these alternative methods as various flavors of Declarative
 Installs. In other words, the entirety of the Chainguard Enforce Agent resources
 are defined as static Kubernetes manifests.
 
-Given the static manifests, there's infinite flexibility in how they are applied
-to the cluster. The two most common examples we'll cover below are with "raw"
-yaml, and `helm`.
+Static manifests created for Declarative Installs allow for great flexibility
+for how they're ultimately applied to the cluster, and can be easily adapted to
+fit most Kubernetes deployment workflows.
+
+The two examples we'll cover are: "raw" yaml, and a helm chart.
 
 ## Raw YAML
 
@@ -40,11 +42,16 @@ chainctl cluster print-config > enforce-agent.yaml
 curl -s 'https://dl.enforce.dev/{mcp,tenant}.yaml' > enforce-agent.yaml
 ```
 
-> Note: We always recommend inspecting the contents of remotely fetched yaml.
+> Note: We always recommend inspecting the contents of remotely fetched
+manifests!
 
-Now, to ensure our agent knows how to authenticate with the Chainguard Enforce
-Platform, and which [group](./how-to-manage-iam-groups-in-chainguard-enforce.md)
-to register under, we set up the [required authentication](#required-authentication).
+Before proceeding, we must first define how our agent should authenticate with
+the Chainguard Enforce Platform, and which [group](./how-to-manage-iam-groups-in-chainguard-enforce.md)
+to register under. To do this, we first set up the [required authentication](#required-authentication).
+
+> Note: Before proceeding, ensure the [required
+authentication](#required-authentication) steps are
+completed.
 
 Once the required authentication is pre-provisioned, append the following to
 the `enforce-agent.yaml` created in the previous step:
@@ -92,6 +99,12 @@ demonstrate:
 kubectl apply -f enforce-agent.yaml
 ```
 
+> Note: The `enforce-agent.yaml` includes CRDs, which when applied all in one
+shot with `kubectl` may fail to register before being applied. To "workaround"
+this you may need to run the command twice. In a "real world" scenario you
+should split the resources up, or rely on the applying agent (ie Flux or ArgoCD)
+to handle the ordering.
+
 Up till now we've demonstrated the declarative raw yaml install using a single
 file: `enforce-agent.yaml`. However, in practice the structure of this doesn't
 matter, and you should feel free to structure the manifests according to your
@@ -105,7 +118,7 @@ the helm ecosystem.
 Begin by adding the cart repository and syncing it's contents:
 
 ```bash
-helm repo add chainguard-dev/helm-charts
+helm repo add chainguard https://chainguard.github.io/helm-charts
 
 helm repo update
 ```
@@ -140,7 +153,7 @@ With the required authentication information in the `values.yaml`, the chart can
 then be installed using:
 
 ```bash
-helm install enforce-agent chainguard-dev/enforce-agent -f values.yaml
+helm upgrade -i enforce-agent chainguard/enforce-agent -f values.yaml
 ```
 
 The full list of configuration options available are located in the [charts repo](https://github.com/chainguard-dev/helm-charts).
