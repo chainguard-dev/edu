@@ -118,7 +118,7 @@ the helm ecosystem.
 Begin by adding the cart repository and syncing it's contents:
 
 ```bash
-helm repo add chainguard https://chainguard.github.io/helm-charts
+helm repo add chainguard https://chainguard-dev.github.io/helm-charts
 
 helm repo update
 ```
