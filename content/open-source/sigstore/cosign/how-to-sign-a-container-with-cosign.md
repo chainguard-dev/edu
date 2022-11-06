@@ -119,7 +119,7 @@ If you receive an error message or a “failed” message, check that your user 
 You should get guidance in the output that your build was successful when you receive no errors.
 
 ```
-=> => naming to docker.io/library/hello-container    
+=> => naming to docker.io/docker-username/hello-container    
 ```
 
 At this point your container is built and you can verify that the container is working as expected by running the container. 
