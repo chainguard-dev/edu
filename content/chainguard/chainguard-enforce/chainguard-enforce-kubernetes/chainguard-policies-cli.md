@@ -37,11 +37,23 @@ You can apply a policy to every cluster managed by a given group with the `polic
 chainctl policies apply -f enforce-policy.yaml
 ```
 
-After running a `policies apply` command like this, an interactive menu will appear in your terminal prompting you to select the group that the policy should apply to. Chainguard Enforce provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. Each Chainguard policy needs to be associated with a group, and will be effective for that group as well as all the groups descending from it. 
+After running a `policies apply` command like this, an interactive menu will appear in your terminal prompting you to select the group that the policy should apply to. Chainguard Enforce provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. Each Chainguard policy needs to be associated with a group, and will be effective for that group as well as all the groups descending from it.
 
-The `-f` option in this command tells `chainctl` which policy file to use to create the policy. Note that all Chainguard Enforce policies must be written in YAML. If you don't include this option followed by a policy file, `chainctl` will open your default text editor for you to enter a policy manually. 
+The `-f` option in this command tells `chainctl` the location of the policy file to use to apply a new policy to a cluster. Note that all Chainguard Enforce policies must be written in YAML. If you don't include this option followed by a policy file, `chainctl` will open your default text editor for you to enter a policy manually.
 
-Be aware that the `policies apply` subcommand accepts the `--group` option. When followed by the name of an existing Chainguard Enforce IAM group and combined with the `-f` flag and policy file, this option allows you to avoid using the interactive menu entirely. This is useful in situations where you would prefer to take a more declarative approach to manage your policies.
+The `policies apply` subcommand accepts the `--group` option. When followed by the name or identification number of an existing Chainguard Enforce IAM group and combined with the `-f` flag and policy file, this option allows you to avoid using the interactive menu. This is useful in situations where you would prefer to take a more declarative approach to manage your policies.
+
+```sh
+chainctl policies apply -f enforce-policy.yaml --group my-group
+```
+
+Lastly, `policies apply` also accepts the `-d` option which allows you to add a description of your policy. 
+
+```sh
+chainctl policies apply -f enforce-policy.yaml -d "This is a description of my policy"
+```
+
+Adding a description like this can be helpful in cases where you need to differentiate or organize multiple policies that have been applied to the same group.
 
 
 ## Inspect existing policies
@@ -68,7 +80,7 @@ However, this output only provides some high-level information about your polici
 chainctl policies view
 ```
 
-A menu will appear, prompting you to select the policy you'd like to inspect. To avoid using the interactive menu, you can follow the `view` subcommand with the name or identification number of the policy you want to inspect. 
+A menu will appear, prompting you to select the policy you'd like to inspect. To avoid using the interactive menu, you can follow the `view` subcommand with the name or identification number of the policy you want to inspect.
 
 ```sh
 chainctl policies view enforce-policy
@@ -79,7 +91,7 @@ This will output the contents of the chosen policy directly.
 
 ## Edit policies
 
-`chainctl` includes the `policies edit` subcommand, allowing you to modify existing policies. 
+`chainctl` includes the `policies edit` subcommand, allowing you to modify existing policies.
 
 ```sh
 chainctl policies edit
@@ -91,11 +103,11 @@ As with `policies view`, when you run `policies edit` without any arguments it w
 chainctl policies edit enforce-policy
 ```
 
-Regardless of how you run this command, it will open your default text editor where you can edit the specified policy's contents. After saving your changes and closing the editor, `chainctl` will prompt you to confirm whether you want to save the changes to the active policy. If you do confirm, the updated policy will be saved and applied automatically. 
+Regardless of how you run this command, it will open your default text editor where you can edit the specified policy's contents. After saving your changes and closing the editor, `chainctl` will prompt you to confirm whether you want to save the changes to the active policy. If you do confirm, the updated policy will be saved and applied automatically.
 
 Be aware that if you used a `.yaml` file as the basis for the policy you applied to your cluster, the `edit` subcommand will not edit the original file. It will only edit the policy as it exists within Chainguard Enforce.
 
-`chainctl` also includes the `update` subcommand. Rather than updating the policy itself, this allows you to update the description of a policy. 
+`chainctl` also includes the `update` subcommand. Rather than updating the policy itself, this allows you to update the description of a policy.
 
 The `policies update` subcommand requires a few arguments in order to run. Specifically, you must include the name or identification number of the policy whose description you want to update, the `--description` option, and the policy's new description. This example updates the description of `enforce-policy` policy's description to read "A description of my policy."
 
@@ -118,7 +130,7 @@ If you would like to delete a policy, run the `policies delete` subcommand.
 chainctl policies delete
 ```
 
-As with the commands outlined previously, if you don't include any other arguments this command will open an interactive menu where you can select the policy you want to delete. It will then prompt you to confirm whether you want to delete the selected policy by pressing `Y` and then `ENTER`. 
+As with the commands outlined previously, if you don't include any other arguments this command will open an interactive menu where you can select the policy you want to delete. It will then prompt you to confirm whether you want to delete the selected policy by pressing `Y` and then `ENTER`.
 
 To run this command non-interactively, you can append the name or identification number of the policy you want to delete followed by the `-y` flag. This will automatically answer "yes" to the confirmation prompt.
 
@@ -184,4 +196,3 @@ Global Flags:
 
 Use "chainctl policies [command] --help" for more information about a command.
 ```
-
