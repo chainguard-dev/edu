@@ -166,6 +166,7 @@ If you forget these aliases or you just aren't sure about how one of these comma
 ```sh
 chainctl policies -h
 ```
+
 ```
 Policy related commands for the Chainguard platform.
 
