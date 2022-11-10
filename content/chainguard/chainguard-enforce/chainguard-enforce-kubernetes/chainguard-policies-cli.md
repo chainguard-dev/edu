@@ -18,6 +18,11 @@ Chainguard Enforce allows you to define and apply policies to your Kubernetes cl
 To review sample policies that you may want to leverage, please check out our page on [Chainguard Enforce Policy Examples](chainguard-enforce-policy-examples). If you would like to use the [Chainguard Enforce UI](https://console.enforce.dev) to work with policies, check out our guide on [How to create policies in the Chainguard Enforce Console](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-policies-ui/).
 
 
+## Prerequisites
+
+In order to follow allong with the examples in this guide, you will need `chainctl` installed on your local machine. Follow our guide on [How To Install `chainctl`](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/) to set this up.
+
+
 ## Authenticate to the Chainguard Enforce platform
 
 To begin, you will need to authenticate to the Chainguard Enforce platform from your local machine with the following command.
@@ -37,7 +42,7 @@ You can apply a policy to every cluster managed by a given group with the `polic
 chainctl policies apply -f enforce-policy.yaml
 ```
 
-After running a `policies apply` command like this, an interactive menu will appear in your terminal prompting you to select the group that the policy should apply to. Chainguard Enforce provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. Each Chainguard policy needs to be associated with a group, and will be effective for that group as well as all the groups descending from it.
+After running a `policies apply` command like this, an interactive menu will appear in your terminal prompting you to select the group that the policy should apply to. Chainguard Enforce provides a rich [Identity and Access Management (IAM) model](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/overview-of-enforce-iam-model/) similar to those used by AWS and GCP. Each Chainguard policy needs to be associated with a group, and will be effective for that group as well as all the groups descending from it.
 
 The `-f` option in this command tells `chainctl` the location of the policy file to use to apply a new policy to a cluster. Note that all Chainguard Enforce policies must be written in YAML. If you don't include this option followed by a policy file, `chainctl` will open your default text editor for you to enter a policy manually.
 
@@ -45,6 +50,12 @@ The `policies apply` subcommand accepts the `--group` option. When followed by t
 
 ```sh
 chainctl policies apply -f enforce-policy.yaml --group my-group
+```
+
+In this example, the group is named `my-group`. When you run this command on your own setup, be sure to replace this with the relevant group's name or identification number. You can retrieve a list of all your groups' names and ID numbers with this command:
+
+```sh
+chainctl iam groups list -o table
 ```
 
 Lastly, `policies apply` also accepts the `-d` option which allows you to add a description of your policy. 
@@ -105,11 +116,11 @@ chainctl policies edit enforce-policy
 
 Regardless of how you run this command, it will open your default text editor where you can edit the specified policy's contents. After saving your changes and closing the editor, `chainctl` will prompt you to confirm whether you want to save the changes to the active policy. If you do confirm, the updated policy will be saved and applied automatically.
 
-Be aware that if you used a `.yaml` file as the basis for the policy you applied to your cluster, the `edit` subcommand will not edit the original file. It will only edit the policy as it exists within Chainguard Enforce.
+> **Note:** When you use a YAML file as the basis for a Chainguard Enforce policy, Enforce ingests the file's content and stores it internally as a policy. If later you run the `edit` subcommand to update a policy, it will not edit the original YAML file; it will only edit the policy as it exists within Chainguard Enforce.
 
 `chainctl` also includes the `update` subcommand. Rather than updating the policy itself, this allows you to update the description of a policy.
 
-The `policies update` subcommand requires a few arguments in order to run. Specifically, you must include the name or identification number of the policy whose description you want to update, the `--description` option, and the policy's new description. This example updates the description of `enforce-policy` policy's description to read "A description of my policy."
+The `policies update` subcommand requires a few arguments in order to run. Specifically, you must include the name or identification number of the policy whose description you want to update, the `--description` option, and the policy's new description. This example updates the description of the `enforce-policy` policy's description to read "A description of my policy."
 
 ```sh
 chainctl policies update enforce-policy --description "A description of my policy."
@@ -120,6 +131,8 @@ You can remove a policy's description by updating it to an empty string.
 ```sh
 chainctl policies update enforce-policy --description ""
 ```
+
+Essentially, this example command deletes the `enforce-policy` policy's description.
 
 
 ## Delete policies
@@ -137,7 +150,9 @@ To run this command non-interactively, you can append the name or identification
 ```sh
 chainctl policies delete enforce-policy
 ```
+
 You can follow this command with the `-y` flag to automatically answer "yes" to the confirmation prompt.
+
 
 ## Aliases for policy management commands
 
@@ -197,3 +212,5 @@ Global Flags:
 
 Use "chainctl policies [command] --help" for more information about a command.
 ```
+
+For additional guidance on using `chainctl`, review our [full reference documentation](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/chainctl/).
