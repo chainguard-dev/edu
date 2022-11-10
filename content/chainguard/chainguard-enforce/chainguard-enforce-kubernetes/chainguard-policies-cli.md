@@ -80,7 +80,7 @@ However, this output only provides some high-level information about your polici
 chainctl policies view
 ```
 
-A menu will appear, prompting you to select the policy you'd like to inspect. To avoid using the interactive menu, you can follow the `view` subcommand with the name or identification number of the policy you want to inspect.
+A menu will appear, prompting you to select the policy you'd like to inspect. To avoid using the interactive menu, you can follow the `view` subcommand with the name or identification number of the policy you want to inspect. In this example, we are passing the example policy name `enforce-policy`.
 
 ```sh
 chainctl policies view enforce-policy
@@ -97,7 +97,7 @@ This will output the contents of the chosen policy directly.
 chainctl policies edit
 ```
 
-As with `policies view`, when you run `policies edit` without any arguments it will open an interactive menu from which you can select the policy that you want to edit. You can also append the name or the identification number Chainguard Enforce uses to refer to the policy to avoid having to select the policy, as in this example.
+As with `policies view`, when you run `policies edit` without any arguments it will open an interactive menu from which you can select the policy that you want to edit. You can also append the name or the identification number Chainguard Enforce uses to refer to the policy to avoid having to select the policy, as in this example that is passing the `enforce-policy` policy name.
 
 ```sh
 chainctl policies edit enforce-policy
@@ -132,12 +132,12 @@ chainctl policies delete
 
 As with the commands outlined previously, if you don't include any other arguments this command will open an interactive menu where you can select the policy you want to delete. It will then prompt you to confirm whether you want to delete the selected policy by pressing `Y` and then `ENTER`.
 
-To run this command non-interactively, you can append the name or identification number of the policy you want to delete followed by the `-y` flag. This will automatically answer "yes" to the confirmation prompt.
+To run this command non-interactively, you can append the name or identification number of the policy you want to delete.
 
 ```sh
-chainctl policies delete enforce-policy -y
+chainctl policies delete enforce-policy
 ```
-
+You can follow this command with the `-y` flag to automatically answer "yes" to the confirmation prompt.
 
 ## Aliases for policy management commands
 
