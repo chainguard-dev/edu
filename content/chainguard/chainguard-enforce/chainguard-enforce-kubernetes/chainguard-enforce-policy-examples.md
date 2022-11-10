@@ -217,11 +217,9 @@ spec:
       keyless:
         identities:
           - issuer: https://token.actions.githubusercontent.com
-            subject: >-
-              https://github.com/chainguard-dev/mono/.github/workflows/.release-drop.yaml@refs/heads/main
+            subject: https://github.com/chainguard-dev/mono/.github/workflows/.release-drop.yaml@refs/heads/main
           - issuer: https://token.actions.githubusercontent.com
-            subject: >-
-              https://github.com/chainguard-dev/mono/.github/workflows/.build-drop.yaml@refs/heads/main
+            subject: https://github.com/chainguard-dev/mono/.github/workflows/.build-drop.yaml@refs/heads/main
         url: https://fulcio.sigstore.dev
 ```
 
