@@ -13,7 +13,7 @@ weight: 505
 toc: true
 ---
 
-> _This documentation is related to Chainguard Enforce. You can request access to the product selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
 
 Apache Log4j is a popular logging framework for Java applications developed and maintained by the Apache Software Foundation. In November of 2021, [a vulnerability was discovered in Log4j 2](https://nvd.nist.gov/vuln/detail/CVE-2021-44228) that allowed attackers to intercept data and potentially run malicious code remotely on applications where it's installed. The vulnerability became known as "Log4Shell."
 
@@ -91,9 +91,9 @@ export CLUSTER=$COPIED_NAME
 
 You're now ready to test how Chainguard Enforce works by deploying a sample application that includes a vulnerable version of Log4j. You'll then create a policy that will detect this vulnerability. 
 
-The sample container image used in this step is maintained by Chainguard for demonstration purposes only. Because this image includes a vulnerable version of Log4j, you **should not run this image in a production environment.** 
+The sample container image used in this step is maintained by Chainguard for demonstration purposes only. Because this image includes a vulnerable version of Log4j, you _**should not run this image in a production environment.**_ 
 
-If you'd like, you can inspect the image's [SBOM](https://edu.chainguard.dev/software-security/glossary/#sbom) by retrieving it directly from the container registry with the following `cosign` command. If you don’t already have `cosign` installed, you can install it following [these instructions from the Sigstore project documentation](https://docs.sigstore.dev/cosign/installation/).
+If you'd like, you can inspect the image's [SBOM](https://edu.chainguard.dev/software-security/glossary/#sbom) by retrieving it directly from the container registry with the following `cosign` command. If you don’t already have `cosign` installed, you can install it following our [How to Install Cosign guide](https://edu.chainguard.dev/open-source/sigstore/cosign/how-to-install-cosign/).
 
 ```sh
 cosign download sbom ghcr.io/chainguard-dev/log4shell-demo/app:v0.1.0
@@ -221,7 +221,7 @@ EOF
 All Chainguard Enforce policies are stored in YAML files like this one. This example has three particularly important objects:
 
 * `images`: this defines what images the policy applies to. In this example, the value is a `glob` key with a value of `"ghcr.io/chainguard-dev/log4shell-demo/*"`. This means that the policy will apply to any images that originate from the `ghcr.io/chainguard-dev/log4shell-demo/` URL, including the sample application running on your cluster (`ghcr.io/chainguard-dev/log4shell-demo/app:v0.1.0`).
-* `authorities`: this specifies what authorities the policy will allow to validate signatures and attestations. If at least one authority is satisfied and a signature or attestation is validated, that part of the policy is satisfied. In this case the relevant value is `keyless`, meaning this policy will check the image for any valid signature in the public instance of sigstore located at `https://fulcio.sigstore.dev`. Note that anyone can add signatures to the public instance, so it is recommended to limit the scope of valid signatures using the fields `issuerRegExp` and `subjectRegExp`. 
+* `authorities`: this specifies what authorities the policy will allow to validate signatures and attestations. If at least one authority is satisfied and a signature or attestation is validated, that part of the policy is satisfied. In this case the relevant value is `keyless`, meaning this policy will check the image for any valid signature in the public instance of Sigstore located at `https://fulcio.sigstore.dev`. Note that anyone can add signatures to the public instance, so it is recommended to limit the scope of valid signatures using the fields `issuerRegExp` and `subjectRegExp`. 
 * `attestations`: this array within the `authorities` section is where you can configure specific conditions that must be met in order for the policy to be satisfied. In short, this example's `attestations` array requires that any `images` that fall under the policy must have either a [CycloneDX](https://cyclonedx.org/) or an [SPDX](https://spdx.dev/) SBOM in order to satisfy the policy. Additionally, if an image's SBOM indicates that the package contains certain versions of Apache Log4j (specifically, versions `"2.0-beta9",` through `"2.15.0"`), then it will result in the policy failing.
 
 Note that this `attestations` array requires that images must have either a CycloneDX *or* SPDX SBOM attached. Every attestation listed within the same `attestations` array is treated as a logical `OR`. If you want images to satisfy multiple attestations – in other words, combining them with `AND` logic – you would need to create multiple policies. Each policy must then be satisfied individually.
@@ -242,7 +242,7 @@ To confirm that the policy was successfully created, run the following command t
 chainctl policies ls
 ```
 
-Ensure that your new policy has ended up in the config-image-policies configmap by running this command.
+Ensure that your new policy has ended up in the `config-image-policies` configmap by running this command.
 
 ```sh
 kubectl -n cosign-system get configmap config-image-policies -o yaml
