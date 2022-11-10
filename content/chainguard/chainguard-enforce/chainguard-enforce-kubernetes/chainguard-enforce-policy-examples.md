@@ -30,23 +30,20 @@ Alternately, you can follow our guide on [How to Create Policies in the Chaingua
 ## Policy enforcing signed containers from Chainguard Images
 
 ```
-apiVersion: policy.sigstore.dev/v1beta1
+apiVersion: policy.sigstore.dev/v1alpha1
 kind: ClusterImagePolicy
 metadata:
-  name: sample-policy
+  name: signed-keyless-distroless
 spec:
   images:
-  - glob: "ghcr.io/chainguard-dev/*/*"
-  - glob: "ghcr.io/chainguard-dev/*"
-  - glob: "index.docker.io/*"
-  - glob: "index.docker.io/*/*"
-  - glob: "cgr.dev/chainguard/**"
+    - glob: cgr.dev/chainguard/**
+    - glob: distroless.dev/**
+    - glob: ghcr.io/chainguard-images/**
   authorities:
-  - keyless:
-      url: https://fulcio.sigstore.dev
-      identities:
-        - issuer: "*"
-          subject: "*"
+    - keyless:
+        url: https://fulcio.sigstore.dev
+      ctlog:
+        url: https://rekor.sigstore.dev
 ```
 
 An example using Docker Hub images:
@@ -65,15 +62,15 @@ An example using Docker Hub images:
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
-  name: policy-name
+  name: enforce-signer-oidc
 spec:
   images:
-  - glob: "gcr.io/your-image-here/*"
+    - glob: gcr.io/your-image-here/*
   authorities:
-  - keyless:
-      identities: # <<<-- REPLACE the following with your OIDC provider & subject --> #
-      - issuer: https://token.actions.githubusercontent.com
-        subject: https://github.com/chainguard-dev/gke-demo/.github/workflows/release.yaml@refs/heads/main
+    - keyless:
+        identities: # <<<-- REPLACE the following with your OIDC provider & subject --> #
+          - issuer: https://token.actions.githubusercontent.com
+            subject: https://github.com/chainguard-dev/gke-demo/.github/workflows/release.yaml@refs/heads/main
 ```
 
 An alternate issuer and subject:
@@ -95,21 +92,21 @@ metadata:
   name: custom-key-attestation-sbom-spdxjson
 spec:
   images:
-  - glob: "**"
+    - glob: gcr.io/your-image-here/*
   authorities:
-  - name: custom-key
-    key:
-      data: |
-        -----BEGIN PUBLIC KEY-----
-        ...
-        -----END PUBLIC KEY-----
-    attestations:
-    - name: must-have-spdxjson
-      predicateType: spdxjson
-      policy:
-        type: cue
+    - name: custom-key
+      key:
         data: |
-          predicateType: "https://spdx.dev/Document"
+          -----BEGIN PUBLIC KEY-----
+          ...
+          -----END PUBLIC KEY-----
+      attestations:
+        - name: must-have-spdxjson
+          predicateType: spdxjson
+          policy:
+            type: cue
+            data: |
+              predicateType: "https://spdx.dev/Document"
 ```
 
 Set the `POLICY` and `IMAGES` environment variables appropriately, pointing to the sample policy and the image you would like to test.
@@ -145,70 +142,125 @@ metadata:
   name: image-is-signed-by-github-actions
 spec:
   images:
-  # This is the release v0.3.0
-  - glob: "gcr.io/projectsigstore/policy-webhook@sha256:d1e7af59381793687db4673277005276eb73a06cf555503138dd18eaa1ca47d6"
+    # This is the release v0.3.0
+    - glob: "gcr.io/projectsigstore/policy-webhook@sha256:d1e7af59381793687db4673277005276eb73a06cf555503138dd18eaa1ca47d6"
   authorities:
-  - keyless:
-      # Signed by Fulcio
-      url: https://fulcio.sigstore.dev
-      identities:
-      # Matches the Github Actions OIDC issuer
-      - issuer: https://token.actions.githubusercontent.com
-        # Matches a specific GitHub workflow on main branch. Here we use the
-        # Sigstore policy controller example testing workflow as an example.
-        subject: "https://github.com/sigstore/policy-controller/.github/workflows/release.yaml@refs/tags/v0.3.0"
-```
-
-## Policy allowing all images
-
-```
-apiVersion: policy.sigstore.dev/v1beta1
-kind: ClusterImagePolicy
-metadata:
-  name: allow-all
-spec:
-  images:
-  - glob: "**"
-  - glob: "*"
-  authorities:
-  - static:
-      action: pass
+    - keyless:
+        # Signed by Fulcio
+        url: https://fulcio.sigstore.dev
+        identities:
+          # Matches the Github Actions OIDC issuer
+          - issuer: https://token.actions.githubusercontent.com
+            # Matches a specific GitHub workflow on main branch. Here we use the
+            # Sigstore policy controller example testing workflow as an example.
+            subject: "https://github.com/sigstore/policy-controller/.github/workflows/release.yaml@refs/tags/v0.3.0"
 ```
 
 ## Policy allowing GKE images
 
 ```
-apiVersion: policy.sigstore.dev/v1alpha1
+apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
-  name: allow-gke-policy
+  name: gke-trusted
 spec:
   images:
-  # Chainguard images are signed.
-  - glob: "gke.gcr.io/**"
-  - glob: "gke.gcr.io/*"
-  - glob: "gke.gcr.io/*/*"
-  - glob: "gcr.io/gke-release/*"
+    - glob: gke.gcr.io/**
+    - glob: gcr.io/gke-release/*
   authorities:
-  - static:
-      action: pass
+    - static:
+        action: pass
 ```
-
-## Policy allowing keyless signed distroless images
+## Enforce that cert-manager is signed
 
 ```
-apiVersion: policy.sigstore.dev/v1alpha1
+apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
-  name: signed-keyless-distroless
+  name: certmanager-signed
 spec:
   images:
-  - glob: "ghcr.io/distroless/*"
-  - glob: "distroless.dev/*"
+    - glob: quay.io/jetstack/cert-manager-*
   authorities:
-  - keyless:
-      url: https://fulcio.sigstore.dev
-      identities:
-        - issuer: "*"
-          subject: "*"
+    - key:
+        data: |
+          -----BEGIN PUBLIC KEY-----
+          MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAsZZKaaIRjOpzbiWYIDKO
+          yry9XGBqAfve1iOGmt5VO1jpjNoEseT6zewozHfWTM7osxayy2WjN8G+QV39MlT3
+          Vxo91/31g+Zcq8KcvxG+iB8GRaD9pNgLmghorv+eYDiPYMO/+fhsLImyG5WEoPct
+          MeCBD7umZ/A2t96U9DQxVDqQbTHlsNludno1p1wsgRnfUM3QHexNljDvJg5FcDMo
+          dCpVLpRNvbw0lbJVfybJ4siJ5o/MmXzy0QCJpw+yMIqvqMc8qgKJ1yooJtuTVF4t
+          4/luP+EG/oVIiSWCFeRMqYdbJ3R+CJi+4LN7vFNYQM1Q/NwOB52RteaR7wnqmcBz
+          qSYK32MM8xdPCQ5tioWwnPTRbPZuzsZsRmJsKBO9JUrBYdDntZX1xY5g4QNSufxi
+          QgJgJSU7E4VGMvagEzB1JzvOr6A/qNFCO1Z6JsA3jw3cJLV1rSHfxqfSXBACTLDf
+          6bOPWRILRKydTJA6uLKNKmo1/nFm3jvd5tHKOjy4VAQLJ/Vx9wBsAAiLa+06veun
+          Oz3AJ9sNh3wLp21RL11u9TuOKRBipE/TYsBYp8jpIyWPXDSV+JcD/TZqoT8y0Z6S
+          0damfUmspuK9DTQFL2crpeaqJSG9RA+OuPZLxGD1IMURTsPJB7kXhPtmceeirBnw
+          sVcRHHDitVt8oO/x4Wus1c0CAwEAAQ==
+          -----END PUBLIC KEY-----
+        hashAlgorithm: sha512
 ```
+
+## Enforce that Chainguard agent is signed
+
+```
+apiVersion: policy.sigstore.dev/v1beta1
+kind: ClusterImagePolicy
+metadata:
+  name: chainguard-agent-is-signed
+spec:
+  images:
+    - glob: us.gcr.io/prod-enforce-fabc/**
+  authorities:
+    - ctlog:
+        url: https://rekor.sigstore.dev
+      keyless:
+        identities:
+          - issuer: https://token.actions.githubusercontent.com
+            subject: >-
+              https://github.com/chainguard-dev/mono/.github/workflows/.release-drop.yaml@refs/heads/main
+          - issuer: https://token.actions.githubusercontent.com
+            subject: >-
+              https://github.com/chainguard-dev/mono/.github/workflows/.build-drop.yaml@refs/heads/main
+        url: https://fulcio.sigstore.dev
+```
+
+## Enforce that Google's distroless images are signed
+
+```
+apiVersion: policy.sigstore.dev/v1beta1
+kind: ClusterImagePolicy
+metadata:
+  name: google-distroless-signed
+spec:
+  images:
+    - glob: gcr.io/distroless/static*
+  authorities:
+    - ctlog:
+        url: https://rekor.sigstore.dev
+      keyless:
+        identities:
+          - issuer: https://accounts.google.com
+            subject: keyless@distroless.iam.gserviceaccount.com
+        url: https://fulcio.sigstore.dev
+```
+
+## Enforce that Istio images are signed
+
+```
+apiVersion: policy.sigstore.dev/v1beta1
+kind: ClusterImagePolicy
+metadata:
+  name: istio-signed
+spec:
+  images:
+    - glob: index.docker.io/istio/*
+  authorities:
+    - key:
+        data: |
+          -----BEGIN PUBLIC KEY-----
+          MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEej5bv2n2vOecKineYGWwq1WaQa7C
+          7HTEVN+BkNI4D1+66ufzn1eGTrbaC9dceJqCAkhp37vMxhWOrGufpBUokg==
+          -----END PUBLIC KEY-----
+```
+
