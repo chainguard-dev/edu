@@ -273,6 +273,9 @@ Under the `POLICIES` column you'll receive output that indicates the policy has 
 
 Information about the SBOM and the policy violation will also appear in the UI.
 
+![Screenshot of the Chainguard Enforce UI. At the top are cards showing 0% policy compliance, 1 package type, 1 failed policy. The POLICIES tab is highlighted and contains a table with one row, representing the log4shell-demo-policy policy. This row includes the name of the policy, a meter showing 0/1 images are compliant, the policy's group (log4j-demo), and a button allowing the user to view the violation.](log4shell-demo-ui-failure-sm.png)
+
+
 ## Step 4 – Cleaning Up Your System
 
 After confirming that the policy you set causes Chainguard Enforce to detect the images vulnerable to the Log4Shell vulnerability, it's important that you clean up your system.
@@ -296,6 +299,8 @@ Lastly, uninstall the agent from your cluster.
 ```sh
 chainctl cluster uninstall
 ```
+
+You'll receive a confirmation that the agent was removed.
 
 
 ## Learn More
