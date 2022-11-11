@@ -248,13 +248,22 @@ Ensure that your new policy has ended up in the `config-image-policies` configma
 kubectl -n cosign-system get configmap config-image-policies -o yaml
 ```
 
-If the policy is in the configmap, this command's output will include a "log4 shell-demo-policy" key.
+This will return a lot of information, but you will know that the policy is in the configmap if this output includes a `log4shell-demo-policy` key.
+
+```
+apiVersion: v1
+data:
+  log4shell-demo-policy: ...
+```
 
 You can find all records in the cluster containing SBOMs indicating the Log4Shell vulnerability using the following command.
 
 ```sh
 chainctl cluster records ls $CLUSTER
 ```
+
+Under the `POLICIES` column you'll receive output that indicates the policy has failed.
+
 ```
                                        IMAGE                                      |            POLICIES            |   WORKLOADS   | PACKAGES | LAST SEEN | LAST REFRESHED  
 ----------------------------------------------------------------------------------+--------------------------------+---------------+----------+-----------+-----------------

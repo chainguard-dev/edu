@@ -1,0 +1,89 @@
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: ClusterImagePolicy
+metadata:
+  name: log4shell-demo-policy
+spec:
+  images:
+  - glob: "ghcr.io/chainguard-dev/log4shell-demo/*"
+  authorities:
+  - name: keyatt
+    keyless:
+        url: "https://fulcio.sigstore.dev"
+        identities:
+          - issuer: "*"
+            subject: "*"
+    attestations:
+    - predicateType: cyclonedx
+      name: log4shellcyclonedx
+      policy:
+        type: cue
+        data: |
+          import (
+              "list"
+              "strings"
+          )
+          let log4shell_names = [
+              "log4j-api", "log4j-core"
+          ]
+          let log4shell_versions = [
+              "2.0-beta9", "2.0-rc1", "2.0-rc2", "2.0", "2.0.1",
+              "2.0.2", "2.1", "2.2", "2.3", "2.4", "2.4.1", "2.5",
+              "2.6", "2.6.1", "2.6.2", "2.7", "2.8", "2.8.1",
+              "2.8.2", "2.9.0", "2.9.1","2.10.0", "2.11.0", "2.11.1",
+              "2.11.2", "2.12.0", "2.12.1", "2.13.0", "2.13.1",
+              "2.13.2", "2.13.3", "2.14.0", "2.14.1", "2.15.0"
+          ]
+          predicate: {
+              Data: {
+                  components: [...{
+                      name: name
+                      version: version
+                      if list.Contains(log4shell_names, name) &&
+                          list.Contains(log4shell_versions, version) {
+                          err: strings.Join([
+                              "Error: CycloneDX SBOM contains package",
+                              name, "version", version, "which is",
+                              "vulnerable to Log4Shell (CVE-2021-44228)"
+                          ], " ")
+                          name: err
+                      }
+                  }]
+              }
+          }
+    - predicateType: spdxjson
+      name: log4shellspdxjson
+      policy:
+        type: cue
+        data: |
+          import (
+              "list"
+              "strings"
+          )
+          let log4shell_names = [
+              "log4j-api", "log4j-core"
+          ]
+          let log4shell_versions = [
+              "2.0-beta9", "2.0-rc1", "2.0-rc2", "2.0", "2.0.1",
+              "2.0.2", "2.1", "2.2", "2.3", "2.4", "2.4.1", "2.5",
+              "2.6", "2.6.1", "2.6.2", "2.7", "2.8", "2.8.1",
+              "2.8.2", "2.9.0", "2.9.1","2.10.0", "2.11.0", "2.11.1",
+              "2.11.2", "2.12.0", "2.12.1", "2.13.0", "2.13.1",
+              "2.13.2", "2.13.3", "2.14.0", "2.14.1", "2.15.0"
+          ]
+          predicate: {
+              Data: {
+                  packages: [...{
+                      name: name
+                      versionInfo: versionInfo
+                      if list.Contains(log4shell_names, name) &&
+                          list.Contains(log4shell_versions, versionInfo) {
+                          err: strings.Join([
+                              "Error: SPDX SBOM contains package",
+                              name, "version", versionInfo, "which is",
+                              "vulnerable to Log4Shell (CVE-2021-44228)"
+                          ], " ")
+                          name: err
+                      }
+                  }]
+              }
+          }
