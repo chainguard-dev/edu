@@ -30,7 +30,7 @@ Alternately, you can follow our guide on [How to Create Policies in the Chaingua
 ## Policy enforcing signed containers from Chainguard Images
 
 ```
-apiVersion: policy.sigstore.dev/v1alpha1
+apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
   name: signed-keyless-distroless
@@ -156,7 +156,7 @@ spec:
             subject: "https://github.com/sigstore/policy-controller/.github/workflows/release.yaml@refs/tags/v0.3.0"
 ```
 
-## Policy allowing GKE images
+## Policy allowing trusted GKE images
 
 ```
 apiVersion: policy.sigstore.dev/v1beta1
