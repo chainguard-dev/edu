@@ -1,3 +1,16 @@
+<meta http-equiv="Content-Security-Policy"
+      content="
+       default-src 'self';
+       frame-src 'self' edu.chainguard.dev https://player.vimeo.com https://www.youtube.com https://www.youtube-nocookie.com https://platform.twitter.com https://syndication.twitter.com https://visualization-ui.chainguard.app;
+       style-src 'self' edu.chainguard.dev 'unsafe-inline' cdn.jsdelivr.net https://fonts.googleapis.com;
+       form-action 'self';
+       font-src 'self' edu.chainguard.dev https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net;
+       script-src 'self' edu.chainguard.dev *.googleapis.com cdn.jsdelivr.net *.googletagmanager.com 'sha256-vOgyKS2vkH4n5TxBJpeh9SgzrE6LVGsAeOAvEST6oCc=';
+       connect-src 'self' edu.google-analytics.com;
+       img-src 'self' edu.chainguard.dev;
+       base-uri 'self';
+     ">
+
 {{ if .Site.Params.options.darkMode -}}
   {{ $darkModeInit := resources.Get "js/darkmode-init.js" | js.Build | minify -}}
   <script>{{ $darkModeInit.Content | safeJS }}</script>
