@@ -99,6 +99,8 @@ If you'd like, you can inspect the image's [SBOM](https://edu.chainguard.dev/sof
 cosign download sbom ghcr.io/chainguard-dev/log4shell-demo/app:v0.1.0
 ```
 
+Be aware that this command returns a warning letting you know that it is only meant to show the contents of an image, not its provenance. Since we know this image comes directly from Chainguard, there's no need for this warning to concern us.
+
 When you're ready, run a pod in the tenant cluster using this sample container image.
 
 ```sh
