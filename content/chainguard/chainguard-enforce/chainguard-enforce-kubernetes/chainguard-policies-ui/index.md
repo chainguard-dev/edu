@@ -2,8 +2,8 @@
 title: "How to create policies in the Chainguard Enforce Console"
 type: "article"
 description: "Creating policies in the Chainguard Enforce UI"
-date: 2022-16-10T11:07:52+02:00
-lastmod: 2022-27-10T11:07:52+02:00
+date: 2022-10-16T11:07:52+02:00
+lastmod: 2022-11-15T11:07:52+02:00
 draft: false
 images: []
 menu:
