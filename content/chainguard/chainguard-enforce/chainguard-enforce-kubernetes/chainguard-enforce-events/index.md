@@ -3,16 +3,16 @@ title : "Chainguard Enforce Events"
 lead: ""
 description: "Chainguard Enforce Events"
 type: "article"
-date: 2020-10-06T08:48:45+00:00
-lastmod: 2020-10-06T08:48:45+00:00
+date: 2020-11-15T08:48:45+00:00
+lastmod: 2020-11-15T08:48:45+00:00
 draft: false
 images: []
-weight: 001
+weight: 780
 ---
 
 ### Introduction
 
-Chainguard Enforce generates and emits [Cloudevents](https://cloudevents.io/) based on actions that occur within a Chainguard account, such as registering a Kubernetes cluster or creating an IAM invitation. Enforce also emits events when workloads or policies are changed in a cluster.
+Chainguard Enforce generates and emits [CloudEvents](https://cloudevents.io/) based on actions that occur within a Chainguard account, such as registering a Kubernetes cluster or creating an IAM invitation. Enforce also emits events when workloads or policies are changed in a cluster.
 
 See the [chainguard-dev/enforce-events](https://github.com/chainguard-dev/enforce-events) GitHub repository for two sample applications that demonstrate how to create Slack notifications, as well as how to open a GitHub issue from received events.
 
@@ -22,7 +22,7 @@ To subscribe to Enforce events for your account, use the `chainctl` command like
 chainctl events subscriptions create –group $YOUR_GROUP https://<Your webhook URL>
 ```
 
-Once you are subscribed to Enforce events, you will start receiving HTTP POST requests. Each request has a common set of Cloudevent header fields, denoted by the `Ce-` prefix. The event body is encoded using JSON and will have two top-level keys, `actor` and `body`.
+Once you are subscribed to Chainguard Enforce events, you will start receiving HTTP POST requests. Each request has a common set of CloudEvent header fields, denoted by the `Ce-` prefix. The event body is encoded using JSON and will have two top-level keys, `actor` and `body`.
 
 The `actor` field is the identity of the actor in your Enforce account that triggered the event, such as a team member or a Kubernetes cluster. The `body` field contains the specific data about the event, for example the response status for an invite creation request, or a cluster delete request.
 
