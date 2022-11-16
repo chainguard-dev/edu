@@ -10,7 +10,7 @@ images: []
 weight: 780
 ---
 
-### Introduction
+## Introduction
 
 Chainguard Enforce generates and emits [CloudEvents](https://cloudevents.io/) based on actions that occur within a Chainguard account, such as registering a Kubernetes cluster or creating an IAM invitation. Enforce also emits events when workloads or policies are changed in a cluster.
 
@@ -26,13 +26,13 @@ Once you are subscribed to Chainguard Enforce events, you will start receiving H
 
 The `actor` field is the identity of the actor in your Enforce account that triggered the event, such as a team member or a Kubernetes cluster. The `body` field contains the specific data about the event, for example the response status for an invite creation request, or a cluster delete request.
 
-The following list of services and methods show example HTTP headers and bodies for public facing Enforce events. 
+The following list of services and methods show example HTTP headers and bodies for public facing Enforce events.
 
-### Service: Admission - Namespace
+## Service: Admission - Namespace
 
-#### Method: Created
+### Method: Created
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -45,15 +45,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: k8s://namespace-UID
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.419499Z
+Ce-Time: 2022-11-16T16:31:27.628983Z
 Ce-Type: dev.chainguard.admission.namespace.v1
 Content-Length: 282
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -69,9 +68,9 @@ Content-Type: application/json
 }
 ```
 
-#### Method: Updated
+### Method: Updated
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -84,15 +83,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: k8s://namespace-UID
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.424913Z
+Ce-Time: 2022-11-16T16:31:27.629107Z
 Ce-Type: dev.chainguard.admission.namespace.v1
 Content-Length: 282
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -108,11 +106,11 @@ Content-Type: application/json
 }
 ```
 
-### Service: Enforce - Admission
+## Service: Enforce - Admission
 
-#### Method: Review
+### Method: Review
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -125,15 +123,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: k8s://cluster-id
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.418639Z
+Ce-Time: 2022-11-16T16:31:27.628849Z
 Ce-Type: dev.chainguard.admission.v1
 Content-Length: 220
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -147,11 +144,11 @@ Content-Type: application/json
 }
 ```
 
-### Service: Policy - Validation
+## Service: Policy - Validation
 
-#### Method: Changed
+### Method: Changed
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -164,15 +161,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: k8s://cluster-id
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.416082Z
+Ce-Time: 2022-11-16T16:31:27.625168Z
 Ce-Type: dev.chainguard.policy.validation.changed.v1
-Content-Length: 419
+Content-Length: 418
 Content-Type: application/json
-
 
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -182,12 +178,12 @@ Content-Type: application/json
   "body": {
     "cluster_id": "cluster identifier",
     "image_id": "image identifier",
-    "last_seen": "2022-11-15T18:13:12.415816Z",
+    "last_seen": "2022-11-16T16:31:27.62485Z",
     "policies": {
       "name of the evaluated policy": {
         "change": "Can be [Empty, \"new\", \"degraded\", \"improved\"]",
         "diagnostic": "holds any diagnostic messages surfaced during policy evaluation",
-        "last_checked": "2022-11-15T18:13:12.416051Z",
+        "last_checked": "2022-11-16T16:31:27.625094Z",
         "valid": false
       }
     }
@@ -195,11 +191,11 @@ Content-Type: application/json
 }
 ```
 
-### Service: auth - Auth
+## Service: auth - Auth
 
-#### Method: Register
+### Method: Register
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -212,15 +208,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.428039Z
+Ce-Time: 2022-11-16T16:31:27.632429Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 155
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -234,11 +229,11 @@ Content-Type: application/json
 }
 ```
 
-### Service: events - Subscriptions
+## Service: events - Subscriptions
 
-#### Method: Create
+### Method: Create
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -251,15 +246,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.426604Z
+Ce-Time: 2022-11-16T16:31:27.633094Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 147
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -273,9 +267,9 @@ Content-Type: application/json
 }
 ```
 
-#### Method: Delete
+### Method: Delete
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -288,15 +282,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.426998Z
+Ce-Time: 2022-11-16T16:31:27.633236Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 114
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -309,11 +302,11 @@ Content-Type: application/json
 }
 ```
 
-### Service: iam - GroupAccountAssociations
+## Service: iam - GroupAccountAssociations
 
-#### Method: Create
+### Method: Create
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -326,15 +319,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.425773Z
+Ce-Time: 2022-11-16T16:31:27.632627Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 386
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -356,9 +348,9 @@ Content-Type: application/json
 }
 ```
 
-#### Method: Update
+### Method: Update
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -371,15 +363,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.425933Z
+Ce-Time: 2022-11-16T16:31:27.63277Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 337
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -401,9 +392,9 @@ Content-Type: application/json
 }
 ```
 
-#### Method: Delete
+### Method: Delete
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -416,15 +407,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.426054Z
+Ce-Time: 2022-11-16T16:31:27.632921Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -437,11 +427,11 @@ Content-Type: application/json
 }
 ```
 
-### Service: iam - GroupInvites
+## Service: iam - GroupInvites
 
-#### Method: Create
+### Method: Create
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -454,15 +444,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.426234Z
+Ce-Time: 2022-11-16T16:31:27.629691Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -478,9 +467,9 @@ Content-Type: application/json
 }
 ```
 
-#### Method: Delete
+### Method: Delete
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -493,15 +482,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.426346Z
+Ce-Time: 2022-11-16T16:31:27.629889Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -514,11 +502,11 @@ Content-Type: application/json
 }
 ```
 
-### Service: iam - Groups
+## Service: iam - Groups
 
-#### Method: Create
+### Method: Create
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -531,15 +519,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.425355Z
+Ce-Time: 2022-11-16T16:31:27.631653Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -554,9 +541,9 @@ Content-Type: application/json
 }
 ```
 
-#### Method: Update
+### Method: Update
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -569,15 +556,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.425515Z
+Ce-Time: 2022-11-16T16:31:27.6318Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -592,9 +578,9 @@ Content-Type: application/json
 }
 ```
 
-#### Method: Delete
+### Method: Delete
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -607,15 +593,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.425645Z
+Ce-Time: 2022-11-16T16:31:27.631909Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -628,11 +613,11 @@ Content-Type: application/json
 }
 ```
 
-### Service: iam - Policies
+## Service: iam - Policies
 
-#### Method: Create
+### Method: Create
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -645,15 +630,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.42712Z
+Ce-Time: 2022-11-16T16:31:27.632063Z
 Ce-Type: dev.chainguard.api.iam.policy.created.v1
 Content-Length: 284
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -672,9 +656,9 @@ Content-Type: application/json
 }
 ```
 
-#### Method: Delete
+### Method: Delete
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -687,15 +671,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.427214Z
+Ce-Time: 2022-11-16T16:31:27.632177Z
 Ce-Type: dev.chainguard.api.iam.policy.deleted.v1
 Content-Length: 202
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -711,9 +694,9 @@ Content-Type: application/json
 }
 ```
 
-#### Method: Update
+### Method: Update
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -726,15 +709,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.427314Z
+Ce-Time: 2022-11-16T16:31:27.632279Z
 Ce-Type: dev.chainguard.api.iam.policy.updated.v1
 Content-Length: 90
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -747,11 +729,11 @@ Content-Type: application/json
 }
 ```
 
-### Service: tenant - Clusters
+## Service: tenant - Clusters
 
-#### Method: Create
+### Method: Create
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -764,15 +746,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/tenant/v1/clusters
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.42747Z
+Ce-Time: 2022-11-16T16:31:27.630361Z
 Ce-Type: dev.chainguard.api.tenant.cluster.created.v1
 Content-Length: 1700
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -785,8 +766,8 @@ Content-Type: application/json
         "example activity": {
           "controller_name": "the name of the Controller CRD which was the source of this activity on the tenant cluster",
           "last_seen": {
-            "nanos": 415814000,
-            "seconds": 1668535992
+            "nanos": 624849000,
+            "seconds": 1668616287
           },
           "namespace": "the namespace in which the source of this cluster activity lives",
           "spec_hash": "the hash of the Controller or Webhook CRD's spec",
@@ -811,14 +792,14 @@ Content-Type: application/json
       },
       "issuer": "the identity issuer tied to this cluster",
       "last_seen": {
-        "nanos": 415814000,
-        "seconds": 1668535992
+        "nanos": 624848000,
+        "seconds": 1668616287
       },
       "managed_name": "unique name assigned to this cluster's managed agent",
       "name": "name of the cluster",
       "registered": {
-        "nanos": 415813000,
-        "seconds": 1668535992
+        "nanos": 624848000,
+        "seconds": 1668616287
       },
       "remote_id": "the remote ID of this cluster",
       "status": {
@@ -832,9 +813,9 @@ Content-Type: application/json
 }
 ```
 
-#### Method: Delete
+### Method: Delete
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -847,15 +828,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/tenant/v1/clusters
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.427749Z
+Ce-Time: 2022-11-16T16:31:27.631199Z
 Ce-Type: dev.chainguard.api.tenant.cluster.deleted.v1
 Content-Length: 108
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -868,9 +848,9 @@ Content-Type: application/json
 }
 ```
 
-#### Method: Update
+### Method: Update
 
-* Example HTTP Headers
+#### Example HTTP Headers
 
 ```
 POST / HTTP/1.1
@@ -883,15 +863,14 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/tenant/v1/clusters
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-15T18:13:12.427849Z
+Ce-Time: 2022-11-16T16:31:27.631395Z
 Ce-Type: dev.chainguard.api.tenant.cluster.updated.v1
 Content-Length: 1666
 Content-Type: application/json
 
-
 ```
 
-* Example HTTP Body
+#### Example HTTP Body
 
 ```json
 {
@@ -903,8 +882,8 @@ Content-Type: application/json
       "example activity": {
         "controller_name": "the name of the Controller CRD which was the source of this activity on the tenant cluster",
         "last_seen": {
-          "nanos": 415815000,
-          "seconds": 1668535992
+          "nanos": 624849000,
+          "seconds": 1668616287
         },
         "namespace": "the namespace in which the source of this cluster activity lives",
         "spec_hash": "the hash of the Controller or Webhook CRD's spec",
@@ -929,14 +908,14 @@ Content-Type: application/json
     },
     "issuer": "the identity issuer tied to this cluster",
     "last_seen": {
-      "nanos": 415815000,
-      "seconds": 1668535992
+      "nanos": 624849000,
+      "seconds": 1668616287
     },
     "managed_name": "unique name assigned to this cluster's managed agent",
     "name": "name of the cluster",
     "registered": {
-      "nanos": 415815000,
-      "seconds": 1668535992
+      "nanos": 624849000,
+      "seconds": 1668616287
     },
     "remote_id": "the remote ID of this cluster",
     "status": {
