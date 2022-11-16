@@ -2,8 +2,8 @@
 title: "How to Manage Policies with chainctl"
 type: "article"
 description: "Creating and managing policies with chainctl, the Chainguard command line tool"
-date: 2022-03-11T11:07:52+02:00
-lastmod: 2022-03-11T11:07:52+02:00
+date: 2022-11-14T11:07:52+02:00
+lastmod: 2022-11-14T11:07:52+02:00
 draft: false
 images: []
 menu:
@@ -20,7 +20,7 @@ To review sample policies that you may want to leverage, please check out our pa
 
 ## Prerequisites
 
-In order to follow allong with the examples in this guide, you will need `chainctl` installed on your local machine. Follow our guide on [How To Install `chainctl`](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/) to set this up.
+In order to follow along with the examples in this guide, you will need `chainctl` installed on your local machine. Follow our guide on [How To Install `chainctl`](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/) to set this up.
 
 
 ## Authenticate to the Chainguard Enforce platform
