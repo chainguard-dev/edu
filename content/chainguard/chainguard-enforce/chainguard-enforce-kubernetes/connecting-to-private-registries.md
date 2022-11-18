@@ -29,7 +29,10 @@ To support the widest set of private registries, you can authenticate using a Ku
 
 ### Configuring your image pull secret
 
-To verify policies using attestation and signatures for images in a private registry, create an image pull secret in the `cosign-system` namespace of your cluster, filling in your own details for the private registry, username, password, and email:
+To verify policies using attestation and signatures for images in a private registry, create an image pull secret in the `cosign-system` namespace of your cluster. The following example creates a secret named `regcreds`, but you could provide a different name if you like. Additionally, the `docker-registry` subcommand creates a secret that is specifically for use with a Docker registry.
+
+In the next lines, fill in your own details for the private registry, username, password, and email, substituting those values for the variables.
+
 
 ```sh
 kubectl create secret docker-registry regcreds \
@@ -68,7 +71,8 @@ spec:
       - name: regcreds
 ```
 
-In this example, add the name of your private registry directory in `glob` and include the name of the private registry in `oci`. Note that the value you pass to the `oci` key cannot be a glob pattern and must be a valid repository name. Also, be aware that you will have set up `regcreds` in the previous `kubectl create secret` command. 
+In this example, add the name of your private registry directory in `glob` and include the name of the private registry in `oci`. Note that the value you pass to the `oci` key cannot be a glob pattern and must be a valid repository name. Also, be aware that you will have set up `regcreds` in the previous `kubectl create secret` command; be sure to change this value if you gave your secret a different name.
+
 
 ### Scoping image pull secret credentials to a registry namespace
 
