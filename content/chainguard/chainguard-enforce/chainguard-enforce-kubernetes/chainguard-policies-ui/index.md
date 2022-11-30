@@ -3,7 +3,7 @@ title: "How to create policies in the Chainguard Enforce Console"
 type: "article"
 description: "Creating policies in the Chainguard Enforce UI"
 date: 2022-10-16T11:07:52+02:00
-lastmod: 2022-11-15T11:07:52+02:00
+lastmod: 2022-11-29T11:07:52+02:00
 draft: false
 images: []
 menu:
@@ -17,7 +17,9 @@ Security policies in Chainguard Enforce ensure that our development teams are de
 
 We can associate a policy YAML file with a given group in order to achieve our security goals. This guide will go through how to set up policies on the Chainguard Enforce user interface available to you via [console.enforce.dev](https://console.enforce.dev). You must already have an account with Chainguard to follow this guide. You can request access for **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).
 
-To review sample policies that you may want to leverage, please check out our page on [Chainguard Enforce Policy Examples](chainguard-enforce-policy-examples). If you would like to use the CLI to work with policies, review our [`chainctl` policy docs](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_apply/).
+In the Chainguard Enforce Console, we have a [policy cataglogue](https://console.enforce.dev/policies/catalog) that provides example policies that you can use right away or modify for your use case. You may also wish to check out our page on [Chainguard Enforce Policy Examples](../chainguard-enforce-policy-examples). If you would like to use the CLI to work with policies, review our [`chainctl` policy docs](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_apply/) and review our guidance on [how to manage policies with `chainctl`](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-policies-cli/).
+
+For additional policy guidance, you may also review the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview). To learn how to admit images through the cluster image policy, review the Policy Controller documentation relating to the [Admission of images](https://docs.sigstore.dev/policy-controller/overview/#admission-of-images).
 
 ## Access the Chainguard Enforce Console
 
@@ -43,24 +45,15 @@ If your table indicates that there are current violations, you can click on the 
 
 Let's step through creating a new policy. Click on the **Create policy** button above the policy table. 
 
-The **Create policy** button will open a drop-down menu with two options:
-
-* **Custom** — to start with a blank policy
-* **Signature** — to start with a policy that requires that images have a signature. 
-
 ![Chainguard Enforce create a policy button](create-policy.png)
 
-With either option you won't start from scratch but have some of the boilerplate text of the YAML file already filled in so you can work on your policy.
+This button will take you to the [Chainguard Enfroce Policies Catalogue](https://console.enforce.dev/policies/catalog), which will provide you with a library of policies you can use right away or edit, or the option to write your own policy from scratch. 
 
 ## Write and publish a policy
 
-Whether you choose to begin with the **Custom** or **Signature** policy, a new sidebar will be displayed that has fields to choose the **Group**, and write a **Description** for your new policy. You can also edit the YAML file itself. 
+Whether you choose to begin with a **Custom** policy or another option from our catalogue, a new sidebar will be displayed that has fields to choose the **Group**, and write a **Description** for your new policy, and a YAML file, which you can edit.
 
-In the **Signature** policy, you'll have an additional field for the policy's **Name**, a field for **Image**, and an option to add more images. 
-
-![Create a Chainguard Enforce Signature policy](signature-policy.png)
-
-Fill in the fields for this policy until you are satisfied. In the policy below, we are requiring signatures for all Docker and GitHub container images. We have associated it with the `chainguard-demos` group. 
+Fill in the fields for this policy based on your policy enforcement goals. In the policy below, we are requiring signatures for all Docker and GitHub container images. We have associated it with the `chainguard-demos` group. 
 
 ![Example Chainguard Enforce signature policy requiring signatures for Docker and GHCR images](example-policy.png)
 

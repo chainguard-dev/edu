@@ -28,6 +28,10 @@ You'll then navigate to `localhost:1313` within the web browser of your choice.
 
 If you identify something that is a major change, please file an [issue](https://github.com/chainguard-dev/edu/issues/new). If you identify a minor change like a typo that needs to be updated, or tech tooling that has a newer package, you are welcome to open a pull request for review from the team.
 
+### Date Format
+
+In each post's header, the date format should follow year-month-day as `YYYY-MM-DD`.
+
 ### Adding Images
 
 Please reduce the image's file size prior to adding the image to this project to make page loadtimes faster and more accessible. You can use a tool such as [TinyPNG](https://tinypng.com/). 

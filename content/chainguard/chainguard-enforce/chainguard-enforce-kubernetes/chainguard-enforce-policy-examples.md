@@ -2,8 +2,8 @@
 title: "Example Policies for Chainguard Enforce"
 type: "article"
 description: "Chainguard Enforce for Kubernetes policy recipes"
-date: 2022-15-07T15:22:20+01:00
-lastmod: 2022-13-09T15:22:20+01:00
+date: 2022-07-15T15:22:20+01:00
+lastmod: 2022-11-29T15:22:20+01:00
 draft: false
 images: []
 menu:
@@ -15,7 +15,9 @@ toc: true
 
 > _This provides user onboarding for Chainguard Enforce. In order to follow the onboarding, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
 
-Chainguard Enforce for Kubernetes allows users to create their own security policies that they can enforce in their clusters. Here are a few example policies to help you get started. You may also want to review the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview).
+Chainguard Enforce for Kubernetes allows users to create their own security policies that they can enforce in their clusters. Here are a few example policies to help you get started. You can also review the [policy cataglogue](https://console.enforce.dev/policies/catalog) in the Chainguard Enforce Console. 
+
+You may also review the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview). In particular, we encourage you to review the Policy Controller documentation relating to the [Admission of images](https://docs.sigstore.dev/policy-controller/overview/#admission-of-images) to learn how to admit images through the cluster image policy.
 
 ## Applying a policy
 
@@ -33,11 +35,10 @@ Alternately, you can follow our guide on [How to Create Policies in the Chaingua
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
-  name: signed-keyless-distroless
+  name: signed-keyless
 spec:
   images:
     - glob: cgr.dev/chainguard/**
-    - glob: distroless.dev/**
     - glob: ghcr.io/chainguard-images/**
   authorities:
     - keyless:
