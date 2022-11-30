@@ -2,8 +2,8 @@
 title: "Chainguard Enforce User Onboarding"
 type: "article"
 description: "Walkthrough of Chainguard Enforce"
-date: 2022-15-07T15:22:20+01:00
-lastmod: 2022-14-10T15:22:20+01:00
+date: 2022-07-15T15:22:20+01:00
+lastmod: 2022-11-29T15:22:20+01:00
 draft: false
 images: []
 menu:
@@ -175,7 +175,7 @@ spec:
 EOF
 ```
 
-This policy creates a cluster image policy with the Sigstore beta API, and with Fulcio as a keyless authority. Here, we are requiring not only that Chainguard demo images be signed, but that all images from Docker be signed as well.
+This policy creates a cluster image policy with the Sigstore beta API, and with Fulcio as a keyless authority. Here, we are requiring not only that Chainguard demo images be signed, but that all images from Docker be signed as well. To learn more about how to admit images through the cluster image policy, review the Policy Controller [Admission of images documentation](https://docs.sigstore.dev/policy-controller/overview/#admission-of-images). 
 
 We have already set up the `GROUP` variable in with the group we created above in Step 2. Let’s now associate this new policy with that group.
 
@@ -311,7 +311,7 @@ You may also want to delete the kind cluster you created.
 kind delete cluster --name enforce-demo
 ```
 
-To learn more visit our [Chainguard Enforce for Kubernetes](../) documentation page.
+To learn more visit our [Chainguard Enforce for Kubernetes](../) documentation page. For additional sample policies that you can try with Chainguard Enforce, review our [policy cataglogue](https://console.enforce.dev/policies/catalog) in the Enforce Console. 
 
 If you would like to learn about how you can use this product alongside signing Git commits, check out [Chainguard Enforce for Git](../../chainguard-enforce-github/). 
 
