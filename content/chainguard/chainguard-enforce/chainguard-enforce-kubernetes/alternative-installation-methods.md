@@ -14,6 +14,8 @@ weight: 700
 toc: true
 ---
 
+> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+
 While the `chainctl` approach outlined in [user
 onboarding](./chainguard-enforce-user-onboarding.md) is a valid and well
 supported method of installing the Chainguard Enforce Agent, some may prefer
