@@ -19,7 +19,7 @@ We can associate a policy YAML file with a given group in order to achieve our s
 
 In the Chainguard Enforce Console, we have a [policy cataglogue](https://console.enforce.dev/policies/catalog) that provides example policies that you can use right away or modify for your use case. You may also wish to check out our page on [Chainguard Enforce Policy Examples](../chainguard-enforce-policy-examples). If you would like to use the CLI to work with policies, review our [`chainctl` policy docs](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_apply/) and review our guidance on [how to manage policies with `chainctl`](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-policies-cli/).
 
-For additional policy guidance, you may also review the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview), and in particular you may review how to admit images through the cluster image policy, review the Policy Controller [Admission of images documentation](https://docs.sigstore.dev/policy-controller/overview/#admission-of-images). 
+For additional policy guidance, you may also review the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview). To learn how to admit images through the cluster image policy, review the Policy Controller documentation relating to the [Admission of images](https://docs.sigstore.dev/policy-controller/overview/#admission-of-images).
 
 ## Access the Chainguard Enforce Console
 

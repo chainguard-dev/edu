@@ -17,7 +17,7 @@ toc: true
 
 Chainguard Enforce for Kubernetes allows users to create their own security policies that they can enforce in their clusters. Here are a few example policies to help you get started. You can also review the [policy cataglogue](https://console.enforce.dev/policies/catalog) in the Chainguard Enforce Console. 
 
-You may also review the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview), and in particular you may review how to admit images through the cluster image policy, review the Policy Controller [Admission of images documentation](https://docs.sigstore.dev/policy-controller/overview/#admission-of-images). 
+You may also review the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview). In particular, we encourage you to review the Policy Controller documentation relating to the [Admission of images](https://docs.sigstore.dev/policy-controller/overview/#admission-of-images) to learn how to admit images through the cluster image policy.
 
 ## Applying a policy
 
