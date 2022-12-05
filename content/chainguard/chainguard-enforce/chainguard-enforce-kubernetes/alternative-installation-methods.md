@@ -53,6 +53,12 @@ metadata:
   namespace: gulfstream
 stringData:
   code: $INVITE_CODE
+
+  # Optionally, add some descriptive metadata that will be applied to your
+  # cluster upon initial registration.  Note that this will not update existing
+  # clusters, which can be done via chainctl.
+  cluster-name: "my-cluster"
+  cluster-description: "a more detailed description of this cluster."
 EOF
 ```
 
@@ -73,6 +79,12 @@ stringData:
   gcp-svc-acct-path: "/var/run/sts/gcp.json"
   gcp-svc-acct-name: $GSA_NAME
   gcp.json: $GSA_KEY
+
+  # Optionally, add some descriptive metadata that will be applied to your
+  # cluster upon initial registration.  Note that this will not update existing
+  # clusters, which can be done via chainctl.
+  cluster-name: "my-cluster"
+  cluster-description: "a more detailed description of this cluster."
 EOF
 ```
 
