@@ -1,6 +1,6 @@
-You can create a policy directly from the UI by navigating to the [**Policies** tab](https://console.enforce.dev/policies). In the policy table menu, there will be a **Create policy** button. Clicking this button will open a dropdown menu, which will allow you to create a policy from scratch or use a predefined template.
+You can create a policy directly from the UI by navigating to the [**Policies** tab](https://console.enforce.dev/policies). In the policy table menu, there will be a **Create policy** button. Clicking this button will navigate to the policy catalog page.
 
-For now, we can create a policy using the [**Custom** option from the dropdown](https://console.enforce.dev/policies/create/custom).
+For now, we can select the [**Custom** option from the catalog](https://console.enforce.dev/policies/create/catalog/custom).
 
 ![Create policy](/images/create-policy.png)
 
