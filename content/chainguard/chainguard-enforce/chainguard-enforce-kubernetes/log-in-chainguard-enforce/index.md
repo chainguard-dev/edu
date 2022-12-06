@@ -1,7 +1,7 @@
 ---
-title: "Signing into Chainguard Enforce"
+title: "Signing in to Chainguard Enforce"
 type: "article"
-description: "How to log into Chainguard Enforce for Kubernetes"
+description: "How to log in to Chainguard Enforce for Kubernetes"
 date: 2022-11-30T11:07:52+02:00
 lastmod: 2022-11-30T11:07:52+02:00
 draft: false
@@ -15,7 +15,7 @@ toc: true
 
 > _This document relates to Chainguard Enforce, which you will need access to in order to follow along. You can request access through selecting **Chainguard Enforce for Kubernetes** on our [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
 
-Chainguard Enforce currently offers login and authentication via three different OpenID Connect identity providers: Google, GitHub, and GitLab. [OpenID Connect](https://openid.net/connect/) (OIDC) provides an identity layer on top of the OAuth 2.0 protocol, and it is integrated with both the Chainguard Enforce Console web browser interface, and `chainctl` on the command line. This document will walk through both of these workflows.
+Chainguard Enforce currently offers login and authentication through three different OpenID Connect identity providers: Google, GitHub, and GitLab. [OpenID Connect](https://openid.net/connect/) (OIDC) provides an identity layer on top of the OAuth 2.0 protocol, and it is integrated with both the Chainguard Enforce Console web browser interface and `chainctl` on the command line. This document will walk through both of these workflows.
 
 ## Signing in through the Chainguard Enforce Console
 
@@ -23,27 +23,27 @@ Once you have access to Chainguard Enforce, you can navigate a web browser to [c
 
 ![Chainguard Enforce Console sign in page](console-sign-in.png)
 
-From here, you have three options to authenticate into the Console via one of the following OIDC providers: 
+From here, you have three options to authenticate in to the Console via one of the following OIDC providers: 
 
 * [Google](https://developers.google.com/identity/openid-connect/openid-connect)
 * GitHub
 * [GitLab](https://docs.gitlab.com/ee/integration/openid_connect_provider.html)
 
-**To authenticate with Google** (including through a Google-based email), click the **Google** button, and then select the specific Google account you would like to use to log into [chainguard.dev](https://chainguard.dev). Note that you may need to log into your Google account. 
+**To authenticate with Google** (including through a Google-based email), click the **Google** button, and then select the specific Google account you would like to use to log in to [chainguard.dev](https://chainguard.dev). Note that you may need to log in to your Google account. 
 
 ![Sign in with Google OIDC](sign-in-with-google.png)
 
-From here, you'll sign into Chainguard Enforce through Google, and will then be brought to the Enforce Console homepage. 
+From here, you'll sign in to Chainguard Enforce through Google, and will then be brought to the Enforce Console homepage. 
 
-**To authenticate with your GitHub username**, click the **GitHub** button. You may need to log into your GitHub account at this point. When you are logged into GitHub, review the permissions page and confirm that you would like to authorize Chainguard Enforce.
+**To authenticate with your GitHub username**, click the **GitHub** button. You may need to log in to your GitHub account at this point. When you are logged in, review the permissions page and confirm that you would like to authorize Chainguard Enforce.
 
 ![Authorize Chainguard Enforce on GitHub](sign-in-with-github.png)
 
 If you are satisfied with allowing Chainguard Enforce to have the stated permissions, you'll authorize it by clicking on the **Authorize Chainguard Enforce** button, and then sign in through GitHub. You'll then be brought to the Chainguard Enforce Console homepage.
 
-**To authenticate via GitLab**, you'll be prompted to sign into GitLab if applicable, and then be asked to authorize Chainguard Enforce to use your GitLab account. 
+**To authenticate via GitLab**, you'll be prompted to sign in to GitLab if applicable, and then be asked to authorize Chainguard Enforce to use your GitLab account. 
 
-![Sign into GitLab](sign-in-with-gitlab.jpg)
+![Sign in to GitLab](sign-in-with-gitlab.jpg)
 
 ![Authorize Chainguard Enforce to GitLab](authorize-chainguard-enforce-gitlab.png)
 
@@ -51,7 +51,7 @@ As long as you are satisfied with granting Chainguard Enforce the permissions to
 
 ![Chainguard Enfoce Console landing page](chainguard-enforce-console-landing-page.png)
 
-At this point, you are logged into Chainguard Enforce and will have access to your Chainguard Enforce account through the Console. 
+At this point, you are logged in to Chainguard Enforce and will have access to your Chainguard Enforce account through the Console. 
 
 ## Signing in through `chainctl`
 
@@ -65,7 +65,7 @@ Your browser will now be opened to:
 https://auth.chainguard.dev/authorize?access_type=online&client_id=<RELEVANT ID HERE>
 ```
 
-This will trigger a page to open on your default web browser. If this does not occur, you can copy the full URL on your terminal output, and paste it into a browser address bar.
+This will trigger a page to open on your default web browser. If this does not occur, you can copy the full URL on your terminal output and paste it in to a browser address bar.
 
 At this point, your browser will display a login page similar to the following. 
 
@@ -77,19 +77,19 @@ With `chainctl`, you'll have the option to log in with one of the following OIDC
 * GitHub
 * [GitLab](https://docs.gitlab.com/ee/integration/openid_connect_provider.html)
 
-**If you will be authenticating with Google**, click the **Google** button, and then select the specific Google account you would like to use to log into [chainguard.dev](https://chainguard.dev). Note that you may need to log into your Google account. 
+**If you will be authenticating with Google**, click the **Google** button, and then select the specific Google account you would like to use to log in to [chainguard.dev](https://chainguard.dev). Note that you may need to log in to your Google account. 
 
 ![Sign in with Google OIDC](sign-in-with-google.png)
 
-From here, you'll sign into Chainguard Enforce through Google and then receive a confirmation page that reads `Chainguard Auth Successful`. At this point, you can close the browser window and return to the command line to continue working with `chainctl`. 
+From here, you'll sign in to Chainguard Enforce through Google and then receive a confirmation page that reads `Chainguard Auth Successful`. At this point, you can close the browser window and return to the command line to continue working with `chainctl`. 
 
-**To authenticate with your GitHub username**, click the **GitHub** button. You may need to log into your GitHub account at this point. When you are logged into GitHub, review the permissions page and confirm that you would like to authorize Chainguard Enforce.
+**To authenticate with your GitHub username**, click the **GitHub** button. You may need to log in to your GitHub account at this point. When you are logged in to GitHub, review the permissions page and confirm that you would like to authorize Chainguard Enforce.
 
 ![Authorize Chainguard Enforce on GitHub](sign-in-with-github.png)
 
 If you are satisfied with allowing Chainguard Enforce to have the stated permissions, you'll authorize it by clicking on the **Authorize Chainguard Enforce** button, and then sign in through GitHub. Next, you'll receive a confirmation page in your browser that reads `Chainguard Auth Successful`, and you may now close the browser window and return to the command line. 
 
-**To authenticate via GitLab**, you'll be prompted to sign into GitLab if applicable, and then be asked to authorize Chainguard Enforce to use your GitLab account. 
+**To authenticate via GitLab**, you'll be prompted to sign in to GitLab if applicable, and then be asked to authorize Chainguard Enforce to use your GitLab account. 
 
 ![Authorize Chainguard Enforce to GitLab](authorize-chainguard-enforce-gitlab.png)
 
@@ -97,14 +97,14 @@ As long as you are satisfied with granting Chainguard Enforce the permissions to
 
 ![Browser confirming that chainctl auth was successful](chainctl-auth-successful.png)
 
-Once you return to the terminal window, you'll also be able to review the output that indicates that you have successfully logged into Chainguard Enforce via `chainctl`:
+Once you return to the terminal window, you'll also be able to review the output that indicates that you have successfully logged in to Chainguard Enforce via `chainctl`:
 
 ```
 Successfully exchanged token.
 Valid! Id: <Relevant ID here>
 ```
 
-You are now logged into Chainguard Enforce and can use `chainctl` for your account. 
+You are now logged in to Chainguard Enforce and can use `chainctl` for your account. 
 
 ## Learn more
 
