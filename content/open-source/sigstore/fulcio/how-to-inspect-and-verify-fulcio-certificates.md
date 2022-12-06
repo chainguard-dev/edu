@@ -87,7 +87,7 @@ Certificate:
 We will then verify the certificate against the Fulcio certificate authority root, by using `step certificate verify` to execute the certificate path validation algorithm for x.509 certificates.
 
 ```sh
-step certificate verify fulcio.crt --roots ~/.sigstore/root/targets/fulcio_v1.crt.pem
+step certificate verify fulcio.crt --roots ~/.sigstore/root/targets/fulcio_intermediate_v1.crt.pem
 ```
 
 The final command checks the signature in the `fulcio.sig` file, tracing the certificate up to the Fulcio root certificate.
