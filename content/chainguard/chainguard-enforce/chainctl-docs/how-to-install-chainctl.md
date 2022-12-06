@@ -14,7 +14,7 @@ toc: true
 
 > _This documentation is related to Chainguard Enforce. You can request access to the product selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
 
-The Chainguard Enforce command line interface (CLI) tool, `chainctl`, will help you interact with the account model that Chainguard Enforce provides, and enable you to make queries into the state of your clusters and policies registered with the platform. 
+The Chainguard Enforce command line interface (CLI) tool, `chainctl`, will help you interact with the account model that Chainguard Enforce provides, and enable you to make queries into the state of your clusters and policies registered with the platform.
 
 The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. For example, to list groups within the context of Chainguard Identity and Access Management (IAM), you can run `chainctl iam groups list` to receive relevant output.
 
@@ -24,10 +24,20 @@ Before we begin, let’s move into a temporary directory that we can work in. Be
 mkdir ~/tmp && cd $_
 ```
 
-To install `chainctl`, we’ll use the `curl` command to pull the application down.
+There are multiple ways to install `chainctl`, depending on your OS and
+preferences:
 
-```sh
-curl -o chainctl "https://dl.enforce.dev/chainctl_$(uname -s)_$(uname -m)"
+**With on macos/linux `homebrew`:**
+
+```bash
+brew tap chainguard-dev/tap
+brew install chainctl
+```
+
+**Platform agnostic with `curl`:**
+
+```bash
+curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
 ```
 
 Move `chainctl` into your `/usr/local/bin` directory and elevate its permissions so that it can execute as needed.
