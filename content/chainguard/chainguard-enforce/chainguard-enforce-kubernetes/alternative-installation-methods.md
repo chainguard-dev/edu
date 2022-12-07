@@ -52,7 +52,7 @@ metadata:
   name: mcp-creds
   namespace: gulfstream
 stringData:
-  code: $INVITE_CODE
+  inviteCode: $INVITE_CODE
 
   # Optionally, add some descriptive metadata that will be applied to your
   # cluster upon initial registration.  Note that this will not update existing
@@ -75,7 +75,7 @@ metadata:
   name: mcp-creds
   namespace: gulfstream
 stringData:
-  code: $INVITE_CODE
+  inviteCode: $INVITE_CODE
   gcp-svc-acct-path: "/var/run/sts/gcp.json"
   gcp-svc-acct-name: $GSA_NAME
   gcp.json: $GSA_KEY
@@ -114,7 +114,7 @@ Before installing the chart, ensure that the [required authentication](#required
 
 ```bash
 cat > values.yaml <<EOF
-code: $INVITE_CODE
+inviteCode: $INVITE_CODE
 EOF
 ```
 
@@ -122,7 +122,7 @@ Alternatively, if you're using an on-prem cluster, be sure to include the additi
 
 ```bash
 cat > values.yaml <<EOF
-code: $INVITE_CODE
+inviteCode: $INVITE_CODE
 
 auth:
   gcp:
