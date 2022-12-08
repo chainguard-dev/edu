@@ -10,7 +10,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "melange"
+    parent: "melange-tutorials"
 weight: 100
 toc: true
 terminalImage: gcloud:latest
