@@ -48,10 +48,17 @@ Before we begin, let’s move into a directory that we can work in. For our exam
 mkdir ~/enforce-demo && cd $_
 ```
 
-To install `chainctl`, we’ll use the `curl` command to pull the application down.
+You have two options to install `chainctl`. For macOS and Linux, you can use the package manager [Homebrew](https://brew.sh/).
 
 ```sh
-curl -o chainctl "https://dl.enforce.dev/chainctl_$(uname -s)_$(uname -m)"
+brew tap chainguard-dev/tap
+brew install chainctl
+```
+
+A platform agnostic approach to installing `chainctl` is through using `curl`, which you can achieve with the following command.
+
+```bash
+curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
 ```
 
 Move `chainctl` into your `/usr/local/bin` directory and elevate its permissions so that it can execute as needed.
@@ -82,22 +89,16 @@ You should receive output similar to the following.
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 
-GitVersion:    bf36b2b
-GitCommit:     bf36b2be08c0dca8e4d2174ee21c31b9679c4ece
+GitVersion:    0.1.39
+GitCommit:     98f4b3bc8a1ef111777f797e8248b737643eedc6
 GitTreeState:  clean
-BuildDate:     2022-10-13T21:13:11Z
-GoVersion:     go1.18.7
+BuildDate:     2022-12-05T14:04:10Z
+GoVersion:     go1.19.3
 Compiler:      gc
 Platform:      darwin/arm64
 ```
 
-If you received different output, check your bash profile to make sure that your system is using the expected PATH. If your version of `chainctl` is a few weeks or months old, you may consider updating it so that you can use the most up to date version. You can update `chainctl` as follows.
-
-```sh
-sudo chainctl update
-```
-
-With `chainctl` successfully installed, we can continue through the demo.
+With `chainctl` successfully installed, we can continue through the demo. For more details on `chainctl` installation, please review [How to Install chainctl for Chainguard Enforce](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/).
 
 ## Step 2 — Check IAM group
 
