@@ -42,7 +42,7 @@ Next, install `chainctl` with Homebrew.
 brew install chainctl
 ```
 
-You are now ready to use the `chainctl` command, and can verify it below.
+You are now ready to use the `chainctl` command. You can verify that it works correctly in the final section of this guide.
 
 ## Install with `curl`
 
@@ -84,10 +84,10 @@ You should receive output similar to the following.
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 
-GitVersion:    f2f4b91
-GitCommit:     f2f4b91693ac1e4d28ac7746cc8e39d23020facb
+GitVersion:    0.1.39
+GitCommit:     98f4b3bc8a1ef111777f797e8248b737643eedc6
 GitTreeState:  clean
-BuildDate:     2022-11-14T20:59:07Z
+BuildDate:     2022-12-05T14:04:10Z
 GoVersion:     go1.19.3
 Compiler:      gc
 Platform:      darwin/arm64
