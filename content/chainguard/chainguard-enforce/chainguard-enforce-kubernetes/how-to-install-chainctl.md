@@ -2,8 +2,8 @@
 title: "How to Install chainctl for Chainguard Enforce"
 type: "article"
 description: "Install the chainctl command line tool to work with Chainguard Enforce"
-date: 2022-22-09T15:56:52-07:00
-lastmod: 2022-14-10T15:56:52-07:00
+date: 2022-09-22T15:56:52-07:00
+lastmod: 2022-12-06T15:56:52-07:00
 draft: false
 images: []
 menu:
@@ -24,17 +24,29 @@ Before we begin, let’s move into a temporary directory that we can work in. Be
 mkdir ~/tmp && cd $_
 ```
 
-There are multiple ways to install `chainctl`, depending on your OS and
-preferences:
+There are currently two ways to install `chainctl`, depending on your operating system and preferences.
 
-**With on macos/linux `homebrew`:**
+## Install `chainctl` with Homebrew
 
-```bash
+You can install `chainctl` for macOS and Linux with the package manager [Homebrew](https://brew.sh/).
+
+First, use `brew tap` to bring in Chainguard's repositories.
+
+```sh
 brew tap chainguard-dev/tap
+```
+
+Next, install `chainctl` with Homebrew.
+
+```sh
 brew install chainctl
 ```
 
-**Platform agnostic with `curl`:**
+You are now ready to use the `chainctl` command. You can verify that it works correctly in the final section of this guide.
+
+## Install with `curl`
+
+A platform agnostic approach to installing `chainctl` is through using `curl`, which you can achieve with the following command.
 
 ```bash
 curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
@@ -52,6 +64,10 @@ Finally, alias its path so that you can use `chainctl` on the command line.
 alias chainctl=/usr/local/bin/chainctl
 ```
 
+At this point, you'll be able to use the `chainctl` command.
+
+## Verify installation
+
 You can verify that everything was set up correctly by checking the `chainctl` version.
 
 ```sh
@@ -68,16 +84,20 @@ You should receive output similar to the following.
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 
-GitVersion:    bf36b2b
-GitCommit:     bf36b2be08c0dca8e4d2174ee21c31b9679c4ece
+GitVersion:    0.1.39
+GitCommit:     98f4b3bc8a1ef111777f797e8248b737643eedc6
 GitTreeState:  clean
-BuildDate:     2022-10-13T21:13:11Z
-GoVersion:     go1.18.7
+BuildDate:     2022-12-05T14:04:10Z
+GoVersion:     go1.19.3
 Compiler:      gc
 Platform:      darwin/arm64
 ```
 
-If you received different output, check your bash profile to make sure that your system is using the expected PATH. If your version of `chainctl` is a few weeks or months old, you may consider updating it as follows.
+If you received different output, check your bash profile to make sure that your system is using the expected PATH. 
+
+## Updating `chainctl`
+
+When your version of `chainctl` is a few weeks old or older, you may consider updating it to make sure that your version is the most up to date. You can update `chainctl` by running the `update` command.
 
 ```sh
 sudo chainctl update
