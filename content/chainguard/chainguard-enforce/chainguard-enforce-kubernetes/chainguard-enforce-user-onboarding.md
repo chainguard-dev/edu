@@ -198,7 +198,7 @@ We have confirmed that we’ve created the **sample-policy** based on the `sampl
 chainctl policies ls
 ```
 
-Here, you’ll get output on the policy you created as well as other policies that come with Chainguard Enforce. 
+Here, you’ll get output on the policy you created. If you were to have another policy applied to this cluster, you would receive that output as well. 
 
 You should now be able to review the policy that you set up. With this policy described and connected to our group, we are ready to install Chainguard Enforce into our cluster to gain insight into where our cluster currently stands from a security perspective.
 

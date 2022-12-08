@@ -1,7 +1,7 @@
 ---
-title: "How to Install chainctl for Chainguard Enforce"
+title: "How to Install chainctl"
 type: "article"
-description: "Install the chainctl command line tool to work with Chainguard Enforce"
+description: "Install the chainctl command line tool to work with Chainguard Enforce and Images"
 date: 2022-09-22T15:56:52-07:00
 lastmod: 2022-12-06T15:56:52-07:00
 draft: false
