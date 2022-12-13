@@ -3,7 +3,7 @@ title: "How to Install chainctl"
 type: "article"
 description: "Install the chainctl command line tool to work with Chainguard Enforce and Images"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2022-12-06T15:56:52-07:00
+lastmod: 2022-12-13T15:56:52-07:00
 draft: false
 images: []
 menu:
@@ -84,16 +84,195 @@ You should receive output similar to the following.
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 
-GitVersion:    0.1.39
-GitCommit:     98f4b3bc8a1ef111777f797e8248b737643eedc6
+GitVersion:    0.1.42
+GitCommit:     badf10d2d89c83c6f1366008ffc3936d1e4c36f4
 GitTreeState:  clean
-BuildDate:     2022-12-05T14:04:10Z
-GoVersion:     go1.19.3
+BuildDate:     2022-12-12T22:10:55Z
+GoVersion:     go1.19.4
 Compiler:      gc
 Platform:      darwin/arm64
 ```
 
 If you received different output, check your bash profile to make sure that your system is using the expected PATH. 
+
+### Verifying the `chainctl` binary with Cosign and Rekor
+
+All `chainctl` binaries are released with [keyless signatures using Cosign](https://edu.chainguard.dev/open-source/sigstore/cosign/an-introduction-to-cosign/#keyless-signing). You can verify the signature for a `chainctl` binary using the `cosign` tool directly, or by calculating the SHA256 hash of the release and finding the corresponding Rekor transparency log entry.
+
+The following steps will work for both `curl` and `brew` installations of `chainctl`.
+
+#### Verifying `chainctl` using Cosign keyless signatures
+
+To verify a `chainctl` binary using Cosign, first ensure you have the latest versin of Cosign installed by following our [How to Install Cosign guide](https://edu.chainguard.dev/open-source/sigstore/cosign/how-to-install-cosign/).
+
+Next, run `chainctl version --json` to output the version information. You should receive output like the following:
+
+```json
+{
+  "gitVersion": "0.1.42",
+  "gitCommit": "badf10d2d89c83c6f1366008ffc3936d1e4c36f4",
+  "gitTreeState": "clean",
+  "buildDate": "2022-12-12T22:10:55Z",
+  "goVersion": "go1.19.4",
+  "compiler": "gc",
+  "platform": "darwin/arm64"
+}
+```
+
+Now set an environment variable to the version shown in the `gitVersion` field, which is `0.1.42` in this example.
+
+```sh
+CHAINCTL_VERSION="0.1.42"
+```
+
+Run the following commands to create two URL environment variables. These URLs will point to the correct version of the `chainctl` signature and public certificate files respectively:
+
+```sh
+SIGNATURE_URL="https://dl.enforce.dev/chainctl/${CHAINCTL_VERSION?}/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m).sig"
+CERTIFICATE_URL="https://dl.enforce.dev/chainctl/${CHAINCTL_VERSION?}/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m).cert.pem"
+```
+
+Check your environment variables for correctness using `echo`:
+
+```sh
+echo "$SIGNATURE_URL\n$CERTIFICATE_URL\n$CHAINCTL_VERSION"
+```
+
+You should receive output like the following, which shows the correct version, operating system, and CPU architecture for your system values in the computed URLs:
+
+```
+https://dl.enforce.dev/chainctl/0.1.42/chainctl_darwin_arm64.sig
+https://dl.enforce.dev/chainctl/0.1.42/chainctl_darwin_arm64.cert.pem
+0.1.42
+```
+
+Now you can verify the binary by running the following `cosign verify-blob` command:
+
+```sh
+COSIGN_EXPERIMENTAL=1 cosign verify-blob --signature $SIGNATURE_URL --certificate $CERTIFICATE_URL $(which chainctl)
+```
+
+You should receive the following output:
+
+```
+tlog entry verified with uuid: 1a481ce6eeee6306dffbba9fef701a21623ca0b07780b32b009395c905f7df7a index: 8959219
+Verified OK
+```
+
+If you the signature or certificate URLs are incorrect, if there is a problem with your `chainctl` binary, or if your `$CHAINCTL_VERSION` doesn't match the version output by `chainctl version --json`, you will receive an error like the following:
+
+```
+Error: verifying blob [/usr/local/bin/chainctl]: invalid signature when validating ASN.1 encoded signature
+. . .
+```
+
+Check the environment variables that you set for correctness, and ensure that the path reported by `$(which chainctl)` points to the version of `chainctl` that you downloaded and installed. 
+
+For completeness, you can use the following script to check `chainctl` binaries using Cosign. It is a combination of the previous steps into one script.
+
+```bash
+#!/bin/bash
+set -euo pipefail
+
+export COSIGN_EXPERIMENTAL=1
+
+function check_signature {
+    chainctl_path=$(which chainctl)
+    chainctl_version=$(chainctl version 2>&1 |awk '/GitVersion/ {print $2}')
+    chainctl_os_arch="chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
+    sig_url="https://dl.enforce.dev/chainctl/${chainctl_version?}/${chainctl_os_arch?}.sig"
+    cert_url="https://dl.enforce.dev/chainctl/${chainctl_version?}/${chainctl_os_arch?}.cert.pem"
+    cosign verify-blob --signature "${sig_url?}" --cert "${cert_url?}" "${chainctl_path?}"
+}
+
+function check_executable {
+    status=0
+    executable_name="${1?}"
+    which -s "${executable_name?}" || status=$?
+    if [[ "${status?}" -ne 0 ]]; then
+        echo "${executable_name?} not found"
+        exit 1
+    fi
+}
+
+check_executable "cosign"
+check_executable "chainctl"
+check_signature
+```
+
+#### Verifying `chainctl` using the Rekor Transparency Log
+
+You can look up the Rekor entry for your version of `chainctl` by searching the log for the SHA256 hash of `chainctl`. You can use the `rekor-cli` tool or `curl` to find matching Rekor entries. If you need to install `rekor-cli`, follow our guide [How to Install the Rekor CLI](https://edu.chainguard.dev/open-source/sigstore/rekor/how-to-install-rekor/). When using either tool, ensure that you have the `jq` utility installed so that you can parse their output.
+
+To search Rekor, set a shell variable to the SHA256 hash of your `chainctl` binary:
+
+```sh
+SHASUM=$(shasum -a 256 $(which chainctl) |awk '{print $1}')
+```
+
+If you are using the `rekor-cli` client, search for the hash with the following command:
+
+```sh
+rekor-cli search --sha "${SHASUM?}"
+```
+
+If you are using `curl`, run the following:
+
+```sh
+curl -X POST -H "Content-type: application/json" 'https://rekor.sigstore.dev/api/v1/index/retrieve' --data-raw '{"hash":"sha256:624ad35861842716328f6bc85cc9158d14fa455c704fd09db8f218c24a30ba9a"}'
+```
+
+If there is an entry for your version of `chainctl` you will receive output like the following:
+
+```
+# rekor-cli output
+Found matching entries (listed by UUID):
+24296fb24b8ad77a1a481ce6eeee6306dffbba9fef701a21623ca0b07780b32b009395c905f7df7a
+
+# curl output
+["24296fb24b8ad77a1a481ce6eeee6306dffbba9fef701a21623ca0b07780b32b009395c905f7df7a"]
+```
+
+Use the returned UUID to retrieve the associated Rekor log entry. If you are using `rekor-cli` run the following:
+
+```sh
+rekor-cli get --uuid 24296fb24b8ad77a1a481ce6eeee6306dffbba9fef701a21623ca0b07780b32b009395c905f7df7a
+```
+
+If you are using `curl` then run this command:
+
+```sh
+curl -X GET 'https://rekor.sigstore.dev/api/v1/log/entries/24296fb24b8ad77a1a481ce6eeee6306dffbba9fef701a21623ca0b07780b32b009395c905f7df7a'
+```
+
+In both cases, if you would like to extract the signature and public key to verify your binary matches what is in the Rekor log, you will need to parse the output. You will need to use tools like `base64` to decode the data, `jq` to extract the relevant fields, and `openssl` to verify the signature. 
+
+The following commands will fetch the Rekor entry for a release using `rekor-cli`, parse and extract the signature and public certificate using `jq`, and decode it using `base64`:
+
+```sh
+rekor-cli get --uuid 24296fb24b8ad77a1a481ce6eeee6306dffbba9fef701a21623ca0b07780b32b009395c905f7df7a --format json |jq -r '.Body .HashedRekordObj .signature .content' |base64 -d > /tmp/chainctl.sig
+rekor-cli get --uuid 24296fb24b8ad77a1a481ce6eeee6306dffbba9fef701a21623ca0b07780b32b009395c905f7df7a --format json |jq -r '.Body .HashedRekordObj .signature .publicKey .content' |base64 -d > /tmp/chainctl.cert.pem
+```
+
+Next, extract the public key portion of the `/tmp/chainctl.cert.pem` certificate file using `openssl`:
+
+```sh
+openssl x509 -in /tmp/chainctl.cert.pem -noout -pubkey > /tmp/chainctl.pubkey.pem
+```
+
+Now you can use `openssl` to verify the signature against your local `chainctl` binary. Run the following command:
+
+```sh
+openssl dgst -sha256 -verify /tmp/chainctl.pubkey.pem -signature /tmp/chainctl.sig $(which chainctl)
+```
+
+You will receive the following line of output:
+
+```
+Verified OK
+```
+
+This output indicates that your `chainctl` version is authentic and was signed by the ephemeral private key corresponding to the public certificate that you retrieved from the Rekor log.
 
 ## Updating `chainctl`
 
