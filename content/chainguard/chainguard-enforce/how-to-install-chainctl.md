@@ -168,27 +168,31 @@ Error: verifying blob [/usr/local/bin/chainctl]: invalid signature when validati
 
 Check the environment variables that you set for correctness, and ensure that the path reported by `$(which chainctl)` points to the version of `chainctl` that you downloaded and installed. 
 
-For completeness, you can use the following script to check `chainctl` binaries using Cosign. It is a combination of the previous steps into one script.
+For completeness, you can use the following script to check `chainctl` binaries using Cosign. It is a combination of the previous steps into one script with some additional checks for missing tools, and error handling.
 
 ```bash
 #!/bin/bash
-set -euo pipefail
-
+set -Eeuo pipefail
 export COSIGN_EXPERIMENTAL=1
 
+trap 'cmd_error $LINENO "${BASH_COMMAND}"' ERR
+function cmd_error() {
+  echo "error running command on line $1"
+  echo "command is: $2"
+}
+
 function check_signature {
-    chainctl_path=$(which chainctl)
     chainctl_version=$(chainctl version 2>&1 |awk '/GitVersion/ {print $2}')
     chainctl_os_arch="chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
     sig_url="https://dl.enforce.dev/chainctl/${chainctl_version?}/${chainctl_os_arch?}.sig"
     cert_url="https://dl.enforce.dev/chainctl/${chainctl_version?}/${chainctl_os_arch?}.cert.pem"
-    cosign verify-blob --signature "${sig_url?}" --cert "${cert_url?}" "${chainctl_path?}"
+    cosign verify-blob --signature "${sig_url?}" --cert "${cert_url?}" "$(command -v chainctl)"
 }
 
 function check_executable {
     status=0
     executable_name="${1?}"
-    which -s "${executable_name?}" || status=$?
+    command -v "${executable_name?}" > /dev/null || status=$?
     if [[ "${status?}" -ne 0 ]]; then
         echo "${executable_name?} not found"
         exit 1
@@ -219,7 +223,7 @@ rekor-cli search --sha "${SHASUM?}"
 If you are using `curl`, run the following:
 
 ```sh
-curl -X POST -H "Content-type: application/json" 'https://rekor.sigstore.dev/api/v1/index/retrieve' --data-raw '{"hash":"sha256:624ad35861842716328f6bc85cc9158d14fa455c704fd09db8f218c24a30ba9a"}'
+curl -X POST -H "Content-type: application/json" 'https://rekor.sigstore.dev/api/v1/index/retrieve' --data-raw "{\"hash\":\"sha256:$SHASUM\"}"
 ```
 
 If there is an entry for your version of `chainctl` you will receive output like the following:
@@ -233,28 +237,59 @@ Found matching entries (listed by UUID):
 ["24296fb24b8ad77a1a481ce6eeee6306dffbba9fef701a21623ca0b07780b32b009395c905f7df7a"]
 ```
 
-Use the returned UUID to retrieve the associated Rekor log entry. If you are using `rekor-cli` run the following:
+Set a shell variable called `UUID` to the returned entry:
 
 ```sh
-rekor-cli get --uuid 24296fb24b8ad77a1a481ce6eeee6306dffbba9fef701a21623ca0b07780b32b009395c905f7df7a
+UUID="24296fb24b8ad77a1a481ce6eeee6306dffbba9fef701a21623ca0b07780b32b009395c905f7df7a"
+```
+
+Now you can use the returned UUID to retrieve the associated Rekor log entry. If you are using `rekor-cli` run the following:
+
+```sh
+rekor-cli get --uuid "${UUID?}"
 ```
 
 If you are using `curl` then run this command:
 
 ```sh
-curl -X GET 'https://rekor.sigstore.dev/api/v1/log/entries/24296fb24b8ad77a1a481ce6eeee6306dffbba9fef701a21623ca0b07780b32b009395c905f7df7a'
+curl -X GET "https://rekor.sigstore.dev/api/v1/log/entries/${UUID?}"
 ```
 
 In both cases, if you would like to extract the signature and public key to verify your binary matches what is in the Rekor log, you will need to parse the output. You will need to use tools like `base64` to decode the data, `jq` to extract the relevant fields, and `openssl` to verify the signature. 
 
+##### Fetch a signature and public certificate using `rekor-cli`
+
 The following commands will fetch the Rekor entry for a release using `rekor-cli`, parse and extract the signature and public certificate using `jq`, and decode it using `base64`:
 
 ```sh
-rekor-cli get --uuid 24296fb24b8ad77a1a481ce6eeee6306dffbba9fef701a21623ca0b07780b32b009395c905f7df7a --format json |jq -r '.Body .HashedRekordObj .signature .content' |base64 -d > /tmp/chainctl.sig
-rekor-cli get --uuid 24296fb24b8ad77a1a481ce6eeee6306dffbba9fef701a21623ca0b07780b32b009395c905f7df7a --format json |jq -r '.Body .HashedRekordObj .signature .publicKey .content' |base64 -d > /tmp/chainctl.cert.pem
+rekor-cli get --uuid "${UUID?}" --format json \
+  | jq -r '.Body .HashedRekordObj .signature .content' \
+  | base64 -d > /tmp/chainctl.sig
+rekor-cli get --uuid "${UUID?}" --format json \
+  | jq -r '.Body .HashedRekordObj .signature .publicKey .content' \
+  | base64 -d > /tmp/chainctl.cert.pem
 ```
 
-Next, extract the public key portion of the `/tmp/chainctl.cert.pem` certificate file using `openssl`:
+##### Fetch a signature and public certificate using `curl`
+
+The following commands will fetch the Rekor entry for a release using `curl`, parse and extract the signature and public certificate using `jq`, and decode it using `base64`:
+
+```sh
+curl -s -X GET "https://rekor.sigstore.dev/api/v1/log/entries/${UUID?}" \
+  | jq -r '.[] | .body' \
+  | base64 -d |jq -r '.spec .signature .content' \
+  | base64 -d > /tmp/chainctl.sig
+curl -s -X GET "https://rekor.sigstore.dev/api/v1/log/entries/${UUID?}" \
+  | jq -r '.[] | .body' \
+  | base64 -d |jq -r '.spec .signature .publicKey .content' \
+  | base64 -d > /tmp/chainctl.cert.pem
+```
+
+##### Verifying a signature using `openssl`
+
+Now that you have downloaded the signature and public certificate corresponding to your `chainctl` version, you can verify the binary's signature using `openssl`.
+
+First, extract the public key portion of the `/tmp/chainctl.cert.pem` certificate file:
 
 ```sh
 openssl x509 -in /tmp/chainctl.cert.pem -noout -pubkey > /tmp/chainctl.pubkey.pem
@@ -266,7 +301,7 @@ Now you can use `openssl` to verify the signature against your local `chainctl` 
 openssl dgst -sha256 -verify /tmp/chainctl.pubkey.pem -signature /tmp/chainctl.sig $(which chainctl)
 ```
 
-You will receive the following line of output:
+If your `chainctl` binary matches the one that was signed using Cosign, you will receive the following line of output:
 
 ```
 Verified OK
