@@ -17,7 +17,7 @@ toc: true
 
 An organization's software supply chain can contain many possible points of entry for malicious actors and lots of potential for unintended vulnerabilities. Indeed, with recent high-profile security incidents like the SolarWinds breach and the discovery of the Log4Shell vulnerability, [software supply chain security](/software-security/what-is-software-supply-chain-security/) has become a top priority for many organizations.
 
-To help keep organizations' software supply chains secure by default, Chainguard has developed **Chainguard Enforce, a supply chain security solution for containerized workloads**. Chainguard Enforce enables you to ensure continuous compliance by enforcing policies that protect organizations from supply chain threats. Using open source projects and standards that are trusted by the community — like Cosign and Fulcio from the Sigstore project — Chainguard Enforce offers a robust approach to securing your workloads, allowing you to do the following:
+**Chainguard Enforce** offers a supply chain security solution for containerized workloads, which can help keep organizations' software supply chains secure by default. Enabling engineering and security teams to ensure continuous compliance, Chainguard Enforce protects organizations from supply chain threats through policy enforcement. Using open source projects and standards that are trusted by the community — like Cosign and Fulcio from the Sigstore project — Chainguard Enforce offers a robust approach to securing your workloads, allowing you to do the following:
 
 * Discover your running workloads, top security risks, and recommended mitigations
 * Define and apply supply chain security policies to your Kubernetes clusters
@@ -32,19 +32,17 @@ This article provides an overview of Chainguard Enforce and its components.
 
 Chainguard Enforce is a developer platform for end-to-end software supply chain security that operates at the level of Kubernetes fleets. Once you install Enforce onto a Kubernetes cluster and apply a policy, Chainguard Enforce will immediately begin analyzing metadata associated with images running in the cluster to determine whether it satisfies the requirements defined within the policy. Specifically, it inspects the given cluster's [software artifacts](https://console.enforce.dev/policies/catalog), such as an image's software bill of materials (SBOM). Based on the details within the images' metadata, Chainguard Enforce will determine whether those images satisfy the policy.
 
-Chainguard Enforce provides a rich IAM model similar to the likes of AWS and GCP, allowing you to organize policies and clusters into a hierarchy of groups through its Identity and Access Management (IAM) model. When you install Enforce onto a cluster, you associate that cluster with an existing IAM group. Likewise, when you create a policy, you associate it with a group and it is automatically applied to any clusters already associated with that group. 
+Chainguard Enforce provides a rich [IAM model](../overview-of-enforce-iam-model/) similar to the likes of AWS and GCP, allowing you to organize policies and clusters into a hierarchy of groups through its Identity and Access Management (IAM) model. When you install Enforce onto a cluster, you associate that cluster with an existing IAM group. Likewise, when you create a policy, you associate it with a group and it is automatically applied to any clusters already associated with that group. 
 
-One feature that makes Chainguard Enforce unique is continuous verification. This means that Enforce will scan the cluster on a regular cadence to ensure that it complies with any policies you've applied to it. Chainguard Enforce uses an [admission controller](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) to block any requests that violate a cluster's policy. 
+One feature that makes Chainguard Enforce unique is [continuous verification](../understanding-continuous-verification/). This means that Enforce will scan the cluster on a regular cadence to ensure that it complies with any policies you've applied to it. Chainguard Enforce uses an [admission controller](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) to block any requests that violate a cluster's policy. 
 
 Typically, admission controllers only check policies when Kubernetes resources are being created. If new policies are rolled out, or the state of an application’s compliance degrades over time, then admission controllers will not catch the compliance degradation. Chainguard Enforce, however, continuously scans the cluster against all of the latest policies. This means that if a deployed application violates a new policy or falls out of compliance, it will catch the policy violation before Kubernetes acts on the request. 
 
 Violations can be sent as Cloud Events, so you can respond in the most appropriate way for your policies and applications. This might be to file a JIRA ticket, page the on-call, delete pods, or trigger a CI/CD pipeline to redeploy the application. Regardless of how you configure your response, the violation will be logged for future reference.
 
-> Note: For more information on how continuous verification works, check out our conceptual article on [Understanding Continuous Verification](../understanding-continuous-verification/).
-
 The following diagram outlines Chainguard Enforce's various components and how they work together. 
 
-![Diagram outlining Chainguard Enforce's architecture.](enforce-diagram.png)
+![Diagram outlining Chainguard Enforce's architecture.](enforce-diagram-bg-read.png)
 
 The Chainguard Enforce architecture contains a lightweight agent that can be installed in any Kubernetes cluster in a public or private cloud environment. The agent operates within the clusters to create, read, and apply policies. The Enforce Agent communicates with a centralized SaaS control plane where users can define, edit, and distribute policies across their fleet, as well as view information about their clusters, workloads, and policy results. The Enforce SaaS control plane also contains an Evidence Lake that allows organizations to store and retrieve information about their security posture over time. 
 
@@ -62,7 +60,7 @@ For more information on how to use `chainctl`, please refer to our [`chainctl` d
 
 ## The Chainguard Enforce Agent
 
-In the context of computing, a software agent is a program that performs certain actions on behalf of a user. A software agent has the authority to make decisions on its own and doesn't necessarily require user input. Accordingly, the Chainguard Enforce Agent is able to analyze a given cluster and enforce any policies you've applied to the cluster without your oversight. 
+In the context of computing, a software agent is a program that performs certain actions on behalf of a user. A software agent has the authority to make decisions on its own and doesn't necessarily require user input. Accordingly, the Chainguard Enforce Agent is able to analyze a given cluster and enforce any policies you've applied to the cluster without manual human oversight. 
 
 You can use `chainctl` to install the Chainguard Enforce Agent as outlined in the [Chainguard Enforce User Onboarding](../chainguard-enforce-user-onboarding/). Alternatively, you can also install the Agent declaratively, either with a [helm chart](../alternative-installation-methods/#helm-chart) or by using [raw YAML](../alternative-installation-methods/#raw-yaml).
 
@@ -95,7 +93,7 @@ To better understand how policies work in Chainguard Enforce, we encourage you t
 
 ## Chainguard Enforce for Git
 
-In addition to ensuring that Kubernetes clusters comply with established policies, Chainguard Enforce also supports Git signature verification for GitHub repositories. Chainguard Enforce for Git is built around [Gitsign](https://docs.sigstore.dev/gitsign/overview/) a component of the [Sigstore project](https://www.sigstore.dev/). Gitsign implements keyless Sigstore to sign Git commits with a valid OpenID Connect identity, like a GitHub or Google account. This allows users to sign their Git commits without the need for GPG keys or a complicated configuration.
+In addition to ensuring that Kubernetes clusters comply with established policies, Chainguard Enforce also supports Git signature verification for GitHub repositories. Chainguard Enforce for Git is built around [Gitsign](https://docs.sigstore.dev/gitsign/overview/), a tool that is part of [Sigstore suite](https://www.sigstore.dev/). Gitsign implements keyless Sigstore to sign Git commits with a valid OpenID Connect identity, like a GitHub or Google account. This allows users to sign their Git commits without the need for GPG keys or a complicated configuration.
 
 After [installing the Chainguard Enforce app on a GitHub repository](/chainguard/chainguard-enforce/chainguard-enforce-github/install-enforce-github/) you can configure it to ensure that any commits to that repo must be signed by a verified Git signature before they're merged. Chainguard Enforce for Git currently works with public or private repositories on GitHub. 
 
