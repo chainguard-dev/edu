@@ -84,16 +84,36 @@ You should receive output similar to the following.
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 
-GitVersion:    0.1.39
-GitCommit:     98f4b3bc8a1ef111777f797e8248b737643eedc6
+GitVersion:    <semver version>
+GitCommit:     <commit hash>
 GitTreeState:  clean
-BuildDate:     2022-12-05T14:04:10Z
-GoVersion:     go1.19.3
+BuildDate:     <date here>
+GoVersion:     <compiler version>
 Compiler:      gc
-Platform:      darwin/arm64
+Platform:      <your platform>
 ```
 
-If you received different output, check your bash profile to make sure that your system is using the expected PATH. 
+If you received output that you did not expect, check your bash profile to make sure that your system is using the expected PATH. 
+
+## Verifying the `chainctl` binary with Cosign
+
+You can verify the integrity of your `chainctl` binary using Cosign. Ensure that you have the latest version of Cosign installed by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/). Verify your `chainctl` binary with the following command:
+
+```sh
+COSIGN_EXPERIMENTAL=1 cosign verify-blob \
+   --signature "https://dl.enforce.dev/chainctl/$(chainctl version 2>&1 |awk '/GitVersion/ {print $2}')/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m).sig" \
+   --certificate "https://dl.enforce.dev/chainctl/$(chainctl version 2>&1 |awk '/GitVersion/ {print $2}')/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m).cert.pem" \
+   $(which chainctl)
+```
+
+You should receive output like the following:
+
+```
+tlog entry verified with uuid: <uuid here> index: <log index here>
+Verified OK
+```
+
+If you do not see the line `Verified OK` then there is a problem with your `chainctl` binary and you should reinstall it using the instructions at the beginning of this page.
 
 ## Updating `chainctl`
 
