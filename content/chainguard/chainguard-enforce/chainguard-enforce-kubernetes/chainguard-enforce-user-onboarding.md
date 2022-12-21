@@ -1,9 +1,9 @@
 ---
-title: "Chainguard Enforce User Onboarding"
+title: "Getting Started with Chainguard Enforce for Kubernetes"
 type: "article"
-description: "Walkthrough of Chainguard Enforce"
+description: "Chainguard Enforce User Onboarding"
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2022-11-29T15:22:20+01:00
+lastmod: 2022-12-15T15:22:20+01:00
 draft: false
 images: []
 menu:
@@ -89,11 +89,11 @@ You should receive output similar to the following.
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 
-GitVersion:    0.1.39
-GitCommit:     98f4b3bc8a1ef111777f797e8248b737643eedc6
+GitVersion:    0.1.44
+GitCommit:     dabc530b10168315afd1edf7f71df6a7ba1d844b
 GitTreeState:  clean
-BuildDate:     2022-12-05T14:04:10Z
-GoVersion:     go1.19.3
+BuildDate:     2022-12-14T22:14:33Z
+GoVersion:     go1.19.4
 Compiler:      gc
 Platform:      darwin/arm64
 ```
@@ -124,7 +124,7 @@ You’ll receive output in the form of a table of your current group (or groups)
 
 > **Note**: If you don't receive output like the above at all, you can create a new group by running `chainctl iam groups create --no-parent` to create a new group. After group creation, you can run `chainctl iam groups ls -o table` again.
 
-Let’s create a variable that stores that ID for later steps in the tutorial. Replace `$GROUP_ID` below with the relevant ID; for exmaple, in the case of `enforce-demo-group` above, you would enter `b9adda06841c1d34dfa73d5902ed44b5448b7958` instead of `$GROUP_ID` in the command below. 
+Let’s create a variable that stores that ID for later steps in the tutorial. Replace `$GROUP_ID` below with the relevant ID; for exmaple, in the case of `enforce-demo-group` above, you would enter `b9adda06841c1d34dfa73d5902ed44b5448b7958` instead of `$GROUP_ID` in the next command. 
 
 ```sh
 export GROUP=$GROUP_ID
@@ -140,10 +140,10 @@ In order to put Chainguard Enforce into action within a cluster, we’ll now cre
 kind create cluster --name enforce-demo
 ```
 
-Install the Chainguard Enforce agent in your cluster:
+Install the Chainguard Enforce Agent in your cluster:
 
 ```sh
-chainctl cluster install --group=$GROUP --private --context kind-enforce-demo
+chainctl cluster install --group=$GROUP_ID --private --context kind-enforce-demo
 ```
 
  Once everything is set up, your terminal output will indicate that the cluster was successfully configured. We now have a Kubernetes cluster setup that’s running an application.
@@ -181,7 +181,7 @@ This policy creates a cluster image policy with the Sigstore beta API, and with 
 We have already set up the `GROUP` variable in with the group we created above in Step 2. Let’s now associate this new policy with that group.
 
 ```sh
-chainctl policies apply -f sample-policy.yaml --group=$GROUP
+chainctl policies apply -f sample-policy.yaml --group=$GROUP_ID
 ```
 
 You should get feedback about the group selected and that the policy was applied, similar to the following.
@@ -219,7 +219,7 @@ sample-policy     68s
 
 Next, verify the compliance records of containers via the CLI.
 
-First, obtain the cluster ID and load it into a variable for usage. We are using `kubectl` to get an UUID (universally unique identifier) that Chainguard Enforce uses to identify the agent running on your cluster.
+First, obtain the cluster ID and load it into a variable for usage. We are using `kubectl` to get an UUID (universally unique identifier) that Chainguard Enforce uses to identify the Agent running on your cluster.
 
 ```sh
 export CLUSTER_ID=$(chainctl cluster list -o json | jq -r '.items[0].name')
