@@ -90,7 +90,7 @@ You should receive output similar to the following.
 chainctl: Chainguard Control
 
 GitVersion:    <semver version>
-GitCommit:     dabc530b10168315afd1edf7f71df6a7ba1d844b
+GitCommit:     <commit hash>
 GitTreeState:  clean
 BuildDate:     2022-12-14T22:14:33Z
 GoVersion:     go1.19.4
