@@ -89,7 +89,7 @@ You should receive output similar to the following.
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 
-GitVersion:    0.1.44
+GitVersion:    <semver version>
 GitCommit:     dabc530b10168315afd1edf7f71df6a7ba1d844b
 GitTreeState:  clean
 BuildDate:     2022-12-14T22:14:33Z
