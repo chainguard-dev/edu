@@ -227,7 +227,7 @@ auth:
 EOF
 ```
 
-With the required authentication information inclyded in the `values.yaml` file, you can use the Chart to install the Chainguard Enforce Agent.
+With the required authentication information included in the `values.yaml` file, you can use the Chart to install the Chainguard Enforce Agent.
 
 ```bash
 helm upgrade -i enforce-agent chainguard/enforce-agent -f values.yaml
