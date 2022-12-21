@@ -95,7 +95,7 @@ GitTreeState:  clean
 BuildDate:     <date here>
 GoVersion:     go1.19.4
 Compiler:      gc
-Platform:      darwin/arm64
+Platform:      <your platform>
 ```
 
 With `chainctl` successfully installed, we can continue through the demo. For more details on `chainctl` installation, please review [How to Install chainctl for Chainguard Enforce](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/).
