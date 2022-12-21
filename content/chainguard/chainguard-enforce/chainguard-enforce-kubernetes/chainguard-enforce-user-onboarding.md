@@ -93,7 +93,7 @@ GitVersion:    <semver version>
 GitCommit:     <commit hash>
 GitTreeState:  clean
 BuildDate:     <date here>
-GoVersion:     go1.19.4
+GoVersion:     <compiler version>
 Compiler:      gc
 Platform:      <your platform>
 ```
