@@ -92,7 +92,7 @@ chainctl: Chainguard Control
 GitVersion:    <semver version>
 GitCommit:     <commit hash>
 GitTreeState:  clean
-BuildDate:     2022-12-14T22:14:33Z
+BuildDate:     <date here>
 GoVersion:     go1.19.4
 Compiler:      gc
 Platform:      darwin/arm64
