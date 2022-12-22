@@ -11,3 +11,5 @@ weight: 001
 ---
 
 Chainguard Enforce is a comprehensive solution for software supply chain risk management.
+
+Stay up to date on Chainguard Enforce with the [Changelog](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/changelog/).
