@@ -63,7 +63,7 @@ curl -L -O https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_
   -O https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_0.6.0_linux_amd64.tar.gz.crt
 ```
 
-Then you can verify the files that you downloaded using cosign:
+Then you can verify the files that you downloaded using Cosign:
 
 ```sh
 COSIGN_EXPERIMENTAL=1 cosign verify-blob \
