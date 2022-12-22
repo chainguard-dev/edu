@@ -1,0 +1,49 @@
+name: Build Images Reference Docs
+on:
+  workflow_dispatch:
+env:
+  WORKDIR: images
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check out Destination Repo"
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
+        with:
+          path: edu
+
+      - name: "Check out Images Monorepo"
+        uses: actions/checkout@@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
+        with:
+          repository: chainguard-images/images
+          path: images
+
+      - name: "Set up workdir"
+        run: mkdir -p "${{ github.workspace }}/${{ env.WORKDIR }}" && chmod 777 "${{ github.workspace }}/${{ env.WORKDIR }}"
+
+      - name: "Update the reference docs for Chainguard Images"
+        uses: chainguard-dev/deved-autodocs@84badec14541d344c47d1a8435a8a214e72dbe95 # v1.0.2
+        with:
+          command: build images
+        env:
+          YAMLDOCS_SOURCE: "${{ github.workspace }}/images/images"
+          YAMLDOCS_OUTPUT: "${{ github.workspace }}/${{ env.WORKDIR }}"
+
+      - name: "Copy updates to main repo"
+        run: |
+          echo "Copying files..." && \
+          cp -R "${{ github.workspace }}/${{ env.WORKDIR }}" "${{ github.workspace }}/edu/content/chainguard/chainguard-images" && \
+          echo "Finished copy"
+
+      - name: Create a PR
+        uses: peter-evans/create-pull-request@v4
+        with:
+          path: "${{ github.workspace }}/edu"
+          commit-message: Update Images Reference
+          title: "[AutoDocs] Update Images Reference Docs"
+          signoff: true
+          labels: |
+            documentation
+            images
+            automated
+          assignees: erikaheidi
