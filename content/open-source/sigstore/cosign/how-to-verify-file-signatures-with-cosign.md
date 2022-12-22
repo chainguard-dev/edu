@@ -72,4 +72,4 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob \
    apko_0.6.0_linux_amd64.tar.gz
 ```
 
-If you receive an error while verifying a binary with cosign, then you know that there was a problem with creating the artifact, or that the file that you are verifying is corrupted or invalid. In any case, you should download a fresh copy and verify it again, or try a different version of the software with a working signature.
+If you receive an error while verifying a binary with Cosign, then you know that there was a problem with creating the artifact, or that the file that you are verifying is corrupted or invalid. If that is the case, you should download a fresh copy and verify it again, or try a different version of the software with a working signature.
