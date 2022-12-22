@@ -16,7 +16,7 @@ toc: true
 
 The `rekor-cli` tool or `curl` can be used to verify anything with a signature on a [Rekor transparency log](/open-source/sigstore/rekor/an-introduction-to-rekor/#transparency-log). This tutorial assumes you have the `rekor-cli` tool installed, which you can achieve by following our [How to Install the Rekor CLI](/open-source/sigstore/rekor/how-to-install-rekor/) guide. When verifying a signature using either tool, ensure that you have the `jq` utility installed so that you can parse their output.
 
-We’ll verify a binary artifact, in this case, a copy of [`apko`](/open-source/apko/overview/), which is a command-line tool for building container images using a declarative language based on YAML. The methods in this tutorial apply to any blob file that Cosign has signed with a keyless signature.
+We’ll verify a binary artifact, in this case, a copy of [apko](/open-source/apko/overview/), which is a tool for building container images using a declarative language based on YAML. The methods in this tutorial apply to any blob file that Cosign has signed with a keyless signature.
 
 ### Verifying a binary with rekor-cli
 
