@@ -47,8 +47,3 @@ jobs:
             images
             automated
           assignees: erikaheidi
-          reviewers: |
-            erikaheidi
-            jamonation
-
-
