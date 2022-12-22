@@ -38,7 +38,13 @@ To install with `chainctl`, first authenticate into `chainctl` before running a 
 chainctl auth login
 ```
 
-With your cluster already set up, you'll install the Chainguard Enforce Agent with this `chainctl` command:
+With your cluster already set up, you'll install the Chainguard Enforce Agent with `chainctl`. For GKE, EKS, and AKS cloud infrastructure, use the next command. 
+
+```sh
+chainctl cluster install --group=$GROUP_ID --context $CLUSTER
+```
+
+If you are using a _private_ or on-prem cluster, run the command  with the `--private` flag as in the next command.
 
 ```sh
 chainctl cluster install --group=$GROUP_ID --private --context $CLUSTER
