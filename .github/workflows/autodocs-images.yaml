@@ -1,8 +1,11 @@
 name: Build Images Reference Docs
+
 on:
   workflow_dispatch:
+
 env:
   WORKDIR: images
+
 jobs:
   main:
     runs-on: ubuntu-latest
