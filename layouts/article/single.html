@@ -15,7 +15,7 @@
     {{ else -}}
     <main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
       {{ end -}}
-      <h1>{{ .Title }}</h1>
+      {{ if not .Params.hide_title -}}<h1>{{ .Title }}</h1>{{ end -}}
       <p class="lead">{{ .Params.lead | safeHTML }}</p>
       <p class="contributors">
         {{ if .Params.contributors -}} <small>By
