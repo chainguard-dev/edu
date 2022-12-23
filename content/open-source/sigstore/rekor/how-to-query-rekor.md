@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "rekor"
-terminalImage: gcloud:latest
+# terminalImage: gcloud:latest
 weight: 003
 toc: true
 ---
