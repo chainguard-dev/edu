@@ -14,7 +14,7 @@ weight: 005
 toc: true
 ---
 
-Cosign can verify more than just containers. Blobs, or binary large objects, and standard files can be verified in a similar way. You can publish a blob or other artifact to an OCI (Open Container Initiative) or elsewhere and then use Cosign to verify its signature. This tutorial assumes you have Cosign installed, which you can achieve by following our [How to Install Cosign guide](../how-to-install-cosign/).
+Cosign can be used to verify file signatures as these are binary artifacts, as long as these are published to an OCI registry. This tutorial assumes you have Cosign installed, which you can achieve by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-sign-a-container-with-cosign/).
 
 We’ll verify a binary artifact, in this case, a copy of [`apko`](/open-source/apko/overview/), which is a command-line tool for building container images using a declarative language based on YAML. The methods in this tutorial apply to any blob file Cosign has signed with a keyless signature.
 
