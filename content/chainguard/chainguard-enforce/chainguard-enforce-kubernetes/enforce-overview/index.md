@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "enforce-overview"
-weight: 100
+weight: 50
 toc: true
 ---
 
