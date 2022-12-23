@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-enforce-kubernetes"
-weight: 100
+weight: 70
 toc: true
 ---
 
@@ -34,7 +34,7 @@ Before running Chainguard Enforce locally, you’ll need to ensure you have the 
 * **kind** — to create a kind Kubernetes cluster on our laptop, you can download and install kind for your relevant operating system by following the [kind install docs](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
 * **kubectl** — to work with your kind cluster, you can install for your operating system by following the official [Kubernetes kubectl documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * **jq**  — to process JSON, visit the [jq downloads page](https://stedolan.github.io/jq/download/) to set it up.
-* For macOS users, you'll need to update to bash version 4 or higher, which is not preinstalled in the machine. Please [follow our guide](../../../../open-source/update-bash-macos) on how to update your version if you are getting version 3 or below when you run `bash --version`.
+* For macOS users, you'll need to update to bash version 4 or higher, which is not preinstalled in the machine. Please [follow our guide](/open-source/update-bash-macos/) on how to update your version if you are getting version 3 or below when you run `bash --version`.
 
 With these prerequisites in place, you’re ready to begin.
 
@@ -98,11 +98,11 @@ Compiler:      gc
 Platform:      <your platform>
 ```
 
-With `chainctl` successfully installed, we can continue through the demo. For more details on `chainctl` installation, please review [How to Install chainctl for Chainguard Enforce](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/).
+With `chainctl` successfully installed, we can continue through the demo. For more details on `chainctl` installation, please review [How to Install chainctl for Chainguard Enforce](/chainguard/chainguard-enforce/how-to-install-chainctl/).
 
 ## Step 2 — Check IAM group
 
-Chainguard provides a way to organize Policies and Clusters into a hierarchy of **groups** through its [Identity and Access Management (IAM) model](../overview-of-enforce-iam-model). Chainguard Enforce provides a rich IAM model similar to those available through AWS and GCP.
+Chainguard provides a way to organize Policies and Clusters into a hierarchy of **groups** through its [Identity and Access Management (IAM) model](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/overview-of-enforce-iam-model/). Chainguard Enforce provides a rich IAM model similar to those available through AWS and GCP.
 
 Each Chainguard Policy needs to be associated with a group, and will be effective for that group as well as all the groups descending from it. Each Cluster needs to be associated with a group and will be enforced based on that group’s policies.
 
@@ -130,7 +130,7 @@ Let’s create a variable that stores that ID for later steps in the tutorial. R
 export GROUP=$GROUP_ID
 ```
 
-You can learn more about our IAM model by reading our [Overview of Chainguard Enforce IAM](../overview-of-enforce-iam-model) article. This document will provide you with guidance on creating a group hierarchy that enables policies to be inherited from parent groups, and discrete policies for different groups depending on your needs.
+You can learn more about our IAM model by reading our [Overview of Chainguard Enforce IAM](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/overview-of-enforce-iam-model/) article. This document will provide you with guidance on creating a group hierarchy that enables policies to be inherited from parent groups, and discrete policies for different groups depending on your needs.
 
 ## Step 3 — Prepare Kubernetes cluster
 
@@ -312,8 +312,10 @@ You may also want to delete the kind cluster you created.
 kind delete cluster --name enforce-demo
 ```
 
-To learn more visit our [Chainguard Enforce for Kubernetes](../) documentation page. For additional sample policies that you can try with Chainguard Enforce, review our [policy catalogue](https://console.enforce.dev/policies/catalog) in the Enforce Console. 
+To learn more visit our [Chainguard Enforce for Kubernetes](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/) documentation page. For additional sample policies that you can try with Chainguard Enforce, review our [policy catalogue](https://console.enforce.dev/policies/catalog) in the Enforce Console. 
 
-If you would like to learn about how you can use this product alongside signing Git commits, check out [Chainguard Enforce for Git](../../chainguard-enforce-github/). 
+To understand how Chainguard Enforce offers continuous verification of your workloads, review our page on [how continuous verification works](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/understanding-continuous-verification) and learn how to [finetune the timing of continuous verification](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/understanding-continuous-verification/#configuring-contiuous-verification)
 
-You can read all about software supply chain security on[Chainguard Academy](https://edu.chainguard.dev). 
+If you would like to learn about how you can use this product alongside signing Git commits, check out [Chainguard Enforce for Git](/chainguard/chainguard-enforce/chainguard-enforce-github//). 
+
+You can read all about software supply chain security on [Chainguard Academy](/). 

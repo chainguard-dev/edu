@@ -47,3 +47,30 @@ However, Chainguard Enforce doesn't read or store any code or information from t
 
 Bear in mind that Chainguard Enforce may also retrieve certain information — but not store it — in order to verify that a request satisfies the policy. For instance, say you attempt to use a container image in your cluster and your Enforce policy dictates that the image be signed. Chainguard Enforce will check the container's signature against the hash found in its specified container registry, but it won't ingest the signature information.
 
+## Configuring Contiuous Verification
+
+Continuous verification in Chainguard Enforce defaults to 10 seconds, and it is configurable through the ConfigMap's `config-image-policies` inside the `cosign-system namespace`. Here, you will find a `resync` annotation which will inform Enforce how frequently to run continuous verification.
+
+```sh
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-image-policies
+  namespace: cosign-system
+  annotations:
+    # Have continuous verification constantly checking for new containers
+    # subject to policies and reflecting their status to the API.
+    gulfstream.dev/resync: "10s"       # <---- Continuous verification is set at this line
+```
+
+Updating this line setting will change the scan frequency.
+
+You can run the following shell command to overwrite the ConfigMap. For example, if you would like continuous verification to run every 20 seconds, you can complete that with `kubectl`.
+
+```sh
+kubectl annotate configmap -n cosign-system config-image-policies gulfstream.dev/resync=20s --overwrite
+```
+
+If you would alternatively like continuous verification to run every 5 seconds, you can set the resync to `gulfstream.dev/resync=5s` instead.
+
+Chainguard Enforce is flexible across workloads, and if you want to be able to dictate a certain frequency of verification, this setting can offer you greater control. 
