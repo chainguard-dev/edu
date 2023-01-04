@@ -4,6 +4,7 @@
 title = "Chainguard Academy"
 titleSeparator = "—"
 titleAddition = "Software Supply Chain Security Knowledge Base"
+subTitle = "Chainguard"
 description = "Learn how to make your software supply chain secure by default"
 
 ## Documentation
@@ -54,10 +55,10 @@ lqipWidth = "20x"
 smallLimit = "300"
 
 # Footer
-footer = "©2022 <a class=\"text-muted\" href=\"https://www.chainguard.dev\">Chainguard</a>, <a class=\"text-muted\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">CC BY-NC-SA 4.0</a>"
+footer = "©2023 <a class=\"text-muted\" href=\"https://www.chainguard.dev\">Chainguard</a>, <a class=\"text-muted\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">CC BY-NC-SA 4.0</a>"
 
 # Feed
-copyRight = "Copyright (c) 2022 Chainguard"
+copyRight = "Copyright (c) 2023 Chainguard"
 
 # Alert
 alert = false
