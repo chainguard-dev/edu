@@ -42,7 +42,7 @@ Violations can be sent as Cloud Events, so you can respond in the most appropria
 
 The following diagram outlines Chainguard Enforce's various components and how they work together. 
 
-![Diagram outlining Chainguard Enforce's architecture.](enforce-diagram-bg-read.png)
+![Diagram outlining Chainguard Enforce's architecture.](enforce-diagram-bghr.png)
 
 The Chainguard Enforce architecture contains a lightweight agent that can be installed in any Kubernetes cluster in a public or private cloud environment. The agent operates within the clusters to create, read, and apply policies. The Enforce Agent communicates with a centralized SaaS control plane where users can define, edit, and distribute policies across their fleet, as well as view information about their clusters, workloads, and policy results. The Enforce SaaS control plane also contains an Evidence Lake that allows organizations to store and retrieve information about their security posture over time. 
 
