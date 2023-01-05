@@ -21,7 +21,7 @@ As awareness and adoption of SBOM has grown, there has been a gradual ackowledge
 
 ## Basic SBOM Use Cases and Required SBOM Data
 
-**Identify Vulnerable Components**: SBOMs can help organizations and individuals know the unfixed vulnerabilities in their software. By providing an inventory of components, this allows a software maintainer to check whether the versions of their component are associated with any known vulnerabilities. The software maintainer can then update or patch any components with known vulnerabilities.
+**Identifying Vulnerable Components**: SBOMs can help organizations and individuals know the unfixed vulnerabilities in their software. By providing an inventory of components, this allows a software maintainer to check whether the versions of their component are associated with any known vulnerabilities. The software maintainer can then update or patch any components with known vulnerabilities.
 
 To enable this use case, SBOMs must contain information, at a minimum, about the component name and version. Because there are many different open source software package ecosystems, it is also advantageous to include information about the package ecosystem from which a component originates. This reduces the chances of a false positive when identifying potential vulnerabilities. A [package URL](https://github.com/package-url/purl-spec) (or purl) provides this ecosystem information.
 
