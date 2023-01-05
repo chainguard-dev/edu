@@ -19,7 +19,7 @@ A [software bill of materials](https://edu.chainguard.dev/software-security/glos
 
 As awareness and adoption of SBOM has grown, there has been a gradual ackowledgement that [not all SBOMs are created equal](https://www.chainguard.dev/unchained/not-all-sboms-are-created-equal), some are more or less useful, depending on the goals of the SBOM user and the contents of the SBOM. This guide exists to provide some guidance on evaluating the quality of an SBOM, suggesting common use cases and the data fields that support these use cases and open source SBOM quality tools.
 
-## Basic SBOM Use Cases and Reqiured SBOM Data
+## Basic SBOM Use Cases and Required SBOM Data
 
 **Identify Vulnerable Components**: SBOMs can help organizations and individuals know the unfixed vulnerabilities in their software. By providing an inventory of components, this allows a software maintainer to check whether the versions of their component are associated with any known vulnerabilities. The software maintainer can then update or patch any components with known vulnerabilities.
 
