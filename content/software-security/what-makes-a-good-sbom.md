@@ -45,4 +45,4 @@ The tools for measuring SBOM quality — like the overall concept of SBOM qualit
 
 ## Learn More
 
-Check out Chainguard's blog post on ["Are SBOMs Any Good?"](https://www.chainguard.dev/unchained/are-sboms-any-good-preliminary-measurement-of-the-quality-of-open-source-project-sboms) to see an application of these SBOM quality tools to a dataset of open source project SBOMs. You can also learn about the complications for SBOM quality created by ["software dark matter."](https://www.chainguard.dev/unchained/software-dark-matter-is-the-enemy-of-software-transparency)
+Check out Chainguard's blog post on ["Are SBOMs Any Good?"](https://www.chainguard.dev/unchained/are-sboms-any-good-preliminary-measurement-of-the-quality-of-open-source-project-sboms) to see an application of these SBOM quality tools to a dataset of open source project SBOMs. You can also learn about the complications for SBOM quality created by ["software dark matter."](https://www.chainguard.dev/unchained/software-dark-matter-is-the-enemy-of-software-transparency).
