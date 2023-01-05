@@ -29,7 +29,7 @@ To enable this use case, SBOMs must contain information, at a minimum, about the
 
 To enable license analysis, an SBOM must contain information about the license or licenses associated with all components. Additionally, there is a supplier data field that can help organizations understand component suppliers.
 
-**Ensuring Software Integrity**: SBOMs can also help organizations and individuals ensure the software integrity, discovering instances of tampering.
+**Ensuring Software Integrity**: SBOMs can also help organizations and individuals ensure software integrity, discovering instances of tampering where a party has introduced malicious functionality.
 
 Providing checksums for packages or files within the SBOM enables machine-verification of software integrity.
 
