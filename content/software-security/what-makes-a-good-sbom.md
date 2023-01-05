@@ -33,7 +33,7 @@ Note: There are [other SBOM use cases](https://www.atlanticcouncil.org/in-depth-
 
 ## Measuring SBOM Quality
 
-The tools for measuring SBOM quality--like the overall concept of SBOM quality itself--are nascent.
+The tools for measuring SBOM quality — like the overall concept of SBOM quality itself — are nascent.
 
 [SBOM Scorecard](https://github.com/eBay/sbom-scorecard) analyzes both major SBOM formats and returns a composite quality score indicating the extent to which an SBOM possesses key fields, including whether the components in the SBOM contain a purl and whether there are licenses associated with each component.
 
