@@ -13,7 +13,7 @@ weight: 700
 toc: true
 ---
 
-
+> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
 
 
 Change the behavior of the policies by letting the controller warn instead of failing
