@@ -14,7 +14,15 @@ weight: 600
 toc: true
 ---
 
+<!--monopod:start-->
 # ko
+| | |
+| - | - |
+| **Status** | stable |
+| **OCI Reference** | `cgr.dev/chainguard/ko` |
+| **Variants/Tags** | `latest` |
+---
+<!--monopod:end-->
 
 This is an image that contains ko, go, and build-base.
 
