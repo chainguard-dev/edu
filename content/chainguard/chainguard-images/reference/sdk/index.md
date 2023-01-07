@@ -14,7 +14,15 @@ weight: 600
 toc: true
 ---
 
+<!--monopod:start-->
 # sdk
+| | |
+| - | - |
+| **Status** | stable |
+| **OCI Reference** | `cgr.dev/chainguard/sdk` |
+| **Variants/Tags** | `latest` |
+---
+<!--monopod:end-->
 
 Development image for [melange](https://github.com/chainguard-dev/melange) and [apko](https://github.com/chainguard-dev/apko).
 

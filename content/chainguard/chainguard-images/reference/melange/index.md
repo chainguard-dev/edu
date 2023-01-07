@@ -14,7 +14,15 @@ weight: 600
 toc: true
 ---
 
+<!--monopod:start-->
 # melange
+| | |
+| - | - |
+| **Status** | stable |
+| **OCI Reference** | `cgr.dev/chainguard/melange` |
+| **Variants/Tags** | `latest` |
+---
+<!--monopod:end-->
 
 Container image for running [melange](https://github.com/chainguard-dev/melange) workflows to build APK packages.
 
