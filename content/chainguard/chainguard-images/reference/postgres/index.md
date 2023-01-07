@@ -14,7 +14,15 @@ weight: 600
 toc: true
 ---
 
+<!--monopod:start-->
 # postgres
+| | |
+| - | - |
+| **Status** | stable |
+| **OCI Reference** | `cgr.dev/chainguard/postgres` |
+| **Variants/Tags** | `15` (`latest`) |
+---
+<!--monopod:end-->
 
 Minimal PostgreSQL image. **EXPERIMENTAL**
 

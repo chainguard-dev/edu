@@ -14,7 +14,15 @@ weight: 600
 toc: true
 ---
 
+<!--monopod:start-->
 # jre
+| | |
+| - | - |
+| **Status** | stable |
+| **OCI Reference** | `cgr.dev/chainguard/jre` |
+| **Variants/Tags** | `openjdk-jre-11`, `openjdk-jre-17` (`latest`) |
+---
+<!--monopod:end-->
 
 Java JRE image using OpenJDK via [Adoptium Temurin](https://adoptium.net/en-GB/temurin/) sources.
 

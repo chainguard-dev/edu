@@ -14,7 +14,15 @@ weight: 600
 toc: true
 ---
 
+<!--monopod:start-->
 # nginx
+| | |
+| - | - |
+| **Status** | stable |
+| **OCI Reference** | `cgr.dev/chainguard/nginx` |
+| **Variants/Tags** | `latest` (`mainline`), `stable` (`1.22.1-r0` / `1.22`) |
+---
+<!--monopod:end-->
 
 A minimal nginx base image rebuilt every night from source.
 
@@ -43,4 +51,3 @@ docker run -v $(pwd)/examples/hello-world/site-content:/var/lib/nginx/html -p 80
 ```
 
 If you navigate to `localhost:8080`, you should see `Hello World from Nginx!`.
-
