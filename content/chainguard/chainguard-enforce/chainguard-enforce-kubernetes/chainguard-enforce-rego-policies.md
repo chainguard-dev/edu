@@ -2,8 +2,8 @@
 title: "How to Use Rego Policies with Chainguard Enforce"
 type: "article"
 description: "Writing Rego-based policies for Chainguard Enforce"
-date: 2023-01-05T15:56:52-07:00
-lastmod: 2022-01-05T15:56:52-07:00
+date: 2023-01-06T15:56:52-07:00
+lastmod: 2022-01-06T15:56:52-07:00
 draft: false
 images: []
 menu:
@@ -70,3 +70,90 @@ Within the `isCompliant` braces, multiple conditions may exist if they are added
 
 This same structure must be present in all Rego-based policies in Enforce.
 
+## Rego Policy to Check Metadata Labels
+
+You can set the Rego policy in Chainguard Enforce to ensure that it is compliant with certain labels within your metadata. 
+
+For example, within the production environment (with the "production" label) you can ensure that the compliance team is the approver.
+
+```sh
+      isCompliant {
+
+        input.metadata.labels.env == "production"
+        input.metadata.labels.approved-by == "compliance-team"
+      }
+```
+
+Here, the policy is requiring and checking that the labels exist in the `ObjectMeta` data. This policy will evaluate to true only if both labels exist in the metadata portion of the manifest.
+
+## Rego Policy to Check Kubernetes Pod Security
+
+As a cluster-level resource, a Kubernetes Pod Security Policy allows a cluster administrator to control security-sensitive aspects of a Pod's specification. This defines a set of conditions that a Pod must meet so that it can be allowed into the cluster. You can think of it as a built-in admission controller which enforces security policies on Pods across a cluster.
+
+This policy checks to make sure our Pod security specifications are properly set.
+
+ ```sh
+       isCompliant {
+
+        input.spec.hostNetwork == "false"
+        input.spec.hostPID == "false"
+        input.spec.hostIPC == "false"
+      }
+```
+
+Here, `hostNetwork` refers to the host's networking namespace, `hostPID` refers to the host process ID namespace, and `hostPIC` refers to the IPC (interprocess communication) namespace.
+
+This policy will pass if all the restricted values are set to `false`.
+
+## Rego Policy that Disallows Specified Images
+
+In some cases, you may want to evaluate an item elsewhere in the manifest, such as an image source that is included within the container specs of the same manifest. For example, a manifest may have a snippet with a disallowed NGINX image from Docker Hub:
+
+```sh
+spec:
+  containers:
+  - name: "your-container-name"
+    image: nginx:latest
+  - name: "another-container-name"
+    image: nginx
+```
+
+In this case, within the `policy` section of your Rego policy, you’ll need to iterate over the image array and check all the relevant fields for the restricted value. You can use the `[_]` syntax to iterate through the array. You can use the `not` keyword in conjunction with the `contains()` built-in function to evaluate all the items within the array.
+
+```sh
+      isCompliant {
+
+        result:= input.spec.containers.image[_]
+        not contains(result,"docker.io")
+
+      }
+```
+
+This policy will not admit Pods that come from docker.io.
+
+## Rego Policy that Disallows Privilege Escalation in Pods
+
+This example Rego policy will disallow privilege escalation in Pods following the [Kubernetes Pod Security Baseline](https://kubernetes.io/docs/concepts/security/pod-security-standards/) Standard. The Baseline Standard is a inimally restrictive policy which prevents known privilege escalations and allows the default and minimally specified Pod configuration.
+
+```sh
+      isCompliant {
+
+        filteredContainers = [c | c := input.spec.containers[_]; c.securityContext.allowPrivilegeEscalation == true ]
+        filteredInitContainers = [c | c := input.spec.initContainers[_]; c.securityContext.allowPrivilegeEscalation == true ]
+        filteredEphemeralContainers = [c | c := input.spec.ephemeralContainers[_]; c.securityContext.allowPrivilegeEscalation == true ]
+        (count(filteredContainers) + count(filteredInitContainers) + count(filteredEphemeralContainers)) == 0
+
+      }
+```
+
+Setting the `allowPrivilegeEscalation` Boolean controls whether a process can gain more privileges than its parent process. This value will evaluate to `true` when the container is run as privileged. You can review more information about [how to configure a security context for a Pod or Container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) on the Kubernetes docs. 
+
+This Rego policy shows a method of declaring a variable and using it to count up all the instances of privilege escalation across Pod types, and evaluate that the final count is `0` in order for the policy to pass.
+
+## Learn More
+
+Within the [Chainguard Enforce Policy Catalog](https://console.enforce.dev/policies/catalog), you hae access to more Rego policy templates that you can use directly or modify. These include enforcing SBOM attestation, enforcing a signed vulnerability attestation, and disallowing host namespaces.  
+
+To understand more about the Rego policy format, you can review the [Rego Policy Reference](https://www.openpolicyagent.org/docs/latest/policy-reference/) which includes details on assignment and equality, arrays, objects, sets, and rules. 
+
+Request access to Chainguard Enforce by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).
