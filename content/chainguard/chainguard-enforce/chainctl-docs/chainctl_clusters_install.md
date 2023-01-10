@@ -1,5 +1,5 @@
 ---
-date: 2022-08-29T10:58:14-04:00
+date: 2022-12-15T19:03:53-05:00
 title: "chainctl clusters install"
 slug: chainctl_clusters_install
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_install/
@@ -13,7 +13,7 @@ toc: true
 Install Chainguard into the current kubernetes context.
 
 ```
-chainctl clusters install [--name NAME] [--description DESCRIPTION] [--group GROUP_NAME|GROUP_ID | --invite-code INVITE_CODE | --skip-invite | --managed=PROVIDER --cluster=CLUSTER_NAME | --private] [flags]
+chainctl clusters install [--name NAME] [--description DESCRIPTION] [--group GROUP_NAME|GROUP_ID | --invite-code INVITE_CODE | --skip-invite | --managed={eks,gke} --cluster=CLUSTER_NAME | --private]
 ```
 
 ### Examples
@@ -47,24 +47,26 @@ chainctl clusters install [--name NAME] [--description DESCRIPTION] [--group GRO
       --context string                   Indicates the name of the context (in kubectl) to be connect to Chainguard.
   -d, --description string               The description of the resource.
       --gcp-serviceaccount-file string   The path to a GCP service account JSON key file.
-      --group string                     The group under which to create a temporary invite code.
+      --group string                     The group under which to create a temporary invite code and install the cluster.
   -h, --help                             help for install
       --invite-code string               An invite code to use for joining this cluster into the IAM hierarchy.
       --managed string                   Indicates the cluster's agent should be managed by Chainguard.  The value indicates the provider of the cluster, e.g. gke
   -n, --name string                      Given name of the resource.
-      --private                          Kubernetes API endpoint isn't publically accessible. Cannot be used with managed clusters
+      --private                          Kubernetes API endpoint isn't publicly accessible. Cannot be used with managed clusters.
+      --profiles stringArray             The names of Chainguard profiles to install into the cluster.
       --skip-invite                      When specified we perform installation without an invite code.
 ```
 
 ### Options inherited from parent commands
 
 ```
-      --api string        The url of the Chainguard platform API. (default "http://api.api-system.svc")
-      --audience string   The Chainguard token audience to request. (default "http://api.api-system.svc")
-      --config string     A specific chainctl config file.
-      --console string    The url of the Chainguard platform Console. (default "http://console-ui.api-system.svc")
-      --issuer string     The url of the Chainguard STS endpoint. (default "http://issuer.oidc-system.svc")
-  -o, --output string     Output format. One of: ["", "table", "tree", "json", "id", "wide"]
+      --api string                   The url of the Chainguard platform API. (default "http://api.api-system.svc")
+      --audience string              The Chainguard token audience to request. (default "http://api.api-system.svc")
+      --config string                A specific chainctl config file.
+      --console string               The url of the Chainguard platform Console. (default "http://console-ui.api-system.svc")
+      --issuer string                The url of the Chainguard STS endpoint. (default "http://issuer.oidc-system.svc")
+  -o, --output string                Output format. One of: ["", "table", "tree", "json", "id", "wide"]
+      --timestamp_authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
 ```
 
 ### SEE ALSO
