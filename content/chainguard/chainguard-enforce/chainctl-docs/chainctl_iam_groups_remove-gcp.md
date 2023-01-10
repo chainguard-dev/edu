@@ -1,27 +1,29 @@
 ---
 date: 2022-12-15T19:03:53-05:00
-title: "chainctl iam invites delete"
-slug: chainctl_iam_invites_delete
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites_delete/
+title: "chainctl iam groups remove-gcp"
+slug: chainctl_iam_groups_remove-gcp
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_remove-gcp/
 draft: false
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam invites delete
+## chainctl iam groups remove-gcp
 
-Delete invite codes
+Remove any configured GCP account association for this IAM Group.
 
 ```
-chainctl iam invites delete {INVITE_ID... | --expired} [--yes] [flags]
+chainctl iam groups remove-gcp [GROUP_NAME | GROUP_ID][--output |json|table] [flags]
 ```
 
 ### Options
 
 ```
-      --expired   When true, delete all expired invite codes.
-  -h, --help      help for delete
-  -y, --yes       Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -d, --description string      The description of the association.
+  -h, --help                    help for remove-gcp
+  -n, --name string             The name of the association. (default: the group name)
+      --project-id string       The GCP project ID.
+      --project-number string   The GCP project number.
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +40,5 @@ chainctl iam invites delete {INVITE_ID... | --expired} [--yes] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam invites](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities or clusters with Chainguard.
+* [chainctl iam groups](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
 

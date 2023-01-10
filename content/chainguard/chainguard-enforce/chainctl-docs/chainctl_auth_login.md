@@ -1,5 +1,5 @@
 ---
-date: 2022-08-29T10:58:14-04:00
+date: 2022-12-15T19:03:53-05:00
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_login/
@@ -13,26 +13,29 @@ toc: true
 Login to the Chainguard platform.
 
 ```
-chainctl auth login [--identity-token TOKEN] [--invite-code INVITE_CODE | --register] [--create-group] [--cluster CLUSTER_ID] [--refresh] [flags]
+chainctl auth login [--identity-token TOKEN] [--invite-code INVITE_CODE | --register] [--cluster CLUSTER_ID] [--refresh]
 ```
 
 ### Examples
 
 ```
-
-# Default auth login flow:
-chainctl auth login
-
-# Refreshing a token within a Kubernetes context:
-chainctl auth login --identity-token=PATH_TO_TOKEN --refresh
-
+  # Default auth login flow:
+  chainctl auth login
+  
+  # Refreshing a token within a Kubernetes context:
+  chainctl auth login --identity-token=PATH_TO_TOKEN --refresh
+  
+  # Register and create a new root group
+  chainctl auth login --register
+  
+  # Register by accepting an invite to an existing group
+  chainctl auth login --invite-code eyJncnAiOiI5MzA...
 ```
 
 ### Options
 
 ```
       --cluster string          UID of the Cluster.
-      --create-group            Whether a new root group should be created if an invite code is not specified. (default true)
   -h, --help                    help for login
       --identity-token string   Use an explicit passed identity token or token path.
       --invite-code string      Registration invite code.
@@ -43,12 +46,13 @@ chainctl auth login --identity-token=PATH_TO_TOKEN --refresh
 ### Options inherited from parent commands
 
 ```
-      --api string        The url of the Chainguard platform API. (default "http://api.api-system.svc")
-      --audience string   The Chainguard token audience to request. (default "http://api.api-system.svc")
-      --config string     A specific chainctl config file.
-      --console string    The url of the Chainguard platform Console. (default "http://console-ui.api-system.svc")
-      --issuer string     The url of the Chainguard STS endpoint. (default "http://issuer.oidc-system.svc")
-  -o, --output string     Output format. One of: ["", "table", "tree", "json", "id", "wide"]
+      --api string                   The url of the Chainguard platform API. (default "http://api.api-system.svc")
+      --audience string              The Chainguard token audience to request. (default "http://api.api-system.svc")
+      --config string                A specific chainctl config file.
+      --console string               The url of the Chainguard platform Console. (default "http://console-ui.api-system.svc")
+      --issuer string                The url of the Chainguard STS endpoint. (default "http://issuer.oidc-system.svc")
+  -o, --output string                Output format. One of: ["", "table", "tree", "json", "id", "wide"]
+      --timestamp_authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
 ```
 
 ### SEE ALSO

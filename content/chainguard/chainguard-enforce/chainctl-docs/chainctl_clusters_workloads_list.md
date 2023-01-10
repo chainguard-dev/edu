@@ -1,27 +1,27 @@
 ---
 date: 2022-12-15T19:03:53-05:00
-title: "chainctl iam invites delete"
-slug: chainctl_iam_invites_delete
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites_delete/
+title: "chainctl clusters workloads list"
+slug: chainctl_clusters_workloads_list
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_workloads_list/
 draft: false
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam invites delete
+## chainctl clusters workloads list
 
-Delete invite codes
+List cluster workloads.
 
 ```
-chainctl iam invites delete {INVITE_ID... | --expired} [--yes] [flags]
+chainctl clusters workloads list [CLUSTER_ID] [--active-within DURATION] [--output tree|table|json|wide]
 ```
 
 ### Options
 
 ```
-      --expired   When true, delete all expired invite codes.
-  -h, --help      help for delete
-  -y, --yes       Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --active-within duration   How recently a workload must have been active to be listed. Zero will return all workloads. (default 24h0m0s)
+  -h, --help                     help for list
+  -n, --namespace string         The namespace whose workloads to list (default: all).
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +38,5 @@ chainctl iam invites delete {INVITE_ID... | --expired} [--yes] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam invites](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities or clusters with Chainguard.
+* [chainctl clusters workloads](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_workloads/)	 - Interact with cluster workloads.
 
