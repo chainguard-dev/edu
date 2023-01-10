@@ -2,14 +2,91 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2022-12-07 20:35:46 +0000 UTC
+date: 2023-01-10 10:56:36 +0000 UTC
 draft: false
 images: []
 weight: 799
 ---
 
 ## Introduction
-Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvments will be listed under the corresponding release version.
+Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.51
+Release date: 2023-01-10
+#### Feature
+- We will now observe and model Tekton resources, when they are installed.
+- terraform-provider now default's to the enforce.dev production environment instead of the decomissioned guak.dev environment
+- non-Kubernetes GCP runtimes can now take advantage of GCP audit logs to react in near real-time to deployment events (similar to Kubernetes informers).  This needs the latest release of https://github.com/chainguard-dev/terraform-google-chainguard-account-association to be applied.
+
+
+### v0.1.50
+Release date: 2023-01-06
+#### Feature
+- Agent-based cluster installation now surfaces cluster created events (like agentless installs)
+- Allow customers coming from gitlab to to authorize with Chainguard APIs until gitlab supports customizing the audience claim.
+- `chainctl` notifies the user when there is a an update available.
+
+
+### v0.1.49
+Release date: 2023-01-05
+
+Customer facing changes: N/A
+
+### v0.1.48
+Release date: 2023-01-05
+
+Customer facing changes: N/A
+
+### v0.1.47
+Release date: 2023-01-03
+#### Feature
+- Introduce a "chainctl cluster discover" command for automatically discovering (and enrolling) clusters.
+- Search for packages within your clusters with `chainctl cluster search`
+#### Bug or Regression
+- Fix authentication for fetchConfigFile with private images (multi-arch images are still broken pending an upstream fix)
+- image references should now use a consistently normalized form with a hostname and no tag.  DockerHub references will always get prefixed with index.docker.io (even if written without a host, or with docker.io), and "official" images will have the prefix: index.docker.io/library.  Tags will be stripped, even if specified alongside a digest.  For example, ubuntu:latest@sha256:deadbeef will become: index.docker.io/library/ubuntu@sha256:deadbeef
+
+
+### v0.1.46
+Release date: 2022-12-16
+
+Customer facing changes: N/A
+
+### v0.1.45
+Release date: 2022-12-15
+
+Customer facing changes: N/A
+
+### v0.1.44
+Release date: 2022-12-14
+#### Feature
+- Enforce will now detect Knative resource types, if they are installed, and model them in our resource hierarchy.
+
+
+### v0.1.43
+Release date: 2022-12-13
+
+Customer facing changes: N/A
+
+### v0.1.42
+Release date: 2022-12-12
+
+Customer facing changes: N/A
+
+### v0.1.41
+Release date: 2022-12-12
+
+Customer facing changes: N/A
+
+### v0.1.40
+Release date: 2022-12-12
+#### Documentation
+- generate a release changelog for Enforce and `chainctl` changes, accessible at [https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/changelog/](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/changelog/)
+#### Bug or Regression
+- Bugfix: allow rerunning of `chainctl cluster install --private`
+#### Other (Cleanup or Flake)
+- Activity in chainctl will now show up as monitor -> observer, and policy -> enforcer
+
 
 ### v0.1.39
 Release date: 2022-12-05
@@ -53,12 +130,12 @@ Release date: 2022-11-19
 Customer facing changes: N/A
 
 ### v0.1.33
-Release date: 2022-11-18
+Release date: 2022-11-19
 
 Customer facing changes: N/A
 
-### v0.1.18
-Release date: 2022-11-28
+### v0.1.32
+Release date: 2022-11-19
 
 Customer facing changes: N/A
 
@@ -78,7 +155,7 @@ Release date: 2022-11-17
 - `chainctl iam groups describe` now supports filtering cluster records with `--active-within`.
 
 ### v0.1.28
-Release date: 2022-11-16
+Release date: 2022-11-17
 
 Customer facing changes: N/A
 
@@ -190,7 +267,7 @@ Release date: 2022-10-13
 
 
 ### v0.1.9
-Release date: 2022-10-11
+Release date: 2022-10-12
 
 Customer facing changes: N/A
 
@@ -243,7 +320,7 @@ Release date: 2022-09-21
 
 
 ### v0.0.24
-Release date: 2022-09-20
+Release date: 2022-09-21
 
 Customer facing changes: N/A
 
@@ -253,7 +330,7 @@ Release date: 2022-09-19
 Customer facing changes: N/A
 
 ### v0.0.22
-Release date: 2022-09-17
+Release date: 2022-09-18
 
 Customer facing changes: N/A
 
@@ -275,7 +352,7 @@ Release date: 2022-09-14
 
 
 ### v0.0.18
-Release date: 2022-09-13
+Release date: 2022-09-14
 
 Customer facing changes: N/A
 
@@ -295,7 +372,7 @@ Release date: 2022-09-12
 Customer facing changes: N/A
 
 ### v0.0.14
-Release date: 2022-09-09
+Release date: 2022-09-10
 #### Feature
 - Customize some colors used across chainctl with `CHAINGUARD_OUTPUT_COLOR_PASS`, `CHAINGUARD_OUTPUT_COLOR_WARN`, and `CHAINGUARD_OUTPUT_COLOR_FAIL`. Highlight important images when reviewing cluster records with `CHAINGUARD_OUTPUT_RECORDS_NOTABLE` and `CHAINGUARD_OUTPUT_RECORDS_COLOR`.
 #### Other (Cleanup or Flake)

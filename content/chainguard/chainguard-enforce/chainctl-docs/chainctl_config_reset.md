@@ -1,27 +1,26 @@
 ---
 date: 2022-12-15T19:03:53-05:00
-title: "chainctl iam invites delete"
-slug: chainctl_iam_invites_delete
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites_delete/
+title: "chainctl config reset"
+slug: chainctl_config_reset
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_config_reset/
 draft: false
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam invites delete
+## chainctl config reset
 
-Delete invite codes
+Remove local chainctl config files and restore defaults.
 
 ```
-chainctl iam invites delete {INVITE_ID... | --expired} [--yes] [flags]
+chainctl config reset [--yes]
 ```
 
 ### Options
 
 ```
-      --expired   When true, delete all expired invite codes.
-  -h, --help      help for delete
-  -y, --yes       Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -h, --help   help for reset
+  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +37,5 @@ chainctl iam invites delete {INVITE_ID... | --expired} [--yes] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam invites](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities or clusters with Chainguard.
+* [chainctl config](/chainguard/chainguard-enforce/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
 

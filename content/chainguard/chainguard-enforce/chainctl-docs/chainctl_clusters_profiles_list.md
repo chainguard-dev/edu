@@ -1,27 +1,25 @@
 ---
 date: 2022-12-15T19:03:53-05:00
-title: "chainctl iam invites delete"
-slug: chainctl_iam_invites_delete
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites_delete/
+title: "chainctl clusters profiles list"
+slug: chainctl_clusters_profiles_list
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_profiles_list/
 draft: false
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam invites delete
+## chainctl clusters profiles list
 
-Delete invite codes
+List cluster profiles.
 
 ```
-chainctl iam invites delete {INVITE_ID... | --expired} [--yes] [flags]
+chainctl clusters profiles list [--output table|json|wide]
 ```
 
 ### Options
 
 ```
-      --expired   When true, delete all expired invite codes.
-  -h, --help      help for delete
-  -y, --yes       Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -h, --help   help for list
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +36,5 @@ chainctl iam invites delete {INVITE_ID... | --expired} [--yes] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam invites](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities or clusters with Chainguard.
+* [chainctl clusters profiles](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_profiles/)	 - Profile related commands.
 
