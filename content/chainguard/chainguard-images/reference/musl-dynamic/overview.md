@@ -13,7 +13,15 @@ weight: 600
 toc: true
 ---
 
+<!--monopod:start-->
 
+| | |
+| - | - |
+| **Status** | stable |
+| **OCI Reference** | `cgr.dev/chainguard/musl-dynamic` |
+| **Variants/Tags** | `latest` |
+---
+<!--monopod:end-->
 
 Base image with just enough files to run static binaries!
 

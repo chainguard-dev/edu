@@ -13,7 +13,15 @@ weight: 600
 toc: true
 ---
 
+<!--monopod:start-->
 
+| | |
+| - | - |
+| **Status** | stable |
+| **OCI Reference** | `cgr.dev/chainguard/maven` |
+| **Variants/Tags** | `openjdk-11`, `openjdk-17` (`latest`) |
+---
+<!--monopod:end-->
 
 Minimal image with Maven build system. **EXPERIMENTAL**
 
@@ -86,7 +94,7 @@ Let's run the application using the Chainguard OpenJDK JRE image.  _Note_ there'
 Choose the Chainguard OpenJDK JRE image tag that matches your application's Java version selected when generating your Spring Boot application above.
 
 ```
-docker run --platform=linux/amd64 --rm -p 8080:8080 -v ${PWD}/target:/app/ cgr.dev/chainguard/jdk:openjdk-jre-17 -jar /app/demo-0.0.1-SNAPSHOT.jar
+docker run --platform=linux/amd64 --rm -p 8080:8080 -v ${PWD}/target:/app/ cgr.dev/chainguard/jre:openjdk-jre-17 -jar /app/demo-0.0.1-SNAPSHOT.jar
 ```
 
 Now visit the Spring Boot Application in your browser using the same port mapped in the docker command above.
@@ -122,7 +130,7 @@ COPY . ./
 
 RUN mvn install
 
-FROM cgr.dev/chainguard/jdk:openjdk-jre-17
+FROM cgr.dev/chainguard/jre:openjdk-jre-17
 
 COPY --from=0 /home/build/target/demo-*.jar /app/demo.jar
 
@@ -156,4 +164,3 @@ docker images | grep my-chainguard-springboot-app
 ```
 
 You can also check for vulnerabilities using your favorite scanner.
-

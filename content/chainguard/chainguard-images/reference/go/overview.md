@@ -13,7 +13,15 @@ weight: 600
 toc: true
 ---
 
+<!--monopod:start-->
 
+| | |
+| - | - |
+| **Status** | stable |
+| **OCI Reference** | `cgr.dev/chainguard/go` |
+| **Variants/Tags** | `latest` (`latest-glibc` / `1.19`), `latest-musl` (`1.19-musl`), `1.20` (`1.20rc1` / `1.20-glibc` / `1.20rc1-glibc`) |
+---
+<!--monopod:end-->
 
 Container image for building Go applications.
 
@@ -27,12 +35,17 @@ docker pull cgr.dev/chainguard/go:latest
 
 ## Usage
 
+**NOTE**: As of 12/30/2022, the default go image uses Wolfi, which is glibc based.
+
+If you were using this image before and are now running into trouble, the musl/Alpine based image is
+still available at `cgr.dev/chainguard/go:latest-musl`.
+
 ## Host architecture example
 
 To build the Go application in [examples/hello/main.go](examples/hello/main.go)
 using the host architecture:
 
-```
+```sh
 docker run --rm -v "${PWD}:/work" -w /work/examples/hello \
     -e GOOS="$(go env GOOS)" -e GOARCH="$(go env GOARCH)" \
     cgr.dev/chainguard/go build -o /work/hello .
@@ -43,6 +56,13 @@ The example application will be built to `./hello`:
 $ ./hello
 Hello World!
 ```
+
+## Secure-by-default Features
+
+In Go 1.20, we default to using the new `GODEBUG` settings of `tarinsecurepath=0` and `zipinsecurepath=0`.
+These can be disabled by clearing the `GODEBUG` environment variable, or by setting them to `1`.
+
+Learn more about these settings in the [Go release notes](https://tip.golang.org/doc/go1.20).
 
 ## Dockerfile example
 
