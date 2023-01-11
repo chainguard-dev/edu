@@ -13,7 +13,15 @@ weight: 600
 toc: true
 ---
 
+<!--monopod:start-->
 
+| | |
+| - | - |
+| **Status** | stable |
+| **OCI Reference** | `cgr.dev/chainguard/node` |
+| **Variants/Tags** | `latest` |
+---
+<!--monopod:end-->
 
 Minimal container image for running NodeJS apps
 
