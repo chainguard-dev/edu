@@ -1,7 +1,7 @@
 ---
-title: "php"
+title: "Overview"
 hide_title: yes
-type: "article"
+type: "chainguard-image"
 description: "Reference docs for the php Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
@@ -9,8 +9,8 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "images-reference"
-weight: 600
+    parent: "php"
+weight: 1
 toc: true
 ---
 
@@ -33,7 +33,7 @@ Minimalist PHP images for building and running PHP applications (CLI).
 - `latest-dev`: Alpine-based image for development and build runtimes (includes Composer and busybox)
 - `latest-glibc-dev`: Wolfi-based image for development and production runtimes (includes Composer and busybox)
 
-## Usage 
+## Usage
 
 To try out the image, run:
 
