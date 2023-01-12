@@ -140,8 +140,8 @@ spec:
     keyless:
         url: "https://fulcio.sigstore.dev"
         identities:
-          - issuer: "*"
-            subject: "*"
+          - issuerRegExp: ".*"
+            subjectRegExp: ".*"
     attestations:
     - predicateType: cyclonedx
       name: log4shellcyclonedx

@@ -1,8 +1,7 @@
 ---
-title: "Overview"
-hide_title: yes
-type: "chainguard-image"
-description: "Reference docs for the php Chainguard Image"
+title: "Image Overview: php"
+type: "article"
+description: "Overview: php Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -15,7 +14,7 @@ toc: true
 ---
 
 <!--monopod:start-->
-# php
+
 | | |
 | - | - |
 | **Status** | stable |
