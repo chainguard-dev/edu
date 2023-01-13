@@ -70,6 +70,12 @@
   weight = 30
 
 [[main]]
+  name = "What Makes a Good SBOM?"
+  url = "/open-source/sbom/what-makes-a-good-sbom/"
+  parent = "menu-oss"
+  weight = 35
+
+[[main]]
   name = "Software Security"
   identifier = "menu-security"
   weight = 20

@@ -62,9 +62,8 @@ provider "aws" {}
 
 module "chainguard-account-association" {
   source  = "chainguard-dev/chainguard-account-association/aws"
-  version = "0.0.5"
 
-  enforce_group_id = "$ENFORCE_GROUP_ID"
+  enforce_group_ids = ["$ENFORCE_GROUP_ID"]
 }
 EOF
 ```
@@ -124,9 +123,8 @@ provider "google-beta" {
 
 module "chainguard-account-association" {
   source  = "chainguard-dev/chainguard-account-association/google"
-  version = "0.0.2"
 
-  enforce_group_id  = "$ENFORCE_GROUP_ID"
+  enforce_group_ids  = ["$ENFORCE_GROUP_ID"]
   google_project_id = "$PROJECT_ID"
 }
 EOF
