@@ -34,11 +34,22 @@ In this workshop, you'll learn more about Wolfi, a community Linux _undistro_ de
 
 ## Running the Demo
 
-The demo files are available on the [chainguard.dev/hello-wolfi-demo](https://github.com/chainguard-dev/hello-wolfi-demo) repository. These steps were executed on an Ubuntu 22.04 host Linux machine.
+The demo files are available on the [chainguard.dev/hello-wolfi-demo](https://github.com/chainguard-dev/hello-wolfi-demo) repository. The demo application is a command-line script built with PHP. It connects to the [cat facts](https://catfact.ninja/) API and outputs a quote about cats.
 
-The demo application is a command-line script built with PHP. It connects to the [cat facts](https://catfact.ninja/) API and outputs a quote about cats.
+### Preparation
+Before getting started, make sure you have [Docker](https://docs.docker.com/get-docker/) installed on your machine. These steps were executed on an Ubuntu 22.04 host Linux machine, but they should work seamlessly across platforms that support Docker and [multi-platform builds](https://docs.docker.com/build/building/multi-platform/).
 
-Before getting started, make sure you have Docker installed on your machine. The demo consists of the following steps:
+Clone the demo repository with:
+
+```shell
+cd ~
+git clone https://github.com/chainguard-dev/hello-wolfi-demo.git
+cd hello-wolfi-demo
+```
+
+### Steps Overview
+
+The demo consists of the following steps:
 
 1. Download the `cgr.dev/chainguard/melange` and `cgr.dev/chainguard/apko` images with `docker pull`
 2. Generate melange signing keys
@@ -73,6 +84,9 @@ docker run --privileged --rm -v "${PWD}":/work -- \
   --signing-key melange.rsa --keyring-append melange.rsa.pub
 ```
 
+_If you run into issues while running melange commands, check the [melange troubleshooting guide](/open-source/melange/troubleshooting/)._
+
+
 ### 4. Build the Composer package
 You can now build the Composer package with the following command:
 
@@ -99,6 +113,8 @@ Now that all dependencies are ready, you can now run `apko build` to build the i
 ```shell
 docker run --rm -v ${PWD}:/work cgr.dev/chainguard/apko build --debug apko.yaml hello-wolfi:latest hello-wolfi.tar -k melange.rsa.pub
 ```
+
+_If you run into issues while running apko commands, check the [apko troubleshooting guide](/open-source/apko/troubleshooting/)._
 
 ### 7. Load the container image
 You can now load the generated image into Docker with the following command:
