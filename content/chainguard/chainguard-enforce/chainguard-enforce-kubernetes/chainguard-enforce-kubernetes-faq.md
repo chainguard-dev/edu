@@ -3,7 +3,7 @@ title: "Chainguard Enforce for Kubernetes FAQs"
 type: "article"
 description: "Frequently asked questions about Chainguard Enforce for Kubernetes"
 date: 2022-10-18T08:49:31+00:00
-lastmod: 2022-10-18T08:49:31+00:00
+lastmod: 2023-01-12T08:49:31+00:00
 draft: false
 images: []
 menu:
@@ -12,6 +12,8 @@ menu:
 weight: 800
 toc: true
 ---
+
+> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
 
 ### What is Chainguard Enforce for Kubernetes?
 Chainguard Enforce is our comprehensive software supply chain security risk management solution for cloud native workloads. Enforce enables you to build, manage, and enforce policies across your Kubernetes clusters that protect your organization from supply chain threats, and continuously ensures that your clusters stay in compliance with those policies.

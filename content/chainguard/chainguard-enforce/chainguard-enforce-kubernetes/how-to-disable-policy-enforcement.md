@@ -3,7 +3,7 @@ title: "How to disable policy enforcement"
 type: "article"
 description: "Quickly handle incident responses in Chainguard Enforce"
 date: 2022-11-29T08:49:31+00:00
-lastmod: 2022-11-29T08:49:31+00:00
+lastmod: 2023-01-12T08:49:31+00:00
 draft: true
 images: []
 menu:
@@ -13,7 +13,7 @@ weight: 700
 toc: true
 ---
 
-
+> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
 
 
 Change the behavior of the policies by letting the controller warn instead of failing
