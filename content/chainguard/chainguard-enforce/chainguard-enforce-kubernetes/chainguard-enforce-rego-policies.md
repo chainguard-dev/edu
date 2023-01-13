@@ -53,7 +53,7 @@ In this policy, you should change the `name` to be meaningful to you. The `spec`
 
 The `authorities` field is used in evaluating image signatures. Since we aren’t using signatures in this policy, we will set it to pass. This will be a common setting in Rego-based policies unless you are also evaluating signatures simultaneously.
 
-The policy is being implemented in `warn` mode, which can generate an alert through `CloudEvents` to notify administrators of violations without blocking deployments. You can alternately use `mode: enforce` to block deployments that violate the policy.
+The policy is being implemented in `warn` mode, which can generate an alert through `CloudEvents` to notify administrators of violations without blocking deployments. You can alternatively use `mode: enforce` to block deployments that violate the policy.
 
 The Rego policy itself is definied within the `policy` section. The first requirement is to include the input data that is to be evaluated. By default, the image in the registry is available. To include additional metadata, one of more of the following should be set:
 
