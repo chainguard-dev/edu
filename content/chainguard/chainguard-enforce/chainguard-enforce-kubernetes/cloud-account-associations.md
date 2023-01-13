@@ -141,6 +141,7 @@ terraform apply
 More documentation and examples are available in the module source repository
 https://github.com/chainguard-dev/terraform-google-chainguard-account-association
 
+It may take a few minutes for changes to propagate.
 Once your GCP project is configured you can check that the account association
 is configured correctly:
 
