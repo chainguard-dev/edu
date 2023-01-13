@@ -171,8 +171,8 @@ spec:
   - keyless:
       url: https://fulcio.sigstore.dev
       identities:
-        - issuer: "*"
-          subject: "*"
+        - issuerRegExp: ".*"
+          subjectRegExp: ".*"
 EOF
 ```
 
