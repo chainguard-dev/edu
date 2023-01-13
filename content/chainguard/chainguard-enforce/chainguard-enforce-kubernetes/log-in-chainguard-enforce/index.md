@@ -108,7 +108,7 @@ You are now logged in to Chainguard Enforce and can use `chainctl` for your acco
 
 ## Authenticating through another device with `chainctl`
 
-You can authenticate and log into Chainguard Enforce with any device (this will typically be a smartphone) when you cannot access your present working device's browser.
+You can use another device (typically a smartphone) to authenticate and log in to Chainguard Enforce when you cannot access your present working device's browser. For instance, perhaps your present device is a container or a cloud virtual machine that doesn't have browser access.
 
 To authenticate, you will browse to the provided URL on an alternate device.
 
