@@ -3,7 +3,7 @@ title: "Chainguard Enforce for Kubernetes FAQs"
 type: "article"
 description: "Frequently asked questions about Chainguard Enforce for Kubernetes"
 date: 2022-10-18T08:49:31+00:00
-lastmod: 2022-10-18T08:49:31+00:00
+lastmod: 2023-01-12T08:49:31+00:00
 draft: false
 images: []
 menu:

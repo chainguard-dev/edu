@@ -2,8 +2,8 @@
 title: "How to Use Rego Policies with Chainguard Enforce"
 type: "article"
 description: "Writing Rego-based policies for Chainguard Enforce"
-date: 2023-01-06T15:56:52-07:00
-lastmod: 2023-01-06T15:56:52-07:00
+date: 2023-01-12T15:56:52-07:00
+lastmod: 2023-01-12T15:56:52-07:00
 draft: false
 images: []
 menu:
@@ -49,13 +49,13 @@ spec:
       }
 ```
 
-In this policy, you should change the `name` to be meaningful to you. The `spec` fields are defined at [ClusterImagePolicySpec](https://github.com/sigstore/policy-controller/blob/main/docs/api-types/index.md#clusterimagepolicyspec). By default, this policy will apply to all images, as noted with the `glob: '**'` parameter. If we keep this as is, this means that we are evaluating everything.
+In this policy, you should change the `name` to be meaningful to you. The `spec` fields are defined at [ClusterImagePolicySpec](https://github.com/sigstore/policy-controller/blob/main/docs/api-types/index.md#clusterimagepolicyspec). By default, this policy will apply to all images, as noted with the `glob: '**'` parameter. If we keep this as is, this means that we are evaluating everything running in our cluster.
 
 The `authorities` field is used in evaluating image signatures. Since we aren’t using signatures in this policy, we will set it to pass. This will be a common setting in Rego-based policies unless you are also evaluating signatures simultaneously.
 
 The policy is being implemented in `warn` mode, which can generate an alert through `CloudEvents` to notify administrators of violations without blocking deployments. You can alternately use `mode: enforce` to block deployments that violate the policy.
 
-Within the `policy` section is where the Rego policy is defined. The first requirement is to include the input data that is to be evaluated. By default, the image in the registry is available. To include additional metadata, one of more of the following should be set:
+The Rego policy itself is definied within the `policy` section. The first requirement is to include the input data that is to be evaluated. By default, the image in the registry is available. To include additional metadata, one of more of the following should be set:
 
 * `includeSpec:` allows you to access the fields in the `spec` portion of the Kubernetes manifest, including the container configuration, image names, replicas, resources, and more.
 * `includeObjectMeta:` allows you to access the fields in the metadata: portion of the manifest, including the object’s name and labels.
@@ -64,15 +64,15 @@ Within the `policy` section is where the Rego policy is defined. The first requi
 
 Rego policies in Enforce must specify `type: rego` and the `data` field must contain `package sigstore`. 
 
-For the policy to pass, the `isCompliant` field must evaluate to `true` within the curly braces. The `isCompliant` Boolean is set to false by default, and the logic in the braces must flip the boolean to true for the policy to pass. 
+For the policy to pass, the `isCompliant` field must evaluate to `true` within the curly braces. The `isCompliant` Boolean is set to `false` by default, and the logic in the braces must flip the boolean to `true` for the policy to pass. 
 
-Within the `isCompliant` braces, multiple conditions may exist if they are added together with the `AND` keyword Multiple evaluations within different sets of braces may also exist in the policy, these will be chained together with the `OR` keyword, meaning that if any of them is true, the Boolean evaluate to be true.
+If you define multiple conditions within the `isCompliant` braces, these can be combined using the `AND` keyword to the Boolean logic, meaning that each condition must pass for `isCompliant` to resolve to `true`. You can also define multiple evaluations (meaning, multiple sets of `isCompliant` braces) in the same policy. You would combine these in your policy with the `OR` keyword, meaning that if _any_ of the stated conditions evaluate to `true`, then the `isCompliant` Boolean will _also_ be `true`.
 
 This same structure must be present in all Rego-based policies in Enforce.
 
 ## Rego Policy to Check Metadata Labels
 
-You can set the Rego policy in Chainguard Enforce to ensure that it is compliant with certain labels within your metadata. 
+You can set a Rego policy in Chainguard Enforce to ensure that it is compliant with certain labels within your metadata. 
 
 For example, within the production environment (with the "production" label) you can ensure that the compliance team is the approver.
 
@@ -133,7 +133,7 @@ This policy will not admit Pods that come from docker.io.
 
 ## Rego Policy that Disallows Privilege Escalation in Pods
 
-This example Rego policy will disallow privilege escalation in Pods following the [Kubernetes Pod Security Baseline](https://kubernetes.io/docs/concepts/security/pod-security-standards/) Standard. The Baseline Standard is a inimally restrictive policy which prevents known privilege escalations and allows the default and minimally specified Pod configuration.
+This example Rego policy will disallow privilege escalation in Pods following the [Kubernetes Pod Security Baseline](https://kubernetes.io/docs/concepts/security/pod-security-standards/) Standard. The Baseline Standard is a minimally restrictive policy which prevents known privilege escalations and allows the default and minimally specified Pod configuration.
 
 ```sh
       isCompliant {
@@ -150,9 +150,39 @@ Setting the `allowPrivilegeEscalation` Boolean controls whether a process can ga
 
 This Rego policy shows a method of declaring a variable and using it to count up all the instances of privilege escalation across Pod types, and evaluate that the final count is `0` in order for the policy to pass.
 
+## Rego Policy that Checks Maximum Age of Images
+
+This example Rego policy checks the maximum age (in days) allowed for an image running in your cluster. Enforce measures this through the `created` field of a container image's configuration. This ensures that your images are regularly updated and maintained.
+
+Note that some build tools may fail this check due to using a fixed time (like the Unix epoch) for creation in their reproducible builds. However, many of these tools support specifying `SOURCE_DATE_EPOCH`, which aligns creation time with the date of the source commit.
+
+```sh
+  policy:
+    fetchConfigFile: true
+    type: "rego"
+    data: |
+      package sigstore
+
+      nanosecs_per_second = 1000 * 1000 * 1000
+      nanosecs_per_day = 24 * 60 * 60 * nanosecs_per_second
+
+      # Change this to the maximum number of days you would like to allow
+      maximum_age = 30 * nanosecs_per_day
+
+      default isCompliant = false
+      isCompliant {
+        created := time.parse_rfc3339_ns(input.config[_].created)
+        time.now_ns() < created + maximum_age
+      }
+```
+
+Here, the policy defines a variable for the `maximum_age`, in this case set to `30`, which you can change to the number of days old you would permit an image to be. 
+
+Within the `isCompliant` braces, the Rego policy leverages `time` to evaluate whether the current time is less than the maximum allowed age. To review the different methods of implementing `time` within Rego, review the [Time reference documentation](https://www.openpolicyagent.org/docs/latest/policy-reference/#time).
+
 ## Learn More
 
-Within the [Chainguard Enforce Policy Catalog](https://console.enforce.dev/policies/catalog), you hae access to more Rego policy templates that you can use directly or modify. These include enforcing SBOM attestation, enforcing a signed vulnerability attestation, and disallowing host namespaces.  
+Within the [Chainguard Enforce Policy Catalog](https://console.enforce.dev/policies/catalog), you have access to more Rego policy templates that you can use directly or modify. These include enforcing SBOM attestation, enforcing a signed vulnerability attestation, and disallowing host namespaces.  
 
 To understand more about the Rego policy format, you can review the [Rego Policy Reference](https://www.openpolicyagent.org/docs/latest/policy-reference/) which includes details on assignment and equality, arrays, objects, sets, and rules. 
 
