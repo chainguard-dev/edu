@@ -38,8 +38,8 @@ spec:
   authorities:
     - keyless:
         identities:
-          - issuer: https://accounts.google.com
-          - subjectRegExp: .*@chainguard.dev$
+          - issuerRegExp: ".*"
+            subjectRegExp: ".*"
     - key:
         kms: https://github.com/web-flow.gpg
 ```
@@ -49,9 +49,7 @@ This config file corresponds to a [Sigstore Authority](https://pkg.go.dev/github
 
 - `keyless`
   - `identities`
-      - `issuer`
       - `issuerRegExp`
-      - `subject`
       - `subjectRegExp`
 - `key`
   - `kms` (`https` only, restricted to `github.com`, `gitlab.com`)
