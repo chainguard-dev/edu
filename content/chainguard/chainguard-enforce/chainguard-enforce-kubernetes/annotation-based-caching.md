@@ -3,7 +3,7 @@ title: "How to Enable Annotation-based Caching for Chainguard Enforce"
 type: "article"
 description: "Enabling annotation-based caching for Chainguard Enforce"
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2023-01-06T15:22:20+01:00
+lastmod: 2023-01-12T15:22:20+01:00
 draft: false
 images: []
 menu:
@@ -17,13 +17,13 @@ toc: true
 
 Chainguard Enforce for Kubernetes can leverage annotations on Kubernetes objects to cache verification results to reduce the amount of traffic made to container registries in order to improve latency and scalability of the admission webhook.
 
-This feature will soon be the default for all users. In the mean time, in order to try out this feature on your Kubernetes cluster, you can use a feature flag setting in the ConfigMap `config-policy-controller` within the `cosign-system` namespace.
+This feature will soon be the default for all users. In the meantime, in order to try out this feature on your Kubernetes cluster, you can use a feature flag setting in the ConfigMap `config-policy-controller` within the `cosign-system` namespace.
 
 ## Understanding Annotation-based Caching
 
-Because a Kubernetes Pod usually receives most of its images passed down from parent objects like `StatefulSets` or `ReplicaSets`, enabling annotation-based caching allows for the verification results from parent objects to be passed down to Pods. This reduces the traffic made to container registries, reducing latency and rendering policy enforcement a lot more scalable.
+Because a Kubernetes Pod usually receives most of its images passed down from parent objects like `StatefulSets` or `ReplicaSets`, enabling annotation-based caching allows for the verification results from parent objects to be passed down to Pods. This reduces the traffic made to container registries, reducing latency and making policy enforcement much more scalable.
 
-In Chainguard's own load testing annotation-based caching, with a cache hit we see P99 verification latency of under 2s, and no egress was made to container registry. Without caching, latency would be highly dependent of registry access latency, where the P99 latency may be 10s or more. 
+In Chainguard's own load testing annotation-based caching, with a cache hit we obtained P99 verification latency of under two seconds (meaning that 99% of the requests were within this timeframe), and no egress was made to container registry. Without caching, latency would be highly dependent of registry access latency, where the P99 latency may be ten seconds or more. 
 
 Additionally, there are safeguards in place to make sure that cache annotation values are tamper proof. Chainguard includes a cryptographic signature inside the cache annotation and verifies that this is in place upon rereading. Invalid caches will be discarded.
 
