@@ -3,7 +3,7 @@ title: "Signing in to Chainguard Enforce"
 type: "article"
 description: "How to log in to Chainguard Enforce for Kubernetes"
 date: 2022-11-30T11:07:52+02:00
-lastmod: 2022-11-30T11:07:52+02:00
+lastmod: 2023-01-12T11:07:52+02:00
 draft: false
 images: []
 menu:
@@ -105,6 +105,42 @@ Valid! Id: <Relevant ID here>
 ```
 
 You are now logged in to Chainguard Enforce and can use `chainctl` for your account. 
+
+## Authenticating through another device with `chainctl`
+
+You can authenticate and log into Chainguard Enforce with any device (this will typically be a smartphone) when you cannot access your present working device's browser.
+
+To authenticate, you will browse to the provided URL on an alternate device.
+
+First, authenticate with `chainctl`.
+
+```sh
+chainctl auth login
+```
+
+You'll receive output that the device's browser could not open, and be provided with a URL to authenticate.
+
+```
+Authenticating...
+Error opening browser. Switching to device flow...
+
+Enter the verification code FTFD-ZVTV in your browser at: https://auth.chainguard.dev/activate
+Code will be valid for 900 seconds
+```
+
+When you navigate to https://auth.chainguard.dev/ with your smartphone or other device, you'll receive a screen with a field to enter the verification you were given in the terminal output.
+
+![Device activation for Chainguard Enforce authentication](device-activation-chainguard.png)
+
+Once you enter the verification code and complete the workflow by pressing the **Continue** button, you'll receive terminal output that indicates that the token was successfully exchanged.
+
+```
+Token received!
+Successfully exchanged token.
+Valid! Id: af641...
+```
+
+You are now authenticated to Chainguard Enforce. 
 
 ## Learn more
 
