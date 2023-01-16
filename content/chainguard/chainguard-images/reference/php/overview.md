@@ -19,7 +19,7 @@ toc: true
 | - | - |
 | **Status** | stable |
 | **OCI Reference** | `cgr.dev/chainguard/php` |
-| **Variants/Tags** | `latest`, `latest-dev`, `latest-musl`, `latest-musl-dev` |
+| **Variants/Tags** | ![](https://storage.googleapis.com/chainguard-images-build-outputs/summary/php.svg) |
 ---
 <!--monopod:end-->
 

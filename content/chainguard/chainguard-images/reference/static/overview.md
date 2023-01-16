@@ -19,7 +19,7 @@ toc: true
 | - | - |
 | **Status** | stable |
 | **OCI Reference** | `cgr.dev/chainguard/static` |
-| **Variants/Tags** | `latest`, `latest-glibc` |
+| **Variants/Tags** | ![](https://storage.googleapis.com/chainguard-images-build-outputs/summary/static.svg) |
 ---
 <!--monopod:end-->
 

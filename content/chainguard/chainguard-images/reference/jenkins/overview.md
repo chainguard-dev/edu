@@ -19,7 +19,7 @@ toc: true
 | - | - |
 | **Status** | experimental |
 | **OCI Reference** | `cgr.dev/chainguard/jenkins` |
-| **Variants/Tags** | `latest` |
+| **Variants/Tags** | ![](https://storage.googleapis.com/chainguard-images-build-outputs/summary/jenkins.svg) |
 ---
 <!--monopod:end-->
 

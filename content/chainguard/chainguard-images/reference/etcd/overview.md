@@ -19,7 +19,7 @@ toc: true
 | - | - |
 | **Status** | experimental |
 | **OCI Reference** | `cgr.dev/chainguard/etcd` |
-| **Variants/Tags** | `latest` |
+| **Variants/Tags** | ![](https://storage.googleapis.com/chainguard-images-build-outputs/summary/etcd.svg) |
 ---
 <!--monopod:end-->
 

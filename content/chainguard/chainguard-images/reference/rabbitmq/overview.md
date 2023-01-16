@@ -19,7 +19,7 @@ toc: true
 | - | - |
 | **Status** | experimental |
 | **OCI Reference** | `cgr.dev/chainguard/rabbitmq` |
-| **Variants/Tags** | `latest` |
+| **Variants/Tags** | ![](https://storage.googleapis.com/chainguard-images-build-outputs/summary/rabbitmq.svg) |
 ---
 <!--monopod:end-->
 

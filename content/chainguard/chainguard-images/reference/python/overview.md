@@ -19,7 +19,7 @@ toc: true
 | - | - |
 | **Status** | stable |
 | **OCI Reference** | `cgr.dev/chainguard/python` |
-| **Variants/Tags** | `latest`, `latest-dev`, `latest-musl`, `latest-musl-dev` |
+| **Variants/Tags** | ![](https://storage.googleapis.com/chainguard-images-build-outputs/summary/python.svg) |
 ---
 <!--monopod:end-->
 

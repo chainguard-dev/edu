@@ -19,7 +19,7 @@ toc: true
 | - | - |
 | **Status** | stable |
 | **OCI Reference** | `cgr.dev/chainguard/cc-dynamic` |
-| **Variants/Tags** | `latest` |
+| **Variants/Tags** | ![](https://storage.googleapis.com/chainguard-images-build-outputs/summary/cc-dynamic.svg) |
 ---
 <!--monopod:end-->
 
