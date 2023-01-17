@@ -60,10 +60,21 @@ this:
 cat  <<EOF > main.tf
 provider "aws" {}
 
-module "chainguard-account-association" {
+module "aws-impersonation" {
   source  = "chainguard-dev/chainguard-account-association/aws"
 
   enforce_group_ids = ["$ENFORCE_GROUP_ID"]
+}
+
+# While the above configures global IAM bindings, this module contains
+# regional resources that let Chainguard Enforce monitor audit logs that
+# let us discover infrastructure changes immediately.
+#
+# This module must be applied to each region containing resources you would like
+# Chainguard Enforce to monitor in near real time.
+module "aws-auditlogs" {
+  # Note the // is semantic and tells terraform that auditlogs is a directory.
+  source = "chainguard-dev/chainguard-account-association/aws//auditlogs"
 }
 EOF
 ```
@@ -121,7 +132,7 @@ provider "google-beta" {
   project = "$PROJECT_ID"
 }
 
-module "chainguard-account-association" {
+module "gcp-impersonation" {
   source  = "chainguard-dev/chainguard-account-association/google"
 
   enforce_group_ids  = ["$ENFORCE_GROUP_ID"]
