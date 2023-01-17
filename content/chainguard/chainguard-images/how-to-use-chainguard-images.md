@@ -11,6 +11,7 @@ menu:
   docs:
     parent: "chainguard-images"
 weight: 300
+terminalImage: academy/chainguard-images:latest
 toc: true
 ---
 
@@ -34,19 +35,22 @@ Many of the images are intended as platforms for running compiled binaries in as
 The following example Dockerfile builds a hello-world program in C and copies it on top of the `cgr.dev/chainguard/static:latest` base image:
 
 ```dockerfile
-# syntax=docker/dockerfile:1.4
 FROM cgr.dev/chainguard/gcc-musl:latest as build
 
-COPY <<EOF /hello.c
-#include <stdio.h>
-int main() { printf("Hello Distroless!"); }
-EOF
+COPY hello.c /hello.c
 RUN cc -static /hello.c -o /hello
 
 FROM cgr.dev/chainguard/static:latest
 
 COPY --from=build /hello /hello
 CMD ["/hello"]
+```
+
+Copy and save this example to a file called `Dockerfile` using `nano` or your preferred editor. Next save the following C code into a file called `hello.c` in the same directory as your `Dockerfile`:
+
+```
+#include <stdio.h>
+int main() { printf("Hello Distroless!\n"); }
 ```
 
 Run the following command to build the demo image and tag it as `c-distroless`:
