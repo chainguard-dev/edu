@@ -16,7 +16,7 @@ toc: true
 
 The PHP images maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running command-line PHP workloads.
 
-Because PHP applications typically require user-land package installs via Composer, using a pure distroless image for building your application would not work. In cases like this, you'll need to implement a [multi-stage Docker build]() that uses one of the `-dev` images to set up the application.
+Because PHP applications typically require user-land package installs via Composer, using a pure distroless image for building your application would not work. In cases like this, you'll need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses one of the `-dev` images to set up the application.
 
 In this guide, we'll set up a distroless container image based on Wolfi as a runtime to execute a command-line PHP application.
 
@@ -68,7 +68,11 @@ Create a new file to serve as the application entry point. We'll call it "namege
 touch namegen
 ```
 
-Next, open the file in your code editor of choice.
+Next, open the file in your code editor of choice, for example with `nano`:
+
+```shell
+nano namegen
+```
 
 The following PHP script defines a minimalist CLI app with a single command called "get". It returns a random name based on a list of nouns and a list of adjectives.
 
@@ -133,6 +137,11 @@ Create a Dockerfile with:
 touch Dockerfile
 ```
 
+Then open this file in your code editor of choice, for example `nano`:
+
+```shell
+nano Dockerfile
+```
 The following Dockerfile will:
 
 1. Start a new build stage based on the `php:latest-glibc-dev` image and call it `builder`;
@@ -160,7 +169,7 @@ Save the file when you're finished.
 You can now build the image with:
 
 ```shell
-docker build . -t php-namegen get
+docker build . -t php-namegen
 ```
 
 Once the build is finished, run the image with:
@@ -174,6 +183,31 @@ And you should get output similar to what you got before, with a random name com
 ```
 fortuitous-octopus
 ```
+
+If you inspect the image with a `docker image inspect php-namegen`, you'll notice that it has only **two** layers, thanks to the use of a multi-staging Docker build.
+
+```shell
+docker image inspect php-namegen
+```
+```shell
+...
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:23a50695d43b8aea7720c05bff1bdbfbcb45d0b0c7e7387f55d82110084002eb",
+                "sha256:9b900cbd280a3d510588c3b14bc937718ccee43a10b8b7b1756438b030bc3e15"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2023-01-10T19:02:13.062958609+01:00"
+        }
+    }
+]
+
+```
+In such cases, the last `FROM` section from the Dockerfile is the one that composes the final image. That's why in our case it only adds one layer on top of the base `php:latest-glibc` image, containing the `COPY` command we use to copy the application from the build stage to the final image.
+
+It's worth highlighting that nothing is carried from one stage to the other unless you copy it. That facilitates creating a slim final image with only what's necessary to execute the application.
 
 ## Advanced Usage
 
