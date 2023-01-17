@@ -11,7 +11,7 @@ menu:
   docs:
     parent: "rekor"
 weight: 004
-# terminalImage: gcloud:latest
+terminalImage: academy/rekor:latest
 toc: true
 ---
 
