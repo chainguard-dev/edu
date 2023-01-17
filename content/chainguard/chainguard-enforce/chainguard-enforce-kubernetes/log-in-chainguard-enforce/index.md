@@ -128,7 +128,7 @@ Enter the verification code FTFD-ZVTV in your browser at: https://auth.chainguar
 Code will be valid for 900 seconds
 ```
 
-When you navigate to https://auth.chainguard.dev/ with your smartphone or other device, you'll receive a screen with a field to enter the verification you were given in the terminal output.
+When you navigate to [https://auth.chainguard.dev/](https://auth.chainguard.dev/) with your smartphone or other device, you'll receive a screen with a field to enter the verification you were given in the terminal output.
 
 ![Device activation for Chainguard Enforce authentication](device-activation-chainguard.png)
 
