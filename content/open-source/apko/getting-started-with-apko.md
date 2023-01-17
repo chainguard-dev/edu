@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "apko"
 weight: 100
-# terminalImage: gcloud:latest
+terminalImage: academy/apko:latest
 toc: true
 ---
 
