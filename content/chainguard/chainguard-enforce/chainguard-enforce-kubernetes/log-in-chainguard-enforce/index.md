@@ -112,7 +112,7 @@ You can use another device (typically a smartphone) to authenticate and log in t
 
 To authenticate, you will browse to the provided URL on an alternate device.
 
-First, authenticate with `chainctl`.
+First, authenticate with `chainctl`. In this workflow, we are assuming you are not able to access a browser, so you may be authenticating from a virtual machine or container. 
 
 ```sh
 chainctl auth login
