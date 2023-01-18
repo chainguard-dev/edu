@@ -7,3 +7,4 @@ draft: false
 images: []
 ---
 
+The [Open Container Initiative](https://opencontainers.org/) (OCI) is a Linux Foundation project dedicated to managing specifications and projects related to the storage, distribution, and execution of container images.
