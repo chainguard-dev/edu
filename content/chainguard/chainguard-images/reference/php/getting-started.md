@@ -155,7 +155,7 @@ Copy this content to your own `Dockerfile`:
 
 ```Dockerfile
 FROM cgr.dev/chainguard/php:latest-glibc-dev AS builder
-COPY guides /app
+COPY . /app
 RUN cd /app && \
     composer install --no-progress --no-dev --prefer-dist
 
