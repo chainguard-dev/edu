@@ -67,6 +67,7 @@ Start by downloading the latest version of the melange and apko images.
 docker pull cgr.dev/chainguard/melange
 docker pull cgr.dev/chainguard/apko
 ```
+
 ### 2. Generate melange signing keys
 To make sure the generated packages work with apko, you'll need to sign them. The following command will generate a keypair that you can use when building your packages:
 
@@ -75,21 +76,23 @@ docker run --rm -v "${PWD}":/work cgr.dev/chainguard/melange keygen
 ```
 
 ### 3. Build the PHP package
-Next, build the PHP package with melange.
-On a Linux machine, follow the next command.
+Next, build the PHP package with melange. On a Linux machine, follow the next command:
+
 ```shell
 docker run --privileged --rm -v "${PWD}":/work -- \
   cgr.dev/chainguard/melange build melange-php.yaml \
   --arch x86_64 \
   --signing-key melange.rsa --keyring-append melange.rsa.pub
 ```
-On a macOS machine, follow the next command.
-  
+On a macOS machine, use the following command.
+
 ```shell
 docker run --privileged --rm -v "${PWD}":/work -- \
   cgr.dev/chainguard/melange build melange-php.yaml \
   --arch aarch64 \
   --signing-key melange.rsa --keyring-append melange.rsa.pub
+```
+
 _If you run into issues while running melange commands, check the [melange troubleshooting guide](/open-source/melange/troubleshooting/)._
 
 
@@ -109,8 +112,12 @@ docker run --privileged --rm -v "${PWD}":/work -- \
   cgr.dev/chainguard/melange build melange-composer.yaml \
   --arch aarch64 \
   --signing-key melange.rsa --keyring-append melange.rsa.pub
+```
+
 ### 5. Build the app package
-With both the PHP and Composer dependencies in place, you can now build the application package with the following command on Linux machines:
+With both the PHP and Composer dependencies in place, you can now build the application package.
+
+On Linux systems, use the following command:
 
 ```shell
 docker run --privileged --rm -v "${PWD}":/work -- \
@@ -118,13 +125,15 @@ docker run --privileged --rm -v "${PWD}":/work -- \
   --arch x86_64 \
   --signing-key melange.rsa --keyring-append melange.rsa.pub
 ```
-On macOS, you can now build the application package now that you have the PHP and Composer dependencies in place.
+On macOS, you can build the application with:
 
 ```shell
 docker run --privileged --rm -v "${PWD}":/work -- \
  cgr.dev/chainguard/melange build melange-app.yaml \
  --arch aarch64 \
  --signing-key melange.rsa --keyring-append melange.rsa.pub
+ ```
+
 ### 6. Build the container image
 Now that all dependencies are ready, you can now run `apko build` to build the image that runs the demo app.
 
