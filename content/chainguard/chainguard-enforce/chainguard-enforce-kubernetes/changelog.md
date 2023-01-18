@@ -2,14 +2,46 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-01-10 10:56:36 +0000 UTC
+date: 2023-01-18 18:11:40 +0000 UTC
 draft: false
 images: []
 weight: 799
 ---
 
 ## Introduction
-Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.56
+Release date: 2023-01-18
+#### Feature
+- Add support for AWS AppRunner services to cluster discovery.
+- Agentless discovery will now attempt to create an SQS queue subscribing to the audit log SNS topic in the region the cluster lives within.
+
+
+### v0.1.55
+Release date: 2023-01-17
+
+Customer facing changes: N/A
+
+### v0.1.54
+Release date: 2023-01-17
+#### Bug or Regression
+- fix an issue where cluster discovery for GCP would return 403s when it encounters inactive projects
+
+
+### v0.1.53
+Release date: 2023-01-13
+#### Feature
+- Set/unset individual configuration properties with `chainctl config set` and `chainctl config unset`.
+- Terraform provider now supports cluster discover via the `chainguard_cluster_discovery` data source
+
+
+### v0.1.52
+Release date: 2023-01-11
+#### Feature
+- OCI file media type of `text/spdx+json` is recognized as SPDX+json SBOM
+- SBOMs are ingested by default for all applicable images
+
 
 ### v0.1.51
 Release date: 2023-01-10
