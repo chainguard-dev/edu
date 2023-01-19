@@ -1,7 +1,7 @@
 ---
 title: "What is the Open Container Initiative?"
 type: "article"
-description: " ... (fill out)"
+description: "The Open Container Initiative (OCI) is a Linux Foundation project dedicated to managing specifications and projects related to the storage, distribution, and execution of container images."
 date: 2022-06-09T15:22:20+01:00
 lastmod: 2022-06-09T15:22:20+01:00
 draft: false
@@ -54,6 +54,7 @@ An image is composed of one or more _filesystem layers_, each of which represent
       "size": 32654,
       "digest": "sha256:9834876dcfb05cb167a5c24953eba58c4ac89b1adf57f28f2f9d09af107ee8f0"
     },
+ ]
 ```
 
 For OCI guidance on filesystem layers, you can visit their [Image Layer Filesystem Changeset Documentation](https://github.com/opencontainers/image-spec/blob/main/layer.md). 
@@ -102,7 +103,6 @@ Otherwise, the mediatype string will likely include “docker” as follows:
 There are a few interesting nuances about OCI images that are worth pointing out. First, because Docker donated its image specifications to OCI, Docker and OCI image specifications are the same in substance. In fact, most images on Docker are _Docker_ images and not OCI images, which you can confirm by inspecting the image manifests. This is largely due to the fact that Docker’s tools for publishing and building images create _Docker_ images – not _OCI_ images – by default, a convention set by historical practice. If you want to build and publish OCI images, you must use tools that support OCI, such as [apko](https://edu.chainguard.dev/open-source/apko/overview/), an open source OCI image builder.  
 
 Relatedly, a final nuance to point out is that OCI-compliant registries are only required to _support_  OCI images, but may distribute other image types as well. Thus, you should not expect all images distributed on an OCI-compliant registry to be OCI compliant themselves, such as evidenced by Docker Hub in the example above.  
-
 
 ## Learn more
 
