@@ -56,13 +56,13 @@ docker run --rm -v ${PWD}:/work --entrypoint composer \
     require minicli/minicli --working-dir=/work
 ```
 
-If you used the Docker method, make sure permissions are right on the generated files:
+If you used the Docker method, make sure permissions are set correctly on the generated files:
 
 ```shell
 sudo chown -R ${USER}.${USER} .
 ```
 
-Create a new file to serve as the application entry point. We'll call it "namegen":
+Create a new file to serve as the application entry point. We'll call it `namegen`:
 
 ```shell
 touch namegen
@@ -74,7 +74,7 @@ Next, open the file in your code editor of choice, for example with `nano`:
 nano namegen
 ```
 
-The following PHP script defines a minimalist CLI app with a single command called "get". It returns a random name based on a list of nouns and a list of adjectives.
+The following PHP script defines a minimalist CLI app with a single command called `get`. It returns a random name based on a list of nouns and a list of adjectives.
 
 ```php
 #!/usr/bin/php
@@ -215,6 +215,6 @@ If your use case requires a more specific set of packages that the general-purpo
 
 For Wolfi-based images, check the [Wolfi](https://github.com/wolfi-dev/os) distro repository. If the package you want is there, you can use the [wolfi-base](/chainguard/chainguard-images/reference/wolfi-base/overview) image in a Dockerfile and install what you need with `apk`, then use the resulting image as base for your app.
 
-For Alpine-based images, if the packages you need are available in the [Alpine](https://pkgs.alpinelinux.org/packages) repositories, you can use the [alpine-base](/chainguard/chainguard-images/reference/alpine-base/overview) image in a Dockerfile and install what you need with `apk`, then use the resulting image as base for your app.
+For Alpine-based images, if the packages you need are available in the [Alpine](https://pkgs.alpinelinux.org/packages) repositories, you can use the [alpine-base](/chainguard/chainguard-images/reference/alpine-base/overview) image in a Dockerfile and install what you need with `apk`, then use the resulting image as the base for your app.
 
-If the packages you need are not available for your your base distro of choice, you can build your own apks using [melange](/open-source/melange/overview). Please refer to [this guide](/open-source/melange/tutorials/getting-started-with-melange/) for more information on how to do that.
+If the packages you need are not available for your your base distro of choice, you can build your own apks using [melange](/open-source/melange/overview). Please refer to [this guide](/open-source/melange/tutorials/getting-started-with-melange/) for more information.
