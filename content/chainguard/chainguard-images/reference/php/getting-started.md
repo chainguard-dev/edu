@@ -6,7 +6,6 @@ date: 2023-01-09T11:07:52+02:00
 lastmod: 2023-01-09T11:07:52+02:00
 draft: false
 images: []
-referenceimage: php
 menu:
   docs:
     parent: "php-guides"
@@ -16,7 +15,7 @@ toc: true
 
 The PHP images maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running command-line PHP workloads.
 
-Because PHP applications typically require user-land package installs via Composer, using a pure distroless image for building your application would not work. In cases like this, you'll need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses one of the `-dev` images to set up the application.
+Because PHP applications typically require the installation of third-party dependencies via Composer, using a pure distroless image for building your application would not work. In cases like this, you'll need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses one of the `-dev` images to set up the application.
 
 In this guide, we'll set up a distroless container image based on Wolfi as a runtime to execute a command-line PHP application.
 
@@ -48,11 +47,11 @@ If you have a local PHP development environment with Composer, you can run the f
 composer require minicli/minicli
 ```
 
-If you don't have a local PHP development environment, you can use the `php:latest-glibc-dev` image variant with a volume in order to install application dependencies with Composer:
+If you don't have a local PHP development environment, you can use the `php:latest-dev` image variant with a volume in order to install application dependencies with Composer:
 
 ```shell
 docker run --rm -v ${PWD}:/work --entrypoint composer \
-    cgr.dev/chainguard/php:latest-glibc-dev \
+    cgr.dev/chainguard/php:latest-dev \
     require minicli/minicli --working-dir=/work
 ```
 
@@ -114,7 +113,7 @@ If you're using the Docker setup, run:
 
 ```shell
 docker run --rm -v ${PWD}:/work \
-    cgr.dev/chainguard/php:latest-glibc \
+    cgr.dev/chainguard/php:latest \
     /work/namegen get
 ```
 
@@ -128,8 +127,8 @@ The demo application is now ready. In the next step, you'll create a Dockerfile 
 
 ## Step 2: Creating the Dockerfile
 
-To make sure our final image is _distroless_ while still being able to install dependencies with Composer, our build will consist of **two** stages: first, we'll build the application using the `glibc-dev` image variant, which is Wolfi-based and includes Composer and other useful tools for development.
-Then, we'll create a separate stage for the final image, which will be based on the `glibc` variant. That is a distroless image also based on Wolfi, which means it doesn't come with Composer or even a shell.
+To make sure our final image is _distroless_ while still being able to install dependencies with Composer, our build will consist of **two** stages: first, we'll build the application using the `dev` image variant, a Wolfi-based image that includes Composer and other useful tools for development.
+Then, we'll create a separate stage for the final image. The resulting image will be based on the distroless PHP Wolfi image, which means it doesn't come with Composer or even a shell.
 
 Create a Dockerfile with:
 
@@ -144,22 +143,22 @@ nano Dockerfile
 ```
 The following Dockerfile will:
 
-1. Start a new build stage based on the `php:latest-glibc-dev` image and call it `builder`;
+1. Start a new build stage based on the `php:latest-dev` image and call it `builder`;
 2. Copy files from the current directory to the `/app` location in the container;
 3. Enter the `/app` directory and run `composer install` to install any dependencies;
-4. Start a new build stage based on the `php:latest-glibc`;
+4. Start a new build stage based on the `php:latest` image;
 5. Copy the application from the `builder` stage;
 6. Set up the application as entry point for this image.
 
 Copy this content to your own `Dockerfile`:
 
 ```Dockerfile
-FROM cgr.dev/chainguard/php:latest-glibc-dev AS builder
+FROM cgr.dev/chainguard/php:latest-dev AS builder
 COPY . /app
 RUN cd /app && \
     composer install --no-progress --no-dev --prefer-dist
 
-FROM cgr.dev/chainguard/php:latest-glibc
+FROM cgr.dev/chainguard/php:latest
 COPY --from=builder /app /app
 
 ENTRYPOINT [ "php", "/app/namegen" ]
@@ -205,7 +204,7 @@ docker image inspect php-namegen
 ]
 
 ```
-In such cases, the last `FROM` section from the Dockerfile is the one that composes the final image. That's why in our case it only adds one layer on top of the base `php:latest-glibc` image, containing the `COPY` command we use to copy the application from the build stage to the final image.
+In such cases, the last `FROM` section from the Dockerfile is the one that composes the final image. That's why in our case it only adds one layer on top of the base `php:latest` image, containing the `COPY` command we use to copy the application from the build stage to the final image.
 
 It's worth highlighting that nothing is carried from one stage to the other unless you copy it. That facilitates creating a slim final image with only what's necessary to execute the application.
 
