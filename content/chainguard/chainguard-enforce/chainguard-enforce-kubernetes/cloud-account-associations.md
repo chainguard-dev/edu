@@ -3,7 +3,7 @@ title: "How to Set Up Chainguard Enforce Cloud Account Associations"
 type: "article"
 description: "How to bind Chainguard Enforce to your cloud provider"
 date: 2022-09-02T15:56:52-07:00
-lastmod: 2022-09-02T15:56:52-07:00
+lastmod: 2023-01-19T15:56:52-07:00
 draft: false
 images: []
 menu:
@@ -42,7 +42,7 @@ cloud provider’s IAM system.
 To configure a cloud account association with AWS, start by setting up the
 association in Chainguard Enforce using `chainctl`. First, associate the ID of
 the relevant Enforce group and the AWS account ID to variables for later use.
-You can find the IAM group ID by running `chainctl iam groups ls -o`:
+You can find the IAM group ID by running `chainctl iam groups ls -o table`:
 
 ```sh
 export ENFORCE_GROUP_ID="<<uidp of target Enforce IAM group>>"
@@ -108,7 +108,7 @@ To configure a cloud account association with GCP, start by setting up the
 association in Chainguard Enforce using `chainctl`. First, store the ID of the
 relevant Enforce group, the GCP account ID, and the GCP project number into
 variables for later use. You can find the IAM group ID by running `chainctl iam
-groups ls -o`:
+groups ls -o table`:
 
 ```
 export ENFORCE_GROUP_ID="UIDP of target Enforce IAM group"
@@ -149,8 +149,7 @@ terraform plan
 terraform apply
 ```
 
-More documentation and examples are available in the module source repository
-https://github.com/chainguard-dev/terraform-google-chainguard-account-association
+More documentation and examples are available in the [module source repository](https://github.com/chainguard-dev/terraform-google-chainguard-account-association).
 
 It may take a few minutes for changes to propagate.
 Once your GCP project is configured you can check that the account association
