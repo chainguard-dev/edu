@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-01-18 18:11:40 +0000 UTC
+date: 2023-01-18 21:01:57 +0000 UTC
 draft: false
 images: []
 weight: 799
@@ -10,6 +10,21 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.59
+Release date: 2023-01-18
+
+Customer facing changes: N/A
+
+### v0.1.58
+Release date: 2023-01-18
+
+Customer facing changes: N/A
+
+### v0.1.57
+Release date: 2023-01-18
+
+Customer facing changes: N/A
 
 ### v0.1.56
 Release date: 2023-01-18
