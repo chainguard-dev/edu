@@ -1,0 +1,74 @@
+name: Build Enforce Docs
+
+on:
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: "${{ secrets.PROJECT_ID }}"
+  STORAGE_BUCKET: "${{ secrets.STORAGE_BUCKET }}"
+  WORKLOAD_IDENTITY_PROVIDER: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
+  SERVICE_ACCOUNT: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
+
+jobs:
+  enforce-autodocs:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+    - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
+      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
+
+    - name: Authenticate to Google Cloud
+      id: auth
+      uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
+      with:
+        token_format: 'access_token'
+        project_id: "${{ env.PROJECT_ID }}"
+        workload_identity_provider: "${{ env.WORKLOAD_IDENTITY_PROVIDER }}"
+        service_account: "${{ env.SERVICE_ACCOUNT }}"
+    
+    - uses: ./.github/workflows/integrate-enforce-docs
+      with:
+        project_id: "${{ env.PROJECT_ID }}"
+        workload_identity_provider: "${{ env.WORKLOAD_IDENTITY_PROVIDER }}"
+        service_account: "${{ env.SERVICE_ACCOUNT }}"
+        storage_bucket: "${{ env.STORAGE_BUCKET }}"
+
+    - uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # v3
+      with:
+        node-version: 16
+
+    - name: Update themes
+      run: git submodule update --init --recursive
+        
+    - name: npm install
+      run: npm install
+        
+    - name: npm run build
+      run: npm run build
+
+    - name: Commit to autodocs branch
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git config commit.gpgsign false
+        
+        # Check git status and push changes if needed
+        GIT_STATUS=$(git status content --porcelain)
+        if [ -n "${GIT_STATUS}" ]; then
+          git add content/
+          git commit -am "Automated docs commit"
+          git push origin HEAD:autodocs --force
+
+          # Now open a PR if needed
+          PR=$(gh pr list --json title,headRefName,url |jq '.[] | select(.headRefName=="autodocs")')
+          if [ -z "${PR}" ]; then
+            gh pr create --assignee jamonation --base main --head autodocs --title "Enforce docs autocommit" --body "Enforce docs autocommit" --no-maintainer-edit --label automated,documentation,enforce
+          else
+            echo "PR exists, see ${PR}"
+          fi
+          
+        fi
