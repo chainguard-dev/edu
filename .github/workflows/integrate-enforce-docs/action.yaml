@@ -29,8 +29,8 @@ runs:
     - name: download enforce openapi api.json spec from cloud storage
       shell: bash
       run: |
-      gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
-        "${{ inputs.storage_bucket }}/enforce-openapi/api.json" static/
+        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
+          "${{ inputs.storage_bucket }}/enforce-openapi/api.json" static/
 
     - name: download enforce events.md from cloud storage
       shell: bash
