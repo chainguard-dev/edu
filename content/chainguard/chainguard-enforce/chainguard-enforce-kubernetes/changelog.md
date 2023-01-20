@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-01-18 21:01:57 +0000 UTC
+date: 2023-01-19 18:16:27 +0000 UTC
 draft: false
 images: []
 weight: 799
@@ -10,6 +10,12 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.60
+Release date: 2023-01-19
+#### Feature
+- terraform-provider now supports profiles for agentless clusters and updating name and cluster description
+
 
 ### v0.1.59
 Release date: 2023-01-18
