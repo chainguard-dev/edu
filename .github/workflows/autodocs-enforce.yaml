@@ -8,6 +8,7 @@ env:
   STORAGE_BUCKET: "${{ secrets.STORAGE_BUCKET }}"
   WORKLOAD_IDENTITY_PROVIDER: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
   SERVICE_ACCOUNT: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
+  GH_TOKEN: ${{ github.token }}
 
 jobs:
   enforce-autodocs:
@@ -29,7 +30,7 @@ jobs:
         project_id: "${{ env.PROJECT_ID }}"
         workload_identity_provider: "${{ env.WORKLOAD_IDENTITY_PROVIDER }}"
         service_account: "${{ env.SERVICE_ACCOUNT }}"
-    
+
     - uses: ./.github/workflows/integrate-enforce-docs
       with:
         project_id: "${{ env.PROJECT_ID }}"
@@ -43,10 +44,10 @@ jobs:
 
     - name: Update themes
       run: git submodule update --init --recursive
-        
+
     - name: npm install
       run: npm install
-        
+
     - name: npm run build
       run: npm run build
 
@@ -55,7 +56,7 @@ jobs:
         git config user.name github-actions
         git config user.email github-actions@github.com
         git config commit.gpgsign false
-        
+
         # Check git status and push changes if needed
         GIT_STATUS=$(git status content --porcelain)
         if [ -n "${GIT_STATUS}" ]; then
@@ -71,5 +72,5 @@ jobs:
           else
             echo "PR exists, see ${PR}"
           fi
-          
+
         fi
