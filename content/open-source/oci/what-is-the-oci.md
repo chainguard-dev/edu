@@ -9,7 +9,7 @@ unlisted: true
 images: []
 menu:
   docs:
-    parent: "open-source"
+    parent: "oci"
 weight: 100
 toc: true
 ---
