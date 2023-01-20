@@ -1,0 +1,58 @@
+name: Integrate Enforce Docs
+
+inputs:
+  workload_identity_provider:
+    type: string
+    required: true
+    description: "Workload identity provider for GCP Workload Federation."
+  service_account:
+    type: string
+    required: true
+    description: "GCP Service Account to impersonate."
+  storage_bucket:
+    type: string
+    required: true
+    description: "Name of GCS bucket for static files"
+  project_id:
+    type: string
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: download enforce changelog.md from cloud storage
+      shell: bash
+      run: |
+        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
+          "${{ inputs.storage_bucket }}/enforce-changelog/changelog.md" content/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/
+
+    - name: download enforce openapi api.json spec from cloud storage
+      shell: bash
+      run: |
+      gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
+        "${{ inputs.storage_bucket }}/enforce-openapi/api.json" static/
+
+    - name: download enforce events.md from cloud storage
+      shell: bash
+      run: |
+        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
+          "${{ inputs.storage_bucket }}/enforce-events/events.md" content/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-events/index.md
+
+    - name: download chainctl docs from cloud storage
+      shell: bash
+      run: |
+        gcloud --quiet storage cp --recursive --project="${{ inputs.project_id }}" \
+          "${{ inputs.storage_bucket }}/chainctl-docs" /tmp/
+
+    - name: copy changed chainctl docs into academy content directory
+      shell: bash
+      run: |
+        rsync -av --delete --exclude="_index.md" \
+          "/tmp/chainctl-docs/" "content/chainguard/chainguard-enforce/chainctl-docs/"
+
+    - name: fix chainctl-docs urls
+      shell: bash
+      run: |
+        sed 's#/chainguard/chainctl/#/chainguard/chainguard-enforce/chainctl-docs/#g' \
+          -i content/chainguard/chainguard-enforce/chainctl-docs/*.md
+
