@@ -66,7 +66,8 @@ jobs:
           # Now open a PR if needed
           PR=$(gh pr list --json title,headRefName,url |jq '.[] | select(.headRefName=="autodocs")')
           if [ -z "${PR}" ]; then
-            gh pr create --assignee jamonation --base main --head autodocs --title "Enforce docs autocommit" --body "Enforce docs autocommit" --no-maintainer-edit --label automated,documentation,enforce
+            gh pr create --assignee jamonation --base main --head autodocs --title "Enforce docs autocommit" \
+              --body "Enforce docs autocommit" --no-maintainer-edit --label automated,documentation,enforce
           else
             echo "PR exists, see ${PR}"
           fi
