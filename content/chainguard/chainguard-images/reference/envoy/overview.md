@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`experimental` [cgr.dev/chainguard/envoy](cgr.dev/chainguard/envoy)
+| Tags     | Aliases                    |
+|----------|----------------------------|
+| `latest` | 1, 1.24, 1.24.1, 1.24.1-r0 |
 
-| | |
-| - | - |
-| **Status** | experimental |
-| **OCI Reference** | `cgr.dev/chainguard/envoy` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 [Envoy](https://github.com/envoyproxy/envoy) Cloud-native high-performance edge/middle/service proxy
 

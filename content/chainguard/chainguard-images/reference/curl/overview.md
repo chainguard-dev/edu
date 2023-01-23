@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/curl](cgr.dev/chainguard/curl)
+| Tags     | Aliases                    |
+|----------|----------------------------|
+| `latest` | 7, 7.87, 7.87.0, 7.87.0-r1 |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/curl` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 This is a minimal curl image base.
 

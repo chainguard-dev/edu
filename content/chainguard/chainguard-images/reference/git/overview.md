@@ -13,15 +13,15 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/git](cgr.dev/chainguard/git)
+| Tags                | Aliases                                                                |
+|---------------------|------------------------------------------------------------------------|
+| `latest`            | 2, 2.39, 2.39.1, 2.39.1-r1                                             |
+| `latest-root`       | root-2, root-2.39, root-2.39.1, root-2.39.1-r1                         |
+| `latest-glibc`      | glibc-2, glibc-2.39, glibc-2.39.1, glibc-2.39.1-r0                     |
+| `latest-glibc-root` | glibc-root-2, glibc-root-2.39, glibc-root-2.39.1, glibc-root-2.39.1-r0 |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/git` |
-| **Variants/Tags** | `latest` (`latest-nonroot`), `latest-root`, `latest-glibc` (`latest-glibc-nonroot`), `latest-glibc-root` |
----
-<!--monopod:end-->
+
 
 This is a minimal Git image based. The image contains `git`, `git-lfs`, and supporting libraries such as `openssh` (for `ssh`-based auth), and `ca-certs` (for `https`-based cloning). Both Wolfi (glibc) and Alpine (musl) versions are available.
 

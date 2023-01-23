@@ -13,15 +13,13 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/jre](cgr.dev/chainguard/jre)
+| Tags             | Aliases                                                                       |
+|------------------|-------------------------------------------------------------------------------|
+| `latest`         | openjdk-jre-17, openjdk-jre-17.0, openjdk-jre-17.0.6, openjdk-jre-17.0.6-r0   |
+| `openjdk-jre-11` | openjdk-jre-11, openjdk-jre-11.0, openjdk-jre-11.0.18, openjdk-jre-11.0.18-r0 |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/jre` |
-| **Variants/Tags** | `openjdk-jre-11`, `openjdk-jre-17` (`latest`) |
----
-<!--monopod:end-->
+
 
 Java JRE image using OpenJDK via [Adoptium Temurin](https://adoptium.net/en-GB/temurin/) sources.
 

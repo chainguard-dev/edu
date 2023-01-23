@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/alpine-base](cgr.dev/chainguard/alpine-base)
+| Tags     | Aliases |
+|----------|---------|
+| `latest` |         |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/alpine-base` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 Alpine base image built with [apko](https://github.com/chainguard-dev/apko). Uses packages from the [Alpine distribution](https://www.alpinelinux.org/).
 

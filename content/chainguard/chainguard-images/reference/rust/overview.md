@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`experimental` [cgr.dev/chainguard/rust](cgr.dev/chainguard/rust)
+| Tags     | Aliases                    |
+|----------|----------------------------|
+| `latest` | 1, 1.65, 1.65.0, 1.65.0-r1 |
 
-| | |
-| - | - |
-| **Status** | experimental |
-| **OCI Reference** | `cgr.dev/chainguard/rust` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 Minimal rust image. **EXPERIMENTAL**.
 

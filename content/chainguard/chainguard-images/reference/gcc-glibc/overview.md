@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/gcc-glibc](cgr.dev/chainguard/gcc-glibc)
+| Tags     | Aliases                     |
+|----------|-----------------------------|
+| `latest` | 12, 12.2, 12.2.0, 12.2.0-r7 |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/gcc-glibc` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 Minimal container image for building C applications (which require glibc).
 

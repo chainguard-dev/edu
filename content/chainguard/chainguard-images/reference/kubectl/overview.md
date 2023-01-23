@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/kubectl](cgr.dev/chainguard/kubectl)
+| Tags     | Aliases                    |
+|----------|----------------------------|
+| `latest` | 1, 1.26, 1.26.0, 1.26.0-r0 |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/kubectl` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 Minimal image with kubectl binary. **EXPERIMENTAL**
 
