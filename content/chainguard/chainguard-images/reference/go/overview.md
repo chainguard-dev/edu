@@ -13,15 +13,14 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/go](cgr.dev/chainguard/go)
+| Tags          | Aliases |
+|---------------|---------|
+| `latest`      |         |
+| `latest-musl` |         |
+| `1.20`        |         |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/go` |
-| **Variants/Tags** | `latest` (`latest-glibc` / `1.19`), `latest-musl` (`1.19-musl`), `1.20` (`1.20rc1` / `1.20-glibc` / `1.20rc1-glibc`) |
----
-<!--monopod:end-->
+
 
 Container image for building Go applications.
 

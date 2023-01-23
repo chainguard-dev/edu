@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/apko](cgr.dev/chainguard/apko)
+| Tags     | Aliases                 |
+|----------|-------------------------|
+| `latest` | 0, 0.6, 0.6.0, 0.6.0-r0 |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/apko` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 Container image for running [apko](https://github.com/chainguard-dev/apko) container builds.
 

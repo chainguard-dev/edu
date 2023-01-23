@@ -13,15 +13,13 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/busybox](cgr.dev/chainguard/busybox)
+| Tags           | Aliases                                         |
+|----------------|-------------------------------------------------|
+| `latest`       | 1, 1.36, 1.36.0, 1.36.0-r1                      |
+| `latest-glibc` | glibc-1, glibc-1.35, glibc-1.35.0, glibc-1.35.0 |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/busybox` |
-| **Variants/Tags** | `latest`, `latest-glibc` |
----
-<!--monopod:end-->
+
 
 Container image with only busybox and libc (available in both musl and glibc variants). Suitable for running any binaries that only have a dependency on glibc/musl.
 

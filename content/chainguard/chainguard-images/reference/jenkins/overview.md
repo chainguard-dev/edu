@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`experimental` [cgr.dev/chainguard/jenkins](cgr.dev/chainguard/jenkins)
+| Tags     | Aliases            |
+|----------|--------------------|
+| `latest` | 2, 2.387, 2.387-r1 |
 
-| | |
-| - | - |
-| **Status** | experimental |
-| **OCI Reference** | `cgr.dev/chainguard/jenkins` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 Minimal Jenkins container image. **Currently experimental.**
 

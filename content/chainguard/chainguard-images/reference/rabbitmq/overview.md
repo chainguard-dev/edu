@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`experimental` [cgr.dev/chainguard/rabbitmq](cgr.dev/chainguard/rabbitmq)
+| Tags     | Aliases                    |
+|----------|----------------------------|
+| `latest` | 3, 3.11, 3.11.5, 3.11.5-r2 |
 
-| | |
-| - | - |
-| **Status** | experimental |
-| **OCI Reference** | `cgr.dev/chainguard/rabbitmq` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 [RabbitMQ](https://github.com/rabbitmq/rabbitmq-server) RabbitMQ is a message broker.
 

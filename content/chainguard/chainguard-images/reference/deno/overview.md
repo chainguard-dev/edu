@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`experimental` [cgr.dev/chainguard/deno](cgr.dev/chainguard/deno)
+| Tags     | Aliases                    |
+|----------|----------------------------|
+| `latest` | 1, 1.29, 1.29.1, 1.29.1-r0 |
 
-| | |
-| - | - |
-| **Status** | experimental |
-| **OCI Reference** | `cgr.dev/chainguard/deno` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 Minimal container image for running deno apps
 

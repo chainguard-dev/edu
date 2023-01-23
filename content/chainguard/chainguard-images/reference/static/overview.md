@@ -13,15 +13,13 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/static](cgr.dev/chainguard/static)
+| Tags           | Aliases |
+|----------------|---------|
+| `latest`       |         |
+| `latest-glibc` |         |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/static` |
-| **Variants/Tags** | `latest`, `latest-glibc` |
----
-<!--monopod:end-->
+
 
 Base image with just enough files to run static binaries!
 
