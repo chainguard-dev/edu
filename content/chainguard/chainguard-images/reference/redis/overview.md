@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/redis](cgr.dev/chainguard/redis)
+| Tags     | Aliases                 |
+|----------|-------------------------|
+| `latest` | 7, 7.0, 7.0.7, 7.0.7-r0 |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/redis` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 [Redis](https://github.com/redis/redis) Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.
 
@@ -41,7 +38,7 @@ To run with Docker using default configuration:
 ```sh
 docker run -p 6379:6379 --rm cgr.dev/chainguard/redis
 1:C 27 Dec 2022 16:42:20.647 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
-1:C 27 Dec 2022 16:42:20.647  version=7.0.7, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 27 Dec 2022 16:42:20.647 # Redis version=7.0.7, bits=64, commit=00000000, modified=0, pid=1, just started
 1:C 27 Dec 2022 16:42:20.647 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
 1:M 27 Dec 2022 16:42:20.648 * monotonic clock: POSIX clock_gettime
 1:M 27 Dec 2022 16:42:20.648 * Running mode=standalone, port=6379.

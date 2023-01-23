@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/melange](cgr.dev/chainguard/melange)
+| Tags     | Aliases                 |
+|----------|-------------------------|
+| `latest` | 0, 0.2, 0.2.0, 0.2.0-r0 |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/melange` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 Container image for running [melange](https://github.com/chainguard-dev/melange) workflows to build APK packages.
 
@@ -52,7 +49,7 @@ To get a shell, you can change the entrypoint:
 ```
 docker run --privileged -v "$PWD":/work -it --entrypoint /bin/sh cgr.dev/chainguard/melange
 
-/  version
+/ # melange version
 ...
 ```
 Note that melange uses bubblewrap internally, which requires various Linux capabilities, hence the

@@ -13,15 +13,13 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/maven](cgr.dev/chainguard/maven)
+| Tags         | Aliases                                                             |
+|--------------|---------------------------------------------------------------------|
+| `latest`     | openjdk-17-3, openjdk-17-3.8, openjdk-17-3.8.7, openjdk-17-3.8.7-r0 |
+| `openjdk-11` | openjdk-11-3, openjdk-11-3.8, openjdk-11-3.8.7, openjdk-11-3.8.7-r0 |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/maven` |
-| **Variants/Tags** | `openjdk-11`, `openjdk-17` (`latest`) |
----
-<!--monopod:end-->
+
 
 Minimal image with Maven build system. **EXPERIMENTAL**
 

@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`experimental` [cgr.dev/chainguard/memcached](cgr.dev/chainguard/memcached)
+| Tags     | Aliases                   |
+|----------|---------------------------|
+| `latest` | 1, 1.6, 1.6.17, 1.6.17-r0 |
 
-| | |
-| - | - |
-| **Status** | experimental |
-| **OCI Reference** | `cgr.dev/chainguard/memcached` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 [Memcached](https://memcached.org/) is an in-memory key-value store for small chunks of arbitrary data (strings, objects) from results of database calls, API calls, or page rendering.
 

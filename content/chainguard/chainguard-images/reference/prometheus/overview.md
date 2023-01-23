@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/prometheus](cgr.dev/chainguard/prometheus)
+| Tags     | Aliases                    |
+|----------|----------------------------|
+| `latest` | 2, 2.41, 2.41.0, 2.41.0-r0 |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/prometheus` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 Minimal Prometheus Image
 
