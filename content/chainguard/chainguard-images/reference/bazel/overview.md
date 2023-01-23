@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`experimental` [cgr.dev/chainguard/bazel](cgr.dev/chainguard/bazel)
+| Tags     | Aliases                 |
+|----------|-------------------------|
+| `latest` | 6, 6.0, 6.0.0, 6.0.0-r2 |
 
-| | |
-| - | - |
-| **Status** | experimental |
-| **OCI Reference** | `cgr.dev/chainguard/bazel` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 [Bazel](https://github.com/bazelbuild/bazel) - A fast, scalable, multi-language and extensible build system.
 

@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/cc-dynamic](cgr.dev/chainguard/cc-dynamic)
+| Tags     | Aliases |
+|----------|---------|
+| `latest` |         |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/cc-dynamic` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 Base image with just enough to run arbitrary binaries that may require gcc or cc libraries.
 These are typically C++ or Rust binaries.

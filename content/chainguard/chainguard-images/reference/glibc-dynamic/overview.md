@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/glibc-dynamic](cgr.dev/chainguard/glibc-dynamic)
+| Tags     | Aliases |
+|----------|---------|
+| `latest` |         |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/glibc-dynamic` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 Base image with just enough to run arbitrary glibc binaries.
 

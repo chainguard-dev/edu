@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/gcc-musl](cgr.dev/chainguard/gcc-musl)
+| Tags     | Aliases                                             |
+|----------|-----------------------------------------------------|
+| `latest` | 12, 12.2, 12.2.1_git20220924, 12.2.1_git20220924-r8 |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/gcc-musl` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 Minimal container image for building C applications (which do not require glibc).
 

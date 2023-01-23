@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/nginx](cgr.dev/chainguard/nginx)
+| Tags     | Aliases                    |
+|----------|----------------------------|
+| `latest` | 1, 1.23, 1.23.3, 1.23.3-r1 |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/nginx` |
-| **Variants/Tags** | `latest` (`mainline`), `stable` (`1.22.1-r0` / `1.22`) |
----
-<!--monopod:end-->
+
 
 A minimal nginx base image rebuilt every night from source.
 
@@ -50,3 +47,9 @@ docker run -v $(pwd)/examples/hello-world/site-content:/var/lib/nginx/html -p 80
 ```
 
 If you navigate to `localhost:8080`, you should see `Hello World from Nginx!`.
+
+To use a custom `nginx.conf` you can mount the file into the container
+
+```
+docker run -v $(pwd)/$CUSTOM_NGINX_CONF_DIRECTORY/nginx.conf:/etc/nginx/nginx.conf -p 8080:80 cgr.dev/chainguard/nginx
+```

@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`experimental` [cgr.dev/chainguard/etcd](cgr.dev/chainguard/etcd)
+| Tags     | Aliases                 |
+|----------|-------------------------|
+| `latest` | 3, 3.5, 3.5.6, 3.5.6-r1 |
 
-| | |
-| - | - |
-| **Status** | experimental |
-| **OCI Reference** | `cgr.dev/chainguard/etcd` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 [etcd](https://github.com/etcd-io/etcd) Distributed reliable key-value store for the most critical data of a distributed system
 

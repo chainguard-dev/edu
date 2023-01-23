@@ -13,15 +13,12 @@ weight: 600
 toc: true
 ---
 
-<!--monopod:start-->
+`stable` [cgr.dev/chainguard/node](cgr.dev/chainguard/node)
+| Tags     | Aliases                        |
+|----------|--------------------------------|
+| `latest` | 18, 18.13, 18.13.0, 18.13.0-r0 |
 
-| | |
-| - | - |
-| **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/node` |
-| **Variants/Tags** | `latest` |
----
-<!--monopod:end-->
+
 
 Minimal container image for running NodeJS apps
 
