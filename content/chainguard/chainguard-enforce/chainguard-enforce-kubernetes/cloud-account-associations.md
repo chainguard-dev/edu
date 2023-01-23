@@ -39,7 +39,7 @@ cloud provider’s IAM system.
 
 ## Setting up a Cloud Account Association for AWS
 
-To configure a cloud account association with AWS, start by setting up the
+To configure (or upgrade) a cloud account association with AWS, start by setting up the
 association in Chainguard Enforce using `chainctl`. First, associate the ID of
 the relevant Enforce group and the AWS account ID to variables for later use.
 You can find the IAM group ID by running `chainctl iam groups ls -o table`:
@@ -82,7 +82,7 @@ EOF
 Then, initiate and apply the module:
 
 ```sh
-terraform init
+terraform init -upgrade
 terraform plan
 terraform apply
 ```
@@ -104,7 +104,7 @@ You’ll receive output that the configuration was successful.
 
 ## Setting up a Cloud Account Association for GCP
 
-To configure a cloud account association with GCP, start by setting up the
+To configure (or upgrade) a cloud account association with GCP, start by setting up the
 association in Chainguard Enforce using `chainctl`. First, store the ID of the
 relevant Enforce group, the GCP account ID, and the GCP project number into
 variables for later use. You can find the IAM group ID by running `chainctl iam
@@ -144,7 +144,7 @@ EOF
 Then, initiate and apply the module:
 
 ```sh
-terraform init
+terraform init -upgrade
 terraform plan
 terraform apply
 ```
