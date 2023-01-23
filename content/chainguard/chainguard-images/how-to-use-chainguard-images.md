@@ -4,7 +4,7 @@ type: "article"
 description: "A primer on how to migrate to Chainguard Images"
 lead: "A primer on how to migrate to Chainguard Images"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2022-09-01T08:49:31+00:00
+lastmod: 2023-01-23T19:42:31+00:00
 draft: false
 images: []
 menu:
@@ -35,9 +35,13 @@ Many of the images are intended as platforms for running compiled binaries in as
 The following example Dockerfile builds a hello-world program in C and copies it on top of the `cgr.dev/chainguard/static:latest` base image:
 
 ```dockerfile
+# syntax=docker/dockerfile:1.4
 FROM cgr.dev/chainguard/gcc-musl:latest as build
 
-COPY hello.c /hello.c
+COPY <<EOF /hello.c
+#include <stdio.h>
+int main() { printf("Hello Distroless!"); }
+EOF
 RUN cc -static /hello.c -o /hello
 
 FROM cgr.dev/chainguard/static:latest
@@ -46,17 +50,10 @@ COPY --from=build /hello /hello
 CMD ["/hello"]
 ```
 
-Copy and save this example to a file called `Dockerfile` using `nano` or your preferred editor. Next save the following C code into a file called `hello.c` in the same directory as your `Dockerfile`:
-
-```
-#include <stdio.h>
-int main() { printf("Hello Distroless!\n"); }
-```
-
 Run the following command to build the demo image and tag it as `c-distroless`:
 
 ```shell
-docker build -t c-distroless  .
+DOCKER_BUILDKIT=1 docker build -t c-distroless  .
 ```
 
 Now you can run the image with:
@@ -148,3 +145,4 @@ You should get output like this, with a random piece of advice:
 ```
 "Big things have small beginnings."
 ```
+
