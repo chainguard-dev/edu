@@ -122,7 +122,7 @@ You’ll receive output in the form of a table of your current group (or groups)
   b9adda06841c1d34dfa73d5902ed44b5448b7958 | enforce-demo-group  |         
 ```
 
-> **Note**: If you don't receive output like the above at all, you can create a new group by running `chainctl iam groups create --no-parent` to create a new group. After group creation, you can run `chainctl iam groups ls -o table` again.
+> **Note**: If you don't receive output like the above at all, you can create a new group by running `chainctl iam groups create --no-parent` and then pass your preferred `group-name` to create a new group. After group creation, you can run `chainctl iam groups ls -o table` again.
 
 Let’s create a variable that stores that ID for later steps in the tutorial. Replace `$GROUP_ID` below with the relevant ID; for exmaple, in the case of `enforce-demo-group` above, you would enter `b9adda06841c1d34dfa73d5902ed44b5448b7958` instead of `$GROUP_ID` in the next command. 
 
@@ -143,7 +143,7 @@ kind create cluster --name enforce-demo
 Install the Chainguard Enforce Agent in your cluster:
 
 ```sh
-chainctl cluster install --group=$GROUP_ID --private --context kind-enforce-demo
+chainctl cluster install --group=$GROUP --private --context kind-enforce-demo
 ```
 
  Once everything is set up, your terminal output will indicate that the cluster was successfully configured. We now have a Kubernetes cluster setup that’s running an application.
@@ -181,7 +181,7 @@ This policy creates a cluster image policy with the Sigstore beta API, and with 
 We have already set up the `GROUP` variable in with the group we created above in Step 2. Let’s now associate this new policy with that group.
 
 ```sh
-chainctl policies apply -f sample-policy.yaml --group=$GROUP_ID
+chainctl policies apply -f sample-policy.yaml --group=$GROUP
 ```
 
 You should get feedback about the group selected and that the policy was applied, similar to the following.
@@ -242,7 +242,7 @@ Let’s step through adding new images to the cluster to see how the policy is w
 kubectl create deployment nginx --image=nginx
 ```
 
-Give this some time (a few seconds up to a few minuts) to populate and then check what’s running now that we have a new image in the cluster.
+Give this some time (up to a few minutes) to populate and then check what’s running now that we have a new image in the cluster.
 
 ```sh
 chainctl cluster records list $CLUSTER_ID
