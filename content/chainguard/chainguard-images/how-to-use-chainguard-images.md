@@ -4,13 +4,14 @@ type: "article"
 description: "A primer on how to migrate to Chainguard Images"
 lead: "A primer on how to migrate to Chainguard Images"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2022-09-01T08:49:31+00:00
+lastmod: 2023-01-23T19:42:31+00:00
 draft: false
 images: []
 menu:
   docs:
     parent: "chainguard-images"
 weight: 300
+terminalImage: academy/chainguard-images:latest
 toc: true
 ---
 
@@ -52,7 +53,7 @@ CMD ["/hello"]
 Run the following command to build the demo image and tag it as `c-distroless`:
 
 ```shell
-docker build -t c-distroless  .
+DOCKER_BUILDKIT=1 docker build -t c-distroless  .
 ```
 
 Now you can run the image with:
@@ -144,3 +145,4 @@ You should get output like this, with a random piece of advice:
 ```
 "Big things have small beginnings."
 ```
+
