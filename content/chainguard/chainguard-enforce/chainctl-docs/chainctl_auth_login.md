@@ -1,5 +1,5 @@
 ---
-date: 2022-12-15T19:03:53-05:00
+date: 2023-01-24T12:45:29-05:00
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_login/
@@ -36,6 +36,7 @@ chainctl auth login [--identity-token TOKEN] [--invite-code INVITE_CODE | --regi
 
 ```
       --cluster string          UID of the Cluster.
+      --headless                Skip browser authentication and use device flow.
   -h, --help                    help for login
       --identity-token string   Use an explicit passed identity token or token path.
       --invite-code string      Registration invite code.
@@ -52,7 +53,7 @@ chainctl auth login [--identity-token TOKEN] [--invite-code INVITE_CODE | --regi
       --console string               The url of the Chainguard platform Console. (default "http://console-ui.api-system.svc")
       --issuer string                The url of the Chainguard STS endpoint. (default "http://issuer.oidc-system.svc")
   -o, --output string                Output format. One of: ["", "table", "tree", "json", "id", "wide"]
-      --timestamp_authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
+      --timestamp-authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
 ```
 
 ### SEE ALSO
