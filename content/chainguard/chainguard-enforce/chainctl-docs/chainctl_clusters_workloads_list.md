@@ -1,5 +1,5 @@
 ---
-date: 2022-12-15T19:03:53-05:00
+date: 2023-01-24T12:45:29-05:00
 title: "chainctl clusters workloads list"
 slug: chainctl_clusters_workloads_list
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_workloads_list/
@@ -19,7 +19,7 @@ chainctl clusters workloads list [CLUSTER_ID] [--active-within DURATION] [--outp
 ### Options
 
 ```
-      --active-within duration   How recently a workload must have been active to be listed. Zero will return all workloads. (default 24h0m0s)
+      --active-within duration   How recently a workload must have been active to be listed. Zero will return all workloads. (default 168h0m0s)
   -h, --help                     help for list
   -n, --namespace string         The namespace whose workloads to list (default: all).
 ```
@@ -33,7 +33,7 @@ chainctl clusters workloads list [CLUSTER_ID] [--active-within DURATION] [--outp
       --console string               The url of the Chainguard platform Console. (default "http://console-ui.api-system.svc")
       --issuer string                The url of the Chainguard STS endpoint. (default "http://issuer.oidc-system.svc")
   -o, --output string                Output format. One of: ["", "table", "tree", "json", "id", "wide"]
-      --timestamp_authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
+      --timestamp-authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
 ```
 
 ### SEE ALSO

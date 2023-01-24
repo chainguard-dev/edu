@@ -2,14 +2,24 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-01-19 18:16:27 +0000 UTC
+date: 2023-01-23 19:14:36 +0000 UTC
 draft: false
 images: []
 weight: 799
 ---
 
 ## Introduction
-Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.61
+Release date: 2023-01-23
+#### Feature
+- Add `--headless` flag to `chainctl auth` for logins on headless instances, and to bypass cloud provider metadata endpoints.
+- Add support for cluster location affinity in the terraform provider.
+- New configuration values `default.group` and `default.active-within` are available for commands that offer a `--group` or `--active-within` filter flag, respectively. Explicitly provided flags override any default value. `default.identity-provider` can be used to bypass the identity provider selection screen when logging in to `chainctl`.
+#### Bug or Regression
+- role binding IDs will now use our standard UIDP path shape like other resources, and be rooted under the Group resource it pertains to.  We will (soon) replace all existing RoleBindings with equivalent versions that adhere to this pattern.  These should not require any user action, or have any user-facing impact other than things getting the new ID shape.
+
 
 ### v0.1.60
 Release date: 2023-01-19
