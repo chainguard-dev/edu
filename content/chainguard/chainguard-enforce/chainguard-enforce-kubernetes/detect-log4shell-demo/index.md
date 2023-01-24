@@ -3,7 +3,7 @@ title: "Using Chainguard Enforce to Detect the Log4Shell Vulnerability"
 type: "article"
 description: "Use chainctl to create a policy and apply it to a cluster to detect vulnerable versions of Log4J"
 date: 2022-08-11T11:07:52+02:00
-lastmod: 2022-08-11T11:07:52+02:00
+lastmod: 2023-24-01T11:07:52+02:00
 draft: false
 images: []
 menu:
@@ -59,48 +59,33 @@ Including the `-o table` option will structure this command's output as a table.
   60adedf1d5db70examplerootidf32f6b7e09fc5              	| root  	| Default user group  
 ```
 
-Copy the ID value of the group managing the cluster you'll use to test Chainguard Enforce, and then use that value in place of `$COPIED_ID` in the following command. This will set an environment variable called `GROUP` whose value is equal to the ID number Enforce uses to refer to your IAM group.
+Copy the ID value of the group managing the cluster you'll use to test Chainguard Enforce, and then use that value in place of `$COPIED_ID` in the following command. 
 
 ```sh
 export GROUP=$COPIED_ID
 ```
 
-Next, run the following command to retrieve a list of all your active clusters.
+This will set an environment variable called `GROUP` whose value is equal to the ID number Enforce uses to refer to your IAM group.
 
-```sh
-chainctl cluster list
-```
-```
-             NAME            |  GROUP   |               REMOTEID               | REGISTERED |   K8S VERSION   | AGENT VERSION | LAST SEEN |    ACTIVITY     
----------------------------------------------+----------+--------------------------------------+------------+-----------------+---------------+-----------+-----------------
-  cluster_1234567890_example | log4demo | bcf97509-855b-405b-9ef5-98b43f12f219 |       3d4h | v1.24.7-gke.900 |       3fe4eda |        3s |    enforcer:3s  
-                             |          |                                      |            |                 |               |           | observer:2m55s  
-```
 
-Notice the first column of information this command returns: the `NAME` column. The values in this column are the names that `chainctl` uses to manage each respective cluster.
+## Step 2 – Turning on Enforcement for your Cluster
 
-As you did with the IAM group, copy the `NAME` value of the cluster you want to use for testing throughout this tutorial and use it in place of `$COPIED_NAME` to create an environment variable named `CLUSTER`.
-
-```sh
-export CLUSTER=$COPIED_NAME
-```
-
-Lastly, if you haven't already done so, turn enforcement on for your cluster. Chainguard Enforce is only able to validate resources in namespaces that have chosen to opt in. This can be done by adding the label `policy.sigstore.dev/include: "true"` to the namespace where your cluster is located.
+If you haven't already done so, turn enforcement on for your cluster. Chainguard Enforce is only able to validate resources in namespaces that you have chosen to opt in. This can be done by adding the label `policy.sigstore.dev/include: "true"` to the namespace where your cluster is located.
 
 ```sh
 kubectl label ns default policy.sigstore.dev/include=true --overwrite
 ```
 
-This will cause Chainguard Enforce to block your Kubernetes cluster from running any image that either doesn't comply with policies you define.
+This will cause Chainguard Enforce to block your Kubernetes cluster from running any image that  doesn't comply with policies you define.
 
 
-## Step 2 – Detecting a Container Image Vulnerable to Log4Shell
+## Step 3 – Detecting a Container Image Vulnerable to Log4Shell
 
 You're now ready to test how Chainguard Enforce works by deploying a sample application that includes a vulnerable version of Log4j. You'll then create a policy that will detect this vulnerability.
 
-The sample container image used in this step is maintained by Chainguard for demonstration purposes only. Because this image includes a vulnerable version of Log4j, you _**should not run this image in a production environment.**_ The procedure outlined in this tutorial will have you create a policy that will cause Chainguard Enforce to block a container built from this image from running.
+The sample container image used in this step is maintained by Chainguard for demonstration purposes only. Because this image includes a vulnerable version of Log4j, you _**should not run this image in a production environment.**_ The procedure outlined in this tutorial will have you create a policy that will cause Chainguard Enforce to block a container built with this image from running.
 
-If you'd like, you can inspect the image's [SBOM](https://edu.chainguard.dev/software-security/glossary/#sbom) by retrieving it directly from the container registry with the following `cosign` command. If you don’t already have `cosign` installed, you can install it following our [How to Install Cosign guide](https://edu.chainguard.dev/open-source/sigstore/cosign/how-to-install-cosign/).
+If you'd like, you can inspect the image's [SBOM](https://edu.chainguard.dev/software-security/glossary/#sbom) by retrieving it directly from the container registry with the following `cosign` command. If you don’t already have Cosign installed, you can install it following our [How to Install Cosign guide](https://edu.chainguard.dev/open-source/sigstore/cosign/how-to-install-cosign/).
 
 ```sh
 cosign download attestation ghcr.io/chainguard-dev/log4shell-demo/app:v0.1.0 | jq -r .payload | base64 -d | jq > log4shell-sbom.json
@@ -250,13 +235,7 @@ chainctl policies create log4shell-demo-policy \
 	-f log4shell-demo-policy.yaml
 ```
 
-To confirm that the policy was successfully created, run the following command to retrieve a list of all your active policies.
-
-```sh
-chainctl policies ls
-```
-
-Ensure that your new policy has ended up in the `config-image-policies` configmap by running this command.
+Ensure that your new policy is in the `config-image-policies` configmap by running this command.
 
 ```sh
 kubectl -n cosign-system get configmap config-image-policies -o yaml
@@ -292,7 +271,7 @@ In 2022, a vulnerability was discovered within the Java library "Apache Commons 
 
 This supplemental section outlines how to set up a Chainguard Enforce policy that will detect any vulnerable versions of Apache Commons Text as well as how to test this policy by attempting to deploy a vulnerable sample application. Because much of the process is similar to the one for detecting Log4Shell outlined previously, this extra section won't go into the same level of detail.
 
-First create a policy file named `text4shell-demo-policy.yaml` using the following command.
+First, create a policy file named `text4shell-demo-policy.yaml` using the following command.
 
 ```sh
 cat > text4shell-demo-policy.yaml <<EOF
@@ -355,13 +334,13 @@ You can confirm that the Text4Shell policy was created successfully by retrievin
 chainctl policies ls
 ```
 
-You can also confirm that it has ended up in the `config-image-policies` configmap with this command.
+You can also confirm that it was written into the `config-image-policies` configmap with this command.
 
 ```sh
 kubectl -n cosign-system get configmap config-image-policies -o yaml
 ```
 
-If this output contains a `text4shell-demo-policy` key, then it confirms that this policy ended up in the configmap.
+If this output contains a `text4shell-demo-policy` key in the `data:` section of the output (as in the following block), then it confirms that this policy was written into the configmap.
 
 ```
 apiVersion: v1
@@ -400,17 +379,11 @@ ghcr.io/chainguard-dev/text4shell-policy@sha256:a574a1f83ecbbfae6eeedfb596770db9
 As this output indicates, this sample container image doesn't comply with the `text4shell-demo-policy` you just applied. Specifically, it contains a version of Apache commons-text (version 1.9) that's vulnerable to the Text4Shell vulnerability. Because of this policy violation, Chainguard Enforce blocks the container from running.
 
 
-## Step 3 – Cleaning Up Your System
+## Step 4 – Cleaning Up Your System
 
 After confirming that the policy you set causes Chainguard Enforce to detect the images vulnerable to the Log4Shell vulnerability, it's important that you clean up your system.
 
-Start by deleting the pod running the vulnerable application.
-
-```sh
-kubectl delete pod log4shell-demo
-```
-
-Then delete the policy.
+Start by deleting the policy.
 
 ```sh
 chainctl policy delete -y log4shell-demo-policy
@@ -418,10 +391,9 @@ chainctl policy delete -y log4shell-demo-policy
 
 This will cause the policy to be removed from the policy list in both the CLI and UI.
 
-> **Note:** If you followed the supplemental Text4Shell section, be sure to delete the pod and policy you created there as well.
+> **Note:** If you followed the supplemental Text4Shell section, be sure to delete the policy you created there as well.
 
 ```sh
-kubectl delete pod text4shell-demo
 chainctl policy delete -y text4shell-demo-policy
 ```
 
