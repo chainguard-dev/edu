@@ -1,5 +1,5 @@
 ---
-date: 2022-12-15T19:03:53-05:00
+date: 2023-01-24T12:45:29-05:00
 title: "chainctl policies delete"
 slug: chainctl_policies_delete
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_delete/
@@ -13,7 +13,7 @@ toc: true
 Delete a policy.
 
 ```
-chainctl policies delete POLICY_ID|POLICY_NAME [--yes] [--output id] [flags]
+chainctl policies delete [POLICY_ID | POLICY_NAME] [--yes] [--output id] [flags]
 ```
 
 ### Options
@@ -32,7 +32,7 @@ chainctl policies delete POLICY_ID|POLICY_NAME [--yes] [--output id] [flags]
       --console string               The url of the Chainguard platform Console. (default "http://console-ui.api-system.svc")
       --issuer string                The url of the Chainguard STS endpoint. (default "http://issuer.oidc-system.svc")
   -o, --output string                Output format. One of: ["", "table", "tree", "json", "id", "wide"]
-      --timestamp_authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
+      --timestamp-authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
 ```
 
 ### SEE ALSO

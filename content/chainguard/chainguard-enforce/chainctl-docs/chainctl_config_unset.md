@@ -1,26 +1,36 @@
 ---
 date: 2023-01-24T12:45:29-05:00
-title: "chainctl clusters records list"
-slug: chainctl_clusters_records_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_records_list/
+title: "chainctl config unset"
+slug: chainctl_config_unset
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_config_unset/
 draft: false
 images: []
 type: "article"
 toc: true
 ---
-## chainctl clusters records list
+## chainctl config unset
 
-List cluster records.
+Unset a configuration property and return it to default.
+
+### Synopsis
+
+Unset a configuration property and return it to default. Property names are dot delimited and lowercase (for example, output.color.pass).
 
 ```
-chainctl clusters records list [CLUSTER_NAME | CLUSTER_ID] [--active-within DURATION] [--output table|json|wide]
+chainctl config unset PROPERTY_NAME
+```
+
+### Examples
+
+```
+  # Return the pass color to its default
+  chainctl config unset output.color.pass
 ```
 
 ### Options
 
 ```
-      --active-within duration   How recently a record must have been active to be listed. Zero will return all records. (default 168h0m0s)
-  -h, --help                     help for list
+  -h, --help   help for unset
 ```
 
 ### Options inherited from parent commands
@@ -37,5 +47,5 @@ chainctl clusters records list [CLUSTER_NAME | CLUSTER_ID] [--active-within DURA
 
 ### SEE ALSO
 
-* [chainctl clusters records](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_records/)	 - Interact with cluster records.
+* [chainctl config](/chainguard/chainguard-enforce/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
 

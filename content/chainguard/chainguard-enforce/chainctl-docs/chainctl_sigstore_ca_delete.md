@@ -1,26 +1,39 @@
 ---
 date: 2023-01-24T12:45:29-05:00
-title: "chainctl clusters records list"
-slug: chainctl_clusters_records_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_records_list/
+title: "chainctl sigstore ca delete"
+slug: chainctl_sigstore_ca_delete
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_ca_delete/
 draft: false
 images: []
 type: "article"
 toc: true
 ---
-## chainctl clusters records list
+## chainctl sigstore ca delete
 
-List cluster records.
+Delete a certificate authority instance.
 
 ```
-chainctl clusters records list [CLUSTER_NAME | CLUSTER_ID] [--active-within DURATION] [--output table|json|wide]
+chainctl sigstore ca delete SIGSTORE_ID [--yes] [flags]
+```
+
+### Examples
+
+```
+  # Delete a sigstore instance by ID
+  chainctl sigstore ca delete e533448ca9770c46f99f2d86d60fc7101494e4a3
+  
+  # Delete a sigstore instance by name
+  chainctl sigstore ca delete my-name
+  
+  # Delete a sigstore instance by interactive selection
+  chainctl sigstore ca delete
 ```
 
 ### Options
 
 ```
-      --active-within duration   How recently a record must have been active to be listed. Zero will return all records. (default 168h0m0s)
-  -h, --help                     help for list
+  -h, --help   help for delete
+  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -37,5 +50,5 @@ chainctl clusters records list [CLUSTER_NAME | CLUSTER_ID] [--active-within DURA
 
 ### SEE ALSO
 
-* [chainctl clusters records](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_records/)	 - Interact with cluster records.
+* [chainctl sigstore ca](/chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_ca/)	 - Sigstore commands related to certificate authorities
 

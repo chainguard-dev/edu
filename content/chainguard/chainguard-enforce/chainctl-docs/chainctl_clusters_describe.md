@@ -1,5 +1,5 @@
 ---
-date: 2022-12-15T19:03:53-05:00
+date: 2023-01-24T12:45:29-05:00
 title: "chainctl clusters describe"
 slug: chainctl_clusters_describe
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_describe/
@@ -13,7 +13,7 @@ toc: true
 Describe a cluster.
 
 ```
-chainctl clusters describe CLUSTER_NAME | CLUSTER_ID [--active-within DURATION] [--all] [--images] [--packages] [--policies] [--output |json]
+chainctl clusters describe [CLUSTER_NAME | CLUSTER_ID] [--active-within DURATION] [--all] [--images] [--packages] [--policies] [--output |json]
 ```
 
 ### Examples
@@ -38,7 +38,7 @@ chainctl clusters describe CLUSTER_NAME | CLUSTER_ID [--active-within DURATION] 
 ### Options
 
 ```
-      --active-within duration   How recently a cluster must have been active to be listed. Zero will return all clusters. (default 24h0m0s)
+      --active-within duration   How recently a cluster must have been active to be listed. Zero will return all clusters. (default 168h0m0s)
       --all                      Whether to include all records in the output, even for large collections.
   -h, --help                     help for describe
       --images                   Include images data in output. Use with --packages and/or --policies to filter output. If all three are omitted, all categories are included by default.
@@ -55,7 +55,7 @@ chainctl clusters describe CLUSTER_NAME | CLUSTER_ID [--active-within DURATION] 
       --console string               The url of the Chainguard platform Console. (default "http://console-ui.api-system.svc")
       --issuer string                The url of the Chainguard STS endpoint. (default "http://issuer.oidc-system.svc")
   -o, --output string                Output format. One of: ["", "table", "tree", "json", "id", "wide"]
-      --timestamp_authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
+      --timestamp-authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
 ```
 
 ### SEE ALSO

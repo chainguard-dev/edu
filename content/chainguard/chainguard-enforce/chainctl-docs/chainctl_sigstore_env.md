@@ -1,26 +1,32 @@
 ---
 date: 2023-01-24T12:45:29-05:00
-title: "chainctl clusters records list"
-slug: chainctl_clusters_records_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_records_list/
+title: "chainctl sigstore env"
+slug: chainctl_sigstore_env
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_env/
 draft: false
 images: []
 type: "article"
 toc: true
 ---
-## chainctl clusters records list
+## chainctl sigstore env
 
-List cluster records.
+Print Sigstore related environment variables to configure your environment.
 
 ```
-chainctl clusters records list [CLUSTER_NAME | CLUSTER_ID] [--active-within DURATION] [--output table|json|wide]
+chainctl sigstore env [SIGSTORE_ID | SIGSTORE_NAME] [flags]
+```
+
+### Examples
+
+```
+  eval $(chainctl sigstore env)
 ```
 
 ### Options
 
 ```
-      --active-within duration   How recently a record must have been active to be listed. Zero will return all records. (default 168h0m0s)
-  -h, --help                     help for list
+      --group string   The name or id of the parent group to list sigstore instances from.
+  -h, --help           help for env
 ```
 
 ### Options inherited from parent commands
@@ -37,5 +43,5 @@ chainctl clusters records list [CLUSTER_NAME | CLUSTER_ID] [--active-within DURA
 
 ### SEE ALSO
 
-* [chainctl clusters records](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_records/)	 - Interact with cluster records.
+* [chainctl sigstore](/chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore/)	 - Sigstore related commands for the Chainguard platform.
 

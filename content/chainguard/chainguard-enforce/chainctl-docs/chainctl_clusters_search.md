@@ -1,41 +1,40 @@
 ---
 date: 2023-01-24T12:45:29-05:00
-title: "chainctl clusters list"
-slug: chainctl_clusters_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_list/
+title: "chainctl clusters search"
+slug: chainctl_clusters_search
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_search/
 draft: false
 images: []
 type: "article"
 toc: true
 ---
-## chainctl clusters list
+## chainctl clusters search
 
-List clusters.
+Search a cluster or group of clusters.
 
 ```
-chainctl clusters list [--name NAME] [--active-within DURATION] [--group GROUP_NAME | GROUP_ID] [--output table|json]
+chainctl clusters search [CLUSTER_NAME | CLUSTER_ID | GROUP_NAME | GROUP_ID ] [--packages=PACKAGE_LIST] [--active-within DURATION] [--output tree|table|json|wide]
 ```
 
 ### Examples
 
 ```
-  # List all clusters visible to the current user.
-  chainctl cluster list
+  # Search a cluster by name for klog v2
+  chainctl cluster search my_cluster_name --packages=k8s.io/klog/v2
   
-  # List all clusters in the group "my-group"
-  chainctl cluster list --group my-group
+  # Search a cluster by ID for both versions of klog
+  chainctl cluster search ef127a7c0909329f04b43d845cf80eea4247a07b/a99cd6e82bca5146/9a778e6db762b750 --packages=k8s.io/klog/v2,k8s.io/klog
   
-  # List all clusters that have some recorded activity within the last 6 hours
-  chainctl cluster list --active-within 6h
+  # Search all clusters within a group that were active within the past 6 hours for zap
+  chainctl cluster search my_group --packages=go.uber.org/zap --active-within=6h
 ```
 
 ### Options
 
 ```
       --active-within duration   How recently a cluster must have been active to be listed. Zero will return all clusters. (default 168h0m0s)
-      --group string             The name or id of the parent group to list clusters for.
-  -h, --help                     help for list
-  -n, --name string              The given name of the resource.
+  -h, --help                     help for search
+      --packages string          A comma-delimited list of packages to search for in the cluster.
 ```
 
 ### Options inherited from parent commands
