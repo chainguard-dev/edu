@@ -43,7 +43,7 @@ One downside of generating SBOMs after the build process is that [scanners typic
 
 Ideally, SBOMs should be generated during the build process, which enables a higher level of accuracy given that the SBOM can be generated directly from the software inventory rather than from database records. Though build systems do not typically provide support for this approach, more build tools are beginning to integrate features for generating SBOMs, such as [apko](https://github.com/chainguard-dev/apko), a tool for building and publishing OCI container images.  
 
-### SBOM Formats
+### SBOM formats
 
 When selecting an SBOM generation tool, it’s important to make sure it supports the format you wish to use. Though there are a variety of available SBOM formats, most SBOMs follow either CycloneDX or SPDX, both of which are approved by the National Telecommunications and Information Administration for fulfilling the executive order’s SBOM requirement. 
 
