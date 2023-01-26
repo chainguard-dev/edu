@@ -76,8 +76,8 @@
   weight = 35  
 
 [[main]]
-  name = "What Makes a Good SBOM?"
-  url = "/open-source/sbom/what-makes-a-good-sbom/"
+  name = "SBOMs"
+  url = "/open-source/sbom/"
   parent = "menu-oss"
   weight = 40
 
