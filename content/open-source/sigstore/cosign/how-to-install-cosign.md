@@ -98,6 +98,18 @@ go install github.com/sigstore/cosign/cmd/cosign@latest
 
 The resulting binary from this installation will be placed at `$GOPATH/bin/cosign`.
 
+### Installing a Cosign Pre-release with Go
+
+You can install a pre-release of Cosign with Go directly from the [Cosign GitHub releases page](https://github.com/sigstore/cosign/releases). 
+
+At the time of writing, the newest pre-release is [v2.0.0-rc.1](https://github.com/sigstore/cosign/releases/tag/v2.0.0-rc.1). You can download this version with the following command. 
+
+```sh
+go install github.com/sigstore/cosign/v2/cmd/cosign@v2.0.0-rc.1
+```
+
+The resulting binary from this installation will be placed at `$GOPATH/bin/cosign`. Check the [release page]([Cosign GitHub releases page](https://github.com/sigstore/cosign/releases) for additional releases. 
+
 ## Installing Cosign with the Cosign Binary
 
 Installing Cosign via its binary offers you greater control over your installation, but this method also requires you to manage your installation yourself. In order to install via binary, check for the most updated version in the open source GitHub repository for Cosign under the [releases page](https://github.com/sigstore/cosign/releases). 
