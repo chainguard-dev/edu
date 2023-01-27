@@ -13,10 +13,10 @@ weight: 600
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/deno](cgr.dev/chainguard/deno)
+`experimental` [cgr.dev/chainguard/deno](https://github.com/chainguard-images/images/tree/main/images/deno)
 | Tags     | Aliases                    |
 |----------|----------------------------|
-| `latest` | 1, 1.29, 1.29.1, 1.29.1-r0 |
+| `latest` | 1, 1.29, 1.29.1, 1.29.1-r1 |
 
 
 

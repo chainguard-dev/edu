@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/apko](cgr.dev/chainguard/apko)
+`stable` [cgr.dev/chainguard/apko](https://github.com/chainguard-images/images/tree/main/images/apko)
 | Tags     | Aliases                 |
 |----------|-------------------------|
 | `latest` | 0, 0.6, 0.6.0, 0.6.0-r0 |
