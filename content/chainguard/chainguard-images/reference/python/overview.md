@@ -36,7 +36,7 @@ These images are available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/python:latest
-docker pull cgr.dev/chainguard/python:dev-latest
+docker pull cgr.dev/chainguard/python:latest-dev
 ```
 
 ## Usage
@@ -44,7 +44,7 @@ docker pull cgr.dev/chainguard/python:dev-latest
 The python image can be used directly for simple cases, or with a multi-stage build using python-dev as the build container.
 
 ```Dockerfile
-FROM cgr.dev/chainguard/python:dev-latest AS builder
+FROM cgr.dev/chainguard/python:latest-dev AS builder
 COPY . /app
 RUN cd /app && pip install -r requirements.txt
 
