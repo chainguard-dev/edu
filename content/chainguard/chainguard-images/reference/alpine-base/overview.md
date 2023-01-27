@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/alpine-base](cgr.dev/chainguard/alpine-base)
+`stable` [cgr.dev/chainguard/alpine-base](https://github.com/chainguard-images/images/tree/main/images/alpine-base)
 | Tags     | Aliases |
 |----------|---------|
 | `latest` |         |

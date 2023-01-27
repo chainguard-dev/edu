@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/wait-for-it](cgr.dev/chainguard/wait-for-it)
+`stable` [cgr.dev/chainguard/wait-for-it](https://github.com/chainguard-images/images/tree/main/images/wait-for-it)
 | Tags     | Aliases |
 |----------|---------|
 | `latest` |         |

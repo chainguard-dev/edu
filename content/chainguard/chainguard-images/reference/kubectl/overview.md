@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kubectl](cgr.dev/chainguard/kubectl)
+`stable` [cgr.dev/chainguard/kubectl](https://github.com/chainguard-images/images/tree/main/images/kubectl)
 | Tags     | Aliases                    |
 |----------|----------------------------|
 | `latest` | 1, 1.26, 1.26.0, 1.26.0-r0 |

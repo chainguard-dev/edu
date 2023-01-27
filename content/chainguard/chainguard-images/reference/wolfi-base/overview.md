@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/wolfi-base](cgr.dev/chainguard/wolfi-base)
+`stable` [cgr.dev/chainguard/wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base)
 | Tags     | Aliases |
 |----------|---------|
 | `latest` |         |

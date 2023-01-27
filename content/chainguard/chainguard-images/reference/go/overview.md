@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/go](cgr.dev/chainguard/go)
+`stable` [cgr.dev/chainguard/go](https://github.com/chainguard-images/images/tree/main/images/go)
 | Tags          | Aliases |
 |---------------|---------|
 | `latest`      |         |

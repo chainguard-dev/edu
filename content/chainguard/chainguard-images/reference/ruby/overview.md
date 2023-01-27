@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/ruby](cgr.dev/chainguard/ruby)
+`stable` [cgr.dev/chainguard/ruby](https://github.com/chainguard-images/images/tree/main/images/ruby)
 | Tags     | Aliases                 |
 |----------|-------------------------|
 | `latest` | 3, 3.2, 3.2.0, 3.2.0-r2 |

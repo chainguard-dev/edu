@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/envoy](cgr.dev/chainguard/envoy)
+`experimental` [cgr.dev/chainguard/envoy](https://github.com/chainguard-images/images/tree/main/images/envoy)
 | Tags     | Aliases                    |
 |----------|----------------------------|
 | `latest` | 1, 1.24, 1.24.1, 1.24.1-r0 |

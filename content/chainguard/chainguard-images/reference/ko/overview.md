@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/ko](cgr.dev/chainguard/ko)
+`stable` [cgr.dev/chainguard/ko](https://github.com/chainguard-images/images/tree/main/images/ko)
 | Tags     | Aliases                    |
 |----------|----------------------------|
 | `latest` | 0, 0.12, 0.12.0, 0.12.0-r0 |

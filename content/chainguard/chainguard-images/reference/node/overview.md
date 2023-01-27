@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/node](cgr.dev/chainguard/node)
+`stable` [cgr.dev/chainguard/node](https://github.com/chainguard-images/images/tree/main/images/node)
 | Tags     | Aliases                        |
 |----------|--------------------------------|
 | `latest` | 18, 18.13, 18.13.0, 18.13.0-r0 |

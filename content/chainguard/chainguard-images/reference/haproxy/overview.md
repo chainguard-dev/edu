@@ -13,10 +13,10 @@ weight: 600
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/haproxy](cgr.dev/chainguard/haproxy)
+`experimental` [cgr.dev/chainguard/haproxy](https://github.com/chainguard-images/images/tree/main/images/haproxy)
 | Tags     | Aliases                 |
 |----------|-------------------------|
-| `latest` | 2, 2.6, 2.6.7, 2.6.7-r2 |
+| `latest` | 2, 2.6, 2.6.8, 2.6.8-r0 |
 
 
 
