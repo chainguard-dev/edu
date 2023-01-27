@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/rabbitmq](cgr.dev/chainguard/rabbitmq)
+`experimental` [cgr.dev/chainguard/rabbitmq](https://github.com/chainguard-images/images/tree/main/images/rabbitmq)
 | Tags     | Aliases                    |
 |----------|----------------------------|
 | `latest` | 3, 3.11, 3.11.5, 3.11.5-r2 |

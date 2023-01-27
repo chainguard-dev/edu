@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/static](cgr.dev/chainguard/static)
+`stable` [cgr.dev/chainguard/static](https://github.com/chainguard-images/images/tree/main/images/static)
 | Tags           | Aliases |
 |----------------|---------|
 | `latest`       |         |

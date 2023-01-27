@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/musl-dynamic](cgr.dev/chainguard/musl-dynamic)
+`stable` [cgr.dev/chainguard/musl-dynamic](https://github.com/chainguard-images/images/tree/main/images/musl-dynamic)
 | Tags     | Aliases                 |
 |----------|-------------------------|
 | `latest` | 1, 1.2, 1.2.3, 1.2.3-r4 |

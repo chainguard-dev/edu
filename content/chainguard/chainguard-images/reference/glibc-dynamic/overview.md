@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/glibc-dynamic](cgr.dev/chainguard/glibc-dynamic)
+`stable` [cgr.dev/chainguard/glibc-dynamic](https://github.com/chainguard-images/images/tree/main/images/glibc-dynamic)
 | Tags     | Aliases |
 |----------|---------|
 | `latest` |         |

@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/jre](cgr.dev/chainguard/jre)
+`stable` [cgr.dev/chainguard/jre](https://github.com/chainguard-images/images/tree/main/images/jre)
 | Tags             | Aliases                                                                       |
 |------------------|-------------------------------------------------------------------------------|
 | `latest`         | openjdk-jre-17, openjdk-jre-17.0, openjdk-jre-17.0.6, openjdk-jre-17.0.6-r0   |

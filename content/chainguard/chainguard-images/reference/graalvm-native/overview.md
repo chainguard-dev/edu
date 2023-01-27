@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/graalvm-native](cgr.dev/chainguard/graalvm-native)
+`stable` [cgr.dev/chainguard/graalvm-native](https://github.com/chainguard-images/images/tree/main/images/graalvm-native)
 | Tags     | Aliases |
 |----------|---------|
 | `latest` |         |

@@ -13,11 +13,11 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/python](cgr.dev/chainguard/python)
+`stable` [cgr.dev/chainguard/python](https://github.com/chainguard-images/images/tree/main/images/python)
 | Tags              | Aliases                                                        |
 |-------------------|----------------------------------------------------------------|
-| `latest`          | 3, 3.11, 3.11.1, 3.11.1-r1                                     |
-| `latest-dev`      | dev-3, dev-3.11, dev-3.11.1, dev-3.11.1-r1                     |
+| `latest`          | 3, 3.11, 3.11.1, 3.11.1-r2                                     |
+| `latest-dev`      | dev-3, dev-3.11, dev-3.11.1, dev-3.11.1-r2                     |
 | `latest-musl`     | musl-3, musl-3.11, musl-3.11.1, musl-3.11.1-r2                 |
 | `latest-musl-dev` | musl-dev-3, musl-dev-3.11, musl-dev-3.11.1, musl-dev-3.11.1-r2 |
 

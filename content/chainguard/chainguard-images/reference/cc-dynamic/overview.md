@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/cc-dynamic](cgr.dev/chainguard/cc-dynamic)
+`stable` [cgr.dev/chainguard/cc-dynamic](https://github.com/chainguard-images/images/tree/main/images/cc-dynamic)
 | Tags     | Aliases |
 |----------|---------|
 | `latest` |         |
