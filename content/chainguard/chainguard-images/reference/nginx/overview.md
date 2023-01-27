@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/nginx](cgr.dev/chainguard/nginx)
+`stable` [cgr.dev/chainguard/nginx](https://github.com/chainguard-images/images/tree/main/images/nginx)
 | Tags     | Aliases                    |
 |----------|----------------------------|
 | `latest` | 1, 1.23, 1.23.3, 1.23.3-r1 |

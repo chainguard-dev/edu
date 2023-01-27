@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/memcached](cgr.dev/chainguard/memcached)
+`experimental` [cgr.dev/chainguard/memcached](https://github.com/chainguard-images/images/tree/main/images/memcached)
 | Tags     | Aliases                   |
 |----------|---------------------------|
 | `latest` | 1, 1.6, 1.6.17, 1.6.17-r0 |

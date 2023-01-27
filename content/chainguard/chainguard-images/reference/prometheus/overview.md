@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/prometheus](cgr.dev/chainguard/prometheus)
+`stable` [cgr.dev/chainguard/prometheus](https://github.com/chainguard-images/images/tree/main/images/prometheus)
 | Tags     | Aliases                    |
 |----------|----------------------------|
 | `latest` | 2, 2.41, 2.41.0, 2.41.0-r0 |

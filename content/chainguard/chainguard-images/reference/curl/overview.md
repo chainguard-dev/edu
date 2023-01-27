@@ -13,10 +13,10 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/curl](cgr.dev/chainguard/curl)
+`stable` [cgr.dev/chainguard/curl](https://github.com/chainguard-images/images/tree/main/images/curl)
 | Tags     | Aliases                    |
 |----------|----------------------------|
-| `latest` | 7, 7.87, 7.87.0, 7.87.0-r1 |
+| `latest` | 7, 7.87, 7.87.0, 7.87.0-r2 |
 
 
 

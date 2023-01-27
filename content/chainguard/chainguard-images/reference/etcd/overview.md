@@ -13,10 +13,10 @@ weight: 600
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/etcd](cgr.dev/chainguard/etcd)
+`experimental` [cgr.dev/chainguard/etcd](https://github.com/chainguard-images/images/tree/main/images/etcd)
 | Tags     | Aliases                 |
 |----------|-------------------------|
-| `latest` | 3, 3.5, 3.5.6, 3.5.6-r1 |
+| `latest` | 3, 3.5, 3.5.6, 3.5.6-r2 |
 
 
 

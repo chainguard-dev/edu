@@ -13,10 +13,10 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/postgres](cgr.dev/chainguard/postgres)
+`stable` [cgr.dev/chainguard/postgres](https://github.com/chainguard-images/images/tree/main/images/postgres)
 | Tags     | Aliases           |
 |----------|-------------------|
-| `latest` | 15, 15.0, 15.0-r0 |
+| `latest` | 15, 15.1, 15.1-r0 |
 
 
 

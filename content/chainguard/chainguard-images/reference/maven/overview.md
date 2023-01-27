@@ -13,7 +13,7 @@ weight: 600
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/maven](cgr.dev/chainguard/maven)
+`stable` [cgr.dev/chainguard/maven](https://github.com/chainguard-images/images/tree/main/images/maven)
 | Tags         | Aliases                                                             |
 |--------------|---------------------------------------------------------------------|
 | `latest`     | openjdk-17-3, openjdk-17-3.8, openjdk-17-3.8.7, openjdk-17-3.8.7-r0 |
