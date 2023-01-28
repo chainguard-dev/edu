@@ -15,13 +15,9 @@ toc: true
 
 > _This documentation is related to Chainguard Enforce Signing. You can request access to the product selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
 
-Powered by the open source security tool suite [Sigstore](https://www.sigstore.dev/), Chainguard Enforce Signing enables you to generate digital signatures for software artifacts inside your own organization using the individual identities of your team members and [ephemeral keys](https://www.chainguard.dev/unchained/the-principle-of-ephemerality).
+Powered by the open source security tool suite [Sigstore](https://www.sigstore.dev/), Chainguard Enforce Signing enables you to generate digital signatures for software artifacts inside your own organization using the individual identities of your team members and [ephemeral keys](https://www.chainguard.dev/unchained/the-principle-of-ephemerality). Enforce Signing can be monitoried and audited against your organization's compliance and privacy requirements so you have full control. Learn more about Enforce Signing in our [Overview and FAQs doc](/chainguard/chainguard-enforce/chainguard-enforce-signing/chainguard-enforce-signing-faqs/).
 
-Enforce Signing helps organizations ensure the integrity of container images, code commits, and other software artifacts with private signatures that can be validated at any point that verification is needed. Additionally, you can bring your own key and certificate to work with Enforce Signing, so key usage can be monitored and audited against your organization's compliance requirements. 
-
-Enforce Signing is built with privacy in mind. While Sigstore is built on [transparency](https://docs.sigstore.dev/rekor/overview) by design, Enforce Signing will not store any of your information in a public transparency log. This enables you to conform to your organization's privacy requirements while still being able to get the value of Sigstore.
-
-This guide will onboard you to Chainguard Enforce Signing.
+This guide will onboard you to Chainguard Enforce Signing on Google Cloud Platform (GCP).
 
 ## Prerequisites
 
@@ -32,7 +28,7 @@ In addition to having access to Chainguard Enforce (which you can request via ou
 * [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli), version 1.2.8 or above
 * The [Chainguard command line tool `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/), version 0.1.
 
-You will also need access to a Google Cloud Platform (GCP) account, Google Kubernetes Engine (GKE), and the relevant [tools and configuration to orchestrate GKE](https://cloud.google.com/anthos/fleet-management/docs/before-you-begin/gke), including the [gcloud CLI tool](https://cloud.google.com/sdk/gcloud).  
+You will also need access to a GCP account, Google Kubernetes Engine (GKE), and the relevant [tools and configuration to orchestrate GKE](https://cloud.google.com/anthos/fleet-management/docs/before-you-begin/gke), including the [gcloud CLI tool](https://cloud.google.com/sdk/gcloud).  
 
 With these tools in place you are reading to begin.
 
@@ -113,9 +109,52 @@ GCP role impersonation was successful!
 
 With everything set up, we are now ready to work with a software artifact.
 
-## Step 4 — Signing and Verifying an Image
+## Step 4 — Set Up and Publish a Container Image
 
-At this point, you’re ready to sign and verify an image with your brand new certificate authority! 
+**If you have a container already in a container registry that you can use for demonstration purposes, feel free to skip this step and proceed to [Step 5](/chainguard/chainguard-enforce/chainguard-enforce-signing/getting-started-chainguard-enforce-signing/#step-5-signing-and-verifying-an-image).** 
+
+Otherwise, we'll quickly set up a demo image and publish it so that we can sign and verify it with Chainguard Enforce Signing in the next step.
+
+Let's create and move into a directory for our container image. Replace `$USERNAME` below with a username you may use on a container registry, or your name. 
+
+```sh
+mkdir -p ~/$USERNAME/hello-signing && cd $_
+```
+
+In this diretory create a Dockerfile and open it in a text editor. For example, you can use Nano.
+
+```sh
+nano Dockerfile
+```
+
+Type the following into your editor.
+
+```bash
+FROM alpine
+CMD ["echo", "Let's sign with Enforce Signing!"]
+```
+
+Once you are satisfied that your Dockerfile is the same as the text above, you can save and close the file.
+
+We will publish this container to [ttl.sh](https://ttl.sh/), which is an anonymous and ephemeral container registry. If you would prefer to publish this in another container registry, feel free to do so. 
+
+We'll start by building the image. The `1h` tag tells ttl.sh to store the image in their registry for one hour, you can modify the time for your purposes.
+
+```sh
+sudo docker build -t ttl.sh/$USERNAME/hello-signing:1h .
+```
+
+Next, push the image to the registry.
+
+```sh
+docker push ttl.sh/$USERNAME/hello-signing:1h
+```
+
+At this point, you will receive output that your container was published and you are ready to continue to the final step.
+
+## Step 5 — Signing and Verifying an Image
+
+You are now ready to sign and verify an image with your brand new Certificate Authority! 
 
 First, [log into Chainguard](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/log-in-chainguard-enforce/#signing-in-through-chainctl):
 
@@ -123,23 +162,52 @@ First, [log into Chainguard](/chainguard/chainguard-enforce/chainguard-enforce-k
 chainctl auth login
 ```
 
-This will ask you to go through an [OIDC flow](software-security/glossary/#oidc) to authenticate with Chainguard.
+This workflow will ask you to go through an [OIDC flow](software-security/glossary/#oidc) to authenticate with Chainguard.
 
-Next, you’ll need to set up your environment to point cosign to your personal Enforce Signing instance. Here, replace `$ENFORCE_CA_NAME` with the name of your Enforce CA. You can pull this up again by running `chainctl sigstore ca ls `. 
+Next, you’ll need to set up your environment to point Cosign to your personal Enforce Signing instance. Here, replace `$ENFORCE_CA_NAME` with the name of your Enforce CA. You can pull this up again by running `chainctl sigstore ca ls `. 
 
 ```sh
 eval $(chainctl sigstore env $ENFORCE_CA_NAME)
 ```
 
-<!-- You will have to authenticate again, to get an authentication token unique to your instance of Enforce Signing. This command will set the required environment variables for cosign to sign your image with your private certificate authority. Now, you’re ready to sign with cosign! 
+You will have to authenticate again, to get an authentication token unique to your instance of Enforce Signing. This command will set the required environment variables for Cosign to sign your image with your private CA. 
 
-You can sign your image by running:
+You are now ready to sign by following the steps below. If you followed [Step 4](/chainguard/chainguard-enforce/chainguard-enforce-signing/getting-started-chainguard-enforce-signing/#step-4--set-up-and-publish-a-container-image), replace `$IMAGE` with `ttl.sh/$USERNAME/hello-signing:1h`, otherwise fill in your own image that you would like to sign. 
 
-eval $(chainctl sigstore env <CA_NAME>)
-cosign sign <image>
+```sh
+eval $(chainctl sigstore env $ENFORCE_CA_NAME)
+cosign sign $IMAGE
+```
 
-To verify your image, you’ll need to provide the expected certificate identity and issuer. The issuer is https://auth.chainguard.dev/, which is automatically set by the sigstore env command. The certificate identity will correspond to the email address you used to authenticate.
+Finally, you are ready to verify your image. The `cosign verify` command expects both a certificate identity and an issuer. The issuer, `https://auth.chainguard.dev`, is already set by the `sigstore env` command. The certificate identity will correspond to the email address you used to authenticate to Chainguard. Replace `$EMAIL` below with that email address.
 
+```sh
+eval $(chainctl sigstore env $ENFORCE_CA_NAME)
+cosign verify $IMAGE --certificate-identity=$EMAIL
+```
 
-eval $(chainctl sigstore env <CA_NAME>)
-cosign verify <image> --certificate-identity=<identity>  -->
+You can also verify with a wildcard certificate identity, as in the following command.
+
+```sh
+eval $(chainctl sigstore env $ENFORCE_CA_NAME)
+cosign verify $IMAGE --certificate-identity-regexp=".*"
+```
+
+After running this command, you should receive output that returns that the Cosign claims and certificate were verified.
+
+```
+Verification for $IMAGE --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - The code-signing certificate was verified using trusted certificate authority certificates
+
+[{"critical":{"identity":{"docker-reference":"$IMAGE"},"image":{"docker-manifest-digest":"sha256:77...9"},"type":"cosign container image signature"},"optional":{"...":"https://auth.chainguard.dev/","Issuer":"https://auth.chainguard.dev/","..."},"Subject":"$EMAIL"}}]
+```
+
+Congratulations! You have signed and verified a software artifact with Chainguard Enforce Signing!
+
+## Learn More
+
+To understand more about Enforce Signing, review the [Overview and FAQs](/chainguard/chainguard-enforce/chainguard-enforce-signing/chainguard-enforce-signing-faqs/).
+
+If you would like to learn more about Sigstore, the open source tool suite that Enforce Signing is built on, check out Chainguard Academy's [section on Sigstore](/open-source/sigstore/).
