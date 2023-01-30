@@ -40,14 +40,18 @@ cloud provider’s IAM system.
 ## Setting up a Cloud Account Association for AWS
 
 To configure (or upgrade) a cloud account association with AWS, start by setting up the
-association in Chainguard Enforce using `chainctl`. First, associate the ID of
-the relevant Enforce group and the AWS account ID to variables for later use.
-You can find the IAM group ID by running `chainctl iam groups ls -o table`:
+association in Chainguard Enforce using `chainctl`. 
+
+First, associate the ID of the relevant Enforce group and the AWS account ID to variables for later use. You can find the IAM group ID by running `chainctl iam groups ls -o table`.
 
 ```sh
 export ENFORCE_GROUP_ID="<<uidp of target Enforce IAM group>>"
 export AWS_ACCOUNT_ID="12 digit AWS account ID to connect to"
+```
 
+Then, run the `chainctl` command to begin setting up the AWS account with the Enforce group. 
+
+```sh
 chainctl iam group set-aws $ENFORCE_GROUP_ID --account $AWS_ACCOUNT_ID
 ```
 
@@ -87,8 +91,6 @@ terraform plan
 terraform apply
 ```
 
-More documentation and examples are available in the [module source repository](https://github.com/chainguard-dev/terraform-aws-chainguard-account-association).
-
 Once your AWS account is configured, you can check that the account association
 is configured correctly:
 
@@ -99,22 +101,28 @@ chainctl iam groups check-aws $ENFORCE_GROUP_ID
 You’ll receive output that the configuration was successful.
 
 ```sh
-2022/09/01 11:26:47 AWS role impersonation was successful!
+2023/01/24 20:17:09 AWS role impersonation was successful!
 ```
+
+More documentation and examples are available in the [module source repository](https://github.com/chainguard-dev/terraform-aws-chainguard-account-association).
 
 ## Setting up a Cloud Account Association for GCP
 
-To configure (or upgrade) a cloud account association with GCP, start by setting up the
-association in Chainguard Enforce using `chainctl`. First, store the ID of the
+To configure (or upgrade) a cloud account association with GCP, first store the ID of the
 relevant Enforce group, the GCP account ID, and the GCP project number into
-variables for later use. You can find the IAM group ID by running `chainctl iam
-groups ls -o table`:
+variables for later use. 
+
+You can find the IAM group ID (UIDP) by running `chainctl iam groups ls -o table`. To find your GCP project ID and project number, open a web browser window and navigate to [https://console.cloud.google.com/welcome](https://console.cloud.google.com/welcome). Ensure you are in your preferred project from the dropdown in the nav bar, and note your **Project ID** (which should be a string of characters), and your **Project number** (which should be a string of numbers only).
 
 ```
 export ENFORCE_GROUP_ID="UIDP of target Enforce IAM group"
 export PROJECT_ID="GCP project ID"
 export PROJECT_NUMBER="GCP project number"
+```
 
+Next, set up the association in Chainguard Enforce using `chainctl`. 
+
+```sh
 chainctl iam group set-gcp $ENFORCE_GROUP_ID \
   --project-id $PROJECT_ID \
   --project-number $PROJECT_NUMBER
@@ -149,9 +157,16 @@ terraform plan
 terraform apply
 ```
 
-More documentation and examples are available in the [module source repository](https://github.com/chainguard-dev/terraform-google-chainguard-account-association).
+You will be asked for confirmation during this process. If you are satisfied with the description you receive in the output, type `yes` to confirm.
 
 It may take a few minutes for changes to propagate.
+
+If you experience an error message when running the Terraform commands above, you may need to authenticate from the terminal to GCP with the following `gcloud` command`.
+
+```sh
+gcloud auth application-default login
+```
+
 Once your GCP project is configured you can check that the account association
 is configured correctly:
 
@@ -162,5 +177,7 @@ chainctl iam groups check-gcp $ENFORCE_GROUP_ID
 You’ll receive output that the configuration was successful.
 
 ```sh
-2022/09/01 11:26:47 GCP role impersonation was successful!
+2023/01/24 20:17:09 GCP role impersonation was successful!
 ```
+
+More documentation and examples are available in the [module source repository](https://github.com/chainguard-dev/terraform-google-chainguard-account-association).
