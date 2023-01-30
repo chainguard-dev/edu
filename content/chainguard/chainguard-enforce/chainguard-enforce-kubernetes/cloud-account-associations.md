@@ -161,7 +161,7 @@ You will be asked for confirmation during this process. If you are satisfied wit
 
 It may take a few minutes for changes to propagate.
 
-If you experience an error message when running the Terraform commands above, you may need to authenticate from the terminal to GCP with the following `gcloud` command`.
+If you experience an error message when running the Terraform commands above, you may need to authenticate from the terminal to GCP with the following `gcloud` command.
 
 ```sh
 gcloud auth application-default login
