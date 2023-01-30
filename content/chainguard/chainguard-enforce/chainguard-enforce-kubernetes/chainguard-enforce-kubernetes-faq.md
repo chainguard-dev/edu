@@ -82,6 +82,6 @@ The Enforce Agent is a flexible, general purpose way to connect your clusters to
 
 Chainguard Enforce Agentless connections allow you to connect a cluster with zero resource footprint. Agentless connections are currently limited to Google Cloud Platform’s GKE and AWS’s EKS clusters. Agentless connections also require clusters to have a public API endpoint. These connections work by allowing Chainguard Enforce to access your cloud account resources on your behalf using [Cloud Account Associations](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/cloud-account-associations). This requires you to configure IAM roles to allow Enforce to perform impersonation, which is handled by Chainguard's [GCP](https://github.com/chainguard-dev/terraform-google-chainguard-account-association) and [AWS](https://github.com/chainguard-dev/terraform-aws-chainguard-account-association) terraform modules.
 
-
 ### How is Chainguard Enforce for Kubernetes priced?
-Pricing is per node on a sliding scale. Use the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs) to request access or [contact us](https://www.chainguard.dev/contact) if you'd like to learn more.
+
+Pricing is per node on a sliding scale. Use the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs) to request access or [contact us](https://www.chainguard.dev/contact?utm_source=docs) if you'd like to learn more.
