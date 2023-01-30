@@ -105,7 +105,7 @@ data "chainguard_cluster_discovery" "gotta-catch-em-all" {
 }
 ```
 
-This will return the Discovery results, which can be piped into other resources (possibly as an output). The main use case for this data, though, will be to feed it into a “chainguard_cluster” resource:
+This will return the Discovery results, which can be piped into other resources (possibly as an output). The main use case for this data, though, will be to feed it into a `chainguard_cluster` resource:
 
 ```
 resource "chainguard_cluster" "discovery" {
