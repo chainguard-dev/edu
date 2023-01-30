@@ -1,5 +1,5 @@
 ---
-title : "Chainguard Enforce for Kubernetes"
+title : "Enforce for Kubernetes"
 lead: ""
 description: "Chainguard Enforce for Kubernetes Documentation"
 type: "article"
