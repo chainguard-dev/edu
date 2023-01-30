@@ -10,7 +10,7 @@ weight: 671
 toc: true
 ---
 
-> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+> **Chainguard Enforce Signing is in Beta Preview. You can request access to the product selecting Chainguard Enforce for Kubernetes on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).**
 
 Chainguard Enforce Discovery enables customers to discover various containerized workloads across their organization, providing greater visibility into their security posture. This can help organizations ensure that Chainguard Enforce (and any policies they have configured) are being evaluated against all of the clusters across their organization. 
 
