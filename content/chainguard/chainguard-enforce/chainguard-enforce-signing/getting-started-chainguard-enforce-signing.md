@@ -13,7 +13,7 @@ weight: 10
 toc: true
 ---
 
-> _This documentation is related to Chainguard Enforce Signing. You can request access to the product selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+**Chainguard Enforce Signing is in _Beta Preview_. You can request access to the product selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).**
 
 Powered by the open source security tool suite [Sigstore](https://www.sigstore.dev/), Chainguard Enforce Signing enables you to generate digital signatures for software artifacts inside your own organization using the individual identities of your team members and [ephemeral keys](https://www.chainguard.dev/unchained/the-principle-of-ephemerality). Enforce Signing can be monitoried and audited against your organization's compliance and privacy requirements so you have full control. Learn more about Enforce Signing in our [Overview and FAQs doc](/chainguard/chainguard-enforce/chainguard-enforce-signing/chainguard-enforce-signing-faqs/).
 
