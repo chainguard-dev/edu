@@ -42,7 +42,7 @@ To set up a Google CA Service, you'll first need an instance of the GCP CA Servi
 gcloud services enable privateca.googleapis.com
 ```
 
-You'll need create a new CA Pool (alternately, you can use an existing one if you have one set up). For demonstration purposes, we'll use the `devops` tier. Replace `$POOL_NAME` with the name you would like to use for your CA Pool. 
+You'll need create a new CA Pool (alternately, you can use an existing one if you have one set up). For demonstration purposes, we'll use the `devops` tier. Replace `$POOL_NAME` with the name you would like to use for your CA Pool. Depending on your configuration, you may need to pass the location of where you want this CA Pool, with the `--location=` flag. 
 
 ```sh
 gcloud privateca pools create $POOL_NAME --tier=devops
@@ -204,7 +204,7 @@ The following checks were performed on each of these signatures:
 [{"critical":{"identity":{"docker-reference":"$IMAGE"},"image":{"docker-manifest-digest":"sha256:77...9"},"type":"cosign container image signature"},"optional":{"...":"https://auth.chainguard.dev/","Issuer":"https://auth.chainguard.dev/","..."},"Subject":"$EMAIL"}}]
 ```
 
-Congratulations! You have signed and verified a software artifact with Chainguard Enforce Signing!
+This output indicates that software artifact's signature was successfully verified.
 
 ## Learn More
 
