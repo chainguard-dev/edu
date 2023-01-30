@@ -16,8 +16,8 @@ toc: true
 `stable` [cgr.dev/chainguard/python](https://github.com/chainguard-images/images/tree/main/images/python)
 | Tags              | Aliases                                                        |
 |-------------------|----------------------------------------------------------------|
-| `latest`          | 3, 3.11, 3.11.1, 3.11.1-r2                                     |
-| `latest-dev`      | dev-3, dev-3.11, dev-3.11.1, dev-3.11.1-r2                     |
+| `latest`          | 3, 3.11, 3.11.1, 3.11.1-r3                                     |
+| `latest-dev`      | dev-3, dev-3.11, dev-3.11.1, dev-3.11.1-r3                     |
 | `latest-musl`     | musl-3, musl-3.11, musl-3.11.1, musl-3.11.1-r2                 |
 | `latest-musl-dev` | musl-dev-3, musl-dev-3.11, musl-dev-3.11.1, musl-dev-3.11.1-r2 |
 
@@ -29,14 +29,14 @@ While this image is being developed, we will stick to the latest stable Python v
 
 ## Get It!
 
-We have two images available: a `python:dev-latest` variant that contains `pip` and a shell, and a minimal runtime image that just contains
+We have two images available: a `python:latest-dev` variant that contains `pip` and a shell, and a minimal runtime image that just contains
 python itself.
 
 These images are available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/python:latest
-docker pull cgr.dev/chainguard/python:dev-latest
+docker pull cgr.dev/chainguard/python:latest-dev
 ```
 
 ## Usage
@@ -44,7 +44,7 @@ docker pull cgr.dev/chainguard/python:dev-latest
 The python image can be used directly for simple cases, or with a multi-stage build using python-dev as the build container.
 
 ```Dockerfile
-FROM cgr.dev/chainguard/python:dev-latest AS builder
+FROM cgr.dev/chainguard/python:latest-dev AS builder
 COPY . /app
 RUN cd /app && pip install -r requirements.txt
 

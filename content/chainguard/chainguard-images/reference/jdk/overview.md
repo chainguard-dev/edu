@@ -16,8 +16,8 @@ toc: true
 `stable` [cgr.dev/chainguard/jdk](https://github.com/chainguard-images/images/tree/main/images/jdk)
 | Tags         | Aliases                                                       |
 |--------------|---------------------------------------------------------------|
-| `latest`     | openjdk-17, openjdk-17.0, openjdk-17.0.6, openjdk-17.0.6-r0   |
-| `openjdk-11` | openjdk-11, openjdk-11.0, openjdk-11.0.18, openjdk-11.0.18-r0 |
+| `latest`     | openjdk-17, openjdk-17.0, openjdk-17.0.6, openjdk-17.0.6-r1   |
+| `openjdk-11` | openjdk-11, openjdk-11.0, openjdk-11.0.18, openjdk-11.0.18-r1 |
 
 
 
