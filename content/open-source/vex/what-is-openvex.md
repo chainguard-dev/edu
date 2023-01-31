@@ -128,24 +128,25 @@ This code snippet will create the following OpenVex document:
 }
 ```
 
-Or, to filter out “Vex’ed out” vulnerabilities from security scanner results, you can use the `filter` command.  In this example, `scan_results.sarif.json` is the file with the scanner results and `vex_data.csaf` contains the VEX information.   
+Or, to filter out “Vex’ed out” vulnerabilities from security scanner results, you can use the `filter` command.  In this example, `scan_results.sarif.json` is the file with the scanner results and `vex_data.csaf` contains the VEX information.  
 
 ```
 # From a VEX file:
 vexctl filter scan_results.sarif.json vex_data.csaf
 ```
+This command will result in output that show vulnerabilities from the scanner that not resolved by the VEX document. 
 
 To learn about other commands and capabilities of the `vexctl` tool, visit the [OpenVex repo](https://github.com/openvex/vexctl).  
 
 ## Learn More
 OpenVEX is actively evolving to support VEX adoption across the community, and will continue building out tooling and adjusting its specification to meet community needs.
 
-To learn more about Chainguard’s view of VEX, check out related resources on Chainguard’s blog:
+To learn more about VEX, check out related resources on Chainguard’s blog:
 
-* [Reflections on Trusting VEX (or when humans can improve SBOMs)](https://www.chainguard.dev/unchained/reflections-on-trusting-vex-or-when-humans-can-improve-sboms_
-* [Putting VEX to work](https://www.chainguard.dev/unchained/putting-vex-to-work
+* [Reflections on Trusting VEX (or when humans can improve SBOMs)](https://www.chainguard.dev/unchained/)reflections-on-trusting-vex-or-when-humans-can-improve-sboms_
+* [Putting VEX to work](https://www.chainguard.dev/unchained/putting-vex-to-work)
 https://www.chainguard.dev/unchained/understanding-the-promise-of-vex) 
 * [Understanding the Promise of VEX](https://www.chainguard.dev/unchained/understanding-the-promise-of-vex)
-* [What is VEX and Why Should I Care?] https://www.endorlabs.com/blog/what-is-vex-and-why-should-i-care
+* [What is VEX and Why Should I Care?](https://www.endorlabs.com/blog/what-is-vex-and-why-should-i-care)
 
 You can also read more about VEX use cases in a report published by the [Cybersecurity and Infrastructure Security Agency](https://www.cisa.gov/sites/default/files/publications/VEX_Use_Cases_Aprill2022.pdf). 
