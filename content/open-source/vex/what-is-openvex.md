@@ -130,7 +130,7 @@ This code snippet will create the following OpenVex document:
 }
 ```
 
-Or, to filter out “Vex’ed out” vulnerabilities from security scanner results, you can use the `filter` command.  In this example, `scan_results.sarif.json` is the file with the scanner results and `vex_data.csaf` contains the VEX information.  
+Or, to filter out “VEX’ed out” vulnerabilities from security scanner results, you can use the `filter` command.  In this example, `scan_results.sarif.json` is the file with the scanner results and `vex_data.csaf` contains the VEX information.  
 
 ```
 # From a VEX file:
