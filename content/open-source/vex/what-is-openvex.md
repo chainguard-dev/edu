@@ -147,7 +147,6 @@ To learn more about VEX, check out related resources on Chainguard’s blog:
 
 * [Reflections on Trusting VEX (or when humans can improve SBOMs)](https://www.chainguard.dev/unchained/reflections-on-trusting-vex-or-when-humans-can-improve-sboms)
 * [Putting VEX to work](https://www.chainguard.dev/unchained/putting-vex-to-work)
-https://www.chainguard.dev/unchained/understanding-the-promise-of-vex) 
 * [Understanding the Promise of VEX](https://www.chainguard.dev/unchained/understanding-the-promise-of-vex)
 * [What is VEX and Why Should I Care?](https://www.endorlabs.com/blog/what-is-vex-and-why-should-i-care)
 
