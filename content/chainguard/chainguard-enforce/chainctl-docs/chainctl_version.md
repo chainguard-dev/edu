@@ -1,5 +1,5 @@
 ---
-date: 2023-01-24T12:45:29-05:00
+date: 2023-01-31T17:36:40-05:00
 title: "chainctl version"
 slug: chainctl_version
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_version/
@@ -20,7 +20,6 @@ chainctl version [flags]
 
 ```
   -h, --help   help for version
-      --json   print JSON instead of text
 ```
 
 ### Options inherited from parent commands

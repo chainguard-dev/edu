@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-01-23 19:14:36 +0000 UTC
+date: 2023-01-26 18:25:42 +0000 UTC
 draft: false
 images: []
 weight: 799
@@ -10,6 +10,21 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.64
+Release date: 2023-01-26
+#### Uncategorized
+- Fix terraform provider bug which set account association to default name "tbd"
+
+### v0.1.63
+Release date: 2023-01-25
+
+Customer facing changes: N/A
+
+### v0.1.62
+Release date: 2023-01-24
+
+Customer facing changes: N/A
 
 ### v0.1.61
 Release date: 2023-01-23

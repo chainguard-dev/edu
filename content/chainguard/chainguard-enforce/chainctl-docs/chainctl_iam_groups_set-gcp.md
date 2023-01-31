@@ -1,5 +1,5 @@
 ---
-date: 2023-01-24T12:45:29-05:00
+date: 2023-01-31T17:36:40-05:00
 title: "chainctl iam groups set-gcp"
 slug: chainctl_iam_groups_set-gcp
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_set-gcp/
