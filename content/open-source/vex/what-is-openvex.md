@@ -18,7 +18,7 @@ toc: true
 
 [OpenVex](https://github.com/openvex) is an open source specification, library, and suite of tools designed to enable software users to eliminate vulnerability noise and focus their security efforts on vulnerabilities that pose an immediate risk. [Released by Chainguard in January 2023](https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex), it’s the first set of open source tools to support the VEX specification championed by the [United States National Telecommunications and Information Administration (NTIA)](https://ntia.gov/) and the [Cybersecurity and Infrastructure Security Agency (CISA)](https://www.cisa.gov/). 
 
-With OpenVex, stakeholders from across the software supply chain can collaborate on identifying and remediating exploitable vulnerabilities and use automation to enable more precise and efficient methods of security management. In this guide you will learn more about the emerging supply chain security standards that OpenVex supports, and how OpenVex tooling can help you leverage them in your security management. 
+With OpenVex, stakeholders from across the software supply chain can collaborate on identifying and remediating exploitable vulnerabilities and use automation to enable more precise and efficient methods of security management. In this guide, you will learn more about the emerging supply chain security standards that OpenVex supports, and how OpenVex tooling can help you leverage them in your security management processes. 
 
 
 ## SBOMs and VEX
