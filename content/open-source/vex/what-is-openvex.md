@@ -136,7 +136,7 @@ Or, to filter out “Vex’ed out” vulnerabilities from security scanner resul
 # From a VEX file:
 vexctl filter scan_results.sarif.json vex_data.csaf
 ```
-This command will result in output that show vulnerabilities from the scanner that not resolved by the VEX document. 
+This command will result in output that shows vulnerabilities from the scanner that are not resolved by the VEX document. 
 
 To learn about other commands and capabilities of the `vexctl` tool, visit the [OpenVex repo](https://github.com/openvex/vexctl).  
 
