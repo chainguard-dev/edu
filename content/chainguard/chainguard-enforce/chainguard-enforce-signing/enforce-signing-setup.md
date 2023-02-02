@@ -67,7 +67,8 @@ With this set up, you're ready to set up your own instance of Chainguard Enforce
 To set up a Chainguard Enforce Signing instance, you'll be using `chainctl`. You can choose any name that is meaningful to you to reference this instance, replace the `$ENFORCE_SIGNING_NAME` variable with the name of your choosing. Also, replace the `$CA_RESOURCE_NAME` with the long resource name (discussed above) of your Google CA Service.
 
 ```sh
-chainctl sigstore ca create --name=$ENFORCE_SIGNING_NAME --ca=googleca  --googleca-ref=$CA_RESOURCE_NAME 
+chainctl sigstore ca create --name=$ENFORCE_SIGNING_NAME --ca=googleca \ 
+  --googleca-ref=$CA_RESOURCE_NAME 
 ```
 
 Each Enforce Signing instance comes with a unique hostname for the certificate authority, which you can find by running:
@@ -88,7 +89,10 @@ KMS_KEY_REF=gcpkms://projects/$PROJECT_ID/locations/$KEY_LOCATION/keyRings/$KEY_
 
 With this in place, you can create your very own instance of Enforce Signing with `chainctl`. You can choose any name that is meaningful to you to reference this instance, replace the `$ENFORCE_SIGNING_NAME` variable with the name of your choosing. The `$PATH_TO_CERT_CHAIN` variable should be replaced with the path to your PEM-encoded root certificate chain.
 
-chainctl sigstore ca create --name=$ENFORCE_SIGNING_NAME --ca=kmsca --kms-cert-chain=$PATH_TO_CERT_CHAIN --kms-key-ref=$KMS_KEY_REF
+```sh
+chainctl sigstore ca create --name=$ENFORCE_SIGNING_NAME --ca=kmsca \ 
+  --kms-cert-chain=$PATH_TO_CERT_CHAIN --kms-key-ref=$KMS_KEY_REF
+```
 
 Each Enforce Signing instance comes with a unique hostname for the certificate authority, which you can find by running:
 
@@ -109,7 +113,8 @@ KMS_KEY_REF=awskms:///$ARN
 With this in place, you can create your very own instance of Enforce Signing with `chainctl`. You can choose any name that is meaningful to you to reference this instance, replace the `$ENFORCE_SIGNING_NAME` variable with the name of your choosing. The `$PATH_TO_CERT_CHAIN` variable should be replaced with the path to your PEM-encoded root certificate chain.
 
 ```sh
-chainctl sigstore ca create --name=$ENFORCE_SIGNING_NAME --ca=kmsca --kms-cert-chain=$PATH_TO_CERT_CHAIN --kms-key-ref=$KMS_KEY_REF
+chainctl sigstore ca create --name=$ENFORCE_SIGNING_NAME --ca=kmsca \ 
+  --kms-cert-chain=$PATH_TO_CERT_CHAIN --kms-key-ref=$KMS_KEY_REF
 ```
 
 Each Enforce Signing instance comes with a unique hostname for the certificate authority, which you can find by running:
