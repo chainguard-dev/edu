@@ -3,8 +3,8 @@ title : "Chainguard Enforce Events"
 lead: ""
 description: "Chainguard Enforce Events"
 type: "article"
-date: 2020-11-15T08:48:45+00:00
-lastmod: 2020-11-15T08:48:45+00:00
+date: 2022-11-15T12:05:04
+lastmod: 2023-01-31T17:36:41
 draft: false
 images: []
 weight: 780
@@ -29,7 +29,6 @@ The `actor` field is the identity of the actor in your Enforce account that trig
 The following list of services and methods show example HTTP headers and bodies for public facing Enforce events.
 
 ## Service: Admission - Namespace
-
 ### Method: Created
 
 #### Example HTTP Headers
@@ -45,10 +44,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: k8s://namespace-UID
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.628983Z
+Ce-Time: 2023-01-31T22:36:41.421912Z
 Ce-Type: dev.chainguard.admission.namespace.v1
 Content-Length: 282
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -67,7 +67,6 @@ Content-Type: application/json
   }
 }
 ```
-
 ### Method: Updated
 
 #### Example HTTP Headers
@@ -83,10 +82,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: k8s://namespace-UID
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.629107Z
+Ce-Time: 2023-01-31T22:36:41.422019Z
 Ce-Type: dev.chainguard.admission.namespace.v1
 Content-Length: 282
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -105,9 +105,7 @@ Content-Type: application/json
   }
 }
 ```
-
 ## Service: Enforce - Admission
-
 ### Method: Review
 
 #### Example HTTP Headers
@@ -123,10 +121,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: k8s://cluster-id
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.628849Z
+Ce-Time: 2023-01-31T22:36:41.421794Z
 Ce-Type: dev.chainguard.admission.v1
 Content-Length: 220
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -143,9 +142,7 @@ Content-Type: application/json
   }
 }
 ```
-
 ## Service: Policy - Validation
-
 ### Method: Changed
 
 #### Example HTTP Headers
@@ -161,10 +158,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: k8s://cluster-id
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.625168Z
+Ce-Time: 2023-01-31T22:36:41.420808Z
 Ce-Type: dev.chainguard.policy.validation.changed.v1
-Content-Length: 418
+Content-Length: 419
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -178,21 +176,19 @@ Content-Type: application/json
   "body": {
     "cluster_id": "cluster identifier",
     "image_id": "image identifier",
-    "last_seen": "2022-11-16T16:31:27.62485Z",
+    "last_seen": "2023-01-31T22:36:41.420599Z",
     "policies": {
       "name of the evaluated policy": {
         "change": "Can be [Empty, \"new\", \"degraded\", \"improved\"]",
         "diagnostic": "holds any diagnostic messages surfaced during policy evaluation",
-        "last_checked": "2022-11-16T16:31:27.625094Z",
+        "last_checked": "2023-01-31T22:36:41.420782Z",
         "valid": false
       }
     }
   }
 }
 ```
-
 ## Service: auth - Auth
-
 ### Method: Register
 
 #### Example HTTP Headers
@@ -208,10 +204,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.632429Z
+Ce-Time: 2023-01-31T22:36:41.425214Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 155
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -228,9 +225,7 @@ Content-Type: application/json
   }
 }
 ```
-
 ## Service: events - Subscriptions
-
 ### Method: Create
 
 #### Example HTTP Headers
@@ -246,10 +241,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.633094Z
+Ce-Time: 2023-01-31T22:36:41.42658Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 147
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -266,7 +262,6 @@ Content-Type: application/json
   }
 }
 ```
-
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -282,10 +277,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.633236Z
+Ce-Time: 2023-01-31T22:36:41.426711Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 114
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -301,9 +297,7 @@ Content-Type: application/json
   }
 }
 ```
-
 ## Service: iam - GroupAccountAssociations
-
 ### Method: Create
 
 #### Example HTTP Headers
@@ -319,10 +313,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.632627Z
+Ce-Time: 2023-01-31T22:36:41.424789Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 386
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -347,7 +342,6 @@ Content-Type: application/json
   }
 }
 ```
-
 ### Method: Update
 
 #### Example HTTP Headers
@@ -363,10 +357,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.63277Z
+Ce-Time: 2023-01-31T22:36:41.424914Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 337
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -391,7 +386,6 @@ Content-Type: application/json
   }
 }
 ```
-
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -407,10 +401,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.632921Z
+Ce-Time: 2023-01-31T22:36:41.425089Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -426,9 +421,7 @@ Content-Type: application/json
   }
 }
 ```
-
 ## Service: iam - GroupInvites
-
 ### Method: Create
 
 #### Example HTTP Headers
@@ -444,10 +437,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.629691Z
+Ce-Time: 2023-01-31T22:36:41.423601Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -466,7 +460,6 @@ Content-Type: application/json
   }
 }
 ```
-
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -482,10 +475,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.629889Z
+Ce-Time: 2023-01-31T22:36:41.423728Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -501,9 +495,7 @@ Content-Type: application/json
   }
 }
 ```
-
 ## Service: iam - Groups
-
 ### Method: Create
 
 #### Example HTTP Headers
@@ -519,10 +511,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.631653Z
+Ce-Time: 2023-01-31T22:36:41.42243Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -540,7 +533,6 @@ Content-Type: application/json
   }
 }
 ```
-
 ### Method: Update
 
 #### Example HTTP Headers
@@ -556,10 +548,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.6318Z
+Ce-Time: 2023-01-31T22:36:41.4226Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -577,7 +570,6 @@ Content-Type: application/json
   }
 }
 ```
-
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -593,10 +585,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.631909Z
+Ce-Time: 2023-01-31T22:36:41.423076Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -612,9 +605,7 @@ Content-Type: application/json
   }
 }
 ```
-
 ## Service: iam - Policies
-
 ### Method: Create
 
 #### Example HTTP Headers
@@ -630,10 +621,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.632063Z
+Ce-Time: 2023-01-31T22:36:41.423885Z
 Ce-Type: dev.chainguard.api.iam.policy.created.v1
 Content-Length: 284
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -655,7 +647,6 @@ Content-Type: application/json
   }
 }
 ```
-
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -671,10 +662,46 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.632177Z
+Ce-Time: 2023-01-31T22:36:41.424028Z
 Ce-Type: dev.chainguard.api.iam.policy.deleted.v1
+Content-Length: 90
+Content-Type: application/json
+User-Agent: Go-http-client/1.1
+
+```
+
+#### Example HTTP Body
+
+```json
+{
+  "actor": {
+    "subject": "identity that triggered the event"
+  },
+  "body": {
+    "id": "ID of the policy"
+  }
+}
+```
+### Method: Update
+
+#### Example HTTP Headers
+
+```
+POST / HTTP/1.1
+Host: console-api.enforce.dev
+Accept-Encoding: gzip
+Authorization: Bearer oidctoken
+Ce-Audience: customer
+Ce-Group: UID of parent group
+Ce-Id: cloudevent generated UUID
+Ce-Source: https://console-api.enforce.dev/iam/v1/policies
+Ce-Specversion: 1.0
+Ce-Subject: UIDP identifier
+Ce-Time: 2023-01-31T22:36:41.424184Z
+Ce-Type: dev.chainguard.api.iam.policy.updated.v1
 Content-Length: 202
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -693,7 +720,83 @@ Content-Type: application/json
   }
 }
 ```
+### Method: ActivateVersion
 
+#### Example HTTP Headers
+
+```
+POST / HTTP/1.1
+Host: console-api.enforce.dev
+Accept-Encoding: gzip
+Authorization: Bearer oidctoken
+Ce-Audience: customer
+Ce-Group: UID of parent group
+Ce-Id: cloudevent generated UUID
+Ce-Source: https://console-api.enforce.dev/iam/v1/policyVersions
+Ce-Specversion: 1.0
+Ce-Subject: UIDP identifier
+Ce-Time: 2023-01-31T22:36:41.424268Z
+Ce-Type: dev.chainguard.api.iam.policy.version.activated.v1
+Content-Length: 106
+Content-Type: application/json
+User-Agent: Go-http-client/1.1
+
+```
+
+#### Example HTTP Body
+
+```json
+{
+  "actor": {
+    "subject": "identity that triggered the event"
+  },
+  "body": {
+    "version_id": "ID of the policy version"
+  }
+}
+```
+## Service: iam - RoleBindings
+### Method: Create
+
+#### Example HTTP Headers
+
+```
+POST / HTTP/1.1
+Host: console-api.enforce.dev
+Accept-Encoding: gzip
+Authorization: Bearer oidctoken
+Ce-Audience: customer
+Ce-Group: UID of parent group
+Ce-Id: cloudevent generated UUID
+Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
+Ce-Specversion: 1.0
+Ce-Subject: UIDP identifier
+Ce-Time: 2023-01-31T22:36:41.424425Z
+Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
+Content-Length: 297
+Content-Type: application/json
+User-Agent: Go-http-client/1.1
+
+```
+
+#### Example HTTP Body
+
+```json
+{
+  "actor": {
+    "subject": "identity that triggered the event"
+  },
+  "body": {
+    "parent": "The Group UIDP path under which the new RoleBinding resides",
+    "role_binding": {
+      "group": "UIDP of the group to bind",
+      "id": "UID of this role binding",
+      "identity": "UID of the Identity to bind",
+      "role": "UIDP of the Role to bind"
+    }
+  }
+}
+```
 ### Method: Update
 
 #### Example HTTP Headers
@@ -706,13 +809,14 @@ Authorization: Bearer oidctoken
 Ce-Audience: customer
 Ce-Group: UID of parent group
 Ce-Id: cloudevent generated UUID
-Ce-Source: https://console-api.enforce.dev/iam/v1/policies
+Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.632279Z
-Ce-Type: dev.chainguard.api.iam.policy.updated.v1
-Content-Length: 90
+Ce-Time: 2023-01-31T22:36:41.424555Z
+Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
+Content-Length: 209
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -724,13 +828,49 @@ Content-Type: application/json
     "subject": "identity that triggered the event"
   },
   "body": {
-    "id": "ID of the policy"
+    "group": "UIDP of the group to bind",
+    "id": "UID of this role binding",
+    "identity": "UID of the Identity to bind",
+    "role": "UIDP of the Role to bind"
   }
 }
 ```
+### Method: Delete
 
+#### Example HTTP Headers
+
+```
+POST / HTTP/1.1
+Host: console-api.enforce.dev
+Accept-Encoding: gzip
+Authorization: Bearer oidctoken
+Ce-Audience: customer
+Ce-Group: UID of parent group
+Ce-Id: cloudevent generated UUID
+Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
+Ce-Specversion: 1.0
+Ce-Subject: UIDP identifier
+Ce-Time: 2023-01-31T22:36:41.42463Z
+Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
+Content-Length: 91
+Content-Type: application/json
+User-Agent: Go-http-client/1.1
+
+```
+
+#### Example HTTP Body
+
+```json
+{
+  "actor": {
+    "subject": "identity that triggered the event"
+  },
+  "body": {
+    "id": "UID of the record"
+  }
+}
+```
 ## Service: tenant - Clusters
-
 ### Method: Create
 
 #### Example HTTP Headers
@@ -746,10 +886,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/tenant/v1/clusters
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.630361Z
+Ce-Time: 2023-01-31T22:36:41.425404Z
 Ce-Type: dev.chainguard.api.tenant.cluster.created.v1
 Content-Length: 1700
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -766,8 +907,8 @@ Content-Type: application/json
         "example activity": {
           "controller_name": "the name of the Controller CRD which was the source of this activity on the tenant cluster",
           "last_seen": {
-            "nanos": 624849000,
-            "seconds": 1668616287
+            "nanos": 420599000,
+            "seconds": 1675204601
           },
           "namespace": "the namespace in which the source of this cluster activity lives",
           "spec_hash": "the hash of the Controller or Webhook CRD's spec",
@@ -792,14 +933,14 @@ Content-Type: application/json
       },
       "issuer": "the identity issuer tied to this cluster",
       "last_seen": {
-        "nanos": 624848000,
-        "seconds": 1668616287
+        "nanos": 420598000,
+        "seconds": 1675204601
       },
       "managed_name": "unique name assigned to this cluster's managed agent",
       "name": "name of the cluster",
       "registered": {
-        "nanos": 624848000,
-        "seconds": 1668616287
+        "nanos": 420598000,
+        "seconds": 1675204601
       },
       "remote_id": "the remote ID of this cluster",
       "status": {
@@ -812,7 +953,6 @@ Content-Type: application/json
   }
 }
 ```
-
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -828,10 +968,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/tenant/v1/clusters
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.631199Z
+Ce-Time: 2023-01-31T22:36:41.425627Z
 Ce-Type: dev.chainguard.api.tenant.cluster.deleted.v1
 Content-Length: 108
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -847,7 +988,6 @@ Content-Type: application/json
   }
 }
 ```
-
 ### Method: Update
 
 #### Example HTTP Headers
@@ -863,10 +1003,11 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/tenant/v1/clusters
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier
-Ce-Time: 2022-11-16T16:31:27.631395Z
+Ce-Time: 2023-01-31T22:36:41.425747Z
 Ce-Type: dev.chainguard.api.tenant.cluster.updated.v1
 Content-Length: 1666
 Content-Type: application/json
+User-Agent: Go-http-client/1.1
 
 ```
 
@@ -882,8 +1023,8 @@ Content-Type: application/json
       "example activity": {
         "controller_name": "the name of the Controller CRD which was the source of this activity on the tenant cluster",
         "last_seen": {
-          "nanos": 624849000,
-          "seconds": 1668616287
+          "nanos": 420599000,
+          "seconds": 1675204601
         },
         "namespace": "the namespace in which the source of this cluster activity lives",
         "spec_hash": "the hash of the Controller or Webhook CRD's spec",
@@ -908,14 +1049,14 @@ Content-Type: application/json
     },
     "issuer": "the identity issuer tied to this cluster",
     "last_seen": {
-      "nanos": 624849000,
-      "seconds": 1668616287
+      "nanos": 420599000,
+      "seconds": 1675204601
     },
     "managed_name": "unique name assigned to this cluster's managed agent",
     "name": "name of the cluster",
     "registered": {
-      "nanos": 624849000,
-      "seconds": 1668616287
+      "nanos": 420599000,
+      "seconds": 1675204601
     },
     "remote_id": "the remote ID of this cluster",
     "status": {
@@ -926,4 +1067,3 @@ Content-Type: application/json
   }
 }
 ```
-
