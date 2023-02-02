@@ -37,14 +37,18 @@ With these tools and setup in place you are reading to begin.
 
 Now that you’ve provided Enforce with references to your CA service, you’ll need to give Chainguard authorization to use those resources.
 
-To set up your account association, you'll be using Terraform. Follow our guidance on [Cloud Account Association for GCP](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/cloud-account-associations/#setting-up-a-cloud-account-association-for-gcp) to complete this setup.
+To set up your account association, you'll be using Terraform. Follow our guidance on [Cloud Account Association](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/cloud-account-associations) to complete this setup for either GCP or AWS.
 
-To confirm resources were set up as expected, you can navigate to your [Workload Identity Pools](https://console.cloud.google.com/iam-admin/workload-identity-pools) within your GCP Project. On this page should be a resource called **Chainguard Pool**. If you click on the pool details and review the **connected service accounts**, you'll have a few service accounts that are now prefixed with `chainguard`. The service account `chainguard-enforce-signer` that the Enforce Signing service will be running under to request certificates. 
+You can confirm that resources were set up as expected with your cloud provider. In GCP, you can navigate to your [Workload Identity Pools](https://console.cloud.google.com/iam-admin/workload-identity-pools). On this page should be a resource called **Chainguard Pool**. If you click on the pool details and review the **connected service accounts**, you'll have a few service accounts that are now prefixed with `chainguard`. The service account `chainguard-enforce-signer` that the Enforce Signing service will be running under to request certificates. 
 
-To confirm that the account association setup was successful, run this `chainctl` command.
+To confirm that the account association setup was successful, run the relevant `chainctl` command for GCP or AWS, respectively.
 
 ```sh
 chainctl iam groups check-gcp
+```
+
+```sh
+chainctl iam groups check-aws
 ```
 
 You may need to select the Group that you are currently working with.
@@ -52,7 +56,7 @@ You may need to select the Group that you are currently working with.
 If everything is set up correctly, you'll receive output similar to the following.
 
 ```
-GCP role impersonation was successful!
+... role impersonation was successful!
 ```
 
 With everything set up, we are now ready to work with a software artifact.
