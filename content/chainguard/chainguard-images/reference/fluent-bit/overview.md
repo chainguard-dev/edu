@@ -13,6 +13,13 @@ weight: 600
 toc: true
 ---
 
+`experimental` [cgr.dev/chainguard/fluent-bit](https://github.com/chainguard-images/images/tree/main/images/fluent-bit)
+| Tags     | Aliases                 |
+|----------|-------------------------|
+| `latest` | 2, 2.0, 2.0.8, 2.0.8-r0 |
+
+
+
 Fluent Bit is a lightweight and high performance log processor. In this repository you will find the container images ready for production usage.
 
 ## Get It!
