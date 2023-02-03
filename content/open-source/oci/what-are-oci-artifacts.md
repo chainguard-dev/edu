@@ -19,20 +19,18 @@ OCI artifacts are sometimes misunderstood as a new specification or format but t
 
 ```json
 {
-“schemaVersion”: 2,
-// no top-level mediaType to indicate OCI
-"config": {
-"mediaType": "application/vnd.yourcustomartifact+json",
-"Size”": 233,
-"Digest": "sha245:..."
-},
-"Layers": [
-{
-"mediaType:" "application/vnd.yourcustomartifact.tar.gzip",
-"Size": 680,
-"Digest": "sha245:..."
-}
-]
+  "schemaVersion": 2,
+  // no top-level mediaType to indicate OCI
+  "config": {
+    "mediaType": "application/vnd.yourcustomartifact+json",
+    "size": 233,
+    "digest": "sha245:..."
+  },
+  "layers": [{
+    "mediaType": "application/vnd.yourcustomartifact.tar.gzip",
+    "size": 680,
+    "digest": "sha245:..."
+  }]
 }
 ```
 
@@ -48,6 +46,4 @@ The open source tool [Cosign](https://github.com/sigstore/cosign), part of the [
 https://github.com/sigstore/cosign#counter-signing) in the Cosign repo. To learn more about storing SBOMs as artifacts, visit the [section on signing SBOMs](https://docs.sigstore.dev/cosign/other_types/#sboms-software-bill-of-materials) in Sigstore’s documentation.  
 
  ## Considerations 
-Community usage and guidance of OCI artifacts is actively evolving and there are a few things to keep in mind when using them. First, not all registries support artifacts, and the [OCI Image Specification](https://github.com/opencontainers/image-spec) recommends avoiding the use of artifacts if you are concerned about portability. Best practices are still also under debate, giving rise to the [OCI Reference Types Working Group](https://github.com/opencontainers/wg-reference-types), which is considering different ways of describing and handling objects stored in an OCI registry.
-
-To learn more about OCI artifacts, visit the Open Container Initiative’s [artifact repo on Github](https://github.com/opencontainers/artifacts). You can also read about the current proposals for the OCI Reference Types Working Groups by visiting the [Intro to OCI Reference Types](https://www.chainguard.dev/unchained/intro-to-oci-reference-types) post on Chainguard’s blog. 
+Community usage and guidance of OCI artifacts is actively evolving and there are a few things to keep in mind when using them. First, not all registries support artifacts, and the [OCI Image Specification](https://github.com/opencontainers/image-spec) recommends avoiding the use of artifacts if you are concerned about portability. Best practices are still also under debate, giving rise to the [OCI Reference Types Working Group](https://github.com/opencontainers/wg-reference-types), which is considering different ways of describing and handling objects stored in an OCI registry. You can read a more about the proposals the group is currently considering by visiting the [Intro to OCI Reference Types](https://www.chainguard.dev/unchained/intro-to-oci-reference-types) post on Chainguard’s blog. 
