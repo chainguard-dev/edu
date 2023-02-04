@@ -75,7 +75,7 @@ This command notes the following:
 * The software product — `product` — in this case a Wolfi package
 * The vulnerability — `vuln` — in this case a specific CVE
 * The current status — `status` — which can be `not_affected`, `affected`, `fixed`, or `under_investigation`
-* The reason for the status — `justification` — which can include `inline_mitigations_already_exist` and `component_not_present`
+* When the `status` is noted as `not_affected`, the reason for the status — `justification` — must be included, and can read `inline_mitigations_already_exist` or `component_not_present`
 
 
 The `vexctl create` command above renders the following document.
@@ -102,42 +102,82 @@ The `vexctl create` command above renders the following document.
 
 ```
 
-This above workflow demonstrates 
+You can also create a VEX document with abbreviated information. For instance, when a given CVE was addressed in the image, and you want to attested that it has been fixed.
 
-1. From the command line, as shown
-2. From a _golden file_ of predefined rules
-3. From merging other VEX documents into a new one
-
-The data is generated from a known rule set (the Golden Data) which is
-reused and reapplied to new releases of the same project.
-
-#### Merging Existing Documents
-
-When more than one stakeholder is issuing VEX metadata about a piece of software,
-vexctl can merge the documents to get the most up-to-date impact assessment of
-a vulnerability. The following example can be run using the test documents found
-in this repository:
-
+```sh
+vexctl create "pkg:apk/wolfi/git@2.39.0-r1?arch=x86_64" CVE-2023-12345 fixed
 ```
-vexctl merge --product=pkg:apk/wolfi/bash@1.0.0 \
-             pkg/ctl/testdata/document1.vex.json \
-             pkg/ctl/testdata/document2.vex.json
-```
-The resulting document combines the VEX statements that express data about
-`bash@1.0.0` into a single document that tells the whole story of how `CVE-2014-123456`
-was `under_investigation` and then `fixed` four hours later:
+
+The above workflow demonstrates how to create a VEX document with `vexctl` on the command line. 
+
+## Merging Existing VEX Documents
+
+When more than one stakeholder is issuing VEX metadata about a piece of software, `vexctl` can merge the documents to get the most up-to-date impact assessment of a vulnerability. 
+
+Let's begin with two test documents.
+
+The first document is `document1.vex.json`:
 
 ```json
 {
-  "@context": "https://openvex.dev/ns",
-  "@id": "https://openvex.dev/docs/public/merged-vex-67124ea942ef30e1f42f3f2bf405fbbc4f5a56e6e87684fc5cd957212fa3e025",
+    "id": "my-vexdoc",
+	"format": "text/vex+json",
+	"author": "John Doe",
+	"role": "vex issuer",	
+	"statements": [
+        {
+            "timestamp": "2022-12-22T16:36:43-05:00",
+            "products": ["pkg:apk/wolfi/bash@1.0.0"],
+            "vulnerability": "CVE-1234-5678",
+            "status": "under_investigation",
+            "status_notes": ""
+        }
+    ]
+}
+```
+
+The second document is `document2.vex.json`:
+
+```json
+{
+    "id": "my-vexdoc",
+	"format": "text/vex+json",
+	"author": "John Doe",
+	"role": "vex issuer",	
+    "statements": [
+        {
+            "timestamp": "2022-12-22T20:56:05-05:00",
+            "products": ["pkg:apk/wolfi/bash@1.0.0"],
+            "vulnerability": "CVE-1234-5678",
+            "status": "fixed"
+        }
+    ]
+}
+```
+
+The two files are generated from a known rule set, also known as "golden data" or a "golden file," which is reused and reapplied to new releases of the same project.
+
+We can merge the two VEX documents with the `vexctl merge` command:
+
+```sh
+vexctl merge --product=pkg:apk/wolfi/bash@1.0.0 \
+             document1.vex.json \
+             document2.vex.json
+```
+
+The resulting document combines the VEX statements that express data about `bash@1.0.0` into a single document. 
+
+```json
+{
+  "@context": "",
+  "@id": "merged-vex-67124ea942ef30e1f42f3f2bf405fbbc4f5a56e6e87684fc5cd957212fa3e025",
   "author": "Unknown Author",
   "role": "Document Creator",
-  "timestamp": "2023-01-10T20:36:55.524170935-06:00",
-  "version": "1",
+  "timestamp": "2023-02-03T21:48:39.582648-05:00",
+  "version": "",
   "statements": [
     {
-      "vulnerability": "CVE-2014-123456",
+      "vulnerability": "CVE-1234-5678",
       "timestamp": "2022-12-22T16:36:43-05:00",
       "products": [
         "pkg:apk/wolfi/bash@1.0.0"
@@ -145,7 +185,7 @@ was `under_investigation` and then `fixed` four hours later:
       "status": "under_investigation"
     },
     {
-      "vulnerability": "CVE-2014-123456",
+      "vulnerability": "CVE-1234-5678",
       "timestamp": "2022-12-22T20:56:05-05:00",
       "products": [
         "pkg:apk/wolfi/bash@1.0.0"
@@ -154,22 +194,42 @@ was `under_investigation` and then `fixed` four hours later:
     }
   ]
 }
-
 ```
 
-### 2. Attesting Examples
+This final document tells the whole story of how `CVE-2014-123456` was `under_investigation` and then `fixed` four hours later, all documented in a single VEX file that was merged with `vexctl`. 
 
-```shell
-# Attest and attach VEX statements in mydata.vex.json to a container image:
-vexctl attest --attach --sign mydata.vex.json cgr.dev/image@sha256:e4cf37d568d195b4..
+## Attesting and Attaching VEX Documents
+
+To attest to and attach VEX statements within a given document to a container image, you can use the `vexctl attest` command with the `--attach` and `--sign` flags.
+
+For example, if you have a container image `your-username/your-container-image:latest` in a container registry, and a related VEX document `hello.vex.json`, you can run the following command to attest to that document, attach the document and sign that attestation.
+
+```sh
+vexctl attest --attach --sign hello.vex.json your-username/your-container-image:latest
 ```
 
-### 3. VEXing a Results Set
+Upon running this command, you'll be taken through a signing workflow with [Sigstore](https://www.sigstore.dev/). Your terminal output will indicate your progess. 
+
+```
+Generating ephemeral keys...
+Retrieving signed certificate...
+```
+
+A browser window will open for you to select an OIDC provider. When the attestation is complete, you'll receive feedback that it was successful. 
+
+```
+Successfully verified SCT...
+{"payloadType":"application/vnd.in-toto+json","payload":"e...o=","signatures":[{"keyid":"","sig":"MEY...z"}]}
+```
+
+This attestation with `.att` extension will now live in the container registry as an attachment to your container. 
+
+## Filtering Statements in VEX Documents or Attestations
 
 Using statements in a VEX document or from an attestation, `vexctl` will filter
 security scanner results to remove _VEX'ed out_ entries.
 
-#### Filtering Examples
+
 
 ```shell
 # From a VEX file:
@@ -220,30 +280,3 @@ known impacts statuses the order they were found, effectively computing the
 
 If a SARIF report is VEX'ed with `vexctl` any entries alerting of `CVE-2014-123456`
 will be filtered out.
-
-## Build vexctl
-
-To build `vexctl`, clone this repository and run `make`.
-
-```console
-$ git clone https://github.com/openvex/vexctl.git
-$ cd vex
-$ make
-$ ./vexctl version
- _   _  _____ __   __ _____  _____  _
-| | | ||  ___|\ \ / //  __ \|_   _|| |
-| | | || |__   \ V / | /  \/  | |  | |
-| | | ||  __|  /   \ | |      | |  | |
-\ \_/ /| |___ / /^\ \| \__/\  | |  | |____
- \___/ \____/ \/   \/ \____/  \_/  \_____/
-vexctl: A tool for working with VEX data
-
-GitVersion:    v0.1.0-21-g769ba3f-dirty
-GitCommit:     769ba3f0c638003b6c5e3c41ae88f4cdc63555ab
-GitTreeState:  dirty
-BuildDate:     2023-01-18T00:19:24Z
-GoVersion:     go1.19.4
-Compiler:      gc
-Platform:      darwin/arm64
-
-```
