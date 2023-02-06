@@ -12,7 +12,7 @@ toc: true
 
 > **Chainguard Enforce Discovery is in Beta Preview. You can request access to the product selecting Chainguard Enforce for Kubernetes on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).**
 
-Chainguard Enforce Discovery enables customers to discover various containerized workloads across their organization, providing greater visibility into their security posture. This can help organizations ensure that Chainguard Enforce (and any policies they have configured) are being evaluated against all of the clusters across their organization. 
+Chainguard Enforce Discovery enables customers to discover various containerized workloads across their organization, providing greater visibility into their security posture. This can help organizations ensure that Chainguard Enforce (and any policies they have configured) are being evaluated against all of the clusters across their organization.
 
 This new Discovery capability leverages Chainguard’s agentless technology to connect to GKE and EKS clusters, and now expands Chainguard’s agentless support to support Google Cloud Run, AWS ECS, and AWS AppRunner.
 
@@ -23,7 +23,7 @@ Before trying out Chainguard Enforce Discovery, ensure that you have the followi
 
 * Terraform, an infrastructure as code tool that allows you to manage cloud infrastructure declaratively, installed on your local machine. Follow the [official Terraform Installation instructions ](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) to set this up.
 * `chainctl` installed on your local machine. For this, check out our guide on [How To Install `chainctl`](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/).
-* An account with one or more cloud providers. Enforce Discovery currently works with GCP and AWS. 
+* An account with one or more cloud providers. Enforce Discovery currently works with GCP and AWS.
 * A Chainguard Enforce Cloud Account Association set up for each of your cloud accounts. This allows the Chainguard Enforce platform to access cloud resources on your behalf. To configure this, follow our guide on [How to Set Up Chainguard Enforce Cloud Account Associations](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/cloud-account-associations/).
 
 
@@ -52,7 +52,7 @@ With that, you can move on to testing out Discovery.
 
 Chainguard Enforce Discovery exposes an API that will return metadata about clusters it encounters, including the cloud provider hosting the cluster, the account associated with the cluster, its location, and its name. It will also return a column labeled `ELIGIBILITY` with each cluster being sorted into one of four categories.
 
-* `unsupported`: we do not currently support this type of cluster. 
+* `unsupported`: we do not currently support this type of cluster.
 * `needs work`: we could support this cluster, but you need to take some steps before it is eligible. If any of your resources fall within this category, `chainctl` will outline what you need to change in order to make them eligible.
 * `eligible`: this cluster is ready to enroll with Chainguard Enforce.
 * `enrolled`: this cluster is already enrolled in Enforce.
@@ -72,24 +72,24 @@ For example, you might run the following command to discover your GKE resources.
 chainctl cluster discover --provider gke
 ```
 ```
-  PROVIDER |   	ACCOUNT    	|  LOCATION  | 	NAME  	| ELIGIBILITY | DETAILS  
+  PROVIDER |       ACCOUNT        |  LOCATION  |     NAME      | ELIGIBILITY | DETAILS
 -----------+----------------------+------------+---------------+-------------+----------
-  	GKE | discovery-edu-375902 | US_CENTRAL | gcp-cluster-1 |	eligible |     	 
-   	GKE | discovery-edu-375902 | US_CENTRAL | gcp-cluster-2 |	eligible |     	 
+       GKE | discovery-edu-375902 | US_CENTRAL | gcp-cluster-1 |	eligible |
+       GKE | discovery-edu-375902 | US_CENTRAL | gcp-cluster-2 |	eligible |
 
 Would you like to enroll 2 eligible clusters?
 
 Do you want to continue? [Y,n]:
 ```
 
-As this example shows, `chainctl` will prompt you to confirm whether you want to enroll all of the eligible resources. If you press `ENTER`, then all of the eligible clusters will be enrolled with Chainguard Enforce. 
+As this example shows, `chainctl` will prompt you to confirm whether you want to enroll all of the eligible resources. If you press `ENTER`, then all of the eligible clusters will be enrolled with Chainguard Enforce.
 
 Be aware that the `discover` subcommand doesn’t currently have a good cleanup mechanism, meaning it doesn't provide a reliable method for deleting non-Kubernetes clusters.
 
 
 ### Option 2 — Chainguard Terraform Provider
 
-The chainguard Terraform provider exposes a new “data source” to drive Chainguard Discovery. You can have Terraform read and use this data by adding the following block to your configuration. 
+The chainguard Terraform provider exposes a new “data source” to drive Chainguard Discovery. You can have Terraform read and use this data by adding the following block to your configuration.
 
 ```
 data "chainguard_cluster_discovery" "gotta-catch-em-all" {
@@ -109,20 +109,19 @@ This will return the Discovery results, which can be piped into other resources 
 
 ```
 resource "chainguard_cluster" "discovery" {
-  for_each = {
-  	for result in data.chainguard_cluster_discovery.gotta-catch-em-all.results :
-     	result.name => result if result.state.0.state == "eligible" || result.state.0.state == "enrolled"
-  }
+  for_each = { for result in data.chainguard_cluster_discovery.gotta-catch-em-all.results : result.name => result }
 
   parent_id = local.group_id
-  name = each.key
+  name = "${lower(each.value.provider)} ${each.key}"
 
+  profiles = ["enforcer"]
+  affinity = each.value.location
   managed {
-	provider = lower(each.value.provider)
-	info {
-  	server = each.value.state.0.server
-  	certificate_authority_data = each.value.state.0.certificate_authority_data
-	}
+    provider = lower(each.value.provider)
+    info {
+      server = each.value.state.0.server
+      certificate_authority_data = each.value.state.0.certificate_authority_data
+    }
   }
 }
 ```
