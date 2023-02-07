@@ -505,16 +505,23 @@
             "type": "string"
           },
           {
-            "description": "ancestors_of are groups reachable by repeated proceeding from parent to child.",
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
             "in": "query",
             "name": "uidp.ancestorsOf",
             "required": false,
             "type": "string"
           },
           {
-            "description": "descendants_of are groups reachable by repeated proceeding from child to parent.",
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
             "in": "query",
             "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
           },
@@ -731,6 +738,47 @@
         ]
       }
     },
+    "/iam/v1/identities/{parentId}": {
+      "post": {
+        "operationId": "Identities_Create",
+        "parameters": [
+          {
+            "description": "parent_id, The Group UIDP path under which the new Identity resides.",
+            "in": "path",
+            "name": "parentId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Identity to create.",
+            "in": "body",
+            "name": "identity",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/iamIdentity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamIdentity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Identities"
+        ]
+      }
+    },
     "/iam/v1/policies": {
       "get": {
         "operationId": "Policies_List",
@@ -743,16 +791,23 @@
             "type": "string"
           },
           {
-            "description": "ancestors_of are groups reachable by repeated proceeding from parent to child.",
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
             "in": "query",
             "name": "uidp.ancestorsOf",
             "required": false,
             "type": "string"
           },
           {
-            "description": "descendants_of are groups reachable by repeated proceeding from child to parent.",
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
             "in": "query",
             "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
           },
@@ -995,6 +1050,27 @@
             "description": "id is the exact UID of the record.",
             "in": "query",
             "name": "id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
           }
@@ -1328,16 +1404,23 @@
             "type": "string"
           },
           {
-            "description": "ancestors_of are groups reachable by repeated proceeding from parent to child.",
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
             "in": "query",
             "name": "uidp.ancestorsOf",
             "required": false,
             "type": "string"
           },
           {
-            "description": "descendants_of are groups reachable by repeated proceeding from child to parent.",
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
             "in": "query",
             "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
           },
@@ -1656,16 +1739,23 @@
             "type": "string"
           },
           {
-            "description": "ancestors_of are groups reachable by repeated proceeding from parent to child.",
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
             "in": "query",
             "name": "uidp.ancestorsOf",
             "required": false,
             "type": "string"
           },
           {
-            "description": "descendants_of are groups reachable by repeated proceeding from child to parent.",
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
             "in": "query",
             "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
           },
@@ -1752,16 +1842,23 @@
             "type": "string"
           },
           {
-            "description": "ancestors_of are groups reachable by repeated proceeding from parent to child.",
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
             "in": "query",
             "name": "uidp.ancestorsOf",
             "required": false,
             "type": "string"
           },
           {
-            "description": "descendants_of are groups reachable by repeated proceeding from child to parent.",
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
             "in": "query",
             "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
           },
@@ -2000,6 +2097,147 @@
           "Clusters"
         ]
       }
+    },
+    "/v1/identities": {
+      "get": {
+        "operationId": "Identities_List",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "id is unique identifier to look up.",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamIdentityList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Identities"
+        ]
+      }
+    },
+    "/v1/identities/{id}": {
+      "delete": {
+        "operationId": "Identities_Delete",
+        "parameters": [
+          {
+            "description": "ID, UIDP of the record.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {},
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Identities"
+        ]
+      },
+      "put": {
+        "operationId": "Identities_Update",
+        "parameters": [
+          {
+            "description": "id is unique identifier of this specific identity.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "claimMatch": {
+                  "$ref": "#/definitions/IdentityClaimMatch",
+                  "description": "claim_match checks the third party IdP token's claims against one\nor more configured patterns."
+                },
+                "description": {
+                  "description": "description, human readable of identity.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "name, human readable name of identity.",
+                  "type": "string"
+                },
+                "static": {
+                  "$ref": "#/definitions/IdentityStaticKeys",
+                  "description": "static is equivalent to literal, but instead of discovering the\nIdP's verification keys we verify the identity using pre-registered\nverification keys.  This is intended for use with identities from\nproviders without an \"online\" issuer (network accessible to our IdP),\nsuch as a KinD/minikube cluster.\nNOTE: because this path does not have a mechanism for key rotation\nthe identity will expire, with a maximum lifetime of 30d."
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamIdentity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Identities"
+        ]
+      }
     }
   },
   "definitions": {
@@ -2126,6 +2364,35 @@
       ],
       "type": "string"
     },
+    "IdentityClaimMatch": {
+      "properties": {
+        "audience": {
+          "description": "audience of OIDC ID tokens issued for this identity.",
+          "type": "string"
+        },
+        "audiencePattern": {
+          "description": "audience_pattern is a regular expression for matching the\ntoken's audience claim.",
+          "type": "string"
+        },
+        "issuer": {
+          "description": "issuer of the OIDC ID tokens issued for this identity.",
+          "type": "string"
+        },
+        "issuerPattern": {
+          "description": "issuer_pattern is a regular expression for matching the\ntoken's issuer claim.",
+          "type": "string"
+        },
+        "subject": {
+          "description": "subject of OIDC ID tokens issued for this identity.",
+          "type": "string"
+        },
+        "subjectPattern": {
+          "description": "subject_pattern is a regular expression for matching the\ntoken's subject claim.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "IdentityMetadataOnboardingQuestions": {
       "properties": {
         "companyName": {
@@ -2136,6 +2403,28 @@
             "type": "string"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "IdentityStaticKeys": {
+      "properties": {
+        "expiration": {
+          "description": "expiration is the time when the issuer_keys will expire.\nDefaults to / Maximum of 30 days after creation time.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "issuer": {
+          "description": "issuer of the OIDC ID tokens issued for this identity.\nMatches the `iss` claim.",
+          "type": "string"
+        },
+        "issuerKeys": {
+          "description": "issuer_keys is JWKS-formatted public keys for the issuer.\nRequired, otherwise use Literal.",
+          "type": "string"
+        },
+        "subject": {
+          "description": "subject of OIDC ID tokens issued for this identity.\nMatches the `sub` claim.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -2318,11 +2607,15 @@
     "commonUIDPFilter": {
       "properties": {
         "ancestorsOf": {
-          "description": "ancestors_of are groups reachable by repeated proceeding from parent to child.",
+          "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+          "type": "string"
+        },
+        "childrenOf": {
+          "description": "children_of are groups reachable by directly proceeding from parent to children.",
           "type": "string"
         },
         "descendantsOf": {
-          "description": "descendants_of are groups reachable by repeated proceeding from child to parent.",
+          "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
           "type": "string"
         }
       },
@@ -2521,6 +2814,42 @@
         "items": {
           "items": {
             "$ref": "#/definitions/iamGroup"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "iamIdentity": {
+      "properties": {
+        "claimMatch": {
+          "$ref": "#/definitions/IdentityClaimMatch",
+          "description": "claim_match checks the third party IdP token's claims against one\nor more configured patterns."
+        },
+        "description": {
+          "description": "description, human readable of identity.",
+          "type": "string"
+        },
+        "id": {
+          "description": "id is unique identifier of this specific identity.",
+          "type": "string"
+        },
+        "name": {
+          "description": "name, human readable name of identity.",
+          "type": "string"
+        },
+        "static": {
+          "$ref": "#/definitions/IdentityStaticKeys",
+          "description": "static is equivalent to literal, but instead of discovering the\nIdP's verification keys we verify the identity using pre-registered\nverification keys.  This is intended for use with identities from\nproviders without an \"online\" issuer (network accessible to our IdP),\nsuch as a KinD/minikube cluster.\nNOTE: because this path does not have a mechanism for key rotation\nthe identity will expire, with a maximum lifetime of 30d."
+        }
+      },
+      "type": "object"
+    },
+    "iamIdentityList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/iamIdentity"
           },
           "type": "array"
         }
@@ -3157,6 +3486,9 @@
     },
     {
       "name": "GroupInvites"
+    },
+    {
+      "name": "Identities"
     },
     {
       "name": "Identities"

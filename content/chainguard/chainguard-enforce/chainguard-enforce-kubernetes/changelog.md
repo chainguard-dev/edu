@@ -2,14 +2,34 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-01-26 18:25:42 +0000 UTC
+date: 2023-02-06 22:40:56 +0000 UTC
 draft: false
 images: []
 weight: 799
 ---
 
 ## Introduction
-Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.66
+Release date: 2023-02-06
+
+Customer facing changes: N/A
+
+### v0.1.65
+Release date: 2023-02-06
+#### Feature
+- chainctl: add sigstore ca describe command
+- Users can now remove rolebinding using `chainctl iam rolebinding delete`
+- chainctl now supports policy versioning! Updating or editing a policy creates a new version. Interact with policy versions using `chainctl policy versions` commands `list`, `view` and `activate`.
+- terraform provider now support managing Enforce Signing certificate authorities with the `chainguard_sigstore` resource
+- Surface a new Identities API and chainguard_identity terraform rule.
+#### Other (Cleanup or Flake)
+- RoleBinding deletion is now "hard", which avoids a problem where deleted rolebindings could not be recreated.
+- chainctl will no longer detect google credentials automatically unless it is in STS mode for the agent, or assuming an identity.
+#### Uncategorized
+- Set the User-Agent for webhooks to `Chainguard Enforce {commit}`.
+
 
 ### v0.1.64
 Release date: 2023-01-26
@@ -231,6 +251,11 @@ Release date: 2022-11-17
 #### Other (Cleanup or Flake)
 - Customers on older versions of chainctl will need to upgrade, and possible upgrade their agent for things like Workload to continue to show up properly in chainctl and the UI.
 - `chainctl iam groups describe` now supports filtering cluster records with `--active-within`.
+
+### v0.1.29
+Release date: 2022-11-28
+
+Customer facing changes: N/A
 
 ### v0.1.28
 Release date: 2022-11-17
