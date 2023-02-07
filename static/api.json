@@ -71,16 +71,23 @@
             "type": "string"
           },
           {
-            "description": "ancestors_of are groups reachable by repeated proceeding from parent to child.",
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
             "in": "query",
             "name": "uidp.ancestorsOf",
             "required": false,
             "type": "string"
           },
           {
-            "description": "descendants_of are groups reachable by repeated proceeding from child to parent.",
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
             "in": "query",
             "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
           }
@@ -121,8 +128,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -233,8 +239,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -477,8 +482,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -569,8 +573,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -855,8 +858,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -1110,8 +1112,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -1280,8 +1281,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -1468,8 +1468,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -1921,8 +1920,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -2167,8 +2165,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -3491,9 +3488,6 @@
       "name": "Identities"
     },
     {
-      "name": "Identities"
-    },
-    {
       "name": "Policies"
     },
     {
@@ -3504,9 +3498,6 @@
     },
     {
       "name": "SigstoreService"
-    },
-    {
-      "name": "Subscriptions"
     },
     {
       "name": "SecurityTokenService"

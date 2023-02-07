@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-02-06 22:40:56 +0000 UTC
+date: 2023-02-07 22:17:50 +0000 UTC
 draft: false
 images: []
 weight: 799
@@ -10,6 +10,23 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.67
+Release date: 2023-02-07
+#### Feature
+- Filter policies and cluster records to a specific image with the `--image` flag.
+- chainctl can now detect when it is running in a github actions environment when assuming an identity via chainctl auth login --identity {ID}
+- add support for precreating identities that can be assumed by more than one identity.
+#### Other (Cleanup or Flake)
+- match upstream workload selector logic and add tests
+- TrustRoot support for the definition of certificate and timestamp authorities and TUF remote references.
+- Error when policies contain unknown fields
+- Support to reference policies via an URL or a ConfigMap. This is especially important when the size of the policy is big.
+- Fix private multi-arch fetchConfigFile
+- Add support for TSA image verification
+- Add support to ignore SCT verification on keyless authorities
+- Improve kms key validations and error messages for awskms
+
 
 ### v0.1.66
 Release date: 2023-02-06
@@ -251,11 +268,6 @@ Release date: 2022-11-17
 #### Other (Cleanup or Flake)
 - Customers on older versions of chainctl will need to upgrade, and possible upgrade their agent for things like Workload to continue to show up properly in chainctl and the UI.
 - `chainctl iam groups describe` now supports filtering cluster records with `--active-within`.
-
-### v0.1.29
-Release date: 2022-11-28
-
-Customer facing changes: N/A
 
 ### v0.1.28
 Release date: 2022-11-17
