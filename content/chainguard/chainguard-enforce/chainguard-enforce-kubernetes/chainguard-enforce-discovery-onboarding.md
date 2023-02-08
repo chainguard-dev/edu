@@ -153,6 +153,7 @@ NOTE: This list will grow over time.
 * `35.237.242.37/32`
 * `35.230.121.20/32`
 
+Note that this list will grow over time.
 ## Learn More
 
 After enrolling your clusters using Chainguard Enforce Discovery, you can use the `chainctl` CLI or the [Enforce web console](https://console.enforce.dev) to interact with them just like any other cluster you have installed Enforce onto.
