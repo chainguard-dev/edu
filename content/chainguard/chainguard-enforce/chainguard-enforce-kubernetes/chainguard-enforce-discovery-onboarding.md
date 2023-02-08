@@ -141,7 +141,7 @@ One instance of where a GKE cluster might be discovered and marked as `needs wor
 ```
 
 To allow Enforce to enroll the discovered cluster, follow the instructions below for the given provider.
-This will only work if the cluster is configured with a public access endpoint that is access controlled.
+Be aware that this will only work if the cluster is configured with a public access endpoint that is access controlled.
 
 * GKE: [Add an authorized network to an existing cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/authorized-networks#add)
 * EKS: [Amazon EKS cluster endpoint access control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html)
