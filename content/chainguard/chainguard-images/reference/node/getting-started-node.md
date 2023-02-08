@@ -33,7 +33,7 @@ This tutorial requires Docker, Node, and Npm to be installed on your local machi
 
 ## Step 1: Setting up a Demo Application
 
-We'll start by creating a basic Node application to serve as a demo. This application uses a mock server to test GET and POST requests, and is based on the [Docker Node example](https://docs.docker.com/language/nodejs/build-images/).
+We'll start by creating a small Node application to serve as a demo. This application uses a mock server to test GET and POST requests, and is based on the [Docker Node example](https://docs.docker.com/language/nodejs/build-images/).
 
 First, create a directory for your app. In this guide we'll use `wolfi-node`:
 
