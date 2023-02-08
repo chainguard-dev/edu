@@ -140,7 +140,7 @@ One instance of where a GKE cluster might be discovered and marked as `needs wor
        GKE | discovery-edu-375902 |    US_WEST | gke-cluster   |  needs work |
 ```
 
-To allow Enforce to enroll the discovered cluster, follow the instructions below for the given provider.
+To allow Enforce to enroll the discovered cluster, follow these instructions for your given provider.
 Be aware that this will only work if the cluster is configured with a public access endpoint that is access controlled.
 
 * GKE: [Add an authorized network to an existing cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/authorized-networks#add)
