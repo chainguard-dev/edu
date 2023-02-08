@@ -16,8 +16,8 @@ toc: true
 `stable` [cgr.dev/chainguard/git](https://github.com/chainguard-images/images/tree/main/images/git)
 | Tags                | Aliases                                                                |
 |---------------------|------------------------------------------------------------------------|
-| `latest`            | 2, 2.39, 2.39.1, 2.39.1-r3                                             |
-| `latest-root`       | root-2, root-2.39, root-2.39.1, root-2.39.1-r3                         |
+| `latest`            | 2, 2.39, 2.39.1, 2.39.1-r4                                             |
+| `latest-root`       | root-2, root-2.39, root-2.39.1, root-2.39.1-r4                         |
 | `latest-glibc`      | glibc-2, glibc-2.39, glibc-2.39.1, glibc-2.39.1-r2                     |
 | `latest-glibc-root` | glibc-root-2, glibc-root-2.39, glibc-root-2.39.1, glibc-root-2.39.1-r2 |
 
