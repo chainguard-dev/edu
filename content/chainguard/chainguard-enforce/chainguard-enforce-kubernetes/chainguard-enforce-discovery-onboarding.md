@@ -130,6 +130,29 @@ When you `terraform apply` this configuration, it will output the set of cluster
 
 To clean things up, you can comment out the resources and re-apply. You can alternatively run the `terraform destroy` command, but beware that this will destroy every remote object managed by your Terraform configuration.
 
+## Authorizing Enforce Access to GKE Cluster
+
+One instance of where a GKE cluster might be discovered and marked as `Needs Work` is the cluster access is only provided to authorized network. 
+
+```
+  PROVIDER |       ACCOUNT        |  LOCATION  |     NAME      | ELIGIBILITY | DETAILS
+-----------+----------------------+------------+---------------+-------------+----------
+       GKE | discovery-edu-375902 |    US_WEST | gke-cluster   |  needs work |
+```
+
+To allow Enforce to enroll the discovered cluster, follow the instructions below for the given provider.
+This will only work if the cluster is configured with a public access endpoint that is access controlled.
+
+* GKE: [Add an authorized network to an existing cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/authorized-networks#add)
+* EKS: [Amazon EKS cluster endpoint access control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html)
+
+The following is a list of CIDR blocks that Enforce will access from.
+NOTE: This list will grow over time.
+
+* `34.132.193.40/32`
+* `35.237.242.37/32`
+* `35.230.121.20/32`
+
 ## Learn More
 
 After enrolling your clusters using Chainguard Enforce Discovery, you can use the `chainctl` CLI or the [Enforce web console](https://console.enforce.dev) to interact with them just like any other cluster you have installed Enforce onto.
