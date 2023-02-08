@@ -132,7 +132,7 @@ To clean things up, you can comment out the resources and re-apply. You can alte
 
 ## Authorizing Enforce Access to GKE Cluster
 
-One instance of where a GKE cluster might be discovered and marked as `Needs Work` is the cluster access is only provided to authorized network. 
+One instance of where a GKE cluster might be discovered and marked as `needs work` is when cluster access is only provided to an authorized network. 
 
 ```
   PROVIDER |       ACCOUNT        |  LOCATION  |     NAME      | ELIGIBILITY | DETAILS
