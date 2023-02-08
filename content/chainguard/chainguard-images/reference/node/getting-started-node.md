@@ -13,7 +13,7 @@ weight: 610
 toc: true
 ---
 
-The Node Chainguard Image is a distroless container image that has the tooling necessary to build and execute Node applications, including  `npm`.
+The [Node Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/reference/node/overview/) is a distroless container image that has the tooling necessary to build and execute Node applications, including  `npm`.
 
 In this guide, we'll set up a demo application and create a Dockerfile to build and execute the demo using the Node Chainguard Image as base.
 
@@ -105,7 +105,7 @@ You'll get output similar to this:
 {"code":"success","meta":{"total":1,"count":1},"payload":[{"msg":"testing","id":"f427f835-3e93-43ad-91c8-d150dffba0f9","createDate":"2023-02-07T14:48:54.256Z"}]}
 ```
 
-The demo application is now ready. In the next step, you'll create a Dockerfile to run your app.
+The demo application is now ready. In the next step, you'll create a Dockerfile to run your app. Before moving along, make sure to stop the server running on your terminal by typing `CTRL+C` (or `CMD+C` for macOS users).
 
 ## Step 2: Creating the Dockerfile
 
