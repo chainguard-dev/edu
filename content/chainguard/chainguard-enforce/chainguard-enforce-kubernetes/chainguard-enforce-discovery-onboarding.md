@@ -147,7 +147,6 @@ Be aware that this will only work if the cluster is configured with a public acc
 * EKS: [Amazon EKS cluster endpoint access control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html)
 
 The following is a list of CIDR blocks that Enforce will access from.
-NOTE: This list will grow over time.
 
 * `34.132.193.40/32`
 * `35.237.242.37/32`
