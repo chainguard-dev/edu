@@ -42,7 +42,7 @@ In the example manifest above, the  `config` field contains the custom `mediaTyp
 
 Some container tools make use of the OCI Artifacts format guidelines (such as Helm and Tekton), but using these guidelines comes with a serious drawback. Not all registries support OCI Artifacts (or manifests with a custom `mediaType`), and the [OCI Image Specification](https://github.com/opencontainers/image-spec) recommends avoiding the use of Artifacts if you are concerned about portability. As you will read about in the section below, this lack of portability is a reason why some software projects choose to store artifacts in an OCI registry without adding a custom `mediaType` to the manifest.
 
-## OCI artifacts and Software Supply Chain Security 
+## OCI artifacts and software supply chain security 
 For software supply chain security, OCI artifacts offer a useful way to store [SBOMs](​​https://edu.chainguard.dev/open-source/sbom/what-is-an-sbom/) and signatures inside a container registry. 
 
 An **SBOM**, or software bill of materials, is a formally structured list of libraries, modules, licensing, and version information that make up any given piece of software. When a security advisory is issued, SBOMs enable software operators to quickly understand whether their codebase contains any components associated with the vulnerability described in the advisory. A [**signature**](https://edu.chainguard.dev/open-source/sigstore/cosign/an-introduction-to-cosign/) is a way of attesting to the fact that you are the author of your software, and enables the consumer to verify that the signature and software have not been tampered with by a third party.
