@@ -5,7 +5,7 @@ lead: "A guide to SBOM quality"
 type: "article"
 date: 2023-01-30T15:21:01+02:00
 lastmod: 2023-01-30T15:21:01+02:00
-draft: true
+draft: false
 images: []
 menu:
   docs:
@@ -15,7 +15,9 @@ toc: true
 terminalImage: academy/vexctl:latest
 ---
 
-The `vexctl` CLI is a tool to make VEX work. That is, you can use it to create, apply, and attest VEX (Vulnerability Exploitability eXchange) data. Its purpose is to help with the creation and management of VEX documents that allow "turning off" security scanner alerts of vulnerabilities known not to affect a product. Using VEX, software authors can communicate to their users that an otherwise vulnerable component has no security implications for their product.
+The `vexctl` CLI is a tool to make VEX work. That is, you can use it to create, apply, and attest VEX (Vulnerability Exploitability eXchange) data.
+
+The `vexctl` tool was built to help with the creation and management of VEX documents, communicate transparently to users as time progresses, and enabling the "turning off" of security scanner alerts of vulnerabilities known not to affect a given product. Using VEX, software authors can communicate to their users that an otherwise vulnerable component has no security implications for their product.
 
 This tutorial will walk you through some common commands in `vexctl`.
 
@@ -224,59 +226,29 @@ Successfully verified SCT...
 
 This attestation with `.att` extension will now live in the container registry as an attachment to your container. 
 
-## Filtering Statements in VEX Documents or Attestations
+## Chronology and VEX Documents
 
-Using statements in a VEX document or from an attestation, `vexctl` will filter
-security scanner results to remove _VEX'ed out_ entries.
+Assessing the impact of CVEs on a software product is process that takes time, and the status will change over time. VEX is designed to communicate with users as time progresses, and there may therefore be multiple VEX documents associated with a product. 
 
+To understand how this may work in practice, below is an example timeline for the VEX documents associated with a given product and CVE.
 
+1. The software product _Inky App_ becomes aware of `CVE-2014-123456`, associated with one of its components.
+2. _Inky App_ developers issue a VEX data file with a status of `under_investigation` to inform their users that they are aware of the CVE, but are reviewing whether it has an impact on _Inky App_.
+3. After investigation, the developers determine the CVE has no impact on _Inky App_ because the vulnerable function in the component is never executed.
+4. The developers issue a second VEX document with a status of `not_affected` using the `vulnerable_code_not_in_execute_path` justification.
 
-```shell
-# From a VEX file:
-vexctl filter scan_results.sarif.json vex_data.csaf
+When analyzing the VEX documents associated with _Inky App_, `vexctl` will review them chronologically and "replay" the known impact statuses in the order they were found, effectively computing the `not_affected` status.
 
-# From a stored VEX attestation:
-vexctl filter scan_results.sarif.json cgr.dev/image@sha256:e4cf37d568d195b4b5af4c36a...
-```
+If a SARIF report is formatted as a VEX document with `vexctl`, any entries alerting of `CVE-2014-123456` will be filtered out.
 
-The output from both examples will be the same: the SARIF result data, but
-without the vulnerabilities that were stated as not exploitable:
+## Learn More
 
-```json
-{
-  "version": "2.1.0",
-  "$schema": "https://json.schemastore.org/sarif-2.1.0-rtm.5.json",
-  "runs": [
-    {
-      "tool": {
-        "driver": {
-          "fullName": "Trivy Vulnerability Scanner",
-          "informationUri": "https://github.com/aquasecurity/trivy",
-          "name": "Trivy",
-          "rules": [
+The `vexctl` tool is open source, you can review the [`vexctl` repository on GitHub](https://github.com/openvex/vexctl), as well as the [`go-vex` Go library](https://github.com/openvex/go-vex) for generating, consuming, and operating on VEX documents.
 
-```
+The following blog posts have some background about VEX and OpenVEX:
 
-We support results files in SARIF for now. We plan to add support for the
-proprietary formats of the most popular scanners.
+* [Putting VEX To Work](https://www.chainguard.dev/unchained/putting-vex-to-work)
+* [Reflections on Trusting VEX (or when humans can improve SBOMs)](https://www.chainguard.dev/unchained/reflections-on-trusting-vex-or-when-humans-can-improve-sboms)
+* [Understanding The Promise of VEX](https://www.chainguard.dev/unchained/understanding-the-promise-of-vex)
 
-### Multiple VEX Files
-
-Assessing impact is process that takes time. VEX is designed to
-communicate with users as time progresses. An example timeline may look like
-this:
-
-1. A project becomes aware of `CVE-2014-123456`, associated with one of its components.
-2. Developers issue a VEX data file with a status of `under_investigation` to
-inform their users they are aware of the CVE but are checking what impact it has.
-3. After investigation, the developers determine the CVE has no impact
-in their project because the vulnerable function in the component is never executed.
-4. They issue a second VEX document with a status of `not_affected` and using
-the `vulnerable_code_not_in_execute_path` justification.
-
-`vexctl` will read all the documents in chronological order and "replay" the
-known impacts statuses the order they were found, effectively computing the
-`not_affected` status.
-
-If a SARIF report is VEX'ed with `vexctl` any entries alerting of `CVE-2014-123456`
-will be filtered out.
+The [OpenVEX Specification](https://github.com/openvex/spec/blob/main/OPENVEX-SPEC.md) is owned and steered by the community. You can find the organization page with additional repostiories at [openvex.dev](https://openvex.dev).
