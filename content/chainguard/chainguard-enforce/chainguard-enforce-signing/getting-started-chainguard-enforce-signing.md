@@ -28,9 +28,9 @@ In addition to having access to Chainguard Enforce (which you can request via ou
 * [Go](https://go.dev/doc/install), version 1.19.3 or above
 * [Cosign, version 2.0.0-rc.1](/open-source/sigstore/cosign/how-to-install-cosign/#installing-a-cosign-pre-release-with-go) or above
 * [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli), version 1.2.8 or above
-* The [Chainguard command line tool `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/), version 0.1.
+* The [Chainguard command line tool `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/), version 0.1 or above.
 
-With these tools and setup in place you are reading to begin.
+With these tools and setup in place you are ready to begin.
 
 
 ## Step 1 — Setting Up Account Association
