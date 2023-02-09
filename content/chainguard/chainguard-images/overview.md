@@ -18,12 +18,12 @@ toc: true
 
 Many of the images are distroless; they contain only an application and its runtime dependencies. These images do not even contain a shell or package manager.
 
-Most of the images are built with [Wolfi](/open-source/wolfi/overview), our Linux _undistro_ designed from the ground up to produce container images that meet the requirements of a secure software supply chain.
+Chainguard Images are built with [Wolfi](/open-source/wolfi/overview), our Linux _undistro_ designed from the ground up to produce container images that meet the requirements of a secure software supply chain.
 
 Main features include:
 
 - Minimalist design, no bloating from unnecessary software
-- Build-time SBOMs (software bill of materials) attesting the provenance of all artifacts within the image
+- High quality build-time SBOMs (software bill of materials) attesting the provenance of all artifacts within the image
 - Verifiable signatures provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
 - Automated nightly builds to ensure images are completely up-to-date and contain all available security patches
 

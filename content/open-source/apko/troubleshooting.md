@@ -37,7 +37,9 @@ There are two main root causes for this error, which we'll explain in more detai
 - apk cannot find the apk index for your custom-built packages.
 
 ### The requested package is not in the included repositories
-For Alpine packages, make sure you've added the relevant package repositories you need and the package name is correct — search the [Alpine APK index](https://pkgs.alpinelinux.org/packages) for reference.
+Make sure you've added the relevant package repositories you need and the package name is correct.
+Check the [Wolfi repository](https://github.com/wolfi-dev/os) for available packages if you are building Wolfi images,
+or the [Alpine APK index](https://pkgs.alpinelinux.org/packages) if you are using Alpine as base.
 
 If this is your case, you should find error messages similar to this when enabling debug info with the `--debug` flag:
 
