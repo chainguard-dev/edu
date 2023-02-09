@@ -57,7 +57,7 @@ You can optionally use a `--key-algorithm` flag in the command above. Without it
 Once you’ve set up your CA, keep its resource name readily available. You may have to click **View CA certificate** in the Console user interface to find the resource name, under **Resource name**. It is expected to be in a format similar to the following, with the variables referring to your own project details.
 
 ```sh
-projects/$PROJECT_ID/locations/$LOCATION/caPools/$POOL_NAME/certificateAuthorities/$CA_ID
+projects/$PROJECT_ID/locations/$LOCATION/caPools/$POOL_NAME/certificateAuthorities/$ROOT_CA_NAME
 ```
 
 With this set up, you're ready to set up your own instance of Chainguard Enforce Signing.
