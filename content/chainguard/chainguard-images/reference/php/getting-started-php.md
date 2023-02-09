@@ -13,7 +13,7 @@ weight: 610
 toc: true
 ---
 
-The PHP images maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running command-line PHP workloads.
+The PHP images maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running PHP workloads.
 
 Because PHP applications typically require the installation of third-party dependencies via Composer, using a pure distroless image for building your application would not work. In cases like this, you'll need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses one of the `-dev` images to set up the application.
 
