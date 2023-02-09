@@ -1,0 +1,5 @@
+<p>If your use case requires a more specific set of packages that the general-purpose {{ .Get "image" }} Chainguard Image doesn't provide, you'll first need to check if the package you want is already available for Wolfi.</p>
+
+<p>Check the <a href="https://github.com/wolfi-dev/os" title="Wolfi on GitHub">Wolfi</a> distro repository. If the package you want is there, you can use the <a href="/chainguard/chainguard-images/reference/wolfi-base/overview" title="Overview of wolfi-base image">wolfi-base</a> image in a Dockerfile and install what you need with <code>apk</code>, then use the resulting image as base for your app.</p>
+
+<p>If the packages you need are not available, you can build your own apks using <a href="/open-source/melange/overview">melange</a>. Please refer to <a href="/open-source/melange/tutorials/getting-started-with-melange">this guide</a> for more information.</p>
