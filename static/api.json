@@ -782,6 +782,186 @@
         ]
       }
     },
+    "/iam/v1/identityProviders": {
+      "get": {
+        "operationId": "IdentityProviders_List",
+        "parameters": [
+          {
+            "description": "Exact match on identity provider UIDP",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Exact match on identity provider name",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamIdentityProviderList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "IdentityProviders"
+        ]
+      }
+    },
+    "/iam/v1/identityProviders/{id}": {
+      "delete": {
+        "operationId": "IdentityProviders_Delete",
+        "parameters": [
+          {
+            "description": "id is the exact UIDP of the IdP",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "IdentityProviders"
+        ]
+      },
+      "put": {
+        "operationId": "IdentityProviders_Update",
+        "parameters": [
+          {
+            "description": "id is unique identifier of this specific identity provider",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "oidc": {
+                  "$ref": "#/definitions/IdentityProviderOIDC"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamIdentityProvider"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "IdentityProviders"
+        ]
+      }
+    },
+    "/iam/v1/identityProviders/{parentId}": {
+      "post": {
+        "operationId": "IdentityProviders_Create",
+        "parameters": [
+          {
+            "description": "parent_id is the exact UIDP of the IAM group to nest this identity provider under",
+            "in": "path",
+            "name": "parentId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "identityProvider",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/iamIdentityProvider"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamIdentityProvider"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "IdentityProviders"
+        ]
+      }
+    },
     "/iam/v1/policies": {
       "get": {
         "operationId": "Policies_List",
@@ -2404,6 +2584,28 @@
       },
       "type": "object"
     },
+    "IdentityProviderOIDC": {
+      "properties": {
+        "additionalScopes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Additional scopes to request for ID tokens",
+          "type": "array"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "clientSecret": {
+          "type": "string"
+        },
+        "issuer": {
+          "title": "Issuer URL (e.g https://accounts.google.com)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "IdentityStaticKeys": {
       "properties": {
         "expiration": {
@@ -2847,6 +3049,35 @@
         "items": {
           "items": {
             "$ref": "#/definitions/iamIdentity"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "iamIdentityProvider": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "title": "id is unique identifier of this specific identity provider",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "oidc": {
+          "$ref": "#/definitions/IdentityProviderOIDC"
+        }
+      },
+      "type": "object"
+    },
+    "iamIdentityProviderList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/iamIdentityProvider"
           },
           "type": "array"
         }
@@ -3486,6 +3717,9 @@
     },
     {
       "name": "Identities"
+    },
+    {
+      "name": "IdentityProviders"
     },
     {
       "name": "Policies"
