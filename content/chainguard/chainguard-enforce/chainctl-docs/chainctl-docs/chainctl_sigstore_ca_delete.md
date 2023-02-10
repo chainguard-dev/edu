@@ -1,5 +1,5 @@
 ---
-date: 2023-02-07T22:33:14Z
+date: 2023-02-09T23:08:02Z
 title: "chainctl sigstore ca delete"
 slug: chainctl_sigstore_ca_delete
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_ca_delete/
