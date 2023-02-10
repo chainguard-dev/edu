@@ -15,7 +15,7 @@ toc: true
 terminalImage: academy/vexctl:latest
 ---
 
-The `vexctl` CLI is a tool to make VEX work. That is, you can use it to create, apply, and attest VEX (Vulnerability Exploitability eXchange) data.
+The `vexctl` CLI is a tool to make VEX work. As part of the open source [OpenVex](https://edu.chainguard.dev/open-source/sbom/what-is-openvex/) project, `vexctl` enables you to create, apply, and attest VEX (Vulnerability Exploitability eXchange) data in order to filter out false positive security alerts. 
 
 The `vexctl` tool was built to help with the creation and management of VEX documents, communicate transparently to users as time progresses, and enable the "turning off" of security scanner alerts of vulnerabilities known not to affect a given product. Using VEX, software authors can communicate to their users that an otherwise vulnerable component has no security implications for their product.
 
@@ -116,7 +116,7 @@ The above workflow demonstrates how to create a VEX document with `vexctl` on th
 
 When more than one stakeholder is issuing VEX metadata about a piece of software, `vexctl` can merge the documents to get the most up-to-date impact assessment of a vulnerability. 
 
-Let's begin with two test documents.
+Let's begin with two test documents. (If you want to try this example in the terminal, you will need to create the example documents first.)
 
 The first document is `document1.vex.json`:
 
@@ -204,7 +204,7 @@ This final document tells the whole story of how `CVE-2014-123456` was `under_in
 
 To attest to and attach VEX statements within a given document to a container image, you can use the `vexctl attest` command with the `--attach` and `--sign` flags.
 
-For example, if you have a container image `your-username/your-container-image:latest` in a container registry, and a related VEX document `hello.vex.json`, you can run the following command to attest to that document, attach the document and sign that attestation.
+For example, if you have a container image `your-username/your-container-image:latest` in a container registry, and a related VEX document `hello.vex.json`, you can run the following command to attest to that document, attach the document and sign that attestation. (If you want to try this example in your terminal, make sure to replace `your-username/your-container-image:latest` with the path to your container.)
 
 ```sh
 vexctl attest --attach --sign hello.vex.json your-username/your-container-image:latest
@@ -228,7 +228,7 @@ This attestation with `.att` extension will now live in the container registry a
 
 ## Chronology and VEX Documents
 
-Assessing the impact of CVEs on a software product is process that takes time, and the status will change over time. VEX is designed to communicate with users as time progresses, and there may therefore be multiple VEX documents associated with a product. 
+Assessing the impact of CVEs on a software product is process that takes time and the status will change over time. VEX is designed to communicate with users as the status changes, and there may therefore be multiple VEX documents associated with a product. 
 
 To understand how this may work in practice, below is an example timeline for the VEX documents associated with a given product and CVE.
 
@@ -247,6 +247,7 @@ The `vexctl` tool is open source, you can review the [`vexctl` repository on Git
 
 The following blog posts have some background about VEX and OpenVEX:
 
+* [What is OpenVex](https://edu.chainguard.dev/open-source/sbom/what-is-openvex/)
 * [Putting VEX To Work](https://www.chainguard.dev/unchained/putting-vex-to-work)
 * [Reflections on Trusting VEX (or when humans can improve SBOMs)](https://www.chainguard.dev/unchained/reflections-on-trusting-vex-or-when-humans-can-improve-sboms)
 * [Understanding The Promise of VEX](https://www.chainguard.dev/unchained/understanding-the-promise-of-vex)
