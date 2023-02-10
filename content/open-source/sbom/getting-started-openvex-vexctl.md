@@ -17,7 +17,7 @@ terminalImage: academy/vexctl:latest
 
 The `vexctl` CLI is a tool to make VEX work. That is, you can use it to create, apply, and attest VEX (Vulnerability Exploitability eXchange) data.
 
-The `vexctl` tool was built to help with the creation and management of VEX documents, communicate transparently to users as time progresses, and enabling the "turning off" of security scanner alerts of vulnerabilities known not to affect a given product. Using VEX, software authors can communicate to their users that an otherwise vulnerable component has no security implications for their product.
+The `vexctl` tool was built to help with the creation and management of VEX documents, communicate transparently to users as time progresses, and enable the "turning off" of security scanner alerts of vulnerabilities known not to affect a given product. Using VEX, software authors can communicate to their users that an otherwise vulnerable component has no security implications for their product.
 
 This tutorial will walk you through some common commands in `vexctl`.
 
@@ -25,7 +25,7 @@ This tutorial will walk you through some common commands in `vexctl`.
 
 If you would like to install `vexctl` on your local or virtual machine, you will need Go 1.16 or higher. You can install by following the official [Go documentation](https://go.dev/doc/install). 
 
-Using Go, can run the following to install `vexctl`:
+Using Go, run the following to install `vexctl`:
 
 ```sh
 go install github.com/openvex/vexctl@latest
@@ -104,7 +104,7 @@ The `vexctl create` command above renders the following document.
 
 ```
 
-You can also create a VEX document with abbreviated information. For instance, when a given CVE was addressed in the image, and you want to attested that it has been fixed.
+You can also create a VEX document with abbreviated information. For instance, when a given CVE was addressed in the image and you want to attest that it has been fixed.
 
 ```sh
 vexctl create "pkg:apk/wolfi/git@2.39.0-r1?arch=x86_64" CVE-2023-12345 fixed
