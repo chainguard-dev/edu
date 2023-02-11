@@ -57,6 +57,8 @@ Chainguard Enforce Discovery exposes an API that will return metadata about clus
 * `eligible`: this cluster is ready to enroll with Chainguard Enforce.
 * `enrolled`: this cluster is already enrolled in Enforce.
 
+In order for a cluster to be eligible, it must either have a public endpoint with no access control or, if it does have access control, it must give Chainguard Enforce access. If a cluster isn't supported, it's typically because of locked down control planes; for example, bastion or control plane authorized networks on GKE.
+
 There are currently two options for how you can use Discovery: using the `chainctl cluster discover` command or the Chainguard Terraform provider.
 
 
@@ -140,8 +142,7 @@ One instance of where a GKE cluster might be discovered and marked as `needs wor
        GKE | discovery-edu-375902 |    US_WEST | gke-cluster   |  needs work |
 ```
 
-To allow Enforce to enroll the discovered cluster, follow these instructions for your given provider.
-Be aware that this will only work if the cluster is configured with a public access endpoint that is access controlled.
+To allow Enforce to enroll the discovered cluster, follow these instructions for your given provider. Be aware that this will only work if the cluster is configured with a public access endpoint that is access controlled.
 
 * GKE: [Add an authorized network to an existing cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/authorized-networks#add)
 * EKS: [Amazon EKS cluster endpoint access control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html)
@@ -153,6 +154,8 @@ The following is a list of CIDR blocks that Enforce will access from.
 * `35.230.121.20/32`
 
 Note that this list will grow over time.
+
+
 ## Learn More
 
 After enrolling your clusters using Chainguard Enforce Discovery, you can use the `chainctl` CLI or the [Enforce web console](https://console.enforce.dev) to interact with them just like any other cluster you have installed Enforce onto.

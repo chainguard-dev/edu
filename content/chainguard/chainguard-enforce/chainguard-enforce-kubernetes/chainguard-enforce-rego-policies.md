@@ -180,6 +180,38 @@ Here, the policy defines a variable for the `maximum_age`, in this case set to `
 
 Within the `isCompliant` braces, the Rego policy leverages `time` to evaluate whether the current time is less than the maximum allowed age. To review the different methods of implementing `time` within Rego, review the [Time reference documentation](https://www.openpolicyagent.org/docs/latest/policy-reference/#time).
 
+
+## Rego Policy that Defines Custom Error and Warning Messages
+
+Rego policies have the added benefit of allowing you to define custom error and warning messages. 
+
+This example `attestations` block requires clusters to have a vulnerability report in order to be deemed compliant. It also defines two string values — `errorMsg` and `warnMsg` — which will serve as an error and warning message, respectively. 
+
+```
+  attestations:
+    - name: must-have-vuln-report
+      predicateType: vuln
+      policy:
+        type: rego
+        data: |
+          package sigstore
+          isCompliant[response] {
+            result = (input.predicateType == "cosign.sigstore.dev/attestation/vuln/v1")
+            errorMsg = ""
+            warnMsg = "WARNING: Found an attestation with predicate type 'cosign.sigstore.dev/attestation/vuln/v1'"
+            response := {
+              "result" : result,
+              "error" : errorMsg,
+              "warning" : warnMsg
+            }
+          }
+```
+
+In this case, the custom error message is an empty string, while the custom warning reads `WARNING: Found an attestation with predicate type 'cosign.sigstore.dev/attestation/vuln/v1'`. Rather than returning the default error or warning, this policy will return these strings.
+
+Defining custom error and warning messages with Rego can help with troubleshooting, as they can point to a specific policy issues that otherwise may not be clearly understandable.
+
+
 ## Learn More
 
 Within the [Chainguard Enforce Policy Catalog](https://console.enforce.dev/policies/catalog), you have access to more Rego policy templates that you can use directly or modify. These include enforcing SBOM attestation, enforcing a signed vulnerability attestation, and disallowing host namespaces.  
