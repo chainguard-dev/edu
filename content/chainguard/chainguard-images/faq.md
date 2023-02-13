@@ -13,8 +13,9 @@ weight: 500
 toc: true
 ---
 
-### Are Chainguard Images based on Alpine?
-No. Chainguard images are based on [Wolfi](/open-source/wolfi/), a Linux _undistro_ we built specifically to address software supply chain security issues.
+### Which Linux distribution is used as base for Chainguard Images?
+Chainguard images are based on [Wolfi](/open-source/wolfi/), a Linux _undistro_ we built specifically to address software supply chain security issues.
+We do have some images with Alpine-based variants in order to support musl or unusual architectures.
 
 ### How do Chainguard Images relate to the Google Distroless Images?
 The [Google distroless](https://github.com/GoogleContainerTools/distroless) images follow a similar
@@ -39,5 +40,8 @@ SBOMs provide visibility into the software you depend on. They can allow automat
 [Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs) are officially maintained by [Chainguard](https://chainguard.dev) employees, but they are also open source, which means any community member is welcome to suggest improvements.
 
 ### Can I simply replace my current base image with a Chainguard Image and it will work out of the box?
-Most Chainguard Images are distroless, which means they are minimalist and most of them don't come with a package manager. Depending on your stack, you may need to include additional software by copying artifacts from multi-stage builds.
+Chainguard Images are designed to be minimalist, and many of them are distroless, which means they don't come with a package manager. Depending on your stack and specific dependencies, you may need to include additional software by combining development images and distroless images in a multi-stage Docker build.
+
+### How often are Chainguard Images updated?
+Chainguard Images are rebuilt every night to ensure that new package versions and security updates in upstream Wolfi are quickly applied.
 
