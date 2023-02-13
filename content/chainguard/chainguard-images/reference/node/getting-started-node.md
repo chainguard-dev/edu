@@ -169,8 +169,4 @@ curl http://localhost:8000/test
 
 ## Advanced Usage
 
-If your use case requires a more specific set of packages that the general-purpose Node Chainguard Image doesn't provide, you'll first need to check if the package you need is already available for Wolfi.
-
-Check the [Wolfi](https://github.com/wolfi-dev/os) distro repository. If the package you want is there, you can use the [wolfi-base](/chainguard/chainguard-images/reference/wolfi-base/overview) image in a Dockerfile and install what you need with `apk`, then use the resulting image as base for your app.
-
-If the packages you need are not available, you can build your own apks using [melange](/open-source/melange/overview). Please refer to [this guide](/open-source/melange/tutorials/getting-started-with-melange/) for more information.
+{{< blurb/images-advanced image="Node" >}}

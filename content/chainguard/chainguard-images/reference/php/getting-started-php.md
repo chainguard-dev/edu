@@ -1,7 +1,7 @@
 ---
-title: "Getting Started with PHP Chainguard Images"
+title: "Getting Started with the PHP Chainguard Image"
 type: "article"
-description: "Tutorial on how to get started with PHP Chainguard Images"
+description: "Tutorial on how to get started with the PHP Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
 lastmod: 2023-01-19T11:07:52+02:00
 draft: false
@@ -13,22 +13,22 @@ weight: 610
 toc: true
 ---
 
-The PHP images maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running command-line PHP workloads.
+The PHP images maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running PHP workloads.
 
 Because PHP applications typically require the installation of third-party dependencies via Composer, using a pure distroless image for building your application would not work. In cases like this, you'll need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses one of the `-dev` images to set up the application.
 
 In this guide, we'll set up a distroless container image based on Wolfi as a runtime to execute a command-line PHP application.
 
 {{< details "What is distroless" >}}
-Distroless images are minimalist container images containing only essential software required to build or execute an application. That means no package manager, no shell, and no bloat from software that only makes sense on bare metal servers.
+{{< blurb/distroless >}}
 {{< /details >}}
 
 {{< details "What is Wolfi" >}}
-Wolfi is a community Linux undistro created specifically for containers. This brings distroless to a new level, including additional features targeted at securing the software supply chain of your application environment: comprehensive SBOMs, signatures, daily updates, and timely CVE fixes.
+{{< blurb/wolfi >}}
 {{< /details >}}
 
 {{< details "Chainguard Images" >}}
-[Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs) are a mix of distroless and development images that have glibc (Wolfi-based) and Musl (Alpine-based) variants.
+{{< blurb/images >}}
 {{< /details >}}
 
 ## Step 1: Setting up a Demo Application
@@ -210,10 +210,4 @@ It's worth highlighting that nothing is carried from one stage to the other unle
 
 ## Advanced Usage
 
-If your use case requires a more specific set of packages that the general-purpose PHP Chainguard Images don't provide, you'll first need to check if the package you need is available for the base distro you choose.
-
-For Wolfi-based images, check the [Wolfi](https://github.com/wolfi-dev/os) distro repository. If the package you want is there, you can use the [wolfi-base](/chainguard/chainguard-images/reference/wolfi-base/overview) image in a Dockerfile and install what you need with `apk`, then use the resulting image as base for your app.
-
-For Alpine-based images, if the packages you need are available in the [Alpine](https://pkgs.alpinelinux.org/packages) repositories, you can use the [alpine-base](/chainguard/chainguard-images/reference/alpine-base/overview) image in a Dockerfile and install what you need with `apk`, then use the resulting image as the base for your app.
-
-If the packages you need are not available for your your base distro of choice, you can build your own apks using [melange](/open-source/melange/overview). Please refer to [this guide](/open-source/melange/tutorials/getting-started-with-melange/) for more information.
+{{< blurb/images-advanced image="PHP" >}}
