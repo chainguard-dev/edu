@@ -60,12 +60,7 @@ You should get output similar to this:
 apko
 
 GitVersion:    v0.6.0
-GitCommit:     unknown
-GitTreeState:  unknown
-BuildDate:     unknown
-GoVersion:     go1.19.4
-Compiler:      gc
-Platform:      linux/amd64
+...
 ```
 
 In the next step, you'll build your first apko image.
@@ -128,37 +123,7 @@ You should get output similar to this:
 Feb  8 17:21:33.665 [INFO] loading config file: wolfi-base.yaml
 Feb  8 17:21:33.666 [INFO] [arch:x86_64] WARNING: ignoring archs in config, only building for current arch (amd64)
 Feb  8 17:21:33.666 [INFO] [arch:x86_64] building image 'wolfi-base:test'
-Feb  8 17:21:33.666 [INFO] [arch:x86_64] build context:
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]   working directory: /tmp/apko-2993726922
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]   tarball path:
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]   use proot: false
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]   source date: 1970-01-01 00:00:00 +0000 UTC
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]   Docker mediatypes: false
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]   SBOM output path: /work
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]   arch: x86_64
-Feb  8 17:21:33.666 [INFO] [arch:x86_64] image configuration:
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]   contents:
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]     repositories: [https://packages.wolfi.dev/os]
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]     keyring:      [https://packages.wolfi.dev/os/wolfi-signing.rsa.pub]
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]     packages:     [ca-certificates-bundle wolfi-base]
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]   entrypoint:
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]     type:
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]     command:     /bin/sh -l
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]     service: map[]
-Feb  8 17:21:33.666 [INFO] [arch:x86_64]     shell fragment:
-Feb  8 17:21:33.666 [INFO] [arch:x86_64] doing pre-flight checks
-Feb  8 17:21:33.666 [INFO] [arch:x86_64] building image fileystem in /tmp/apko-2993726922
-Feb  8 17:21:33.666 [INFO] [arch:x86_64] initializing apk database
-Feb  8 17:21:33.667 [INFO] [arch:x86_64] [cmd:apk] [use-proot:false] [use-qemu:] running: /sbin/apk add --initdb --arch x86_64 --root /tmp/apko-2993726922
-Feb  8 17:21:33.677 [INFO] [arch:x86_64] initializing apk world
-Feb  8 17:21:33.677 [INFO] [arch:x86_64] initializing apk keyring
-Feb  8 17:21:33.677 [INFO] [arch:x86_64] initializing apk repositories
-Feb  8 17:21:33.916 [INFO] [arch:x86_64] synchronizing with desired apk world
-Feb  8 17:21:33.916 [INFO] [arch:x86_64] [cmd:apk] [use-proot:false] [use-qemu:] running: /sbin/apk fix --root /tmp/apko-2993726922 --no-scripts --no-cache --update-cache --arch x86_64
-Feb  8 17:21:41.757 [INFO] [arch:x86_64] [cmd:/bin/busybox] [use-proot:false] [use-qemu:] running: /usr/sbin/chroot /tmp/apko-2993726922 /bin/busybox --install -s
-Feb  8 17:21:41.765 [INFO] [arch:x86_64] [cmd:/sbin/ldconfig] [use-proot:false] [use-qemu:] running: /usr/sbin/chroot /tmp/apko-2993726922 /sbin/ldconfig -v /lib
-Feb  8 17:21:41.772 [WARNING] [arch:x86_64] did not generate /etc/os-release: already present
-Feb  8 17:21:41.772 [INFO] [arch:x86_64] generating supervision tree
+...
 Feb  8 17:21:41.772 [INFO] [arch:x86_64] finished building filesystem in /tmp/apko-2993726922
 Feb  8 17:21:41.845 [INFO] [arch:x86_64] built image layer tarball as /tmp/apko-temp-3502723090/apko-x86_64.tar.gz
 &{ID:wolfi IDLike: Name:Wolfi PrettyName:Wolfi Version: VersionID:20230201 VersionCodename:}Feb  8 17:21:41.955 [INFO] [arch:x86_64] building OCI image from layer '/tmp/apko-temp-3502723090/apko-x86_64.tar.gz'
