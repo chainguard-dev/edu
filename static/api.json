@@ -3091,7 +3091,7 @@
           "type": "string"
         },
         "keyRef": {
-          "title": "key_ref is a reference to the signing key used for this CA\nmost likely a KMS key prefixed with gcpkms://, awskms://, azurekms:// etc\nand the relevant resource name",
+          "title": "key_ref is a unique reference to the signing key used for this CA\nmost likely a KMS key prefixed with gcpkms://, awskms://, azurekms:// etc\nand the relevant resource name",
           "type": "string"
         }
       },
