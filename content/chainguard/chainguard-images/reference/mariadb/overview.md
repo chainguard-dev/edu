@@ -16,7 +16,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/mariadb](https://github.com/chainguard-images/images/tree/main/images/mariadb)
 | Tags     | Aliases                       |
 |----------|-------------------------------|
-| `latest` | 10, 10.6, 10.6.11, 10.6.11-r3 |
+| `latest` | 10, 10.6, 10.6.12, 10.6.12-r1 |
 
 
 

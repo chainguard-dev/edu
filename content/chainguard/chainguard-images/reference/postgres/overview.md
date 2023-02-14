@@ -16,7 +16,7 @@ toc: true
 `stable` [cgr.dev/chainguard/postgres](https://github.com/chainguard-images/images/tree/main/images/postgres)
 | Tags     | Aliases           |
 |----------|-------------------|
-| `latest` | 15, 15.1, 15.1-r1 |
+| `latest` | 15, 15.2, 15.2-r0 |
 
 
 
