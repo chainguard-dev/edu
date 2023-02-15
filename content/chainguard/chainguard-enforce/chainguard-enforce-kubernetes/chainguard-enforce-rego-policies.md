@@ -180,6 +180,62 @@ Here, the policy defines a variable for the `maximum_age`, in this case set to `
 
 Within the `isCompliant` braces, the Rego policy leverages `time` to evaluate whether the current time is less than the maximum allowed age. To review the different methods of implementing `time` within Rego, review the [Time reference documentation](https://www.openpolicyagent.org/docs/latest/policy-reference/#time).
 
+
+## Rego Policies that Define Custom Error and Warning Messages
+
+Rego policies have the added benefit of allowing you to define custom error and warning messages. 
+
+This example `attestations` block requires clusters to have a vulnerability report in order to be deemed compliant. Notice, though, that it also defines an `errorMsg` string.
+
+```
+  attestations:
+    - name: must-have-vuln-report
+      predicateType: vuln
+      policy:
+        type: rego
+        data: |
+          package sigstore
+          isCompliant[response] {
+            result = (input.predicateType == "chainguard.dev/attestation/vuln/v1")
+            errorMsg = "Not found expected predicate type 'chainguard.dev/attestation/vuln/v1'"
+            warnMsg = ""
+            response := {
+              "result" : result,
+              "error" : errorMsg,
+              "warning" : warnMsg
+            }
+          }
+```
+
+Here, the custom error message reads `Not found expected predicate type 'chainguard.dev/attestation/vuln/v1'`. Rather than returning the default error, Chaingaurd Enforce will return this string as a custom error message.
+
+Notice, too, that the previous example defines a `warnMsg` variable. Enforce will only return a warning message to the caller if the policy in question is in `warn` mode, so in that case it was left as an empty string.
+
+The following `attestations` block is similar to the previous one, but this time it defines the `warnMsg` variable to be used as a custom warning message.
+
+```
+  attestations:
+    - name: must-have-vuln-report
+      predicateType: vuln
+      policy:
+        type: rego
+        data: |
+          package sigstore
+          isCompliant[response] {
+            result = (input.predicateType == "cosign.sigstore.dev/attestation/vuln/v1")
+            errorMsg = ""
+            warnMsg = "WARNING: Found an attestation with predicate type 'cosign.sigstore.dev/attestation/vuln/v1'"
+            response := {
+              "result" : result,
+              "error" : errorMsg,
+              "warning" : warnMsg
+            }
+          }
+```
+
+Defining custom error and warning messages with Rego can help with troubleshooting, as they can explain specific policy issues that otherwise may not be clearly understandable.
+
+
 ## Learn More
 
 Within the [Chainguard Enforce Policy Catalog](https://console.enforce.dev/policies/catalog), you have access to more Rego policy templates that you can use directly or modify. These include enforcing SBOM attestation, enforcing a signed vulnerability attestation, and disallowing host namespaces.  
