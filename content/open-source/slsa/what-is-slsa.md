@@ -15,16 +15,16 @@ weight: 50
 toc: true
 ---
 
-SLSA (pronounced “salsa”), or Supply chain Levels for Software Artifacts, is a framework to help you assess and improve the security of software you create or consume. While cyberattacks like SolarWinds and Codecov have contributed to growing awareness over the importance of supply chain security, the complexity of the software development lifecycle can leave many feeling unable to adequately understand or respond to security vulnerabilities across the chain. 
+SLSA (pronounced “salsa”), or Supply chain Levels for Software Artifacts, is a security framework consisting of standards and controls that prevent tampering, improve integrity, and secure packages and infrastructure. While cyberattacks like [SolarWinds](https://www.gao.gov/assets/gao-22-104746.pdf) and [Codecov](https://www.reuters.com/technology/codecov-hackers-breached-hundreds-restricted-customer-sites-sources-2021-04-19/) have demonstrated the importance of protecting software from tampering and malicious compromise, the complexity of the software development lifecycle can leave many feeling unable to adequately understand or respond to these specific security issues. 
 
-[Released by Google’s Open Source Security Team](https://security.googleblog.com/2021/06/introducing-slsa-end-to-end-framework.html) in 2001, SLSA was created to help software creators understand where and how they can harden their supply chain security practices, and help software consumers better evaluate whether a software product or component is safe to use. SLSA was also designed around the creation of verifiable metadata, so that software consumers can set automated policies to prevent the deployment of code that does not meet their preferred SLSA level. 
+[Released by Google’s Open Source Security Team](https://security.googleblog.com/2021/06/introducing-slsa-end-to-end-framework.html) in 2021, SLSA was created as a _framework_ to help software creators understand where and how they can harden their supply chain security practices, and help software consumers evaluate the integrity of a software product or component before they decide to use it. SLSA was also designed around the creation of verifiable metadata, so that software consumers can set automated policies to prevent the deployment of code that does not meet their preferred SLSA level. 
 
-Today, SLSA is a vendor-neutral project supported by the [Open Source Security Foundation](https://openssf.org/) and is actively evolving its standards and tooling with industry input. In this guide, you will learn about SLSA levels and security requirements, emerging tools that can help you meet these requirements, and where you can learn more about the framework.  
+Today, SLSA is a vendor-neutral project supported by the [Open Source Security Foundation](https://openssf.org/) and is actively evolving its standards and supporting tools with industry input. In this guide, you will learn about SLSA levels and security requirements, emerging tools that can help you meet these requirements, and where you can learn more about the framework.  
 
 
 ## SLSA Levels 
 
-SLSA offers four ascending levels of security, each containing a set of security requirements that builds on the requirements of the prior level. These levels are designed to work as a ladder so that developers and organizations can incrementally work towards achieving an ideal security posture or the security level appropriate for their risk profile. Advancing up the ladder can take years for some software projects, so this framework offers a piecemeal approach that may be more realistic (and encouraging) than trying to meet all of the requirements at once. 
+In its current release (SLSA v0.1), SLSA offers four ascending levels of security, each containing a set of security requirements that builds on the requirements of the prior level. These levels are designed to work as a ladder so that developers and organizations can incrementally work towards achieving an ideal security posture or the security level appropriate for their risk profile. Some software projects may take more time to advance up the ladder, so this framework offers a piecemeal approach that may be more realistic (and encouraging) than trying to meet all of the requirements at once. Note that these levels and/or their requirements may shift with the release of SLSA v1.0. 
 
 The levels are described as follows:
 
@@ -32,7 +32,7 @@ The levels are described as follows:
 ### Level 1
 **The build process must be fully scripted/automated and generate provenance.** 
 
-Designed to be easy to adopt, this level sets a foundation for working towards the subsequent SLSA levels. The build process must be fully scripted (such as through Makefile or Github Actions) to ensure that no undocumented manual additions have been added.  _Provenance_, which refers to recorded information about a piece of software’s origin, history of changes, and contributors over the course of its lifecycle, must also be generated to provide visibility into the codebase. Provenance data should include the location of the build, the materials and system it used, the type of architecture or operating system, and the steps involved in its build. 
+Designed to be easy to adopt, this level sets a foundation for working towards the subsequent SLSA levels. The build process must be fully scripted (using, for instance, ​​a Makefile or GitHub Action yaml file) to ensure that no undocumented manual additions have been added.  [_Provenance_](https://edu.chainguard.dev/software-security/glossary/#provenance), which [SLSA defines](https://slsa.dev/provenance/v0.2) as “the verifiable information about software artifacts describing where, when and how something was produced.” Provenance data should include information about the builder, the inputs to the build, and the build commands.
 
 While Level 1 does not prevent tampering, fulfilling its requirements represents an important first step for securing your software supply chain. Labeling your software with this level can also help consumers make decisions about whether the software is safe enough to use for their contexts. For more information on getting started with reaching Level 1, visit [SLSA’s quick start guide](https://slsa.dev/get-started#reaching-slsa-level-1. 
 
@@ -54,11 +54,13 @@ This level aims to increase trust and harden infrastructure through a variety of
 *  **[Parameterless](https://slsa.dev/spec/v0.1/requirements#parameterless)**: The build process must be fully defined through the build script and not require user parameters other than the build entry point and the top-level source location.
 *  **[Non-falsifiable](https://slsa.dev/spec/v0.1/requirements#non-falsifiable)**:  It must be impossible for the build service’s users to falsify provenance information. All provenance information must be generated by the build service in a trusted control plane, except for noted exceptions. 
 
-Generating provenance compliant with Level 3 requirements can be challenging, but this information is increasingly important to help end users verify the integrity of the software before implementing it. Recently, SLSA released the free SLSA 3 Container Generator for GitHub Actions that helps ease the process by allowing you to build automated provenance generation into your container workflows. To learn more about how the SLSA 3 Container Generator works, visit the [announcement blog post](https://slsa.dev/blog/2023/02/slsa-github-workflows-container-ga). You can also check out SLSA's guide on [Reaching Level 3](https://slsa.dev/get-started#reaching-slsa-level-3). 
+Generating provenance compliant with Level 3 requirements can help end users verify the integrity of the software before implementing it. Recently, SLSA released the free SLSA 3 Container Generator for GitHub Actions that helps ease the process by allowing you to build automated provenance generation into your container workflows. To learn more about how it works, visit the [General availability of SLSA 3 Container Generator for GitHub Actions](https://slsa.dev/blog/2023/02/slsa-github-workflows-container-ga) announcement blog post. You can also check out SLSA's guide on [Reaching Level 3](https://slsa.dev/get-started#reaching-slsa-level-3). 
 
 ### Level 4 
-This level represents the highest level of trust possible in the SLSA framework and provides the strongest possible assurance that the software has not been tampered with. It is one of the most difficult levels to achieve, and may not be necessary (or even possible) for all software projects. 
-For this level, all changes to the codebase require a two-person review. The software must also be produced through a hermetic, reproducible build process. 
+**Requires two-person review of all changes and a hermetic, reproducible build process.**
+
+This level represents the highest level of trust possible in the SLSA framework and provides the strongest possible assurance that the software has not been tampered with. It is the most difficult level to achieve, and may not be necessary (or even possible) for all software projects. 
+For this level, every change in the revision’s history must be agreed to by two trusted persons prior to submission. The software must also be produced through a hermetic, reproducible build process. 
 
 A _hermetic_ build is defined by a build where all build steps, sources, and dependencies are declared with _immutable references_, or identifiers that are guaranteed to point to an immutable artifact whose integrity is authenticated by a cryptographic hash of its contents. These build steps, sources, and dependencies must also include their transitive counterparts, or dependencies of dependencies. The build steps must also run without network access. 
 
@@ -66,11 +68,16 @@ A _reproducible_ build is one in which the build steps will always reproduce “
 
 ## SLSA Tools and Practices
 
-SLSA is a relatively new framework, with supporting tools and practices still actively evolving. Some of the requirements listed in the levels above can be met using popular build and version control systems. More specific requirements may require additional tooling, and SLSA hosts some supporting tools in its [Github repository](https://github.com/slsa-framework). As mentioned in the description of Level 3, [SLSA released a tool for automating provenance generation](https://slsa.dev/blog/2023/02/slsa-github-workflows-container-ga), one of the hardest requirements, with Github Actions in February 2023.  
+SLSA is a relatively new framework, with supporting tools and practices still actively evolving. Some of the requirements listed in the levels above can be met using popular build and version control systems. More specific requirements may require additional tooling, and SLSA hosts some supporting tools in its [GitHub repository](https://github.com/slsa-framework). As mentioned in the description of Level 3, [SLSA released a tool for automating provenance generation](https://slsa.dev/blog/2023/02/slsa-github-workflows-container-ga), one of the hardest requirements, with GitHub Actions in February 2023.  
 
-To verify the SLSA provenance of a piece of software, you can use the [`slsa-verifier` tool](https://github.com/slsa-framework/slsa-verifier), which verifies provenances generated by the `slsa-generator` tool or Google Cloud Build. Other tools, like Chainguard’s [Enforce](https://www.chainguard.dev/chainguard-enforce) or Sigstore’s open source [Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) allow you to create policies around SLSA requirements in your Kubernetes cluster. 
+To verify the SLSA provenance of a piece of software, you can use the [`slsa-verifier` tool](https://github.com/slsa-framework/slsa-verifier), which can verify a provenance generated by the `slsa-generator` tool or Google Cloud Build. Other tools, like Chainguard’s [Enforce](https://www.chainguard.dev/chainguard-enforce) or Sigstore’s open source [Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) allow you to create policies around SLSA requirements in your Kubernetes cluster. 
 
-Developers are also encouraged to include the corresponding SLSA level badge in their readme once their codebase meet the level’s requirements. 
+Developers are also encouraged to include the corresponding SLSA level badge in their README once their codebase meets the level’s requirements. You can access the badges below. 
+
+[![SLSA 1](https://slsa.dev/images/gh-badge-level1.svg)](https://slsa.dev)
+[![SLSA 2](https://slsa.dev/images/gh-badge-level2.svg)](https://slsa.dev)
+[![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://slsa.dev)
+[![SLSA 4](https://slsa.dev/images/gh-badge-level4.svg)](https://slsa.dev)
 
 ## Learn more 
 
@@ -78,6 +85,4 @@ In this guide, you learned about how SLSA helps secure the software supply chain
 
 While SLSA provides a strong framework for verifying the authenticity and integrity of software, it is important to note that it does not protect against every type of supply chain attack. For example, SLSA requirements cannot prevent attacks enabled through vulnerable code, vulnerabile build platforms, or collusion between high level actors. Still, SLSA offers a powerful framework for defending against common supply chain threats, and will likely emerge as a standard component of modern software as tooling and community adoption evolves. 
 
-To learn more about SLSA, you can visit the [SLSA website](https://slsa.dev/), read an [in-depth overview of SLSA requirements](https://slsa.dev/spec/v0.1/requirements), or explore the [SLSA repository on Github](https://github.com/slsa-framework).  
- 
-
+To learn more about SLSA, you can visit the [SLSA website](https://slsa.dev/), read an [in-depth overview of SLSA requirements](https://slsa.dev/spec/v0.1/requirements), or explore the [SLSA repository on GitHub](https://github.com/slsa-framework).  
