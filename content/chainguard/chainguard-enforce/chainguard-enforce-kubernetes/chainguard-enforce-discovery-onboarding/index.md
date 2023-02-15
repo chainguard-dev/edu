@@ -57,14 +57,14 @@ Chainguard Enforce Discovery exposes an API that will return metadata about clus
 * `eligible`: this cluster is ready to enroll with Chainguard Enforce.
 * `enrolled`: this cluster is already enrolled in Enforce.
 
-In order for a cluster to be eligible, it must either have a public endpoint with no access control or, if it does have access control, it must give Chainguard Enforce access. If a cluster isn't supported, it's typically because of locked down control planes; for example, bastion or control plane authorized networks on GKE.
+In order for a cluster to be eligible, it must either have a public endpoint with no access control or, if it does have access control, it must give Chainguard access. If a cluster isn't supported, it's typically because of locked down control planes; for example, bastion or control plane authorized networks on GKE.
 
 There are currently three options for how you can use Discovery: using the Chainguard Enforce Console, the `chainctl cluster discover` command, or the Chainguard Terraform provider.
 
 
 ### Option 1 — Chainguard Enforce Console
 
-You can discover workloads running in your various cloud accounts through the Chainguard Enforce Console. After logging in to the Console, there will be a `Discover` button at the top-right of the list of clusters.
+You can discover workloads running in your various cloud accounts through the Chainguard Enforce Console. After logging into the Console, there will be a **Discover** button at the top-right of the list of clusters.
 
 ![Screenshot from the Chainguard Enforce Console. The Clusters tab is selected, showing one cluster already enrolled in Enforce. There is a button at the top right of the clusters table that reads "Discover".](discover-button.png)
 
@@ -74,7 +74,7 @@ If you click on a group, the Chainguard Enforce Console will discover all the re
 
 ![Screenshot showing the Discovery results. This example shows four workloads: one GKE, two Cloud Run, and one ECS.](disc-ui-enrollment.png)
 
-From there, you can select the resources you want Chainguard to oversee and then click the `Enroll` button to enroll them into Chainguard Enforce. Following that, you'll be taken back to the Clusters list page. From there, you can begin using Enforce to view the images and packages running on your newly-enrolled cluster or apply security policies to make sure cloud applications are up-to-date, just as you would with any other that you've enrolled into Chainguard Enforce.
+From there, you can select the resources in which you want Discovery enabled, and then click the **Enroll** button to enroll them into Chainguard Enforce. Following that, you'll be taken back to the Clusters list page. From there, you can begin using Enforce to view the images and packages running on your newly-enrolled cluster or apply security policies to make sure cloud applications are up-to-date, just as you would with any other cluster you've enrolled into Chainguard Enforce.
 
 
 ### Option 2 — `chainctl cluster discover`
