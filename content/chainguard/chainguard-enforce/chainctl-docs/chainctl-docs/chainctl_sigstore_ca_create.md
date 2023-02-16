@@ -1,5 +1,5 @@
 ---
-date: 2023-02-14T01:25:23Z
+date: 2023-02-15T23:07:18Z
 title: "chainctl sigstore ca create"
 slug: chainctl_sigstore_ca_create
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_ca_create/
@@ -21,7 +21,7 @@ chainctl sigstore ca create --group GROUP_NAME | GROUP_ID {--ca googleca --googl
 ```
       --ca string               certificate authority type: [ kmsca | googleca ]
   -d, --description string      The description of the resource.
-      --googleca-ref string     CA service resource, in the format /projects/<project>/locations/<location>/<name>
+      --googleca-ref string     CA service resource, in the format projects/<project>/locations/<location>/<name>
       --group string            The parent group name or id of the sigstore instance.
   -h, --help                    help for create
       --kms-cert-chain string   Path to file containing PEM-encoded root certificate and chain
