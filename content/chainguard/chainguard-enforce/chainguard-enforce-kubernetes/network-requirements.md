@@ -19,22 +19,7 @@ To use Chainguard Enforce for Kubernetes in environments with firewalls, VPNs, a
 
 ## Chainguard Hosts
 
-| Hostname |Port |Protocol |
-|----------|-----|---------|
-| auth.chainguard.dev | 443 | HTTPS |
-| canary.enforce.dev | 443 | HTTPS |
-| console-api.enforce.dev | 443 | HTTPS |
-| console.enforce.dev | 443 | HTTPS |
-|cosigned-continuous-verification.enforce.dev | 443 | HTTPS |
-| dl.enforce.dev | 443 | HTTPS |
-| eots-omni.enforce.dev | 443 | HTTPS |
-| issuer.enforce.dev | 443 | HTTPS |
-| policy-compiler.enforce.dev | 443 | HTTPS |
-| policy-conversion.enforce.dev | 443 | HTTPS |
-|policy-distribution.enforce.dev | 443 | HTTPS |
-| policy-defaulting.enforce.dev | 443 | HTTPS |
-| policy-validation.enforce.dev | 443 | HTTPS |
-| tsa.enforce.dev | 443 | HTTPS |
+{{< enforce/domains >}}
 
 ## Third-party Hosts
 | Hostname |Port |Protocol |
@@ -43,6 +28,14 @@ To use Chainguard Enforce for Kubernetes in environments with firewalls, VPNs, a
 | googlecode.l.googleusercontent.com | 443 | HTTPS |
 | raw.githubusercontent.com | 443 | HTTPS |
 | storage.googleapis.com | 443 | HTTPS |
+
+## CIDR Ranges
+
+For cluster and workload discovery to work, and to be able to communicate effectively to and from Chainguard Enforce, you will need to ensure access to and from the following CIDR ranges.
+
+If you are using Google GKE for your cluster, this page explains how to authorize our networks: [Add an authorized network to an existing cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/authorized-networks#add). If you are using Amazon EKS then refer to this page: [Amazon EKS cluster endpoint access control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html).
+
+{{< enforce/ips >}}
 
 ## Additional Notes
 
