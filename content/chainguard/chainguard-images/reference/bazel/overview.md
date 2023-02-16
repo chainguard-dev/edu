@@ -16,7 +16,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/bazel](https://github.com/chainguard-images/images/tree/main/images/bazel)
 | Tags     | Aliases                 |
 |----------|-------------------------|
-| `latest` | 6, 6.0, 6.0.0, 6.0.0-r2 |
+| `latest` | 6, 6.0, 6.0.0, 6.0.0-r3 |
 
 
 

@@ -2,14 +2,109 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-01-23 19:14:36 +0000 UTC
+date: 2023-02-15 23:02:20 +0000 UTC
 draft: false
 images: []
 weight: 799
 ---
 
 ## Introduction
-Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.75
+Release date: 2023-02-15
+
+Customer facing changes: N/A
+
+### v0.1.74
+Release date: 2023-02-14
+
+Customer facing changes: N/A
+
+### v0.1.73
+Release date: 2023-02-14
+
+Customer facing changes: N/A
+
+### v0.1.72
+Release date: 2023-02-13
+
+Customer facing changes: N/A
+
+### v0.1.71
+Release date: 2023-02-10
+#### Bug or Regression
+- Fix our SBOM attestation ingestion to support attestations without the cosign "envelope".
+
+### v0.1.70
+Release date: 2023-02-09
+
+Customer facing changes: N/A
+
+### v0.1.69
+Release date: 2023-02-09
+
+Customer facing changes: N/A
+
+### v0.1.68
+Release date: 2023-02-08
+#### API Change
+- Expose new customer managed identity provider API
+#### Feature
+- Now when chainctl refreshes auth it will default to the subject of the pre-existing token when --identity isn't passed.
+
+
+### v0.1.67
+Release date: 2023-02-07
+#### Feature
+- Filter policies and cluster records to a specific image with the `--image` flag.
+- chainctl can now detect when it is running in a github actions environment when assuming an identity via chainctl auth login --identity {ID}
+- add support for precreating identities that can be assumed by more than one identity.
+#### Other (Cleanup or Flake)
+- match upstream workload selector logic and add tests
+- TrustRoot support for the definition of certificate and timestamp authorities and TUF remote references.
+- Error when policies contain unknown fields
+- Support to reference policies via an URL or a ConfigMap. This is especially important when the size of the policy is big.
+- Fix private multi-arch fetchConfigFile
+- Add support for TSA image verification
+- Add support to ignore SCT verification on keyless authorities
+- Improve kms key validations and error messages for awskms
+
+
+### v0.1.66
+Release date: 2023-02-06
+
+Customer facing changes: N/A
+
+### v0.1.65
+Release date: 2023-02-06
+#### Feature
+- chainctl: add sigstore ca describe command
+- Users can now remove rolebinding using `chainctl iam rolebinding delete`
+- chainctl now supports policy versioning! Updating or editing a policy creates a new version. Interact with policy versions using `chainctl policy versions` commands `list`, `view` and `activate`.
+- terraform provider now support managing Enforce Signing certificate authorities with the `chainguard_sigstore` resource
+- Surface a new Identities API and chainguard_identity terraform rule.
+#### Other (Cleanup or Flake)
+- RoleBinding deletion is now "hard", which avoids a problem where deleted rolebindings could not be recreated.
+- chainctl will no longer detect google credentials automatically unless it is in STS mode for the agent, or assuming an identity.
+#### Uncategorized
+- Set the User-Agent for webhooks to `Chainguard Enforce {commit}`.
+
+
+### v0.1.64
+Release date: 2023-01-26
+#### Uncategorized
+- Fix terraform provider bug which set account association to default name "tbd"
+
+### v0.1.63
+Release date: 2023-01-25
+
+Customer facing changes: N/A
+
+### v0.1.62
+Release date: 2023-01-24
+
+Customer facing changes: N/A
 
 ### v0.1.61
 Release date: 2023-01-23

@@ -21,6 +21,9 @@ spec:
   authorities:
   - keyless:
       url: https://fulcio.sigstore.dev
+      identities:
+        - issuerRegExp: ".*"
+          subjectRegExp: ".*"
 ```
 
 This policy creates a cluster image policy with the Sigstore beta API, and with Fulcio as a keyless authority. Here, we are requiring that all images from container registries be signed.

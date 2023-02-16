@@ -16,7 +16,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/rust](https://github.com/chainguard-images/images/tree/main/images/rust)
 | Tags     | Aliases                    |
 |----------|----------------------------|
-| `latest` | 1, 1.65, 1.65.0, 1.65.0-r3 |
+| `latest` | 1, 1.67, 1.67.0, 1.67.0-r0 |
 
 
 
