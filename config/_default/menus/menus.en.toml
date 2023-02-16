@@ -84,7 +84,7 @@
 [[main]]
   name = "SLSA"
   url = "/open-source/slsa/"
-  parent = "slsa"
+  parent = "menu-oss"
   weight = 45
 
 [[main]]
