@@ -28,9 +28,9 @@ In addition to having access to Chainguard Enforce (which you can request via ou
 * [Go](https://go.dev/doc/install), version 1.19.3 or above
 * [Cosign, version 2.0.0-rc.1](/open-source/sigstore/cosign/how-to-install-cosign/#installing-a-cosign-pre-release-with-go) or above
 * [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli), version 1.2.8 or above
-* The [Chainguard command line tool `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/), version 0.1.
+* The [Chainguard command line tool `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/), version 0.1 or above.
 
-With these tools and setup in place you are reading to begin.
+With these tools and setup in place you are ready to begin.
 
 
 ## Step 1 — Setting Up Account Association
@@ -61,7 +61,7 @@ If everything is set up correctly, you'll receive output similar to the followin
 
 With everything set up, we are now ready to work with a software artifact.
 
-## Step 4 — Set Up and Publish a Container Image
+## Step 2 — Set Up and Publish a Container Image
 
 **If you have a container already in a container registry that you can use for demonstration purposes, feel free to skip this step and proceed to [Step 5](/chainguard/chainguard-enforce/chainguard-enforce-signing/getting-started-chainguard-enforce-signing/#step-5-signing-and-verifying-an-image).** 
 
@@ -104,7 +104,7 @@ docker push ttl.sh/$USERNAME/hello-signing:1h
 
 At this point, you will receive output that your container was published and you are ready to continue to the final step.
 
-## Step 5 — Signing and Verifying an Image
+## Step 3 — Signing and Verifying an Image
 
 You are now ready to sign and verify an image with your brand new Certificate Authority! 
 

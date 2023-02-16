@@ -2,8 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Enforce OpenAPI Specification (Alpha)",
-    "version": "v1alpha",
-    "description": "This is an alpha OpenAPI specification and is liable to change. There is no guarantee of backwards compatibility between releases."
+    "version": "alpha"
   },
   "paths": {
     "/auth/v1/ok": {
@@ -72,16 +71,23 @@
             "type": "string"
           },
           {
-            "description": "ancestors_of are groups reachable by repeated proceeding from parent to child.",
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
             "in": "query",
             "name": "uidp.ancestorsOf",
             "required": false,
             "type": "string"
           },
           {
-            "description": "descendants_of are groups reachable by repeated proceeding from child to parent.",
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
             "in": "query",
             "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
           }
@@ -122,8 +128,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -234,8 +239,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -273,6 +277,10 @@
                 "description": {
                   "description": "a short description of this association.",
                   "type": "string"
+                },
+                "github": {
+                  "$ref": "#/definitions/AccountAssociationsGitHubInstallation",
+                  "description": "github holds information associating a GitHub installation with the group.\nNote: this AccountAssociation type is EXPERIMENTAL."
                 },
                 "google": {
                   "$ref": "#/definitions/AccountAssociationsGoogle",
@@ -329,6 +337,10 @@
                 "description": {
                   "description": "a short description of this association.",
                   "type": "string"
+                },
+                "github": {
+                  "$ref": "#/definitions/AccountAssociationsGitHubInstallation",
+                  "description": "github holds information associating a GitHub installation with the group.\nNote: this AccountAssociation type is EXPERIMENTAL."
                 },
                 "google": {
                   "$ref": "#/definitions/AccountAssociationsGoogle",
@@ -407,6 +419,60 @@
         ]
       }
     },
+    "/iam/v1/group_invites/{group}": {
+      "post": {
+        "operationId": "GroupInvites_Create",
+        "parameters": [
+          {
+            "description": "group, The Group UIDP path under which the new group Invite targets.",
+            "in": "path",
+            "name": "group",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "email": {
+                  "description": "email is the exact email address that may accept this invite code, if specified.",
+                  "type": "string"
+                },
+                "role": {
+                  "description": "role is the Role UIDP the invited identity will be role-bound to the group with.",
+                  "type": "string"
+                },
+                "ttl": {
+                  "description": "expiration, timestamp this invite becomes no longer valid.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamGroupInvite"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "GroupInvites"
+        ]
+      }
+    },
     "/iam/v1/group_invites/{id}": {
       "delete": {
         "operationId": "GroupInvites_Delete",
@@ -424,8 +490,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -452,16 +517,23 @@
             "type": "string"
           },
           {
-            "description": "ancestors_of are groups reachable by repeated proceeding from parent to child.",
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
             "in": "query",
             "name": "uidp.ancestorsOf",
             "required": false,
             "type": "string"
           },
           {
-            "description": "descendants_of are groups reachable by repeated proceeding from child to parent.",
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
             "in": "query",
             "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
           },
@@ -509,8 +581,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -614,6 +685,291 @@
         ]
       }
     },
+    "/iam/v1/identities": {
+      "post": {
+        "operationId": "Identities_Create",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/eventsIdentity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/eventsIdentity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Identities"
+        ]
+      }
+    },
+    "/iam/v1/identities/metadata": {
+      "patch": {
+        "operationId": "Identities_UpdateMetadata",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/eventsIdentityMetadata"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/eventsIdentityMetadata"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Identities"
+        ]
+      }
+    },
+    "/iam/v1/identities/{parentId}": {
+      "post": {
+        "operationId": "Identities_Create",
+        "parameters": [
+          {
+            "description": "parent_id, The Group UIDP path under which the new Identity resides.",
+            "in": "path",
+            "name": "parentId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Identity to create.",
+            "in": "body",
+            "name": "identity",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/iamIdentity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamIdentity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Identities"
+        ]
+      }
+    },
+    "/iam/v1/identityProviders": {
+      "get": {
+        "operationId": "IdentityProviders_List",
+        "parameters": [
+          {
+            "description": "Exact match on identity provider UIDP",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Exact match on identity provider name",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamIdentityProviderList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "IdentityProviders"
+        ]
+      }
+    },
+    "/iam/v1/identityProviders/{id}": {
+      "delete": {
+        "operationId": "IdentityProviders_Delete",
+        "parameters": [
+          {
+            "description": "id is the exact UIDP of the IdP",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "IdentityProviders"
+        ]
+      },
+      "put": {
+        "operationId": "IdentityProviders_Update",
+        "parameters": [
+          {
+            "description": "id is unique identifier of this specific identity provider",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "oidc": {
+                  "$ref": "#/definitions/IdentityProviderOIDC"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamIdentityProvider"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "IdentityProviders"
+        ]
+      }
+    },
+    "/iam/v1/identityProviders/{parentId}": {
+      "post": {
+        "operationId": "IdentityProviders_Create",
+        "parameters": [
+          {
+            "description": "parent_id is the exact UIDP of the IAM group to nest this identity provider under",
+            "in": "path",
+            "name": "parentId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "identityProvider",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/iamIdentityProvider"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamIdentityProvider"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "IdentityProviders"
+        ]
+      }
+    },
     "/iam/v1/policies": {
       "get": {
         "operationId": "Policies_List",
@@ -626,16 +982,23 @@
             "type": "string"
           },
           {
-            "description": "ancestors_of are groups reachable by repeated proceeding from parent to child.",
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
             "in": "query",
             "name": "uidp.ancestorsOf",
             "required": false,
             "type": "string"
           },
           {
-            "description": "descendants_of are groups reachable by repeated proceeding from child to parent.",
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
             "in": "query",
             "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
           },
@@ -683,8 +1046,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -715,6 +1077,11 @@
             "required": true,
             "schema": {
               "properties": {
+                "createdAt": {
+                  "description": "created_at is the timestamp for when the policy was created.",
+                  "format": "date-time",
+                  "type": "string"
+                },
                 "description": {
                   "description": "description, human readable description of policy.",
                   "type": "string"
@@ -723,8 +1090,17 @@
                   "description": "document, YAML encoded policy document.",
                   "type": "string"
                 },
+                "enforcedVersion": {
+                  "$ref": "#/definitions/iamPolicyVersion",
+                  "description": "enforced_version contains information about the enforced version of this policy.\nWhen used as a return value, Policy.name, Policy.description, and Policy.document are all copies of\nthe respective fields in enforced_version for backwards compatibility. enforced_version may be empty for\nlegacy policies without versions.\nWhen used for Create or Update, set enforced_version.label to set an optional version label."
+                },
                 "name": {
-                  "description": "name, human readable name of policy.",
+                  "description": "name, human readable name of policy.\nThis field is populated from the document and any existing value will be ignored for Create/Update.",
+                  "type": "string"
+                },
+                "updatedAt": {
+                  "description": "updated_at is the timestamp when the current version of the policy was last updated.",
+                  "format": "date-time",
                   "type": "string"
                 }
               },
@@ -792,15 +1168,16 @@
         ]
       }
     },
-    "/iam/v1/rolebindings": {
+    "/iam/v1/policyVersions/{policyId}": {
       "get": {
-        "operationId": "RoleBindings_List",
+        "operationId": "Policies_ListVersions",
         "parameters": [
           {
-            "description": "id is the exact UID of the record.",
-            "in": "query",
-            "name": "id",
-            "required": false,
+            "description": "policy_id is the identifier of the policy to list versions of.",
+            "in": "path",
+            "name": "policyId",
+            "pattern": ".+",
+            "required": true,
             "type": "string"
           }
         ],
@@ -808,7 +1185,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/iamRoleBindingList"
+              "$ref": "#/definitions/iamPolicyVersionList"
             }
           },
           "default": {
@@ -819,26 +1196,80 @@
           }
         },
         "tags": [
-          "RoleBindings"
+          "Policies"
         ]
-      },
+      }
+    },
+    "/iam/v1/policyVersions/{versionId}": {
       "post": {
-        "operationId": "RoleBindings_Create",
+        "operationId": "Policies_ActivateVersion",
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
+            "description": "version_id is the identifier of the policy version to enforce.",
+            "in": "path",
+            "name": "versionId",
+            "pattern": ".+",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/iamRoleBinding"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/iamRoleBinding"
+              "$ref": "#/definitions/iamPolicy"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Policies"
+        ]
+      }
+    },
+    "/iam/v1/rolebindings": {
+      "get": {
+        "operationId": "RoleBindings_List",
+        "parameters": [
+          {
+            "description": "id is the exact UID of the record.",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamRoleBindingList"
             }
           },
           "default": {
@@ -869,8 +1300,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -914,6 +1344,47 @@
                 }
               },
               "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamRoleBinding"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "RoleBindings"
+        ]
+      }
+    },
+    "/iam/v1/rolebindings/{parent}": {
+      "post": {
+        "operationId": "RoleBindings_Create",
+        "parameters": [
+          {
+            "description": "parent, The Group UIDP path under which the new RoleBinding resides.",
+            "in": "path",
+            "name": "parent",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "RoleBinding to create.",
+            "in": "body",
+            "name": "roleBinding",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/iamRoleBinding"
             }
           }
         ],
@@ -998,8 +1469,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -1110,7 +1580,263 @@
         ]
       }
     },
+    "/iam/v1/sigstore": {
+      "get": {
+        "operationId": "SigstoreService_List",
+        "parameters": [
+          {
+            "description": "id is the exact UIDP of the record.",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "name is the exact name of the record.",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamSigstoreList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "SigstoreService"
+        ]
+      }
+    },
+    "/iam/v1/sigstore/{id}": {
+      "delete": {
+        "operationId": "SigstoreService_Delete",
+        "parameters": [
+          {
+            "description": "id is the exact UIDP of the record.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "SigstoreService"
+        ]
+      },
+      "put": {
+        "operationId": "SigstoreService_Update",
+        "parameters": [
+          {
+            "description": "id is identifier of this specific sigstore instance.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "certificateAuthority": {
+                  "$ref": "#/definitions/iamCertificateAuthority",
+                  "title": "certificate authority for this instance of sigstore"
+                },
+                "description": {
+                  "description": "description, human-readable description of the sigstore instance.",
+                  "type": "string"
+                },
+                "hostname": {
+                  "title": "unique hostname of this sigstore instance",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "name, human-readable name of the sigstore instance.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamSigstore"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "SigstoreService"
+        ]
+      }
+    },
+    "/iam/v1/sigstore/{parentId}": {
+      "post": {
+        "operationId": "SigstoreService_Create",
+        "parameters": [
+          {
+            "description": "parent_id, The Group UIDP path under which the new sigstore instance is associated.",
+            "in": "path",
+            "name": "parentId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Sigstore is the sigstore instance to create;",
+            "in": "body",
+            "name": "sigstore",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/iamSigstore"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamSigstore"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "SigstoreService"
+        ]
+      }
+    },
     "/sts/exchange": {
+      "get": {
+        "operationId": "SecurityTokenService_Exchange2",
+        "parameters": [
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "aud",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "cluster",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "identity",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "List of capabilities to request for the token.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "cap",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "Whether or not to include the upstream token in the response",
+            "in": "query",
+            "name": "includeUpstreamToken",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oidcRawToken"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "SecurityTokenService"
+        ]
+      },
       "post": {
         "operationId": "SecurityTokenService_Exchange",
         "parameters": [
@@ -1141,6 +1867,24 @@
             "name": "identity",
             "required": false,
             "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "List of capabilities to request for the token.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "cap",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "Whether or not to include the upstream token in the response",
+            "in": "query",
+            "name": "includeUpstreamToken",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1182,16 +1926,23 @@
             "type": "string"
           },
           {
-            "description": "ancestors_of are groups reachable by repeated proceeding from parent to child.",
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
             "in": "query",
             "name": "uidp.ancestorsOf",
             "required": false,
             "type": "string"
           },
           {
-            "description": "descendants_of are groups reachable by repeated proceeding from child to parent.",
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
             "in": "query",
             "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
           },
@@ -1227,6 +1978,36 @@
         "tags": [
           "Clusters"
         ]
+      },
+      "post": {
+        "operationId": "Clusters_Discover",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tenantClusterDiscoveryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tenantClusterDiscoveryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Clusters"
+        ]
       }
     },
     "/tenant/v1/clusters/{cluster}/records": {
@@ -1248,16 +2029,23 @@
             "type": "string"
           },
           {
-            "description": "ancestors_of are groups reachable by repeated proceeding from parent to child.",
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
             "in": "query",
             "name": "uidp.ancestorsOf",
             "required": false,
             "type": "string"
           },
           {
-            "description": "descendants_of are groups reachable by repeated proceeding from child to parent.",
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
             "in": "query",
             "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
           },
@@ -1282,13 +2070,6 @@
             "name": "activeSince",
             "required": false,
             "type": "string"
-          },
-          {
-            "description": "violations specifies to fetch Records where at least one policy is not valid.",
-            "in": "query",
-            "name": "violations",
-            "required": false,
-            "type": "boolean"
           }
         ],
         "responses": {
@@ -1327,8 +2108,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {},
-              "type": "object"
+              "properties": {}
             }
           },
           "default": {
@@ -1366,6 +2146,10 @@
                   "description": "activity is a mapping from \"Source\" URLs to an activity record summarizing\nrecent activity from this source.",
                   "type": "object"
                 },
+                "affinity": {
+                  "$ref": "#/definitions/tenantClusterLocation",
+                  "description": "affinity specifies a scheduling preference for where to run the managed agent.\nOther factors, such as the provider may be taken into account when choosing a\nhost cluster."
+                },
                 "agentVersion": {
                   "description": "agent_version holds the version of the Chainguard agent last reported by the cluster.",
                   "type": "string"
@@ -1381,6 +2165,10 @@
                 "group": {
                   "$ref": "#/definitions/iamGroup",
                   "title": "group the cluster resides in"
+                },
+                "hostCluster": {
+                  "description": "host_cluster surfaces the opaque identifier for the Chainguard cluster hosting\nthis agent.",
+                  "type": "string"
                 },
                 "info": {
                   "$ref": "#/definitions/ClusterInfo",
@@ -1402,6 +2190,13 @@
                 "name": {
                   "description": "name of the cluster.",
                   "type": "string"
+                },
+                "profiles": {
+                  "description": "profiles specifies the root set of tenant configurations that we want to run\non this cluster.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
                 },
                 "provider": {
                   "$ref": "#/definitions/ClusterProvider",
@@ -1488,12 +2283,177 @@
           "Clusters"
         ]
       }
+    },
+    "/v1/identities": {
+      "get": {
+        "operationId": "Identities_List",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "id is unique identifier to look up.",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamIdentityList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Identities"
+        ]
+      }
+    },
+    "/v1/identities/{id}": {
+      "delete": {
+        "operationId": "Identities_Delete",
+        "parameters": [
+          {
+            "description": "ID, UIDP of the record.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Identities"
+        ]
+      },
+      "put": {
+        "operationId": "Identities_Update",
+        "parameters": [
+          {
+            "description": "id is unique identifier of this specific identity.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "claimMatch": {
+                  "$ref": "#/definitions/IdentityClaimMatch",
+                  "description": "claim_match checks the third party IdP token's claims against one\nor more configured patterns."
+                },
+                "description": {
+                  "description": "description, human readable of identity.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "name, human readable name of identity.",
+                  "type": "string"
+                },
+                "static": {
+                  "$ref": "#/definitions/IdentityStaticKeys",
+                  "description": "static is equivalent to literal, but instead of discovering the\nIdP's verification keys we verify the identity using pre-registered\nverification keys.  This is intended for use with identities from\nproviders without an \"online\" issuer (network accessible to our IdP),\nsuch as a KinD/minikube cluster.\nNOTE: because this path does not have a mechanism for key rotation\nthe identity will expire, with a maximum lifetime of 30d."
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamIdentity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Identities"
+        ]
+      }
     }
   },
   "definitions": {
     "AccountAssociationsAmazon": {
       "properties": {
         "account": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AccountAssociationsGitHubInstallation": {
+      "properties": {
+        "appId": {
+          "description": "GitHub App ID. Output only.",
+          "format": "int64",
+          "readOnly": true,
+          "type": "string"
+        },
+        "host": {
+          "description": "GitHub hostname app is associated with. Output only.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "installationId": {
+          "description": "GitHub App Installation ID. Takes precedence over name.",
+          "format": "int64",
+          "type": "string"
+        },
+        "name": {
+          "description": "GitHub user/org name the installation is installed on.",
           "type": "string"
         }
       },
@@ -1526,6 +2486,39 @@
       },
       "type": "object"
     },
+    "ClusterDiscoveryResponseResult": {
+      "properties": {
+        "account": {
+          "type": "string"
+        },
+        "eligible": {
+          "$ref": "#/definitions/ResultEligible",
+          "description": "eligible clusters are able to be directly enrolled as\nagentless tenants immediately.  This message contains\nall of the information needed to enroll this cluster."
+        },
+        "enrolled": {
+          "$ref": "#/definitions/ResultEnrolled",
+          "description": "enrolled clusters are clusters that have already been\nenrolled as agentless tenants."
+        },
+        "location": {
+          "$ref": "#/definitions/tenantClusterLocation"
+        },
+        "name": {
+          "type": "string"
+        },
+        "needsWork": {
+          "$ref": "#/definitions/ResultNeedsWork",
+          "description": "needs_work clusters can be modified in some way so\nthat they are supported by our Agentless infrastructure."
+        },
+        "provider": {
+          "$ref": "#/definitions/ClusterProvider"
+        },
+        "unsupported": {
+          "$ref": "#/definitions/ResultUnsupported",
+          "description": "unsupported clusters cannot be enrolled with our\nAgentless cluster support."
+        }
+      },
+      "type": "object"
+    },
     "ClusterInfo": {
       "properties": {
         "CertificateAuthorityData": {
@@ -1538,140 +2531,188 @@
           "type": "string"
         }
       },
-      "title": "Info",
+      "title": "This is based off of k8s.io/client-go/tools/clientcmd/api/v1.Cluster\nThis can be extracted from kubectl for a named cluster (replace CLUSTER_NAME) with:\n  kubectl config view \\\n    --flatten -o jsonpath='{.clusters[?(@.name == \"CLUSTER_NAME\")].cluster}'",
+      "type": "object"
+    },
+    "ClusterProfilesResponseProfile": {
+      "properties": {
+        "dependencies": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "ClusterProvider": {
       "default": "UNKNOWN",
-      "description": " - KIND: For testing.",
+      "description": " - CLOUD_RUN: GCP Services (10+)\n - ECS: AWS Services (20+)\n - KIND: For testing.",
       "enum": [
         "UNKNOWN",
         "GKE",
         "EKS",
+        "CLOUD_RUN",
+        "ECS",
+        "APP_RUNNER",
         "KIND"
       ],
       "type": "string"
     },
-    "ContextAncestry": {
-      "description": "Ancestry relationships are added to records when a \"base image\"\nrelationship has been uncovered.  This context is added to BOTH\nrecords with their respective roles.  The base image will get\nthe Role BASE, and the derivative image will get the Rile DERIVED.",
-      "properties": {
-        "id": {
-          "description": "The id of the other image's record in this ancestry relationship.\nIf our Role is BASE, then this will hold the ID of the DERIVED\nimage's record, and vice versa.",
-          "type": "string"
-        },
-        "role": {
-          "$ref": "#/definitions/ContextAncestryRole"
-        }
-      },
-      "type": "object"
-    },
-    "ContextAncestryRole": {
+    "ClusterStatusState": {
       "default": "UNKNOWN",
       "enum": [
         "UNKNOWN",
-        "BASE",
-        "DERIVED"
+        "Ready",
+        "NotReady"
       ],
       "type": "string"
     },
-    "ContextVariant": {
-      "description": "Variant relationships are added to records when we find an \"index\"\ncontaining multiple different variations (typically os/arch) of the\nsame logical image.  These are referred to as \"OCI Image Index\",\n\"Docker Manifest List\", and occasionally \"fat images\".  This context\nis added to ALL records including the INDEX and all VARIANTs of that\nindex.  The INDEX will typically contain N contexts carrying the Role\nINDEX, the id of the VARIANT's record, and the version information\nthat discriminates that VARIANT from other VARIANTs.  The VARIANT\nwill typically (but not always!) contain 1 context varrying the Role\nVARIANT, the id of the INDEX's record, and the version information\nthat discriminates it among the other VARIANTs in the INDEX.",
+    "IdentityClaimMatch": {
       "properties": {
-        "id": {
-          "description": "The id of the image index's record linking this\nimage (transitively) to the cluster.",
+        "audience": {
+          "description": "audience of OIDC ID tokens issued for this identity.",
           "type": "string"
         },
-        "role": {
-          "$ref": "#/definitions/ContextVariantRole"
-        },
-        "version": {
-          "description": "The version information distinguishing this variant\nfrom other possible variants of the index.",
+        "audiencePattern": {
+          "description": "audience_pattern is a regular expression for matching the\ntoken's audience claim.",
           "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "ContextVariantRole": {
-      "default": "UNKNOWN",
-      "enum": [
-        "UNKNOWN",
-        "INDEX",
-        "VARIANT"
-      ],
-      "type": "string"
-    },
-    "ContextWorkload": {
-      "description": "Workload contexts are added to existence records that have been\nobserved running on a cluster.",
-      "properties": {
-        "kind": {
-          "$ref": "#/definitions/tenantGroupVersionKind"
-        },
-        "name": {
-          "type": "string"
-        },
-        "namespace": {
-          "type": "string"
-        },
-        "uid": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "PolicyAttestation": {
-      "properties": {
-        "signature": {
-          "$ref": "#/definitions/PolicySignature",
-          "description": "The signature's ID serves as the attestation ID."
-        }
-      },
-      "type": "object"
-    },
-    "PolicyAttestations": {
-      "properties": {
-        "attestations": {
-          "items": {
-            "$ref": "#/definitions/PolicyAttestation"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "PolicyAuthorityMatch": {
-      "properties": {
-        "attestations": {
-          "additionalProperties": {
-            "$ref": "#/definitions/PolicyAttestations"
-          },
-          "description": "A mapping from the name of an attestation clause within the authority\nto the attestations that match it.",
-          "type": "object"
-        },
-        "signatures": {
-          "items": {
-            "$ref": "#/definitions/PolicySignature"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "PolicySignature": {
-      "properties": {
-        "github": {
-          "$ref": "#/definitions/SignatureGithub",
-          "description": "github holds the github-specific extensions encoded\ninto the certificate chain used to sign."
         },
         "issuer": {
-          "description": "issuer that was found to match on the Cert.",
+          "description": "issuer of the OIDC ID tokens issued for this identity.",
           "type": "string"
         },
-        "signatureId": {
-          "description": "signature_id is a generated unique ID, output only.",
+        "issuerPattern": {
+          "description": "issuer_pattern is a regular expression for matching the\ntoken's issuer claim.",
           "type": "string"
         },
         "subject": {
-          "description": "subject that was found to match on the Cert.",
+          "description": "subject of OIDC ID tokens issued for this identity.",
+          "type": "string"
+        },
+        "subjectPattern": {
+          "description": "subject_pattern is a regular expression for matching the\ntoken's subject claim.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "IdentityMetadataOnboardingQuestions": {
+      "properties": {
+        "companyName": {
+          "type": "string"
+        },
+        "providers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "IdentityProviderOIDC": {
+      "properties": {
+        "additionalScopes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Additional scopes to request for ID tokens",
+          "type": "array"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "clientSecret": {
+          "type": "string"
+        },
+        "issuer": {
+          "title": "Issuer URL (e.g https://accounts.google.com)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "IdentityStaticKeys": {
+      "properties": {
+        "expiration": {
+          "description": "expiration is the time when the issuer_keys will expire.\nDefaults to / Maximum of 30 days after creation time.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "issuer": {
+          "description": "issuer of the OIDC ID tokens issued for this identity.\nMatches the `iss` claim.",
+          "type": "string"
+        },
+        "issuerKeys": {
+          "description": "issuer_keys is JWKS-formatted public keys for the issuer.\nRequired, otherwise use Literal.",
+          "type": "string"
+        },
+        "subject": {
+          "description": "subject of OIDC ID tokens issued for this identity.\nMatches the `sub` claim.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RecordStatusResult": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "PASS",
+        "FAIL"
+      ],
+      "type": "string"
+    },
+    "ResultEligible": {
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/ClusterInfo"
+        }
+      },
+      "type": "object"
+    },
+    "ResultEnrolled": {
+      "properties": {
+        "id": {
+          "description": "id is the UIDP of the tenant Cluster.",
+          "type": "string"
+        },
+        "info": {
+          "$ref": "#/definitions/ClusterInfo"
+        },
+        "profiles": {
+          "description": "profiles contains the set of profiles that this\ncluster was enrolled with.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ResultNeedsWork": {
+      "properties": {
+        "steps": {
+          "description": "steps holds the set of changes the user needs to make in order\nfor the cluster to become eligible.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ResultUnsupported": {
+      "properties": {
+        "reason": {
+          "description": "reason holds the reason the cluster is not currently supported.",
           "type": "string"
         }
       },
@@ -1702,44 +2743,18 @@
       },
       "type": "object"
     },
-    "SignatureGithub": {
-      "properties": {
-        "workflowName": {
-          "title": "OID: 1.3.6.1.4.1.57264.1.4",
-          "type": "string"
-        },
-        "workflowRef": {
-          "title": "OID: 1.3.6.1.4.1.57264.1.6",
-          "type": "string"
-        },
-        "workflowRepo": {
-          "title": "OID: 1.3.6.1.4.1.57264.1.5",
-          "type": "string"
-        },
-        "workflowSha": {
-          "title": "OID: 1.3.6.1.4.1.57264.1.3",
-          "type": "string"
-        },
-        "workflowTrigger": {
-          "title": "OID: 1.3.6.1.4.1.57264.1.2",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "StatusState": {
-      "default": "UNKNOWN",
-      "enum": [
-        "UNKNOWN",
-        "Ready",
-        "NotReady"
-      ],
-      "type": "string"
-    },
     "authRegistrationRequest": {
       "properties": {
+        "clusterDescription": {
+          "description": "cluster_description is an optional description to give the cluster\nwhen one is registered as part of the registration flow.",
+          "type": "string"
+        },
         "clusterId": {
           "description": "cluster_id is an optional cluster id, which simultaneously registers\na Cluster with the Identity.  This path must specify an invite code, so\nwe know where in the IAM hierarchy to link the cluster.",
+          "type": "string"
+        },
+        "clusterName": {
+          "description": "cluster_name is an optional name to give the cluster when one is\nregistered as part of the registration flow.",
           "type": "string"
         },
         "code": {
@@ -1818,16 +2833,21 @@
           "description": "role of the bound identity."
         }
       },
+      "title": "--- Upstream fields ---",
       "type": "object"
     },
     "commonUIDPFilter": {
       "properties": {
         "ancestorsOf": {
-          "description": "ancestors_of are groups reachable by repeated proceeding from parent to child.",
+          "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+          "type": "string"
+        },
+        "childrenOf": {
+          "description": "children_of are groups reachable by directly proceeding from parent to children.",
           "type": "string"
         },
         "descendantsOf": {
-          "description": "descendants_of are groups reachable by repeated proceeding from child to parent.",
+          "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
           "type": "string"
         }
       },
@@ -1855,6 +2875,14 @@
         "subject": {
           "description": "subject of OIDC ID tokens issued for this identity. Matchs the `sub`\nclaim.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "eventsIdentityMetadata": {
+      "properties": {
+        "onboardingQuestions": {
+          "$ref": "#/definitions/IdentityMetadataOnboardingQuestions"
         }
       },
       "type": "object"
@@ -1911,6 +2939,10 @@
           "description": "a short description of this association.",
           "type": "string"
         },
+        "github": {
+          "$ref": "#/definitions/AccountAssociationsGitHubInstallation",
+          "description": "github holds information associating a GitHub installation with the group.\nNote: this AccountAssociation type is EXPERIMENTAL."
+        },
         "google": {
           "$ref": "#/definitions/AccountAssociationsGoogle",
           "description": "google holds information associating a Google project with the group."
@@ -1933,6 +2965,28 @@
             "$ref": "#/definitions/iamAccountAssociations"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "iamCertificateAuthority": {
+      "properties": {
+        "googleCa": {
+          "$ref": "#/definitions/iamGoogleCA",
+          "title": "google_ca is the Google Certificate Authority service"
+        },
+        "kmsCa": {
+          "$ref": "#/definitions/iamKMSCA",
+          "title": "kmsca is a KMS-based CA that requires a root cert and KMS signing key"
+        }
+      },
+      "type": "object"
+    },
+    "iamGoogleCA": {
+      "properties": {
+        "ref": {
+          "title": "ref is the reference to the Google CA service in the format\n/projects/\u003cproject\u003e/locations/\u003clocation\u003e/\u003cname\u003e",
+          "type": "string"
         }
       },
       "type": "object"
@@ -2002,8 +3056,91 @@
       },
       "type": "object"
     },
+    "iamIdentity": {
+      "properties": {
+        "claimMatch": {
+          "$ref": "#/definitions/IdentityClaimMatch",
+          "description": "claim_match checks the third party IdP token's claims against one\nor more configured patterns."
+        },
+        "description": {
+          "description": "description, human readable of identity.",
+          "type": "string"
+        },
+        "id": {
+          "description": "id is unique identifier of this specific identity.",
+          "type": "string"
+        },
+        "name": {
+          "description": "name, human readable name of identity.",
+          "type": "string"
+        },
+        "static": {
+          "$ref": "#/definitions/IdentityStaticKeys",
+          "description": "static is equivalent to literal, but instead of discovering the\nIdP's verification keys we verify the identity using pre-registered\nverification keys.  This is intended for use with identities from\nproviders without an \"online\" issuer (network accessible to our IdP),\nsuch as a KinD/minikube cluster.\nNOTE: because this path does not have a mechanism for key rotation\nthe identity will expire, with a maximum lifetime of 30d."
+        }
+      },
+      "type": "object"
+    },
+    "iamIdentityList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/iamIdentity"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "iamIdentityProvider": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "title": "id is unique identifier of this specific identity provider",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "oidc": {
+          "$ref": "#/definitions/IdentityProviderOIDC"
+        }
+      },
+      "type": "object"
+    },
+    "iamIdentityProviderList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/iamIdentityProvider"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "iamKMSCA": {
+      "properties": {
+        "certChain": {
+          "title": "cert_chain is the root certificate and (optional) chain\nin PEM-encoded format",
+          "type": "string"
+        },
+        "keyRef": {
+          "title": "key_ref is a reference to the signing key used for this CA\nmost likely a KMS key prefixed with gcpkms://, awskms://, azurekms:// etc\nand the relevant resource name",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "iamPolicy": {
       "properties": {
+        "createdAt": {
+          "description": "created_at is the timestamp for when the policy was created.",
+          "format": "date-time",
+          "type": "string"
+        },
         "description": {
           "description": "description, human readable description of policy.",
           "type": "string"
@@ -2012,12 +3149,34 @@
           "description": "document, YAML encoded policy document.",
           "type": "string"
         },
+        "enforcedVersion": {
+          "$ref": "#/definitions/iamPolicyVersion",
+          "description": "enforced_version contains information about the enforced version of this policy.\nWhen used as a return value, Policy.name, Policy.description, and Policy.document are all copies of\nthe respective fields in enforced_version for backwards compatibility. enforced_version may be empty for\nlegacy policies without versions.\nWhen used for Create or Update, set enforced_version.label to set an optional version label."
+        },
         "id": {
           "description": "id is identifier of this specific policy.",
           "type": "string"
         },
         "name": {
-          "description": "name, human readable name of policy.",
+          "description": "name, human readable name of policy.\nThis field is populated from the document and any existing value will be ignored for Create/Update.",
+          "type": "string"
+        },
+        "updatedAt": {
+          "description": "updated_at is the timestamp when the current version of the policy was last updated.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "iamPolicyAuthor": {
+      "properties": {
+        "email": {
+          "description": "email is the email address of the author, if known.",
+          "type": "string"
+        },
+        "id": {
+          "description": "id is the UID of the author identity.",
           "type": "string"
         }
       },
@@ -2028,6 +3187,51 @@
         "items": {
           "items": {
             "$ref": "#/definitions/iamPolicy"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "iamPolicyVersion": {
+      "properties": {
+        "author": {
+          "$ref": "#/definitions/iamPolicyAuthor",
+          "description": "author is information about the identity that created/updated this version of the policy, if known."
+        },
+        "createdAt": {
+          "description": "created_at is the timestamp from when this version was created.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "description": "description, human-readable description of policy.",
+          "type": "string"
+        },
+        "document": {
+          "description": "document, YAML encoded policy document.",
+          "type": "string"
+        },
+        "id": {
+          "description": "id is the identifier of this specific policy version.",
+          "type": "string"
+        },
+        "label": {
+          "description": "label is a human-readable identifier for this version of the policy.",
+          "type": "string"
+        },
+        "name": {
+          "description": "name, human-readable name of policy.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "iamPolicyVersionList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/iamPolicyVersion"
           },
           "type": "array"
         }
@@ -2101,6 +3305,42 @@
       },
       "type": "object"
     },
+    "iamSigstore": {
+      "properties": {
+        "certificateAuthority": {
+          "$ref": "#/definitions/iamCertificateAuthority",
+          "title": "certificate authority for this instance of sigstore"
+        },
+        "description": {
+          "description": "description, human-readable description of the sigstore instance.",
+          "type": "string"
+        },
+        "hostname": {
+          "title": "unique hostname of this sigstore instance",
+          "type": "string"
+        },
+        "id": {
+          "description": "id is identifier of this specific sigstore instance.",
+          "type": "string"
+        },
+        "name": {
+          "description": "name, human-readable name of the sigstore instance.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "iamSigstoreList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/iamSigstore"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "iamStoredGroupInvite": {
       "properties": {
         "expiration": {
@@ -2167,6 +3407,10 @@
           "description": "activity is a mapping from \"Source\" URLs to an activity record summarizing\nrecent activity from this source.",
           "type": "object"
         },
+        "affinity": {
+          "$ref": "#/definitions/tenantClusterLocation",
+          "description": "affinity specifies a scheduling preference for where to run the managed agent.\nOther factors, such as the provider may be taken into account when choosing a\nhost cluster."
+        },
         "agentVersion": {
           "description": "agent_version holds the version of the Chainguard agent last reported by the cluster.",
           "type": "string"
@@ -2182,6 +3426,10 @@
         "group": {
           "$ref": "#/definitions/iamGroup",
           "title": "group the cluster resides in"
+        },
+        "hostCluster": {
+          "description": "host_cluster surfaces the opaque identifier for the Chainguard cluster hosting\nthis agent.",
+          "type": "string"
         },
         "id": {
           "description": "id, The Cluster UIDP under which this Cluster resides.",
@@ -2207,6 +3455,13 @@
         "name": {
           "description": "name of the cluster.",
           "type": "string"
+        },
+        "profiles": {
+          "description": "profiles specifies the root set of tenant configurations that we want to run\non this cluster.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "provider": {
           "$ref": "#/definitions/ClusterProvider",
@@ -2247,6 +3502,10 @@
           "description": "namespace is the namespace in which the source of this cluster activity lives.",
           "type": "string"
         },
+        "profile": {
+          "description": "profile is the Chainguard profile to which the source of this activity belongs.",
+          "type": "string"
+        },
         "specHash": {
           "description": "spec_hash is the hash of the Controller or Webhook CRD's spec, which forms a\nloose form of versioning.",
           "type": "string"
@@ -2254,6 +3513,90 @@
         "webhookName": {
           "description": "webhook_name is the name of the Webhook CRD which was the source of this\nactivity on the tenant cluster.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "tenantClusterCIDRResponse": {
+      "properties": {
+        "cidrBlocks": {
+          "description": "cidr_blocks specifies the cidr blocks enforce uses to communicate with clusters.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "tenantClusterConfigResponse": {
+      "properties": {
+        "mcpConfig": {
+          "format": "byte",
+          "type": "string"
+        },
+        "profiles": {
+          "items": {
+            "type": "string"
+          },
+          "title": "profiles includes the full set of profiles returned (including transitive\ndependencies of the input profiles)",
+          "type": "array"
+        },
+        "tenantConfig": {
+          "format": "byte",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "tenantClusterDiscoveryRequest": {
+      "properties": {
+        "id": {
+          "description": "id is the exact UIDP of the group to impersonate to search for clusters.",
+          "type": "string"
+        },
+        "profiles": {
+          "description": "profiles includes the set of profiles to perform discovery for,\nwhich may impact eligibility (some profiles may not be supported\non some providers).",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "providers": {
+          "description": "providers is the list of providers to perform discovery on.",
+          "items": {
+            "$ref": "#/definitions/ClusterProvider"
+          },
+          "type": "array"
+        },
+        "states": {
+          "description": "states is a collection of the states to return, or all if\nnone are specified.",
+          "items": {
+            "$ref": "#/definitions/tenantClusterDiscoveryRequestState"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "tenantClusterDiscoveryRequestState": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "UNSUPPORTED",
+        "NEEDS_WORK",
+        "ELIGIBLE",
+        "ENROLLED"
+      ],
+      "type": "string"
+    },
+    "tenantClusterDiscoveryResponse": {
+      "properties": {
+        "results": {
+          "items": {
+            "$ref": "#/definitions/ClusterDiscoveryResponseResult"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -2269,53 +3612,37 @@
       },
       "type": "object"
     },
+    "tenantClusterLocation": {
+      "default": "AUTO",
+      "enum": [
+        "AUTO",
+        "US_EAST",
+        "US_CENTRAL",
+        "US_WEST"
+      ],
+      "title": "- US_EAST: Use 1xx for US",
+      "type": "string"
+    },
+    "tenantClusterProfilesResponse": {
+      "properties": {
+        "profile": {
+          "items": {
+            "$ref": "#/definitions/ClusterProfilesResponseProfile"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "tenantClusterStatus": {
       "properties": {
         "message": {
           "type": "string"
         },
         "ready": {
-          "$ref": "#/definitions/StatusState"
+          "$ref": "#/definitions/ClusterStatusState"
         },
         "reason": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "tenantContext": {
-      "properties": {
-        "ancestry": {
-          "$ref": "#/definitions/ContextAncestry"
-        },
-        "contextId": {
-          "description": "context_id is a unique ID, output only.",
-          "type": "string"
-        },
-        "lastSeen": {
-          "description": "last_seen is the last time we've seen the image_id in this context.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "variant": {
-          "$ref": "#/definitions/ContextVariant"
-        },
-        "workload": {
-          "$ref": "#/definitions/ContextWorkload"
-        }
-      },
-      "type": "object"
-    },
-    "tenantGroupVersionKind": {
-      "description": "TODO: Replace with upstream proto messages wherever possible.",
-      "properties": {
-        "group": {
-          "type": "string"
-        },
-        "kind": {
-          "type": "string"
-        },
-        "version": {
           "type": "string"
         }
       },
@@ -2335,43 +3662,11 @@
       },
       "type": "object"
     },
-    "tenantPolicy": {
-      "properties": {
-        "authorityMatches": {
-          "additionalProperties": {
-            "$ref": "#/definitions/PolicyAuthorityMatch"
-          },
-          "description": "This loosely tracks the policy-controller's PolicyResult type found here:\nhttps://github.com/sigstore/policy-controller/blob/f777dcc2e/pkg/webhook/validator_result.go\nThe keys of this map are the authority names from within the policy.",
-          "type": "object"
-        },
-        "diagnostic": {
-          "description": "diagnostic holds any messages surfaced by the policy evaluation.",
-          "type": "string"
-        },
-        "lastChecked": {
-          "description": "last_checked holds when this policy was last evaluated.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "valid": {
-          "description": "valid holds whether the policy evaluation was successful.",
-          "type": "boolean"
-        }
-      },
-      "type": "object"
-    },
     "tenantRecord": {
       "properties": {
         "cluster": {
           "description": "cluster identifies the specific cluster for the record.",
           "type": "string"
-        },
-        "contexts": {
-          "description": "contexts in which we have seen this image id.",
-          "items": {
-            "$ref": "#/definitions/tenantContext"
-          },
-          "type": "array"
         },
         "id": {
           "title": "id holds the UIDP for this image's record",
@@ -2394,18 +3689,18 @@
           "format": "date-time",
           "type": "string"
         },
-        "policies": {
-          "additionalProperties": {
-            "$ref": "#/definitions/tenantPolicy"
-          },
-          "description": "policies will hold a policy name =\u003e policy struct, containing the\nlast time it was checked and whether it is pass or fail.\nrefreshed.",
-          "type": "object"
-        },
         "sboms": {
           "items": {
             "$ref": "#/definitions/tenantSbom"
           },
           "type": "array"
+        },
+        "status": {
+          "additionalProperties": {
+            "$ref": "#/definitions/tenantRecordStatus"
+          },
+          "description": "status is a map from analysis type (e.g. \"sbom\", \"vuln\") =\u003e RecordStatus to indidate success/failure,\nthe analysis timestamp, as well as any diagnostic message in case of failures.",
+          "type": "object"
         }
       },
       "type": "object"
@@ -2417,6 +3712,21 @@
             "$ref": "#/definitions/tenantRecord"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "tenantRecordStatus": {
+      "properties": {
+        "diagnostic": {
+          "type": "string"
+        },
+        "lastChecked": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "result": {
+          "$ref": "#/definitions/RecordStatusResult"
         }
       },
       "type": "object"
@@ -2433,15 +3743,17 @@
       "type": "object"
     }
   },
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "produces": null,
+  "consumes": null,
   "tags": [
     {
       "name": "Auth"
+    },
+    {
+      "name": "Identities"
+    },
+    {
+      "name": "Subscriptions"
     },
     {
       "name": "GroupAccountAssociations"
@@ -2456,6 +3768,9 @@
       "name": "Identities"
     },
     {
+      "name": "IdentityProviders"
+    },
+    {
       "name": "Policies"
     },
     {
@@ -2465,7 +3780,7 @@
       "name": "RoleBindings"
     },
     {
-      "name": "Subscriptions"
+      "name": "SigstoreService"
     },
     {
       "name": "SecurityTokenService"

@@ -14,12 +14,10 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/python](https://github.com/chainguard-images/images/tree/main/images/python)
-| Tags              | Aliases                                                        |
-|-------------------|----------------------------------------------------------------|
-| `latest`          | 3, 3.11, 3.11.1, 3.11.1-r3                                     |
-| `latest-dev`      | dev-3, dev-3.11, dev-3.11.1, dev-3.11.1-r3                     |
-| `latest-musl`     | musl-3, musl-3.11, musl-3.11.1, musl-3.11.1-r2                 |
-| `latest-musl-dev` | musl-dev-3, musl-dev-3.11, musl-dev-3.11.1, musl-dev-3.11.1-r2 |
+| Tags         | Aliases |
+|--------------|---------|
+| `latest`     |         |
+| `latest-dev` |         |
 
 
 
@@ -44,12 +42,22 @@ docker pull cgr.dev/chainguard/python:latest-dev
 The python image can be used directly for simple cases, or with a multi-stage build using python-dev as the build container.
 
 ```Dockerfile
-FROM cgr.dev/chainguard/python:latest-dev AS builder
-COPY . /app
-RUN cd /app && pip install -r requirements.txt
+FROM cgr.dev/chainguard/python:latest-dev as builder
 
-FROM cgr.dev/chainguard/python
-COPY --from=builder /app /app
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt --user
+
+FROM cgr.dev/chainguard/python:latest
+
+WORKDIR /app
+
+# Make sure you update Python version in path
+COPY --from=builder /home/nonroot/.local/lib/python3.11/site-packages /home/nonroot/.local/lib/python3.11/site-packages
+
+COPY main.py .
 
 ENTRYPOINT [ "python", "/app/main.py" ]
 ```

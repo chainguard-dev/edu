@@ -16,7 +16,7 @@ toc: true
 `stable` [cgr.dev/chainguard/prometheus](https://github.com/chainguard-images/images/tree/main/images/prometheus)
 | Tags     | Aliases                    |
 |----------|----------------------------|
-| `latest` | 2, 2.41, 2.41.0, 2.41.0-r2 |
+| `latest` | 2, 2.42, 2.42.0, 2.42.0-r0 |
 
 
 
