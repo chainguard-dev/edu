@@ -116,7 +116,7 @@ The above workflow demonstrates how to create a VEX document with `vexctl` on th
 
 When more than one stakeholder is issuing VEX metadata about a piece of software, `vexctl` can merge the documents to get the most up-to-date impact assessment of a vulnerability. 
 
-Let's begin with two test documents. (If you want to try this example in the terminal, you will need to create the example documents first.)
+Let's begin with two test documents. You can create these two test documents with a CLI editor such as nano. 
 
 The first document is `document1.vex.json`:
 
