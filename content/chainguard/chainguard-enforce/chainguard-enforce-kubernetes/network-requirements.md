@@ -19,7 +19,7 @@ To use Chainguard Enforce for Kubernetes in environments with firewalls, VPNs, a
 
 ## Chainguard Hosts
 
-{{< enforce/domains >}}
+{{< blurb/enforce-domains >}}
 
 ## Third-party Hosts
 | Hostname |Port |Protocol |
@@ -35,15 +35,17 @@ For cluster and workload discovery to work, and to be able to communicate effect
 
 If you are using Google GKE for your cluster, this page explains how to authorize our networks: [Add an authorized network to an existing cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/authorized-networks#add). If you are using Amazon EKS then refer to this page: [Amazon EKS cluster endpoint access control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html).
 
-{{< enforce/ips >}}
+{{< blurb/enforce-ips >}}
 
 ## Additional Notes
 
 ### Ingress and Egress
 
-Connections to the hosts listed here  are initiated as new outbound connections. If you are using stateful firewall rules, then you will need to add symmetric rules to ensure that traffic flows correctly.
+Connections to the hosts listed on this page are generally initiated as new outbound connections. If you are using stateful firewall rules, then you will need to add symmetric rules to ensure that traffic flows correctly.
 
 You will need egress rules that allow new traffic to the hosts listed here. You will need corresponding ingress rules that allow related and established traffic.
+
+For the CIDR ranges listed here, ensure that you allow incoming connections from those networks. These IPs are used for workload discovery on public clouds.
 
 ### DNS Records and TTLs
 
