@@ -116,7 +116,7 @@ The above workflow demonstrates how to create a VEX document with `vexctl` on th
 
 When more than one stakeholder is issuing VEX metadata about a piece of software, `vexctl` can merge the documents to get the most up-to-date impact assessment of a vulnerability. 
 
-Let's begin with two test documents. (If you want to try this example in the terminal, you will need to create the example documents first.)
+Let's begin with two test documents. You can create these two test documents with a CLI editor such as nano. 
 
 The first document is `document1.vex.json`:
 
@@ -204,7 +204,7 @@ This final document tells the whole story of how `CVE-2014-123456` was `under_in
 
 To attest to and attach VEX statements within a given document to a container image, you can use the `vexctl attest` command with the `--attach` and `--sign` flags.
 
-For example, if you have a container image `your-username/your-container-image:latest` in a container registry, and a related VEX document `hello.vex.json`, you can run the following command to attest to that document, attach the document and sign that attestation. (If you want to try this example in your terminal, make sure to replace `your-username/your-container-image:latest` with the path to your container.)
+For example, if you have a container image `your-username/your-container-image:latest` in a container registry, and a related VEX document `hello.vex.json`, you can run the following command to attest to that document, attach the document and sign that attestation. If you want to try this example, make sure to replace `your-username/your-container-image:latest` with the path to your container.
 
 ```sh
 vexctl attest --attach --sign hello.vex.json your-username/your-container-image:latest

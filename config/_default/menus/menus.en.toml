@@ -82,6 +82,12 @@
   weight = 40
 
 [[main]]
+  name = "SLSA"
+  url = "/open-source/slsa/"
+  parent = "menu-oss"
+  weight = 45
+
+[[main]]
   name = "Software Security"
   identifier = "menu-security"
   weight = 20
