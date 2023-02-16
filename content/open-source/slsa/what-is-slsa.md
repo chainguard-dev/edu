@@ -74,10 +74,10 @@ To verify the SLSA provenance of a piece of software, you can use the [`slsa-ver
 
 Developers are also encouraged to include the corresponding SLSA level badge in their README once their codebase meets the level’s requirements. You can access the badges below. 
 
-[![SLSA 1](https://slsa.dev/images/gh-badge-level1.svg)](https://slsa.dev)
-[![SLSA 2](https://slsa.dev/images/gh-badge-level2.svg)](https://slsa.dev)
-[![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://slsa.dev)
-[![SLSA 4](https://slsa.dev/images/gh-badge-level4.svg)](https://slsa.dev)
+![SLSA 1](https://slsa.dev/images/gh-badge-level1.svg)(https://slsa.dev)
+![SLSA 2](https://slsa.dev/images/gh-badge-level2.svg)(https://slsa.dev)
+![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)(https://slsa.dev)
+![SLSA 4](https://slsa.dev/images/gh-badge-level4.svg)(https://slsa.dev)
 
 ## Learn more 
 
