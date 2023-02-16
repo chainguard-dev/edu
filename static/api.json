@@ -278,6 +278,10 @@
                   "description": "a short description of this association.",
                   "type": "string"
                 },
+                "github": {
+                  "$ref": "#/definitions/AccountAssociationsGitHubInstallation",
+                  "description": "github holds information associating a GitHub installation with the group.\nNote: this AccountAssociation type is EXPERIMENTAL."
+                },
                 "google": {
                   "$ref": "#/definitions/AccountAssociationsGoogle",
                   "description": "google holds information associating a Google project with the group."
@@ -333,6 +337,10 @@
                 "description": {
                   "description": "a short description of this association.",
                   "type": "string"
+                },
+                "github": {
+                  "$ref": "#/definitions/AccountAssociationsGitHubInstallation",
+                  "description": "github holds information associating a GitHub installation with the group.\nNote: this AccountAssociation type is EXPERIMENTAL."
                 },
                 "google": {
                   "$ref": "#/definitions/AccountAssociationsGoogle",
@@ -2426,6 +2434,31 @@
       },
       "type": "object"
     },
+    "AccountAssociationsGitHubInstallation": {
+      "properties": {
+        "appId": {
+          "description": "GitHub App ID. Output only.",
+          "format": "int64",
+          "readOnly": true,
+          "type": "string"
+        },
+        "host": {
+          "description": "GitHub hostname app is associated with. Output only.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "installationId": {
+          "description": "GitHub App Installation ID. Takes precedence over name.",
+          "format": "int64",
+          "type": "string"
+        },
+        "name": {
+          "description": "GitHub user/org name the installation is installed on.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "AccountAssociationsGoogle": {
       "properties": {
         "projectId": {
@@ -2906,6 +2939,10 @@
           "description": "a short description of this association.",
           "type": "string"
         },
+        "github": {
+          "$ref": "#/definitions/AccountAssociationsGitHubInstallation",
+          "description": "github holds information associating a GitHub installation with the group.\nNote: this AccountAssociation type is EXPERIMENTAL."
+        },
         "google": {
           "$ref": "#/definitions/AccountAssociationsGoogle",
           "description": "google holds information associating a Google project with the group."
@@ -3091,7 +3128,7 @@
           "type": "string"
         },
         "keyRef": {
-          "title": "key_ref is a unique reference to the signing key used for this CA\nmost likely a KMS key prefixed with gcpkms://, awskms://, azurekms:// etc\nand the relevant resource name",
+          "title": "key_ref is a reference to the signing key used for this CA\nmost likely a KMS key prefixed with gcpkms://, awskms://, azurekms:// etc\nand the relevant resource name",
           "type": "string"
         }
       },
@@ -3476,6 +3513,18 @@
         "webhookName": {
           "description": "webhook_name is the name of the Webhook CRD which was the source of this\nactivity on the tenant cluster.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "tenantClusterCIDRResponse": {
+      "properties": {
+        "cidrBlocks": {
+          "description": "cidr_blocks specifies the cidr blocks enforce uses to communicate with clusters.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "type": "object"
