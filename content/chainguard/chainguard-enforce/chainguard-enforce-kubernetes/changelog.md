@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-02-15 23:02:20 +0000 UTC
+date: 2023-02-17 21:18:13 +0000 UTC
 draft: false
 images: []
 weight: 799
@@ -11,15 +11,25 @@ weight: 799
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
 
-### v0.1.75
-Release date: 2023-02-15
+### v0.1.76
+Release date: 2023-02-17
 
 Customer facing changes: N/A
+
+### v0.1.75
+Release date: 2023-02-15
+#### Bug or Regression
+- chainctl now properly uses the --identity-token in environments with ambient credentials
+
 
 ### v0.1.74
 Release date: 2023-02-14
+#### Feature
+- chainctl now supports detecting ambient credentials when they are mounted in the path: /var/run/chainguard/chainctl/oidc-token
+#### Bug or Regression
+- Fix the eksctl command returned by discovery to drop the --account argument
+- chainctl now properly uses the --identity-token in environments with ambient credentials
 
-Customer facing changes: N/A
 
 ### v0.1.73
 Release date: 2023-02-14
