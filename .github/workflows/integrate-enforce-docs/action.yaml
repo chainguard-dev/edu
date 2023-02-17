@@ -50,9 +50,18 @@ runs:
         rsync -av --delete --exclude="_index.md" \
           "/tmp/chainctl-docs/" "content/chainguard/chainguard-enforce/chainctl-docs/"
 
-    - name: fix chainctl-docs urls
+    - name: download domains.md from cloud storage
       shell: bash
       run: |
-        sed 's#/chainguard/chainctl/#/chainguard/chainguard-enforce/chainctl-docs/#g' \
-          -i content/chainguard/chainguard-enforce/chainctl-docs/*.md
+        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
+          "${{ inputs.storage_bucket }}/enforce-blurbs/domains.md" /tmp/domains.md
+        sed 's/^/- /g' -i /tmp/domains.md
+        mv /tmp/domains.md data/domains.yaml
 
+    - name: download ips.md from cloud storage
+      shell: bash
+      run: |
+        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
+          "${{ inputs.storage_bucket }}/enforce-blurbs/ips.md" /tmp/ips.md
+        sed 's/^/- /g' -i /tmp/ips.md
+        mv /tmp/ips.md data/ips.yaml
