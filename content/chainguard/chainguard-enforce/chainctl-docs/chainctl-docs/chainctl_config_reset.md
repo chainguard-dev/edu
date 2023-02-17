@@ -1,5 +1,5 @@
 ---
-date: 2023-02-15T23:07:18Z
+date: 2023-02-17T21:22:59Z
 title: "chainctl config reset"
 slug: chainctl_config_reset
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_config_reset/
