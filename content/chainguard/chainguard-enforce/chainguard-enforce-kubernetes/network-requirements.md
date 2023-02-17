@@ -19,22 +19,7 @@ To use Chainguard Enforce for Kubernetes in environments with firewalls, VPNs, a
 
 ## Chainguard Hosts
 
-| Hostname |Port |Protocol |
-|----------|-----|---------|
-| auth.chainguard.dev | 443 | HTTPS |
-| canary.enforce.dev | 443 | HTTPS |
-| console-api.enforce.dev | 443 | HTTPS |
-| console.enforce.dev | 443 | HTTPS |
-|cosigned-continuous-verification.enforce.dev | 443 | HTTPS |
-| dl.enforce.dev | 443 | HTTPS |
-| eots-omni.enforce.dev | 443 | HTTPS |
-| issuer.enforce.dev | 443 | HTTPS |
-| policy-compiler.enforce.dev | 443 | HTTPS |
-| policy-conversion.enforce.dev | 443 | HTTPS |
-|policy-distribution.enforce.dev | 443 | HTTPS |
-| policy-defaulting.enforce.dev | 443 | HTTPS |
-| policy-validation.enforce.dev | 443 | HTTPS |
-| tsa.enforce.dev | 443 | HTTPS |
+{{< blurb/enforce-domains >}}
 
 ## Third-party Hosts
 | Hostname |Port |Protocol |
@@ -44,13 +29,23 @@ To use Chainguard Enforce for Kubernetes in environments with firewalls, VPNs, a
 | raw.githubusercontent.com | 443 | HTTPS |
 | storage.googleapis.com | 443 | HTTPS |
 
+## CIDR Ranges
+
+For cluster and workload discovery to work, and to be able to communicate effectively to and from Chainguard Enforce, you will need to ensure access to and from the following CIDR ranges.
+
+If you are using Google GKE for your cluster, this page explains how to authorize our networks: [Add an authorized network to an existing cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/authorized-networks#add). If you are using Amazon EKS then refer to this page: [Amazon EKS cluster endpoint access control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html).
+
+{{< blurb/enforce-ips >}}
+
 ## Additional Notes
 
 ### Ingress and Egress
 
-Connections to the hosts listed here  are initiated as new outbound connections. If you are using stateful firewall rules, then you will need to add symmetric rules to ensure that traffic flows correctly.
+Connections to the hosts listed on this page are generally initiated as new outbound connections. If you are using stateful firewall rules, then you will need to add symmetric rules to ensure that traffic flows correctly.
 
 You will need egress rules that allow new traffic to the hosts listed here. You will need corresponding ingress rules that allow related and established traffic.
+
+For the CIDR ranges listed here, ensure that you allow incoming connections from those networks. These IPs are used for workload discovery on public clouds.
 
 ### DNS Records and TTLs
 

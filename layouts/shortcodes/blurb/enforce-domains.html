@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Hostname</th>
+      <th>Port</th>
+      <th>Protocol</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{ range $domain := $.Site.Data.domains }}
+    <tr>
+      <td>{{ $domain }}</td>
+      <td>443</td>
+      <td>HTTPS</td>
+    </tr>
+  {{ end }}
+  </tbody>
+</table>
