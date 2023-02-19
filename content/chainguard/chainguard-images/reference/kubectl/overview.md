@@ -16,7 +16,7 @@ toc: true
 `stable` [cgr.dev/chainguard/kubectl](https://github.com/chainguard-images/images/tree/main/images/kubectl)
 | Tags     | Aliases                    |
 |----------|----------------------------|
-| `latest` | 1, 1.26, 1.26.1, 1.26.1-r0 |
+| `latest` | 1, 1.26, 1.26.1, 1.26.1-r1 |
 
 
 
