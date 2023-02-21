@@ -14,10 +14,12 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/jre](https://github.com/chainguard-images/images/tree/main/images/jre)
-| Tags         | Aliases |
-|--------------|---------|
-| `latest`     |         |
-| `openjdk-11` |         |
+| Tags             | Aliases |
+|------------------|---------|
+| `latest`         |         |
+| `openjdk-11`     |         |
+| `latest-dev`     |         |
+| `openjdk-11-dev` |         |
 
 
 
