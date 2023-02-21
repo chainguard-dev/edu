@@ -14,11 +14,10 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/node](https://github.com/chainguard-images/images/tree/main/images/node)
-| Tags     | Aliases                        |
-|----------|--------------------------------|
-| `latest` |                                |
-| `19`     | 19, 19.6, 19.6.1, 19.6.1-r0    |
-| `16`     | 16, 16.19, 16.19.1, 16.19.1-r0 |
+| Tags     | Aliases                     |
+|----------|-----------------------------|
+| `latest` |                             |
+| `19`     | 19, 19.6, 19.6.1, 19.6.1-r0 |
 
 
 
