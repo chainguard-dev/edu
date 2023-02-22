@@ -47,6 +47,12 @@ You will need egress rules that allow new traffic to the hosts listed here. You 
 
 For the CIDR ranges listed here, ensure that you allow incoming connections from those networks. These IPs are used for workload discovery on public clouds.
 
+### Image Registry Access
+
+The Enforce agent needs access to any registry or registries that are configured for your cluster or containers so that it can validate images and policies.
+
+Whether they are public or private, ensure that outbound connections from the Enforce agent (running in the `gulfstream` namespace) are permitted to your configured registry or registries. Also be sure to allow the corresponding return traffic if you are using symmetric firewall rules.
+
 ### DNS Records and TTLs
 
 Many of the hosts listed on this page use multiple DNS A records or CNAME aliases. Additionally, many A records have a short time to live of 60 seconds, and the majority are less than an hour (3600s).
