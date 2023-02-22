@@ -11,4 +11,4 @@ menu:
 images: []
 ---
 
-A Kubernetes admission controller can be used to validate signatures and attestations on container images as well as enforce policies using cue or rego languages.
+A Kubernetes admission controller used to validate signatures and attestations on container images as well as enforce policies using CUE or Rego languages.

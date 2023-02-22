@@ -93,13 +93,13 @@ deployment.apps/policy-controller-webhook condition met
 deployment.apps/policy-controller-policy-webhook condition met
 ```
 
-A full list of the resources that the Policy Controller deploys into your cluster is available at the end of this guide in [Appendix 1 — Resource Types](#appendix-1--resource-types).
+A full list of the resources that the Policy Controller deploys into your cluster is available at the end of this guide in [Appendix — Resource Types](#appendix--resource-types).
 
 You have now deployed the Policy Controller into your cluster. The next step is to enable it for the namespaces that you want to enforce policies in.
 
 ## Step 3 — Enabling the Policy Controller
 
-Now that you have the Policy Controller installed into your cluster, the next step is to decide which namespaces should use it. By default, namespaces must opt-in to enforcement, so you will need to label any namespace that you will use with the Policy Controller.
+Now that you have the Policy Controller installed into your cluster, the next step is to decide which namespaces should use it. By default, namespaces must enroll into enforcement, so you will need to label any namespace that you will use with the Policy Controller.
 
 Run the following command to include the `default` namespace in image validation and policy enforcement:
 
@@ -122,7 +122,60 @@ Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied t
 cgr.dev/chainguard/nginx@sha256:628a01724b84d7db2dc3866f645708c25fab8cce30b98d3e5b76696291d65c4a
 ```
 
-## Continuous Verification with Chainguard Enforce
+The image is not admitted into the cluster because there are no `ClusterImagePolicy` (CIP) definitions that match it. Save and apply the following policy that will allow any [Chainguard Image](https://www.chainguard.dev/chainguard-images) hosted on the `cgr.dev/chainguard` registry to run on a cluster, while denying any other images:
+
+```shell
+nano /tmp/cip.yaml
+```
+
+Copy the following policy to the `/tmp/cip.yaml` file:
+
+```yaml
+apiVersion: policy.sigstore.dev/v1beta1
+kind: ClusterImagePolicy
+metadata:
+  name: chainguard-image-policy
+spec:
+  images:
+    - glob: "cgr.dev/chainguard/**"
+  authorities:
+    - static:
+        action: pass
+```
+
+Save the file and then apply the policy to your cluster:
+
+```bash
+kubectl apply -f /tmp/cip.yaml
+```
+
+You will receive output showing the policy is created:
+
+```
+clusterimagepolicy.policy.sigstore.dev/chainguard-image-policy created
+```
+
+Now run the `cgr.dev/chainguard/nginx:latest` image again:
+
+```bash
+kubectl run --image cgr.dev/chainguard/nginx:latest nginx
+```
+
+Since the image matches the policy, you will receive a message that the pod was created successfully:
+
+```
+pod/nginx created
+```
+
+Delete the pod once you're done experimenting with it:
+
+```
+kubectl delete pod nginx
+```
+
+To learn more about how the Policy Controller admits images, review the [Admission of images page](https://docs.sigstore.dev/policy-controller/overview/#admission-of-images) Sigstore documentation.
+
+## Options for Continuous Verification
 
 While it is useful to use the Policy Controller to manage admission into a cluster, once a workload is running any vulnerability or policy violations that occur after containers are running will not be detected.
 
@@ -130,7 +183,7 @@ While it is useful to use the Policy Controller to manage admission into a clust
 
 If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).
 
-## Appendix 1 — Resource Types
+## Appendix — Resource Types
 
 A complete Policy Controller installation consists of the following resources in a cluster:
 
