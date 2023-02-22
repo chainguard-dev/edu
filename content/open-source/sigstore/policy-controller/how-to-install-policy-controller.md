@@ -122,7 +122,15 @@ Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied t
 cgr.dev/chainguard/nginx@sha256:628a01724b84d7db2dc3866f645708c25fab8cce30b98d3e5b76696291d65c4a
 ```
 
-The image is not admitted into the cluster because there are no `ClusterImagePolicy` (CIP) definitions that match it. Save and apply the following policy that will allow any [Chainguard Image](https://www.chainguard.dev/chainguard-images) hosted on the `cgr.dev/chainguard` registry to run on a cluster, while denying any other images:
+The image is not admitted into the cluster because there are no `ClusterImagePolicy` (CIP) definitions that match it. In the next step you will define a policy that allows specific images and apply it to your cluster.
+
+## Step 4 — Defining a `ClusterImagePolicy`
+
+Now that you have the Policy Controller running in your cluster, and have the `default` namespace configured to use it, you can now define a `ClusterImagePolicy` to admit images.
+
+The following policy will allow any [Chainguard Image](https://www.chainguard.dev/chainguard-images) hosted on the `cgr.dev/chainguard` registry to run on a cluster, while denying any other images.
+
+Open a new file with `nano` or your preferred editor:
 
 ```shell
 nano /tmp/cip.yaml
@@ -143,7 +151,9 @@ spec:
         action: pass
 ```
 
-Save the file and then apply the policy to your cluster:
+The `glob: "cgr.dev/chainguard/**"` line in combination with the `action: pass` portion of the `authorities` section will allow any image in the `cgr.dev/chainguard` image registry to be admitted into your cluster.
+
+Save the file and then apply the policy:
 
 ```bash
 kubectl apply -f /tmp/cip.yaml
