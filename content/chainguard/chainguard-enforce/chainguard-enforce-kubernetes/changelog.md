@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-02-17 21:18:13 +0000 UTC
+date: 2023-02-22 10:22:35 +0000 UTC
 draft: false
 images: []
 weight: 799
@@ -11,10 +11,20 @@ weight: 799
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
 
+### v0.1.77
+Release date: 2023-02-22
+#### Bug or Regression
+- fix a bug where continuous verification improperly filtered workloads when no `match` block was specified.
+
+
 ### v0.1.76
 Release date: 2023-02-17
+#### Feature
+- Validate AWS Account ID when setting up Account Assocations and fail early if invalid
+- add CV support for evaluating workloads with policies using `include*`
+#### Bug or Regression
+- surface clearer error messages when assuming an identity fails because of mismatched claims.
 
-Customer facing changes: N/A
 
 ### v0.1.75
 Release date: 2023-02-15
