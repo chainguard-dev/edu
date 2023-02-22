@@ -23,7 +23,7 @@ This guide will demonstrate how to install the Policy Controller in your Kuberne
 
 To follow along with this guide outside of the terminal that is embedded on this page, you will need the following:
 
-* A Kubernetes cluster with administrative access. You can set up a local cluster using [**kind**](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) or use an existing cluster
+* A Kubernetes cluster with administrative access. You can set up a local cluster using [**kind**](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) or use an existing cluster.
 * **kubectl** — to work with your cluster. Install `kubectl` for your operating system by following the official [Kubernetes kubectl documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * The [Helm](https://helm.sh) command line tool to install the Policy Controller.
 
@@ -97,7 +97,7 @@ A full list of the resources that the Policy Controller deploys into your cluste
 
 You have now deployed the Policy Controller into your cluster. The next step is to enable it for the namespaces that you want to enforce policies in.
 
-## Step 3 — Enabling the Policy Controller 
+## Step 3 — Enabling the Policy Controller
 
 Now that you have the Policy Controller installed into your cluster, the next step is to decide which namespaces should use it. By default, namespaces must opt-in to enforcement, so you will need to label any namespace that you will use with the Policy Controller.
 
@@ -122,6 +122,13 @@ Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied t
 cgr.dev/chainguard/nginx@sha256:628a01724b84d7db2dc3866f645708c25fab8cce30b98d3e5b76696291d65c4a
 ```
 
+## Continuous Verification with Chainguard Enforce
+
+While it is useful to use the Policy Controller to manage admission into a cluster, once a workload is running any vulnerability or policy violations that occur after containers are running will not be detected.
+
+[Chainguard Enforce](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/understanding-continuous-verification/) is designed to address this issue by continuously verifying whether a container or cluster contains any vulnerabilities or policy violations over time. This includes what packages are deployed, SBOMs (software bills of materials), provenance, signature data, and more.
+
+If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).
 
 ## Appendix 1 — Resource Types
 
@@ -156,4 +163,3 @@ A complete Policy Controller installation consists of the following resources in
 |                                | `policy-controller-webhook` |
 | ValidatingWebhookConfiguration | `validating.clusterimagepolicy.sigstore.dev` |
 |                                | `policy.sigstore.dev` |
-
