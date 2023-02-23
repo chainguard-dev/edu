@@ -1,5 +1,5 @@
 ---
-date: 2023-02-22T10:33:41Z
+date: 2023-02-23T13:08:58Z
 title: "chainctl events subscriptions"
 slug: chainctl_events_subscriptions
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_events_subscriptions/
@@ -28,6 +28,7 @@ Subscription interactions.
       --issuer string                The url of the Chainguard STS endpoint. (default "http://issuer.oidc-system.svc")
   -o, --output string                Output format. One of: ["", "table", "tree", "json", "id", "wide"]
       --timestamp-authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
+  -v, --v int                        Set the log verbosity level.
 ```
 
 ### SEE ALSO

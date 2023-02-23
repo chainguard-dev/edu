@@ -686,23 +686,43 @@
       }
     },
     "/iam/v1/identities": {
-      "post": {
-        "operationId": "Identities_Create",
+      "get": {
+        "operationId": "Identities_List",
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/eventsIdentity"
-            }
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "id is unique identifier to look up.",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/eventsIdentity"
+              "$ref": "#/definitions/iamIdentityList"
             }
           },
           "default": {
@@ -735,6 +755,94 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/eventsIdentityMetadata"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Identities"
+        ]
+      }
+    },
+    "/iam/v1/identities/{id}": {
+      "delete": {
+        "operationId": "Identities_Delete",
+        "parameters": [
+          {
+            "description": "ID, UIDP of the record.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Identities"
+        ]
+      },
+      "put": {
+        "operationId": "Identities_Update",
+        "parameters": [
+          {
+            "description": "id is unique identifier of this specific identity.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "claimMatch": {
+                  "$ref": "#/definitions/IdentityClaimMatch",
+                  "description": "claim_match checks the third party IdP token's claims against one\nor more configured patterns."
+                },
+                "description": {
+                  "description": "description, human readable of identity.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "name, human readable name of identity.",
+                  "type": "string"
+                },
+                "static": {
+                  "$ref": "#/definitions/IdentityStaticKeys",
+                  "description": "static is equivalent to literal, but instead of discovering the\nIdP's verification keys we verify the identity using pre-registered\nverification keys.  This is intended for use with identities from\nproviders without an \"online\" issuer (network accessible to our IdP),\nsuch as a KinD/minikube cluster.\nNOTE: because this path does not have a mechanism for key rotation\nthe identity will expire, with a maximum lifetime of 30d."
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamIdentity"
             }
           },
           "default": {
@@ -2281,146 +2389,6 @@
         },
         "tags": [
           "Clusters"
-        ]
-      }
-    },
-    "/v1/identities": {
-      "get": {
-        "operationId": "Identities_List",
-        "parameters": [
-          {
-            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
-            "in": "query",
-            "name": "uidp.ancestorsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
-            "in": "query",
-            "name": "uidp.descendantsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "children_of are groups reachable by directly proceeding from parent to children.",
-            "in": "query",
-            "name": "uidp.childrenOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "id is unique identifier to look up.",
-            "in": "query",
-            "name": "id",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/iamIdentityList"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Identities"
-        ]
-      }
-    },
-    "/v1/identities/{id}": {
-      "delete": {
-        "operationId": "Identities_Delete",
-        "parameters": [
-          {
-            "description": "ID, UIDP of the record.",
-            "in": "path",
-            "name": "id",
-            "pattern": ".+",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "properties": {}
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Identities"
-        ]
-      },
-      "put": {
-        "operationId": "Identities_Update",
-        "parameters": [
-          {
-            "description": "id is unique identifier of this specific identity.",
-            "in": "path",
-            "name": "id",
-            "pattern": ".+",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "properties": {
-                "claimMatch": {
-                  "$ref": "#/definitions/IdentityClaimMatch",
-                  "description": "claim_match checks the third party IdP token's claims against one\nor more configured patterns."
-                },
-                "description": {
-                  "description": "description, human readable of identity.",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "name, human readable name of identity.",
-                  "type": "string"
-                },
-                "static": {
-                  "$ref": "#/definitions/IdentityStaticKeys",
-                  "description": "static is equivalent to literal, but instead of discovering the\nIdP's verification keys we verify the identity using pre-registered\nverification keys.  This is intended for use with identities from\nproviders without an \"online\" issuer (network accessible to our IdP),\nsuch as a KinD/minikube cluster.\nNOTE: because this path does not have a mechanism for key rotation\nthe identity will expire, with a maximum lifetime of 30d."
-                }
-              },
-              "type": "object"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/iamIdentity"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Identities"
         ]
       }
     }
