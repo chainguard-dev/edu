@@ -25,9 +25,9 @@ To follow along with this guide outside of the terminal that is embedded on this
 * **kubectl** — to work with your cluster. Install `kubectl` for your operating system by following the official [Kubernetes kubectl documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) installed in your cluster. Follow our [How To Install Sigstore Policy Controller](https://edu.chainguard.dev/open-source/sigstore/policy-controller/how-to-install-policy-controller/) guide if you do not have it installed, and be sure to label any namespace that you intend to use with the `policy.sigstore.dev/include=true` label.
 
-If you are using the terminal that is embedded on this page, then all the prerequsites are installed for you.
+If you are using the terminal that is embedded on this page, then all the prerequsites are installed for you. Note that it make take a minute or two for the Kubernetes cluster to finish provisioning. If you receive any errors while running commands, retry them after waiting a few seconds.
 
-Once you have everything in place you can continue to the next step and create a sample policy to check for signed Chainguard images.
+Once you have everything in place you can continue to the first step and confim that the Policy Controller is working as expected.
 
 ## Step 1 - Checking the Policy Controller is Denying Admission
 
@@ -41,7 +41,7 @@ kubectl -n cosign-system wait --for=condition=Available deployment/policy-contro
 When both deployments are finished, verify the `default` namespace is using the Policy Controller:
 
 ```
-k get ns -l policy.sigstore.dev/include=true
+kubectl get ns -l policy.sigstore.dev/include=true
 ```
 
 You should receive output like the following:
