@@ -15,7 +15,7 @@ toc: true
 terminalImage: policy-controller/base:latest
 ---
 
-This guide demonstrates how to use the [Sigstore Policy Controller]([Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/)) to verify image signatures for any [Chainguard Image](https://www.chainguard.dev/chainguard-images). To learn how to use the Policy Controller to enforce image signatures, you will create a `ClusterImagePolicy` that checks for a keyless Cosign signature on an image, and then test running a signed `nginx` image.
+This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to verify image signatures before admitting an image into a Kubernetes cluster. In this guide you will create a `ClusterImagePolicy` that checks for a keyless Cosign image signature, and then test the admission controller by running a signed `nginx` image.
 
 ## Prerequisites
 
@@ -103,7 +103,14 @@ spec:
         url: https://rekor.sigstore.dev
 ```
 
-The `glob: cgr.dev/chainguard/**` line in combination with the `authorities` section will allow any image in the `cgr.dev/chainguard` image registry that has a [keyless signature](https://docs.sigstore.dev/cosign/keyless/) to be admitted into your cluster.
+The `glob: cgr.dev/chainguard/**` line works in combination with the `authorities` section will allow any image in the `cgr.dev/chainguard` image registry that has a [keyless signature](https://docs.sigstore.dev/cosign/keyless/) to be admitted into your cluster.
+
+The `- keyless` options instruct the Policy Controller what to check for when it examines the signature on any image from the `cgr.dev/chainguard` registry. The specific fields are:
+
+* `url`: this setting tells the Policy Controller where to find the Certificate Authority (CA) that issued an image signature.
+* `issuer`: the [issuer field](https://github.com/sigstore/fulcio/blob/main/docs/oid-info.md#1361415726411--issuer) contains the URI of the OpenID Connect (OIDC) Identity Provider that digitally signed the identity token.
+* `subject`: the [subject field](https://github.com/sigstore/fulcio/blob/main/docs/certificate-specification.md#issued-certificate) must contain a URI or an email address that identifies where the signed image originated.
+* `ctlog`: this setting tells the Policy Controller which [Certificate Transparency log](/open-source/sigstore/rekor/an-introduction-to-rekor/#transparency-log) to query when it is validating a signature.
 
 Save the file and then apply the policy:
 
@@ -129,13 +136,15 @@ Since the image matches the policy, you will receive a message that the pod was 
 pod/nginx created
 ```
 
+In the background, the Policy Controller queries the specified `ctlog` from the policy that you created to find a record in the log that matches the image being requested (`cgr.dev/chainguard/nginx:latest`). The Policy Controller ensures that the SHA256 hash of the image matches the hash that is recorded in the certificate issued by the OIDC `issuer` when the image was first signed. Finally, the Policy Controller verifies the issued certificate was signed by the specified Certiciate Authority's (`https://fulcio.sigstore.dev`) root signing certificate. Once the Policy Controller verifies the signature of the image's hash in the transparency log matches the computed hash of the image, and the certificate's validity based on the CA chain of trust, it will admit the pod into the cluster.
+
 Delete the pod once you're done experimenting with it:
 
 ```
 kubectl delete pod nginx
 ```
 
-To learn more about how the Policy Controller uses Cosign to verify and admits images, review the [Cosign](https://docs.sigstore.dev/cosign/overview/) Sigstore documentation.
+To learn more about how the Policy Controller uses Cosign to verify and admit images, review the [Cosign](https://docs.sigstore.dev/cosign/overview/) Sigstore documentation.
 
 ## Options for Continuous Verification
 
