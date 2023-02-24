@@ -103,7 +103,7 @@ spec:
         url: https://rekor.sigstore.dev
 ```
 
-The `glob: cgr.dev/chainguard/**` line works in combination with the `authorities` section will allow any image in the `cgr.dev/chainguard` image registry that has a [keyless signature](https://docs.sigstore.dev/cosign/keyless/) to be admitted into your cluster.
+The `glob: cgr.dev/chainguard/**` line, working in combination with the `authorities` section, will allow any image in the `cgr.dev/chainguard` image registry that has a [keyless signature](https://docs.sigstore.dev/cosign/keyless/) to be admitted into your cluster.
 
 The `- keyless` options instruct the Policy Controller what to check for when it examines the signature on any image from the `cgr.dev/chainguard` registry. The specific fields are:
 
