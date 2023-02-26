@@ -16,7 +16,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/deno](https://github.com/chainguard-images/images/tree/main/images/deno)
 | Tags     | Aliases                    |
 |----------|----------------------------|
-| `latest` | 1, 1.30, 1.30.3, 1.30.3-r0 |
+| `latest` | 1, 1.31, 1.31.0, 1.31.0-r1 |
 
 
 
