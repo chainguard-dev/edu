@@ -1,5 +1,5 @@
 ---
-date: 2023-02-22T10:33:41Z
+date: 2023-02-28T15:11:37Z
 title: "chainctl config unset"
 slug: chainctl_config_unset
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_config_unset/
@@ -43,6 +43,7 @@ chainctl config unset PROPERTY_NAME
       --issuer string                The url of the Chainguard STS endpoint. (default "http://issuer.oidc-system.svc")
   -o, --output string                Output format. One of: ["", "table", "tree", "json", "id", "wide"]
       --timestamp-authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
+  -v, --v int                        Set the log verbosity level.
 ```
 
 ### SEE ALSO

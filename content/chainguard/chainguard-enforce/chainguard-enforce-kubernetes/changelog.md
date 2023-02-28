@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-02-22 10:22:35 +0000 UTC
+date: 2023-02-28 14:21:34 +0000 UTC
 draft: false
 images: []
 weight: 799
@@ -10,6 +10,21 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.79
+Release date: 2023-02-28
+#### Feature
+- Automatically bind an identity to a role at creation time with the --role flag.
+- Create and manage identities with `chainctl auth identities` commands.
+- Introduce a new chainguard_group_invite resource to our terraform provider, which enables the creation and management of invite codes as *sensitive* TF state.
+#### Bug or Regression
+- Fixes an issue where some workload contexts show up as having an Unknown kind after installation.
+
+
+### v0.1.78
+Release date: 2023-02-23
+
+Customer facing changes: N/A
 
 ### v0.1.77
 Release date: 2023-02-22
