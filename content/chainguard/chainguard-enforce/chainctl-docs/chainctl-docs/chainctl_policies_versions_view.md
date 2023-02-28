@@ -1,5 +1,5 @@
 ---
-date: 2023-02-22T10:33:41Z
+date: 2023-02-28T15:11:37Z
 title: "chainctl policies versions view"
 slug: chainctl_policies_versions_view
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_versions_view/
@@ -33,6 +33,7 @@ chainctl policies versions view [VERSION_ID] [--policy POLICY_NAME | POLICY_ID] 
       --issuer string                The url of the Chainguard STS endpoint. (default "http://issuer.oidc-system.svc")
   -o, --output string                Output format. One of: ["", "table", "tree", "json", "id", "wide"]
       --timestamp-authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
+  -v, --v int                        Set the log verbosity level.
 ```
 
 ### SEE ALSO
