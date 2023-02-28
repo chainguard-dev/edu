@@ -1,5 +1,5 @@
 ---
-date: 2023-02-22T10:33:41Z
+date: 2023-02-28T15:11:37Z
 title: "chainctl clusters records list"
 slug: chainctl_clusters_records_list
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_records_list/
@@ -34,6 +34,7 @@ chainctl clusters records list [CLUSTER_NAME | CLUSTER_ID] [--active-within DURA
       --issuer string                The url of the Chainguard STS endpoint. (default "http://issuer.oidc-system.svc")
   -o, --output string                Output format. One of: ["", "table", "tree", "json", "id", "wide"]
       --timestamp-authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
+  -v, --v int                        Set the log verbosity level.
 ```
 
 ### SEE ALSO
