@@ -15,7 +15,7 @@ toc: true
 
 The Python images based on Wolfi and maintained by Chainguard provide distroless images that are suitable for building and running Python workloads.
 
-Chainguard offers both a minimal runtime image containing just Python, and a development image that contains a package manager and a shell. Because Python applications typically require the installation of third-party dependencies via the Python package installer pip, you'll need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses the Python `-dev` image to set up the application.
+Chainguard offers both a minimal runtime image containing just Python, and a development image that contains a package manager and a shell. Because Python applications typically require the installation of third-party dependencies via the Python package installer pip, you may need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses the Python `-dev` image to set up the application.
 
 In this guide, we'll cover two examples to showcase Python container images based on Wolfi as a runtime. In the first, we'll use the minimal image containing just Python (which has access to the [Python standard library](https://docs.python.org/3/library/)), and in the second we'll demonstrate a multi-stage build.
 
@@ -51,7 +51,7 @@ Create a new file to serve as the application entry point. We’ll use `main.py`
 nano main.py
 ```
 
-The following Python script defines a light CLI app that takes in a text file, `octo-facts.txt`, and returns a random lime from that file.
+The following Python script defines a light CLI app that takes in a text file, `octo-facts.txt`, and returns a random line from that file.
 
 ```python
 '''Import random module to implement random.choice() function'''
@@ -75,10 +75,10 @@ if __name__ == "__main__":
 
 Copy this code to your `main.py` script, save and close the file.
 
-Next, pull down the `facts.txt` file with `curl`. Inspect the URL before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `main.py` script is.
+Next, pull down the `facts.txt` file with `curl`. [Inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/octo-facts/facts.txt) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `main.py` script is.
 
 ```shell
-curl -O URL_HERE
+curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/octo-facts/facts.txt
 ```
 
 At this point, you can run the script and be sure you are satisfied with the functionality. It is recommended that you use a Python programming environment. Ensure whether you will be using the `python` or `python3` command.
@@ -97,7 +97,7 @@ The demo application is now ready. In the next step, you’ll create a Dockerfil
 
 ### Step 2: Creating the Dockerfile 
 
-For this single-stage build, we'll only use one Dockerfile. Our resulting image will be based on the distroless Python Wolfi image, which means it doesn’t come with a package manager or even a shell.
+For this single-stage build, we'll only use one `FROM` line in our Dockerfile. Our resulting image will be based on the distroless Python Wolfi image, which means it doesn’t come with a package manager or even a shell.
 
 We'll begin by creating a Dockerfile. Again, you can use any code editor of your choice, we'll use Nano for demonstation purposes. 
 
@@ -109,15 +109,15 @@ The following Dockerfile will:
 
 1. Start a build stage based on the `python:latest` image;
 2. Declare the working directory;
-5. Copy the script and the text file that's being read;
-6. Set up the application as entry point for this image.
+3. Copy the script and the text file that's being read;
+4. Set up the application as entry point for this image.
 
 ```Dockerfile
 FROM cgr.dev/chainguard/python:latest
 
 WORKDIR /octo-facts
 
-COPY main.py facts.txt .
+COPY main.py facts.txt ./
 
 ENTRYPOINT [ "python", "/octo-facts/main.py" ]
 ```
@@ -188,7 +188,13 @@ if __name__ == "__main__":
 
 ```
 
-You can now run the above program. It is recommended that you use a Python programming environment. Ensure whether you will be using the python or python3 command.
+You can now install the dependencies with `pip` and run the above program. It is recommended that you use a Python programming environment, ensure whether you are using the `pip` or `pip3` command.
+
+```shell
+pip install -r requirements.txt
+```
+
+Now you can run the program. Ensure whether you're using the `python` or `python3` command.
 
 ```shell
 python inky.py
@@ -210,7 +216,7 @@ The following Dockerfile will:
 
 1. Start a new build stage based on the `python:latest-dev` image and call it `builder`;
 2. Copy files from the current directory to the `/inky` location in the container;
-3. Enter the `/inky` directory and run `pip install -r requiements.txt` to install dependencies;
+3. Enter the `/inky` directory and run `pip install -r requirements.txt` to install dependencies;
 4. Start a new build stage based on the `python:latest` image;
 5. Copy the application and dependencies from the builder stage as well as any other files; ensure you're targeting the relevant version of Python;
 6. Set up the application as entry point for this image.
@@ -220,7 +226,7 @@ Copy this configuration to your own Dockerfile:
 ```Dockerfile
 FROM cgr.dev/chainguard/python:latest-dev as builder
 
-WORKDIR /octo
+WORKDIR /inky
 
 COPY requirements.txt .
 
@@ -228,12 +234,12 @@ RUN pip install -r requirements.txt --user
 
 FROM cgr.dev/chainguard/python:latest
 
-WORKDIR /octo
+WORKDIR /inky
 
 # Make sure you update Python version in path
 COPY --from=builder /home/nonroot/.local/lib/python3.11/site-packages /home/nonroot/.local/lib/python3.11/site-packages
 
-COPY wolfi.py chainguard.png .
+COPY inky.py inky.png ./
 
 ENTRYPOINT [ "python", "/inky/inky.py" ]
 ```
