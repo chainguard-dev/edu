@@ -63,7 +63,7 @@ Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied t
 cgr.dev/chainguard/nginx@sha256:628a01724b84d7db2dc3866f645708c25fab8cce30b98d3e5b76696291d65c4a
 ```
 
-In the next step, you will define a policy that verifies Chainguard Images are signed and apply it to your cluster.
+In the next step, you will define a policy that ensures pods do not run as the root user and apply it to your cluster.
 
 ## Step 2 — Creating a `ClusterImagePolicy`
 
