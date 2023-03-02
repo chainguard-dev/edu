@@ -63,7 +63,7 @@ Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied t
 cgr.dev/chainguard/nginx@sha256:628a01724b84d7db2dc3866f645708c25fab8cce30b98d3e5b76696291d65c4a
 ```
 
-In the next step, you will define a policy that verifies Chainguard Images are signed and apply it to your cluster.
+In the next step, you will define a policy that only admits unprivileged pods and apply it to your cluster.
 
 ## Step 2 — Creating a `ClusterImagePolicy`
 
@@ -193,4 +193,3 @@ While it is useful to use the Policy Controller to manage admission into a clust
 [Chainguard Enforce](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/understanding-continuous-verification/) is designed to address this issue by continuously verifying whether a container or cluster contains any vulnerabilities or policy violations over time. This includes what packages are deployed, SBOMs (software bills of materials), provenance, signature data, and more.
 
 If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).
-
