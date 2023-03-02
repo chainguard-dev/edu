@@ -78,22 +78,10 @@ nano /tmp/cip.yaml
 Copy the following policy to the `/tmp/cip.yaml` file:
 
 ```
-# Copyright 2022 Chainguard, Inc.
-# SPDX-License-Identifier: Apache-2.0
-
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
   name: unsafe-sysctls-mask-cue
-  annotations:
-    catalog.chainguard.dev/title: Disallow unsafe sysctls
-    catalog.chainguard.dev/labels: cue,workloads
-    catalog.chainguard.dev/description: |
-      Sysctls can disable security mechanisms or affect all containers on a host,
-      and should be disallowed except for an allowed "safe" subset. A sysctl is
-      considered safe if it is namespaced in the container or the Pod, and it is
-      isolated from other Pods or processes on the same Node.
-    catalog.chainguard.dev/learnMoreLink: https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 spec:
   match:
   - version: "v1"
@@ -140,9 +128,6 @@ Now that you have a policy defined, you can test that it successfully rejects or
 Use `nano` or your preferred editor to create a new file `/tmp/pod.yaml` and copy in the following pod spec that uses an unsafe sysctl:
 
 ```
-# Copyright 2022 Chainguard, Inc.
-# SPDX-License-Identifier: Apache-2.0
-
 apiVersion: v1
 kind: Pod
 metadata:
