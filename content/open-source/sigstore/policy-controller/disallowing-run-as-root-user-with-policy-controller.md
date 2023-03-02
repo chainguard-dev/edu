@@ -78,19 +78,10 @@ nano /tmp/cip.yaml
 Copy the following policy to the `/tmp/cip.yaml` file:
 
 ```
-# Copyright 2022 Chainguard, Inc.
-# SPDX-License-Identifier: Apache-2.0
-
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
   name: disallow-runasuser-root-cue
-  annotations:
-    catalog.chainguard.dev/title: Disallow runAsUser root
-    catalog.chainguard.dev/labels: cue,workloads
-    catalog.chainguard.dev/description: |
-      Containers must not set runAsUser to 0
-    catalog.chainguard.dev/learnMoreLink: https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 spec:
   match:
   - version: "v1"
@@ -144,9 +135,6 @@ Now that you have a policy defined, you can test that it successfully rejects or
 Use `nano` or your preferred editor to create a new file `/tmp/pod.yaml` and copy in the following pod spec that runs as root:
 
 ```
-# Copyright 2022 Chainguard, Inc.
-# SPDX-License-Identifier: Apache-2.0
-
 apiVersion: v1
 kind: Pod
 metadata:
