@@ -21,7 +21,7 @@ The **gcc-glibc** Chainguard Images are signed using Sigstore, and you can check
 The following command requires [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https://stedolan.github.io/jq/) to be installed on your machine. It will pull detailed information about all signatures found for the provided image.
 
 ```shell
-COSIGN_EXPERIMENTAL=1 cosign verify cgr.dev/chainguard/gcc-glibc | jq
+cosign verify --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main cgr.dev/chainguard/gcc-glibc | jq
 ```
 
 By default, this command will fetch signatures for the `latest` tag. You can also specify the tag you want to fetch signatures for.
