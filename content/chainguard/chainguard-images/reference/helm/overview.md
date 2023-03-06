@@ -14,9 +14,9 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/helm](https://github.com/chainguard-images/images/tree/main/images/helm)
-| Tags     | Aliases                    |
-|----------|----------------------------|
-| `latest` | 3, 3.11, 3.11.1, 3.11.1-r1 |
+| Tags     | Aliases                            |
+|----------|------------------------------------|
+| `latest` | `3`, `3.11`, `3.11.1`, `3.11.1-r1` |
 
 
 
