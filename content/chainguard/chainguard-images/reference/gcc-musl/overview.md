@@ -14,9 +14,9 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/gcc-musl](https://github.com/chainguard-images/images/tree/main/images/gcc-musl)
-| Tags     | Aliases                                             |
-|----------|-----------------------------------------------------|
-| `latest` | 12, 12.2, 12.2.1_git20220924, 12.2.1_git20220924-r9 |
+| Tags     | Aliases                                                     |
+|----------|-------------------------------------------------------------|
+| `latest` | `12`, `12.2`, `12.2.1_git20220924`, `12.2.1_git20220924-r9` |
 
 
 
