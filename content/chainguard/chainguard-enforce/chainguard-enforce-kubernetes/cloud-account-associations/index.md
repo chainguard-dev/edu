@@ -189,12 +189,12 @@ After logging into the Console, navigate to the **Settings** tab. There, you wil
 
 To associate a group with a cloud account, find the group you want to associate and click on the pencil-shaped edit icon for the cloud of your choice. A modal window will appear from the right with next steps, which differ depending on the cloud provider you selected.
 
-> _Note: As of this writing, this feature is only available _in preview_. Additionally, setting up AWS account associations through the Chainguard Enforce Console is not available at this time. 
+> Note: As of this writing, this feature is only available _in preview_. Additionally, setting up AWS account associations through the Chainguard Enforce Console is not available at this time. 
 
 
 ### Setting up a GCP Cloud Account Association through the Console
 
-If you clicked the edit icon for GCP, the modal window will outline a four step process to set up a cloud account association.
+If you clicked the edit icon for GCP, the modal window will outline a four-step process to set up a cloud account association.
 
 #### Authentication
 
@@ -211,7 +211,11 @@ In the second step, a dropdown menu will appear with all the projects available 
 
 After selecting a project, the next step is to configure workload identity federation. Rather than supplying a service account key — which would provide Chainguard Enforce with unnecessarily broad permissions — workload identity federation allows Enforce to impersonate service accounts living in your Cloud environment.
 
-If this is your first time setting up a cloud account association for this project you will need to explicitly authorize the creation of three things: the IAM Service Account Credentials API, the Workload Identity, and the Workload Identity Provider.
+If this is your first time setting up a cloud account association for this project you will need to explicitly authorize the creation of three resources:
+
+* IAM Service Account Credentials API
+* Workload Identity
+* Workload Identity Provider
 
 ![Screenshot showing Step 3 of the GCP cloud account association process. This picture shows the three workload identity federation resources in a "Not Ready" state. There is a large "Incomplete" warning along with a "Configure" button above the table.](gcp_step3.png)
 
@@ -244,7 +248,10 @@ chainctl iam groups remove-aws
 
 After running either of these examples, `chainctl` will prompt you to select the Chainguard Enforce group whose association you'd like to remove. After selecting the group, `chainctl` will immediately remove the association.
 
+> Note: As of this writing, it is not possible to remove cloud account associations through the Chainguard Enforce Console.
+
 
 ## Learn More
 
 After setting up a cloud account association, you can use Chainguard Enforce's [Discovery feature](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-discovery-onboarding/) to discover various containerized workloads within your project. You can also set up an [Agentless Connection](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-connect-kubernetes-clusters/#agentless-connections).
+
