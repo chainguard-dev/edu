@@ -26,7 +26,7 @@ In addition to having access to Chainguard Enforce (which you can request via ou
 * Public cloud access; on-premises workloads are not supported at this time.
 * Your own certificate authority (CA), to set one up with GCP or AWS, follow our [CA setup guide](/chainguard/chainguard-enforce/chainguard-enforce-signing/enforce-signing-setup)
 * [Go](https://go.dev/doc/install), version 1.19.3 or above
-* [Cosign, version 2.0.0-rc.1](/open-source/sigstore/cosign/how-to-install-cosign/#installing-a-cosign-pre-release-with-go) or above
+* [Cosign, version 2.0.0](/open-source/sigstore/cosign/how-to-install-cosign/#installing-a-cosign-release-with-go) or above
 * [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli), version 1.2.8 or above
 * The [Chainguard command line tool `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/), version 0.1 or above.
 
