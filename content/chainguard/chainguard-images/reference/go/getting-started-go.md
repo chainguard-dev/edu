@@ -17,7 +17,7 @@ The Go images based on Wolfi and maintained by Chainguard provide distroless ima
 
 Chainguard offers a minimal runtime image designed for running Go workloads, and a development image that contains a shell and the standard Go build tooling. 
 
-We'll demonstrate two ways that you can build the Go image. The [first example](#example-1-minimal-go-chainguard-image-built-with-ko) will show how to build the Go Chainguard Image with [ko](https://ko.build/). ko enables you to build images from Go programs and push them to container registries without requiring a Dockerfile. The [second example](#example-2--multistage-docker-build-for-go-chainguard-image) will show how to create a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses the [glibc-dynamic runtime image](chainguard/chainguard-images/reference/glibc-dynamic/overview/) along with the Go Chainguard Image.
+We'll demonstrate two ways that you can build the Go image. The [first example](#example-1-minimal-go-chainguard-image-built-with-ko) will show how to build the Go Chainguard Image with [ko](https://ko.build/). ko enables you to build images from Go programs and push them to container registries without requiring a Dockerfile. The [second example](#example-2--multistage-docker-build-for-go-chainguard-image) will show how to create a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses the [glibc-dynamic runtime image](/chainguard/chainguard-images/reference/glibc-dynamic/overview/) along with the Go Chainguard Image.
 
 If you would like to follow along with both examples, you'll need both ko and Docker installed, which you can achieve by following the official installation guides for your setup:
 
