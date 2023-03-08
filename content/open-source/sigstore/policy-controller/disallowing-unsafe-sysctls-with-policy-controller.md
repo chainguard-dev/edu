@@ -24,7 +24,7 @@ To follow along with this guide outside of the terminal that is embedded on this
 * **kubectl** — to work with your cluster. Install `kubectl` for your operating system by following the official [Kubernetes kubectl documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) installed in your cluster. Follow our [How To Install Sigstore Policy Controller](https://edu.chainguard.dev/open-source/sigstore/policy-controller/how-to-install-policy-controller/) guide if you do not have it installed, and be sure to label any namespace that you intend to use with the `policy.sigstore.dev/include=true` label.
 
-If you are using the terminal that is embedded on this page, then all the prerequsites are installed for you. Note that it make take a minute or two for the Kubernetes cluster to finish provisioning. If you receive any errors while running commands, retry them after waiting a few seconds.
+If you are using the terminal that is embedded on this page, then all the prerequsites are installed for you. Note that it may take a minute or two for the Kubernetes cluster to finish provisioning. If you receive any errors while running commands, retry them after waiting a few seconds.
 
 Once you have everything in place you can continue to the first step and confim that the Policy Controller is working as expected.
 
@@ -153,11 +153,13 @@ Error from server (BadRequest): error when creating "/tmp/pod.yaml": admission w
 index.docker.io/library/ubuntu@sha256:854037bf6521e9c321c101c269272f756e481fb5f167ae032cb53da08aebcd5a failed evaluating cue policy for ClusterImagePolicy: failed to evaluate the policy with error: spec.securityContext.sysctls.0.name: 5 errors in empty disjunction: (and 5 more errors)
 ```
 
-The first line show the error message and the failing `ClusterImagePolicy` name. The second line contains the image ID, along with the specific CUE error message showing the policy violation.
+The first line shows the error message and the failing `ClusterImagePolicy` name. The second line contains the image ID, along with the specific CUE error message showing the policy violation.
 
 Edit the `/tmp/pod.yaml` file and change the `sysctls` section to use the following safe parameter:
 
-```
+    sysctls:
+    - name: net.ipv4.tcp_syncookies
+      value: "1"
     - name: net.ipv4.tcp_syncookies
       value: "1"
 ```
