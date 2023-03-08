@@ -1,6 +1,6 @@
 FROM alpine:3
 
-RUN apk add curl bash tmux sudo tini nano jq && rm -rf /tmp/* /var/cache/apk/*
+RUN apk add curl bash bash-completion tmux sudo tini nano jq && rm -rf /tmp/* /var/cache/apk/*
 
 RUN addgroup inky \
       --gid 1000 && \
@@ -17,6 +17,5 @@ RUN echo "%wheel ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheel
 WORKDIR /home/inky
 USER inky
 
-ENV COSIGN_EXPERIMENTAL=1
 ENTRYPOINT ["/usr/bin/sudo", "/sbin/tini", "--"]
 CMD ["/bin/sleep", "3600"]

@@ -81,6 +81,7 @@ To include an interactive terminal in a given tutorial page, add the following l
 academy/apko:latest
 academy/chainguard-images:latest
 academy/cosign:latest
+academy/images-demos:latest
 academy/rekor:latest
 academy/vexctl:latest
 policy-controller/base:latest
