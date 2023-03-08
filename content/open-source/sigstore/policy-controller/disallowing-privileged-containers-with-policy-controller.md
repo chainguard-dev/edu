@@ -26,7 +26,7 @@ To follow along with this guide outside of the terminal that is embedded on this
 
 If you are using the terminal that is embedded on this page, then all the prerequsites are installed for you. Note that it make take a minute or two for the Kubernetes cluster to finish provisioning. If you receive any errors while running commands, retry them after waiting a few seconds.
 
-Once you have everything in place you can continue to the first step and confim that the Policy Controller is working as expected.
+Once you have everything in place you can continue to the first step and confirm that the Policy Controller is working as expected.
 
 ## Step 1 - Checking the Policy Controller is Denying Admission
 
@@ -158,7 +158,7 @@ Error from server (BadRequest): error when creating "pod.yaml": admission webhoo
 index.docker.io/library/ubuntu@sha256:2adf22367284330af9f832ffefb717c78239f6251d9d0f58de50b86229ed1427 failed evaluating cue policy for ClusterImagePolicy: failed to evaluate the policy with error: spec.containers.0.securityContext.privileged: conflicting values false and true
 ```
 
-The first line show the error message and the failing `ClusterImagePolicy` name. The second line contains the image ID, along with the specific CUE error message showing the policy violation.
+The first line shows the error message and the failing `ClusterImagePolicy` name. The second line contains the image ID, along with the specific CUE error message showing the policy violation.
 
 Edit the `/tmp/pod.yaml` file and change the `privileged` setting to `false`:
 
