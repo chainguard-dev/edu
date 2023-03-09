@@ -5,7 +5,7 @@ description: "Chainguard Enforce User Onboarding"
 date: 2022-07-15T15:22:20+01:00
 lastmod: 2022-12-15T15:22:20+01:00
 draft: false
-images: []
+tags: ["SBOM"]
 menu:
   docs:
     parent: "chainguard-enforce-kubernetes"

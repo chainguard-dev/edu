@@ -1,11 +1,12 @@
 ---
 title: "Getting Started with OpenVEX and vexctl"
-description: "Using vexctl to "
+description: "Using vexctl to manage vulnerability communications"
 lead: "A guide to SBOM quality"
 type: "article"
 date: 2023-01-30T15:21:01+02:00
 lastmod: 2023-01-30T15:21:01+02:00
 draft: false
+tags: ["SBOM", "VEX"]
 images: []
 menu:
   docs:
