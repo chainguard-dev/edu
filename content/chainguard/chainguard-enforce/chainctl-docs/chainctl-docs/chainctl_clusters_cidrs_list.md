@@ -1,26 +1,25 @@
 ---
 date: 2023-03-09T00:41:03Z
-title: "chainctl events subscriptions delete"
-slug: chainctl_events_subscriptions_delete
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_events_subscriptions_delete/
+title: "chainctl clusters cidrs list"
+slug: chainctl_clusters_cidrs_list
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_cidrs_list/
 draft: false
 images: []
 type: "article"
 toc: true
 ---
-## chainctl events subscriptions delete
+## chainctl clusters cidrs list
 
-Delete a subscription.
+List Enforce Egress CIDR ranges.
 
 ```
-chainctl events subscriptions delete SUBSCRIPTION_ID [--yes] [--output id] [flags]
+chainctl clusters cidrs list [--output json]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for delete
-  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -h, --help   help for list
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +37,5 @@ chainctl events subscriptions delete SUBSCRIPTION_ID [--yes] [--output id] [flag
 
 ### SEE ALSO
 
-* [chainctl events subscriptions](/chainguard/chainguard-enforce/chainctl-docs/chainctl_events_subscriptions/)	 - Subscription interactions.
+* [chainctl clusters cidrs](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_cidrs/)	 - Enforce Egress CIDR related commands.
 
