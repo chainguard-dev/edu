@@ -7,6 +7,7 @@ date: 2022-08-04T15:21:01+02:00
 lastmod: 2022-08-04T15:21:01+02:00
 contributors: ["John Speed Meyers"]
 draft: false
+tags: ["SBOM"]
 images: []
 menu:
   docs:
