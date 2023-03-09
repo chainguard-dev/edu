@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-02-28 14:21:34 +0000 UTC
+date: 2023-03-09 00:21:51 +0000 UTC
 draft: false
 images: []
 weight: 799
@@ -10,6 +10,31 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.83
+Release date: 2023-03-09
+#### Feature
+- SBOM + Attestation ingestion failures now populate in Record status.
+- View gRPC requests and responses by passing `-v=2` or larger.
+
+
+### v0.1.82
+Release date: 2023-03-07
+
+Customer facing changes: N/A
+
+### v0.1.81
+Release date: 2023-03-07
+#### Other
+- make `client_secret` field of identity provider terraform resource sensitive (masked in terraform output)
+#### Feature
+- Disable color in `chainctl` by setting the `NO_COLOR` environment variable.
+
+
+### v0.1.80
+Release date: 2023-03-01
+
+Customer facing changes: N/A
 
 ### v0.1.79
 Release date: 2023-02-28
