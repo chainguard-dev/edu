@@ -14,9 +14,9 @@ toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/jenkins](https://github.com/chainguard-images/images/tree/main/images/jenkins)
-| Tags     | Aliases            |
-|----------|--------------------|
-| `latest` | 2, 2.393, 2.393-r0 |
+| Tags     | Aliases                  |
+|----------|--------------------------|
+| `latest` | `2`, `2.393`, `2.393-r0` |
 
 
 

@@ -14,11 +14,11 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/python](https://github.com/chainguard-images/images/tree/main/images/python)
-| Tags         | Aliases                                    |
-|--------------|--------------------------------------------|
-| `3.10`       | 3, 3.10, 3.10.9, 3.10.9-r1                 |
-| `latest`     | 3, 3.11, 3.11.1, 3.11.1-r6                 |
-| `latest-dev` | dev-3, dev-3.11, dev-3.11.1, dev-3.11.1-r6 |
+| Tags         | Aliases                                            |
+|--------------|----------------------------------------------------|
+| `3.10`       | `3`, `3.10`, `3.10.9`, `3.10.9-r3`                 |
+| `latest`     | `3`, `3.11`, `3.11.1`, `3.11.1-r8`                 |
+| `latest-dev` | `dev-3`, `dev-3.11`, `dev-3.11.1`, `dev-3.11.1-r8` |
 
 
 
