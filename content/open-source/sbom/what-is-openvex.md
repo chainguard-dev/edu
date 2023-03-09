@@ -7,6 +7,7 @@ date: 2023-01-31T15:21:01+02:00
 lastmod: 2023-01-31T15:21:01+02:00
 contributors:  
 draft: false
+tags: ["SBOM", "VEX"]
 images: []
 menu:
   docs:

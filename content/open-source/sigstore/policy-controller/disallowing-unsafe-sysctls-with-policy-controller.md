@@ -26,7 +26,7 @@ To follow along with this guide outside of the terminal that is embedded on this
 
 If you are using the terminal that is embedded on this page, then all the prerequsites are installed for you. Note that it may take a minute or two for the Kubernetes cluster to finish provisioning. If you receive any errors while running commands, retry them after waiting a few seconds.
 
-Once you have everything in place you can continue to the first step and confim that the Policy Controller is working as expected.
+Once you have everything in place you can continue to the first step and confirm that the Policy Controller is working as expected.
 
 ## Step 1 - Checking the Policy Controller is Denying Admission
 
@@ -119,7 +119,7 @@ You will receive output showing the policy is created:
 clusterimagepolicy.policy.sigstore.dev/unsafe-sysctls-mask-cue
 ```
 
-Next you will test the policy with a failing pod spec. Once you have confirmed that the admission controller is rejecting pods using unsafe sysctls, you'll create a pod with a safe parameter and admit it into your cluster.
+Next, you will test the policy with a failing pod spec. Once you have confirmed that the admission controller is rejecting pods using unsafe sysctls, you'll create a pod with a safe parameter and admit it into your cluster.
 
 ## Step 3 — Testing the `ClusterImagePolicy`
 
