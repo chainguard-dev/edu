@@ -19,6 +19,7 @@ toc: true
 | `latest` | `2`, `2.0`, `2.0.0`, `2.0.0-r0` |
 
 
+
 Minimalist Wolfi-based Cosign images for signing and verifying images using Sigstore.
 
 - [Documentation](https://edu.chainguard.dev/chainguard/chainguard-images/reference/cosign)

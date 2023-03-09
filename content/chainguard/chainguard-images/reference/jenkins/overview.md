@@ -13,14 +13,18 @@ weight: 600
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/jenkins](https://github.com/chainguard-images/images/tree/main/images/jenkins)
+`stable` [cgr.dev/chainguard/jenkins](https://github.com/chainguard-images/images/tree/main/images/jenkins)
 | Tags     | Aliases                  |
 |----------|--------------------------|
 | `latest` | `2`, `2.393`, `2.393-r0` |
 
 
 
-Minimal Jenkins container image. **Currently experimental.**
+Minimal [Jenkins](https://jenkins.io) container image. **Currently experimental.**
+
+- [Documentation](https://edu.chainguard.dev/chainguard/chainguard-images/reference/jenkins)
+- [Getting Started Guide](https://edu.chainguard.dev/chainguard/chainguard-images/reference/jenkins/overview/#use-it)
+- [Provenance Information](https://edu.chainguard.dev/chainguard/chainguard-images/reference/jenkins/provenance_info/)
 
 ## Get It!
 
@@ -30,7 +34,7 @@ The image is available on `cgr.dev`:
 docker pull cgr.dev/chainguard/jenkins:latest
 ```
 
-## Usage
+## Use It
 
 This is an experimental image and subject to change.  We welcome all feedback.
 
