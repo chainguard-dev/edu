@@ -5,6 +5,7 @@ description: "Software Bill of Materials"
 type: "article"
 date: 2023-01-26T08:49:15+00:00
 lastmod: 2023-01-26T08:49:15+00:00
+tags: ["SBOM"]
 draft: false
 menu:
   docs:

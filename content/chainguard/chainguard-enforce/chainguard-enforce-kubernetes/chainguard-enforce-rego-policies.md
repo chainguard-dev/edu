@@ -5,7 +5,7 @@ description: "Writing Rego-based policies for Chainguard Enforce"
 date: 2023-01-12T15:56:52-07:00
 lastmod: 2023-01-12T15:56:52-07:00
 draft: false
-images: []
+images: ["SBOM"]
 menu:
   docs:
     parent: "chainguard-enforce-kubernetes"
