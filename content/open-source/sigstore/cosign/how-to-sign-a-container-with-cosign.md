@@ -27,52 +27,6 @@ Before beginning this section, ensure that you have Docker installed and that yo
 
 Additionally, you will need Cosign installed, which you can achieve by following our [How to Install Cosign guide](../how-to-install-cosign/).
 
-## Generating a Cosign Key Pair
-
-Before creating your first Cosign key pair, navigate to the directory you would like your key pair to live. In our example, we will use the user directory, but you should be in the directory that makes the most sense for you. 
-
-```sh
-cd ~
-```
-
-You’ll use Cosign to create the key pair now. 
-
-```sh
-cosign generate-key-pair
-```
-
-Once you run this command, you’ll receive output asking you to create a password for the private key. It is recommended to have a password for an extra layer of security, but you can also leave this field blank, especially if you are just using this key pair for testing purposes. You’ll be prompted to enter this password twice. 
-
-```
-Enter password for private key:
-Enter again:
-```
-
-Once you have entered the private key password, you’ll receive the feedback that the private key and public key were written. 
-
-```
-Private key written to cosign.key
-Public key written to cosign.pub
-```
-
-Your private key, stored in the `cosign.key` file, should not be shared with anyone. Your public key, stored in the `cosign.pub` file, will be used to identify that you are the key holder who is signing your software artifacts. 
-
-Now both of these files exist in your home user directory (don’t forget where they are!), and you can inspect them if you would like by using the `cat` command, as in:
-
-```sh
-cat ​​cosign.pub
-```
-
-You’ll get output that indicates the beginning and end of your public key, with a large string of mixed-case alphanumeric values in between.
-
-```
------BEGIN PUBLIC KEY-----
-…
------END PUBLIC KEY-----
-```
-
-With your keys set up, you are ready to move onto creating and signing a container. 
-
 ## Creating a Container
 
 With your keys set up, you’ll now be creating a new container. Create a new directory within your user directory that is the same as your Docker username and, within that, a directory called `hello-container`. If you will be opting to use a registry other than Docker, feel free to use the relevant username for that registry. 
@@ -167,29 +121,33 @@ You should be able to now access your published container via your Docker Hub ac
 
 Now that the container is in a registry (in our example, it is in Docker Hub), you are ready to sign the container and push that signature to the registry.
 
-Make sure you are in the right directory for your Cosign key pair. 
+You will call your registry user name and container name with the following Cosign command. Note that we are signing the image in Docker Hub keylessly with Cosign.
 
 ```sh
-cd ~
+cosign sign docker-username/hello-container
 ```
 
-From there, you will call your registry user name and container name with the following Cosign command. Note that we are signing the image in Docker Hub with our private key which is held locally in the `cosign.key` file. 
-
-```sh
-cosign sign --key cosign.key docker-username/hello-container
-```
-
-You will be prompted for the password, even if you have left the password blank.
+You will be asked to verify that you agree with having your information in the transparency log and will be taken through an OIDC workflow.
 
 ```
-Enter password for private key: 
-```
+Generating ephemeral keys...
+Retrieving signed certificate...
 
-Enter your password (or press `ENTER` if you don’t have a password), and then press `ENTER`.
+	Note that there may be personally identifiable information associated with this signed artifact.
+	This may include the email address associated with the account with which you authenticate.
+	This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later.
+
+By typing 'y', you attest that you grant (or have permission to grant) and agree to have this information stored permanently in transparency logs.
+Are you sure you would like to continue? [y/N] 
+Your browser will now be opened to:
+...
+```
 
 You’ll receive output indicating that the signature was pushed to the container registry.
 
 ```
+Successfully verified SCT...
+tlog entry created with index: 
 Pushing signature to: index.docker.io/docker-username/hello-container
 ```
 
@@ -199,10 +157,13 @@ In the case of Docker Hub, on the web interface there should be a SHA (secure ha
 
 We’ll be demonstrating this on the container we just pushed to a registry, but you can also verify a signature on any other signed container using the same steps. While you will more likely be verifying signatures in workloads versus manually, it is still helpful to understand how everything works and is formatted.
 
-Let’s use Cosign to verify that the formatted signature for the image matches the public key. 
+Let’s use Cosign to verify that the signature exists on the transparency log and matches our expected information. You will need to know some information in order to verify the entry. You'll need to use the identity flags `--certificate-identity` which corresponds to the email address of the signer, and `--certificate-oidc-issuer` which corresponds to the OIDC provider that the signer used. For example, a Gmail account using Google as the OIDC issuer, will be able to be verified with the following command.
 
 ```sh
-cosign verify --key cosign.pub docker-username/hello-container
+cosign verify \
+    --certificate-identity username@gmail.com \
+    --certificate-oidc-issuer https://accounts.google.com \
+    docker-username/hello-container 
 ```
 
 Here, we are passing the public key contained in the cosign.pub file to the cosign verify command. 
@@ -219,22 +180,3 @@ The following checks were performed on each of these signatures:
 ```
 
 The whole output will include JSON format which includes the digest of the container image, which is how we can be sure these detached signatures cover the correct image.
-
-## Adding an Additional Signature
-
-If multiple people are working on the same container, or you need a team signature in addition to an individual developer signature, you can add more than one signature to a container. You’ll need to generate keys specifically for each signatory. 
-
-It may be helpful to also add the `-a` flag to add annotations so that others can check to verify different keys. For example, we’ll annotate this signature to state that this is the organization signature. 
-
-```sh
-cosign sign --key other.key -a organization=signature docker-username/hello-container
-```
-
-As before, the user signing will be prompted to enter their password for the key. When someone verifies the signatures on this key, they’ll receive the values entered in the annotation as part of the signed JSON payload under the `optional` section at the end.
-
-```
-…
-[{"critical":{"identity":{"docker-reference":"index.docker.io/docker-username/hello-container"},"image":{"docker-manifest-digest":"sha256:690ecfd885f008330a66d08be13dc6c115a439e1cc935c04d181d7116e198f9c"},"type":"cosign container image signature"},"optional":{"organization":"signature"}}]
-```
-
-This container now has two signatures, with one signature that has additional annotation.
