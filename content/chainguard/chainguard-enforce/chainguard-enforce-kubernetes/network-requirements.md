@@ -49,9 +49,15 @@ For the CIDR ranges listed here, ensure that you allow incoming connections from
 
 ### Image Registry Access
 
-The Enforce agent needs access to any registry or registries that are configured for your cluster or containers so that it can validate images and policies.
+Enforce needs access to any registry or registries that are configured for your cluster or containers so that it can validate images and policies. Depending on your environment, you will need to configure your firewalls and access control lists to allow Enforce access.
 
-Whether they are public or private, ensure that outbound connections from the Enforce agent (running in the `gulfstream` namespace) are permitted to your configured registry or registries. Also be sure to allow the corresponding return traffic if you are using symmetric firewall rules.
+#### Enforce Agent Access
+
+Whether your registry or registries are public or private, ensure that outbound connections from the Enforce agent (running in the `gulfstream` namespace) are permitted. Also be sure to allow the corresponding return traffic if you are using symmetric firewall rules.
+
+#### Enforce SaaS Access
+
+If you are using Enforce in agentless mode, you will need to ensure that your registry is publicly accessible to our agent. Refer to the [CIDR Ranges](#cidr-ranges) section of this page for a list of ranges to add to your firewall rules or access control lists.
 
 ### DNS Records and TTLs
 
