@@ -25,7 +25,7 @@ Let’s step through signing a container with Cosign. We are using a container t
 
 Before beginning this section, ensure that you have Docker installed and that you are running Docker Desktop if that is relevant for your operating system. For guidance on installing and using Docker, refer to the [official Docker documentation](https://docs.docker.com/get-docker/). In order to push to the Docker container registry, you will need a [Docker Hub account](https://hub.docker.com/signup). If you are familiar with using a different container registry, feel free to use that. 
 
-Additionally, you will need Cosign installed, which you can achieve by following our [How to Install Cosign guide](../how-to-install-cosign/).
+Additionally, you will need Cosign installed, which you can achieve by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
 
 ## Creating a Container
 
@@ -121,7 +121,7 @@ You should be able to now access your published container via your Docker Hub ac
 
 Now that the container is in a registry (in our example, it is in Docker Hub), you are ready to sign the container and push that signature to the registry.
 
-You will call your registry user name and container name with the following Cosign command. Note that we are signing the image in Docker Hub keylessly with Cosign.
+You will call your registry user name and container name with the following `cosign` command. Note that we are signing the image in Docker Hub keylessly with Cosign.
 
 ```sh
 cosign sign docker-username/hello-container
@@ -166,7 +166,7 @@ cosign verify \
     docker-username/hello-container 
 ```
 
-Here, we are passing the public key contained in the cosign.pub file to the cosign verify command. 
+Here, we are passing the public key contained in the cosign.pub file to the `cosign verify` command. 
 
 You should receive output indicating that the Cosign claims were validated. 
 
