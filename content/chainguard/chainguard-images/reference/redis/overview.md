@@ -16,7 +16,7 @@ toc: true
 `stable` [cgr.dev/chainguard/redis](https://github.com/chainguard-images/images/tree/main/images/redis)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `7`, `7.0`, `7.0.8`, `7.0.8-r1` |
+| `latest` | `7`, `7.0`, `7.0.9`, `7.0.9-r0` |
 
 
 
