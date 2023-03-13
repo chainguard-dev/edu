@@ -207,7 +207,7 @@ This example `attestations` block requires clusters to have a vulnerability repo
           }
 ```
 
-Here, the custom error message reads `Not found expected predicate type 'chainguard.dev/attestation/vuln/v1'`. Rather than returning the default error, Chaingaurd Enforce will return this string as a custom error message.
+Here, the custom error message reads `Not found expected predicate type 'chainguard.dev/attestation/vuln/v1'`. Rather than returning the default error, Chainguard Enforce will return this string as a custom error message.
 
 Notice, too, that the previous example defines a `warnMsg` variable. Enforce will only return a warning message to the caller if the policy in question is in `warn` mode, so in that case it was left as an empty string.
 
