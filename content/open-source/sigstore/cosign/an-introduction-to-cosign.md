@@ -38,7 +38,7 @@ In keyless signing, short-lived certificates are generated and linked into the c
 
 Through offering short-lived credentials, keyless signing can support the recommended practice of operating your build environment like a production environment. This prevents the opportunity for long-lived keys to be stolen and used to sign malicious artifacts. Even if these short-lived keys used in keyless signing were stolen, they’d be useless!
 
-While keyless signing can be used by individuals in the same manner as long-lived key pairs, it is also well suited for continuous integration and continuous deployment workloads. Keyless signing works by sending an OpenID Connect (OIDC) token to a certificate authority like Fulcio to be signed by a workload’s authenticated OIDC identity. This allows the developer to cryptographically demonstrate that the software artifact was built by the continuous integration pipeline of a given repository, for example. 
+While keyless signing can be used by individuals in the same manner as long-lived key pairs, it is also well suited for continuous integration and continuous deployment workloads. Keyless signing works by sending an OpenID Connect (OIDC) token to a certificate authority like [Fulcio](/open-source/sigstore/fulcio) to be signed by a workload’s authenticated OIDC identity. This allows the developer to cryptographically demonstrate that the software artifact was built by the continuous integration pipeline of a given repository, for example. 
 
 Cosign uses ephemeral keys and certificates, gets them signed automatically by the Fulcio root certificate authority, and stores these signatures in the Rekor transparency log, which automatically provides an attestation at the time of creation. 
 
