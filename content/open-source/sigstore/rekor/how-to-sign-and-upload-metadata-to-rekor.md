@@ -6,6 +6,7 @@ description: "Use the Rekor CLI to sign and upload metadata to the Sigstore tran
 date: 2022-20-087T08:49:31+00:00
 lastmod: 2022-24-08T08:49:31+00:00
 draft: false
+tags: ["REKOR", "PROCEDURAL"]
 images: []
 menu:
   docs:

@@ -5,6 +5,7 @@ description: "Tutorial on how to generate a certificate with Fulcio for software
 date: 2022-19-08T08:49:31+00:00
 lastmod: 2022-19-08T08:49:31+00:00
 draft: false
+tags: ["FULCIO", "PROCEDURAL"]
 images: []
 menu:
   docs:

@@ -6,6 +6,7 @@ description: "Understanding Fulcio, a new kind of root certificate authority for
 date: 2022-19-08T08:49:31+00:00
 lastmod: 2022-19-08T08:49:31+00:00
 draft: false
+tags: ["FULCIO", "OVERVIEW"]
 images: []
 menu:
   docs:

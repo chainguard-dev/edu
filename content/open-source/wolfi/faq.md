@@ -5,6 +5,7 @@ description: "Frequently asked questions about Wolfi, a Linux undistro"
 date: 2022-09-01T08:49:31+00:00
 lastmod: 2022-10-15T08:49:31+00:00
 draft: false
+tags: ["WOLFI", "FAQ"]
 images: []
 menu:
   docs:

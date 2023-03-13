@@ -5,6 +5,7 @@ description: "Confirming the authenticity of a Fulcio certificate for a more sec
 date: 2022-19-08T08:49:31+00:00
 lastmod: 2022-19-08T08:49:31+00:00
 draft: false
+tags: ["FULCIO", "PROCEDURAL"]
 images: []
 menu:
   docs:

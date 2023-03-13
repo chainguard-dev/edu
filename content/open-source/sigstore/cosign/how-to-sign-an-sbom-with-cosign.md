@@ -6,6 +6,7 @@ lead: "Use Cosign to sign a software bill of materials"
 date: 2022-13-07T15:22:20+01:00
 lastmod: 2022-13-07T15:22:20+01:00
 draft: false
+tags: ["COSIGN", "PROCEDURAL"]
 images: []
 menu:
   docs:

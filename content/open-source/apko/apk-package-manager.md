@@ -7,6 +7,7 @@ date: 2022-07-06T08:49:31+00:00
 lastmod: 2022-07-06T08:49:31+00:00
 contributors: ["Ariadne Conill"]
 draft: false
+tags: ["APKO", "CONCEPTUAL"]
 images: []
 menu:
   docs:

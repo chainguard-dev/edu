@@ -5,6 +5,7 @@ description: "An overview of how to instal rekor-cli to query the Sigstore trans
 date: 2022-20-087T08:49:31+00:00
 lastmod: 2022-20-08T08:49:31+00:00
 draft: false
+tags: ["REKOR", "PROCEDURAL"]
 images: []
 menu:
   docs:

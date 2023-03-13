@@ -6,6 +6,7 @@ lead: "Cosign can verify software artifacts beyond containers"
 date: 2022-12-21T15:22:20+01:00
 lastmod: 2022-12-21T15:22:20+01:00
 draft: false
+tags: ["COSIGN", "PROCEDURAL"]
 images: []
 menu:
   docs:

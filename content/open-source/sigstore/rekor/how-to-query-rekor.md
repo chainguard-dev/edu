@@ -5,6 +5,7 @@ description: "Access the data stored in Sigstore's transparency log, Rekor"
 date: 2022-20-087T08:49:31+00:00
 lastmod: 2022-24-08T08:49:31+00:00
 draft: false
+tags: ["REKOR", "PROCEDURAL"]
 images: []
 menu:
   docs:

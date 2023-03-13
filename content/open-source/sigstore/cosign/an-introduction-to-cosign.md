@@ -6,6 +6,7 @@ description: "Understanding Cosign, a project under Sigstore"
 date: 2022-19-07T08:49:31+00:00
 lastmod: 2022-19-07T08:49:31+00:00
 draft: false
+tags: ["COSIGN", "OVERVIEW"]
 images: []
 menu:
   docs:
