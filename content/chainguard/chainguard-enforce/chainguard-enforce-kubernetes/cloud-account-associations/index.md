@@ -34,7 +34,7 @@ When you set up a cloud account association with Chainguard Enforce, it creates 
 Although the exact permissions between these profiles differ slightly between both cloud providers, they perform generally the same functions on GCP and AWS.
 
 * `chainguard-canary` — used to test whether the cloud account association is working correctly. This profile has no permissions, as it only functions as an endpoint for testing
-* `chainguard-agentless` — has access to the Kubernetes API, allowing Chaingaurd Enforce to create and manage resources within your cloud account
+* `chainguard-agentless` — has access to the Kubernetes API, allowing Chainguard Enforce to create and manage resources within your cloud account
 * `chainguard-discovery` — allows Enforce to find and list resources running within your cloud account, thereby enabling [Chainguard Enforce's Discovery feature](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-discovery-onboarding/)
 * `chainguard-ingester` — has read-only access to SBOMs, allowing Enforce to download and ingest them as necessary
 * `chainguard-enforce-signer` — allows Chainguard to perform [Enforce Signing](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-signing/chainguard-enforce-signing-faqs/)
