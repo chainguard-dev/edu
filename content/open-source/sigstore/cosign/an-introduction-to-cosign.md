@@ -42,7 +42,7 @@ While keyless signing can be used by individuals in the same manner as long-live
 
 Cosign uses ephemeral keys and certificates, gets them signed automatically by the Fulcio root certificate authority, and stores these signatures in the Rekor transparency log, which automatically provides an attestation at the time of creation. 
 
-You can manually create a keyless signature with the following command in cosign. In our example, we’ll use [Docker Hub](https://hub.docker.com/). If you would like to follow along, ensure you are logged into Docker Hub on your local machine and that you have a Docker repository with an image available. The following example assumes a username of `docker-username` and a repository name of `demo-container`. 
+You can manually create a keyless signature with the following `cosign` command. In our example, we’ll use [Docker Hub](https://hub.docker.com/) to store the signature. If you would like to follow along, ensure you are logged into Docker Hub on your local machine and that you have a Docker repository with an image available. The following example assumes a username of `docker-username` and a repository name of `demo-container`. 
 
 ```sh
 cosign sign docker-username/demo-container
