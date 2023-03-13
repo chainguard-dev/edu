@@ -95,7 +95,7 @@ The following checks were performed on each of these signatures:
 [{"critical":{"identity":{"docker-reference":"index.docker.io/docker-username/demo-container"},"image":{"docker-manifest-digest":"sha256:e..."},"type":"cosign container image signature"},"optional":{"1.3.6.1.4.1.57264.1.1":"https://accounts.google.com","Bundle":{"SignedEntryTimestamp":"...","Payload":{"body":"eyJhcGlWZX...X19","integratedTime":...,"logIndex":...,"logID":"..."}},"Issuer":"https://accounts.google.com","Subject":"username@gmail.com"}}]
 ```
 
-As part of the JSON output, you should get feedback on the issuer that you used and the email address associated with it. For example, if you used Google as the authenticator, you will have `"Issuer":"https://accounts.google.com","Subject":"username@gmail.com"}}]` as the last part of your output. 
+As part of the JSON output, you should get feedback on the issuer that you used and the email address associated with it. For example, if you used Google as your OIDC provider, you will have `"Issuer":"https://accounts.google.com","Subject":"username@gmail.com"}}]` as the last part of your output. 
 
 ## Cosign with Keys
 
