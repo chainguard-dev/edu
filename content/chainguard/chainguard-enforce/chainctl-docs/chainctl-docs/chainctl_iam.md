@@ -4,6 +4,7 @@ title: "chainctl iam"
 slug: chainctl_iam
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

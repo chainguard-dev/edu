@@ -4,6 +4,7 @@ title: "chainctl iam groups check-gcp"
 slug: chainctl_iam_groups_check-gcp
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_check-gcp/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

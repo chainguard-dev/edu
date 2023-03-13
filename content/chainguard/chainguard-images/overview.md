@@ -6,6 +6,7 @@ lead: "A primer on Chainguard Images and the distroless approach"
 date: 2022-09-01T08:49:31+00:00
 lastmod: 2022-09-01T08:49:31+00:00
 draft: false
+tags: ["IMAGES", "OVERVIEW", "PRODUCT"]
 images: []
 menu:
   docs:

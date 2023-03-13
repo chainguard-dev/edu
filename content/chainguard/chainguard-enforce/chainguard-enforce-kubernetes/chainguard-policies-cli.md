@@ -5,6 +5,7 @@ description: "Creating and managing policies with chainctl, the Chainguard comma
 date: 2022-11-1511T11:07:52+02:00
 lastmod: 2022-11-15T11:07:52+02:00
 draft: false
+tags: ["ENFORCE", "REFERENCE", "PRODUCT", "POLICY", "CHAINCTL"]
 images: []
 menu:
   docs:

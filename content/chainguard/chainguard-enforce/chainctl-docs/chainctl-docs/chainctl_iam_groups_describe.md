@@ -4,6 +4,7 @@ title: "chainctl iam groups describe"
 slug: chainctl_iam_groups_describe
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_describe/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

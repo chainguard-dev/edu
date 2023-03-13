@@ -5,6 +5,7 @@ description: "Quickly handle incident responses in Chainguard Enforce"
 date: 2022-11-29T08:49:31+00:00
 lastmod: 2023-01-12T08:49:31+00:00
 draft: true
+tags: ["ENFORCE", "REFERENCE", "PRODUCT", "POLICY"]
 images: []
 menu:
   docs:

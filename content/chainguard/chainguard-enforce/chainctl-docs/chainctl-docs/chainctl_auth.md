@@ -4,6 +4,7 @@ title: "chainctl auth"
 slug: chainctl_auth
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

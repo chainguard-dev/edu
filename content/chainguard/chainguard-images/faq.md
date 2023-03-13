@@ -5,6 +5,7 @@ description: "Frequently asked questions about Chainguard Images"
 date: 2022-09-01T08:49:31+00:00
 lastmod: 2022-09-01T08:49:31+00:00
 draft: false
+tags: ["IMAGES", "FAQ", "PRODUCT"]
 images: []
 menu:
   docs:

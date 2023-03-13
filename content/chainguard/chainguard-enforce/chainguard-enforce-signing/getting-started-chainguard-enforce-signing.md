@@ -5,6 +5,7 @@ description: "Getting Started with Chainguard Enforce Signing"
 date: 2023-01-26T15:56:52-07:00
 lastmod: 2022-01-26T15:56:52-07:00
 draft: false
+tags: ["ENFORCE", "PROCEDURAL", "PRODUCT"]
 images: []
 menu:
   docs:

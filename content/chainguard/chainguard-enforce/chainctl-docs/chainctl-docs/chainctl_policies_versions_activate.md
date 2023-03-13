@@ -4,6 +4,7 @@ title: "chainctl policies versions activate"
 slug: chainctl_policies_versions_activate
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_versions_activate/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

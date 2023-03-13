@@ -4,6 +4,7 @@ title: "chainctl auth status"
 slug: chainctl_auth_status
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_status/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

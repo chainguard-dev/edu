@@ -5,6 +5,7 @@ description: "Understanding Identity and Access Management in Chainguard Enforce
 date: 2022-15-07T15:22:20+01:00
 lastmod: 2022-13-09T15:22:20+01:00
 draft: false
+tags: ["ENFORCE", "REFERENCE", "PRODUCT"]
 images: []
 menu:
   docs:

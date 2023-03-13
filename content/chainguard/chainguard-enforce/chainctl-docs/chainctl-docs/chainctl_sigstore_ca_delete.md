@@ -4,6 +4,7 @@ title: "chainctl sigstore ca delete"
 slug: chainctl_sigstore_ca_delete
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_ca_delete/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

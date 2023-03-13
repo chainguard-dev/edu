@@ -4,6 +4,7 @@ title: "chainctl clusters workloads"
 slug: chainctl_clusters_workloads
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_workloads/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

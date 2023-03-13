@@ -4,6 +4,7 @@ title: "chainctl clusters uninstall"
 slug: chainctl_clusters_uninstall
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_uninstall/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

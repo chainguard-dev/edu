@@ -4,6 +4,7 @@ title: "chainctl clusters profiles list"
 slug: chainctl_clusters_profiles_list
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_profiles_list/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

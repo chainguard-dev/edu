@@ -5,6 +5,7 @@ description: "Overview and FAQs of Chainguard Enforce Signing"
 date: 2023-01-27T15:56:52-07:00
 lastmod: 2022-01-27T15:56:52-07:00
 draft: false
+tags: ["ENFORCE", "OVERVIEW", "FAQ", "PRODUCT"]
 images: []
 menu:
   docs:

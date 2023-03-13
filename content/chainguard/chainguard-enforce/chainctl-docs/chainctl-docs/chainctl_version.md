@@ -4,6 +4,7 @@ title: "chainctl version"
 slug: chainctl_version
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_version/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

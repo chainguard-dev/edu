@@ -4,6 +4,7 @@ title: "chainctl iam invites"
 slug: chainctl_iam_invites
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

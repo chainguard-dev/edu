@@ -5,6 +5,7 @@ description: "How to bind Chainguard Enforce to your cloud provider"
 date: 2022-09-02T15:56:52-07:00
 lastmod: 2023-03-07T15:56:52-07:00
 draft: false
+tags: ["ENFORCE", "PROCEDURAL", "PRODUCT"]
 images: []
 menu:
   docs:

@@ -4,6 +4,7 @@ title: "chainctl iam groups set-gcp"
 slug: chainctl_iam_groups_set-gcp
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_set-gcp/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

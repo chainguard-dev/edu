@@ -4,6 +4,7 @@ title: "chainctl sigstore ca"
 slug: chainctl_sigstore_ca
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_ca/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

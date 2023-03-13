@@ -4,6 +4,7 @@ title: "chainctl iam invites delete"
 slug: chainctl_iam_invites_delete
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites_delete/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

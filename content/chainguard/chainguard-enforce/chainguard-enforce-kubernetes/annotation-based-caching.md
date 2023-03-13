@@ -5,6 +5,7 @@ description: "Enabling annotation-based caching for Chainguard Enforce"
 date: 2022-07-15T15:22:20+01:00
 lastmod: 2023-01-12T15:22:20+01:00
 draft: false
+tags: ["ENFORCE", "REFERENCE", "PRODUCT"]
 images: []
 menu:
   docs:

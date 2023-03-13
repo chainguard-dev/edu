@@ -4,6 +4,7 @@ title: "chainctl iam groups remove-aws"
 slug: chainctl_iam_groups_remove-aws
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_remove-aws/
 draft: false
+tags: ["CHAINCTL", "REFERENCE"]
 images: []
 type: "article"
 toc: true

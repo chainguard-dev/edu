@@ -5,6 +5,7 @@ description: "A Conceptual Article Outlining Enforce's Continuous Verification F
 date: 2022-21-09T15:22:20+01:00
 lastmod: 2022-21-09T15:22:20+01:00
 draft: false
+tags: ["ENFORCE", "CONCEPTUAL", "PRODUCT"]
 images: []
 menu:
   docs:

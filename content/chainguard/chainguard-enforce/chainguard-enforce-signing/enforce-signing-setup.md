@@ -5,6 +5,7 @@ description: "Certificate Authority setup for Chainguard Enforce Signing"
 date: 2023-02-01T15:56:52-07:00
 lastmod: 2022-02-01T15:56:52-07:00
 draft: false
+tags: ["ENFORCE", "REFERENCE", "PROCEDURAL", "PRODUCT"]
 images: []
 menu:
   docs:
