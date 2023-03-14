@@ -1,33 +1,38 @@
 ---
 date: 2023-03-13T22:56:41Z
-title: "chainctl iam role-bindings delete"
-slug: chainctl_iam_role-bindings_delete
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings_delete/
+title: "chainctl iam role-bindings update"
+slug: chainctl_iam_role-bindings_update
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings_update/
 draft: false
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam role-bindings delete
+## chainctl iam role-bindings update
 
-Delete a role-binding.
+Update a role-binding.
 
 ```
-chainctl iam role-bindings delete ROLE_BINDING_ID [--yes] [--output id]
+chainctl iam role-bindings update BINDING_ID [--role=ROLE] [--identity=IDENTITY] [--output table|json|id]
 ```
 
 ### Examples
 
 ```
-  # Delete a role-binding
-  chainctl iam role-bindings delete 9b6da6e64b45129eb4e9f9f3ce9b69ca2a550c6b/034e4afcda8c0b07/55b470f08e38b4d2
+  # Update the role an identity is bound to
+  chainctl iam role-bindings update fb694596eb1678321f94eec283e1e0be690f655c/a2973bac66ebfde3 --role=editor
+  
+  # Update the identity bound to a role
+  chainctl iam role-bindings update fb694596eb1678321f94eec283e1e0be690f655c/a2973bac66ebfde3 --identity=support-identity
 ```
 
 ### Options
 
 ```
-  -h, --help   help for delete
-  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -h, --help              help for update
+      --identity string   The name or ID of the identity to bind.
+      --role string       The name or ID of the role to bind to the identity.
+  -y, --yes               Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
