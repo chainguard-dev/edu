@@ -9,15 +9,15 @@ images: []
 menu:
   docs:
     parent: "images-reference"
-weight: 600
+weight: 500
 toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/nats](https://github.com/chainguard-images/images/tree/main/images/nats)
-| Tags         | Aliases                                           |
-|--------------|---------------------------------------------------|
-| `latest`     | `2`, `2.9`, `2.9.15`, `2.9.15-r0`                 |
-| `latest-dev` | `dev-2`, `dev-2.9`, `dev-2.9.15`, `dev-2.9.15-r0` |
+| Tags         | Aliases                           |
+|--------------|-----------------------------------|
+| `latest`     | `2`, `2.9`, `2.9.15`, `2.9.15-r0` |
+| `latest-dev` | `2`, `2.9`, `2.9.15`, `2.9.15-r0` |
 
 
 

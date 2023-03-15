@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "images-reference"
-weight: 600
+weight: 500
 toc: true
 ---
 
@@ -17,8 +17,8 @@ toc: true
 | Tags             | Aliases |
 |------------------|---------|
 | `latest`         |         |
-| `openjdk-11`     |         |
 | `latest-dev`     |         |
+| `openjdk-11`     |         |
 | `openjdk-11-dev` |         |
 
 
