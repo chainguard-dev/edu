@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "images-reference"
-weight: 600
+weight: 500
 toc: true
 ---
 
@@ -17,9 +17,9 @@ toc: true
 | Tags             | Aliases                                                               |
 |------------------|-----------------------------------------------------------------------|
 | `latest`         | `openjdk-17`, `openjdk-17.0`, `openjdk-17.0.6`, `openjdk-17.0.6-r1`   |
+| `latest-dev`     | `openjdk-17`, `openjdk-17.0`, `openjdk-17.0.6`, `openjdk-17.0.6-r1`   |
 | `openjdk-11`     | `openjdk-11`, `openjdk-11.0`, `openjdk-11.0.18`, `openjdk-11.0.18-r1` |
-| `latest-dev`     |                                                                       |
-| `openjdk-11-dev` |                                                                       |
+| `openjdk-11-dev` | `openjdk-11`, `openjdk-11.0`, `openjdk-11.0.18`, `openjdk-11.0.18-r1` |
 
 
 
