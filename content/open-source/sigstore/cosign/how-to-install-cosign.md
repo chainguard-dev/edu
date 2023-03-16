@@ -6,6 +6,7 @@ description: "Details for installing Cosign across operating systems"
 date: 2022-13-07T08:49:31+00:00
 lastmod: 2022-13-07T08:49:31+00:00
 draft: false
+tags: ["cosign", "Procedural"]
 images: []
 menu:
   docs:

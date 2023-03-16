@@ -6,6 +6,7 @@ description: "Use Cosign and GitHub Actions to Keyless Sign a Django Container I
 date: 2022-24-087T08:49:31+00:00
 lastmod: 2022-24-08T08:49:31+00:00
 draft: false
+tags: ["cosign", "Sigstore", "Procedural"]
 images: []
 menu:
   docs:
