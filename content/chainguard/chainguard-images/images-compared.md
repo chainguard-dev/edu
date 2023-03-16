@@ -6,6 +6,7 @@ description: "Comparing popular base images with Chainguard Images in number of 
 date: 2022-09-15T08:49:31+00:00
 lastmod: 2022-09-15T08:49:31+00:00
 draft: false
+tags: ["Chainguard Images", "Product"]
 images: []
 menu:
   docs:

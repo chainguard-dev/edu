@@ -5,6 +5,7 @@ description: "Ports and Protocols Required for Chainguard Enforce"
 date: 2023-01-26T15:22:20
 lastmod: 2022-11-29T15:22:20
 draft: false
+tags: ["Enforce", "Product", "Reference"]
 images: []
 menu:
   docs:
