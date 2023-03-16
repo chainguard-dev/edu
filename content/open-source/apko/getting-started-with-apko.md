@@ -4,7 +4,7 @@ type: "article"
 lead: "Minimalist OCI image builder based on APK"
 description: "Quickstart to get apko up and running"
 date: 2022-07-06T08:49:31+00:00
-lastmod: 2022-07-06T08:49:31+00:00
+lastmod: 2023-03-15T16:49:31+00:00
 contributors: ["Erika Heidi"]
 draft: false
 images: []
@@ -111,7 +111,7 @@ Save and close the file after you're done including these contents. With `nano`,
 The only thing left to do now is run apko to build this image. The following build command will:
 
 - set up a volume share in the current directory, synchronizing its contents with apko's image workdir; this way, the generated artifacts will be available on your host system.
-- execute the `cgr.dev/chainguard/apko` image with the `build` command, tagging the image as `wolfi-base:test` and saving the build as `wolfi-test.rar`.
+- execute the `cgr.dev/chainguard/apko` image with the `build` command, tagging the image as `wolfi-base:test-amd64` and saving the build as `wolfi-test.tar`.
 
 ```shell
 docker run --rm -v ${PWD}:/work -w /work cgr.dev/chainguard/apko build wolfi-base.yaml wolfi-base:test wolfi-test.tar
@@ -120,17 +120,14 @@ docker run --rm -v ${PWD}:/work -w /work cgr.dev/chainguard/apko build wolfi-bas
 You should get output similar to this:
 
 ```
-Feb  8 17:21:33.665 [INFO] loading config file: wolfi-base.yaml
-Feb  8 17:21:33.666 [INFO] [arch:x86_64] WARNING: ignoring archs in config, only building for current arch (amd64)
-Feb  8 17:21:33.666 [INFO] [arch:x86_64] building image 'wolfi-base:test'
-...
-Feb  8 17:21:41.772 [INFO] [arch:x86_64] finished building filesystem in /tmp/apko-2993726922
-Feb  8 17:21:41.845 [INFO] [arch:x86_64] built image layer tarball as /tmp/apko-temp-3502723090/apko-x86_64.tar.gz
-&{ID:wolfi IDLike: Name:Wolfi PrettyName:Wolfi Version: VersionID:20230201 VersionCodename:}Feb  8 17:21:41.955 [INFO] [arch:x86_64] building OCI image from layer '/tmp/apko-temp-3502723090/apko-x86_64.tar.gz'
-Feb  8 17:21:42.064 [INFO] [arch:x86_64] OCI layer digest: sha256:8f62e40cd09e48c90e93a0119a45e49fd50e9cd4cf0561a618b708623ed106e1
-Feb  8 17:21:42.064 [INFO] [arch:x86_64] OCI layer diffID: sha256:bf6e72d71c134bb210fac46f8abd9218821412d8bf9219f48d1b5e9e243e8233
-Feb  8 17:21:42.064 [WARNING] [arch:x86_64] multiple SBOM formats requested, uploading SBOM with media type: spdx+json
-Feb  8 17:21:42.068 [INFO] [arch:x86_64] output OCI image file to wolfi-test.tar
+. . .
+Mar 15 20:17:02.023 [INFO] [arch:x86_64] Building images for 1 architectures: [amd64]
+Mar 15 20:17:02.023 [INFO] [arch:x86_64] building tags [wolfi-base:test]
+. . .
+Mar 15 20:17:04.261 [INFO] loading config file: wolfi-base.yaml
+Mar 15 20:17:04.416 [INFO] [arch:x86_64] adding amd64 to index
+Mar 15 20:17:04.419 [INFO] [arch:x86_64] Generating index SBOM
+Mar 15 20:17:04.420 [INFO] [arch:x86_64] Final index tgz at: wolfi-test.tar
 ```
 
 From the output, you can notice that the image was successfully built as `wolfi-test.tar` in the container, which is shared with your local folder on the host thanks to the volume you created when running the `docker run` command.
@@ -145,7 +142,7 @@ docker load <  wolfi-test.tar
 You'll get output like this:
 ```
 bf6e72d71c13: Loading layer [==================================================>]  5.491MB/5.491MB
-Loaded image: wolfi-base:test
+Loaded image: wolfi-base:test-amd64
 ```
 
 You can check that the image is available at the host system with:
@@ -154,15 +151,15 @@ You can check that the image is available at the host system with:
 docker image list
 ```
 
-You should be able to find the `wolfi-base` image with the `test` tag among the results.
+You should be able to find the `wolfi-base` image with the `test-amd64` tag among the results.
 
 Now you can run the image with:
 
 ```shell
-docker run -it wolfi-base:test
+docker run -it wolfi-base:test-amd64
 ```
 
-This will get you into a container running the apko-built image `wolfi-base:test`. It's a regular shell that you can explore to see what's included - just keep in mind that this is a minimalist image with only the base Wolfi system. To include additional software packages, check the [Wolfi repository](https://github.com/wolfi-dev/os) to find the packages you'll need for your specific use case, or check out [melange](/open-source/melange/), apko's companion project that allows users to build their own APK packages from source.
+This will get you into a container running the apko-built image `wolfi-base:test-amd64`. It's a regular shell that you can explore to see what's included - just keep in mind that this is a minimalist image with only the base Wolfi system. To include additional software packages, check the [Wolfi repository](https://github.com/wolfi-dev/os) to find the packages you'll need for your specific use case, or check out [melange](/open-source/melange/), apko's companion project that allows users to build their own APK packages from source.
 
 ## Conclusion
 
