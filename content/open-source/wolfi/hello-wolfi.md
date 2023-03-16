@@ -5,6 +5,7 @@ description: "Community workshop kit about Wolfi for beginners"
 date: 2022-12-19T08:49:31+00:00
 lastmod: 2022-12-19T08:49:31+00:00
 draft: false
+tags: ["Wolfi", "Workshop Kit"]
 images: []
 menu:
   docs:

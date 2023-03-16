@@ -5,6 +5,7 @@ description: "OCI artifacts are a way of using OCI registries, or container regi
 date: 2022-06-09T15:22:20+01:00
 lastmod: 2022-06-09T15:22:20+01:00
 draft: false
+tags: ["OCI", "Conceptual"]
 images: []
 menu:
   docs:
