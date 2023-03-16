@@ -120,16 +120,10 @@ docker run --rm -v ${PWD}:/work -w /work cgr.dev/chainguard/apko build wolfi-bas
 You should get output similar to this:
 
 ```
-Mar 15 20:17:02.023 [INFO] loading config file: wolfi-base.yaml
+. . .
 Mar 15 20:17:02.023 [INFO] [arch:x86_64] Building images for 1 architectures: [amd64]
 Mar 15 20:17:02.023 [INFO] [arch:x86_64] building tags [wolfi-base:test]
 . . .
-Mar 15 20:17:03.873 [INFO] [arch:x86_64] finished building filesystem in /tmp/apko-436761415/x86_64
-Mar 15 20:17:04.098 [INFO] [arch:x86_64] built image layer tarball as /tmp/apko-temp-55692145/apko-x86_64.tar.gz
-Mar 15 20:17:04.098 [INFO] [arch:x86_64] building OCI image from layer '/tmp/apko-temp-55692145/apko-x86_64.tar.gz'
-Mar 15 20:17:04.260 [INFO] [arch:x86_64] OCI layer digest: sha256:75da6a428ac82e4abb12719ff8dcba796c9b767093cfbb561d516f702bf64f13
-Mar 15 20:17:04.260 [INFO] [arch:x86_64] OCI layer diffID: sha256:471733c3aded4cd397ea5d2ac6651a2c7455169823e59570748eebd2be8e886d
-time="2023-03-15T20:17:04Z" level=info msg="Generating arch image SBOMs"
 Mar 15 20:17:04.261 [INFO] loading config file: wolfi-base.yaml
 Mar 15 20:17:04.416 [INFO] [arch:x86_64] adding amd64 to index
 Mar 15 20:17:04.419 [INFO] [arch:x86_64] Generating index SBOM
