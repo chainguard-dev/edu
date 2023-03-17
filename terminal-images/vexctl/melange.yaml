@@ -1,0 +1,30 @@
+package:
+  name: academy-vexctl
+  version: 0.1.0
+  description: Chainguard Academy vexctl image
+  target-architecture:
+    - x86_64
+  copyright:
+    - license: Apache-2.0
+      paths:
+        - "*"
+
+environment:
+  contents:
+    repositories:
+      - https://packages.wolfi.dev/os
+    packages:
+      - ca-certificates-bundle
+      - busybox
+      - go
+      - wolfi-baselayout
+
+pipeline:
+  - name: Setup stuff
+    runs: |
+      mkdir -p \
+        "${{targets.destdir}}/usr/local/bin" \
+  - uses: go/install
+    with:
+      package: github.com/openvex/vexctl
+      version: v0.2.0

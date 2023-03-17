@@ -1,7 +1,7 @@
 package:
-  name: academy-apko
+  name: academy-cosign
   version: 0.1.0
-  description: Chainguard Academy apko image
+  description: Chainguard Academy cosign package
   target-architecture:
     - x86_64
   copyright:
@@ -20,12 +20,10 @@ environment:
       - busybox
 
 pipeline:
-  - name: setup steps
+  - name: Setup stuff
     runs: |
       mkdir -p \
         "${{targets.destdir}}/usr/bin" \
         "${{targets.destdir}}/usr/local/bin" \
-        "${{targets.destdir}}/etc/profile.d" \
         "${{targets.destdir}}/etc/sudoers.d"
       echo "inky ALL=(ALL:ALL) NOPASSWD: ALL" > "${{targets.destdir}}/etc/sudoers.d/inky"
-      cp ./profile.sh "${{targets.destdir}}/etc/profile.d/inky-profile.sh"

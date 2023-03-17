@@ -5,14 +5,14 @@ contents:
     - "/work/packages"
   packages:
     - alpine-baselayout-data
-    - apk-tools
     - bash
     - ca-certificates-bundle
-    - docker
+    - helm
     - nano
     - sudo
     - tmux
-    - academy-apko
+    - vim
+    - academy-policy-controller-base
 
 accounts:
   groups:
@@ -26,12 +26,12 @@ accounts:
 work-dir: /home/inky
 
 environment:
-  DOCKER_HOST: "tcp://127.0.0.1:2375"
+  KUBECONFIG: /etc/rancher/k3s/k3s.yaml
 
 entrypoint:
   type: service-bundle
   services:
-    docker: /usr/bin/sudo /usr/bin/dockerd -H tcp://127.0.0.1:2375
+    k3s: /usr/bin/sudo /usr/local/bin/k3s server --write-kubeconfig-mode 644
 
 archs:
   - x86_64

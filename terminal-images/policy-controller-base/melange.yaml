@@ -1,7 +1,7 @@
 package:
-  name: academy-apko
+  name: academy-policy-controller-base
   version: 0.1.0
-  description: Chainguard Academy apko image
+  description: Chainguard Academy policy-controller package for guides with example policies
   target-architecture:
     - x86_64
   copyright:
@@ -20,12 +20,22 @@ environment:
       - busybox
 
 pipeline:
+  - uses: fetch
+    with:
+      uri: https://github.com/k3s-io/k3s/releases/download/v1.25.7%2Bk3s1/k3s
+      expected-sha256: 75b7d83f598fa96ec672e01c9cc6ab1009450b9519f662e8eb7cf0a0039379b4
+      extract: false
   - name: setup steps
     runs: |
       mkdir -p \
         "${{targets.destdir}}/usr/bin" \
         "${{targets.destdir}}/usr/local/bin" \
         "${{targets.destdir}}/etc/profile.d" \
-        "${{targets.destdir}}/etc/sudoers.d"
+        "${{targets.destdir}}/etc/sudoers.d" \
+        "${{targets.destdir}}/var/lib/rancher/k3s/server/manifests
+      mv ./k3s "${{targets.destdir}}/usr/local/bin/k3s"
+      chmod 755 "${{targets.destdir}}/usr/local/bin/k3s"
+      cp policy-controller.yaml "${{targets.destdir}}/var/lib/rancher/k3s/server/manifests
       echo "inky ALL=(ALL:ALL) NOPASSWD: ALL" > "${{targets.destdir}}/etc/sudoers.d/inky"
       cp ./profile.sh "${{targets.destdir}}/etc/profile.d/inky-profile.sh"
+
