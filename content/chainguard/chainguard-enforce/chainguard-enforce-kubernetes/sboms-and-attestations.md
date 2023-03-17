@@ -13,22 +13,38 @@ weight: 600
 toc: true
 ---
 
-In order to fully leverage the capabilities offered by Chainguard Enforce, it's important to establish a process for creating quality *Software Bills of Materials* (SBOMs). An SBOM is a formal record that contains the details and supply chain relationships (such as dependencies) of the components used in building given software.
+In order to fully leverage the capabilities offered by Chainguard Enforce, it's important to establish a process for creating quality *Software Bills of Materials* (SBOMs). An [SBOM](/open-source/sbom/) is a formal record that contains the details and supply chain relationships (such as dependencies) of the components used in building software.
 
-[Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/)  — a part of the Sigstore project — supports software artifact signing, verification, and storage in an OCI (Open Container Initiative) registry. The `cosign` command line tool offers two subcommands that you can use to associate an SBOM with a container image and then upload them to a registry: `cosign attach` and `cosign attest`. 
+[Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/)  — a part of the Sigstore project — supports software artifact signing, verification, and storage in an [OCI (Open Container Initiative)](/open-source/oci/) registry. The `cosign` command line tool offers two subcommands that you can use to associate an SBOM with a container image and then upload them to a registry: `cosign attach` and `cosign attest`. 
 
 However, these commands don't work the same way, and Chainguard Enforce treats SBOMs that have been attached differently from those that have been attested. This guide outlines the differences between these two subcommands and provides guidance for when you might want to use one over the other.
 
 
+## Comparison of attaching and attesting
+
+The following table presents a high-level comparison of the `cosign attach` and `cosign attest` commands.
+
+|   | `cosign attach` | `cosign attest` |
+|----------|----------|----------|
+| Produces an in-toto attestation (a "signed SBOM") | no  | yes  |
+| SBOM can be ingested immediately | yes  | no  |
+| SBOM requires policy for ingestion | no | yes  |
+| Policies can be applied to SBOM | no | yes |
+| Uploads OCI artifact to registry | yes | yes |
+| OCI artifact extension | `.sbom` | `.att` |
+
+The remaining sections of this guide elaborate further on the similarities and differences between these two commands.
+
+
 ## SBOMs vs. Attestations
 
-An SBOM is essentially an electronic packing slip: it's a list of all the components that went into making a piece of given software. But unless you have some indication of when the software was produced, who produced it, and how it was produced, then you can't say with any certainty that the components listed in the SBOM are actually part of the software you're running.
+An SBOM is essentially an electronic packing slip: it's a list of all the components that went into making a given piece of software. But unless you have some indication of when the software was produced, who produced it, and how it was produced, then you can't say with any certainty that the components listed in the SBOM are actually part of the software you're running.
 
 An *attestation* allows the end users or consumers of a software artifact (in the context of this guide, an SBOM) to verify the quality of that artifact independently from the producer of the software. It also requires software producers to provide verifiable proof of the quality of their software.
 
 Put differently, an attestation is a written assurance of a software artifact's *provenance*, or the verifiable information about the artifact describing where, when, and how it was produced. You can think of an attestation as a proclamation that "software artifact X" was produced by "person Y" at "time Z".
 
-Both `cosign attest` and `cosign attach` associate an artifact with an image and upload it to a registry. However, `cosign attest` generates an in-toto attestation while `cosign attach` does not. `cosign attest` then attaches it to the provided image and uploads it to a registry as an OCI artifact with a `.att` extension.
+Both `cosign attest` and `cosign attach` associate an artifact with an image and upload it to a registry. However, `cosign attest` generates an [in-toto attestation](https://in-toto.io/) while `cosign attach` does not. `cosign attest` then attaches it to the provided image and uploads it to a registry as an OCI artifact with a `.att` extension.
 
 In the following example, `image.sbom` is an SBOM file that was previously created, `$IMAGE` is the image that will be attached to the SBOM, and `cosign.key` is the signer's private key.
 
@@ -63,22 +79,11 @@ Conversely, Chainguard Enforce will ingest attached SBOMs out of the box, but ca
 
 Say you ran a `cosign attach` command to attach a `.sbom` artifact to an image and upload it to a registry. Then you ran `cosign sign` to sign the SBOM, generate a `.sig` artifact, and upload that to the registry. In this scenario, Chainguard Enforce would still see the SBOM as a `.sbom` artifact and not as an attestation (`.att`). Even though you've signed the SBOM, the signature is a separate artifact so Enforce cannot treat it as an attestation, and thus still won't be able to apply policies against it.
 
-The following table presents a high-level comparison of the `cosign attach` and `cosign attest` commands.
 
-|   | `cosign attach` | `cosign attest` |
-|----------|----------|----------|
-| Produces an in-toto attestation (a "signed SBOM") | no  | yes  |
-| SBOM can be ingested immediately | yes  | no  |
-| SBOM requires policy for ingestion | no | yes  |
-| Policies can be applied to SBOM | no | yes |
-| Uploads OCI artifact to registry | yes | yes |
-| OCI artifact extension | `.sbom` | `.att` |
-
-
-## A Note on generating SBOMs
+## A note on generating SBOMs
 
 There are many tools available today — both proprietary and open source — that allow you to generate SBOMs. However, thee tools do not generate SBOMs in the same way or at the same point in the development process. As with signed versus unsigned SBOMs, an organization may find SBOMs generated by one tool as more trustworthy than those from others. 
 
 For example, SBOMs generated from source code can be valuable. But ultimately, you have no way of knowing whether the image has been tampered with between the time the SBOM was generated and the time you actually run the image. 
 
-[apko](/open-source/apko/overview/) is a command-line tool that allows users to build container images using a declarative language based on YAML. When building a container image, apko will generate an SBOM outlining each of the apks it uses to build it. When combined with [melange](/open-source/melange/overview/), an apk builder tool that uses declarative pipelines to create apk packages, these tools can serve as a good starting point for a secure container image factory. Checkout [this blog post](https://www.chainguard.dev/unchained/secure-your-software-factory-with-melange-and-apko) to learn more.
+[apko](/open-source/apko/overview/) is a command-line tool that allows users to build container images using a declarative language based on YAML. When building a container image, apko will generate an SBOM outlining each of the apks it uses to build it. When combined with [melange](/open-source/melange/overview/), an apk builder tool that uses declarative pipelines to create apk packages, these tools can serve as a good starting point for a secure container image factory. Checkout ["Secure Your Software Factory with melange and apko"](https://www.chainguard.dev/unchained/secure-your-software-factory-with-melange-and-apko) to learn more.
