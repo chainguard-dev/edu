@@ -1,7 +1,12 @@
-name: Build all terminal images
+name: Build single terminal image
 on:
-  push:
-    branches: [terminal-images-dev]
+  workflow_dispatch:
+    inputs:
+      image:
+        description: |
+          The image to build, corresponding to dir in terminal-images directory.
+        type: string
+        required: true
 
 env:
   PROJECT_ID: "${{ secrets.TERMINAL_PROJECT_ID}}"
@@ -19,19 +24,19 @@ jobs:
       contents: write
       id-token: write
       
-    strategy:
-      matrix:
-        images:
-          - apko
-          - cosign
-          - rekor
-          - policy-controller-base
-          - policy-controller-install
-          - rekor
-          - vexctl
-
     steps:
       - uses: sigstore/cosign-installer@main          
+
+      - name: Set image name environment variable
+        run: |-
+          echo "IMAGE=$(
+            if [ -n "${{ github.event.inputs.image }}" ]; then
+              echo "${{ github.event.inputs.image }}"
+            else
+              echo "Missing image input, exiting"
+              exit
+            fi
+          )" >> $GITHUB_ENV
 
       - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
@@ -47,12 +52,12 @@ jobs:
 
       - name: 'melange-keygen'
         shell: bash
-        working-directory: terminal-images/${{ matrix.image }}
+        working-directory: terminal-images/${{ env.IMAGE }}
         run: docker run -v ${PWD}:/work ghcr.io/wolfi-dev/melange keygen
 
       - name: 'melange-build'
         shell: bash
-        working-directory: terminal-images/${{ matrix.image }}
+        working-directory: terminal-images/${{ env.IMAGE }}
         run: |
           docker run --privileged -v ${PWD}:/work ghcr.io/wolfi-dev/melange build \
             melange.yaml --arch x86_64 --signing-key melange.rsa
@@ -68,13 +73,13 @@ jobs:
 
       - name: 'apko-publish'
         shell: bash
-        working-directory: terminal-images/${{ matrix.image }}
+        working-directory: terminal-images/${{ env.IMAGE }}
         run: |
           docker run --rm \
             -v /tmp/.docker/config.json:/root/.docker/config.json -v ${PWD}/:/work/ \
             ghcr.io/wolfi-dev/apko publish \
             --arch x86_64 apko.yaml \
-            "${{ env.REGISTRY_URL}}/${{ env.REPOSITORY }}/${{ matrix.image }}:testing" \
+            "${{ env.REGISTRY_URL}}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:testing" \
             -k melange.rsa.pub
 
       - name: 'cosign-login'
@@ -86,6 +91,6 @@ jobs:
             ${{ env.REGISTRY_URL }}
 
       - name: 'Sign image'
-        run: cosign sign "${{ env.REGISTRY_URL}}/${{ env.REPOSITORY }}/${{ matrix.image }}:testing"
+        run: cosign sign "${{ env.REGISTRY_URL}}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:testing"
 
 
