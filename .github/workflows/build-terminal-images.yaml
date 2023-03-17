@@ -1,0 +1,93 @@
+name: Build all terminal images
+on:
+  push:
+    branches: [terminal-images-dev]
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: "${{ secrets.TERMINAL_PROJECT_ID}}"
+  WORKLOAD_IDENTITY_PROVIDER: "${{ secrets.TERMINAL_WORKLOAD_IDENTITY_PROVIDER }}"
+  SERVICE_ACCOUNT: "${{ secrets.TERMINAL_SERVICE_ACCOUNT }}"
+  GH_TOKEN: ${{ github.token }}
+  REGISTRY_URL: "${{ secrets.TERMINAL_REGISTRY_URL}}"
+  REPOSITORY: "${{ secrets.TERMINAL_REPOSITORY}}"
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      id-token: write
+      
+    strategy:
+      matrix:
+        image:
+          - apko
+          - cosign
+          - policy-controller-base
+          - policy-controller-install
+          - rekor
+          - vexctl
+
+    steps:
+      - uses: sigstore/cosign-installer@main          
+
+      - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
+        with:
+          token_format: 'access_token'
+          project_id: "${{ env.PROJECT_ID }}"
+          workload_identity_provider: "${{ env.WORKLOAD_IDENTITY_PROVIDER }}"
+          service_account: "${{ env.SERVICE_ACCOUNT }}"
+
+      - name: 'melange-keygen'
+        shell: bash
+        working-directory: terminal-images/${{ matrix.image }}
+        run: |
+          echo "$PWD"
+          docker run -v ${PWD}:/work ghcr.io/wolfi-dev/melange keygen
+
+      - name: 'melange-build'
+        shell: bash
+        working-directory: terminal-images/${{ matrix.image }}
+        run: |
+          docker run --privileged -v ${PWD}:/work ghcr.io/wolfi-dev/melange build \
+            melange.yaml --arch x86_64 --signing-key melange.rsa
+  
+      - name: 'apko-login'
+        shell: bash
+        working-directory: /tmp/
+        run: |
+          docker run --rm -v ${PWD}/:/root/ ghcr.io/wolfi-dev/apko login \
+            -p ${{ steps.auth.outputs.access_token }} \
+            -u oauth2accesstoken \
+            ${{ env.REGISTRY_URL }}
+
+      - name: 'apko-publish'
+        shell: bash
+        working-directory: terminal-images/${{ matrix.image }}
+        run: |
+          docker run --rm \
+            -v /tmp/.docker/config.json:/root/.docker/config.json -v ${PWD}/:/work/ \
+            ghcr.io/wolfi-dev/apko publish \
+            --arch x86_64 apko.yaml \
+            "${{ env.REGISTRY_URL}}/${{ env.REPOSITORY }}/${{ matrix.image }}:testing" \
+            -k melange.rsa.pub
+
+      - name: 'cosign-login'
+        shell: bash
+        run: |
+          cosign login \
+            -p ${{ steps.auth.outputs.access_token }} \
+            -u oauth2accesstoken \
+            ${{ env.REGISTRY_URL }}
+
+      - name: 'Sign image'
+        run: cosign sign "${{ env.REGISTRY_URL}}/${{ env.REPOSITORY }}/${{ matrix.image }}:testing"
+
+
