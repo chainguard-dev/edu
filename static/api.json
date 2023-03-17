@@ -2272,6 +2272,10 @@
                   "description": "a short description of this cluster.",
                   "type": "string"
                 },
+                "enforcerOptions": {
+                  "$ref": "#/definitions/tenantClusterEnforcerOptions",
+                  "title": "EnforcerOptions contains additional Enforcer configuration settings.\n+optional"
+                },
                 "group": {
                   "$ref": "#/definitions/iamGroup",
                   "title": "group the cluster resides in"
@@ -3393,6 +3397,10 @@
           "description": "a short description of this cluster.",
           "type": "string"
         },
+        "enforcerOptions": {
+          "$ref": "#/definitions/tenantClusterEnforcerOptions",
+          "title": "EnforcerOptions contains additional Enforcer configuration settings.\n+optional"
+        },
         "group": {
           "$ref": "#/definitions/iamGroup",
           "title": "group the cluster resides in"
@@ -3499,6 +3507,19 @@
       },
       "type": "object"
     },
+    "tenantClusterConfigRequestEnforcerOptions": {
+      "properties": {
+        "enableCipCache": {
+          "title": "+optional",
+          "type": "boolean"
+        },
+        "webhookFailOpen": {
+          "title": "+optional",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "tenantClusterConfigResponse": {
       "properties": {
         "mcpConfig": {
@@ -3567,6 +3588,19 @@
             "$ref": "#/definitions/ClusterDiscoveryResponseResult"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "tenantClusterEnforcerOptions": {
+      "properties": {
+        "enableCipCache": {
+          "title": "+optional",
+          "type": "boolean"
+        },
+        "webhookFailOpen": {
+          "title": "+optional",
+          "type": "boolean"
         }
       },
       "type": "object"

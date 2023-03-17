@@ -1,5 +1,5 @@
 ---
-date: 2023-03-13T22:56:41Z
+date: 2023-03-16T21:11:47Z
 title: "chainctl clusters install"
 slug: chainctl_clusters_install
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_install/
@@ -36,6 +36,9 @@ chainctl clusters install [--name NAME] [--description DESCRIPTION] [--group GRO
   # with ID "GROUP_ID".
   chainctl cluster install --group=GROUP_ID
   
+  # Install the Chainguard agent enabling a fail open policy mode.
+  chainctl cluster install --opt=webhook_fail_open=true
+  
   # Install the Chainguard agent using a temporary invite code under a group
   # determined via an interactive prompt.
   chainctl cluster install
@@ -52,6 +55,7 @@ chainctl clusters install [--name NAME] [--description DESCRIPTION] [--group GRO
       --invite-code string               An invite code to use for joining this cluster into the IAM hierarchy.
       --managed string                   Indicates the cluster's agent should be managed by Chainguard.  The value indicates the provider of the cluster, e.g. gke
   -n, --name string                      Given name of the resource.
+      --opt strings                      extra key=value pairs to define enforcer profile options
       --private                          Kubernetes API endpoint isn't publicly accessible. Cannot be used with managed clusters.
       --profiles stringArray             The names of Chainguard profiles to install into the cluster.
       --skip-invite                      When specified we perform installation without an invite code.
