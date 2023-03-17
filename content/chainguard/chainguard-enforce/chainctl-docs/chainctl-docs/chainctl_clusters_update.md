@@ -1,5 +1,5 @@
 ---
-date: 2023-03-13T22:56:41Z
+date: 2023-03-16T21:11:47Z
 title: "chainctl clusters update"
 slug: chainctl_clusters_update
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_update/
@@ -38,6 +38,7 @@ chainctl clusters update CLUSTER_NAME | CLUSTER_ID [--name NAME] [--description 
   -d, --description string     The description of the resource.
   -h, --help                   help for update
   -n, --name string            Given name of the resource.
+      --opt strings            extra key=value pairs to define enforcer profile options
       --profiles stringArray   The names of Chainguard profiles to install into the cluster.
 ```
 
