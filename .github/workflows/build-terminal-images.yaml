@@ -2,6 +2,7 @@ name: Build all terminal images
 on:
   push:
     branches: [terminal-images-dev]
+  workflow_dispatch:
 
 env:
   PROJECT_ID: "${{ secrets.TERMINAL_PROJECT_ID}}"
@@ -48,12 +49,15 @@ jobs:
       - name: 'melange-keygen'
         shell: bash
         working-directory: terminal-images/${{ matrix.image }}
-        run: docker run -v ${PWD}:/work ghcr.io/wolfi-dev/melange keygen
+        run: |
+          echo "$PWD"
+          docker run -v ${PWD}:/work ghcr.io/wolfi-dev/melange keygen
 
       - name: 'melange-build'
         shell: bash
         working-directory: terminal-images/${{ matrix.image }}
         run: |
+          echo "$PWD"
           docker run --privileged -v ${PWD}:/work ghcr.io/wolfi-dev/melange build \
             melange.yaml --arch x86_64 --signing-key melange.rsa
   
@@ -61,6 +65,7 @@ jobs:
         shell: bash
         working-directory: /tmp/
         run: |
+          echo "$PWD"
           docker run --rm -v ${PWD}/:/root/ ghcr.io/wolfi-dev/apko login \
             -p ${{ steps.auth.outputs.access_token }} \
             -u oauth2accesstoken \
