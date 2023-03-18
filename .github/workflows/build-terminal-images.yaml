@@ -22,10 +22,9 @@ jobs:
       
     strategy:
       matrix:
-        images:
+        image:
           - apko
           - cosign
-          - rekor
           - policy-controller-base
           - policy-controller-install
           - rekor
@@ -48,18 +47,15 @@ jobs:
 
       - name: 'melange-keygen'
         shell: bash
-        working-directory: terminal-images
+        working-directory: terminal-images/${{ matrix.image }}
         run: |
-          cd ${{ matrix.image }}
           echo "$PWD"
           docker run -v ${PWD}:/work ghcr.io/wolfi-dev/melange keygen
 
       - name: 'melange-build'
         shell: bash
-        working-directory: terminal-images
+        working-directory: terminal-images/${{ matrix.image }}
         run: |
-          cd ${{ matrix.image }}
-          echo "$PWD"
           docker run --privileged -v ${PWD}:/work ghcr.io/wolfi-dev/melange build \
             melange.yaml --arch x86_64 --signing-key melange.rsa
   
@@ -67,7 +63,6 @@ jobs:
         shell: bash
         working-directory: /tmp/
         run: |
-          echo "$PWD"
           docker run --rm -v ${PWD}/:/root/ ghcr.io/wolfi-dev/apko login \
             -p ${{ steps.auth.outputs.access_token }} \
             -u oauth2accesstoken \
@@ -75,9 +70,8 @@ jobs:
 
       - name: 'apko-publish'
         shell: bash
-        working-directory: terminal-images
+        working-directory: terminal-images/${{ matrix.image }}
         run: |
-          cd ${{ matrix.image }}
           docker run --rm \
             -v /tmp/.docker/config.json:/root/.docker/config.json -v ${PWD}/:/work/ \
             ghcr.io/wolfi-dev/apko publish \
