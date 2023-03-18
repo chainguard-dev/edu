@@ -48,15 +48,17 @@ jobs:
 
       - name: 'melange-keygen'
         shell: bash
-        working-directory: terminal-images/${{ matrix.image }}
+        working-directory: terminal-images
         run: |
+          cd ${{ matrix.image }}
           echo "$PWD"
           docker run -v ${PWD}:/work ghcr.io/wolfi-dev/melange keygen
 
       - name: 'melange-build'
         shell: bash
-        working-directory: terminal-images/${{ matrix.image }}
+        working-directory: terminal-images
         run: |
+          cd ${{ matrix.image }}
           echo "$PWD"
           docker run --privileged -v ${PWD}:/work ghcr.io/wolfi-dev/melange build \
             melange.yaml --arch x86_64 --signing-key melange.rsa
@@ -73,8 +75,9 @@ jobs:
 
       - name: 'apko-publish'
         shell: bash
-        working-directory: terminal-images/${{ matrix.image }}
+        working-directory: terminal-images
         run: |
+          cd ${{ matrix.image }}
           docker run --rm \
             -v /tmp/.docker/config.json:/root/.docker/config.json -v ${PWD}/:/work/ \
             ghcr.io/wolfi-dev/apko publish \
