@@ -32,10 +32,10 @@ pipeline:
         "${{targets.destdir}}/usr/local/bin" \
         "${{targets.destdir}}/etc/profile.d" \
         "${{targets.destdir}}/etc/sudoers.d" \
-        "${{targets.destdir}}/var/lib/rancher/k3s/server/manifests
+        "${{targets.destdir}}/var/lib/rancher/k3s/server/manifests"
       mv ./k3s "${{targets.destdir}}/usr/local/bin/k3s"
       chmod 755 "${{targets.destdir}}/usr/local/bin/k3s"
-      cp policy-controller.yaml "${{targets.destdir}}/var/lib/rancher/k3s/server/manifests
+      cp policy-controller.yaml "${{targets.destdir}}/var/lib/rancher/k3s/server/manifests"
       echo "inky ALL=(ALL:ALL) NOPASSWD: ALL" > "${{targets.destdir}}/etc/sudoers.d/inky"
       cp ./profile.sh "${{targets.destdir}}/etc/profile.d/inky-profile.sh"
 
