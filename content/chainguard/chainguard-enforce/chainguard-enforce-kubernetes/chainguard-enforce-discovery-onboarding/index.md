@@ -2,8 +2,8 @@
 title: "Getting Started with Chainguard Enforce Discovery"
 type: "article"
 description: "Use Chainguard Enforce's Discovery feature to discover workloads and resources from multiple cloud providers."
-date: 2023-26-01T11:07:52+02:00
-lastmod: 2023-26-01T11:07:52+02:00
+date: 2023-01-26T11:07:52+02:00
+lastmod: 2023-03-18T11:07:52+02:00
 draft: false
 images: []
 weight: 671
@@ -165,9 +165,7 @@ To allow Enforce to enroll the discovered cluster, follow these instructions for
 
 The following is a list of CIDR blocks that Enforce will access from.
 
-* `34.132.193.40/32`
-* `35.237.242.37/32`
-* `35.230.121.20/32`
+{{< blurb/enforce-ips >}}
 
 Note that this list will grow over time.
 
