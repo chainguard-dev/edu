@@ -28,4 +28,3 @@ pipeline:
         "${{targets.destdir}}/etc/profile.d" \
         "${{targets.destdir}}/etc/sudoers.d"
       echo "inky ALL=(ALL:ALL) NOPASSWD: ALL" > "${{targets.destdir}}/etc/sudoers.d/inky"
-      cp ./profile.sh "${{targets.destdir}}/etc/profile.d/inky-profile.sh"
