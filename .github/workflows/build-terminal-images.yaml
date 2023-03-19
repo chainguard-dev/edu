@@ -1,7 +1,7 @@
 name: Build all terminal images
 on:
-  push:
-    branches: [terminal-images-dev]
+  schedule:
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 env:
@@ -31,7 +31,7 @@ jobs:
           - vexctl
 
     steps:
-      - uses: sigstore/cosign-installer@main          
+      - uses: sigstore/cosign-installer@c3667d99424e7e6047999fb6246c0da843953c65 # v3.0.1
 
       - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
@@ -45,21 +45,21 @@ jobs:
           workload_identity_provider: "${{ env.WORKLOAD_IDENTITY_PROVIDER }}"
           service_account: "${{ env.SERVICE_ACCOUNT }}"
 
-      - name: 'melange-keygen'
+      - name: melange keygen
         shell: bash
         working-directory: terminal-images/${{ matrix.image }}
         run: |
           echo "$PWD"
           docker run -v ${PWD}:/work ghcr.io/wolfi-dev/melange keygen
 
-      - name: 'melange-build'
+      - name: melange build
         shell: bash
         working-directory: terminal-images/${{ matrix.image }}
         run: |
           docker run --privileged -v ${PWD}:/work ghcr.io/wolfi-dev/melange build \
             melange.yaml --arch x86_64 --signing-key melange.rsa
   
-      - name: 'apko-login'
+      - name: apko login
         shell: bash
         working-directory: /tmp/
         run: |
@@ -68,7 +68,8 @@ jobs:
             -u oauth2accesstoken \
             ${{ env.REGISTRY_URL }}
 
-      - name: 'apko-publish'
+      - name: apko publish
+        id: apko-publish
         shell: bash
         working-directory: terminal-images/${{ matrix.image }}
         run: |
@@ -76,10 +77,11 @@ jobs:
             -v /tmp/.docker/config.json:/root/.docker/config.json -v ${PWD}/:/work/ \
             ghcr.io/wolfi-dev/apko publish \
             --arch x86_64 apko.yaml \
-            "${{ env.REGISTRY_URL}}/${{ env.REPOSITORY }}/${{ matrix.image }}:testing" \
+            --image-refs /work/image-refs.txt \
+            "${{ env.REGISTRY_URL}}/${{ env.REPOSITORY }}/${{ matrix.image }}:latest" \
             -k melange.rsa.pub
 
-      - name: 'cosign-login'
+      - name: cosign login
         shell: bash
         run: |
           cosign login \
@@ -87,7 +89,7 @@ jobs:
             -u oauth2accesstoken \
             ${{ env.REGISTRY_URL }}
 
-      - name: 'Sign image'
-        run: cosign sign "${{ env.REGISTRY_URL}}/${{ env.REPOSITORY }}/${{ matrix.image }}:testing"
-
+      - name: cosign sign image
+        working-directory: terminal-images/${{ matrix.image }}
+        run: cosign sign "$(cat image-refs.txt)"
 
