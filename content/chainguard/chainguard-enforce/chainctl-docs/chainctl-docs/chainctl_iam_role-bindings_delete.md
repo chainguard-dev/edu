@@ -1,5 +1,5 @@
 ---
-date: 2023-03-09T00:41:03Z
+date: 2023-03-16T21:11:47Z
 title: "chainctl iam role-bindings delete"
 slug: chainctl_iam_role-bindings_delete
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings_delete/
@@ -10,15 +10,16 @@ toc: true
 ---
 ## chainctl iam role-bindings delete
 
-Delete a rolebinding.
+Delete a role-binding.
 
 ```
-chainctl iam role-bindings delete ROLE_BINDING_ID [--yes] [--output id] [flags]
+chainctl iam role-bindings delete ROLE_BINDING_ID [--yes] [--output id]
 ```
 
 ### Examples
 
 ```
+  # Delete a role-binding
   chainctl iam role-bindings delete 9b6da6e64b45129eb4e9f9f3ce9b69ca2a550c6b/034e4afcda8c0b07/55b470f08e38b4d2
 ```
 
@@ -26,6 +27,7 @@ chainctl iam role-bindings delete ROLE_BINDING_ID [--yes] [--output id] [flags]
 
 ```
   -h, --help   help for delete
+  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -43,5 +45,5 @@ chainctl iam role-bindings delete ROLE_BINDING_ID [--yes] [--output id] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam role-bindings](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role bindings resource interactions.
+* [chainctl iam role-bindings](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role-bindings resource interactions.
 

@@ -9,14 +9,14 @@ images: []
 menu:
   docs:
     parent: "images-reference"
-weight: 600
+weight: 500
 toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/terraform](https://github.com/chainguard-images/images/tree/main/images/terraform)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `1`, `1.3`, `1.3.9`, `1.3.9-r1` |
+| `latest` | `1`, `1.3`, `1.3.9`, `1.3.9-r2` |
 
 
 

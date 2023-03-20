@@ -9,17 +9,17 @@ images: []
 menu:
   docs:
     parent: "images-reference"
-weight: 600
+weight: 500
 toc: true
 ---
 
 `stable` [cgr.dev/chainguard/python](https://github.com/chainguard-images/images/tree/main/images/python)
-| Tags         | Aliases                            |
-|--------------|------------------------------------|
-| `3.10`       | `3`, `3.10`, `3.10.9`, `3.10.9-r3` |
-| `3.10-dev`   | `3`, `3.10`, `3.10.9`, `3.10.9-r3` |
-| `latest`     | `3`, `3.11`, `3.11.1`, `3.11.1-r8` |
-| `latest-dev` | `3`, `3.11`, `3.11.1`, `3.11.1-r8` |
+| Tags         | Aliases                                            |
+|--------------|----------------------------------------------------|
+| `3.10`       | `3.10`, `3.10.10`, `3.10.10-r0`                    |
+| `3.10-dev`   | `3.10-dev`, `3.10.10-dev`, `3.10.10-r0-dev`        |
+| `latest`     | `3`, `3.11`, `3.11.2`, `3.11.2-r0`                 |
+| `latest-dev` | `3-dev`, `3.11-dev`, `3.11.2-dev`, `3.11.2-r0-dev` |
 
 
 

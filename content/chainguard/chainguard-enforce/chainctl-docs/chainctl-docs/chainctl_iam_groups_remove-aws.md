@@ -1,5 +1,5 @@
 ---
-date: 2023-03-09T00:41:03Z
+date: 2023-03-16T21:11:47Z
 title: "chainctl iam groups remove-aws"
 slug: chainctl_iam_groups_remove-aws
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_remove-aws/

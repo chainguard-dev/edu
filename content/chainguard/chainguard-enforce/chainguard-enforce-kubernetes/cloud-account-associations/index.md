@@ -34,7 +34,7 @@ When you set up a cloud account association with Chainguard Enforce, it creates 
 Although the exact permissions between these profiles differ slightly between both cloud providers, they perform generally the same functions on GCP and AWS.
 
 * `chainguard-canary` — used to test whether the cloud account association is working correctly. This profile has no permissions, as it only functions as an endpoint for testing
-* `chainguard-agentless` — has access to the Kubernetes API, allowing Chaingaurd Enforce to create and manage resources within your cloud account
+* `chainguard-agentless` — has access to the Kubernetes API, allowing Chainguard Enforce to create and manage resources within your cloud account
 * `chainguard-discovery` — allows Enforce to find and list resources running within your cloud account, thereby enabling [Chainguard Enforce's Discovery feature](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-discovery-onboarding/)
 * `chainguard-ingester` — has read-only access to SBOMs, allowing Enforce to download and ingest them as necessary
 * `chainguard-enforce-signer` — allows Chainguard to perform [Enforce Signing](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-signing/chainguard-enforce-signing-faqs/)
@@ -189,7 +189,18 @@ After logging into the Console, navigate to the **Settings** tab. There, you wil
 
 To associate a group with a cloud account, find the group you want to associate and click on the pencil-shaped edit icon for the cloud of your choice. A modal window will appear from the right with next steps, which differ depending on the cloud provider you selected.
 
-> Note: As of this writing, this feature is only available _in preview_. Additionally, setting up AWS account associations through the Chainguard Enforce Console is not available at this time. 
+
+### Setting up an AWS Cloud Account Association through the Console
+
+If you clicked the edit icon for AWS, the modal window will contain a **Launch Stack** button.
+
+![Screenshot of the AWS cloud account association modal window. It shows the window's helper text followed by the "Launch Stack" button. Below the button is the "Account ID" field with "your_account_id_here" entered as an example. At the bottom are the "Configure" and "Back" buttons.](aws.png)
+
+Click this button, which will open an OpenID Connect login flow.
+
+After completing this login flow, navigate back to the modal window in the Chainguard Enforce Console. Below the **Launch Stack** button is an empty field labeled **Account ID**. Within that field, enter the twelve-digit identification number of the AWS account you want to associate with Enforce.
+
+After entering the account number, click the **Configure** button to finish associating your AWS account with Chainguard Enforce.
 
 
 ### Setting up a GCP Cloud Account Association through the Console
