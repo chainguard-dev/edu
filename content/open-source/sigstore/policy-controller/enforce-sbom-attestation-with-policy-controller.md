@@ -15,7 +15,7 @@ toc: true
 terminalImage: policy-controller/base:latest
 ---
 
-This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to verify image attestations before admitting an image into a Kubernetes cluster. In this guide, you will create a `ClusterImagePolicy` that checks the existence of a SBOM attestation attached to a container image, and then test the admission controller by running a `nginx` image with SBOM attestations.
+This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to verify image attestations before admitting an image into a Kubernetes cluster. In this guide, you will create a `ClusterImagePolicy` that checks the existence of a SBOM attestation attached to a container image, and then test the admission controller by running a `registry.enforce.dev/chainguard/node` image with SBOM attestations.
 
 ## Prerequisites
 
@@ -54,10 +54,10 @@ default   Active   24s
 Once you are sure that the Policy Controller is deployed and your `default` namespace is configured to use it, run a pod to make sure admission requests are handled and denied by default:
 
 ```bash
-kubectl run --image gcr.io/chainguard-demo/demo-app@sha256:1076743af13a73ad68c8518ebaf9fe7fab0316674719121ed18bf91fe87f8119 test
+kubectl run --image k8s.gcr.io/pause:3.9 test
 ```
 
-Since there is no `ClusterImagePolicy` defined yet, the Policy Controller will allow the admission request.
+Since there is no `ClusterImagePolicy` defined yet, the Policy Controller will admit the admission request.
 
 In the next step, you will define a policy that verifies Chainguard Images have a SBOM attestation and apply it to your cluster.
 
@@ -79,10 +79,10 @@ Copy the following policy to the `/tmp/cip.yaml` file:
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
-  name: must-have-cyclondex-cue
+  name: must-have-spdx-cue
   annotations:
     catalog.chainguard.dev/title: Enforce SBOM attestation
-    catalog.chainguard.dev/description: Enforce a signed CycloneDX SBOM attestation from a custom key
+    catalog.chainguard.dev/description: Enforce a signed SPDX SBOM attestation from a custom key
     catalog.chainguard.dev/labels: attestation,cue
 spec:
   images:
@@ -91,18 +91,18 @@ spec:
     - name: my-authority
       keyless:
         identities:
-          - issuerRegExp: ".*"
-            subjectRegExp: ".*"
+          - issuer: "https://token.actions.githubusercontent.com"
+            subject: "https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main"
       attestations:
-        - name: must-have-cyclonedx-attestation
-          predicateType: https://cyclonedx.org/bom
+        - name: must-have-spdx-attestation
+          predicateType: https://spdx.dev/Document
           policy:
             type: cue
             data: |
-              predicateType: "https://cyclonedx.org/bom"
+              predicateType: "https://spdx.dev/Document"
 ```
 
-The `glob: **` line, working in combination with the `authorities` and `policy` sections, will allow any image that has at least a SBOM attestation with predicate type `https://cyclonedx.org/bom` to be admitted into your cluster.
+The `glob: **` line, working in combination with the `authorities` and `policy` sections, will allow any image that has at least a SBOM attestation with predicate type `https://spdx.dev/Document` to be admitted into your cluster.
 
 Save the file and then apply the policy:
 
@@ -113,27 +113,27 @@ kubectl apply -f /tmp/cip.yaml
 You will receive output showing the policy is created:
 
 ```
-clusterimagepolicy.policy.sigstore.dev/must-have-cyclonedx-cue created
+clusterimagepolicy.policy.sigstore.dev/must-have-spdx-cue created
 ```
 
-Now run the `cgr.dev/chainguard/nginx` image which does not have a SBOM attestation:
+Now run the `k8s.gcr.io/pause:3.9` image which does not have a SBOM attestation:
 
 
 ```bash
-kubectl run --image gcr.io/chainguard-demo/demo-app noattestedimage
+kubectl run --image k8s.gcr.io/pause:3.9 noattestedimage
 ```
 
 Since the image does not contain any attached SBOM, you will receive a message that the pod was rejected:
 
 ```
 Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied the request: validation failed: failed policy: demo: spec.containers[0].image
-cgr.dev/chainguard/nginx@sha256:e0e69d426c924ddffcabc42d045087fa3c264803056155662274f6ea95077305 no matching attestations with type https://cyclonedx.org/bom
+k8s.gcr.io/pause:3.9 no matching attestations with type https://spdx.dev/Document
 ```
 
-Finally, we run `hectorj2f/nginx:sbomattested` image which contains a SBOM attestation of type `https://cyclonedx.org/bom`:
+Finally, we run `registry.enforce.dev/chainguard/node` image which contains a SBOM attestation of type `https://spdx.dev/Document`:
 
 ```bash
-kubectl run --image hectorj2f/nginx:sbomattested mysbomattestedimage
+kubectl run --image registry.enforce.dev/chainguard/node mysbomattestedimage
 ```
 
 Since the image has now a SBOM attestation, you will receive a message that the pod was created successfully:
