@@ -108,7 +108,7 @@ Each Chainguard Policy needs to be associated with a group, and will be effectiv
 
 When you are invited to Chainguard Enforce, your account will already be associated with a group. 
 
-First, authenticate and log into Enforce with `chainctl`.
+First, authenticate and log in to Enforce with `chainctl`.
 
 ```sh
 chainctl auth login
