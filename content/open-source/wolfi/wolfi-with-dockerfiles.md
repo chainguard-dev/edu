@@ -48,7 +48,7 @@ cd ~/inky && ls -la
 
 This application will take in an image (`inky.png`) file and convert it to ANSI escape sequences to render it on the CLI. The code is on the `inky.py` file, while the `requirements.txt` file has the dependencies required by the application: [setuptools](https://pypi.org/project/setuptools/) and [climage](https://pypi.org/project/climage/).
 
-For your reference, here is the full content from the `inky.py` script:
+For your reference, here is the complete `inky.py` script:
 
 ```python
 '''import climage module to display images on terminal'''
@@ -89,7 +89,13 @@ You can rename the old Dockerfile if you want to keep it for tests later.
 mv Dockerfile _DockerfileBkp
 ```
 
-Then, create a new Dockerfile and copy the following content to it:
+Then, create a new Dockerfile:
+
+```shell
+nano Dockerfile
+```
+
+Copy the following content to it:
 
 ```
 FROM cgr.dev/chainguard/wolfi-base
