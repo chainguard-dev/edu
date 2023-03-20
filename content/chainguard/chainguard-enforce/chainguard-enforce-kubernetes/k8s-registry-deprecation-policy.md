@@ -15,7 +15,7 @@ weight: 700
 toc: true
 ---
 
-As of March 20, 2023, the Kubernetes project will be changing registries, from it k8s.gcr.io registry to a community-owned registry at registry.k8s.io. Pull requests to the previous registry will be redirected to the new one, and, on April 3, 2023, the old registry will be deprecated and frozen. You can read more about this on the Kubernetes blogpost, "[k8s.gcr.io Image Registry Will Be Frozen From the 3rd of April 2023](https://kubernetes.io/blog/2023/02/06/k8s-gcr-io-freeze-announcement/)."
+As of March 20, 2023, the Kubernetes project will be changing registries, from its `k8s.gcr.io` registry to a community-owned registry at `registry.k8s.io`. Pull requests to the previous registry will be redirected to the new one, and, on April 3, 2023, the old registry will be deprecated and frozen. You can read more about this on the Kubernetes blogpost, "[k8s.gcr.io Image Registry Will Be Frozen From the 3rd of April 2023](https://kubernetes.io/blog/2023/02/06/k8s-gcr-io-freeze-announcement/)."
 
 In order to avoid using Kubernetes images from the deprecated registry, you will need to update pipelines to the new registry. Chainguard Enforce can help you fix workloads so that you can ensure you are using images from the new registry by using a new policy Chainguard created to support organizations who will need to be aware of this registry migration.
 
