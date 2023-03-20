@@ -1,5 +1,5 @@
 ---
-title: "Network Requirements for Chainguard Enforce"
+title: "Network Requirements"
 type: "article"
 description: "Ports and Protocols Required for Chainguard Enforce"
 date: 2023-01-26T15:22:20
@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-enforce-kubernetes"
-weight: 100
+weight: 80
 toc: true
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Overview of Chainguard Enforce"
+title: "Overview"
 type: "article"
 description: "A conceptual overview of Chainguard Enforce and its components"
 date: 2022-12-15T16:36:47+00:00

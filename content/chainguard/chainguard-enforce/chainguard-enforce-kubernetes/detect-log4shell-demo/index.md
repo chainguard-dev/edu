@@ -1,5 +1,5 @@
 ---
-title: "Using Chainguard Enforce to Detect the Log4Shell Vulnerability"
+title: "Using Enforce to Detect the Log4Shell Vulnerability"
 type: "article"
 description: "Use chainctl to create a policy and apply it to a cluster to detect vulnerable versions of Log4J"
 date: 2022-08-11T11:07:52+02:00
