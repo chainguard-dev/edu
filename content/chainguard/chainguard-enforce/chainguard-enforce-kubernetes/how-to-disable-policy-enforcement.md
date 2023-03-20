@@ -1,5 +1,5 @@
 ---
-title: "How to Disable Policy Enforcement"
+title: "Disable Policy Enforcement"
 type: "article"
 description: "Quickly handle incident responses in Chainguard Enforce"
 date: 2022-11-29T08:49:31+00:00

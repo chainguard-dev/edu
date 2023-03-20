@@ -10,7 +10,7 @@ images: []
 menu:
   docs:
     parent: "policy-controller"
-weight: 005
+weight: 001
 toc: true
 terminalImage: policy-controller/install:latest
 ---

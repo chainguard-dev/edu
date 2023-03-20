@@ -1,5 +1,5 @@
 ---
-title: "Disallowing Non-Default Capabilities With Policy Controller"
+title: "Disallowing Non-Default Capabilities"
 type: "article"
 description: "Using Policy Controller to prevent running pods with extra capabilities"
 date: 2023-03-02T13:11:29+08:29

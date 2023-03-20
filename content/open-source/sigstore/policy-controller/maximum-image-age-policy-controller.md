@@ -1,5 +1,5 @@
 ---
-title: "Maximum container image age with Policy Controller"
+title: "Maximum Container Image Age"
 type: "article"
 description: "Maximum container image age with Policy Controller"
 lead: "Maximum container image age with Policy Controller"

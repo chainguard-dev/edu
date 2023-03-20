@@ -1,5 +1,5 @@
 ---
-title: "How to Manage IAM Groups in Chainguard Enforce"
+title: "How to Manage IAM Groups"
 type: "article"
 description: "Understanding Identity and Access Management in Chainguard Enforce"
 date: 2022-15-07T15:22:20+01:00
