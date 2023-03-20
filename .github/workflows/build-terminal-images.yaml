@@ -49,7 +49,6 @@ jobs:
         shell: bash
         working-directory: terminal-images/${{ matrix.image }}
         run: |
-          echo "$PWD"
           docker run -v ${PWD}:/work ghcr.io/wolfi-dev/melange keygen
 
       - name: melange build
@@ -69,7 +68,6 @@ jobs:
             ${{ env.REGISTRY_URL }}
 
       - name: apko publish
-        id: apko-publish
         shell: bash
         working-directory: terminal-images/${{ matrix.image }}
         run: |
@@ -91,5 +89,4 @@ jobs:
 
       - name: cosign sign image
         working-directory: terminal-images/${{ matrix.image }}
-        run: cosign sign "$(cat image-refs.txt)"
-
+        run: cosign sign -y "$(cat image-refs.txt)"
