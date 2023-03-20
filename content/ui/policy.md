@@ -4,7 +4,7 @@ For now, we can select the [**Custom** option from the catalog](https://console.
 
 ![Create policy](/images/create-policy.png)
 
-On the policy create page, ensure that the correct group is displayed in the group field: `enforce-demo`. Then paste the following code into the code editor:
+On the policy create page, ensure that the correct group is displayed in the group field: `enforce-demo-group`. Then paste the following code into the code editor:
 
 ```
 apiVersion: policy.sigstore.dev/v1beta1
