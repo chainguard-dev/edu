@@ -1,5 +1,5 @@
 ---
-title: "How to Install Chainguard Enforce"
+title: "Installation"
 type: "article"
 lead: ""
 description: "Installing the Chainguard Enforce Agent with chainctl, YAML, Helm"
@@ -10,7 +10,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-enforce-kubernetes"
-weight: 700
+weight: 70
 toc: true
 ---
 

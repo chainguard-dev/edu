@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with Chainguard Enforce Discovery"
+title: "Getting Started with Enforce Discovery"
 type: "article"
 description: "Use Chainguard Enforce's Discovery feature to discover workloads and resources from multiple cloud providers."
 date: 2023-01-26T11:07:52+02:00

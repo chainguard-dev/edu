@@ -1,5 +1,5 @@
 ---
-title: "Disallowing Unsafe sysctls with Policy Controller"
+title: "Disallowing Unsafe sysctls"
 type: "article"
 description: "Use Policy Controller to limit pods to safe sysctls"
 date: 2023-03-01T13:11:29+08:29

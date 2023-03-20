@@ -1,5 +1,5 @@
 ---
-title: "Network Requirements for Chainguard Enforce"
+title: "Network Requirements"
 type: "article"
 description: "Ports and Protocols Required for Chainguard Enforce"
 date: 2023-01-26T15:22:20
@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-enforce-kubernetes"
-weight: 100
+weight: 80
 toc: true
 ---
 
@@ -19,7 +19,7 @@ This document provides an overview of network requirements and general guidance 
 
 ## Enforce Agent Access
 
-Whether your registry or registries are public or private, ensure that outbound connections from the Enforce agent (running in the `gulfstream` namespace) are permitted. Also be sure to allow the corresponding return traffic if you are using symmetric firewall rules.
+Whether you are working with public or private registries, ensure that outbound connections from the Enforce agent (running in the `gulfstream` namespace) are permitted. Also be sure to allow the corresponding return traffic if you are using symmetric firewall rules.
 
 ## Enforce SaaS Access
 

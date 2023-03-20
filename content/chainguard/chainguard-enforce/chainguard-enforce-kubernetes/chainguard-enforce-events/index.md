@@ -1,5 +1,5 @@
 ---
-title : "Chainguard Enforce Events"
+title : "Events"
 lead: ""
 description: "Chainguard Enforce Events"
 type: "article"
