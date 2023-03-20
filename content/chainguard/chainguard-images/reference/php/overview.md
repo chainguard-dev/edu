@@ -9,16 +9,16 @@ images: []
 menu:
   docs:
     parent: "images-reference"
-weight: 600
+weight: 500
 toc: true
 ---
 
 `stable` [cgr.dev/chainguard/php](https://github.com/chainguard-images/images/tree/main/images/php)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `8`, `8.2`, `8.2.3`, `8.2.3-r0`                 |
-| `latest-dev` | `dev-8`, `dev-8.2`, `dev-8.2.3`, `dev-8.2.3-r0` |
-| `latest-fpm` | `fpm-8`, `fpm-8.2`, `fpm-8.2.3`, `fpm-8.2.3-r0` |
+| `latest`     | `8`, `8.2`, `8.2.4`, `8.2.4-r0`                 |
+| `latest-dev` | `8-dev`, `8.2-dev`, `8.2.4-dev`, `8.2.4-r0-dev` |
+| `latest-fpm` | `8-fpm`, `8.2-fpm`, `8.2.4-fpm`, `8.2.4-r0-fpm` |
 
 
 

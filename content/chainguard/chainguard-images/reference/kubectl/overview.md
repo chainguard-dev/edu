@@ -9,14 +9,14 @@ images: []
 menu:
   docs:
     parent: "images-reference"
-weight: 600
+weight: 500
 toc: true
 ---
 
 `stable` [cgr.dev/chainguard/kubectl](https://github.com/chainguard-images/images/tree/main/images/kubectl)
 | Tags     | Aliases                            |
 |----------|------------------------------------|
-| `latest` | `1`, `1.26`, `1.26.1`, `1.26.1-r2` |
+| `latest` | `1`, `1.26`, `1.26.2`, `1.26.2-r0` |
 
 
 

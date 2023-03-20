@@ -9,14 +9,14 @@ images: []
 menu:
   docs:
     parent: "images-reference"
-weight: 600
+weight: 500
 toc: true
 ---
 
 `stable` [cgr.dev/chainguard/jenkins](https://github.com/chainguard-images/images/tree/main/images/jenkins)
 | Tags     | Aliases                  |
 |----------|--------------------------|
-| `latest` | `2`, `2.394`, `2.394-r0` |
+| `latest` | `2`, `2.395`, `2.395-r0` |
 
 
 

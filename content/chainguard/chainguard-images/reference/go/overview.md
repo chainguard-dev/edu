@@ -9,17 +9,17 @@ images: []
 menu:
   docs:
     parent: "images-reference"
-weight: 600
+weight: 500
 toc: true
 ---
 
 `stable` [cgr.dev/chainguard/go](https://github.com/chainguard-images/images/tree/main/images/go)
-| Tags         | Aliases                            |
-|--------------|------------------------------------|
-| `1.19`       | `1`, `1.19`, `1.19.7`, `1.19.7-r0` |
-| `latest`     | `1`, `1.20`, `1.20.2`, `1.20.2-r0` |
-| `1.19-dev`   | `1`, `1.19`, `1.19.7`, `1.19.7-r0` |
-| `latest-dev` |                                    |
+| Tags         | Aliases                                            |
+|--------------|----------------------------------------------------|
+| `1.19`       | `1.19`, `1.19.7`, `1.19.7-r0`                      |
+| `1.19-dev`   | `1.19-dev`, `1.19.7-dev`, `1.19.7-r0-dev`          |
+| `latest`     | `1`, `1.20`, `1.20.2`, `1.20.2-r0`                 |
+| `latest-dev` | `1-dev`, `1.20-dev`, `1.20.2-dev`, `1.20.2-r0-dev` |
 
 
 
