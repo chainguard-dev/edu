@@ -1,5 +1,5 @@
 ---
-title: "Overview of Chainguard Enforce IAM model"
+title: "Overview of the Enforce IAM Model"
 type: "article"
 description: "Chainguard Enforce Identity and Access Management"
 lead: "Chainguard Enforce Identity and Access Management"

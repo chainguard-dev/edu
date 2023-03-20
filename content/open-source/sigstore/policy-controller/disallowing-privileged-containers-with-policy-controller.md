@@ -1,5 +1,5 @@
 ---
-title: "Disallowing Privileged Pods With Policy Controller"
+title: "Disallowing Privileged Pods"
 type: "article"
 description: "Using Policy Controller to prevent running privileged pods"
 date: 2023-03-02T13:11:29+08:29

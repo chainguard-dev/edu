@@ -1,5 +1,5 @@
 ---
-title : "Chainguard Enforce Changelog"
+title : "Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
 date: 2023-03-09 00:21:51 +0000 UTC
