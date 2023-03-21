@@ -7,11 +7,11 @@ metadata:
   annotations:
     kubectl.kubernetes.io/last-applied-configuration: |
       {"apiVersion":"v1","kind":"Namespace","metadata":{"annotations":{},"labels":{},"name":"default"}}
-----
--apiVersion: v1
--kind: Namespace
--metadata:
--  name: cosign-system
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cosign-system
 ---
 # Source: policy-controller/templates/policy-webhook/sa_policy_webhook.yaml
 apiVersion: v1
