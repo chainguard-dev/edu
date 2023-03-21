@@ -42,7 +42,6 @@ You can also create a "pull token" using `chainctl`.
 First [install `chainctl`](../..//chainguard-enforce/how-to-install-chainctl/), then log in and configure a pull token:
 
 ```
-chainctl auth login
 chainctl auth configure-docker --pull-token
 ```
 
