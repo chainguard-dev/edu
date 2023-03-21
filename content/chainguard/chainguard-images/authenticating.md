@@ -4,7 +4,7 @@ type: "article"
 description: "A guide on authenticating to the Chainguard Registry to get images"
 date: 2023-03-21T15:10:16+00:00
 lastmod: 2023-03-21T15:10:16+00:00
-draft: true
+draft: false
 images: []
 menu:
   docs:
