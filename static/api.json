@@ -1878,6 +1878,110 @@
         ]
       }
     },
+    "/registry/v1/repos": {
+      "get": {
+        "operationId": "Registry_ListRepos",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "name is the exact name of the record.",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryRepoList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/tags": {
+      "get": {
+        "operationId": "Registry_ListTags",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The unique name of the Tag to list.",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryTagList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/sts/exchange": {
       "get": {
         "operationId": "SecurityTokenService_Exchange2",
@@ -3354,6 +3458,58 @@
       },
       "type": "object"
     },
+    "registryRepo": {
+      "properties": {
+        "id": {
+          "description": "id is the identifier of this specific repository.",
+          "type": "string"
+        },
+        "name": {
+          "description": "name is the human-readable name of the repository.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryRepoList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/registryRepo"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryTag": {
+      "properties": {
+        "digest": {
+          "description": "digest, the digest of the manifest with this tag.",
+          "type": "string"
+        },
+        "id": {
+          "description": "id, identifier of this Tag, a UIDP under a Repo.",
+          "type": "string"
+        },
+        "name": {
+          "description": "name, the unique name of the Tag.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryTagList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/registryTag"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "rpcStatus": {
       "properties": {
         "code": {
@@ -3788,6 +3944,9 @@
     },
     {
       "name": "SecurityTokenService"
+    },
+    {
+      "name": "Registry"
     },
     {
       "name": "Clusters"
