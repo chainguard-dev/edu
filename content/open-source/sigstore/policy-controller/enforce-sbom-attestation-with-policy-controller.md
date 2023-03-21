@@ -57,7 +57,12 @@ Once you are sure that the Policy Controller is deployed and your `default` name
 kubectl run --image k8s.gcr.io/pause:3.9 test
 ```
 
-Since there is no `ClusterImagePolicy` defined yet, the Policy Controller will admit the admission request.
+Since there is no `ClusterImagePolicy` defined yet, the Policy Controller will deny the admission request with a message like the following:
+
+```
+Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied the request: validation failed: no matching policies: spec.containers[0].image
+k8s.gcr.io/pause@sha256:7031c1b283388d2c2e09b57badb803c05ebed362dc88d84b480cc47f72a21097
+```
 
 In the next step, you will define a policy that verifies Chainguard Images have a SBOM attestation and apply it to your cluster.
 
