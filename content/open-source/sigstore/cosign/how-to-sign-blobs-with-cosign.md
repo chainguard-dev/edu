@@ -6,7 +6,7 @@ lead: "Cosign can sign software artifacts beyond containers"
 date: 2022-13-07T15:22:20+01:00
 lastmod: 2022-13-07T15:22:20+01:00
 draft: false
-tags: ["cosign", "Procedural"]
+tags: ["Cosign", "Procedural"]
 images: []
 menu:
   docs:
