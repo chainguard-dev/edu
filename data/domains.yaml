@@ -14,6 +14,7 @@
 - policy-distribution.enforce.dev
 - policy-validation.enforce.dev
 - registry.enforce.dev
+- cgr.dev
 - trustroot-compiler.chainops.dev
 - tsa.enforce.dev
 - webhook.enforce.dev
