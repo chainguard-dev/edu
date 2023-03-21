@@ -15,16 +15,16 @@ toc: true
 
 ## Introduction
 
-[Wolfi](https://edu.chainguard.dev/open-source/wolfi/overview/) is a minimal open source Linux distribution created specifically for cloud workloads, with emphasis on software supply chain security. Using [apk](https://wiki.alpinelinux.org/wiki/Package_management) for package management, Wolfi differs from Alpine in a few important aspects, most notably the use of glib-c instead of Musl and the fact that Wolfi doesn't have a kernel of its own since it is built to run on containers.
+[Wolfi](https://edu.chainguard.dev/open-source/wolfi/overview/) is a minimal open source Linux distribution created specifically for cloud workloads, with an emphasis on software supply chain security. Using [apk](https://wiki.alpinelinux.org/wiki/Package_management) for package management, Wolfi differs from Alpine in a few important aspects, most notably the use of glib-c instead of Musl and the fact that Wolfi doesn't have a kernel of its own since it is built to run on containers.
 
-In this article, we'll see how to leverage Wolfi to create safer runtime environments based on containers. To demonstrate Wolfi usage in a Dockerfile workflow (using a Dockerfile to build your image), we'll create an image based on the [wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base) image maintained by Chainguard. The goal is to have a final runtime image able to execute a Python command-line script.
+In this article, we'll learn how to leverage Wolfi to create safer runtime environments based on containers. To demonstrate Wolfi usage in a Dockerfile workflow (using a Dockerfile to build your image), we'll create an image based on the [wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base) image maintained by Chainguard. The goal is to have a final runtime image able to execute a Python command-line script.
 
 ### Requirements
 
 You'll need a local development environment with Python in order to test the demo, and Docker to build and run the application.
 
 ## Obtaining the Demo App
-We'll use the same demo application from the [Getting Started with the Python Chainguard Image](/chainguard/chainguard-images/reference/python/getting-started-python/) tutorial to demonstrate how to build a Wolfi Python image with a Dockerfile. The application files are available on the [edu-images-demos](https://github.com/chainguard-dev/edu-images-demos) repository. We'll start by cloning that repository in a temporary folder so that we can obtain the relevant application files to run the **second** demo from that tutorial.
+We'll use the same demo application from the [Getting Started with the Python Chainguard Image](/chainguard/chainguard-images/reference/python/getting-started-python/) tutorial to demonstrate how to build a Wolfi Python image with a Dockerfile. The application files are available in the [edu-images-demos](https://github.com/chainguard-dev/edu-images-demos) repository. We'll start by cloning that repository in a temporary folder so that we can obtain the relevant application files to run the **second** demo from that tutorial.
 
 The following command will clone the demos repository in your `/tmp` folder:
 
@@ -53,6 +53,7 @@ For your reference, here is the complete `inky.py` script:
 ```python
 '''import climage module to display images on terminal'''
 import climage
+
 
 def main():
     '''Take in PNG and output as ANSI to temrinal'''
@@ -128,4 +129,4 @@ And you should get a similar result as the previous time you run the script.
 A _distroless_ image is typically a very minimal container image that doesn't have shells or package managers. The extra tightness improves security in several aspects, but it requires a more sophisticated strategy for image composition since you can't install packages so easily. There are currently two main strategies for building distroless images with Wolfi:
 
 - **With a Dockerfile:** Use `-dev` variants from [Chainguard Images](https://edu.chainguard.dev/chainguard/chainguard-images/overview/) to build the application, and copy the artifacts to a pure distroless image in a [Docker multi-stage build](https://docs.docker.com/build/building/multi-stage/). This option is typically more accessible for people who are already used to a Dockerfile workflow. Check the [Getting Started with the Python Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/reference/python/getting-started-python/) guide for practical examples.
-- **With apko:** Use [apko](https://edu.chainguard.dev/open-source/apko/overview/) to build a distroless image with only the packages you need, fully customized. This option requires a bigger learning curve to get used to how apko works, but it will give you smaller images with a better SBOM coverage. Check the [Getting Started with apko](https://edu.chainguard.dev/open-source/apko/getting-started-with-apko/) tutorial to see how that works in practice.
+- **With apko:** Use [apko](https://edu.chainguard.dev/open-source/apko/overview/) to build a distroless image with only the packages you need, fully customized. This option requires a bigger learning curve to get used to how apko works, but it will give you smaller images with better SBOM coverage. Check the [Getting Started with apko](https://edu.chainguard.dev/open-source/apko/getting-started-with-apko/) tutorial to understand how that works in practice.
