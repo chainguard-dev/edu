@@ -6,6 +6,7 @@ lead: "Installing Sigstore Policy Controller"
 date: 2023-02-21T13:11:29+08:29
 lastmod: 2023-02-21T13:11:29+08:29
 draft: false
+tags: ["policy-controller", "Procedural"]
 images: []
 menu:
   docs:

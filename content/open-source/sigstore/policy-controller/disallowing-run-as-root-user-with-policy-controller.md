@@ -5,6 +5,7 @@ description: "Using Policy Controller to prevent running pods as root"
 date: 2023-03-02T13:11:29+08:29
 lastmod: 2023-03-02T13:11:29+08:29
 draft: false
+tags: ["policy-controller", "Procedural", "Policy"]
 images: []
 menu:
   docs:
