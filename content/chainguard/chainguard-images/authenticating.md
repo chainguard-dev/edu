@@ -8,12 +8,12 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "chainguard-images"
+    parent: "registry"
 weight: 500
 toc: true
 ---
 
-### Public Images
+## Public Images
 
 All public Chainguard Images are available for free.
 
@@ -21,13 +21,13 @@ However, logging in with a Chainguard account and authenticating when pulling fr
 
 This may enable Chainguard to notify you of upcoming deprecations, changes in behavior, critical vulnerabilities and remediations for images you have recently pulled.
 
-### Authenticating with the credential helper
+## Authenticating with the `chainctl` Credential Helper
 
-The easiest way to configure authentication is to use the credential helper included with `chainctl`.
+You can configure authentication by using the credential helper included with `chainctl`. This is the workflow recommended by Chainguard.
 
-First [install `chainctl`](../..//chainguard-enforce/how-to-install-chainctl/), and configure the credential helper:
+First [install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/), and configure the credential helper:
 
-```
+```sh
 chainctl auth configure-docker
 ```
 
@@ -35,13 +35,13 @@ This will update your Docker config file to call `chainctl` when an auth token i
 
 Pulls authenticated in this way are associated with your user.
 
-### Authenticating with a Pull Token
+## Authenticating with a Pull Token
 
 You can also create a "pull token" using `chainctl`.
 
-First [install `chainctl`](../..//chainguard-enforce/how-to-install-chainctl/), then log in and configure a pull token:
+First [install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/), then log in and configure a pull token:
 
-```
+```sh
 chainctl auth configure-docker --pull-token
 ```
 
@@ -51,20 +51,20 @@ The token can be copied to other locations such as CI jobs or Kubernetes secrets
 
 Pulls authenticated in this way are associated with a Chainguard identity, which is associated with the group selected when the pull token was created.
 
-### Authenticating with GitHub Actions
+## Authenticating with GitHub Actions
 
 You can configure authentication with OIDC-aware CI platforms like GitHub Actions.
 
 First create an identity using `chainctl`, which can be limited to only allow OIDC federation from certain GitHub workflow runs:
 
-```
+```sh
 chainctl auth identity create github [GITHUB-IDENTITY] \
   --github-repo=${GITHUB_ORG}/${GITHUB_REPO} \
   --github-ref=refs/heads/main \
   --role=registry.pull
 ```
 
-This creates a Chainguard identity that can be assumed by a GitHub Actions workflow only for the specified GitHub repository, triggered on pushes to the specified branch (e.g., `refs/heads/main`), with permissions only to pull from the Chainguard Registry.
+This creates a Chainguard identity that can be assumed by a GitHub Actions workflow only for the specified GitHub repository, triggered on pushes to the specified branch (such as `refs/heads/main`), with permissions only to pull from the Chainguard Registry.
 
 When this identity is created, its ID will be displayed. Using this ID, you can configure your GitHub Actions workflow to install `chainctl` and assume this identity when the workflow runs:
 
