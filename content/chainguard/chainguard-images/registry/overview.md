@@ -14,7 +14,7 @@ weight: 50
 toc: true
 ---
 
-The Chainguard Registry provides public access to all public Chainguard Images, and provides customer access for image variants through login and authentication. These variants may include older software releases and other custom images. The Chainguard Registry works with [chainctl](/chainguard/chainguard-enforce/how-to-install-chainctl/) and offers a place for you and your team to access and manage your organization's Chainguard Images. Through Chainguard's [IAM model](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/overview-of-enforce-iam-model/), you can decide who has access to images across your organization. 
+The Chainguard Registry provides public access to all public Chainguard Images, and provides customer access for image variants through login and authentication. 
 
 While all public Chainguard Images are freely available, logging in with a Chainguard account and authenticating when pulling from the registry provides a mechanism for Chainguard to contact you if there are any current or known upcoming issues with images you are pulling.
 
