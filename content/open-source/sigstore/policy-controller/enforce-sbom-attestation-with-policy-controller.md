@@ -1,12 +1,11 @@
 ---
-title: "Maximum Container Image Age"
+title: "Enforce SBOM attestation with Policy Controller"
 type: "article"
-description: "Maximum container image age with Policy Controller"
-lead: "Maximum container image age with Policy Controller"
-date: 2023-03-02T13:11:29+08:29
-lastmod: 2023-03-02T13:11:29+08:29
+description: "Enforce SBOM attestation with Policy Controller"
+lead: "Enforce SBOM attestation with Policy Controller"
+date: 2023-03-17T13:11:29+08:29
+lastmod: 2023-03-17T13:11:29+08:29
 draft: false
-tags: ["policy-controller", "Procedural", "Policy"]
 images: []
 menu:
   docs:
@@ -16,7 +15,7 @@ toc: true
 terminalImage: policy-controller/base:latest
 ---
 
-This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to verify image signatures before admitting an image into a Kubernetes cluster. In this guide, you will create a `ClusterImagePolicy` that checks the maximum age of a container image verifying that isn’t older than 30 days. For that, we’ll attempt to create two distroless images one older than 30 days and a fresh one.
+This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to verify image attestations before admitting an image into a Kubernetes cluster. In this guide, you will create a `ClusterImagePolicy` that checks the existence of a SBOM attestation attached to a container image, and then test the admission controller by running a `registry.enforce.dev/chainguard/node` image with SBOM attestations.
 
 ## Prerequisites
 
@@ -55,12 +54,17 @@ default   Active   24s
 Once you are sure that the Policy Controller is deployed and your `default` namespace is configured to use it, run a pod to make sure admission requests are handled and denied by default:
 
 ```bash
-kubectl run --image ghcr.io/distroless/static myoldimage
+kubectl run --image k8s.gcr.io/pause:3.9 test
 ```
 
-Since there is no `ClusterImagePolicy` defined yet, the Policy Controller will allow the admission request.
+Since there is no `ClusterImagePolicy` defined yet, the Policy Controller will deny the admission request with a message like the following:
 
-In the next step, you will define a policy that verifies Chainguard Images has an age below 30days and apply it to your cluster.
+```
+Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied the request: validation failed: no matching policies: spec.containers[0].image
+k8s.gcr.io/pause@sha256:7031c1b283388d2c2e09b57badb803c05ebed362dc88d84b480cc47f72a21097
+```
+
+In the next step, you will define a policy that verifies Chainguard Images have a SBOM attestation and apply it to your cluster.
 
 ## Step 2 — Creating a `ClusterImagePolicy`
 
@@ -77,58 +81,33 @@ Copy the following policy to the `/tmp/cip.yaml` file:
 ```yaml
 # Copyright 2022 Chainguard, Inc.
 # SPDX-License-Identifier: Apache-2.0
-
 apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
-  name: maximum-image-age-rego
+  name: must-have-spdx-cue
   annotations:
-    catalog.chainguard.dev/title: Maximum image age
-    catalog.chainguard.dev/description: |
-      This checks that the maximum age an image is allowed to
-      have is 30 days old.  This is measured using the container
-      image's configuration, which has a "created" field.
-
-      Some build tools may fail this check because they build
-      reproducibly, and use a fixed date (e.g. the Unix epoch)
-      as their creation time, but many of these tools support
-      specifying SOURCE_DATE_EPOCH, which aligns the creation
-      time with the date of the source commit.
-
-    catalog.chainguard.dev/labels: rego
+    catalog.chainguard.dev/title: Enforce SBOM attestation
+    catalog.chainguard.dev/description: Enforce a signed SPDX SBOM attestation from a custom key
+    catalog.chainguard.dev/labels: attestation,cue
 spec:
-  images: [{ glob: "**" }]
-  authorities: [{ static: { action: pass } }]
-  mode: enforce
-  policy:
-    fetchConfigFile: true
-    type: "rego"
-    data: |
-      package sigstore
-
-      nanosecs_per_second = 1000 * 1000 * 1000
-      nanosecs_per_day = 24 * 60 * 60 * nanosecs_per_second
-
-      # Change this to the maximum number of days to allow.
-      maximum_age = 30 * nanosecs_per_day
-
-      isCompliant[response] {
-        created := time.parse_rfc3339_ns(input.config[_].created)
-
-        response := {
-          "result" : time.now_ns() < created + maximum_age,
-          "error" : "Image exceeds maximum allowed age."
-        }
-      }
+  images:
+    - glob: "**"
+  authorities:
+    - name: my-authority
+      keyless:
+        identities:
+          - issuer: "https://token.actions.githubusercontent.com"
+            subject: "https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main"
+      attestations:
+        - name: must-have-spdx-attestation
+          predicateType: https://spdx.dev/Document
+          policy:
+            type: cue
+            data: |
+              predicateType: "https://spdx.dev/Document"
 ```
 
-The `glob: **` line, working in combination with the `authorities` and `policy` sections, will allow any image that has been built in the last 30 days to be admitted into your cluster.
-
-The `fetchConfigFile` options instruct the Policy Controller to check the image configuration looking for the age of the image. The rest of fields are:
-
-* `authorities`: this setting tells the Policy Controller to skip any verification looking for the presence of an image signature.
-* `mode`: this blocks the creation of any image older than 30days.
-* `policy.data`: contains the rego policy itself that verifies when the image has been created.
+The `glob: **` line, working in combination with the `authorities` and `policy` sections, will allow any image that has at least a SBOM attestation with predicate type `https://spdx.dev/Document` to be admitted into your cluster.
 
 Save the file and then apply the policy:
 
@@ -139,31 +118,39 @@ kubectl apply -f /tmp/cip.yaml
 You will receive output showing the policy is created:
 
 ```
-clusterimagepolicy.policy.sigstore.dev/maximum-image-age-rego created
+clusterimagepolicy.policy.sigstore.dev/must-have-spdx-cue created
 ```
 
-Now run the `cgr.dev/chainguard/static` image again:
+Now run the `k8s.gcr.io/pause:3.9` image which does not have a SBOM attestation:
+
 
 ```bash
-kubectl run --image cgr.dev/chainguard/static mydailyfreshimage
+kubectl run --image k8s.gcr.io/pause:3.9 noattestedimage
 ```
 
-Since the image is built on daily basis, you will receive a message that the pod was created successfully:
+Since the image does not contain any attached SBOM, you will receive a message that the pod was rejected:
 
 ```
-pod/mydailyfreshimage created
+Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied the request: validation failed: failed policy: demo: spec.containers[0].image
+k8s.gcr.io/pause:3.9 no matching attestations with type https://spdx.dev/Document
 ```
 
-However, if we now create a pod using our old image `myoldimage`, PolicyController rejects the admission request with a message like the following:
+Finally, we run `registry.enforce.dev/chainguard/node` image which contains a SBOM attestation of type `https://spdx.dev/Document`:
+
+```bash
+kubectl run --image registry.enforce.dev/chainguard/node mysbomattestedimage
+```
+
+Since the image has now a SBOM attestation, you will receive a message that the pod was created successfully:
 
 ```
-Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied the request: validation failed: ghcr.io/distroless/static@sha256:a9650a15060275287ebf4530b34020b8d998bd2de9aea00d113c332d8c41eb0b failed evaluating rego policy for type ClusterImagePolicy: policy is not compliant for query 'isCompliant = data.sigstore.isCompliant' with errors: Image exceeds maximum allowed age.
+pod/mysbomattestedimage created
 ```
 
 Delete the pod once you're done experimenting with it:
 
 ```
-kubectl delete pod mydailyfreshimage
+kubectl delete pod mysbomattestedimage
 ```
 
 To learn more about how the Policy Controller uses Cosign to verify and admit images, review the [Cosign](https://docs.sigstore.dev/cosign/overview/) Sigstore documentation.

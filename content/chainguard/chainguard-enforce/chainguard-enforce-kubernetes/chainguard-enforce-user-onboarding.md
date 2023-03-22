@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with Chainguard Enforce for Kubernetes"
+title: "Getting Started "
 type: "article"
 description: "Chainguard Enforce User Onboarding"
 date: 2022-07-15T15:22:20+01:00
@@ -9,7 +9,7 @@ tags: ["SBOM"]
 menu:
   docs:
     parent: "chainguard-enforce-kubernetes"
-weight: 70
+weight: 60
 toc: true
 ---
 

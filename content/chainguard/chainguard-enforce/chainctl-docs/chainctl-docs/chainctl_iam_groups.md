@@ -1,5 +1,5 @@
 ---
-date: 2023-03-16T21:11:47Z
+date: 2023-03-21T16:08:35Z
 title: "chainctl iam groups"
 slug: chainctl_iam_groups
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups/
@@ -38,7 +38,7 @@ IAM Group resource interactions.
 * [chainctl iam groups check-gcp](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_check-gcp/)	 - Checks that the given group has been properly configured for OIDC federation with GCP.
 * [chainctl iam groups create](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_create/)	 - Create a new group or add a group under an existing group.
 * [chainctl iam groups delete](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_delete/)	 - Delete group
-* [chainctl iam groups describe](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_describe/)	 - Describe a group. (Experimental)
+* [chainctl iam groups describe](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_describe/)	 - Describe a group.
 * [chainctl iam groups list](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_list/)	 - List groups.
 * [chainctl iam groups remove-aws](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_remove-aws/)	 - Remove any configured AWS account association for this IAM Group.
 * [chainctl iam groups remove-gcp](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_remove-gcp/)	 - Remove any configured GCP account association for this IAM Group.

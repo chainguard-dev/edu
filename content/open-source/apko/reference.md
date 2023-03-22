@@ -5,6 +5,7 @@ description: "A reference guide for writing YAML for apko"
 date: 2022-10-10T11:07:52+02:00
 lastmod: 2022-10-10T11:07:52+02:00
 draft: false
+tags: ["apko", "Reference",]
 images: []
 menu:
   docs:
