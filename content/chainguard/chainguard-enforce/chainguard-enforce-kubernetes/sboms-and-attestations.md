@@ -5,6 +5,7 @@ description: "An overview of how Chainguard Enforce handles attestations and SBO
 date: 2023-03-19T15:56:52-07:00
 lastmod: 2023-03-19T15:56:52-07:00
 draft: false
+tags: ["ENFORCE", "COSIGN", "SBOM", "CONCEPTUAL"]
 images: []
 menu:
   docs:
