@@ -1,5 +1,5 @@
 ---
-title: "Signing in to Chainguard Enforce"
+title: "Sign In"
 type: "article"
 description: "How to log in to Chainguard Enforce for Kubernetes"
 date: 2022-11-30T11:07:52+02:00
@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-enforce-kubernetes"
-weight: 500
+weight: 75
 toc: true
 ---
 

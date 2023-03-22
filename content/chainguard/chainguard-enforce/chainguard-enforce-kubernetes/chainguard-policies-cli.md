@@ -1,5 +1,5 @@
 ---
-title: "How to Manage Policies with chainctl"
+title: "Manage Policies with chainctl"
 type: "article"
 description: "Creating and managing policies with chainctl, the Chainguard command line tool"
 date: 2022-11-1511T11:07:52+02:00
@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-enforce-kubernetes"
-weight: 501
+weight: 85
 toc: true
 ---
 

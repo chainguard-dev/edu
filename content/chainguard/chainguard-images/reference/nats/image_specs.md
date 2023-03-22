@@ -39,9 +39,9 @@ The table shows package distribution across all variants.
 |--------------------------|--------|------------|
 | `ca-certificates-bundle` | X      | X          |
 | `wolfi-baselayout`       | X      | X          |
-| `nats`                   | X      | X          |
-| `nsc`                    | X      | X          |
 | `nats-server`            | X      | X          |
 | `apk-tools`              |        | X          |
 | `bash`                   |        | X          |
 | `busybox`                |        | X          |
+| `nats`                   |        | X          |
+| `nsc`                    |        | X          |
