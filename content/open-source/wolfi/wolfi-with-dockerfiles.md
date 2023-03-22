@@ -128,11 +128,15 @@ Save the file when you're done. In the next step, we'll build and run the image 
 
 ## Step 3: Building and Running the Image
 
-With the Dockerfile ready, you can build your application runtime image with:
+With the Dockerfile ready, you can now build your application runtime. If you're on macOS, make sure Docker is running.
+
+Build your image with:
 
 ```shell
 docker build . -t inky-demo
 ```
+
+If you run into issues, try using `sudo`.
 
 Finally, run the image with:
 
@@ -141,7 +145,6 @@ docker run --rm inky-demo
 ```
 
 And you should get a similar result as the previous time you run the script.
-
 
 ## Step 4 (Optional): Composing Distroless Images in a Docker Multi-Stage Build
 
