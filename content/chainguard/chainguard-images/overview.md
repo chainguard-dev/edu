@@ -27,7 +27,7 @@ Main features include:
 - Verifiable signatures provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
 - Automated nightly builds to ensure images are completely up-to-date and contain all available security patches
 
-Chainguard Images are available [on Github](https://github.com/chainguard-images) and the `cgr.dev` registry.
+Chainguard Images are available from the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/) and [on GitHub](https://github.com/chainguard-images).
 
 ## Why Distroless
 
