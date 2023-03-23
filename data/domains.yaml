@@ -13,8 +13,8 @@
 - policy-defaulting.enforce.dev
 - policy-distribution.enforce.dev
 - policy-validation.enforce.dev
-- registry.enforce.dev
 - cgr.dev
-- trustroot-compiler.chainops.dev
+- registry.enforce.dev
+- trustroot-compiler.enforce.dev
 - tsa.enforce.dev
 - webhook.enforce.dev
