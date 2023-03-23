@@ -1,11 +1,12 @@
 ---
-title: "Using Policy Controller to Verify Signed Chainguard Images"
+title: "Verify Signed Chainguard Images"
 type: "article"
 description: "Using Policy Controller to Verify Signed Chainguard Images"
 lead: "Verify Chainguard Images with Policy Controller"
 date: 2023-02-22T13:11:29+08:29
 lastmod: 2023-02-22T13:11:29+08:29
 draft: false
+tags: ["policy-controller", "Procedural", "Policy", "Chainguard Images"]
 images: []
 menu:
   docs:

@@ -3,7 +3,7 @@ title: "How to Install chainctl"
 type: "article"
 description: "Install the chainctl command line tool to work with Chainguard Enforce and Images"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2022-12-06T15:56:52-07:00
+lastmod: 2023-03-22T15:56:52-07:00
 draft: false
 tags: ["Enforce", "chainctl", "Product"]
 images: []
@@ -56,13 +56,7 @@ curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | t
 Move `chainctl` into your `/usr/local/bin` directory and elevate its permissions so that it can execute as needed.
 
 ```sh
-sudo install -o $UID -g $GID 0755 chainctl /usr/local/bin/chainctl
-```
-
-Finally, alias its path so that you can use `chainctl` on the command line.
-
-```sh
-alias chainctl=/usr/local/bin/chainctl
+sudo install -o $UID -g $GID -m 0755 chainctl /usr/local/bin/chainctl
 ```
 
 At this point, you'll be able to use the `chainctl` command.

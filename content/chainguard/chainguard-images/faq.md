@@ -10,7 +10,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 500
+weight: 600
 toc: true
 ---
 
@@ -30,7 +30,7 @@ distributions. We believe our approach is more maintainable and extensible.
 We call Wolfi an undistro because unlike a typical Linux distribution, Wolfi is a stripped-down distribution designed for the cloud-native era. Most notably, we don’t include a Linux kernel, instead relying on the environment (such as the container runtime) to provide this.
 
 ### Which images are available?
-You can check which images are already available at our [Images Reference](https://edu.chainguard.dev/chainguard/chainguard-images/reference/) or directly in our [GitHub Repository](https://github.com/chainguard-images).
+You can check which images are already available at our [Images Catalog](https://edu.chainguard.dev/chainguard/chainguard-images/reference/), through the [Chainguardy Registry](/chainguard/chainguard-images/registry/overview/), or in our [GitHub Repository](https://github.com/chainguard-images).
 
 ### What is an SBOM and why is it important?
 An SBOM is a Software Bill of Materials, which is a list containing detailed information about all software that is included within a software artifact, whether it's an application, a container image, or a physical appliance.

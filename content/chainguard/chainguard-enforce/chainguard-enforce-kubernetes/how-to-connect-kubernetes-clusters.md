@@ -1,5 +1,5 @@
 ---
-title: "How to Connect Kubernetes Clusters to Chainguard Enforce"
+title: "Connect Kubernetes Clusters to Enforce"
 type: "article"
 lead: ""
 description: "Connecting containerized workloads to Chainguard Enforce for Kubernetes"

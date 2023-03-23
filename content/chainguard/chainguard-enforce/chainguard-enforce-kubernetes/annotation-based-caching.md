@@ -1,5 +1,5 @@
 ---
-title: "How to Enable Annotation-based Caching for Chainguard Enforce"
+title: "Enable Annotation-based Caching"
 type: "article"
 description: "Enabling annotation-based caching for Chainguard Enforce"
 date: 2022-07-15T15:22:20+01:00

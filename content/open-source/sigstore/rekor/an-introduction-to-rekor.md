@@ -6,6 +6,7 @@ description: "Understanding Rekor, the transparency log of Rekor"
 date: 2022-20-087T08:49:31+00:00
 lastmod: 2022-20-08T08:49:31+00:00
 draft: false
+tags: ["Rekor", "Overview"]
 images: []
 menu:
   docs:

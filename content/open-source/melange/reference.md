@@ -5,6 +5,7 @@ description: "A reference guide for writing YAML for melange"
 date: 2022-10-17T11:07:52+02:00
 lastmod: 2022-10-17T11:07:52+02:00
 draft: false
+tags: ["melange", "Reference"]
 images: []
 menu:
   docs:

@@ -14,10 +14,10 @@ toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/nats](https://github.com/chainguard-images/images/tree/main/images/nats)
-| Tags         | Aliases                           |
-|--------------|-----------------------------------|
-| `latest`     | `2`, `2.9`, `2.9.15`, `2.9.15-r0` |
-| `latest-dev` | `2`, `2.9`, `2.9.15`, `2.9.15-r0` |
+| Tags         | Aliases                                           |
+|--------------|---------------------------------------------------|
+| `latest`     | `2`, `2.9`, `2.9.15`, `2.9.15-r0`                 |
+| `latest-dev` | `2-dev`, `2.9-dev`, `2.9.15-dev`, `2.9.15-r0-dev` |
 
 
 
@@ -33,7 +33,8 @@ docker pull cgr.dev/chainguard/nats:latest
 
 ## Using NATS
 
-Chainguard NATS images include the `nats-server` binary, the `nats` cli, and the `nsc` tool.
+The default Chainguard NATS images includes only the `nats-server` binary.
+The `dev` variant also includes the `nats` cli, and the `nsc` tool.
 The default entrypoint is set to run the `nats-server` binary with a sample configuration at `/etc/nats/nats-server.conf`.
 This can be overridden with the `--config-file` flag.
 

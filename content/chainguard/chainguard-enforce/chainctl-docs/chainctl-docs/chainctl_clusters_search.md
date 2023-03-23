@@ -1,5 +1,5 @@
 ---
-date: 2023-03-13T22:56:41Z
+date: 2023-03-21T16:08:35Z
 title: "chainctl clusters search"
 slug: chainctl_clusters_search
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_search/
@@ -32,7 +32,7 @@ chainctl clusters search [CLUSTER_NAME | CLUSTER_ID | GROUP_NAME | GROUP_ID ] [-
 ### Options
 
 ```
-      --active-within duration   How recently a cluster must have been active to be listed. Zero will return all clusters. (default 168h0m0s)
+      --active-within duration   How recently a cluster must have been active to be listed. Zero will return all clusters. (default 24h0m0s)
   -h, --help                     help for search
       --packages string          A comma-delimited list of packages to search for in the cluster.
 ```

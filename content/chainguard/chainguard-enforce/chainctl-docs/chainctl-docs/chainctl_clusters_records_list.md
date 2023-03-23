@@ -1,5 +1,5 @@
 ---
-date: 2023-03-13T22:56:41Z
+date: 2023-03-21T16:08:35Z
 title: "chainctl clusters records list"
 slug: chainctl_clusters_records_list
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_records_list/
@@ -19,7 +19,7 @@ chainctl clusters records list [CLUSTER_NAME | CLUSTER_ID] [--active-within DURA
 ### Options
 
 ```
-      --active-within duration   How recently a record must have been active to be listed. Zero will return all records. (default 168h0m0s)
+      --active-within duration   How recently a record must have been active to be listed. Zero will return all records. (default 24h0m0s)
   -h, --help                     help for list
       --image string             The name of an image or regular expression to filter the results.
 ```

@@ -1,5 +1,5 @@
 ---
-title: "Example Policies for Chainguard Enforce"
+title: "Example Policies"
 type: "article"
 description: "Chainguard Enforce for Kubernetes policy recipes"
 date: 2022-07-15T15:22:20+01:00
