@@ -5,6 +5,7 @@ description: "Creating policies in the Chainguard Enforce UI"
 date: 2022-10-16T11:07:52+02:00
 lastmod: 2022-11-29T11:07:52+02:00
 draft: false
+tags: ["Enforce", "Product", "Procedural", "Policy"]
 images: []
 menu:
   docs:
