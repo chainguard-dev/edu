@@ -28,7 +28,7 @@ jobs:
         run: mkdir -p "${{ github.workspace }}/${{ env.WORKDIR }}" && chmod 777 "${{ github.workspace }}/${{ env.WORKDIR }}"
 
       - name: "Update the reference docs for Chainguard Images"
-        uses: chainguard-dev/deved-autodocs@1.3.0
+        uses: chainguard-dev/deved-autodocs@1.3.1
         with:
           command: build images
         env:
