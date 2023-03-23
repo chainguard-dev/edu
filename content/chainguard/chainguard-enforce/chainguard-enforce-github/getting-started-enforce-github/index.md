@@ -5,6 +5,7 @@ type: "article"
 date: 2022-08-11T13:41:00+00:00
 lastmod: 2022-08-11T13:41:00+00:00
 draft: false
+tags: ["Enforce", "Product", "Procedural"]
 images: []
 menu:
   docs:

@@ -5,6 +5,7 @@ description: "Use chainctl to create a policy and apply it to a cluster to detec
 date: 2022-08-11T11:07:52+02:00
 lastmod: 2023-24-01T11:07:52+02:00
 draft: false
+tags: ["Enforce", "Product", "Procedural", "Policy"]
 images: []
 menu:
   docs:

@@ -5,6 +5,7 @@ description: "Troubleshooting tips for Chainguard Enforce"
 date: 2023-03-06T15:22:20+01:00
 lastmod: 2023-03-06T15:22:20+01:00
 draft: false
+tags: ["Enforce", "Product", "Troubleshooting"]
 images: []
 menu:
   docs:

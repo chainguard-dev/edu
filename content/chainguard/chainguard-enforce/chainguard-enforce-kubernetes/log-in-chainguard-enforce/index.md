@@ -5,6 +5,7 @@ description: "How to log in to Chainguard Enforce for Kubernetes"
 date: 2022-11-30T11:07:52+02:00
 lastmod: 2023-01-12T11:07:52+02:00
 draft: false
+tags: ["Enforce", "Product", "Procedural"]
 images: []
 menu:
   docs:

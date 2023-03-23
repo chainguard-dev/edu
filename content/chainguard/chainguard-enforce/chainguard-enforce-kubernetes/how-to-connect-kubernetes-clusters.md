@@ -6,6 +6,7 @@ description: "Connecting containerized workloads to Chainguard Enforce for Kuber
 date: 2022-09-13T15:56:52-07:00
 lastmod: 2022-09-13T15:56:52-07:00
 draft: false
+tags: ["Enforce", "Product", "Procedural"]
 images: []
 menu:
   docs:

@@ -6,6 +6,7 @@ description: "Installing the Chainguard Enforce Agent with chainctl, YAML, Helm"
 date: 2022-11-04T15:56:52-07:00
 lastmod: 2022-12-20T15:56:52-07:00
 draft: false
+tags: ["Enforce", "Product", "Procedural"]
 images: []
 menu:
   docs:

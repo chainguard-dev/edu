@@ -5,6 +5,7 @@ description: "Install the chainctl command line tool to work with Chainguard Enf
 date: 2022-09-22T15:56:52-07:00
 lastmod: 2023-03-22T15:56:52-07:00
 draft: false
+tags: ["Enforce", "chainctl", "Product"]
 images: []
 menu:
   docs:
