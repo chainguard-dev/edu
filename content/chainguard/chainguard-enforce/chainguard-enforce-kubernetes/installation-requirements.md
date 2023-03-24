@@ -1,14 +1,15 @@
 ---
-title : "Agent Installation Requirements"
-description: "Chainguard Enforce Agent Installation Requirements"
+title : "Agent Requirements"
+description: "Chainguard Enforce Agent Requirements"
 type: "article"
 date: 2023-03-22 13:21:51 +0000 UTC
 draft: false
 images: []
-weight: 799
+weight: 80
+tags: ["Enforce", "Product", "Reference"]
 ---
 
-The Chainguard Enforce Agent is installed into each of your Kubernetes clusters as a `StatefulSet` consisting of 2 pod relicas in their own namespace called `gulfstream`. The Enforce Agent is a statically compiled binary, requires minimal system resources,  and can be installed using a variety of tools. It supports a number of different Certified Kubernetes distributions and versions.
+The Chainguard Enforce Agent is installed into each of your Kubernetes clusters as a `StatefulSet` consisting of 2 pod relicas in their own namespace called `gulfstream`. The Enforce Agent is a statically compiled binary, requires minimal system resources, and can be installed using a variety of tools. It supports a number of different Certified Kubernetes distributions and versions.
 
 If you are using a managed GKE or EKS cluster, consider installing Enforce in agentless (also referred to as SaaS) mode by following this guide: [Set Up Chainguard Enforce Cloud Account Associations](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/cloud-account-associations/). This installation method also supports additional workload discovery like Google Cloud Run, AWS ECS, and AWS AppRunner, and does not consume any resources in your Kubernetes clusters.
 
@@ -20,7 +21,6 @@ Enforce is supported for the current stable set of Kubernetes [point releases](h
 
 The Chainguard Enforce Agent uses the following Kubernetes resource requests and limits:
 
-
 |            |CPU     |Memory |
 |------------|--------|-------|
 |**Requests**|     50m|   50Mi|
@@ -30,7 +30,7 @@ Note that pods can use more resources than requested, but will not exceed the sp
 
 ## Private Cluster Requirements
 
-The Chainguard Enforce Agent is required when running Enforce with private Kubernetes clusters, or when using managed GKE or EKS clusters that do not have exposed public API endpoints (the latter are also considered private to Enforce). 
+The Chainguard Enforce Agent is required when running Enforce with private Kubernetes clusters, or when using managed GKE or EKS clusters that do not have exposed public API endpoints (the latter are also considered private to Enforce).
 
 ### Network Access
 
@@ -51,7 +51,7 @@ When running in private clusters, the agent needs to be re-installed under two c
 
 This is accomplished by running `chainctl cluster install --private` once again.
 
-## Installing Enforce Agent 
+## Installing Enforce Agent
 
 To install the Enforce Agent, you can use one of the following supported methods depending on your infrastructure configuration.
 
@@ -75,6 +75,6 @@ The Enforce agent is known to work with the following Kubernetes versions and co
 
 |Provider      |Kubernetes Version|CPU Arch|Runtime|
 |--------------|------------------|--------|-------|
-| AWS (EKS)    | 1.22, 1.23, 1.24, 1.25, 1.26 | x86_64 |containerd|
-| Google (GKE) | 1.22, 1.23, 1.24, 1.25, 1.26 | x86_64 |gVisor, containerd |
-| Kubernetes (upstream) | 1.22, 1.23, 1.24, 1.25, 1.26 | x86_64 |gVisor, containerd |
+| AWS (EKS)    | 1.23, 1.24, 1.25, 1.26 | x86_64 |containerd|
+| Google (GKE) | 1.23, 1.24, 1.25, 1.26 | x86_64 |gVisor, containerd |
+| Kubernetes (upstream) | 1.23, 1.24, 1.25, 1.26 | x86_64 | containerd |
