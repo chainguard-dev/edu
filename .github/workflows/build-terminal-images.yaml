@@ -77,7 +77,8 @@ jobs:
             --arch x86_64 apko.yaml \
             --image-refs /work/image-refs.txt \
             "${{ env.REGISTRY_URL}}/${{ env.REPOSITORY }}/${{ matrix.image }}:latest" \
-            -k melange.rsa.pub
+            -k melange.rsa.pub \
+            --sbom-path .
 
       - name: cosign login
         shell: bash
@@ -86,6 +87,10 @@ jobs:
             -p ${{ steps.auth.outputs.access_token }} \
             -u oauth2accesstoken \
             ${{ env.REGISTRY_URL }}
+
+      - name: cosign attest sbom
+        working-directory: terminal-images/${{ matrix.image }}
+        run: cosign attest -y --predicate sbom-x86_64.spdx.json --type spdxjson "$(cat image-refs.txt)"
 
       - name: cosign sign image
         working-directory: terminal-images/${{ matrix.image }}
