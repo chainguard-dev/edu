@@ -5,6 +5,7 @@ description: "Overview: jenkins Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/jenkins](https://github.com/chainguard-images/images/tree/main/images/jenkins)
 | Tags     | Aliases                  |
 |----------|--------------------------|
-| `latest` | `2`, `2.395`, `2.395-r0` |
+| `latest` | `2`, `2.396`, `2.396-r0` |
 
 
 

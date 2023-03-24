@@ -5,6 +5,7 @@ description: "Detailed specs for vault Chainguard Image Variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -43,3 +44,4 @@ The table shows package distribution across all variants.
 | `apk-tools`              |        | X          |
 | `bash`                   |        | X          |
 | `busybox`                |        | X          |
+| `git`                    |        | X          |

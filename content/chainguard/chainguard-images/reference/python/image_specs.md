@@ -5,6 +5,7 @@ description: "Detailed specs for python Chainguard Image Variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -45,6 +46,7 @@ The table shows package distribution across all variants.
 | `apk-tools`              |      | X        |        | X          |
 | `bash`                   |      | X        |        | X          |
 | `busybox`                |      | X        |        | X          |
+| `git`                    |      | X        |        | X          |
 | `build-base`             |      | X        |        | X          |
 | `py3.10-pip`             |      | X        |        |            |
 | `python-3.10-dev`        |      | X        |        |            |
