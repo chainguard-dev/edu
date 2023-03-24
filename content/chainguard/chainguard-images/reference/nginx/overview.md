@@ -5,6 +5,7 @@ description: "Overview: nginx Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,9 +15,10 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/nginx](https://github.com/chainguard-images/images/tree/main/images/nginx)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `1`, `1.23`, `1.23.3`, `1.23.3-r1` |
+| Tags         | Aliases                                            |
+|--------------|----------------------------------------------------|
+| `latest`     | `1`, `1.23`, `1.23.3`, `1.23.3-r1`                 |
+| `latest-dev` | `1-dev`, `1.23-dev`, `1.23.3-dev`, `1.23.3-r1-dev` |
 
 
 
