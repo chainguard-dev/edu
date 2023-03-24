@@ -1,4 +1,3 @@
----
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -19,10 +18,10 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-policy-webhook
   name: policy-controller-policy-webhook
@@ -33,10 +32,10 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-webhook
   name: policy-controller-webhook
@@ -48,10 +47,10 @@ kind: Secret
 metadata:
   annotations:
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-policy-webhook
   name: policy-webhook-certs
@@ -64,15 +63,47 @@ kind: Secret
 metadata:
   annotations:
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-webhook
   name: webhook-certs
   namespace: cosign-system
 # The data is populated at install time.
+---
+# Source: policy-controller/templates/policy-webhook/config-sigstore-keys.yaml
+# Copyright 2022 The Sigstore Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-sigstore-keys
+  namespace: cosign-system
+
+data:
+  _example: |
+    ##################################
+    #                                #
+    #    EXAMPLE CONFIGURATION       #
+    #                                #
+    #                                #
+    # my-custom-sigstore-keys: |-    
+    #  {"certificateAuthority":[{"subject":{"organization":"fulcio-organization","commonName":"fulcio-common-name"},"uri":"https://fulcio.example.com","certChain":"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCglNSUlGd3pDQ0E2dWdBd0lCQWdJSUs3eGIrcnFZNGdFd0RRWUpLb1pJaHZjTkFRRUxCUUF3ZmpFTU1Bb0dBMVVFCglCaE1EVlZOQk1STXdFUVlEVlFRSUV3cERZV3hwWm05eWJtbGhNUll3RkFZRFZRUUhFdzFUWVc0Z1JuSmhibU5wCgljMk52TVJZd0ZBWURWUVFKRXcwMU5EZ2dUV0Z5YTJWMElGTjBNUTR3REFZRFZRUVJFd1UxTnpJM05ERVpNQmNHCglBMVVFQ2hNUVRHbHVkWGdnUm05MWJtUmhkR2x2YmpBZUZ3MHlNakV5TURnd01qRTNOVEZhRncweU16RXlNRGd3CglNakUzTlRGYU1INHhEREFLQmdOVkJBWVRBMVZUUVRFVE1CRUdBMVVFQ0JNS1EyRnNhV1p2Y201cFlURVdNQlFHCglBMVVFQnhNTlUyRnVJRVp5WVc1amFYTmpiekVXTUJRR0ExVUVDUk1OTlRRNElFMWhjbXRsZENCVGRERU9NQXdHCglBMVVFRVJNRk5UY3lOelF4R1RBWEJnTlZCQW9URUV4cGJuVjRJRVp2ZFc1a1lYUnBiMjR3Z2dJaU1BMEdDU3FHCglTSWIzRFFFQkFRVUFBNElDRHdBd2dnSUtBb0lDQVFDMTQyRWpsZzJReEl3cE5qYmFlVy9mdDlzSDFUWFU2Q1dnCglic3ZWcDc3dlJnY2tTbnBNM1JUQy9nd0V3Skh0WCtHT1RyUDlybzZuRkpOM0czaGNGbmFNSExLZEdyb2Y5aUh1Cgkvdy9sWkx3UXpYelZUKzBaeVp4eXRIQVdHRkJ2bVlNNEozM2pINkRqOVB2cU9Od3RTQlNtWkJQYy9ILzhFdllzCglVenhQV3VraE90b3RTSDNWWERxWjRqbDk2TUxlMCs1ZzJXaTdNeFJYNDRYMVJpUFMxNGJhMUVTNTM4YlRoaGNRCgk0U01qM3VoYmRzQ0lrY203ZUY0RVkzcEVYUXBYRUVHblpHZndZZ1FyKzZjVDA3WmQvV0RNME5YM0t4SDZxUms5CglnRGpQbmZjTXVGYk9UYmZEL251dng2Rk5YNk9VcnpyWlNnbGtMdmNQSUJWT1c3TG40MUxBYjdhWG1iV0xGRUpuCgl1TG9vUHBZWXIrNk5obkZETkdwc0JLR0tyL2t2YlF5REtLc3QzQ0tqOW90UFMxMzYzbmk0MXFub0E3WVdTcXh3Cgl6NDE4NWRLS2MrWTd5dkpRc1JscjZxRzFzTkxPK2M3N2ZTUzVWWkltek5vekJjUmt1TEpGbFgrV0IwdXpnUVU1CglzNDVJWlcrZks5Mm5mdThNbUtqekhSK2lkeXI0T3lqUzBZU04zR01nYzBVUDdLNmhWcGhMZWRBcEZweWtCU0ZHCglVZ2lQWndyVCttR1NWZ21PWHE1bjFkUVRDRDE0bEVoMnF0My9yZmY4ek5jMENNQU5XeWJhTUdCR1E0YmhWVlhlCglSS1l4OXUyUFpqUHY1M3A3WWIvRENkcW5HRUR3L0hDQkRpQ3M0b1llNGRhRTM2eFVvanhEU20zRGFlTkc2OHo5CglSTDdnZlVqQXhRSURBUUFCbzBVd1F6QU9CZ05WSFE4QkFmOEVCQU1DQVFZd0VnWURWUjBUQVFIL0JBZ3dCZ0VCCgkvd0lCQVRBZEJnTlZIUTRFRmdRVWYrbGJOWDBXaDRoK1EwU1J0aFJLK0tmTGpxRXdEUVlKS29aSWh2Y05BUUVMCglCUUFEZ2dJQkFFaEpqYTBaU0t3WGNhT1hDWVJYVEUwNitKYnBlekk1TGV2QmhtYlJRSzc4OVJxMTBKZUFYYTdtCglFVG9SR2xHRkxIMnVEVDExbXNGS3lNM3Y2N0tsRTFTWVZjcUttQ2xZZklWRVlIM0xhMHVJKzlySFpuV2diNEJsCgl5MUI4d2JsS0p6aFlRRDlaNEgvZ3MrQkFzb1JYNVZvRnlJZ2tOQmsxcDNmdGFWQ2JrUXZTME9ZdFlzNWl3NGVLCgljSTcxL0lzVElUM1pwcGo5UjhJR3Nxd0xLZ3pmbnlOY0ZKZHorb2hjNlYyMlBqWk1FQkhDc0hQTzRhdjJMbFdLCgk1WTFmbEwrMmJxVHFibU8vYmpmWDB3NFoxRHVvalJjT1pGN1NINE8zUXUyWTcvNjlnSDdDcDBuaVZDbTV6K1M1CgkwMTFWNlB2TWpybWlFK3hWa3hMSGJZRWdvY2JGaGQ1RGNpTUNYcHZzdURab2phSTNGUkVtQnFpSWhLb2tpM3JiCgl3dUVseWE3OGJNd2taMWtycDc2bldzbzQ3LzArNTFpby9XcmlBZHIwY2ptem9uaG83UnFJRTNEQzc3Q0VNa2FnCgladktTbUwzc2ZmK1dOU3JuUGx6bksxOU5BMno0SW1XOU1zenFQckNUUUdQLy9CQnU3U2Ftem9mVk05ZjRQQUlyCglGVHBuVzZzR2RwQ3pQOEUwV1V1OUIrdmlLcnRmTS85c3huSTlXaGZKUGRyRVAwaVpXM3Zod3ZnUWJLYjVEMk9TCglVNG5yVm92NkJXci9CbmhRSzhJWG8xdHEzajhGQ1JJb2xlWE5oa3M0Z25rT2FEc1cyS3RWcXd0SzNpTzNCdlBiCglMNXcwZ2RMandNTGtlazcyeTYxWHF6NVd4WndOaGw1WWNtQkt1U3ZtVlNIdkE2OEJWU2JCCgktLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCgk="}],"tLog":[{"baseURL":"https://rekor.example.com","hashAlgorithm":"sha-256","publicKey":"LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KCU1Ga3dFd1lIS29aSXpqMENBUVlJS29aSXpqMERBUWNEUWdBRTdEMld2Z3FTenM5anBkSnNPSjVObDZ4ZzhKWG0KCU5tbzdNM2JONytkUWRkdzlJYmMyUjNTVjh0ekJadzByU1Q4RktjbjRhcEplcGNLTTRxVXBZVWVOZnc9PQoJLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCgk=","logID":"rekor-log-id"}],"ctLog":[{"baseURL":"https://ctfe.example.com","hashAlgorithm":"sha-256","publicKey":"LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KCU1Ga3dFd1lIS29aSXpqMENBUVlJS29aSXpqMERBUWNEUWdBRUp2Q0ppNzA3ZnY1dE1KMVUyVFZNWit1TzRkS0cKCWFFY3ZqbENrZ0JDS1hicmt1bVpWMG0wZFNsSzFWMWd4RWl5UTh5NmhrMU14Sk5lMkFaclpVdDdhNHc9PQoJLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCgk=","logID":"ctfe-log-id"}],"timestampAuthorities":[{"subject":{"organization":"tsa-organization","commonName":"tsa-common-name"},"uri":"https://tsa.example.com","certChain":"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCglNSUlCekRDQ0FYS2dBd0lCQWdJVWZ5R0tEb0ZhN3k2cy9XMXAxQ2lUbUJSczFlQXdDZ1lJS29aSXpqMEVBd0l3CglNREVPTUF3R0ExVUVDaE1GYkc5allXd3hIakFjQmdOVkJBTVRGVlJsYzNRZ1ZGTkJJRWx1ZEdWeWJXVmthV0YwCglaVEFlRncweU1qRXhNRGt5TURNeE16UmFGdzB6TVRFeE1Ea3lNRE0wTXpSYU1EQXhEakFNQmdOVkJBb1RCV3h2CglZMkZzTVI0d0hBWURWUVFERXhWVVpYTjBJRlJUUVNCVWFXMWxjM1JoYlhCcGJtY3dXVEFUQmdjcWhrak9QUUlCCglCZ2dxaGtqT1BRTUJCd05DQUFSM0tjRHk5andBUlgwckR2eXIrTUdHa0czbjFPQTBNVTUrWmlEbWd1c0Z5azZVCgk2Ym92S1dWTWZEOEo4TlRjSlpFMFJhWUpyOC9kRTlrZ2NJSVhsaE13bzJvd2FEQU9CZ05WSFE4QkFmOEVCQU1DCglCNEF3SFFZRFZSME9CQllFRkhObjVSM2IzTXRVZFNOckZPNDlRNlhEVlNua01COEdBMVVkSXdRWU1CYUFGTkxTCgk2Z25vN09tKytRdDV6SWErSDlvMEhpVDJNQllHQTFVZEpRRUIvd1FNTUFvR0NDc0dBUVVGQndNSU1Bb0dDQ3FHCglTTTQ5QkFNQ0EwZ0FNRVVDSVFDRjBvbG9obnZkVXE2VDcvd1BrMTlaNWFRUC95eFJUakNXWXVobi9UQ3lIZ0lnCglhelYzYWlyNEdSWmJOOWJkWXRjUTdKVUFLcTg5R09odEZmbDZrY29WVXZVPQoJLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQoJLS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCglNSUlCMGpDQ0FYaWdBd0lCQWdJVVhwQm1ZSkZGYUdXM2NDOHA2Yi9ESHIxaThJb3dDZ1lJS29aSXpqMEVBd0l3CglLREVPTUF3R0ExVUVDaE1GYkc5allXd3hGakFVQmdOVkJBTVREVlJsYzNRZ1ZGTkJJRkp2YjNRd0hoY05Nakl4CglNVEE1TWpBeU9UTTBXaGNOTXpJeE1UQTVNakF6TkRNMFdqQXdNUTR3REFZRFZRUUtFd1ZzYjJOaGJERWVNQndHCglBMVVFQXhNVlZHVnpkQ0JVVTBFZ1NXNTBaWEp0WldScFlYUmxNRmt3RXdZSEtvWkl6ajBDQVFZSUtvWkl6ajBECglBUWNEUWdBRUtEUERSSXdEUzFaQ3ltdWI2eWFuQ0c1bWEwcURqTHBOb25Edm9vU2tSSEVnVTBUTmliZUpuNk0rCgk1VzYwOGhDdzhud3V1Y01iWFE0MWtOZXVCZWV2eXFONE1IWXdEZ1lEVlIwUEFRSC9CQVFEQWdFR01CTUdBMVVkCglKUVFNTUFvR0NDc0dBUVVGQndNSU1BOEdBMVVkRXdFQi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZOTFM2Z25vCgk3T20rK1F0NXpJYStIOW8wSGlUMk1COEdBMVVkSXdRWU1CYUFGQjFudlhwTks3QXVRbGJKK3lhNm5QU3FXaStUCglNQW9HQ0NxR1NNNDlCQU1DQTBnQU1FVUNJR2l3cUNJMjl3N0M0VjhUbHRDc2k3MjhzNUR0a2xDUHlTREFTVVN1CglhNXk1QWlFQTQwSWZkbHdmN1VqOHE4TlNENlo0Zy8wanMwdEdOZExTVUoxZG8vV29OMHM9CgktLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCgktLS0tLUJFR0lOIENFUlRJRklDQVRFLS0tLS0KCU1JSUJsRENDQVRxZ0F3SUJBZ0lVWVp4OXNTMTRFbjdTdUhET0pKUDRJUG9wTWpVd0NnWUlLb1pJemowRUF3SXcKCUtERU9NQXdHQTFVRUNoTUZiRzlqWVd3eEZqQVVCZ05WQkFNVERWUmxjM1FnVkZOQklGSnZiM1F3SGhjTk1qSXgKCU1UQTVNakF5T1RNMFdoY05Nekl4TVRBNU1qQXpORE0wV2pBb01RNHdEQVlEVlFRS0V3VnNiMk5oYkRFV01CUUcKCUExVUVBeE1OVkdWemRDQlVVMEVnVW05dmREQlpNQk1HQnlxR1NNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJBYkIKCUIwU1U4Rzc1aFZJVXBoQ2hBNG5mT3dOV1AzNDdUalNjSWRzRVByS1ZuKy9ZMUhtbUxISkRqU2ZuK3hoRUZvRWsKCTdqcWdycW9uNDhpNHhibzd4QXVqUWpCQU1BNEdBMVVkRHdFQi93UUVBd0lCQmpBUEJnTlZIUk1CQWY4RUJUQUQKCUFRSC9NQjBHQTFVZERnUVdCQlFkWjcxNlRTdXdMa0pXeWZzbXVwejBxbG92a3pBS0JnZ3Foa2pPUFFRREFnTkkKCUFEQkZBaUJlNVA1NmZvcW1GY1pBVnBFZUFPRlpyQWxFaXEwNUNDcE1OWWg1RWpMdm1BSWhBS05GNnhJVjV1RmQKCXBTVEpzQXd6alc3OENLUW03cW9sMHVQbVBQdTZtTmF3CgktLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t"}]}
+    ###################################
 ---
 # Source: policy-controller/templates/policy-webhook/configmap-clusterimagepolicy.yaml
 apiVersion: v1
@@ -82,12 +113,13 @@ metadata:
   namespace: cosign-system
 data:
   _example: |
-    ################################
-    #                              #
-    #    EXAMPLE CONFIGURATION     #
-    #                              #
-    ################################
-    cluster-image-policy-json: '{"images":[{"glob":"ghcr.io/example/*","regex":""}],"authorities":[{"key":{"data":"-----BEGIN PUBLIC KEY-----\\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAExB6+H6054/W1SJgs5JR6AJr6J35J\\nRCTfQ5s1kD+hGMSE1rH7s46hmXEeyhnlRnaGF8eMU/SBJE/2NKPnxE7WzQ==\\n-----END PUBLIC KEY-----"}}]}'
+    #######################################
+    #                                     #
+    #    EXAMPLE CONFIGURATION            #
+    #                                     #
+    #                                     #
+    # cluster-image-policy-json: '{"images":[{"glob":"ghcr.io/example/*","regex":""}],"authorities":[{"key":{"data":"-----BEGIN PUBLIC KEY-----\\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAExB6+H6054/W1SJgs5JR6AJr6J35J\\nRCTfQ5s1kD+hGMSE1rH7s46hmXEeyhnlRnaGF8eMU/SBJE/2NKPnxE7WzQ==\\n-----END PUBLIC KEY-----"}}]}'
+    #######################################
 ---
 # Source: policy-controller/templates/policy-webhook/configmap-policy-controller.yaml
 # Copyright 2022 The Sigstore Authors.
@@ -115,18 +147,19 @@ data:
     #                              #
     #    EXAMPLE CONFIGURATION     #
     #                              #
+    #                              #
+    #    no-match-policy: warn     #
     ################################
-    no-match-policy: warn
 ---
 # Source: policy-controller/templates/policy-webhook/configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-policy-webhook
   name: policy-controller-policy-webhook-logging
@@ -163,10 +196,10 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-webhook
   name: policy-controller-webhook-logging
@@ -240,6 +273,8 @@ spec:
     - name: v1alpha1
       served: true
       storage: true
+      subresources:
+        status: {}
       schema:
         openAPIV3Schema:
           type: object
@@ -271,6 +306,9 @@ spec:
                                   description: ConfigMapRef defines the reference to a configMap with the policy definition.
                                   type: object
                                   properties:
+                                    key:
+                                      description: Key defines the key to pull from the configmap.
+                                      type: string
                                     name:
                                       description: Name is unique within a namespace to reference a configmap resource.
                                       type: string
@@ -292,11 +330,18 @@ spec:
                                 includeTypeMeta:
                                   description: IncludeTypeMeta controls whether the TypeMeta will be included and made available for CIP level policy evalutation. Note that this only gets evaluated iff at least one authority matches.
                                   type: boolean
+                                remote:
+                                  description: Remote defines the url to a policy.
+                                  type: object
+                                  properties:
+                                    sha256sum:
+                                      description: Sha256sum defines the exact sha256sum computed out of the 'body' of the http response.
+                                      type: string
+                                    url:
+                                      description: URL to the policy data.
+                                      type: string
                                 type:
                                   description: Which kind of policy this is, currently only rego or cue are supported. Furthermore, only cue is tested :)
-                                  type: string
-                                url:
-                                  description: URL to the policy data.
                                   type: string
                             predicateType:
                               description: PredicateType defines which predicate type to verify. Matches cosign verify-attestation options.
@@ -305,6 +350,9 @@ spec:
                         description: CTLog sets the configuration to verify the authority against a Rekor instance.
                         type: object
                         properties:
+                          trustRootRef:
+                            description: Use the Public Key from the referred TrustRoot.TLog
+                            type: string
                           url:
                             description: URL sets the url to the rekor instance (by default the public rekor.sigstore.dev)
                             type: string
@@ -376,12 +424,25 @@ spec:
                                 subjectRegExp:
                                   description: SubjectRegExp specifies a regular expression to match the subject for this identity.
                                   type: string
+                          insecureIgnoreSCT:
+                            description: InsecureIgnoreSCT omits verifying if a certificate contains an embedded SCT
+                            type: boolean
+                          trustRootRef:
+                            description: Use the Certificate Chain from the referred TrustRoot.CertificateAuthorities and TrustRoot.CTLog
+                            type: string
                           url:
                             description: URL defines a url to the keyless instance.
                             type: string
                       name:
                         description: Name is the name for this authority. Used by the CIP Policy validator to be able to reference matching signature or attestation verifications. If not specified, the name will be authority-<index in array>
                         type: string
+                      rfc3161timestamp:
+                        description: RFC3161Timestamp sets the configuration to verify the signature timestamp against a RFC3161 time-stamping instance.
+                        type: object
+                        properties:
+                          trustRootRef:
+                            description: Use the Certificate Chain from the referred TrustRoot.TimeStampAuthorities
+                            type: string
                       source:
                         description: Sources sets the configuration to specify the sources from where to consume the signatures.
                         type: array
@@ -389,7 +450,7 @@ spec:
                           type: object
                           properties:
                             oci:
-                              description: OCI defines the registry from where to pull the signatures.
+                              description: OCI defines the registry from where to pull the signature / attestations.
                               type: string
                             signaturePullSecrets:
                               description: SignaturePullSecrets is an optional list of references to secrets in the same namespace as the deploying resource for pulling any of the signatures used by this Source.
@@ -400,6 +461,9 @@ spec:
                                   name:
                                     description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names'
                                     type: string
+                            tagPrefix:
+                              description: TagPrefix is an optional prefix that signature and attestations have. This is the 'tag based discovery' and in the future once references are fully supported that should likely be the preferred way to handle these.
+                              type: string
                       static:
                         description: Static specifies that signatures / attestations are not validated but instead a static policy is applied against matching images.
                         type: object
@@ -463,6 +527,9 @@ spec:
                       description: ConfigMapRef defines the reference to a configMap with the policy definition.
                       type: object
                       properties:
+                        key:
+                          description: Key defines the key to pull from the configmap.
+                          type: string
                         name:
                           description: Name is unique within a namespace to reference a configmap resource.
                           type: string
@@ -484,15 +551,63 @@ spec:
                     includeTypeMeta:
                       description: IncludeTypeMeta controls whether the TypeMeta will be included and made available for CIP level policy evalutation. Note that this only gets evaluated iff at least one authority matches.
                       type: boolean
+                    remote:
+                      description: Remote defines the url to a policy.
+                      type: object
+                      properties:
+                        sha256sum:
+                          description: Sha256sum defines the exact sha256sum computed out of the 'body' of the http response.
+                          type: string
+                        url:
+                          description: URL to the policy data.
+                          type: string
                     type:
                       description: Which kind of policy this is, currently only rego or cue are supported. Furthermore, only cue is tested :)
                       type: string
-                    url:
-                      description: URL to the policy data.
-                      type: string
+            status:
+              description: Status represents the current state of the ClusterImagePolicy. This data may be out of date.
+              type: object
+              properties:
+                annotations:
+                  description: Annotations is additional Status fields for the Resource to save some additional State as well as convey more information to the user. This is roughly akin to Annotations on any k8s resource, just the reconciler conveying richer information outwards.
+                  type: object
+                  x-kubernetes-preserve-unknown-fields: true
+                conditions:
+                  description: Conditions the latest available observations of a resource's current state.
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - type
+                      - status
+                    properties:
+                      lastTransitionTime:
+                        description: LastTransitionTime is the last time the condition transitioned from one status to another. We use VolatileTime in place of metav1.Time to exclude this from creating equality.Semantic differences (all other things held constant).
+                        type: string
+                      message:
+                        description: A human readable message indicating details about the transition.
+                        type: string
+                      reason:
+                        description: The reason for the condition's last transition.
+                        type: string
+                      severity:
+                        description: Severity with which to treat failures of this type of condition. When this is not specified, it defaults to Error.
+                        type: string
+                      status:
+                        description: Status of the condition, one of True, False, Unknown.
+                        type: string
+                      type:
+                        description: Type of condition.
+                        type: string
+                observedGeneration:
+                  description: ObservedGeneration is the 'Generation' of the Service that was last processed by the controller.
+                  type: integer
+                  format: int64
     - name: v1beta1
       served: true
       storage: false
+      subresources:
+        status: {}
       schema:
         openAPIV3Schema:
           type: object
@@ -524,6 +639,9 @@ spec:
                                   description: ConfigMapRef defines the reference to a configMap with the policy definition.
                                   type: object
                                   properties:
+                                    key:
+                                      description: Key defines the key to pull from the configmap.
+                                      type: string
                                     name:
                                       description: Name is unique within a namespace to reference a configmap resource.
                                       type: string
@@ -545,11 +663,18 @@ spec:
                                 includeTypeMeta:
                                   description: IncludeTypeMeta controls whether the TypeMeta will be included and made available for CIP level policy evalutation. Note that this only gets evaluated iff at least one authority matches.
                                   type: boolean
+                                remote:
+                                  description: Remote defines the url to a policy.
+                                  type: object
+                                  properties:
+                                    sha256sum:
+                                      description: Sha256sum defines the exact sha256sum computed out of the 'body' of the http response.
+                                      type: string
+                                    url:
+                                      description: URL to the policy data.
+                                      type: string
                                 type:
                                   description: Which kind of policy this is, currently only rego or cue are supported. Furthermore, only cue is tested :)
-                                  type: string
-                                url:
-                                  description: URL to the policy data.
                                   type: string
                             predicateType:
                               description: PredicateType defines which predicate type to verify. Matches cosign verify-attestation options.
@@ -558,6 +683,9 @@ spec:
                         description: CTLog sets the configuration to verify the authority against a Rekor instance.
                         type: object
                         properties:
+                          trustRootRef:
+                            description: Use the Public Key from the referred TrustRoot.TLog
+                            type: string
                           url:
                             description: URL sets the url to the rekor instance (by default the public rekor.sigstore.dev)
                             type: string
@@ -629,12 +757,25 @@ spec:
                                 subjectRegExp:
                                   description: SubjectRegExp specifies a regular expression to match the subject for this identity.
                                   type: string
+                          insecureIgnoreSCT:
+                            description: InsecureIgnoreSCT omits verifying if a certificate contains an embedded SCT
+                            type: boolean
+                          trustRootRef:
+                            description: Use the Certificate Chain from the referred TrustRoot.CertificateAuthorities and TrustRoot.CTLog
+                            type: string
                           url:
                             description: URL defines a url to the keyless instance.
                             type: string
                       name:
                         description: Name is the name for this authority. Used by the CIP Policy validator to be able to reference matching signature or attestation verifications. If not specified, the name will be authority-<index in array>
                         type: string
+                      rfc3161timestamp:
+                        description: RFC3161Timestamp sets the configuration to verify the signature timestamp against a RFC3161 time-stamping instance.
+                        type: object
+                        properties:
+                          trustRootRef:
+                            description: Use the Certificate Chain from the referred TrustRoot.TimeStampAuthorities
+                            type: string
                       source:
                         description: Sources sets the configuration to specify the sources from where to consume the signatures.
                         type: array
@@ -642,7 +783,7 @@ spec:
                           type: object
                           properties:
                             oci:
-                              description: OCI defines the registry from where to pull the signatures.
+                              description: OCI defines the registry from where to pull the signature / attestations.
                               type: string
                             signaturePullSecrets:
                               description: SignaturePullSecrets is an optional list of references to secrets in the same namespace as the deploying resource for pulling any of the signatures used by this Source.
@@ -653,6 +794,9 @@ spec:
                                   name:
                                     description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names'
                                     type: string
+                            tagPrefix:
+                              description: TagPrefix is an optional prefix that signature and attestations have. This is the 'tag based discovery' and in the future once references are fully supported that should likely be the preferred way to handle these.
+                              type: string
                       static:
                         description: Static specifies that signatures / attestations are not validated but instead a static policy is applied against matching images.
                         type: object
@@ -716,6 +860,9 @@ spec:
                       description: ConfigMapRef defines the reference to a configMap with the policy definition.
                       type: object
                       properties:
+                        key:
+                          description: Key defines the key to pull from the configmap.
+                          type: string
                         name:
                           description: Name is unique within a namespace to reference a configmap resource.
                           type: string
@@ -737,12 +884,242 @@ spec:
                     includeTypeMeta:
                       description: IncludeTypeMeta controls whether the TypeMeta will be included and made available for CIP level policy evalutation. Note that this only gets evaluated iff at least one authority matches.
                       type: boolean
+                    remote:
+                      description: Remote defines the url to a policy.
+                      type: object
+                      properties:
+                        sha256sum:
+                          description: Sha256sum defines the exact sha256sum computed out of the 'body' of the http response.
+                          type: string
+                        url:
+                          description: URL to the policy data.
+                          type: string
                     type:
                       description: Which kind of policy this is, currently only rego or cue are supported. Furthermore, only cue is tested :)
                       type: string
-                    url:
-                      description: URL to the policy data.
+            status:
+              description: Status represents the current state of the ClusterImagePolicy. This data may be out of date.
+              type: object
+              properties:
+                annotations:
+                  description: Annotations is additional Status fields for the Resource to save some additional State as well as convey more information to the user. This is roughly akin to Annotations on any k8s resource, just the reconciler conveying richer information outwards.
+                  type: object
+                  x-kubernetes-preserve-unknown-fields: true
+                conditions:
+                  description: Conditions the latest available observations of a resource's current state.
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - type
+                      - status
+                    properties:
+                      lastTransitionTime:
+                        description: LastTransitionTime is the last time the condition transitioned from one status to another. We use VolatileTime in place of metav1.Time to exclude this from creating equality.Semantic differences (all other things held constant).
+                        type: string
+                      message:
+                        description: A human readable message indicating details about the transition.
+                        type: string
+                      reason:
+                        description: The reason for the condition's last transition.
+                        type: string
+                      severity:
+                        description: Severity with which to treat failures of this type of condition. When this is not specified, it defaults to Error.
+                        type: string
+                      status:
+                        description: Status of the condition, one of True, False, Unknown.
+                        type: string
+                      type:
+                        description: Type of condition.
+                        type: string
+                observedGeneration:
+                  description: ObservedGeneration is the 'Generation' of the Service that was last processed by the controller.
+                  type: integer
+                  format: int64
+---
+# Source: policy-controller/templates/crds/trustroots.yaml
+# Copyright 2022 The Sigstore Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: trustroots.policy.sigstore.dev
+spec:
+  conversion:
+    strategy: None
+  group: policy.sigstore.dev
+  names:
+    kind: TrustRoot
+    plural: trustroots
+    singular: trustroot
+    categories:
+      - all
+      - sigstore
+  scope: Cluster
+  versions:
+    - name: v1alpha1
+      served: true
+      storage: true
+      subresources:
+        status: {}
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              description: Spec is the definition for a trust root. This is either a TUF root and remote or local repository. You can also bring your own keys/certs here.
+              type: object
+              properties:
+                remote:
+                  description: Remote specifies initial root of trust & remote mirror.
+                  type: object
+                  properties:
+                    mirror:
+                      description: 'Mirror is the remote mirror, for example: https://sigstore-tuf-root.storage.googleapis.com'
                       type: string
+                    root:
+                      description: Root is the base64 encoded, json trusted initial root.
+                      type: string
+                    targets:
+                      description: Targets is where the targets live off of the root of the Remote If not specified 'targets' is defaulted.
+                      type: string
+                repository:
+                  description: Repository contains the serialized TUF remote repository.
+                  type: object
+                  properties:
+                    mirrorFS:
+                      description: MirrorFS is the base64 tarred, gzipped, and base64 encoded remote repository that can be used for example in air-gap environments. Will not make outbound network connections, and must then be kept up to date in some other manner. The repository must contain metadata as well as targets.
+                      type: string
+                    root:
+                      description: Root is the base64 encoded, json trusted initial root.
+                      type: string
+                    targets:
+                      description: Targets is where the targets live off of the root of the Repository above. If not specified 'targets' is defaulted.
+                      type: string
+                sigstoreKeys:
+                  description: SigstoreKeys contains the serialized keys.
+                  type: object
+                  properties:
+                    certificateAuthorities:
+                      description: Trusted certificate authorities (e.g Fulcio).
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          certChain:
+                            description: The certificate chain for this CA in PEM format. Last entry in this chain is the Root certificate.
+                            type: string
+                          subject:
+                            description: The root certificate MUST be self-signed, and so the subject and issuer are the same.
+                            type: object
+                            properties:
+                              commonName:
+                                type: string
+                              organization:
+                                type: string
+                          uri:
+                            description: The URI at which the CA can be accessed.
+                            type: string
+                    ctLogs:
+                      description: Certificate Transparency Log
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          baseURL:
+                            description: The base URL which can be used for URLs for clients.
+                            type: string
+                          hashAlgorithm:
+                            description: / The hash algorithm used for the Merkle Tree
+                            type: string
+                          publicKey:
+                            description: PEM encoded public key
+                            type: string
+                    tLogs:
+                      description: Rekor log specifications
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          baseURL:
+                            description: The base URL which can be used for URLs for clients.
+                            type: string
+                          hashAlgorithm:
+                            description: / The hash algorithm used for the Merkle Tree
+                            type: string
+                          publicKey:
+                            description: PEM encoded public key
+                            type: string
+                    timestampAuthorities:
+                      description: Trusted timestamping authorities
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          certChain:
+                            description: The certificate chain for this CA in PEM format. Last entry in this chain is the Root certificate.
+                            type: string
+                          subject:
+                            description: The root certificate MUST be self-signed, and so the subject and issuer are the same.
+                            type: object
+                            properties:
+                              commonName:
+                                type: string
+                              organization:
+                                type: string
+                          uri:
+                            description: The URI at which the CA can be accessed.
+                            type: string
+            status:
+              description: Status represents the current state of the TrustRoot. This data may be out of date.
+              type: object
+              properties:
+                annotations:
+                  description: Annotations is additional Status fields for the Resource to save some additional State as well as convey more information to the user. This is roughly akin to Annotations on any k8s resource, just the reconciler conveying richer information outwards.
+                  type: object
+                  x-kubernetes-preserve-unknown-fields: true
+                conditions:
+                  description: Conditions the latest available observations of a resource's current state.
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - type
+                      - status
+                    properties:
+                      lastTransitionTime:
+                        description: LastTransitionTime is the last time the condition transitioned from one status to another. We use VolatileTime in place of metav1.Time to exclude this from creating equality.Semantic differences (all other things held constant).
+                        type: string
+                      message:
+                        description: A human readable message indicating details about the transition.
+                        type: string
+                      reason:
+                        description: The reason for the condition's last transition.
+                        type: string
+                      severity:
+                        description: Severity with which to treat failures of this type of condition. When this is not specified, it defaults to Error.
+                        type: string
+                      status:
+                        description: Status of the condition, one of True, False, Unknown.
+                        type: string
+                      type:
+                        description: Type of condition.
+                        type: string
+                observedGeneration:
+                  description: ObservedGeneration is the 'Generation' of the Service that was last processed by the controller.
+                  type: integer
+                  format: int64
 ---
 # Source: policy-controller/templates/policy-webhook/clusterrole_policy_webhook.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -750,10 +1127,10 @@ kind: ClusterRole
 metadata:
   name: policy-controller-policy-webhook
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-policy-webhook
 rules:
@@ -805,12 +1182,21 @@ rules:
 
   # Allow reconciliation of the ClusterImagePolic CRDs.
   - apiGroups: ["policy.sigstore.dev"]
-    resources: ["clusterimagepolicies"]
+    resources: ["clusterimagepolicies", "clusterimagepolicies/status"]
     verbs: ["get", "list", "update", "watch", "patch"]
 
   - apiGroups: ["apiextensions.k8s.io"]
     resources: ["customresourcedefinitions"]
     verbs: ["get", "list", "watch", "update"]
+
+  - apiGroups: ["apiextensions.k8s.io"]
+    resources: ["customresourcedefinitions"]
+    verbs: ["get", "update", "list"]
+    resourceNames: ["trustroots.policy.sigstore.dev"]
+
+  - apiGroups: ["policy.sigstore.dev"]
+    resources: ["trustroots", "trustroots/status"]
+    verbs: ["get", "list", "update", "watch", "patch"]
 ---
 # Source: policy-controller/templates/webhook/clusterrole_webhook.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -818,10 +1204,10 @@ kind: ClusterRole
 metadata:
   name: policy-controller-webhook
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-webhook
 rules:
@@ -864,10 +1250,10 @@ kind: ClusterRoleBinding
 metadata:
   name: policy-controller-policy-webhook
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-policy-webhook
 roleRef:
@@ -885,10 +1271,10 @@ kind: ClusterRoleBinding
 metadata:
   name: policy-controller-webhook
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-webhook
 roleRef:
@@ -907,10 +1293,10 @@ metadata:
   name: policy-controller-policy-webhook
   namespace: cosign-system
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-policy-webhook
 rules:
@@ -930,6 +1316,10 @@ rules:
     resources: ["configmaps"]
     resourceNames: ["config-image-policies"]
     verbs: ["get", "list", "create", "update", "patch", "watch"]
+
+  - apiGroups: ["policy.sigstore.dev"]
+    resources: ["trustroots"]
+    verbs: ["get", "list"]
 ---
 # Source: policy-controller/templates/webhook/role_webhook.yaml
 kind: Role
@@ -938,10 +1328,10 @@ metadata:
   name: policy-controller-webhook
   namespace: cosign-system
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-webhook
 rules:
@@ -962,10 +1352,10 @@ metadata:
   name: policy-controller-policy-webhook
   namespace: cosign-system
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-policy-webhook
 subjects:
@@ -984,10 +1374,10 @@ metadata:
   name: policy-controller-webhook
   namespace: cosign-system
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-webhook
 subjects:
@@ -1005,10 +1395,10 @@ kind: Service
 metadata:
   annotations:
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-policy-webhook
   name: policy-webhook
@@ -1031,10 +1421,10 @@ kind: Service
 metadata:
   annotations:
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-policy-webhook
   name: policy-controller-policy-webhook-metrics
@@ -1057,10 +1447,10 @@ kind: Service
 metadata:
   annotations:
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-webhook
   name: webhook
@@ -1083,10 +1473,10 @@ kind: Service
 metadata:
   annotations:
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-webhook
   name: policy-controller-webhook-metrics
@@ -1110,10 +1500,10 @@ metadata:
   name: policy-controller-policy-webhook
   namespace: cosign-system
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-policy-webhook
 spec:
@@ -1131,7 +1521,7 @@ spec:
         control-plane: policy-controller-policy-webhook
     spec:
       nodeSelector:
-        {}         
+        {}
       tolerations:
         []
       serviceAccountName: policy-controller-policy-webhook
@@ -1149,7 +1539,7 @@ spec:
       - name: policy-webhook
         # This is the Go import path for the binary that is containerized
         # and substituted here.
-        image: "ghcr.io/sigstore/policy-controller/policy-webhook@sha256:ae3d5b549c269c8b2a9b208d812365b6fc610d7a21c9ced8dc7eaae0a1914c09"
+        image: "ghcr.io/sigstore/policy-controller/policy-webhook@sha256:3a3581032ff69991ddd9f19faf8acd059c8fb0ba8d3b0164a13b99a096880c84"
         imagePullPolicy: "IfNotPresent"
         args:
         resources:
@@ -1222,10 +1612,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    helm.sh/chart: policy-controller-0.4.0
+    helm.sh/chart: policy-controller-0.5.5
     app.kubernetes.io/name: policy-controller
     app.kubernetes.io/instance: policy-controller
-    app.kubernetes.io/version: "0.5.2"
+    app.kubernetes.io/version: "0.7.0"
     app.kubernetes.io/managed-by: Helm
     control-plane: policy-controller-webhook
   name: policy-controller-webhook
@@ -1261,7 +1651,7 @@ spec:
             weight: 100
       containers:
       - name: policy-controller-webhook
-        image: "ghcr.io/sigstore/policy-controller/policy-controller@sha256:f23a23910f873d01864c01122120666adf78a1dbb43f674c4d423d5fe480a718"
+        image: "ghcr.io/sigstore/policy-controller/policy-controller@sha256:947693aa3a536992bc89f3c7ded8a7707b26cd4518972f293edd3e57e112438e"
         imagePullPolicy: "IfNotPresent"
         env:
         - name: SYSTEM_NAMESPACE
@@ -1326,6 +1716,10 @@ spec:
           # Failing to provide a writable $HOME can cause TUF client initialization to panic
           - mountPath: /home/nonroot
             name: writable-home-dir
+
+      # Our webhook should gracefully terminate by lame ducking first, set this to a sufficiently
+      # high value that we respect whatever value it has configured for the lame duck grace period.
+      terminationGracePeriodSeconds: 300
       volumes:
       - emptyDir: {}
         name: writable-home-dir
