@@ -1,7 +1,7 @@
 ---
-title: "Provenance Information for wolfi-base Images"
+title: "Provenance Information for fluentd Images"
 type: "article"
-description: "Provenance information for wolfi-base Chainguard Images"
+description: "Provenance information for fluentd Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -9,7 +9,7 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "wolfi-base"
+    parent: "fluentd"
 weight: 600
 toc: true
 ---
@@ -17,12 +17,12 @@ toc: true
 All Chainguard Images contain verifiable signatures and high-quality SBOMs (software bill of materials), features that enable users to confirm the origin of each image built and have a detailed list of everything that is packed within.
 
 ## Verifying Image Signatures
-The **wolfi-base** Chainguard Images are signed using Sigstore, and you can check the included signatures using `cosign`.
+The **fluentd** Chainguard Images are signed using Sigstore, and you can check the included signatures using `cosign`.
 
 The following command requires [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https://stedolan.github.io/jq/) to be installed on your machine. It will pull detailed information about all signatures found for the provided image.
 
 ```shell
-cosign verify --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main cgr.dev/chainguard/wolfi-base | jq
+cosign verify --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main cgr.dev/chainguard/fluentd | jq
 ```
 
 By default, this command will fetch signatures for the `latest` tag. You can also specify the tag you want to fetch signatures for.
@@ -32,7 +32,7 @@ By default, this command will fetch signatures for the `latest` tag. You can als
 All Chainguard Images come with a high-quality Software Bill Of Materials (SBOM) generated at build-time. The SBOM can be downloaded using the cosign tool:
 
 ```shell
-cosign download sbom --platform linux/amd64 cgr.dev/chainguard/wolfi-base | jq
+cosign download sbom --platform linux/amd64 cgr.dev/chainguard/fluentd | jq
 ```
 By default, this command will fetch the SBOM assigned to the `latest` tag. You can also specify the tag you want to fetch the SBOM from.
 
@@ -43,13 +43,13 @@ cosign verify-attestation \
   --type https://spdx.dev/Document \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com/ \
   --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
-  cgr.dev/chainguard/wolfi-base
+  cgr.dev/chainguard/fluentd
 ```
 
 And you should get output that verifies the SBOM signature in cosign's transparency log:
 
 ```
-Verification for cgr.dev/chainguard/wolfi-base --
+Verification for cgr.dev/chainguard/fluentd --
 The following checks were performed on each of these signatures:
 - The cosign claims were validated
 - Existence of the claims in the transparency log was verified offline
