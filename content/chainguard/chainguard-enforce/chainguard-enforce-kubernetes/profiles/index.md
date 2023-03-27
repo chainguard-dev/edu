@@ -16,7 +16,7 @@ toc: true
 
 When you install Chainguard Enforce, you have the option to specify a *profile* that will determine what permissions Chainguard Enforce has over your cluster. Currently, Enforce offers two specialized profiles: `enforcer` and `observer`.
 
-The `observer` profile has less expansive permissions, making it useful for running Enforce in a read-only mode. The `enforcer` profile, on the other hand, has broader permissions that enable you to benefit from all of Chainguard Enforce's features, including policy distribution and enforcement.
+The `observer` profile has less expansive permissions, making it useful for running Enforce in a read-only mode. The broader permissions of the `enforcer` profile enable you to benefit from all of Chainguard Enforce's features, including policy distribution and enforcement.
 
 This guide provides brief overviews of both the `observer` and `enforcer` profiles. It also outlines how to install Chainguard Enforce under each profile, as well as check what profile a given cluster is enrolled under.
 
