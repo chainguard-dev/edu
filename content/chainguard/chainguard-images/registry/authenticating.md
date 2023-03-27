@@ -87,7 +87,7 @@ jobs:
       - uses: chainguard-dev/actions/setup-chainctl@main
         with:
           identity: [[ The Chainguard Identity ID you created above ]]
-      - runs: docker pull cgr.dev/chainguard/node
+      - run: docker pull cgr.dev/chainguard/node
 ```
 
 Pulls authenticated in this way are associated with the Chainguard identity you created, which is associated with the group selected when the identity was created.
