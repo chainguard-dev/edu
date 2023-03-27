@@ -41,7 +41,7 @@ With cosign 2.0+, you can use the `cosign verify-attestation` command to check t
 ```shell
 cosign verify-attestation \
   --type https://spdx.dev/Document \
-  --certificate-oidc-issuer=https://token.actions.githubusercontent.com/ \
+  --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
   --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
   cgr.dev/chainguard/etcd
 ```
