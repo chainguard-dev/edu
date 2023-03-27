@@ -5,6 +5,7 @@ description: "Overview: prometheus Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/prometheus](https://github.com/chainguard-images/images/tree/main/images/prometheus)
 | Tags     | Aliases                            |
 |----------|------------------------------------|
-| `latest` | `2`, `2.42`, `2.42.0`, `2.42.0-r3` |
+| `latest` | `2`, `2.43`, `2.43.0`, `2.43.0-r0` |
 
 
 

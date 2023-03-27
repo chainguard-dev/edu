@@ -23,11 +23,12 @@ accounts:
       uid: 2000
   run-as: inky
 
+work-dir: /home/inky
+
 environment:
   DOCKER_HOST: "tcp://127.0.0.1:2375"
 
 entrypoint:
-  entrypoint:
   type: service-bundle
   services:
     docker: /usr/bin/sudo /usr/bin/dockerd -H tcp://127.0.0.1:2375

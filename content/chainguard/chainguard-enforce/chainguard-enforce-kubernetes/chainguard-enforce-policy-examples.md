@@ -5,6 +5,7 @@ description: "Chainguard Enforce for Kubernetes policy recipes"
 date: 2022-07-15T15:22:20+01:00
 lastmod: 2022-11-29T15:22:20+01:00
 draft: false
+tags: ["Enforce", "Product", "Procedural", "Policy", "Reference"]
 images: []
 tags: ["SBOM"]
 menu:

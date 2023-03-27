@@ -5,6 +5,7 @@ description: "Use Chainguard Enforce's Discovery feature to discover workloads a
 date: 2023-01-26T11:07:52+02:00
 lastmod: 2023-03-18T11:07:52+02:00
 draft: false
+tags: ["Enforce", "Product", "Procedural"]
 images: []
 weight: 671
 toc: true

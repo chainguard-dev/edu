@@ -3,7 +3,6 @@ package:
   version: 0.1.0
   description: Chainguard Academy apko image
   target-architecture:
-    - aarch64
     - x86_64
   copyright:
     - license: Apache-2.0
@@ -21,12 +20,11 @@ environment:
       - busybox
 
 pipeline:
-  - name: Setup stuff
+  - name: setup steps
     runs: |
       mkdir -p \
         "${{targets.destdir}}/usr/bin" \
         "${{targets.destdir}}/usr/local/bin" \
         "${{targets.destdir}}/etc/profile.d" \
         "${{targets.destdir}}/etc/sudoers.d"
-      echo "inky ALL=(ALL:ALL) NOPASSWD: ALL" > "${{targets.destdir}}/etc/sudoers.d/wheel"
-      cp ./profile.sh "${{targets.destdir}}/etc/profile.d/inky-profile.sh"
+      echo "inky ALL=(ALL:ALL) NOPASSWD: ALL" > "${{targets.destdir}}/etc/sudoers.d/inky"

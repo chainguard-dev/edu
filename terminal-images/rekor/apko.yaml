@@ -1,0 +1,33 @@
+contents:
+  repositories:
+    - https://dl-cdn.alpinelinux.org/alpine/edge/main
+    - https://dl-cdn.alpinelinux.org/alpine/edge/community
+    - "/work/packages"
+  packages:
+    - alpine-baselayout-data
+    - apk-tools
+    - bash
+    - ca-certificates-bundle
+    - curl
+    - nano
+    - rekor
+    - sudo
+    - tmux
+    - academy-rekor
+
+accounts:
+  groups:
+    - groupname: inky
+      gid: 2000
+  users:
+    - username: inky
+      uid: 2000
+  run-as: inky
+
+work-dir: /home/inky
+
+entrypoint:
+  command: /bin/sleep 3600
+
+archs:
+  - x86_64

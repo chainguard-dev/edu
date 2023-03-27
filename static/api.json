@@ -3669,12 +3669,24 @@
           "title": "+optional",
           "type": "boolean"
         },
+        "namespaceEnforcementMode": {
+          "$ref": "#/definitions/tenantClusterConfigRequestNamespaceEnforcementMode",
+          "title": "+optional"
+        },
         "webhookFailOpen": {
           "title": "+optional",
           "type": "boolean"
         }
       },
       "type": "object"
+    },
+    "tenantClusterConfigRequestNamespaceEnforcementMode": {
+      "default": "OptOut",
+      "enum": [
+        "OptOut",
+        "OptIn"
+      ],
+      "type": "string"
     },
     "tenantClusterConfigResponse": {
       "properties": {
@@ -3754,6 +3766,10 @@
           "title": "+optional",
           "type": "boolean"
         },
+        "namespaceEnforcementMode": {
+          "$ref": "#/definitions/tenantClusterNamespaceEnforcementMode",
+          "title": "+optional"
+        },
         "webhookFailOpen": {
           "title": "+optional",
           "type": "boolean"
@@ -3781,6 +3797,14 @@
         "US_WEST"
       ],
       "title": "- US_EAST: Use 1xx for US",
+      "type": "string"
+    },
+    "tenantClusterNamespaceEnforcementMode": {
+      "default": "OptOut",
+      "enum": [
+        "OptOut",
+        "OptIn"
+      ],
       "type": "string"
     },
     "tenantClusterProfilesResponse": {
