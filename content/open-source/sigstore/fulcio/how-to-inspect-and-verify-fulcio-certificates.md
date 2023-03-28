@@ -54,7 +54,7 @@ Certificate:
                 Public-Key: (256 bit)
                 X:
                     4b:fc:7d:9c:4a:56:30:75:67:fd:d6:1f:a6:f3:05:
-                    04:ff:c8:ab:c6:2c:5f:ea:59:f9:ed:07:fa:c2:ae:
+                    04:ff:c8:ad:c6:2c:5f:ea:59:f9:ed:07:fa:c2:ae:
                     04:19
                 Y:
                     15:44:38:f3:77:87:63:91:0c:08:b6:4f:ca:67:36:
@@ -73,7 +73,7 @@ Certificate:
             X509v3 Authority Key Identifier:
                 keyid:58:C0:1E:5F:91:45:A5:66:A9:7A:CC:90:A1:93:22:D0:2A:C5:C5:FA
             X509v3 Subject Alternative Name: critical
-                email:jsmeyers@chainguard.dev
+                email:email@example.com
             1.3.6.1.4.1.57264.1.1:
                 https://github.com/login/oauth
     Signature Algorithm: ECDSA-SHA384
@@ -82,7 +82,7 @@ Certificate:
          1a:00:35:99:4f:92:da:02:cd:ec:83:49:f3:27:3a:39:21:02:
          30:04:a6:0c:42:a4:38:d9:ac:da:8f:b5:2f:4c:f5:ad:4b:d4:
          c6:7d:8b:43:46:91:c1:9d:80:43:44:a9:26:26:26:0f:cf:e2:
-         ab:aa:ef:6d:ec:1c:28:de:d3:ac:aa:fd:1b
+         ab:aa:ef:6d:ec:1c:28:df:d3:ac:aa:fd:1b
 ```
 
 We will then verify the certificate against the Fulcio certificate authority root, by using `step certificate verify` to execute the certificate path validation algorithm for x.509 certificates.
