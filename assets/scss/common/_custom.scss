@@ -67,3 +67,19 @@ h3 code {
 h4 code {
   font-size: 1rem;
 }
+
+#note {
+  padding: 0 0.5rem;
+}
+
+#note.note-deprecated {
+  background: lightyellow;
+}
+
+#note.note-notice {
+  background: lightblue;
+}
+
+#note.note-warning {
+  background: lightcoral;
+}
