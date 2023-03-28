@@ -86,3 +86,15 @@ h4 code {
 #note.warning {
   background: lightcoral;
 }
+
+[data-dark-mode] #note.deprecated {
+  background: yellowgreen;
+}
+
+[data-dark-mode] #note.notice {
+  background: darkcyan;
+}
+
+[data-dark-mode] #note.warning {
+  background: darkred;
+}
