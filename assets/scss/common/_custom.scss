@@ -29,9 +29,11 @@ blockquote {
   margin: 1.5em 10px;
   padding: 0.5em 10px;
 }
+
 blockquote > p {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
+
 .featured-icon {
   font-size: 4rem;
 }
@@ -48,12 +50,13 @@ blockquote > p {
   color: #8087fc;
 }
 
-h2#chainctl, h2[id^="chainctl"] {
+h2#chainctl,
+h2[id^="chainctl"] {
   display: none;
 }
 
 h1 code {
-  font-size: 2.0rem;
+  font-size: 2rem;
 }
 
 h2 code {
@@ -72,14 +75,14 @@ h4 code {
   padding: 0 0.5rem;
 }
 
-#note.note-deprecated {
+#note.deprecated {
   background: lightyellow;
 }
 
-#note.note-notice {
+#note.notice {
   background: lightblue;
 }
 
-#note.note-warning {
+#note.warning {
   background: lightcoral;
 }
