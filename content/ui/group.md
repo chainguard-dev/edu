@@ -21,7 +21,7 @@ Next, create a variable that stores the ID in the left column for later steps in
 export GROUP=$GROUP_ID
 ```
 
-In the UI, you can also check for groups to which you belong from the filter modal, which you can open by clicking on the filter icon in the top-level navigation menu.
+In the UI, you can also check for groups to which you belong from the filter modal, which you can open by using the group selector on the left navigation menu.
 
 ![Group dropdown](/images/group-dropdown.png)
 

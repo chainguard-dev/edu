@@ -1,6 +1,6 @@
 The first place we can look for information about container compliance is the clusters main page, which you can find by clicking on the [**Clusters** tab](https://console.enforce.dev/clusters) in the main navigation menu.
 
-With our new policy, `sample-policy`, in place, information about policy compliance should be visible in the **Policy** column, next to the cluster name.
+With our new policy, `sample-policy`, in place, information about policy compliance should be visible in the **Policy compliance** column.
 
 ![Cluster compliance](/images/cluster-compliance.png)
 
