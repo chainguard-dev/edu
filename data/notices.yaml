@@ -12,8 +12,8 @@
 # The 'type' field will render the div with the selfsame class applied.
 
 - title: "Image Overview: jre"
-  note: |
-    This image will switch from including a full compliment of JDK binaries to a minimally required set in a forthcoming release. The work is being tracked in [this GitHub issue](https://github.com/chainguard-images/images/issues/297).
-
-    If you rely on any binaries in this image that are not a part of the following list, you should switch to using the [JDK Image](/chainguard/chainguard-images/reference/jdk/overview/).
   type: WARNING
+  note: |
+    This image will switch from including a full complement of JDK binaries to a minimally required set in a forthcoming release. The work is being tracked in [this GitHub issue](https://github.com/chainguard-images/images/issues/297).
+
+    If you rely on any binaries or libraries that are included in this image beyond the core JRE runtime, consider switching to the [JDK Image](/chainguard/chainguard-images/reference/jdk/overview/).
