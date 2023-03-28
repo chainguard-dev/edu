@@ -37,6 +37,7 @@
         {{ partial "sidebar/docs-toc.html" . }}
       </nav>
       {{ end -}}
+      {{ partial "notice.html" . }}
       {{ .Content }}
       <div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
         {{ if .Site.Params.lastMod -}}

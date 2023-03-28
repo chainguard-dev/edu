@@ -1,0 +1,19 @@
+# This file is used to create temporary notices on pages on an as needed basis.
+# For example when something is going to be deprecated, but has not been yet.
+# To use it, add a YAML object matching the following structure:
+#
+# - title: "This must match the page title"
+#   note: |
+#     A line, or multi-line message with details.
+#
+#     The note can be plain text, or use Markdown.
+#   type: One of NOTICE, WARNING, or DEPRECATED
+#
+# The 'type' field will render the div with the selfsame class applied.
+
+- title: "Image Overview: jre"
+  type: WARNING
+  note: |
+    This image will switch from including a full complement of JDK binaries to a minimally required set in a forthcoming release. The work is being tracked in [this GitHub issue](https://github.com/chainguard-images/images/issues/297).
+
+    If you rely on any binaries or libraries that are included in this image beyond the core JRE runtime, consider switching to the [JDK Image](/chainguard/chainguard-images/reference/jdk/overview/).
