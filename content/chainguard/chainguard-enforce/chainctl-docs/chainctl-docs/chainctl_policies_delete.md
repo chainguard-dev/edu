@@ -4,6 +4,7 @@ title: "chainctl policies delete"
 slug: chainctl_policies_delete
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_delete/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

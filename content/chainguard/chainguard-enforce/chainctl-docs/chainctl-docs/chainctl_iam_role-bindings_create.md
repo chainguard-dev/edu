@@ -4,6 +4,7 @@ title: "chainctl iam role-bindings create"
 slug: chainctl_iam_role-bindings_create
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings_create/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

@@ -4,6 +4,7 @@ title: "chainctl config"
 slug: chainctl_config
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_config/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

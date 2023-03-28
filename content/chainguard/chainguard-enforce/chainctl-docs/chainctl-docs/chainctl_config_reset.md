@@ -4,6 +4,7 @@ title: "chainctl config reset"
 slug: chainctl_config_reset
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_config_reset/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

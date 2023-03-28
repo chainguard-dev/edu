@@ -4,6 +4,7 @@ title: "chainctl iam groups update"
 slug: chainctl_iam_groups_update
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_update/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

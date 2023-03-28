@@ -4,6 +4,7 @@ title: "chainctl iam role-bindings update"
 slug: chainctl_iam_role-bindings_update
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings_update/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

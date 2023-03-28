@@ -4,6 +4,7 @@ title: "chainctl update"
 slug: chainctl_update
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_update/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

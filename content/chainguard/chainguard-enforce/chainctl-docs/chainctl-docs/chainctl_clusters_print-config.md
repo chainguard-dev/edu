@@ -4,6 +4,7 @@ title: "chainctl clusters print-config"
 slug: chainctl_clusters_print-config
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_print-config/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
