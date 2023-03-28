@@ -54,7 +54,7 @@ runs:
       shell: bash
       run: |
         sed '/draft: false/a tags: ["chainctl", "Reference", "Product"]' \
-          -i "content/chainguard/chainguard-enforce/chainctl-docs/*.md"
+          -i content/chainguard/chainguard-enforce/chainctl-docs/*.md
 
     - name: download domains.md from cloud storage
       shell: bash
