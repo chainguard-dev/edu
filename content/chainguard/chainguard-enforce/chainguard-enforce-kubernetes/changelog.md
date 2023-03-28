@@ -4,6 +4,7 @@ description: "Chainguard Enforce Changelog"
 type: "article"
 date: 2023-03-28 14:18:56 +0000 UTC
 draft: false
+tags: ["Enforce", "Reference", "Product"]
 images: []
 weight: 799
 ---

@@ -4,6 +4,7 @@ title: "chainctl clusters discover"
 slug: chainctl_clusters_discover
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_discover/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
