@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-03-23 19:42:43 +0000 UTC
+date: 2023-03-28 14:18:56 +0000 UTC
 draft: false
 images: []
 weight: 799
@@ -10,6 +10,21 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.93
+Release date: 2023-03-28
+#### Feature
+- https://github.com/chainguard-dev/customer-issues/issues/37
+#### Bug or Regression
+- Specify a custom audience claim when creating a GitHub identity with the `--github-audience` flag.
+- chainctl should default to preferring ambient credentials when re-assuming an identity after it's current token expires in long-running workflows.
+
+
+### v0.1.92
+Release date: 2023-03-24
+#### Bug or Regression
+- Have the cgr credential helper prefer ambient auth when fetching credentials.
+
 
 ### v0.1.91
 Release date: 2023-03-23
