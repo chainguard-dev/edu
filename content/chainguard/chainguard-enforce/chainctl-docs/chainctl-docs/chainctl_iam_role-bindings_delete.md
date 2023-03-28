@@ -4,6 +4,7 @@ title: "chainctl iam role-bindings delete"
 slug: chainctl_iam_role-bindings_delete
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings_delete/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

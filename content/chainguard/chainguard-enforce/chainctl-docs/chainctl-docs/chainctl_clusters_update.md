@@ -4,6 +4,7 @@ title: "chainctl clusters update"
 slug: chainctl_clusters_update
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_update/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

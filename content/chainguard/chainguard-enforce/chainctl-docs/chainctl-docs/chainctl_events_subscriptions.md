@@ -4,6 +4,7 @@ title: "chainctl events subscriptions"
 slug: chainctl_events_subscriptions
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_events_subscriptions/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
