@@ -44,7 +44,7 @@ These are displayed in a table by the policy's **Name**, **Violations** and **Gr
 
 If your table indicates that there are current violations, you can click on the **Violations** button to learn more about these violations.
 
-Note than the policies page also notes whether a given policy is in **Enforce** or **Warn** mode.
+Note that the policies page also indicates whether a given policy is in **Enforce** or **Warn** mode.
 
 ![Warn or Enforce mode indicated in policy table](enforce-console-warn-enforce-mode.png)
 
