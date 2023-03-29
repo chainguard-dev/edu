@@ -93,3 +93,41 @@ jobs:
 Pulls authenticated in this way are associated with the Chainguard identity you created, which is associated with the group selected when the identity was created.
 
 If the identity is configured to only work with GitHub Actions workflow runs from a given repo and branch, that identity will not be able to pull from other repos or branches, including pull requests targetting the specified branch.
+
+## Authenticating with Kubernetes
+
+You can also configure a Kubernetes cluster to use a pull token, as described above.
+
+When you create a pull token, your Docker config file is updated to include that token and configure it to be used when pulling images from `cgr.dev`.
+
+After that, you can create a Kubernetes secret based on those credentials, following [these instructions](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials):
+
+```sh
+kubectl create secret generic regcred \
+    --from-file=.dockerconfigjson=<path/to/.docker/config.json> \
+    --type=kubernetes.io/dockerconfigjson
+```
+
+**Important Note:** this will also make any other credentials you have configured in your Docker config available in the secret! Ensure only the necessary credentials are included.
+
+Then you can create a Pod that uses that secret, following [these instructions](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-pod-that-uses-your-secret):
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cgr-example
+spec:
+  containers:
+  - name: nginx
+    image: cgr.dev/chainguard/nginx:latest
+  imagePullSecrets:
+  - name: regcred
+```
+
+For this example, save the file as `cgr-example.yaml`. Then you can create and get the Pod:
+
+```sh
+kubectl apply -f cgr-example.yaml
+kubectl get pod cgr-example
+```
