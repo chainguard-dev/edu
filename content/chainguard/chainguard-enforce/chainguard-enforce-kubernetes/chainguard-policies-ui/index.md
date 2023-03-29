@@ -3,7 +3,7 @@ title: "Manage Policies in the Enforce Console"
 type: "article"
 description: "Creating policies in the Chainguard Enforce UI"
 date: 2022-10-16T11:07:52+02:00
-lastmod: 2022-11-29T11:07:52+02:00
+lastmod: 2023-03-28T11:07:52+02:00
 draft: false
 tags: ["Enforce", "Product", "Procedural", "Policy"]
 images: []
@@ -43,6 +43,12 @@ These are displayed in a table by the policy's **Name**, **Violations** and **Gr
 ![Chainguard Enforce policy table](policy-table.png)
 
 If your table indicates that there are current violations, you can click on the **Violations** button to learn more about these violations.
+
+Note that the policies page also indicates whether a given policy is in **Enforce** or **Warn** mode.
+
+![Warn or Enforce mode indicated in policy table](enforce-console-warn-enforce-mode.png)
+
+You can modify whether a policy is in Enforce or Warn mode by editing the YAML file. Review our doc on [Disabling Policy Enforcement](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-disable-policy-enforcement/) for more details. 
 
 ## Initialize a new policy
 
