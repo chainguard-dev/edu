@@ -37,8 +37,14 @@ jobs:
           YAMLDOCS_SOURCE: "${{ github.workspace }}/images/images"
           YAMLDOCS_OUTPUT: "${{ github.workspace }}/${{ env.WORKDIR }}"
           YAMLDOCS_TEMPLATES: "${{ github.workspace }}/edu/autodocs/templates"
-          YAMLDOCS_CHANGELOG: "${{ github.workspace }}/edu/autodocs/changelog.md"
-          YAMLDOCS_LAST_UPDATE: "${{ github.workspace }}/edu/autodocs/last-update.md"
+          YAMLDOCS_CHANGELOG: "${{ github.workspace }}/${{ env.WORKDIR }}/changelog.md"
+          YAMLDOCS_LAST_UPDATE: "${{ github.workspace }}/${{ env.WORKDIR }}/last-update.md"
+
+      - name: "Copy changelog to autodocs folder"
+        run: |
+          mv "${{ github.workspace }}/${{ env.WORKDIR }}/changelog.md" \
+          "${{ github.workspace }}/${{ env.WORKDIR }}/last-update.md" \
+          "${{ github.workspace }}/edu/autodocs"
 
       - name: "Copy updates to main repo"
         run: |
@@ -47,7 +53,11 @@ jobs:
           echo "Finished copy"
 
       - name: "Get Changelog"
-        run: echo "changelog=`cat ${{ github.workspace }}/edu/autodocs/last-update.md`" >> "$GITHUB_OUTPUT"
+        run: |
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "CHANGELOG<<$EOF" >> $GITHUB_ENV
+          echo "`cat ${{ github.workspace }}/autodocs/last-update.md`" >> $GITHUB_ENV
+          echo "$EOF" >> $GITHUB_ENV
         id: images-build-output
 
       - name: Create a PR
@@ -56,7 +66,7 @@ jobs:
           path: "${{ github.workspace }}/edu"
           commit-message: Update Images Reference
           title: "[AutoDocs] Update Images Reference Docs"
-          body: "${{ steps.images-build-output.changelog }}"
+          body: "${{ env.CHANGELOG }}"
           signoff: true
           labels: |
             documentation
@@ -77,4 +87,4 @@ jobs:
           PR_ACTION: ${{ steps.cpr.outputs.pull-request-operation }}
           PR_URL: ${{ steps.cpr.outputs.pull-request-url }}
           PR_SHA: ${{ steps.cpr.outputs.pull-request-head-sha }}
-          PR_SUMMARY: ${{ steps.images-build-output.changelog }}
+          PR_SUMMARY: ${{ env.CHANGELOG }}
