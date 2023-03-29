@@ -205,12 +205,10 @@ After this step, there will be some actions to setup the Docker build, log into 
 
 ```js
       - name: Sign the container image
-          env:
-              COSIGN_EXPERIMENTAL: "true"
           run: cosign sign ghcr.io/${{ github.repository }}@${{ steps.push-step.outputs.digest }}
 ```
 
-Here you’ll use `COSIGN_EXPERIMENTAL` to enact keyless signing. Next, you’ll run the `cosign sign` command on the container we are pushing to GitHub Container Registry with the relevant variable calling our repository and digest. 
+Here you’ll run the `cosign sign` command on the container we are pushing to GitHub Container Registry with the relevant variable calling our repository and digest. 
 
 Because we are doing a public repository, this will automatically be pushed to the public instance of the Rekor transparency log
 
@@ -284,8 +282,6 @@ jobs:
           tags: ghcr.io/${{ github.repository }}:latest
 
       - name: Sign the container image
-        env:
-          COSIGN_EXPERIMENTAL: "true"
         run: cosign sign ghcr.io/${{ github.repository }}@${{ steps.push-step.outputs.digest }}
 ```
 
@@ -452,7 +448,9 @@ With your container signed by Cosign keyless signing in GitHub Actions, you next
 You can do that by using the `cosign verify` command against the published container image. 
 
 ```sh
-COSIGN_EXPERIMENTAL=true cosign verify ghcr.io/github-username/django-keyless-signing | jq
+cosign verify ghcr.io/github-username/django-keyless-signing \
+  --certificate-identity https://github.com/github-username/django-keyless-signing/.github/workflows/docker-publish.yml@refs/heads/main \
+  --certificate-oidc-issuer https://token.actions.githubusercontent.com | jq
 ```
 
 Your output should be similar to the following, though note that the strings are abbreviated.
