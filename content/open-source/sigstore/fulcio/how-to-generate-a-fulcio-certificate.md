@@ -20,13 +20,7 @@ In this tutorial, we are going to create and examine a Fulcio certificate to dem
 
 Pease note that using Cosign requires Go v1.16 or higher. The Go Project provides [official download instructions](https://go.dev/doc/install).
 
-To get started, set the `COSIGN_EXPERIMENTAL` variable to `1`. This is required in order to enable the keyless signing flow functionality, which is currently in beta.
-
-```sh
-export COSIGN_EXPERIMENTAL=1
-```
-
-Next, place some text in a text file. For instance:
+To get started, place some text in a text file. For instance:
 
 ```sh
 echo "test file contents" > test-file.txt
@@ -52,6 +46,17 @@ After authentication, you can close the browser tab. In your terminal, you will 
 Using payload from: test-file.txt
 Generating ephemeral keys...
 Retrieving signed certificate...
+
+	Note that there may be personally identifiable information associated with this signed artifact.
+	This may include the email address associated with the account with which you authenticate.
+	This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later.
+
+By typing 'y', you attest that you grant (or have permission to grant) and agree to have this information stored permanently in transparency logs.
+Are you sure you would like to continue? [y/N] y
+```
+
+If you agree, enter `y` and continue. You will receive output like this:
+
 Your browser will now be opened to:
 https://oauth2.sigstore.dev/auth/auth?access_type=online&client_id=sigstore&code_challenge=...
 Successfully verified SCT...
@@ -62,6 +67,10 @@ using ephemeral certificate:
 
 tlog entry created with index: 2494952
 Signature wrote in the file fulcio.sig
+using ephemeral certificate:
+-----BEGIN CERTIFICATE-----
+(...)
+-----END CERTIFICATE-----
 Certificate wrote in the file fulcio.crt.base64
 ```
 

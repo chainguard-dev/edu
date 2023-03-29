@@ -36,20 +36,21 @@ There are three URLs from the list of assets on that page that you will need to 
 With these URLs, construct (or copy) the following command to verify the tar archive:
 
 ```sh
-COSIGN_EXPERIMENTAL=1 cosign verify-blob \
-   --signature https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_0.6.0_linux_amd64.tar.gz.sig \
-   --certificate https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_0.6.0_linux_amd64.tar.gz.crt \
-   https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_0.6.0_linux_amd64.tar.gz
+cosign verify-blob \
+  --signature https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_0.6.0_linux_amd64.tar.gz.sig \
+  --certificate https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_0.6.0_linux_amd64.tar.gz.crt \
+  --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
+  --certificate-identity "https://github.com/chainguard-dev/apko/.github/workflows/release.yaml@refs/tags/v0.6.0" \
+  https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_0.6.0_linux_amd64.tar.gz
 ```
 
 Running the command may take a moment, but when it completes you will receive the following output:
 
 ```
-tlog entry verified with uuid: 9ec23abb6326ebbaa6932f720847080e8f5e0b2925a1643b63962691917c8137 index: 8538988
 Verified OK
 ```
 
-If any of the URLs are incorrect, of if there was a problem with the apko release file, a mismatching signature or certificate, or if the release file was not signed, you will receive an error like the following:
+If any of the URLs are incorrect, of if there was a problem with the apko release file, a mismatching signature or certificate identity, or if the release file was not signed, you will receive an error like the following:
 
 ```
 Error: verifying blob https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_0.6.0_linux_amd64.tar.gz: invalid signature when validating ASN.1 encoded signature
@@ -67,9 +68,11 @@ curl -L -O https://github.com/chainguard-dev/apko/releases/download/v0.6.0/apko_
 Then you can verify the files that you downloaded using Cosign:
 
 ```sh
-COSIGN_EXPERIMENTAL=1 cosign verify-blob \
+cosign verify-blob \
    --signature apko_0.6.0_linux_amd64.tar.gz.sig \
    --certificate apko_0.6.0_linux_amd64.tar.gz.crt \
+   --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
+   --certificate-identity "https://github.com/chainguard-dev/apko/.github/workflows/release.yaml@refs/tags/v0.6.0" \
    apko_0.6.0_linux_amd64.tar.gz
 ```
 

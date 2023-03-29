@@ -136,13 +136,17 @@ I0629 18:11:27.223757    7395 main.go:188]          Deleted tree GC started
 
 Next, let’s start the log signer in a new terminal session (while keeping the previous session running), which will sequence data into cryptographically verifiable Merkle trees and periodically check the database.
 
-$ $(go env GOPATH)/bin/trillian_log_signer --logtostderr --force_master --http_endpoint=localhost:8190 -rpc_endpoint=localhost:8191
+```sh
+$(go env GOPATH)/bin/trillian_log_signer --logtostderr --force_master --http_endpoint=localhost:8190 -rpc_endpoint=localhost:8191
+```
 
 You’ll receive output that indicates that the log signer has started. This session will also hang.
 
+```
 I0629 18:13:42.226319    8513 main.go:98] **** Log Signer Starting ****
 W0629 18:13:42.227281    8513 main.go:129] **** Acting as master for all logs ****
 …
+```
 
 The Trillian system can support multiple independent Merkle trees. We’ll have Trillian send a request to create a tree and save the log ID for future use. Run the following command in a third terminal session (while keeping the previous two sessions running). 
 
@@ -158,6 +162,38 @@ Acting as master for 2 / 2 active logs: master for: <log-2703303398771250657> <l
 ```
 
 This log string will match the string output of the new terminal session. Trillian uses the gRPC API for requests, which is an open source Remote Procedure Call (RPC) framework that can run in any environment. We can now move onto the Rekor server.
+
+## Install and set up Redis
+
+Rekor server also requires a Redis instance. If you are on Debian or Ubuntu, you can install it with the following command.
+
+```sh
+sudo apt install -y redis-server
+```
+
+If you are on macOS, you can install it with Homebrew. If you don’t already have Homebrew installed, visit [brew.sh](https://brew.sh) to set it up.
+
+```sh
+brew install redis
+```
+
+If you’re using another operating system, review the [official Redis documentation](https://redis.io/docs/getting-started/).
+
+With Redis installed, start it. 
+
+For Debian or Ubuntu, you can run:
+
+```sh
+sudo systemctl start redis-server
+```
+
+For macOS, you can run:
+
+```sh
+brew services start redis
+```
+
+Now you can proceed to the next step, where you will install the Rekor server itself.
 
 ## Install Rekor server
 
@@ -206,18 +242,20 @@ Created entry at index 0, available at: http://localhost:3000/api/v1/log/entries
 Next, we’ll upload the key to our Rekor instance and attach it to the container we built in the Cosign chapter. If you have not created a key or the container, you can do so now, or alternately use a key and software artifact of your choice. 
 
 ```sh
-COSIGN_EXPERIMENTAL=1 $HOME/go/bin/cosign sign \
+$HOME/go/bin/cosign sign \
   --key $HOME/cosign.key \
   --rekor-url=http://localhost:3000 \
   docker-username/hello-container
 ```
 
-Now you can verify the container against both the mutable OCI attestation and the immutable Rekor record.
+Now you can verify the container against both the mutable OCI attestation and the immutable Rekor record. If you signed your container using Gmail account with Google as the OIDC issuer, you can verify the image with the following command: 
 
 ```sh
-COSIGN_EXPERIMENTAL=1 $HOME/go/bin/cosign verify \
+$HOME/go/bin/cosign verify \
   --key $HOME/cosign.pub \
   --rekor-url=http://localhost:3000 \
+  --certificate-identity username@gmail.com \
+  --certificate-oidc-issuer https://accounts.google.com \
   docker-username/hello-container
 ```
 
