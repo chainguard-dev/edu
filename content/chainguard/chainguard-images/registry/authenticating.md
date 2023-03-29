@@ -94,7 +94,7 @@ Pulls authenticated in this way are associated with the Chainguard identity you 
 
 If the identity is configured to only work with GitHub Actions workflow runs from a given repo and branch, that identity will not be able to pull from other repos or branches, including pull requests targetting the specified branch.
 
-### Authenticating with Kubernetes
+## Authenticating with Kubernetes
 
 You can also configure a Kubernetes cluster to use a pull token, as described above.
 
