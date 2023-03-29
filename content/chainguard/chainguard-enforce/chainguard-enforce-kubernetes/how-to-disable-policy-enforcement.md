@@ -106,3 +106,11 @@ spec:
 ```
 
 Again, the `mode` configuration is set to `warn`. If you are logged into the Enforce Console, you can access the [Disallow privilege escalation policy](https://console.enforce.dev/policies/catalog/create/disallow-privilege-escalation-cue) from the Policy Catalog from the **Create policy** button.
+
+## Review Warning Policies
+
+You can review which policies are in **Enforce** or **Warn** mode by reviewing the policy table in your Enforce Console.
+
+![Warn or Enforce mode indicated in policy table](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-policies-ui/enforce-console-warn-enforce-mode_hu3b0eaea9ffe2caf7848b0a93077fa970_51901_900x0_resize_box_3.png)
+
+From your Enforce Console policy table, you can further edit each enforcing policy to a warning policy and vice versa. 

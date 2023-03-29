@@ -3,7 +3,7 @@ title: "Troubleshooting Tips"
 type: "article"
 description: "Troubleshooting tips for Chainguard Enforce"
 date: 2023-03-06T15:22:20+01:00
-lastmod: 2023-03-06T15:22:20+01:00
+lastmod: 2023-03-28T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Product", "Troubleshooting"]
 images: []
@@ -16,6 +16,31 @@ toc: true
 
 This page contains tips for troubleshooting problems that one may encounter when working with Chainguard Enforce. 
 
+## Debug using `chainctl`
+
+You can run `chainctl` in debug mode using the verbose flag `-v` or `--v` and passing an integer value of `2` or larger, as in `-v=2`. 
+
+Using this flag, you can log all requests and responses or errors.
+
+For example, to grab all logs related to the clusters listed for a group, you can run:
+
+```sh
+chainctl cluster ls --group $DEMO_GROUP -v=2
+```
+
+The output will return log data to support you in debugging. 
+
+```
+2023/03/28 22:23:58.418086 "level"=1 "msg"="Commandline flags" "active-within"="168h0m0s" "api"="api" "audience"="audience" "config"="" "console"="api" "group"="$DEMO_GROUP" "help"="false" "issuer"="oidc" "name"="" "output"="" "registry"="registry" "timestamp-authority"="timestamp" "v"="2"
+2023/03/28 22:23:59.000042 gRPC: "level"=2 "msg"="iam.Groups.List" "request"="name:'$DEMO_GROUP' "
+2023/03/28 22:23:59.089459 gRPC: "level"=2 "msg"="iam.Groups.List" "response"="items:<id:'' name:'$DEMO_GROUP' description:'Root of $DEMO_GROUP ' > "
+2023/03/28 22:23:59.090213 gRPC: "level"=2 "msg"="tenant.Clusters.List" "request"="active_since:<seconds:1677651909 nanos:89511000 > uidp:<descendants_of:'' > "
+2023/03/28 22:23:59.177413 gRPC: "level"=2 "msg"="tenant.Clusters.List" "response"=""
+  NAME | GROUP | REMOTEID | REGISTERED | K8S VERSION | AGENT VERSION | LAST SEEN | ACTIVITY
+-------+-------+----------+------------+-------------+---------------+-----------+-----------
+```
+
+By default, your next command passed without the `-v` flag will revert to the standard `chainctl` experience. Alternatively, you can pass `-v=0` to your `chainctl` command for the default experience, without logging. 
 
 ## How to disable admission control
 
