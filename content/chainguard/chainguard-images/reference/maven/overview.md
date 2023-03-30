@@ -163,3 +163,4 @@ docker images | grep my-chainguard-springboot-app
 ```
 
 You can also check for vulnerabilities using your favorite scanner.
+

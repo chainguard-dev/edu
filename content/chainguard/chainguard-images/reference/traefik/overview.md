@@ -56,3 +56,4 @@ time="2023-01-29T12:37:55Z" level=info msg="Configuration loaded from file: /etc
 ## Users and Directories
 
 By default this image runs as a non-root user named `traefik` with a uid of 65532.
+

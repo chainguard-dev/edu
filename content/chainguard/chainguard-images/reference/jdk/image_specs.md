@@ -49,3 +49,4 @@ The table shows package distribution across all variants.
 | `bash`                   |        | X          |            | X              |
 | `git`                    |        | X          |            | X              |
 | `openjdk-11`             |        |            | X          | X              |
+

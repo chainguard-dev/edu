@@ -49,3 +49,4 @@ ts=2023-03-05T17:41:10.355Z caller=mysqld_exporter.go:227 level=info msg="Build 
 ts=2023-03-05T17:41:10.355Z caller=config.go:146 level=error msg="failed to validate config" section=client err="no user specified in section or parent"
 ts=2023-03-05T17:41:10.355Z caller=mysqld_exporter.go:231 level=info msg="Error parsing host config" file=/home/mysqld_exporter/.my.cnf err="no configuration found"
 ```
+

@@ -46,3 +46,4 @@ The table shows package distribution across all variants.
 | `postgresql-15-contrib`        | X      |
 | `libpq-15`                     | X      |
 | `su-exec`                      | X      |
+

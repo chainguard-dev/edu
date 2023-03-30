@@ -76,3 +76,4 @@ The `-dev` variant contains a shell and tools like `apk` to allow users to easil
 ```sh
 docker run --rm --entrypoint 'sh' cgr.dev/chainguard/fluentd
 ```
+

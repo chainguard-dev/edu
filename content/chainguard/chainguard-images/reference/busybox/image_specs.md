@@ -44,3 +44,4 @@ The table shows package distribution across all variants.
 | `busybox`                | X      | X            |
 | `ssl_client`             | X      |              |
 | `wolfi-baselayout`       |        | X            |
+
