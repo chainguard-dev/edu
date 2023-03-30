@@ -98,7 +98,6 @@ Copy the following content to it:
 FROM cgr.dev/chainguard/wolfi-base
 
 ARG version=3.11
-
 RUN adduser -D nonroot
 WORKDIR /app
 
@@ -110,6 +109,7 @@ COPY requirements.txt inky.png inky.py /app/
 RUN  pip3 install -r requirements.txt --user
 
 ENTRYPOINT [ "python", "/app/inky.py" ]
+
 ```
 
 This Dockerfile uses a variable called `version` to define which Python version is going to be installed on the resulting image. You can change this to one of the available Python versions on the [wolfi-dev/os](https://github.com/wolfi-dev/os) repository.
@@ -152,24 +152,6 @@ nano DockerfileDistroless
 Copy the following code into your new file:
 
 ```
-FROM cgr.dev/chainguard/wolfi-base
-
-ARG version=3.11
-
-RUN adduser -D nonroot
-WORKDIR /app
-
-RUN apk add python-${version} py${version}-pip && \
-	chown -R nonroot.nonroot /app/
-
-USER nonroot
-COPY requirements.txt inky.png inky.py /app/
-RUN  pip3 install -r requirements.txt --user
-
-ENTRYPOINT [ "python", "/app/inky.py" ]
-
-
- erika@daedalus  ~/inky  cat DockerfileDistroless
 FROM cgr.dev/chainguard/wolfi-base as builder
 
 ARG version=3.11
