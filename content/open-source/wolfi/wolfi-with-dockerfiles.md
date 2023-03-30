@@ -5,6 +5,7 @@ description: "This tutorial demonstrates how to build a Wolfi Python image from 
 date: 2022-12-19T08:49:31+00:00
 lastmod: 2022-12-19T08:49:31+00:00
 draft: false
+tags: ["Wolfi", "Procedural"]
 images: []
 menu:
   docs:
