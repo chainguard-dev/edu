@@ -48,7 +48,7 @@ However, Chainguard Enforce doesn't read or store any code or information from t
 
 Bear in mind that Chainguard Enforce may also retrieve certain information — but not store it — in order to verify that a request satisfies the policy. For instance, say you attempt to use a container image in your cluster and your Enforce policy dictates that the image be signed. Chainguard Enforce will check the container's signature against the hash found in its specified container registry, but it won't ingest the signature information.
 
-## Configuring Contiuous Verification
+## Configuring Continuous Verification
 
 Continuous verification in Chainguard Enforce defaults to 10 seconds, and it is configurable through the ConfigMap's `config-image-policies` inside the `cosign-system namespace`. Here, you will find a `resync` annotation which will inform Enforce how frequently to run continuous verification.
 
