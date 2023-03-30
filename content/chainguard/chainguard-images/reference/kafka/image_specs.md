@@ -45,3 +45,4 @@ The table shows package distribution across all variants.
 | `kafka`                  | X      | X          |
 | `apk-tools`              |        | X          |
 | `git`                    |        | X          |
+
