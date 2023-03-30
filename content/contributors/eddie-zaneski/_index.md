@@ -9,4 +9,4 @@ images: []
 
 [GitHub](https://github.com/eddiezane) | [Twitter](https://twitter.com/eddiezane)
 
-Software Engineer at Chainguard
+DevRel + OSS at Chainguard
