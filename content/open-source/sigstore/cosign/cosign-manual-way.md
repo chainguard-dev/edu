@@ -41,7 +41,10 @@ tlog entry verified with uuid: 7e53fd5d089af142b7909598d214e13ca76001cc575fddaad
 Verified OK
 ```
 
+These quick commands show how easily Sigstore can be integrated into software security practices for any developer. I am the kind of person who always wants to know what's going on under the hood. In this tutorial, I will walk you through doing Cosign the manual way so you too can understand the ins and outs of Cosign.
+
 ## Tools
+
 If you want to follow along you’ll need the following installed from your package manager of choice. I’ve noted the version used in this post but different minor versions should be fine. However, keep in mind that OpenSSL can drastically vary per system.
  
 * [openssl](https://www.openssl.org/source/) (3.0.8) Note: macOS uses libressl but it should still work
@@ -56,7 +59,7 @@ If you want to follow along you’ll need the following installed from your pack
 
 A blob is an arbitrary collection of raw data like a picture or the executable binary that your source code produces. Cosign is capable of signing and verifying blobs.
 
-In our case we’ll be signing a spooky message. Let’s write that message to a file.
+In our case, we’ll be signing a spooky message. Let’s write that message to a file.
 
 ```bash
 $ echo 'Beware The Blob!' > message.txt
