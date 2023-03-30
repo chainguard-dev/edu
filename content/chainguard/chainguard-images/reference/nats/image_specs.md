@@ -47,3 +47,4 @@ The table shows package distribution across all variants.
 | `git`                    |        | X          |
 | `nats`                   |        | X          |
 | `nsc`                    |        | X          |
+

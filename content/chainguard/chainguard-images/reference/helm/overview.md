@@ -15,9 +15,10 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/helm](https://github.com/chainguard-images/images/tree/main/images/helm)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `3`, `3.11`, `3.11.2`, `3.11.2-r0` |
+| Tags         | Aliases                                            |
+|--------------|----------------------------------------------------|
+| `latest`     | `3`, `3.11`, `3.11.2`, `3.11.2-r0`                 |
+| `latest-dev` | `3-dev`, `3.11-dev`, `3.11.2-dev`, `3.11.2-r0-dev` |
 
 
 
@@ -30,3 +31,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/helm:latest
 ```
+

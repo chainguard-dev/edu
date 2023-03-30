@@ -90,3 +90,4 @@ $ docker run --cap-add CAP_IPC_LOCK cgr.dev/chainguard/vault server -config /etc
 2023-03-18T16:13:52.639Z [INFO]  core: Initializing version history cache for core
 ==> Vault server started! Log data will stream in below:
 ```
+

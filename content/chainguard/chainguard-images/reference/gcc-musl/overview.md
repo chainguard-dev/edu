@@ -75,3 +75,4 @@ FROM cgr.dev/chainguard/static
 COPY --from=build /work/hello /hello
 CMD ["/hello"]
 ```
+

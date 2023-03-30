@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/traefik](https://github.com/chainguard-images/images/tree/main/images/traefik)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `2`, `2.9`, `2.9.8`, `2.9.8-r2` |
+| `latest` | `2`, `2.9`, `2.9.9`, `2.9.9-r0` |
 
 
 
@@ -56,3 +56,4 @@ time="2023-01-29T12:37:55Z" level=info msg="Configuration loaded from file: /etc
 ## Users and Directories
 
 By default this image runs as a non-root user named `traefik` with a uid of 65532.
+

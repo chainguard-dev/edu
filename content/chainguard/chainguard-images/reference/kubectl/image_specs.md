@@ -41,3 +41,4 @@ The table shows package distribution across all variants.
 | `busybox`                | X      |
 | `kubectl`                | X      |
 | `wolfi-baselayout`       | X      |
+
