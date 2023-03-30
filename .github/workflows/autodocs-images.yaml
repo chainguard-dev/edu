@@ -39,7 +39,7 @@ jobs:
           YAMLDOCS_TEMPLATES: "${{ github.workspace }}/edu/autodocs/templates"
           YAMLDOCS_CHANGELOG: "${{ github.workspace }}/${{ env.WORKDIR }}/changelog.md"
           YAMLDOCS_LAST_UPDATE: "${{ github.workspace }}/${{ env.WORKDIR }}/last-update.md"
-          YAMLDOCS_DIFF_SOURCE: "${{ github.workspace }}/edu/content/chainguard/chainguard-images/{{ env.WORKDIR }}"
+          YAMLDOCS_DIFF_SOURCE: "${{ github.workspace }}/edu/content/chainguard/chainguard-images/${{ env.WORKDIR }}"
 
       - name: "Copy changelog to autodocs folder"
         run: |
