@@ -97,12 +97,12 @@ Copy the following content to it:
 ```
 FROM cgr.dev/chainguard/wolfi-base
 
-# Use this variable to set up Python version
 ARG version=3.11
 
 RUN adduser -D nonroot
 WORKDIR /app
-RUN apk add python-$version py$version-pip && \
+
+RUN apk add python-${version} py${version}-pip && \
 	chown -R nonroot.nonroot /app/
 
 USER nonroot
@@ -152,33 +152,50 @@ nano DockerfileDistroless
 Copy the following code into your new file:
 
 ```
+FROM cgr.dev/chainguard/wolfi-base
+
+ARG version=3.11
+
+RUN adduser -D nonroot
+WORKDIR /app
+
+RUN apk add python-${version} py${version}-pip && \
+	chown -R nonroot.nonroot /app/
+
+USER nonroot
+COPY requirements.txt inky.png inky.py /app/
+RUN  pip3 install -r requirements.txt --user
+
+ENTRYPOINT [ "python", "/app/inky.py" ]
+
+
+ erika@daedalus  ~/inky  cat DockerfileDistroless
 FROM cgr.dev/chainguard/wolfi-base as builder
 
 ARG version=3.11
 RUN adduser -D nonroot
 WORKDIR /app
 
-RUN apk add python-$version py$version-pip && \
+RUN apk add python-$version py${version}-pip && \
 	chown -R nonroot.nonroot /app/
 
 USER nonroot
 COPY requirements.txt /app/
 RUN  pip3 install -r requirements.txt --user
 
-FROM cgr.dev/chainguard/python:latest
+FROM cgr.dev/chainguard/python:3.11
 
 ARG version=3.11
 WORKDIR /app
 
-COPY --from=builder /home/nonroot/.local/lib/python$version/site-packages /home/nonroot/.local/lib/python$version/site-packages
+COPY --from=builder /home/nonroot/.local/lib/python${version}/site-packages /home/nonroot/.local/lib/python${version}/site-packages
 
 COPY inky.py inky.png /app/
 
 ENTRYPOINT [ "python", "/app/inky.py" ]
-
 ```
-Save and close the file when you're finished.
 
+Save and close the file when you're finished.
 
 Now, build this image using a custom tag so that you can compare the previously built `inky-demo` image with its distroless version:
 
