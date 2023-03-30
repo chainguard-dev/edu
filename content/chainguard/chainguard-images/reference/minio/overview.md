@@ -80,3 +80,4 @@ Console: http://172.17.0.5:46387 http://127.0.0.1:46387
 Documentation: https://min.io/docs/minio/linux/index.html
 Warning: The standard parity is set to 0. This can lead to data loss.
 ```
+

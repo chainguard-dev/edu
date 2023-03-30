@@ -66,3 +66,4 @@ ts=2022-12-27T02:32:45.188Z caller=main.go:1234 level=info msg="Completed loadin
 ts=2022-12-27T02:32:45.188Z caller=main.go:978 level=info msg="Server is ready to receive web requests."
 ts=2022-12-27T02:32:45.188Z caller=manager.go:953 level=info component="rule manager" msg="Starting rule manager..."
 ```
+

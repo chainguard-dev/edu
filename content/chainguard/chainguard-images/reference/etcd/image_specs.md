@@ -40,3 +40,4 @@ The table shows package distribution across all variants.
 | `etcd`                   | X      |
 | `ca-certificates-bundle` | X      |
 | `wolfi-baselayout`       | X      |
+

@@ -39,3 +39,4 @@ The table shows package distribution across all variants.
 |--------------------|--------|
 | `wolfi-baselayout` | X      |
 | `netcat-openbsd`   | X      |
+

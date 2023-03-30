@@ -90,3 +90,4 @@ You should see the newly created `accounts` table
  public | accounts | table | postgres
 (1 row)
 ```
+

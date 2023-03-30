@@ -44,3 +44,4 @@ The table shows package distribution across all variants.
 | `nodejs`                 | X      |    |
 | `wolfi-baselayout`       | X      | X  |
 | `nodejs-19`              |        | X  |
+

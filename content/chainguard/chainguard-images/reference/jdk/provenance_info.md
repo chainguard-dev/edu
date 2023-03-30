@@ -32,7 +32,7 @@ By default, this command will fetch signatures for the `latest` tag. You can als
 All Chainguard Images come with a high-quality Software Bill Of Materials (SBOM) generated at build-time. The SBOM can be downloaded using the cosign tool:
 
 ```shell
-cosign download sbom --platform linux/amd64 cgr.dev/chainguard/jdk | jq
+cosign download sbom cgr.dev/chainguard/jdk | jq
 ```
 By default, this command will fetch the SBOM assigned to the `latest` tag. You can also specify the tag you want to fetch the SBOM from.
 

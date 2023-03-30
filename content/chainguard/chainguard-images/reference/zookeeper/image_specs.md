@@ -47,3 +47,4 @@ The table shows package distribution across all variants.
 | `openjdk-17-jre`         | X      | X          |
 | `apk-tools`              |        | X          |
 | `git`                    |        | X          |
+

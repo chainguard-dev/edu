@@ -39,3 +39,4 @@ The table shows package distribution across all variants.
 |--------------------|--------|
 | `dotnet-7`         | X      |
 | `dotnet-7-runtime` | X      |
+

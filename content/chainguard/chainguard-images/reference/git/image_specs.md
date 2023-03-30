@@ -47,3 +47,4 @@ The table shows package distribution across all variants.
 | `git-lfs`                | X      | X           | X            | X                 |
 | `openssh-client`         | X      | X           | X            | X                 |
 | `wolfi-baselayout`       |        |             | X            | X                 |
+

@@ -29,3 +29,4 @@ Container image containing a Wolfi-flavored .NET SDK.
 The image is available on `cgr.dev`:
 
     docker pull cgr.dev/chainguard/dotnet-sdk:7.0
+

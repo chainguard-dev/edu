@@ -56,3 +56,4 @@ docker run --privileged -v "$PWD":/work -it --entrypoint /bin/sh cgr.dev/chaingu
 Note that melange uses bubblewrap internally, which requires various Linux capabilities, hence the
 use of `--privileged`. Because of this requirement, we recommend this image is used only for local
 development and testing.
+

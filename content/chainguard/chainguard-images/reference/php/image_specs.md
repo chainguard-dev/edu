@@ -48,3 +48,4 @@ The table shows package distribution across all variants.
 | `git`                    |        | X          |            |
 | `composer`               |        | X          |            |
 | `php-fpm`                |        |            | X          |
+

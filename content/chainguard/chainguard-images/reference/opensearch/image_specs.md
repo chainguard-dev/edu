@@ -45,3 +45,4 @@ The table shows package distribution across all variants.
 | `apk-tools`              |        | X          |
 | `bash`                   |        | X          |
 | `git`                    |        | X          |
+
