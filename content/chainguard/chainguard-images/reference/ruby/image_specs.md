@@ -58,3 +58,4 @@ The table shows package distribution across all variants.
 | `ruby-3.0`               |        |            |     |         | X   | X       |
 | `ruby3.0-bundler`        |        |            |     |         |     | X       |
 | `ruby-3.0-dev`           |        |            |     |         |     | X       |
+

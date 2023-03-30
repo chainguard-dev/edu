@@ -35,3 +35,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/ruby:latest
 ```
+

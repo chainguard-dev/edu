@@ -42,3 +42,4 @@ The table shows package distribution across all variants.
 | `glibc-locale-en`        | X      |
 | `busybox`                | X      |
 | `gradle-8`               | X      |
+

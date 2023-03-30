@@ -39,3 +39,4 @@ The table shows package distribution across all variants.
 |--------------------|--------|
 | `wait-for-it`      | X      |
 | `wolfi-baselayout` | X      |
+

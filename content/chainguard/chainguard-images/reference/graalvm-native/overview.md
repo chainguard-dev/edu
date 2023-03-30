@@ -38,3 +38,4 @@ docker pull cgr.dev/chainguard/graalvm-native:latest
 ## Users
 
 The image has a single user `nonroot` with uid `65532`, belonging to gid `65532`.
+

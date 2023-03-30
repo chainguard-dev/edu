@@ -42,3 +42,4 @@ The table shows package distribution across all variants.
 | `bash`             | X      |
 | `glibc-locale-en`  | X      |
 | `tzdata`           | X      |
+

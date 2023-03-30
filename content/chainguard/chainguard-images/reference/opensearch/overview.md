@@ -58,3 +58,4 @@ $ docker run -it cgr.dev/chainguard/opensearch
 [2023-03-24T00:44:00,407][INFO ][o.o.i.r.ReindexPlugin    ] [6e57776e2bfa] Unable to find any implementation for RemoteReindexExtension
 [2023-03-24T00:44:00,415][INFO ][o.o.p.PluginsService     ] [6e57776e2bfa] loaded module [aggs-matrix-stats]
 ```
+

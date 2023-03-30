@@ -41,3 +41,4 @@ The table shows package distribution across all variants.
 | `build-base`             | X      |
 | `busybox`                | X      |
 | `wolfi-baselayout`       | X      |
+

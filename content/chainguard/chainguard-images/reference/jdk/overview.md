@@ -80,3 +80,4 @@ Run the image
 ```sh
 docker run my-simple-java-app
 ```
+

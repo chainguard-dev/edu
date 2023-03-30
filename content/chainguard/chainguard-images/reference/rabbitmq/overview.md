@@ -84,3 +84,4 @@ RABBITMQ_CONF_ENV_FILE=/etc/rabbitmq/rabbitmq-env.conf
 By default this image runs as a non-root user named `rabbitmq` with a uid of 65532.
 
 Logs go to `/var/log/rabbitmq/` by default.
+
