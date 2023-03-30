@@ -76,3 +76,4 @@ $ /usr/lib/kafka/bin/kafka-server-start.sh /usr/lib/kafka/config/server.properti
 [2023-03-18 00:10:17,536] INFO Client environment:java.home=/usr/lib/jvm/openjdk-jre (org.apache.zookeeper.ZooKeeper)
 ...
 ```
+

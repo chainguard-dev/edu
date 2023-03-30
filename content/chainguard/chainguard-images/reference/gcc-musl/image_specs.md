@@ -43,3 +43,4 @@ The table shows package distribution across all variants.
 | `gcc`                    | X      |
 | `musl-dev`               | X      |
 | `busybox`                | X      |
+

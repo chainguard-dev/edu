@@ -29,3 +29,4 @@ Container image with PowerShell.
 The image is available on `cgr.dev`:
 
     docker pull cgr.dev/chainguard/powershell:latest
+

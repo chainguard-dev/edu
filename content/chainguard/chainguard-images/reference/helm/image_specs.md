@@ -17,27 +17,33 @@ toc: true
 This page shows detailed information about all available variants of the Chainguard **helm** Image.
 
 ## Variants Compared
-The **helm** Chainguard Image currently has one public variant: 
+The **helm** Chainguard Image currently has 2 public variants: 
 
 - `latest`
+- `latest-dev`
 
 The table has detailed information about each of these variants.
 
-|              | latest          |
-|--------------|-----------------|
-| Default User | `nonroot`       |
-| Entrypoint   | `/usr/bin/helm` |
-| CMD          | `help`          |
-| Workdir      | not specified   |
-| Has apk?     | no              |
-| Has a shell? | no              |
+|              | latest          | latest-dev      |
+|--------------|-----------------|-----------------|
+| Default User | `nonroot`       | `nonroot`       |
+| Entrypoint   | `/usr/bin/helm` | `/usr/bin/helm` |
+| CMD          | `help`          | `help`          |
+| Workdir      | not specified   | not specified   |
+| Has apk?     | no              | yes             |
+| Has a shell? | no              | yes             |
 
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `ca-certificates-bundle` | X      |
-| `helm`                   | X      |
-| `wolfi-baselayout`       | X      |
-| `kubectl`                | X      |
+|                          | latest | latest-dev |
+|--------------------------|--------|------------|
+| `ca-certificates-bundle` | X      | X          |
+| `helm`                   | X      | X          |
+| `wolfi-baselayout`       | X      | X          |
+| `kubectl`                | X      | X          |
+| `apk-tools`              |        | X          |
+| `bash`                   |        | X          |
+| `busybox`                |        | X          |
+| `git`                    |        | X          |
+

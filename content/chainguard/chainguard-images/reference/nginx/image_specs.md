@@ -45,3 +45,4 @@ The table shows package distribution across all variants.
 | `bash`                   |        | X          |
 | `busybox`                |        | X          |
 | `git`                    |        | X          |
+

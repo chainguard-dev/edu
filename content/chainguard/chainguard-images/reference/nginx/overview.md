@@ -55,3 +55,4 @@ To use a custom `nginx.conf` you can mount the file into the container
 ```
 docker run -v $(pwd)/$CUSTOM_NGINX_CONF_DIRECTORY/nginx.conf:/etc/nginx/nginx.conf -p 8080:80 cgr.dev/chainguard/nginx
 ```
+

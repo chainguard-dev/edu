@@ -42,3 +42,4 @@ The table shows package distribution across all variants.
 | `busybox`                | X      |
 | `rust`                   | X      |
 | `build-base`             | X      |
+

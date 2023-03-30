@@ -28,3 +28,4 @@ Container image with the latest .NET runtime.
 The image is available on `cgr.dev`:
 
     docker pull cgr.dev/chainguard/dotnet-runtime:7.0
+

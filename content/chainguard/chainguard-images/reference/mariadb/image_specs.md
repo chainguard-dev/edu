@@ -41,3 +41,4 @@ The table shows package distribution across all variants.
 | `mariadb-oci-entrypoint` | X      |
 | `wolfi-baselayout`       | X      |
 | `tzdata`                 | X      |
+

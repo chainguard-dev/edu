@@ -52,3 +52,4 @@ The table shows package distribution across all variants.
 | `ruby-3.2-dev`           |        | X          |      | X        |
 | `glibc`                  |        |            | X    | X        |
 | `ruby3.2-fluentd15`      |        |            | X    | X        |
+

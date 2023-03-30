@@ -40,3 +40,4 @@ The table shows package distribution across all variants.
 | `prometheus-node-exporter` | X      |
 | `wolfi-baselayout`         | X      |
 | `busybox`                  | X      |
+
