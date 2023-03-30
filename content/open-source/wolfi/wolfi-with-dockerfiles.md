@@ -5,6 +5,7 @@ description: "This tutorial demonstrates how to build a Wolfi Python image from 
 date: 2022-12-19T08:49:31+00:00
 lastmod: 2022-12-19T08:49:31+00:00
 draft: false
+tags: ["Wolfi", "Procedural"]
 images: []
 menu:
   docs:
@@ -15,7 +16,7 @@ toc: true
 
 ## Introduction
 
-[Wolfi](https://edu.chainguard.dev/open-source/wolfi/overview/) is a minimal open source Linux distribution created specifically for cloud workloads, with an emphasis on software supply chain security. Using [apk](https://wiki.alpinelinux.org/wiki/Package_management) for package management, Wolfi differs from Alpine in a few important aspects, most notably the use of glib-c instead of Musl and the fact that Wolfi doesn't have a kernel of its own since it is built to run on containers. The minimal footprint makes Wolfi an ideal base for both _distroless_ runtimes and fully-featured builder images.
+[Wolfi](https://edu.chainguard.dev/open-source/wolfi/overview/) is a minimal open source Linux distribution created specifically for cloud workloads, with an emphasis on software supply chain security. Using [apk](https://wiki.alpinelinux.org/wiki/Package_management) for package management, Wolfi differs from Alpine in a few important aspects, most notably the use of glibc instead of musl and the fact that Wolfi doesn't have a kernel of its own since it is built to run on containers. The minimal footprint makes Wolfi an ideal base for both _distroless_ runtimes and fully-featured builder images.
 
 A _distroless_ image is typically a very minimal container image that doesn't have shells or package managers. The extra tightness improves security in several aspects, but it requires a more sophisticated strategy for image composition since you can't install packages so easily.
 
@@ -30,7 +31,7 @@ In this article, we'll learn how to leverage Wolfi to create safer runtime envir
 
 ## Requirements
 
-You'll need a local development environment with Python in order to test the demo, and Docker to build and run the application.
+You'll need Docker to build and run the application.
 
 ## Step 1: Obtaining the Demo Application
 We'll use the same demo application from the [Getting Started with the Python Chainguard Image](/chainguard/chainguard-images/reference/python/getting-started-python/) tutorial to demonstrate how to build a Wolfi Python image with a Dockerfile. The application files are available in the [edu-images-demos](https://github.com/chainguard-dev/edu-images-demos) repository. We'll start by cloning that repository in a temporary folder so that we can obtain the relevant application files to run the **second** demo from that tutorial.
@@ -75,20 +76,6 @@ if __name__ == "__main__":
 
 You'll notice that there's already a Dockerfile in that directory, but it uses the [Python Chainguard image](https://edu.chainguard.dev/chainguard/chainguard-images/reference/python/overview/) in a multi-stage build. In the next step, we'll replace that with a new Dockerfile that uses the [Wolfi-base](https://edu.chainguard.dev/chainguard/chainguard-images/reference/wolfi-base/image_specs/) image to build a Python image from scratch, using Wolfi apks.
 
-To test that the application works as expected, first install the dependencies using Pip.
-
-```shell
-pip3 install -r requirements.txt
-```
-
-Then, run the application with:
-
-```shell
-python3 inky.py
-```
-
-You’ll receive a representation of the Chainguard Inky logo on the command line. With the demo application ready, you can now move on to building the Wolfi container image.
-
 ## Step 2: Creating the Dockerfile
 
 Now we'll create the Dockerfile to run the application. This Dockerfile will set up a new user and WORKDIR, copy relevant files, and install dependencies with Pip. It will also define the entry point that will be executed when we run this image with `docker run`.
@@ -110,10 +97,11 @@ Copy the following content to it:
 ```
 FROM cgr.dev/chainguard/wolfi-base
 
+ARG version=3.11
 RUN adduser -D nonroot
 WORKDIR /app
 
-RUN apk add python-3.11 py3.11-pip && \
+RUN apk add python-${version} py${version}-pip && \
 	chown -R nonroot.nonroot /app/
 
 USER nonroot
@@ -121,7 +109,10 @@ COPY requirements.txt inky.png inky.py /app/
 RUN  pip3 install -r requirements.txt --user
 
 ENTRYPOINT [ "python", "/app/inky.py" ]
+
 ```
+
+This Dockerfile uses a variable called `version` to define which Python version is going to be installed on the resulting image. You can change this to one of the available Python versions on the [wolfi-dev/os](https://github.com/wolfi-dev/os) repository.
 
 Save the file when you're done. In the next step, we'll build and run the image with `docker`.
 
@@ -144,7 +135,7 @@ Finally, run the image with:
 docker run --rm inky-demo
 ```
 
-And you should get a similar result as the previous time you run the script.
+You’ll receive a representation of the Chainguard Inky logo on the command line.
 
 ## Step 4 (Optional): Composing Distroless Images in a Docker Multi-Stage Build
 
@@ -163,30 +154,30 @@ Copy the following code into your new file:
 ```
 FROM cgr.dev/chainguard/wolfi-base as builder
 
+ARG version=3.11
 RUN adduser -D nonroot
 WORKDIR /app
 
-RUN apk add python-3.11 py3.11-pip && \
+RUN apk add python-$version py${version}-pip && \
 	chown -R nonroot.nonroot /app/
 
 USER nonroot
 COPY requirements.txt /app/
 RUN  pip3 install -r requirements.txt --user
 
-FROM cgr.dev/chainguard/python:latest
+FROM cgr.dev/chainguard/python:3.11
 
+ARG version=3.11
 WORKDIR /app
 
-# Make sure you update Python version in path
-COPY --from=builder /home/nonroot/.local/lib/python3.11/site-packages /home/nonroot/.local/lib/python3.11/site-packages
+COPY --from=builder /home/nonroot/.local/lib/python${version}/site-packages /home/nonroot/.local/lib/python${version}/site-packages
 
 COPY inky.py inky.png /app/
 
 ENTRYPOINT [ "python", "/app/inky.py" ]
-
 ```
-Save and close the file when you're finished.
 
+Save and close the file when you're finished.
 
 Now, build this image using a custom tag so that you can compare the previously built `inky-demo` image with its distroless version:
 
