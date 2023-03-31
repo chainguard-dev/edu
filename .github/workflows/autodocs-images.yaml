@@ -37,12 +37,14 @@ jobs:
           YAMLDOCS_SOURCE: "${{ github.workspace }}/images/images"
           YAMLDOCS_OUTPUT: "${{ github.workspace }}/${{ env.WORKDIR }}"
           YAMLDOCS_TEMPLATES: "${{ github.workspace }}/edu/autodocs/templates"
+          YAMLDOCS_CHANGELOG: "${{ github.workspace }}/${{ env.WORKDIR }}/changelog.md"
           YAMLDOCS_LAST_UPDATE: "${{ github.workspace }}/${{ env.WORKDIR }}/last-update.md"
           YAMLDOCS_DIFF_SOURCE: "${{ github.workspace }}/edu/content/chainguard/chainguard-images/${{ env.WORKDIR }}"
 
-      - name: "Copy latest update log to autodocs folder"
+      - name: "Copy changelog to autodocs folder"
         run: |
-          mv "${{ github.workspace }}/${{ env.WORKDIR }}/last-update.md" \
+          mv "${{ github.workspace }}/${{ env.WORKDIR }}/changelog.md" \
+          "${{ github.workspace }}/${{ env.WORKDIR }}/last-update.md" \
           "${{ github.workspace }}/edu/autodocs"
 
       - name: "Copy updates to main repo"
@@ -51,18 +53,13 @@ jobs:
           cp -R "${{ github.workspace }}/${{ env.WORKDIR }}" "${{ github.workspace }}/edu/content/chainguard/chainguard-images" && \
           echo "Finished copy"
 
-      - name: "Get Latest Update Log"
+      - name: "Get Changelog"
         run: |
           EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
           echo "CHANGELOG<<$EOF" >> $GITHUB_ENV
           echo "`cat ${{ github.workspace }}/edu/autodocs/last-update.md`" >> $GITHUB_ENV
           echo "$EOF" >> $GITHUB_ENV
         id: images-build-output
-
-      - name: "Append Update to Changelog"
-        run: |
-          [ ! -f "${{ github.workspace }}/edu/autodocs/changelog.md" ] && touch ${{ github.workspace }}/edu/autodocs/changelog.md
-          sed -i '1s/^/${{ env.CHANGELOG }}\n\n/' ${{ github.workspace }}/edu/autodocs/changelog.md
 
       - name: Create a PR
         uses: peter-evans/create-pull-request@2b011faafdcbc9ceb11414d64d0573f37c774b04 # v4.2.3
