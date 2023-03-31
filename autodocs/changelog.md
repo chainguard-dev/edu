@@ -1,4 +1,8 @@
+## 2023-03-31
 
+Updated image reference docs.
+
+No new images added.
 
 ## 2023-03-30
 
@@ -13,3 +17,4 @@ New images added:
 - secrets-store-csi-driver-provider-gcp
 - telegraf
 - thanos
+
