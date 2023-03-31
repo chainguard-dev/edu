@@ -1961,6 +1961,35 @@
             "name": "name",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "The timestamp after which returned records were updated.",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedSince",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Exclude tags of the form \"sha256-*\".",
+            "in": "query",
+            "name": "excludeReferrers",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Exclude tags of the form \"*-20yymmdd\".",
+            "in": "query",
+            "name": "excludeDates",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Exclude tags of the form \"*-r[0-9]+\".",
+            "in": "query",
+            "name": "excludeEpochs",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -3490,6 +3519,11 @@
         },
         "id": {
           "description": "id, identifier of this Tag, a UIDP under a Repo.",
+          "type": "string"
+        },
+        "lastUpdated": {
+          "description": "last time this tag was updated.",
+          "format": "date-time",
           "type": "string"
         },
         "name": {
