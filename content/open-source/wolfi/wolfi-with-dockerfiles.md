@@ -66,7 +66,7 @@ import climage
 
 
 def main():
-    '''Take in PNG and output as ANSI to temrinal'''
+    '''Take in PNG and output as ANSI to terminal'''
     output = climage.convert('inky.png', is_unicode=True)
     print(output)
 
