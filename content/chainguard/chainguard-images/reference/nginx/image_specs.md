@@ -24,14 +24,14 @@ The **nginx** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest         | latest-dev     |
-|--------------|----------------|----------------|
-| Default User | `nginx`        | `nginx`        |
-| Entrypoint   | Service Bundle | Service Bundle |
-| CMD          | not specified  | not specified  |
-| Workdir      | not specified  | not specified  |
-| Has apk?     | no             | yes            |
-| Has a shell? | no             | yes            |
+|              | latest                                      | latest-dev                                  |
+|--------------|---------------------------------------------|---------------------------------------------|
+| Default User | `nginx`                                     | `nginx`                                     |
+| Entrypoint   | `/usr/sbin/nginx`                           | `/usr/sbin/nginx`                           |
+| CMD          | `-c /etc/nginx/nginx.conf -g "daemon off;"` | `-c /etc/nginx/nginx.conf -g "daemon off;"` |
+| Workdir      | not specified                               | not specified                               |
+| Has apk?     | no                                          | yes                                         |
+| Has a shell? | no                                          | yes                                         |
 
 ## Image Dependencies
 The table shows package distribution across all variants.
