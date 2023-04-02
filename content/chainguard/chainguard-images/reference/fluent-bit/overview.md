@@ -15,9 +15,9 @@ toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/fluent-bit](https://github.com/chainguard-images/images/tree/main/images/fluent-bit)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `2`, `2.0`, `2.0.8`, `2.0.8-r0` |
+| Tags     | Aliases                           |
+|----------|-----------------------------------|
+| `latest` | `2`, `2.0`, `2.0.10`, `2.0.10-r0` |
 
 
 

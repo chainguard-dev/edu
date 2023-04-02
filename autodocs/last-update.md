@@ -1,7 +1,8 @@
-
-
-## 2023-03-31
+## 2023-04-02
 
 Updated image reference docs.
 
-No new images added.
+New images added:
+
+- external-dns
+- k8s-sidecar
