@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/melange](https://github.com/chainguard-images/images/tree/main/images/melange)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `0`, `0.2`, `0.2.0`, `0.2.0-r1` |
+| `latest` | `0`, `0.3`, `0.3.2`, `0.3.2-r0` |
 
 
 
