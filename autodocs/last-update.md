@@ -1,8 +1,8 @@
-## 2023-04-02
+## 2023-04-03
 
 Updated image reference docs.
 
 New images added:
 
-- external-dns
-- k8s-sidecar
+- consul
+- vault-k8s
