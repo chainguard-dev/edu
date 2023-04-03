@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/vault](https://github.com/chainguard-images/images/tree/main/images/vault)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.13`, `1.13.0`, `1.13.0-r2`                 |
-| `latest-dev` | `1-dev`, `1.13-dev`, `1.13.0-dev`, `1.13.0-r2-dev` |
+| `latest`     | `1`, `1.13`, `1.13.1`, `1.13.1-r0`                 |
+| `latest-dev` | `1-dev`, `1.13-dev`, `1.13.1-dev`, `1.13.1-r0-dev` |
 
 
 
