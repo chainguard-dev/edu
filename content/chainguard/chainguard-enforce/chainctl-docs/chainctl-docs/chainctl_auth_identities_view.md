@@ -1,26 +1,26 @@
 ---
 date: 2023-04-04T19:22:58Z
-title: "chainctl iam invites list"
-slug: chainctl_iam_invites_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites_list/
+title: "chainctl auth identities view"
+slug: chainctl_auth_identities_view
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_view/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam invites list
+## chainctl auth identities view
 
-Show invites that are active.
+View the details of an identity.
 
 ```
-chainctl iam invites list [--output table|json|id] [flags]
+chainctl auth identities view {IDENTITY_NAME | IDENTITY_ID} [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for list
+  -h, --help   help for view
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +38,5 @@ chainctl iam invites list [--output table|json|id] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam invites](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities or clusters with Chainguard.
+* [chainctl auth identities](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities/)	 - Identity management.
 
