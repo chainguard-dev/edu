@@ -15,9 +15,9 @@ toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/prometheus-mysqld-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-mysqld-exporter)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
+| Tags     | Aliases                            |
+|----------|------------------------------------|
+| `latest` | `0`, `0.14`, `0.14.0`, `0.14.0-r2` |
 
 
 
