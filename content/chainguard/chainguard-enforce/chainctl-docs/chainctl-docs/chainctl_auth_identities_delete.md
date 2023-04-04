@@ -1,26 +1,27 @@
 ---
 date: 2023-04-04T19:22:58Z
-title: "chainctl iam invites list"
-slug: chainctl_iam_invites_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites_list/
+title: "chainctl auth identities delete"
+slug: chainctl_auth_identities_delete
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam invites list
+## chainctl auth identities delete
 
-Show invites that are active.
+Delete an identity.
 
 ```
-chainctl iam invites list [--output table|json|id] [flags]
+chainctl auth identities delete {IDENTITY_NAME | IDENTITY_ID} [--yes] [--output ] [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for list
+  -h, --help   help for delete
+  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +39,5 @@ chainctl iam invites list [--output table|json|id] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam invites](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities or clusters with Chainguard.
+* [chainctl auth identities](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities/)	 - Identity management.
 

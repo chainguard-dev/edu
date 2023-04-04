@@ -2530,6 +2530,58 @@
           "Clusters"
         ]
       }
+    },
+    "/tenant/v1/risks": {
+      "get": {
+        "operationId": "Risks_List",
+        "parameters": [
+          {
+            "description": "id is the exact UID of the record.",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tenantRiskList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Risks"
+        ]
+      }
     }
   },
   "definitions": {
@@ -2691,6 +2743,13 @@
           "description": "audience_pattern is a regular expression for matching the\ntoken's audience claim.",
           "type": "string"
         },
+        "claimPatterns": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "claim_patterns is a mapping from the name of a custom claim\nto a regular expression for matching that claim's value.",
+          "type": "object"
+        },
         "issuer": {
           "description": "issuer of the OIDC ID tokens issued for this identity.",
           "type": "string"
@@ -2713,6 +2772,9 @@
     "IdentityMetadataOnboardingQuestions": {
       "properties": {
         "companyName": {
+          "type": "string"
+        },
+        "product": {
           "type": "string"
         },
         "providers": {
@@ -2763,6 +2825,18 @@
         },
         "subject": {
           "description": "subject of OIDC ID tokens issued for this identity.\nMatches the `sub` claim.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RecommendationReplaceArtifact": {
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "description": "Target artifact that may be able to resolve this Risk.",
           "type": "string"
         }
       },
@@ -2824,6 +2898,33 @@
         }
       },
       "type": "object"
+    },
+    "RiskDetails": {
+      "properties": {
+        "missingData": {
+          "$ref": "#/definitions/RiskMissingData"
+        }
+      },
+      "type": "object"
+    },
+    "RiskMissingData": {
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/RiskMissingDataType",
+          "title": "What kind of data is missing (e.g. signature, sbom, policy, etc.)"
+        }
+      },
+      "type": "object"
+    },
+    "RiskMissingDataType": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "SIGNATURE",
+        "SBOM",
+        "POLICY"
+      ],
+      "type": "string"
     },
     "RoleBindingListBinding": {
       "properties": {
@@ -3487,8 +3588,22 @@
       },
       "type": "object"
     },
+    "registryCatalogTier": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "FREE",
+        "STANDARD",
+        "PREMIUM"
+      ],
+      "type": "string"
+    },
     "registryRepo": {
       "properties": {
+        "catalogTier": {
+          "$ref": "#/definitions/registryCatalogTier",
+          "description": "catalog_tier is the catalog tier this repository belongs to."
+        },
         "id": {
           "description": "id is the identifier of this specific repository.",
           "type": "string"
@@ -3513,6 +3628,10 @@
     },
     "registryTag": {
       "properties": {
+        "deprecated": {
+          "description": "deprecated, true if the tag is deprecated.",
+          "type": "boolean"
+        },
         "digest": {
           "description": "digest, the digest of the manifest with this tag.",
           "type": "string"
@@ -3880,6 +3999,24 @@
       },
       "type": "object"
     },
+    "tenantRecommendation": {
+      "properties": {
+        "description": {
+          "description": "Output only. Free form text describing how this can be resolved.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "documentationUrl": {
+          "description": "Output only. Chainguard EDU link for more details on this Recommendation.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "replace": {
+          "$ref": "#/definitions/RecommendationReplaceArtifact"
+        }
+      },
+      "type": "object"
+    },
     "tenantRecord": {
       "properties": {
         "cluster": {
@@ -3949,6 +4086,64 @@
       },
       "type": "object"
     },
+    "tenantRisk": {
+      "properties": {
+        "description": {
+          "description": "Output only. Free form text describing this Risk.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "details": {
+          "$ref": "#/definitions/RiskDetails",
+          "description": "What kind of risk is this? Lack of signatures, vulnerability, SBOM quality, etc."
+        },
+        "documentationUrl": {
+          "description": "Output only. Chainguard EDU link for more details on this Risk.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "groupId": {
+          "description": "Grouping identifier to associate Risks in the same UIDP\nto each other.",
+          "type": "string"
+        },
+        "id": {
+          "title": "Risk ID (UIDP resource + unique ID)",
+          "type": "string"
+        },
+        "inputs": {
+          "description": "List of UIDPs that were used to determine this Risk.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "lastSeen": {
+          "description": "Output only. When Enforce last saw this Risk.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "recommendations": {
+          "description": "Optional. Chainguard's recommendation(s) for how to resolve this Risk.",
+          "items": {
+            "$ref": "#/definitions/tenantRecommendation"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "tenantRiskList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/tenantRisk"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "tenantSbom": {
       "properties": {
         "packages": {
@@ -4011,6 +4206,9 @@
     },
     {
       "name": "Records"
+    },
+    {
+      "name": "Risks"
     }
   ]
 }

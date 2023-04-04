@@ -1,5 +1,5 @@
 ---
-date: 2023-03-29T13:31:37Z
+date: 2023-04-04T19:22:58Z
 title: "chainctl auth"
 slug: chainctl_auth
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth/
@@ -35,6 +35,7 @@ Auth related commands for the Chainguard platform.
 ### SEE ALSO
 
 * [chainctl](/chainguard/chainguard-enforce/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl auth identities](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities/)	 - Identity management.
 * [chainctl auth login](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_login/)	 - Login to the Chainguard platform.
 * [chainctl auth logout](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_logout/)	 - Logout from the Chainguard platform.
 * [chainctl auth status](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_status/)	 - Inspect the local Chainguard Token.

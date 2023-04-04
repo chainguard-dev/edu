@@ -1,42 +1,42 @@
 ---
 date: 2023-04-04T19:22:58Z
-title: "chainctl clusters list"
-slug: chainctl_clusters_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_list/
+title: "chainctl auth identities list"
+slug: chainctl_auth_identities_list
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl clusters list
+## chainctl auth identities list
 
-List clusters.
+List identities.
 
 ```
-chainctl clusters list [--name NAME] [--active-within DURATION] [--group GROUP_NAME | GROUP_ID] [--output table|json]
+chainctl auth identities list [--group GROUP_NAME | GROUP_ID] [--name NAME] [--relationship {static, claim_match}] [--output id|table|json]
 ```
 
 ### Examples
 
 ```
-  # List all clusters visible to the current user.
-  chainctl cluster list
+  # List all identities.
+  chainctl auth identities list
   
-  # List all clusters in the group "my-group"
-  chainctl cluster list --group my-group
+  # List all static identities.
+  chainctl auth identities list --relationship=static
   
-  # List all clusters that have some recorded activity within the last 6 hours
-  chainctl cluster list --active-within 6h
+  # Filter identities by name.
+  chainctl auth identities list --name=my-identity
 ```
 
 ### Options
 
 ```
-      --active-within duration   How recently a cluster must have been active to be listed. Zero will return all clusters. (default 24h0m0s)
-      --group string             The name or id of the parent group to list clusters for.
-  -h, --help                     help for list
-  -n, --name string              The given name of the resource.
+      --group string          The name or id of the parent group to list identites from.
+  -h, --help                  help for list
+      --name string           Filter identities by name.
+      --relationship string   Filter identities by relationship type (claim_match, static).
 ```
 
 ### Options inherited from parent commands
@@ -54,5 +54,5 @@ chainctl clusters list [--name NAME] [--active-within DURATION] [--group GROUP_N
 
 ### SEE ALSO
 
-* [chainctl clusters](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters/)	 - Cluster related commands for the Chainguard platform.
+* [chainctl auth identities](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities/)	 - Identity management.
 

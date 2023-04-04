@@ -1,26 +1,22 @@
 ---
 date: 2023-04-04T19:22:58Z
-title: "chainctl iam invites list"
-slug: chainctl_iam_invites_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites_list/
+title: "chainctl auth identities"
+slug: chainctl_auth_identities
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam invites list
+## chainctl auth identities
 
-Show invites that are active.
-
-```
-chainctl iam invites list [--output table|json|id] [flags]
-```
+Identity management.
 
 ### Options
 
 ```
-  -h, --help   help for list
+  -h, --help   help for identities
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +34,10 @@ chainctl iam invites list [--output table|json|id] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam invites](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities or clusters with Chainguard.
+* [chainctl auth](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl auth identities create](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_create/)	 - Create a new identity.
+* [chainctl auth identities delete](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_delete/)	 - Delete an identity.
+* [chainctl auth identities list](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_list/)	 - List identities.
+* [chainctl auth identities update](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_update/)	 - Update an identity
+* [chainctl auth identities view](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_view/)	 - View the details of an identity.
 
