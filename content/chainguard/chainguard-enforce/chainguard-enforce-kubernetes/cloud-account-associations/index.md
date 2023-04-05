@@ -3,7 +3,7 @@ title: "Set Up Chainguard Enforce Cloud Account Associations"
 type: "article"
 description: "How to bind Chainguard Enforce to your cloud provider"
 date: 2022-09-02T15:56:52-07:00
-lastmod: 2023-03-07T15:56:52-07:00
+lastmod: 2023-04-05T15:56:52-07:00
 draft: false
 tags: ["Enforce", "Product", "Procedural"]
 images: []
@@ -41,10 +41,11 @@ Although the exact permissions between these profiles differ slightly between bo
 * `chainguard-enforce-signer` — allows Chainguard to perform [Enforce Signing](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-signing/chainguard-enforce-signing-faqs/)
 * `chainguard-cosigned` — provides access to the open source SigStore policy controller, allowing Enforce to verify container attestations and signatures
 
+A complete table of the IAM resources that Enforce creates is listed at the end of this page in the [Additional IAM Resources section](#additional-iam-resources).
 
 ## Setting up a Cloud Account Association for AWS
 
-To configure (or upgrade) a cloud account association with AWS, start by setting up the association in Chainguard Enforce using `chainctl`. 
+To configure (or upgrade) a cloud account association with AWS, start by setting up the association in Chainguard Enforce using `chainctl`.
 
 First, associate the ID of the relevant Enforce group and the AWS account ID to variables for later use. You can find the IAM group ID by running `chainctl iam groups ls -o table`.
 
@@ -53,7 +54,7 @@ export ENFORCE_GROUP_ID="<<uidp of target Enforce IAM group>>"
 export AWS_ACCOUNT_ID="12 digit AWS account ID to connect to"
 ```
 
-Then, run the `chainctl` command to begin setting up the AWS account with the Enforce group. 
+Then, run the `chainctl` command to begin setting up the AWS account with the Enforce group.
 
 ```sh
 chainctl iam group set-aws $ENFORCE_GROUP_ID --account $AWS_ACCOUNT_ID
@@ -108,7 +109,7 @@ More documentation and examples are available in the [module source repository](
 
 ## Setting up a Cloud Account Association for GCP
 
-To configure (or upgrade) a cloud account association with GCP, first store the ID of the relevant Enforce group, the GCP account ID, and the GCP project number into variables for later use. 
+To configure (or upgrade) a cloud account association with GCP, first store the ID of the relevant Enforce group, the GCP account ID, and the GCP project number into variables for later use.
 
 You can find the IAM group ID (UIDP) by running `chainctl iam groups ls -o table`. To find your GCP project ID and project number, open a web browser window and navigate to [https://console.cloud.google.com/welcome](https://console.cloud.google.com/welcome). Ensure you are in your preferred project from the dropdown in the nav bar, and note your **Project ID** (which should be a string of characters), and your **Project number** (which should be a string of numbers only).
 
@@ -118,7 +119,7 @@ export PROJECT_ID="GCP project ID"
 export PROJECT_NUMBER="GCP project number"
 ```
 
-Next, set up the association in Chainguard Enforce using `chainctl`. 
+Next, set up the association in Chainguard Enforce using `chainctl`.
 
 ```sh
 chainctl iam group set-gcp $ENFORCE_GROUP_ID \
@@ -215,7 +216,7 @@ First, the Console will ask you to authenticate to GCP. Click the **Authenticate
 
 #### Select a Project
 
-In the second step, a dropdown menu will appear with all the projects available for you to choose. Select the project you want to associate with your Chainguard Enforce group and click **Continue**. 
+In the second step, a dropdown menu will appear with all the projects available for you to choose. Select the project you want to associate with your Chainguard Enforce group and click **Continue**.
 
 ![Screenshot showing Step 2 of the GCP cloud account association process. There is a dropdown menu labeled "Project" with no items selected yet.](gcp_step2.png)
 
@@ -260,10 +261,88 @@ chainctl iam groups remove-aws
 
 After running either of these examples, `chainctl` will prompt you to select the Chainguard Enforce group whose association you'd like to remove. After selecting the group, `chainctl` will immediately remove the association.
 
-> Note: As of this writing, it is not possible to remove cloud account associations through the Chainguard Enforce Console.
+> Note: As of this writing, it is not possible to remove cloud account associations through the Chainguard Enforce Console. Also note that using `chainctl` to remove account associations will not remove any AWS IAM roles, GCP service accounts, or workload identity federation settings from your cloud provider.
 
 
 ## Learn More
 
 After setting up a cloud account association, you can use Chainguard Enforce's [Discovery feature](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-discovery-onboarding/) to discover various containerized workloads within your project. You can also set up an [Agentless Connection](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-connect-kubernetes-clusters/#agentless-connections).
 
+## Additional IAM Resources
+
+In addition to the IAM roles or service accounts that Enforce creates for account associations, it also enables/requires the following resources:
+
+|Provider|Resource Type|Display Name|
+|--------|-------------|------------|
+|Google  |serviceusage.Service|storage-component.googleapis.com|
+|Google  |iam.Role     |Custom Role Chainguard Signer CA
+
+You can examine the resources that Enforce creates using the `gcloud` or `aws` command line tools depending on your cloud provider.
+
+### Google IAM Role
+
+Enforce creates an additional IAM role that allows listing certificates from a CA. You can examine the role with the following command:
+
+```
+gcloud iam roles list --project <your project name>
+```
+```
+---
+description: Chainguard signer role to list certificates from a CA
+etag: BwX4lw5KpDY=
+name: projects/<your project name>/roles/chainguardSignerCA
+title: Custom Role Chainguard Signer CA
+```
+
+### Google Workload Identity Pool
+
+Since Enforce uses OIDC for authentication, it relies on Workload Identity Federation to generate short-lived tokens. You can examine the identity pool, and the provider that Enforce creates with the following commands:
+
+```
+ gcloud iam workload-identity-pools list --location=global --project <your project name>
+ ```
+ ```
+---
+description: Identity pool for Chainguard impersonation.
+displayName: Chainguard Pool
+name: projects/<your project number>/locations/global/workloadIdentityPools/chainguard-pool
+state: ACTIVE
+```
+
+### Google Workload Identity Pool Provider
+
+```
+gcloud iam workload-identity-pools providers list --workload-identity-pool=projects/<your project number>/locations/global/workloadIdentityPools/chainguard-pool --location=global --project <your project name>
+```
+```
+---
+attributeMapping:
+  attribute.sub: assertion.sub
+  google.subject: assertion.sub
+description: This is the provider for impersonation by the https://issuer.enforce.dev
+  Chainguard environment's issuer for https://issuer.enforce.dev.
+displayName: chainguard-provider
+name: projects/<your project number>/locations/global/workloadIdentityPools/chainguard-pool/providers/chainguard-provider
+oidc:
+  allowedAudiences:
+  - google
+  issuerUri: https://issuer.enforce.dev
+state: ACTIVE
+```
+
+### Google Service Accounts
+
+As noted in the beginning of this guide, Enforce creates a number of service accounts in your Google project. You can list the accounts with the following command:
+
+```
+gcloud iam service-accounts list --project <your project name>
+```
+```
+DISPLAY NAME  EMAIL                                                                     DISABLED
+              chainguard-agentless@<your project name>.iam.gserviceaccount.com       False
+              chainguard-canary@<your project name>.iam.gserviceaccount.com          False
+              chainguard-ingester@<your project name>.iam.gserviceaccount.com        False
+              chainguard-cosigned@<your project name>.iam.gserviceaccount.com        False
+              chainguard-discovery@<your project name>.iam.gserviceaccount.com       False
+              chainguard-enforce-signer@<your project name>.iam.gserviceaccount.com  False
+```
