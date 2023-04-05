@@ -13,7 +13,7 @@ menu:
   docs:
     parent: "apko"
 weight: 100
-terminalImage: academy/apko:latest
+terminalImage: apko:latest
 toc: true
 ---
 

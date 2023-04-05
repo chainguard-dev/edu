@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "rekor"
 weight: 004
-terminalImage: academy/rekor:latest
+terminalImage: rekor:latest
 toc: true
 ---
 
