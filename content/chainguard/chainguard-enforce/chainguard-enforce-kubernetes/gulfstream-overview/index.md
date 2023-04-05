@@ -25,7 +25,7 @@ Gulfstream was born out of two rising trends within the Kubernetes ecosystem tha
 
 The first is the sheer proliferation of clusters. It's increasingly common for organizations to have multiple clusters per Availability Zone (AZ), as in the following diagram.
 
-![Diagram showing multiple clusters per area zone. Three AZs are represented: us-west2 with Clusters A, B, and C; us-central3 with Clusters E and D; us-east1 with Clusters F, G, H, and I.](clusters_per_AZ.svg)
+![Diagram showing multiple clusters per area zone. Three AZs are represented: us-west2 with Clusters A, B, and C; us-central3 with Clusters E and D; us-east1 with Clusters F, G, H, and I.](clusters_per_AZ.png)
 
 This trend is driven by a number of factors, including the following.
 
@@ -35,13 +35,13 @@ This trend is driven by a number of factors, including the following.
 
 The second trend is the growth of extensions based on [Custom Resource Definitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) (CRDs) within Kubernetes. These kinds of extensions have been used for a variety of purposes, from certificate provisioning to higher level app abstractions to service mesh, as in the following diagram. The following diagram represents a cluster running a variety of common extensions.
 
-![Diagram representing a single cluster running the following extensions: cert-manager, Istio, Tekton, Knative, Kafka Operator, Kpack, Flux, Prometheus Operator.](single_cluster.svg)
+![Diagram representing a single cluster running the following extensions: cert-manager, Istio, Tekton, Knative, Kafka Operator, Kpack, Flux, Prometheus Operator.](single_cluster.png)
 
 CRDs are only made up of data — which is often schematized — but they are brought to life by controller processes and webhooks that conventionally run on the cluster itself, serving as a sort of extension to the built-in control plane processes. 
 
 With traditional controller architectures, every cluster in a fleet runs every one of the clusters needed to run certain abstractions. This means that it's increasingly common for platform operations teams to be managing multiple extensions across many clusters, as in this diagram.
 
-![Diagram similar to the first in this guide, showing multiple clusters across three area zones (us-west2, us-central3, and us-east1). However, this diagram highlights the extensions running on each cluster.](clusters_per_AZ_extensions.svg)
+![Diagram similar to the first in this guide, showing multiple clusters across three area zones (us-west2, us-central3, and us-east1). However, this diagram highlights the extensions running on each cluster.](clusters_per_AZ_extensions.png)
 
 As the number of clusters grows, so does the difficulty and cost of offering managed extensions to each of them, potentially growing into a complexity nightmare.
 
@@ -54,7 +54,7 @@ A *controller* ensures that the actual state of a given object meets its desired
 
 Knative's controller architecture separates the logic of controllers and reconcilers, as the following diagram represents.
 
-![Diagram outlining a typical controller architecture. Within the controller are informers (each with a lister cache), a workqueue, clients, and a reconciler. The informers communicate with the workqueue, which passes events to the reconciler. The reconciler then communicates with the clients and lister cache as it performs reconciliation. Meanwhile, the informers and clients can communicate with an external API server.](controller_architecture.svg)
+![Diagram outlining a typical controller architecture. Within the controller are informers (each with a lister cache), a workqueue, clients, and a reconciler. The informers communicate with the workqueue, which passes events to the reconciler. The reconciler then communicates with the clients and lister cache as it performs reconciliation. Meanwhile, the informers and clients can communicate with an external API server.](controller_architecture.png)
 
 In this architecture, the controller is aware of informers and the workqueue, sets up the various relationships between event triggers and the workqueue, and hands off clients and listers to the reconciler. Reconcilers know nothing about informers, they just know about the clients and listers in order to access what they need to enable reconciliation.
 
