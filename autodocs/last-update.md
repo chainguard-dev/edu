@@ -1,8 +1,5 @@
-## 2023-04-04
+## 2023-04-05
 
 Updated image reference docs.
 
-New images added:
-
-- ntpd-rs
-- prometheus-elasticsearch-exporter
+No new images added.
