@@ -76,8 +76,18 @@ A [software bill of materials](https://edu.chainguard.dev/open-source/sbom/what-
 
 ## Self-assessment
 
-[True or False] The frequency at which a container image is rebuilt does not affect the number of known software vulnerabilities associated with the container image.
+<details>
+  <summary>
+   [True or False] The frequency at which a container image is rebuilt does not affect the number of known software vulnerabilities associated with the container image.
+  </summary>
+False: Infrequently rebuilt images accumulate vulnerabilities as new vulnerabilities are discovered for the packages inside an image.
+</details>
 
-[True or False] Choosing base images with few or no known vulnerabilities reduces security risk and reduces staff toil.
+<details>
+  <summary>
+   [True or False] Choosing base images with few or no known vulnerabilities reduces security risk and reduces staff toil.
+  </summary>
+True: Fewer known vulnerabilities, all things equal, makes the attacker's job harder and reduces the vulnerability triage burden on security teams and developers.
+</details>
 
 For readers interested in an example of images that prioritize the criteria described above, [Chainguard Images](https://github.com/chainguard-images) offers one option.
