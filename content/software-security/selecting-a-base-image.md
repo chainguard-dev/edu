@@ -46,7 +46,7 @@ While some specialists point out that many reported vulnerabilities have never b
 
 Of course, choosing an image that has a low vulnerability count today does not guarantee a low vulnerability count tomorrow. New vulnerabilities can arise, new non-security bugs are patched, and new features emerge for the many packages inside a base image. To enable a software team to take advantage of new fixes, security or otherwise, developers ought to prefer images that are rebuilt frequently. Rebuilding entails using the latest versions of all the constituent packages, which reduces the vulnerability count and enables downstream consumers of the base image to upgrade the version if desired.
 
-Some research suggests that over half of the container images found on Docker hub, a repository for container images, haven’t been updated for four months or longer. Update cadences for official Docker images, a curated set of images, can have similarly slow update cadences. When selecting a base image, a software team should   examine the frequency of updating.
+Some research suggests that over half of the container images found on Docker Hub, a repository for container images, haven’t been updated for four months or longer. Likewise, official Docker images can have similarly slow update cadences. When selecting a base image, a software team should examine the frequency of updating.
 
 ## Choose an image with a minimal number of packages
 
