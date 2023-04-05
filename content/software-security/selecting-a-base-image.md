@@ -60,7 +60,7 @@ The packages inside a container are often sourced from a Linux distribution such
 
 ## Choose an image with maintainers that actively support it
 
-Not all container images are actively maintained. Like open source software packages in general, container images require one or more persons to ensure timely and frequent rebuilds, to manage broader security concerns, and to respond to bugs and issues. Unmaintained or lightly maintained images can pose a problem to software teams that want to prioritize development velocity and security. Without the ability to rapidly work with upstream image maintainers, software teams must either accept the risk of using old versions of the image that potentially haveunpatched bugs, or consider creating and maintaining a fork with the overhead associated with that course of action.
+Not all container images are actively maintained. Like open source software packages in general, container images require one or more persons to ensure timely and frequent rebuilds, manage broader security concerns, and respond to bugs and issues. Unmaintained or lightly maintained images can pose a problem to software teams that want to prioritize development velocity and security. Without the ability to rapidly work with upstream image maintainers, software teams must either accept the risk of using old versions of the image that potentially have unpatched bugs, or consider creating and maintaining a fork with the overhead associated with that course of action.
 
 ## Choose an image that is smaller
 
