@@ -114,7 +114,7 @@
   name = "How to Select a Secure Base Image"
   url = "/software-security/selecting-a-base-image/"
   parent = "menu-security"
-  weight = 20
+  weight = 25
 
 
 [[social]]
