@@ -23,6 +23,9 @@ jobs:
     - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
       uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
 
+    - name: 'Setup gitsign'
+      uses: chainguard-dev/actions/setup-gitsign@main
+
     - name: Authenticate to Google Cloud
       id: auth
       uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
@@ -56,7 +59,6 @@ jobs:
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git config commit.gpgsign false
 
         # Check git status and push changes if needed
         GIT_STATUS=$(git status content --porcelain)
