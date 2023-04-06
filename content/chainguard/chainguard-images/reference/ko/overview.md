@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/ko](https://github.com/chainguard-images/images/tree/main/images/ko)
 | Tags     | Aliases                            |
 |----------|------------------------------------|
-| `latest` | `0`, `0.13`, `0.13.0`, `0.13.0-r1` |
+| `latest` | `0`, `0.13`, `0.13.0`, `0.13.0-r2` |
 
 
 
