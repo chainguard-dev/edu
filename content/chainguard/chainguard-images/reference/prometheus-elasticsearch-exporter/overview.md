@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/prometheus-elasticsearch-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-elasticsearch-exporter)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `1`, `1.5`, `1.5.0`, `1.5.0-r0` |
+| `latest` | `1`, `1.5`, `1.5.0`, `1.5.0-r1` |
 
 
 

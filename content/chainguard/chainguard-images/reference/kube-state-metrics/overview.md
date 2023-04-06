@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/kube-state-metrics](https://github.com/chainguard-images/images/tree/main/images/kube-state-metrics)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.8`, `2.8.2`, `2.8.2-r0`                 |
-| `latest-dev` | `2-dev`, `2.8-dev`, `2.8.2-dev`, `2.8.2-r0-dev` |
+| `latest`     | `2`, `2.8`, `2.8.2`, `2.8.2-r1`                 |
+| `latest-dev` | `2-dev`, `2.8-dev`, `2.8.2-dev`, `2.8.2-r1-dev` |
 
 
 
