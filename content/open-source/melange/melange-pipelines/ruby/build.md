@@ -1,9 +1,9 @@
 ---
 title: "ruby/build"
 type: "article"
-description: "Reference docs for the build melange pipeline"
-date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+description: "Reference docs for the ruby/build melange pipeline"
+date: 2023-04-06T11:07:52+02:0
+lastmod: 2023-04-06T11:07:52+02:0
 draft: false
 tags: ["melange", "Reference"]
 images: []
