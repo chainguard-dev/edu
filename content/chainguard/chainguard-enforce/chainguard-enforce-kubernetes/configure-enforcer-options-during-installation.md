@@ -27,6 +27,7 @@ The list of available Enforcer options are detailed below:
 
 * `webhook_fail_open`: is a flag to enable/disable a fail open behavior for the Enforcer webhooks. Default is set to `false`.
 * `enable_cip_cache`: is a flag to enable/disable cluster image policy (CIP) caching. Default is set to `false`.
+* `namespace_enforcement_mode`: defines the behavior of the Enforcer webhook's label selector. This option accepts two possible values: `opt-out` and `opt-in`. `opt-in` sets a behavior to the Enforcer webhooks where only labeled (`policy.sigstore.dev/include=true`) namespaces will be verified to enforce the defined policies. `opt-out` sets an opposite behavior to the Enforcer webhooks where only labeled (`policy.sigstore.dev/exclude=true`) namespaces will be **excluded** from any verification related to the defined policies. Default is set to `opt-in`.
 
 ## Install with `chainctl`
 
