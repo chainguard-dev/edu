@@ -12,7 +12,7 @@ menu:
     parent: "policy-controller"
 weight: 002
 toc: true
-terminalImage: policy-controller/base:latest
+terminalImage: policy-controller-base:latest
 ---
 
 As of March 20, 2023, the Kubernetes project will be changing registries, from it k8s.gcr.io registry to a community-owned registry at registry.k8s.io. Pull requests to the previous registry will be redirected to the new one, and, on April 3, 2023, the old registry will be deprecated and frozen. You can read more about this on the Kubernetes blogpost, "[k8s.gcr.io Image Registry Will Be Frozen From the 3rd of April 2023](https://kubernetes.io/blog/2023/02/06/k8s-gcr-io-freeze-announcement/)."
