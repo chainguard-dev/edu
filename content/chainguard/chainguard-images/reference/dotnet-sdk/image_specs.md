@@ -43,6 +43,7 @@ The table shows package distribution across all variants.
 | `dotnet-7-sdk`            | X      | X          |
 | `aspnet-7-runtime`        | X      | X          |
 | `aspnet-7-targeting-pack` | X      | X          |
+| `wolfi-baselayout`        | X      | X          |
 | `apk-tools`               |        | X          |
 | `bash`                    |        | X          |
 | `git`                     |        | X          |

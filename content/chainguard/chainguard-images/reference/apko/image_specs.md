@@ -41,4 +41,5 @@ The table shows package distribution across all variants.
 | `wolfi-base`             | X      |
 | `alpine-keys`            | X      |
 | `apko`                   | X      |
+| `wolfi-baselayout`       | X      |
 

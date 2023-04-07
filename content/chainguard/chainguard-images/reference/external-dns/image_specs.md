@@ -39,8 +39,8 @@ The table shows package distribution across all variants.
 |                          | latest | latest-dev |
 |--------------------------|--------|------------|
 | `ca-certificates-bundle` | X      | X          |
-| `wolfi-baselayout`       | X      | X          |
 | `external-dns`           | X      | X          |
+| `wolfi-baselayout`       | X      | X          |
 | `apk-tools`              |        | X          |
 | `bash`                   |        | X          |
 | `busybox`                |        | X          |
