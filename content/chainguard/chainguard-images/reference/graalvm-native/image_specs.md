@@ -37,9 +37,9 @@ The table shows package distribution across all variants.
 
 |                          | latest |
 |--------------------------|--------|
-| `wolfi-baselayout`       | X      |
 | `ca-certificates-bundle` | X      |
 | `tzdata`                 | X      |
 | `zlib`                   | X      |
 | `glibc`                  | X      |
+| `wolfi-baselayout`       | X      |
 

@@ -38,7 +38,7 @@ The table shows package distribution across all variants.
 |                          | latest |
 |--------------------------|--------|
 | `curl`                   | X      |
-| `wolfi-baselayout`       | X      |
 | `libcurl-rustls4`        | X      |
 | `ca-certificates-bundle` | X      |
+| `wolfi-baselayout`       | X      |
 

@@ -37,6 +37,6 @@ The table shows package distribution across all variants.
 
 |                    | latest |
 |--------------------|--------|
-| `wolfi-baselayout` | X      |
 | `fluent-bit`       | X      |
+| `wolfi-baselayout` | X      |
 
