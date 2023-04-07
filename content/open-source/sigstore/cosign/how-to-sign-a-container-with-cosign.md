@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "cosign"
 weight: 003
-terminalImage: academy/cosign:latest
+terminalImage: cosign:latest
 toc: true
 ---
 

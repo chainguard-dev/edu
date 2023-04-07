@@ -38,11 +38,11 @@ The table shows package distribution across all variants.
 |                          | latest |
 |--------------------------|--------|
 | `ca-certificates-bundle` | X      |
-| `wolfi-baselayout`       | X      |
 | `openjdk-17`             | X      |
 | `bash`                   | X      |
 | `busybox`                | X      |
 | `gcc`                    | X      |
 | `git`                    | X      |
 | `bazel-6`                | X      |
+| `wolfi-baselayout`       | X      |
 

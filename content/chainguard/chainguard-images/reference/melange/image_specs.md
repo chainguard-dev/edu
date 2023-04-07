@@ -42,4 +42,5 @@ The table shows package distribution across all variants.
 | `wolfi-base`             | X      |
 | `bubblewrap`             | X      |
 | `melange`                | X      |
+| `wolfi-baselayout`       | X      |
 

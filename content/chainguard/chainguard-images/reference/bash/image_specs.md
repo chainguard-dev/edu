@@ -38,8 +38,8 @@ The table shows package distribution across all variants.
 |                          | latest |
 |--------------------------|--------|
 | `curl`                   | X      |
-| `wolfi-baselayout`       | X      |
 | `bash`                   | X      |
 | `busybox`                | X      |
 | `ca-certificates-bundle` | X      |
+| `wolfi-baselayout`       | X      |
 
