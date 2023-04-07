@@ -78,14 +78,20 @@ Use a liquid tag within markdown to embed a YouTube video. For example, if you w
 To include an interactive terminal in a given tutorial page, add the following line in the Hugo frontmatter:
 
 ```
-academy/apko:latest
-academy/chainguard-images:latest
-academy/cosign:latest
-academy/images-demos:latest
-academy/rekor:latest
-academy/vexctl:latest
-policy-controller/base:latest
-policy-controller/install:latest
+terminalImage: imageName:latest
+```
+
+Use one of the following images depending on the topic:
+
+```
+apko:latest
+chainguard-images:latest
+cosign:latest
+images-demos:latest
+rekor:latest
+vexctl:latest
+policy-controller-base:latest
+policy-controller-install:latest
 ```
 
 The interactive terminal is under active development and not every tool is currently available within the environment.

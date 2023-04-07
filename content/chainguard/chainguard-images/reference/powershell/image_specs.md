@@ -36,8 +36,9 @@ The table has detailed information about each of these variants.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|              | latest | latest-root |
-|--------------|--------|-------------|
-| `busybox`    | X      | X           |
-| `powershell` | X      | X           |
+|                    | latest | latest-root |
+|--------------------|--------|-------------|
+| `busybox`          | X      | X           |
+| `powershell`       | X      | X           |
+| `wolfi-baselayout` | X      | X           |
 

@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/secrets-store-csi-driver](https://github.com/chainguard-images/images/tree/main/images/secrets-store-csi-driver)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.3`, `1.3.2`, `1.3.2-r0`                 |
-| `latest-dev` | `1-dev`, `1.3-dev`, `1.3.2-dev`, `1.3.2-r0-dev` |
+| `latest`     | `1`, `1.3`, `1.3.2`, `1.3.2-r1`                 |
+| `latest-dev` | `1-dev`, `1.3-dev`, `1.3.2-dev`, `1.3.2-r1-dev` |
 
 
 

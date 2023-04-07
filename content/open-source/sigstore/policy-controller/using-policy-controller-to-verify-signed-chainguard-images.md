@@ -13,7 +13,7 @@ menu:
     parent: "policy-controller"
 weight: 006
 toc: true
-terminalImage: policy-controller/base:latest
+terminalImage: policy-controller-base:latest
 ---
 
 This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to verify image signatures before admitting an image into a Kubernetes cluster. In this guide, you will create a `ClusterImagePolicy` that checks for a keyless Cosign image signature, and then test the admission controller by running a signed `nginx` image.

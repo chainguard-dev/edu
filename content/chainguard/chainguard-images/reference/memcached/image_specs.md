@@ -35,7 +35,8 @@ The table has detailed information about each of these variants.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|             | latest |
-|-------------|--------|
-| `memcached` | X      |
+|                    | latest |
+|--------------------|--------|
+| `memcached`        | X      |
+| `wolfi-baselayout` | X      |
 

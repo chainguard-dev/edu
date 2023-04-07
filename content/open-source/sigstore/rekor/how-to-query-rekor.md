@@ -10,7 +10,7 @@ images: []
 menu:
   docs:
     parent: "rekor"
-terminalImage: academy/rekor:latest
+terminalImage: rekor:latest
 weight: 003
 toc: true
 ---

@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/jenkins](https://github.com/chainguard-images/images/tree/main/images/jenkins)
 | Tags     | Aliases                  |
 |----------|--------------------------|
-| `latest` | `2`, `2.397`, `2.397-r0` |
+| `latest` | `2`, `2.399`, `2.399-r0` |
 
 
 
