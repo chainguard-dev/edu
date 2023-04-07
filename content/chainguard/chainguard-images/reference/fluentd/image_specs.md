@@ -40,9 +40,9 @@ The table shows package distribution across all variants.
 
 |                          | latest | latest-dev | edge | edge-dev |
 |--------------------------|--------|------------|------|----------|
-| `wolfi-baselayout`       | X      | X          | X    | X        |
 | `ca-certificates-bundle` | X      | X          | X    | X        |
 | `ruby3.2-fluentd14`      | X      | X          |      |          |
+| `wolfi-baselayout`       | X      | X          | X    | X        |
 | `apk-tools`              |        | X          |      | X        |
 | `bash`                   |        | X          |      | X        |
 | `busybox`                |        | X          |      | X        |

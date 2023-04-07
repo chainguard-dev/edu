@@ -41,4 +41,5 @@ The table shows package distribution across all variants.
 | `wolfi-base`              | X      |
 | `ca-certificates-bundle`  | X      |
 | `busybox`                 | X      |
+| `wolfi-baselayout`        | X      |
 
