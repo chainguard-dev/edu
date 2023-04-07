@@ -38,9 +38,9 @@ The table shows package distribution across all variants.
 |                          | latest |
 |--------------------------|--------|
 | `ca-certificates-bundle` | X      |
-| `wolfi-baselayout`       | X      |
 | `su-exec`                | X      |
 | `envoy`                  | X      |
 | `envoy-oci-entrypoint`   | X      |
 | `envoy-config`           | X      |
+| `wolfi-baselayout`       | X      |
 
