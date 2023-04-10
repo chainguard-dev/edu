@@ -275,7 +275,8 @@ In addition to the IAM roles or service accounts that Enforce creates for accoun
 |Provider|Resource Type|Display Name|
 |--------|-------------|------------|
 |Google  |serviceusage.Service|storage-component.googleapis.com|
-|Google  |iam.Role     |Custom Role Chainguard Signer CA
+|Google  |iam.Role     |Custom Role Chainguard Signer CA |
+|AWS     |AWS::IAM::OIDCProvider | ChainguardIDP |
 
 You can examine the resources that Enforce creates using the `gcloud` or `aws` command line tools depending on your cloud provider.
 
@@ -339,10 +340,64 @@ gcloud iam service-accounts list --project <your project name>
 ```
 ```
 DISPLAY NAME  EMAIL                                                                     DISABLED
+. . .
               chainguard-agentless@<your project name>.iam.gserviceaccount.com       False
               chainguard-canary@<your project name>.iam.gserviceaccount.com          False
               chainguard-ingester@<your project name>.iam.gserviceaccount.com        False
               chainguard-cosigned@<your project name>.iam.gserviceaccount.com        False
               chainguard-discovery@<your project name>.iam.gserviceaccount.com       False
               chainguard-enforce-signer@<your project name>.iam.gserviceaccount.com  False
+. . .
 ```
+
+
+
+### AWS OIDC Provider
+
+Agentless Enforce with AWS creates an OIDC identity provider.
+
+You can examine the created identity provider with the following `aws` command:
+
+```
+aws iam get-open-id-connect-provider --open-id-connect-provider-arn arn:aws:iam::<your account id>:oidc-provider/issuer.enforce.dev
+```
+
+You'll receive a result like the following that shows the provider's configuration:
+
+```
+{
+    "Url": "issuer.enforce.dev",
+    "ClientIDList": [
+        "amazon"
+    ],
+    "ThumbprintList": [
+        "933c6ddee95c9c41a40f9f50493d82be03ad87bf",
+        "08745487e891c19e3078c1f2a07e452950ef36f6"
+    ],
+    "CreateDate": "2023-04-10T13:57:47.799000+00:00",
+    "Tags": []
+}
+```
+
+The `ThumbprintList` contains the SHA-1 fingerprints for certificate authorities that are used to sign certificates that are issued by an identity provider. To learn more about how these fingerprints are used, consult the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html) page about thumbprints.
+
+### AWS IAM Roles
+
+You can list the IAM roles that Enforce creates using the following command:
+
+```
+aws iam list-roles |jq -r '.Roles [] | select(.RoleName |test("chainguard")) | .RoleName'
+```
+
+You will receive output like the following:
+
+```
+chainguard-agentless
+chainguard-canary
+chainguard-cosigned
+chainguard-discovery
+chainguard-enforce-signer
+chainguard-ingester
+```
+
+You can then inspect each of the rules using the `aws iam get-role` command.
