@@ -18,7 +18,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -50,7 +50,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -274,6 +274,9 @@
                   "$ref": "#/definitions/AccountAssociationsAmazon",
                   "description": "amazon holds information associating an Amazon account with the group."
                 },
+                "chainguard": {
+                  "$ref": "#/definitions/AccountAssociationsChainguard"
+                },
                 "description": {
                   "description": "a short description of this association.",
                   "type": "string"
@@ -333,6 +336,9 @@
                 "amazon": {
                   "$ref": "#/definitions/AccountAssociationsAmazon",
                   "description": "amazon holds information associating an Amazon account with the group."
+                },
+                "chainguard": {
+                  "$ref": "#/definitions/AccountAssociationsChainguard"
                 },
                 "description": {
                   "description": "a short description of this association.",
@@ -828,6 +834,10 @@
                 "name": {
                   "description": "name, human readable name of identity.",
                   "type": "string"
+                },
+                "servicePrincipal": {
+                  "$ref": "#/definitions/iamServicePrincipal",
+                  "description": "service_principal is the name of the Chainguard service that is\nallowed to assume this identity.  These names correlate with the\nservice names used in impersonation with account associations."
                 },
                 "static": {
                   "$ref": "#/definitions/IdentityStaticKeys",
@@ -2593,6 +2603,18 @@
       },
       "type": "object"
     },
+    "AccountAssociationsChainguard": {
+      "properties": {
+        "serviceBindings": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "service_bindings map from the Chainguard service principal to the\nUIDP of the identity that service should assume. Constraints:\n- The identity must live directly under \"group\",\n- The identity must be a service_principal,\n- The service_principal of the identity must match the key of this map.\nNote that the key space of this must match the ServicePrincipal enum,\nbut the enum type itself cannot be used here because of:\nhttps://groups.google.com/g/protobuf/c/ikeldBe60eI",
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
     "AccountAssociationsGitHubInstallation": {
       "properties": {
         "appId": {
@@ -2748,6 +2770,13 @@
             "type": "string"
           },
           "description": "claim_patterns is a mapping from the name of a custom claim\nto a regular expression for matching that claim's value.",
+          "type": "object"
+        },
+        "claims": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "claims is a mapping from the name of a custom claim\nto a literal matching that claim's value.",
           "type": "object"
         },
         "issuer": {
@@ -2969,6 +2998,10 @@
           "title": "code is an optional encoded invite code, which allows us to register\nthe caller's identity as a member of a particular group as a particular\nrole.\n+optional",
           "type": "string"
         },
+        "enforcerOptions": {
+          "$ref": "#/definitions/tenantClusterEnforcerOptions",
+          "description": "enforcer_options defines the enforcer options."
+        },
         "identityId": {
           "title": "identity_id is an optional identity id. If the user already exists, this\nby-passes identity registration and continues on to cluster registration\n(if applicable)",
           "type": "string"
@@ -3143,6 +3176,9 @@
           "$ref": "#/definitions/AccountAssociationsAmazon",
           "description": "amazon holds information associating an Amazon account with the group."
         },
+        "chainguard": {
+          "$ref": "#/definitions/AccountAssociationsChainguard"
+        },
         "description": {
           "description": "a short description of this association.",
           "type": "string"
@@ -3281,6 +3317,10 @@
         "name": {
           "description": "name, human readable name of identity.",
           "type": "string"
+        },
+        "servicePrincipal": {
+          "$ref": "#/definitions/iamServicePrincipal",
+          "description": "service_principal is the name of the Chainguard service that is\nallowed to assume this identity.  These names correlate with the\nservice names used in impersonation with account associations."
         },
         "static": {
           "$ref": "#/definitions/IdentityStaticKeys",
@@ -3512,6 +3552,15 @@
         }
       },
       "type": "object"
+    },
+    "iamServicePrincipal": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "COSIGNED",
+        "INGESTER"
+      ],
+      "type": "string"
     },
     "iamSigstore": {
       "properties": {
