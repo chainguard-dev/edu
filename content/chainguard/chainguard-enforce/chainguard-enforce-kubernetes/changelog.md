@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-04-03 21:19:24 +0000 UTC
+date: 2023-04-10 21:46:55 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,24 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.98
+Release date: 2023-04-10
+
+Customer facing changes: N/A
+
+### v0.1.97
+Release date: 2023-04-10
+#### Feature
+- API to support custom claim exact matches in ClaimMatch identity
+- Add support to authenticate with customer managed identity providers using `chainctl auth login --identity-provider=foo`
+- Cluster registration for agentful installation will now persist agent installation options.
+- Introduce a new service principal identity type, which only the named Chainguard service can assume.
+- Introduce the ability to create Chainguard account associations to authorize service principal identities to act on user Chainguard resources explicitly.
+- chainctl can now manage identity providers via `chainct iam identity-providers {create,list,update,delete}`
+#### Bug or Regression
+- Fix invite codes with custom identity provider
+
 
 ### v0.1.96
 Release date: 2023-04-03

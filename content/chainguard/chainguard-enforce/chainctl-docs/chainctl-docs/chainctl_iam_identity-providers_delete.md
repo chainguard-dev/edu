@@ -1,37 +1,34 @@
 ---
 date: 2023-04-10T21:58:49Z
-title: "chainctl clusters discover"
-slug: chainctl_clusters_discover
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_discover/
+title: "chainctl iam identity-providers delete"
+slug: chainctl_iam_identity-providers_delete
+url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_identity-providers_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl clusters discover
+## chainctl iam identity-providers delete
 
-Discover eligible clusters.
+Delete an identity provider.
 
 ```
-chainctl clusters discover [--group GROUP_NAME | GROUP_ID] [--output table|json]
+chainctl iam identity-providers delete IDENTITY_PROVIDER_ID [--yes] [--output id]
 ```
 
 ### Examples
 
 ```
-  chainctl cluster discover
+  # Delete an identity provider
+  chainctl iam identity-providers delete 9b6da6e64b45129eb4e9f9f3ce9b69ca2a550c6b/034e4afcda8c0b07
 ```
 
 ### Options
 
 ```
-      --group string           The name or id of the parent group to discover clusters for.
-  -h, --help                   help for discover
-      --opt strings            extra key=value pairs to define enforcer profile options
-      --profiles stringArray   The names of Chainguard profiles to install into the cluster.
-      --provider strings       The list of cluster providers over which to perform discovery, e.g. gke
-      --states strings         The list of cluster states to return, e.g. UNSUPPORTED, NEEDS_WORK, ELIGIBLE, ENROLLED
+  -h, --help   help for delete
+  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -49,5 +46,5 @@ chainctl clusters discover [--group GROUP_NAME | GROUP_ID] [--output table|json]
 
 ### SEE ALSO
 
-* [chainctl clusters](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters/)	 - Cluster related commands for the Chainguard platform.
+* [chainctl iam identity-providers](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
 
