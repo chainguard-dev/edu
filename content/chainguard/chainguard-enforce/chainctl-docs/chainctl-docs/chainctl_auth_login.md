@@ -1,5 +1,5 @@
 ---
-date: 2023-04-04T19:22:58Z
+date: 2023-04-10T21:58:49Z
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_login/
@@ -36,14 +36,15 @@ chainctl auth login [--identity-token TOKEN] [--invite-code INVITE_CODE | --regi
 ### Options
 
 ```
-      --cluster string          UID of the Cluster.
-      --headless                Skip browser authentication and use device flow.
-  -h, --help                    help for login
-      --identity string         The unique ID of the identity to assume when logging in.
-      --identity-token string   Use an explicit passed identity token or token path.
-      --invite-code string      Registration invite code.
-      --refresh                 Enable auto refresh of the Chainguard token (for workloads).
-      --register                Register a new account if needed. Will create a new root group when an invite code is not specified.
+      --cluster string             UID of the Cluster.
+      --headless                   Skip browser authentication and use device flow.
+  -h, --help                       help for login
+      --identity string            The unique ID of the identity to assume when logging in.
+      --identity-provider string   The unique ID of the customer managed identity provider to authenticate with
+      --identity-token string      Use an explicit passed identity token or token path.
+      --invite-code string         Registration invite code.
+      --refresh                    Enable auto refresh of the Chainguard token (for workloads).
+      --register                   Register a new account if needed. Will create a new root group when an invite code is not specified.
 ```
 
 ### Options inherited from parent commands
