@@ -1,7 +1,5 @@
-## 2023-04-09
+## 2023-04-10
 
 Updated image reference docs.
 
-New images added:
-
-- crane
+No new images added.
