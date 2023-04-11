@@ -18,4 +18,8 @@ The Chainguard Registry provides public access to all public Chainguard Images, 
 
 While all public Chainguard Images are freely available, logging in with a Chainguard account and authenticating when pulling from the registry provides a mechanism for Chainguard to contact you if there are any current or known upcoming issues with images you are pulling.
 
-If you would like to learn more about **Chainguard Images**, you can review our [Images documentation](/chainguard/chainguard-images/overview/), and you can request further information through our [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).
+If you would like to learn more about **Chainguard Images**, you can review our [Images documentation](/chainguard/chainguard-images/overview/), and you can request further information through our [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).
+
+## Status
+
+You can check the status of the Chainguard Registry at [https://status.cgr.dev](https://status.cgr.dev/).
