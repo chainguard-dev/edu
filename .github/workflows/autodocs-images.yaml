@@ -24,6 +24,9 @@ jobs:
           repository: chainguard-images/images
           path: images
 
+      - name: 'Setup gitsign'
+        uses: chainguard-dev/actions/setup-gitsign@main
+
       - name: "Set up workdir"
         run: |
           mkdir -p "${{ github.workspace }}/${{ env.WORKDIR }}" && \
