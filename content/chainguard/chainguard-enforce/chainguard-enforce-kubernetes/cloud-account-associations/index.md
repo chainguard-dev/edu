@@ -270,7 +270,7 @@ After setting up a cloud account association, you can use Chainguard Enforce's [
 
 ## Additional IAM Resources
 
-In addition to the IAM roles or service accounts that Enforce creates for account associations, it also enables/requires the following resources:
+In addition to the IAM roles or service accounts that Enforce creates for account associations, it also enables and requires the following resources:
 
 |Provider|Resource Type|Display Name|
 |--------|-------------|------------|
@@ -300,8 +300,12 @@ title: Custom Role Chainguard Signer CA
 Since Enforce uses OIDC for authentication, it relies on Workload Identity Federation to generate short-lived tokens. You can examine the identity pool, and the provider that Enforce creates with the following commands:
 
 ```
- gcloud iam workload-identity-pools list --location=global --project <your project name>
+ gcloud iam workload-identity-pools list \
+    --location=global --project <your project name>
  ```
+
+ You'll receive the following output:
+
  ```
 ---
 description: Identity pool for Chainguard impersonation.
@@ -312,9 +316,16 @@ state: ACTIVE
 
 ### Google Workload Identity Pool Provider
 
+To inspect the Workload Identity Pool Provider that Enforce creates, use the following command:
+
 ```
-gcloud iam workload-identity-pools providers list --workload-identity-pool=projects/<your project number>/locations/global/workloadIdentityPools/chainguard-pool --location=global --project <your project name>
+gcloud iam workload-identity-pools providers list \
+    --location=global --project <your project name> \
+    --workload-identity-pool=projects/<your project number>/locations/global/workloadIdentityPools/chainguard-pool
 ```
+
+You will receive output like the following:
+
 ```
 ---
 attributeMapping:
@@ -338,6 +349,7 @@ As noted in the beginning of this guide, Enforce creates a number of service acc
 ```
 gcloud iam service-accounts list --project <your project name>
 ```
+
 ```
 DISPLAY NAME  EMAIL                                                                     DISABLED
 . . .
@@ -350,16 +362,14 @@ DISPLAY NAME  EMAIL                                                             
 . . .
 ```
 
-
-
 ### AWS OIDC Provider
 
-Agentless Enforce with AWS creates an OIDC identity provider.
-
-You can examine the created identity provider with the following `aws` command:
+Agentless Enforce with AWS creates an OIDC identity provider. You can examine the created identity provider with the following `aws` command:
 
 ```
-aws iam get-open-id-connect-provider --open-id-connect-provider-arn arn:aws:iam::<your account id>:oidc-provider/issuer.enforce.dev
+aws iam get-open-id-connect-provider \
+  --open-id-connect-provider-arn \
+  arn:aws:iam::<your account id>:oidc-provider/issuer.enforce.dev
 ```
 
 You'll receive a result like the following that shows the provider's configuration:
@@ -386,7 +396,8 @@ The `ThumbprintList` contains the SHA-1 fingerprints for certificate authorities
 You can list the IAM roles that Enforce creates using the following command:
 
 ```
-aws iam list-roles |jq -r '.Roles [] | select(.RoleName |test("chainguard")) | .RoleName'
+aws iam list-roles | \
+  jq -r '.Roles [] | select(.RoleName |test("chainguard")) | .RoleName'
 ```
 
 You will receive output like the following:
