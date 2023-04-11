@@ -2,8 +2,8 @@
 title: "Limit the “Build Horizon” of Build Artifacts with the Maximum Image Age Policy"
 type: "article"
 description: "Understanding Identity and Access Management in Chainguard Enforce"
-date: 2023-10-04T15:22:20+01:00
-lastmod: 2023-10-04T15:22:20+01:00
+date: 2023-04-10T15:22:20+01:00
+lastmod: 2023-04-11T15:22:20+01:00
 draft: false
 images: []
 tags: ["policy-controller", "Policies", "Enforce", "Product"]
