@@ -39,6 +39,7 @@ The table shows package distribution across all variants.
 |--------------------------------|--------|
 | `ca-certificates-bundle`       | X      |
 | `wolfi-baselayout`             | X      |
+| `glibc-locale-en`              | X      |
 | `busybox`                      | X      |
 | `postgresql-15`                | X      |
 | `postgresql-15-client`         | X      |
