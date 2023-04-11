@@ -14,7 +14,7 @@ weight: 50
 toc: true
 ---
 
-> _This document relates to Chainguard Enforce. You can request access to Chainguard Enforce through selecting **Chainguard Enforce for Kubernetes** on our [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+> _This document relates to Chainguard Enforce. You can request access to Chainguard Enforce through selecting **Chainguard Enforce** on our [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 An organization's software supply chain can contain many possible points of entry for malicious actors and lots of potential for unintended vulnerabilities. Indeed, with recent high-profile security incidents like the SolarWinds breach and the discovery of the Log4Shell vulnerability, [software supply chain security](/software-security/what-is-software-supply-chain-security/) has become a top priority for many organizations.
 

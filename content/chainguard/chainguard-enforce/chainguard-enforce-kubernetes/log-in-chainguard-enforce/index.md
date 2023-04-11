@@ -14,7 +14,7 @@ weight: 75
 toc: true
 ---
 
-> _This document relates to Chainguard Enforce, which you will need access to in order to follow along. You can request access through selecting **Chainguard Enforce for Kubernetes** on our [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+> _This document relates to Chainguard Enforce, which you will need access to in order to follow along. You can request access through selecting **Chainguard Enforce** on our [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 Chainguard Enforce currently offers login and authentication through three different OpenID Connect identity providers: Google, GitHub, and GitLab. [OpenID Connect](https://openid.net/connect/) (OIDC) provides an identity layer on top of the OAuth 2.0 protocol, and it is integrated with both the Chainguard Enforce Console web browser interface and `chainctl` on the command line. This document will walk through both of these workflows.
 
