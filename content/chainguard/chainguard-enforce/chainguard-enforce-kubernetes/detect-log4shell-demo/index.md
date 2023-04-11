@@ -14,7 +14,7 @@ weight: 505
 toc: true
 ---
 
-> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 Apache Log4j is a popular logging framework for Java applications, developed and maintained by the Apache Software Foundation. In November 2021, [a vulnerability was discovered in Log4j2](https://nvd.nist.gov/vuln/detail/CVE-2021-44228) that allowed attackers to intercept data and potentially run malicious code remotely on applications where it was installed. The vulnerability became known as "Log4Shell."
 

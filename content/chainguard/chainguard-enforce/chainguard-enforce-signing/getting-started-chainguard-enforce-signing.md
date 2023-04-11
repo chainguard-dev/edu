@@ -14,7 +14,7 @@ weight: 10
 toc: true
 ---
 
-**Chainguard Enforce Signing is in _Beta Preview_. You can request access to the product selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).**
+**Chainguard Enforce Signing is in _Beta Preview_. You can request access to the product selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).**
 
 Powered by the open source security tool suite [Sigstore](https://www.sigstore.dev/), Chainguard Enforce Signing enables you to generate digital signatures for software artifacts inside your own organization using the individual identities of your team members and [ephemeral keys](https://www.chainguard.dev/unchained/the-principle-of-ephemerality). Enforce Signing can be monitoried and audited against your organization's compliance and privacy requirements so you have full control. Learn more about Enforce Signing in our [Overview and FAQs doc](/chainguard/chainguard-enforce/chainguard-enforce-signing/chainguard-enforce-signing-faqs/).
 
@@ -22,7 +22,7 @@ This guide will onboard you to Chainguard Enforce Signing.
 
 ## Prerequisites
 
-In addition to having access to Chainguard Enforce (which you can request via our [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)) and an [IAM group](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-manage-iam-groups-in-chainguard-enforce/) set up, you will need the following tools and versions noted in order to follow this guide.
+In addition to having access to Chainguard Enforce (which you can request via our [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)) and an [IAM group](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-manage-iam-groups-in-chainguard-enforce/) set up, you will need the following tools and versions noted in order to follow this guide.
 
 * Public cloud access; on-premises workloads are not supported at this time.
 * Your own certificate authority (CA), to set one up with GCP or AWS, follow our [CA setup guide](/chainguard/chainguard-enforce/chainguard-enforce-signing/enforce-signing-setup)

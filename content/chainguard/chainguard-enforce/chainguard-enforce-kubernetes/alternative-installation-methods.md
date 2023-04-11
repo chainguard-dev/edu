@@ -15,7 +15,7 @@ weight: 70
 toc: true
 ---
 
-> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 There are currently three recommended approaches to installing the Chainguard Enforce Agent. This guide will walk you through each of these approaches. 
 
@@ -27,7 +27,7 @@ The second two methods are two approaches to declarative installs, which define 
 
 ## Prerequisites
 
-You'll need access to Chainguard Enforce (sign up via the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)), with a group and cluster already set up.
+You'll need access to Chainguard Enforce (sign up via the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)), with a group and cluster already set up.
 
 Regardless of the method you choose, you'll need `chainctl` installed, which you can achieve by following our [How to Install `chainctl` tutorial](/chainguard/chainguard-enforce/how-to-install-chainctl/).
 
