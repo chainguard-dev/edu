@@ -13,7 +13,7 @@ weight: 70
 toc: true
 ---
 
-> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docss)._
+> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 There is currently a limited list of enforcer options that can be configured when installing Chainguard into a current Kubernetes cluster. This guide will walk you through each of these Enforcer configuration settings. 
 
