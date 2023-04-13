@@ -11,6 +11,10 @@ env:
 
 jobs:
   main:
+    permissions:
+      id-token: write # Enable OIDC
+      pull-requests: write
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: "Check out Destination Repo"
