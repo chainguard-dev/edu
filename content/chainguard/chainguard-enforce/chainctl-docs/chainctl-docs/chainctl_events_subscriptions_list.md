@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl events subscriptions list"
 slug: chainctl_events_subscriptions_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_events_subscriptions_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -39,5 +39,5 @@ chainctl events subscriptions list [--group GROUP_NAME | GROUP_ID] [--output tab
 
 ### SEE ALSO
 
-* [chainctl events subscriptions](/chainguard/chainguard-enforce/chainctl-docs/chainctl_events_subscriptions/)	 - Subscription interactions.
+* [chainctl events subscriptions](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions/)	 - Subscription interactions.
 

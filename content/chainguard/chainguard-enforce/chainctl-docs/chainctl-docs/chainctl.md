@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl"
 slug: chainctl
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl/
+url: /chainguard/chainctl/chainctl-docs/chainctl/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -33,13 +33,13 @@ chainctl [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
-* [chainctl clusters](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters/)	 - Cluster related commands for the Chainguard platform.
-* [chainctl config](/chainguard/chainguard-enforce/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
-* [chainctl events](/chainguard/chainguard-enforce/chainctl-docs/chainctl_events/)	 - Events related commands for the Chainguard platform.
-* [chainctl iam](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl policies](/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies/)	 - Policy related commands for the Chainguard platform.
-* [chainctl sigstore](/chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore/)	 - Sigstore related commands for the Chainguard platform.
-* [chainctl update](/chainguard/chainguard-enforce/chainctl-docs/chainctl_update/)	 - Update chainctl.
-* [chainctl version](/chainguard/chainguard-enforce/chainctl-docs/chainctl_version/)	 - Prints the version
+* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl clusters](/chainguard/chainctl/chainctl-docs/chainctl_clusters/)	 - Cluster related commands for the Chainguard platform.
+* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl events](/chainguard/chainctl/chainctl-docs/chainctl_events/)	 - Events related commands for the Chainguard platform.
+* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Policy related commands for the Chainguard platform.
+* [chainctl sigstore](/chainguard/chainctl/chainctl-docs/chainctl_sigstore/)	 - Sigstore related commands for the Chainguard platform.
+* [chainctl update](/chainguard/chainctl/chainctl-docs/chainctl_update/)	 - Update chainctl.
+* [chainctl version](/chainguard/chainctl/chainctl-docs/chainctl_version/)	 - Prints the version
 

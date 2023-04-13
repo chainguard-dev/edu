@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl iam role-bindings"
 slug: chainctl_iam_role-bindings
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -34,9 +34,9 @@ IAM role-bindings resource interactions.
 
 ### SEE ALSO
 
-* [chainctl iam](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam role-bindings create](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings_create/)	 - Create a role-binding
-* [chainctl iam role-bindings delete](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings_delete/)	 - Delete a role-binding.
-* [chainctl iam role-bindings list](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings_list/)	 - List role-bindings.
-* [chainctl iam role-bindings update](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings_update/)	 - Update a role-binding.
+* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
+* [chainctl iam role-bindings create](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_create/)	 - Create a role-binding
+* [chainctl iam role-bindings delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_delete/)	 - Delete a role-binding.
+* [chainctl iam role-bindings list](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_list/)	 - List role-bindings.
+* [chainctl iam role-bindings update](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_update/)	 - Update a role-binding.
 

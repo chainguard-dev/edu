@@ -1,30 +1,30 @@
 ---
-date: 2023-04-11T16:56:59Z
-title: "chainctl auth identities create github"
-slug: chainctl_auth_identities_create_github
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_create_github/
+date: 2023-04-13T20:18:43Z
+title: "chainctl iam identities create github"
+slug: chainctl_iam_identities_create_github
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_github/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth identities create github
+## chainctl iam identities create github
 
 
 
 ```
-chainctl auth identities create github NAME --github-repo=REPO [--github-ref=REF] [--github-audience=AUD] [--group=GROUP] [--description=DESC] [--role=ROLE] [--output id|table|json]
+chainctl iam identities create github NAME --github-repo=REPO [--github-ref=REF] [--github-audience=AUD] [--group=GROUP] [--description=DESC] [--role=ROLE] [--output id|table|json]
 ```
 
 ### Examples
 
 ```
   # Create a GitHub Actions identity for any branch in a repo
-  chainctl auth identities create github my-gha-identity --github-repo=my-org/repo-name --group=eng-group
+  chainctl iam identities create github my-gha-identity --github-repo=my-org/repo-name --group=eng-group
   
   # Create a GitHub Actions identity for a given branch in a repo and bind to a role
-  chainctl auth identities create github my-gha-identity --github-repo=my-org/repo-name --github-ref=refs/heads/test-branch --role=owner
+  chainctl iam identities create github my-gha-identity --github-repo=my-org/repo-name --github-ref=refs/heads/test-branch --role=owner
 ```
 
 ### Options
@@ -56,5 +56,5 @@ chainctl auth identities create github NAME --github-repo=REPO [--github-ref=REF
 
 ### SEE ALSO
 
-* [chainctl auth identities create](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_create/)	 - Create a new identity.
+* [chainctl iam identities create](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/)	 - Create a new identity.
 

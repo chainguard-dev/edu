@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl config unset"
 slug: chainctl_config_unset
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_config_unset/
+url: /chainguard/chainctl/chainctl-docs/chainctl_config_unset/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -49,5 +49,5 @@ chainctl config unset PROPERTY_NAME
 
 ### SEE ALSO
 
-* [chainctl config](/chainguard/chainguard-enforce/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
 

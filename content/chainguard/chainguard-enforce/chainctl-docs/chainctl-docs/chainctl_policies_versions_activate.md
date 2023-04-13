@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl policies versions activate"
 slug: chainctl_policies_versions_activate
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_versions_activate/
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_versions_activate/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -14,7 +14,17 @@ toc: true
 Select a version of a policy to enforce.
 
 ```
-chainctl policies versions activate {VERSION_ID | --policy POLICY} [--output table|json]
+chainctl policies versions activate {VERSION_ID | --policy=POLICY} [--output table|json]
+```
+
+### Examples
+
+```
+  # Activate a version by ID
+  chainctl policies versions activate 617ec5ae...
+  
+  # Interactively select which version to activate from a list of all versions for a policy
+  chainctl policies versions activate --policy=my-policy
 ```
 
 ### Options
@@ -39,5 +49,5 @@ chainctl policies versions activate {VERSION_ID | --policy POLICY} [--output tab
 
 ### SEE ALSO
 
-* [chainctl policies versions](/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_versions/)	 - Commands for interacting with policy versions on the Chainguard platform.
+* [chainctl policies versions](/chainguard/chainctl/chainctl-docs/chainctl_policies_versions/)	 - Commands for interacting with policy versions on the Chainguard platform.
 

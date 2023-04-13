@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl clusters print-config"
 slug: chainctl_clusters_print-config
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_print-config/
+url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_print-config/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -40,5 +40,5 @@ chainctl clusters print-config
 
 ### SEE ALSO
 
-* [chainctl clusters](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters/)	 - Cluster related commands for the Chainguard platform.
+* [chainctl clusters](/chainguard/chainctl/chainctl-docs/chainctl_clusters/)	 - Cluster related commands for the Chainguard platform.
 

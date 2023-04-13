@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl sigstore ca create"
 slug: chainctl_sigstore_ca_create
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_ca_create/
+url: /chainguard/chainctl/chainctl-docs/chainctl_sigstore_ca_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -45,5 +45,5 @@ chainctl sigstore ca create --group GROUP_NAME | GROUP_ID {--ca googleca --googl
 
 ### SEE ALSO
 
-* [chainctl sigstore ca](/chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_ca/)	 - Sigstore commands related to certificate authorities
+* [chainctl sigstore ca](/chainguard/chainctl/chainctl-docs/chainctl_sigstore_ca/)	 - Sigstore commands related to certificate authorities
 
