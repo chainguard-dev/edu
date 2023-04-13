@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/haproxy](https://github.com/chainguard-images/images/tree/main/images/haproxy)
 | Tags     | Aliases                           |
 |----------|-----------------------------------|
-| `latest` | `2`, `2.6`, `2.6.11`, `2.6.11-r0` |
+| `latest` | `2`, `2.6`, `2.6.12`, `2.6.12-r0` |
 
 
 
