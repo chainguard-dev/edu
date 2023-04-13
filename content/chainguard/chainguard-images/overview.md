@@ -6,6 +6,7 @@ lead: "A primer on Chainguard Images and the distroless approach"
 date: 2022-09-01T08:49:31+00:00
 lastmod: 2022-09-01T08:49:31+00:00
 draft: false
+tags: ["Chainguard Images", "Product", "Overview"]
 images: []
 menu:
   docs:
@@ -27,11 +28,11 @@ Main features include:
 - Verifiable signatures provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
 - Automated nightly builds to ensure images are completely up-to-date and contain all available security patches
 
-Chainguard Images are available [on Github](https://github.com/chainguard-images) and the `cgr.dev` registry.
+Chainguard Images are available from the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/) and can be pulled from `cgr.dev`. You can review images files [on GitHub](https://github.com/chainguard-images).
 
 ## Why Distroless
 
-[Distroless images](https://blog.chainguard.dev/minimal-container-images-towards-a-more-secure-future/) are the result of pushing minimalism in containers to the next level. When compared to traditional base images such as [alpine](https://hub.docker.com/_/alpine) or [debian](https://hub.docker.com/_/debian), they are more stripped back, lacking even a shell or package managers. However, compared to the empty “scratch” image, they do contain structure essential for the majority of Linux applications such as root certificates for TLS and core files like `/etc/passwd`.
+[Distroless images](https://blog.chainguard.dev/minimal-container-images-towards-a-more-secure-future/) are the result of pushing minimalism in containers to the next level. When compared to traditional base images such as [Alpine](https://hub.docker.com/_/alpine) or [Debian](https://hub.docker.com/_/debian), they are more stripped back, lacking even a shell or package managers. However, compared to the empty “scratch” image, they do contain structure essential for the majority of Linux applications such as root certificates for TLS and core files like `/etc/passwd`.
 
 The following graph shows a comparison between the official Nginx image and Chainguard's Nginx image, based on the number of CVEs (common vulnerabilities and exposures) detected by Trivy:
 

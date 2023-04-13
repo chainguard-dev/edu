@@ -78,14 +78,80 @@ Use a liquid tag within markdown to embed a YouTube video. For example, if you w
 To include an interactive terminal in a given tutorial page, add the following line in the Hugo frontmatter:
 
 ```
-academy/apko:latest
-academy/chainguard-images:latest
-academy/cosign:latest
-academy/images-demos:latest
-academy/rekor:latest
-academy/vexctl:latest
-policy-controller/base:latest
-policy-controller/install:latest
+terminalImage: imageName:latest
+```
+
+Use one of the following images depending on the topic:
+
+```
+apko:latest
+chainguard-images:latest
+cosign:latest
+images-demos:latest
+rekor:latest
+vexctl:latest
+policy-controller-base:latest
+policy-controller-install:latest
 ```
 
 The interactive terminal is under active development and not every tool is currently available within the environment.
+
+### Adding Tags
+
+To add tags to a piece of content, add the following line to the file's front matter: 
+
+`tags: ["Tag1", Tag2", etc]`
+
+This line should appear between the `draft` line and the `images` line in the front matter.   
+
+For example: 
+
+```
+...
+draft: false
+tags: ["Chainguard Images", "Overview", "Product"]
+images: []
+menu:
+...
+```
+
+When applying tags, please make sure they conform to the working tag list below so that the tagging logic is consistent. If you'd like to add a new tag or suggest a tag revision, please submit a PR with a justification for the change. 
+
+
+Tags are based on:
+* _Content topics_ covered in the content, such as tools (Enforce, apko, etc), orgs/standards (OCI, SLSA, etc), and other relevant topics (SBOMs, etc).
+* _Content types_ represented by the content, such procedural, conceptual, interactive, troubleshooting, etc. 
+
+**Tags Working List**
+
+**Topic tags**
+* apko
+* chainctl 
+* Cosign
+* Enforce
+* Fulcio
+* Chainguard Images
+* melange
+* OCI
+* Policy
+* policy-controller
+* Product 
+* Rekor
+* SBOM
+* Sigstore
+* SLSA
+* VEX
+* Wolfi
+
+### Type 
+
+* Cheat Sheet
+* Conceptual
+* FAQ
+* Interactive
+* Overview 
+* Procedural 
+* Reference
+* Troubleshooting
+* Video
+* Workshop Kit

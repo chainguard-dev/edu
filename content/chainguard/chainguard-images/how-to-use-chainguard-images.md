@@ -6,6 +6,7 @@ lead: "A primer on how to migrate to Chainguard Images"
 date: 2022-09-01T08:49:31+00:00
 lastmod: 2023-01-23T19:42:31+00:00
 draft: false
+tags: ["Chainguard Images", "Procedural", "Product"]
 images: []
 menu:
   docs:
@@ -26,7 +27,7 @@ Chainguard Images are fully OCI compatible, which means they work seamlessly wit
 
 Most Chainguard Images do not include a package manager such as `apt` or `apk`. This is by design to keep images minimal, following the distroless approach.
 
-There are a few different ways to include additional software on distroless images, depending on your use case. If you are using Chainguard Images with  Dockerfile pipelines, you can add artifacts from a multi-stage Docker build. Alternatively, you can use Chainguard’s [apko](/open-source/apko/getting-started-with-apko/) and [melange](/open-source/melange/getting-started-with-melange/) tooling to add extra software (this will also give you some extra features like build-time SBOM support).
+There are a few different ways to include additional software on distroless images, depending on your use case. If you are using Chainguard Images with  Dockerfile pipelines, you can add artifacts from a multi-stage Docker build. Alternatively, you can use Chainguard’s [apko](/open-source/apko/getting-started-with-apko/) and [melange](/open-source/melange/tutorials/getting-started-with-melange/) tooling to add extra software (this will also give you some extra features like build-time SBOM support).
 
 ### Using the Distroless Base Images
 
@@ -89,7 +90,7 @@ It often happens that you want a distroless image with one or two extra packages
 
 1. Compile the dependency from source and use a multi-stage Dockerfile to create a new base image. This works, but may require considerable effort to get the dependency compiling and to keep it up to date. This process quickly becomes untenable if you require several dependencies.
 2. Use the `wolfi-base` image that includes apk tools to install the package in the traditional Dockerfile manner. This works but sacrifices a lot of the advantages of the “distroless” philosophy.
-3. Use Chainguard’s [melange and apko tooling to create a custom base image](/open-source/melange/getting-started-with-melange/). This keeps the image as minimal as possible without sacrificing maintainability.
+3. Use Chainguard’s [melange and apko tooling to create a custom base image](/open-source/melange/tutorials/getting-started-with-melange/). This keeps the image as minimal as possible without sacrificing maintainability.
 
 ### Using the wolfi-base Image
 The `wolfi-base` image is a good starting point to try out Chainguard Images. Unlike most of the other images, which are strictly distroless, `wolfi-base` includes the `apk` package manager, which facilitates composing additional software into it. Just keep in mind that the resulting image will be a little larger due to the extra software and won't have a comprehensive SBOM that covers all your dependencies, since the new software will be added as a layer on top of `wolfi-base`.

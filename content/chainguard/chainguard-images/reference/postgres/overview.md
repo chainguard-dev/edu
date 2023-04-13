@@ -5,6 +5,7 @@ description: "Overview: postgres Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -89,3 +90,4 @@ You should see the newly created `accounts` table
  public | accounts | table | postgres
 (1 row)
 ```
+

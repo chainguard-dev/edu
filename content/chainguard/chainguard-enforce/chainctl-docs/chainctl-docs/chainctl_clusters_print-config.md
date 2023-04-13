@@ -1,9 +1,10 @@
 ---
-date: 2023-03-13T22:56:41Z
+date: 2023-04-11T16:56:59Z
 title: "chainctl clusters print-config"
 slug: chainctl_clusters_print-config
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_print-config/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
@@ -20,6 +21,7 @@ chainctl clusters print-config
 
 ```
   -h, --help                   help for print-config
+      --opt strings            extra key=value pairs to define enforcer profile options
       --profiles stringArray   The names of Chainguard profiles to install into the cluster.
 ```
 

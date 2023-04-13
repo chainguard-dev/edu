@@ -5,6 +5,7 @@ description: "Overview: bazel Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/bazel](https://github.com/chainguard-images/images/tree/main/images/bazel)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `6`, `6.0`, `6.0.0`, `6.0.0-r3` |
+| `latest` | `6`, `6.1`, `6.1.1`, `6.1.1-r0` |
 
 
 
@@ -69,3 +70,4 @@ and see the message from the example application
 ```sh
 Hi
 ```
+

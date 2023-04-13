@@ -5,6 +5,7 @@ description: "Overview: python Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,12 +15,12 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/python](https://github.com/chainguard-images/images/tree/main/images/python)
-| Tags         | Aliases                            |
-|--------------|------------------------------------|
-| `3.10`       | `3`, `3.10`, `3.10.9`, `3.10.9-r3` |
-| `3.10-dev`   | `3`, `3.10`, `3.10.9`, `3.10.9-r3` |
-| `latest`     | `3`, `3.11`, `3.11.1`, `3.11.1-r8` |
-| `latest-dev` | `3`, `3.11`, `3.11.1`, `3.11.1-r8` |
+| Tags         | Aliases                                            |
+|--------------|----------------------------------------------------|
+| `3.10`       | `3.10`, `3.10.11`, `3.10.11-r0`                    |
+| `3.10-dev`   | `3.10-dev`, `3.10.11-dev`, `3.10.11-r0-dev`        |
+| `latest`     | `3`, `3.11`, `3.11.3`, `3.11.3-r0`                 |
+| `latest-dev` | `3-dev`, `3.11-dev`, `3.11.3-dev`, `3.11.3-r0-dev` |
 
 
 
@@ -63,3 +64,4 @@ COPY main.py .
 
 ENTRYPOINT [ "python", "/app/main.py" ]
 ```
+

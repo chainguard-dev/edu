@@ -5,6 +5,7 @@ description: "Overview: gcc-musl Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,9 +15,9 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/gcc-musl](https://github.com/chainguard-images/images/tree/main/images/gcc-musl)
-| Tags     | Aliases                                                     |
-|----------|-------------------------------------------------------------|
-| `latest` | `12`, `12.2`, `12.2.1_git20220924`, `12.2.1_git20220924-r9` |
+| Tags     | Aliases                                                      |
+|----------|--------------------------------------------------------------|
+| `latest` | `12`, `12.2`, `12.2.1_git20220924`, `12.2.1_git20220924-r10` |
 
 
 
@@ -74,3 +75,4 @@ FROM cgr.dev/chainguard/static
 COPY --from=build /work/hello /hello
 CMD ["/hello"]
 ```
+

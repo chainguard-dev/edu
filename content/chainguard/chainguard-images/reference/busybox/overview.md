@@ -5,6 +5,7 @@ description: "Overview: busybox Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/busybox](https://github.com/chainguard-images/images/tree/main/images/busybox)
 | Tags           | Aliases                                                    |
 |----------------|------------------------------------------------------------|
-| `latest`       | `1`, `1.36`, `1.36.0`, `1.36.0-r5`                         |
+| `latest`       | `1`, `1.36`, `1.36.0`, `1.36.0-r7`                         |
 | `latest-glibc` | `glibc-1`, `glibc-1.36`, `glibc-1.36.0`, `glibc-1.36.0-r0` |
 
 
@@ -63,3 +64,4 @@ You can get a running shell on the image like this:
 ```shell
 docker run -it cgr.dev/chainguard/busybox:latest sh
 ```
+

@@ -1,0 +1,8 @@
+{{ range $i := $.Site.Data.notices }}
+{{ if eq $i.title $.Params.Title }}
+<div id="note" class="{{ $i.type | lower }}">
+  <h2>{{ $i.type }}</h2>
+  {{ $i.note | markdownify}}
+</div>
+{{ end }}
+{{ end }}

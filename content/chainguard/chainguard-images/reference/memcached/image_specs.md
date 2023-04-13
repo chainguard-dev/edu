@@ -5,6 +5,7 @@ description: "Detailed specs for memcached Chainguard Image Variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -34,6 +35,8 @@ The table has detailed information about each of these variants.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|             | latest |
-|-------------|--------|
-| `memcached` | X      |
+|                    | latest |
+|--------------------|--------|
+| `memcached`        | X      |
+| `wolfi-baselayout` | X      |
+

@@ -1,23 +1,22 @@
 ---
-title: "How to create policies in the Chainguard Enforce Console"
+title: "Manage Policies in the Enforce Console"
 type: "article"
 description: "Creating policies in the Chainguard Enforce UI"
 date: 2022-10-16T11:07:52+02:00
-lastmod: 2022-11-29T11:07:52+02:00
+lastmod: 2023-03-28T11:07:52+02:00
 draft: false
+tags: ["Enforce", "Product", "Procedural", "Policy"]
 images: []
 menu:
   docs:
     parent: "chainguard-enforce-kubernetes"
-weight: 500
+weight: 80
 toc: true
 ---
 
-> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
-
 Security policies in Chainguard Enforce ensure that our development teams are deploying containers within set policies. 
 
-We can associate a policy YAML file with a given group in order to achieve our security goals. This guide will go through how to set up policies on the Chainguard Enforce user interface available to you via [console.enforce.dev](https://console.enforce.dev). You must already have an account with Chainguard to follow this guide. You can request access for **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).
+We can associate a policy YAML file with a given group in order to achieve our security goals. This guide will go through how to set up policies on the Chainguard Enforce user interface available to you via [console.enforce.dev](https://console.enforce.dev). You must already have an account with Chainguard to follow this guide. You can request access for **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).
 
 In the Chainguard Enforce Console, we have a [policy catalogue](https://console.enforce.dev/policies/catalog) that provides example policies that you can use right away or modify for your use case. You may also wish to check out our page on [Chainguard Enforce Policy Examples](../chainguard-enforce-policy-examples). If you would like to use the CLI to work with policies, review our [`chainctl` policy docs](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_apply/) and review our guidance on [how to manage policies with `chainctl`](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-policies-cli/).
 
@@ -42,6 +41,12 @@ These are displayed in a table by the policy's **Name**, **Violations** and **Gr
 ![Chainguard Enforce policy table](policy-table.png)
 
 If your table indicates that there are current violations, you can click on the **Violations** button to learn more about these violations.
+
+Note that the policies page also indicates whether a given policy is in **Enforce** or **Warn** mode.
+
+![Warn or Enforce mode indicated in policy table](enforce-console-warn-enforce-mode.png)
+
+You can modify whether a policy is in Enforce or Warn mode by editing the YAML file. Review our doc on [Disabling Policy Enforcement](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-disable-policy-enforcement/) for more details. 
 
 ## Initialize a new policy
 

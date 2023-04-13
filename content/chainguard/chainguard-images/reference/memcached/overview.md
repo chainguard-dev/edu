@@ -5,6 +5,7 @@ description: "Overview: memcached Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/memcached](https://github.com/chainguard-images/images/tree/main/images/memcached)
 | Tags     | Aliases                           |
 |----------|-----------------------------------|
-| `latest` | `1`, `1.6`, `1.6.18`, `1.6.18-r0` |
+| `latest` | `1`, `1.6`, `1.6.19`, `1.6.19-r0` |
 
 
 
@@ -60,3 +61,4 @@ Connection closed by foreign host.
 ## Users and Directories
 
 By default this image runs as a non-root user named `memcached` with a uid of 65532.
+

@@ -1,11 +1,11 @@
 ---
-title: "How to Use Rego Policies with Chainguard Enforce"
+title: "Rego Policies"
 type: "article"
 description: "Writing Rego-based policies for Chainguard Enforce"
 date: 2023-01-12T15:56:52-07:00
 lastmod: 2023-01-12T15:56:52-07:00
 draft: false
-tags: ["SBOM"]
+tags: ["Enforce", "Product", "Procedural", "Policy", "Reference", "SBOM"]
 menu:
   docs:
     parent: "chainguard-enforce-kubernetes"
@@ -13,7 +13,7 @@ weight: 700
 toc: true
 ---
 
-> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 Chainguard Enforce supports the [Rego Policy Language](https://www.openpolicyagent.org/docs/latest/policy-language/), which is a declarative policy language that is used to evaluate structured input data such as Kubernetes manifests and JSON documents. This feature enables users to apply policies that can evaluate Kubernetes admission requests and object metadata to make comprehensive decisions about the workloads that are admitted to their clusters. Rego support also enables users to enhance existing cloud-native policies by adding additional software supply chain security checks all within Chainguard Enforce.
 
@@ -242,4 +242,4 @@ Within the [Chainguard Enforce Policy Catalog](https://console.enforce.dev/polic
 
 To understand more about the Rego policy format, you can review the [Rego Policy Reference](https://www.openpolicyagent.org/docs/latest/policy-reference/) which includes details on assignment and equality, arrays, objects, sets, and rules. 
 
-Request access to Chainguard Enforce by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).
+Request access to Chainguard Enforce by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).

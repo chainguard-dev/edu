@@ -1,19 +1,19 @@
 ---
-title: "Getting Started with Chainguard Enforce for Kubernetes"
+title: "Getting Started "
 type: "article"
 description: "Chainguard Enforce User Onboarding"
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2022-12-15T15:22:20+01:00
+lastmod: 2023-03-18T15:22:20+01:00
 draft: false
-tags: ["SBOM"]
+tags: ["Enforce", "Product", "Procedural", "Policy", "Reference", "SBOM"]
 menu:
   docs:
     parent: "chainguard-enforce-kubernetes"
-weight: 70
+weight: 60
 toc: true
 ---
 
-> _This provides user onboarding for Chainguard Enforce. In order to follow the onboarding, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+> _This provides user onboarding for Chainguard Enforce. In order to follow the onboarding, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 Chainguard Enforce is a supply chain security solution for containerized workloads. Chainguard Enforce enables you to build, manage, ensure continuous compliance, and enforce policies that protect organizations from supply chain threats. Using open source projects and standards that are trusted by the community — like [Cosign](https://docs.sigstore.dev/cosign/overview) and [Fulcio](https://docs.sigstore.dev/fulcio/overview) from the [Sigstore](https://sigstore.dev) project — Chainguard Enforce offers a robust approach to securing your workloads.
 
@@ -100,13 +100,23 @@ Platform:      <your platform>
 
 With `chainctl` successfully installed, we can continue through the demo. For more details on `chainctl` installation, please review [How to Install chainctl for Chainguard Enforce](/chainguard/chainguard-enforce/how-to-install-chainctl/).
 
-## Step 2 — Check IAM group
+## Step 2 — Log in and check IAM group
 
 Chainguard provides a way to organize Policies and Clusters into a hierarchy of **groups** through its [Identity and Access Management (IAM) model](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/overview-of-enforce-iam-model/). Chainguard Enforce provides a rich IAM model similar to those available through AWS and GCP.
 
 Each Chainguard Policy needs to be associated with a group, and will be effective for that group as well as all the groups descending from it. Each Cluster needs to be associated with a group and will be enforced based on that group’s policies.
 
-When you are invited to Chainguard Enforce, your account will already be associated with a group. You can check which group or groups you belong to, and grab the ID of the group with `chainctl`. 
+When you are invited to Chainguard Enforce, your account will already be associated with a group. 
+
+First, authenticate and log in to Enforce with `chainctl`.
+
+```sh
+chainctl auth login
+```
+
+You'll be taken through a workflow with an OIDC provider. You can read more about the various authentication and sign on options in our [login documentation](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/log-in-chainguard-enforce/).
+
+You can check which group or groups you belong to, and grab the ID of the group with `chainctl`. 
 
 ```sh
 chainctl iam groups ls -o table

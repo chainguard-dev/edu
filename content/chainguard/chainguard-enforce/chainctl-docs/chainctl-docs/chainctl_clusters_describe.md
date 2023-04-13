@@ -1,9 +1,10 @@
 ---
-date: 2023-03-13T22:56:41Z
+date: 2023-04-11T16:56:59Z
 title: "chainctl clusters describe"
 slug: chainctl_clusters_describe
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_describe/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
@@ -38,7 +39,7 @@ chainctl clusters describe [CLUSTER_NAME | CLUSTER_ID] [--active-within DURATION
 ### Options
 
 ```
-      --active-within duration   How recently a cluster must have been active to be listed. Zero will return all clusters. (default 168h0m0s)
+      --active-within duration   How recently a cluster must have been active to be listed. Zero will return all clusters. (default 24h0m0s)
       --all                      Whether to include all records in the output, even for large collections.
   -h, --help                     help for describe
       --images                   Include images data in output. Use with --packages and/or --policies to filter output. If all three are omitted, all categories are included by default.

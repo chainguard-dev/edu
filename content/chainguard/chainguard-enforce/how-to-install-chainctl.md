@@ -3,8 +3,9 @@ title: "How to Install chainctl"
 type: "article"
 description: "Install the chainctl command line tool to work with Chainguard Enforce and Images"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2022-12-06T15:56:52-07:00
+lastmod: 2023-03-22T15:56:52-07:00
 draft: false
+tags: ["Enforce", "chainctl", "Product"]
 images: []
 menu:
   docs:
@@ -12,7 +13,7 @@ menu:
 toc: true
 ---
 
-> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 The Chainguard Enforce command line interface (CLI) tool, `chainctl`, will help you interact with the account model that Chainguard Enforce provides, and enable you to make queries into the state of your clusters and policies registered with the platform.
 
@@ -55,13 +56,7 @@ curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | t
 Move `chainctl` into your `/usr/local/bin` directory and elevate its permissions so that it can execute as needed.
 
 ```sh
-sudo install -o $UID -g $GID 0755 chainctl /usr/local/bin/chainctl
-```
-
-Finally, alias its path so that you can use `chainctl` on the command line.
-
-```sh
-alias chainctl=/usr/local/bin/chainctl
+sudo install -o $UID -g $GID -m 0755 chainctl /usr/local/bin/chainctl
 ```
 
 At this point, you'll be able to use the `chainctl` command.
@@ -100,16 +95,17 @@ If you received output that you did not expect, check your bash profile to make 
 You can verify the integrity of your `chainctl` binary using Cosign. Ensure that you have the latest version of Cosign installed by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/). Verify your `chainctl` binary with the following command:
 
 ```sh
-COSIGN_EXPERIMENTAL=1 cosign verify-blob \
+cosign verify-blob \
    --signature "https://dl.enforce.dev/chainctl/$(chainctl version 2>&1 |awk '/GitVersion/ {print $2}')/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m).sig" \
    --certificate "https://dl.enforce.dev/chainctl/$(chainctl version 2>&1 |awk '/GitVersion/ {print $2}')/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m).cert.pem" \
+   --certificate-identity "https://github.com/chainguard-dev/mono/.github/workflows/.release-drop.yaml@refs/tags/v$(chainctl version 2>&1 |awk '/GitVersion/ {print $2}')" \
+   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
    $(which chainctl)
 ```
 
-You should receive output like the following:
+You should receive the following output:
 
 ```
-tlog entry verified with uuid: <uuid here> index: <log index here>
 Verified OK
 ```
 

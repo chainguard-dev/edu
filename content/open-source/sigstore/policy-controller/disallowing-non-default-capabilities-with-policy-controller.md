@@ -1,5 +1,5 @@
 ---
-title: "Disallowing Non-Default Capabilities With Policy Controller"
+title: "Disallowing Non-Default Capabilities"
 type: "article"
 description: "Using Policy Controller to prevent running pods with extra capabilities"
 date: 2023-03-02T13:11:29+08:29
@@ -12,7 +12,7 @@ menu:
     parent: "policy-controller"
 weight: 006
 toc: true
-terminalImage: policy-controller/base:latest
+terminalImage: policy-controller-base:latest
 ---
 
 This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to prevent running containers with extra capabilities. You will create a `ClusterImagePolicy` that uses the [CUE](https://cuelang.org/) language to examine a pod spec, and only allow admission into a cluster if the pod is running with one or many [Linux capabilities](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-capabilities-for-a-container) from defined set of safe capabilities flags.
@@ -227,4 +227,4 @@ While it is useful to use the Policy Controller to manage admission into a clust
 
 [Chainguard Enforce](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/understanding-continuous-verification/) is designed to address this issue by continuously verifying whether a container or cluster contains any vulnerabilities or policy violations over time. This includes what packages are deployed, SBOMs (software bills of materials), provenance, signature data, and more.
 
-If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).
+If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).

@@ -5,6 +5,7 @@ description: "Overview: jenkins Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/jenkins](https://github.com/chainguard-images/images/tree/main/images/jenkins)
 | Tags     | Aliases                  |
 |----------|--------------------------|
-| `latest` | `2`, `2.394`, `2.394-r0` |
+| `latest` | `2`, `2.400`, `2.400-r0` |
 
 
 
@@ -49,3 +50,4 @@ And if you want to backup your Jenkins data, mount the `$JENKINS_HOME` folder to
 ```sh
 docker run --platform linux/arm64 --rm -v $PWD/data:/var/jenkins_home -p 8080:8080 -ti cgr.dev/chainguard/jenkins
 ```
+

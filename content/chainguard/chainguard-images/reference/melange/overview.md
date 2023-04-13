@@ -5,6 +5,7 @@ description: "Overview: melange Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/melange](https://github.com/chainguard-images/images/tree/main/images/melange)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `0`, `0.2`, `0.2.0`, `0.2.0-r1` |
+| `latest` | `0`, `0.3`, `0.3.2`, `0.3.2-r1` |
 
 
 
@@ -55,3 +56,4 @@ docker run --privileged -v "$PWD":/work -it --entrypoint /bin/sh cgr.dev/chaingu
 Note that melange uses bubblewrap internally, which requires various Linux capabilities, hence the
 use of `--privileged`. Because of this requirement, we recommend this image is used only for local
 development and testing.
+

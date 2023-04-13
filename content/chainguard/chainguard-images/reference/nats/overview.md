@@ -5,6 +5,7 @@ description: "Overview: nats Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,10 +15,10 @@ toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/nats](https://github.com/chainguard-images/images/tree/main/images/nats)
-| Tags         | Aliases                           |
-|--------------|-----------------------------------|
-| `latest`     | `2`, `2.9`, `2.9.15`, `2.9.15-r0` |
-| `latest-dev` | `2`, `2.9`, `2.9.15`, `2.9.15-r0` |
+| Tags         | Aliases                                           |
+|--------------|---------------------------------------------------|
+| `latest`     | `2`, `2.9`, `2.9.15`, `2.9.15-r2`                 |
+| `latest-dev` | `2-dev`, `2.9-dev`, `2.9.15-dev`, `2.9.15-r2-dev` |
 
 
 
@@ -33,7 +34,8 @@ docker pull cgr.dev/chainguard/nats:latest
 
 ## Using NATS
 
-Chainguard NATS images include the `nats-server` binary, the `nats` cli, and the `nsc` tool.
+The default Chainguard NATS images includes only the `nats-server` binary.
+The `dev` variant also includes the `nats` cli, and the `nsc` tool.
 The default entrypoint is set to run the `nats-server` binary with a sample configuration at `/etc/nats/nats-server.conf`.
 This can be overridden with the `--config-file` flag.
 
@@ -55,3 +57,4 @@ $ docker run cgr.dev/chainguard/nats
 [1] 2023/03/13 19:37:46.087610 [WRN] Cluster name was dynamically generated, consider setting one
 [1] 2023/03/13 19:37:46.087671 [INF] Listening for route connections on 0.0.0.0:6222
 ```
+

@@ -1,10 +1,11 @@
 ---
-title: "How to Enable Annotation-based Caching for Chainguard Enforce"
+title: "Enable Annotation-based Caching"
 type: "article"
 description: "Enabling annotation-based caching for Chainguard Enforce"
 date: 2022-07-15T15:22:20+01:00
 lastmod: 2023-01-12T15:22:20+01:00
 draft: false
+tags: ["Enforce", "Product", "Procedural"]
 images: []
 menu:
   docs:
@@ -13,7 +14,7 @@ weight: 100
 toc: true
 ---
 
-> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 Chainguard Enforce for Kubernetes can leverage annotations on Kubernetes objects to cache verification results to reduce the amount of traffic made to container registries in order to improve latency and scalability of the admission webhook.
 

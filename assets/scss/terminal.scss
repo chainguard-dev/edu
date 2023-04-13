@@ -6,11 +6,10 @@ $chainguard--light-blue: #48a8e8;
 #terminal-container {
   position: fixed;
   bottom: 1.5rem;
-  left: 0;
-  width: 100%;
+  width: 55rem;
   font-family: monospace;
   padding: 0;
-  margin: 0;
+  margin: 0 auto 0 -6rem;
   z-index: 1000 !important;
 
   iframe {
@@ -27,11 +26,10 @@ $chainguard--light-blue: #48a8e8;
 }
 
 #terminal-nav {
-  width: 100%;
-  margin: 0 auto;
+  width: 55rem;
+  margin: 0 auto 0 -6rem;
   position: fixed;
   bottom: 0;
-  left: 0;
   z-index: 1001 !important;
 
   nav {

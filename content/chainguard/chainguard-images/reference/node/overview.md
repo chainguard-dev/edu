@@ -5,6 +5,7 @@ description: "Overview: node Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/node](https://github.com/chainguard-images/images/tree/main/images/node)
 | Tags     | Aliases                                |
 |----------|----------------------------------------|
-| `latest` | `18`, `18.15`, `18.15.0`, `18.15.0-r1` |
-| `19`     | `19`, `19.7`, `19.7.0`, `19.7.0-r0`    |
+| `latest` | `18`, `18.16`, `18.16.0`, `18.16.0-r0` |
+| `19`     | `19`, `19.9`, `19.9.0`, `19.9.0-r0`    |
 
 
 
@@ -72,3 +73,4 @@ curl --request POST \
   --header 'content-type: application/json' \
   --data '{"msg": "testing" }'
 ```
+

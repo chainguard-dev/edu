@@ -1,10 +1,11 @@
 ---
-title: "How to Manage IAM Groups in Chainguard Enforce"
+title: "How to Manage IAM Groups"
 type: "article"
 description: "Understanding Identity and Access Management in Chainguard Enforce"
 date: 2022-15-07T15:22:20+01:00
 lastmod: 2022-13-09T15:22:20+01:00
 draft: false
+tags: ["Enforce", "Product", "Procedural"]
 images: []
 menu:
   docs:
@@ -13,7 +14,7 @@ weight: 100
 toc: true
 ---
 
-> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 Chainguard Enforce provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. Once authenticated, you can set up a desired structure for managing and delegating policies.
 

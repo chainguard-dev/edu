@@ -1,9 +1,10 @@
 ---
-date: 2023-03-13T22:56:41Z
+date: 2023-04-11T16:56:59Z
 title: "chainctl clusters workloads list"
 slug: chainctl_clusters_workloads_list
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_workloads_list/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
@@ -19,7 +20,7 @@ chainctl clusters workloads list [CLUSTER_ID] [--active-within DURATION] [--outp
 ### Options
 
 ```
-      --active-within duration   How recently a workload must have been active to be listed. Zero will return all workloads. (default 168h0m0s)
+      --active-within duration   How recently a workload must have been active to be listed. Zero will return all workloads. (default 24h0m0s)
   -h, --help                     help for list
   -n, --namespace string         The namespace whose workloads to list (default: all).
 ```

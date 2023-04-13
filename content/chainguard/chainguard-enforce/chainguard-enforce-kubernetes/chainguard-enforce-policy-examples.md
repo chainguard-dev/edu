@@ -1,10 +1,11 @@
 ---
-title: "Example Policies for Chainguard Enforce"
+title: "Example Policies"
 type: "article"
 description: "Chainguard Enforce for Kubernetes policy recipes"
 date: 2022-07-15T15:22:20+01:00
 lastmod: 2022-11-29T15:22:20+01:00
 draft: false
+tags: ["Enforce", "Product", "Procedural", "Policy", "Reference"]
 images: []
 tags: ["SBOM"]
 menu:
@@ -14,7 +15,7 @@ weight: 100
 toc: true
 ---
 
-> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 Chainguard Enforce for Kubernetes allows users to create their own security policies that they can enforce in their clusters. Here are a few example policies to help you get started. You can also review the [policy catalogue](https://console.enforce.dev/policies/catalog) in the Chainguard Enforce Console.
 

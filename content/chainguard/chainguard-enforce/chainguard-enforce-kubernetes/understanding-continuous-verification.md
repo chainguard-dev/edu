@@ -1,10 +1,11 @@
 ---
-title: "Understanding Continuous Verification in Chainguard Enforce"
+title: "Understanding Continuous Verification in Enforce"
 type: "article"
 description: "A Conceptual Article Outlining Enforce's Continuous Verification Feature"
 date: 2022-21-09T15:22:20+01:00
 lastmod: 2022-21-09T15:22:20+01:00
 draft: false
+tags: ["Enforce", "Product", "Conceptual"]
 images: []
 menu:
   docs:
@@ -13,7 +14,7 @@ weight: 100
 toc: true
 ---
 
-> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 One feature unique to Chainguard Enforce is its ability to check whether a container or cluster contains any vulnerabilities continually over time. This feature is referred to as "continuous verification."
 
@@ -47,7 +48,7 @@ However, Chainguard Enforce doesn't read or store any code or information from t
 
 Bear in mind that Chainguard Enforce may also retrieve certain information — but not store it — in order to verify that a request satisfies the policy. For instance, say you attempt to use a container image in your cluster and your Enforce policy dictates that the image be signed. Chainguard Enforce will check the container's signature against the hash found in its specified container registry, but it won't ingest the signature information.
 
-## Configuring Contiuous Verification
+## Configuring Continuous Verification
 
 Continuous verification in Chainguard Enforce defaults to 10 seconds, and it is configurable through the ConfigMap's `config-image-policies` inside the `cosign-system namespace`. Here, you will find a `resync` annotation which will inform Enforce how frequently to run continuous verification.
 

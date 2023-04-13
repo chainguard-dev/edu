@@ -1,5 +1,5 @@
 ---
-title: "Disallowing Unsafe sysctls with Policy Controller"
+title: "Disallowing Unsafe sysctls"
 type: "article"
 description: "Use Policy Controller to limit pods to safe sysctls"
 date: 2023-03-01T13:11:29+08:29
@@ -12,7 +12,7 @@ menu:
     parent: "policy-controller"
 weight: 006
 toc: true
-terminalImage: policy-controller/base:latest
+terminalImage: policy-controller-base:latest
 ---
 
 This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to only allow pods that use `sysctls` to modify kernel behaviour to run with the [safe set](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/#safe-and-unsafe-sysctls) of parameters. You will create a `ClusterImagePolicy` that uses the [CUE](https://cuelang.org/) language to examine a pod spec that uses sysctls, and only allow admission into a cluster if the pod is running a safe set parameters.
@@ -191,4 +191,4 @@ While it is useful to use the Policy Controller to manage admission into a clust
 
 [Chainguard Enforce](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/understanding-continuous-verification/) is designed to address this issue by continuously verifying whether a container or cluster contains any vulnerabilities or policy violations over time. This includes what packages are deployed, SBOMs (software bills of materials), provenance, signature data, and more.
 
-If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).
+If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).

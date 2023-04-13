@@ -5,6 +5,7 @@ description: "Overview: prometheus-node-exporter Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/prometheus-node-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-node-exporter)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `1`, `1.5`, `1.5.0`, `1.5.0-r2` |
+| `latest` | `1`, `1.5`, `1.5.0`, `1.5.0-r3` |
 
 
 
@@ -96,3 +97,4 @@ Flags:
                                  Filter the `bugs` field in cpuInfo with a value
                                  that must be a regular expression
 ```
+

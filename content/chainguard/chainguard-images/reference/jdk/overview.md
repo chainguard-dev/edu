@@ -5,6 +5,7 @@ description: "Overview: jdk Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,12 +15,12 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/jdk](https://github.com/chainguard-images/images/tree/main/images/jdk)
-| Tags             | Aliases                                                               |
-|------------------|-----------------------------------------------------------------------|
-| `latest`         | `openjdk-17`, `openjdk-17.0`, `openjdk-17.0.6`, `openjdk-17.0.6-r1`   |
-| `latest-dev`     | `openjdk-17`, `openjdk-17.0`, `openjdk-17.0.6`, `openjdk-17.0.6-r1`   |
-| `openjdk-11`     | `openjdk-11`, `openjdk-11.0`, `openjdk-11.0.18`, `openjdk-11.0.18-r1` |
-| `openjdk-11-dev` | `openjdk-11`, `openjdk-11.0`, `openjdk-11.0.18`, `openjdk-11.0.18-r1` |
+| Tags             | Aliases                                                                               |
+|------------------|---------------------------------------------------------------------------------------|
+| `latest`         | `openjdk-17`, `openjdk-17.0`, `openjdk-17.0.6`, `openjdk-17.0.6-r1`                   |
+| `latest-dev`     | `openjdk-17-dev`, `openjdk-17.0-dev`, `openjdk-17.0.6-dev`, `openjdk-17.0.6-r1-dev`   |
+| `openjdk-11`     | `openjdk-11`, `openjdk-11.0`, `openjdk-11.0.18`, `openjdk-11.0.18-r0`                 |
+| `openjdk-11-dev` | `openjdk-11-dev`, `openjdk-11.0-dev`, `openjdk-11.0.18-dev`, `openjdk-11.0.18-r0-dev` |
 
 
 
@@ -79,3 +80,4 @@ Run the image
 ```sh
 docker run my-simple-java-app
 ```
+

@@ -5,6 +5,7 @@ description: "Overview: fluent-bit Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,9 +15,9 @@ toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/fluent-bit](https://github.com/chainguard-images/images/tree/main/images/fluent-bit)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `2`, `2.0`, `2.0.8`, `2.0.8-r0` |
+| Tags     | Aliases                           |
+|----------|-----------------------------------|
+| `latest` | `2`, `2.0`, `2.0.11`, `2.0.11-r0` |
 
 
 
@@ -63,3 +64,4 @@ Fluent Bit v2.0.8
 [2023/01/20 01:37:06] [ info] [output:stdout:stdout.0] worker #0 started
 {"date":1674178633.0,"container_id":"c77d18c7700cc8e552b1f137ec9e6cd922637c733463e38fc97de7d51a95e4e9","container_name":"/nice_morse","source":"stdout","log":"Testing a log message\r"}
 ```
+

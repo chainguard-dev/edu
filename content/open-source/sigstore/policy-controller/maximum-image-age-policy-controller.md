@@ -1,5 +1,5 @@
 ---
-title: "Maximum container image age with Policy Controller"
+title: "Maximum Container Image Age"
 type: "article"
 description: "Maximum container image age with Policy Controller"
 lead: "Maximum container image age with Policy Controller"
@@ -13,7 +13,7 @@ menu:
     parent: "policy-controller"
 weight: 006
 toc: true
-terminalImage: policy-controller/base:latest
+terminalImage: policy-controller-base:latest
 ---
 
 This guide demonstrates how to use the [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) to verify image signatures before admitting an image into a Kubernetes cluster. In this guide, you will create a `ClusterImagePolicy` that checks the maximum age of a container image verifying that isn’t older than 30 days. For that, we’ll attempt to create two distroless images one older than 30 days and a fresh one.
@@ -174,4 +174,4 @@ While it is useful to use the Policy Controller to manage admission into a clust
 
 [Chainguard Enforce](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/understanding-continuous-verification/) is designed to address this issue by continuously verifying whether a container or cluster contains any vulnerabilities or policy violations over time. This includes what packages are deployed, SBOMs (software bills of materials), provenance, signature data, and more.
 
-If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).
+If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).

@@ -5,6 +5,7 @@ description: "Overview: rust Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,9 +15,10 @@ toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/rust](https://github.com/chainguard-images/images/tree/main/images/rust)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `1`, `1.68`, `1.68.0`, `1.68.0-r0` |
+| Tags         | Aliases                                            |
+|--------------|----------------------------------------------------|
+| `latest`     | `1`, `1.68`, `1.68.2`, `1.68.2-r0`                 |
+| `latest-dev` | `1-dev`, `1.68-dev`, `1.68.2-dev`, `1.68.2-r0-dev` |
 
 
 
@@ -116,3 +118,4 @@ dlorenc@DANIELs-MacBook-Air rust-web-app % docker run foo /usr/local/bin/shop
 ```
 
 If you're interested in enterprise support, SLAs, and access to older tags, [get in touch](https://www.chainguard.dev/chainguard-images).
+

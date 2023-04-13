@@ -5,6 +5,7 @@ description: "Overview: redis Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,20 +15,39 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/redis](https://github.com/chainguard-images/images/tree/main/images/redis)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `7`, `7.0`, `7.0.9`, `7.0.9-r0` |
+| Tags     | Aliases                           |
+|----------|-----------------------------------|
+| `latest` | `7`, `7.0`, `7.0.10`, `7.0.10-r0` |
 
 
 
-[Redis](https://github.com/redis/redis) Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.
+Minimalist Wolfi-based [Redis](https://github.com/redis/redis) image.
 
-## Get It!
+Redis is an in-memory database that persists on disk.
 
-The image is available on `cgr.dev`:
+The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.
+
+- [Documentation](https://edu.chainguard.dev/chainguard/chainguard-images/reference/redis)
+- [Provenance Information](https://edu.chainguard.dev/chainguard/chainguard-images/reference/redis/provenance_info/)
+
+## Image Variants 
+
+Our `latest` tag use the most recent build of the [Wolfi Redis](https://github.com/wolfi-dev/os/blob/main/redis.yaml) package.
+The `latest` tagged variant is a distroless image for running Redis.
+
+Starting in April, accessing older tags will require authentication.
+
+## Redis Version
+This will automatically pull the image to your local system and execute the command `redis --version`:
+
+```shell
+docker run --rm cgr.dev/chainguard/redis --version
+```
+
+You should see output similar to this:
 
 ```
-docker pull cgr.dev/chainguard/redis
+Redis server v=7.0.8 sha=00000000:0 malloc=libc bits=64 build=736cb94cbb0b299
 ```
 
 ## Using Redis
@@ -74,3 +94,4 @@ $ docker run -d -v $(pwd):/data -p 6379:6379 redis
 $ redis-cli get foo
 "bar"
 ```
+

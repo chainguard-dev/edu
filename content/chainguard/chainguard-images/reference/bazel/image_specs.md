@@ -5,6 +5,7 @@ description: "Detailed specs for bazel Chainguard Image Variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -37,10 +38,11 @@ The table shows package distribution across all variants.
 |                          | latest |
 |--------------------------|--------|
 | `ca-certificates-bundle` | X      |
-| `wolfi-baselayout`       | X      |
 | `openjdk-17`             | X      |
 | `bash`                   | X      |
 | `busybox`                | X      |
 | `gcc`                    | X      |
 | `git`                    | X      |
 | `bazel-6`                | X      |
+| `wolfi-baselayout`       | X      |
+

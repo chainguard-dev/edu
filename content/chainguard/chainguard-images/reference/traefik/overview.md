@@ -5,6 +5,7 @@ description: "Overview: traefik Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,13 +15,13 @@ toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/traefik](https://github.com/chainguard-images/images/tree/main/images/traefik)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `2`, `2.9`, `2.9.8`, `2.9.8-r2` |
+| Tags     | Aliases                           |
+|----------|-----------------------------------|
+| `latest` | `2`, `2.9`, `2.9.10`, `2.9.10-r0` |
 
 
 
-[RabbitMQ](https://github.com/traefik/traefik) Traefik is a cloud native application proxy.
+[Traefik](https://github.com/traefik/traefik) is a cloud native application proxy.
 
 ## Get It!
 
@@ -55,3 +56,4 @@ time="2023-01-29T12:37:55Z" level=info msg="Configuration loaded from file: /etc
 ## Users and Directories
 
 By default this image runs as a non-root user named `traefik` with a uid of 65532.
+

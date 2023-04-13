@@ -5,6 +5,7 @@ description: "Overview: static Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -109,3 +110,4 @@ the `defaultBaseImage` to `cgr.dev/chainguard/static`.
 ## Users
 
 The image has a single user `nonroot` with uid `65532`, belonging to gid `65532`.
+

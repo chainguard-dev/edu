@@ -5,6 +5,7 @@ description: "Overview: go Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,12 +15,12 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/go](https://github.com/chainguard-images/images/tree/main/images/go)
-| Tags         | Aliases                            |
-|--------------|------------------------------------|
-| `1.19`       | `1`, `1.19`, `1.19.7`, `1.19.7-r0` |
-| `1.19-dev`   | `1`, `1.19`, `1.19.7`, `1.19.7-r0` |
-| `latest`     | `1`, `1.20`, `1.20.2`, `1.20.2-r0` |
-| `latest-dev` | `1`, `1.20`, `1.20.2`, `1.20.2-r0` |
+| Tags         | Aliases                                            |
+|--------------|----------------------------------------------------|
+| `1.19`       | `1.19`, `1.19.8`, `1.19.8-r1`                      |
+| `1.19-dev`   | `1.19-dev`, `1.19.8-dev`, `1.19.8-r1-dev`          |
+| `latest`     | `1`, `1.20`, `1.20.3`, `1.20.3-r1`                 |
+| `latest-dev` | `1-dev`, `1.20-dev`, `1.20.3-dev`, `1.20.3-r1-dev` |
 
 
 
@@ -122,3 +123,4 @@ docker images go-hello-world
 REPOSITORY       TAG       IMAGE ID       CREATED       SIZE
 go-hello-world   latest    859fedabd532   5 hours ago   3.21MB
 ```
+

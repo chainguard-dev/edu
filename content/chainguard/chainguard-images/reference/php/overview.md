@@ -5,6 +5,7 @@ description: "Overview: php Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,11 +15,11 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/php](https://github.com/chainguard-images/images/tree/main/images/php)
-| Tags         | Aliases                         |
-|--------------|---------------------------------|
-| `latest`     | `8`, `8.2`, `8.2.3`, `8.2.3-r0` |
-| `latest-dev` | `8`, `8.2`, `8.2.3`, `8.2.3-r0` |
-| `latest-fpm` | `8`, `8.2`, `8.2.3`, `8.2.3-r0` |
+| Tags         | Aliases                                         |
+|--------------|-------------------------------------------------|
+| `latest`     | `8`, `8.2`, `8.2.5`, `8.2.5-r0`                 |
+| `latest-dev` | `8-dev`, `8.2-dev`, `8.2.5-dev`, `8.2.5-r0-dev` |
+| `latest-fpm` | `8-fpm`, `8.2-fpm`, `8.2.5-fpm`, `8.2.5-r0-fpm` |
 
 
 
@@ -144,3 +145,4 @@ For instance, to check for `curl` settings, you can run:
 ```shell
 docker run --rm cgr.dev/chainguard/php:latest --info | grep curl
 ```
+

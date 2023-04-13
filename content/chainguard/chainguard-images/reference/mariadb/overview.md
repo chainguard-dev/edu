@@ -5,6 +5,7 @@ description: "Overview: mariadb Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,9 +15,9 @@ toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/mariadb](https://github.com/chainguard-images/images/tree/main/images/mariadb)
-| Tags     | Aliases                               |
-|----------|---------------------------------------|
-| `latest` | `10`, `10.6`, `10.6.12`, `10.6.12-r1` |
+| Tags     | Aliases |
+|----------|---------|
+| `latest` |         |
 
 
 
@@ -110,3 +111,4 @@ networks:
   wolfi:
     driver: bridge
 ```
+

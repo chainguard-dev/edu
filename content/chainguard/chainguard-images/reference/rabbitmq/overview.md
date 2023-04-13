@@ -5,6 +5,7 @@ description: "Overview: rabbitmq Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/rabbitmq](https://github.com/chainguard-images/images/tree/main/images/rabbitmq)
 | Tags     | Aliases                              |
 |----------|--------------------------------------|
-| `latest` | `3`, `3.11`, `3.11.10`, `3.11.10-r0` |
+| `latest` | `3`, `3.11`, `3.11.13`, `3.11.13-r0` |
 
 
 
@@ -83,3 +84,4 @@ RABBITMQ_CONF_ENV_FILE=/etc/rabbitmq/rabbitmq-env.conf
 By default this image runs as a non-root user named `rabbitmq` with a uid of 65532.
 
 Logs go to `/var/log/rabbitmq/` by default.
+

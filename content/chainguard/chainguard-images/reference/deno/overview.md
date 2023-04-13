@@ -5,6 +5,7 @@ description: "Overview: deno Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/deno](https://github.com/chainguard-images/images/tree/main/images/deno)
 | Tags     | Aliases                            |
 |----------|------------------------------------|
-| `latest` | `1`, `1.31`, `1.31.2`, `1.31.2-r0` |
+| `latest` | `1`, `1.32`, `1.32.4`, `1.32.4-r0` |
 
 
 
@@ -67,3 +68,4 @@ Your user-agent is:
 
 curl/7.84.0%
 ```
+

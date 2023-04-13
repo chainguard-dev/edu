@@ -5,6 +5,7 @@ description: "Overview: wait-for-it Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -71,3 +72,4 @@ wait-for-it: waiting 5 seconds for fake.doesnotexist:80
 wait-for-it: timeout occurred after waiting 5 seconds for fake.doesnotexist:80
 wait-for-it: strict mode, refusing to execute subprocess
 ```
+

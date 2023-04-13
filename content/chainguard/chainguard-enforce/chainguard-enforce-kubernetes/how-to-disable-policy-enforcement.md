@@ -1,10 +1,11 @@
 ---
-title: "How to Disable Policy Enforcement"
+title: "Disable Policy Enforcement"
 type: "article"
 description: "Quickly handle incident responses in Chainguard Enforce"
 date: 2022-11-29T08:49:31+00:00
 lastmod: 2023-03-22T08:49:31+00:00
 draft: false
+tags: ["Enforce", "Product", "Reference"]
 images: []
 menu:
   docs:
@@ -13,7 +14,7 @@ weight: 700
 toc: true
 ---
 
-> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs)._
+> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 In the event of an incident response or another situation where you may need to modify Chainguard Enforce to _warn_ about instead of _fail_ a given policy, you can modify the policy configuration.
 
@@ -105,3 +106,11 @@ spec:
 ```
 
 Again, the `mode` configuration is set to `warn`. If you are logged into the Enforce Console, you can access the [Disallow privilege escalation policy](https://console.enforce.dev/policies/catalog/create/disallow-privilege-escalation-cue) from the Policy Catalog from the **Create policy** button.
+
+## Review Warning Policies
+
+You can review which policies are in **Enforce** or **Warn** mode by reviewing the policy table in your Enforce Console.
+
+![Warn or Enforce mode indicated in policy table](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-policies-ui/enforce-console-warn-enforce-mode_hu3b0eaea9ffe2caf7848b0a93077fa970_51901_900x0_resize_box_3.png)
+
+From your Enforce Console policy table, you can further edit each enforcing policy to a warning policy and vice versa. 

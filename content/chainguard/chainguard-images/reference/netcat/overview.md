@@ -5,6 +5,7 @@ description: "Overview: netcat Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -33,7 +34,8 @@ docker pull cgr.dev/chainguard/netcat:latest
 ## Usage
 
 ```
-docker run --rm -ti ghcr.io/chainguard/netcat -zv google.com 443
+docker run --rm -ti cgr.dev/chainguard/netcat -zv google.com 443
 ```
 
 See [here](https://manpages.debian.org/unstable/netcat-openbsd/nc.1.en.html) for more invocation details.
+

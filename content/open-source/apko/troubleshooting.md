@@ -50,7 +50,7 @@ If this is your case, you should find error messages similar to this when enabli
 With melange-built package(s), make sure you have a volume sharing your apko / melange files with the location `/work` inside the apko container.
 
 ### The apk index is missing
-If you have a functional volume sharing your packages with the apko container and you're still getting this error, make sure you built a valid apk index as described in [step 4 of the Getting Started with melange Guide](/open-source/melange/getting-started-with-melange/#step-4--building-your-apk).
+If you have a functional volume sharing your packages with the apko container and you're still getting this error, make sure you built a valid apk index as described in [step 4 of the Getting Started with melange Guide](/open-source/melange/tutorials/getting-started-with-melange/#step-4--building-your-apk).
 
 If this is your case, you should find error messages similar to this when enabling debug info with the `--debug` flag:
 

@@ -5,6 +5,7 @@ description: "Overview: cc-dynamic Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,9 +15,10 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/cc-dynamic](https://github.com/chainguard-images/images/tree/main/images/cc-dynamic)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
+| Tags         | Aliases |
+|--------------|---------|
+| `latest`     |         |
+| `latest-dev` |         |
 
 
 
@@ -34,3 +36,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/cc-dynamic:latest
 ```
+

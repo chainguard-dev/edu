@@ -5,6 +5,7 @@ description: "Detailed specs for envoy Chainguard Image Variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -37,8 +38,9 @@ The table shows package distribution across all variants.
 |                          | latest |
 |--------------------------|--------|
 | `ca-certificates-bundle` | X      |
-| `wolfi-baselayout`       | X      |
 | `su-exec`                | X      |
 | `envoy`                  | X      |
 | `envoy-oci-entrypoint`   | X      |
 | `envoy-config`           | X      |
+| `wolfi-baselayout`       | X      |
+

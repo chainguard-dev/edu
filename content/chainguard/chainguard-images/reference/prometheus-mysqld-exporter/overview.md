@@ -5,6 +5,7 @@ description: "Overview: prometheus-mysqld-exporter Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,9 +15,9 @@ toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/prometheus-mysqld-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-mysqld-exporter)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
+| Tags     | Aliases                            |
+|----------|------------------------------------|
+| `latest` | `0`, `0.14`, `0.14.0`, `0.14.0-r3` |
 
 
 
@@ -48,3 +49,4 @@ ts=2023-03-05T17:41:10.355Z caller=mysqld_exporter.go:227 level=info msg="Build 
 ts=2023-03-05T17:41:10.355Z caller=config.go:146 level=error msg="failed to validate config" section=client err="no user specified in section or parent"
 ts=2023-03-05T17:41:10.355Z caller=mysqld_exporter.go:231 level=info msg="Error parsing host config" file=/home/mysqld_exporter/.my.cnf err="no configuration found"
 ```
+

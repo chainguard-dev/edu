@@ -5,6 +5,7 @@ description: "Overview: zookeeper Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,10 +15,10 @@ toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/zookeeper](https://github.com/chainguard-images/images/tree/main/images/zookeeper)
-| Tags         | Aliases                         |
-|--------------|---------------------------------|
-| `latest`     | `3`, `3.8`, `3.8.1`, `3.8.1-r0` |
-| `latest-dev` | `3`, `3.8`, `3.8.1`, `3.8.1-r0` |
+| Tags         | Aliases                                         |
+|--------------|-------------------------------------------------|
+| `latest`     | `3`, `3.8`, `3.8.1`, `3.8.1-r0`                 |
+| `latest-dev` | `3-dev`, `3.8-dev`, `3.8.1-dev`, `3.8.1-r0-dev` |
 
 
 
@@ -76,3 +77,4 @@ Using config: /usr/share/java/zookeeper/bin/../conf/zoo_sample.cfg
 2023-03-12 20:38:22,357 [myid:] - INFO  [main:o.a.z.Environment@98] - Server environment:zookeeper.version=3.8.1-74db005175a4ec545697012f9069cb9dcc8cdda7, built on 2023-03-12 20:32 UTC
 2023-03-12 20:38:22,357 [myid:] - INFO  [main:o.a.z.Environment@98] - Server environment:host.name=f0739f928721
 ```
+

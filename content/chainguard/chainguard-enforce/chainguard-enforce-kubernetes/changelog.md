@@ -2,8 +2,9 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-03-13 21:36:39 +0000 UTC
+date: 2023-04-11 16:32:08 +0000 UTC
 draft: false
+tags: ["Enforce", "Reference", "Product"]
 images: []
 weight: 799
 ---
@@ -11,10 +12,103 @@ weight: 799
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
 
-### v0.1.84
-Release date: 2023-03-13
+### v0.1.99
+Release date: 2023-04-11
 
 Customer facing changes: N/A
+
+### v0.1.98
+Release date: 2023-04-10
+
+Customer facing changes: N/A
+
+### v0.1.97
+Release date: 2023-04-10
+#### Feature
+- API to support custom claim exact matches in ClaimMatch identity
+- Add support to authenticate with customer managed identity providers using `chainctl auth login --identity-provider=foo`
+- Cluster registration for agentful installation will now persist agent installation options.
+- Introduce a new service principal identity type, which only the named Chainguard service can assume.
+- Introduce the ability to create Chainguard account associations to authorize service principal identities to act on user Chainguard resources explicitly.
+- chainctl can now manage identity providers via `chainct iam identity-providers {create,list,update,delete}`
+#### Bug or Regression
+- Fix invite codes with custom identity provider
+
+
+### v0.1.96
+Release date: 2023-04-03
+
+Customer facing changes: N/A
+
+### v0.1.95
+Release date: 2023-03-29
+#### Other (Cleanup or Flake)
+- Add contact link to quota error message so users know how to reach out
+
+
+### v0.1.94
+Release date: 2023-03-28
+#### Other (Cleanup or Flake)
+- Add contact link to quota error message so users know how to reach out
+
+
+### v0.1.93
+Release date: 2023-03-28
+#### Feature
+- https://github.com/chainguard-dev/customer-issues/issues/37
+#### Bug or Regression
+- Specify a custom audience claim when creating a GitHub identity with the `--github-audience` flag.
+- chainctl should default to preferring ambient credentials when re-assuming an identity after it's current token expires in long-running workflows.
+
+
+### v0.1.92
+Release date: 2023-03-24
+#### Bug or Regression
+- Have the cgr credential helper prefer ambient auth when fetching credentials.
+
+
+### v0.1.91
+Release date: 2023-03-23
+
+Customer facing changes: N/A
+
+### v0.1.90
+Release date: 2023-03-23
+
+Customer facing changes: N/A
+
+### v0.1.89
+Release date: 2023-03-22
+
+Customer facing changes: N/A
+
+### v0.1.88
+Release date: 2023-03-21
+
+Customer facing changes: N/A
+
+### v0.1.87
+Release date: 2023-03-20
+#### Feature
+- Registry events will now store the friendly name in Repository and the UIDP in RepoID.
+
+
+### v0.1.86
+Release date: 2023-03-16
+
+Customer facing changes: N/A
+
+### v0.1.85
+Release date: 2023-03-15
+
+Customer facing changes: N/A
+
+### v0.1.84
+Release date: 2023-03-13
+#### Feature
+- Manage role-bindings with `chainctl iam role-bindings create` and `chainctl iam role-bindings update`.
+- SBOM + Attestation ingestion failures now populate in Record status.
+
 
 ### v0.1.83
 Release date: 2023-03-09

@@ -5,6 +5,7 @@ description: "Overview: curl Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,9 +15,9 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/curl](https://github.com/chainguard-images/images/tree/main/images/curl)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `7`, `7.88`, `7.88.1`, `7.88.1-r0` |
+| Tags     | Aliases                         |
+|----------|---------------------------------|
+| `latest` | `8`, `8.0`, `8.0.1`, `8.0.1-r0` |
 
 
 
@@ -58,3 +59,4 @@ Release-Date: 2022-12-21
 Protocols: dict file ftp ftps gopher gophers http https imap imaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
 Features: alt-svc AsynchDNS brotli HSTS HTTP2 HTTPS-proxy IPv6 Largefile libz NTLM NTLM_WB SSL threadsafe TLS-SRP UnixSockets
 ```
+

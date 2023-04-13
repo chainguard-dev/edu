@@ -5,6 +5,7 @@ description: "Overview: nginx Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -14,9 +15,10 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/nginx](https://github.com/chainguard-images/images/tree/main/images/nginx)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `1`, `1.23`, `1.23.3`, `1.23.3-r1` |
+| Tags         | Aliases                                            |
+|--------------|----------------------------------------------------|
+| `latest`     | `1`, `1.23`, `1.23.4`, `1.23.4-r0`                 |
+| `latest-dev` | `1-dev`, `1.23-dev`, `1.23.4-dev`, `1.23.4-r0-dev` |
 
 
 
@@ -53,3 +55,4 @@ To use a custom `nginx.conf` you can mount the file into the container
 ```
 docker run -v $(pwd)/$CUSTOM_NGINX_CONF_DIRECTORY/nginx.conf:/etc/nginx/nginx.conf -p 8080:80 cgr.dev/chainguard/nginx
 ```
+

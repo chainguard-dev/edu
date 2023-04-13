@@ -50,6 +50,24 @@ runs:
         rsync -av --delete --exclude="_index.md" \
           "/tmp/chainctl-docs/" "content/chainguard/chainguard-enforce/chainctl-docs/"
 
+    - name: add tags to chainctl docs by inserting line with sed
+      shell: bash
+      run: |
+        sed '/draft: false/a tags: ["chainctl", "Reference", "Product"]' \
+          -i content/chainguard/chainguard-enforce/chainctl-docs/**/*.md
+
+    - name: add tags to changelog by inserting line with sed
+      shell: bash
+      run: |
+        sed '/draft: false/a tags: ["Enforce", "Reference", "Product"]' \
+          -i content/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/changelog.md
+
+    - name: add tags to cloudevents by inserting line with sed
+      shell: bash
+      run: |
+        sed '/draft: false/a tags: ["Enforce", "Reference", "Product"]' \
+          -i content/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-events/index.md
+
     - name: download domains.md from cloud storage
       shell: bash
       run: |

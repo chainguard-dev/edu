@@ -1,16 +1,17 @@
 ---
-date: 2023-03-13T22:56:41Z
+date: 2023-04-11T16:56:59Z
 title: "chainctl iam groups describe"
 slug: chainctl_iam_groups_describe
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_describe/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
 ## chainctl iam groups describe
 
-Describe a group. (Experimental)
+Describe a group.
 
 ```
 chainctl iam groups describe [--active-within DURATION] [--output json] [flags]
@@ -19,7 +20,7 @@ chainctl iam groups describe [--active-within DURATION] [--output json] [flags]
 ### Options
 
 ```
-      --active-within duration   How recently a record must have been active to be listed. Zero will return all records. (default 168h0m0s)
+      --active-within duration   How recently a record must have been active to be listed. Zero will return all records. (default 24h0m0s)
   -h, --help                     help for describe
 ```
 

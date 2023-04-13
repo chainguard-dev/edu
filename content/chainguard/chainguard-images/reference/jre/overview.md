@@ -5,6 +5,7 @@ description: "Overview: jre Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -78,3 +79,4 @@ Run the image
 ```sh
 docker run my-simple-java-app
 ```
+

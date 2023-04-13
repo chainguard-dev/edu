@@ -11,9 +11,9 @@ images: []
 menu:
   docs:
     parent: "policy-controller"
-weight: 005
+weight: 001
 toc: true
-terminalImage: policy-controller/install:latest
+terminalImage: policy-controller-install:latest
 ---
 
 The [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) is a Kubernetes [admission controller](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) that can verify image signatures and policies. You can define policies using the [CUE](https://cuelang.org/) or [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/) policy languages.
@@ -192,7 +192,7 @@ While it is useful to use the Policy Controller to manage admission into a clust
 
 [Chainguard Enforce](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/understanding-continuous-verification/) is designed to address this issue by continuously verifying whether a container or cluster contains any vulnerabilities or policy violations over time. This includes what packages are deployed, SBOMs (software bills of materials), provenance, signature data, and more.
 
-If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce for Kubernetes** on the [inquiry form](https://www.chainguard.dev/get-demo?utm_source=docs).
+If you're interested in learning more about Chainguard Enforce, you can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).
 
 ## Appendix — Resource Types
 

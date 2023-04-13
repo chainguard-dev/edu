@@ -1,9 +1,10 @@
 ---
-date: 2023-03-13T22:56:41Z
+date: 2023-04-11T16:56:59Z
 title: "chainctl iam"
 slug: chainctl_iam
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
@@ -35,6 +36,7 @@ IAM related commands for the Chainguard platform.
 
 * [chainctl](/chainguard/chainguard-enforce/chainctl-docs/chainctl/)	 - Chainguard Control
 * [chainctl iam groups](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
+* [chainctl iam identity-providers](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
 * [chainctl iam invites](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities or clusters with Chainguard.
 * [chainctl iam role-bindings](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role-bindings resource interactions.
 * [chainctl iam roles](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_roles/)	 - IAM role resource interactions.

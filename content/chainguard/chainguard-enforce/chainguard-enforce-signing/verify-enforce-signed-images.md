@@ -1,4 +1,3 @@
-
 ---
 title: "Example Policy for Enforce Signed Images"
 type: "article"
@@ -6,6 +5,7 @@ description: "Verify images signed by Chainguard Enforce"
 date: 2022-07-15T15:22:20+01:00
 lastmod: 2022-11-29T15:22:20+01:00
 draft: false
+tags: ["Enforce", "Product", "Procedural"]
 images: []
 menu:
   docs:

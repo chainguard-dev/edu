@@ -5,6 +5,7 @@ description: "Overview: terraform Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/terraform](https://github.com/chainguard-images/images/tree/main/images/terraform)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `1`, `1.3`, `1.3.9`, `1.3.9-r2` |
+| `latest` | `1`, `1.4`, `1.4.5`, `1.4.5-r0` |
 
 
 
@@ -29,3 +30,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/terraform
 ```
+

@@ -18,7 +18,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -50,7 +50,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/rpcStatus"
+              "$ref": "#/definitions/googlerpcStatus"
             }
           }
         },
@@ -274,6 +274,9 @@
                   "$ref": "#/definitions/AccountAssociationsAmazon",
                   "description": "amazon holds information associating an Amazon account with the group."
                 },
+                "chainguard": {
+                  "$ref": "#/definitions/AccountAssociationsChainguard"
+                },
                 "description": {
                   "description": "a short description of this association.",
                   "type": "string"
@@ -333,6 +336,9 @@
                 "amazon": {
                   "$ref": "#/definitions/AccountAssociationsAmazon",
                   "description": "amazon holds information associating an Amazon account with the group."
+                },
+                "chainguard": {
+                  "$ref": "#/definitions/AccountAssociationsChainguard"
                 },
                 "description": {
                   "description": "a short description of this association.",
@@ -828,6 +834,10 @@
                 "name": {
                   "description": "name, human readable name of identity.",
                   "type": "string"
+                },
+                "servicePrincipal": {
+                  "$ref": "#/definitions/iamServicePrincipal",
+                  "description": "service_principal is the name of the Chainguard service that is\nallowed to assume this identity.  These names correlate with the\nservice names used in impersonation with account associations."
                 },
                 "static": {
                   "$ref": "#/definitions/IdentityStaticKeys",
@@ -1878,6 +1888,139 @@
         ]
       }
     },
+    "/registry/v1/repos": {
+      "get": {
+        "operationId": "Registry_ListRepos",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "name is the exact name of the record.",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryRepoList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/tags": {
+      "get": {
+        "operationId": "Registry_ListTags",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The unique name of the Tag to list.",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The timestamp after which returned records were updated.",
+            "format": "date-time",
+            "in": "query",
+            "name": "updatedSince",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Exclude tags of the form \"sha256-*\".",
+            "in": "query",
+            "name": "excludeReferrers",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Exclude tags of the form \"*-20yymmdd\".",
+            "in": "query",
+            "name": "excludeDates",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Exclude tags of the form \"*-r[0-9]+\".",
+            "in": "query",
+            "name": "excludeEpochs",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryTagList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/sts/exchange": {
       "get": {
         "operationId": "SecurityTokenService_Exchange2",
@@ -2272,6 +2415,10 @@
                   "description": "a short description of this cluster.",
                   "type": "string"
                 },
+                "enforcerOptions": {
+                  "$ref": "#/definitions/tenantClusterEnforcerOptions",
+                  "title": "EnforcerOptions contains additional Enforcer configuration settings.\n+optional"
+                },
                 "group": {
                   "$ref": "#/definitions/iamGroup",
                   "title": "group the cluster resides in"
@@ -2393,6 +2540,58 @@
           "Clusters"
         ]
       }
+    },
+    "/tenant/v1/risks": {
+      "get": {
+        "operationId": "Risks_List",
+        "parameters": [
+          {
+            "description": "id is the exact UID of the record.",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tenantRiskList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Risks"
+        ]
+      }
     }
   },
   "definitions": {
@@ -2400,6 +2599,18 @@
       "properties": {
         "account": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AccountAssociationsChainguard": {
+      "properties": {
+        "serviceBindings": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "service_bindings map from the Chainguard service principal to the\nUIDP of the identity that service should assume. Constraints:\n- The identity must live directly under \"group\",\n- The identity must be a service_principal,\n- The service_principal of the identity must match the key of this map.\nNote that the key space of this must match the ServicePrincipal enum,\nbut the enum type itself cannot be used here because of:\nhttps://groups.google.com/g/protobuf/c/ikeldBe60eI",
+          "type": "object"
         }
       },
       "type": "object"
@@ -2554,6 +2765,20 @@
           "description": "audience_pattern is a regular expression for matching the\ntoken's audience claim.",
           "type": "string"
         },
+        "claimPatterns": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "claim_patterns is a mapping from the name of a custom claim\nto a regular expression for matching that claim's value.",
+          "type": "object"
+        },
+        "claims": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "claims is a mapping from the name of a custom claim\nto a literal matching that claim's value.",
+          "type": "object"
+        },
         "issuer": {
           "description": "issuer of the OIDC ID tokens issued for this identity.",
           "type": "string"
@@ -2576,6 +2801,9 @@
     "IdentityMetadataOnboardingQuestions": {
       "properties": {
         "companyName": {
+          "type": "string"
+        },
+        "product": {
           "type": "string"
         },
         "providers": {
@@ -2626,6 +2854,18 @@
         },
         "subject": {
           "description": "subject of OIDC ID tokens issued for this identity.\nMatches the `sub` claim.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RecommendationReplaceArtifact": {
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "description": "Target artifact that may be able to resolve this Risk.",
           "type": "string"
         }
       },
@@ -2688,6 +2928,33 @@
       },
       "type": "object"
     },
+    "RiskDetails": {
+      "properties": {
+        "missingData": {
+          "$ref": "#/definitions/RiskMissingData"
+        }
+      },
+      "type": "object"
+    },
+    "RiskMissingData": {
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/RiskMissingDataType",
+          "title": "What kind of data is missing (e.g. signature, sbom, policy, etc.)"
+        }
+      },
+      "type": "object"
+    },
+    "RiskMissingDataType": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "SIGNATURE",
+        "SBOM",
+        "POLICY"
+      ],
+      "type": "string"
+    },
     "RoleBindingListBinding": {
       "properties": {
         "email": {
@@ -2730,6 +2997,10 @@
         "code": {
           "title": "code is an optional encoded invite code, which allows us to register\nthe caller's identity as a member of a particular group as a particular\nrole.\n+optional",
           "type": "string"
+        },
+        "enforcerOptions": {
+          "$ref": "#/definitions/tenantClusterEnforcerOptions",
+          "description": "enforcer_options defines the enforcer options."
         },
         "identityId": {
           "title": "identity_id is an optional identity id. If the user already exists, this\nby-passes identity registration and continues on to cluster registration\n(if applicable)",
@@ -2905,6 +3176,9 @@
           "$ref": "#/definitions/AccountAssociationsAmazon",
           "description": "amazon holds information associating an Amazon account with the group."
         },
+        "chainguard": {
+          "$ref": "#/definitions/AccountAssociationsChainguard"
+        },
         "description": {
           "description": "a short description of this association.",
           "type": "string"
@@ -3043,6 +3317,10 @@
         "name": {
           "description": "name, human readable name of identity.",
           "type": "string"
+        },
+        "servicePrincipal": {
+          "$ref": "#/definitions/iamServicePrincipal",
+          "description": "service_principal is the name of the Chainguard service that is\nallowed to assume this identity.  These names correlate with the\nservice names used in impersonation with account associations."
         },
         "static": {
           "$ref": "#/definitions/IdentityStaticKeys",
@@ -3275,6 +3553,15 @@
       },
       "type": "object"
     },
+    "iamServicePrincipal": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "COSIGNED",
+        "INGESTER"
+      ],
+      "type": "string"
+    },
     "iamSigstore": {
       "properties": {
         "certificateAuthority": {
@@ -3350,6 +3637,81 @@
       },
       "type": "object"
     },
+    "registryCatalogTier": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "FREE",
+        "STANDARD",
+        "PREMIUM"
+      ],
+      "type": "string"
+    },
+    "registryRepo": {
+      "properties": {
+        "catalogTier": {
+          "$ref": "#/definitions/registryCatalogTier",
+          "description": "catalog_tier is the catalog tier this repository belongs to."
+        },
+        "id": {
+          "description": "id is the identifier of this specific repository.",
+          "type": "string"
+        },
+        "name": {
+          "description": "name is the human-readable name of the repository.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryRepoList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/registryRepo"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryTag": {
+      "properties": {
+        "deprecated": {
+          "description": "deprecated, true if the tag is deprecated.",
+          "type": "boolean"
+        },
+        "digest": {
+          "description": "digest, the digest of the manifest with this tag.",
+          "type": "string"
+        },
+        "id": {
+          "description": "id, identifier of this Tag, a UIDP under a Repo.",
+          "type": "string"
+        },
+        "lastUpdated": {
+          "description": "last time this tag was updated.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "name": {
+          "description": "name, the unique name of the Tag.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryTagList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/registryTag"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "rpcStatus": {
       "properties": {
         "code": {
@@ -3392,6 +3754,10 @@
         "description": {
           "description": "a short description of this cluster.",
           "type": "string"
+        },
+        "enforcerOptions": {
+          "$ref": "#/definitions/tenantClusterEnforcerOptions",
+          "title": "EnforcerOptions contains additional Enforcer configuration settings.\n+optional"
         },
         "group": {
           "$ref": "#/definitions/iamGroup",
@@ -3499,6 +3865,31 @@
       },
       "type": "object"
     },
+    "tenantClusterConfigRequestEnforcerOptions": {
+      "properties": {
+        "enableCipCache": {
+          "title": "+optional",
+          "type": "boolean"
+        },
+        "namespaceEnforcementMode": {
+          "$ref": "#/definitions/tenantClusterConfigRequestNamespaceEnforcementMode",
+          "title": "+optional"
+        },
+        "webhookFailOpen": {
+          "title": "+optional",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "tenantClusterConfigRequestNamespaceEnforcementMode": {
+      "default": "OptOut",
+      "enum": [
+        "OptOut",
+        "OptIn"
+      ],
+      "type": "string"
+    },
     "tenantClusterConfigResponse": {
       "properties": {
         "mcpConfig": {
@@ -3571,6 +3962,23 @@
       },
       "type": "object"
     },
+    "tenantClusterEnforcerOptions": {
+      "properties": {
+        "enableCipCache": {
+          "title": "+optional",
+          "type": "boolean"
+        },
+        "namespaceEnforcementMode": {
+          "$ref": "#/definitions/tenantClusterNamespaceEnforcementMode",
+          "title": "+optional"
+        },
+        "webhookFailOpen": {
+          "title": "+optional",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "tenantClusterList": {
       "properties": {
         "items": {
@@ -3591,6 +3999,14 @@
         "US_WEST"
       ],
       "title": "- US_EAST: Use 1xx for US",
+      "type": "string"
+    },
+    "tenantClusterNamespaceEnforcementMode": {
+      "default": "OptOut",
+      "enum": [
+        "OptOut",
+        "OptIn"
+      ],
       "type": "string"
     },
     "tenantClusterProfilesResponse": {
@@ -3628,6 +4044,24 @@
         },
         "version": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "tenantRecommendation": {
+      "properties": {
+        "description": {
+          "description": "Output only. Free form text describing how this can be resolved.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "documentationUrl": {
+          "description": "Output only. Chainguard EDU link for more details on this Recommendation.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "replace": {
+          "$ref": "#/definitions/RecommendationReplaceArtifact"
         }
       },
       "type": "object"
@@ -3701,6 +4135,64 @@
       },
       "type": "object"
     },
+    "tenantRisk": {
+      "properties": {
+        "description": {
+          "description": "Output only. Free form text describing this Risk.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "details": {
+          "$ref": "#/definitions/RiskDetails",
+          "description": "What kind of risk is this? Lack of signatures, vulnerability, SBOM quality, etc."
+        },
+        "documentationUrl": {
+          "description": "Output only. Chainguard EDU link for more details on this Risk.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "groupId": {
+          "description": "Grouping identifier to associate Risks in the same UIDP\nto each other.",
+          "type": "string"
+        },
+        "id": {
+          "title": "Risk ID (UIDP resource + unique ID)",
+          "type": "string"
+        },
+        "inputs": {
+          "description": "List of UIDPs that were used to determine this Risk.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "lastSeen": {
+          "description": "Output only. When Enforce last saw this Risk.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "recommendations": {
+          "description": "Optional. Chainguard's recommendation(s) for how to resolve this Risk.",
+          "items": {
+            "$ref": "#/definitions/tenantRecommendation"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "tenantRiskList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/tenantRisk"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "tenantSbom": {
       "properties": {
         "packages": {
@@ -3756,10 +4248,16 @@
       "name": "SecurityTokenService"
     },
     {
+      "name": "Registry"
+    },
+    {
       "name": "Clusters"
     },
     {
       "name": "Records"
+    },
+    {
+      "name": "Risks"
     }
   ]
 }

@@ -5,6 +5,7 @@ description: "Overview: git Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,10 +17,12 @@ toc: true
 `stable` [cgr.dev/chainguard/git](https://github.com/chainguard-images/images/tree/main/images/git)
 | Tags                | Aliases                                                                        |
 |---------------------|--------------------------------------------------------------------------------|
-| `latest`            | `2`, `2.40`, `2.40.0`, `2.40.0-r0`                                             |
-| `latest-root`       | `root-2`, `root-2.40`, `root-2.40.0`, `root-2.40.0-r0`                         |
-| `latest-glibc`      | `glibc-2`, `glibc-2.39`, `glibc-2.39.2`, `glibc-2.39.2-r1`                     |
-| `latest-glibc-root` | `glibc-root-2`, `glibc-root-2.39`, `glibc-root-2.39.2`, `glibc-root-2.39.2-r1` |
+| `latest`            | `2`, `2.40`, `2.40.0`, `2.40.0-r1`                                             |
+| `latest-dev`        | `2-dev`, `2.40-dev`, `2.40.0-dev`, `2.40.0-r1-dev`                             |
+| `latest-glibc`      | `glibc-2`, `glibc-2.40`, `glibc-2.40.0`, `glibc-2.40.0-r0`                     |
+| `latest-glibc-dev`  | `glibc-2-dev`, `glibc-2.40-dev`, `glibc-2.40.0-dev`, `glibc-2.40.0-r0-dev`     |
+| `latest-root`       | `root-2`, `root-2.40`, `root-2.40.0`, `root-2.40.0-r1`                         |
+| `latest-glibc-root` | `glibc-root-2`, `glibc-root-2.40`, `glibc-root-2.40.0`, `glibc-root-2.40.0-r0` |
 
 
 
@@ -92,3 +95,4 @@ Resolving deltas: 100% (19/19), done.
 ```
 
 You can now check the contents of your `workspace` directory, where you should find the cloned repo.
+

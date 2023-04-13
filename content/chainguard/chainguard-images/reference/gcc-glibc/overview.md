@@ -5,6 +5,7 @@ description: "Overview: gcc-glibc Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -76,3 +77,4 @@ FROM cgr.dev/chainguard/static
 COPY --from=build /work/hello /hello
 CMD ["/hello"]
 ```
+

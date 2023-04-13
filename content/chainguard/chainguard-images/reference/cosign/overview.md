@@ -5,6 +5,7 @@ description: "Overview: cosign Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/cosign](https://github.com/chainguard-images/images/tree/main/images/cosign)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `2`, `2.0`, `2.0.0`, `2.0.0-r1` |
+| `latest` | `2`, `2.0`, `2.0.1`, `2.0.1-r0` |
 
 
 
@@ -132,3 +133,4 @@ To obtain detailed information about the environment, you can run the `cosign en
 ```shell
 docker run --rm cgr.dev/chainguard/cosign env --show-descriptions=false
 ```
+

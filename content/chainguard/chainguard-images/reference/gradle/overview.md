@@ -5,6 +5,7 @@ description: "Overview: gradle Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/gradle](https://github.com/chainguard-images/images/tree/main/images/gradle)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `8`, `8.0`, `8.0.1`, `8.0.1-r0` |
+| `latest` | `8`, `8.0`, `8.0.2`, `8.0.2-r0` |
 
 
 
@@ -61,3 +62,4 @@ Ant:          Apache Ant(TM) version 1.10.11 compiled on July 10 2021
 JVM:          11.0.18-internal (wolfi 11.0.18-internal+0-wolfi-r1)
 OS:           Linux 5.15.49-linuxkit aarch64
 ```
+

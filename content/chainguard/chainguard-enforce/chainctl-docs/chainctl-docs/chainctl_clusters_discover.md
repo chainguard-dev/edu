@@ -1,9 +1,10 @@
 ---
-date: 2023-03-13T22:56:41Z
+date: 2023-04-11T16:56:59Z
 title: "chainctl clusters discover"
 slug: chainctl_clusters_discover
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_discover/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
@@ -27,6 +28,7 @@ chainctl clusters discover [--group GROUP_NAME | GROUP_ID] [--output table|json]
 ```
       --group string           The name or id of the parent group to discover clusters for.
   -h, --help                   help for discover
+      --opt strings            extra key=value pairs to define enforcer profile options
       --profiles stringArray   The names of Chainguard profiles to install into the cluster.
       --provider strings       The list of cluster providers over which to perform discovery, e.g. gke
       --states strings         The list of cluster states to return, e.g. UNSUPPORTED, NEEDS_WORK, ELIGIBLE, ENROLLED

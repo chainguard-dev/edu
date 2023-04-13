@@ -1,9 +1,10 @@
 ---
-date: 2023-03-13T22:56:41Z
+date: 2023-04-11T16:56:59Z
 title: "chainctl clusters list"
 slug: chainctl_clusters_list
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_list/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
@@ -32,7 +33,7 @@ chainctl clusters list [--name NAME] [--active-within DURATION] [--group GROUP_N
 ### Options
 
 ```
-      --active-within duration   How recently a cluster must have been active to be listed. Zero will return all clusters. (default 168h0m0s)
+      --active-within duration   How recently a cluster must have been active to be listed. Zero will return all clusters. (default 24h0m0s)
       --group string             The name or id of the parent group to list clusters for.
   -h, --help                     help for list
   -n, --name string              The given name of the resource.

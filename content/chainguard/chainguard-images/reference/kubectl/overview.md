@@ -5,6 +5,7 @@ description: "Overview: kubectl Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
@@ -16,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/kubectl](https://github.com/chainguard-images/images/tree/main/images/kubectl)
 | Tags     | Aliases                            |
 |----------|------------------------------------|
-| `latest` | `1`, `1.26`, `1.26.1`, `1.26.1-r2` |
+| `latest` | `1`, `1.27`, `1.27.0`, `1.27.0-r0` |
 
 
 
@@ -29,3 +30,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/kubectl:latest
 ```
+
