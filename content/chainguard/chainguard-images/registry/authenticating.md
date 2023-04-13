@@ -47,9 +47,29 @@ chainctl auth configure-docker --pull-token
 
 This will update your Docker config file with a long-lived username and password. This token expires in 30 days by default, which can be shortened using the `--ttl` flag (for example, `--ttl=24h`).
 
-The token can be copied to other locations such as CI jobs or Kubernetes secrets.
+The token can be copied to other locations such as CI jobs, Kubernetes secrets, or even used for registry mirroring with tools like Artifactory.
 
 Pulls authenticated in this way are associated with a Chainguard identity, which is associated with the group selected when the pull token was created.
+
+### Note on Multiple Pull Tokens
+
+Running the `chainctl auth configure-docker --pull-token` command multiple times will result in multiple pull tokens. However, the tokens are stored in your Docker config and subsquent token generation will overwrite old tokens.
+
+Tokens cannot be retrieved once they have been overwritten so they must be extracted from the local Docker config and saved elsewhere if multiple are required.
+
+### Revoking a Pull Token
+
+Pull tokens are associated with Chainguard identities so they can be viewed with:
+
+```sh
+chainctl auth identities list
+```
+
+To revoke a token, delete the associated identity.
+
+```sh
+chainctl auth identities delete <identity UUID>
+```
 
 ## Authenticating with GitHub Actions
 
