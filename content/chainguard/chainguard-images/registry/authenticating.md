@@ -59,13 +59,13 @@ Tokens cannot be retrieved once they have been overwritten so they must be extra
 
 ### Revoking a Pull Token
 
-Pull tokens are associated with Chainguard identities so they can be viewed with
+Pull tokens are associated with Chainguard identities so they can be viewed with:
 
 ```sh
 chainctl auth identities list
 ```
 
-To revoke a token simply delete the associated identity.
+To revoke a token, delete the associated identity.
 
 ```sh
 chainctl auth identities delete <identity UUID>
