@@ -1,9 +1,9 @@
 ---
 title: "Limit the “Build Horizon” of Build Artifacts with the Maximum Image Age Policy"
 type: "article"
-description: "Understanding Identity and Access Management in Chainguard Enforce"
+description: "Understanding the Maximum Image Age Policy"
 date: 2023-04-10T15:22:20+01:00
-lastmod: 2023-04-10T15:22:20+01:00
+lastmod: 2023-04-11T15:22:20+01:00
 draft: false
 images: []
 tags: ["policy-controller", "Policies", "Enforce", "Product"]
@@ -18,7 +18,7 @@ The age of your build artifacts can have serious maintenance and security implic
 
 The importance of freshness applies to a range of software, such as “off-the-shelf” components like monitoring tools, dependencies you compile into your software like base images, and the software you develop and maintain yourself. That said, tracking the age of every piece of software you use in your workloads can be a daunting task. As pointed out in our blog post [Conquer your Build Horizon with Chainguard Enforce](https://www.chainguard.dev/unchained/conquer-your-build-horizon-with-chainguard-enforce-in-2023), stale software can slip through the cracks despite best efforts.
 
-## Maximum Image Age Policy
+## Maximum image age policy
 
 One way to address this problem is to impose a “build horizon” on software artifacts. A term first coined at Google, a _build horizon_ refers to the maximum age allowed for build artifacts. The Maximum Image Age policy, compatible with Chainguard Enforce and Sigstore, automatically checks the age of build artifacts in your Kubernetes workloads. You can use this policy to fail images or raise warnings based on their age.
 
@@ -70,6 +70,8 @@ spec:
         }
       }
 ```
+
+## Implementing this policy
 
 You can use this policy freely with the open source [Sigstore policy-controller](https://edu.chainguard.dev/open-source/sigstore/policy-controller/how-to-install-policy-controller) to block new deployments of images based on their age.
 
