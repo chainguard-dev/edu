@@ -1,5 +1,5 @@
 ---
-date: 2023-04-10T21:58:49Z
+date: 2023-04-11T16:56:59Z
 title: "chainctl iam groups check-aws"
 slug: chainctl_iam_groups_check-aws
 url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_check-aws/
