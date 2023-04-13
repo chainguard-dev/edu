@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl clusters update"
 slug: chainctl_clusters_update
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_update/
+url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -58,5 +58,5 @@ chainctl clusters update CLUSTER_NAME | CLUSTER_ID [--name NAME] [--description 
 
 ### SEE ALSO
 
-* [chainctl clusters](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters/)	 - Cluster related commands for the Chainguard platform.
+* [chainctl clusters](/chainguard/chainctl/chainctl-docs/chainctl_clusters/)	 - Cluster related commands for the Chainguard platform.
 

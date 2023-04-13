@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl iam invites create"
 slug: chainctl_iam_invites_create
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites_create/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -57,5 +57,5 @@ chainctl iam invite create GROUP_ID --cluster
 
 ### SEE ALSO
 
-* [chainctl iam invites](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities or clusters with Chainguard.
+* [chainctl iam invites](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities or clusters with Chainguard.
 

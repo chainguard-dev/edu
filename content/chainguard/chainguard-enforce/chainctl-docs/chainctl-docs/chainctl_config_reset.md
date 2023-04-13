@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl config reset"
 slug: chainctl_config_reset
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_config_reset/
+url: /chainguard/chainctl/chainctl-docs/chainctl_config_reset/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -39,5 +39,5 @@ chainctl config reset [--yes]
 
 ### SEE ALSO
 
-* [chainctl config](/chainguard/chainguard-enforce/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
 

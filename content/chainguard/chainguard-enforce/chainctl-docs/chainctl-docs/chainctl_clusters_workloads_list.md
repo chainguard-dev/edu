@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl clusters workloads list"
 slug: chainctl_clusters_workloads_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_workloads_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_workloads_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -40,5 +40,5 @@ chainctl clusters workloads list [CLUSTER_ID] [--active-within DURATION] [--outp
 
 ### SEE ALSO
 
-* [chainctl clusters workloads](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_workloads/)	 - Interact with cluster workloads.
+* [chainctl clusters workloads](/chainguard/chainctl/chainctl-docs/chainctl_clusters_workloads/)	 - Interact with cluster workloads.
 

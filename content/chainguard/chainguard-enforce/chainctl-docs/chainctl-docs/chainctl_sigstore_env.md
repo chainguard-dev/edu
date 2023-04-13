@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl sigstore env"
 slug: chainctl_sigstore_env
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_env/
+url: /chainguard/chainctl/chainctl-docs/chainctl_sigstore_env/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -46,5 +46,5 @@ chainctl sigstore env [SIGSTORE_ID | SIGSTORE_NAME] [flags]
 
 ### SEE ALSO
 
-* [chainctl sigstore](/chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore/)	 - Sigstore related commands for the Chainguard platform.
+* [chainctl sigstore](/chainguard/chainctl/chainctl-docs/chainctl_sigstore/)	 - Sigstore related commands for the Chainguard platform.
 

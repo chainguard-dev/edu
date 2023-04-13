@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl clusters records list"
 slug: chainctl_clusters_records_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_records_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_records_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -40,5 +40,5 @@ chainctl clusters records list [CLUSTER_NAME | CLUSTER_ID] [--active-within DURA
 
 ### SEE ALSO
 
-* [chainctl clusters records](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_records/)	 - Interact with cluster records.
+* [chainctl clusters records](/chainguard/chainctl/chainctl-docs/chainctl_clusters_records/)	 - Interact with cluster records.
 

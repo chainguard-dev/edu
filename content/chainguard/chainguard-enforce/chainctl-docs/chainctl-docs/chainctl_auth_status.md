@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl auth status"
 slug: chainctl_auth_status
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_status/
+url: /chainguard/chainctl/chainctl-docs/chainctl_auth_status/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -40,5 +40,5 @@ chainctl auth status [--output table|json] [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
 

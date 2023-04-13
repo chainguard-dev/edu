@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl sigstore ca"
 slug: chainctl_sigstore_ca
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_ca/
+url: /chainguard/chainctl/chainctl-docs/chainctl_sigstore_ca/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -34,9 +34,9 @@ Sigstore commands related to certificate authorities
 
 ### SEE ALSO
 
-* [chainctl sigstore](/chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore/)	 - Sigstore related commands for the Chainguard platform.
-* [chainctl sigstore ca create](/chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_ca_create/)	 - Create a certificate authority instance.
-* [chainctl sigstore ca delete](/chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_ca_delete/)	 - Delete a certificate authority instance.
-* [chainctl sigstore ca describe](/chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_ca_describe/)	 - Describe a certificate authority instance.
-* [chainctl sigstore ca list](/chainguard/chainguard-enforce/chainctl-docs/chainctl_sigstore_ca_list/)	 - List certificate authority instances.
+* [chainctl sigstore](/chainguard/chainctl/chainctl-docs/chainctl_sigstore/)	 - Sigstore related commands for the Chainguard platform.
+* [chainctl sigstore ca create](/chainguard/chainctl/chainctl-docs/chainctl_sigstore_ca_create/)	 - Create a certificate authority instance.
+* [chainctl sigstore ca delete](/chainguard/chainctl/chainctl-docs/chainctl_sigstore_ca_delete/)	 - Delete a certificate authority instance.
+* [chainctl sigstore ca describe](/chainguard/chainctl/chainctl-docs/chainctl_sigstore_ca_describe/)	 - Describe a certificate authority instance.
+* [chainctl sigstore ca list](/chainguard/chainctl/chainctl-docs/chainctl_sigstore_ca_list/)	 - List certificate authority instances.
 

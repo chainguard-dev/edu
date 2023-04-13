@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-04-11 16:32:08 +0000 UTC
+date: 2023-04-13 19:22:45 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,15 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.100
+Release date: 2023-04-13
+#### Feature
+- deprecates the `default.identity-provider` configuration in for social login (Github, Gitlab and Google). Users should now set `default.social-login`. `default-identity-provider` now configures default custom identity provider for authentication (i.e to replace using the `--identity-provider` flag with `chainctl auth login`)
+#### Bug or Regression
+- Management of assumable identities with chainctl has been moved from `chainctl auth identities` to `chainctl iam identities`.
+- fix bug in `chainctl auth login` when using the depreciated config `default.identity-provider = "google"`.
+
 
 ### v0.1.99
 Release date: 2023-04-11

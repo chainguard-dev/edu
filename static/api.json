@@ -1919,6 +1919,13 @@
             "name": "name",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "id is the identifier of this specific repository.",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1926,6 +1933,56 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/registryRepoList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/repos/{id}": {
+      "put": {
+        "operationId": "Registry_UpdateRepo",
+        "parameters": [
+          {
+            "description": "id is the identifier of this specific repository.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "catalogTier": {
+                  "$ref": "#/definitions/registryCatalogTier",
+                  "description": "catalog_tier is the catalog tier this repository belongs to."
+                },
+                "name": {
+                  "description": "name is the human-readable name of the repository.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryRepo"
             }
           },
           "default": {

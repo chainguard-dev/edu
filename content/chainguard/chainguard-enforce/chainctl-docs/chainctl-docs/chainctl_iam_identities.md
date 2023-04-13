@@ -1,26 +1,22 @@
 ---
-date: 2023-04-11T16:56:59Z
-title: "chainctl auth identities view"
-slug: chainctl_auth_identities_view
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_view/
+date: 2023-04-13T20:18:43Z
+title: "chainctl iam identities"
+slug: chainctl_iam_identities
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth identities view
+## chainctl iam identities
 
-View the details of an identity.
-
-```
-chainctl auth identities view {IDENTITY_NAME | IDENTITY_ID} [flags]
-```
+Identity management.
 
 ### Options
 
 ```
-  -h, --help   help for view
+  -h, --help   help for identities
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +34,10 @@ chainctl auth identities view {IDENTITY_NAME | IDENTITY_ID} [flags]
 
 ### SEE ALSO
 
-* [chainctl auth identities](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities/)	 - Identity management.
+* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
+* [chainctl iam identities create](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/)	 - Create a new identity.
+* [chainctl iam identities delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_delete/)	 - Delete an identity.
+* [chainctl iam identities list](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_list/)	 - List identities.
+* [chainctl iam identities update](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_update/)	 - Update an identity
+* [chainctl iam identities view](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_view/)	 - View the details of an identity.
 

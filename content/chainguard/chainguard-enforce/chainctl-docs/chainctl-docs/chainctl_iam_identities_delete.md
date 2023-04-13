@@ -1,33 +1,27 @@
 ---
 date: 2023-04-13T20:18:43Z
-title: "chainctl sigstore ca describe"
-slug: chainctl_sigstore_ca_describe
-url: /chainguard/chainctl/chainctl-docs/chainctl_sigstore_ca_describe/
+title: "chainctl iam identities delete"
+slug: chainctl_iam_identities_delete
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl sigstore ca describe
+## chainctl iam identities delete
 
-Describe a certificate authority instance.
-
-```
-chainctl sigstore ca describe [SIGSTORE_NAME | SIGSTORE_ID] [--output |json] [flags]
-```
-
-### Examples
+Delete an identity.
 
 ```
-  # Describe a sigstore certiicate authority
-  chainctl sigstore ca describe my-ca
+chainctl iam identities delete {IDENTITY_NAME | IDENTITY_ID} [--yes] [--output ] [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for describe
+  -h, --help   help for delete
+  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -45,5 +39,5 @@ chainctl sigstore ca describe [SIGSTORE_NAME | SIGSTORE_ID] [--output |json] [fl
 
 ### SEE ALSO
 
-* [chainctl sigstore ca](/chainguard/chainctl/chainctl-docs/chainctl_sigstore_ca/)	 - Sigstore commands related to certificate authorities
+* [chainctl iam identities](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.
 

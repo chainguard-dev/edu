@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl policies update"
 slug: chainctl_policies_update
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_update/
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -14,20 +14,17 @@ toc: true
 Update the description of a policy.
 
 ```
-chainctl policies update POLICY_NAME | POLICY_ID [--description DESCRIPTION] [--label LABEL] [--output table|json|id] [flags]
+chainctl policies update POLICY_NAME | POLICY_ID [--description=DESCRIPTION] [--output table|json|id] [flags]
 ```
 
 ### Examples
 
 ```
   # Update a policy description by name.
-  chainctl policy update my-policy --description "A description of my policy."
-  
-  # Update the label on the currently enforced version of the policy
-  chainctl policy update my-policy --label v1
+  chainctl policy update my-policy --description="A description of my policy."
   
   # Remove a policy description by ID.
-  chainctl policy update 617ec5ae5775e22fb52ec2d62398de1e7def7986/e74e9050df769110 --description ""
+  chainctl policy update 617ec5ae5775e22fb52ec2d62398de1e7def7986/e74e9050df769110 --description=""
 ```
 
 ### Options
@@ -35,7 +32,6 @@ chainctl policies update POLICY_NAME | POLICY_ID [--description DESCRIPTION] [--
 ```
   -d, --description string   New description for this policy.
   -h, --help                 help for update
-      --label string         New label for the enforced version of this policy.
 ```
 
 ### Options inherited from parent commands
@@ -53,5 +49,5 @@ chainctl policies update POLICY_NAME | POLICY_ID [--description DESCRIPTION] [--
 
 ### SEE ALSO
 
-* [chainctl policies](/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies/)	 - Policy related commands for the Chainguard platform.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Policy related commands for the Chainguard platform.
 

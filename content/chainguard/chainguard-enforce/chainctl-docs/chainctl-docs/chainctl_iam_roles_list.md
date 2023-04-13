@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl iam roles list"
 slug: chainctl_iam_roles_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_roles_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -46,5 +46,5 @@ chainctl iam role list
 
 ### SEE ALSO
 
-* [chainctl iam roles](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_roles/)	 - IAM role resource interactions.
+* [chainctl iam roles](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles/)	 - IAM role resource interactions.
 
