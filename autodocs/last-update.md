@@ -1,5 +1,7 @@
-## 2023-04-11
+## 2023-04-13
 
 Updated image reference docs.
 
-No new images added.
+New images added:
+
+- google-cloud-sdk

@@ -28,7 +28,7 @@ The table has detailed information about each of these variants.
 |--------------|---------------------------------|---------------------------------|
 | Default User | `opensearch`                    | `opensearch`                    |
 | Entrypoint   | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` |
-| CMD          | not specified                   | not specified                   |
+| CMD          | `opensearchwrapper`             | `opensearchwrapper`             |
 | Workdir      | not specified                   | not specified                   |
 | Has apk?     | no                              | yes                             |
 | Has a shell? | yes                             | yes                             |

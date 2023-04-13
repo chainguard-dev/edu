@@ -44,6 +44,7 @@ The table shows package distribution across all variants.
 | `wolfi-baselayout`       | X      | X          | X          | X              |
 | `glibc-locale-en`        | X      | X          | X          | X              |
 | `openjdk-17-jre`         | X      | X          |            |                |
+| `libstdc++`              | X      | X          | X          | X              |
 | `apk-tools`              |        | X          |            | X              |
 | `bash`                   |        | X          |            | X              |
 | `busybox`                |        | X          |            | X              |

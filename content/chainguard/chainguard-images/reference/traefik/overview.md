@@ -15,13 +15,13 @@ toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/traefik](https://github.com/chainguard-images/images/tree/main/images/traefik)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `2`, `2.9`, `2.9.9`, `2.9.9-r1` |
+| Tags     | Aliases                           |
+|----------|-----------------------------------|
+| `latest` | `2`, `2.9`, `2.9.10`, `2.9.10-r0` |
 
 
 
-[RabbitMQ](https://github.com/traefik/traefik) Traefik is a cloud native application proxy.
+[Traefik](https://github.com/traefik/traefik) is a cloud native application proxy.
 
 ## Get It!
 
