@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/ruby](https://github.com/chainguard-images/images/tree/main/images/ruby)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `3`, `3.2`, `3.2.1`, `3.2.1-r1`                 |
-| `latest-dev` | `3-dev`, `3.2-dev`, `3.2.1-dev`, `3.2.1-r1-dev` |
+| `latest`     | `3`, `3.2`, `3.2.2`, `3.2.2-r0`                 |
+| `latest-dev` | `3-dev`, `3.2-dev`, `3.2.2-dev`, `3.2.2-r0-dev` |
 | `3.1`        | `3.1`, `3.1.3`, `3.1.3-r5`                      |
 | `3.1-dev`    | `3.1-dev`, `3.1.3-dev`, `3.1.3-r5-dev`          |
 | `3.0`        | `3.0`, `3.0.5`, `3.0.5-r1`                      |
