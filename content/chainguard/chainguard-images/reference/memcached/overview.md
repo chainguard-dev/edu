@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/memcached](https://github.com/chainguard-images/images/tree/main/images/memcached)
 | Tags     | Aliases                           |
 |----------|-----------------------------------|
-| `latest` | `1`, `1.6`, `1.6.18`, `1.6.18-r0` |
+| `latest` | `1`, `1.6`, `1.6.19`, `1.6.19-r0` |
 
 
 

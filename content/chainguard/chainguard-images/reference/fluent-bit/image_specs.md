@@ -23,14 +23,14 @@ The **fluent-bit** Chainguard Image currently has one public variant:
 
 The table has detailed information about each of these variants.
 
-|              | latest                |
-|--------------|-----------------------|
-| Default User | `nonroot`             |
-| Entrypoint   | `/usr/bin/fluent-bit` |
-| CMD          | not specified         |
-| Workdir      | not specified         |
-| Has apk?     | no                    |
-| Has a shell? | no                    |
+|              | latest                               |
+|--------------|--------------------------------------|
+| Default User | `nonroot`                            |
+| Entrypoint   | `/usr/bin/fluent-bit`                |
+| CMD          | `-c /fluent-bit/etc/fluent-bit.conf` |
+| Workdir      | not specified                        |
+| Has apk?     | no                                   |
+| Has a shell? | no                                   |
 
 ## Image Dependencies
 The table shows package distribution across all variants.
