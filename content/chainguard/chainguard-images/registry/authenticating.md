@@ -62,13 +62,13 @@ Tokens cannot be retrieved once they have been overwritten so they must be extra
 Pull tokens are associated with Chainguard identities so they can be viewed with:
 
 ```sh
-chainctl auth identities list
+chainctl iam identities list
 ```
 
 To revoke a token, delete the associated identity.
 
 ```sh
-chainctl auth identities delete <identity UUID>
+chainctl iam identity delete <identity UUID>
 ```
 
 ## Authenticating with GitHub Actions
@@ -78,7 +78,7 @@ You can configure authentication with OIDC-aware CI platforms like GitHub Action
 First create an identity using `chainctl`, which can be limited to only allow OIDC federation from certain GitHub workflow runs:
 
 ```sh
-chainctl auth identity create github [GITHUB-IDENTITY] \
+chainctl iam identity create github [GITHUB-IDENTITY] \
   --github-repo=${GITHUB_ORG}/${GITHUB_REPO} \
   --github-ref=refs/heads/main \
   --role=registry.pull
