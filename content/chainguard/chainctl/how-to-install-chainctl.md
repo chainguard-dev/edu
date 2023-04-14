@@ -2,7 +2,7 @@
 title: "How to Install chainctl"
 type: "article"
 aliases:
-- /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/changelog/
+- /chainguard/chainguard-enforce/how-to-install-chainctl/
 description: "Install the chainctl command line tool to work with Chainguard Enforce and Images"
 date: 2022-09-22T15:56:52-07:00
 lastmod: 2023-03-22T15:56:52-07:00
