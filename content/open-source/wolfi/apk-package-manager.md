@@ -12,7 +12,7 @@ images: []
 menu:
   docs:
     parent: "apko"
-weight: 600
+weight: 400
 toc: true
 ---
 
