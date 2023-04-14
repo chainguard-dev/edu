@@ -1,7 +1,7 @@
 ---
 title : "Chainguard Enforce Changelog"
 linktitle: "Changelog"
-aliases:
+aliases: 
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/changelog/
 description: "Chainguard Enforce Changelog"
 type: "article"
