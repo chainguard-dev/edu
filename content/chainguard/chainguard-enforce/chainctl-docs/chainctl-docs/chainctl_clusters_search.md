@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl clusters search"
 slug: chainctl_clusters_search
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_search/
+url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_search/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -53,5 +53,5 @@ chainctl clusters search [CLUSTER_NAME | CLUSTER_ID | GROUP_NAME | GROUP_ID ] [-
 
 ### SEE ALSO
 
-* [chainctl clusters](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters/)	 - Cluster related commands for the Chainguard platform.
+* [chainctl clusters](/chainguard/chainctl/chainctl-docs/chainctl_clusters/)	 - Cluster related commands for the Chainguard platform.
 

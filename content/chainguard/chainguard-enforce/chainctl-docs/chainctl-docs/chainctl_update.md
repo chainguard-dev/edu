@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl update"
 slug: chainctl_update
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_update/
+url: /chainguard/chainctl/chainctl-docs/chainctl_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -40,5 +40,5 @@ chainctl update [--yes] [--force]
 
 ### SEE ALSO
 
-* [chainctl](/chainguard/chainguard-enforce/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
 

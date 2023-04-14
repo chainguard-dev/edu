@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl policies list"
 slug: chainctl_policies_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -14,14 +14,14 @@ toc: true
 List policies.
 
 ```
-chainctl policies list [--group GROUP_NAME | GROUP_ID] [--image IMAGE] [--output table|json|id] [flags]
+chainctl policies list [--group=GROUP_NAME | GROUP_ID] [--image=IMAGE] [--output table|json|id] [flags]
 ```
 
 ### Examples
 
 ```
   # List all policies in the "eng" group
-  chainctl policy list --group eng
+  chainctl policy list --group=eng
   
   # List all policies the user has permission to view
   chainctl policy list
@@ -51,5 +51,5 @@ chainctl policies list [--group GROUP_NAME | GROUP_ID] [--image IMAGE] [--output
 
 ### SEE ALSO
 
-* [chainctl policies](/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies/)	 - Policy related commands for the Chainguard platform.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Policy related commands for the Chainguard platform.
 

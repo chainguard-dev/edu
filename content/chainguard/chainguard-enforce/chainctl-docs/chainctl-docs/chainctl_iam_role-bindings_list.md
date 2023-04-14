@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl iam role-bindings list"
 slug: chainctl_iam_role-bindings_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -45,5 +45,5 @@ chainctl iam role-bindings list [--output table|tree|json]
 
 ### SEE ALSO
 
-* [chainctl iam role-bindings](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role-bindings resource interactions.
+* [chainctl iam role-bindings](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role-bindings resource interactions.
 

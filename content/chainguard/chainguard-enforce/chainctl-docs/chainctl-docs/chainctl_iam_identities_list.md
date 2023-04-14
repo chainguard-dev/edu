@@ -1,27 +1,42 @@
 ---
-date: 2023-04-11T16:56:59Z
-title: "chainctl auth identities delete"
-slug: chainctl_auth_identities_delete
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_delete/
+date: 2023-04-13T20:18:43Z
+title: "chainctl iam identities list"
+slug: chainctl_iam_identities_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth identities delete
+## chainctl iam identities list
 
-Delete an identity.
+List identities.
 
 ```
-chainctl auth identities delete {IDENTITY_NAME | IDENTITY_ID} [--yes] [--output ] [flags]
+chainctl iam identities list [--group GROUP_NAME | GROUP_ID] [--name NAME] [--relationship {static, claim_match}] [--output id|table|json]
+```
+
+### Examples
+
+```
+  # List all identities.
+  chainctl iam identities list
+  
+  # List all static identities.
+  chainctl iam identities list --relationship=static
+  
+  # Filter identities by name.
+  chainctl iam identities list --name=my-identity
 ```
 
 ### Options
 
 ```
-  -h, --help   help for delete
-  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --group string          The name or id of the parent group to list identites from.
+  -h, --help                  help for list
+      --name string           Filter identities by name.
+      --relationship string   Filter identities by relationship type (claim_match, static).
 ```
 
 ### Options inherited from parent commands
@@ -39,5 +54,5 @@ chainctl auth identities delete {IDENTITY_NAME | IDENTITY_ID} [--yes] [--output 
 
 ### SEE ALSO
 
-* [chainctl auth identities](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities/)	 - Identity management.
+* [chainctl iam identities](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.
 

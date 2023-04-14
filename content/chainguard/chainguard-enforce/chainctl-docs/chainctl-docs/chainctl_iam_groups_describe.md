@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl iam groups describe"
 slug: chainctl_iam_groups_describe
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_describe/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_describe/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -39,5 +39,5 @@ chainctl iam groups describe [--active-within DURATION] [--output json] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam groups](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
+* [chainctl iam groups](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
 

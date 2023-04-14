@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl policies edit"
 slug: chainctl_policies_edit
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_edit/
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_edit/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -14,25 +14,24 @@ toc: true
 Edit a policy document.
 
 ```
-chainctl policies edit [POLICY_NAME | POLICY_ID] [--label VERSION_LABEL] [--yes] [flags]
+chainctl policies edit [POLICY_NAME | POLICY_ID] [--yes] [flags]
 ```
 
 ### Examples
 
 ```
-  # Edit a policy by name and give it a label
-  chainctl policy edit my-policy --label v2"
+  # Edit a policy by name
+  chainctl policy edit my-policy
   
   # Edit a policy by ID
-  chainctl policy edit bd504bdfe12e8a7f56c43e8231fd8d57a3dc7a3c/1d570a212972383b
+  chainctl policy edit bd504b...
 ```
 
 ### Options
 
 ```
-  -h, --help           help for edit
-  -l, --label string   The label for this version of the policy.
-  -y, --yes            Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -h, --help   help for edit
+  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -50,5 +49,5 @@ chainctl policies edit [POLICY_NAME | POLICY_ID] [--label VERSION_LABEL] [--yes]
 
 ### SEE ALSO
 
-* [chainctl policies](/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies/)	 - Policy related commands for the Chainguard platform.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Policy related commands for the Chainguard platform.
 

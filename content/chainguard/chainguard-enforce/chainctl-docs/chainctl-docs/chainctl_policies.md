@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl policies"
 slug: chainctl_policies
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_policies/
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -34,12 +34,12 @@ Policy related commands for the Chainguard platform.
 
 ### SEE ALSO
 
-* [chainctl](/chainguard/chainguard-enforce/chainctl-docs/chainctl/)	 - Chainguard Control
-* [chainctl policies apply](/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_apply/)	 - Create or update a policy described by file or stdin.
-* [chainctl policies delete](/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_delete/)	 - Delete a policy.
-* [chainctl policies edit](/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_edit/)	 - Edit a policy document.
-* [chainctl policies list](/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_list/)	 - List policies.
-* [chainctl policies update](/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_update/)	 - Update the description of a policy.
-* [chainctl policies versions](/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_versions/)	 - Commands for interacting with policy versions on the Chainguard platform.
-* [chainctl policies view](/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_view/)	 - View a policy.
+* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl policies apply](/chainguard/chainctl/chainctl-docs/chainctl_policies_apply/)	 - Create or update a policy described by file or stdin.
+* [chainctl policies delete](/chainguard/chainctl/chainctl-docs/chainctl_policies_delete/)	 - Delete a policy.
+* [chainctl policies edit](/chainguard/chainctl/chainctl-docs/chainctl_policies_edit/)	 - Edit a policy document.
+* [chainctl policies list](/chainguard/chainctl/chainctl-docs/chainctl_policies_list/)	 - List policies.
+* [chainctl policies update](/chainguard/chainctl/chainctl-docs/chainctl_policies_update/)	 - Update the description of a policy.
+* [chainctl policies versions](/chainguard/chainctl/chainctl-docs/chainctl_policies_versions/)	 - Commands for interacting with policy versions on the Chainguard platform.
+* [chainctl policies view](/chainguard/chainctl/chainctl-docs/chainctl_policies_view/)	 - View a policy.
 
