@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl clusters profiles list"
 slug: chainctl_clusters_profiles_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_profiles_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_profiles_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -38,5 +38,5 @@ chainctl clusters profiles list [--output table|json|wide]
 
 ### SEE ALSO
 
-* [chainctl clusters profiles](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_profiles/)	 - Profile related commands.
+* [chainctl clusters profiles](/chainguard/chainctl/chainctl-docs/chainctl_clusters_profiles/)	 - Profile related commands.
 

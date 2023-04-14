@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl clusters cidrs list"
 slug: chainctl_clusters_cidrs_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_cidrs_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_cidrs_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -38,5 +38,5 @@ chainctl clusters cidrs list [--output json]
 
 ### SEE ALSO
 
-* [chainctl clusters cidrs](/chainguard/chainguard-enforce/chainctl-docs/chainctl_clusters_cidrs/)	 - Enforce Egress CIDR related commands.
+* [chainctl clusters cidrs](/chainguard/chainctl/chainctl-docs/chainctl_clusters_cidrs/)	 - Enforce Egress CIDR related commands.
 

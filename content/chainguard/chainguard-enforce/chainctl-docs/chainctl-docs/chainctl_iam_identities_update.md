@@ -1,30 +1,30 @@
 ---
-date: 2023-04-11T16:56:59Z
-title: "chainctl auth identities update"
-slug: chainctl_auth_identities_update
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_update/
+date: 2023-04-13T20:18:43Z
+title: "chainctl iam identities update"
+slug: chainctl_iam_identities_update
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth identities update
+## chainctl iam identities update
 
 Update an identity
 
 ```
-chainctl auth identities update IDENTITY_NAME | IDENTITY_ID [--description=DESC] [--identity-issuer=ISS | --identity-issuer-pattern=PAT] [--subject=SUB | --subject-pattern=PAT] [--audience=AUD | --audience-pattern=PAT] [--issuer-keys=KEYS] [--expiration=yyyy-mm-dd] [--output table|id|json] [flags]
+chainctl iam identities update IDENTITY_NAME | IDENTITY_ID [--description=DESC] [--identity-issuer=ISS | --identity-issuer-pattern=PAT] [--subject=SUB | --subject-pattern=PAT] [--audience=AUD | --audience-pattern=PAT] [--issuer-keys=KEYS] [--expiration=yyyy-mm-dd] [--output table|id|json] [flags]
 ```
 
 ### Examples
 
 ```
   # Update the issuer of an identity.
-  chainctl auth identities update my-identity --identity-issuer=https://new-issuer.mycompany.com
+  chainctl iam identities update my-identity --identity-issuer=https://new-issuer.mycompany.com
   
   # Update the subject to a pattern and update the audience of an identity.
-  chainctl auth identities update my-identity --subject-pattern="^\d{4}$" --audience=some-audience
+  chainctl iam identities update my-identity --subject-pattern="^\d{4}$" --audience=some-audience
 ```
 
 ### Options
@@ -57,5 +57,5 @@ chainctl auth identities update IDENTITY_NAME | IDENTITY_ID [--description=DESC]
 
 ### SEE ALSO
 
-* [chainctl auth identities](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities/)	 - Identity management.
+* [chainctl iam identities](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.
 

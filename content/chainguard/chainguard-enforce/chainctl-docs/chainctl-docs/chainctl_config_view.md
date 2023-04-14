@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl config view"
 slug: chainctl_config_view
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_config_view/
+url: /chainguard/chainctl/chainctl-docs/chainctl_config_view/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -39,5 +39,5 @@ chainctl config view [--diff] [--output ] [flags]
 
 ### SEE ALSO
 
-* [chainctl config](/chainguard/chainguard-enforce/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
 
