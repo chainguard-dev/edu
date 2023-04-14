@@ -48,13 +48,13 @@ runs:
       shell: bash
       run: |
         rsync -av --delete --exclude="_index.md" \
-          "/tmp/chainctl-docs/" "content/chainguard/chainctl/chainctl-docs/"
+          "/tmp/chainctl-docs/" "content/chainguard/chainctl/"
 
     - name: add tags to chainctl docs by inserting line with sed
       shell: bash
       run: |
         sed '/draft: false/a tags: ["chainctl", "Reference", "Product"]' \
-          -i content/chainguard/chainctl/**/*.md
+          -i content/chainguard/chainctl/chainctl-docs/*.md
           
     - name: add tags to changelog by inserting line with sed
       shell: bash
