@@ -9,7 +9,7 @@ tags: ["Enforce", "chainctl", "Product"]
 images: []
 menu:
   docs:
-    parent: "chainguard-enforce-kubernetes"
+    parent: "chainguard-enforce"
 toc: true
 ---
 
