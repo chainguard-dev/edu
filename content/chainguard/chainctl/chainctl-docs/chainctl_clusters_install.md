@@ -4,6 +4,7 @@ title: "chainctl clusters install"
 slug: chainctl_clusters_install
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_install/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

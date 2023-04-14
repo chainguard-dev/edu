@@ -4,6 +4,7 @@ title: "chainctl iam identities view"
 slug: chainctl_iam_identities_view
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_view/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
