@@ -1,8 +1,7 @@
 ---
 title: "How to Install chainctl"
+linktitle: "Install chainctl"
 type: "article"
-aliases:
-- /chainguard/chainguard-enforce/how-to-install-chainctl/
 description: "Install the chainctl command line tool to work with Chainguard Enforce and Images"
 date: 2022-09-22T15:56:52-07:00
 lastmod: 2023-03-22T15:56:52-07:00
@@ -11,7 +10,7 @@ tags: ["Enforce", "chainctl", "Product"]
 images: []
 menu:
   docs:
-    parent: "chainctl"
+    parent: "chainguard-enforce"
 toc: true
 weight: 999
 ---
