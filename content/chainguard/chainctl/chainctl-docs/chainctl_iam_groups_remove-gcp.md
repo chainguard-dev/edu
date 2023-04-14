@@ -4,6 +4,7 @@ title: "chainctl iam groups remove-gcp"
 slug: chainctl_iam_groups_remove-gcp
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_remove-gcp/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

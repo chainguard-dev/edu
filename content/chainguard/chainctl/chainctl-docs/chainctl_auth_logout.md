@@ -4,6 +4,7 @@ title: "chainctl auth logout"
 slug: chainctl_auth_logout
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_logout/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

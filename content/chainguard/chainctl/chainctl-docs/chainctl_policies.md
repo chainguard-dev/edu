@@ -4,6 +4,7 @@ title: "chainctl policies"
 slug: chainctl_policies
 url: /chainguard/chainctl/chainctl-docs/chainctl_policies/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
