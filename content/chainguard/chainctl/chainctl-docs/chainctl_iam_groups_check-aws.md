@@ -4,6 +4,7 @@ title: "chainctl iam groups check-aws"
 slug: chainctl_iam_groups_check-aws
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_check-aws/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

@@ -4,6 +4,7 @@ title: "chainctl iam identity-providers"
 slug: chainctl_iam_identity-providers
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true

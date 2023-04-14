@@ -4,6 +4,7 @@ title: "chainctl sigstore env"
 slug: chainctl_sigstore_env
 url: /chainguard/chainctl/chainctl-docs/chainctl_sigstore_env/
 draft: false
+tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
