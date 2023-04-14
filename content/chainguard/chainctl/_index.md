@@ -1,5 +1,5 @@
 ---
-title: "chainctl Reference"
+title: "chainctl"
 lead: ""
 description: "chainctl Reference Documentation"
 type: "article"
