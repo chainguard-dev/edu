@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl config"
 slug: chainctl_config
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_config/
+url: /chainguard/chainctl/chainctl-docs/chainctl_config/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -34,11 +34,11 @@ Local config file commands for chainctl.
 
 ### SEE ALSO
 
-* [chainctl](/chainguard/chainguard-enforce/chainctl-docs/chainctl/)	 - Chainguard Control
-* [chainctl config edit](/chainguard/chainguard-enforce/chainctl-docs/chainctl_config_edit/)	 - Edit the current chainctl config file.
-* [chainctl config reset](/chainguard/chainguard-enforce/chainctl-docs/chainctl_config_reset/)	 - Remove local chainctl config files and restore defaults.
-* [chainctl config save](/chainguard/chainguard-enforce/chainctl-docs/chainctl_config_save/)	 - Save the current chainctl config to a config file.
-* [chainctl config set](/chainguard/chainguard-enforce/chainctl-docs/chainctl_config_set/)	 - Set an individual configuration value property.
-* [chainctl config unset](/chainguard/chainguard-enforce/chainctl-docs/chainctl_config_unset/)	 - Unset a configuration property and return it to default.
-* [chainctl config view](/chainguard/chainguard-enforce/chainctl-docs/chainctl_config_view/)	 - View the current chainctl config.
+* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl config edit](/chainguard/chainctl/chainctl-docs/chainctl_config_edit/)	 - Edit the current chainctl config file.
+* [chainctl config reset](/chainguard/chainctl/chainctl-docs/chainctl_config_reset/)	 - Remove local chainctl config files and restore defaults.
+* [chainctl config save](/chainguard/chainctl/chainctl-docs/chainctl_config_save/)	 - Save the current chainctl config to a config file.
+* [chainctl config set](/chainguard/chainctl/chainctl-docs/chainctl_config_set/)	 - Set an individual configuration value property.
+* [chainctl config unset](/chainguard/chainctl/chainctl-docs/chainctl_config_unset/)	 - Unset a configuration property and return it to default.
+* [chainctl config view](/chainguard/chainctl/chainctl-docs/chainctl_config_view/)	 - View the current chainctl config.
 

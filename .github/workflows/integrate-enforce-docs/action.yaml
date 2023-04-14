@@ -54,8 +54,8 @@ runs:
       shell: bash
       run: |
         sed '/draft: false/a tags: ["chainctl", "Reference", "Product"]' \
-          -i content/chainguard/chainguard-enforce/chainctl-docs/**/*.md
-
+          -i content/chainguard/chainctl/chainctl-docs/**/*.md
+          
     - name: add tags to changelog by inserting line with sed
       shell: bash
       run: |

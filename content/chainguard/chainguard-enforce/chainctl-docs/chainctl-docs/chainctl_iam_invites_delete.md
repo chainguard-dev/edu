@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl iam invites delete"
 slug: chainctl_iam_invites_delete
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites_delete/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -40,5 +40,5 @@ chainctl iam invites delete {INVITE_ID... | --expired} [--yes] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam invites](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities or clusters with Chainguard.
+* [chainctl iam invites](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities or clusters with Chainguard.
 
