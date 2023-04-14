@@ -1,8 +1,6 @@
 ---
 title : "Chainguard Enforce Changelog"
 linktitle: "Changelog"
-aliases: 
-- chainguard-enforce-kubernetes/changelog/
 description: "Chainguard Enforce Changelog"
 type: "article"
 date: 2023-04-13 19:22:45 +0000 UTC
