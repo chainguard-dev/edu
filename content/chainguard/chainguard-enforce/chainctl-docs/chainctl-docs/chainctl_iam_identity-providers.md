@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl iam identity-providers"
 slug: chainctl_iam_identity-providers
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_identity-providers/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -34,9 +34,9 @@ customer managed identity provider management
 
 ### SEE ALSO
 
-* [chainctl iam](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam identity-providers create](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_identity-providers_create/)	 - Create an identity provider
-* [chainctl iam identity-providers delete](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_identity-providers_delete/)	 - Delete an identity provider.
-* [chainctl iam identity-providers list](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_identity-providers_list/)	 - List identity providers.
-* [chainctl iam identity-providers update](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_identity-providers_update/)	 - Update an identity provider
+* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
+* [chainctl iam identity-providers create](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_create/)	 - Create an identity provider
+* [chainctl iam identity-providers delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_delete/)	 - Delete an identity provider.
+* [chainctl iam identity-providers list](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_list/)	 - List identity providers.
+* [chainctl iam identity-providers update](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_update/)	 - Update an identity provider
 

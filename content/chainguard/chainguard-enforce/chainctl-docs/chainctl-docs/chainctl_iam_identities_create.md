@@ -1,36 +1,36 @@
 ---
-date: 2023-04-11T16:56:59Z
-title: "chainctl auth identities create"
-slug: chainctl_auth_identities_create
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_create/
+date: 2023-04-13T20:18:43Z
+title: "chainctl iam identities create"
+slug: chainctl_iam_identities_create
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth identities create
+## chainctl iam identities create
 
 Create a new identity.
 
 ```
-chainctl auth identities create NAME {--filename FILE | {--identity-issuer=ISS | --identity-issuer-pattern=PAT} {--subject=SUB | --subject-pattern=PAT} [--audience=AUD | --audience-pattern=PAT] | --identity-issuer=ISS --issuer-keys=KEYS --subject=SUB [--expiration=yyyy-mm-dd]} [--group=GROUP] [--description=DESC] [--role=ROLE] [--output id|table|json]
+chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | --identity-issuer-pattern=PAT} {--subject=SUB | --subject-pattern=PAT} [--audience=AUD | --audience-pattern=PAT] | --identity-issuer=ISS --issuer-keys=KEYS --subject=SUB [--expiration=yyyy-mm-dd]} [--group=GROUP] [--description=DESC] [--role=ROLE] [--output id|table|json]
 ```
 
 ### Examples
 
 ```
   # Create a static identity using the default expiration.
-  chainctl auth identities create my-identity --identity-issuer=https://issuer.mycompany.com --issuer-keys=deadbeef --subject=1234
+  chainctl iam identities create my-identity --identity-issuer=https://issuer.mycompany.com --issuer-keys=deadbeef --subject=1234
   
   # Create an identity with literal values to match from claims.
-  chainctl auth identities create my-identity --identity-issuer=https://issuer.mycompany.com --subject=1234
+  chainctl iam identities create my-identity --identity-issuer=https://issuer.mycompany.com --subject=1234
   
   # Create an identity using patterns to match claims
-  chainctl auth identities create my-identity --identity-issuer-pattern="https://*.mycompany\.com" --subject-pattern="^\d{4}$"
+  chainctl iam identities create my-identity --identity-issuer-pattern="https://*.mycompany\.com" --subject-pattern="^\d{4}$"
   
   # Create an identity from a JSON file definition and bind to a role
-  chainctl auth identities create my-identity -f path/to/identity-definition.json --role=viewer
+  chainctl iam identities create my-identity -f path/to/identity-definition.json --role=viewer
 ```
 
 ### Options
@@ -68,7 +68,7 @@ chainctl auth identities create NAME {--filename FILE | {--identity-issuer=ISS |
 
 ### SEE ALSO
 
-* [chainctl auth identities](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities/)	 - Identity management.
-* [chainctl auth identities create github](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_create_github/)	 - 
-* [chainctl auth identities create gitlab](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_create_gitlab/)	 - 
+* [chainctl iam identities](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.
+* [chainctl iam identities create github](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_github/)	 - 
+* [chainctl iam identities create gitlab](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_gitlab/)	 - 
 

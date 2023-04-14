@@ -41,7 +41,7 @@
 
 [[main]]
   name = "chainctl"
-  url = "/chainguard/chainguard-enforce/chainctl-docs/"
+  url = "/chainguard/chainctl/"
   parent = "menu-chainguard"
   weight = 20
 

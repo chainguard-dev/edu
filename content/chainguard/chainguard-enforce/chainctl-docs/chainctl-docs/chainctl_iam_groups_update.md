@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl iam groups update"
 slug: chainctl_iam_groups_update
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups_update/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -54,5 +54,5 @@ chainctl iam groups update my-group --description ""
 
 ### SEE ALSO
 
-* [chainctl iam groups](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
+* [chainctl iam groups](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
 

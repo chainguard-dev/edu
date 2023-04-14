@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl policies view"
 slug: chainctl_policies_view
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_view/
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_view/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -38,5 +38,5 @@ chainctl policies view [POLICY_NAME | POLICY_ID] [flags]
 
 ### SEE ALSO
 
-* [chainctl policies](/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies/)	 - Policy related commands for the Chainguard platform.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Policy related commands for the Chainguard platform.
 

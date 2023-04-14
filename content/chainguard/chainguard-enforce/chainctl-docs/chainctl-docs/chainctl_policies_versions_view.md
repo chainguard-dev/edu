@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl policies versions view"
 slug: chainctl_policies_versions_view
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_versions_view/
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_versions_view/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -14,7 +14,17 @@ toc: true
 View the details of a policy version.
 
 ```
-chainctl policies versions view [VERSION_ID] [--policy POLICY_NAME | POLICY_ID] [--output json] [flags]
+chainctl policies versions view {VERSION_ID | --policy=POLICY} [--output json] [flags]
+```
+
+### Examples
+
+```
+  # View a policy version by ID
+  chainctl policies versions view 617ec5ae...
+  
+  # Interactively select a policy version for a given policy
+  chainctl policies versions view --policy=my-policy
 ```
 
 ### Options
@@ -39,5 +49,5 @@ chainctl policies versions view [VERSION_ID] [--policy POLICY_NAME | POLICY_ID] 
 
 ### SEE ALSO
 
-* [chainctl policies versions](/chainguard/chainguard-enforce/chainctl-docs/chainctl_policies_versions/)	 - Commands for interacting with policy versions on the Chainguard platform.
+* [chainctl policies versions](/chainguard/chainctl/chainctl-docs/chainctl_policies_versions/)	 - Commands for interacting with policy versions on the Chainguard platform.
 

@@ -1,8 +1,8 @@
 ---
-date: 2023-04-11T16:56:59Z
+date: 2023-04-13T20:18:43Z
 title: "chainctl iam invites"
 slug: chainctl_iam_invites
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -34,8 +34,8 @@ Manage invite codes that register identities or clusters with Chainguard.
 
 ### SEE ALSO
 
-* [chainctl iam](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam invites create](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites_create/)	 - Generate an invite code to identities or register clusters with Chainguard.
-* [chainctl iam invites delete](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites_delete/)	 - Delete invite codes
-* [chainctl iam invites list](/chainguard/chainguard-enforce/chainctl-docs/chainctl_iam_invites_list/)	 - Show invites that are active.
+* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
+* [chainctl iam invites create](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites_create/)	 - Generate an invite code to identities or register clusters with Chainguard.
+* [chainctl iam invites delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites_delete/)	 - Delete invite codes
+* [chainctl iam invites list](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites_list/)	 - Show invites that are active.
 

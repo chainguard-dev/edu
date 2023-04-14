@@ -1,30 +1,30 @@
 ---
-date: 2023-04-11T16:56:59Z
-title: "chainctl auth identities create gitlab"
-slug: chainctl_auth_identities_create_gitlab
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_create_gitlab/
+date: 2023-04-13T20:18:43Z
+title: "chainctl iam identities create gitlab"
+slug: chainctl_iam_identities_create_gitlab
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_gitlab/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth identities create gitlab
+## chainctl iam identities create gitlab
 
 
 
 ```
-chainctl auth identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-PROJECT [--ref-type=REF-TYPE] [--ref=REF] [--group=GROUP] [--description=DESC] [--role=ROLE] [--output id|table|json]
+chainctl iam identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-PROJECT [--ref-type=REF-TYPE] [--ref=REF] [--group=GROUP] [--description=DESC] [--role=ROLE] [--output id|table|json]
 ```
 
 ### Examples
 
 ```
   # Create a Gitlab CI identity for any branch in a given Gitlab project
-  chainctl auth identities create gitlab my-gitlab-identity --project-path=my-group/my-project --ref-type=branch --ref='*' --group=eng-group
+  chainctl iam identities create gitlab my-gitlab-identity --project-path=my-group/my-project --ref-type=branch --ref='*' --group=eng-group
   
   # Create a Gitlab CI identity for a given branch in a Gitlab project and bind to a role
-  chainctl auth identities create gitlab my-gitlab-identity --project-path=my-group/my-project --ref-type=branch --ref=main --role=owner
+  chainctl iam identities create gitlab my-gitlab-identity --project-path=my-group/my-project --ref-type=branch --ref=main --role=owner
 ```
 
 ### Options
@@ -56,5 +56,5 @@ chainctl auth identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-P
 
 ### SEE ALSO
 
-* [chainctl auth identities create](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_create/)	 - Create a new identity.
+* [chainctl iam identities create](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/)	 - Create a new identity.
 

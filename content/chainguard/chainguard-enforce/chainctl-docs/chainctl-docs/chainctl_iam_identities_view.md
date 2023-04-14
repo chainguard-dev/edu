@@ -1,42 +1,26 @@
 ---
-date: 2023-04-11T16:56:59Z
-title: "chainctl auth identities list"
-slug: chainctl_auth_identities_list
-url: /chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities_list/
+date: 2023-04-13T20:18:43Z
+title: "chainctl iam identities view"
+slug: chainctl_iam_identities_view
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_view/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth identities list
+## chainctl iam identities view
 
-List identities.
-
-```
-chainctl auth identities list [--group GROUP_NAME | GROUP_ID] [--name NAME] [--relationship {static, claim_match}] [--output id|table|json]
-```
-
-### Examples
+View the details of an identity.
 
 ```
-  # List all identities.
-  chainctl auth identities list
-  
-  # List all static identities.
-  chainctl auth identities list --relationship=static
-  
-  # Filter identities by name.
-  chainctl auth identities list --name=my-identity
+chainctl iam identities view {IDENTITY_NAME | IDENTITY_ID} [flags]
 ```
 
 ### Options
 
 ```
-      --group string          The name or id of the parent group to list identites from.
-  -h, --help                  help for list
-      --name string           Filter identities by name.
-      --relationship string   Filter identities by relationship type (claim_match, static).
+  -h, --help   help for view
 ```
 
 ### Options inherited from parent commands
@@ -54,5 +38,5 @@ chainctl auth identities list [--group GROUP_NAME | GROUP_ID] [--name NAME] [--r
 
 ### SEE ALSO
 
-* [chainctl auth identities](/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_identities/)	 - Identity management.
+* [chainctl iam identities](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.
 
