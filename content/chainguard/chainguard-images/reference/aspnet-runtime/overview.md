@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/aspnet-runtime](https://github.com/chainguard-images/images/tree/main/images/aspnet-runtime)
 | Tags     | Aliases                             |
 |----------|-------------------------------------|
-| `latest` | `7`, `7.0`, `7.0.104`, `7.0.104-r1` |
+| `latest` | `7`, `7.0`, `7.0.105`, `7.0.105-r0` |
 
 
 

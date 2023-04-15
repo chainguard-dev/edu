@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/powershell](https://github.com/chainguard-images/images/tree/main/images/powershell)
 | Tags          | Aliases                                             |
 |---------------|-----------------------------------------------------|
-| `latest`      | `7`, `7.3`, `7.3.3`, `7.3.3-r0`                     |
-| `latest-root` | `root-7`, `root-7.3`, `root-7.3.3`, `root-7.3.3-r0` |
+| `latest`      | `7`, `7.3`, `7.3.4`, `7.3.4-r0`                     |
+| `latest-root` | `root-7`, `root-7.3`, `root-7.3.4`, `root-7.3.4-r0` |
 
 
 

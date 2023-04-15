@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/dotnet-sdk](https://github.com/chainguard-images/images/tree/main/images/dotnet-sdk)
 | Tags         | Aliases                                             |
 |--------------|-----------------------------------------------------|
-| `latest`     | `7`, `7.0`, `7.0.104`, `7.0.104-r1`                 |
-| `latest-dev` | `7-dev`, `7.0-dev`, `7.0.104-dev`, `7.0.104-r1-dev` |
+| `latest`     | `7`, `7.0`, `7.0.105`, `7.0.105-r0`                 |
+| `latest-dev` | `7-dev`, `7.0-dev`, `7.0.105-dev`, `7.0.105-r0-dev` |
 
 
 
