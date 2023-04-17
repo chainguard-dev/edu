@@ -8,7 +8,7 @@ date: 2023-04-17T08:48:45+00:00
 lastmod: 2023-04-17T08:48:45+00:00
 draft: false
 images: []
-weight: 560
+weight: 025
 ---
 
 At Chainguard, we have a shared awareness of data collection and retention. This document focuses on cataloging the data captured by Chainguard Enforce. It also includes a brief Frequently Asked Questions section outlining some of Chainguard's data collection practices.
