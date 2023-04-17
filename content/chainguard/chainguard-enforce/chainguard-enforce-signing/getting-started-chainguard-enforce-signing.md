@@ -1,5 +1,6 @@
 ---
-title: "Getting Started"
+title: "Getting Started with Chainguard Enforce Signing"
+linktitle: "Get Started with Enforce Signing"
 type: "article"
 description: "Getting Started with Chainguard Enforce Signing"
 date: 2023-01-26T15:56:52-07:00

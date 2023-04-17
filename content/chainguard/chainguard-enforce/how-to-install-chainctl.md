@@ -1,5 +1,6 @@
 ---
 title: "How to Install chainctl"
+linktitle: "Install chainctl"
 type: "article"
 description: "Install the chainctl command line tool to work with Chainguard Enforce and Images"
 date: 2022-09-22T15:56:52-07:00
@@ -9,8 +10,9 @@ tags: ["Enforce", "chainctl", "Product"]
 images: []
 menu:
   docs:
-    parent: "chainguard-enforce-kubernetes"
+    parent: "chainguard-enforce"
 toc: true
+weight: 999
 ---
 
 > _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
