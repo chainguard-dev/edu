@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/musl-dynamic](https://github.com/chainguard-images/images/tree/main/images/musl-dynamic)
 | Tags     | Aliases                                                 |
 |----------|---------------------------------------------------------|
-| `latest` | `1`, `1.2`, `1.2.3_git20230322`, `1.2.3_git20230322-r3` |
+| `latest` | `1`, `1.2`, `1.2.3_git20230411`, `1.2.3_git20230411-r0` |
 
 
 
