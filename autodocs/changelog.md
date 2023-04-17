@@ -1,3 +1,9 @@
+## 2023-04-17
+
+Updated image reference docs.
+
+No new images added.
+
 ## 2023-04-15
 
 Updated image reference docs.
