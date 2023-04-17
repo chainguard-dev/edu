@@ -24,7 +24,7 @@ runs:
       shell: bash
       run: |
         gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
-          "${{ inputs.storage_bucket }}/enforce-changelog/changelog.md" content/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/
+          "${{ inputs.storage_bucket }}/enforce-changelog/changelog.md" content/chainguard/chainguard-enforce/
 
     - name: download enforce openapi api.json spec from cloud storage
       shell: bash
@@ -36,7 +36,7 @@ runs:
       shell: bash
       run: |
         gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
-          "${{ inputs.storage_bucket }}/enforce-events/events.md" content/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-events/index.md
+          "${{ inputs.storage_bucket }}/enforce-events/events.md" content/chainguard/chainguard-enforce/chainguard-enforce-events/index.md
 
     - name: download chainctl docs from cloud storage
       shell: bash
@@ -60,13 +60,13 @@ runs:
       shell: bash
       run: |
         sed '/draft: false/a tags: ["Enforce", "Reference", "Product"]' \
-          -i content/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/changelog.md
+          -i content/chainguard/chainguard-enforce/changelog.md
 
     - name: add tags to cloudevents by inserting line with sed
       shell: bash
       run: |
         sed '/draft: false/a tags: ["Enforce", "Reference", "Product"]' \
-          -i content/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-events/index.md
+          -i content/chainguard/chainguard-enforce/chainguard-enforce-events/index.md
 
     - name: download domains.md from cloud storage
       shell: bash
