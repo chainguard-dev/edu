@@ -1,29 +1,26 @@
 ---
-date: 2023-04-14T15:52:13Z
-title: "chainctl iam groups remove-aws"
-slug: chainctl_iam_groups_remove-aws
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_remove-aws/
+date: 2023-04-17T18:12:16Z
+title: "chainctl iam account-associations check aws"
+slug: chainctl_iam_account-associations_check_aws
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check_aws/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam groups remove-aws
+## chainctl iam account-associations check aws
 
-Remove any configured AWS account association for this IAM Group.
+Checks that the given group has been properly configured for OIDC federation with AWS
 
 ```
-chainctl iam groups remove-aws [GROUP_NAME | GROUP_ID][--output |json|table] [flags]
+chainctl iam account-associations check aws GROUP_NAME|GROUP_ID [flags]
 ```
 
 ### Options
 
 ```
-      --account string       The AWS account ID.
-  -d, --description string   The description of the association.
-  -h, --help                 help for remove-aws
-  -n, --name string          The name of the association. (default: the group name)
+  -h, --help   help for aws
 ```
 
 ### Options inherited from parent commands
@@ -41,5 +38,5 @@ chainctl iam groups remove-aws [GROUP_NAME | GROUP_ID][--output |json|table] [fl
 
 ### SEE ALSO
 
-* [chainctl iam groups](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
+* [chainctl iam account-associations check](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check/)	 - Check the OIDC federation configurations for cloud providers.
 

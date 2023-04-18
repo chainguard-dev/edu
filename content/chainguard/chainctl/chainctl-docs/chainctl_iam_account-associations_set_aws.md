@@ -1,26 +1,30 @@
 ---
-date: 2023-04-14T15:52:13Z
-title: "chainctl iam groups check-gcp"
-slug: chainctl_iam_groups_check-gcp
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_check-gcp/
+date: 2023-04-17T18:12:16Z
+title: "chainctl iam account-associations set aws"
+slug: chainctl_iam_account-associations_set_aws
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_aws/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam groups check-gcp
+## chainctl iam account-associations set aws
 
-Checks that the given group has been properly configured for OIDC federation with GCP.
+Set AWS account association for a group.
 
 ```
-chainctl iam groups check-gcp [GROUP_NAME | GROUP_ID] [--output TODO] [flags]
+chainctl iam account-associations set aws GROUP_NAME|GROUP_ID --account=ACCOUNT [--name=NAME] [--description=DESCRIPTION] [--yes] [--output table|json|id] [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for check-gcp
+      --account string       The AWS account ID.
+  -d, --description string   The description of the resource.
+  -h, --help                 help for aws
+  -n, --name string          Given name of the resource.
+  -y, --yes                  Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +42,5 @@ chainctl iam groups check-gcp [GROUP_NAME | GROUP_ID] [--output TODO] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam groups](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
+* [chainctl iam account-associations set](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set/)	 - Set cloud provider account associations for a group.
 

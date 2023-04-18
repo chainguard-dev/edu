@@ -1,22 +1,22 @@
 ---
 date: 2023-04-17T18:12:16Z
-title: "chainctl events subscriptions"
-slug: chainctl_events_subscriptions
-url: /chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions/
+title: "chainctl iam account-associations unset"
+slug: chainctl_iam_account-associations_unset
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl events subscriptions
+## chainctl iam account-associations unset
 
-Subscription interactions.
+Remove cloud provider account associations from a group.
 
 ### Options
 
 ```
-  -h, --help   help for subscriptions
+  -h, --help   help for unset
 ```
 
 ### Options inherited from parent commands
@@ -34,8 +34,7 @@ Subscription interactions.
 
 ### SEE ALSO
 
-* [chainctl events](/chainguard/chainctl/chainctl-docs/chainctl_events/)	 - Events related commands for the Chainguard platform.
-* [chainctl events subscriptions create](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_create/)	 - Subscribe to events under a group.
-* [chainctl events subscriptions delete](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_delete/)	 - Delete a subscription.
-* [chainctl events subscriptions list](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_list/)	 - List subscriptions.
+* [chainctl iam account-associations](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
+* [chainctl iam account-associations unset aws](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_aws/)	 - Remove AWS account configuration for a group.
+* [chainctl iam account-associations unset gcp](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_gcp/)	 - Remove GCP account configuration for a group.
 

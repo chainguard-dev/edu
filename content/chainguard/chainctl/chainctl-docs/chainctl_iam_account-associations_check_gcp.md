@@ -1,26 +1,26 @@
 ---
-date: 2023-04-14T15:52:13Z
-title: "chainctl iam groups check-aws"
-slug: chainctl_iam_groups_check-aws
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_check-aws/
+date: 2023-04-17T18:12:16Z
+title: "chainctl iam account-associations check gcp"
+slug: chainctl_iam_account-associations_check_gcp
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check_gcp/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam groups check-aws
+## chainctl iam account-associations check gcp
 
-Checks that the given group has been properly configured for OIDC federation with AWS.
+Checks that the given group has been properly configured for OIDC federation with GCP
 
 ```
-chainctl iam groups check-aws [GROUP_NAME | GROUP_ID] [--output TODO] [flags]
+chainctl iam account-associations check gcp GROUP_NAME|GROUP_ID [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for check-aws
+  -h, --help   help for gcp
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +38,5 @@ chainctl iam groups check-aws [GROUP_NAME | GROUP_ID] [--output TODO] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam groups](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
+* [chainctl iam account-associations check](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check/)	 - Check the OIDC federation configurations for cloud providers.
 

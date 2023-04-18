@@ -1,30 +1,27 @@
 ---
-date: 2023-04-14T15:52:13Z
-title: "chainctl iam groups remove-gcp"
-slug: chainctl_iam_groups_remove-gcp
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_remove-gcp/
+date: 2023-04-17T18:12:16Z
+title: "chainctl iam account-associations unset aws"
+slug: chainctl_iam_account-associations_unset_aws
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_aws/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam groups remove-gcp
+## chainctl iam account-associations unset aws
 
-Remove any configured GCP account association for this IAM Group.
+Remove AWS account configuration for a group.
 
 ```
-chainctl iam groups remove-gcp [GROUP_NAME | GROUP_ID][--output |json|table] [flags]
+chainctl iam account-associations unset aws GROUP_NAME|GROUP_ID [--yes] [--output ] [flags]
 ```
 
 ### Options
 
 ```
-  -d, --description string      The description of the association.
-  -h, --help                    help for remove-gcp
-  -n, --name string             The name of the association. (default: the group name)
-      --project-id string       The GCP project ID.
-      --project-number string   The GCP project number.
+  -h, --help   help for aws
+  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -42,5 +39,5 @@ chainctl iam groups remove-gcp [GROUP_NAME | GROUP_ID][--output |json|table] [fl
 
 ### SEE ALSO
 
-* [chainctl iam groups](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
+* [chainctl iam account-associations unset](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset/)	 - Remove cloud provider account associations from a group.
 
