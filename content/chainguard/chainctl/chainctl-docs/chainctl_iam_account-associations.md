@@ -1,22 +1,22 @@
 ---
 date: 2023-04-17T18:12:16Z
-title: "chainctl iam roles"
-slug: chainctl_iam_roles
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles/
+title: "chainctl iam account-associations"
+slug: chainctl_iam_account-associations
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam roles
+## chainctl iam account-associations
 
-IAM role resource interactions.
+Configure and manage cloud provider account associations.
 
 ### Options
 
 ```
-  -h, --help   help for roles
+  -h, --help   help for account-associations
 ```
 
 ### Options inherited from parent commands
@@ -35,5 +35,8 @@ IAM role resource interactions.
 ### SEE ALSO
 
 * [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam roles list](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles_list/)	 - List roles.
+* [chainctl iam account-associations check](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check/)	 - Check the OIDC federation configurations for cloud providers.
+* [chainctl iam account-associations describe](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_describe/)	 - Describe cloud provider account associations for a group.
+* [chainctl iam account-associations set](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set/)	 - Set cloud provider account associations for a group.
+* [chainctl iam account-associations unset](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset/)	 - Remove cloud provider account associations from a group.
 
