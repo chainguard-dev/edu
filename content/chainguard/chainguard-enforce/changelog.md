@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-04-17 17:56:05 +0000 UTC
+date: 2023-04-18 20:34:37 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,13 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.103
+Release date: 2023-04-18
+#### Documentation
+- Add section to Enforce Events page explaining how UIDPs are generated
+- Add section to Enforce Events page explaining how to validate `iss` and `sub` fields in Authorization header tokens
+
 
 ### v0.1.102
 Release date: 2023-04-17
