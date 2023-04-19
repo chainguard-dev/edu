@@ -219,7 +219,7 @@ chainctl policies apply \
 
 Depending on your Kubernetes cluster, applying the policy may generate multiple GitHub issues. For example, if you are using `kind`, the control plane images are not signed and should create issues.
 
-Once the policy is created, check the logs of your [Cloud Run deployment](https://console.cloud.google.com/logs/query;query=resource.type %3D "cloud_run_revision"%0Aresource.labels.service_name %3D "enforce-events-issue-opener"%0AtextPayload: "Opened issue";timeRange=PT4H). You may need to edit the `service_name` portion of the URL if your service is called something different from `enforce-events-issue-opener`.
+Once the policy is created, check the logs of your [Cloud Run deployment](https://console.cloud.google.com/logs/query;query=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22enforce-events-issue-opener%22%0AtextPayload:%20%22Opened%20issue%22;timeRange=PT4H). You may need to edit the `service_name` portion of the URL if your service is called something different from `enforce-events-issue-opener`.
 
 You should see log entries corresponding to new GitHub issues that the demo application created for you:
 
