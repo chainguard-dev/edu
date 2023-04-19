@@ -43,8 +43,8 @@ jobs:
           "gs://chainguard-academy/enforce-changelog/changelog.md" | \
           awk '/###/ {print $NF}' | \
           head -n 1)
-        current=$(awk '/###/ {print $NF}' \
-	  content/chainguard/chainguard-enforce/changelog.md | \
+        current=$(awk '/###/ {print $NF}' | \
+          content/chainguard/chainguard-enforce/changelog.md | \
           head -n 1)
         if [ "$current" != "$latest" ]; then
           echo "status=outdated" >> $GITHUB_OUTPUT
