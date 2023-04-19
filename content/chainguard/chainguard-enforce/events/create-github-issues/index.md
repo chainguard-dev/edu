@@ -9,7 +9,7 @@ tags: ["Enforce", "Product", "CloudEvents"]
 images: []
 menu:
   docs:
-    parent: "chainguard-enforce-kubernetes"
+    parent: "chainguard-enforce"
 weight: 650
 toc: true
 ---
@@ -101,7 +101,7 @@ terraform plan \
   -out enforce-events.plan
 ```
 
-You will receive output showing Terraform's execution plan like the following:
+You will receive output like the following showing Terraform's execution plan:
 
 ```
 . . .
@@ -142,7 +142,7 @@ Note down the `url` and the `secret-command`.
 
 With the output from the `terraform apply` step, you can now run the `echo` command to configure Google Cloud with your GitHub personal access token.
 
-Substitute your GitHub personal access token in place of the `YOUR GITHUB PAT` string and run the following command:
+Substitute your GitHub personal access token in place of the `<your github PAT>` string and run the following command:
 
 ```shell
 echo -n <your github PAT> | gcloud --project <google project> secrets versions add enforce-events-github-pat --data-file=-
@@ -184,7 +184,7 @@ Now that you have a workload running, you can can add an Enforce policy, and the
 
 ## Configuring an Enforce Policy
 
-Before you can open GitHub issues for policy violations, you will need to ensure that you have Enforce configured with a policy that you can test. Make sure you have a cluster registered with Enforce using the `chainctl clusters ls` command. If you do not, visit our [Getting Started with Enforce Guide](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/#step-3--prepare-kubernetes-cluster) to create and register a cluster.
+Before you can open GitHub issues for policy violations, you will need to ensure that you have Enforce configured with a policy that you can test. Make sure you have a cluster registered with Enforce using the `chainctl clusters ls` command. If you do not, visit our [Getting Started with Enforce Guide](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/#step-3--prepare-kubernetes-cluster) to create and register a cluster.
 
 Once you have a cluster enrolled with Enforce, create the following policy from the Getting Started guide:
 
@@ -229,7 +229,7 @@ Now visit your GitHub project's page and look for the issues. A new issue for th
 
 ![Screenshot of a GitHub issue created using the demo application](github-issue.png)
 
-## Conclusion
+## Learn More
 
 Now that you've deployed and tested creating issues with the demo application, you can continue to develop it to create issues for other Enforce event types. See our [Chainguard Enforce Events](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-events/) page for a complete reference of event types that Enforce emits.
 
