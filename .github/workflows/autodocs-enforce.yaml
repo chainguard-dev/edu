@@ -1,6 +1,8 @@
 name: Build Enforce Docs
 
 on:
+  schedule:
+    - cron: "0 * * * *"
   workflow_dispatch:
   push:
     branches:
@@ -50,7 +52,7 @@ jobs:
           echo "status=outdated" >> $GITHUB_OUTPUT
         fi
 
-  enforce-autodocs:
+  integrate-enforce-docs:
     runs-on: ubuntu-latest
 
     permissions:
