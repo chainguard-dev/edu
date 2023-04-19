@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/google-cloud-sdk](https://github.com/chainguard-images/images/tree/main/images/google-cloud-sdk)
 | Tags     | Aliases                                 |
 |----------|-----------------------------------------|
-| `latest` | `426`, `426.0`, `426.0.0`, `426.0.0-r2` |
+| `latest` | `427`, `427.0`, `427.0.0`, `427.0.0-r0` |
 
 
 
