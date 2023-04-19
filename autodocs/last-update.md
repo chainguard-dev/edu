@@ -1,10 +1,5 @@
-## 2023-04-18
+## 2023-04-19
 
 Updated image reference docs.
 
-New images added:
-
-- cluster-autoscaler
-- helm-chartmuseum
-- influxdb
-- zot
+No new images added.
