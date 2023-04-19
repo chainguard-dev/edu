@@ -1,5 +1,5 @@
 ---
-title: "Chaingaurd Enforce Profiles"
+title: "Chainguard Enforce Profiles"
 linktitle: "Profiles"
 aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/profiles/
