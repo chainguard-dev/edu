@@ -1,30 +1,22 @@
 ---
-date: 2023-04-14T15:52:13Z
-title: "chainctl iam groups remove-gcp"
-slug: chainctl_iam_groups_remove-gcp
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_remove-gcp/
+date: 2023-04-18T22:50:50Z
+title: "chainctl iam account-associations check"
+slug: chainctl_iam_account-associations_check
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam groups remove-gcp
+## chainctl iam account-associations check
 
-Remove any configured GCP account association for this IAM Group.
-
-```
-chainctl iam groups remove-gcp [GROUP_NAME | GROUP_ID][--output |json|table] [flags]
-```
+Check the OIDC federation configurations for cloud providers.
 
 ### Options
 
 ```
-  -d, --description string      The description of the association.
-  -h, --help                    help for remove-gcp
-  -n, --name string             The name of the association. (default: the group name)
-      --project-id string       The GCP project ID.
-      --project-number string   The GCP project number.
+  -h, --help   help for check
 ```
 
 ### Options inherited from parent commands
@@ -42,5 +34,7 @@ chainctl iam groups remove-gcp [GROUP_NAME | GROUP_ID][--output |json|table] [fl
 
 ### SEE ALSO
 
-* [chainctl iam groups](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
+* [chainctl iam account-associations](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
+* [chainctl iam account-associations check aws](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check_aws/)	 - Checks that the given group has been properly configured for OIDC federation with AWS
+* [chainctl iam account-associations check gcp](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check_gcp/)	 - Checks that the given group has been properly configured for OIDC federation with GCP
 

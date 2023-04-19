@@ -1,19 +1,34 @@
 ---
 title : "Chainguard Enforce Changelog"
-linktitle: "Changelog"
-aliases:
-- /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/changelog/
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-04-13 19:22:45 +0000 UTC
+date: 2023-04-18 20:34:37 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
-weight: 810
+weight: 799
 ---
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.103
+Release date: 2023-04-18
+#### Documentation
+- Add section to Enforce Events page explaining how UIDPs are generated
+- Add section to Enforce Events page explaining how to validate `iss` and `sub` fields in Authorization header tokens
+
+
+### v0.1.102
+Release date: 2023-04-17
+#### Feature
+- Manage cloud accounts associated with groups with `chainctl iam account-associations`
+
+
+### v0.1.101
+Release date: 2023-04-14
+
+Customer facing changes: N/A
 
 ### v0.1.100
 Release date: 2023-04-13

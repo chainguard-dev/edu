@@ -17,27 +17,32 @@ toc: true
 This page shows detailed information about all available variants of the Chainguard **etcd** Image.
 
 ## Variants Compared
-The **etcd** Chainguard Image currently has one public variant: 
+The **etcd** Chainguard Image currently has 2 public variants: 
 
 - `latest`
+- `latest-dev`
 
 The table has detailed information about each of these variants.
 
-|              | latest          |
-|--------------|-----------------|
-| Default User | `etcd`          |
-| Entrypoint   | `/usr/bin/etcd` |
-| CMD          | not specified   |
-| Workdir      | not specified   |
-| Has apk?     | no              |
-| Has a shell? | no              |
+|              | latest          | latest-dev      |
+|--------------|-----------------|-----------------|
+| Default User | `etcd`          | `etcd`          |
+| Entrypoint   | `/usr/bin/etcd` | `/usr/bin/etcd` |
+| CMD          | not specified   | not specified   |
+| Workdir      | not specified   | not specified   |
+| Has apk?     | no              | yes             |
+| Has a shell? | no              | yes             |
 
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `etcd`                   | X      |
-| `ca-certificates-bundle` | X      |
-| `wolfi-baselayout`       | X      |
+|                          | latest | latest-dev |
+|--------------------------|--------|------------|
+| `etcd`                   | X      | X          |
+| `ca-certificates-bundle` | X      | X          |
+| `wolfi-baselayout`       | X      | X          |
+| `apk-tools`              |        | X          |
+| `bash`                   |        | X          |
+| `busybox`                |        | X          |
+| `git`                    |        | X          |
 

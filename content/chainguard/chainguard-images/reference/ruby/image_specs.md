@@ -28,14 +28,14 @@ The **ruby** Chainguard Image currently has 6 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest         | latest-dev     | 3.1            | 3.1-dev        | 3.0            | 3.0-dev        |
-|--------------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Default User | `nonroot`      | `nonroot`      | `nonroot`      | `nonroot`      | `nonroot`      | `nonroot`      |
-| Entrypoint   | not specified  | not specified  | not specified  | not specified  | not specified  | not specified  |
-| CMD          | `/usr/bin/irb` | `/usr/bin/irb` | `/usr/bin/irb` | `/usr/bin/irb` | `/usr/bin/irb` | `/usr/bin/irb` |
-| Workdir      | `/work`        | `/work`        | `/work`        | `/work`        | `/work`        | `/work`        |
-| Has apk?     | no             | yes            | no             | yes            | no             | yes            |
-| Has a shell? | no             | yes            | no             | yes            | no             | yes            |
+|              | latest          | latest-dev      | 3.1             | 3.1-dev         | 3.0             | 3.0-dev         |
+|--------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
+| Default User | `nonroot`       | `nonroot`       | `nonroot`       | `nonroot`       | `nonroot`       | `nonroot`       |
+| Entrypoint   | `/usr/bin/ruby` | `/usr/bin/ruby` | `/usr/bin/ruby` | `/usr/bin/ruby` | `/usr/bin/ruby` | `/usr/bin/ruby` |
+| CMD          | `--version`     | `--version`     | `--version`     | `--version`     | `--version`     | `--version`     |
+| Workdir      | `/work`         | `/work`         | `/work`         | `/work`         | `/work`         | `/work`         |
+| Has apk?     | no              | yes             | no              | yes             | no              | yes             |
+| Has a shell? | no              | yes             | no              | yes             | no              | yes             |
 
 ## Image Dependencies
 The table shows package distribution across all variants.
