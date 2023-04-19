@@ -2,6 +2,9 @@ name: Build Enforce Docs
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - "update-enforce-workflow"
 
 env:
   PROJECT_ID: "${{ secrets.PROJECT_ID }}"
@@ -11,6 +14,45 @@ env:
   GH_TOKEN: ${{ github.token }}
 
 jobs:
+  check-new-docs:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      id-token: write
+
+    outputs:
+      status: ${{ steps.find-release.outputs.status }}
+    steps:
+    - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
+      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
+
+    - name: Authenticate to Google Cloud
+      id: auth
+      uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
+      with:
+        token_format: 'access_token'
+        project_id: "${{ env.PROJECT_ID }}"
+        workload_identity_provider: "${{ env.WORKLOAD_IDENTITY_PROVIDER }}"
+        service_account: "${{ env.SERVICE_ACCOUNT }}"
+
+    - id: find-release
+      name: 'Find latest Enforce release'
+      run: |
+        latest=$(gcloud storage cat \
+          "gs://chainguard-academy/enforce-changelog/changelog.md" | \
+          awk '/###/ {print $NF}' | \
+          head -n 1)
+        echo "latest=$latest" >> $GITHUB_OUTPUT
+
+    - id: compare-releases
+      name: 'Check for a newer release'
+      run: |
+        exists=$(gcloud storage ls gs://chainguard-academy/enforce-changelog/release-files/ |grep "${{ steps.find-release.outputs.latest}}")
+        if [ -z $exists ]; then
+          echo "status=outdated" >> $GITHUB_OUTPUT
+        fi
+
   enforce-autodocs:
     runs-on: ubuntu-latest
 
@@ -18,6 +60,9 @@ jobs:
       contents: write
       id-token: write
       pull-requests: write
+ 
+    needs: compare-releases
+    if: needs.compare-releases.outputs.status == 'outdated'
 
     steps:
     - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
