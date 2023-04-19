@@ -22,7 +22,7 @@ jobs:
       id-token: write
 
     outputs:
-      status: ${{ steps.find-release.outputs.status }}
+      status: ${{ steps.compare-releases.outputs.status }}
     steps:
     - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
       uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
@@ -61,8 +61,8 @@ jobs:
       id-token: write
       pull-requests: write
  
-    needs: compare-releases
-    if: needs.compare-releases.outputs.status == 'outdated'
+    needs: check-new-docs
+    if: needs.check-new-docs.outputs.status == 'outdated'
 
     steps:
     - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
