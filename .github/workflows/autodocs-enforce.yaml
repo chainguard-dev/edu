@@ -36,20 +36,17 @@ jobs:
         workload_identity_provider: "${{ env.WORKLOAD_IDENTITY_PROVIDER }}"
         service_account: "${{ env.SERVICE_ACCOUNT }}"
 
-    - id: find-release
-      name: 'Find latest Enforce release'
+    - id: compare-releases
+      name: 'Compare published docs to upstream releases'
       run: |
         latest=$(gcloud storage cat \
           "gs://chainguard-academy/enforce-changelog/changelog.md" | \
           awk '/###/ {print $NF}' | \
           head -n 1)
-        echo "latest=$latest" >> $GITHUB_OUTPUT
-
-    - id: compare-releases
-      name: 'Check for a newer release'
-      run: |
-        exists=$(gcloud storage ls gs://chainguard-academy/enforce-changelog/release-files/ |grep "${{ steps.find-release.outputs.latest}}")
-        if [ -z $exists ]; then
+        current=$(awk '/###/ {print $NF}' \
+	  content/chainguard/chainguard-enforce/changelog.md | \
+          head -n 1)
+        if [ "$current" != "$latest" ]; then
           echo "status=outdated" >> $GITHUB_OUTPUT
         fi
 
