@@ -24,7 +24,7 @@ Data regarding tenant IAM structures:
 * IAM role bindings
 
 Auxiliary metadata about a customer includes:
-* User email: we collect user emails in order to allow showing ACL audit information through `chainctl iam rolebindings list`
+* User email: we collect user emails in order to allow showing ACL (access control list) audit information through `chainctl iam rolebindings list`
 
 
 ### Policy Data (user provided)
@@ -33,7 +33,7 @@ Information to enforce user policy, including:
 * IAM group
 * Container Image globs
 * Signing key identifying information:
-    * OIDC issuer + subject pairs
+    * OIDC issuer and subject pairs
     * URL of Fulcio server
     * KMS key reference
 * Event subscriptions to receive compliance-related events 
@@ -73,13 +73,13 @@ Chainguard Enforce also collects the following compliance data:
 * Image compliance related to Enforce policies
 
 
-## Data Collection FAQ's
+## Data Collection FAQs
 
 ### How is customer data collected?
 
 * **User-provided:** This data is provided by the users through our CLI or Terraform provider. The user interfaces call the Chainguard Console API to pass the provided data through, which is then transferred to our production database for permanent storage.
 * **Through the Kubernetes control plane**: The Kubernetes control plane is queried by the Chainguard agent. This agent may run in the customer cluster, or in our hosted cluster. This data is uploaded via gRPC to the Chainguard Console API, which is then transferred to our production database.
-* **Through scanning processes**: Chainguard’s container image scanning processes periodically scan customers images to verify against their policies. Compliance data retrieved from these scans is populated to the Chainguard Datastore API and then transferred to our production database.
+* **Through scanning processes**: Chainguard’s container image scanning processes periodically scan customers' images to verify against their policies. Compliance data retrieved from these scans is populated to the Chainguard Datastore API and then transferred to our production database.
 
 ### Where is customer data stored?
 
