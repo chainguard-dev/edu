@@ -1,26 +1,22 @@
 ---
-date: 2023-04-14T15:52:13Z
-title: "chainctl iam groups check-gcp"
-slug: chainctl_iam_groups_check-gcp
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_check-gcp/
+date: 2023-04-18T22:50:50Z
+title: "chainctl iam account-associations set"
+slug: chainctl_iam_account-associations_set
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam groups check-gcp
+## chainctl iam account-associations set
 
-Checks that the given group has been properly configured for OIDC federation with GCP.
-
-```
-chainctl iam groups check-gcp [GROUP_NAME | GROUP_ID] [--output TODO] [flags]
-```
+Set cloud provider account associations for a group.
 
 ### Options
 
 ```
-  -h, --help   help for check-gcp
+  -h, --help   help for set
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +34,7 @@ chainctl iam groups check-gcp [GROUP_NAME | GROUP_ID] [--output TODO] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam groups](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
+* [chainctl iam account-associations](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
+* [chainctl iam account-associations set aws](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_aws/)	 - Set AWS account association for a group.
+* [chainctl iam account-associations set gcp](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_gcp/)	 - Set GCP account association for a group.
 

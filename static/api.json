@@ -2812,6 +2812,42 @@
       ],
       "type": "string"
     },
+    "ComponentGraphEdge": {
+      "properties": {
+        "predicateId": {
+          "type": "string"
+        },
+        "subjectId": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/ComponentGraphEdgeType"
+        }
+      },
+      "type": "object"
+    },
+    "ComponentGraphEdgeType": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "DESCRIBES",
+        "CONTAINS",
+        "DEPENDS_ON",
+        "GENERATED_FROM"
+      ],
+      "type": "string"
+    },
+    "ComponentGraphNode": {
+      "properties": {
+        "file": {
+          "$ref": "#/definitions/tenantFile2"
+        },
+        "package": {
+          "$ref": "#/definitions/tenantPackage2"
+        }
+      },
+      "type": "object"
+    },
     "IdentityClaimMatch": {
       "properties": {
         "audience": {
@@ -3179,6 +3215,11 @@
     },
     "eventsIdentityMetadata": {
       "properties": {
+        "name": {
+          "description": "Output only. This is the name of the user.",
+          "readOnly": true,
+          "type": "string"
+        },
         "onboardingQuestions": {
           "$ref": "#/definitions/IdentityMetadataOnboardingQuestions"
         }
@@ -4091,12 +4132,63 @@
       },
       "type": "object"
     },
+    "tenantComponentGraph": {
+      "properties": {
+        "edges": {
+          "items": {
+            "$ref": "#/definitions/ComponentGraphEdge"
+          },
+          "type": "array"
+        },
+        "nodes": {
+          "items": {
+            "$ref": "#/definitions/ComponentGraphNode"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "tenantFile2": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "tenantPackage": {
       "properties": {
         "name": {
           "type": "string"
         },
         "purl": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "tenantPackage2": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "name": {
           "type": "string"
         },
         "version": {
@@ -4260,6 +4352,40 @@
         }
       },
       "type": "object"
+    },
+    "tenantSbom2": {
+      "description": "Sbom represents a normalized SBOM that we have ingested into our datastore.\nThey are linked to Signatures via ID, as in they are 'children' of Signatures\nThere can be multiple of these that we keep.",
+      "properties": {
+        "graph": {
+          "$ref": "#/definitions/tenantComponentGraph"
+        },
+        "id": {
+          "description": "id, The Sbom UIDP at which this Sbom resides in the hierarchy.",
+          "type": "string"
+        },
+        "lastSeen": {
+          "format": "date-time",
+          "title": "last_seen tracks the timestamp at which this sbom was last seen.\nTODO(vaikas): Does this really make any sense?",
+          "type": "string"
+        },
+        "rawSbom": {
+          "description": "raw_sbom may or may not be useful in the long term, but for now to make\nprogress on this, we'll just yolo and serialize it here.",
+          "format": "byte",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "tenantSbom2List": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/tenantSbom2"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
     }
   },
   "produces": null,
@@ -4315,6 +4441,9 @@
     },
     {
       "name": "Risks"
+    },
+    {
+      "name": "Sboms"
     }
   ]
 }
