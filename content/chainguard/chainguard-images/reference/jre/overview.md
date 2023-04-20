@@ -15,12 +15,12 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/jre](https://github.com/chainguard-images/images/tree/main/images/jre)
-| Tags             | Aliases                                                                                                  |
-|------------------|----------------------------------------------------------------------------------------------------------|
-| `latest`         | `openjdk17`, `openjdk17.0`, `openjdk17.0.7`, `openjdk17.0.7.5`, `openjdk17.0.7.5-r1`                     |
-| `latest-dev`     | `openjdk17-dev`, `openjdk17.0-dev`, `openjdk17.0.7-dev`, `openjdk17.0.7.5-dev`, `openjdk17.0.7.5-r1-dev` |
-| `openjdk-11`     | `openjdk11`, `openjdk11.0`, `openjdk11.0.18`, `openjdk11.0.18-r1`                                        |
-| `openjdk-11-dev` | `openjdk11-dev`, `openjdk11.0-dev`, `openjdk11.0.18-dev`, `openjdk11.0.18-r1-dev`                        |
+| Tags             | Aliases                                                                                                     |
+|------------------|-------------------------------------------------------------------------------------------------------------|
+| `latest`         | `openjdk17`, `openjdk17.0`, `openjdk17.0.7`, `openjdk17.0.7.5`, `openjdk17.0.7.5-r2`                        |
+| `latest-dev`     | `openjdk17-dev`, `openjdk17.0-dev`, `openjdk17.0.7-dev`, `openjdk17.0.7.5-dev`, `openjdk17.0.7.5-r2-dev`    |
+| `openjdk-11`     | `openjdk11`, `openjdk11.0`, `openjdk11.0.19`, `openjdk11.0.19.5`, `openjdk11.0.19.5-r2`                     |
+| `openjdk-11-dev` | `openjdk11-dev`, `openjdk11.0-dev`, `openjdk11.0.19-dev`, `openjdk11.0.19.5-dev`, `openjdk11.0.19.5-r2-dev` |
 
 
 
