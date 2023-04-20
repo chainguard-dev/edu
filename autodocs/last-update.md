@@ -1,4 +1,4 @@
-## 2023-04-19
+## 2023-04-20
 
 Updated image reference docs.
 
