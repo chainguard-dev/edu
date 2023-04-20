@@ -1,5 +1,5 @@
 ---
-date: 2023-04-18T22:50:50Z
+date: 2023-04-19T23:22:15Z
 title: "chainctl iam identities list"
 slug: chainctl_iam_identities_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_list/
@@ -36,7 +36,7 @@ chainctl iam identities list [--group GROUP_NAME | GROUP_ID] [--name NAME] [--re
       --group string          The name or id of the parent group to list identites from.
   -h, --help                  help for list
       --name string           Filter identities by name.
-      --relationship string   Filter identities by relationship type (claim_match, static).
+      --relationship string   Filter identities by relationship type (claim_match, static, service_principal).
 ```
 
 ### Options inherited from parent commands
