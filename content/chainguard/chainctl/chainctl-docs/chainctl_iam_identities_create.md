@@ -1,5 +1,5 @@
 ---
-date: 2023-04-18T22:50:50Z
+date: 2023-04-19T23:22:15Z
 title: "chainctl iam identities create"
 slug: chainctl_iam_identities_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/
@@ -49,6 +49,7 @@ chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | 
       --issuer-keys string               JWKS-formatted public keys for the issuer.
   -n, --name string                      Given name of the resource.
       --role string                      The name or ID of a role to bind this identity to (optional).
+      --service-principal string         The service principal that is allowed to assume this identity.
       --subject string                   The subject of the identity.
       --subject-pattern string           A pattern to match the subject of the identity.
   -y, --yes                              Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.

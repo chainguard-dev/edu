@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-04-18 20:34:37 +0000 UTC
+date: 2023-04-19 23:07:41 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,13 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.104
+Release date: 2023-04-19
+#### Other (Cleanup or Flake)
+- Drop support for registry.enforce.dev
+#### Uncategorized
+- chainctl recognizes Buildkite ambient credentials
 
 ### v0.1.103
 Release date: 2023-04-18
