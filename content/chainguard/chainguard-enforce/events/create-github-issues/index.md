@@ -1,7 +1,7 @@
 ---
-title: "Create GitHub Issues from Enforce Cloud Events"
+title: "Create GitHub Issues from Enforce CloudEvents"
 type: "article"
-description: "Creating GitHub Issues from Enforce Cloud Events"
+description: "Creating GitHub Issues from Enforce CloudEvents"
 date: 2023-04-11T15:22:20+01:00
 lastmod: 2023-04-11T15:22:20+01:00
 draft: false
@@ -9,7 +9,7 @@ tags: ["Enforce", "Product", "CloudEvents"]
 images: []
 menu:
   docs:
-    parent: "chainguard-enforce"
+    parent: "cloudevents"
 weight: 650
 toc: true
 ---
