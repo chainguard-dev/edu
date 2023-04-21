@@ -51,7 +51,7 @@ The table shows package distribution across all variants.
 | `bash`                   |        | X          |    | X      |    | X      |
 | `git`                    |        | X          |    | X      |    | X      |
 | `yarn`                   |        | X          |    | X      |    | X      |
-| `gcc`                    |        | X          |    | X      |    | X      |
+| `build-base`             |        | X          |    | X      |    | X      |
 | `python-3.11`            |        | X          |    | X      |    | X      |
 | `nodejs-19`              |        |            | X  | X      |    |        |
 | `nodejs-20`              |        |            |    |        | X  | X      |
