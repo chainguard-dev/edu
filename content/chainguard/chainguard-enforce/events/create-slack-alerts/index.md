@@ -10,7 +10,7 @@ images: []
 menu:
   docs:
     parent: "cloudevents"
-weight: 650
+weight: 20
 toc: true
 ---
 
@@ -18,7 +18,7 @@ toc: true
 
 Chainguard Enforce for Kubernetes can send CloudEvents as webhook requests that you can subscribe to and use to do things like generate alerts, create GitHub issues, post messages to Slack channels and more. This tutorial is meant to serve as a companion to the [Enforce Events Slack notifier](https://github.com/chainguard-dev/enforce-events/tree/main/github-issue-opener) example application. It will guide you through creating and deploying a Google Cloud Run service that will send a Slack message to a specified channel for any Enforce policy violation or admission event.
 
-You can also opt to run the example application elsewhere. As long as it is publicly accessible to the [Enforce CIDR network ranges](/chainguard/chainguard-enforce/reference/network-requirements/#cidr-ranges), you will be able to receive Cloudevents and create Slack messages with the example application. If you opt to run the demo application outside of Cloud Run, you can skip to the [Subscribing to Enforce Cloudevents](#subscribing-to-enforce-cloudevents) section, provided you know the publicly accessible URL to your deployed instance of the demo.
+You can also opt to run the example application elsewhere. As long as it is publicly accessible to the [Enforce CIDR network ranges](/chainguard/chainguard-enforce/reference/network-requirements/#cidr-ranges), you will be able to receive CloudEvents and create Slack messages with the example application. If you opt to run the demo application outside of Cloud Run, you can skip to the [Subscribing to Enforce CloudEvents](#subscribing-to-enforce-cloudevents) section, provided you know the publicly accessible URL to your deployed instance of the demo.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Deploying the demo application consists of the following steps:
 1. Cloning the example repository
 2. Running `terraform` to provision resources in your Google Cloud account
 3. Creating a secret in your Google Cloud account to store your Slack webhook URL
-4. Subscribing to Enforce Cloudevents
+4. Subscribing to Enforce CloudEvents
 5. Configuring an Enforce policy
 6. Deploying a pod that generates a policy violation event
 
@@ -141,9 +141,9 @@ echo -n <YOUR SLACK WEBHOOK> | gcloud --project <google project> secrets version
 
 This configures your Google Cloud project with your URL so that it is available to the demo application when it is invoked on Cloud Run.
 
-### Subscribing to Enforce Cloudevents
+### Subscribing to Enforce CloudEvents
 
-Now that the demo application is deployed, the next step is to register it as a Cloudevents receiver using Enforce.
+Now that the demo application is deployed, the next step is to register it as a CloudEvents receiver using Enforce.
 
 Run the following `chainctl` command to create an Enforce webhook subscription:
 
