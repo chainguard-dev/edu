@@ -14,10 +14,10 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/gradle](https://github.com/chainguard-images/images/tree/main/images/gradle)
+`experimental` [cgr.dev/chainguard/gradle](https://github.com/chainguard-images/images/tree/main/images/gradle)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `8`, `8.0`, `8.0.2`, `8.0.2-r0` |
+| `latest` | `8`, `8.0`, `8.0.2`, `8.0.2-r1` |
 
 
 
