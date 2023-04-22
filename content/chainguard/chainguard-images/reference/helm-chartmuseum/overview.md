@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/helm-chartmuseum](https://github.com/chainguard-images/images/tree/main/images/helm-chartmuseum)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.15`, `0.15.0`, `0.15.0-r0`                 |
-| `latest-dev` | `0-dev`, `0.15-dev`, `0.15.0-dev`, `0.15.0-r0-dev` |
+| `latest`     | `0`, `0.15`, `0.15.0`, `0.15.0-r1`                 |
+| `latest-dev` | `0-dev`, `0.15-dev`, `0.15.0-dev`, `0.15.0-r1-dev` |
 
 
 
