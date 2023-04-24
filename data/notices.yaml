@@ -17,3 +17,8 @@
     This image will switch from including a full complement of JDK binaries to a minimally required set in a forthcoming release. The work is being tracked in [this GitHub issue](https://github.com/chainguard-images/images/issues/297).
 
     If you rely on any binaries or libraries that are included in this image beyond the core JRE runtime, consider switching to the [JDK Image](/chainguard/chainguard-images/reference/jdk/overview/).
+
+- title: "Image Overview: nginx"
+  type: WARNING
+  note: |
+    Multiple breaking changes to this image were made on 19 April 2023. If you have used prior versions of this image, refer to the [Breaking Changes Warning](#breaking-changes-warning) section of this page for more details on the changes.
