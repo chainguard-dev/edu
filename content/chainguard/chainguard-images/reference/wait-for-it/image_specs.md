@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                 |
 |--------------|------------------------|
-| Default User | `root`                 |
+| Default User | `nonroot`              |
 | Entrypoint   | `/usr/bin/wait-for-it` |
 | CMD          | not specified          |
 | Workdir      | not specified          |

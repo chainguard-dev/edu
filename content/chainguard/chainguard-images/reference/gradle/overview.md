@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/gradle](https://github.com/chainguard-images/images/tree/main/images/gradle)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `8`, `8.0`, `8.0.2`, `8.0.2-r1` |
+| `latest` | `8`, `8.0`, `8.0.2`, `8.0.2-r2` |
 
 
 
