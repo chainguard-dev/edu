@@ -52,11 +52,15 @@ Once set, the configured identity provider will be used automatically any time y
 
 ### Authenticate with the Chainguard Enforce Console
 
-The Chainguard Enforce Console supports SSO authentication by supplying the identity provider with a unique ID on the login page.
+To authenticate with the Chainguard Enforce Consle using SSO, click the **Use your identity provider** link on the login page.
 
-![Screenshot showing an example Chainguard login page with a custom IDP field.](sso-1.png)
+![Screenshot showing an example Chainguard login page, with a red arrow pointing to the "Use your identity provider" link.](sso-1.png)
 
-After adding your ID, click the **Continue with customer IDP** button. You'll then be redirected to your identity provider to authenticate, after which you'll be redirected back to the Console.
+On the next page, add the identity provider's unique ID.
+
+![Screenshot showing an example Chainguard login page with a field reading "IDP Identifier"](sso-2.png)
+
+After adding your ID, click the **Continue** button. You'll then be redirected to your identity provider to authenticate, after which you'll be redirected back to the Console.
 
 
 ## Setup and Administration
