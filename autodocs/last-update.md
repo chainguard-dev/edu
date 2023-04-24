@@ -1,5 +1,8 @@
-## 2023-04-22
+## 2023-04-24
 
 Updated image reference docs.
 
-No new images added.
+New images added:
+
+- skaffold
+- weaviate
