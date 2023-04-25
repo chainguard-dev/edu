@@ -21,11 +21,9 @@
 - title: "Image Overview: nginx"
   type: WARNING
   note: |
-    On May 3 2023 there will be potentially breaking changes made to the Chainguard nginx image. You may
-need to take action to update your application to prevent disruption. 
+    On May 3 2023 there will be potentially breaking changes made to the Chainguard nginx image. You may need to take action to update your application to prevent disruption. 
 
-    Specifically, the config file is being changed to bring the default configuration closer to that of
-other images. If you override the config with a custom configuration, you should not be affected.
+    Specifically, the config file is being changed to bring the default configuration closer to that of other images. If you override the config with a custom configuration, you should not be affected.
 
     The changes include:
 
