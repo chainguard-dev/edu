@@ -1,5 +1,5 @@
 ---
-date: 2023-04-20T20:33:37Z
+date: 2023-04-24T22:08:04Z
 title: "chainctl iam invites create"
 slug: chainctl_iam_invites_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites_create/
@@ -14,7 +14,7 @@ toc: true
 Generate an invite code to identities or register clusters with Chainguard.
 
 ```
-chainctl iam invites create [GROUP_NAME | GROUP_ID] [--role ROLE_ID|ROLE_NAME | --cluster] [--ttl TTL_DURATION] [--output json|table|id] [flags]
+chainctl iam invites create [GROUP_NAME|GROUP_ID] [--role=ROLE_ID|ROLE_NAME | --cluster] [--ttl=TTL_DURATION] [--email=EMAIL] [--output json|table|id] [flags]
 ```
 
 ### Examples
@@ -22,10 +22,10 @@ chainctl iam invites create [GROUP_NAME | GROUP_ID] [--role ROLE_ID|ROLE_NAME | 
 ```
 
 # Create an invite that will be valid for 5 days:
-chainctl iam invite create GROUP_ID --role ROLE_ID --ttl 5d
+chainctl iam invite create GROUP_ID --role=ROLE_ID --ttl=5d
 
 # Create an invite that only Kim can accept:
-chainctl iam invite create GROUP_ID --role ROLE_ID --email kim@example.com
+chainctl iam invite create GROUP_ID --role=ROLE_ID --email=kim@example.com
 
 # Create an invite for a cluster:
 chainctl iam invite create GROUP_ID --cluster

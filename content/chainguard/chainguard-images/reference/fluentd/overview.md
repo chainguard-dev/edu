@@ -17,10 +17,10 @@ toc: true
 `experimental` [cgr.dev/chainguard/fluentd](https://github.com/chainguard-images/images/tree/main/images/fluentd)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.14`, `1.14.6`, `1.14.6-r3`                 |
-| `latest-dev` | `1-dev`, `1.14-dev`, `1.14.6-dev`, `1.14.6-r3-dev` |
-| `edge`       | `1`, `1.16`, `1.16.1`, `1.16.1-r0`                 |
-| `edge-dev`   | `1-dev`, `1.16-dev`, `1.16.1-dev`, `1.16.1-r0-dev` |
+| `latest`     | `1`, `1.14`, `1.14.6`, `1.14.6-r4`                 |
+| `latest-dev` | `1-dev`, `1.14-dev`, `1.14.6-dev`, `1.14.6-r4-dev` |
+| `edge`       | `1`, `1.16`, `1.16.1`, `1.16.1-r1`                 |
+| `edge-dev`   | `1-dev`, `1.16-dev`, `1.16.1-dev`, `1.16.1-r1-dev` |
 
 
 
