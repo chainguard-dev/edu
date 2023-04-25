@@ -1,5 +1,5 @@
 ---
-date: 2023-04-20T20:33:37Z
+date: 2023-04-24T22:08:04Z
 title: "chainctl clusters discover"
 slug: chainctl_clusters_discover
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_discover/
@@ -14,13 +14,17 @@ toc: true
 Discover eligible clusters.
 
 ```
-chainctl clusters discover [--group GROUP_NAME | GROUP_ID] [--output table|json]
+chainctl clusters discover --provider=PROVIDER1,PROVIDER2,... [--states=STATE1,STATE2,...] [--profiles=PROFILE1,PROFILE2,...] [--opt=KEY=VALUE,KEY=VALUE...] [--group=GROUP_NAME|GROUP_ID] [--output table|json]
 ```
 
 ### Examples
 
 ```
-  chainctl cluster discover
+  # Discover GCP clusters
+  chainctl cluster discover --provider=gcp
+  
+  # Discover eligible ECS and App Runner instances
+  chainctl cluster discover --provider=ecs,app_runner --states=ELIGIBLE
 ```
 
 ### Options

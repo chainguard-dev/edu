@@ -50,6 +50,7 @@ jobs:
           head -n 1)
         if [ "$current" != "$latest" ]; then
           echo "status=outdated" >> $GITHUB_OUTPUT
+          echo "latest=$latest" >> $GITHUB_OUTPUT
         fi
 
   integrate-enforce-docs:
@@ -114,8 +115,12 @@ jobs:
           # Now open a PR if needed
           PR=$(gh pr list --json title,headRefName,url |jq '.[] | select(.headRefName=="autodocs")')
           if [ -z "${PR}" ]; then
-            gh pr create --assignee jamonation --base main --head autodocs --title "Enforce docs autocommit" \
-              --body "Enforce docs autocommit" --no-maintainer-edit --label automated,documentation,enforce
+            gh pr create \
+              --assignee jamonation \
+              --base main --head autodocs \
+              --title "Enforce docs ${{needs.check-new-docs.outputs.latest}} autocommit" \
+              --body "Enforce docs ${{needs.check-new-docs.outputs.latest}} autocommit" \
+              --no-maintainer-edit --label automated,documentation,enforce
           else
             echo "PR exists, see ${PR}"
           fi
