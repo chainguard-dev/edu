@@ -18,7 +18,7 @@ toc: true
 
 Chainguard Enforce for Kubernetes can send CloudEvents as webhook requests that you can subscribe to and use to do things like generate alerts, create Jira issues, post messages to Slack channels, and more. This tutorial is meant to serve as a companion to the [Enforce Events jira-issue-opener](https://github.com/chainguard-dev/enforce-events/tree/main/jira-issue-opener) example application. It will guide you through creating and deploying a Google Cloud Run service that will open new Jira issues for Enforce policy change events.
 
-You can also opt to run the example application elsewhere. As long as it is publicly accessible to the [Enforce CIDR network ranges](/chainguard/chainguard-enforce/reference/network-requirements/), you will be able to receive CloudEvents and create Jira issues with the example application. If you opt to deploy the demo outside of Cloud Run, you can skip to the [Subscribing to Chainguard Enforce CloudEvents](#subscribing-to-chainguard-enforce-cloudevents) section, provided you know the publicly accessible URL to your deployed instance of the demo.
+You can also opt to run the example application elsewhere. As long as it is publicly accessible to the [Enforce CIDR network ranges](/chainguard/chainguard-enforce/reference/network-requirements/#cidr-ranges), you will be able to receive CloudEvents and create Jira issues with the example application. If you opt to deploy the demo outside of Cloud Run, you can skip to the [Subscribing to Chainguard Enforce CloudEvents](#subscribing-to-chainguard-enforce-cloudevents) section, provided you know the publicly accessible URL to your deployed instance of the demo.
 
 ## Prerequisites
 

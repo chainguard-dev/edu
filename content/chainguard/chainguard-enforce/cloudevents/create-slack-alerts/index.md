@@ -18,11 +18,11 @@ toc: true
 
 Chainguard Enforce for Kubernetes can send CloudEvents as webhook requests that you can subscribe to and use to do things like generate alerts, create GitHub issues, post messages to Slack channels and more. This tutorial is meant to serve as a companion to the [Enforce Events Slack notifier](https://github.com/chainguard-dev/enforce-events/tree/main/github-issue-opener) example application. It will guide you through creating and deploying a Google Cloud Run service that will send a Slack message to a specified channel for any Enforce policy violation or admission event.
 
-You can also opt to run the example application elsewhere. As long as it is publicly accessible to the [Enforce CIDR network ranges](/chainguard/chainguard-enforce/reference/network-requirements/#cidr-ranges), you will be able to receive CloudEvents and create Slack messages with the example application. If you opt to run the demo application outside of Cloud Run, you can skip to the [Subscribing to Enforce CloudEvents](#subscribing-to-enforce-cloudevents) section, provided you know the publicly accessible URL to your deployed instance of the demo.
+You can also opt to run the example application elsewhere. As long as it is publicly accessible to the [Enforce CIDR network ranges](/chainguard/chainguard-enforce/reference/network-requirements/#cidr-ranges), you will be able to receive CloudEvents and create Slack messages with the example application. If you opt to run the demo application outside of Cloud Run, you can skip to the [Subscribing to Chainguard Enforce CloudEvents](#subscribing-to-chainguard-enforce-cloudevents) section, provided you know the publicly accessible URL to your deployed instance of the demo.
 
 ## Prerequisites
 
-To follow along with this guide, it is assumed that you have a Kubernetes cluster with Enforce enabled. If you need to set this up, follow our [Getting Started](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/) guide to create a local [kind](https://kind.sigs.k8s.io/) cluster that you can use for experimentation.
+To follow along with this guide, it is assumed that you have a Kubernetes cluster with Chainguard Enforce enabled. If you need to set this up, follow our [Getting Started](/chainguard/chainguard-enforce/chainguard-enforce-user-onboarding/#step-3--prepare-kubernetes-cluster) guide to create a local [kind](https://kind.sigs.k8s.io/) cluster that you can use for experimentation.
 
 You will also need:
 
@@ -30,7 +30,7 @@ You will also need:
 * `terraform` to configure a Google Cloud service account, IAM permissions, and deploy the Cloud Run service. If you are running the application elsewhere, you can ignore this requirement.
 * A [Slack App with Incoming Webhooks](https://api.slack.com/messaging/webhooks) enabled. Create an App using the Slack UI and specify the channel where you want to receive alerts. You can also use the [legacy incoming webhook](https://api.slack.com/legacy/custom-integrations/messaging/webhooks) integration.
 * `chainctl` in order to create a subscription webhook endpoint.
-* An [Enforce or Sigstore policy](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-policy-examples/) and a Kubernetes namespace that is configured with the `policy.sigstore.dev/include=true` label to use Enforce for admission control.
+* An [Enforce or Sigstore policy](/chainguard/chainguard-enforce/policies/chainguard-enforce-policy-examples/) and a Kubernetes namespace that is configured with the `policy.sigstore.dev/include=true` label to use Enforce for admission control.
 
 ## Steps Overview
 
@@ -141,7 +141,7 @@ echo -n <YOUR SLACK WEBHOOK> | gcloud --project <google project> secrets version
 
 This configures your Google Cloud project with your URL so that it is available to the demo application when it is invoked on Cloud Run.
 
-### Subscribing to Enforce CloudEvents
+### Subscribing to Chainguard Enforce CloudEvents
 
 Now that the demo application is deployed, the next step is to register it as a CloudEvents receiver using Enforce.
 
@@ -165,7 +165,7 @@ Enforce will now send events to the application that is running on Cloud Run at 
 
 ## Configuring a Chainguard Enforce Policy
 
-Before you can generate Slack messages for policy violations or admission events, you will need to ensure that you have Chainguard Enforce configured with a policy that you can test. Make sure you have a cluster registered with Enforce using the `chainctl clusters ls` command. If you do not, visit our [Getting Started with Enforce Guide](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/#step-3--prepare-kubernetes-cluster) to create and register a cluster.
+Before you can generate Slack messages for policy violations or admission events, you will need to ensure that you have Chainguard Enforce configured with a policy that you can test. Make sure you have a cluster registered with Enforce using the `chainctl clusters ls` command. If you do not, visit our [Getting Started with Enforce Guide](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/#step-3--prepare-kubernetes-cluster) to create and register a cluster.
 
 Once you have a cluster enrolled with Enforce, create the following policy from the Getting Started guide:
 
@@ -220,4 +220,6 @@ Now check the Slack channel that you configured to receive messages. You should 
 
 ## Learn More
 
-Now that you've deployed and tested sending Slack messages with the demo application, you can continue to develop it to alert about other Enforce event types. Check out our [Chainguard Enforce Events](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-events/) page for a complete reference of event types that Enforce emits.
+Now that you've deployed and tested sending Slack messages with the demo application, you can continue to develop it to alert about other Enforce event types. See our [Chainguard Enforce Events](/chainguard/chainguard-enforce/reference/events/) page for a complete reference of event types that Enforce emits.
+
+To extend this demo application to check for other event types, you can edit the Go code in the repository and deploy new versions of it as you add functionality using the same `terraform plan` and `terraform apply` commands that you ran earlier in this tutorial.

@@ -18,11 +18,11 @@ toc: true
 
 Chainguard Enforce for Kubernetes can send CloudEvents as webhook requests that you can subscribe to and use to do things like generate alerts, create GitHub issues, post messages to Slack channels, and more. This tutorial is meant to serve as a companion to the [Enforce Events github-issue-opener](https://github.com/chainguard-dev/enforce-events/tree/main/github-issue-opener) example application. It will guide you through creating and deploying a Google Cloud Run service that will open new GitHub issues for any Enforce policy violation event.
 
-You can also opt to run the example application elsewhere. As long as it is publicly accessible to the [Enforce CIDR network ranges](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/network-requirements/#cidr-ranges), you will be able to receive CloudEvents and create GitHub issues with the example application. If you opt to deploy the demo outside of Cloud Run, you can skip to the [Subscribing to Chainguard Enforce CloudEvents](#subscribing-to-chainguard-enforce-cloudevents) section, provided you know the publicly accessible URL to your deployed instance of the demo.
+You can also opt to run the example application elsewhere. As long as it is publicly accessible to the [Enforce CIDR network ranges](/chainguard/chainguard-enforce/reference/network-requirements/#cidr-ranges), you will be able to receive CloudEvents and create GitHub issues with the example application. If you opt to deploy the demo outside of Cloud Run, you can skip to the [Subscribing to Chainguard Enforce CloudEvents](#subscribing-to-chainguard-enforce-cloudevents) section, provided you know the publicly accessible URL to your deployed instance of the demo.
 
 ## Prerequisites
 
-To follow along with this guide, it is assumed that you have a Kubernetes cluster with Chainguard Enforce enabled. If you need to set this up, follow our [Getting Started](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/) guide to create a local [kind](https://kind.sigs.k8s.io/) cluster that you can use for experimentation.
+To follow along with this guide, it is assumed that you have a Kubernetes cluster with Chainguard Enforce enabled. If you need to set this up, follow our [Getting Started](/chainguard/chainguard-enforce/chainguard-enforce-user-onboarding/#step-3--prepare-kubernetes-cluster) guide to create a local [kind](https://kind.sigs.k8s.io/) cluster that you can use for experimentation.
 
 You will also need:
 
@@ -184,7 +184,7 @@ Now that you have a workload running, you can can add an Enforce policy, and the
 
 ## Configuring an Enforce Policy
 
-Before you can open GitHub issues for policy violations, you will need to ensure that you have Enforce configured with a policy that you can test. Make sure you have a cluster registered with Enforce using the `chainctl clusters ls` command. If you do not, visit our [Getting Started with Enforce Guide](/chainguard/chainguard-enforce/chainguard-enforce-user-onboarding/#step-3--prepare-kubernetes-cluster) to create and register a cluster.
+Before you can open GitHub issues for policy violations, you will need to ensure that you have Enforce configured with a policy that you can test. Make sure you have a cluster registered with Enforce using the `chainctl clusters ls` command. If you do not, visit our [Getting Started with Enforce Guide](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/#step-3--prepare-kubernetes-cluster) to create and register a cluster.
 
 Once you have a cluster enrolled with Enforce, create the following policy from the Getting Started guide:
 
@@ -231,7 +231,7 @@ Now visit your GitHub project's page and look for the issues. A new issue for th
 
 ## Learn More
 
-Now that you've deployed and tested creating issues with the demo application, you can continue to develop it to create issues for other Enforce event types. See our [Chainguard Enforce Events](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-events/) page for a complete reference of event types that Enforce emits.
+Now that you've deployed and tested creating issues with the demo application, you can continue to develop it to create issues for other Enforce event types. See our [Chainguard Enforce Events](/chainguard/chainguard-enforce/reference/events/) page for a complete reference of event types that Enforce emits.
 
 To see how to extend the demo application to check for other event types, see the [Slack Issue Opener](https://github.com/chainguard-dev/enforce-events/blob/main/slack-webhook) demo in the repository that you cloned at the beginning of this tutorial.
 
