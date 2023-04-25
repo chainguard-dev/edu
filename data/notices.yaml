@@ -21,4 +21,4 @@
 - title: "Image Overview: nginx"
   type: WARNING
   note: |
-    Multiple breaking changes to this image were made on 19 April 2023. If you have used prior versions of this image, refer to the [Breaking Changes Warning](#breaking-changes-warning) section of this page for more details on the changes.
+    Multiple breaking changes to this image were made on 25 April 2023. If you have used prior versions of this image, refer to the [Breaking Changes Warning](#breaking-changes-warning) section of this page for more details on the changes.
