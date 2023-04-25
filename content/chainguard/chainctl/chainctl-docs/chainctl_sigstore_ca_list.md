@@ -1,5 +1,5 @@
 ---
-date: 2023-04-20T20:33:37Z
+date: 2023-04-24T22:08:04Z
 title: "chainctl sigstore ca list"
 slug: chainctl_sigstore_ca_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_sigstore_ca_list/

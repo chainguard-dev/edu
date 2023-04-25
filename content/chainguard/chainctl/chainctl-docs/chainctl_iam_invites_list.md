@@ -1,5 +1,5 @@
 ---
-date: 2023-04-20T20:33:37Z
+date: 2023-04-24T22:08:04Z
 title: "chainctl iam invites list"
 slug: chainctl_iam_invites_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites_list/
@@ -11,16 +11,27 @@ toc: true
 ---
 ## chainctl iam invites list
 
-Show invites that are active.
+List group invites.
 
 ```
-chainctl iam invites list [--output table|json|id] [flags]
+chainctl iam invites list [--group=GROUP_NAME|GROUP_ID] [--output table|json|id]
+```
+
+### Examples
+
+```
+  # List all accessible group invites
+  chainctl iam invites list
+  
+  # Filter invites by group
+  chainctl iam invites list --group=my-group
 ```
 
 ### Options
 
 ```
-  -h, --help   help for list
+      --group string   List invites from this group.
+  -h, --help           help for list
 ```
 
 ### Options inherited from parent commands
