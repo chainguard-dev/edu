@@ -41,5 +41,6 @@ The table shows package distribution across all variants.
 | `tzdata`                 | X      |
 | `zlib`                   | X      |
 | `glibc`                  | X      |
+| `libstdc++-dev`          | X      |
 | `wolfi-baselayout`       | X      |
 
