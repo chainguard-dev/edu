@@ -3222,6 +3222,10 @@
         },
         "onboardingQuestions": {
           "$ref": "#/definitions/IdentityMetadataOnboardingQuestions"
+        },
+        "updatesOptIn": {
+          "description": "Whether the user has opted to receive updates from Chainguard.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -3656,7 +3660,8 @@
       "enum": [
         "UNKNOWN",
         "COSIGNED",
-        "INGESTER"
+        "INGESTER",
+        "CATALOG_SYNCER"
       ],
       "type": "string"
     },
@@ -4189,6 +4194,9 @@
           "type": "string"
         },
         "name": {
+          "type": "string"
+        },
+        "purl": {
           "type": "string"
         },
         "version": {
