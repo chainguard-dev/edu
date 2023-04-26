@@ -1,7 +1,7 @@
 ---
 title: "Installing the Chainguard Enforce Agent"
 linktitle: "Installation"
-aliases: 
+aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/alternative-installation-methods/
 type: "article"
 lead: ""
@@ -20,11 +20,11 @@ toc: true
 
 > _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
-There are currently three recommended approaches to installing the Chainguard Enforce Agent. This guide will walk you through each of these approaches. 
+There are currently three recommended approaches to installing the Chainguard Enforce Agent. This guide will walk you through each of these approaches.
 
-Our [getting started guide](../chainguard-enforce-user-onboarding/) provides more detailed information on how to set up Chainguard Enforce, and this document provides a reference for three alternative methods to align best with your team's existing Kubernetes workflow. 
+Our [getting started guide](../chainguard-enforce-user-onboarding/) provides more detailed information on how to set up Chainguard Enforce, and this document provides a reference for three alternative methods to align best with your team's existing Kubernetes workflow.
 
-Our first method will be installation with `chainctl`, the command line tool for working with Chainguard products. 
+Our first method will be installation with `chainctl`, the command line tool for working with Chainguard products.
 
 The second two methods are two approaches to declarative installs, which define the entirety of the Chainguard Enforce Agent resources as static Kubernetes manifests. Static manifests created for declarative installs allow for greater flexibility for how they're ultimately applied to the cluster, and can be adapted to fit most Kubernetes deployment workflows. These two examples we'll be covering are installation via "raw" YAML, and via a Helm Chart.
 
@@ -42,7 +42,7 @@ To install with `chainctl`, first authenticate into `chainctl` before running a 
 chainctl auth login
 ```
 
-With your cluster already set up, you'll install the Chainguard Enforce Agent with `chainctl`. For GKE, EKS, and AKS cloud infrastructure, use the next command. 
+With your cluster already set up, you'll install the Chainguard Enforce Agent with `chainctl`. For GKE, EKS, and AKS cloud infrastructure, use the next command.
 
 ```sh
 chainctl cluster install --group=$GROUP_ID --context $CLUSTER
@@ -70,7 +70,7 @@ The Chainguard Enforce Agent can be installed declaratively with either YAML or 
 
 ### Required Authentication for Declarative Installations
 
-When installing the Chainguard Enforce Agent declaratively, this step must be taken to set up the Agent's authentication and authorization to the Chainguard Enforce Platform. This step ensures the agent knows _how_ it should authenticate to the platform, and _where_ it should authenticate (which [group](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-manage-iam-groups-in-chainguard-enforce/)).
+When installing the Chainguard Enforce Agent declaratively, this step must be taken to set up the Agent's authentication and authorization to the Chainguard Enforce Platform. This step ensures the agent knows _how_ it should authenticate to the platform, and _where_ it should authenticate (which [group](/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/)).
 
 Generate the relevant invite code(s) for your cluster or clusters using the following:
 
@@ -79,7 +79,7 @@ Generate the relevant invite code(s) for your cluster or clusters using the foll
 INVITE_CODE=$(chainctl iam invite create $GROUP --cluster -ojson | jq -r '.code')
 ```
 
-For a full overview of the invite code, and how it relates to IAM in Chainguard Enforce, see [our guide on managing groups in Chainguard Enforce](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-manage-iam-groups-in-chainguard-enforce/).
+For a full overview of the invite code, and how it relates to IAM in Chainguard Enforce, see [our guide on managing groups in Chainguard Enforce](/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/).
 
 #### Additional Authentication for Private Clusters
 
@@ -111,9 +111,9 @@ You have two options to install the Enforce Agent with YAML, either using `chain
 
 #### YAML Option 1 — Install with `chainctl`
 
-If you would like to work directly with the Chainguard command line tool, you can install the Agent directly into you cluster with `chainctl`. 
+If you would like to work directly with the Chainguard command line tool, you can install the Agent directly into you cluster with `chainctl`.
 
-Install `chainctl` if you have not done so already by following the [How to Install `chainctl` guide](/chainguard/chainguard-enforce/how-to-install-chainctl/). 
+Install `chainctl` if you have not done so already by following the [How to Install `chainctl` guide](/chainguard/chainguard-enforce/how-to-install-chainctl/).
 
 With the tool installed, authenticate into `chainctl`.
 
@@ -121,7 +121,7 @@ With the tool installed, authenticate into `chainctl`.
 chainctl auth login
 ```
 
-Next, fetch the latest YAML representing the Enforce Agent's Kubernetes resources and save it to an `enforce-agent.yaml` file. Make sure you are in a relevant working directory. 
+Next, fetch the latest YAML representing the Enforce Agent's Kubernetes resources and save it to an `enforce-agent.yaml` file. Make sure you are in a relevant working directory.
 
 ```sh
 chainctl cluster print-config > enforce-agent.yaml
@@ -131,7 +131,7 @@ With this YAML fetched, you are ready to [add our authentication details](#add-a
 
 #### YAML Option 2 — Install with `curl`
 
-If you would like to use `curl` to install YAML, you can do so by pulling down the latest YAML that represents the Enforce Agent's Kubernetes resources, and saving it to a new `enforce-agent.yaml` file. Make sure you are in a relevant working directory. 
+If you would like to use `curl` to install YAML, you can do so by pulling down the latest YAML that represents the Enforce Agent's Kubernetes resources, and saving it to a new `enforce-agent.yaml` file. Make sure you are in a relevant working directory.
 
 ```sh
 curl -s 'https://dl.enforce.dev/{mcp,tenant}.yaml' > enforce-agent.yaml
@@ -247,4 +247,4 @@ The full list of configuration options available are located in the [Chainguard 
 
 ## Next Steps
 
-With the Chainguard Enforce Agent installed in your cluster, continue learning about Enforce by reading the [Getting Started Guide](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/), learn how to [manage policies with `chainctl`](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-policies-cli/), or follow the tutorial on [how to detect the Log4Shell vulnerability with Enforce](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/detect-log4shell-demo/).
+With the Chainguard Enforce Agent installed in your cluster, continue learning about Enforce by reading the [Getting Started Guide](/chainguard/chainguard-enforce/chainguard-enforce-user-onboarding/), learn how to [manage policies with `chainctl`](/chainguard/chainguard-enforce/policies/chainguard-policies-cli/), or follow the tutorial on [how to detect the Log4Shell vulnerability with Enforce](/chainguard/chainguard-enforce/concepts/detect-log4shell-demo/).

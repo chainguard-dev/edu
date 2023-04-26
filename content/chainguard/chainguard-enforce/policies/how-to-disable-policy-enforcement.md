@@ -22,7 +22,7 @@ In the event of an incident response or another situation where you may need to 
 
 In an Enforce policy, images that fail to meet requirements will cause the image not to be admitted by default. To instead allow these through and warn the user that this operation did not meet the criteria, you can use the `mode` configuration option under `ClusterImagePolicy`. When set to `warn`, the policy will not block the admission, but instead will allow it through and emit a warning.
 
-## Example Warning Policies 
+## Example Warning Policies
 
 The following sets the `mode` configuration to `warn`.
 
@@ -113,6 +113,6 @@ Again, the `mode` configuration is set to `warn`. If you are logged into the Enf
 
 You can review which policies are in **Enforce** or **Warn** mode by reviewing the policy table in your Enforce Console.
 
-![Warn or Enforce mode indicated in policy table](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-policies-ui/enforce-console-warn-enforce-mode_hu3b0eaea9ffe2caf7848b0a93077fa970_51901_900x0_resize_box_3.png)
+![Warn or Enforce mode indicated in policy table](/chainguard/chainguard-enforce/policies/chainguard-policies-ui/enforce-console-warn-enforce-mode_hu3b0eaea9ffe2caf7848b0a93077fa970_51901_900x0_resize_box_3.png)
 
-From your Enforce Console policy table, you can further edit each enforcing policy to a warning policy and vice versa. 
+From your Enforce Console policy table, you can further edit each enforcing policy to a warning policy and vice versa.
