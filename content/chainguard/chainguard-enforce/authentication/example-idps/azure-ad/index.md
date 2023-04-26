@@ -65,7 +65,7 @@ Finally, take note of the client secret “Value” that is created. You'll need
 
 ## Configuring Chainguard to use Azure Active Directory
 
-To configure Chainguard make a note of the following details from your Azure Active Directory application:
+To configure Chainguard, make a note of the following details from your Azure Active Directory application:
 
 * **Application (client) Id**: This can be found on the **Overview** tab of the Chainguard AD application.
 * **Client Secret**: You noted this down when you set up the  clientsecret in the previous step.

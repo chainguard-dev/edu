@@ -65,7 +65,7 @@ That completes our configuration of the Okta Application. Next, we need to confi
 
 To configure the platform, make a note of the following settings from your Okta Application:
 
-* **Client id**: You can find this on the **General** tab under **Client Credentials**
+* **Client ID**: You can find this on the **General** tab under **Client Credentials**
 * **Client Secret**: Find this on the **General** Tab under **Client Credentials**
 ** **Issuer URL**: This is found under the **Sign on** tab in the **OpenID Connect ID Token** section
 
