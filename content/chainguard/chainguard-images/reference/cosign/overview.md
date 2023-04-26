@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/cosign](https://github.com/chainguard-images/images/tree/main/images/cosign)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.0`, `2.0.1`, `2.0.1-r0`                 |
+| `latest`     | `2`, `2.0`, `2.0.2`, `2.0.2-r0`                 |
 | `latest-dev` | `2-dev`, `2.0-dev`, `2.0.1-dev`, `2.0.1-r0-dev` |
 
 

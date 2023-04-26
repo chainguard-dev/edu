@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/telegraf](https://github.com/chainguard-images/images/tree/main/images/telegraf)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.26`, `1.26.1`, `1.26.1-r1`                 |
-| `latest-dev` | `1-dev`, `1.26-dev`, `1.26.1-dev`, `1.26.1-r1-dev` |
+| `latest`     | `1`, `1.26`, `1.26.2`, `1.26.2-r0`                 |
+| `latest-dev` | `1-dev`, `1.26-dev`, `1.26.2-dev`, `1.26.2-r0-dev` |
 
 
 
