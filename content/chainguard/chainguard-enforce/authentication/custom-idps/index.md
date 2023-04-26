@@ -191,4 +191,4 @@ As with other capabilities, if an identity provider capability is granted to a p
 
 In the case of an outage or misconfiguration of your identity provider, it can be helpful to have an authentication mechanism to the Chainguard outside of your SSO identity provider to recover. For this purpose, you can use one of our OIDC login providers (currently Google, GitHub, or GitLab) to create a backup account
 
-Because an OIDC login account needs to be set up to bootstrap the SSO identity provider initially, it’s possible to keep this account as a backup account in case you need it for recovery. Unfortunately, the nature of these OIDC login accounts is such that it is difficult to share them as a backup resource as they’re often tied to a single user.
+As an OIDC login account needs to be set up to bootstrap the SSO identity provider initially, it’s possible to keep this account as a breakglass account in case you need it for recovery. However, the nature of these OIDC provider accounts is such that it is difficult to share them as a breakglass resource as they’re often tied to a single user.
