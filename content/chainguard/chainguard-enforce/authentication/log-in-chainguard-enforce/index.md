@@ -11,8 +11,8 @@ tags: ["Enforce", "Product", "Procedural"]
 images: []
 menu:
   docs:
-    parent: "chainguard-enforce"
-weight: 025
+    parent: "authentication"
+weight: 005
 toc: true
 ---
 
