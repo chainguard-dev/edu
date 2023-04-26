@@ -30,9 +30,9 @@ kind delete cluster --name enforce-demo
 
 To get up and running with Chainguard Enforce, you may want to review the following docs and resources:
 
-- [Overview of IAM model](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/overview-of-enforce-iam-model/)
-- [How to manage IAM groups in Chainguard Enforce](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-manage-iam-groups-in-chainguard-enforce/)
-- [Example policies to use with Chainguard Enforce](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-policy-examples/)
-- [`chainctl` reference](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/) to effective use our CLI tool to interact with the account model that Chainguard Enforce provides, and enable you to make queries into the state of your clusters and policies registered with the platform
+- [Overview of IAM model](https://edu.chainguard.dev/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/)
+- [How to manage IAM groups in Chainguard Enforce](https://edu.chainguard.dev/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/)
+- [Example policies to use with Chainguard Enforce](https://edu.chainguard.dev/chainguard/chainguard-enforce/policies/chainguard-enforce-policy-examples/)
+- [`chainctl` reference](https://edu.chainguard.dev/chainguard/chainctl/) to effective use our CLI tool to interact with the account model that Chainguard Enforce provides, and enable you to make queries into the state of your clusters and policies registered with the platform
 
 Please review more of our [documentation on Chainguard Enforce](https://edu.chainguard.dev/chainguard/chainguard-enforce/) and other resources on [Chainguard Academy](https://edu.chainguard.dev) to learn more about software supply chain security.

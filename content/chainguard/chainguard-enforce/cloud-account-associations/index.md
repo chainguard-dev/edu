@@ -39,9 +39,9 @@ Although the exact permissions between these profiles differ slightly between bo
 
 * `chainguard-canary` — used to test whether the cloud account association is working correctly. This profile has no permissions, as it only functions as an endpoint for testing
 * `chainguard-agentless` — has access to the Kubernetes API, allowing Chainguard Enforce to create and manage resources within your cloud account
-* `chainguard-discovery` — allows Enforce to find and list resources running within your cloud account, thereby enabling [Chainguard Enforce's Discovery feature](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-discovery-onboarding/)
+* `chainguard-discovery` — allows Enforce to find and list resources running within your cloud account, thereby enabling [Chainguard Enforce's Discovery feature](/chainguard/chainguard-enforce/chainguard-enforce-discovery-onboarding/)
 * `chainguard-ingester` — has read-only access to SBOMs, allowing Enforce to download and ingest them as necessary
-* `chainguard-enforce-signer` — allows Chainguard to perform [Enforce Signing](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-signing/chainguard-enforce-signing-faqs/)
+* `chainguard-enforce-signer` — allows Chainguard to perform [Enforce Signing](/chainguard/chainguard-enforce/chainguard-enforce-signing/chainguard-enforce-signing-faqs/)
 * `chainguard-cosigned` — provides access to the open source SigStore policy controller, allowing Enforce to verify container attestations and signatures
 
 A complete table of the IAM resources that Enforce creates is listed at the end of this page in the [Additional IAM Resources section](#additional-iam-resources).
@@ -269,7 +269,7 @@ After running either of these examples, `chainctl` will prompt you to select the
 
 ## Learn More
 
-After setting up a cloud account association, you can use Chainguard Enforce's [Discovery feature](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-discovery-onboarding/) to discover various containerized workloads within your project. You can also set up an [Agentless Connection](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-connect-kubernetes-clusters/#agentless-connections).
+After setting up a cloud account association, you can use Chainguard Enforce's [Discovery feature](/chainguard/chainguard-enforce/chainguard-enforce-discovery-onboarding/) to discover various containerized workloads within your project. You can also set up an [Agentless Connection](/chainguard/chainguard-enforce/how-to-connect-kubernetes-clusters/#agentless-connections).
 
 ## Additional IAM Resources
 
