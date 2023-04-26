@@ -1,6 +1,6 @@
 ---
 title: "Troubleshooting Tips"
-aliases: 
+aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/troubleshooting-tips/
 type: "article"
 description: "Troubleshooting tips for Chainguard Enforce"
@@ -16,11 +16,11 @@ weight: 805
 toc: true
 ---
 
-This page contains tips for troubleshooting problems that one may encounter when working with Chainguard Enforce. 
+This page contains tips for troubleshooting problems that one may encounter when working with Chainguard Enforce.
 
 ## Debug using `chainctl`
 
-You can run `chainctl` in debug mode using the verbose flag `-v` or `--v` and passing an integer value of `2` or larger, as in `-v=2`. 
+You can run `chainctl` in debug mode using the verbose flag `-v` or `--v` and passing an integer value of `2` or larger, as in `-v=2`.
 
 Using this flag, you can log all requests and responses or errors.
 
@@ -30,7 +30,7 @@ For example, to grab all logs related to the clusters listed for a group, you ca
 chainctl cluster ls --group $DEMO_GROUP -v=2
 ```
 
-The output will return log data to support you in debugging. 
+The output will return log data to support you in debugging.
 
 ```
 2023/03/28 22:23:58.418086 "level"=1 "msg"="Commandline flags" "active-within"="168h0m0s" "api"="api" "audience"="audience" "config"="" "console"="api" "group"="$DEMO_GROUP" "help"="false" "issuer"="oidc" "name"="" "output"="" "registry"="registry" "timestamp-authority"="timestamp" "v"="2"
@@ -42,7 +42,7 @@ The output will return log data to support you in debugging.
 -------+-------+----------+------------+-------------+---------------+-----------+-----------
 ```
 
-By default, your next command passed without the `-v` flag will revert to the standard `chainctl` experience. Alternatively, you can pass `-v=0` to your `chainctl` command for the default experience, without logging. 
+By default, your next command passed without the `-v` flag will revert to the standard `chainctl` experience. Alternatively, you can pass `-v=0` to your `chainctl` command for the default experience, without logging.
 
 ## How to disable admission control
 
@@ -55,7 +55,7 @@ kubectl delete validatingwebhookconfiguration enforcer
 kubectl delete mutatingwebhookconfiguration enforcer
 ```
 
-After your urgent situation is over, [reinstall Enforce in your cluster](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/alternative-installation-methods/) to restore the webhook to its normal operation.
+After your urgent situation is over, [reinstall Enforce in your cluster](/chainguard/chainguard-enforce/installation/alternative-installation-methods/) to restore the webhook to its normal operation.
 
 
 ## Chainguard Enforce is unable to parse a given SBOM
@@ -65,19 +65,19 @@ One issue that may come up when working with Chainguard Enforce is that it won't
 
 ### Check your permissions
 
-Chainguard Enforce needs access to your images in order to parse the associated SBOMs. If your image is in a private repository, check out [our guide on setting up cloud account associations](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/cloud-account-associations/) to grant Enforce read access to the image.
+Chainguard Enforce needs access to your images in order to parse the associated SBOMs. If your image is in a private repository, check out [our guide on setting up cloud account associations](/chainguard/chainguard-enforce/cloud-account-associations/) to grant Enforce read access to the image.
 
 
 ### SBOMs using older versions of CycloneDX
 
 For CycloneDX, Chainguard Enforce currently only supports version 1.4.
 
-    
+
 ### SBOM included as an in-toto attestation
 
 We are in the process of updating Chainguard Enforce so it can readily parse SBOM attestations out of the box. In the meantime, you can parse SBOMs through implementing specific policies that cover this use case.
 
-You can create a policy covering your image [through the Chainguard Enforce console](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-policies-ui/) or [using the `chainctl` command line tool](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-policies-cli/). Additionally, you can check out our [policy catalog](https://console.enforce.dev/policies/catalog) for our collection of policies that work directly with Chainguard Enforce.
+You can create a policy covering your image [through the Chainguard Enforce console](/chainguard/chainguard-enforce/policies/chainguard-policies-ui/) or [using the `chainctl` command line tool](/chainguard/chainguard-enforce/policies/chainguard-policies-cli/). Additionally, you can check out our [policy catalog](https://console.enforce.dev/policies/catalog) for our collection of policies that work directly with Chainguard Enforce.
 
 
 ## Policy does not cover a given image as expected

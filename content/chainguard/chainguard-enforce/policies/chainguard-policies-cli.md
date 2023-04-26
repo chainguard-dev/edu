@@ -1,7 +1,7 @@
 ---
 title: "Manage Policies with chainctl"
 linktitle: "chainctl Policy Management"
-aliases: 
+aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-policies-cli/
 type: "article"
 description: "Creating and managing policies with chainctl, the Chainguard command line tool"
@@ -19,12 +19,12 @@ toc: true
 
 Chainguard Enforce allows you to define and apply policies to your Kubernetes clusters, ensuring that only those deployments that satisfy a given policy are successful. This guide outlines how to create and manage policies using `chainctl`, the Chainguard Enforce command line interface. You must already have an account with Chainguard to follow this guide. You can request access for **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).
 
-To review sample policies that you may want to leverage, please check out our page on [Chainguard Enforce Policy Examples](chainguard-enforce-policy-examples). If you would like to use the [Chainguard Enforce UI](https://console.enforce.dev) to work with policies, check out our guide on [How to create policies in the Chainguard Enforce Console](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-policies-ui/).
+To review sample policies that you may want to leverage, please check out our page on [Chainguard Enforce Policy Examples](chainguard-enforce-policy-examples). If you would like to use the [Chainguard Enforce UI](https://console.enforce.dev) to work with policies, check out our guide on [How to create policies in the Chainguard Enforce Console](/chainguard/chainguard-enforce/policies/chainguard-policies-ui/).
 
 
 ## Prerequisites
 
-In order to follow along with the examples in this guide, you will need `chainctl` installed on your local machine. Follow our guide on [How To Install `chainctl`](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/) to set this up.
+In order to follow along with the examples in this guide, you will need `chainctl` installed on your local machine. Follow our guide on [How To Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
 
 
 ## Authenticate to the Chainguard Enforce platform
@@ -46,7 +46,7 @@ You can apply a policy to every cluster managed by a given group with the `polic
 chainctl policies apply -f enforce-policy.yaml
 ```
 
-After running a `policies apply` command like this, an interactive menu will appear in your terminal prompting you to select the group that the policy should apply to. Chainguard Enforce provides a rich [Identity and Access Management (IAM) model](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/overview-of-enforce-iam-model/) similar to those used by AWS and GCP. Each Chainguard policy needs to be associated with a group, and will be effective for that group as well as all the groups descending from it.
+After running a `policies apply` command like this, an interactive menu will appear in your terminal prompting you to select the group that the policy should apply to. Chainguard Enforce provides a rich [Identity and Access Management (IAM) model](/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/) similar to those used by AWS and GCP. Each Chainguard policy needs to be associated with a group, and will be effective for that group as well as all the groups descending from it.
 
 The `-f` option in this command tells `chainctl` the location of the policy file to use to apply a new policy to a cluster. Note that all Chainguard Enforce policies must be written in YAML. If you don't include this option followed by a policy file, `chainctl` will open your default text editor for you to enter a policy manually.
 
@@ -62,7 +62,7 @@ In this example, the group is named `my-group`. When you run this command on you
 chainctl iam groups list -o table
 ```
 
-Lastly, `policies apply` also accepts the `-d` option which allows you to add a description of your policy. 
+Lastly, `policies apply` also accepts the `-d` option which allows you to add a description of your policy.
 
 ```sh
 chainctl policies apply -f enforce-policy.yaml -d "This is a description of my policy"
@@ -82,11 +82,11 @@ chainctl policies list
 This will return a table with information about all of your active policies, including the policy's unique identification number, its name, and description if one has been added.
 
 ```
-                             ID                             |      NAME      |       DESCRIPTION        
+                             ID                             |      NAME      |       DESCRIPTION
 ------------------------------------------------------------+----------------+--------------------------
-  d22957f0271ef73221005f8c11bb027888829e09/2eb7b5401728bd9f | sample-policy  | This is a sample policy  
-  d22957f0271ef73221005f8c11bb027888829e09/6c559b7225e889f9 | my-policy      | My policy                
-  d22957f0271ef73221005f8c11bb027888829e09/f7253a47e09f3bf0 | enforce-policy |                          
+  d22957f0271ef73221005f8c11bb027888829e09/2eb7b5401728bd9f | sample-policy  | This is a sample policy
+  d22957f0271ef73221005f8c11bb027888829e09/6c559b7225e889f9 | my-policy      | My policy
+  d22957f0271ef73221005f8c11bb027888829e09/f7253a47e09f3bf0 | enforce-policy |
 ```
 
 However, this output only provides some high-level information about your policies. In order to inspect the contents of a given policy, you can run the `policies view` subcommand.

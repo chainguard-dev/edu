@@ -22,7 +22,7 @@ As of March 20, 2023, the Kubernetes project will be changing registries, from i
 
 In order to avoid using Kubernetes images from the deprecated registry, you will need to update pipelines to the new registry. Chainguard Enforce can help you fix workloads so that you can ensure you are using images from the new registry by using a new policy Chainguard created to support organizations who will need to be aware of this registry migration.
 
-This document assumes that you are using Chainguard Enforce. If you would like to learn more about Enforce, please review our [overview](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/enforce-overview/) and our [user onboarding](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/). You can request access through selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).
+This document assumes that you are using Chainguard Enforce. If you would like to learn more about Enforce, please review our [overview](/chainguard/chainguard-enforce/enforce-overview/) and our [user onboarding](/chainguard/chainguard-enforce/). You can request access through selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).
 
 ## Kubernetes Registry Deprecation Warning Policy
 
