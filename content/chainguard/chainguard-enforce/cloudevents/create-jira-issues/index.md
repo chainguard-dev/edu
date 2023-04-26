@@ -30,7 +30,7 @@ You will also need:
 * `terraform` to configure a Google Cloud service account, IAM permissions, and deploy the Cloud Run service. If you are running the application elsewhere, you can ignore this requirement.
 * An [Atlassian API Token](https://id.atlassian.com/manage-profile/security/api-tokens). Note that this guide assumes you are using the cloud version of Jira.
 * `chainctl` in order to create a subscription webhook endpoint.
-* An [Enforce or Sigstore policy](/chainguard/chainguard-enforce/policies/chainguard-enforce-policy-examples/) and a Kubernetes namespace that is configured with the `policy.sigstore.dev/include=true` label to use Enforce for admission control.
+* An [Enforce or Sigstore policy](/chainguard/chainguard-enforce/policies/chainguard-enforce-policy-examples/) and a Kubernetes namespace that you can use to test Enforce's admission control webhook.
 
 ## Steps Overview
 
