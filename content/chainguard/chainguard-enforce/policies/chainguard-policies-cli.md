@@ -24,7 +24,7 @@ To review sample policies that you may want to leverage, please check out our pa
 
 ## Prerequisites
 
-In order to follow along with the examples in this guide, you will need `chainctl` installed on your local machine. Follow our guide on [How To Install `chainctl`](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/) to set this up.
+In order to follow along with the examples in this guide, you will need `chainctl` installed on your local machine. Follow our guide on [How To Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
 
 
 ## Authenticate to the Chainguard Enforce platform

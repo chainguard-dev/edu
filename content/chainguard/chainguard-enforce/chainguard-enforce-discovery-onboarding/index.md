@@ -26,7 +26,7 @@ This new Discovery capability leverages Chainguard’s agentless technology to c
 Before trying out Chainguard Enforce Discovery, ensure that you have the following.
 
 * Terraform, an infrastructure as code tool that allows you to manage cloud infrastructure declaratively, installed on your local machine. Follow the [official Terraform Installation instructions ](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) to set this up.
-* `chainctl` installed on your local machine. For this, check out our guide on [How To Install `chainctl`](/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/).
+* `chainctl` installed on your local machine. For this, check out our guide on [How To Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/).
 * An account with one or more cloud providers. Enforce Discovery currently works with GCP and AWS.
 * A Chainguard Enforce Cloud Account Association set up for each of your cloud accounts. This allows the Chainguard Enforce platform to access cloud resources on your behalf. To configure this, follow our guide on [How to Set Up Chainguard Enforce Cloud Account Associations](/chainguard/chainguard-enforce/cloud-account-associations/).
 

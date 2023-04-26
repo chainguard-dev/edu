@@ -30,7 +30,7 @@ This tutorial outlines how to set up a Chainguard Enforce policy that will detec
 
 This tutorial assumes that you have the following in place:
 
-* `chainctl` installed on your local machine. Follow our guide on [How To Install `chainctl`](/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/) to set this up.
+* `chainctl` installed on your local machine. Follow our guide on [How To Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
 * A Kubernetes cluster that you can connect to from your local machine. This guide's examples have been validated using remote clusters running on GCP GKE and AWS EKS, as well as on a local cluster running with `kind`.
 * The Chainguard Enforce agent installed on your cluster. To set this up, connect to your cluster and follow **Steps 1 through 3** in our [Chainguard Enforce for Kubernetes User Onboarding](/chainguard/chainguard-enforce/chainguard-enforce-user-onboarding/).
 * `jq` installed on your local machine. `jq` is a command-line JSON processor that allows you to filter and manipulate streaming JSON data. Although it isn't strictly necessary to create a policy to detect for vulnerable Log4J installations, this tutorial includes commands that use `jq` to filter attestation details that would otherwise be unintelligible. You can install `jq` by following the instructions on [the project's Download `jq` page](https://stedolan.github.io/jq/download/).
