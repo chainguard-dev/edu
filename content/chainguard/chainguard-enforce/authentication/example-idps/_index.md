@@ -1,5 +1,5 @@
 ---
-title: "Custom IDP Examples"
+title: "IDP Providers"
 lead: ""
 type: "article"
 date: 2023-04-13T08:49:15+00:00

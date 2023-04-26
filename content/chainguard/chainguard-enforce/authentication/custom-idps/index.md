@@ -14,7 +14,7 @@ weight: 010
 
 > _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
-The Chainguard Enforce platform supports Single Sign-on (SSO) authentication for users. By default, users can log in with GitHub, Gitlab and Google, but SSO support allows users to bring their own identity provider for authentication. This is helpful when your organization mandates using a corporate identity provider — like Okta or Azure Active Directory — to authenticate to SaaS products.
+The Chainguard Enforce platform supports Single Sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication. This is helpful when your organization mandates using a corporate identity provider — like Okta or Azure Active Directory — to authenticate to SaaS products.
 
 
 ## Usage
@@ -36,7 +36,7 @@ Remembering identity provider IDs like this can be difficult. As an alternative,
 chainctl config edit
 ```
 
-This will open a text editor (`nano`, by default) where you can edit the local `chainctl` config. Add the following lines to this file..
+This will open a text editor (`nano`, by default) where you can edit the local `chainctl` config. Add the following lines to this file.
 
 ```
 default:
@@ -83,7 +83,7 @@ If your identity provider is Okta, Ping Identity or Azure Active Directory, we�
 * [Ping Identity](/chainguard/chainguard-enforce/authentication/example-idps/ping-id/)
 * [Azure Active Directory](/chainguard/chainguard-enforce/authentication/example-idps/azure-ad/)
 
-If you aren't using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard Enforce.
+If you aren't using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard Enforce. However, be aware that Chainguard does not actively support identity providers other than the ones listed previously. If you'd like to request that we support a specific identity provider, we encourage you to [contact us](https://www.chainguard.dev/contact?utm_source=docs) to do so.
 
 
 ### Generic Integration Guide
@@ -99,10 +99,10 @@ For a generic OIDC-compatible identity provider, start by creating an OIDC appli
 Next, configure your OIDC application as follows:
 
 * Set redirect URI to `https://issuer.enforce.dev/oauth/callback`
-* Restrict grants types to **authorization code** only. It is critical that your application does not support "client credentials", "device code", "implicit" or other grant types (sometimes called “flows”).
+* Restrict grant types to **authorization code** only. It is critical that your application does not support "client credentials", "device code", "implicit" or other grant types (sometimes called “flows”).
 * Restrict response types to only authorization codes (sometimes called just “code”)
 * Enable “openid”, “email” and “profile” scopes for application
-* Disable or set PKCE to optional
+* Disable or set PKCE to **optional**
 
 Finally, configure a set of client credentials and make note of the following details to configure Chainguard:
 
@@ -113,13 +113,13 @@ Finally, configure a set of client credentials and make note of the following de
 * Client ID
 * Client Secret
 
-Next, use `chainctl` to log in to Chainguard with a social provider (such as Google, Github, or Gitlab) to bootstrap your account.
+Next, use `chainctl` to log in to Chainguard with an OIDC provider (such as Google, GitHub, or GitLab) to bootstrap your account.
 
 ```sh
 chainctl auth login
 ```
 
-Create a new identity provider using the details you noted from your OIDC application.Be sure to update the details in the following example `export` commands to align with your own application/client ID, client secret, and issuer URL.
+Create a new identity provider using the details you noted from your OIDC application. Be sure to update the details in the following example `export` commands to align with your own application/client ID, client secret, and issuer URL.
 
 ```sh
 export NAME=my-sso-identity-provider
@@ -169,7 +169,7 @@ Lastly, to delete an identity provider, run the `delete` subcommand.
 chainctl iam identity-provider delete
 ``` 
 
-For detailed usage see the [`chainctl` documentation for these commands](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/).
+For more details, check out the [`chainctl` documentation for these commands](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/).
 
 
 ## IAM and Security
@@ -184,11 +184,11 @@ The IAM capabilities `identity_providers.create`, `identity_providers.update`, `
 | `editor`   | `identity_providers.list`   |
 | `owner`   | `identity_providers.create`, `identity_providers.list`, `identity_providers.update`, `identity_providers.delete`   |
 
-As with other capabilities, if an identity provider capability is granted at a parent IAM group, it is inherited on all child IAM groups below the parent.
+As with other capabilities, if an identity provider capability is granted to a parent IAM group, it is inherited on all child IAM groups.
 
 
-## Break-glass accounts
+## Backup accounts
 
-In the case of an outage or misconfiguration of your identity provider, it can be helpful to have an authentication mechanism to the Chainguard outside of your SSO identity provider to recover. For this purpose, you can use one of our social login providers (currently Google, Github, or Gitlab) to create a breakglass account
+In the case of an outage or misconfiguration of your identity provider, it can be helpful to have an authentication mechanism to the Chainguard outside of your SSO identity provider to recover. For this purpose, you can use one of our OIDC login providers (currently Google, GitHub, or GitLab) to create a backup account
 
-As a social login account needs to be set up to bootstrap the SSO identity provider initially, it’s possible to keep this account as a breakglass account in case you need it for recovery. Unfortunately, the nature of these social login accounts is such that it is difficult to share them as a breakglass resource as they’re often tied to a single user.
+Because an OIDC login account needs to be set up to bootstrap the SSO identity provider initially, it’s possible to keep this account as a backup account in case you need it for recovery. Unfortunately, the nature of these OIDC login accounts is such that it is difficult to share them as a backup resource as they’re often tied to a single user.
