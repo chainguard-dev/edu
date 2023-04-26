@@ -15,9 +15,9 @@ toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/traefik](https://github.com/chainguard-images/images/tree/main/images/traefik)
-| Tags     | Aliases                           |
-|----------|-----------------------------------|
-| `latest` | `2`, `2.9`, `2.9.10`, `2.9.10-r0` |
+| Tags     | Aliases                            |
+|----------|------------------------------------|
+| `latest` | `2`, `2.10`, `2.10.0`, `2.10.0-r0` |
 
 
 
