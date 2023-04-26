@@ -83,7 +83,7 @@ If your identity provider is Okta, Ping Identity or Azure Active Directory, weâ€
 * [Ping Identity](/chainguard/chainguard-enforce/authentication/example-idps/ping-id/)
 * [Azure Active Directory](/chainguard/chainguard-enforce/authentication/example-idps/azure-ad/)
 
-If you aren't using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard Enforce. However, be aware that Chainguard does not actively support identity providers other than the ones listed previously. If you'd like to request that we support a specific identity provider, we encourage you to [contact us](https://www.chainguard.dev/contact?utm_source=docs) to do so.
+If you aren't using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard Enforce. However, be aware that Chainguard does not actively support identity providers other than the ones listed previously. If you are using an alternate identity provider, we encourage you to [contact us](https://www.chainguard.dev/contact?utm_source=docs) to learn more.
 
 
 ### Generic Integration Guide
