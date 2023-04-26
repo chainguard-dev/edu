@@ -14,7 +14,7 @@ weight: 010
 
 > _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
-The Chainguard platform supports Single Sign-on (SSO) authentication for users. By default, users can log in with GitHub, Gitlab and Google, but SSO support allows users to bring their own identity provider for authentication. 
+The Chainguard platform supports Single sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication. 
 
 This guide outlines how to create a Ping Identity Application and integrate it with Chainguard Enforce. After completing this guide, you'll be able to log in to Chainguard Enforce using Ping and will no longer be limited to the default SSO options.
 
@@ -81,15 +81,15 @@ To configure Chainguard make a note of the following settings from your Ping app
 * Client Secret
 * Issuer URL
 
-Next, log in to Chaingaurd with `chainctl`, using a social provider like Google, Github, or Gitlab to bootstrap your account.
+Next, log in to Chaingaurd with `chainctl`, using an OIDC provider like Google, Github, or GitLab to bootstrap your account.
 
 ```sh
 chainctl auth login
 ```
 
-Note that this bootstrap account can be used as a ["break glass" account](/chainguard/chainguard-enforce/authentication/custom-idps/#break-glass-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, if you prefer to remove this rolebinding after configuring the custom IDP, you may also do so.
+Note that this bootstrap account can be used as a [backup account](/chainguard/chainguard-enforce/authentication/custom-idps/#backup-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, if you prefer to remove this rolebinding after configuring the custom IDP, you may also do so.
 
-Lastly, create a new identity provider using the Okta application details you noted previously.
+Lastly, create a new identity provider using the Ping application details you noted previously.
 
 ```sh
 export NAME=ping-id
