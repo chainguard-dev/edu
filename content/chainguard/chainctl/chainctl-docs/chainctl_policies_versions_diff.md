@@ -1,26 +1,26 @@
 ---
 date: 2023-04-27T15:25:58Z
-title: "chainctl clusters open"
-slug: chainctl_clusters_open
-url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_open/
+title: "chainctl policies versions diff"
+slug: chainctl_policies_versions_diff
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_versions_diff/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl clusters open
+## chainctl policies versions diff
 
-Open the console for a cluster.
+View the differences between two versions of a policy.
 
 ```
-chainctl clusters open [CLUSTER_ID] [--output table|json]
+chainctl policies versions diff VERSION_ID VERSION_ID [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for open
+  -h, --help   help for diff
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +38,5 @@ chainctl clusters open [CLUSTER_ID] [--output table|json]
 
 ### SEE ALSO
 
-* [chainctl clusters](/chainguard/chainctl/chainctl-docs/chainctl_clusters/)	 - Cluster related commands for the Chainguard platform.
+* [chainctl policies versions](/chainguard/chainctl/chainctl-docs/chainctl_policies_versions/)	 - Commands for interacting with policy versions on the Chainguard platform.
 
