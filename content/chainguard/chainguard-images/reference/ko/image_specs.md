@@ -35,11 +35,12 @@ The table has detailed information about each of these variants.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                    | latest |
-|--------------------|--------|
-| `busybox`          | X      |
-| `wolfi-baselayout` | X      |
-| `build-base`       | X      |
-| `go`               | X      |
-| `ko`               | X      |
+|                          | latest |
+|--------------------------|--------|
+| `busybox`                | X      |
+| `wolfi-baselayout`       | X      |
+| `build-base`             | X      |
+| `go`                     | X      |
+| `ko`                     | X      |
+| `ca-certificates-bundle` | X      |
 
