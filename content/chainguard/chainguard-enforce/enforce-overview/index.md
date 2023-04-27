@@ -59,7 +59,7 @@ Enforce can also be configured to send events to external systems like Slack, JI
 
 `chainctl` uses the familiar `<context> <noun> <verb>` style of CLI interactions. For example, to list groups within the context of Chainguard IAM, you can run `chainctl iam groups list` to receive relevant output.
 
-For more information on how to use `chainctl`, please refer to our [`chainctl` documentation](/chainguard/chainguard-enforce/chainctl-docs/).
+For more information on how to use `chainctl`, please refer to our [`chainctl` documentation](/chainguard/chainctl/).
 
 
 ## The Chainguard Enforce Agent

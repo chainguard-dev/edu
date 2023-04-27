@@ -147,4 +147,4 @@ You are now authenticated to Chainguard Enforce.
 
 ## Learn more
 
-To learn more about how to work with Chainguard Enforce, you can review our [User Onboarding tutorial](../chainguard-enforce-user-onboarding). If you would like to learn more about the Chainguard Enforce Console, you can read [How to create policies in the Chainguard Enforce Console](../chainguard-policies-ui/). You can also review the full [`chainctl` reference documentation](/chainguard/chainguard-enforce/chainctl-docs/) to learn more about our command line tool. 
+To learn more about how to work with Chainguard Enforce, you can review our [User Onboarding tutorial](../chainguard-enforce-user-onboarding). If you would like to learn more about the Chainguard Enforce Console, you can read [How to create policies in the Chainguard Enforce Console](../chainguard-policies-ui/). You can also review the full [`chainctl` reference documentation](/chainguard/chainctl/) to learn more about our command line tool. 

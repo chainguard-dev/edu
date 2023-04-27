@@ -59,7 +59,7 @@ To install the Enforce Agent, you can use one of the following supported methods
 
 ### chainctl
 
-You can use [chainctl](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/), which is a CLI tool to interact with, query, and manage Enforce in your clusters.
+You can use [chainctl](/chainguard/chainctl/), which is a CLI tool to interact with, query, and manage Enforce in your clusters.
 
 For more details on how to use `chainctl` to install Enforce consult our [Enforce Installation with `chainctl`](/chainguard/chainguard-enforce/installation/alternative-installation-methods/#install-with-chainctl) page.
 
