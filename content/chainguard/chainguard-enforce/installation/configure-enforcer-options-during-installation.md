@@ -3,6 +3,7 @@ title: "Configuring Enforcer Options"
 linktitle: "Enforcer Options"
 aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/configure-enforcer-options-during-installation/
+- /chainguard/chainguard-enforce/reference/configure-enforcer-options-during-installation/
 type: "article"
 lead: ""
 description: "Installing Chainguard with chainctl configuring your Enforcer Options"
@@ -11,8 +12,8 @@ tags: ["Enforce", "Product", "Procedural"]
 images: []
 menu:
   docs:
-    parent: "reference"
-weight: 70
+    parent: "installation"
+weight: 20
 toc: true
 ---
 
