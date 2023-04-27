@@ -1,5 +1,5 @@
 ---
-date: 2023-04-25T23:36:21Z
+date: 2023-04-27T15:25:58Z
 title: "chainctl events subscriptions delete"
 slug: chainctl_events_subscriptions_delete
 url: /chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_delete/
