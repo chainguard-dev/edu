@@ -30,9 +30,9 @@ This tutorial outlines how to set up a Chainguard Enforce policy that will detec
 
 This tutorial assumes that you have the following in place:
 
-* `chainctl` installed on your local machine. Follow our guide on [How To Install `chainctl`](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/) to set this up.
+* `chainctl` installed on your local machine. Follow our guide on [How To Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
 * A Kubernetes cluster that you can connect to from your local machine. This guide's examples have been validated using remote clusters running on GCP GKE and AWS EKS, as well as on a local cluster running with `kind`.
-* The Chainguard Enforce agent installed on your cluster. To set this up, connect to your cluster and follow **Steps 1 through 3** in our [Chainguard Enforce for Kubernetes User Onboarding](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/).
+* The Chainguard Enforce agent installed on your cluster. To set this up, connect to your cluster and follow **Steps 1 through 3** in our [Chainguard Enforce for Kubernetes User Onboarding](/chainguard/chainguard-enforce/chainguard-enforce-user-onboarding/).
 * `jq` installed on your local machine. `jq` is a command-line JSON processor that allows you to filter and manipulate streaming JSON data. Although it isn't strictly necessary to create a policy to detect for vulnerable Log4J installations, this tutorial includes commands that use `jq` to filter attestation details that would otherwise be unintelligible. You can install `jq` by following the instructions on [the project's Download `jq` page](https://stedolan.github.io/jq/download/).
 
 
@@ -57,13 +57,13 @@ chainctl iam groups list -o table
 Including the `-o table` option will structure this command's output as a table. It will also provide some more information about the group, including the unique ID that `chainctl` uses to manage the group.
 
 ```
-                            	ID                         	|   NAME	|	DESCRIPTION 	 
+                            	ID                         	|   NAME	|	DESCRIPTION
 ------------------------------------------------------------+-----------+---------------------
-  53c080777a7d97samplegroupid07928aa3de055              	| log4demo  |                	 
-  60adedf1d5db70examplerootidf32f6b7e09fc5              	| root  	| Default user group  
+  53c080777a7d97samplegroupid07928aa3de055              	| log4demo  |
+  60adedf1d5db70examplerootidf32f6b7e09fc5              	| root  	| Default user group
 ```
 
-Copy the ID value of the group managing the cluster you'll use to test Chainguard Enforce, and then use that value in place of `$COPIED_ID` in the following command. 
+Copy the ID value of the group managing the cluster you'll use to test Chainguard Enforce, and then use that value in place of `$COPIED_ID` in the following command.
 
 ```sh
 export GROUP=$COPIED_ID
@@ -95,7 +95,7 @@ If you'd like, you can inspect the image's [SBOM](https://edu.chainguard.dev/sof
 cosign download attestation ghcr.io/chainguard-dev/log4shell-demo/app:v0.1.0 | jq -r .payload | base64 -d | jq > log4shell-sbom.json
 ```
 
-This command downloads an attestation containing the image's SBOM from the same location where the image is found. However, this SBOM data is encoded in base64, making it unreadable without further processing. This is why the output from the first part of the command is piped into `jq` in order to filter out the `payload` section of the output containing the SBOM. 
+This command downloads an attestation containing the image's SBOM from the same location where the image is found. However, this SBOM data is encoded in base64, making it unreadable without further processing. This is why the output from the first part of the command is piped into `jq` in order to filter out the `payload` section of the output containing the SBOM.
 
 This filtered output is then passed into the `base64` command to be decoded before that output is piped into another `jq` command. This final `jq` command processes the decoded JSON and writes it to a file named `log4shell-sbom.json`.
 
@@ -118,7 +118,7 @@ Error from server (BadRequest): admission webhook "enforcer.chainguard.dev" deni
 ghcr.io/chainguard-dev/log4shell-demo/app@sha256:ba4037061b76ad8f306dd9e442877236015747ec42141caf504dc0df4d10708d
 ```
 
-As this output indicates, the Log4Shell image does not have any matching policies, so Chainguard Enforce prevents the container from running by default. 
+As this output indicates, the Log4Shell image does not have any matching policies, so Chainguard Enforce prevents the container from running by default.
 
 Create a policy that will capture the sample image. Run the following command to create a policy file named `log4shell-demo-policy.yaml`.
 
@@ -350,7 +350,7 @@ If this output contains a `text4shell-demo-policy` key in the `data:` section of
 apiVersion: v1
 Data:
 . . .
-  text4shell-demo-policy: . . . 
+  text4shell-demo-policy: . . .
 ```
 
 After confirming that the policy is in place, try running a vulnerable container image with `kubectl`. As with the Log4Shell demo image, Chainguard maintains a sample container image that you can use. Although it is safe to use as an example for testing, **do not run this image in a production environment**.

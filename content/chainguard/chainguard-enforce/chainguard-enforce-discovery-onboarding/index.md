@@ -26,9 +26,9 @@ This new Discovery capability leverages Chainguard’s agentless technology to c
 Before trying out Chainguard Enforce Discovery, ensure that you have the following.
 
 * Terraform, an infrastructure as code tool that allows you to manage cloud infrastructure declaratively, installed on your local machine. Follow the [official Terraform Installation instructions ](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) to set this up.
-* `chainctl` installed on your local machine. For this, check out our guide on [How To Install `chainctl`](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl/).
+* `chainctl` installed on your local machine. For this, check out our guide on [How To Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/).
 * An account with one or more cloud providers. Enforce Discovery currently works with GCP and AWS.
-* A Chainguard Enforce Cloud Account Association set up for each of your cloud accounts. This allows the Chainguard Enforce platform to access cloud resources on your behalf. To configure this, follow our guide on [How to Set Up Chainguard Enforce Cloud Account Associations](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/cloud-account-associations/).
+* A Chainguard Enforce Cloud Account Association set up for each of your cloud accounts. This allows the Chainguard Enforce platform to access cloud resources on your behalf. To configure this, follow our guide on [How to Set Up Chainguard Enforce Cloud Account Associations](/chainguard/chainguard-enforce/cloud-account-associations/).
 
 
 ## Step 1 — Configure or Update Impersonation
@@ -154,7 +154,7 @@ To clean things up, you can comment out the resources and re-apply. You can alte
 
 ## Authorizing Enforce Access to GKE Cluster
 
-One instance of where a GKE cluster might be discovered and marked as `needs work` is when cluster access is only provided to an authorized network. 
+One instance of where a GKE cluster might be discovered and marked as `needs work` is when cluster access is only provided to an authorized network.
 
 ```
   PROVIDER |       ACCOUNT        |  LOCATION  |     NAME      | ELIGIBILITY | DETAILS

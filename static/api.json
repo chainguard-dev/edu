@@ -743,6 +743,44 @@
         ]
       }
     },
+    "/iam/v1/identities/lookup": {
+      "get": {
+        "operationId": "Identities_Lookup",
+        "parameters": [
+          {
+            "description": "issuer is the oidc issuer to look up.",
+            "in": "query",
+            "name": "issuer",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "subject is the subject to look up.",
+            "in": "query",
+            "name": "subject",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamIdentity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Identities"
+        ]
+      }
+    },
     "/iam/v1/identities/metadata": {
       "patch": {
         "operationId": "Identities_UpdateMetadata",

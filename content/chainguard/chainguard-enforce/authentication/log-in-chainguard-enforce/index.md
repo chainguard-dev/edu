@@ -11,8 +11,8 @@ tags: ["Enforce", "Product", "Procedural"]
 images: []
 menu:
   docs:
-    parent: "chainguard-enforce"
-weight: 025
+    parent: "authentication"
+weight: 005
 toc: true
 ---
 
@@ -58,7 +58,7 @@ At this point, you are logged in to Chainguard Enforce and will have access to y
 
 ## Signing in through `chainctl`
 
-When using `chainctl`, you can initiate the login flow through the [`chainctl auth login`](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/chainctl_auth_login/) command. 
+When using `chainctl`, you can initiate the login flow through the [`chainctl auth login`](/chainguard/chainctl/chainctl-docs/chainctl_auth_login/) command. 
 
 When you run this command, you'll receive output similar to the following on your command prompt.
 
@@ -147,4 +147,4 @@ You are now authenticated to Chainguard Enforce.
 
 ## Learn more
 
-To learn more about how to work with Chainguard Enforce, you can review our [User Onboarding tutorial](../chainguard-enforce-user-onboarding). If you would like to learn more about the Chainguard Enforce Console, you can read [How to create policies in the Chainguard Enforce Console](../chainguard-policies-ui/). You can also review the full [`chainctl` reference documentation](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/chainctl/) to learn more about our command line tool. 
+To learn more about how to work with Chainguard Enforce, you can review our [User Onboarding tutorial](../chainguard-enforce-user-onboarding). If you would like to learn more about the Chainguard Enforce Console, you can read [How to create policies in the Chainguard Enforce Console](../chainguard-policies-ui/). You can also review the full [`chainctl` reference documentation](/chainguard/chainctl/) to learn more about our command line tool. 

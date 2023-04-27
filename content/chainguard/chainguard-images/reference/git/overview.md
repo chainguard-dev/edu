@@ -17,11 +17,11 @@ toc: true
 `stable` [cgr.dev/chainguard/git](https://github.com/chainguard-images/images/tree/main/images/git)
 | Tags                | Aliases                                                                        |
 |---------------------|--------------------------------------------------------------------------------|
-| `latest`            | `2`, `2.40`, `2.40.0`, `2.40.0-r1`                                             |
-| `latest-dev`        | `2-dev`, `2.40-dev`, `2.40.0-dev`, `2.40.0-r1-dev`                             |
+| `latest`            | `2`, `2.40`, `2.40.1`, `2.40.1-r0`                                             |
+| `latest-dev`        | `2-dev`, `2.40-dev`, `2.40.1-dev`, `2.40.1-r0-dev`                             |
 | `latest-glibc`      | `glibc-2`, `glibc-2.40`, `glibc-2.40.0`, `glibc-2.40.0-r0`                     |
 | `latest-glibc-dev`  | `glibc-2-dev`, `glibc-2.40-dev`, `glibc-2.40.0-dev`, `glibc-2.40.0-r0-dev`     |
-| `latest-root`       | `root-2`, `root-2.40`, `root-2.40.0`, `root-2.40.0-r1`                         |
+| `latest-root`       | `root-2`, `root-2.40`, `root-2.40.1`, `root-2.40.1-r0`                         |
 | `latest-glibc-root` | `glibc-root-2`, `glibc-root-2.40`, `glibc-root-2.40.0`, `glibc-root-2.40.0-r0` |
 
 
