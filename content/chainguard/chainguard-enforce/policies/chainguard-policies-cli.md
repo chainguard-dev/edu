@@ -217,4 +217,4 @@ Global Flags:
 Use "chainctl policies [command] --help" for more information about a command.
 ```
 
-For additional guidance on using `chainctl`, review our [full reference documentation](https://edu.chainguard.dev/chainguard/chainguard-enforce/chainctl-docs/chainctl/).
+For additional guidance on using `chainctl`, review our [full reference documentation](/chainguard/chainguard-enforce/chainctl-docs/).
