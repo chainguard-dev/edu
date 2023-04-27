@@ -16,7 +16,9 @@ toc: true
 
 > _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
-Chainguard Enforce for Kubernetes can send CloudEvents as webhook requests that you can subscribe to and use to do things like generate alerts, create GitHub issues, post messages to Slack channels, and more. This tutorial is meant to serve as a companion to the [Enforce Events github-issue-opener](https://github.com/chainguard-dev/enforce-events/tree/main/github-issue-opener) example application. It will guide you through creating and deploying a Google Cloud Run service that will open new GitHub issues for any Enforce policy violation event.
+Chainguard Enforce for Kubernetes can send CloudEvents as webhook requests that you can subscribe to and use to do things like generate alerts, create GitHub issues, post messages to Slack channels, and more. This tutorial is meant to serve as a companion to the [Enforce Events github-issue-opener](https://github.com/chainguard-dev/enforce-events/tree/main/github-issue-opener) example application. It will guide you through creating and deploying a Google Cloud Run service that will open new GitHub issues for Enforce policy change events.
+
+Specifically, the demo application will create GitHub issues when you have a deployed workload, and you add an Enforce policy that matches but does not pass the policy criteria. In this way, you can test policies aginst running workloads to get an idea of their effects, without enabling Enforce on a namespace and blocking admission requests.
 
 You can also opt to run the example application elsewhere. As long as it is publicly accessible to the [Enforce CIDR network ranges](/chainguard/chainguard-enforce/reference/network-requirements/#cidr-ranges), you will be able to receive CloudEvents and create GitHub issues with the example application. If you opt to deploy the demo outside of Cloud Run, you can skip to the [Subscribing to Chainguard Enforce CloudEvents](#subscribing-to-chainguard-enforce-cloudevents) section, provided you know the publicly accessible URL to your deployed instance of the demo.
 
@@ -30,7 +32,7 @@ You will also need:
 * `terraform` to configure a Google Cloud service account, IAM permissions, and deploy the Cloud Run service. If you are running the application elsewhere, you can ignore this requirement.
 * A [fine-grained GitHub Personal Access Token](https://github.com/settings/tokens?type=beta) to ensure the token is limited to the specific repository where you want to file issues. Also make sure that it only has `Read-only` Metadata permissions, and `Read and write` Issues permissions.
 * `chainctl` in order to create a subscription webhook endpoint.
-* An [Enforce or Sigstore policy](/chainguard/chainguard-enforce/policies/chainguard-enforce-policy-examples/) and a Kubernetes namespace that is configured with the `policy.sigstore.dev/include=true` label to use Enforce for admission control.
+* An [Enforce or Sigstore policy](/chainguard/chainguard-enforce/policies/chainguard-enforce-policy-examples/) and a Kubernetes namespace that you can use to test Enforce's admission control webhook.
 
 ## Steps Overview
 
