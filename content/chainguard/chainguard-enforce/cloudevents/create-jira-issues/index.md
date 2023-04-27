@@ -229,14 +229,14 @@ There should be log entries corresponding to new Jira issues that the demo appli
 
 ![Screenshot of logs in Google Log Explorer showing Opened issue entries](google-cloud-logs.png)
 
-Now visit your Jira project's page and look for the issues. A new issue for the sample policy should look like the following:
+Now visit your Jira project's page and to find the newly-created issues. A new issue for the sample policy should appear like the following:
 
 ![Screenshot of a Jira issue created using the demo application](jira-issue.png)
 
 ## Learn More
 
-Now that you've deployed and tested creating issues with the demo application, you can continue to develop it to create issues for other Enforce event types. See our [Chainguard Enforce Events](/chainguard/chainguard-enforce/reference/events/) page for a complete reference of event types that Enforce emits.
+Now that you've deployed and tested creating issues with the demo application, you can continue to develop it to create issues for other Enforce event types. Review our [Chainguard Enforce Events](/chainguard/chainguard-enforce/reference/events/) page for a complete reference of event types that Enforce emits.
 
-To see how to extend the demo application to check for other event types, see the [Slack Issue Opener](https://github.com/chainguard-dev/enforce-events/blob/main/slack-webhook) demo in the repository that you cloned at the beginning of this tutorial.
+To learn how to extend the demo application to check for other event types, check out the [Slack Issue Opener](https://github.com/chainguard-dev/enforce-events/blob/main/slack-webhook) demo in the repository that you cloned at the beginning of this tutorial.
 
 You can edit the Go code in the repository and deploy new versions of it as you add functionality using the same `terraform plan` and `terraform apply` commands that you ran earlier in this tutorial.

@@ -220,6 +220,6 @@ Now check the Slack channel that you configured to receive messages. You should 
 
 ## Learn More
 
-Now that you've deployed and tested sending Slack messages with the demo application, you can continue to develop it to alert about other Enforce event types. See our [Chainguard Enforce Events](/chainguard/chainguard-enforce/reference/events/) page for a complete reference of event types that Enforce emits.
+Now that you've deployed and tested sending Slack messages with the demo application, you can continue to develop it to alert about other Enforce event types. Check out our [Chainguard Enforce Events](/chainguard/chainguard-enforce/reference/events/) page for a complete reference of event types that Enforce emits.
 
 To extend this demo application to check for other event types, you can edit the Go code in the repository and deploy new versions of it as you add functionality using the same `terraform plan` and `terraform apply` commands that you ran earlier in this tutorial.
