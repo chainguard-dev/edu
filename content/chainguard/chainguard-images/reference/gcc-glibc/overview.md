@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/gcc-glibc](https://github.com/chainguard-images/images/tree/main/images/gcc-glibc)
 | Tags     | Aliases                              |
 |----------|--------------------------------------|
-| `latest` | `12`, `12.2`, `12.2.0`, `12.2.0-r10` |
+| `latest` | `12`, `12.2`, `12.2.0`, `12.2.0-r11` |
 
 
 
