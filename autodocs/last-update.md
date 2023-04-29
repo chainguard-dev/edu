@@ -1,5 +1,8 @@
-## 2023-04-28
+## 2023-04-29
 
 Updated image reference docs.
 
-No new images added.
+New images added:
+
+- memcached-exporter
+- oauth2-proxy
