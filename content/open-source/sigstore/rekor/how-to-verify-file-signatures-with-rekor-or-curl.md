@@ -21,7 +21,7 @@ We’ll verify a binary artifact, in this case, a copy of [apko](/open-source/ap
 
 ### Verifying a binary with rekor-cli
 
-All apko releases are released with [keyless signatures using Cosign](https://edu.chainguard.dev/open-source/sigstore/cosign/an-introduction-to-cosign/#keyless-signing). You can verify the signature for an apko release by searching for the SHA256 hash of the release and finding the corresponding Rekor transparency log entry.
+All apko releases are released with [keyless signatures using Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/#keyless-signing). You can verify the signature for an apko release by searching for the SHA256 hash of the release and finding the corresponding Rekor transparency log entry.
 
 We'll use the `apko_0.6.0_linux_arm64.tar.gz` tar archive from the apko [GitHub Release v0.6.0 page](https://github.com/chainguard-dev/apko/releases/tag/v0.6.0) in this example.
 

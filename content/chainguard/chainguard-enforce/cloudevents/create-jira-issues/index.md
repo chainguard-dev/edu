@@ -188,7 +188,7 @@ Now that you have a workload running, you can can add an Enforce policy, and the
 
 ## Configuring an Enforce Policy
 
-Before you can configure Chainguard Enforce to open Jira issues for policy violations, you will need to ensure that you have Enforce configured with a policy that you can test. Make sure you have a cluster registered with Enforce using the `chainctl clusters ls` command. If you do not, visit our [Getting Started with Enforce Guide](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/#step-3--prepare-kubernetes-cluster) to create and register a cluster.
+Before you can configure Chainguard Enforce to open Jira issues for policy violations, you will need to ensure that you have Enforce configured with a policy that you can test. Make sure you have a cluster registered with Enforce using the `chainctl clusters ls` command. If you do not, visit our [Getting Started with Enforce Guide](/chainguard/chainguard-enforce/chainguard-enforce-user-onboarding/#step-3--prepare-kubernetes-cluster) to create and register a cluster.
 
 Once you have a cluster enrolled with Enforce, create the following policy from the Getting Started guide:
 

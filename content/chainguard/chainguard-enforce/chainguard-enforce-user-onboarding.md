@@ -117,7 +117,7 @@ First, authenticate and log in to Enforce with `chainctl`.
 chainctl auth login
 ```
 
-You'll be taken through a workflow with an OIDC provider. You can read more about the various authentication and sign on options in our [login documentation](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/log-in-chainguard-enforce/).
+You'll be taken through a workflow with an OIDC provider. You can read more about the various authentication and sign on options in our [login documentation](/chainguard/chainguard-enforce/authentication/log-in-chainguard-enforce/).
 
 You can check which group or groups you belong to, and grab the ID of the group with `chainctl`.
 
@@ -325,9 +325,9 @@ You may also want to delete the kind cluster you created.
 kind delete cluster --name enforce-demo
 ```
 
-To learn more visit our [Chainguard Enforce for Kubernetes](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/) documentation page. For additional sample policies that you can try with Chainguard Enforce, review our [policy catalogue](https://console.enforce.dev/policies/catalog) in the Enforce Console.
+To learn more visit our [Chainguard Enforce for Kubernetes](/chainguard/chainguard-enforce/) documentation page. For additional sample policies that you can try with Chainguard Enforce, review our [policy catalogue](https://console.enforce.dev/policies/catalog) in the Enforce Console.
 
-To understand how Chainguard Enforce offers continuous verification of your workloads, review our page on [how continuous verification works](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/understanding-continuous-verification) and learn how to [finetune the timing of continuous verification](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/understanding-continuous-verification/#configuring-contiuous-verification)
+To understand how Chainguard Enforce offers continuous verification of your workloads, review our page on [how continuous verification works](/chainguard/chainguard-enforce/concepts/understanding-continuous-verification/) and learn how to [finetune the timing of continuous verification](/chainguard/chainguard-enforce/concepts/understanding-continuous-verification/#configuring-contiuous-verification)
 
 If you would like to learn about how you can use this product alongside signing Git commits, check out [Chainguard Enforce for Git](/chainguard/chainguard-enforce/chainguard-enforce-github//).
 

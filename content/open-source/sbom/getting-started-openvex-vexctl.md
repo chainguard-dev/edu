@@ -16,7 +16,7 @@ toc: true
 terminalImage: vexctl:latest
 ---
 
-The `vexctl` CLI is a tool to make VEX work. As part of the open source [OpenVex](https://edu.chainguard.dev/open-source/sbom/what-is-openvex/) project, `vexctl` enables you to create, apply, and attest VEX (Vulnerability Exploitability eXchange) data in order to filter out false positive security alerts. 
+The `vexctl` CLI is a tool to make VEX work. As part of the open source [OpenVex](/open-source/sbom/what-is-openvex/) project, `vexctl` enables you to create, apply, and attest VEX (Vulnerability Exploitability eXchange) data in order to filter out false positive security alerts. 
 
 The `vexctl` tool was built to help with the creation and management of VEX documents, communicate transparently to users as time progresses, and enable the "turning off" of security scanner alerts of vulnerabilities known not to affect a given product. Using VEX, software authors can communicate to their users that an otherwise vulnerable component has no security implications for their product.
 
@@ -248,7 +248,7 @@ The `vexctl` tool is open source, you can review the [`vexctl` repository on Git
 
 The following blog posts have some background about VEX and OpenVEX:
 
-* [What is OpenVex](https://edu.chainguard.dev/open-source/sbom/what-is-openvex/)
+* [What is OpenVex](/open-source/sbom/what-is-openvex/)
 * [Putting VEX To Work](https://www.chainguard.dev/unchained/putting-vex-to-work)
 * [Reflections on Trusting VEX (or when humans can improve SBOMs)](https://www.chainguard.dev/unchained/reflections-on-trusting-vex-or-when-humans-can-improve-sboms)
 * [Understanding The Promise of VEX](https://www.chainguard.dev/unchained/understanding-the-promise-of-vex)

@@ -112,7 +112,7 @@ If your private registry is either AWS’s Elastic Container Registry (ECR) or G
 
 ### Configuring your cloud account association
 
-Detailed instructions can be found in our dedicated article on [How to Set Up Chainguard Enforce Cloud Account Associations](../cloud-account-associations). Once you have a cloud account association configured at a specified group level, policies at or below that group can be verified against private registries in the associated cloud account. 
+Detailed instructions can be found in our dedicated article on [How to Set Up Chainguard Enforce Cloud Account Associations](/chainguard/chainguard-enforce/cloud-account-associations/). Once you have a cloud account association configured at a specified group level, policies at or below that group can be verified against private registries in the associated cloud account. 
 
 ### Using Google Container Registry images in policies
 

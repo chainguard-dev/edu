@@ -90,4 +90,4 @@ Chainguard's control plane doesn’t run alongside user code, so it can provide 
 
 ## Learn More
 
-As mentioned previously, running Chainguard Enforce in its agentless mode allows for hard multi-tenant separation between Chainguard's trusted control plane and your workloads. You can get started with agentless connections by first [setting up a cloud account association](../cloud-account-associations/), then you can [use Discovery to discover your cloud resources](../chainguard-enforce-discovery-onboarding/), and finally install Chainguard Enforce in Agentless mode.
+As mentioned previously, running Chainguard Enforce in its agentless mode allows for hard multi-tenant separation between Chainguard's trusted control plane and your workloads. You can get started with agentless connections by first [setting up a cloud account association](/chainguard/chainguard-enforce/cloud-account-associations/), then you can [use Discovery to discover your cloud resources](/chainguard/chainguard-enforce/chainguard-enforce-discovery-onboarding/), and finally install Chainguard Enforce in Agentless mode.

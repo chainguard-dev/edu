@@ -89,7 +89,7 @@ You're now ready to test how Chainguard Enforce works by deploying a sample appl
 
 The sample container image used in this step is maintained by Chainguard for demonstration purposes only. Because this image includes a vulnerable version of Log4j, you _**should not run this image in a production environment.**_ The procedure outlined in this tutorial will have you create a policy that will cause Chainguard Enforce to block a container built with this image from running.
 
-If you'd like, you can inspect the image's [SBOM](https://edu.chainguard.dev/software-security/glossary/#sbom) by retrieving it directly from the container registry with the following `cosign` command. If you don’t already have Cosign installed, you can install it following our [How to Install Cosign guide](https://edu.chainguard.dev/open-source/sigstore/cosign/how-to-install-cosign/).
+If you'd like, you can inspect the image's [SBOM](/software-security/glossary/#sbom) by retrieving it directly from the container registry with the following `cosign` command. If you don’t already have Cosign installed, you can install it following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
 
 ```sh
 cosign download attestation ghcr.io/chainguard-dev/log4shell-demo/app:v0.1.0 | jq -r .payload | base64 -d | jq > log4shell-sbom.json

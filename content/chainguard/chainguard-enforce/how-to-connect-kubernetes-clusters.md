@@ -194,7 +194,7 @@ Agentless connections also require clusters to have a public API endpoint.
 
 Agentless connection work by allowing Enforce to access your cloud account
 resources on your behalf using [Cloud Account
-Associations](../cloud-account-associations). 
+Associations](/chainguard/chainguard-enforce/cloud-account-associations/). 
 
 ### How to connect GKE clusters using Agentless
 
@@ -202,7 +202,7 @@ To connect a GKE cluster using agentless, first you must set up a cloud account
 association between the GCP project hosting the cluster and the Chainguard Enforce IAM
 group you want to connect the cluster to. If you don’t already have this set
 up, you can check out [our article on how to set up Cloud Account
-Associations](../cloud-account-associations). To verify your Cloud account
+Associations](/chainguard/chainguard-enforce/cloud-account-associations/). To verify your Cloud account
 association is correctly configured, run the following command. Be sure to change $GROUP_ID to reflect the Enforce IAM group you associated with your cluster.
 
 ```sh
@@ -228,7 +228,7 @@ To connect an EKS cluster using agentless, first you must set up a cloud
 account association between the AWS account hosting the cluster and the Enforce
 IAM group you want to connect the cluster to. If you don’t already have this
 set up, you can check out [our article on how to set up Cloud Account
-Associations](../cloud-account-associations). To verify your Cloud account
+Associations](/chainguard/chainguard-enforce/cloud-account-associations/). To verify your Cloud account
 association is correctly configured run the following command. 
 
 ```sh

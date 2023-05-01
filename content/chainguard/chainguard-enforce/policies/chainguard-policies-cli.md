@@ -19,7 +19,7 @@ toc: true
 
 Chainguard Enforce allows you to define and apply policies to your Kubernetes clusters, ensuring that only those deployments that satisfy a given policy are successful. This guide outlines how to create and manage policies using `chainctl`, the Chainguard Enforce command line interface. You must already have an account with Chainguard to follow this guide. You can request access for **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).
 
-To review sample policies that you may want to leverage, please check out our page on [Chainguard Enforce Policy Examples](chainguard-enforce-policy-examples). If you would like to use the [Chainguard Enforce UI](https://console.enforce.dev) to work with policies, check out our guide on [How to create policies in the Chainguard Enforce Console](/chainguard/chainguard-enforce/policies/chainguard-policies-ui/).
+To review sample policies that you may want to leverage, please check out our page on [Chainguard Enforce Policy Examples](/chainguard/chainguard-enforce/policies/chainguard-enforce-policy-examples/). If you would like to use the [Chainguard Enforce UI](https://console.enforce.dev) to work with policies, check out our guide on [How to create policies in the Chainguard Enforce Console](/chainguard/chainguard-enforce/policies/chainguard-policies-ui/).
 
 
 ## Prerequisites
@@ -35,7 +35,7 @@ To begin, you will need to authenticate to the Chainguard Enforce platform from 
 chainctl auth login
 ```
 
-A web browser window will open prompting you to log in using the [OIDC protocol](https://edu.chainguard.dev/software-security/glossary/#oidc). Once authenticated, you can begin using `chainctl` to manage and delegate your Chainguard Enforce policies.
+A web browser window will open prompting you to log in using the [OIDC protocol](/software-security/glossary/#oidc). Once authenticated, you can begin using `chainctl` to manage and delegate your Chainguard Enforce policies.
 
 
 ## Apply a new policy
