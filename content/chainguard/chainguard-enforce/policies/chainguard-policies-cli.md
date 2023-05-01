@@ -35,7 +35,7 @@ To begin, you will need to authenticate to the Chainguard Enforce platform from 
 chainctl auth login
 ```
 
-A web browser window will open prompting you to log in using the [OIDC protocol](https://edu.chainguard.dev/software-security/glossary/#oidc). Once authenticated, you can begin using `chainctl` to manage and delegate your Chainguard Enforce policies.
+A web browser window will open prompting you to log in using the [OIDC protocol](/software-security/glossary/#oidc). Once authenticated, you can begin using `chainctl` to manage and delegate your Chainguard Enforce policies.
 
 
 ## Apply a new policy
