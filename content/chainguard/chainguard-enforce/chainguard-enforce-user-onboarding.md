@@ -117,7 +117,7 @@ First, authenticate and log in to Enforce with `chainctl`.
 chainctl auth login
 ```
 
-You'll be taken through a workflow with an OIDC provider. You can read more about the various authentication and sign on options in our [login documentation](/chainguard/chainguard-enforce/log-in-chainguard-enforce/).
+You'll be taken through a workflow with an OIDC provider. You can read more about the various authentication and sign on options in our [login documentation](/chainguard/chainguard-enforce/authentication/log-in-chainguard-enforce/).
 
 You can check which group or groups you belong to, and grab the ID of the group with `chainctl`.
 

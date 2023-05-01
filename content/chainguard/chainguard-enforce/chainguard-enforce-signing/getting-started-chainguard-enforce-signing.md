@@ -39,7 +39,7 @@ With these tools and setup in place you are ready to begin.
 
 Now that you’ve provided Enforce with references to your CA service, you’ll need to give Chainguard authorization to use those resources.
 
-To set up your account association, you'll be using Terraform. Follow our guidance on [Cloud Account Association](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/cloud-account-associations) to complete this setup for either GCP or AWS.
+To set up your account association, you'll be using Terraform. Follow our guidance on [Cloud Account Association](/chainguard/chainguard-enforce/cloud-account-associations/) to complete this setup for either GCP or AWS.
 
 You can confirm that resources were set up as expected with your cloud provider. In GCP, you can navigate to your [Workload Identity Pools](https://console.cloud.google.com/iam-admin/workload-identity-pools). On this page should be a resource called **Chainguard Pool**. If you click on the pool details and review the **connected service accounts**, you'll have a few service accounts that are now prefixed with `chainguard`. The service account `chainguard-enforce-signer` that the Enforce Signing service will be running under to request certificates.
 
@@ -110,7 +110,7 @@ At this point, you will receive output that your container was published and you
 
 You are now ready to sign and verify an image with your brand new Certificate Authority!
 
-First, [log into Chainguard](/chainguard/chainguard-enforce/log-in-chainguard-enforce/#signing-in-through-chainctl):
+First, [log into Chainguard](/chainguard/chainguard-enforce/authentication/log-in-chainguard-enforce/#signing-in-through-chainctl):
 
 ```sh
 chainctl auth login

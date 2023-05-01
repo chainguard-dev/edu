@@ -49,7 +49,7 @@ Note that the policies page also indicates whether a given policy is in **Enforc
 
 ![Warn or Enforce mode indicated in policy table](enforce-console-warn-enforce-mode.png)
 
-You can modify whether a policy is in Enforce or Warn mode by editing the YAML file. Review our doc on [Disabling Policy Enforcement](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-disable-policy-enforcement/) for more details.
+You can modify whether a policy is in Enforce or Warn mode by editing the YAML file. Review our doc on [Disabling Policy Enforcement](/chainguard/chainguard-enforce/policies/how-to-disable-policy-enforcement/) for more details.
 
 ## Initialize a new policy
 
