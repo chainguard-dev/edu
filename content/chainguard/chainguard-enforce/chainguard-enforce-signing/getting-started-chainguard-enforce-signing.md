@@ -116,7 +116,7 @@ First, [log into Chainguard](/chainguard/chainguard-enforce/chainguard-enforce-k
 chainctl auth login
 ```
 
-This workflow will ask you to go through an [OIDC flow](software-security/glossary/#oidc) to authenticate with Chainguard.
+This workflow will ask you to go through an [OIDC flow](/software-security/glossary/#oidc) to authenticate with Chainguard.
 
 Next, you’ll need to set up your environment to point Cosign to your personal Enforce Signing instance. Here, replace `$ENFORCE_CA_NAME` with the name of your Enforce CA. You can pull this up again by running `chainctl sigstore ca ls `.
 
