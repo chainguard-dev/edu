@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/influxdb](https://github.com/chainguard-images/images/tree/main/images/influxdb)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.7`, `2.7.0`, `2.7.0-r1`                 |
-| `latest-dev` | `2-dev`, `2.7-dev`, `2.7.0-dev`, `2.7.0-r1-dev` |
+| `latest`     | `2`, `2.7`, `2.7.1`, `2.7.1-r0`                 |
+| `latest-dev` | `2-dev`, `2.7-dev`, `2.7.1-dev`, `2.7.1-r0-dev` |
 
 
 
