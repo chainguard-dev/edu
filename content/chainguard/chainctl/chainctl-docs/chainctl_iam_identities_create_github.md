@@ -1,5 +1,5 @@
 ---
-date: 2023-04-28T15:29:13Z
+date: 2023-05-01T21:44:05Z
 title: "chainctl iam identities create github"
 slug: chainctl_iam_identities_create_github
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_github/
@@ -31,7 +31,7 @@ chainctl iam identities create github NAME --github-repo=REPO [--github-ref=REF]
 
 ```
   -d, --description string       The description of the resource.
-      --github-audience string   The audience for the GitHub OIDC token (default: URL of the repo owner)
+      --github-audience string   The audience for the GitHub OIDC token
       --github-ref string        The branch reference for the executing action (optional).
       --github-repo string       The name of a GitHub repo where the action executes.
       --group string             The name or id of the parent group to create this identity under.
