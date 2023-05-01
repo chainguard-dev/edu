@@ -53,9 +53,9 @@ chainctl cluster install --profiles=observer
 
 As its name suggests, the `observer` profile is essentially a "read-only" profile for Chainguard Enforce. When installed under the `observer` profile, Chainguard Enforce does not install an admission webhook onto the cluster. This means that Enforce will only be able to monitor the cluster and report violations; it won't be able to enforce policies or make any changes to your clusters. 
 
-In some ways, the `observer` profile is similar to having [`warn` mode](../how-to-disable-policy-enforcement/) enabled. However, `warn` mode is set at the policy level. This means you can add `mode: warn` to certain policies, causing them to only return warnings, and leave it out of other policies that you want enforced. In contrast, the `observer` profile impacts the entire cluster; once you've installed Enforce onto a cluster under the `observer` profile, you won't be able to enforce any policy on the cluster.
+In some ways, the `observer` profile is similar to having [`warn` mode](/chainguard/chainguard-enforce/policies/how-to-disable-policy-enforcement/) enabled. However, `warn` mode is set at the policy level. This means you can add `mode: warn` to certain policies, causing them to only return warnings, and leave it out of other policies that you want enforced. In contrast, the `observer` profile impacts the entire cluster; once you've installed Enforce onto a cluster under the `observer` profile, you won't be able to enforce any policy on the cluster.
 
-Be aware that if you're setting up Chainguard Enforce to run both under the `observer` profile **and** in [agentless](../how-to-connect-kubernetes-clusters/#agentless-connections) mode, then Chainguard Enforce won't install anything on your cluster. In this case, Enforce will be able to `get`, `list`, and `watch` resources — excluding secrets — in order to scan what's running on the cluster, but it won't have permission to create anything on it.
+Be aware that if you're setting up Chainguard Enforce to run both under the `observer` profile **and** in [agentless](/chainguard/chainguard-enforce/how-to-connect-kubernetes-clusters/#agentless-connections) mode, then Chainguard Enforce won't install anything on your cluster. In this case, Enforce will be able to `get`, `list`, and `watch` resources — excluding secrets — in order to scan what's running on the cluster, but it won't have permission to create anything on it.
 
 
 ## Checking profiles
@@ -89,4 +89,4 @@ The **Profiles** column lists the profiles that each cluster is enrolled in.
 
 ## Learn More
 
-The `observer` profile can be useful for testing out Chainguard Enforce and understanding how it works. You can also test out Enforce on a per-policy basis with `warn` mode. Check out our documentation on [disabling policy enforcement](../how-to-disable-policy-enforcement/) to learn more.
+The `observer` profile can be useful for testing out Chainguard Enforce and understanding how it works. You can also test out Enforce on a per-policy basis with `warn` mode. Check out our documentation on [disabling policy enforcement](/chainguard/chainguard-enforce/policies/how-to-disable-policy-enforcement/) to learn more.

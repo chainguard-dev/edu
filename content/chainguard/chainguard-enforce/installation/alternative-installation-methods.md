@@ -22,7 +22,7 @@ toc: true
 
 There are currently three recommended approaches to installing the Chainguard Enforce Agent. This guide will walk you through each of these approaches.
 
-Our [getting started guide](../chainguard-enforce-user-onboarding/) provides more detailed information on how to set up Chainguard Enforce, and this document provides a reference for three alternative methods to align best with your team's existing Kubernetes workflow.
+Our [getting started guide](/chainguard/chainguard-enforce/chainguard-enforce-user-onboarding/) provides more detailed information on how to set up Chainguard Enforce, and this document provides a reference for three alternative methods to align best with your team's existing Kubernetes workflow.
 
 Our first method will be installation with `chainctl`, the command line tool for working with Chainguard products.
 
@@ -60,9 +60,9 @@ Be sure to replace the `$GROUP_ID` and `$CLUSTER` variables with the appropriate
 chainctl iam groups ls -o table
 ```
 
-The output will display the ID of the group you have been invited to or have created. To learn more about groups and permissions in Chainguard Enforce, reveiw our [How to Manage IAM Groups in Chainguard Enforce](../how-to-manage-iam-groups-in-chainguard-enforce/) guide.
+The output will display the ID of the group you have been invited to or have created. To learn more about groups and permissions in Chainguard Enforce, reveiw our [How to Manage IAM Groups in Chainguard Enforce](/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/) guide.
 
-If you would like more detail about installing the Chainguard Enforce Agent with `chainctl`, or on getting onboarded to Chainguard Enforce, check out our [Getting Started guide](../chainguard-enforce-user-onboarding/).
+If you would like more detail about installing the Chainguard Enforce Agent with `chainctl`, or on getting onboarded to Chainguard Enforce, check out our [Getting Started guide](/chainguard/chainguard-enforce/chainguard-enforce-user-onboarding/).
 
 ## Install with a Declarative Method
 

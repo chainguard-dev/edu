@@ -21,7 +21,7 @@ Security policies in Chainguard Enforce ensure that our development teams are de
 
 We can associate a policy YAML file with a given group in order to achieve our security goals. This guide will go through how to set up policies on the Chainguard Enforce user interface available to you via [console.enforce.dev](https://console.enforce.dev). You must already have an account with Chainguard to follow this guide. You can request access for **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).
 
-In the Chainguard Enforce Console, we have a [policy catalogue](https://console.enforce.dev/policies/catalog) that provides example policies that you can use right away or modify for your use case. You may also wish to check out our page on [Chainguard Enforce Policy Examples](../chainguard-enforce-policy-examples). If you would like to use the CLI to work with policies, review our [`chainctl` policy docs](/chainguard/chainctl/chainctl-docs/chainctl_policies_apply/) and review our guidance on [how to manage policies with `chainctl`](/chainguard/chainguard-enforce/policies/chainguard-policies-cli/).
+In the Chainguard Enforce Console, we have a [policy catalogue](https://console.enforce.dev/policies/catalog) that provides example policies that you can use right away or modify for your use case. You may also wish to check out our page on [Chainguard Enforce Policy Examples](/chainguard/chainguard-enforce/policies/chainguard-enforce-policy-examples/). If you would like to use the CLI to work with policies, review our [`chainctl` policy docs](/chainguard/chainctl/chainctl-docs/chainctl_policies_apply/) and review our guidance on [how to manage policies with `chainctl`](/chainguard/chainguard-enforce/policies/chainguard-policies-cli/).
 
 For additional policy guidance, you may also review the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview). To learn how to admit images through the cluster image policy, review the Policy Controller documentation relating to the [Admission of images](https://docs.sigstore.dev/policy-controller/overview/#admission-of-images).
 
@@ -49,7 +49,7 @@ Note that the policies page also indicates whether a given policy is in **Enforc
 
 ![Warn or Enforce mode indicated in policy table](enforce-console-warn-enforce-mode.png)
 
-You can modify whether a policy is in Enforce or Warn mode by editing the YAML file. Review our doc on [Disabling Policy Enforcement](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-disable-policy-enforcement/) for more details.
+You can modify whether a policy is in Enforce or Warn mode by editing the YAML file. Review our doc on [Disabling Policy Enforcement](/chainguard/chainguard-enforce/policies/how-to-disable-policy-enforcement/) for more details.
 
 ## Initialize a new policy
 

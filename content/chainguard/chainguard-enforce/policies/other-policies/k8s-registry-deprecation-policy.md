@@ -61,7 +61,7 @@ spec:
 # Copyright 2023 Chainguard, Inc.
 ```
 
-Written in the [Rego policy language](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-rego-policies/), this policy will instruct Chainguard Enforce to continuously monitor all your running workloads and notify you if you are impacted by this change. It will also monitor any new deployment requests to your cluster for images coming from the old registry at k8s.gcr.io. Since the policy is in ["warn" mode](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-disable-policy-enforcement/), it will allow the deployment to proceed, but will generate a warning in the Enforce platform and back to the user that an image has been deployed from the deprecated registry.
+Written in the [Rego policy language](/chainguard/chainguard-enforce/policies/chainguard-enforce-rego-policies/), this policy will instruct Chainguard Enforce to continuously monitor all your running workloads and notify you if you are impacted by this change. It will also monitor any new deployment requests to your cluster for images coming from the old registry at k8s.gcr.io. Since the policy is in ["warn" mode](/chainguard/chainguard-enforce/policies/how-to-disable-policy-enforcement/), it will allow the deployment to proceed, but will generate a warning in the Enforce platform and back to the user that an image has been deployed from the deprecated registry.
 
 This policy will run on all of your clusters across clouds continuously, so if any image violates the policy, it will record a violation immediately and notify you. You can use this information to let your development teams know that they need to update their pipelines before the freeze date.
 

@@ -24,8 +24,8 @@ This tutorial will bring some of the components of Sigstore together in an examp
 You should have the following in place before continuing:
 
 * The latest version of [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed, and an account on Docker Hub. At the time of writing (June 2022), Docker Engine should be version 20.10 and Docker Compose should be version 2.6. If you are on macOS, you will need to use [Docker Desktop; refer to the official documentation](https://docs.docker.com/desktop/) for your operating system to ensure that your system meets the necessary requirements. Docker Desktop should be version 4.8 or higher.
-* Cosign installed, follow [How to Install Cosign](../cosign/how-to-install-cosign).
-* The Rekor CLI installed, follow the [installation guide](../rekor/how-to-install-rekor)
+* Cosign installed, follow [How to Install Cosign](/open-source/sigstore/cosign/how-to-install-cosign).
+* The Rekor CLI installed, follow the [installation guide](/open-source/sigstore/rekor/how-to-install-rekor/)
 * Familiarity with Git, GitHub, and GitHub Actions is helpful, but we'll provide some context and also walk you through setting up a GitHub account.
 
 With these prerequisites in place, let's begin. 

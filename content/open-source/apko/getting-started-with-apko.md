@@ -24,7 +24,7 @@ Container images are typically assembled in multiple steps. A tool like Docker, 
 
 Instead of building your application together with your components and system dependencies, you can build your application once and compose it into different architectures and distributions, using a tool such as [melange](https://github.com/chainguard-dev/melange) in combination with apko. For more information on how melange and apko work together, you can check this blog post: [Secure your Software Factory with melange and apko](https://blog.chainguard.dev/secure-your-software-factory-with-melange-and-apko/).
 
-In this guide, we'll learn how to use apko to build a base [Wolfi](https://edu.chainguard.dev/open-source/wolfi/overview/) image.
+In this guide, we'll learn how to use apko to build a base [Wolfi](/open-source/wolfi/overview/) image.
 
 ## Requirements
 

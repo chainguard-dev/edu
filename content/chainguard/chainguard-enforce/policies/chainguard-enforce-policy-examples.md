@@ -30,7 +30,7 @@ To apply a policy to a cluster, you can use the `chainctl` command. Be sure to r
 chainctl policies apply -f $POLICY.yaml --group=$GROUP
 ```
 
-Alternately, you can follow our guide on [How to Create Policies in the Chainguard Enforce UI](how-to-create-policies-chainguard-enforce-ui).
+Alternately, you can follow our guide on [How to Create Policies in the Chainguard Enforce UI](/chainguard/chainguard-enforce/policies/chainguard-policies-ui/).
 
 ## Policy enforcing signed containers from Chainguard Images
 

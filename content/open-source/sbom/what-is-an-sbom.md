@@ -57,12 +57,12 @@ An SBOM’s utility is dependent on the quality and comprehensiveness of the inf
 * The open source [NTIA Conformance Checker](https://github.com/spdx/ntia-conformance-checker) analyzes whether an SPDX SBOM meets the NTIA’s minimum elements, such as supplier’s name, dependency relationship, and timestamp.  
 
 ### Signing SBOMs
-[Signing your SBOM](https://edu.chainguard.dev/open-source/sigstore/cosign/an-introduction-to-cosign/) is an important way of ensuring end users that it has not been tampered with by a third party and that it comes from a trusted source (you). You can learn more about how to use [Cosign](https://github.com/sigstore/cosign), an open source tool for signing containers and other software artifacts, to sign your SBOM [in our tutorial](https://edu.chainguard.dev/open-source/sigstore/cosign/how-to-sign-an-sbom-with-cosign/). 
+[Signing your SBOM](/open-source/sigstore/cosign/an-introduction-to-cosign/) is an important way of ensuring end users that it has not been tampered with by a third party and that it comes from a trusted source (you). You can learn more about how to use [Cosign](https://github.com/sigstore/cosign), an open source tool for signing containers and other software artifacts, to sign your SBOM [in our tutorial](/open-source/sigstore/cosign/how-to-sign-an-sbom-with-cosign/). 
 
 ## Learn more
 In this guide, you have learned about the purpose of SBOMs and why proponents see them as a critical building block for software supply chain security. You have also learned about key tools and formats used in SBOM production and consumption, and how to measure the quality of the SBOMs you generate or consume. 
 
 SBOM practices and tooling are actively evolving. To learn more about SBOMs, check out related research by Chainguard Labs, such as: 
-* [What Makes a Good SBOM?](https://edu.chainguard.dev/open-source/sbom/what-makes-a-good-sbom/)
+* [What Makes a Good SBOM?](/open-source/sbom/what-makes-a-good-sbom/)
 * [Are SBOMs Any Good? Preliminary Measurement of the Quality of Open Source Project SBOMs](https://www.chainguard.dev/unchained/are-sboms-any-good-preliminary-measurement-of-the-quality-of-open-source-project-sboms)
 * [Are SBOMs Good Enough for Government Work?](https://www.chainguard.dev/unchained/are-sboms-good-enough-for-government-work)

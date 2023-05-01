@@ -16,14 +16,14 @@ toc: true
 
 ## Introduction
 
-[Wolfi](https://edu.chainguard.dev/open-source/wolfi/overview/) is a minimal open source Linux distribution created specifically for cloud workloads, with an emphasis on software supply chain security. Using [apk](https://wiki.alpinelinux.org/wiki/Package_management) for package management, Wolfi differs from Alpine in a few important aspects, most notably the use of glibc instead of musl and the fact that Wolfi doesn't have a kernel of its own since it is built to run on containers. The minimal footprint makes Wolfi an ideal base for both _distroless_ runtimes and fully-featured builder images.
+[Wolfi](/open-source/wolfi/overview/) is a minimal open source Linux distribution created specifically for cloud workloads, with an emphasis on software supply chain security. Using [apk](https://wiki.alpinelinux.org/wiki/Package_management) for package management, Wolfi differs from Alpine in a few important aspects, most notably the use of glibc instead of musl and the fact that Wolfi doesn't have a kernel of its own since it is built to run on containers. The minimal footprint makes Wolfi an ideal base for both _distroless_ runtimes and fully-featured builder images.
 
 A _distroless_ image is typically a very minimal container image that doesn't have shells or package managers. The extra tightness improves security in several aspects, but it requires a more sophisticated strategy for image composition since you can't install packages so easily.
 
 There are currently two main strategies for building distroless images with Wolfi:
 
-- **With a Dockerfile:** Use `-dev` variants **or** the `wolfi-base` image from [Chainguard Images](https://edu.chainguard.dev/chainguard/chainguard-images/overview/) to build the application, and copy the artifacts to a distroless runtime image. This option is typically more accessible for people who are already used to a Dockerfile workflow.
-- **With apko:** Use [apko](https://edu.chainguard.dev/open-source/apko/overview/) to build a distroless image with only the packages you need, fully customized. This option requires a bigger learning curve to get used to how apko works, but it will give you smaller images with better SBOM coverage. The [Getting Started with apko](https://edu.chainguard.dev/open-source/apko/getting-started-with-apko/) tutorial explains how that works in practice.
+- **With a Dockerfile:** Use `-dev` variants **or** the `wolfi-base` image from [Chainguard Images](/chainguard/chainguard-images/overview/) to build the application, and copy the artifacts to a distroless runtime image. This option is typically more accessible for people who are already used to a Dockerfile workflow.
+- **With apko:** Use [apko](/open-source/apko/overview/) to build a distroless image with only the packages you need, fully customized. This option requires a bigger learning curve to get used to how apko works, but it will give you smaller images with better SBOM coverage. The [Getting Started with apko](/open-source/apko/getting-started-with-apko/) tutorial explains how that works in practice.
 
 The [wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base) image, which we'll be using in this tutorial, is not distroless, because it includes `apk-tools` and `bash`. It can still be used to build a final distroless image, when combined with a distroless runtime in a [Docker multi-stage build](https://docs.docker.com/build/building/multi-stage/).
 
@@ -74,7 +74,7 @@ if __name__ == "__main__":
     main()
 ```
 
-You'll notice that there's already a Dockerfile in that directory, but it uses the [Python Chainguard image](https://edu.chainguard.dev/chainguard/chainguard-images/reference/python/overview/) in a multi-stage build. In the next step, we'll replace that with a new Dockerfile that uses the [Wolfi-base](https://edu.chainguard.dev/chainguard/chainguard-images/reference/wolfi-base/image_specs/) image to build a Python image from scratch, using Wolfi apks.
+You'll notice that there's already a Dockerfile in that directory, but it uses the [Python Chainguard image](/chainguard/chainguard-images/reference/python/overview/) in a multi-stage build. In the next step, we'll replace that with a new Dockerfile that uses the [Wolfi-base](/chainguard/chainguard-images/reference/wolfi-base/image_specs/) image to build a Python image from scratch, using Wolfi apks.
 
 ## Step 2: Creating the Dockerfile
 
@@ -207,6 +207,6 @@ And you'll notice that the `:distroless` version is significantly smaller, becau
 
 ## Final Considerations
 
-If your build requires dependencies that are not yet available on Wolfi, you can build your own apks using [melange](/open-source/melange/overview/). Check the [Getting started with melange](https://edu.chainguard.dev/open-source/melange/tutorials/getting-started-with-melange/) guide for more details on how to go about that.
+If your build requires dependencies that are not yet available on Wolfi, you can build your own apks using [melange](/open-source/melange/overview/). Check the [Getting started with melange](/open-source/melange/tutorials/getting-started-with-melange/) guide for more details on how to go about that.
 
 Check also the public catalog of [Chainguard Images](/chainguard/chainguard-images/reference/) for application environments including `-dev` variants that can be used as builders for your specific application runtime.

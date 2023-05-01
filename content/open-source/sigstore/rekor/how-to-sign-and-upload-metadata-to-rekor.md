@@ -18,7 +18,7 @@ toc: true
 
 _An earlier version of this material was published in the [Rekor chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@e785fae1be184e2c929db62dbe7444fa/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@a48c33126e2c4ee6ad3bfa6b7bc9c957) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._
 
-This tutorial will walk you through signing and uploading metadata to the Rekor transparency log, which is a project of Sigstore. In order to follow along, you'll need the `rekor-cli` installed, which you can accomplish by following the "[How to Install the Rekor CLI](../how-to-install-rekor)" tutorial.
+This tutorial will walk you through signing and uploading metadata to the Rekor transparency log, which is a project of Sigstore. In order to follow along, you'll need the `rekor-cli` installed, which you can accomplish by following the "[How to Install the Rekor CLI](/open-source/sigstore/rekor/how-to-install-rekor/)" tutorial.
 
 We will use SSH to sign a text document. SSH is often used to communicate securely over an unsecured network and can also be used to generate public and private keys appropriate for signing an artifact.
 

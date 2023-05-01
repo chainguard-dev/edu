@@ -100,7 +100,7 @@ As part of the JSON output, you should get feedback on the issuer that you used 
 
 ## Cosign with Keys
 
-You can also use Cosign with long-lived key pairs. If you would like to follow along, please first [install Cosign](../how-to-install-cosign).
+You can also use Cosign with long-lived key pairs. If you would like to follow along, please first [install Cosign](/open-source/sigstore/cosign/how-to-install-cosign/).
 
 ```sh
 cosign generate-key-pair 
@@ -137,7 +137,7 @@ The following checks were performed on these signatures:
 {"Critical":{"Identity":{"docker-reference":""},"Image":{"Docker-manifest-digest":"sha256:87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8"},"Type":"cosign container image signature"},"Optional":null}
 ```
 
-You should now have some familiarity with the process of signing and verifying code in Cosign. For a more thorough tutorial, please review [How to Sign a Container with Cosign](../how-to-sign-a-container-with-cosign).
+You should now have some familiarity with the process of signing and verifying code in Cosign. For a more thorough tutorial, please review [How to Sign a Container with Cosign](/open-source/sigstore/cosign/how-to-sign-a-container-with-cosign/).
 
 Code signing provides developers and others who release code a way to attest to their identity, and in turn, those who are consumers (whether end users or developers who incorporate existing code) can verify those signatures to ensure that the code is originating from where it is said to have originated, and check that that particular developer (or vendor) is trusted. 
 
