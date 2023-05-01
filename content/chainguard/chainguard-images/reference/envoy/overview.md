@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/envoy](https://github.com/chainguard-images/images/tree/main/images/envoy)
 | Tags     | Aliases                            |
 |----------|------------------------------------|
-| `latest` | `1`, `1.26`, `1.26.0`, `1.26.0-r0` |
+| `latest` | `1`, `1.26`, `1.26.1`, `1.26.1-r0` |
 
 
 
