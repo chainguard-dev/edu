@@ -165,7 +165,7 @@ Enforce will now send events to the application that is running on Cloud Run at 
 
 ## Configuring a Chainguard Enforce Policy
 
-Before you can generate Slack messages for policy violations or admission events, you will need to ensure that you have Chainguard Enforce configured with a policy that you can test. Make sure you have a cluster registered with Enforce using the `chainctl clusters ls` command. If you do not, visit our [Getting Started with Enforce Guide](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/#step-3--prepare-kubernetes-cluster) to create and register a cluster.
+Before you can generate Slack messages for policy violations or admission events, you will need to ensure that you have Chainguard Enforce configured with a policy that you can test. Make sure you have a cluster registered with Enforce using the `chainctl clusters ls` command. If you do not, visit our [Getting Started with Enforce Guide](/chainguard/chainguard-enforce/chainguard-enforce-user-onboarding/#step-3--prepare-kubernetes-cluster) to create and register a cluster.
 
 Once you have a cluster enrolled with Enforce, create the following policy from the Getting Started guide:
 

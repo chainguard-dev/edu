@@ -110,7 +110,7 @@ At this point, you will receive output that your container was published and you
 
 You are now ready to sign and verify an image with your brand new Certificate Authority!
 
-First, [log into Chainguard](/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/log-in-chainguard-enforce/#signing-in-through-chainctl):
+First, [log into Chainguard](/chainguard/chainguard-enforce/log-in-chainguard-enforce/#signing-in-through-chainctl):
 
 ```sh
 chainctl auth login
