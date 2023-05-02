@@ -14,7 +14,7 @@ weight: 005
 
 > _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
-The Chainguard platform supports Single sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication. 
+The Chainguard platform supports Single sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication.
 
 This guide outlines how to create an Okta application and integrate it with Chainguard Enforce. After completing this guide, you'll be able to log in to Chainguard Enforce using Okta and will no longer be limited to the default SSO options.
 
@@ -24,7 +24,7 @@ This guide outlines how to create an Okta application and integrate it with Chai
 To complete this guide, you will need the following.
 
 * `chainctl` installed on your system. Follow our guide on [How To Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) if you don't already have this installed.
-* An Okta account over which you have administrative access. 
+* An Okta account over which you have administrative access.
 
 
 ## Create an Okta App integration
@@ -41,7 +41,7 @@ Next, in the **General Settings** window, configure the application as follows.
 
 * **App integration name**: Enter a descriptive name (like "Chainguard") here.
 * **Logo**: You can optionally add a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Enforce Console](https://console.enforce.dev/logo512.png).
-* **Grant type**: Ensure that the grant type is set to **Authorization Code** only. 
+* **Grant type**: Ensure that the grant type is set to **Authorization Code** only.
 
 > **Warning**: DO NOT select other grant types as this may compromise your security.
 
@@ -67,7 +67,7 @@ To configure the platform, make a note of the following settings from your Okta 
 
 * **Client ID**: You can find this on the **General** tab under **Client Credentials**
 * **Client Secret**: Find this on the **General** Tab under **Client Credentials**
-** **Issuer URL**: This is found under the **Sign on** tab in the **OpenID Connect ID Token** section
+* **Issuer URL**: This is found under the **Sign on** tab in the **OpenID Connect ID Token** section
 
 Next, log in to Chaingaurd with `chainctl`, using an OIDC provider like Google, Github, or GitLab to bootstrap your account.
 
@@ -94,4 +94,4 @@ chainctl iam identity-provider create \
   --name=${NAME}
 ```
 
-You’ll be prompted to select a Chainguard IAM group under which to install your identity provider. Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration. For more information, check out the [IAM and Security section](/chainguard/chainguard-enforce/authentication/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard. 
+You’ll be prompted to select a Chainguard IAM group under which to install your identity provider. Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration. For more information, check out the [IAM and Security section](/chainguard/chainguard-enforce/authentication/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard.
