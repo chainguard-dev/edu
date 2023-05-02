@@ -1,3 +1,11 @@
+## 2023-05-02
+
+Updated image reference docs.
+
+New images added:
+
+- prometheus-postgres-exporter
+
 ## 2023-05-01
 
 Updated image reference docs.

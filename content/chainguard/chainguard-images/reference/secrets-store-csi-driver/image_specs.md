@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                       | latest-dev                   |
 |--------------|------------------------------|------------------------------|
-| Default User | `secrets-store-csi-driver`   | `secrets-store-csi-driver`   |
+| Default User | `root`                       | `root`                       |
 | Entrypoint   | `/usr/bin/secrets-store-csi` | `/usr/bin/secrets-store-csi` |
 | CMD          | not specified                | not specified                |
 | Workdir      | not specified                | not specified                |
