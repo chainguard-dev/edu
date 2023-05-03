@@ -1,5 +1,5 @@
 ---
-date: 2023-05-01T21:44:05Z
+date: 2023-05-03T16:19:30Z
 title: "chainctl config edit"
 slug: chainctl_config_edit
 url: /chainguard/chainctl/chainctl-docs/chainctl_config_edit/
