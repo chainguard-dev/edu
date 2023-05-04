@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/opensearch](https://github.com/chainguard-images/images/tree/main/images/opensearch)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.6`, `2.6.0`, `2.6.0-r2`                 |
+| `latest`     | `2`, `2.7`, `2.7.0`, `2.7.0-r0`                 |
 | `latest-dev` | `2-dev`, `2.6-dev`, `2.6.0-dev`, `2.6.0-r2-dev` |
 
 

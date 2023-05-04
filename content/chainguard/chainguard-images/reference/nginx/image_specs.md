@@ -25,14 +25,14 @@ The **nginx** Chainguard Image currently has 3 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest                                      | latest-dev                                  | next                                        |
-|--------------|---------------------------------------------|---------------------------------------------|---------------------------------------------|
-| Default User | `nginx`                                     | `nginx`                                     | `nginx`                                     |
-| Entrypoint   | `/usr/sbin/nginx`                           | `/usr/sbin/nginx`                           | `/usr/sbin/nginx`                           |
-| CMD          | `-c /etc/nginx/nginx.conf -g "daemon off;"` | `-c /etc/nginx/nginx.conf -g "daemon off;"` | `-c /etc/nginx/nginx.conf -g "daemon off;"` |
-| Workdir      | not specified                               | not specified                               | not specified                               |
-| Has apk?     | no                                          | yes                                         | no                                          |
-| Has a shell? | no                                          | yes                                         | no                                          |
+|              | latest                                                     | latest-dev                                                 | next                                                       |
+|--------------|------------------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------|
+| Default User | `nginx`                                                    | `nginx`                                                    | `nginx`                                                    |
+| Entrypoint   | `/usr/sbin/nginx`                                          | `/usr/sbin/nginx`                                          | `/usr/sbin/nginx`                                          |
+| CMD          | `-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` | `-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` | `-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` |
+| Workdir      | not specified                                              | not specified                                              | not specified                                              |
+| Has apk?     | no                                                         | yes                                                        | no                                                         |
+| Has a shell? | no                                                         | yes                                                        | no                                                         |
 
 ## Image Dependencies
 The table shows package distribution across all variants.
@@ -42,9 +42,9 @@ The table shows package distribution across all variants.
 | `ca-certificates-bundle` | X      | X          | X    |
 | `wolfi-baselayout`       | X      | X          | X    |
 | `nginx`                  | X      | X          | X    |
+| `nginx-package-config`   | X      | X          | X    |
 | `apk-tools`              |        | X          |      |
 | `bash`                   |        | X          |      |
 | `busybox`                |        | X          |      |
 | `git`                    |        | X          |      |
-| `nginx-package-config`   |        |            | X    |
 
