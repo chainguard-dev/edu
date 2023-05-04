@@ -17,10 +17,10 @@ toc: true
 `stable` [cgr.dev/chainguard/go](https://github.com/chainguard-images/images/tree/main/images/go)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `1.19`       | `1.19`, `1.19.8`, `1.19.8-r1`                      |
-| `1.19-dev`   | `1.19-dev`, `1.19.8-dev`, `1.19.8-r1-dev`          |
-| `latest`     | `1`, `1.20`, `1.20.3`, `1.20.3-r1`                 |
-| `latest-dev` | `1-dev`, `1.20-dev`, `1.20.3-dev`, `1.20.3-r1-dev` |
+| `1.19`       | `1.19`, `1.19.9`, `1.19.9-r0`                      |
+| `1.19-dev`   | `1.19-dev`, `1.19.9-dev`, `1.19.9-r0-dev`          |
+| `latest`     | `1`, `1.20`, `1.20.4`, `1.20.4-r0`                 |
+| `latest-dev` | `1-dev`, `1.20-dev`, `1.20.4-dev`, `1.20.4-r0-dev` |
 
 
 
