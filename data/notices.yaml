@@ -17,18 +17,3 @@
     This image will switch from including a full complement of JDK binaries to a minimally required set in a forthcoming release. The work is being tracked in [this GitHub issue](https://github.com/chainguard-images/images/issues/297).
 
     If you rely on any binaries or libraries that are included in this image beyond the core JRE runtime, consider switching to the [JDK Image](/chainguard/chainguard-images/reference/jdk/overview/).
-
-- title: "Image Overview: nginx"
-  type: WARNING
-  note: |
-    On May 3 2023 there will be potentially breaking changes made to the Chainguard nginx image. You may need to take action to update your application to prevent disruption. 
-
-    Specifically, the config file is being changed to bring the default configuration closer to that of other images. If you override the config with a custom configuration, you should not be affected.
-
-    The changes include:
-
-      - Moving the default port from 80 to 8080. This is required to run on Kubernetes as a non-privileged user.
-      - Allowing nginx to automatically determine the number of worker processes
-      - Moving the HTML directory to /usr/share/nginx/html
-
-    You can test the new image out now by pulling the `cgr.dev/chainguard/nginx:next` image. This is a temporary variant that will be removed shortly after we make the change.
