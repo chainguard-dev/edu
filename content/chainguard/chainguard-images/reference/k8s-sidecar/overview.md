@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/k8s-sidecar](https://github.com/chainguard-images/images/tree/main/images/k8s-sidecar)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.23`, `1.23.1`, `1.23.1-r0`                 |
-| `latest-dev` | `1-dev`, `1.23-dev`, `1.23.1-dev`, `1.23.1-r0-dev` |
+| `latest`     | `1`, `1.23`, `1.23.3`, `1.23.3-r0`                 |
+| `latest-dev` | `1-dev`, `1.23-dev`, `1.23.3-dev`, `1.23.3-r0-dev` |
 
 
 
