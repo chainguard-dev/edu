@@ -14,8 +14,8 @@ import (
 )
 
 type results struct {
-	Checked   []link // `json:"checked"`
-	Unchecked []link // `json:"unchecked"`
+	Checked   []link `json:"checked"`
+	Unchecked []link `json:"unchecked"`
 	json      []byte
 }
 
@@ -46,9 +46,9 @@ type ignoreURLs struct {
 }
 
 type link struct {
-	URL            *url.URL               `json:"url"`
-	FullURL        string                 `json:"fullurl"`
-	Status         int                    `json:"status"`
-	Parents        map[string]interface{} `json:"parents"`
-	rawDestination []byte
+	URL     *url.URL               `json:"url"`
+	FullURL string                 `json:"fullurl"`
+	Status  int                    `json:"status,omitempty"`
+	Files   map[string]interface{} `json:"files"`
+	RawURL  string                 `json:"rawurl"`
 }
