@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/busybox](https://github.com/chainguard-images/images/tree/main/images/busybox)
 | Tags           | Aliases                                                    |
 |----------------|------------------------------------------------------------|
-| `latest`       | `1`, `1.36`, `1.36.0`, `1.36.0-r8`                         |
+| `latest`       | `1`, `1.36`, `1.36.0`, `1.36.0-r9`                         |
 | `latest-glibc` | `glibc-1`, `glibc-1.36`, `glibc-1.36.0`, `glibc-1.36.0-r5` |
 
 

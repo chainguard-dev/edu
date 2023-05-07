@@ -35,9 +35,10 @@ The table has detailed information about each of these variants.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                    | latest |
-|--------------------|--------|
-| `dotnet-7`         | X      |
-| `dotnet-7-runtime` | X      |
-| `wolfi-baselayout` | X      |
+|                          | latest |
+|--------------------------|--------|
+| `dotnet-7`               | X      |
+| `dotnet-7-runtime`       | X      |
+| `wolfi-baselayout`       | X      |
+| `ca-certificates-bundle` | X      |
 
