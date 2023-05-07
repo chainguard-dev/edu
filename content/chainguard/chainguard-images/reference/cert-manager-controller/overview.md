@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/cert-manager-controller](https://github.com/chainguard-images/images/tree/main/images/cert-manager-controller)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.11`, `1.11.1`, `1.11.1-r1`                 |
-| `latest-dev` | `1-dev`, `1.11-dev`, `1.11.1-dev`, `1.11.1-r1-dev` |
+| `latest`     | `1`, `1.11`, `1.11.1`, `1.11.1-r2`                 |
+| `latest-dev` | `1-dev`, `1.11-dev`, `1.11.1-dev`, `1.11.1-r2-dev` |
 
 
 
