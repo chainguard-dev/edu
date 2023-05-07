@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/zot](https://github.com/chainguard-images/images/tree/main/images/zot)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.4`, `1.4.3`, `1.4.3-r3`                 |
-| `latest-dev` | `1-dev`, `1.4-dev`, `1.4.3-dev`, `1.4.3-r3-dev` |
+| `latest`     | `1`, `1.4`, `1.4.3`, `1.4.3-r4`                 |
+| `latest-dev` | `1-dev`, `1.4-dev`, `1.4.3-dev`, `1.4.3-r4-dev` |
 
 
 

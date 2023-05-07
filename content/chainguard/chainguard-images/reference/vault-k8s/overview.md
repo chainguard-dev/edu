@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/vault-k8s](https://github.com/chainguard-images/images/tree/main/images/vault-k8s)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.2`, `1.2.1`, `1.2.1-r0`                 |
-| `latest-dev` | `1-dev`, `1.2-dev`, `1.2.1-dev`, `1.2.1-r0-dev` |
+| `latest`     | `1`, `1.2`, `1.2.1`, `1.2.1-r1`                 |
+| `latest-dev` | `1-dev`, `1.2-dev`, `1.2.1-dev`, `1.2.1-r1-dev` |
 
 
 

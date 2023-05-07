@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/thanos](https://github.com/chainguard-images/images/tree/main/images/thanos)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.31`, `0.31.0`, `0.31.0-r1`                 |
-| `latest-dev` | `0-dev`, `0.31-dev`, `0.31.0-dev`, `0.31.0-r1-dev` |
+| `latest`     | `0`, `0.31`, `0.31.0`, `0.31.0-r2`                 |
+| `latest-dev` | `0-dev`, `0.31-dev`, `0.31.0-dev`, `0.31.0-r2-dev` |
 
 
 
