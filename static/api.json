@@ -3121,6 +3121,53 @@
       "title": "Type",
       "type": "string"
     },
+    "VulnReportFilterState": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "ACTIVE",
+        "INACTIVE",
+        "ALL"
+      ],
+      "type": "string"
+    },
+    "VulnReportScanner": {
+      "properties": {
+        "name": {
+          "description": "name contains the vendor name of the scanner.",
+          "type": "string"
+        },
+        "version": {
+          "description": "version holds the version of the used scanner to generate the report.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VulnerabilityCvss": {
+      "properties": {
+        "score": {
+          "description": "CVSS score is on a scale of 0 - 10 where 0 indicates low severity and 10 indicates high severity.",
+          "type": "string"
+        },
+        "version": {
+          "description": "CVSS version used to populate score and severity.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VulnerabilitySeverity": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL"
+      ],
+      "type": "string"
+    },
     "authRegistrationRequest": {
       "properties": {
         "clusterDescription": {
@@ -4466,6 +4513,121 @@
         }
       },
       "type": "object"
+    },
+    "tenantVulnReport": {
+      "properties": {
+        "id": {
+          "description": "id, The VulnReport UIDP at which this VulnReport resides.",
+          "type": "string"
+        },
+        "lastSeen": {
+          "description": "last_seen tracks the timestamp at which this vuln report was last seen.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "rawVulnReport": {
+          "description": "raw_vuln_report may or may not be useful in the long term, but for now to make\nprogress on this, we'll just yolo and serialize it here.",
+          "format": "byte",
+          "type": "string"
+        },
+        "reportGeneration": {
+          "description": "report_generation tracks the timestamp at which this report was generated.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "scanner": {
+          "$ref": "#/definitions/VulnReportScanner",
+          "description": "scanner contains some information about the scanner used to generate the report."
+        },
+        "vulnerabilities": {
+          "description": "Report's list of vulnerabilities(s).",
+          "items": {
+            "$ref": "#/definitions/tenantVulnerability"
+          },
+          "type": "array"
+        },
+        "vulnerabilityDbLastBuildTime": {
+          "description": "vulnerability_db_last_build_time holds the time when the vulnerability database was built last time.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "tenantVulnReportList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/tenantVulnReport"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "tenantVulnerability": {
+      "properties": {
+        "advisories": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "advisories related to this vulnerability.",
+          "type": "object"
+        },
+        "cpeUri": {
+          "description": "List of cpe_uri on which the vulnerability was found.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cvss": {
+          "description": "List of cvss information about the exploitability of the vulnerability.",
+          "items": {
+            "$ref": "#/definitions/VulnerabilityCvss"
+          },
+          "type": "array"
+        },
+        "description": {
+          "description": "a short description of this vulnerability.",
+          "type": "string"
+        },
+        "fixIn": {
+          "description": "List of fix_in versions of the package on which the vulnerability has been solved.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "fixState": {
+          "description": "fix_state reflects the state of the fix.",
+          "type": "string"
+        },
+        "id": {
+          "description": "id of the vulnerability e.g. CVE_1231-12.",
+          "type": "string"
+        },
+        "pkg": {
+          "$ref": "#/definitions/tenantPackage2",
+          "description": "Package affected by this vulnerability."
+        },
+        "relatedUrls": {
+          "description": "URLs related to this vulnerability.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "severity": {
+          "$ref": "#/definitions/VulnerabilitySeverity",
+          "title": "severity is the value representing the severity of the vulnerability"
+        },
+        "source": {
+          "description": "source from where the vulnerability information was obtained, e.g. nvd, github, osv.",
+          "type": "string"
+        }
+      },
+      "type": "object"
     }
   },
   "produces": null,
@@ -4524,6 +4686,9 @@
     },
     {
       "name": "Sboms"
+    },
+    {
+      "name": "VulnReports"
     }
   ]
 }
