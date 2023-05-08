@@ -38,7 +38,7 @@ jobs:
         run: go run . -contentDir ../../content -hostname edu.chainguard.dev -fileType md -checkAll
 
       - name: Find unchecked links
-        run: jq '[.unchecked [] | {(.url.Path): {"pages":(.files |keys)}}]' results.json
+        run: jq '[.unchecked [] | .url.Path,.files]' results.json
 
       - name: Find 404 links
-        run: jq '[.checked [] | select(.status == 404) | {(.url.Path): {"pages":(.files |keys)}}]' results.json
+        run: jq '[.checked [] | select(.status == 404) | .url.Path,.files]' results.json
