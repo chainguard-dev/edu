@@ -1,5 +1,5 @@
 ---
-date: 2023-05-03T16:19:30Z
+date: 2023-05-08T20:57:19Z
 title: "chainctl sigstore ca create"
 slug: chainctl_sigstore_ca_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_sigstore_ca_create/
