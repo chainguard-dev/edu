@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/terraform](https://github.com/chainguard-images/images/tree/main/images/terraform)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `1`, `1.4`, `1.4.6`, `1.4.6-r1` |
+| `latest` | `1`, `1.4`, `1.4.6`, `1.4.6-r2` |
 
 
 
