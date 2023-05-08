@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-05-03 16:15:42 +0000 UTC
+date: 2023-05-08 20:48:58 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -12,15 +12,29 @@ weight: 799
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
 
+### v0.1.113
+Release date: 2023-05-08
+#### Feature
+- Viewers can also list repos and tags of images in the registry
+- un-hide the chainctl images surface
+#### Documentation
+- Document registry push and pull events
+#### Bug or Regression
+- Allowing consuming invite code using custom identity provider with chainctl
+
+
 ### v0.1.112
 Release date: 2023-05-03
+#### Feature
+- [risks] Risks will now be cleaned up if the risk condition is no longer detected.
 
-Customer facing changes: N/A
 
 ### v0.1.111
 Release date: 2023-05-01
+#### Bug or Regression
+- Fix bug forcing users to be logged out of the console when the "Discover" flow failed due to account association being misconfigured, or not yet propagated on GCP.
+- fix https://chainguardhelp.zendesk.com/agent/tickets/64 blocking GH identity auth via chainctl
 
-Customer facing changes: N/A
 
 ### v0.1.110
 Release date: 2023-04-28
@@ -30,8 +44,11 @@ Release date: 2023-04-28
 
 ### v0.1.109
 Release date: 2023-04-27
+#### Feature
+- [risks] Added Risk generation for missing signatures (staging-only)
+#### Bug or Regression
+- Grant clusters.discover capability to the Viewer role
 
-Customer facing changes: N/A
 
 ### v0.1.108
 Release date: 2023-04-25

@@ -1,37 +1,27 @@
 ---
 date: 2023-05-08T20:57:19Z
-title: "chainctl policies update"
-slug: chainctl_policies_update
-url: /chainguard/chainctl/chainctl-docs/chainctl_policies_update/
+title: "chainctl images repos list"
+slug: chainctl_images_repos_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies update
+## chainctl images repos list
 
-Update the description of a policy.
-
-```
-chainctl policies update POLICY_NAME | POLICY_ID [--description=DESCRIPTION] [--output table|json|id] [flags]
-```
-
-### Examples
+List image repositories.
 
 ```
-  # Update a policy description by name.
-  chainctl policy update my-policy --description="A description of my policy."
-  
-  # Remove a policy description by ID.
-  chainctl policy update 617ec5ae5775e22fb52ec2d62398de1e7def7986/e74e9050df769110 --description=""
+chainctl images repos list [--group GROUP_NAME | GROUP_ID] [flags]
 ```
 
 ### Options
 
 ```
-  -d, --description string   New description for this policy.
-  -h, --help                 help for update
+      --group string   The name or id of the parent group to list image repos.
+  -h, --help           help for list
 ```
 
 ### Options inherited from parent commands
@@ -49,5 +39,5 @@ chainctl policies update POLICY_NAME | POLICY_ID [--description=DESCRIPTION] [--
 
 ### SEE ALSO
 
-* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Policy related commands for the Chainguard platform.
+* [chainctl images repos](/chainguard/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
 
