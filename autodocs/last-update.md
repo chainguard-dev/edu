@@ -1,7 +1,5 @@
-## 2023-05-07
+## 2023-05-08
 
 Updated image reference docs.
 
-New images added:
-
-- kubernetes-dashboard
+No new images added.

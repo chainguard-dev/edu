@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/kustomize-controller](https://github.com/chainguard-images/images/tree/main/images/kustomize-controller)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.35`, `0.35.1`, `0.35.1-r2`                 |
-| `latest-dev` | `0-dev`, `0.35-dev`, `0.35.1-dev`, `0.35.1-r2-dev` |
+| `latest`     | `0`, `0.35`, `0.35.1`, `0.35.1-r3`                 |
+| `latest-dev` | `0-dev`, `0.35-dev`, `0.35.1-dev`, `0.35.1-r3-dev` |
 
 
 
