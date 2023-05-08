@@ -67,7 +67,7 @@ jobs:
 
       - name: Create/updated GitHub Issue
         run: |          
-          existing=$(gh issue list --json number,title -R jamonation/edu |\
+          existing=$(gh issue list --json number,title |\
             jq -r '.[] | select(.title == "[chainlink] check links on edu.chainguard.dev") | .number')
           if [ -z "${existing}" ]; then
             gh issue create \
