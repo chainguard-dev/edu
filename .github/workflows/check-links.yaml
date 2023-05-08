@@ -1,0 +1,44 @@
+name: Build single terminal image
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "chainlink"
+
+env:
+  PROJECT_ID: "${{ secrets.PROJECT_ID }}"
+  STORAGE_BUCKET: "${{ secrets.STORAGE_BUCKET }}"
+  WORKLOAD_IDENTITY_PROVIDER: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
+  SERVICE_ACCOUNT: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
+  GH_TOKEN: ${{ github.token }}
+
+defaults:
+  run:
+    shell: bash
+    working-directory: ./tools/chainlink
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      id-token: write
+      
+    steps:
+      - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
+
+      - name: Set up Go
+        uses: actions/setup-go@4d34df0c2316fe8122ab82dc22947d607c0c91f9 # actions/setup-go@v4
+        with:
+          go-version: '^1.20.0'
+
+      - name: Run chainlink
+        run: go run . -contentDir ../../content -hostname edu.chainguard.dev -fileType md -checkAll
+
+      - name: Find unchecked links
+        run: jq '[.unchecked [] | {(.url.Path): {"pages":(.files |keys)}}]' results.json
+
+      - name: Find 404 links
+        run: jq '[.checked [] | select(.status == 404) | {(.url.Path): {"pages":(.files |keys)}}]' results.json
