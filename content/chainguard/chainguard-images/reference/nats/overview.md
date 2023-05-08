@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/nats](https://github.com/chainguard-images/images/tree/main/images/nats)
 | Tags         | Aliases                                           |
 |--------------|---------------------------------------------------|
-| `latest`     | `2`, `2.9`, `2.9.16`, `2.9.16-r1`                 |
-| `latest-dev` | `2-dev`, `2.9-dev`, `2.9.16-dev`, `2.9.16-r1-dev` |
+| `latest`     | `2`, `2.9`, `2.9.16`, `2.9.16-r2`                 |
+| `latest-dev` | `2-dev`, `2.9-dev`, `2.9.16-dev`, `2.9.16-r2-dev` |
 
 
 
