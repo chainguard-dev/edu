@@ -1,5 +1,8 @@
-## 2023-05-08
+## 2023-05-09
 
 Updated image reference docs.
 
-No new images added.
+New images added:
+
+- prometheus-cloudwatch-exporter
+- pulumi
