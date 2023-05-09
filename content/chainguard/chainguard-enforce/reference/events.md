@@ -56,7 +56,7 @@ An event like a policy validation with SUID of `bcb18b9a6f9f62b6` occurring in t
 
 ## Authorization Header
 
-Every Enforce event has a JWT formatted [OIDC ID token)(https://openid.net/specs/openid-connect-basic-1_0.html#IDToken) in its `Authorization` header. For authorization purposes, there are two important fields to validate:
+Every Enforce event has a JWT formatted [OIDC ID token](https://openid.net/specs/openid-connect-basic-1_0.html#IDToken) in its `Authorization` header. For authorization purposes, there are two important fields to validate:
 
 1. Use the `iss` field to ensure that the issuer is Chainguard Enforce, specifically `https://issuer.enforce.dev`.
 2. Use the `sub` field to check that the event matches your configured Enforce identity. For example, assuming a UIDP ID of `0475f6baca584a8964a6bce6b74dbe78dd8805b6`, the value will resemble the following: `webhook:0475f6baca584a8964a6bce6b74dbe78dd8805b6`. If the subscription is in a sub-group, then the value will have the corresponding group SUID appended to the path.
