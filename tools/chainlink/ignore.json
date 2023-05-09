@@ -1,0 +1,10 @@
+{
+  "urls": [],
+  "regexps": [
+    "^#",
+    "^/$",
+    "^mailto:",
+    "ntia\\.gov",
+    "ntia\\.doc\\.gov"
+  ]
+}
