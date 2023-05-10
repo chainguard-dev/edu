@@ -39,5 +39,7 @@ The table shows package distribution across all variants.
 |--------------------------|--------|
 | `ca-certificates-bundle` | X      |
 | `glibc`                  | X      |
+| `libgcc`                 | X      |
+| `libstdc++`              | X      |
 | `wolfi-baselayout`       | X      |
 
