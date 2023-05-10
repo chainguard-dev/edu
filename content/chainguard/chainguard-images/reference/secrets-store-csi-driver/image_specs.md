@@ -41,6 +41,7 @@ The table shows package distribution across all variants.
 | `ca-certificates-bundle`   | X      | X          |
 | `wolfi-baselayout`         | X      | X          |
 | `secrets-store-csi-driver` | X      | X          |
+| `util-linux-misc`          | X      | X          |
 | `apk-tools`                |        | X          |
 | `bash`                     |        | X          |
 | `busybox`                  |        | X          |

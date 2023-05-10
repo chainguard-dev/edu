@@ -1,8 +1,7 @@
-## 2023-05-09
+## 2023-05-10
 
 Updated image reference docs.
 
 New images added:
 
-- prometheus-cloudwatch-exporter
-- pulumi
+- k8sgpt
