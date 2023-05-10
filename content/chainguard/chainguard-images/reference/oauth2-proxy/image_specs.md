@@ -24,14 +24,14 @@ The **oauth2-proxy** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest              | latest-dev          |
-|--------------|---------------------|---------------------|
-| Default User | `oauth2-proxy`      | `oauth2-proxy`      |
-| Entrypoint   | `/bin/oauth2-proxy` | `/bin/oauth2-proxy` |
-| CMD          | not specified       | not specified       |
-| Workdir      | not specified       | not specified       |
-| Has apk?     | no                  | yes                 |
-| Has a shell? | no                  | yes                 |
+|              | latest                  | latest-dev              |
+|--------------|-------------------------|-------------------------|
+| Default User | `oauth2-proxy`          | `oauth2-proxy`          |
+| Entrypoint   | `/usr/bin/oauth2-proxy` | `/usr/bin/oauth2-proxy` |
+| CMD          | not specified           | not specified           |
+| Workdir      | not specified           | not specified           |
+| Has apk?     | no                      | yes                     |
+| Has a shell? | no                      | yes                     |
 
 ## Image Dependencies
 The table shows package distribution across all variants.
