@@ -4,4 +4,11 @@ Updated image reference docs.
 
 New images added:
 
-- k8sgpt
+- keda
+- keda-adapter
+- keda-admission-webhooks
+- metrics-server
+- vela-cli
+- vertical-pod-autoscaler-admission-controller
+- vertical-pod-autoscaler-recommender
+- vertical-pod-autoscaler-updater
