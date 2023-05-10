@@ -140,7 +140,7 @@ To demonstrate how to containerize a more complex application that requires the 
 
 This demo will use the [rainbow](https://rubygems.org/gems/rainbow) Ruby gem to output to the command line interface a colorful quote, inspired by _cowsay_.
 
-## Step 1: Setting up the Application
+### Step 1: Setting up the Application
 
 First, create a directory for your app. Here we'll use `inky-says`:
 
@@ -211,7 +211,7 @@ curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/r
 
 With everything in place, you can now work on the Dockerfile that will install the application dependencies and execute your Ruby script.
 
-### Step 2: Creating the Dockerfile
+### Step 2: Setting Up the Dockerfile
 
 To make sure our final image is _distroless_ while still being able to install Rubygems, our build will consist of **two** stages: first, we'll build the application using the `dev` image variant, a Wolfi-based image that includes the Gem executable, Bundler, and other useful tools for development.
 Then, we'll create a separate stage for the final image. The resulting image will be based on the distroless Ruby Wolfi image, which means it doesn't come with the Gem executable or even a shell.
