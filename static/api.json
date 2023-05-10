@@ -380,6 +380,51 @@
         ]
       }
     },
+    "/iam/v1/account_associations/{group}:check": {
+      "post": {
+        "operationId": "GroupAccountAssociations_Check",
+        "parameters": [
+          {
+            "description": "group is the exact UIDP of the group whose associations we want to check",
+            "in": "path",
+            "name": "group",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "accountType": {
+                  "$ref": "#/definitions/AccountAssociationsCheckRequestAccountType"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/iamAccountAssociationsStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "GroupAccountAssociations"
+        ]
+      }
+    },
     "/iam/v1/group_invites": {
       "get": {
         "operationId": "GroupInvites_List",
@@ -2710,6 +2755,15 @@
       },
       "type": "object"
     },
+    "AccountAssociationsCheckRequestAccountType": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "GOOGLE",
+        "AMAZON"
+      ],
+      "type": "string"
+    },
     "AccountAssociationsGitHubInstallation": {
       "properties": {
         "appId": {
@@ -2745,6 +2799,15 @@
         }
       },
       "type": "object"
+    },
+    "AccountAssociationsStatusState": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "Ready",
+        "NotReady"
+      ],
+      "type": "string"
     },
     "ClusterAuthInfo": {
       "description": "This is based off of k8s.io/client-go/tools/clientcmd/api/v1.AuthInfo\nThis should only ever be used with KinD clusters during testing, it WILL\nNOT be stored securely.",
@@ -3406,6 +3469,20 @@
             "$ref": "#/definitions/iamAccountAssociations"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "iamAccountAssociationsStatus": {
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "ready": {
+          "$ref": "#/definitions/AccountAssociationsStatusState"
+        },
+        "reason": {
+          "type": "string"
         }
       },
       "type": "object"
