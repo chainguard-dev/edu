@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/oauth2-proxy](https://github.com/chainguard-images/images/tree/main/images/oauth2-proxy)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `7`, `7.4`, `7.4.0`, `7.4.0-r1`                 |
-| `latest-dev` | `7-dev`, `7.4-dev`, `7.4.0-dev`, `7.4.0-r1-dev` |
+| `latest`     | `7`, `7.4`, `7.4.0`, `7.4.0-r2`                 |
+| `latest-dev` | `7-dev`, `7.4-dev`, `7.4.0-dev`, `7.4.0-r2-dev` |
 
 
 
