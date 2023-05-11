@@ -40,7 +40,7 @@ chainctl iam groups create $NAME --no-parent
 After creating the root group, you can create your desired group hierarchy. Keep in mind that policies roll down, meaning that any policy created at the root level will be inherited by its children.
 
 ```sh
-chainctl iam group create $CHILD_NAME -parent $ROOT_ID
+chainctl iam group create $CHILD_NAME --parent $ROOT_ID
 ```
 
 We recommend creating a group structure that outlines how your team organizes and delegates permissions.  A sample starting point can include dev, staging, and prod.
