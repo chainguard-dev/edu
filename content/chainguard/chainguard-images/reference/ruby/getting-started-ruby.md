@@ -14,11 +14,11 @@ weight: 610
 toc: true
 ---
 
-The Ruby images maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running Ruby workloads.
+The [Ruby images](/chainguard/chainguard-images/reference/ruby/image_specs/) maintained by Chainguard are a mix of development and production distroless images that are suitable for building and running Ruby workloads.
 
 Because Ruby applications typically require the installation of third-party dependencies via [Rubygems](https://rubygems.org/), using a pure distroless image for building your application would not work. In cases like this, you'll need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses one of the `-dev` images to set up the application.
 
-In this guide, we’ll cover two examples to showcase Ruby container images based on Wolfi as a runtime. In the first, we’ll use the minimal image containing just Ruby to execute a demo that doesn't have any external dependencies. In the second example, we'll set up a multi-stage Docker build to run a demo that requires the installation of Rubygems via `bundler`.
+In this guide, we’ll build two example applications that demonstrate how to use Ruby container images based on [Wolfi](/open-source/wolfi/overview/) as a runtime. In the first, we’ll use a minimal image containing just Ruby to execute a demo that doesn't have any external dependencies. In the second example, we'll set up a multi-stage Docker build to run a demo that requires the installation of Rubygems via `bundler`.
 
 {{< details "What is distroless" >}}
 {{< blurb/distroless >}}
@@ -33,17 +33,17 @@ In this guide, we’ll cover two examples to showcase Ruby container images base
 {{< /details >}}
 
 ## Example 1: Minimal Ruby Image in Single Stage Build
-We'll start by creating a small command-line Ruby application to serve as a demo. This application has no external dependencies; it will read from a text file containing facts about octopuses, and output a random line from that file. This demo is also available in our [demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/ruby), if you want to have a look in the source files before building it.
+We'll start by creating a small command-line Ruby application to serve as a demo. This application has no external dependencies; it will read from a text file containing facts about octopuses, and output a random line from that file. This demo is also available in our [demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/ruby), if you want to review the source files before building it.
 
 ### Step 1: Setting up the Application
 
-First, create a directory for your app. Here we'll use `octo-facts`:
+First, create a directory and then move into it for your app. Here we'll use `octo-facts`:
 
 ```shell
 mkdir ~/octo-facts && cd ~/octo-facts
 ```
 
-Next, create a new file to serve as the application entry point. Here, we’ll use `octo.rb`. You can edit this file in whatever code editor you would like. We’ll use Nano as an example.
+Next, create a new file to serve as the application entry point. Here, we’ll use `octo.rb`. You can edit this file in whatever code editor you would like. We’ll use `nano` as an example.
 
 ```shell
 nano octo.rb
@@ -73,7 +73,7 @@ end
 ```
 Copy this code to your `octo.rb` script, then save and close the file.
 
-Next, pull down the `facts.txt` file with `curl`. You can [inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/ruby/octo-facts/facts.txt) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `octo.rb` script is.
+Next, pull down the `facts.txt` file with `curl`. You can [inspect the file's contents](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/ruby/octo-facts/facts.txt) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `octo.rb` script is.
 
 ```shell
 curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/ruby/octo-facts/facts.txt
@@ -88,10 +88,10 @@ docker run --rm -v ${PWD}:/work cgr.dev/chainguard/ruby octo.rb
 And you should get output like this, with a random fact about octopuses:
 
 ```shell
-Octopuses have been observed using tools.
+Octopuses have decentralized brains.
 ```
 
-In the next step, we'll build a Dockerfile to run the demo.
+In the next step, we'll create a Dockerfile to build and run the demo.
 
 ### Step 2: Setting up the Dockerfile
 
@@ -103,7 +103,7 @@ nano Dockerfile
 
 The following Dockerfile will:
 
-1. Start a new image based on the `ruby:latest` image;
+1. Start a new image based on the `cgr.dev/chainguard/ruby:latest` image;
 2. Set up a workdir at `/app`;
 3. Copy the application files to the workdir;
 4. Set up the entry point for the image as `ruby octo.rb`.
@@ -136,7 +136,7 @@ And you should get output similar to what you got before, with a random octopus 
 
 ## Example 2: Multi-Stage Build for Ruby Application Runtime
 
-To demonstrate how to containerize a more complex application that requires the installation of third party dependencies, we'll create a second demo that uses a Docker multi-stage build combining a development image to build the application and a distroless image to run it.
+To demonstrate how to containerize a more complex application that requires the installation of third party dependencies, we'll create a second demo that uses a [Docker multi-stage build](https://docs.docker.com/build/building/multi-stage/), which will combine the `cgr.dev/chainguard/ruby:latest-dev` development image to build the application and the `cgr.dev/chainguard/ruby:latest` distroless image to run it.
 
 This demo will use the [rainbow](https://rubygems.org/gems/rainbow) Ruby gem to output to the command line interface a colorful quote, inspired by _cowsay_.
 
@@ -156,7 +156,7 @@ nano Gemfile
 
 Copy the following content into your Gemfile to require the Rainbow Gem:
 
-```Ruby
+```ruby
 source 'https://rubygems.org'
 
 gem 'rainbow'
@@ -198,15 +198,14 @@ if __FILE__ == $0
     message = inputArray.length > 0 ? inputArray.join(' ') : "Hello Wolfi"
     inky.says(message)
 end
-
 ```
 
 Copy this code to your `inky.rb` script, then save and close the file.
 
-Next, pull down the ASCII `inky.txt` file with `curl`. You can [inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/ruby/inky-says/inky.txt) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `inky.rb` script is.
+Next, pull down the ASCII `inky.txt` file with `curl`. You can [inspect the file contents](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/ruby/inky-says/inky.txt) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `inky.rb` script is.
 
 ```shell
-curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/ruby/octo-facts/facts.txt
+curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/ruby/inky-says/inky.txt
 ```
 
 With everything in place, you can now work on the Dockerfile that will install the application dependencies and execute your Ruby script.
@@ -223,11 +222,11 @@ nano Dockerfile
 ```
 The following Dockerfile will:
 
-1. Start a new build stage based on the `ruby:latest-dev` image and call it `builder`;
+1. Start a new build stage based on the `cgr.dev/chainguard/ruby:latest-dev` image and call it `builder`;
 2. Set up environment variables that define the default location of installed Gems;
 3. Copy the Gemfile from the current directory to the `/work` location in the container;
 4. Install Bundler and run `bundle install`;
-5. Start a new build stage based on the `ruby:latest` image;
+5. Start a new build stage based on the `cgr.dev/chainguard/ruby:latest` image;
 6. Set up environment variables that define the default location of installed Gems;
 7. Copy build artifacts from `builder` and into the final image
 8. Copy the `inky.rb` and `inky.txt` files into the final image
@@ -290,7 +289,7 @@ And you should get output like this:
 
 ```
 
-If you inspect the image with a `docker image inspect php-namegen`, you'll notice that it has only **three** layers, thanks to the use of a multi-stage Docker build.
+If you inspect the image with a `docker image inspect inky-says`, you'll notice that it has only **three** layers, thanks to the use of a multi-stage Docker build.
 
 ```shell
 docker image inspect inky-says
@@ -312,9 +311,9 @@ docker image inspect inky-says
 ]
 
 ```
-In such cases, the last `FROM` section from the Dockerfile is the one that composes the final image. That's why in our case it only adds two layers on top of the base `ruby:latest` image, containing the two `COPY` commands we use to copy the application files and its dependencies to the final image.
+In such cases, the last `FROM` section from the Dockerfile is the one that composes the final image. That's why in our case it only adds two layers on top of the base `cgr.dev/chainguard/ruby:latest` image, containing the two `COPY` commands we use to copy the application files and its dependencies to the final image.
 
-It's worth highlighting that nothing is carried from one stage to the other unless you copy it. That facilitates creating a slim final image with only what's necessary to execute the application.
+It's worth highlighting that no code or data is carried from one stage to the other unless you use a `COPY` command to explicitly copy it. This approach facilitates creating a slim final image with only what's absolutely necessary to execute the application. Using a multi-stage build like this, without shell tools and interactive language interpreters built in also makes your final image more secure.
 
 ## Advanced Usage
 
