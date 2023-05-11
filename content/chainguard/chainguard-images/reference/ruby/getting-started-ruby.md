@@ -212,8 +212,7 @@ With everything in place, you can now work on the Dockerfile that will install t
 
 ### Step 2: Setting Up the Dockerfile
 
-To make sure our final image is _distroless_ while still being able to install Rubygems, our build will consist of **two** stages: first, we'll build the application using the `dev` image variant, a Wolfi-based image that includes the Gem executable, Bundler, and other useful tools for development.
-Then, we'll create a separate stage for the final image. The resulting image will be based on the distroless Ruby Wolfi image, which means it doesn't come with the Gem executable or even a shell.
+To make sure our final image is _distroless_ while still being able to install Rubygems, our build will consist of **two** stages: first, we'll build the application using the `dev` image variant, a Wolfi-based image that includes the Gem executable, Bundler, and other useful tools for development. Then, we'll create a separate stage for the final image. The resulting image will be based on the distroless Ruby Wolfi image, which means it doesn't come with the Gem executable or even a shell.
 
 Create a new Dockerfile using your code editor of choice, for example `nano`:
 
