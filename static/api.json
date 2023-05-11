@@ -3207,7 +3207,7 @@
       },
       "type": "object"
     },
-    "VulnerabilityCvss": {
+    "VulnerabilityRecordCvss": {
       "properties": {
         "score": {
           "description": "CVSS score is on a scale of 0 - 10 where 0 indicates low severity and 10 indicates high severity.",
@@ -3220,7 +3220,7 @@
       },
       "type": "object"
     },
-    "VulnerabilitySeverity": {
+    "VulnerabilityRecordSeverity": {
       "default": "UNKNOWN",
       "enum": [
         "UNKNOWN",
@@ -4343,6 +4343,22 @@
       },
       "type": "object"
     },
+    "tenantFix": {
+      "properties": {
+        "state": {
+          "description": "state reflects the state of the fix, e.g. fixed, unknown, not-fixed, won't-fix.",
+          "type": "string"
+        },
+        "versions": {
+          "description": "List of in versions of the package on which the vulnerability has been solved.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "tenantPackage": {
       "properties": {
         "name": {
@@ -4616,17 +4632,17 @@
           "$ref": "#/definitions/VulnReportScanner",
           "description": "scanner contains some information about the scanner used to generate the report."
         },
-        "vulnerabilities": {
-          "description": "Report's list of vulnerabilities(s).",
-          "items": {
-            "$ref": "#/definitions/tenantVulnerability"
-          },
-          "type": "array"
-        },
         "vulnerabilityDbLastBuildTime": {
           "description": "vulnerability_db_last_build_time holds the time when the vulnerability database was built last time.",
           "format": "date-time",
           "type": "string"
+        },
+        "vulnerabilityMatches": {
+          "description": "Report's list of vulnerability matches(s).",
+          "items": {
+            "$ref": "#/definitions/tenantVulnerabilityMatch"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -4642,7 +4658,24 @@
       },
       "type": "object"
     },
-    "tenantVulnerability": {
+    "tenantVulnerabilityMatch": {
+      "properties": {
+        "fix": {
+          "$ref": "#/definitions/tenantFix",
+          "description": "Fix related data about this vulnerability."
+        },
+        "pkg": {
+          "$ref": "#/definitions/tenantPackage2",
+          "description": "Package affected by this vulnerability."
+        },
+        "vulnerability": {
+          "$ref": "#/definitions/tenantVulnerabilityRecord",
+          "description": "Vulnerability holds information about the found vulnerability."
+        }
+      },
+      "type": "object"
+    },
+    "tenantVulnerabilityRecord": {
       "properties": {
         "advisories": {
           "additionalProperties": {
@@ -4661,7 +4694,7 @@
         "cvss": {
           "description": "List of cvss information about the exploitability of the vulnerability.",
           "items": {
-            "$ref": "#/definitions/VulnerabilityCvss"
+            "$ref": "#/definitions/VulnerabilityRecordCvss"
           },
           "type": "array"
         },
@@ -4669,24 +4702,9 @@
           "description": "a short description of this vulnerability.",
           "type": "string"
         },
-        "fixIn": {
-          "description": "List of fix_in versions of the package on which the vulnerability has been solved.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "fixState": {
-          "description": "fix_state reflects the state of the fix.",
-          "type": "string"
-        },
         "id": {
           "description": "id of the vulnerability e.g. CVE_1231-12.",
           "type": "string"
-        },
-        "pkg": {
-          "$ref": "#/definitions/tenantPackage2",
-          "description": "Package affected by this vulnerability."
         },
         "relatedUrls": {
           "description": "URLs related to this vulnerability.",
@@ -4696,7 +4714,7 @@
           "type": "array"
         },
         "severity": {
-          "$ref": "#/definitions/VulnerabilitySeverity",
+          "$ref": "#/definitions/VulnerabilityRecordSeverity",
           "title": "severity is the value representing the severity of the vulnerability"
         },
         "source": {
