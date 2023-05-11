@@ -32,8 +32,7 @@ We will be using Terraform to create an identity for a GitHub Actions workflow t
 To help explain each configuration file's purpose, we will go over what they do and how to create each file one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
 
 ```sh
-mkdir ~/enforce-actions
-cd ~/enforce-actions/
+mkdir ~/enforce-actions && cd $_
 ```
 
 This will help make it easier to clean up your system at the end of this guide.
@@ -57,7 +56,7 @@ terraform {
 provider "chainguard" {}
 ```
 
-This is a fairly barebones Terraform configuration file, but we will define the rest of the resources in the other two files. `main.tf` just  declares and initializes the Chainguard Terraform provider. 
+This is a fairly barebones Terraform configuration file, but we will define the rest of the resources in the other two files. In `main.tf`, we declare and initialize the Chainguard Terraform provider. 
 
 To create the `main.tf` file, run the following command.
 
@@ -122,7 +121,7 @@ resource "chainguard_policy" "gke-trusted" {
 }
 ```
 
-This policy trusts everything on GKE. Because this policy is broadly permissive, it wouldn't be practical or secure to use in a real-world scenario. Like the example group, this policy just serves as some data for the GitHub Actions workflow to inspect after it assumes the Chainguard identity.
+This policy trusts everything on GKE. Because this policy is broadly permissive, it wouldn't be practical or secure to use in a real-world scenario. Like the example group, this policy serves as some data for the GitHub Actions workflow to inspect after it assumes the Chainguard identity.
 
 Create the `sample.tf` file with the following command.
 
@@ -189,7 +188,7 @@ First, this section creates a Chainguard Identity tied to the `chainguard_group`
 
 The most important part of this section is the `claim_match`. When the GitHub Actions workflow tries to assume this identity later on, it must present a token matching the `issuer` and `subject` specified here in order to do so. The `issuer` is the entity that creates the token, while the `subject` is the entity (here, the Actions workflow) that the token represents.
 
-In this case, the `issuer` field points to `https://token.actions.githubusercontent.com`, the issuer of OIDC tokens for GitHub Actions. The `subject` field, meanwhile, points to the `main` branch of an example GitHub repository. The GitHub documentation provides [several examples of `subject` claims](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) which you can refer to if you want to construct a `subject` claim specific to your needs. For the purposes of this guide, though, you will need to replace `<github_orgName>` and `<github_repoName>` with the user or organization name and the repository where your GitHub Actions workflow is hosted.
+In this case, the `issuer` field points to `https://token.actions.githubusercontent.com`, the issuer of OIDC tokens for GitHub Actions. The `subject` field, meanwhile, points to the `main` branch of an example GitHub repository. The GitHub documentation provides [several examples of `subject` claims](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) which you can refer to if you want to construct a `subject` claim specific to your needs. For the purposes of this guide, though, you will need to replace `<github_orgName>` and `<github_repoName>` with the name of your GitHub user or organization and the repository where your GitHub Actions workflow is hosted.
 
 The next section will output the new identity's `id` value. This is a unique value that represents the identity itself.
 
@@ -217,7 +216,7 @@ resource "chainguard_role-binding" "view-stuff" {
 }
 ```
 
-Run the following command to create this file with each of these sections. Be sure to change the `subject` value to align with your own GitHub repository. For example, if your GitHub repository is located at `github.com/UserName/repo-name.git` you would set the `subject` value to `"repo:UserName/repo-name:ref:refs/heads/main".
+Run the following command to create this file with each of these sections. Be sure to change the `subject` value to align with your own GitHub repository. For example, if your GitHub repository is located at `github.com/UserName/repo-name.git` you would set the `subject` value to `"repo:UserName/repo-name:ref:refs/heads/main"`.
 
 ```sh
 cat > actions.tf <<EOF
@@ -303,7 +302,7 @@ Outputs:
 actions-identity = "<your actions identity>"
 ```
 
-This is the identity's unique ID value, which you configured the `actions.tf` file to emit in the previous section. Note this value down, as you'll need it to set up the GitHub Actions workflow you'll use to test the identity. If you need to retrieve this identity later on, though, you can always run the following `chainctl` command to obtain a list of all your existing identities.
+This is the identity's UIDP (unique identity path), which you configured the `actions.tf` file to emit in the previous section. Note this value down, as you'll need it to set up the GitHub Actions workflow you'll use to test the identity. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
 
 ```sh
 chainctl iam identities ls
