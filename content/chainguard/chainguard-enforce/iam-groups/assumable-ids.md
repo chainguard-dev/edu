@@ -11,20 +11,20 @@ images: []
 weight: 015
 ---
 
-Both `chainctl` and the [Chainguard Enforce Console](https://console.enforce.dev/) are useful tools for interacting with Chainguard Enforce and managing your policies. However, there may be times that you want to hand off certain administrative tasks to an automation system, like CircleCI, BuildKite, or GitHub Actions. 
+Both [`chainctl`](/chainguard/chainctl/) and the [Chainguard Enforce Console](https://console.enforce.dev/) are useful tools for interacting with Chainguard Enforce and managing your policies. However, there may be times that you want to hand off certain administrative tasks to an automation system, like CircleCI, BuildKite, or GitHub Actions. 
 
-In such cases, you can create a Chainguard identity for these systems to assume, allowing them to perform certain tasks within a specific scope. You can restrict access to an identity so that only workflows that present tokens matching a specific issuer and subject can assume it. Likewise, assumable identities can be tied to certain roles — like `viewer`, `owner`, or `editor` — letting you to place strict limits on what the identity is allowed to do. 
+In such cases, you can create a Chainguard identity for these systems to assume, allowing them to perform certain tasks within a specific scope. You can restrict access to an identity so that only workflows that present tokens matching a specific issuer and subject can assume it. Likewise, assumable identities can be tied to certain roles — like `viewer`, `owner`, or `editor` — letting you place strict limits on what a given identity is allowed to do. 
 
 This guide provides a general overview of assumable identities in Chainguard Enforce, outlining how they work and how to create them.
  
 
 ## About Assumable Identities
 
-Chainguard's *assumable Identities* are identities that can be assumed by workflows, or by humans in order to do things that they may not be directly authorized to do. In many ways, these are similar to AWS roles or Google Service accounts, as Chainguard identities allow you to delegate access to your Enforce installation to external applications or services.
+Chainguard's *assumable identities* are identities that can be assumed by workflows in order to complete tasks without manual authorization. In many ways, these are similar to AWS roles or Google Service accounts, as Chainguard identities allow you to delegate access to your Enforce installation to external applications or services.
 
 Chainguard originally only supported what are referred to as *literal identities*. These are identities that consist of a unique mapping of verified issuer and subject to refer to an individual user. Literal identities can work well for self-service enrollment in some cases. However, they start to run into problems in several scenarios, such as with systems that use variable `subject` claims (like BuildKite, which injects commit SHAs) or automation systems (like continuous integration systems), which can be difficult to register to literal identities on their first use. 
 
-Assumable identities essentially reverse the lookup process of literal identities. Instead of Chainguard analyzing at a token's issuer and subject to determine their literal identity, the client presents an assumable identity's ID number. Chainguard then checks this ID against the client's token. If the token's issuer and subject match those required by the identity, then the client may assume the identity. Chainguard Enforce enables users to create identities with more granularly configurable policies around how those identities may be assumed. 
+Assumable identities essentially reverse the lookup process of literal identities. Instead of Chainguard analyzing at a token's issuer and subject to determine their literal identity, the client presents an assumable identity's UIDP (unique identifier path). Chainguard then checks this UIDP against the client's token. If the token's issuer and subject match those required by the identity, then the client may assume the identity. Chainguard Enforce enables users to create identities with policies that have greater granularity around how those identities may be assumed. 
 
 A notable difference between registered users and identities in Enforce is that identities are tied to a specific [IAM group](/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/). When you create an identity, you must specify a Chainguard Enforce group under which the identity will be created.
 
@@ -68,7 +68,7 @@ This example provides literal values for both the `issuer` and `subject` fields.
 
 This gives you some more flexibility with defining who has access to the identity. Note that this example `claim_match` block would match any signature, meaning it would be so permissive as to be insecure.
 
-Another block to include in your Terraform configuration is an `output` block that outputs the ID of the identity you're trying to assume. This ID is a unique value that you can use to let Chainguard Enforce know that you want to assume the role.
+Another block to include in your Terraform configuration is an `output` block that outputs the UIDP of the identity you're trying to assume. This is a unique value that you can use to let Chainguard Enforce know that you want to assume the role.
 
 ```
 output "<id-ref>-identity" {
@@ -84,7 +84,7 @@ data "chainguard_roles" "viewer" {
 }
 ```
 
-Then you need to include another `resource` block to create the role-binding using the role that was just looked up. The identity will have the permissions of that role over the group specified within this block.
+Then you need to include another `resource` block to create the role-binding using the determined role. The identity will have the permissions of that role over the group specified within this block.
 
 ```
 resource "chainguard_role-binding" "view-stuff" {
@@ -96,7 +96,7 @@ resource "chainguard_role-binding" "view-stuff" {
 
 This means that the identity this Terraform configuration will create will only be able to view the resources tied to the same group the identity is tied to.
 
-Applying this configuration will create the assumable identity. You can follow our tutorial on [GitHub Actions example](/chainguard/chainguard-enforce/iam-groups/enforce-github-identity/) to create an assumable identity that can be used by a GitHub Actions workflow to interact with Chainguard Enforce. The Terraform file used in the linked tutorial is based closely on the template outlined here.
+Applying this configuration will create the assumable identity. You can follow our [GitHub Actions example tutorial](/chainguard/chainguard-enforce/iam-groups/enforce-github-identity/) to create an assumable identity that can be used by a GitHub Actions workflow to interact with Chainguard Enforce. The Terraform file used in the linked tutorial is based closely on the template outlined here.
 
 
 ## Managing identities with `chainctl`
@@ -105,11 +105,11 @@ You can also set up an assumed identity using the `chainctl` command-line tool. 
 
 ```sh
 chainctl iam identities create <identity-name> \
- --identity-issuer=<issuer of the identity> \
---issuer-keys=<keys for the issuer> \
---subject=<subject of the identity> \
---group=<group name> \
---role=<role>
+    --identity-issuer=<issuer of the identity> \
+    --issuer-keys=<keys for the issuer> \
+    --subject=<subject of the identity> \
+    --group=<group name> \
+    --role=<role>
 ```
 
 As with Terraform, you must provide `chainctl` with certain information about the identity you want to create, including the issuer and subject of the identity, the role-bindings associated with the identity (if any), and the group under which the identity should be created.
@@ -131,17 +131,15 @@ For more detailed information on managing identities with `chainctl`, we encoura
 
 ## Assuming an identity
 
-Whether you create an identity with `chainctl` or with Terraform, Chainguard Enforce will generate a unique identification number tied to the identity. You can retrieve a list of all the Enforce identities you've created — along with the identification numbers — with the following command.
+Whether you create an identity with `chainctl` or with Terraform, Chainguard Enforce will generate a UIDP (unique identifier path) tied to the identity. You can retrieve a list of all the Enforce identities you've created — along with their UIDPs — with the following command.
 
 ```sh
 chainctl iam identities ls -o table
 ```
 ```
-                         	ID                         	|  	NAME  	|	TYPE 	| DESCRIPTION |     	ROLES     	|               	ISSUER                	| EXPIRES  
+                             ID                             |      NAME      |    TYPE     | DESCRIPTION |         ROLES         |                   ISSUER                    | EXPIRES  
 ------------------------------------------------------------+----------------+-------------+-------------+-----------------------+---------------------------------------------+----------
-  c95870ebffa72a258df087ea727ee92daf177e29/f067a9080d45a098 | sample-identity | claim_match |         	| example-group: viewer | https://token.actions.githubusercontent.com | n/a 	 
-
-
+  c95870ebffa72a258df087ea727ee92daf177e29/f067a9080d45a098 | sampleidentity | claim_match |             | example-group: viewer | https://token.actions.githubusercontent.com | n/a      
 ```
 
 If a workflow is authorized to assume the identity — meaning that its token matches the `issuer` and `subject` specified for the identity — then it only needs to present this identification number in order to assume it.
