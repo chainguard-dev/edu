@@ -14,4 +14,21 @@ weight: 500
 toc: true
 ---
 
+`stable` [cgr.dev/chainguard/metrics-server](https://github.com/chainguard-images/images/tree/main/images/metrics-server)
+| Tags         | Aliases                                         |
+|--------------|-------------------------------------------------|
+| `latest`     | `0`, `0.6`, `0.6.3`, `0.6.3-r3`                 |
+| `latest-dev` | `0-dev`, `0.6-dev`, `0.6.3-dev`, `0.6.3-r3-dev` |
+
+
+
+Minimal metric-server container image.
+
+## Get It!
+
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/metrics-server:latest
+```
 

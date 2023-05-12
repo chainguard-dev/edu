@@ -14,4 +14,23 @@ weight: 500
 toc: true
 ---
 
+`stable` [cgr.dev/chainguard/keda-adapter](https://github.com/chainguard-images/images/tree/main/images/keda-adapter)
+| Tags         | Aliases                                            |
+|--------------|----------------------------------------------------|
+| `latest`     | `2`, `2.10`, `2.10.1`, `2.10.1-r0`                 |
+| `latest-dev` | `2-dev`, `2.10-dev`, `2.10.1-dev`, `2.10.1-r0-dev` |
+
+
+
+Minimal image with the Keda Metrics Adapter. **EXPERIMENTAL**
+
+## Get It!
+
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/keda-adapter:latest
+```
+
+This image is a drop-in replacement for the KEDA metrics adapter available upstream at `ghcr.io/kedacore/keda-metrics-apiserver`.
 

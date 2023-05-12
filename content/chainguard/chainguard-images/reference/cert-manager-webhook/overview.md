@@ -14,7 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/cert-manager-webhook](https://github.com/chainguard-images/images/tree/main/images/cert-manager-webhook)
+`stable` [cgr.dev/chainguard/cert-manager-webhook](https://github.com/chainguard-images/images/tree/main/images/cert-manager-webhook)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
 | `latest`     | `1`, `1.11`, `1.11.2`, `1.11.2-r0`                 |
