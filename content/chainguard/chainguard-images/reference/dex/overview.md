@@ -1,0 +1,88 @@
+---
+title: "Image Overview: dex"
+type: "article"
+description: "Overview: dex Chainguard Images"
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2022-11-01T11:07:52+02:00
+draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
+images: []
+menu:
+  docs:
+    parent: "images-reference"
+weight: 500
+toc: true
+---
+
+`experimental` [cgr.dev/chainguard/dex](https://github.com/chainguard-images/images/tree/main/images/dex)
+| Tags         | Aliases                                            |
+|--------------|----------------------------------------------------|
+| `latest`     | `2`, `2.36`, `2.36.0`, `2.36.0-r3`                 |
+| `latest-dev` | `2-dev`, `2.36-dev`, `2.36.0-dev`, `2.36.0-r3-dev` |
+
+
+
+[etcd](https://github.com/etcd-io/etcd) Distributed reliable key-value store for the most critical data of a distributed system
+
+## Get It!
+
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/dex
+```
+
+## Using dex
+
+`dex` has several operating, modes, the most common being kubernetes, installed via helm.
+
+An example `values.yaml` file is provided below:
+
+```yaml
+image:
+  repository: "${IMAGE_REGISTRY}/${IMAGE_REPOSITORY}"
+  tag: "${IMAGE_TAG}"
+
+config:
+  issuer: "http://127.0.0.1:5556/dex"
+
+  storage:
+    type: memory
+
+  web:
+    http: 0.0.0.0:5556
+
+  expiry:
+    deviceRequests: "5m"
+    signingKeys: "6h"
+    idTokens: "24h"
+    authRequests: "24h"
+
+  logger:
+    level: "info"
+    format: "text"
+
+  oauth2:
+    responseTypes: [ "code" ]
+    skipApprovalScreen: false
+    alwaysShowLoginScreen: false
+
+  enablePasswordDB: true
+
+  connectors:
+  - type: mockCallback
+    id: mock
+    name: Example
+```
+
+> WARNING: The example above should _not_ be used in production, it simply exists to get up and running quickly.
+
+For an incomplete values file that only contains the minimum required settings to use the Chainguard Images variant, use the snipet below:
+
+```yaml
+# non functional defaults! fill in with your own values.yaml
+image:
+  repository: cgr.dev/chainguard/dev
+  tag: latest
+```
+
