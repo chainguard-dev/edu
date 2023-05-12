@@ -96,13 +96,19 @@
   name = "Glossary"
   url = "/software-security/glossary/"
   parent = "menu-security"
-  weight = 30
+  weight = 35
 
 [[main]]
   name = "Videos"
   url = "/software-security/videos/"
   parent = "menu-security"
   weight = 40
+
+[[main]]
+  name = "Secure Software Recommendations"
+  url = "/software-security/secure-software-development/"
+  parent = "menu-security"
+  weight = 30
 
 [[main]]
   name = "What is Software Supply Chain Security"
