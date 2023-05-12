@@ -42,7 +42,7 @@ I further attest the company will notify all impacted agencies if conformance to
 
 Please check the appropriate boxes below, if applicable:
 * [ ] There are addendums and/or artifacts attached to this self-attestation form, the title and contents of which are delineated below the signature line.
-* [ ] I attest that the referenced software has been verified by a certified FedRAMP Third Party Assessor Organization (3PAO) or other 3PAO approved by an appropriate agency official, and the Assessor used relevant NIST Guidance, which includes all elements outlined in this form, as the assessment baseline. Relevant documentation is attached
+* [ ] I attest that the referenced software has been verified by a certified FedRAMP Third Party Assessor Organization (3PAO) or other 3PAO approved by an appropriate agency official, and the Assessor used relevant NIST Guidance, which includes all elements outlined in this form, as the assessment baseline. Relevant documentation is attached.
 
 ## References
 
