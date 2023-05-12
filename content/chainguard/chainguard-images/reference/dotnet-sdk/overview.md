@@ -15,12 +15,10 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/dotnet-sdk](https://github.com/chainguard-images/images/tree/main/images/dotnet-sdk)
-| Tags           | Aliases                                             |
-|----------------|-----------------------------------------------------|
-| `latest`       | `7`, `7.0`, `7.0.105`, `7.0.105-r1`                 |
-| `latest-dev`   | `7-dev`, `7.0-dev`, `7.0.105-dev`, `7.0.105-r1-dev` |
-| `dotnet-6`     | `6`, `6.0`, `6.0.116`, `6.0.116-r0`                 |
-| `dotnet-6-dev` | `6-dev`, `6.0-dev`, `6.0.116-dev`, `6.0.116-r0-dev` |
+| Tags         | Aliases                                             |
+|--------------|-----------------------------------------------------|
+| `latest`     | `7`, `7.0`, `7.0.105`, `7.0.105-r1`                 |
+| `latest-dev` | `7-dev`, `7.0-dev`, `7.0.105-dev`, `7.0.105-r1-dev` |
 
 
 
