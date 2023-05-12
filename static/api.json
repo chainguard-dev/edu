@@ -1634,6 +1634,27 @@
             "name": "parent",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -4559,6 +4580,10 @@
           "description": "authors is zero or more authors concatenated.",
           "type": "string"
         },
+        "description": {
+          "title": "Short description of the Sbom",
+          "type": "string"
+        },
         "format": {
           "description": "format holds whether the SBOM is SPDX, CycloneDX, or other.",
           "type": "string"
@@ -4578,6 +4603,10 @@
         "lastSeen": {
           "format": "date-time",
           "title": "last_seen tracks the timestamp at which this sbom was last seen.\nTODO(vaikas): Does this really make any sense?",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Sbom.",
           "type": "string"
         },
         "rawSbom": {
