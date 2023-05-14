@@ -1,3 +1,11 @@
+## 2023-05-14
+
+Updated image reference docs.
+
+New images added:
+
+- hugo
+
 ## 2023-05-12
 
 Updated image reference docs.

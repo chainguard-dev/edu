@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/vertical-pod-autoscaler-updater](https://github.com/chainguard-images/images/tree/main/images/vertical-pod-autoscaler-updater)
 | Tags     | Aliases                            |
 |----------|------------------------------------|
-| `latest` | `0`, `0.13`, `0.13.0`, `0.13.0-r0` |
+| `latest` | `0`, `0.13`, `0.13.0`, `0.13.0-r1` |
 
 
 
