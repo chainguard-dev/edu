@@ -1,8 +1,7 @@
-## 2023-05-12
+## 2023-05-14
 
 Updated image reference docs.
 
 New images added:
 
-- dex
-- prometheus-operator
+- hugo

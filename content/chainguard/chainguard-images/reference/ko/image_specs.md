@@ -38,7 +38,6 @@ The table shows package distribution across all variants.
 |                          | latest |
 |--------------------------|--------|
 | `busybox`                | X      |
-| `wolfi-baselayout`       | X      |
 | `build-base`             | X      |
 | `go`                     | X      |
 | `ko`                     | X      |

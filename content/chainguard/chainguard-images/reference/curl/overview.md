@@ -14,7 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [ghcr.io/chainguard-images/testing/release-2.0/curl](https://github.com/chainguard-images/images/tree/main/images/curl)
+`stable` [cgr.dev/chainguard/curl](https://github.com/chainguard-images/images/tree/main/images/curl)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
 | `latest` | `8`, `8.0`, `8.0.1`, `8.0.1-r0` |
