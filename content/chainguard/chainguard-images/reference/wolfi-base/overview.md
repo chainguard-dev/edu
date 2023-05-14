@@ -14,7 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [ghcr.io/chainguard-images/testing/release-2.0/wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base)
+`stable` [cgr.dev/chainguard/wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base)
 | Tags     | Aliases |
 |----------|---------|
 | `latest` |         |

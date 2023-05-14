@@ -35,9 +35,9 @@ The table has detailed information about each of these variants.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                           | latest |
-|---------------------------|--------|
-| `ca-certificates-bundle`  | X      |
-| `wolfi-baselayout`        | X      |
-| `vertical-pod-autoscaler` | X      |
+|                                       | latest |
+|---------------------------------------|--------|
+| `ca-certificates-bundle`              | X      |
+| `wolfi-baselayout`                    | X      |
+| `vertical-pod-autoscaler-recommender` | X      |
 
