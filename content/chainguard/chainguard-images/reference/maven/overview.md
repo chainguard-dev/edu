@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/maven](https://github.com/chainguard-images/images/tree/main/images/maven)
 | Tags         | Aliases                                                                     |
 |--------------|-----------------------------------------------------------------------------|
-| `latest`     | `openjdk-17-3`, `openjdk-17-3.9`, `openjdk-17-3.9.1`, `openjdk-17-3.9.1-r1` |
-| `openjdk-11` | `openjdk-11-3`, `openjdk-11-3.9`, `openjdk-11-3.9.1`, `openjdk-11-3.9.1-r1` |
+| `latest`     | `openjdk-17-3`, `openjdk-17-3.9`, `openjdk-17-3.9.2`, `openjdk-17-3.9.2-r0` |
+| `openjdk-11` | `openjdk-11-3`, `openjdk-11-3.9`, `openjdk-11-3.9.2`, `openjdk-11-3.9.2-r0` |
 
 
 

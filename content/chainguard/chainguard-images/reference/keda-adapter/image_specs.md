@@ -41,6 +41,7 @@ The table shows package distribution across all variants.
 | `ca-certificates-bundle` | X      | X          |
 | `busybox`                | X      | X          |
 | `keda-adapter`           | X      | X          |
+| `keda-compat`            | X      | X          |
 | `wolfi-baselayout`       | X      | X          |
 | `apk-tools`              |        | X          |
 | `bash`                   |        | X          |
