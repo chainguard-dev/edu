@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/helm-controller](https://github.com/chainguard-images/images/tree/main/images/helm-controller)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.32`, `0.32.2`, `0.32.2-r3`                 |
-| `latest-dev` | `0-dev`, `0.32-dev`, `0.32.2-dev`, `0.32.2-r3-dev` |
+| `latest`     | `0`, `0.33`, `0.33.0`, `0.33.0-r0`                 |
+| `latest-dev` | `0-dev`, `0.33-dev`, `0.33.0-dev`, `0.33.0-r0-dev` |
 
 
 
