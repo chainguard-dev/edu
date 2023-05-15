@@ -23,3 +23,7 @@ If you would like to learn more about **Chainguard Images**, you can review our 
 ## Status
 
 You can check the status of the Chainguard Registry at [https://status.cgr.dev](https://status.cgr.dev/).
+
+## Network Requirements
+
+Refer to our [Chainguard Images Network Requirements](/chainguard/chainguard-images/network-requirements) reference page for details about how to ensure access to Chainguard Registry in environments using firewalls, access control lists, and proxies.
