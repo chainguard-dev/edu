@@ -1,5 +1,5 @@
 ---
-date: 2023-05-12T04:24:52Z
+date: 2023-05-15T18:14:13Z
 title: "chainctl sigstore env"
 slug: chainctl_sigstore_env
 url: /chainguard/chainctl/chainctl-docs/chainctl_sigstore_env/
@@ -26,9 +26,10 @@ chainctl sigstore env [SIGSTORE_ID | SIGSTORE_NAME] [flags]
 ### Options
 
 ```
-      --group string   The name or id of the parent group to list sigstore instances from.
-  -h, --help           help for env
-  -y, --yes            Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --group string      The name or id of the parent group to list sigstore instances from.
+  -h, --help              help for env
+      --identity string   The unique ID of the identity to assume when logging in.
+  -y, --yes               Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
