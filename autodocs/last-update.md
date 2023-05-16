@@ -1,7 +1,11 @@
-## 2023-05-15
+## 2023-05-16
 
 Updated image reference docs.
 
 New images added:
 
-- nri-kubernetes
+- argocd
+- argocd-repo-server
+- nvidia-device-plugin
+- stakater-reloader
+- vt

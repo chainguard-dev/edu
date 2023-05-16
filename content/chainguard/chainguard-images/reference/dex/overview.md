@@ -22,7 +22,7 @@ toc: true
 
 
 
-[etcd](https://github.com/etcd-io/etcd) Distributed reliable key-value store for the most critical data of a distributed system
+[dex](https://dexidp.io) is a federated OpenID Connect provider.
 
 ## Get It!
 
