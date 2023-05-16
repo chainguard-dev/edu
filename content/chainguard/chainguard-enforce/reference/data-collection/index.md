@@ -91,3 +91,30 @@ Customer data is stored in a hosted cloud provider database, which is backed up 
 * Data regarding a cluster will be stored until Enforce is uninstalled from that cluster
 
 We retain backups for 7 days, after which deletion will be permanent.
+
+
+### What does the `LAST SEEN` value refer to?
+
+The `chainctl clusters list` command returns information about your clusters, including a column labeled `LAST SEEN`.
+
+```sh
+chainctl clusters list
+```
+```
+   NAME   | . . . | AGENT VERSION | LAST SEEN |   ACTIVITY
+----------+ . . . +---------------+-----------+---------------
+cluster-a | . . . |       aae0ee5 |       10s | observer:10s
+cluster-b | . . . |       aae0ee5 |       10s | enforcer:10s
+```
+
+Likewise, if you're navigating the Chainguard Enforce Console there will be a **Seen** column in the **Clusters** table.
+
+![Screenshot of an example Clusters table. This table has two rows, each representing its own GKE cluster. The first cluster was last "seen" 41 seconds ago, while the second cluster was last "seen" 46 seconds ago.](last-seen.png)
+
+These values refer to the amount of time since Chainguard Enforce has "seen" the associated clusters. Chainguard Enforce will "see" a cluster under a few conditions, which will cause this value to update. 
+
+For instance, Chainguard Enforce will see a resource any time a [Gulfstream](/chainguard/chainguard-enforce/concepts/gulfstream-overview/) event occurs on it. If, for example, you were to add a new pod or policy to a cluster that's been enrolled, Enforce will see it and update the `LAST SEEN` value.
+
+Also, enrolled Kubernetes clusters will run an agent that will regularly poll Chainguard Enforce. For cluster-wide activity, this typically happens every few seconds. For resource-level activity, though, polling can occur up to every ten hours, the default for Kubernetes controller resyncs. 
+
+On the other hand, for non-Kubernetes clusters Chainguard Enforce will perform the polling. Additionally, for non-Kubernetes clusters we generally configure some level of audit log watch. This allows Enforce to approximate the "watch" semantics found in Kubernetes, meaning it can react to most changes quickly.
