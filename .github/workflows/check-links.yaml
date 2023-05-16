@@ -1,5 +1,7 @@
 name: Check links on Academy
 on:
+  schedule:
+    - cron: "0 0 * * *"
   workflow_dispatch:
   push:
     branches:
@@ -46,13 +48,13 @@ jobs:
 
       - name: Find unchecked links
         run: |
-          jq -r '.unchecked []| {"url":.rawurl, "files":.files}' results.json |\
+          jq -r '.unchecked []?| {"url":.rawurl, "files":(.files |keys)}' results.json |\
             jq -s |\
             yq -P > unchecked.json
 
       - name: Find 404 links
         run: |
-          jq -r '.checked []| select(.status == 404) | {"url":.rawurl, "files":.files}' results.json |\
+          jq '.checked []?| select(.status == 404) | {"url":.rawurl, "files":(.files |keys)}' results.json |\
             jq -s |\
             yq -P > checked.json
 
