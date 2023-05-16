@@ -2182,6 +2182,52 @@
         ]
       }
     },
+    "/registry/v1/tags/{parentId}/history": {
+      "get": {
+        "operationId": "Registry_ListTagHistory",
+        "parameters": [
+          {
+            "description": "tag UIDP to list history for.",
+            "in": "path",
+            "name": "parentId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "date-time",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "format": "date-time",
+            "in": "query",
+            "name": "end",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryTagHistoryList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/sts/exchange": {
       "get": {
         "operationId": "SecurityTokenService_Exchange2",
@@ -3993,6 +4039,29 @@
         "name": {
           "description": "name, the unique name of the Tag.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryTagHistory": {
+      "properties": {
+        "digest": {
+          "type": "string"
+        },
+        "updateTimestamp": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryTagHistoryList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/registryTagHistory"
+          },
+          "type": "array"
         }
       },
       "type": "object"
