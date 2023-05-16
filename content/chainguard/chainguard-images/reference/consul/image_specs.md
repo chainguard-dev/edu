@@ -36,15 +36,16 @@ The table has detailed information about each of these variants.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest | latest-dev |
-|--------------------------|--------|------------|
-| `ca-certificates-bundle` | X      | X          |
-| `wolfi-baselayout`       | X      | X          |
-| `consul`                 | X      | X          |
-| `su-exec`                | X      | X          |
-| `consul-oci-entrypoint`  | X      | X          |
-| `busybox`                | X      | X          |
-| `apk-tools`              |        | X          |
-| `bash`                   |        | X          |
-| `git`                    |        | X          |
+|                                | latest | latest-dev |
+|--------------------------------|--------|------------|
+| `ca-certificates-bundle`       | X      | X          |
+| `wolfi-baselayout`             | X      | X          |
+| `consul`                       | X      | X          |
+| `su-exec`                      | X      | X          |
+| `busybox`                      | X      | X          |
+| `consul-oci-entrypoint-compat` | X      | X          |
+| `curl`                         | X      | X          |
+| `apk-tools`                    |        | X          |
+| `bash`                         |        | X          |
+| `git`                          |        | X          |
 
