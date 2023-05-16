@@ -21,6 +21,12 @@ However, logging in with a Chainguard account and authenticating when pulling fr
 
 This may enable Chainguard to notify you of upcoming deprecations, changes in behavior, critical vulnerabilities and remediations for images you have recently pulled.
 
+## Signing Up
+
+You can register a Chainguard account through our [sign up form](https://console.enforce.dev/auth/login?utm_source=docs). This will create your account and your organization's root [IAM group](/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/). If you already have an account, you can log in through the [login page]((https://console.enforce.dev/auth/login?utm_source=docs).
+
+For more guidance on signing in, you can review our [sign in guidance](/chainguard/chainguard-enforce/authentication/log-in-chainguard-enforce/). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/chainguard/chainguard-enforce/authentication/custom-idps/). 
+
 ## Authenticating with the `chainctl` Credential Helper
 
 You can configure authentication by using the credential helper included with `chainctl`. This is the workflow recommended by Chainguard.
