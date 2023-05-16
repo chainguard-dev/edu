@@ -5,6 +5,7 @@
     "^/$",
     "^mailto:",
     "ntia\\.gov",
-    "ntia\\.doc\\.gov"
+    "ntia\\.doc\\.gov",
+    "twitter\\.com"
   ]
 }
