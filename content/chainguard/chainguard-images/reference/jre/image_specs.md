@@ -50,4 +50,5 @@ The table shows package distribution across all variants.
 | `busybox`                |        | X          |            | X              |
 | `git`                    |        | X          |            | X              |
 | `openjdk-11-jre`         |        |            | X          | X              |
+| `openjdk-11-default-jvm` |        |            | X          | X              |
 
