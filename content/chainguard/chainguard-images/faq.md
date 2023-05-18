@@ -33,7 +33,7 @@ We call Wolfi an undistro because unlike a typical Linux distribution, Wolfi is 
 
 ## Which images are available?
 
-Chainguard Images currently support more than 100+ images, which are segmented in [three catalog tiers](#what-are-the-different-catalog-tiers-of-chainguard-images), which you can read about in the [next question](#what-are-the-different-catalog-tiers-of-chainguard-images).
+There are currently over 100 Chainguard Images available, which are segmented in [three catalog tiers](#what-are-the-different-catalog-tiers-of-chainguard-images). You can read more about the tiers in the [next question](#what-are-the-different-catalog-tiers-of-chainguard-images).
 
 Our full Images Catalog is available on the Chainguard Console at [https://console.enforce.dev/images/catalog](https://console.enforce.dev/images/catalog) (you will need to be logged in). 
 
