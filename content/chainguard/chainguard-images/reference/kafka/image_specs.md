@@ -43,6 +43,7 @@ The table shows package distribution across all variants.
 | `bash`                   | X      | X          |
 | `busybox`                | X      | X          |
 | `kafka`                  | X      | X          |
+| `openjdk-11-default-jvm` | X      | X          |
 | `apk-tools`              |        | X          |
 | `git`                    |        | X          |
 

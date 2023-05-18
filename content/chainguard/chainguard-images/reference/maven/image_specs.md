@@ -45,4 +45,5 @@ The table shows package distribution across all variants.
 | `maven`                  | X      | X          |
 | `openjdk-17`             | X      |            |
 | `openjdk-11`             |        | X          |
+| `openjdk-11-default-jvm` |        | X          |
 
