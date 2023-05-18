@@ -42,6 +42,7 @@ The table shows package distribution across all variants.
 | `wolfi-baselayout`       | X      | X          |
 | `busybox`                | X      | X          |
 | `opensearch-2`           | X      | X          |
+| `openjdk-11-default-jvm` | X      | X          |
 | `apk-tools`              |        | X          |
 | `bash`                   |        | X          |
 | `git`                    |        | X          |

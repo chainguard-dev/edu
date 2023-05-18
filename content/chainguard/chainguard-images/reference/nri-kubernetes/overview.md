@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/nri-kubernetes](https://github.com/chainguard-images/images/tree/main/images/nri-kubernetes)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `3`, `3.11`, `3.11.0`, `3.11.0-r0`                 |
-| `latest-dev` | `3-dev`, `3.11-dev`, `3.11.0-dev`, `3.11.0-r0-dev` |
+| `latest`     | `3`, `3.12`, `3.12.0`, `3.12.0-r0`                 |
+| `latest-dev` | `3-dev`, `3.12-dev`, `3.12.0-dev`, `3.12.0-r0-dev` |
 
 
 

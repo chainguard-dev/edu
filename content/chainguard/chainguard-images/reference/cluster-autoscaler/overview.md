@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/cluster-autoscaler](https://github.com/chainguard-images/images/tree/main/images/cluster-autoscaler)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `9`, `9.28`, `9.28.0`, `9.28.0-r2`                 |
-| `latest-dev` | `9-dev`, `9.28-dev`, `9.28.0-dev`, `9.28.0-r2-dev` |
+| `latest`     | `1`, `1.27`, `1.27.1`, `1.27.1-r0`                 |
+| `latest-dev` | `1-dev`, `1.27-dev`, `1.27.1-dev`, `1.27.1-r0-dev` |
 
 
 

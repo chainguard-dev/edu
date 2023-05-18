@@ -19,8 +19,8 @@ toc: true
 |------------------|------------------------------------------------------------------------------------------------------------------|
 | `latest`         | `openjdk-17`, `openjdk-17.0`, `openjdk-17.0.7`, `openjdk-17.0.7.7`, `openjdk-17.0.7.7-r0`                        |
 | `latest-dev`     | `openjdk-17-dev`, `openjdk-17.0-dev`, `openjdk-17.0.7-dev`, `openjdk-17.0.7.7-dev`, `openjdk-17.0.7.7-r0-dev`    |
-| `openjdk-11`     | `openjdk-11`, `openjdk-11.0`, `openjdk-11.0.19`, `openjdk-11.0.19.5`, `openjdk-11.0.19.5-r2`                     |
-| `openjdk-11-dev` | `openjdk-11-dev`, `openjdk-11.0-dev`, `openjdk-11.0.19-dev`, `openjdk-11.0.19.5-dev`, `openjdk-11.0.19.5-r2-dev` |
+| `openjdk-11`     | `openjdk-11`, `openjdk-11.0`, `openjdk-11.0.20`, `openjdk-11.0.20.2`, `openjdk-11.0.20.2-r2`                     |
+| `openjdk-11-dev` | `openjdk-11-dev`, `openjdk-11.0-dev`, `openjdk-11.0.20-dev`, `openjdk-11.0.20.2-dev`, `openjdk-11.0.20.2-r2-dev` |
 
 
 
