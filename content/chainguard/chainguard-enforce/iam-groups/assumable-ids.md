@@ -147,4 +147,4 @@ If a workflow is authorized to assume the identity — meaning that its token ma
 
 ## Learn More
 
-As mentioned previously, we've published a few tutorials that outline how you can [set up an identity for a continuous integration workflow to assume](/chainguard/chainguard-enforce/iam-groups/identity-examples/). We strongly encourage you to follow these guides to better understand how assumable identities work in Chainguard Enforce. We are also planning to publish other example guides in the future, so stay tuned.
+As mentioned previously, we've published a few tutorials that outline how you can [set up an identity for a CI/CD workflow to assume](/chainguard/chainguard-enforce/iam-groups/identity-examples/). We strongly encourage you to follow these guides to better understand how assumable identities work in Chainguard Enforce. We are also planning to publish other example guides in the future, so stay tuned.
