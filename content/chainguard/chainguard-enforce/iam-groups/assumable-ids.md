@@ -96,7 +96,7 @@ resource "chainguard_role-binding" "view-stuff" {
 
 This means that the identity this Terraform configuration will create will only be able to view the resources tied to the same group the identity is tied to.
 
-Applying this configuration will create the assumable identity. You can follow our [GitHub Actions example tutorial](/chainguard/chainguard-enforce/iam-groups/enforce-github-identity/) to create an assumable identity that can be used by a GitHub Actions workflow to interact with Chainguard Enforce. The Terraform file used in the linked tutorial is based closely on the template outlined here.
+Applying this configuration will create the assumable identity. You can follow any of our [identity examples](/chainguard/chainguard-enforce/iam-groups/identity-examples/) to create an assumable identity that can be used by a continuous integration workflow to interact with Chainguard Enforce. The Terraform files used in the linked tutorials are based closely on the template outlined here.
 
 
 ## Managing identities with `chainctl`
@@ -147,4 +147,4 @@ If a workflow is authorized to assume the identity — meaning that its token ma
 
 ## Learn More
 
-As mentioned previously, we've published a tutorial that outlines how you can [set up an identity for a GitHub Actions workflow to assume](/chainguard/chainguard-enforce/iam-groups/enforce-github-identity/). We strongly encourage you to follow this guide to better understand how assumable identities work in Chainguard Enforce. We are also planning to publish other example guides in the future, so stay tuned.
+As mentioned previously, we've published a few tutorials that outline how you can [set up an identity for a continuous integration workflow to assume](/chainguard/chainguard-enforce/iam-groups/identity-examples/). We strongly encourage you to follow these guides to better understand how assumable identities work in Chainguard Enforce. We are also planning to publish other example guides in the future, so stay tuned.
