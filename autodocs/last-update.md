@@ -1,8 +1,7 @@
-## 2023-05-18
+## 2023-05-19
 
 Updated image reference docs.
 
 New images added:
 
-- kubernetes-csi-external-provisioner
-- kubernetes-dashboard-metrics-scraper
+- http-echo
