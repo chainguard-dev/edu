@@ -1,14 +1,17 @@
 ---
 title : "Create an Assumable Identity for a GitHub Actions Workflow"
 linktitle: "GitHub Actions Assumable Identity"
+aliases:
+- /chainguard/chainguard-enforce/iam-groups/enforce-github-identity/
 lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard Enforce identity that can be assumed by a GitHub Actions workflow."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
 lastmod: 2023-05-04T08:48:45+00:00
 draft: false
+tags: ["Enforce", "Product", "Procedural"]
 images: []
-weight: 020
+weight: 005
 ---
 
 In Chainguard Enforce, [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
@@ -60,7 +63,7 @@ This is a fairly barebones Terraform configuration file, but we will define the 
 
 To create the `main.tf` file, run the following command.
 
-```
+```sh
 cat > main.tf <<EOF
 terraform {
   required_providers {
@@ -99,17 +102,17 @@ This section creates a Chainguard Enforce IAM group named `example-group`, as we
 The next section contains these lines, which create a sample policy and apply it to the `example-group` group created in the previous section.
 
 ```
-resource "chainguard_policy" "gke-trusted" {
+resource "chainguard_policy" "cgr-trusted" {
   parent_id   = chainguard_group.user-group.id
   document = jsonencode({
 	apiVersion = "policy.sigstore.dev/v1beta1"
 	kind   	= "ClusterImagePolicy"
 	metadata = {
-  	name = "trust-any-gke"
+  	name = "trust-any-cgr"
 	}
 	spec = {
   	images = [{
-    	glob = "gke.gce.io/**"
+    	glob = "cgr.dev/**"
   	}]
   	authorities = [{
     	static = {
@@ -121,11 +124,11 @@ resource "chainguard_policy" "gke-trusted" {
 }
 ```
 
-This policy trusts everything on GKE. Because this policy is broadly permissive, it wouldn't be practical or secure to use in a real-world scenario. Like the example group, this policy serves as some data for the GitHub Actions workflow to inspect after it assumes the Chainguard identity.
+This policy trusts everything coming from the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/). Because this policy is broadly permissive, it wouldn't be practical or secure to use in a real-world scenario. Like the example group, this policy serves as some data for the Buildkite pipeline to inspect after it assumes the Chainguard identity.
 
 Create the `sample.tf` file with the following command.
 
-```
+```sh
 cat > sample.tf <<EOF
 resource "chainguard_group" "user-group" {
   name    	= "example-group"
@@ -136,17 +139,17 @@ resource "chainguard_group" "user-group" {
   EOF
 }
 
-resource "chainguard_policy" "gke-trusted" {
+resource "chainguard_policy" "cgr-trusted" {
   parent_id   = chainguard_group.user-group.id
   document = jsonencode({
 	apiVersion = "policy.sigstore.dev/v1beta1"
 	kind   	= "ClusterImagePolicy"
 	metadata = {
-  	name = "trust-any-gke"
+  	name = "trust-any-cgr"
 	}
 	spec = {
   	images = [{
-    	glob = "gke.gce.io/**"
+    	glob = "cgr.dev/**"
   	}]
   	authorities = [{
     	static = {
@@ -267,7 +270,13 @@ Then run `terraform plan`. This will produce a speculative execution plan that o
 terraform plan
 ```
 
-If the plan worked successfully and you're satisfied that it will produce the resources you expect, you can apply it.
+If the plan worked successfully and you're satisfied that it will produce the resources you expect, you can apply it. First, though, you'll need to log in to `chainctl` to ensure that Terraform can create the Chainguard resources.
+
+```sh
+chainctl auth login
+```
+
+Then apply the configuration.
 
 ```sh
 terraform apply
@@ -302,7 +311,7 @@ Outputs:
 actions-identity = "<your actions identity>"
 ```
 
-This is the identity's UIDP (unique identity path), which you configured the `actions.tf` file to emit in the previous section. Note this value down, as you'll need it to set up the GitHub Actions workflow you'll use to test the identity. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
+This is the identity's [UIDP (unique identity path)](/chainguard/chainguard-enforce/reference/events/#uidp-identifiers), which you configured the `actions.tf` file to emit in the previous section. Note this value down, as you'll need it to set up the GitHub Actions workflow you'll use to test the identity. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
 
 ```sh
 chainctl iam identities ls
