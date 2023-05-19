@@ -1,7 +1,7 @@
 ---
 title: "Debugging Distroless Images"
 type: "article"
-description: "Comparing popular base images with Chainguard Images in number of CVEs detected over time"
+description: "In this article, we'll discuss a few different strategies to debug distroless images, considering these images typically don't include a shell or package managers."
 date: 2022-09-15T08:49:31+00:00
 lastmod: 2022-09-15T08:49:31+00:00
 draft: false
