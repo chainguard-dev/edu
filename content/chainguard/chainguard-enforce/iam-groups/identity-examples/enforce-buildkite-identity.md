@@ -7,6 +7,7 @@ type: "article"
 date: 2023-05-17T08:48:45+00:00
 lastmod: 2023-05-17T08:48:45+00:00
 draft: false
+tags: ["Enforce", "Product", "Procedural"]
 images: []
 weight: 010
 ---
@@ -271,7 +272,13 @@ Then run `terraform plan`. This will produce a speculative execution plan that o
 terraform plan
 ```
 
-If the plan worked successfully and you're satisfied that it will produce the resources you expect, you can apply it.
+If the plan worked successfully and you're satisfied that it will produce the resources you expect, you can apply it. First, though, you'll need to log in to `chainctl` to ensure that Terraform can create the Chainguard resources.
+
+```sh
+chainctl auth login
+```
+
+Then apply the configuration.
 
 ```sh
 terraform apply
@@ -282,7 +289,7 @@ Before going through with applying the Terraform configuration, this command wil
 ```
 . . .
 
-Plan: 3 to add, 0 to change, 0 to destroy.
+Plan: 4 to add, 0 to change, 0 to destroy.
 
 Changes to Outputs:
   + buildkite-identity = (known after apply)
@@ -306,7 +313,7 @@ Outputs:
 buildkite-identity = "<your buildkite identity>"
 ```
 
-This is the identity's UIDP (unique identity path), which you configured the `buildkite.tf` file to emit in the previous section. Note this value down, as you'll need it when you test this identity using a Buildkite workflow. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
+This is the identity's [UIDP (unique identity path)](/chainguard/chainguard-enforce/reference/events/#uidp-identifiers), which you configured the `buildkite.tf` file to emit in the previous section. Note this value down, as you'll need it when you test this identity using a Buildkite workflow. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
 
 ```sh
 chainctl iam identities ls
@@ -319,27 +326,26 @@ You're now ready to edit a Buildkite pipeline in order to test out this identity
 
 To test the identity you created with Terraform in the previous section, navigate to your Buildkite pipeline. From the Buildkite Dashboard, click **Pipelines** in the top navigation bar and then click on the pipeline you specified in the `buildkite.tf` file. 
 
-From there, click the **Edit Steps** button to add the following commands to a step in your pipeline.
+From there, click the **Edit Steps** button to add the following commands to a step in your pipeline. Be sure to replace `<your buildkite identity>` with the identity UIDP you noted down in the previous section.
 
 ```
 - command: |
-	wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_$(uname -m)"
+	curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
 	chmod +x chainctl
-	mv chainctl /usr/bin
-
-	# Assume
-	chainctl auth login --identity-token $(buildkite-agent oidc request-token --audience issuer.enforce.dev) --identity <your buildkite identity>
+	./chainctl auth login --identity-token $(buildkite-agent oidc request-token --audience issuer.enforce.dev) --identity <your buildkite identity>
+    chainctl policy ls
 ```
-	
+
+These commands will cause your Buildkite pipeline to download `chainctl` and make it executable. It will then sign in to Chainguard Enforce using the Buildkite identity you generated previously. If this workflow can successfully assume the identity, then it will be able to execute the `chainctl policy ls` command and retrieve the list of policies associated with the g
 
 There are a couple ways you can add commands to an existing Buildkite pipeline, so follow whatever procedure works best for you. 
 
-If you followed the [**Getting Started** guide linked in the prerequisites](), your pipeline will have a structure like this.
+If you followed the [**Getting Started** guide linked in the prerequisites](https://buildkite.com/docs/tutorials/getting-started), your pipeline will have a structure like this.
 
 ```
 steps:
   - label: "Pipeline upload"
-	command:buildkite-agent pipeline upload
+	command: buildkite-agent pipeline upload
 ```
 
 You could add the commands for testing the identity like this.
@@ -349,10 +355,10 @@ steps:
   - label: "Buildkite test"
 	command:
 	- 'buildkite-agent pipeline upload'
-	- 'wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_$(uname -m)"'
+    - 'curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"'
 	- 'chmod +x chainctl'
-	- 'chainctl auth login --identity-token $(buildkite-agent oidc request-token --audience issuer.enforce.dev) --identity <your buildkite identity>'
-	- 'chainctl policy ls'
+	- './chainctl auth login --identity-token $(buildkite-agent oidc request-token --audience issuer.enforce.dev) --identity <your buildkite identity>'
+    - 'chainctl policy ls'
 ```
 
 Click the **Save and Build** button. Ensure that your Buildkite agent is running, and then wait a few moments for the pipeline to finish building.
