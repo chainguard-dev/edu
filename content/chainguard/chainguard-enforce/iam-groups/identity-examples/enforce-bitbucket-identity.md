@@ -85,12 +85,13 @@ This Terraform configuration consists of two main parts. The first part of the f
 
 ```
 resource "chainguard_group" "user-group" {
-  name    	= "example-group"
+  name        = "example-group"
   description = <<EOF
 	This group simulates an end-user group, which the bitbucket
 	pipeline identity can interact with via the identity in
 	bitbucket.tf.
   EOF
+}
 }
 ```
 
@@ -100,23 +101,23 @@ The next section contains these lines, which create a sample policy and apply it
 
 ```
 resource "chainguard_policy" "cgr-trusted" {
-  parent_id   = chainguard_group.user-group.id
+  parent_id = chainguard_group.user-group.id
   document = jsonencode({
-	apiVersion = "policy.sigstore.dev/v1beta1"
-	kind   	= "ClusterImagePolicy"
-	metadata = {
-  	name = "trust-any-cgr"
-	}
-	spec = {
-  	images = [{
-    	glob = "cgr.dev/**"
-  	}]
-  	authorities = [{
-    	static = {
-      	action = "pass"
-    	}
-  	}]
-	}
+    apiVersion = "policy.sigstore.dev/v1beta1"
+    kind       = "ClusterImagePolicy"
+    metadata = {
+      name = "trust-any-cgr"
+    }
+    spec = {
+      images = [{
+        glob = "cgr.dev/**"
+      }]
+      authorities = [{
+        static = {
+          action = "pass"
+        }
+      }]
+    }
   })
 }
 ```
@@ -128,7 +129,7 @@ Create the `sample.tf` file with the following command.
 ```sh
 cat > sample.tf <<EOF
 resource "chainguard_group" "user-group" {
-  name    	= "example-group"
+  name        = "example-group"
   description = <<EOF
 	This group simulates an end-user group, which the bitbucket
 	pipeline identity can interact with via the identity in
@@ -137,30 +138,29 @@ resource "chainguard_group" "user-group" {
 }
 
 resource "chainguard_policy" "cgr-trusted" {
-  parent_id   = chainguard_group.user-group.id
+  parent_id = chainguard_group.user-group.id
   document = jsonencode({
-	apiVersion = "policy.sigstore.dev/v1beta1"
-	kind   	= "ClusterImagePolicy"
-	metadata = {
-  	name = "trust-any-cgr"
-	}
-	spec = {
-  	images = [{
-    	glob = "cgr.dev/**"
-  	}]
-  	authorities = [{
-    	static = {
-      	action = "pass"
-    	}
-  	}]
-	}
+    apiVersion = "policy.sigstore.dev/v1beta1"
+    kind       = "ClusterImagePolicy"
+    metadata = {
+      name = "trust-any-cgr"
+    }
+    spec = {
+      images = [{
+        glob = "cgr.dev/**"
+      }]
+      authorities = [{
+        static = {
+          action = "pass"
+        }
+      }]
+    }
   })
 }
 EOF
 ```
 
 Now you can move on to creating the last of our Terraform configuration files, `bitbucket.tf`.
-
 
 ### `bitbucket.tf`
 
@@ -284,7 +284,7 @@ Before going through with applying the Terraform configuration, this command wil
 ```
 . . .
 
-Plan: 3 to add, 0 to change, 0 to destroy.
+Plan: 4 to add, 0 to change, 0 to destroy.
 
 Changes to Outputs:
   + bitbucket-identity = (known after apply)
