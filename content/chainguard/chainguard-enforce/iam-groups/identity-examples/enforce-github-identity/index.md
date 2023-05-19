@@ -9,6 +9,7 @@ type: "article"
 date: 2023-05-04T08:48:45+00:00
 lastmod: 2023-05-04T08:48:45+00:00
 draft: false
+tags: ["Enforce", "Product", "Procedural"]
 images: []
 weight: 005
 ---
@@ -269,7 +270,13 @@ Then run `terraform plan`. This will produce a speculative execution plan that o
 terraform plan
 ```
 
-If the plan worked successfully and you're satisfied that it will produce the resources you expect, you can apply it.
+If the plan worked successfully and you're satisfied that it will produce the resources you expect, you can apply it. First, though, you'll need to log in to `chainctl` to ensure that Terraform can create the Chainguard resources.
+
+```sh
+chainctl auth login
+```
+
+Then apply the configuration.
 
 ```sh
 terraform apply
@@ -304,7 +311,7 @@ Outputs:
 actions-identity = "<your actions identity>"
 ```
 
-This is the identity's UIDP (unique identity path), which you configured the `actions.tf` file to emit in the previous section. Note this value down, as you'll need it to set up the GitHub Actions workflow you'll use to test the identity. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
+This is the identity's [UIDP (unique identity path)](/chainguard/chainguard-enforce/reference/events/#uidp-identifiers), which you configured the `actions.tf` file to emit in the previous section. Note this value down, as you'll need it to set up the GitHub Actions workflow you'll use to test the identity. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
 
 ```sh
 chainctl iam identities ls
