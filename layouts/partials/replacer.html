@@ -1,0 +1,10 @@
+{{- $replacer := resources.Get "js/replacer.js" -}}
+{{ $scss := resources.Get "scss/replacer.scss" }}
+{{ $replacer_style := $scss | resources.ToCSS }}
+
+
+{{/* Add replacer.css styling */}}
+<link rel="stylesheet" href="{{ $replacer_style.Permalink }}" />
+
+{{/* Display replacer.js script */}}
+<script src="{{ $replacer.Permalink }}" integrity="{{ $replacer.Data.Integrity }}"></script>
