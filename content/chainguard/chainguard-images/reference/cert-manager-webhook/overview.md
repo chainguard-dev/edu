@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/cert-manager-webhook](https://github.com/chainguard-images/images/tree/main/images/cert-manager-webhook)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.11`, `1.11.2`, `1.11.2-r0`                 |
-| `latest-dev` | `1-dev`, `1.11-dev`, `1.11.2-dev`, `1.11.2-r0-dev` |
+| `latest`     | `1`, `1.12`, `1.12.0`, `1.12.0-r0`                 |
+| `latest-dev` | `1-dev`, `1.12-dev`, `1.12.0-dev`, `1.12.0-r0-dev` |
 
 
 
