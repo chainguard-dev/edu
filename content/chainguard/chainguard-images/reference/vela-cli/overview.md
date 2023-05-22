@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/vela-cli](https://github.com/chainguard-images/images/tree/main/images/vela-cli)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `1`, `1.8`, `1.8.1`, `1.8.1-r1` |
+| `latest` | `1`, `1.8`, `1.8.2`, `1.8.2-r0` |
 
 
 
