@@ -1,5 +1,5 @@
 ---
-date: 2023-05-16T16:06:32Z
+date: 2023-05-22T09:40:20Z
 title: "chainctl sigstore ca create"
 slug: chainctl_sigstore_ca_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_sigstore_ca_create/
@@ -22,6 +22,7 @@ chainctl sigstore ca create --group GROUP_NAME | GROUP_ID {--ca googleca --googl
 ```
       --ca string               certificate authority type: [ kmsca | googleca ]
   -d, --description string      The description of the resource.
+      --generate-cert-chain     [experimental] generate a root certificate with a KMS key for temporary testing or experimentation
       --googleca-ref string     CA service resource, in the format projects/<project>/locations/<location>/<name>
       --group string            The parent group name or id of the sigstore instance.
   -h, --help                    help for create
