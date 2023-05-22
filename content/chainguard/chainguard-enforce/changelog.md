@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-05-16 15:57:35 +0000 UTC
+date: 2023-05-22 09:10:25 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,12 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.119
+Release date: 2023-05-22
+#### Feature
+- chainctl: add --generate-cert-chain flag to generate a root cert from a KMS key
+
 
 ### v0.1.118
 Release date: 2023-05-16
