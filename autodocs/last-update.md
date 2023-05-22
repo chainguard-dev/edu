@@ -1,7 +1,10 @@
-## 2023-05-19
+## 2023-05-22
 
 Updated image reference docs.
 
 New images added:
 
-- http-echo
+- external-attacher
+- external-resizer
+- newrelic-fluent-bit-output
+- nri-prometheus
