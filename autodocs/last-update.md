@@ -1,10 +1,9 @@
-## 2023-05-22
+## 2023-05-23
 
 Updated image reference docs.
 
 New images added:
 
-- external-attacher
-- external-resizer
-- newrelic-fluent-bit-output
-- nri-prometheus
+- aws-cli
+- paranoia
+- trust-manager
