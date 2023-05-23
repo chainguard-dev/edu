@@ -1,3 +1,13 @@
+## 2023-05-23
+
+Updated image reference docs.
+
+New images added:
+
+- aws-cli
+- paranoia
+- trust-manager
+
 ## 2023-05-22
 
 Updated image reference docs.
