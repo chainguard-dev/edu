@@ -29,20 +29,21 @@ The table has detailed information about each of these variants.
 | Default User | `cluster-autoscaler`          | `cluster-autoscaler`          |
 | Entrypoint   | `/usr/bin/cluster-autoscaler` | `/usr/bin/cluster-autoscaler` |
 | CMD          | not specified                 | not specified                 |
-| Workdir      | not specified                 | not specified                 |
+| Workdir      | `/`                           | `/`                           |
 | Has apk?     | no                            | yes                           |
 | Has a shell? | no                            | yes                           |
 
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest | latest-dev |
-|--------------------------|--------|------------|
-| `cluster-autoscaler`     | X      | X          |
-| `wolfi-baselayout`       | X      | X          |
-| `ca-certificates-bundle` | X      | X          |
-| `apk-tools`              |        | X          |
-| `bash`                   |        | X          |
-| `busybox`                |        | X          |
-| `git`                    |        | X          |
+|                             | latest | latest-dev |
+|-----------------------------|--------|------------|
+| `cluster-autoscaler`        | X      | X          |
+| `cluster-autoscaler-compat` | X      | X          |
+| `wolfi-baselayout`          | X      | X          |
+| `ca-certificates-bundle`    | X      | X          |
+| `apk-tools`                 |        | X          |
+| `bash`                      |        | X          |
+| `busybox`                   |        | X          |
+| `git`                       |        | X          |
 
