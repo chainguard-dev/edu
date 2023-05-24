@@ -153,13 +153,13 @@ In order to put Chainguard Enforce into action within a cluster, we’ll now cre
 kind create cluster --name enforce-demo
 ```
 
-Install the Chainguard Enforce Agent in your cluster:
+You can now install the Chainguard Enforce Agent in your cluster. We are passing the option so that every namespace has policy enforcement by default. You can read more about options at installion in the [Configuring Enforcer Options guide](/chainguard/chainguard-enforce/installation/configure-enforcer-options-during-installation/#enforcer-options.)
 
 ```sh
-chainctl cluster install --group=$GROUP --private --context kind-enforce-demo
+chainctl cluster install --group=$GROUP --private --context kind-enforce-demo --opt=namespace_enforcement_mode=opt-out
 ```
 
- Once everything is set up, your terminal output will indicate that the cluster was successfully configured. We now have a Kubernetes cluster setup that’s running an application.
+Once everything is set up, your terminal output will indicate that the cluster was successfully configured. We now have a Kubernetes cluster setup that’s running an application.
 
 ## Step 4 — Create a security policy
 
@@ -291,13 +291,7 @@ This image passes the policy we set up above because it has both an SBOM and a s
 
 ## Step 6 – Enforce policy
 
-We have improved our compliance by introducing and requiring a signing and SBOM policy. We now want to enforce this policy requirement. We can use `kubectl` and `namespace` label selectors to achieve this.
-
-```sh
-kubectl label ns default policy.sigstore.dev/include=true --overwrite
-```
-
-We can check that our policy is enforced by trying to run an unsigned image. We’ll use an unsigned Ubuntu image as an example.
+We have improved our compliance by introducing and requiring a signing and SBOM policy. We can check that our policy is enforced by trying to run an unsigned image. We’ll use an unsigned Ubuntu image as an example.
 
 ```sh
 kubectl run not-signed --image=ubuntu
