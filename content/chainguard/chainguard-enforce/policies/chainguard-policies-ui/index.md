@@ -79,6 +79,24 @@ To modify an existing policy, click on the relevant policy within your Chainguar
 
 To edit a policy, click  on the **Edit** button will allow you to make modifications to the description or YAML file of the policy. When you are satisfied with the changes you have made, you can click on the **Publish** button once again.
 
+## Policy versions
+
+Policy versions enable you to gradually test and roll out policy changes to your cluster over time, without losing the historical context of how a given policy has changed. Versions also increase your visibility into when and by whom policies were updated. With policy versions, you can quickly rollback to a stable version in the event of the inevitable typo or unintended consequence discovered too late.
+
+To create new versions of a policy in the Chainguard Console, navigate to your list of policies, under **Enforce** and **Policies**, and click on the row that includes the policy you would like to version.
+
+This will take you to the **Policy details** page, which will provide you with the policy document in full. Below the document are a series of tabs, including a **Versions** tab. Clicking on the **Versions** tab will display a table with the versions of your policy. It will indicate which version is active, while also allowing you to activate a particular version of the policy by clicking on the **Apply version** link in that row.
+‍
+![console-policy-versions.png](Policy versions tab in Chainguard Console)
+
+To create a new version of the policy, click the **Edit** button located below the policy document. Clicking on this button will open the policy editor, where you can make changes to the policy document.
+
+![edit-policy-create-version-console.png](Edit policy to create a new version in Chainguard Console)
+
+Once you have finished making edits to the document, click on the **Create version** button, and a new version of the policy will be created.
+
+You can also make edits to the description field in the policy editor, but this will not create a new policy. It will edit the description of the currently active policy.
+
 ## Delete policies
 
 If you would like to delete a policy, click on the policy you wish to delete within your Chainguard Enforce Console table. From there, click on the **Delete** button.
