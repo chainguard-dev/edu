@@ -178,22 +178,24 @@ resource "chainguard_identity" "bitbucket" {
   EOF
 
     claim_match {
-    audience        = "ari:cloud:bitbucket::workspace/<workspace-uuid>"
-    issuer          = "https://api.bitbucket.org/2.0/workspaces/<workspace-name>/pipelines-config/identity/oidc"
-    subject_pattern = "{<repository-uuid>}:.+"
+    audience        = "ari:cloud:bitbucket::workspace/%workspace-uuid%"
+    issuer          = "https://api.bitbucket.org/2.0/workspaces/%workspace-name%/pipelines-config/identity/oidc"
+    subject_pattern = "{%repository-uuid%}:.+"
   }
 }
 ```
 
 First, this section creates a Chainguard Identity tied to the `chainguard_group` created by the `sample.tf` file; namely, the `example-group` group. The identity is named `bitbucket` and has a brief description.
 
-The most important part of this section is the `claim_match`. When the Bitbucket pipeline tries to assume this identity later on, it must present a token matching the `audience`, `issuer` and `subject` specified here in order to do so. The `audience` is the intended recipient of the issued token, while the `issuer` is the entity that creates the token. Finally, the `subject` is the entity (here, the Bitbucket pipeline build) that the token represents.
+The most important part of this section is the `claim_match`. When the Bitbucket pipeline tries to assume this identity later on, it must present a token matching the `audience`, `issuer` and `subject` specified here in order to do so. The `audience` is the intended recipient of the issued token, while the `issuer` is the entity that creates the token.
 
-In this case, the `issuer` field points to `https://api.bitbucket.org/2.0/workspaces/<workspace-name>/pipelines-config/identity/oidc`, the issuer of JWT tokens for Bitbucket pipelines.
+Finally, the `subject_pattern` is the entity (here, the Bitbucket pipeline build) that the token represents. Note that the curly braces around the `%repository-uuid%` variable are part of the generated OIDC token from Bitbucket, so be sure to include both opening `{` and closing `}` characters around your repository UUID.
+
+In this case, the `issuer` field points to `https://api.bitbucket.org/2.0/workspaces/%workspace-name%/pipelines-config/identity/oidc`, the issuer of JWT tokens for Bitbucket pipelines.
 
 Instead of pointing to a literal value with a `subject` field, though, this file points to a regular expression using the `subject_pattern` field. When you run a Bitbucket pipeline, it generates a unique identifier for each pipeline `- step` and appends that to the `subject_pattern` field. Since the identifier is not known ahead of time, passing the regular expression `.+` allows you to specify a subject regex that will work for every build from this pipeline.
 
-Refer to your Bitbucket repository OIDC settings page for reference values. To find the page, browse to your **Repository settings** page, and then find the **OpenID Connect** section in the left menu. For the purposes of this guide, you will need to replace `<workspace-name>`, `<workspace-uuid>`, and `<repository-uuid>` with the values from your Bitbucket OIDC settings page.
+Refer to your Bitbucket repository OIDC settings page for reference values. To find the page, browse to your **Repository settings** page, and then find the **OpenID Connect** section in the left menu. For the purposes of this guide, you will need to replace `%workspace-name%`, `%workspace-uuid%`, and `%repository-uuid%` with the values from your Bitbucket OIDC settings page.
 
 The next section will output the new identity's `id` value. This is a unique value that represents the identity itself.
 
@@ -221,7 +223,7 @@ resource "chainguard_rolebinding" "view-stuff" {
 }
 ```
 
-Run the following command to create this file with each of these sections. Be sure to change the `subject_pattern` value to align with your own Bitbucket pipeline. For example, if your organization name were `example-org-123` and the pipeline name was `sample-pipeline`, you would set the `subject_pattern` value to `"organization:example-org-123:pipeline:sample-pipeline:ref:refs/heads/main:commit:[0-9a-f]+:step:`.
+Run the following command to create this file with each of these sections. Be sure to change the `subject_pattern` value to align with your own Bitbucket pipeline OIDC variables. For example, if your repository UUID were `C668DE74-6D94-4924-90B1-8B9AB7EE9089`, you would set the `subject_pattern` value to `"{C668DE74-6D94-4924-90B1-8B9AB7EE9089}:.+"`, ensuring that the curly braces are included.
 
 ```sh
 cat > bitbucket.tf <<EOF
@@ -234,9 +236,9 @@ resource "chainguard_identity" "bitbucket" {
   EOF
 
   claim_match {
-    audience        = "ari:cloud:bitbucket::workspace/<workspace-uuid>"
-    issuer          = "https://api.bitbucket.org/2.0/workspaces/<workspace-name>/pipelines-config/identity/oidc"
-    subject_pattern = "<repository-uuid>:.+"
+    audience        = "ari:cloud:bitbucket::workspace/%workspace-uuid%"
+    issuer          = "https://api.bitbucket.org/2.0/workspaces/%workspace-name%/pipelines-config/identity/oidc"
+    subject_pattern = "{%repository-uuid%}:.+"
   }
 }
 
@@ -305,7 +307,7 @@ Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 
 Outputs:
 
-bitbucket-identity = "<your bitbucket identity>"
+bitbucket-identity = "%bitbucket-identity%"
 ```
 
 This is the identity's [UIDP (unique identity path)](/chainguard/chainguard-enforce/reference/events/#uidp-identifiers), which you configured the `bitbucket.tf` file to emit in the previous section. Note this value down, as you'll need it when you test this identity using a Bitbucket workflow. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
@@ -336,24 +338,17 @@ pipelines:
           - chmod +x chainctl
 
           # Assume the bitbucket pipeline identity
-          - ./chainctl auth login --identity-token $BITBUCKET_STEP_OIDC_TOKEN --identity <bitbucket-identity>
-          - ./chainctl policy ls
+          - ./chainctl auth login --identity-token $BITBUCKET_STEP_OIDC_TOKEN --identity %bitbucket-identity%
 ```
 
-The important line is the `oidc: true` option, which enables OIDC for the individual step in the pipeline. This configuration is why the `subject_pattern` is used in the Terraform configuration, since each step gets its own UUID identifier, which is added to the `sub` field in the generated OIDC token.
+The important line is the `oidc: true` option, which enables OIDC for the individual step in the pipeline. This configuration is why the `subject_pattern` with a regular expression is used in the Terraform configuration, since each step gets its own UUID identifier, which is added to the `sub` field in the generated OIDC token. Since the step UUID is known known before the build, the subject match needs to use a regular expression.
 
 Now you can add the commands for testing the identity like `chainctl policy ls` in the following example:
 
 ```
-    - step:
-        oidc: true
-        max-time: 5
-        script:
-          - wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_$(uname -m)"
-          - chmod +x chainctl
-
+. . .
           # Assume the bitbucket pipeline identity
-          - ./chainctl auth login --identity-token $BITBUCKET_STEP_OIDC_TOKEN --identity <bitbucket-identity>
+          - ./chainctl auth login --identity-token $BITBUCKET_STEP_OIDC_TOKEN --identity %bitbucket-identity%
           - ./chainctl policy ls
 ```
 
@@ -363,7 +358,6 @@ Assuming everything works as expected, your pipeline will be able to assume the 
 
 ```
 . . .
-
 chainctl        	100%[===================>]  54.34M  6.78MB/s	in 13s
 
 2023-05-17 13:19:45 (4.28 MB/s) - ‘chainctl’ saved [56983552/56983552]
@@ -387,8 +381,7 @@ You can also edit the pipeline itself to change its behavior. For example, inste
 
 ```
 	. . .
-
-	- 'chainctl iam groups ls'
+          - ./chainctl policy ls
 ```
 
 Of course, the Bitbucket pipeline will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.
