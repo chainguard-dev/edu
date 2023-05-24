@@ -91,7 +91,7 @@ This will take you to the **Policy details** page, which will provide you with t
 
 To create a new version of the policy, click the **Edit** button located below the policy document. Clicking on this button will open the policy editor, where you can make changes to the policy document.
 
-![edit-policy-create-version-console.png](Edit policy to create a new version in Chainguard Console)
+![Edit policy to create a new version in Chainguard Console](edit-policy-create-version-console.png)
 
 Once you have finished making edits to the document, click on the **Create version** button, and a new version of the policy will be created.
 
