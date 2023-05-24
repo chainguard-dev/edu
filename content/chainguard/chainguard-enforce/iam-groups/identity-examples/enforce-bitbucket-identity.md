@@ -7,8 +7,9 @@ type: "article"
 date: 2023-05-17T08:48:45+00:00
 lastmod: 2023-05-17T08:48:45+00:00
 draft: false
+tags: ["Enforce", "Product", "Procedural"]
 images: []
-weight: 010
+weight: 015
 ---
 
 In Chainguard Enforce, [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
@@ -79,7 +80,7 @@ Next, you can create the `sample.tf` file.
 
 ### `sample.tf`
 
-`sample.tf` will create a couple of structures that will help us test out the identity in a workflow.
+`sample.tf` will create a couple of structures that will help us test out the identity with a Bitbucket a workflow.
 
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
@@ -91,7 +92,6 @@ resource "chainguard_group" "user-group" {
 	pipeline identity can interact with via the identity in
 	bitbucket.tf.
   EOF
-}
 }
 ```
 
@@ -180,20 +180,20 @@ resource "chainguard_identity" "bitbucket" {
     claim_match {
     audience        = "ari:cloud:bitbucket::workspace/<workspace-uuid>"
     issuer          = "https://api.bitbucket.org/2.0/workspaces/<workspace-name>/pipelines-config/identity/oidc"
-    subject_pattern = "<repository-uuid>:.+"
+    subject_pattern = "{<repository-uuid>}:.+"
   }
 }
 ```
 
 First, this section creates a Chainguard Identity tied to the `chainguard_group` created by the `sample.tf` file; namely, the `example-group` group. The identity is named `bitbucket` and has a brief description.
 
-The most important part of this section is the `claim_match`. When the Bitbucket workflow tries to assume this identity later on, it must present a token matching the `audience`, `issuer` and `subject` specified here in order to do so. The `audience` is the intended recipient of the issued token, while the `issuer` is the entity that creates the token. Finally, the `subject` is the entity (here, the Bitbucket pipeline build) that the token represents.
+The most important part of this section is the `claim_match`. When the Bitbucket pipeline tries to assume this identity later on, it must present a token matching the `audience`, `issuer` and `subject` specified here in order to do so. The `audience` is the intended recipient of the issued token, while the `issuer` is the entity that creates the token. Finally, the `subject` is the entity (here, the Bitbucket pipeline build) that the token represents.
 
 In this case, the `issuer` field points to `https://api.bitbucket.org/2.0/workspaces/<workspace-name>/pipelines-config/identity/oidc`, the issuer of JWT tokens for Bitbucket pipelines.
 
 Instead of pointing to a literal value with a `subject` field, though, this file points to a regular expression using the `subject_pattern` field. When you run a Bitbucket pipeline, it generates a unique identifier for each pipeline `- step` and appends that to the `subject_pattern` field. Since the identifier is not known ahead of time, passing the regular expression `.+` allows you to specify a subject regex that will work for every build from this pipeline.
 
-Refer to your Bitbucket repository OIDC settings page for reference values. To find the page, browse to your repository settings page, and then find the _OpenID Connect_ page in the left menu. For the purposes of this guide, you will need to replace `<workspace-name>`, `<workspace-uuid>`, and `<repository-uuid>` with the values from your Bitbucket OIDC settings page.
+Refer to your Bitbucket repository OIDC settings page for reference values. To find the page, browse to your **Repository settings** page, and then find the **OpenID Connect** section in the left menu. For the purposes of this guide, you will need to replace `<workspace-name>`, `<workspace-uuid>`, and `<repository-uuid>` with the values from your Bitbucket OIDC settings page.
 
 The next section will output the new identity's `id` value. This is a unique value that represents the identity itself.
 
@@ -319,7 +319,7 @@ You're now ready to edit a Bitbucket pipeline in order to test out this identity
 
 ## Testing the identity with a Bitbucket pipeline
 
-To test the identity you created with Terraform in the previous section, ensure you have Pipelines enabled for your repository and then create a `bitbucket-pipelines.yml` file in the root of your repository. Note: if you already have a pipeline with steps defined then you only need to add the `oidc: true` field to your pipeline to enable OIDC for the step in question.
+To test the identity you created with Terraform in the previous section, ensure you have Pipelines enabled for your repository and then create a `bitbucket-pipelines.yml` file in the root of your repository. Note that if you already have a pipeline with steps defined then you only need to add the `oidc: true` field to your pipeline to enable OIDC for the step in question.
 
 Copy the following pipeline defintion into your `bitbucket-pipelines.yml` file and commit it to the repository.
 
