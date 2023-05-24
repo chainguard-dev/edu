@@ -188,7 +188,7 @@ First, this section creates a Chainguard Identity tied to the `chainguard_group`
 
 The most important part of this section is the `claim_match`. When the Jenkins workflow tries to assume this identity later on, it must present a token matching the `audience`, `issuer` and `subject` specified here in order to do so. The `audience` is the intended recipient of the issued token, while the `issuer` is the entity that creates the token. Finally, the `subject` is the entity (here, the Jenkins pipeline build) that the token represents.
 
-The `audience` and `issuer` fields use settings from your configured Jenkins OIDC credential. You can find these by clicking **Manage Jenkins** in the left-hand sidebar menu of yoru dashbaord, then click **Credentials**. click on your **System** credentials, then click **Global credentials (unrestricted)**. This will take you to a table listing all your configured OIDC tokens. Click the wrench icon for the token you want to use to test this identity. This will take you to a screen similar to the following screenshot showing the `audience` and `issue` values you should use in your `jenkins.tf` file.
+The `audience` and `issuer` fields use settings from your configured Jenkins OIDC credential. You can find these by clicking **Manage Jenkins** in the left-hand sidebar menu of your dashbaord, then click **Credentials**. Click on your **System** credentials, then click **Global credentials (unrestricted)**. This will take you to a table listing all your configured OIDC tokens. Click the wrench icon for the token you want to use to test this identity. This will take you to a screen similar to the following screenshot showing the `audience` and `issue` values you should use in your `jenkins.tf` file.
 
 ![Jenkins OICD token configuration page](jenkins-oidc-credential.png)
 
@@ -237,9 +237,9 @@ resource "chainguard_identity" "jenkins" {
   EOF
 
     claim_match {
-    audience        = "%your-audience%"
-    issuer          = "https://%your-domain%/oidc"
-    subject = "%your-subject%"
+    audience = "%your-audience%"
+    issuer   = "https://%your-domain%/oidc"
+    subject  = "%your-subject%"
   }
 }
 
@@ -260,7 +260,6 @@ EOF
 ```
 
 Following that, your Terraform configuration will be ready. Now you can run a few `terraform` commands to create the resources defined in your `.tf` files.
-
 
 ## Creating Your Resources
 
@@ -286,7 +285,6 @@ Before going through with applying the Terraform configuration, this command wil
 
 ```
 . . .
-
 Plan: 4 to add, 0 to change, 0 to destroy.
 
 Changes to Outputs:
@@ -303,7 +301,6 @@ After pressing `ENTER`, the command will complete and will output an `jenkins-id
 
 ```
 . . .
-
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 
 Outputs:
@@ -321,10 +318,11 @@ Note that you may receive a `PermissionDenied` error part way through the apply 
 
 You're now ready to create or edit a Jenkins pipeline to test out this identity.
 
-
 ## Testing the identity with a Jenkins pipeline
 
-To test the identity you created with Terraform in the previous section, create or edit a pipeline job. Ensure that the job is parameterized and uses the `OpenID Connect id token` credential type. Mark the parameter as required, and select your configured OIDC credential token as the `Default Value` for the parameter per the following screenshot:
+To test the identity you created with Terraform in the previous section, create or edit a pipeline job. To create a pipeline job, click the **New Item** link in the menu at the top left of your Jenkins dashboard. Give the job a title, and select **Pipeline** from the list of job types.
+
+Once you are on the pipeline configuration page, click the **This project is parameterized** check box. Give your parameter a name like `oidc-token` and under the **Credential type** selection list, **OpenID Connect id token**. Mark the parameter as required, and select your configured OIDC credential token as the `Default Value` for the parameter per the following screenshot:
 
 ![Job parameter settings for OIDC token](jenkins-job-parameter.png)
 
@@ -340,7 +338,7 @@ pipeline {
                     sh '''
                         wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_\$(uname -m)"
                         chmod +x chainctl
-                        ./chainctl -v3 auth login --identity-token $token --identity <your jenkins identity>
+                        ./chainctl auth login --identity-token $token --identity <your jenkins identity>
                     '''
                 }
             }
@@ -357,7 +355,7 @@ Now you can add the commands for testing the identity like `chainctl policy ls` 
 sh '''
     wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_\$(uname -m)"
     chmod +x chainctl
-    ./chainctl -v3 auth login --identity-token $token --identity <your jenkins identity>
+    ./chainctl auth login --identity-token $token --identity <your jenkins identity>
     ./chainctl policy ls
 '''
 ```
@@ -368,7 +366,6 @@ Assuming everything works as expected, your pipeline will be able to assume the 
 
 ```
 . . .
-
 chainctl        	100%[===================>]  54.34M  6.78MB/s	in 13s
 
 2023-05-17 13:19:45 (4.28 MB/s) - ‘chainctl’ saved [56983552/56983552]
@@ -377,7 +374,7 @@ Successfully exchanged token.
 Valid! Id: 3f4ad8a9d5e63be71d631a359ba0a91dcade94ab/d3ed9c70b538a796
                          	ID                         	| 	NAME  	| DESCRIPTION |   MODE
 ------------------------------------------------------------+---------------+-------------+-----------
-  618071b7840fc90ecfc8e87b4bfd734730fd75a3/639b95d07829e2ad | trust-any-cgr |             | ENFORCED 
+  618071b7840fc90ecfc8e87b4bfd734730fd75a3/639b95d07829e2ad | trust-any-cgr |             | ENFORCED
 ```
 
 If you'd like to experiment further with this identity and what the pipeline can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
@@ -392,12 +389,10 @@ You can also edit the pipeline itself to change its behavior. For example, inste
 
 ```
 	. . .
-
 	- './chainctl iam groups ls'
 ```
 
 Of course, the Jenkins pipeline will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.
-
 
 ## Removing Sample Resources
 
