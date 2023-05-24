@@ -149,7 +149,7 @@ Policy versions enable you to gradually test and roll out policy changes to your
 Listing policies with the `-owide` or `--output=wide` flag shows some new policy metadata, including created and updated timestamps, the currently enforced version of the policy, and the author of the enforced version.
 
 ```sh
-chainctl policy ls -owide
+chainctl policy ls -o wide
 ```
 
 If you scroll horizontally across the output below, you'll be able to view `ENFORCED VERSION`, `CREATED`, and `UPDATED` metadata.
