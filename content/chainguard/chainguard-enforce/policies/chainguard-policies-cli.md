@@ -138,6 +138,67 @@ chainctl policies update enforce-policy --description ""
 
 Essentially, this example command deletes the `enforce-policy` policy's description.
 
+## Policy versions
+
+Policy versions enable you to gradually test and roll out policy changes to your cluster over time, without losing the historical context of how a given policy has changed. Versions also increase your visibility into when and by whom policies were updated. With policy versions, you can quickly rollback to a stable version in the event of the inevitable typo or unintended consequence discovered too late.
+
+### Reviewing policy versions in chainctl
+
+‍No special action is needed to create a new version of a policy; any change to the policy document will automatically create a new version. Note that updates to a policy’s description will not create a new version. Differences between versions can be inspected through either `chainctl` or the Console.
+
+Listing policies with the `-o wide` or `--output=wide` flag shows some new policy metadata, including created and updated timestamps, the currently enforced version of the policy, and the author of the enforced version.
+
+```sh
+chainctl policy ls -o wide
+```
+
+If you scroll horizontally across the output below, you'll be able to view `ENFORCED VERSION`, `CREATED`, and `UPDATED` metadata.
+
+```
+                             ID                             |           NAME            |          DESCRIPTION           |   MODE   | ENFORCED VERSION | CREATED | UPDATED |         AUTHOR           
+------------------------------------------------------------+---------------------------+--------------------------------+----------+------------------+---------+---------+--------------------------
+  0bed35fb980e8f8ba6d0757e01c950974cfd2593/928966789defb685 | allow-gke-policy          | GKE policy                     | ENFORCED | f8389e3524686185 | 3d      | 2d      | inky@chainguard.dev  
+  7e145ac5c2e877cfad4315525402bfd564c00ec4/04bc993bbb964648 | sigstore-demo             |                                | ENFORCED |                  | 1d      | 1d      |                          
+  99070fadb9e03ee46ebb5c3d635a8c40c92670ad/ee76b4dc8b3b8c2b | vuln-warning-message-rego | Vulnerability attestation with | WARN     | cdb3d1526d6acaf3 | 6d      | 4d      | inky@chainguard.dev      
+                                                            |                           | Warn for attestations          |          |                  |         |         |                          
+                                                            
+```
+
+If you were already a Chainguard Enforce User, you’ll notice legacy policies are missing some of this metadata. Legacy policies are still fully supported and can be versioned just like newly applied policies. These data will be populated as policies are updated.
+
+‍To bring up a list of all versions of a named policy, you can run:
+
+```sh
+chainctl policy versions ls
+```
+
+This will sort policies by creation date.
+
+### Managing versions of policies
+
+‍Once a policy exists in Chainguard Enforce, updates to the policy document automatically create a new version. Policy documents can be updated, hence creating a new version, with either `chainctl policy apply` or `chainctl policy edit`.
+
+To view versions to compare a version against the active version.
+
+```sh
+chainctl policy versions view
+```
+
+In order to review diffs of two versions of a policy, you can use the following command:
+
+```sh
+chainctl policy versions diff
+```
+
+Diffs can be viewed regardless of the active version.
+
+‍You can accomplish a rollback to a previous policy version with:
+
+```sh
+chainctl policy versions activate
+```
+
+To confirm the rollback, use the `chainctl policy ls -owide` command to inspect the version.
 
 ## Delete policies
 
@@ -156,7 +217,6 @@ chainctl policies delete enforce-policy
 ```
 
 You can follow this command with the `-y` flag to automatically answer "yes" to the confirmation prompt.
-
 
 ## Aliases for policy management commands
 
