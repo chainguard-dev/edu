@@ -188,7 +188,7 @@ First, this section creates a Chainguard Identity tied to the `chainguard_group`
 
 The most important part of this section is the `claim_match`. When the Jenkins workflow tries to assume this identity later on, it must present a token matching the `audience`, `issuer` and `subject` specified here in order to do so. The `audience` is the intended recipient of the issued token, while the `issuer` is the entity that creates the token. Finally, the `subject` is the entity (here, the Jenkins pipeline build) that the token represents.
 
-The `audience` and `issuer` fields use the setting from your configured Jenkins OIDC credential, in this case from the token configured on your Jenkins' `/manage/credentials/store/system/domain/_/` page. The following screenshot shows an example of these settings:
+The `audience` and `issuer` fields use settings from your configured Jenkins OIDC credential. You can find these by clicking **Manage Jenkins** in the left-hand sidebar menu of yoru dashbaord, then click **Credentials**. click on your **System** credentials, then click **Global credentials (unrestricted)**. This will take you to a table listing all your configured OIDC tokens. Click the wrench icon for the token you want to use to test this identity. This will take you to a screen similar to the following screenshot showing the `audience` and `issue` values you should use in your `jenkins.tf` file.
 
 ![Jenkins OICD token configuration page](jenkins-oidc-credential.png)
 
