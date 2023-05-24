@@ -8,7 +8,7 @@ date: 2023-05-19T21:23:42+00:00
 lastmod: 2023-05-19T21:23:42+00:00
 draft: false
 images: []
-weight: 010
+weight: 025
 ---
 
 In Chainguard Enforce, [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
@@ -22,7 +22,7 @@ To complete this guide, you will need the following.
 
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard Enforce command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
-* A Jenkins server with the [OpenID Connect Provider plugin](https://plugins.jenkins.io/oidc-provider/) installed and configured, and a pipeline you can use to test out the identity you'll create.
+* A Jenkins server with the [OpenID Connect Provider plugin](https://plugins.jenkins.io/oidc-provider/) installed and configured, as well as a pipeline you can use to test out the identity you'll create.
 
 
 ## Creating Terraform Files
@@ -91,7 +91,6 @@ resource "chainguard_group" "user-group" {
 	pipeline identity can interact with via the identity in
 	jenkins.tf.
   EOF
-}
 }
 ```
 
@@ -185,7 +184,7 @@ resource "chainguard_identity" "jenkins" {
 }
 ```
 
-First, this `%your-audience%` section creates a Chainguard Identity tied to the `chainguard_group` created by the `sample.tf` file; namely, the `example-group` group. The identity is named `jenkins` and has a brief description.
+First, this section creates a Chainguard Identity tied to the `chainguard_group` created by the `sample.tf` file; namely, the `example-group` group. The identity is named `jenkins` and has a brief description.
 
 The most important part of this section is the `claim_match`. When the Jenkins workflow tries to assume this identity later on, it must present a token matching the `audience`, `issuer` and `subject` specified here in order to do so. The `audience` is the intended recipient of the issued token, while the `issuer` is the entity that creates the token. Finally, the `subject` is the entity (here, the Jenkins pipeline build) that the token represents.
 
@@ -193,7 +192,7 @@ The `audience` and `issuer` fields use the setting from your configured Jenkins 
 
 ![Jenkins OICD token configuration page](jenkins-oidc-credential.png)
 
-For the subject, refer to your Jenkins repository OIDC settings page under the `/manage/configureSecurity/` URL. To find the subject field, scroll to the `OpenID Connect` section on the page, and then locate the `_sub_` field under the `Claim templates` pop-out settings. Refer to the following screenshot for an exmaple of these settings:
+For the subject, refer to your Jenkins repository OIDC settings page. You can find these by naivgating back to the **Manage Jenkins** landing page in your dashboard and clicking on **Security**. From there, scroll to the `OpenID Connect` section on the page, click on the **Claim templates** button, and locate the `sub` field. The `subject` value you should use will be the value in the **Value format** field under the first `sub` template. In the following example, the value to use is `jenkins-oidc-test`.
 
 ![Jenkins OpenID Connect configuration](jenkins-oidc-connect-config.png)
 
@@ -240,7 +239,7 @@ resource "chainguard_identity" "jenkins" {
     claim_match {
     audience        = "%your-audience%"
     issuer          = "https://%your-domain%/oidc"
-    subject_pattern = "%your-subject%"
+    subject = "%your-subject%"
   }
 }
 
@@ -300,7 +299,7 @@ Do you want to perform these actions?
   Enter a value:
 ```
 
-After pressing `ENTER`, the command will complete and will output an `jenkins-identity` value. Note that you may receive a `PermissionDenied` error part way through the apply step. If so, run `chainctl auth login` once more, and then `terraform apply` again to resume creating the identity and resources.
+After pressing `ENTER`, the command will complete and will output an `jenkins-identity` value.
 
 ```
 . . .
@@ -318,7 +317,9 @@ This is the identity's [UIDP (unique identity path)](/chainguard/chainguard-enfo
 chainctl iam identities ls
 ```
 
-You're now ready to create or edit a Jenkins pipeline job to test out this identity.
+Note that you may receive a `PermissionDenied` error part way through the apply step. If so, run `chainctl auth login` once more, and then `terraform apply` again to resume creating the identity and resources.
+
+You're now ready to create or edit a Jenkins pipeline to test out this identity.
 
 
 ## Testing the identity with a Jenkins pipeline
@@ -376,7 +377,7 @@ Successfully exchanged token.
 Valid! Id: 3f4ad8a9d5e63be71d631a359ba0a91dcade94ab/d3ed9c70b538a796
                          	ID                         	| 	NAME  	| DESCRIPTION |   MODE
 ------------------------------------------------------------+---------------+-------------+-----------
-  3f4ad8a9d5e63be71d631a359ba0a91dcade94ab/42b8649dc3a3ea66 | trust-any-cgr |         	| ENFORCED
+  618071b7840fc90ecfc8e87b4bfd734730fd75a3/639b95d07829e2ad | trust-any-cgr |             | ENFORCED 
 ```
 
 If you'd like to experiment further with this identity and what the pipeline can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
