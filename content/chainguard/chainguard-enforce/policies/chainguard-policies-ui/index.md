@@ -87,7 +87,7 @@ To create new versions of a policy in the Chainguard Console, navigate to your l
 
 This will take you to the **Policy details** page, which will provide you with the policy document in full. Below the document are a series of tabs, including a **Versions** tab. Clicking on the **Versions** tab will display a table with the versions of your policy. It will indicate which version is active, while also allowing you to activate a particular version of the policy by clicking on the **Apply version** link in that row.
 ‍
-![console-policy-versions.png](Policy versions tab in Chainguard Console)
+![Policy versions tab in Chainguard Console](console-policy-versions.png)
 
 To create a new version of the policy, click the **Edit** button located below the policy document. Clicking on this button will open the policy editor, where you can make changes to the policy document.
 
