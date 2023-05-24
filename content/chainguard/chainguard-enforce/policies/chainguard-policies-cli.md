@@ -146,7 +146,7 @@ Policy versions enable you to gradually test and roll out policy changes to your
 
 ‍No special action is needed to create a new version of a policy; any change to the policy document will automatically create a new version. Note that updates to a policy’s description will not create a new version. Differences between versions can be inspected through either `chainctl` or the Console.
 
-Listing policies with the `-owide` or `--output=wide` flag shows some new policy metadata, including created and updated timestamps, the currently enforced version of the policy, and the author of the enforced version.
+Listing policies with the `-o wide` or `--output=wide` flag shows some new policy metadata, including created and updated timestamps, the currently enforced version of the policy, and the author of the enforced version.
 
 ```sh
 chainctl policy ls -o wide
