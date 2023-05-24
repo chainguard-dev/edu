@@ -55,10 +55,18 @@ docker run --rm -v ${PWD}:/work --entrypoint composer \
     require minicli/minicli --working-dir=/work
 ```
 
-If you used the Docker method, make sure permissions are set correctly on the generated files:
+If you used the Docker method, make sure permissions are set correctly on the generated files.
+
+On Linux systems run the following:
 
 ```shell
 sudo chown -R ${USER}.${USER} .
+```
+
+On macOS systems, run this:
+
+```shell
+sudo chown -R ${USER} .
 ```
 
 Create a new file to serve as the application entry point. We'll call it `namegen`:
@@ -154,7 +162,10 @@ Copy this content to your own `Dockerfile`:
 
 ```Dockerfile
 FROM cgr.dev/chainguard/php:latest-dev AS builder
+USER root
 COPY . /app
+RUN chown -R php /app
+USER php
 RUN cd /app && \
     composer install --no-progress --no-dev --prefer-dist
 
