@@ -10,7 +10,7 @@ env:
   PROJECT_ID: "${{ secrets.PROJECT_ID }}"
   STORAGE_BUCKET: "${{ secrets.STORAGE_BUCKET }}"
   WORKLOAD_IDENTITY_PROVIDER: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
-  SERVICE_ACCOUNT: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
+  SERVICE_ACCOUNT: "${{ secrets.GH_ACTION_SERVICE_ACCOUNT }}"
   BIGQUERY_TABLE: "${{ secrets.BIGQUERY_TABLE }}"
   GH_TOKEN: ${{ github.token }}
 
