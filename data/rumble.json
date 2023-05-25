@@ -1,0 +1,21 @@
+[
+  {"image":"bash","left":"bash:latest","right":"cgr.dev/chainguard/bash:latest"},
+  {"image":"busybox","left":"busybox:latest","right":"cgr.dev/chainguard/busybox:latest"},
+  {"image":"deno","left":"deno:latest","right":"cgr.dev/chainguard/deno:latest"},
+  {"image":"git","left":"bitnami/git:latest","right":"cgr.dev/chainguard/git:latest"},
+  {"image":"go","left":"golang:latest","right":"cgr.dev/chainguard/go:latest"},
+  {"image":"kube-state-metrics","left":"bitnami/kube-state-metrics:latest","right":"cgr.dev/chainguard/kube-state-metrics:latest"},
+  {"image":"mariadb","left":"mariadb:latest","right":"cgr.dev/chainguard/mariadb:latest"},
+  {"image":"maven","left":"maven:latest","right":"cgr.dev/chainguard/maven:latest"},
+  {"image":"minio","left":"minio/minio:latest","right":"cgr.dev/chainguard/minio:latest"},
+  {"image":"minio-client","left":"bitnami/minio-client:latest","right":"cgr.dev/chainguard/minio-client:latest"},
+  {"image":"nginx","left":"nginx:latest","right":"cgr.dev/chainguard/nginx:latest"},
+  {"image":"node","left":"node:latest","right":"cgr.dev/chainguard/node:latest"},
+  {"image":"php","left":"php:latest","right":"cgr.dev/chainguard/php:latest"},
+  {"image":"python","left":"python:latest","right":"cgr.dev/chainguard/python:latest"},
+  {"image":"rabbitmq","left":"rabbitmq:latest","right":"cgr.dev/chainguard/rabbitmq:latest"},
+  {"image":"ruby","left":"ruby:latest","right":"cgr.dev/chainguard/ruby:latest"},
+  {"image":"rust","left":"rust:latest","right":"cgr.dev/chainguard/rust:latest"},
+  {"image":"wait-for-it","left":"willwill/wait-for-it:latest","right":"cgr.dev/chainguard/wait-for-it:latest"},
+  {"image":"wolfi-base","left":"alpine:latest","right":"cgr.dev/chainguard/wolfi-base:latest"}
+]
