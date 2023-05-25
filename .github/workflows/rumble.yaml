@@ -36,7 +36,8 @@ jobs:
         shell: bash
         run: |
           gcloud config set auth/impersonate_service_account "${{ env.SERVICE_ACCOUNT }}"
-          echo "project_id = base-image-rumble" > ~/.bigqueryrc
+          # the following is just used to quiet the bigqueryrc init message, the query result is unused
+          bq query --use_legacy_sql=false --format=csv --max_rows=1 'SELECT COUNT(*) FROM base-image-rumble.rumble.scheduled;' 2>&1 > /dev/null
 
       - name: rumble query
         shell: bash
