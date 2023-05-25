@@ -1,10 +1,8 @@
-## 2023-05-24
+## 2023-05-25
 
 Updated image reference docs.
 
 New images added:
 
-- aws-efs-csi-driver
-- envoy-ratelimit
-- k8sgpt-operator
-- kube-bench
+- kubernetes-csi-livenessprobe
+- kubernetes-csi-node-driver-registrar
