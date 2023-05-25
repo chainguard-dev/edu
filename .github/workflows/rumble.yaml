@@ -1,0 +1,74 @@
+name: Rumble CSV Generation
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+  push:
+    branches: [auto-rumble]
+
+env:
+  PROJECT_ID: "${{ secrets.PROJECT_ID }}"
+  STORAGE_BUCKET: "${{ secrets.STORAGE_BUCKET }}"
+  WORKLOAD_IDENTITY_PROVIDER: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
+  SERVICE_ACCOUNT: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
+  BIGQUERY_TABLE: "${{ secrets.BIGQUERY_TABLE }}"
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  generate-csv:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      id-token: write
+      
+    steps:
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
+        with:
+          token_format: 'access_token'
+          project_id: "${{ env.PROJECT_ID }}"
+          workload_identity_provider: "${{ env.WORKLOAD_IDENTITY_PROVIDER }}"
+          service_account: "${{ env.SERVICE_ACCOUNT }}"
+
+      - name: set up bigqueryrc
+        shell: bash
+        run: |
+          gcloud config set auth/impersonate_service_account "${{ env.SERVICE_ACCOUNT }}"
+          echo "project_id = base-image-rumble" > ~/.bigqueryrc
+
+      - name: rumble query
+        shell: bash
+        run: >
+          bq query --use_legacy_sql=false --format=csv --max_rows=100000\
+            'SELECT
+                ROW_NUMBER() OVER (ORDER BY time),
+                image,
+                scanner,
+                scanner_version,
+                scanner_db_version,
+                FORMAT_DATETIME("%Y-%m-%d %H:%M:%S", DATE(time)) as time,
+                low_cve_count as low_cve_cnt,
+                med_cve_count as med_cve_cnt,
+                high_cve_count as high_cve_cnt,
+                crit_cve_count as crit_cve_cnt,
+                unknown_cve_count as unknown_cve_cnt,
+                tot_cve_count as tot_cve_cnt,
+                digest
+            FROM ${{ env.BIGQUERY_TABLE }}
+            WHERE DATE(time) BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY) AND CURRENT_DATE()
+            AND scanner = "grype";' > data.csv
+
+      - name: upload csv
+        shell: bash
+        run: |
+          gcloud storage cp data.csv gs://chainguard-academy/cve-data/data.csv
+
+      - name: update permissions
+        shell: bash
+        run: |
+          gcloud storage objects update gs://chainguard-academy/cve-data/data.csv \
+            --add-acl-grant=entity=AllUsers,role=READER \
+            --content-type text/csv
+
