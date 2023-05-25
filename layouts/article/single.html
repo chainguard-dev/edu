@@ -44,6 +44,7 @@
         </nav>
         {{ end -}}
         {{ partial "notice.html" . }}
+        {{ partial "rumble.html" . }}
         {{ .Content }}
         <div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
           {{ if .Site.Params.lastMod -}}
