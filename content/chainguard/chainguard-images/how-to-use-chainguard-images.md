@@ -33,7 +33,21 @@ There are a few different ways to include additional software on distroless imag
 
 Many of the images are intended as platforms for running compiled binaries in as minimal an environment as possible. In the case of languages that can compile completely static binaries (such as C and Rust), the static base image can be used.
 
-The following example Dockerfile builds a hello-world program in C and copies it on top of the `cgr.dev/chainguard/static:latest` base image:
+Let's work on an example. Navigate to a test directory. For example:
+
+```sh
+mkdir ~/distroless-example && cd $_
+```
+
+In this directory, we'll create an example Dockerfile that builds a "Hello, World!" program in C.
+
+You can create the Dockerfile with nano, for instance.
+
+```sh
+nano Dockerfile
+```
+
+We will create the program on top of the `cgr.dev/chainguard/static:latest` base image.
 
 ```dockerfile
 # syntax=docker/dockerfile:1.4
