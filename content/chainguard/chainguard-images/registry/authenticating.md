@@ -25,7 +25,7 @@ This may enable Chainguard to notify you of upcoming deprecations, changes in be
 
 You can register a Chainguard account through our [sign up form](https://console.enforce.dev/auth/login?utm_source=docs). This will create your account and your organization's root [IAM group](/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/). If you already have an account, you can log in through the [login page](https://console.enforce.dev/auth/login?utm_source=docs).
 
-For more guidance on signing in, you can review our [sign in guidance](/chainguard/chainguard-enforce/authentication/log-in-chainguard-enforce/). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/chainguard/chainguard-enforce/authentication/custom-idps/). 
+For more guidance on signing in, you can review our [sign in guidance](/chainguard/chainguard-enforce/authentication/log-in-chainguard-enforce/). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/chainguard/chainguard-enforce/authentication/custom-idps/).
 
 ## Authenticating with the `chainctl` Credential Helper
 
@@ -43,7 +43,7 @@ Pulls authenticated in this way are associated with your user.
 
 ## Authenticating with a Pull Token
 
-You can also create a "pull token" using `chainctl`.
+You can also create a "pull token" using `chainctl`. This generates a longer-lived token that can be used to pull images from other environments that's don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Artifactory.
 
 First [install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/), then log in and configure a pull token:
 
@@ -51,15 +51,17 @@ First [install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainct
 chainctl auth configure-docker --pull-token
 ```
 
-This will update your Docker config file with a long-lived username and password. This token expires in 30 days by default, which can be shortened using the `--ttl` flag (for example, `--ttl=24h`).
+This will print a `docker login` command that can be run in the CI environment to log in with a pull token.
 
-The token can be copied to other locations such as CI jobs, Kubernetes secrets, or even used for registry mirroring with tools like Artifactory.
+You can also pass the `--save` flag, which will update your Docker config file with the pull token directly.
+
+This token expires in 30 days by default, which can be shortened using the `--ttl` flag (for example, `--ttl=24h`).
 
 Pulls authenticated in this way are associated with a Chainguard identity, which is associated with the group selected when the pull token was created.
 
 ### Note on Multiple Pull Tokens
 
-Running the `chainctl auth configure-docker --pull-token` command multiple times will result in multiple pull tokens. However, the tokens are stored in your Docker config and subsquent token generation will overwrite old tokens.
+Running the `chainctl auth configure-docker --pull-token` command multiple times will result in multiple pull tokens being created. However, the tokens are stored in your Docker config when using `--save` will overwrite old tokens.
 
 Tokens cannot be retrieved once they have been overwritten so they must be extracted from the local Docker config and saved elsewhere if multiple are required.
 
@@ -124,7 +126,7 @@ If the identity is configured to only work with GitHub Actions workflow runs fro
 
 You can also configure a Kubernetes cluster to use a pull token, as described above.
 
-When you create a pull token, your Docker config file is updated to include that token and configure it to be used when pulling images from `cgr.dev`.
+When you create a pull token with `--save`, your Docker config file is updated to include that token and configure it to be used when pulling images from `cgr.dev`.
 
 After that, you can create a Kubernetes secret based on those credentials, following [these instructions](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials):
 
