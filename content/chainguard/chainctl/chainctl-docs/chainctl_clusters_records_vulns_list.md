@@ -1,26 +1,28 @@
 ---
 date: 2023-05-25T19:13:33Z
-title: "chainctl clusters profiles list"
-slug: chainctl_clusters_profiles_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_profiles_list/
+title: "chainctl clusters records vulns list"
+slug: chainctl_clusters_records_vulns_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_records_vulns_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl clusters profiles list
+## chainctl clusters records vulns list
 
-List cluster profiles.
+List cluster records vulnerabilities.
 
 ```
-chainctl clusters profiles list [--output table|json|wide]
+chainctl clusters records vulns list [CLUSTER_NAME | CLUSTER_ID] [--active-within DURATION] [--image IMAGE] [--output table|json|wide]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for list
+      --active-within duration   How recently a vuln must have been active to be listed. Zero will return all vulns. (default 24h0m0s)
+  -h, --help                     help for list
+      --image string             The name of an image or regular expression to filter the results.
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +40,5 @@ chainctl clusters profiles list [--output table|json|wide]
 
 ### SEE ALSO
 
-* [chainctl clusters profiles](/chainguard/chainctl/chainctl-docs/chainctl_clusters_profiles/)	 - Profile related commands.
+* [chainctl clusters records vulns](/chainguard/chainctl/chainctl-docs/chainctl_clusters_records_vulns/)	 - Interact with cluster records vulnerabilities.
 

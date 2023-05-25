@@ -1,26 +1,22 @@
 ---
 date: 2023-05-25T19:13:33Z
-title: "chainctl clusters profiles list"
-slug: chainctl_clusters_profiles_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_profiles_list/
+title: "chainctl clusters records vulns"
+slug: chainctl_clusters_records_vulns
+url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_records_vulns/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl clusters profiles list
+## chainctl clusters records vulns
 
-List cluster profiles.
-
-```
-chainctl clusters profiles list [--output table|json|wide]
-```
+Interact with cluster records vulnerabilities.
 
 ### Options
 
 ```
-  -h, --help   help for list
+  -h, --help   help for vulns
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +34,6 @@ chainctl clusters profiles list [--output table|json|wide]
 
 ### SEE ALSO
 
-* [chainctl clusters profiles](/chainguard/chainctl/chainctl-docs/chainctl_clusters_profiles/)	 - Profile related commands.
+* [chainctl clusters records](/chainguard/chainctl/chainctl-docs/chainctl_clusters_records/)	 - Interact with cluster records.
+* [chainctl clusters records vulns list](/chainguard/chainctl/chainctl-docs/chainctl_clusters_records_vulns_list/)	 - List cluster records vulnerabilities.
 
