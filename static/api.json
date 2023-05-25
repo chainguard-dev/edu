@@ -3251,16 +3251,6 @@
       "title": "Type",
       "type": "string"
     },
-    "VulnReportFilterState": {
-      "default": "UNKNOWN",
-      "enum": [
-        "UNKNOWN",
-        "ACTIVE",
-        "INACTIVE",
-        "ALL"
-      ],
-      "type": "string"
-    },
     "VulnReportScanner": {
       "properties": {
         "name": {
@@ -4436,8 +4426,8 @@
     "tenantFix": {
       "properties": {
         "state": {
-          "description": "state reflects the state of the fix, e.g. fixed, unknown, not-fixed, won't-fix.",
-          "type": "string"
+          "$ref": "#/definitions/tenantFixState",
+          "description": "state reflects the state of the fix, e.g. fixed, unknown, not-fixed, won't-fix."
         },
         "versions": {
           "description": "List of in versions of the package on which the vulnerability has been solved.",
@@ -4448,6 +4438,16 @@
         }
       },
       "type": "object"
+    },
+    "tenantFixState": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "FIXED",
+        "NOT_FIXED",
+        "WONT_FIX"
+      ],
+      "type": "string"
     },
     "tenantPackage": {
       "properties": {
@@ -4744,6 +4744,16 @@
         }
       },
       "type": "object"
+    },
+    "tenantVulnReportFilterState": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "ACTIVE",
+        "INACTIVE",
+        "ALL"
+      ],
+      "type": "string"
     },
     "tenantVulnReportList": {
       "properties": {
