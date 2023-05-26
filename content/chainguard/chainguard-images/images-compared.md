@@ -17,22 +17,14 @@ toc: true
 
 On this page you can find comparison graphs showing the number of CVEs (common vulnerabilities and exposures) detected by [Trivy](https://github.com/aquasecurity/trivy) on popular official base images versus [Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs).
 
-{{< rumble title="Nginx" description="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx" left="nginx:latest" right="cgr.dev/chainguard/nginx:latest" >}}
+## Comparing the latest official Nginx image with cgr.dev/chainguard/nginx
 
-## Get It!
+<!-- {{< rumble title="Nginx" description="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx" left="nginx:latest" right="cgr.dev/chainguard/nginx:latest" >}} -->
 
-The image is available on cgr.dev:
+<img src="/images/nginx-image.png" alt="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx">
 
-```sh
-docker pull cgr.dev/chainguard/nginx:latest
-```
+## Comparing the latest official PHP image with cgr.dev/chainguard/nginx
 
-{{< rumble title="PHP" description="Comparing the latest official PHP image with cgr.dev/chainguard/php" left="php:latest" right="cgr.dev/chainguard/php:latest" >}}
+<!-- {{< rumble title="PHP" description="Comparing the latest official PHP image with cgr.dev/chainguard/php" left="php:latest" right="cgr.dev/chainguard/php:latest" >}} -->
 
-## Get It!
-
-The image is available on cgr.dev:
-
-```sh
-docker pull cgr.dev/chainguard/php:latest
-```
+<img src="/images/php-image.png" alt="Comparing the latest official PHP image with cgr.dev/chainguard/nginx">
