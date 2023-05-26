@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/jre](https://github.com/chainguard-images/images/tree/main/images/jre)
 | Tags             | Aliases                                                                                                     |
 |------------------|-------------------------------------------------------------------------------------------------------------|
-| `latest`         | `openjdk17`, `openjdk17.0`, `openjdk17.0.7`, `openjdk17.0.7.7`, `openjdk17.0.7.7-r0`                        |
-| `latest-dev`     | `openjdk17-dev`, `openjdk17.0-dev`, `openjdk17.0.7-dev`, `openjdk17.0.7.7-dev`, `openjdk17.0.7.7-r0-dev`    |
+| `latest`         | `openjdk17`, `openjdk17.0`, `openjdk17.0.8`, `openjdk17.0.8.2`, `openjdk17.0.8.2-r0`                        |
+| `latest-dev`     | `openjdk17-dev`, `openjdk17.0-dev`, `openjdk17.0.8-dev`, `openjdk17.0.8.2-dev`, `openjdk17.0.8.2-r0-dev`    |
 | `openjdk-11`     | `openjdk11`, `openjdk11.0`, `openjdk11.0.20`, `openjdk11.0.20.2`, `openjdk11.0.20.2-r3`                     |
 | `openjdk-11-dev` | `openjdk11-dev`, `openjdk11.0-dev`, `openjdk11.0.20-dev`, `openjdk11.0.20.2-dev`, `openjdk11.0.20.2-r3-dev` |
 

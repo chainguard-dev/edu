@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/zookeeper](https://github.com/chainguard-images/images/tree/main/images/zookeeper)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `3`, `3.8`, `3.8.1`, `3.8.1-r1`                 |
-| `latest-dev` | `3-dev`, `3.8-dev`, `3.8.1-dev`, `3.8.1-r1-dev` |
+| `latest`     | `3`, `3.8`, `3.8.1`, `3.8.1-r2`                 |
+| `latest-dev` | `3-dev`, `3.8-dev`, `3.8.1-dev`, `3.8.1-r2-dev` |
 
 
 

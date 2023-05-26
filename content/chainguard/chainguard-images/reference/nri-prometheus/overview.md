@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/nri-prometheus](https://github.com/chainguard-images/images/tree/main/images/nri-prometheus)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `2`, `2.18`, `2.18.0`, `2.18.0-r0`                 |
-| `latest-dev` | `2-dev`, `2.18-dev`, `2.18.0-dev`, `2.18.0-r0-dev` |
+| `latest`     | `2`, `2.18`, `2.18.1`, `2.18.1-r0`                 |
+| `latest-dev` | `2-dev`, `2.18-dev`, `2.18.1-dev`, `2.18.1-r0-dev` |
 
 
 

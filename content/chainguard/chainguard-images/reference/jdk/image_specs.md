@@ -45,6 +45,7 @@ The table shows package distribution across all variants.
 | `glibc-locale-en`        | X      | X          | X          | X              |
 | `busybox`                | X      | X          | X          | X              |
 | `openjdk-17`             | X      | X          |            |                |
+| `openjdk-17-default-jvm` | X      | X          |            |                |
 | `libstdc++`              | X      | X          | X          | X              |
 | `apk-tools`              |        | X          |            | X              |
 | `bash`                   |        | X          |            | X              |

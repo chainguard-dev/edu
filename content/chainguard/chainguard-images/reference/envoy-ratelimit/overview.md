@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/envoy-ratelimit](https://github.com/chainguard-images/images/tree/main/images/envoy-ratelimit)
 | Tags         | Aliases                                                  |
 |--------------|----------------------------------------------------------|
-| `latest`     | `0`, `0.0_git20230508`, `0.0_git20230508-r0`             |
-| `latest-dev` | `0-dev`, `0.0_git20230508-dev`, `0.0_git20230508-r0-dev` |
+| `latest`     | `0`, `0.0_git20230331`, `0.0_git20230331-r0`             |
+| `latest-dev` | `0-dev`, `0.0_git20230331-dev`, `0.0_git20230331-r0-dev` |
 
 
 
@@ -29,7 +29,7 @@ toc: true
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/envoy-ratelimit
+docker pull cgr.dev/chainguard/envoy-ratelimit:latest
 ```
 
 This image includes `ratelimit`.

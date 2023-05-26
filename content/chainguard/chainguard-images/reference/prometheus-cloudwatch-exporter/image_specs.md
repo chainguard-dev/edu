@@ -40,6 +40,8 @@ The table shows package distribution across all variants.
 |--------------------------|--------|------------|
 | `ca-certificates-bundle` | X      | X          |
 | `busybox`                | X      | X          |
+| `openjdk-17-jre`         | X      | X          |
+| `openjdk-17-default-jvm` | X      | X          |
 | `cloudwatch-exporter`    | X      | X          |
 | `wolfi-baselayout`       | X      | X          |
 | `apk-tools`              |        | X          |
