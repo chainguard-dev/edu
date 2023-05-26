@@ -1,7 +1,12 @@
 {{ if isset .Params "title"}}<h3>{{ .Get "title"}}</h3>{{ end }}
 {{ if isset .Params "description"}}<p>{{ .Get "description"}}</p>{{ end }}
-<iframe scrolling="no"
-        style="width:100%; min-height:400px; border: none; overflow: hidden"
-        src="/rumble/{{ if isset .Params "type" }}{{ .Get "type" }}{{ else }}bar{{ end }}?left={{ .Get "left" }}&right={{ .Get "right"}}">
 
-</iframe>
+<div id="rumble">
+    <iframe scrolling="no"
+            style="width:100%; min-height:400px; border: none; overflow: hidden"
+            src="/rumble/{{ if isset .Params "type" }}{{ .Get "type" }}{{ else }}bar{{ end }}?left={{ .Get "left" }}&right={{ .Get "right"}}">
+    </iframe>
+</div>
+
+{{- $rumble := resources.Get "js/rumble.js" -}}
+<script src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>
