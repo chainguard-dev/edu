@@ -14,13 +14,13 @@ weight: 590
 toc: true
 ---
 
-Chainguard Images have automated nightly builds, which ensures our images are always fresh including any recent patches and updated software. Even though it is important to keep your base images always updated, there will be situations where you'll want to keep using a stale build to make sure nothing will change in your container environment until you feel it's safe to update.
+Chainguard Images have automated nightly builds, which ensures our images are always fresh including any recent patches and updated software. Even though it is important to keep your base images always updated, there will be situations where you'll want to keep using a older build to make sure nothing will change in your container environment until you feel it's safe to update.
 
-For cases like this, it is useful to point your Dockerfile to use as base image a specific **image digest**.
+For cases like this, it is useful to point your Dockerfile to use a specific **image digest** as base image.
 
 An image digest is a unique identifier that is generated for each and every image build. Digests always change, even when the contents of the image remain the same.
 
-If you have a container environment that was working fine but suddenly breaks with a new build, using a previous image build version by declaring an image digest instead of a tag is a way to keep things up and running until you're able to assert that a new version of a container environment works fine with your application.
+If you have a container environment that was working fine but suddenly breaks with a new build, using a previous image build version by declaring an image digest instead of a tag is a way to keep things up and running until you're able to assert that a new version of a container environment works as expected with your application.
 
 
 ## Obtaining a Registry Token
@@ -57,7 +57,7 @@ echo $tok
 
 And you should get a long string token as output.
 
-You should now be ready for calling the API, either manually or programmatically.
+You should now be ready to call the API, either manually or programmatically.
 
 ## Calling the API
 
@@ -96,7 +96,7 @@ You should get output like the following:
 
 ## Using Image Digests within a Dockerfile
 
-Setting up your Dockerfile to use a stale build is a matter of modifying your `FROM` line to use an image digest instead of a tag. For instance, let's say you want to make sure you keep using the current latest build of the Python image. In a previous section of this page we obtained the tag history of the Python image, and the most recent build digest is listed as `sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474360740824d8a7fa6a8fecb`. With that information, you can edit your Dockerfile and replace:
+Setting up your Dockerfile to use an older build is a matter of modifying your `FROM` line to use an image digest instead of a tag. For instance, let's say you want to make sure you keep using the current latest build of the Python image. In a previous section of this page we obtained the tag history of the Python image, and the most recent build digest is listed as `sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474360740824d8a7fa6a8fecb`. With that information, you can edit your Dockerfile and replace:
 
 ```
 FROM cgr.dev/chainguard/python:latest
