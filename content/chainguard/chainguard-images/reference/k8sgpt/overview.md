@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/k8sgpt](https://github.com/chainguard-images/images/tree/main/images/k8sgpt)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `0`, `0.3`, `0.3.4`, `0.3.4-r0` |
+| `latest` | `0`, `0.3`, `0.3.5`, `0.3.5-r0` |
 
 
 

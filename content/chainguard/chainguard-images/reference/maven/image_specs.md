@@ -44,6 +44,7 @@ The table shows package distribution across all variants.
 | `busybox`                | X      | X          |
 | `maven`                  | X      | X          |
 | `openjdk-17`             | X      |            |
+| `openjdk-17-default-jvm` | X      |            |
 | `openjdk-11`             |        | X          |
 | `openjdk-11-default-jvm` |        | X          |
 

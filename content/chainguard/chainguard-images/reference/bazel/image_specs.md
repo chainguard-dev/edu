@@ -39,6 +39,7 @@ The table shows package distribution across all variants.
 |--------------------------|--------|
 | `ca-certificates-bundle` | X      |
 | `openjdk-17`             | X      |
+| `openjdk-17-default-jvm` | X      |
 | `bash`                   | X      |
 | `busybox`                | X      |
 | `gcc`                    | X      |

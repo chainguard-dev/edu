@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/prometheus-cloudwatch-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-cloudwatch-exporter)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.15`, `0.15.3`, `0.15.3-r0`                 |
-| `latest-dev` | `0-dev`, `0.15-dev`, `0.15.3-dev`, `0.15.3-r0-dev` |
+| `latest`     | `0`, `0.15`, `0.15.3`, `0.15.3-r1`                 |
+| `latest-dev` | `0-dev`, `0.15-dev`, `0.15.3-dev`, `0.15.3-r1-dev` |
 
 
 
