@@ -40,13 +40,17 @@ For public images (tagged as `latest` or `latest-dev`), you can request a regist
 The following command will obtain a token for the **Python** image and register a variable called `tok` with the resulting value, which you can use in a subsequent command to obtain the tag history:
 
 ```shell
-tok=$(curl "https://cgr.dev/token?scope=repository:chainguard/python:pull" | jq -r .token)
+tok=$(curl "https://cgr.dev/token?scope=repository:chainguard/python:pull" \
+  | jq -r .token)
 ```
 
 For images that are not part of the public catalog, you'll need to exchange your Chainguard token for a registry token. This assumes you've set up auth with [chainctl auth configure-docker](https://edu.chainguard.dev/chainguard/chainguard-images/registry/authenticating/):
 
 ```shell
-tok=$(curl -H "Authorization: Bearer $(echo 'cgr.dev' | docker-credential-cgr get)" -v "https://cgr.dev/token?scope=repository:chainguard/python:pull" | jq -r .token)
+tok=$(curl -H "Authorization: Bearer \
+  $(echo 'cgr.dev' | docker-credential-cgr get)" \
+  -v "https://cgr.dev/token?scope=repository:chainguard/python:pull" \
+  | jq -r .token)
 ```
 
 To make sure your token is set, you can run the following command:
@@ -72,7 +76,8 @@ Where `IMAGE_NAME` is the name of the image, for instance: `python`, and `IMAGE_
 For example, this is how you can fetch the tag history of the **python:latest** Chainguard image using `curl` on the command line:
 
 ```shell
-curl -H "Authorization: Bearer $tok" https://cgr.dev/v2/chainguard/python/_chainguard/history/latest | jq
+curl -H "Authorization: Bearer $tok" \
+  https://cgr.dev/v2/chainguard/python/_chainguard/history/latest | jq
 ```
 
 You should get output like the following:
