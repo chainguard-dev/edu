@@ -19,4 +19,20 @@ On this page you can find comparison graphs showing the number of CVEs (common v
 
 {{< rumble title="Nginx" description="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx" left="nginx:latest" right="cgr.dev/chainguard/nginx:latest" >}}
 
+## Get It!
+
+The image is available on cgr.dev:
+
+```sh
+docker pull cgr.dev/chainguard/nginx:latest
+```
+
 {{< rumble title="PHP" description="Comparing the latest official PHP image with cgr.dev/chainguard/php" left="php:latest" right="cgr.dev/chainguard/php:latest" >}}
+
+## Get It!
+
+The image is available on cgr.dev:
+
+```sh
+docker pull cgr.dev/chainguard/php:latest
+```
