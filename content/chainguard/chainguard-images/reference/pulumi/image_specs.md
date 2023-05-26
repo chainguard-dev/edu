@@ -60,6 +60,7 @@ The table shows package distribution across all variants.
 | `pulumi-language-java`    | X      |
 | `glibc-locale-en`         | X      |
 | `openjdk-17-jre`          | X      |
+| `openjdk-17-default-jvm`  | X      |
 | `openjdk-17`              | X      |
 | `libstdc++`               | X      |
 | `maven`                   | X      |

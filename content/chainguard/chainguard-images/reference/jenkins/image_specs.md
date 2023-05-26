@@ -42,6 +42,7 @@ The table shows package distribution across all variants.
 | `glibc-locale-en`        | X      |
 | `jenkins`                | X      |
 | `openjdk-17-jre`         | X      |
+| `openjdk-17-default-jvm` | X      |
 | `bash`                   | X      |
 | `coreutils`              | X      |
 | `busybox`                | X      |

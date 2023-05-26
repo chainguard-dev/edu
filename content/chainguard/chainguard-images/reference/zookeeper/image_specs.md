@@ -45,6 +45,7 @@ The table shows package distribution across all variants.
 | `bash`                   | X      | X          |
 | `zookeeper`              | X      | X          |
 | `openjdk-17-jre`         | X      | X          |
+| `openjdk-17-default-jvm` | X      | X          |
 | `apk-tools`              |        | X          |
 | `git`                    |        | X          |
 

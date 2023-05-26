@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/k8sgpt-operator](https://github.com/chainguard-images/images/tree/main/images/k8sgpt-operator)
 | Tags         | Aliases                                           |
 |--------------|---------------------------------------------------|
-| `latest`     | `0`, `0.0`, `0.0.15`, `0.0.15-r0`                 |
-| `latest-dev` | `0-dev`, `0.0-dev`, `0.0.15-dev`, `0.0.15-r0-dev` |
+| `latest`     | `0`, `0.0`, `0.0.16`, `0.0.16-r0`                 |
+| `latest-dev` | `0-dev`, `0.0-dev`, `0.0.16-dev`, `0.0.16-r0-dev` |
 
 
 

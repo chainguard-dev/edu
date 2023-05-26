@@ -1,8 +1,5 @@
-## 2023-05-25
+## 2023-05-26
 
 Updated image reference docs.
 
-New images added:
-
-- kubernetes-csi-livenessprobe
-- kubernetes-csi-node-driver-registrar
+No new images added.
