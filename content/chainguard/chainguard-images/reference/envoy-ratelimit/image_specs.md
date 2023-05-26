@@ -40,7 +40,8 @@ The table shows package distribution across all variants.
 |--------------------------|--------|------------|
 | `ca-certificates-bundle` | X      | X          |
 | `wolfi-baselayout`       | X      | X          |
-| `ratelimit`              | X      | X          |
+| `envoy-ratelimit`        | X      | X          |
+| `envoy-ratelimit-compat` | X      | X          |
 | `apk-tools`              |        | X          |
 | `bash`                   |        | X          |
 | `busybox`                |        | X          |

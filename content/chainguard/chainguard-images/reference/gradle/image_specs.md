@@ -43,4 +43,5 @@ The table shows package distribution across all variants.
 | `gradle-8`               | X      |
 | `wolfi-baselayout`       | X      |
 | `openjdk-17`             | X      |
+| `openjdk-17-default-jvm` | X      |
 
