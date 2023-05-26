@@ -38,4 +38,12 @@ The following graph shows a comparison between the official Nginx image and Chai
 
 {{< rumble title="Nginx" description="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx" left="nginx:latest" right="cgr.dev/chainguard/nginx:latest" >}}
 
+## Get It!
+
+The image is available on cgr.dev:
+
+```sh
+docker pull cgr.dev/chainguard/nginx:latest
+```
+
 The major advantage of distroless images is the reduced size and complexity, which results in a vastly reduced attack surface. This is evidenced by the results from security scanners, which detect far fewer potential vulnerabilities in Chainguard Images.
