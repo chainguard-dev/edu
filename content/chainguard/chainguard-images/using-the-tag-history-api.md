@@ -14,7 +14,7 @@ weight: 590
 toc: true
 ---
 
-Chainguard Images have automated nightly builds, which ensures our images are always fresh including any recent patches and updated software. Even though it is important to keep your base images always updated, there will be situations where you'll want to keep using a older build to make sure nothing will change in your container environment until you feel it's safe to update.
+Chainguard Images have automated nightly builds, which ensures our images are always fresh including any recent patches and updated software. Even though it is important to keep your base images always updated, there will be situations where you'll want to keep using an older build to make sure nothing will change in your container environment until you feel it's safe to update.
 
 For cases like this, it is useful to point your Dockerfile to use a specific **image digest** as base image.
 
@@ -114,3 +114,9 @@ FROM cgr.dev/chainguard/python:sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474
 ```
 
 And your image will then be locked into that specific build of the `python:latest` image variant.
+
+## Images Catalogs and Tags
+
+The Public Chainguard Images Catalog is available at no cost to users, and does not require authentication. It gives access to the `latest` and `latest-dev` tags of our public images. Other versions and tags are available through subscription to our paid catalogs, featuring enterprise-grade patching SLAs and customer support.
+
+To learn more about our image catalogs and the difference between tiers, check our [Images FAQ page](/chainguard/chainguard-images/faq/#what-are-the-different-catalog-tiers-of-chainguard-images) about catalog tiers.
