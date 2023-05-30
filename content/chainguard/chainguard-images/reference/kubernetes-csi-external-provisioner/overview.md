@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/kubernetes-csi-external-provisioner](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-provisioner)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `3`, `3.5`, `3.5.0`, `3.5.0-r0`                 |
-| `latest-dev` | `3-dev`, `3.5-dev`, `3.5.0-dev`, `3.5.0-r0-dev` |
+| `latest`     | `3`, `3.5`, `3.5.0`, `3.5.0-r1`                 |
+| `latest-dev` | `3-dev`, `3.5-dev`, `3.5.0-dev`, `3.5.0-r1-dev` |
 
 
 
