@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/gcc-musl](https://github.com/chainguard-images/images/tree/main/images/gcc-musl)
 | Tags     | Aliases                                                     |
 |----------|-------------------------------------------------------------|
-| `latest` | `13`, `13.1`, `13.1.1_git20230520`, `13.1.1_git20230520-r0` |
+| `latest` | `13`, `13.1`, `13.1.1_git20230527`, `13.1.1_git20230527-r1` |
 
 
 
