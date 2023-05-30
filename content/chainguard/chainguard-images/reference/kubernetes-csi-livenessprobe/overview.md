@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/kubernetes-csi-livenessprobe](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-livenessprobe)
 | Tags     | Aliases                            |
 |----------|------------------------------------|
-| `latest` | `2`, `2.10`, `2.10.0`, `2.10.0-r0` |
+| `latest` | `2`, `2.10`, `2.10.0`, `2.10.0-r1` |
 
 
 

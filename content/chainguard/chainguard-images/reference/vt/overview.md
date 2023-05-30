@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/vt](https://github.com/chainguard-images/images/tree/main/images/vt)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.13`, `0.13.0`, `0.13.0-r0`                 |
-| `latest-dev` | `0-dev`, `0.13-dev`, `0.13.0-dev`, `0.13.0-r0-dev` |
+| `latest`     | `0`, `0.13`, `0.13.0`, `0.13.0-r1`                 |
+| `latest-dev` | `0-dev`, `0.13-dev`, `0.13.0-dev`, `0.13.0-r1-dev` |
 
 
 
