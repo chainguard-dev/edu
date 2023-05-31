@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/curl](https://github.com/chainguard-images/images/tree/main/images/curl)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `8`, `8.1`, `8.1.1`, `8.1.1-r0` |
+| `latest` | `8`, `8.1`, `8.1.2`, `8.1.2-r0` |
 
 
 
