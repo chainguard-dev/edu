@@ -1,5 +1,5 @@
 ---
-date: 2023-05-25T19:13:33Z
+date: 2023-05-30T19:39:44Z
 title: "chainctl iam invites list"
 slug: chainctl_iam_invites_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites_list/
@@ -14,7 +14,7 @@ toc: true
 List group invites.
 
 ```
-chainctl iam invites list [--group=GROUP_NAME|GROUP_ID] [--output table|json|id]
+chainctl iam invites list --group=GROUP_NAME|GROUP_ID [--output table|json|id]
 ```
 
 ### Examples
