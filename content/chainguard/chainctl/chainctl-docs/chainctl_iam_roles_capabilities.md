@@ -1,28 +1,22 @@
 ---
 date: 2023-05-30T19:39:44Z
-title: "chainctl auth status"
-slug: chainctl_auth_status
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth_status/
+title: "chainctl iam roles capabilities"
+slug: chainctl_iam_roles_capabilities
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_capabilities/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth status
+## chainctl iam roles capabilities
 
-Inspect the local Chainguard Token.
-
-```
-chainctl auth status [--output table|json] [flags]
-```
+IAM role capabilities
 
 ### Options
 
 ```
-  -h, --help                    help for status
-      --identity-token string   Use an explicit passed identity token or token path.
-      --quick                   Whether to perform quick offline token checks (vs. calling the Validate API).
+  -h, --help   help for capabilities
 ```
 
 ### Options inherited from parent commands
@@ -40,5 +34,6 @@ chainctl auth status [--output table|json] [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl iam roles](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles/)	 - IAM role resource interactions.
+* [chainctl iam roles capabilities list](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles_capabilities_list/)	 - List IAM role capabilities.
 
