@@ -1,3 +1,11 @@
+## 2023-05-31
+
+Updated image reference docs.
+
+New images added:
+
+- wavefront-proxy
+
 ## 2023-05-30
 
 Updated image reference docs.
