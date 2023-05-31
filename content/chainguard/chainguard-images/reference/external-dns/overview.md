@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/external-dns](https://github.com/chainguard-images/images/tree/main/images/external-dns)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.13`, `0.13.4`, `0.13.4-r2`                 |
-| `latest-dev` | `0-dev`, `0.13-dev`, `0.13.4-dev`, `0.13.4-r2-dev` |
+| `latest`     | `0`, `0.13`, `0.13.5`, `0.13.5-r0`                 |
+| `latest-dev` | `0-dev`, `0.13-dev`, `0.13.5-dev`, `0.13.5-r0-dev` |
 
 
 
