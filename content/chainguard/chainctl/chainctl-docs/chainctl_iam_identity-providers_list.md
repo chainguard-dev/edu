@@ -1,5 +1,5 @@
 ---
-date: 2023-05-25T19:13:33Z
+date: 2023-05-30T19:39:44Z
 title: "chainctl iam identity-providers list"
 slug: chainctl_iam_identity-providers_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_list/
@@ -14,7 +14,7 @@ toc: true
 List identity providers.
 
 ```
-chainctl iam identity-providers list [--group=GROUP_NAME|GROUP_ID] [--output table|tree|json]
+chainctl iam identity-providers list --group=GROUP_NAME|GROUP_ID [--output table|tree|json]
 ```
 
 ### Examples

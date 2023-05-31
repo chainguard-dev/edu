@@ -1,5 +1,5 @@
 ---
-date: 2023-05-25T19:13:33Z
+date: 2023-05-30T19:39:44Z
 title: "chainctl iam roles list"
 slug: chainctl_iam_roles_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_list/
@@ -11,24 +11,33 @@ toc: true
 ---
 ## chainctl iam roles list
 
-List roles.
+List IAM roles.
 
 ```
-chainctl iam roles list NAME_FILTER [--output table|json] [flags]
+chainctl iam roles list [--name=NAME] [--capabilities=CAPABILITY,...] [--group=GROUP | --managed] [--output table|json|id]
 ```
 
 ### Examples
 
 ```
-
-chainctl iam role list
-
+  # List all accessible roles
+  chainctl iam roles list
+  
+  # List all managed (built-in) roles
+  chainctl iam roles list --managed
+  
+  # List all roles that can create groups
+  chainctl iam roles list --capabilities=groups.create
 ```
 
 ### Options
 
 ```
-  -h, --help   help for list
+      --capabilities strings   A comma separated list of capabilities to grant this role.
+      --group string           Group to list roles from.
+  -h, --help                   help for list
+      --managed                Only list managed (built-in) roles.
+      --name string            The exact name of roles to list.
 ```
 
 ### Options inherited from parent commands

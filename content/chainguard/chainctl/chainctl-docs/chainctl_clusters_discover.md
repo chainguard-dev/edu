@@ -1,5 +1,5 @@
 ---
-date: 2023-05-25T19:13:33Z
+date: 2023-05-30T19:39:44Z
 title: "chainctl clusters discover"
 slug: chainctl_clusters_discover
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_discover/
@@ -14,7 +14,7 @@ toc: true
 Discover eligible clusters.
 
 ```
-chainctl clusters discover --provider=PROVIDER1,PROVIDER2,... [--states=STATE1,STATE2,...] [--profiles=PROFILE1,PROFILE2,...] [--opt=KEY=VALUE,KEY=VALUE...] [--group=GROUP_NAME|GROUP_ID] [--output table|json]
+chainctl clusters discover --provider=PROVIDER1,PROVIDER2,... [--states=STATE1,STATE2,...] [--profiles=PROFILE1,PROFILE2,...] [--opt=KEY=VALUE,KEY=VALUE...] --group=GROUP_NAME|GROUP_ID [--output table|json]
 ```
 
 ### Examples

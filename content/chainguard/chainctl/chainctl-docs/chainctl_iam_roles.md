@@ -1,5 +1,5 @@
 ---
-date: 2023-05-25T19:13:33Z
+date: 2023-05-30T19:39:44Z
 title: "chainctl iam roles"
 slug: chainctl_iam_roles
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles/
@@ -35,5 +35,6 @@ IAM role resource interactions.
 ### SEE ALSO
 
 * [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam roles list](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles_list/)	 - List roles.
+* [chainctl iam roles capabilities](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles_capabilities/)	 - IAM role capabilities
+* [chainctl iam roles list](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles_list/)	 - List IAM roles.
 
