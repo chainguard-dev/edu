@@ -1,3 +1,11 @@
+## 2023-06-01
+
+Updated image reference docs.
+
+New images added:
+
+- newrelic-prometheus-configurator
+
 ## 2023-05-31
 
 Updated image reference docs.
