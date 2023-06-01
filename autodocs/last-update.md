@@ -1,7 +1,7 @@
-## 2023-05-31
+## 2023-06-01
 
 Updated image reference docs.
 
 New images added:
 
-- wavefront-proxy
+- newrelic-prometheus-configurator

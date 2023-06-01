@@ -15,11 +15,12 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/php](https://github.com/chainguard-images/images/tree/main/images/php)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `8`, `8.2`, `8.2.6`, `8.2.6-r0`                 |
-| `latest-dev` | `8-dev`, `8.2-dev`, `8.2.6-dev`, `8.2.6-r0-dev` |
-| `latest-fpm` | `8-fpm`, `8.2-fpm`, `8.2.6-fpm`, `8.2.6-r0-fpm` |
+| Tags             | Aliases                                         |
+|------------------|-------------------------------------------------|
+| `latest`         | `8`, `8.2`, `8.2.6`, `8.2.6-r0`                 |
+| `latest-dev`     | `8-dev`, `8.2-dev`, `8.2.6-dev`, `8.2.6-r0-dev` |
+| `latest-fpm`     | `8`, `8.2`, `8.2.6`, `8.2.6-r0`                 |
+| `latest-fpm-dev` | `8-dev`, `8.2-dev`, `8.2.6-dev`, `8.2.6-r0-dev` |
 
 
 

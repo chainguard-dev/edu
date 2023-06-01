@@ -14,7 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/bazel](https://github.com/chainguard-images/images/tree/main/images/bazel)
+`stable` [cgr.dev/chainguard/bazel](https://github.com/chainguard-images/images/tree/main/images/bazel)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
 | `latest` | `6`, `6.2`, `6.2.0`, `6.2.0-r0` |

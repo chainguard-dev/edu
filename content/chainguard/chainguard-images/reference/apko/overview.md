@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/apko](https://github.com/chainguard-images/images/tree/main/images/apko)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `0`, `0.8`, `0.8.0`, `0.8.0-r1` |
+| `latest` | `0`, `0.8`, `0.8.0`, `0.8.0-r2` |
 
 
 
