@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/prometheus-operator](https://github.com/chainguard-images/images/tree/main/images/prometheus-operator)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.65`, `0.65.1`, `0.65.1-r0`                 |
-| `latest-dev` | `0-dev`, `0.65-dev`, `0.65.1-dev`, `0.65.1-r0-dev` |
+| `latest`     | `0`, `0.65`, `0.65.2`, `0.65.2-r0`                 |
+| `latest-dev` | `0-dev`, `0.65-dev`, `0.65.2-dev`, `0.65.2-r0-dev` |
 
 
 

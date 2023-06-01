@@ -17,35 +17,36 @@ toc: true
 This page shows detailed information about all available variants of the Chainguard **php** Image.
 
 ## Variants Compared
-The **php** Chainguard Image currently has 3 public variants: 
+The **php** Chainguard Image currently has 4 public variants: 
 
 - `latest`
 - `latest-dev`
 - `latest-fpm`
+- `latest-fpm-dev`
 
 The table has detailed information about each of these variants.
 
-|              | latest        | latest-dev    | latest-fpm     |
-|--------------|---------------|---------------|----------------|
-| Default User | `php`         | `php`         | `php`          |
-| Entrypoint   | `/bin/php`    | `/bin/php`    | Service Bundle |
-| CMD          | not specified | not specified | not specified  |
-| Workdir      | `/app`        | `/app`        | `/app`         |
-| Has apk?     | no            | yes           | no             |
-| Has a shell? | no            | yes           | no             |
+|              | latest        | latest-dev    | latest-fpm     | latest-fpm-dev |
+|--------------|---------------|---------------|----------------|----------------|
+| Default User | `php`         | `php`         | `php`          | `php`          |
+| Entrypoint   | `/bin/php`    | `/bin/php`    | Service Bundle | Service Bundle |
+| CMD          | not specified | not specified | not specified  | not specified  |
+| Workdir      | `/app`        | `/app`        | `/app`         | `/app`         |
+| Has apk?     | no            | yes           | no             | yes            |
+| Has a shell? | no            | yes           | no             | yes            |
 
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest | latest-dev | latest-fpm |
-|--------------------------|--------|------------|------------|
-| `wolfi-baselayout`       | X      | X          | X          |
-| `ca-certificates-bundle` | X      | X          | X          |
-| `php`                    | X      | X          | X          |
-| `apk-tools`              |        | X          |            |
-| `bash`                   |        | X          |            |
-| `busybox`                |        | X          |            |
-| `git`                    |        | X          |            |
-| `composer`               |        | X          |            |
-| `php-fpm`                |        |            | X          |
+|                          | latest | latest-dev | latest-fpm | latest-fpm-dev |
+|--------------------------|--------|------------|------------|----------------|
+| `wolfi-baselayout`       | X      | X          | X          | X              |
+| `ca-certificates-bundle` | X      | X          | X          | X              |
+| `php`                    | X      | X          | X          | X              |
+| `apk-tools`              |        | X          |            | X              |
+| `bash`                   |        | X          |            | X              |
+| `busybox`                |        | X          |            | X              |
+| `git`                    |        | X          |            | X              |
+| `composer`               |        | X          |            | X              |
+| `php-fpm`                |        |            | X          | X              |
 
