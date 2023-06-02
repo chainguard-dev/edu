@@ -17,28 +17,32 @@ toc: true
 This page shows detailed information about all available variants of the Chainguard **kubectl** Image.
 
 ## Variants Compared
-The **kubectl** Chainguard Image currently has one public variant: 
+The **kubectl** Chainguard Image currently has 2 public variants: 
 
 - `latest`
+- `latest-dev`
 
 The table has detailed information about each of these variants.
 
-|              | latest             |
-|--------------|--------------------|
-| Default User | `nonroot`          |
-| Entrypoint   | `/usr/bin/kubectl` |
-| CMD          | `help`             |
-| Workdir      | not specified      |
-| Has apk?     | no                 |
-| Has a shell? | yes                |
+|              | latest             | latest-dev         |
+|--------------|--------------------|--------------------|
+| Default User | `nonroot`          | `nonroot`          |
+| Entrypoint   | `/usr/bin/kubectl` | `/usr/bin/kubectl` |
+| CMD          | `help`             | `help`             |
+| Workdir      | not specified      | not specified      |
+| Has apk?     | no                 | yes                |
+| Has a shell? | no                 | yes                |
 
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `ca-certificates-bundle` | X      |
-| `busybox`                | X      |
-| `kubectl`                | X      |
-| `wolfi-baselayout`       | X      |
+|                          | latest | latest-dev |
+|--------------------------|--------|------------|
+| `ca-certificates-bundle` | X      | X          |
+| `kubectl`                | X      | X          |
+| `wolfi-baselayout`       | X      | X          |
+| `apk-tools`              |        | X          |
+| `bash`                   |        | X          |
+| `busybox`                |        | X          |
+| `git`                    |        | X          |
 

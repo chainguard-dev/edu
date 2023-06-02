@@ -1,7 +1,7 @@
-## 2023-06-01
+## 2023-06-02
 
 Updated image reference docs.
 
 New images added:
 
-- newrelic-prometheus-configurator
+- newrelic-k8s-events-forwarder

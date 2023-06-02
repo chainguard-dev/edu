@@ -14,7 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/consul](https://github.com/chainguard-images/images/tree/main/images/consul)
+`stable` [cgr.dev/chainguard/consul](https://github.com/chainguard-images/images/tree/main/images/consul)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
 | `latest`     | `1`, `1.15`, `1.15.2`, `1.15.2-r3`                 |
