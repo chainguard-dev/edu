@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/karpenter](https://github.com/chainguard-images/images/tree/main/images/karpenter)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.27`, `0.27.5`, `0.27.5-r0`                 |
-| `latest-dev` | `0-dev`, `0.27-dev`, `0.27.5-dev`, `0.27.5-r0-dev` |
+| `latest`     | `0`, `0.27`, `0.27.5`, `0.27.5-r1`                 |
+| `latest-dev` | `0-dev`, `0.27-dev`, `0.27.5-dev`, `0.27.5-r1-dev` |
 
 
 
