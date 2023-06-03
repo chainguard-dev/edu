@@ -1,7 +1,7 @@
-## 2023-06-02
+## 2023-06-03
 
 Updated image reference docs.
 
 New images added:
 
-- newrelic-k8s-events-forwarder
+- kube-downscaler
