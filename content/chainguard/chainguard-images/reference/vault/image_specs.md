@@ -24,14 +24,14 @@ The **vault** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest            | latest-dev        |
-|--------------|-------------------|-------------------|
-| Default User | `vault`           | `vault`           |
-| Entrypoint   | `/usr/sbin/vault` | `/usr/sbin/vault` |
-| CMD          | `server -dev`     | `server -dev`     |
-| Workdir      | not specified     | not specified     |
-| Has apk?     | no                | yes               |
-| Has a shell? | no                | yes               |
+|              | latest                          | latest-dev                      |
+|--------------|---------------------------------|---------------------------------|
+| Default User | `root`                          | `root`                          |
+| Entrypoint   | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` |
+| CMD          | `server -dev`                   | `server -dev`                   |
+| Workdir      | not specified                   | not specified                   |
+| Has apk?     | no                              | yes                             |
+| Has a shell? | no                              | yes                             |
 
 ## Image Dependencies
 The table shows package distribution across all variants.
@@ -41,6 +41,7 @@ The table shows package distribution across all variants.
 | `ca-certificates-bundle` | X      | X          |
 | `wolfi-baselayout`       | X      | X          |
 | `vault`                  | X      | X          |
+| `vault-entrypoint`       | X      | X          |
 | `apk-tools`              |        | X          |
 | `bash`                   |        | X          |
 | `busybox`                |        | X          |
