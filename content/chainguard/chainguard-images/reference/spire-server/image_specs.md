@@ -24,14 +24,14 @@ The **spire-server** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest                  | latest-dev              |
-|--------------|-------------------------|-------------------------|
-| Default User | `nonroot`               | `nonroot`               |
-| Entrypoint   | `/usr/bin/spire-server` | `/usr/bin/spire-server` |
-| CMD          | `--help`                | `--help`                |
-| Workdir      | not specified           | not specified           |
-| Has apk?     | no                      | yes                     |
-| Has a shell? | no                      | yes                     |
+|              | latest                      | latest-dev                  |
+|--------------|-----------------------------|-----------------------------|
+| Default User | `nonroot`                   | `nonroot`                   |
+| Entrypoint   | `/usr/bin/spire-server run` | `/usr/bin/spire-server run` |
+| CMD          | not specified               | not specified               |
+| Workdir      | not specified               | not specified               |
+| Has apk?     | no                          | yes                         |
+| Has a shell? | no                          | yes                         |
 
 ## Image Dependencies
 The table shows package distribution across all variants.
