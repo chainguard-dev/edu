@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/newrelic-prometheus-configurator](https://github.com/chainguard-images/images/tree/main/images/newrelic-prometheus-configurator)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.4`, `1.4.0`, `1.4.0-r1`                 |
-| `latest-dev` | `1-dev`, `1.4-dev`, `1.4.0-dev`, `1.4.0-r1-dev` |
+| `latest`     | `1`, `1.4`, `1.4.1`, `1.4.1-r0`                 |
+| `latest-dev` | `1-dev`, `1.4-dev`, `1.4.1-dev`, `1.4.1-r0-dev` |
 
 
 

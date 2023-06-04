@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/consul](https://github.com/chainguard-images/images/tree/main/images/consul)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.15`, `1.15.2`, `1.15.2-r3`                 |
-| `latest-dev` | `1-dev`, `1.15-dev`, `1.15.2-dev`, `1.15.2-r3-dev` |
+| `latest`     | `1`, `1.15`, `1.15.3`, `1.15.3-r0`                 |
+| `latest-dev` | `1-dev`, `1.15-dev`, `1.15.3-dev`, `1.15.3-r0-dev` |
 
 
 

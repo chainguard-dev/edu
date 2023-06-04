@@ -1,7 +1,8 @@
-## 2023-06-03
+## 2023-06-04
 
 Updated image reference docs.
 
 New images added:
 
-- kube-downscaler
+- buck2
+- haproxy-ingress

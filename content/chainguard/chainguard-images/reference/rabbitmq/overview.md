@@ -15,9 +15,9 @@ toc: true
 ---
 
 `experimental` [cgr.dev/chainguard/rabbitmq](https://github.com/chainguard-images/images/tree/main/images/rabbitmq)
-| Tags     | Aliases                              |
-|----------|--------------------------------------|
-| `latest` | `3`, `3.11`, `3.11.17`, `3.11.17-r0` |
+| Tags     | Aliases                            |
+|----------|------------------------------------|
+| `latest` | `3`, `3.12`, `3.12.0`, `3.12.0-r0` |
 
 
 
