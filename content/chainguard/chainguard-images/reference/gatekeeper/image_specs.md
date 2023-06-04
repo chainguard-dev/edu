@@ -41,6 +41,7 @@ The table shows package distribution across all variants.
 | `wolfi-baselayout`       | X      | X          |
 | `ca-certificates-bundle` | X      | X          |
 | `gatekeeper`             | X      | X          |
+| `gatekeeper-compat`      | X      | X          |
 | `apk-tools`              |        | X          |
 | `bash`                   |        | X          |
 | `busybox`                |        | X          |

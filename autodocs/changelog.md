@@ -1,3 +1,12 @@
+## 2023-06-04
+
+Updated image reference docs.
+
+New images added:
+
+- buck2
+- haproxy-ingress
+
 ## 2023-06-03
 
 Updated image reference docs.
