@@ -15,10 +15,10 @@ toc: true
 ---
 
 `stable` [cgr.dev/chainguard/oidc-discovery-provider](https://github.com/chainguard-images/images/tree/main/images/oidc-discovery-provider)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.6`, `1.6.4`, `1.6.4-r1`                 |
-| `latest-dev` | `1-dev`, `1.6-dev`, `1.6.4-dev`, `1.6.4-r1-dev` |
+| Tags         | Aliases |
+|--------------|---------|
+| `latest`     |         |
+| `latest-dev` |         |
 
 
 
