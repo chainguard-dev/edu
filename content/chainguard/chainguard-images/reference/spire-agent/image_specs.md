@@ -24,14 +24,14 @@ The **spire-agent** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest                 | latest-dev             |
-|--------------|------------------------|------------------------|
-| Default User | `nonroot`              | `nonroot`              |
-| Entrypoint   | `/usr/bin/spire-agent` | `/usr/bin/spire-agent` |
-| CMD          | `--help`               | `--help`               |
-| Workdir      | not specified          | not specified          |
-| Has apk?     | no                     | yes                    |
-| Has a shell? | no                     | yes                    |
+|              | latest                     | latest-dev                 |
+|--------------|----------------------------|----------------------------|
+| Default User | `root`                     | `root`                     |
+| Entrypoint   | `/usr/bin/spire-agent run` | `/usr/bin/spire-agent run` |
+| CMD          | not specified              | not specified              |
+| Workdir      | not specified              | not specified              |
+| Has apk?     | no                         | yes                        |
+| Has a shell? | yes                        | yes                        |
 
 ## Image Dependencies
 The table shows package distribution across all variants.
@@ -41,8 +41,9 @@ The table shows package distribution across all variants.
 | `wolfi-baselayout`       | X      | X          |
 | `ca-certificates-bundle` | X      | X          |
 | `spire-agent`            | X      | X          |
+| `busybox`                | X      | X          |
+| `libcap-utils`           | X      | X          |
 | `apk-tools`              |        | X          |
 | `bash`                   |        | X          |
-| `busybox`                |        | X          |
 | `git`                    |        | X          |
 
