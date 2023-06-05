@@ -1,5 +1,5 @@
 ---
-date: 2023-05-30T19:39:44Z
+date: 2023-06-05T18:19:32Z
 title: "chainctl images list"
 slug: chainctl_images_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_list/
@@ -20,8 +20,11 @@ chainctl images list [--group GROUP_NAME | GROUP_ID] [flags]
 ### Options
 
 ```
-      --group string   The name or id of the parent group to list image repos.
-  -h, --help           help for list
+      --group string     The name or id of the parent group to list image repos.
+  -h, --help             help for list
+      --show-dates       Whether to show date tags of the form latest-{date}.
+      --show-epochs      Whether to show epoch tags of the form 1.2.3-r4.
+      --show-referrers   Whether to show referrer tags of the form sha256-deadbeef.{sig,sbom,att}.
 ```
 
 ### Options inherited from parent commands
