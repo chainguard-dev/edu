@@ -25,7 +25,7 @@ Today, SLSA is a vendor-neutral project supported by the [Open Source Security F
 
 ## SLSA Levels 
 
-In its current release (SLSA v0.1), SLSA offers four ascending levels of security, each containing a set of security requirements that builds on the requirements of the prior level. These levels are designed to work as a ladder so that developers and organizations can incrementally work towards achieving an ideal security posture or the security level appropriate for their risk profile. Some software projects may take more time to advance up the ladder, so this framework offers a piecemeal approach that may be more realistic (and encouraging) than trying to meet all of the requirements at once. Note that these levels and/or their requirements may shift with the release of SLSA v1.0. 
+In its current release (SLSA v1.0), SLSA offers four ascending levels of security, each containing a set of security requirements that builds on the requirements of the prior level. These levels are designed to work as a ladder so that developers and organizations can incrementally work towards achieving an ideal security posture or the security level appropriate for their risk profile. Some software projects may take more time to advance up the ladder, so this framework offers a piecemeal approach that may be more realistic (and encouraging) than trying to meet all of the requirements at once. Note that these levels and/or their requirements may shift with the release of future SLSA versions.
 
 The levels are described as follows:
 
