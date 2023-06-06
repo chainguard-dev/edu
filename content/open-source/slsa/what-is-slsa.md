@@ -40,9 +40,9 @@ Designed to be easy to adopt, this first level sets a foundation for working tow
 While Level 1 does not prevent tampering, fulfilling its requirements represents an important first step for securing your software supply chain. Labeling your software with this level can also help consumers make decisions about whether it has sufficiently verified its integrity for their contexts. For more information on getting started with reaching Level 1, visit [SLSA’s quick start guide](https://slsa.dev/get-started#reaching-slsa-level-1). 
 
 ### Build Level 2
-*Requires using version control and a hosted build service that generates authenticated provenance.*
+*Hosted build platform*
 
-Stepping up from Level 1, Level 2 requires the use of a hosted build service like GitHub Actions, Google Cloud Build, or Travis CI rather than a developer’s local environment. It also requires the use of a version control system that tracks change history and provides immutable references to all changes, such as git, Mercurial, Subversion, or Perforce. These changes do not need to be made public, but should be attested to by an external organization that a consumer can choose to trust or not. 
+Adding to the requirements of Level 1, Level 2 requires the use of a hosted build service like GitHub Actions, Google Cloud Build, or Travis CI rather than a developer’s local environment. The hosted service must sign the provenance it generates through the use of [_digital signatures_](/software-security/glossary/#code-signing), a method of verifying the authenticity and integrity of the software artifact.. 
 
 The stricter requirements for Level 2 help provide more protection against software tampering and enable greater levels of trust that the provenance data is accurately represented. 
 
