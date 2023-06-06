@@ -30,7 +30,7 @@ In its current release (SLSA v1.0), SLSA offers [a build track with three ascend
 
 ### Build Track
 
-Focusing on an artifact's [_provenance_](/software-security/glossary/#provenance), the SLSA build track outlines three levels designed to provide verification that artifacts meet build expectations.
+Focusing on an artifact's [_provenance_](/software-security/glossary/#provenance), the build track outlines three levels designed to provide verification that artifacts meet build expectations. Establishing provenance gives consumers information about who and what built an artifact, in addition to how it was built. Comparing an artifact’s expected and actual provenance gives consumers the tools to stop supply chain threats in their tracks by ensuring artifacts are constructed from trustworthy materials, by credible sources.
  
 ### Build Level 1
 *Package has provenance showing how it was built. Can be used to prevent mistakes but is trivial to bypass or forge.*
