@@ -906,6 +906,10 @@
             "required": true,
             "schema": {
               "properties": {
+                "awsIdentity": {
+                  "$ref": "#/definitions/IdentityAWSIdentity",
+                  "title": "aws_identity matches AWS IAM users and roles to an identity"
+                },
                 "claimMatch": {
                   "$ref": "#/definitions/IdentityClaimMatch",
                   "description": "claim_match checks the third party IdP token's claims against one\nor more configured patterns."
@@ -3016,6 +3020,31 @@
       },
       "type": "object"
     },
+    "IdentityAWSIdentity": {
+      "properties": {
+        "arn": {
+          "title": "Exact match to Arn of AWS Identity",
+          "type": "string"
+        },
+        "arnPattern": {
+          "title": "Regular expression for matching Arn",
+          "type": "string"
+        },
+        "awsAccount": {
+          "title": "Required, matches the `Account` field in the GetCallerID AWS IAM\nresponse",
+          "type": "string"
+        },
+        "userId": {
+          "title": "Exacty match of the UserID field",
+          "type": "string"
+        },
+        "userIdPattern": {
+          "title": "Regular expression for UserId field",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "IdentityClaimMatch": {
       "properties": {
         "audience": {
@@ -3633,6 +3662,10 @@
     },
     "iamIdentity": {
       "properties": {
+        "awsIdentity": {
+          "$ref": "#/definitions/IdentityAWSIdentity",
+          "title": "aws_identity matches AWS IAM users and roles to an identity"
+        },
         "claimMatch": {
           "$ref": "#/definitions/IdentityClaimMatch",
           "description": "claim_match checks the third party IdP token's claims against one\nor more configured patterns."
