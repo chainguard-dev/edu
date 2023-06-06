@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/trust-manager](https://github.com/chainguard-images/images/tree/main/images/trust-manager)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `0`, `0.5`, `0.5.0`, `0.5.0-r0`                 |
-| `latest-dev` | `0-dev`, `0.5-dev`, `0.5.0-dev`, `0.5.0-r0-dev` |
+| `latest`     | `0`, `0.5`, `0.5.0`, `0.5.0-r1`                 |
+| `latest-dev` | `0-dev`, `0.5-dev`, `0.5.0-dev`, `0.5.0-r1-dev` |
 
 
 

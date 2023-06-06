@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 | CMD          | `-h`          |
 | Workdir      | `/home/nc`    |
 | Has apk?     | no            |
-| Has a shell? | no            |
+| Has a shell? | yes           |
 
 ## Image Dependencies
 The table shows package distribution across all variants.
@@ -38,5 +38,6 @@ The table shows package distribution across all variants.
 |                    | latest |
 |--------------------|--------|
 | `wolfi-baselayout` | X      |
+| `busybox`          | X      |
 | `netcat-openbsd`   | X      |
 
