@@ -1,3 +1,56 @@
+## 2023-06-07
+
+Updated image reference docs.
+
+New images added:
+
+- kyverno
+- kyverno-background-controller
+- kyverno-cleanup-controller
+- kyverno-cli
+- kyverno-reports-controller
+- kyvernopre
+- newrelic-infrastructure-bundle
+
+## 2023-06-06
+
+Updated image reference docs.
+
+New images added:
+
+- aws-ebs-csi-driver
+- dive
+- kubernetes-csi-external-attacher
+- kubernetes-csi-external-resizer
+- kubernetes-csi-external-snapshot-controller
+- kubernetes-csi-external-snapshot-validation-webhook
+- kubernetes-csi-external-snapshotter
+- kubewatch
+- tigera-operator
+
+## 2023-06-05
+
+Updated image reference docs.
+
+No new images added.
+
+## 2023-06-04
+
+Updated image reference docs.
+
+New images added:
+
+- buck2
+- haproxy-ingress
+
+## 2023-06-03
+
+Updated image reference docs.
+
+New images added:
+
+- kube-downscaler
+
 ## 2023-06-02
 
 Updated image reference docs.

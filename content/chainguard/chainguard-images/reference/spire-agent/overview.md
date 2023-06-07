@@ -17,12 +17,16 @@ toc: true
 `stable` [cgr.dev/chainguard/spire-agent](https://github.com/chainguard-images/images/tree/main/images/spire-agent)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.6`, `1.6.4`, `1.6.4-r1`                 |
-| `latest-dev` | `1-dev`, `1.6-dev`, `1.6.4-dev`, `1.6.4-r1-dev` |
+| `latest`     | `1`, `1.6`, `1.6.4`, `1.6.4-r4`                 |
+| `latest-dev` | `1-dev`, `1.6-dev`, `1.6.4-dev`, `1.6.4-r4-dev` |
 
 
 
-Minimalist Wolfi-based `spire-agent` image
+Minimalist Wolfi-based `spire-agent` image.
+
+**Note**: Unlike most other Chainguard images, the `spire-agent` image must run as root.
+This is due to a constraint in the way it is typically deployed into Kubernetes clusters.
+See https://github.com/spiffe/spire/issues/1862 for more context.
 
 ## Get It!
 

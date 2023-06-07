@@ -1,5 +1,5 @@
 ---
-date: 2023-05-30T19:39:44Z
+date: 2023-06-06T19:56:49Z
 title: "chainctl clusters workloads list"
 slug: chainctl_clusters_workloads_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_workloads_list/
