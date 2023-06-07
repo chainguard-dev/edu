@@ -46,4 +46,6 @@ The table shows package distribution across all variants.
 | `git`                    | X      |
 | `bazel-6`                | X      |
 | `wolfi-baselayout`       | X      |
+| `zip`                    | X      |
+| `file`                   | X      |
 

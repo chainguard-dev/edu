@@ -35,8 +35,9 @@ The table has detailed information about each of these variants.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                    | latest |
-|--------------------|--------|
-| `prometheus`       | X      |
-| `wolfi-baselayout` | X      |
+|                          | latest |
+|--------------------------|--------|
+| `prometheus`             | X      |
+| `wolfi-baselayout`       | X      |
+| `ca-certificates-bundle` | X      |
 

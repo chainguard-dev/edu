@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/kube-bench](https://github.com/chainguard-images/images/tree/main/images/kube-bench)
 | Tags     | Aliases                           |
 |----------|-----------------------------------|
-| `latest` | `0`, `0.6`, `0.6.14`, `0.6.14-r2` |
+| `latest` | `0`, `0.6`, `0.6.15`, `0.6.15-r0` |
 
 
 
