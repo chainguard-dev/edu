@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-06-06 19:52:49 +0000 UTC
+date: 2023-06-07 18:01:30 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -12,10 +12,19 @@ weight: 799
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
 
-### v0.1.124
-Release date: 2023-06-06
+### v0.1.125
+Release date: 2023-06-07
 
 Customer facing changes: N/A
+
+### v0.1.124
+Release date: 2023-06-06
+#### API Change
+- RoleBinding/Create will no longer fail with AlreadyExists when a RoleBinding is recreated.
+#### Bug or Regression
+- Fix terraform provider "group not found" error when an IAM group is deleted out of band
+- chainctl: support --identity-provider for configure-docker
+
 
 ### v0.1.123
 Release date: 2023-06-05
