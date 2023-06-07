@@ -42,4 +42,5 @@ The table shows package distribution across all variants.
 | `google-cloud-sdk`       | X      |
 | `apk-tools`              | X      |
 | `busybox`                | X      |
+| `bash`                   | X      |
 

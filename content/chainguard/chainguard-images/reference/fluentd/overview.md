@@ -14,7 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/fluentd](https://github.com/chainguard-images/images/tree/main/images/fluentd)
+`stable` [cgr.dev/chainguard/fluentd](https://github.com/chainguard-images/images/tree/main/images/fluentd)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
 | `latest`     | `1`, `1.14`, `1.14.6`, `1.14.6-r4`                 |

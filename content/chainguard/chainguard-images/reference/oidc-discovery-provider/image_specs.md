@@ -36,13 +36,13 @@ The table has detailed information about each of these variants.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                           | latest | latest-dev |
-|---------------------------|--------|------------|
-| `wolfi-baselayout`        | X      | X          |
-| `ca-certificates-bundle`  | X      | X          |
-| `oidc-discovery-provider` | X      | X          |
-| `apk-tools`               |        | X          |
-| `bash`                    |        | X          |
-| `busybox`                 |        | X          |
-| `git`                     |        | X          |
+|                                 | latest | latest-dev |
+|---------------------------------|--------|------------|
+| `wolfi-baselayout`              | X      | X          |
+| `ca-certificates-bundle`        | X      | X          |
+| `spire-oidc-discovery-provider` | X      | X          |
+| `apk-tools`                     |        | X          |
+| `bash`                          |        | X          |
+| `busybox`                       |        | X          |
+| `git`                           |        | X          |
 

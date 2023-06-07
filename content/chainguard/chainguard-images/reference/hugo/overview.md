@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/hugo](https://github.com/chainguard-images/images/tree/main/images/hugo)
 | Tags         | Aliases                                               |
 |--------------|-------------------------------------------------------|
-| `latest`     | `0`, `0.112`, `0.112.6`, `0.112.6-r0`                 |
-| `latest-dev` | `0-dev`, `0.112-dev`, `0.112.6-dev`, `0.112.6-r0-dev` |
+| `latest`     | `0`, `0.113`, `0.113.0`, `0.113.0-r0`                 |
+| `latest-dev` | `0-dev`, `0.113-dev`, `0.113.0-dev`, `0.113.0-r0-dev` |
 
 
 

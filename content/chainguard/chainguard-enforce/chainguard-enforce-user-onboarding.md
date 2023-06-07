@@ -135,7 +135,7 @@ You’ll receive output in the form of a table of your current group (or groups)
   b9adda06841c1d34dfa73d5902ed44b5448b7958 | enforce-demo-group  |
 ```
 
-> **Note**: If you don't receive output like the above at all, you can create a new group by running `chainctl iam groups create --no-parent` and then pass your preferred `group-name` to create a new group. After group creation, you can run `chainctl iam groups ls -o table` again.
+> **Note**: If you don't receive output like the above at all, you can create a new group by running `chainctl iam groups create --no-parent` to create a new group. The `--no-parent` flag will ensure that the new group will be a new root group; this means it won't have any connections to your existing Chainguard resources, making it safe for experimentation. After group creation, you can run `chainctl iam groups ls -o table` again to retrieve the new group's ID.
 
 Let’s create a variable that stores that ID for later steps in the tutorial. Replace `$GROUP_ID` below with the relevant ID; for exmaple, in the case of `enforce-demo-group` above, you would enter `b9adda06841c1d34dfa73d5902ed44b5448b7958` instead of `$GROUP_ID` in the next command.
 

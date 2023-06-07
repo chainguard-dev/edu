@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/argocd](https://github.com/chainguard-images/images/tree/main/images/argocd)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.7`, `2.7.3`, `2.7.3-r1`                 |
-| `latest-dev` | `2-dev`, `2.7-dev`, `2.7.3-dev`, `2.7.3-r1-dev` |
+| `latest`     | `2`, `2.7`, `2.7.4`, `2.7.4-r0`                 |
+| `latest-dev` | `2-dev`, `2.7-dev`, `2.7.4-dev`, `2.7.4-r0-dev` |
 
 
 
