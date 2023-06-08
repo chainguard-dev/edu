@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/openai](https://github.com/chainguard-images/images/tree/main/images/openai)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.27`, `0.27.7`, `0.27.7-r0`                 |
-| `latest-dev` | `0-dev`, `0.27-dev`, `0.27.7-dev`, `0.27.7-r0-dev` |
+| `latest`     | `0`, `0.27`, `0.27.8`, `0.27.8-r0`                 |
+| `latest-dev` | `0-dev`, `0.27-dev`, `0.27.8-dev`, `0.27.8-r0-dev` |
 
 
 
