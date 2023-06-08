@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/kube-downscaler](https://github.com/chainguard-images/images/tree/main/images/kube-downscaler)
 | Tags         | Aliases                                             |
 |--------------|-----------------------------------------------------|
-| `latest`     | `23`, `23.2`, `23.2.0`, `23.2.0-r1`                 |
-| `latest-dev` | `23-dev`, `23.2-dev`, `23.2.0-dev`, `23.2.0-r1-dev` |
+| `latest`     | `23`, `23.2`, `23.2.0`, `23.2.0-r2`                 |
+| `latest-dev` | `23-dev`, `23.2-dev`, `23.2.0-dev`, `23.2.0-r2-dev` |
 
 
 

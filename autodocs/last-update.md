@@ -1,13 +1,5 @@
-## 2023-06-07
+## 2023-06-08
 
 Updated image reference docs.
 
-New images added:
-
-- kyverno
-- kyverno-background-controller
-- kyverno-cleanup-controller
-- kyverno-cli
-- kyverno-reports-controller
-- kyvernopre
-- newrelic-infrastructure-bundle
+No new images added.
