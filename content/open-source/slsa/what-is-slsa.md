@@ -18,39 +18,43 @@ toc: true
 
 SLSA (pronounced “salsa”), or Supply chain Levels for Software Artifacts, is a security framework consisting of standards and controls that prevent tampering, improve integrity, and secure packages and infrastructure. While cyberattacks like [SolarWinds](https://www.gao.gov/assets/gao-22-104746.pdf) and [Codecov](https://www.reuters.com/technology/codecov-hackers-breached-hundreds-restricted-customer-sites-sources-2021-04-19/) have demonstrated the importance of protecting software from tampering and malicious compromise, the complexity of the software development lifecycle can leave many feeling unable to adequately understand or respond to these specific security issues. 
 
-[Released by Google’s Open Source Security Team](https://security.googleblog.com/2021/06/introducing-slsa-end-to-end-framework.html) in 2021, SLSA was created as a _framework_ to help software creators understand where and how they can harden their supply chain security practices, and help software consumers evaluate the integrity of a software product or component before they decide to use it. SLSA was also designed around the creation of verifiable metadata, so that software consumers can set automated policies to prevent the deployment of code that does not meet their preferred SLSA level. 
+[Released by Google’s Open Source Security Team](https://security.googleblog.com/2021/06/introducing-slsa-end-to-end-framework.html) in 2021, SLSA was created as a framework to help software creators understand where and how they can harden their supply chain security practices, and help software consumers evaluate the integrity of a software product or component before they decide to use it. SLSA was also designed around the creation of verifiable metadata, so that software consumers can set automated policies to prevent the deployment of code that does not meet their preferred SLSA level. 
 
-Today, SLSA is a vendor-neutral project supported by the [Open Source Security Foundation](https://openssf.org/) and is actively evolving its standards and supporting tools with industry input. In this guide, you will learn about SLSA tracks, levels, and security requirements, as well as emerging tools that can help you meet these requirements.  
+Today, SLSA is a vendor-neutral project supported by the [Open Source Security Foundation](https://openssf.org/) and is actively evolving its standards and supporting tools with industry input. In this guide, you will learn about SLSA tracks, levels, and security requirements, as well as emerging tools that can help you meet these requirements.
 
 
 ## SLSA Tracks and Levels
 
-Evolving from SLSA v0.1, v1.0 saw a shift to its current track structure, dividing requirements for key pillars of supply chain security into separate categories. Previously, the unnamed SLSA track captured elements of different areas, making achieving high levels of SLSA difficult if a build fell short in some aspects. This restructuring allows consumers to adopt some benefits of SLSA without the stricter expectations of v0.1.
+Evolving from v0.1, SLSA v1.0 shifted to its current track structure, dividing requirements for key pillars of supply chain security into separate categories. Previously, the single unnamed SLSA track captured elements of different areas, making achieving high levels of SLSA difficult if a build fell short in some aspects. By restructuring SLSA into multiple tracks, organizations can focus on hardening one aspect of their security without being blocked by the status of a different track.
 
-As of this writing, SLSA offers [a build track with three ascending levels of security](https://slsa.dev/spec/v1.0/levels#levels-and-tracks), each containing a set of security requirements that expands on the those of the prior level. SLSA tracks and levels are designed to function as a ladder so that developers and organizations can incrementally work towards achieving an ideal security posture or the security level appropriate for their risk profile. Some software projects may take more time to advance up the ladder, so this framework offers a piecemeal approach that may be more realistic (and encouraging) than trying to meet all of the requirements at once. Note that these tracks, levels, and/or their requirements may shift with the release of [future SLSA versions](https://slsa.dev/spec/v1.0/future-directions).
+SLSA levels are designed to function as a ladder so that developers and organizations can incrementally work towards achieving a security posture appropriate for their risk profile. Some software projects may take more time to advance up the ladder, so this framework offers a piecemeal approach that may be more realistic (and encouraging) than trying to meet all of the requirements at once.
+
+As of this writing, SLSA offers [a build track with three ascending levels of security](https://slsa.dev/spec/v1.0/levels#levels-and-tracks), each containing a set of security requirements that expands on those of the prior level. The SLSA project has proposed adding additional tracks in a prospective version.
+
+Note that these tracks, levels, and/or their requirements may shift with the release of [future SLSA versions](https://slsa.dev/spec/v1.0/future-directions).
 
 ### Build Track
 
 Focusing on an artifact's [_provenance_](/software-security/glossary/#provenance), the build track outlines three levels designed to provide verification that artifacts meet build expectations. Establishing provenance gives consumers information about who built an artifact, what inputs were used, and what process was used to build it. Comparing an artifact’s expected and actual provenance can help to stop supply chain threats in their tracks by ensuring artifacts are constructed from trustworthy materials, by credible sources. SLSA recommends its [SLSA Provenance format](https://slsa.dev/provenance/v1) for meeting provenance expectations.
 
 ### Build Level 1
-_Provenance Exists_
+_Provenance showing how the package was built_
 
-This first level sets a foundation for working towards subsequent build track levels. Software production methods must be consistent so standard expectations for future builds are set. In addition, artifact provenance must be automatically generated by the build platform. Provenance metadata should contain information on how the artifact was built, the parties involved, as well as the build process and inputs used. Software producers are responsible for distributing provenance information with package releases.
+This first level sets a foundation for working towards subsequent build track levels. Software production methods must be consistent so standard expectations for future builds are set. In addition, artifact provenance containing information on the build must be automatically generated by the build platform. Software producers are responsible for distributing provenance metadata with package releases.
 
-While Level 1 does not prevent tampering, fulfilling its requirements represents an important first step for securing your software supply chain. Labeling your software with this level can also help consumers make decisions about whether it has sufficiently verified its integrity for their contexts. For more information on getting started with reaching Level 1, visit [SLSA’s quick start guide](https://slsa.dev/get-started#slsa-1). 
+While Level 1 does not prevent tampering, fulfilling its requirements represents an important first step in securing your software supply chain. _(?)Labeling your software with this level can also help consumers make decisions about whether it has sufficiently verified its integrity for their contexts._ For more information on getting started with reaching Level 1, visit [SLSA’s quick start guide](https://slsa.dev/get-started#slsa-1). 
 
 ### Build Level 2
-_Hosted build platform_
+_Signed provenance, generated by a hosted build platform_
 
 Adding to the requirements of Level 1, Level 2 requires the use of a hosted build service like GitHub Actions, Google Cloud Build, or Travis CI rather than a developer’s local environment. The hosted service must sign the provenance it generates through the use of [_digital signatures_](/software-security/glossary/#code-signing), a method of verifying the authenticity and integrity of the software artifact.
 
 The stricter requirements for Level 2 help provide more protection against software tampering and enable greater levels of trust that the provenance data is accurately represented. For more information, check out SLSA's guide on [reaching level 2](https://slsa.dev/get-started#slsa-2).
 
 ### Build Level 3 
-_Hardened builds_
+_Hardened build platform_
 
-As the highest level of the build track, this level aims to increase trust and harden infrastructure through a variety of requirements designed to meet specific threats. The requirements are as follows:
+As the highest level of the build track, Level 3 aims to increase trust and harden infrastructure through a variety of requirements designed to meet specific threats. The requirements are as follows:
 
 * **[Isolated](https://slsa.dev/spec/v1.0/requirements#isolation-strength)**: The build steps must be run in an isolated environment without risk of influence from other build processes, such as a container or VM, that has been created specifically for the build. Environments must not be reused.
 * **[Unforgeable](https://slsa.dev/spec/v1.0/requirements#provenance-generation)**:  It must be impossible for the build service’s users to falsify provenance information. All provenance information must be generated by the build service in a trusted control plane, except for noted exceptions.
