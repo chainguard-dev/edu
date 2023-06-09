@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/aws-cli](https://github.com/chainguard-images/images/tree/main/images/aws-cli)
 | Tags         | Aliases                                                |
 |--------------|--------------------------------------------------------|
-| `latest`     | `1`, `1.27`, `1.27.148`, `1.27.148-r0`                 |
-| `latest-dev` | `1-dev`, `1.27-dev`, `1.27.148-dev`, `1.27.148-r0-dev` |
+| `latest`     | `1`, `1.27`, `1.27.149`, `1.27.149-r0`                 |
+| `latest-dev` | `1-dev`, `1.27-dev`, `1.27.149-dev`, `1.27.149-r0-dev` |
 
 
 

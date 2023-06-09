@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/terraform](https://github.com/chainguard-images/images/tree/main/images/terraform)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `1`, `1.4`, `1.4.6`, `1.4.6-r3` |
+| `latest` | `1`, `1.4`, `1.4.6`, `1.4.6-r4` |
 
 
 

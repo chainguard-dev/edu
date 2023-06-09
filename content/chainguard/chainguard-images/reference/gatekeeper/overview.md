@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/gatekeeper](https://github.com/chainguard-images/images/tree/main/images/gatekeeper)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `3`, `3.12`, `3.12.0`, `3.12.0-r2`                 |
-| `latest-dev` | `3-dev`, `3.12-dev`, `3.12.0-dev`, `3.12.0-r2-dev` |
+| `latest`     | `3`, `3.12`, `3.12.0`, `3.12.0-r3`                 |
+| `latest-dev` | `3-dev`, `3.12-dev`, `3.12.0-dev`, `3.12.0-r3-dev` |
 
 
 

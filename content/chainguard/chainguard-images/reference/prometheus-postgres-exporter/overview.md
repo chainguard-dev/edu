@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/prometheus-postgres-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-postgres-exporter)
 | Tags     | Aliases                            |
 |----------|------------------------------------|
-| `latest` | `0`, `0.12`, `0.12.0`, `0.12.0-r2` |
+| `latest` | `0`, `0.12`, `0.12.0`, `0.12.0-r3` |
 
 
 

@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/pulumi](https://github.com/chainguard-images/images/tree/main/images/pulumi)
 | Tags     | Aliases                            |
 |----------|------------------------------------|
-| `latest` | `3`, `3.69`, `3.69.0`, `3.69.0-r0` |
+| `latest` | `3`, `3.69`, `3.69.0`, `3.69.0-r1` |
 
 
 

@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/source-controller](https://github.com/chainguard-images/images/tree/main/images/source-controller)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.36`, `0.36.1`, `0.36.1-r2`                 |
-| `latest-dev` | `0-dev`, `0.36-dev`, `0.36.1-dev`, `0.36.1-r2-dev` |
+| `latest`     | `0`, `0.36`, `0.36.1`, `0.36.1-r3`                 |
+| `latest-dev` | `0-dev`, `0.36-dev`, `0.36.1-dev`, `0.36.1-r3-dev` |
 
 
 

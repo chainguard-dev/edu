@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/prometheus-redis-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-redis-exporter)
 | Tags     | Aliases                            |
 |----------|------------------------------------|
-| `latest` | `1`, `1.50`, `1.50.0`, `1.50.0-r0` |
+| `latest` | `1`, `1.50`, `1.50.0`, `1.50.0-r1` |
 
 
 

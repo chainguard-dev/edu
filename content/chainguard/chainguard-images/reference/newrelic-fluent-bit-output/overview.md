@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/newrelic-fluent-bit-output](https://github.com/chainguard-images/images/tree/main/images/newrelic-fluent-bit-output)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.16`, `1.16.0`, `1.16.0-r2`                 |
-| `latest-dev` | `1-dev`, `1.16-dev`, `1.16.0-dev`, `1.16.0-r2-dev` |
+| `latest`     | `1`, `1.16`, `1.16.0`, `1.16.0-r3`                 |
+| `latest-dev` | `1-dev`, `1.16-dev`, `1.16.0-dev`, `1.16.0-r3-dev` |
 
 
 

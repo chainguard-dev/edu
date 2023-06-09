@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/notification-controller](https://github.com/chainguard-images/images/tree/main/images/notification-controller)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.33`, `0.33.0`, `0.33.0-r3`                 |
-| `latest-dev` | `0-dev`, `0.33-dev`, `0.33.0-dev`, `0.33.0-r3-dev` |
+| `latest`     | `0`, `0.33`, `0.33.0`, `0.33.0-r4`                 |
+| `latest-dev` | `0-dev`, `0.33-dev`, `0.33.0-dev`, `0.33.0-r4-dev` |
 
 
 

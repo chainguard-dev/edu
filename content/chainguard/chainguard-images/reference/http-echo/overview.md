@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/http-echo](https://github.com/chainguard-images/images/tree/main/images/http-echo)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `0`, `0.2`, `0.2.3`, `0.2.3-r0`                 |
-| `latest-dev` | `0-dev`, `0.2-dev`, `0.2.3-dev`, `0.2.3-r0-dev` |
+| `latest`     | `0`, `0.2`, `0.2.3`, `0.2.3-r1`                 |
+| `latest-dev` | `0-dev`, `0.2-dev`, `0.2.3-dev`, `0.2.3-r1-dev` |
 
 
 

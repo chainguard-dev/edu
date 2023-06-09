@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/external-secrets](https://github.com/chainguard-images/images/tree/main/images/external-secrets)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `0`, `0.8`, `0.8.3`, `0.8.3-r1`                 |
-| `latest-dev` | `0-dev`, `0.8-dev`, `0.8.3-dev`, `0.8.3-r1-dev` |
+| `latest`     | `0`, `0.8`, `0.8.3`, `0.8.3-r2`                 |
+| `latest-dev` | `0-dev`, `0.8-dev`, `0.8.3-dev`, `0.8.3-r2-dev` |
 
 
 

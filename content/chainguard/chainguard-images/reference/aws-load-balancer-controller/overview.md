@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/aws-load-balancer-controller](https://github.com/chainguard-images/images/tree/main/images/aws-load-balancer-controller)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.5`, `2.5.2`, `2.5.2-r0`                 |
-| `latest-dev` | `2-dev`, `2.5-dev`, `2.5.2-dev`, `2.5.2-r0-dev` |
+| `latest`     | `2`, `2.5`, `2.5.2`, `2.5.2-r1`                 |
+| `latest-dev` | `2-dev`, `2.5-dev`, `2.5.2-dev`, `2.5.2-r1-dev` |
 
 
 

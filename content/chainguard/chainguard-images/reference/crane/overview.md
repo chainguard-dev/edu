@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/crane](https://github.com/chainguard-images/images/tree/main/images/crane)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.15`, `0.15.2`, `0.15.2-r2`                 |
-| `latest-dev` | `0-dev`, `0.15-dev`, `0.15.2-dev`, `0.15.2-r2-dev` |
+| `latest`     | `0`, `0.15`, `0.15.2`, `0.15.2-r3`                 |
+| `latest-dev` | `0-dev`, `0.15-dev`, `0.15.2-dev`, `0.15.2-r3-dev` |
 
 
 

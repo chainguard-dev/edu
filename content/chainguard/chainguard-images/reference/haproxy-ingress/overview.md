@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/haproxy-ingress](https://github.com/chainguard-images/images/tree/main/images/haproxy-ingress)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.14`, `0.14.3`, `0.14.3-r0`                 |
-| `latest-dev` | `0-dev`, `0.14-dev`, `0.14.3-dev`, `0.14.3-r0-dev` |
+| `latest`     | `0`, `0.14`, `0.14.3`, `0.14.3-r1`                 |
+| `latest-dev` | `0-dev`, `0.14-dev`, `0.14.3-dev`, `0.14.3-r1-dev` |
 
 
 

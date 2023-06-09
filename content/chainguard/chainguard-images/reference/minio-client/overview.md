@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/minio-client](https://github.com/chainguard-images/images/tree/main/images/minio-client)
 | Tags         | Aliases                                                                        |
 |--------------|--------------------------------------------------------------------------------|
-| `latest`     | `0`, `0.20230323`, `0.20230323.200304`, `0.20230323.200304-r2`                 |
-| `latest-dev` | `0-dev`, `0.20230323-dev`, `0.20230323.200304-dev`, `0.20230323.200304-r2-dev` |
+| `latest`     | `0`, `0.20230323`, `0.20230323.200304`, `0.20230323.200304-r3`                 |
+| `latest-dev` | `0-dev`, `0.20230323-dev`, `0.20230323.200304-dev`, `0.20230323.200304-r3-dev` |
 
 
 
