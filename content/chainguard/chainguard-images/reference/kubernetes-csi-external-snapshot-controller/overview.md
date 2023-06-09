@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/kubernetes-csi-external-snapshot-controller](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-snapshot-controller)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `6`, `6.2`, `6.2.2`, `6.2.2-r0` |
+| `latest` | `6`, `6.2`, `6.2.2`, `6.2.2-r1` |
 
 
 

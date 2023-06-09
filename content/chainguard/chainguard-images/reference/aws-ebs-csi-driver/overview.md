@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/aws-ebs-csi-driver](https://github.com/chainguard-images/images/tree/main/images/aws-ebs-csi-driver)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.19`, `1.19.0`, `1.19.0-r0`                 |
-| `latest-dev` | `1-dev`, `1.19-dev`, `1.19.0-dev`, `1.19.0-r0-dev` |
+| `latest`     | `1`, `1.19`, `1.19.0`, `1.19.0-r1`                 |
+| `latest-dev` | `1-dev`, `1.19-dev`, `1.19.0-dev`, `1.19.0-r1-dev` |
 
 
 

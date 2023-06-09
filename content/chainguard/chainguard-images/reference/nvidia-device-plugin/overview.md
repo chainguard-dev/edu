@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/nvidia-device-plugin](https://github.com/chainguard-images/images/tree/main/images/nvidia-device-plugin)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.14`, `0.14.0`, `0.14.0-r2`                 |
-| `latest-dev` | `0-dev`, `0.14-dev`, `0.14.0-dev`, `0.14.0-r2-dev` |
+| `latest`     | `0`, `0.14`, `0.14.0`, `0.14.0-r3`                 |
+| `latest-dev` | `0-dev`, `0.14-dev`, `0.14.0-dev`, `0.14.0-r3-dev` |
 
 
 
