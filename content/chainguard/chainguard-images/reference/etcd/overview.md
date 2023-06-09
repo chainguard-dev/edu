@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/etcd](https://github.com/chainguard-images/images/tree/main/images/etcd)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `3`, `3.5`, `3.5.9`, `3.5.9-r0`                 |
-| `latest-dev` | `3-dev`, `3.5-dev`, `3.5.9-dev`, `3.5.9-r0-dev` |
+| `latest`     | `3`, `3.5`, `3.5.9`, `3.5.9-r1`                 |
+| `latest-dev` | `3-dev`, `3.5-dev`, `3.5.9-dev`, `3.5.9-r1-dev` |
 
 
 

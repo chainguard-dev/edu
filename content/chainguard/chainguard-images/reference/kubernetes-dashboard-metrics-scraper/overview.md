@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/kubernetes-dashboard-metrics-scraper](https://github.com/chainguard-images/images/tree/main/images/kubernetes-dashboard-metrics-scraper)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.0`, `1.0.9`, `1.0.9-r1`                 |
-| `latest-dev` | `1-dev`, `1.0-dev`, `1.0.9-dev`, `1.0.9-r1-dev` |
+| `latest`     | `1`, `1.0`, `1.0.9`, `1.0.9-r2`                 |
+| `latest-dev` | `1-dev`, `1.0-dev`, `1.0.9-dev`, `1.0.9-r2-dev` |
 
 
 

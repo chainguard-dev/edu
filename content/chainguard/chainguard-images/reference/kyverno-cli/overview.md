@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/kyverno-cli](https://github.com/chainguard-images/images/tree/main/images/kyverno-cli)
 | Tags     | Aliases                            |
 |----------|------------------------------------|
-| `latest` | `1`, `1.10`, `1.10.0`, `1.10.0-r0` |
+| `latest` | `1`, `1.10`, `1.10.0`, `1.10.0-r1` |
 
 
 

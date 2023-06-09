@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/paranoia](https://github.com/chainguard-images/images/tree/main/images/paranoia)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `0`, `0.2`, `0.2.1`, `0.2.1-r0`                 |
-| `latest-dev` | `0-dev`, `0.2-dev`, `0.2.1-dev`, `0.2.1-r0-dev` |
+| `latest`     | `0`, `0.2`, `0.2.1`, `0.2.1-r1`                 |
+| `latest-dev` | `0-dev`, `0.2-dev`, `0.2.1-dev`, `0.2.1-r1-dev` |
 
 
 

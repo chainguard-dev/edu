@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/kubernetes-ingress-defaultbackend](https://github.com/chainguard-images/images/tree/main/images/kubernetes-ingress-defaultbackend)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.23`, `1.23.1`, `1.23.1-r1`                 |
-| `latest-dev` | `1-dev`, `1.23-dev`, `1.23.1-dev`, `1.23.1-r1-dev` |
+| `latest`     | `1`, `1.23`, `1.23.1`, `1.23.1-r2`                 |
+| `latest-dev` | `1-dev`, `1.23-dev`, `1.23.1-dev`, `1.23.1-r2-dev` |
 
 
 

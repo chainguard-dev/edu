@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/aws-efs-csi-driver](https://github.com/chainguard-images/images/tree/main/images/aws-efs-csi-driver)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.5`, `1.5.6`, `1.5.6-r0`                 |
-| `latest-dev` | `1-dev`, `1.5-dev`, `1.5.6-dev`, `1.5.6-r0-dev` |
+| `latest`     | `1`, `1.5`, `1.5.6`, `1.5.6-r1`                 |
+| `latest-dev` | `1-dev`, `1.5-dev`, `1.5.6-dev`, `1.5.6-r1-dev` |
 
 
 

@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/secrets-store-csi-driver-provider-gcp](https://github.com/chainguard-images/images/tree/main/images/secrets-store-csi-driver-provider-gcp)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.2`, `1.2.0`, `1.2.0-r3`                 |
-| `latest-dev` | `1-dev`, `1.2-dev`, `1.2.0-dev`, `1.2.0-r3-dev` |
+| `latest`     | `1`, `1.2`, `1.2.0`, `1.2.0-r4`                 |
+| `latest-dev` | `1-dev`, `1.2-dev`, `1.2.0-dev`, `1.2.0-r4-dev` |
 
 
 

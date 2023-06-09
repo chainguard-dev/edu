@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/dex](https://github.com/chainguard-images/images/tree/main/images/dex)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `2`, `2.36`, `2.36.0`, `2.36.0-r3`                 |
-| `latest-dev` | `2-dev`, `2.36-dev`, `2.36.0-dev`, `2.36.0-r3-dev` |
+| `latest`     | `2`, `2.36`, `2.36.0`, `2.36.0-r4`                 |
+| `latest-dev` | `2-dev`, `2.36-dev`, `2.36.0-dev`, `2.36.0-r4-dev` |
 
 
 

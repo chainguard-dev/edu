@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/cluster-proportional-autoscaler](https://github.com/chainguard-images/images/tree/main/images/cluster-proportional-autoscaler)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.8`, `1.8.8`, `1.8.8-r1`                 |
-| `latest-dev` | `1-dev`, `1.8-dev`, `1.8.8-dev`, `1.8.8-r1-dev` |
+| `latest`     | `1`, `1.8`, `1.8.8`, `1.8.8-r2`                 |
+| `latest-dev` | `1-dev`, `1.8-dev`, `1.8.8-dev`, `1.8.8-r2-dev` |
 
 
 

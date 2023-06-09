@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/flux](https://github.com/chainguard-images/images/tree/main/images/flux)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.41`, `0.41.2`, `0.41.2-r3`                 |
-| `latest-dev` | `0-dev`, `0.41-dev`, `0.41.2-dev`, `0.41.2-r3-dev` |
+| `latest`     | `0`, `0.41`, `0.41.2`, `0.41.2-r4`                 |
+| `latest-dev` | `0-dev`, `0.41-dev`, `0.41.2-dev`, `0.41.2-r4-dev` |
 
 
 

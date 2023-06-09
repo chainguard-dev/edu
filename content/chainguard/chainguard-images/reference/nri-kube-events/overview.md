@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/nri-kube-events](https://github.com/chainguard-images/images/tree/main/images/nri-kube-events)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.1`, `2.1.0`, `2.1.0-r1`                 |
-| `latest-dev` | `2-dev`, `2.1-dev`, `2.1.0-dev`, `2.1.0-r1-dev` |
+| `latest`     | `2`, `2.1`, `2.1.0`, `2.1.0-r2`                 |
+| `latest-dev` | `2-dev`, `2.1-dev`, `2.1.0-dev`, `2.1.0-r2-dev` |
 
 
 

@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/metacontroller](https://github.com/chainguard-images/images/tree/main/images/metacontroller)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `4`, `4.10`, `4.10.3`, `4.10.3-r0`                 |
-| `latest-dev` | `4-dev`, `4.10-dev`, `4.10.3-dev`, `4.10.3-r0-dev` |
+| `latest`     | `4`, `4.10`, `4.10.3`, `4.10.3-r1`                 |
+| `latest-dev` | `4-dev`, `4.10-dev`, `4.10.3-dev`, `4.10.3-r1-dev` |
 
 
 
