@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-06-07 18:01:30 +0000 UTC
+date: 2023-06-09 16:14:59 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -12,10 +12,21 @@ weight: 799
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
 
-### v0.1.125
-Release date: 2023-06-07
+### v0.1.126
+Release date: 2023-06-09
 
 Customer facing changes: N/A
+
+### v0.1.125
+Release date: 2023-06-07
+#### API Change
+- RoleBinding/Create will no longer fail with AlreadyExists when a RoleBinding is recreated.
+#### Feature
+- Choose capabilities interactively when creating a role if `--capabilities` is omitted, or when updating a role by passing an empty value to capability flags: `--capabilities=`, `--add-capabilities=`, or `--remove-capabilities=`
+- Expose context-based policy results to the UI
+#### Bug or Regression
+- define --identity-provider flag for configure-docker
+
 
 ### v0.1.124
 Release date: 2023-06-06
