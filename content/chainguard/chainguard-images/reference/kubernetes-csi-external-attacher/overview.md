@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/kubernetes-csi-external-attacher](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-attacher)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `4`, `4.3`, `4.3.0`, `4.3.0-r0`                 |
-| `latest-dev` | `4-dev`, `4.3-dev`, `4.3.0-dev`, `4.3.0-r0-dev` |
+| `latest`     | `4`, `4.3`, `4.3.0`, `4.3.0-r1`                 |
+| `latest-dev` | `4-dev`, `4.3-dev`, `4.3.0-dev`, `4.3.0-r1-dev` |
 
 
 

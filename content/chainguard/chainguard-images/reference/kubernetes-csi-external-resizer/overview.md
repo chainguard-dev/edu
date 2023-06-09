@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/kubernetes-csi-external-resizer](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-resizer)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.8`, `1.8.0`, `1.8.0-r0`                 |
-| `latest-dev` | `1-dev`, `1.8-dev`, `1.8.0-dev`, `1.8.0-r0-dev` |
+| `latest`     | `1`, `1.8`, `1.8.0`, `1.8.0-r1`                 |
+| `latest-dev` | `1-dev`, `1.8-dev`, `1.8.0-dev`, `1.8.0-r1-dev` |
 
 
 

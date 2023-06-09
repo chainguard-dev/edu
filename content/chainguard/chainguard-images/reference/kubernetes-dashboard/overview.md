@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/kubernetes-dashboard](https://github.com/chainguard-images/images/tree/main/images/kubernetes-dashboard)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.7`, `2.7.0`, `2.7.0-r2`                 |
-| `latest-dev` | `2-dev`, `2.7-dev`, `2.7.0-dev`, `2.7.0-r2-dev` |
+| `latest`     | `2`, `2.7`, `2.7.0`, `2.7.0-r3`                 |
+| `latest-dev` | `2-dev`, `2.7-dev`, `2.7.0-dev`, `2.7.0-r3-dev` |
 
 
 

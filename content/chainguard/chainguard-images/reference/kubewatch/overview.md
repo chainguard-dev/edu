@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/kubewatch](https://github.com/chainguard-images/images/tree/main/images/kubewatch)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.5`, `2.5.0`, `2.5.0-r0`                 |
-| `latest-dev` | `2-dev`, `2.5-dev`, `2.5.0-dev`, `2.5.0-r0-dev` |
+| `latest`     | `2`, `2.5`, `2.5.0`, `2.5.0-r1`                 |
+| `latest-dev` | `2-dev`, `2.5-dev`, `2.5.0-dev`, `2.5.0-r1-dev` |
 
 
 

@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/memcached-exporter](https://github.com/chainguard-images/images/tree/main/images/memcached-exporter)
 | Tags     | Aliases                            |
 |----------|------------------------------------|
-| `latest` | `0`, `0.13`, `0.13.0`, `0.13.0-r0` |
+| `latest` | `0`, `0.13`, `0.13.0`, `0.13.0-r1` |
 
 
 

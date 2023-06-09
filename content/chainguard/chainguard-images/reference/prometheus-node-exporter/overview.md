@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/prometheus-node-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-node-exporter)
 | Tags     | Aliases                         |
 |----------|---------------------------------|
-| `latest` | `1`, `1.6`, `1.6.0`, `1.6.0-r0` |
+| `latest` | `1`, `1.6`, `1.6.0`, `1.6.0-r1` |
 
 
 

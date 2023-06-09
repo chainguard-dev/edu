@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/keda](https://github.com/chainguard-images/images/tree/main/images/keda)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `2`, `2.10`, `2.10.1`, `2.10.1-r1`                 |
-| `latest-dev` | `2-dev`, `2.10-dev`, `2.10.1-dev`, `2.10.1-r1-dev` |
+| `latest`     | `2`, `2.10`, `2.10.1`, `2.10.1-r2`                 |
+| `latest-dev` | `2-dev`, `2.10-dev`, `2.10.1-dev`, `2.10.1-r2-dev` |
 
 
 
