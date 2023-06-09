@@ -20,7 +20,7 @@ SLSA (pronounced “salsa”), or Supply chain Levels for Software Artifacts, is
 
 [Released by Google’s Open Source Security Team](https://security.googleblog.com/2021/06/introducing-slsa-end-to-end-framework.html) in 2021, SLSA was created as a _framework_ to help software creators understand where and how they can harden their supply chain security practices, and help software consumers evaluate the integrity of a software product or component before they decide to use it. SLSA was also designed around the creation of verifiable metadata, so that software consumers can set automated policies to prevent the deployment of code that does not meet their preferred SLSA level. 
 
-Today, SLSA is a vendor-neutral project supported by the [Open Source Security Foundation](https://openssf.org/) and is actively evolving its standards and supporting tools with industry input. In this guide, you will learn about SLSA tracks, levels, and security requirements, emerging tools that can help you meet these requirements, and where you can learn more about the framework.  
+Today, SLSA is a vendor-neutral project supported by the [Open Source Security Foundation](https://openssf.org/) and is actively evolving its standards and supporting tools with industry input. In this guide, you will learn about SLSA tracks, levels, and security requirements, as well as emerging tools that can help you meet these requirements.  
 
 
 ## SLSA Tracks and Levels
