@@ -1,26 +1,33 @@
 ---
 date: 2023-06-09T16:20:16Z
-title: "chainctl auth logout"
-slug: chainctl_auth_logout
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth_logout/
+title: "chainctl auth configure-docker"
+slug: chainctl_auth_configure-docker
+url: /chainguard/chainctl/chainctl-docs/chainctl_auth_configure-docker/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth logout
+## chainctl auth configure-docker
 
-Logout from the Chainguard platform.
+Configure a Docker credential helper
 
 ```
-chainctl auth logout
+chainctl auth configure-docker [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for logout
+      --group string               The IAM group with which the pull-token identity is associated.
+  -h, --help                       help for configure-docker
+      --identity string            The unique ID of the identity to assume when logging in.
+      --identity-provider string   The unique ID of the customer managed identity provider to authenticate with
+      --identity-token string      Use an explicit passed identity token or token path.
+      --pull-token                 Whether to register a pull token that can pull images
+      --save                       If true with --pull-token, save the pull token to the Docker config
+      --ttl duration               For how long a generated pull-token will be valid. (default 720h0m0s)
 ```
 
 ### Options inherited from parent commands
