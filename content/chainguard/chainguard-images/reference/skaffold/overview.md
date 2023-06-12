@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/skaffold](https://github.com/chainguard-images/images/tree/main/images/skaffold)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.5`, `2.5.0`, `2.5.0-r1`                 |
-| `latest-dev` | `2-dev`, `2.5-dev`, `2.5.0-dev`, `2.5.0-r1-dev` |
+| `latest`     | `2`, `2.5`, `2.5.1`, `2.5.1-r0`                 |
+| `latest-dev` | `2-dev`, `2.5-dev`, `2.5.1-dev`, `2.5.1-r0-dev` |
 
 
 
