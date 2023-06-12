@@ -21,7 +21,7 @@ We’ll verify a binary artifact, in this case, a copy of [`apko`](/open-source/
 
 ### Verifying a binary with Cosign keyless signatures
 
-All apko releases are released with [keyless signatures using Cosign](open-source/sigstore/cosign/an-introduction-to-cosign/#keyless-signing). You can verify the signature for an apko release using the `cosign` tool directly, or by calculating the SHA256 hash of the release and finding the corresponding Rekor transparency log entry.
+All apko releases are released with [keyless signatures using Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/#keyless-signing). You can verify the signature for an apko release using the `cosign` tool directly, or by calculating the SHA256 hash of the release and finding the corresponding Rekor transparency log entry.
 
 If you would like to learn how to verify a binary using Rekor or curl, follow the steps in our guide [How to Verify File Signatures with Rekor or curl](/open-source/sigstore/rekor/how-to-verify-file-signatures-with-rekor-or-curl/).
 
