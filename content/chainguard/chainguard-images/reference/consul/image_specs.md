@@ -39,7 +39,6 @@ The table shows package distribution across all variants.
 |                                | latest | latest-dev |
 |--------------------------------|--------|------------|
 | `ca-certificates-bundle`       | X      | X          |
-| `wolfi-baselayout`             | X      | X          |
 | `consul`                       | X      | X          |
 | `su-exec`                      | X      | X          |
 | `busybox`                      | X      | X          |

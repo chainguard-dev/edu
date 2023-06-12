@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/newrelic-infrastructure-bundle](https://github.com/chainguard-images/images/tree/main/images/newrelic-infrastructure-bundle)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `3`, `3.2`, `3.2.2`, `3.2.2-r0`                 |
-| `latest-dev` | `3-dev`, `3.2-dev`, `3.2.2-dev`, `3.2.2-r0-dev` |
+| `latest`     | `3`, `3.2`, `3.2.7`, `3.2.7-r0`                 |
+| `latest-dev` | `3-dev`, `3.2-dev`, `3.2.7-dev`, `3.2.7-r0-dev` |
 
 
 
