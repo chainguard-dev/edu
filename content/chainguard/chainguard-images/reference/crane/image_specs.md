@@ -39,7 +39,6 @@ The table shows package distribution across all variants.
 |                          | latest | latest-dev |
 |--------------------------|--------|------------|
 | `ca-certificates-bundle` | X      | X          |
-| `wolfi-baselayout`       | X      | X          |
 | `crane`                  | X      | X          |
 | `apk-tools`              |        | X          |
 | `bash`                   |        | X          |

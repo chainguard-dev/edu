@@ -38,6 +38,5 @@ The table shows package distribution across all variants.
 |                          | latest |
 |--------------------------|--------|
 | `terraform`              | X      |
-| `wolfi-baselayout`       | X      |
 | `ca-certificates-bundle` | X      |
 
