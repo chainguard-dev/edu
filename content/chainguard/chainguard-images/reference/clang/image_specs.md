@@ -41,7 +41,6 @@ The table shows package distribution across all variants.
 | `ca-certificates-bundle` | X      | X          |
 | `build-base`             | X      | X          |
 | `busybox`                | X      | X          |
-| `wolfi-baselayout`       | X      | X          |
 | `clang-15`               | X      | X          |
 | `apk-tools`              |        | X          |
 | `bash`                   |        | X          |
