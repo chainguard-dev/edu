@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-06-09 16:14:59 +0000 UTC
+date: 2023-06-13 17:36:51 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -12,10 +12,29 @@ weight: 799
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
 
+### v0.1.127
+Release date: 2023-06-13
+#### Bug or Regression
+- Consistently use GitHub ID token when on self-hosted runners, even when the underlying platform also provides usable credentials
+- Search cleaned paths so `chainctl` isn't accidentally missing the PATH when configuring the docker cred helper
+- `chainctl` will report errors from `kubectl` during cluster install and uninstall.
+- cgr.dev credhelper uses configured IdP to refresh creds
+#### Other (Cleanup or Flake)
+- `chainctl auth configure-docker` now supports the `--headless` login option.
+
+
 ### v0.1.126
 Release date: 2023-06-09
+#### Feature
+- Allow creating AWS identity relationships for assumable identities
+- un-hide the configure-docker command
+#### Bug or Regression
+- chainctl iam identity create github/gitlab support omitting ref
+- consider configured custom IDP when configuring docker cred helper
+- fix: `chainctl cluster install` no longer fails installing AWS clusters without `--name`
+#### Other (Cleanup or Flake)
+- terraform provider now sets user agent with version and platform
 
-Customer facing changes: N/A
 
 ### v0.1.125
 Release date: 2023-06-07
