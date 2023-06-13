@@ -23,6 +23,9 @@ Chainguard Enforce provides a rich Identity and Access Management (IAM) model si
 
 Each Chainguard Policy needs to be associated with a **group**, and will be effective for that Group as well as all the groups descending from it. Each Cluster needs to be associated with a Group and will be enforced based on that group’s policies.
 
+
+## Logging in
+
 To authenticate into the Chainguard Enforce platform, use the following login command.
 
 ```sh
@@ -30,6 +33,8 @@ chainctl auth login
 ```
 
 A web browser window will open to prompt you to login via Google’s OIDC flow (more methods to authenticate are coming soon). Select an account with which you wish to register. Once authenticated, you can set up a desired group structure for managing and delegating policies.
+
+## Creating a Group
 
 Begin by creating a root group for your desired organization tied to the account you just used to authenticate to Chainguard Enforce.
 
@@ -40,7 +45,7 @@ chainctl iam groups create $NAME --no-parent
 After creating the root group, you can create your desired group hierarchy. Keep in mind that policies roll down, meaning that any policy created at the root level will be inherited by its children.
 
 ```sh
-chainctl iam group create $CHILD_NAME -parent $ROOT_ID
+chainctl iam group create $CHILD_NAME --parent $ROOT_ID
 ```
 
 We recommend creating a group structure that outlines how your team organizes and delegates permissions.  A sample starting point can include dev, staging, and prod.
@@ -52,18 +57,38 @@ We recommend creating a group structure that outlines how your team organizes an
     |- prod
 ```
 
+
+## Listing Groups
+
 At any time, you can list the group hierarchy your account has access to by using `list`. To make it more human readable, you can output the information as a table by passing `-o table` to the end of the command.
 
 ```sh
 chainctl iam groups list
 ```
 
-You’ll get output regarding each of the groups you belong to, providing you with some information about each group.
+You’ll get output regarding each of the groups you belong to, including a description of each group, if available.
 
 ```sh
  <Group ID> [tutorial-group] This is a shared IAM group for tutorials.
  <Group ID> [demo-group] This is a shared IAM group for running demos.
 ```
+
+You can retrieve your groups' UIDPs by adding the `-o table` option to the previous `list` command.
+
+```sh
+chainctl iam groups list -o table
+```
+```
+      ID     |      NAME      |    DESCRIPTION      
+-------------+----------------+-----------------------------------------------
+  <Group ID> | tutorial-group | This is a shared IAM group for tutorials.
+  <Group ID> | demo-group     | This is a shared IAM group for running demos.  
+```
+
+Some other `chainctl` functions requrie you to know a group's UIDP, making this a useful option to remember.
+
+
+## Inviting Others to a Group
 
 To invite others to a specific group, you can generate invite codes by creating invites to the group.
 
