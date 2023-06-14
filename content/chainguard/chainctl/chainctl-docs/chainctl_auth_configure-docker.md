@@ -1,5 +1,5 @@
 ---
-date: 2023-06-13T17:58:41Z
+date: 2023-06-13T23:28:25Z
 title: "chainctl auth configure-docker"
 slug: chainctl_auth_configure-docker
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_configure-docker/
