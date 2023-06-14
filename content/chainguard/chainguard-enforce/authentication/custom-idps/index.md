@@ -173,13 +173,13 @@ chainctl iam identity-provider update
 
 This can be useful for rotating client credentials.
 
-To delete an identity provider, run the `delete` subcommand.
+Lastly, to delete an identity provider, run the `delete` subcommand.
 
 ```sh
 chainctl iam identity-provider delete
 ``` 
 
-For more details on the `chainctl iam identity-provider` subcommands, check out [the documentation for them](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/).
+For more details, check out the [`chainctl` documentation for these commands](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/).
 
 
 ## IAM and Security
