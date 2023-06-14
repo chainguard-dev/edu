@@ -30,7 +30,9 @@ export IDP_ID=<your identity provider id here>
 chainctl auth login --identity-provider=$IDP_ID
 ```
 
-Remembering identity provider IDs like this can be difficult. As an alternative, you can set the identity provider by editing the `chainctl` configuration file. You can do so with the following command:
+You can retrieve all your identity provider's unique IDs by running `chainctl iam identity-providers list`.
+
+Remembering identity provider IDs like this can be difficult. As an alternative, you can set the identity provider by editing the `chainctl` configuration file. You can do so with the following command.
 
 ```sh
 chainctl config edit
@@ -44,6 +46,12 @@ default:
 ```
 
 Then save and close the file. If you used the default editor, `nano`, you can do so by pressing `CTRL + X`, `Y`, and then `ENTER`. 
+
+You can also set this with a single command using the `chainctl config set` subcommand, as in this example.
+
+```sh
+chainctl config set default.identity-provider <your identity provider id here>
+```
 
 Once set, the configured identity provider will be used automatically any time you run `chainctl auth login`.
 
@@ -155,6 +163,8 @@ To list out every configured identity provider, run the `list` subcommand.
 chainctl iam identity-provider list
 ```
 
+This will return a list of details for each of your identity providers, including their names and unique IDs, 
+
 To modify an existing identity provider, use the `update` subcommand.
 
 ```sh
@@ -163,13 +173,13 @@ chainctl iam identity-provider update
 
 This can be useful for rotating client credentials.
 
-Lastly, to delete an identity provider, run the `delete` subcommand.
+To delete an identity provider, run the `delete` subcommand.
 
 ```sh
 chainctl iam identity-provider delete
 ``` 
 
-For more details, check out the [`chainctl` documentation for these commands](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/).
+For more details on the `chainctl iam identity-provider` subcommands, check out [the documentation for them](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/).
 
 
 ## IAM and Security
