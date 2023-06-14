@@ -145,6 +145,45 @@ Valid! Id: af641...
 
 You are now authenticated to Chainguard Enforce. 
 
+
+## Setting a default authentication provider
+
+If you find yourself frequently logging into Chainguard Enforce with `chainctl`, you may find it helpful to set a default authentication provider. This means that instead of having to select your OIDC provider (Google, GitHub, or GitLab) every time after logging in, you can be taken directly to the default authentication provider's login flow.
+
+To set a default authentication provider, you can edit the `chainctl` configuration file with the followign command.
+
+```sh
+chainctl config edit
+```
+
+This will open a text editor (`nano`, by default) where you can edit the local `chainctl` config. Add the following lines to this file.
+
+```
+default: social-login: google # (or github or gitlab)
+```
+
+Then save and close the file. If you used the default editor, `nano`, you can do so by pressing `CTRL + X`, `Y`, and then `ENTER`. 
+
+You can also set this with a single command using the `chainctl config set` subcommand. The following example sets GitLab as the default provider.
+
+```sh
+chainctl config set default.social-login gitlab
+```
+
+Once set, the configured authentication provider will be used automatically any time you run `chainctl auth login`.
+
+If you ever need, you can remove the default setting with the `chainctl config unset` subcommand.
+
+```sh
+chainctl config unset default.social-login
+```
+```
+Property "default.social-login" unset.
+```
+
+Check out [the `chainctl config` documentation](/chainguard/chainctl/chainctl-docs/chainctl_config/) for more details on how you can manage the `chainctl` configuration.
+
+
 ## Learn more
 
 To learn more about how to work with Chainguard Enforce, you can review our [User Onboarding tutorial](/chainguard/chainguard-enforce/chainguard-enforce-user-onboarding/). If you would like to learn more about the Chainguard Enforce Console, you can read [How to create policies in the Chainguard Enforce Console](/chainguard/chainguard-enforce/policies/chainguard-policies-ui/). You can also review the full [`chainctl` reference documentation](/chainguard/chainctl/) to learn more about our command line tool. 
