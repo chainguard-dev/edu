@@ -150,7 +150,7 @@ You are now authenticated to Chainguard Enforce.
 
 If you find yourself frequently logging into Chainguard Enforce with `chainctl`, you may find it helpful to set a default authentication provider. This means that instead of having to select your OIDC provider (Google, GitHub, or GitLab) every time after logging in, you can be taken directly to the default authentication provider's login flow.
 
-To set a default authentication provider, you can edit the `chainctl` configuration file with the followign command.
+To set a default authentication provider, you can edit the `chainctl` configuration file with the following command.
 
 ```sh
 chainctl config edit
