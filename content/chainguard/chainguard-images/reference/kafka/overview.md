@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/kafka](https://github.com/chainguard-images/images/tree/main/images/kafka)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `3`, `3.4`, `3.4.1`, `3.4.1-r0`                 |
-| `latest-dev` | `3-dev`, `3.4-dev`, `3.4.1-dev`, `3.4.1-r0-dev` |
+| `latest`     | `3`, `3.5`, `3.5.0`, `3.5.0-r0`                 |
+| `latest-dev` | `3-dev`, `3.5-dev`, `3.5.0-dev`, `3.5.0-r0-dev` |
 
 
 
