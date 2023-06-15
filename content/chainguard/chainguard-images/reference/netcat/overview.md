@@ -17,7 +17,7 @@ toc: true
 `experimental` [cgr.dev/chainguard/netcat](https://github.com/chainguard-images/images/tree/main/images/netcat)
 | Tags     | Aliases                  |
 |----------|--------------------------|
-| `latest` | `1`, `1.219`, `1.219-r0` |
+| `latest` | `1`, `1.225`, `1.225-r0` |
 
 
 
