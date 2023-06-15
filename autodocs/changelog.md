@@ -1,3 +1,12 @@
+## 2023-06-15
+
+Updated image reference docs.
+
+New images added:
+
+- ffmpeg
+- mdbook
+
 ## 2023-06-12
 
 Updated image reference docs.
