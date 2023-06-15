@@ -4,7 +4,7 @@ lead: "Software supply chain security vocabulary"
 description: "Software supply chain security vocabulary"
 type: "article"
 date: 2022-08-01T15:21:01+02:00
-lastmod: 2022-08-01T15:21:01+02:00
+lastmod: 2023-06-15T15:16:19+00:00
 draft: false
 tags: ["Conceptual"]
 images: []
@@ -47,6 +47,12 @@ An attestation allows consumers of a software artifact to verify the quality of 
 
 ---
 
+### CVE
+
+Standing for **C**ommon **V**ulnerabilities and **E**xposures, CVEs are records assigned to publicly disclosed software vulnerabilities, stored in a searchable catalog. Each CVE consists of a unique CVE ID, a description of the vulnerability, and any relevant references or advisories. The CVE Program is operated by The MITRE Corporation and supported by a variety of U.S. government agencies.
+
+---
+
 ### Provenance
 
 Provenance is the verifiable information about software artifacts describing _where_, _when_ and _how_ something was produced.
@@ -61,9 +67,15 @@ Often abbreviated as **CA**, a certificate or certification authority is a gover
 
 ---
 
+### CI/CD
+
+A pipeline approach to code development and release. CI stands for **c**ontinuous **i**ntegration, referring to the automation of testing code modifications frequently to avoid conflict between developer changes. CD stands for **c**ontinuous **d**elivery and/or **d**eployment, referring to the next stage of the pipeline where code is automatically merged to a repository or production environment after passing tests to fast-track the release of new changes to customers. CI/CD aims to reduce slowdowns experienced by manual code checking and approval, shortening the development cycle and allowing for more updates to reach consumers.
+
+---
+
 ### Code signing
 
-The process of digitally signing software artifacts to verify the author of the software as well as guarantee that the code has not been altered in any way since it was signed. Cryptographic hashes are used to sign software in order to validate authenticity and integrity. Code signing results in a signature. 
+The process of digitally signing software artifacts to verify the author of the software as well as guarantee that the code has not been altered in any way since it was signed. Cryptographic hashes are used to sign software in order to validate authenticity and integrity. Code signing results in a signature.
 
 ---
 
@@ -117,7 +129,7 @@ A project of the United States Department of Commerce's National Institute of St
 
 ### Tekton
 
-Tekton provides a cloud-native solution for building CI/CD systems with a focus on software supply chain security through offering artifact signatures and attestations through Tekton Chains. 
+Tekton provides a cloud-native solution for building CI/CD systems with a focus on software supply chain security through offering artifact signatures and attestations through Tekton Chains.
 
 ---
 
@@ -128,6 +140,12 @@ Tekton provides a cloud-native solution for building CI/CD systems with a focus 
 ---
 
 ## Attacks and vulnerabilities
+
+### Codecov Hack
+
+An example of a software supply chain attack taking place in early 2021. The code coverage tool Codecov experienced a sophisticated attack in which their Bash uploader script was modified by a malicious actor. The affected script allowed the attacker to extract customer credentials passing through Codecov’s continuous integration (CI) platform, exposing services accessible with these credentials to further exploitation.
+
+---
 
 ### Log4Shell
 
