@@ -63,7 +63,7 @@ Provenance is the verifiable information about software artifacts describing _wh
 
 ### Certificate authority
 
-Often abbreviated as **CA**, a certificate or certification authority is a governing body that stores, signs, and issues digital certificates that can verify claims about the ownership of a given public key. Software consumers can use a CA to verify the assertions made about the private key that corresponds with the certified public key. A trusted third party, CAs use the X.509 or EMV standard to format certificates. 
+Often abbreviated as **CA**, a certificate or certification authority is a governing body that stores, signs, and issues digital certificates that can verify claims about the ownership of a given public key. Software consumers can use a CA to verify the assertions made about the private key that corresponds with the certified public key. A trusted third party, CAs use the X.509 or EMV standard to format certificates.
 
 ---
 
@@ -155,7 +155,7 @@ An internet vulnerability involving a nearly ubiquitous piece of software, Log4j
 
 ### SolarWinds Hack
 
-The commonly used term to refer to the software supply chain breach that involved the SolarWinds Orion system, which occurred in 2020. Hackers gained access to networks, systems, and data of thousands of SolarWinds customers, and compromised the systems of over 30,000 organizations who relied on Orion software. This was one of the largest software supply chain attacks of its kind recorded to date. 
+The commonly used term to refer to the software supply chain breach that involved the SolarWinds Orion system, which occurred in 2020. Hackers gained access to networks, systems, and data of thousands of SolarWinds customers, and compromised the systems of over 30,000 organizations who relied on Orion software. This was one of the largest software supply chain attacks of its kind recorded to date.
 
 ---
 
