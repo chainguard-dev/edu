@@ -75,7 +75,7 @@ OCI stands for the **O**pen **C**ontainer **I**nitiative, which is an open gover
 
 ### OIDC
 
-OIDC is short for **O**pen**ID** **C**onnect, an identity layer that is built on top of the OAuth 2.0 protocol, and is governed by the OpenID Foundation. The tool allows for identity authentication and identity verification based on the authentication performed by a provider such as Apple, Google, GitLab, Microsoft, and others. 
+OIDC is short for **O**pen**ID** **C**onnect, an identity layer that is built on top of the OAuth 2.0 protocol, and is governed by the OpenID Foundation. The tool allows for identity authentication and identity verification based on the authentication performed by a provider such as Apple, Google, GitLab, Microsoft, and others.
 
 ---
 
@@ -87,13 +87,13 @@ Standing for **p**ublic **k**ey **i**nfrastructure, PKI arranges the necessary e
 
 ### Red teaming
 
-Conducting a red team assessment consists of a goal-based adversarial activity to demonstrate how attackers can combine exploits to compromise the integrity of software or otehr technology. 
+Conducting a red team assessment consists of a goal-based adversarial activity to demonstrate how attackers can combine exploits to compromise the integrity of software or other technology.
 
 ---
 
 ### SBOM
 
-An acronym, SBOM stands for a **s**oftware **b**ill **o**f **m**aterials (plural: SBOMs or software bill_s_ of materials). An SBOM is like an electronic packaging slip or receipt, it is a formal record that contains the details and supply chain relationships (such as dependencies) of the components used in building given software.
+An acronym, SBOM stands for a **s**oftware **b**ill **o**f **m**aterials (plural: SBOMs or software bill*s* of materials). An SBOM is like an electronic packaging slip or receipt, it is a formal record that contains the details and supply chain relationships (such as dependencies) of the components used in building given software.
 
 ---
 
@@ -105,13 +105,13 @@ A suite of tools to sign, verify, and monitor software artifacts. Within the umb
 
 ### SLSA
 
-Standing for **s**upply chain **l**evels for **s**oftware **a**rtifacts, SLSA (pronounced like "SLSA") is a security framework that offers a check-list of standards and controls in order to prevent tampering, improve integrity, and secure packages and infrastructure. SLSA has four levels of increasing security. 
+Standing for **S**upply chain **L**evels for **S**oftware **A**rtifacts, SLSA (pronounced “salsa”) is a security framework that offers a check-list of standards and controls in order to prevent tampering, improve integrity, and secure packages and infrastructure. SLSA has a build track with three levels of increasing security.
 
 ---
 
 ### SSDF
 
-A project of the United States Department of Commerce's National Institute of Standards and Technology (NIST), the Secure Software Development Framework (SSDF) is a set of guidance and recommendations to establish a secure software development practice.
+A project of the United States Department of Commerce's National Institute of Standards and Technology (NIST), the **S**ecure **S**oftware **D**evelopment **F**ramework (SSDF) is a set of guidelines and recommendations to establish a secure software development practice.
 
 ---
 
