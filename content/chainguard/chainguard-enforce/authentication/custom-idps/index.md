@@ -32,7 +32,7 @@ chainctl auth login --identity-provider=$IDP_ID
 
 You can retrieve all your identity provider's unique IDs by running `chainctl iam identity-providers list`.
 
-Remembering identity provider IDs like this can be difficult. As an alternative, you can set the identity provider by editing the `chainctl` configuration file. You can do so with the following command.
+As an alternative to remembering identity provider IDs, you can set the default identity provider by editing the `chainctl` configuration file. You can do so with the following command.
 
 ```sh
 chainctl config edit
@@ -163,7 +163,7 @@ To list out every configured identity provider, run the `list` subcommand.
 chainctl iam identity-provider list
 ```
 
-This will return a list of details for each of your identity providers, including their names and unique IDs, 
+This will return a list of details for each of your identity providers, including their names and unique IDs.
 
 To modify an existing identity provider, use the `update` subcommand.
 
