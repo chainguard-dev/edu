@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/tigera-operator](https://github.com/chainguard-images/images/tree/main/images/tigera-operator)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.30`, `1.30.2`, `1.30.2-r1`                 |
-| `latest-dev` | `1-dev`, `1.30-dev`, `1.30.2-dev`, `1.30.2-r1-dev` |
+| `latest`     | `1`, `1.30`, `1.30.3`, `1.30.3-r0`                 |
+| `latest-dev` | `1-dev`, `1.30-dev`, `1.30.3-dev`, `1.30.3-r0-dev` |
 
 
 
