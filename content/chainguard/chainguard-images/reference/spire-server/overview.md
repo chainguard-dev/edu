@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/spire-server](https://github.com/chainguard-images/images/tree/main/images/spire-server)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.6`, `1.6.4`, `1.6.4-r5`                 |
-| `latest-dev` | `1-dev`, `1.6-dev`, `1.6.4-dev`, `1.6.4-r5-dev` |
+| `latest`     | `1`, `1.7`, `1.7.0`, `1.7.0-r0`                 |
+| `latest-dev` | `1-dev`, `1.7-dev`, `1.7.0-dev`, `1.7.0-r0-dev` |
 
 
 

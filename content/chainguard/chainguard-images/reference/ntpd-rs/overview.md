@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/ntpd-rs](https://github.com/chainguard-images/images/tree/main/images/ntpd-rs)
 | Tags         | Aliases                                         |
 |--------------|-------------------------------------------------|
-| `latest`     | `0`, `0.3`, `0.3.3`, `0.3.3-r0`                 |
-| `latest-dev` | `0-dev`, `0.3-dev`, `0.3.3-dev`, `0.3.3-r0-dev` |
+| `latest`     | `0`, `0.3`, `0.3.5`, `0.3.5-r0`                 |
+| `latest-dev` | `0-dev`, `0.3-dev`, `0.3.5-dev`, `0.3.5-r0-dev` |
 
 
 
