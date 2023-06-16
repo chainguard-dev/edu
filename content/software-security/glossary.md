@@ -45,6 +45,12 @@ An artifact is an immutable blob of data. Examples of artifacts include a file, 
 
 An attestation allows consumers of a software artifact to verify the quality of that artifact independently from the producer of the software. It also requires software producers to provide verifiable proof of the quality of their software. You can think of an attestation as a **proclamation** that _software artifact X was produced by Y person at Z time._
 
+___
+
+### CI/CD
+
+A pipeline approach to code development and release. CI stands for **c**ontinuous **i**ntegration, referring to the automation of testing code modifications frequently to avoid conflict between developer changes. CD stands for **c**ontinuous **d**elivery and/or **d**eployment, referring to the next stage of the pipeline where code is automatically merged to a repository or production environment after passing tests to fast-track the release of new changes to customers. CI/CD aims to reduce slowdowns experienced by manual code checking and approval, shortening the development cycle and allowing for more updates to reach consumers.
+
 ---
 
 ### CVE
@@ -64,12 +70,6 @@ Provenance is the verifiable information about software artifacts describing _wh
 ### Certificate authority
 
 Often abbreviated as **CA**, a certificate or certification authority is a governing body that stores, signs, and issues digital certificates that can verify claims about the ownership of a given public key. Software consumers can use a CA to verify the assertions made about the private key that corresponds with the certified public key. A trusted third party, CAs use the X.509 or EMV standard to format certificates.
-
----
-
-### CI/CD
-
-A pipeline approach to code development and release. CI stands for **c**ontinuous **i**ntegration, referring to the automation of testing code modifications frequently to avoid conflict between developer changes. CD stands for **c**ontinuous **d**elivery and/or **d**eployment, referring to the next stage of the pipeline where code is automatically merged to a repository or production environment after passing tests to fast-track the release of new changes to customers. CI/CD aims to reduce slowdowns experienced by manual code checking and approval, shortening the development cycle and allowing for more updates to reach consumers.
 
 ---
 
