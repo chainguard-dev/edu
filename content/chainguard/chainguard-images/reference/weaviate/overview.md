@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/weaviate](https://github.com/chainguard-images/images/tree/main/images/weaviate)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.19`, `1.19.7`, `1.19.7-r0`                 |
-| `latest-dev` | `1-dev`, `1.19-dev`, `1.19.7-dev`, `1.19.7-r0-dev` |
+| `latest`     | `1`, `1.19`, `1.19.8`, `1.19.8-r0`                 |
+| `latest-dev` | `1-dev`, `1.19-dev`, `1.19.8-dev`, `1.19.8-r0-dev` |
 
 
 

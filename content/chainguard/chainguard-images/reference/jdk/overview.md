@@ -17,10 +17,10 @@ toc: true
 `stable` [cgr.dev/chainguard/jdk](https://github.com/chainguard-images/images/tree/main/images/jdk)
 | Tags             | Aliases                                                                                                          |
 |------------------|------------------------------------------------------------------------------------------------------------------|
-| `latest`         | `openjdk-17`, `openjdk-17.0`, `openjdk-17.0.8`, `openjdk-17.0.8.2`, `openjdk-17.0.8.2-r0`                        |
-| `latest-dev`     | `openjdk-17-dev`, `openjdk-17.0-dev`, `openjdk-17.0.8-dev`, `openjdk-17.0.8.2-dev`, `openjdk-17.0.8.2-r0-dev`    |
-| `openjdk-11`     | `openjdk-11`, `openjdk-11.0`, `openjdk-11.0.20`, `openjdk-11.0.20.4`, `openjdk-11.0.20.4-r0`                     |
-| `openjdk-11-dev` | `openjdk-11-dev`, `openjdk-11.0-dev`, `openjdk-11.0.20-dev`, `openjdk-11.0.20.4-dev`, `openjdk-11.0.20.4-r0-dev` |
+| `latest`         | `openjdk-17`, `openjdk-17.0`, `openjdk-17.0.8`, `openjdk-17.0.8.2`, `openjdk-17.0.8.2-r1`                        |
+| `latest-dev`     | `openjdk-17-dev`, `openjdk-17.0-dev`, `openjdk-17.0.8-dev`, `openjdk-17.0.8.2-dev`, `openjdk-17.0.8.2-r1-dev`    |
+| `openjdk-11`     | `openjdk-11`, `openjdk-11.0`, `openjdk-11.0.20`, `openjdk-11.0.20.4`, `openjdk-11.0.20.4-r1`                     |
+| `openjdk-11-dev` | `openjdk-11-dev`, `openjdk-11.0-dev`, `openjdk-11.0.20-dev`, `openjdk-11.0.20.4-dev`, `openjdk-11.0.20.4-r1-dev` |
 
 
 

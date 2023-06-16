@@ -17,8 +17,8 @@ toc: true
 `stable` [cgr.dev/chainguard/nginx](https://github.com/chainguard-images/images/tree/main/images/nginx)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.25`, `1.25.0`, `1.25.0-r0`                 |
-| `latest-dev` | `1-dev`, `1.25-dev`, `1.25.0-dev`, `1.25.0-r0-dev` |
+| `latest`     | `1`, `1.25`, `1.25.1`, `1.25.1-r0`                 |
+| `latest-dev` | `1-dev`, `1.25-dev`, `1.25.1-dev`, `1.25.1-r0-dev` |
 | `next`       |                                                    |
 
 
