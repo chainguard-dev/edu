@@ -46,9 +46,14 @@ To enable additional architectures, you'll need to enable them within your kerne
 docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 ```
 
+An alternate approach to achieve the same result is to run the following command:
+
+```shell
+docker run --privileged --rm tonistiigi/binfmt --install all
+```
+
 ### Missing build-time dependencies
 You may get errors from missing build-time dependences such as `busybox`. In this case you may get "No such file or directory" errors when enabling debug with `set -x`. To fix this, you'll need to locate which package has the commands that your build needs, and add it to the list of your build-time dependencies.
-
 ## Further Resources
 
 For additional guidance, please refer to the [melange repository](https://github.com/chainguard-dev/melange) on GitHub, where you can find [more examples](https://github.com/chainguard-dev/melange/tree/main/examples) or [open an issue](https://github.com/chainguard-dev/melange/issues/new/choose) in case of problems.
