@@ -143,7 +143,7 @@ Tekton provides a cloud-native solution for building CI/CD systems with a focus 
 
 ### Codecov Hack
 
-An example of a software supply chain attack taking place in early 2021. The code coverage tool Codecov experienced a sophisticated attack in which their Bash uploader script was modified by a malicious actor. The affected script allowed the attacker to extract customer credentials passing through Codecov’s continuous integration (CI) platform, exposing services accessible with these credentials to further exploitation.
+An example of a software supply chain attack that took place in early 2021. The code coverage tool Codecov experienced a sophisticated attack in which their Bash uploader script was modified by a malicious actor. The affected script allowed the attacker to extract customer credentials passing through Codecov’s continuous integration (CI) platform, exposing services accessible with these credentials to further exploitation.
 
 ---
 
