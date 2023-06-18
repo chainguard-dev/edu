@@ -1,3 +1,11 @@
+## 2023-06-18
+
+Updated image reference docs.
+
+New images added:
+
+- configmap-reload
+
 ## 2023-06-16
 
 Updated image reference docs.

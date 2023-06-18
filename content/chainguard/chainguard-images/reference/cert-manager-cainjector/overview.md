@@ -17,8 +17,8 @@ toc: true
 `experimental` [cgr.dev/chainguard/cert-manager-cainjector](https://github.com/chainguard-images/images/tree/main/images/cert-manager-cainjector)
 | Tags         | Aliases                                            |
 |--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.12`, `1.12.1`, `1.12.1-r1`                 |
-| `latest-dev` | `1-dev`, `1.12-dev`, `1.12.1-dev`, `1.12.1-r1-dev` |
+| `latest`     | `1`, `1.12`, `1.12.2`, `1.12.2-r0`                 |
+| `latest-dev` | `1-dev`, `1.12-dev`, `1.12.2-dev`, `1.12.2-r0-dev` |
 
 
 
