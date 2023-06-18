@@ -1,5 +1,7 @@
-## 2023-06-16
+## 2023-06-18
 
 Updated image reference docs.
 
-No new images added.
+New images added:
+
+- configmap-reload
