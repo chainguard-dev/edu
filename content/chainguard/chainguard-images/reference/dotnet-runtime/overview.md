@@ -17,7 +17,7 @@ toc: true
 `stable` [cgr.dev/chainguard/dotnet-runtime](https://github.com/chainguard-images/images/tree/main/images/dotnet-runtime)
 | Tags     | Aliases                             |
 |----------|-------------------------------------|
-| `latest` | `7`, `7.0`, `7.0.105`, `7.0.105-r1` |
+| `latest` | `7`, `7.0`, `7.0.107`, `7.0.107-r0` |
 
 
 
