@@ -1,5 +1,5 @@
 ---
-date: 2023-06-14T21:47:15Z
+date: 2023-06-20T10:30:45Z
 title: "chainctl clusters open"
 slug: chainctl_clusters_open
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_open/
@@ -14,7 +14,7 @@ toc: true
 Open the console for a cluster.
 
 ```
-chainctl clusters open [CLUSTER_ID] [--output table|json]
+chainctl clusters open CLUSTER_NAME|CLUSTER_ID [--output table|json]
 ```
 
 ### Options
