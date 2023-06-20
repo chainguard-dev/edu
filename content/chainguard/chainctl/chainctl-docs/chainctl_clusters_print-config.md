@@ -1,5 +1,5 @@
 ---
-date: 2023-06-14T21:47:15Z
+date: 2023-06-20T10:30:45Z
 title: "chainctl clusters print-config"
 slug: chainctl_clusters_print-config
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_print-config/
@@ -14,7 +14,7 @@ toc: true
 Print the tenant configuration in YAML.
 
 ```
-chainctl clusters print-config
+chainctl clusters print-config [--profiles=PROFILE1,PROFILE2,...] [--opt=KEY=VALUE,KEY=VALUE...]
 ```
 
 ### Options

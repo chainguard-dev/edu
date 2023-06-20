@@ -1,5 +1,5 @@
 ---
-date: 2023-06-14T21:47:15Z
+date: 2023-06-20T10:30:45Z
 title: "chainctl clusters list"
 slug: chainctl_clusters_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_list/
@@ -14,7 +14,7 @@ toc: true
 List clusters.
 
 ```
-chainctl clusters list [--name NAME] [--active-within DURATION] [--group GROUP_NAME | GROUP_ID] [--output table|json]
+chainctl clusters list [--name=NAME] [--active-within=DURATION] [--group=GROUP_NAME|GROUP_ID] [--output table|json]
 ```
 
 ### Examples

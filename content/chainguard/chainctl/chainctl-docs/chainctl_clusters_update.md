@@ -1,5 +1,5 @@
 ---
-date: 2023-06-14T21:47:15Z
+date: 2023-06-20T10:30:45Z
 title: "chainctl clusters update"
 slug: chainctl_clusters_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_update/
@@ -14,7 +14,7 @@ toc: true
 Update the name or description of a cluster.
 
 ```
-chainctl clusters update CLUSTER_NAME | CLUSTER_ID [--name NAME] [--description DESCRIPTION] [--output table|wide|json]
+chainctl clusters update CLUSTER_NAME|CLUSTER_ID [--name NAME] [--description DESCRIPTION] [--output table|wide|json]
 ```
 
 ### Examples

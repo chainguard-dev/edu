@@ -1,5 +1,5 @@
 ---
-date: 2023-06-14T21:47:15Z
+date: 2023-06-20T10:30:45Z
 title: "chainctl clusters workloads list"
 slug: chainctl_clusters_workloads_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_workloads_list/
@@ -14,7 +14,7 @@ toc: true
 List cluster workloads.
 
 ```
-chainctl clusters workloads list [CLUSTER_ID] [--active-within DURATION] [--output tree|table|json|wide]
+chainctl clusters workloads list CLUSTER_NAME|CLUSTER_ID [--active-within=DURATION] [--namespace=NAMESPACE] [--output tree|table|json|wide]
 ```
 
 ### Options
