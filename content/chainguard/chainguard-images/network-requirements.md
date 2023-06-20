@@ -34,6 +34,9 @@ This table lists the third-party DNS hostnames, associated ports, and protocols 
 |----------|-----|---------|------|
 | ghcr.io | 443 | HTTPS | Used for wolfi development|
 | *.r2.cloudflarestorage.com | 443 | HTTPS | Blob storage for cgr.dev|
+| 9236a389bd48b98df91adc1bc924620.r2.cloudflarestorage.com | 443 | HTTPS | Blob storage for cgr.dev|
+
+Note: you can use either the single `9236a389bd48b98df91adc1bc924620.r2.cloudflarestorage.com` host or the wildcard `*.rc.cloudflarestorage.com` hostname in your firewall and proxy configurations. However, the `9236a389bd48b98df91adc1bc924620.r2.cloudflarestorage.com` hostname may change at some point in the future.
 
 ## DNS Records and TTLs
 
