@@ -1,8 +1,8 @@
 baseURL = "https://edu.chainguard.dev/"
 canonifyURLs = false
-disableAliases = false
+disableAliases = true
 disableHugoGeneratorInject = true
-enableEmoji = false
+enableEmoji = true
 enableGitInfo = false
 enableRobotsTXT = false
 languageCode = "en-US"

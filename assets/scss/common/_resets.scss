@@ -1,0 +1,119 @@
+@import "fontfamilies";
+
+// Body reset, beats _dark.scss selectors
+body[class][class][class] {
+  background: var(--body-background);
+  color: var(--body-color);
+  font-family: $TextFont;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+  table {
+    background-color: var(--body-table-color);
+
+    th {
+      font-weight: normal;
+    }
+
+    td {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
+}
+
+h1 code {
+  font-size: 2rem;
+}
+
+h2 code {
+  font-size: 1.5rem;
+}
+
+h3 code {
+  font-size: 1.25rem;
+}
+
+h4 code {
+  font-size: 1rem;
+}
+
+blockquote {
+  font-size: 16px;
+  line-height: 24px;
+  padding: 24px;
+  border-radius: 0px 8px 8px 0px;
+  display: flex;
+  &::before {
+    content: var(--info-icon-url);
+    position: relative;
+    top: 2px;
+    margin-right: 14px;
+  }
+
+  background: var(--blockquote-background);
+  border-left: 2px solid var(--blockquote-border) !important;
+  color: var(--blockquote-color);
+
+  p {
+    margin-bottom: 0;
+  }
+
+  * {
+    font-style: normal !important;
+  }
+}
+
+h1 {
+  font-family: $TextFont;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-family: $TextFont;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-family: $TextFont;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 140%;
+  /* identical to box height, or 28px */
+  letter-spacing: -0.02em;
+}
+
+h4,
+h5 {
+  font-family: $TextFont;
+}
+
+// Link element reset, beats _dark.scss selectors
+a[href][href][href] {
+  text-decoration: none;
+  color: inherit;
+  -webkit-user-drag: none;
+}
+
+// Select reset, because Safari's is horrendous
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--select-arrow);
+  background-size: 16px;
+  background-position: calc(100%) center;
+  background-repeat: no-repeat;
+  padding-right: 20px;
+}

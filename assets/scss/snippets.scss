@@ -1,0 +1,102 @@
+@import "common/fontfamilies";
+@import "common/breakpoints";
+@import "common/theming";
+
+.pre-container {
+  background-color: var(--pre-container-background);
+  border: 1px solid var(--pre-container-border);
+  border-radius: 8px;
+  overflow: visible; // for tooltips
+
+  // Mobile overflow
+  max-width: calc(100dvw - 48px);
+  margin-left: auto;
+  margin-right: auto;
+
+  .top-container {
+    border-bottom: 1px solid var(--pre-container-border);
+    flex-direction: row-reverse;
+
+    .language-selector {
+      background-color: var(--pre-container-background);
+      color: var(--language-selector-color);
+      border: none;
+      outline: none;
+      // cursor: pointer;
+      text-transform: capitalize;
+      margin: 0 12px;
+      align-self: center;
+      font-family: Inter;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+    }
+
+    .button-copy {
+      cursor: pointer;
+    }
+  }
+}
+
+.pre-container .code {
+  border-radius: 8px;
+  background-color: var(--pre-container-background) !important;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.0025em;
+  line-height: 22px;
+  padding: 24px;
+}
+
+.code-wrap {
+  white-space: pre-wrap;
+}
+
+.pre-container .code-collapsed {
+  height: 160px;
+  overflow: hidden;
+}
+
+.expand-btn {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  border-radius: 4px;
+  outline: none;
+  background: var(--expand-button-background);
+  color: var(--expand-button-color);
+  border: 1px solid var(--expand-button-border);
+  padding: 2px 8px;
+  gap: 12px;
+  font-family: $TextFont;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.expand-btn-container {
+  padding: 24px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.expand-btn-icon-collapsed {
+  transform: rotate(180deg);
+}
+
+.expand-btn-icon-expanded {
+  transform: rotate(0);
+}
+
+.bi-files::before {
+  content: var(--copy-icon-url);
+  position: relative;
+  top: 2px;
+}
+
+.bi-files-opposite::before {
+  content: var(--copy-icon-opposite-url);
+}

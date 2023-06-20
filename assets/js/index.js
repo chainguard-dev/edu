@@ -1,88 +1,55 @@
-let suggestions = document.getElementById('suggestions');
-let search = document.getElementById('search');
+var index;
+var searchForms = document.getElementsByClassName("search-container")
 
-if (search !== null) {
-  document.addEventListener('keydown', inputFocus);
-}
+Array.from(searchForms).forEach(container => {
+  const search = container.querySelectorAll('.search')[0]
+  const suggestions = document.querySelectorAll('.suggestions')[0]
 
-function inputFocus(e) {
-  if (e.ctrlKey && e.key === '/' ) {
-    e.preventDefault();
-    search.focus();
+  if (search) {
+    document.addEventListener('keydown', inputFocus);
   }
-  if (e.key === 'Escape' ) {
-    search.blur();
-    suggestions.classList.add('d-none');
-  }
-}
-
-document.addEventListener('click', function(event) {
-
-  let isClickInsideElement = suggestions.contains(event.target);
-
-  if (!isClickInsideElement) {
-    suggestions.classList.add('d-none');
+  
+  function inputFocus(e) {
+    if (e.key === '/' ) {
+      e.preventDefault();
+      search.focus();
+    }
+    if (e.key === 'Escape' ) {
+      search.blur();
+      search.classList.add('d-none');
+    }
   }
 
-});
-
-document.addEventListener('keydown',suggestionFocus);
-
-function suggestionFocus(e) {
-  const suggestionsHidden = suggestions.classList.contains('d-none');
-  if (suggestionsHidden) return;
-
-  const focusableSuggestions= [...suggestions.querySelectorAll('a')];
-  if (focusableSuggestions.length === 0) return;
-
-  const index = focusableSuggestions.indexOf(document.activeElement);
-
-  if (e.key === "ArrowUp") {
-    e.preventDefault();
-    const nextIndex = index > 0 ? index - 1 : 0;
-    focusableSuggestions[nextIndex].focus();
-  }
-  else if (e.key === "ArrowDown") {
-    e.preventDefault();
-    const nextIndex= index + 1 < focusableSuggestions.length ? index + 1 : index;
-    focusableSuggestions[nextIndex].focus();
-  }
-
-}
-
-(function(){
-
-  let index = new FlexSearch.Document({
-    tokenize: "forward",
-    cache: 100,
-    document: {
-      id: 'id',
-      store: [
-        "href", "title", "description"
-      ],
-      index: ["title", "description", "content"]
+  document.addEventListener('click', function(event) {
+    let isClickInsideElement = suggestions.contains(event.target);
+  
+    if (!isClickInsideElement) {
+      suggestions.classList.add('d-none');
     }
   });
 
-  /* build document index */
-    {{ $list := .Site.AllPages -}}
-    {{ $len := (len $list) -}}
-
-    {{ range $index, $element := $list -}}
-    index.add(
-      {
-        id: {{ $index }},
-    href: "{{ .RelPermalink }}",
-      title: {{ .Title | jsonify }},
-    {{ with .Description -}}
-    description: {{ . | jsonify }},
-    {{ else -}}
-    description: {{ .Summary | plainify | jsonify }},
-    {{ end -}}
-    content: {{ .Plain | jsonify }}
+  document.addEventListener('keydown',suggestionFocus);
+  
+  function suggestionFocus(e) {
+    const suggestionsHidden = suggestions.classList.contains('d-none');
+    if (suggestionsHidden) return;
+  
+    const focusableSuggestions= [...suggestions.querySelectorAll('a')];
+    if (focusableSuggestions.length === 0) return;
+  
+    const index = focusableSuggestions.indexOf(document.activeElement);
+  
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      const nextIndex = index > 0 ? index - 1 : 0;
+      focusableSuggestions[nextIndex].focus();
+    }
+    else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      const nextIndex= index + 1 < focusableSuggestions.length ? index + 1 : index;
+      focusableSuggestions[nextIndex].focus();
+    }
   }
-  );
-    {{ end -}}
 
   search.addEventListener('input', show_results, true);
 
@@ -119,12 +86,12 @@ function suggestionFocus(e) {
       a.href = href;
       entry.appendChild(a);
 
-      const title = document.createElement('span');
+      const title = document.createElement('div');
       title.textContent = doc.title;
       title.classList.add("suggestion__title");
       a.appendChild(title);
 
-      const description = document.createElement('span');
+      const description = document.createElement('div');
       description.textContent = doc.description;
       description.classList.add("suggestion__description");
       a.appendChild(description);
@@ -134,4 +101,36 @@ function suggestionFocus(e) {
       if(suggestions.childElementCount == maxResult) break;
     }
   }
-}());
+});
+
+window.addEventListener('load', function() {
+  index = new FlexSearch.Document({
+    tokenize: "forward",
+    cache: 100,
+    document: {
+      id: 'id',
+      store: [
+        "href", "title", "description"
+      ],
+      index: ["title", "description", "content"]
+    }
+  });
+  
+  /* build document index */
+  {{ $list := .Site.AllPages -}}
+  {{ $len := (len $list) -}}
+
+  {{ range $index, $element := $list -}}
+  index.add({
+    id: {{ $index }},
+    href: "{{ .RelPermalink }}",
+    title: {{ .Title | jsonify }},
+    {{ with .Description -}}
+    description: {{ . | jsonify }},
+    {{ else -}}
+    description: {{ .Summary | plainify | jsonify }},
+    {{ end -}}
+    content: {{ .Plain | jsonify }}
+  });
+  {{ end -}}
+});

@@ -96,19 +96,13 @@
   name = "Glossary"
   url = "/software-security/glossary/"
   parent = "menu-security"
-  weight = 35
+  weight = 30
 
 [[main]]
   name = "Videos"
   url = "/software-security/videos/"
   parent = "menu-security"
   weight = 40
-
-[[main]]
-  name = "Secure Software Recommendations"
-  url = "/software-security/secure-software-development/"
-  parent = "menu-security"
-  weight = 30
 
 [[main]]
   name = "What is Software Supply Chain Security"
@@ -136,7 +130,131 @@
   url = "https://twitter.com/chainguard_dev"
   weight = 20
 
-# [[footer]]
-#   name = "Privacy"
-#   url = "/privacy-policy/"
-#   weight = 10
+[[footer]]
+  name = "Products"
+  weight = 1
+  identifier = "products"
+
+[[footer]]
+  name = "Chainguard Images"
+  url = "chainguard-images"
+  weight = 1
+  parent = "products"
+
+[[footer]]
+  name = "Chainguard Enforce"
+  url = "chainguard-enforce"
+  parent = "products"
+  weight = 2
+
+[[footer]]
+  name = "Chainguard Services"
+  url = "chainguard-services"
+  weight = 3
+  parent = "products"
+
+[[footer]]
+  name = "Developer"
+  weight = 2
+  identifier = "developer"
+
+[[footer]]
+  name = "Open source"
+  url = "open-source"
+  weight = 1
+  parent = "developer"
+
+[[footer]]
+  name = "Docs"
+  url = "docs"
+  weight = 2
+  parent = "developer"
+
+[[footer]]
+  name = "Resources"
+  weight = 3
+  identifier = "resources"
+
+[[footer]]
+  name = "Unchained blog"
+  url = "unchained-blog"
+  weight = 1
+  parent = "resources"
+
+[[footer]]
+  name = "Customer stories"
+  url = "customer-stories"
+  weight = 2
+  parent = "resources"
+
+[[footer]]
+  name = "Education"
+  url = "education"
+  weight = 3
+  parent = "resources"
+
+[[footer]]
+  name = "Company"
+  weight = 4
+  identifier = "company"
+
+[[footer]]
+  name = "About"
+  url = "about"
+  weight = 1
+  parent = "company"
+
+[[footer]]
+  name = "Careers"
+  url = "careers"
+  weight = 2
+  parent = "company"
+
+[[footer]]
+  name = "Legal"
+  url = "legal"
+  weight = 3
+  parent = "company"
+
+[[footer]]
+  name = "Contact"
+  url = "contact"
+  weight = 4
+  parent = "company"
+
+[[footer]]
+  name = "Follow"
+  weight = 5
+  identifier = "follow"
+
+[[footer]]
+  name = "Twitter"
+  url = "https://twitter.com"
+  weight = 2
+  parent = "follow"
+  pre = "<svg width=\"8\" height=\"14\" viewBox=\"0 1 8 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.77 8L0 7.23L6.146 1.084H0.916V0H8V7.084H6.916V1.854L0.77 8Z\" fill=\"currentColor\"/></svg>"
+
+[[footer]]
+  name = "GitHub"
+  url = "https://github.com"
+  weight = 3
+  parent = "follow"
+  pre = "<svg width=\"8\" height=\"14\" viewBox=\"0 1 8 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.77 8L0 7.23L6.146 1.084H0.916V0H8V7.084H6.916V1.854L0.77 8Z\" fill=\"currentColor\"/></svg>"
+
+[[footer]]
+  name = "LinkedIn"
+  url = "https://linkedin.com"
+  weight = 4
+  parent = "follow"
+  pre = "<svg width=\"8\" height=\"14\" viewBox=\"0 1 8 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.77 8L0 7.23L6.146 1.084H0.916V0H8V7.084H6.916V1.854L0.77 8Z\" fill=\"currentColor\"/></svg>"
+
+[[footer]]
+  name = "TikTok"
+  url = "https://tiktok.com"
+  weight = 5
+  parent = "follow"
+  pre = "<svg width=\"8\" height=\"14\" viewBox=\"0 1 8 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.77 8L0 7.23L6.146 1.084H0.916V0H8V7.084H6.916V1.854L0.77 8Z\" fill=\"currentColor\"/></svg>"
+
+[[footer]]
+  name = "@2023 Chainguard, Inc."
+  url = "https://www.chainguard.dev"

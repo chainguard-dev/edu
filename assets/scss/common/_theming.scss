@@ -1,0 +1,228 @@
+@mixin light-mode {
+  color-scheme: light;
+
+  --docs-navigation-border: #e9ecef;
+  --docs-navigation-color: inherit;
+  --docs-navigation-button-border: #dcdcdc;
+  --docs-navigation-button-color: #1c1c1c;
+  --blockquote-background: #f3f3f3;
+  --blockquote-border: #1c1c1c;
+  --blockquote-color: #4d4d4d;
+  --board-background-color: #f9f9f9;
+  --form-check-input-background: #ebecfe;
+  --form-check-input-color: #3443f4;
+  --form-check-input-checked-background: inherit;
+  --form-check-input-checked-border: inherit;
+  --form-check-input-focus-border: inherit;
+  --note-deprecated: lightyellow;
+  --note-notice: lightblue;
+  --note-warning: darkorange;
+  --body-background: #ffffff;
+  --body-color: #1c1c1c;
+  --body-table-color: inherit;
+  --bs-table-bg: inherit;
+  --footer-title-color: inherit;
+  --footer-item-color: #545454;
+  --pills-icon-background: #f3f3f3;
+  --watch-btn-color: #1c1c1c;
+  --watch-btn-hover-background: #f5f0f0;
+  --watch-btn-border: #dcdcdc;
+  --tutorial-hover-color: #3443f4;
+  --caption-color: #545454;
+  --caption-title-color: inherit;
+  --tag-background: #f5f0f0;
+  --sidebar-item-top-color: #1c1c1c;
+  --sidebar-item-color: #545454;
+  --sidebar-item-active-color: #1c1c1c;
+  --navbar-contact-border: #c2c7fc;
+  --navbar-contact-color: #3443f4;
+  --a-original-color: inherit;
+  --toggle-icon-color: inherit;
+  --center-title-color: inherit;
+  --suggestions-border: #e9ecef;
+  --suggestions-background: #f9f9f9;
+  --suggestions-hover-background: #e9ecef;
+  --suggestion-title-color: inherit;
+  --suggestion-description-color: inherit;
+  --search-box-background: inherit;
+  --topic-card-hover: #f5f0f0;
+  --leftnav-border: #dcdcdc;
+  --tab-active-color: #1c1c1c;
+  --tag-color: #f3f3f3;
+  --tooltip-container-color: inherit;
+  --sidebar-item-list-item-selected-background: #eeeeee;
+  --search-background: #eeeeee;
+  --basics-card-background: inherit;
+  --basics-card-border: #dcdcdc;
+  --index-logo-color: #eeeeee;
+  --tutorial-divider-color: #dcdcdc;
+  --placeholder-color: #8c8c8c;
+  --search-slash-border: #dcdcdc;
+  --sidebar-category-color: #1c1c1c;
+  --sidebar-bottom-item-color: #1c1c1c;
+  --sidebar-bottom-item-hover-color: #3443f4;
+  --code-color: #f3f3f3;
+  --contact-us-button-color: #ffffff;
+  --contact-us-button-background: #3443f4;
+  --notification-background: #0e0e0e;
+  --notification-color: #c5c5c5;
+  --home-background: #ffffff;
+  --step-background: #f3f3f3;
+  --header-background: #f9f9f9;
+  --page-link-color: #545454;
+  --page-link-active-color: #1c1c1c;
+  --active-element-background: #f3f3f3;
+  --active-element-shadow: #3443f4;
+  --active-link-color: #000000;
+  --righthand-title-color: #1c1c1c;
+  --tabs-color: #1c1c1c;
+  --tabs-active-color: #3443f4;
+  --card-background-0: #3443f4;
+  --card-background-1: #f99afb;
+  --tooltip-color: #ffffff;
+  --tooltip-background: #232323;
+  --pre-container-border: #dcdcdc;
+  --pre-container-background: #ffffff;
+  --expand-button-color: #000000;
+  --expand-button-background: #f3f3f3;
+  --expand-button-border: inherit;
+  --language-selector-color: #000000;
+  --terminal-border: #e9ecef;
+  --terminal-background: #ffffff;
+  --terminal-color: #545454;
+  --terminal-handle: #dcdcdc;
+  --terminal-title-color: #1c1c1c;
+  --offcanvas-close-color: #545454;
+  --article-link-color: #3443f4;
+
+  --info-icon-url: url("/info.svg");
+  --chevron-icon-url: url("/chevron.svg");
+  --search-icon-url: url("/search.svg");
+  --copy-icon-url: url("/copy.svg");
+  --copy-icon-opposite-url: url("/copy-dark.svg");
+  --select-arrow: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='30'><path d='M10,10 l15,15 l15,-15' fill='none' stroke='rgb(28,28,28)' stroke-width='7'></path></svg>");
+}
+
+@mixin dark-mode {
+  color-scheme: dark;
+
+  --docs-navigation-border: #4d4d4d;
+  --docs-navigation-color: #ffffff;
+  --docs-navigation-button-border: #383838;
+  --docs-navigation-button-color: #ffffff;
+  --blockquote-background: #232323;
+  --blockquote-border: #c5c5c5;
+  --blockquote-color: #eeeeee;
+  --board-background-color: #0e0e0e;
+  --form-check-input-background: #383838;
+  --form-check-input-checked-background: #383838;
+  --form-check-input-color: inherit;
+  --form-check-input-checked-border: #383838;
+  --form-check-input-focus-border: #383838;
+  --note-deprecated: yellowgreen;
+  --note-notice: darkcyan;
+  --note-warning: darkorchid;
+  --body-background: #040404;
+  --body-color: #dee2e6;
+  --body-table-color: inherit;
+  --bs-table-bg: inherit;
+  --footer-title-color: #ffffff;
+  --footer-item-color: #ffffff;
+  --pills-icon-background: #232323;
+  --watch-btn-color: #ffffff;
+  --watch-btn-hover-background: #232323;
+  --watch-btn-border: #4d4d4d;
+  --tutorial-hover-color: #ffffff;
+  --caption-color: #c5c5c5;
+  --caption-title-color: #ffffff;
+  --tag-background: #232323;
+  --sidebar-item-top-color: #c5c5c5;
+  --sidebar-item-color: #8c8c8c;
+  --sidebar-item-active-color: #ffffff;
+  --navbar-contact-border: #4d4d4d;
+  --navbar-contact-color: #ffffff;
+  --a-original-color: #c5c5c5;
+  --toggle-icon-color: #c5c5c5;
+  --center-title-color: #ffffff;
+  --suggestions-border: #4d4d4d;
+  --suggestions-background: #0e0e0e;
+  --suggestions-hover-background: #232323;
+  --suggestion-title-color: #ffffff;
+  --suggestion-description-color: #8c8c8c;
+  --search-box-background: #232323;
+  --topic-card-hover: #232323;
+  --leftnav-border: #4d4d4d;
+  --tab-active-color: #ffffff;
+  --tag-color: #232323;
+  --tooltip-container-color: #ffffff;
+  --sidebar-item-list-item-selected-background: #232323;
+  --search-background: #232323;
+  --basics-card-background: #0e0e0e;
+  --basics-card-border: #4d4d4d;
+  --index-logo-color: #4d4d4d;
+  --tutorial-divider-color: inherit;
+  --placeholder-color: #c5c5c5;
+  --search-slash-border: #4d4d4d;
+  --sidebar-category-color: #8c8c8c;
+  --sidebar-bottom-item-color: #c5c5c5;
+  --sidebar-bottom-item-hover-color: #99a1f9;
+  --code-color: #232323;
+  --contact-us-button-color: #ffffff;
+  --contact-us-button-background: #6772f7;
+  --notification-background: #f9f9f9;
+  --notification-color: #1c1c1c;
+  --home-background: #040404;
+  --step-background: #232323;
+  --header-background: #0e0e0e;
+  --page-link-color: #c5c5c5;
+  --page-link-active-color: #ffffff;
+  --active-element-background: #0e0e0e;
+  --active-element-shadow: #99a1f9;
+  --active-link-color: #ffffff;
+  --righthand-title-color: #8c8c8c;
+  --tabs-color: #8c8c8c;
+  --tabs-active-color: #99a1f9;
+  --card-background-0: #3443f4;
+  --card-background-1: #f99afb;
+  --tooltip-color: #ffffff;
+  --tooltip-background: #232323;
+  --pre-container-border: #383838;
+  --pre-container-background: #0e0e0e;
+  --expand-button-color: #ffffff;
+  --expand-button-background: #232323;
+  --expand-button-border: transparent;
+  --language-selector-color: #ffffff;
+  --terminal-border: #4d4d4d;
+  --terminal-background: #0e0e0e;
+  --terminal-color: #ffffff;
+  --terminal-handle: #d9d9d9;
+  --terminal-title-color: #ffffff;
+  --offcanvas-close-color: #c5c5c5;
+  --article-link-color: #99a1f9;
+
+  --info-icon-url: url("/info-dark.svg");
+  --chevron-icon-url: url("/chevron-dark.svg");
+  --search-icon-url: url("/search-dark.svg");
+  --copy-icon-url: url("/copy-dark.svg");
+  --copy-icon-opposite-url: url("/copy.svg");
+  --chevron-icon-url: url("/chevron-dark.svg");
+  --select-arrow: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='30'><path d='M10,10 l15,15 l15,-15' fill='none' stroke='white' stroke-width='7'></path></svg>");
+}
+
+:root {
+  @include light-mode;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark-mode;
+  }
+}
+
+:root[mode-loaded] {
+  @include light-mode;
+}
+
+:root[mode-loaded][data-dark-mode] {
+  @include dark-mode;
+}
