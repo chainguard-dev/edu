@@ -43,7 +43,7 @@ tutorials: [
   },
   {
     title: "Sign an SBOM",
-    description: "How sign and verify an SBOM with Cosign",
+    description: "How to sign and verify an SBOM with Cosign",
     url: "/open-source/sigstore/cosign/how-to-sign-an-sbom-with-cosign/"
   },
   

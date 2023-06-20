@@ -103,6 +103,7 @@
     </main>
     {{ $snippetsStyle := resources.Get "scss/snippets.scss" | resources.ToCSS }}
     <link rel="stylesheet" href="{{ $snippetsStyle.Permalink }}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     {{- $snippets := resources.Get "js/snippets.js" -}}
     <script src="{{ $snippets.Permalink }}" integrity="{{ $snippets.Data.Integrity }}"></script>
     {{- $titles := resources.Get "js/titles.js" -}}

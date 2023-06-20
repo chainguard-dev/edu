@@ -12,7 +12,7 @@ topic: true
 banner: {
     image: "/icon-article.svg",
     title: "User Onboarding",
-    subtitle: "This guide will walk you through using Chainguard Enforce on a Kubernetes cluster running on your laptop with kind",
+    subtitle: "This guide will walk you through using Chainguard Enforce on a local Kubernetes cluster",
     cta: "Learn more",
     link: "/chainguard/chainguard-enforce/chainguard-enforce-user-onboarding/"
 }
