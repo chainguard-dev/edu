@@ -1,5 +1,5 @@
 ---
-date: 2023-06-14T21:47:15Z
+date: 2023-06-20T10:30:45Z
 title: "chainctl clusters records"
 slug: chainctl_clusters_records
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_records/
@@ -36,5 +36,4 @@ Interact with cluster records.
 
 * [chainctl clusters](/chainguard/chainctl/chainctl-docs/chainctl_clusters/)	 - Cluster related commands for the Chainguard platform.
 * [chainctl clusters records list](/chainguard/chainctl/chainctl-docs/chainctl_clusters_records_list/)	 - List cluster records.
-* [chainctl clusters records vulns](/chainguard/chainctl/chainctl-docs/chainctl_clusters_records_vulns/)	 - Interact with cluster records vulnerabilities.
 
