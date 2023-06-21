@@ -1,0 +1,164 @@
+{{ define "main" }}
+  {{ if eq .Params.topic true }}
+  <div class="row flex-md-nowrap">
+    <div class="leftnav-container">
+      <div class="board-background leftnav">
+        <nav id="sidebar-default" aria-label="Main navigation">
+          {{ partial "sidebar/docs-menu.html" . }}
+        </nav>
+        {{ partial "sidebar/nav-bottom.html" }}
+      </div>
+    </div>
+    <div class="center-content list-html">
+      <main class="docs-content">
+      <div class="back-button">
+        {{ $parentTitle := .Parent.Title }}
+        {{ $parentLink := .Parent.Permalink }}
+        {{ if or (eq $parentTitle "Product Docs") (eq $parentTitle "Open Source") (eq $parentTitle "Education") }}
+          {{ $parentTitle = "Home" }}
+          {{ $parentLink = "/" }}
+        {{ end }}
+
+        <a class="pills-link" href="{{ $parentLink }}">
+          <div class="d-flex align-items-center justify-content-center pills-icon">
+            <div class="chevron-rotator">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 6" fill="none">
+                <path d="M1.06199 5.729L0.291992 4.938L4.99999 0.229004L9.70799 4.938L8.93799 5.729L4.99999 1.792L1.06199 5.729Z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <span class="pills-text">{{ $parentTitle }}</span>
+        </a>
+      </div>
+      <div class="mt-4">
+        <article>
+          <h1 class="landing-title text-capitalize">{{ if eq .CurrentSection .FirstSection }}{{ .Section | humanize }}{{ else }}{{ .Title }}{{ end }}</h1>
+          <p>{{ .Description }}</p>
+          <div class="install-container">
+            <div class="card-background install-card col-lg">
+              <img src="{{ .Params.banner.image }}" alt="Video Icon">
+            </div>
+            <div class="install-text-container d-flex flex-column col-lg">
+              <h3 class="banner-title">{{ .Params.banner.title }}</h3>
+              <p>{{ .Params.banner.subtitle }}</p>
+              <a href="{{ .Params.banner.link }}" class="watch-btn">{{ .Params.banner.cta }}</a>
+            </div>
+          </div>
+          <div class="row section-container">
+            <h3 class="section-title">{{ .Params.sectiontitle }}</h3>
+            <div class="card-container">
+              {{ range $index, $tutorial := .Params.Tutorials }}
+                  <div>
+                    <a href="{{ $tutorial.url }}">
+                      <div class="basics-card">
+                        <div class="d-flex flex-column">
+                          <div class="caption-title">
+                            {{ $tutorial.title }}
+                          </div>
+                          <div class="caption">{{ $tutorial.description }}</div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+              {{ end }}
+            </div>
+          </div>
+          <div class="list-container card-list">
+            <div class="d-flex justify-content-start gap-4 row">
+              <div class="d-flex flex-column w-100 col-md">
+                <h4 class="list-title">Recent Tutorials</h3>
+                <hr class="tutorial-divider">
+                <div class="tutorial-link-container">
+                  {{ $currentSection := .CurrentSection }}
+                  {{ $tutorials := .RegularPagesRecursive.ByDate.Reverse }}
+                  {{ $listed_pages := where .Pages ".Params.unlisted" "!=" "true"}}
+                  {{ range $index, $page := and $listed_pages $tutorials }}
+                    {{ if le $index 5 }}
+                      <div class="d-flex">
+                        <a class="tutorial caption" href="{{ .RelPermalink }}">{{ .Params.title | title }}</a>
+                      </div>
+                    {{ end }}
+                  {{ end }}
+                </div>
+              </div>
+
+              <div class="d-flex flex-column w-100 col-md">
+                <h4 class="list-title">Featured Tutorials</h3>
+                <hr class="tutorial-divider">
+                <div class="tutorial-link-container">
+                <!-- Will be updated in the future -->
+                <!-- Currently it shows tutorials by title -->
+                  {{ $currentSection := .CurrentSection }}
+                  {{ $tutorials := .RegularPagesRecursive.ByParam "rating" }}
+                  {{ $listed_pages := where .Pages ".Params.unlisted" "!=" "true"}}
+                  {{ range $index, $page := and $listed_pages $tutorials }}
+                    {{ if le $index 5 }}
+                      <div class="d-flex">
+                        <a class="tutorial caption" href="{{ .RelPermalink }}">{{ .Params.title | title }}</a>
+                      </div>
+                    {{ end }}
+                  {{ end }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      </main>
+    </div>
+  </div>
+  {{ else }}
+  <div class="row flex-md-nowrap">
+    <div class="leftnav-container">
+      <div class="board-background leftnav">
+        <nav id="sidebar-default" aria-label="Main navigation">
+          {{ partial "sidebar/docs-menu.html" . }}
+        </nav>
+        {{ partial "sidebar/nav-bottom.html" }}
+      </div>
+    </div>
+    <div class="row justify-content-center topic-container flex-shrink-1">
+      <div class="col-md-12 col-lg-10 col-xl-8">
+        <article>
+          <h1 class="text-center">{{ if eq .CurrentSection .FirstSection }}{{ .Section | humanize }}{{ else }}{{ .Title }}{{ end }}</h1>
+          <div>{{ .Content }}</div>
+          <div class="docs-navigation docs-navigation-summary">
+            {{ if eq .Params.type "article" }}
+                {{ $currentSection := .CurrentSection }}
+                    {{ range and
+                    (where .Site.RegularPages.ByTitle "Section" .Section)
+                    (where .Pages ".Params.unlisted" "!=" "true")}}
+                    {{ if in (.RelPermalink | string) $currentSection.RelPermalink }}
+                        <a class="docs-navigation-button docs-navigation-button-next" href="{{ .RelPermalink }}">
+                            <span class="next-title">{{ .Title }}</span>
+                            <div class="chevron-rotator">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 6" fill="none">
+                                    <path d="M1.06199 5.729L0.291992 4.938L4.99999 0.229004L9.70799 4.938L8.93799 5.729L4.99999 1.792L1.06199 5.729Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </a>
+                    {{ end }}
+                {{ end }}
+            {{ else }}
+                {{ range .Paginator.Pages }}
+                    <a class="docs-navigation-button docs-navigation-button-next" href="{{ .RelPermalink }}">
+                        <span class="next-title">{{ .Title }}</span>
+                        <div class="chevron-rotator">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 6" fill="none">
+                                <path d="M1.06199 5.729L0.291992 4.938L4.99999 0.229004L9.70799 4.938L8.93799 5.729L4.99999 1.792L1.06199 5.729Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                    </a>
+                    {{ if .Description }}
+                        <div class="button-description">{{ .Description }}</div>
+                    {{ end }}
+                {{ end }}
+                {{ template "_internal/pagination.html" . }}
+            {{ end }}
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+  {{ end }}
+{{ end }}

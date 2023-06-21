@@ -1,0 +1,85 @@
+@import "common/fontfamilies";
+@import "common/breakpoints";
+@import "common/theming";
+
+.righthand-title {
+  font-family: $SidebarCateforyFont;
+  font-size: 12px !important;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.04em;
+  text-align: left;
+  color: var(--righthand-title-color);
+  padding-left: 12px !important;
+  margin-top: 0 !important;
+}
+
+// Beat _dark.css selectors
+.page-links.page-links.page-links {
+  position: sticky;
+  top: 0;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 32px;
+  max-height: calc(100dvh - 150px);
+  overflow-y: auto;
+  padding-left: 1px;
+  width: $RightNavWidth;
+
+  li {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  li:not(:first-child) {
+    border-top: none !important;
+  }
+
+  .step-container {
+    display: flex;
+    align-items: start;
+  }
+
+  a {
+    color: var(--page-link-color);
+    padding: 12px 0 12px 12px !important;
+    font-family: $TextFont;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+
+    .step {
+      padding: 0px 5px;
+      width: auto;
+      font-size: 12px;
+      line-height: 16px;
+      margin-top: 2px;
+      margin-right: 8px;
+    }
+
+    &:hover,
+    &.active-link {
+      color: var(--page-link-active-color);
+    }
+  }
+}
+
+.active-element {
+  background-color: var(--active-element-background);
+  box-shadow: -1px 0px 0px 0px var(--active-element-shadow);
+  border-radius: 0px 4px 4px 0px;
+}
+
+.active-link {
+  color: var(--active-link-color) !important;
+}
+
+.docs-toc {
+  height: 100%;
+  margin-top: -32px;
+  overflow: visible;
+}

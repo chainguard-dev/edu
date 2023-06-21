@@ -1,22 +1,52 @@
 ---
 title: "Sigstore"
+description: "Sigstore offers a new standard for signing, verifying, and protecting software"
 type: "article"
 date: 2020-10-06T08:49:15+00:00
 lastmod: 2020-10-06T08:49:15+00:00
 draft: false
 images: []
+topic: true
+banner: {
+    image: "/icon-education.svg",
+    title: "Keyless Signing",
+    subtitle: "Learn how to keyless sign a container image with Sigstore",
+    cta: "Follow guide",
+    link: "/open-source/sigstore/how-to-keyless-sign-a-container-with-sigstore/"
+}
+sectiontitle: "Discover Sigstore"
+tutorials: [
+  {
+    title: "Cosign",
+    description: "An open source tool to sign software artifacts",
+    url: "/open-source/sigstore/cosign/"
+  },
+  {
+    title: "Fulcio",
+    description: "A new kind of root certificate authority for code signing",
+    url: "/open-source/sigstore/fulcio/"
+  },
+  {
+    title: "Rekor",
+    description: "An immutable, tamper-resistant ledger",
+    url: "/open-source/sigstore/rekor/"
+  },
+  {
+    title: "Policy Controller",
+    description: "An admission controller for validating software artifacts",
+    url: "/open-source/sigstore/policy-controller/"
+  },
+  {
+    title: "Cosign: The Manual Way",
+    description: "Walk through doing Cosign manually",
+    url: "/open-source/sigstore/cosign/cosign-manual-way/"
+  },
+  {
+    title: "Sign an SBOM",
+    description: "How to sign and verify an SBOM with Cosign",
+    url: "/open-source/sigstore/cosign/how-to-sign-an-sbom-with-cosign/"
+  },
+  
+]
+
 ---
-
-Sigstore offers a new standard for signing, verifying and protecting software
-
-| Tool                      | Featured Tutorial                                                      |
-| ------------------------------- | ------------------------------------------------------------------------- |
-| [Cosign](/open-source/sigstore/cosign) | [How to Sign an SBOM with Cosign](/open-source/sigstore/cosign/how-to-sign-an-sbom-with-cosign/) |
-| [Policy Controller](/open-source/sigstore/policy-controller) | [How to Install Sigstore Policy Controller](/open-source/sigstore/policy-controller/how-to-install-policy-controller) |
-| [Fulcio](/open-source/sigstore/fulcio) | [How to Inspect and Verify Fulcio Certificates](/open-source/sigstore/fulcio/how-to-inspect-and-verify-fulcio-certificates/) |
-| [Rekor](/open-source/sigstore/rekor) | [How to Sign and Upload Metadata to Rekor](/open-source/sigstore/rekor/how-to-sign-and-upload-metadata-to-rekor/) |
-| Sigstore | [How to Keyless Sign a Container Image with Sigstore](/open-source/sigstore/how-to-keyless-sign-a-container-with-sigstore/) |
-
-{{< youtube veiCVgDpYcY >}}
-<br>
-All Sigstore tutorials:

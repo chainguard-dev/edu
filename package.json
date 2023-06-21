@@ -66,5 +66,8 @@
   },
   "otherDependencies": {
     "hugo": "0.99.0"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.10.5"
   }
 }

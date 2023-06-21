@@ -1,0 +1,22 @@
+{{ if and (ne .Params.toc false) (ne .TableOfContents "<nav id=\"TableOfContents\"></nav>") -}}
+  <div class="page-links">
+    <h3 class="righthand-title">QUICK NAV</h3>
+    <div class="tocLinks">
+      {{ .TableOfContents }}
+    </div>
+  </div>
+{{ end -}}
+
+{{- $righthand := resources.Get "js/righthand.js" -}}
+{{ $scrollRighthand := resources.Get "js/scrollRighthand.js" }}
+{{ $scss := resources.Get "scss/righthand.scss" }}
+{{ $righthand_style := $scss | resources.ToCSS }}
+
+
+{{/* Add righthand.css styling */}}
+<link rel="stylesheet" href="{{ $righthand_style.Permalink }}" />
+
+{{/*  Add righthand.js script   */}}
+<script src="{{ $righthand.Permalink }}" integrity="{{ $righthand.Data.Integrity }}"></script>
+{{/*  Add scrollRighthand.js script   */}}
+<script src="{{ $scrollRighthand.Permalink }}" integrity="{{ $scrollRighthand.Data.Integrity }}"></script>

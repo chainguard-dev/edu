@@ -906,10 +906,6 @@
             "required": true,
             "schema": {
               "properties": {
-                "awsIdentity": {
-                  "$ref": "#/definitions/IdentityAWSIdentity",
-                  "title": "aws_identity matches AWS IAM users and roles to an identity"
-                },
                 "claimMatch": {
                   "$ref": "#/definitions/IdentityClaimMatch",
                   "description": "claim_match checks the third party IdP token's claims against one\nor more configured patterns."
@@ -1638,27 +1634,6 @@
             "name": "parent",
             "required": false,
             "type": "string"
-          },
-          {
-            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
-            "in": "query",
-            "name": "uidp.ancestorsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
-            "in": "query",
-            "name": "uidp.descendantsOf",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "children_of are groups reachable by directly proceeding from parent to children.",
-            "in": "query",
-            "name": "uidp.childrenOf",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -2172,52 +2147,6 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/registryTagList"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Registry"
-        ]
-      }
-    },
-    "/registry/v1/tags/{parentId}/history": {
-      "get": {
-        "operationId": "Registry_ListTagHistory",
-        "parameters": [
-          {
-            "description": "tag UIDP to list history for.",
-            "in": "path",
-            "name": "parentId",
-            "pattern": ".+",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "format": "date-time",
-            "in": "query",
-            "name": "start",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "format": "date-time",
-            "in": "query",
-            "name": "end",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/registryTagHistoryList"
             }
           },
           "default": {
@@ -3020,31 +2949,6 @@
       },
       "type": "object"
     },
-    "IdentityAWSIdentity": {
-      "properties": {
-        "arn": {
-          "title": "Exact match to Arn of AWS Identity",
-          "type": "string"
-        },
-        "arnPattern": {
-          "title": "Regular expression for matching Arn",
-          "type": "string"
-        },
-        "awsAccount": {
-          "title": "Required, matches the `Account` field in the GetCallerID AWS IAM\nresponse",
-          "type": "string"
-        },
-        "userId": {
-          "title": "Exacty match of the UserID field",
-          "type": "string"
-        },
-        "userIdPattern": {
-          "title": "Regular expression for UserId field",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "IdentityClaimMatch": {
       "properties": {
         "audience": {
@@ -3278,6 +3182,16 @@
         "GENERATED"
       ],
       "title": "Type",
+      "type": "string"
+    },
+    "VulnReportFilterState": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "ACTIVE",
+        "INACTIVE",
+        "ALL"
+      ],
       "type": "string"
     },
     "VulnReportScanner": {
@@ -3662,10 +3576,6 @@
     },
     "iamIdentity": {
       "properties": {
-        "awsIdentity": {
-          "$ref": "#/definitions/IdentityAWSIdentity",
-          "title": "aws_identity matches AWS IAM users and roles to an identity"
-        },
         "claimMatch": {
           "$ref": "#/definitions/IdentityClaimMatch",
           "description": "claim_match checks the third party IdP token's claims against one\nor more configured patterns."
@@ -4066,29 +3976,6 @@
       },
       "type": "object"
     },
-    "registryTagHistory": {
-      "properties": {
-        "digest": {
-          "type": "string"
-        },
-        "updateTimestamp": {
-          "format": "date-time",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "registryTagHistoryList": {
-      "properties": {
-        "items": {
-          "items": {
-            "$ref": "#/definitions/registryTagHistory"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "registryTagList": {
       "properties": {
         "items": {
@@ -4459,8 +4346,8 @@
     "tenantFix": {
       "properties": {
         "state": {
-          "$ref": "#/definitions/tenantFixState",
-          "description": "state reflects the state of the fix, e.g. fixed, unknown, not-fixed, won't-fix."
+          "description": "state reflects the state of the fix, e.g. fixed, unknown, not-fixed, won't-fix.",
+          "type": "string"
         },
         "versions": {
           "description": "List of in versions of the package on which the vulnerability has been solved.",
@@ -4471,16 +4358,6 @@
         }
       },
       "type": "object"
-    },
-    "tenantFixState": {
-      "default": "UNKNOWN",
-      "enum": [
-        "UNKNOWN",
-        "FIXED",
-        "NOT_FIXED",
-        "WONT_FIX"
-      ],
-      "type": "string"
     },
     "tenantPackage": {
       "properties": {
@@ -4682,10 +4559,6 @@
           "description": "authors is zero or more authors concatenated.",
           "type": "string"
         },
-        "description": {
-          "title": "Short description of the Sbom",
-          "type": "string"
-        },
         "format": {
           "description": "format holds whether the SBOM is SPDX, CycloneDX, or other.",
           "type": "string"
@@ -4705,10 +4578,6 @@
         "lastSeen": {
           "format": "date-time",
           "title": "last_seen tracks the timestamp at which this sbom was last seen.\nTODO(vaikas): Does this really make any sense?",
-          "type": "string"
-        },
-        "name": {
-          "description": "Name of the Sbom.",
           "type": "string"
         },
         "rawSbom": {
@@ -4777,16 +4646,6 @@
         }
       },
       "type": "object"
-    },
-    "tenantVulnReportFilterState": {
-      "default": "UNKNOWN",
-      "enum": [
-        "UNKNOWN",
-        "ACTIVE",
-        "INACTIVE",
-        "ALL"
-      ],
-      "type": "string"
     },
     "tenantVulnReportList": {
       "properties": {

@@ -1,17 +1,17 @@
 {{ define "main" }}
-<div class="row flex-xl-nowrap">
-  <div class="col-lg-5 col-xl-5 docs-sidebar{{ if ne .Site.Params.options.navbarSticky true }} docs-sidebar-top{{ end }} d-none d-lg-block">
-    <nav {{ if eq .Site.Params.menu.section.collapsibleSidebar false }}id="sidebar-default" {{ end }}class="docs-links" aria-label="Main navigation">
-      {{ partial "sidebar/docs-menu.html" . }}
-    </nav>
+<div class="row flex-md-nowrap">
+  <div class="leftnav-container">
+    <div class="board-background leftnav">
+      <nav id="sidebar-default" aria-label="Main navigation">
+        {{ partial "sidebar/docs-menu.html" . }}
+      </nav>
+      {{ partial "sidebar/nav-bottom.html" }}
+    </div>
   </div>
-  {{ if ne .Params.toc false -}}
-  {{ end -}}
-  {{ if .Params.toc -}}
-  <main class="docs-content col-lg-11 col-xl{{ if eq .Site.Params.options.fullWidth false }}-12{{ end }}">
-    {{ else -}}
-    <main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
-      {{ end -}}
+
+  <div class="content-and-terminal">
+  <div class="center-content single-html">
+    <main class="docs-content {{ if ne .Params.toc false -}} has-toc {{ end }}">
 
       {{ if not .Params.hide_title -}}<h1>{{ .Title }}</h1>{{ end -}}
 

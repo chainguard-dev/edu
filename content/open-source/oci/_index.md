@@ -1,5 +1,5 @@
 ---
-title: "The Open Container Initiative"
+title: "Open Container Initiative"
 description: "The Open Container Initiative"
 lead: "The Open Container Initiative"
 type: "article"

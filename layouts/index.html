@@ -1,50 +1,225 @@
 {{ define "main" }}
-  <img src="chainguard-academy-banner.jpg" alt="Chainguard Academy: Learn how to make your software supply chain secure by default">
-<p></p>
-  {{ end }}
-
-{{ define "sidebar-prefooter" }}
-<section class="section section-sm">
-  <div class="container">
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-5">
-        <a href="/chainguard/chainguard-enforce"><i class="bi-lock featured-icon chainguard-blue"></i></a>
-        <a href="/chainguard/chainguard-enforce"><h2 class="h4">Chainguard Enforce</h2></a>
-        <p>Check out <a href="/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-user-onboarding/">Chainguard Enforce user onboarding</a> to learn about this comprehensive solution for software supply chain risk management.</p>
-      </div>
-      <div class="col-lg-5">
-        <a href="/open-source/wolfi/"><i class="bi-boxes featured-icon chainguard-blue"></i></a>
-        <a href="/open-source/wolfi/"><h2 class="h4">Wolfi</h2></a>
-        <p>A Linux undistro for secure container images designed for the cloud-native era. Read our <a href="/open-source/wolfi/overview/">Wolfi overview</a> to find out more.</p>
-      </div>
-      <div class="col-lg-5">
-        <a href="/open-source/sigstore/"><i class="bi-tools featured-icon chainguard-blue"></i></a>
-        <a href="/open-source/sigstore/"><h2 class="h4">Sigstore</h2></a>
-        <p>Offering open source security tooling, get up to speed with the <a href="https://www.edx.org/course/securing-your-software-supply-chain-with-sigstore" target="_blank">Sigstore edX course</a>, brought to you by the Linux Foundation.</p>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <div class="row flex-md-nowrap">
+    <div class="leftnav-container">
+      <div class="board-background leftnav">
+        <nav id="sidebar-default" aria-label="Main navigation">
+          {{ partial "sidebar/docs-menu.html" . }}
+        </nav>
+        {{ partial "sidebar/nav-bottom.html" }}
       </div>
     </div>
-
-  </div>
-</section>
-
-<section class="section section-open-collective mt-3 bg-light py-5">
-  <div class=container>
-    <div class="row justify-content-center">
-      <div class="col-lg-12 text-center">
-        <p><a href="https://chainguard.dev"><img src="Chainguard_Lockup_Blue.svg" alt="Chainguard logo"></a></p>
+    <div class="center-content index-html flex-shrink-1">
+      <main class="docs-content">
+      <div>
+        <svg class="index-logo" width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M36 0V33C36 34.6569 37.3431 36 39 36H72L36 0Z" fill="#F99AFB"/>
+          <path d="M36 0L72 36V3C72 1.34315 70.6569 0 69 0H36Z" fill="currentColor"/>
+          <path d="M39 36H72V69C72 70.6569 70.6569 72 69 72H36C16.1177 72 -8.69081e-07 55.8822 0 36C8.69081e-07 16.1177 16.1178 -8.69081e-07 36 0L36 33C36 34.6569 37.3431 36 39 36Z" fill="#3443F4"/>
+        </svg>          
+        <h2 class="center-title">Chainguard Academy</h2>
+        <div>Learn how to make your software supply chain secure by default</div>
       </div>
+      <section class="section">
+        <h4 class="section-title">Featured</h4>
+        <div class="top-card-container">
+          <div class="card-container">
+            <div>
+              <div class="card-background image-card">
+                <svg width="104" height="67" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" alt="Boxes Icon">
+                  <g filter="url(#filter0_d_313_358)">
+                    <path d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <filter id="filter0_d_313_358" x="0" y="0.298828" width="104" height="82.4023" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                      <feOffset dy="8"/>
+                      <feGaussianBlur stdDeviation="8"/>
+                      <feComposite in2="hardAlpha" operator="out"/>
+                      <feColorMatrix type="matrix" values="0 0 0 0 0.203922 0 0 0 0 0.262745 0 0 0 0 0.956863 0 0 0 0.12 0"/>
+                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_313_358"/>
+                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_313_358" result="shape"/>
+                    </filter>
+                  </defs>
+                </svg>                
+              </div>
+              <a href="/chainguard/chainguard-images/" rel="noreference" class="a--original"><h5 class="caption-title">Chainguard Images</h5></a>
+              <p class="caption">Reduce your attack surface with minimal, distroless images</p>
+            </div>
+            <div>
+              <div class="card-background image-card">
+                <svg width="84" height="67" viewBox="0 0 84 67" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Article Icon">
+                  <g filter="url(#filter0_d_370_653)">
+                    <path d="M27.4862 23.1328H56.5139V18.9862H27.4862V23.1328ZM27.4862 48.0139H48.8582V43.8672H27.4862V48.0139ZM27.4862 35.5734H56.5139V31.4267H27.4862V35.5734ZM21.9284 58.7C20.4926 58.7 19.2789 58.2043 18.2873 57.2128C17.2958 56.2212 16.8 55.0075 16.8 53.5717V13.4284C16.8 11.9926 17.2958 10.7789 18.2873 9.78733C19.2789 8.79581 20.4926 8.30005 21.9284 8.30005H62.0717C63.5075 8.30005 64.7212 8.79581 65.7128 9.78733C66.7043 10.7789 67.2 11.9926 67.2 13.4284V53.5717C67.2 55.0075 66.7043 56.2212 65.7128 57.2128C64.7212 58.2043 63.5075 58.7 62.0717 58.7H21.9284Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <filter id="filter0_d_370_653" x="0.800049" y="0.300049" width="82.4" height="82.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                      <feOffset dy="8"/>
+                      <feGaussianBlur stdDeviation="8"/>
+                      <feComposite in2="hardAlpha" operator="out"/>
+                      <feColorMatrix type="matrix" values="0 0 0 0 0.203922 0 0 0 0 0.262745 0 0 0 0 0.956863 0 0 0 0.12 0"/>
+                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_370_653"/>
+                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_370_653" result="shape"/>
+                    </filter>
+                  </defs>
+                </svg>                  
+              </div>
+              <a href="/chainguard/chainguard-enforce/" rel="noreference" class="a--original"><h5 class="caption-title">Chainguard Enforce</h5></a>
+              <p class="caption">Manage, monitor, and enforce end-to-end policies</p>
+            </div>
+            <div>
+              <div class="card-background image-card">
+                <svg width="98" height="67" viewBox="0 0 98 67" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Education Icon">
+                  <g filter="url(#filter0_d_370_655)">
+                    <path d="M77.3003 47.8173V26.5407L49.0001 40.5622L16.3519 24.4311L49.0001 8.30005L81.6481 24.4311V47.8173H77.3003ZM49.0001 58.7001L28.5982 48.5634V36.8124L49.0001 46.9491L69.402 36.8124V48.5634L49.0001 58.7001Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <filter id="filter0_d_370_655" x="0.351929" y="0.300049" width="97.2963" height="82.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                      <feOffset dy="8"/>
+                      <feGaussianBlur stdDeviation="8"/>
+                      <feComposite in2="hardAlpha" operator="out"/>
+                      <feColorMatrix type="matrix" values="0 0 0 0 0.203922 0 0 0 0 0.262745 0 0 0 0 0.956863 0 0 0 0.12 0"/>
+                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_370_655"/>
+                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_370_655" result="shape"/>
+                    </filter>
+                  </defs>
+                </svg>                  
+              </div>
+              <a href="/software-security/selecting-a-base-image/" rel="noreference" class="a--original"><h5 class="caption-title">Selecting a Base Image</h5></a>
+              <p class="caption">Guidance for choosing an image with few or no known vulnerabilities</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-sm">
+        <h4 class="section-title mb-2">Reach 'inbox zero' for your CVEs</h4>
+        <div>
+          Deep dive into Chainguard Images
+        </div>
+        <div class="card-container">
+          <div>
+            <div class="basics-card">
+              <div class="d-block">
+                <div class="form-check-input">
+                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.229 7.771L0.0209961 4.542L0.749996 3.792L3.229 6.25L9.25 0.25L9.979 1.021L3.229 7.771Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="d-flex flex-column">
+                <div class="caption-title mb-2">
+                  <a href="/chainguard/chainguard-images/overview/">
+                    Overview
+                  </a>
+                </div>
+                <div class="caption">Minimalist, distroless container images powered by Wolfi to secure your software supply chain</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="basics-card">
+              <div class="d-block">
+                <div class="form-check-input">
+                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.229 7.771L0.0209961 4.542L0.749996 3.792L3.229 6.25L9.25 0.25L9.979 1.021L3.229 7.771Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="d-flex flex-column">
+                <div class="caption-title mb-2">
+                  <a href="/chainguard/chainguard-images/images-compared/">
+                    CVE Comparisons
+                  </a>
+                </div>
+                <div class="caption">Comparison graphs showing the CVEs of other images compared to Chainguard Images</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="basics-card">
+              <div class="d-block">
+                <div class="form-check-input">
+                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.229 7.771L0.0209961 4.542L0.749996 3.792L3.229 6.25L9.25 0.25L9.979 1.021L3.229 7.771Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="d-flex flex-column">
+                <div class="caption-title mb-2">
+                  <a href="/chainguard/chainguard-images/faq/">
+                    FAQs
+                  </a>
+                </div>
+                <div class="caption">Have questions about Chainguard Images? Find all you want to know in the FAQs!</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="basics-card">
+              <div class="d-block">
+                <div class="form-check-input">
+                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.229 7.771L0.0209961 4.542L0.749996 3.792L3.229 6.25L9.25 0.25L9.979 1.021L3.229 7.771Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="d-flex flex-column">
+                <div class="caption-title mb-2">
+                  <a href="/chainguard/chainguard-images/reference/">
+                    Reference
+                  </a>
+                </div>
+                <div class="caption">Overview, variants, provenance, and getting started guides for Chainguard Images</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="basics-card">
+              <div class="d-block">
+                <div class="form-check-input">
+                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.229 7.771L0.0209961 4.542L0.749996 3.792L3.229 6.25L9.25 0.25L9.979 1.021L3.229 7.771Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="d-flex flex-column">
+                <div class="caption-title mb-2">
+                  <a href="chainguard/chainguard-images/registry/">
+                    Chainguard Registry
+                  </a>
+                </div>
+                <div class="caption">Our Registry provides public access to all available Chainguard Images</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="basics-card">
+              <div class="d-block">
+                <div class="form-check-input">
+                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.229 7.771L0.0209961 4.542L0.749996 3.792L3.229 6.25L9.25 0.25L9.979 1.021L3.229 7.771Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="d-flex flex-column">
+                <div class="caption-title mb-2">
+                  <a href="/chainguard/chainguard-images/debugging-distroless-images/">
+                    Debugging Distroless
+                  </a>
+                </div>
+                <div class="caption">Strategies and approaches you can take to help you debug distroless container images</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
-</section>
-
+  </div>
 {{ end }}
 
-{{ define "sidebar-footer" }}
-<section class="section section-sm container-fluid">
-  
-  <div class="row justify-content-center text-center">
-    <div class="col-lg-9">
-      {{- .Content -}}
-    </div>
-  </div>
-</section>
-{{ end }}
