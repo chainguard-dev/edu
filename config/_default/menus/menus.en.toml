@@ -137,19 +137,19 @@
 
 [[footer]]
   name = "Chainguard Images"
-  url = "chainguard-images"
+  url = "https://www.chainguard.dev/chainguard-images"
   weight = 1
   parent = "products"
 
 [[footer]]
   name = "Chainguard Enforce"
-  url = "chainguard-enforce"
+  url = "https://www.chainguard.dev/chainguard-enforce"
   parent = "products"
   weight = 2
 
 [[footer]]
   name = "Chainguard Services"
-  url = "chainguard-services"
+  url = "https://www.chainguard.dev/services"
   weight = 3
   parent = "products"
 
@@ -160,13 +160,13 @@
 
 [[footer]]
   name = "Open source"
-  url = "open-source"
+  url = "https://www.chainguard.dev/open-source"
   weight = 1
   parent = "developer"
 
 [[footer]]
   name = "Docs"
-  url = "docs"
+  url = "/"
   weight = 2
   parent = "developer"
 
@@ -177,19 +177,19 @@
 
 [[footer]]
   name = "Unchained blog"
-  url = "unchained-blog"
+  url = "https://www.chainguard.dev/unchained"
   weight = 1
   parent = "resources"
 
 [[footer]]
   name = "Customer stories"
-  url = "customer-stories"
+  url = "https://www.chainguard.dev/customers"
   weight = 2
   parent = "resources"
 
 [[footer]]
   name = "Education"
-  url = "education"
+  url = "/"
   weight = 3
   parent = "resources"
 
@@ -200,25 +200,25 @@
 
 [[footer]]
   name = "About"
-  url = "about"
+  url = "https://www.chainguard.dev/about-us"
   weight = 1
   parent = "company"
 
 [[footer]]
   name = "Careers"
-  url = "careers"
+  url = "https://www.chainguard.dev/careers"
   weight = 2
   parent = "company"
 
 [[footer]]
   name = "Legal"
-  url = "legal"
+  url = "https://www.chainguard.dev/acceptable-use-policy"
   weight = 3
   parent = "company"
 
 [[footer]]
   name = "Contact"
-  url = "contact"
+  url = "https://www.chainguard.dev/contact"
   weight = 4
   parent = "company"
 
@@ -229,28 +229,28 @@
 
 [[footer]]
   name = "Twitter"
-  url = "https://twitter.com"
+  url = "https://twitter.com/chainguard_dev"
   weight = 2
   parent = "follow"
   pre = "<svg width=\"8\" height=\"14\" viewBox=\"0 1 8 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.77 8L0 7.23L6.146 1.084H0.916V0H8V7.084H6.916V1.854L0.77 8Z\" fill=\"currentColor\"/></svg>"
 
 [[footer]]
   name = "GitHub"
-  url = "https://github.com"
+  url = "https://github.com/chainguard-dev/edu"
   weight = 3
   parent = "follow"
   pre = "<svg width=\"8\" height=\"14\" viewBox=\"0 1 8 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.77 8L0 7.23L6.146 1.084H0.916V0H8V7.084H6.916V1.854L0.77 8Z\" fill=\"currentColor\"/></svg>"
 
 [[footer]]
   name = "LinkedIn"
-  url = "https://linkedin.com"
+  url = "https://www.linkedin.com/company/chainguard-dev"
   weight = 4
   parent = "follow"
   pre = "<svg width=\"8\" height=\"14\" viewBox=\"0 1 8 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.77 8L0 7.23L6.146 1.084H0.916V0H8V7.084H6.916V1.854L0.77 8Z\" fill=\"currentColor\"/></svg>"
 
 [[footer]]
   name = "TikTok"
-  url = "https://tiktok.com"
+  url = "https://www.tiktok.com/@chainguard_dev"
   weight = 5
   parent = "follow"
   pre = "<svg width=\"8\" height=\"14\" viewBox=\"0 1 8 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0.77 8L0 7.23L6.146 1.084H0.916V0H8V7.084H6.916V1.854L0.77 8Z\" fill=\"currentColor\"/></svg>"
