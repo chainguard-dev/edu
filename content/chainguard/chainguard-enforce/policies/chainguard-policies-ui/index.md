@@ -17,6 +17,11 @@ weight: 001
 toc: true
 ---
 
+{{< tabs >}}
+  {{< tab title="CLI" active=false url="/chainguard/chainguard-enforce/policies/chainguard-policies-cli/" >}}
+  {{< tab title="Console" active=true url="/chainguard/chainguard-enforce/policies/chainguard-policies-ui/" >}}
+{{</ tabs >}}
+
 Security policies in Chainguard Enforce ensure that our development teams are deploying containers within set policies.
 
 We can associate a policy YAML file with a given group in order to achieve our security goals. This guide will go through how to set up policies on the Chainguard Enforce user interface available to you via [console.enforce.dev](https://console.enforce.dev). You must already have an account with Chainguard to follow this guide. You can request access for **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs).
