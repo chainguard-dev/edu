@@ -2,198 +2,60 @@
   {{ partial "header/alert.html" . }}
 {{ end -}}
 
-{{ if eq .Site.Params.options.navbarSticky true -}}
-<div class="sticky-top">
-{{ end -}}
+<header class="navbar header-background">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+    {{- $showFlexSearch := .Site.Params.options.flexSearch }}
+    {{- if $showFlexSearch }}
+    {{- if and (isset .Site.Params.options "searchsectionsshow") (not (eq .Site.Params.options.searchSectionsShow "ALL")) }}
+    {{- $showFlexSearch = or (eq (len .Site.Params.options.searchSectionsShow) 0) (in .Site.Params.options.searchSectionsShow .Section) (and .IsHome (in .Site.Params.options.searchSectionsShow "HomePage")) }}
+    {{- end }}
+    {{- end }}
 
-<div class="header-bar"></div>
-
-<header class="navbar navbar-expand-lg navbar-light doks-navbar">
-  <nav class="container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }} flex-wrap flex-lg-nowrap" aria-label="Main navigation">
-
-    <a class="navbar-brand order-0" href="{{ "https://chainguard.dev" | relLangURL }}" aria-label="{{ .Site.Params.subTitle }}">
-      {{ .Site.Params.subTitle }}
-    </a>
-
-    {{ if (in .Site.Params.sections.sectionNav .Section) -}}
-    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-    </button>
-    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-      <div class="header-bar"></div>
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">{{ i18n "browse" }} {{ .Section  }}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <aside class="doks-sidebar mt-n3">
-          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
-            {{ partial "sidebar/docs-menu.html" . }}
-          </nav>
-        </aside>
-      </div>
+    {{ if $showFlexSearch -}}
+    <div class="search-container">
+      <form class="doks-search position-relative">
+        <input class="search form-control is-search search-box" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
+      </form>
     </div>
     {{ end -}}
 
-
-    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <button class="btn btn-menu order-2 d-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg width="20" height="20" viewBox="0 2 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.208 13.104V14.188H16.792V13.104H3.208Z" fill="currentColor"/>
+        <path d="M3.208 5.81201V6.89601H16.792V5.81201H3.208Z" fill="currentColor"/>
+        </svg>
     </button>
     <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
-      <div class="header-bar d-lg-none"></div>
-      <div class="offcanvas-header d-lg-none">
-        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="{{ "/" | relLangURL }}">{{ .Site.Params.Title }}</a></h2>
-        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
-      </div>
-      <div class="offcanvas-body p-4 p-lg-0">
-        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
-          {{- $current := . -}}
-          {{- $section := $current.Section -}}
-          {{ range .Site.Menus.main -}}
-            {{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) -}}
-            {{- $active = or $active (eq .Name $current.Title) -}}
-            {{- $active = or $active (and (eq .Name ($section | humanize)) (eq $current.Section $section)) -}}
-            {{- $active = or $active (and (eq .Name "Blog") (eq $current.Section "blog" "contributors" "categories" "tags")) -}}
-            {{ if .HasChildren }}
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle ps-0 py-1" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  {{ .Name }}
-                  <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-main shadow rounded border-0" aria-labelledby="navbarDropdownMenuLink">
-                  {{ range .Children -}}
-                  {{- $active = eq .Name $current.Title -}}
-                    <li>
-                      <a class="dropdown-item{{ if $active }} active{{ end }}" href="{{ .URL | relLangURL }}"{{ if $active }} aria-current="true"{{ end }}>{{ .Name }}</a>
-                    </li>
-                  {{ end -}}
-                </ul>
-              </li>
-            {{ else }}
-              <li class="nav-item">
-                <a class="nav-link ps-0 py-1{{ if $active }} active{{ end }}" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
-              </li>
-            {{ end }}
-          {{ end -}}
-        </ul>
-
-        {{- $showFlexSearch := .Site.Params.options.flexSearch }}
-        {{- if $showFlexSearch }}
-        {{- if and (isset .Site.Params.options "searchsectionsshow") (not (eq .Site.Params.options.searchSectionsShow "ALL")) }}
-        {{- $showFlexSearch = or (eq (len .Site.Params.options.searchSectionsShow) 0) (in .Site.Params.options.searchSectionsShow .Section) (and .IsHome (in .Site.Params.options.searchSectionsShow "HomePage")) }}
-        {{- end }}
-        {{- end }}
-
-        {{ if $showFlexSearch -}}
-        <hr class="text-black-50 my-4 d-lg-none">
-        <form class="doks-search position-relative flex-grow-1 ms-lg-auto me-lg-2">
-          <input id="search" class="form-control is-search" type="search" placeholder="{{ i18n "search-text" }}" aria-label="{{ i18n "search-text" }}" autocomplete="off">
-          <div id="suggestions" class="shadow bg-white rounded d-none"></div>
-        </form>
-        {{ end -}}
-
-        <hr class="text-black-50 my-4 d-lg-none">
-        <ul class="nav flex-column flex-lg-row">
-          {{ range .Site.Menus.social -}}
-            <li class="nav-item">
-              <a class="nav-link social-link" href="{{ .URL | relURL }}">{{ .Pre | safeHTML }}<small class="ms-2 d-lg-none">{{ .Name | safeHTML }}</small></a>
-            </li>
-          {{ end -}}
-        </ul>
-
-        {{ if .Site.Params.options.darkMode -}}
-        <hr class="text-black-50 my-4 d-lg-none">
-        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
-          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
-          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+      <div class="offcanvas-header">
+        <button class="bottom-mode btn toggle-icon footer-item" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#545454" d="M9.9999 12.5001C10.6943 12.5001 11.2846 12.2571 11.7707 11.771C12.2568 11.2849 12.4999 10.6946 12.4999 10.0001C12.4999 9.3057 12.2568 8.71542 11.7707 8.22931C11.2846 7.7432 10.6943 7.50014 9.9999 7.50014C9.30545 7.50014 8.71518 7.7432 8.22906 8.22931C7.74295 8.71542 7.4999 9.3057 7.4999 10.0001C7.4999 10.6946 7.74295 11.2849 8.22906 11.771C8.71518 12.2571 9.30545 12.5001 9.9999 12.5001ZM9.99519 13.5835C8.99941 13.5835 8.15403 13.2344 7.45904 12.5363C6.76407 11.8382 6.41659 10.9912 6.41659 9.99543C6.41659 8.99966 6.76565 8.15427 7.46377 7.45929C8.16188 6.76432 9.00883 6.41683 10.0046 6.41683C11.0004 6.41683 11.8458 6.76589 12.5408 7.46402C13.2357 8.16213 13.5832 9.00907 13.5832 10.0049C13.5832 11.0006 13.2341 11.846 12.536 12.541C11.8379 13.236 10.991 13.5835 9.99519 13.5835ZM1.7499 10.5418C1.59643 10.5418 1.46778 10.4903 1.36396 10.3872C1.26015 10.2842 1.20825 10.1566 1.20825 10.0042C1.20825 9.85194 1.26015 9.72291 1.36396 9.61714C1.46778 9.51138 1.59643 9.4585 1.7499 9.4585H3.95825C4.11171 9.4585 4.24035 9.51001 4.34417 9.61304C4.44799 9.71607 4.4999 9.84373 4.4999 9.99604C4.4999 10.1483 4.44799 10.2774 4.34417 10.3831C4.24035 10.4889 4.11171 10.5418 3.95825 10.5418H1.7499ZM16.0415 10.5418C15.8881 10.5418 15.7594 10.4903 15.6556 10.3872C15.5518 10.2842 15.4999 10.1566 15.4999 10.0042C15.4999 9.85194 15.5518 9.72291 15.6556 9.61714C15.7594 9.51138 15.8881 9.4585 16.0415 9.4585H18.2499C18.4034 9.4585 18.532 9.51001 18.6358 9.61304C18.7396 9.71607 18.7915 9.84373 18.7915 9.99604C18.7915 10.1483 18.7396 10.2774 18.6358 10.3831C18.532 10.4889 18.4034 10.5418 18.2499 10.5418H16.0415ZM10.004 4.50014C9.8517 4.50014 9.72266 4.44823 9.6169 4.34441C9.51113 4.24059 9.45825 4.11195 9.45825 3.9585V1.75014C9.45825 1.59667 9.50977 1.46803 9.61279 1.36423C9.71582 1.26041 9.84349 1.2085 9.99579 1.2085C10.1481 1.2085 10.2771 1.26041 10.3829 1.36423C10.4887 1.46803 10.5415 1.59667 10.5415 1.75014V3.9585C10.5415 4.11195 10.49 4.24059 10.387 4.34441C10.284 4.44823 10.1563 4.50014 10.004 4.50014ZM10.004 18.7918C9.8517 18.7918 9.72266 18.7399 9.6169 18.6361C9.51113 18.5323 9.45825 18.4036 9.45825 18.2501V16.0418C9.45825 15.8883 9.50977 15.7597 9.61279 15.6559C9.71582 15.5521 9.84349 15.5001 9.99579 15.5001C10.1481 15.5001 10.2771 15.5521 10.3829 15.6559C10.4887 15.7597 10.5415 15.8883 10.5415 16.0418V18.2501C10.5415 18.4036 10.49 18.5323 10.387 18.6361C10.284 18.7399 10.1563 18.7918 10.004 18.7918ZM5.33806 6.09629L4.14415 4.88956C4.03411 4.78806 3.97775 4.66734 3.97506 4.52739C3.9724 4.38743 4.02957 4.25977 4.14659 4.14439C4.25249 4.029 4.37604 3.97131 4.51725 3.97131C4.65846 3.97131 4.78248 4.029 4.88931 4.14439L6.10406 5.33029C6.22479 5.44486 6.28515 5.57407 6.28515 5.71791C6.28515 5.86176 6.22612 5.99097 6.10806 6.10554C6.00391 6.22009 5.87838 6.27737 5.73148 6.27737C5.58458 6.27737 5.45344 6.21701 5.33806 6.09629ZM15.1105 15.8559L13.8957 14.67C13.775 14.5592 13.7146 14.4327 13.7146 14.2905C13.7146 14.1482 13.775 14.0167 13.8957 13.896C13.9946 13.7806 14.1181 13.7229 14.2663 13.7229C14.4146 13.7229 14.5464 13.7833 14.6617 13.904L15.8556 15.1107C15.9657 15.2122 16.0221 15.3329 16.0247 15.4729C16.0274 15.6129 15.9736 15.7405 15.8632 15.8559C15.7428 15.9713 15.6174 16.029 15.4871 16.029C15.3567 16.029 15.2312 15.9713 15.1105 15.8559ZM13.8945 6.10831C13.7799 6.00416 13.7227 5.87863 13.7227 5.73173C13.7227 5.58482 13.783 5.45368 13.9038 5.33831L15.1105 4.14439C15.2259 4.03435 15.3501 3.98146 15.4831 3.98573C15.6161 3.99 15.7403 4.044 15.8556 4.14773C15.971 4.26088 16.0287 4.38262 16.0287 4.51295C16.0287 4.6433 15.971 4.76884 15.8556 4.88956L14.6698 6.10431C14.5552 6.22503 14.426 6.28539 14.2821 6.28539C14.1383 6.28539 14.0091 6.22636 13.8945 6.10831ZM4.14415 15.8576C4.02876 15.7489 3.97106 15.624 3.97106 15.4828C3.97106 15.3416 4.02876 15.2176 4.14415 15.1107L5.33004 13.896C5.44079 13.7891 5.56731 13.7357 5.70959 13.7357C5.85185 13.7357 5.98334 13.7891 6.10406 13.896C6.21411 14.0087 6.26595 14.1368 6.25959 14.2805C6.25321 14.4241 6.1987 14.5512 6.09604 14.662L4.88931 15.8559C4.78248 15.9713 4.66042 16.0303 4.52313 16.033C4.38585 16.0357 4.25952 15.9772 4.14415 15.8576Z"/>
+            </svg>
+          </span>
+          <span class="toggle-light">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#C5C5C5" d="M10 12.9365C10.6945 12.9365 11.2847 12.6935 11.7709 12.2074C12.257 11.7213 12.5 11.131 12.5 10.4365C12.5 9.7421 12.257 9.15182 11.7709 8.66571C11.2847 8.1796 10.6945 7.93654 10 7.93654C9.30558 7.93654 8.7153 8.1796 8.22919 8.66571C7.74308 9.15182 7.50002 9.7421 7.50002 10.4365C7.50002 11.131 7.74308 11.7213 8.22919 12.2074C8.7153 12.6935 9.30558 12.9365 10 12.9365ZM9.99531 14.0199C8.99953 14.0199 8.15415 13.6708 7.45917 12.9727C6.76419 12.2746 6.41671 11.4276 6.41671 10.4318C6.41671 9.43606 6.76577 8.59068 7.46389 7.89569C8.16201 7.20072 9.00895 6.85323 10.0047 6.85323C11.0005 6.85323 11.8459 7.20229 12.5409 7.90042C13.2358 8.59853 13.5833 9.44547 13.5833 10.4413C13.5833 11.437 13.2343 12.2824 12.5361 12.9774C11.838 13.6724 10.9911 14.0199 9.99531 14.0199ZM1.75002 10.9782C1.59655 10.9782 1.4679 10.9267 1.36408 10.8236C1.26028 10.7206 1.20837 10.593 1.20837 10.4406C1.20837 10.2883 1.26028 10.1593 1.36408 10.0535C1.4679 9.94778 1.59655 9.8949 1.75002 9.8949H3.95837C4.11183 9.8949 4.24047 9.94641 4.34429 10.0494C4.44811 10.1525 4.50002 10.2801 4.50002 10.4324C4.50002 10.5847 4.44811 10.7138 4.34429 10.8195C4.24047 10.9253 4.11183 10.9782 3.95837 10.9782H1.75002ZM16.0417 10.9782C15.8882 10.9782 15.7596 10.9267 15.6557 10.8236C15.5519 10.7206 15.5 10.593 15.5 10.4406C15.5 10.2883 15.5519 10.1593 15.6557 10.0535C15.7596 9.94778 15.8882 9.8949 16.0417 9.8949H18.25C18.4035 9.8949 18.5321 9.94641 18.6359 10.0494C18.7398 10.1525 18.7917 10.2801 18.7917 10.4324C18.7917 10.5847 18.7398 10.7138 18.6359 10.8195C18.5321 10.9253 18.4035 10.9782 18.25 10.9782H16.0417ZM10.0041 4.93654C9.85182 4.93654 9.72278 4.88463 9.61702 4.78081C9.51126 4.67699 9.45837 4.54836 9.45837 4.3949V2.18654C9.45837 2.03307 9.50989 1.90443 9.61292 1.80063C9.71594 1.69681 9.84361 1.6449 9.99592 1.6449C10.1482 1.6449 10.2773 1.69681 10.383 1.80063C10.4888 1.90443 10.5417 2.03307 10.5417 2.18654V4.3949C10.5417 4.54836 10.4902 4.67699 10.3871 4.78081C10.2841 4.88463 10.1564 4.93654 10.0041 4.93654ZM10.0041 19.2282C9.85182 19.2282 9.72278 19.1763 9.61702 19.0725C9.51126 18.9687 9.45837 18.84 9.45837 18.6865V16.4782C9.45837 16.3247 9.50989 16.1961 9.61292 16.0923C9.71594 15.9885 9.84361 15.9365 9.99592 15.9365C10.1482 15.9365 10.2773 15.9885 10.383 16.0923C10.4888 16.1961 10.5417 16.3247 10.5417 16.4782V18.6865C10.5417 18.84 10.4902 18.9687 10.3871 19.0725C10.2841 19.1763 10.1564 19.2282 10.0041 19.2282ZM5.33819 6.53269L4.14427 5.32596C4.03423 5.22446 3.97787 5.10374 3.97519 4.96379C3.97252 4.82384 4.02969 4.69617 4.14671 4.58079C4.25261 4.4654 4.37617 4.40771 4.51737 4.40771C4.65858 4.40771 4.7826 4.4654 4.88944 4.58079L6.10419 5.76669C6.22491 5.88126 6.28527 6.01047 6.28527 6.15431C6.28527 6.29816 6.22624 6.42737 6.10819 6.54194C6.00403 6.65649 5.87851 6.71377 5.7316 6.71377C5.5847 6.71377 5.45356 6.65341 5.33819 6.53269ZM15.1106 16.2923L13.8959 15.1064C13.7751 14.9956 13.7148 14.8691 13.7148 14.7269C13.7148 14.5846 13.7751 14.4531 13.8959 14.3324C13.9947 14.217 14.1182 14.1593 14.2664 14.1593C14.4147 14.1593 14.5465 14.2197 14.6619 14.3404L15.8558 15.5471C15.9658 15.6486 16.0222 15.7694 16.0249 15.9093C16.0275 16.0493 15.9737 16.1769 15.8633 16.2923C15.7429 16.4077 15.6175 16.4654 15.4872 16.4654C15.3569 16.4654 15.2313 16.4077 15.1106 16.2923ZM13.8946 6.54471C13.7801 6.44056 13.7228 6.31503 13.7228 6.16813C13.7228 6.02122 13.7832 5.89008 13.9039 5.77471L15.1106 4.58079C15.226 4.47075 15.3502 4.41786 15.4832 4.42213C15.6162 4.4264 15.7404 4.4804 15.8558 4.58413C15.9712 4.69728 16.0289 4.81902 16.0289 4.94936C16.0289 5.0797 15.9712 5.20524 15.8558 5.32596L14.6699 6.54071C14.5553 6.66143 14.4261 6.72179 14.2822 6.72179C14.1384 6.72179 14.0092 6.66277 13.8946 6.54471ZM4.14427 16.294C4.02888 16.1853 3.97119 16.0604 3.97119 15.9192C3.97119 15.778 4.02888 15.654 4.14427 15.5471L5.33017 14.3324C5.44092 14.2255 5.56743 14.1721 5.70971 14.1721C5.85197 14.1721 5.98346 14.2255 6.10419 14.3324C6.21423 14.4451 6.26607 14.5732 6.25971 14.7169C6.25333 14.8605 6.19882 14.9876 6.09617 15.0984L4.88944 16.2923C4.7826 16.4077 4.66054 16.4667 4.52325 16.4694C4.38597 16.4721 4.25964 16.4136 4.14427 16.294Z"/>
+            </svg>
+          </span>
         </button>
-        {{ end -}}
-
-        {{ if eq .Site.Params.options.multilingualMode true -}}
-        <hr class="text-black-50 my-4 d-lg-none">
-        <div class="dropdown">
-          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
-            {{ .Site.Params.languageName }}
-            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
-
-            <li><a class="dropdown-item current" aria-current="true" href="{{ .RelPermalink }}">{{ .Site.Language.LanguageName }}</a></li>
-
-            <li><hr class="dropdown-divider"></li>
-
-            {{ if .IsTranslated -}}
-              {{ range .Translations }}
-                <li><a class="dropdown-item" rel="alternate" href="{{ .RelPermalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}">{{ .Language.LanguageName }}</a></li>
-              {{ end -}}
-            {{ else -}}
-              {{ range .Site.Languages -}}
-                {{ if ne $.Site.Language.Lang .Lang }}
-                  <li><a class="dropdown-item" rel="alternate" href="{{ .Lang | relLangURL }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}">{{ .LanguageName }}</a></li>
-                {{ end -}}
-              {{ end -}}
-            {{ end -}}
-              <!--
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="/docs/contributing/how-to-contribute/">Help Translate</a></li>
-              -->
-          </ul>
+        <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close main menu">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M1.06199 9.70799L0.291992 8.93799L4.22899 4.99999L0.291992 1.06199L1.06199 0.291992L4.99999 4.22899L8.93799 0.291992L9.70799 1.06199L5.77099 4.99999L9.70799 8.93799L8.93799 9.70799L4.99999 5.77099L1.06199 9.70799Z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="offcanvas-body p-0">
+        <div class="leftnav-container">
+          <div class="board-background leftnav">
+            <nav id="sidebar-default" aria-label="Main navigation">
+              {{ partial "sidebar/docs-menu.html" . }}
+            </nav>
+            {{ partial "sidebar/nav-bottom.html" }}
+          </div>
         </div>
-        {{ end -}}
-
-        {{ if eq .Site.Params.options.docsVersioning true -}}
-        <hr class="text-black-50 my-4 d-lg-none">
-        <div class="dropdown">
-          <button class="btn btn-doks-light dropdown-toggle" id="doks-versions" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" aria-label="Toggle version menu">
-            <span class="d-none">Chainguard Academy</span> v{{ .Site.Params.docsVersion }}
-            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-versions">
-            <li><a class="dropdown-item current" aria-current="true" href="/docs/{{ .Site.Params.docsVersion }}/prologue/introduction/">Latest ({{ .Site.Params.docsVersion }}.x)</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/docs/0.2/prologue/introduction/">v0.2.x</a></li>
-            <li><a class="dropdown-item" href="/docs/0.1/prologue/introduction/">v0.1.x</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/docs/versions/">All versions</a></li>
-          </ul>
-        </div>
-        {{ end -}}
       </div>
     </div>
   </nav>
 </header>
-
-{{ if eq .Site.Params.options.navbarSticky true }}
-</div>
-{{ end -}}
-
-{{ if eq .Section "docs" -}}
-<div class="container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }}">
-  <aside class="doks-sidebar">
-    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
-      {{ partial "sidebar/docs-menu.html" . }}
-    </nav>
-  </aside>
-</div>
-
-{{ else if ne .CurrentSection .FirstSection -}}
-<!--
-<nav class="doks-subnavbar py-2 sticky-lg-top d-lg-none" aria-label="Secondary navigation">
-  <div class="container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }} d-flex align-items-lg-center">
-    <span class="navbar-text ms-0">{{ .Section | humanize }}</span>
-    <button class="btn doks-sidebar-toggle d-lg-none ms-auto order-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#doks-docs-nav" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle documentation navigation">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
-    </button>
-  </div>
-</nav>
--->
-
-<div class="container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }}">
-  <aside class="doks-sidebar">
-    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
-      {{ partial "sidebar/docs-menu.html" . }}
-    </nav>
-  </aside>
-</div>
-{{ end -}}
+<div class="suggestions shadow bg-white rounded d-none position-absolute search-content"></div>

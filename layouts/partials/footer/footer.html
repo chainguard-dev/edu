@@ -1,0 +1,24 @@
+<footer>
+  <div class="container footer">
+    <div class="footer-column-container">
+      {{ range .Site.Menus.footer }}
+        <div class="footer-column">
+          {{ if .HasChildren}}
+            <div class="footer-title">{{ .Name }}</div>
+            <div class="d-flex flex-column gap-1">
+                {{ range .Children -}}
+                  <a href="{{ .URL }}" class="footer-item">{{ .Name }}<span>{{ .Pre | safeHTML }}</span></a>
+                {{ end }}
+            </div>
+          {{ else }}
+            <div><a class="footer-item" href="{{ .URL }}"> {{ .Name }}</a></div>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</footer>
+<div id="notification">
+  <i class="bi bi-files-opposite"></i>
+  <div id="notification-text"></div>
+</div>
