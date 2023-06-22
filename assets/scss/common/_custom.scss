@@ -11,7 +11,7 @@
   padding-bottom: 0;
 }
 
-.docs-content > h1:first-child {
+.docs-content>h1:first-child {
   margin-top: 0;
 }
 
@@ -41,11 +41,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(
-    286.46deg,
-    var(--card-background-0) 0%,
-    var(--card-background-1) 100%
-  );
+  background: linear-gradient(286.46deg,
+      var(--card-background-0) 0%,
+      var(--card-background-1) 100%);
   border-radius: 8px;
   width: 100%;
 }
@@ -54,10 +52,12 @@
   pointer-events: none;
   background-color: var(--form-check-input-background);
   color: var(--form-check-input-color);
+
   &:checked {
     background-color: var(--form-check-input-checked-background);
     border-color: var(--form-check-input-checked-border);
   }
+
   &:focus {
     border-color: var(--form-check-input-focus-border);
   }
@@ -104,6 +104,10 @@ h2[id^="chainctl"] {
   color: var(--footer-item-color) !important;
   white-space: nowrap;
   line-height: 22px;
+
+  &:hover {
+    color: var(--footer-item-hover-color) !important;
+  }
 }
 
 // Beat <a> color
@@ -140,6 +144,7 @@ h2[id^="chainctl"] {
 .install-card {
   height: auto;
   aspect-ratio: 16 / 9;
+
   img {
     max-width: 35%;
   }
@@ -196,6 +201,7 @@ h2[id^="chainctl"] {
 .tutorial {
   line-height: 22px;
   font-style: normal;
+
   &:hover {
     color: var(--tutorial-hover-color) !important;
   }
@@ -223,6 +229,10 @@ h2[id^="chainctl"] {
   margin-bottom: 4px;
   margin-top: 0;
   color: var(--caption-title-color);
+
+  & a:not(.tag) {
+    color: var(--caption-title-color) !important;
+  }
 }
 
 .tag-container {
@@ -389,6 +399,7 @@ header .search-container {
 .image-card {
   aspect-ratio: 16/9;
   margin-bottom: 24px;
+
   img {
     max-width: 35%;
   }
@@ -413,6 +424,7 @@ header .search-container {
 
 .topic-card {
   cursor: pointer;
+
   &:hover {
     background-color: var(--topic-card-hover) !important;
   }
@@ -436,6 +448,7 @@ header .search-container {
     display: block;
     padding: 0.5rem 1rem;
     color: inherit;
+
     &:hover {
       color: var(--tab-active-color);
     }
@@ -536,13 +549,13 @@ header .search-container {
 }
 
 .wrap.container-xxl,
-.wrap.container-xxl > .content {
+.wrap.container-xxl>.content {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.wrap.container-xxl > .content > .row {
+.wrap.container-xxl>.content>.row {
   flex-grow: 1;
   align-items: stretch;
 }
@@ -582,7 +595,8 @@ header .search-container {
   overflow-x: visible;
   padding-right: 12px;
 }
-#sidebar-default .search-container + .sidebar-category {
+
+#sidebar-default .search-container+.sidebar-category {
   margin-top: 12px;
 }
 
@@ -711,12 +725,12 @@ header .search-container {
   border: none;
 }
 
-.suggestions > div {
+.suggestions>div {
   padding: 12px 24px;
   cursor: pointer;
 }
 
-.suggestions > div:hover {
+.suggestions>div:hover {
   background-color: var(--suggestions-hover-background) !important;
 }
 
@@ -775,11 +789,13 @@ header .search-container {
 .docs-navigation-button .next-in-line:last-of-type {
   display: none;
 }
+
 // Change of plan: always use short buttons;
 // Hide verbose "prev" & "next" buttons
 .docs-navigation-button .next-in-line:first-of-type {
   display: none;
 }
+
 // Show smaller "prev" & "next" buttons
 .docs-navigation-button .next-in-line:last-of-type {
   display: unset;
@@ -836,6 +852,7 @@ header .search-container {
   margin: 0;
   margin-top: 12px;
 }
+
 .list-container {
   margin-bottom: 0 !important;
 }
@@ -889,36 +906,41 @@ header .search-container {
 }
 
 // Beat <a> tag
-.sidebar-item.sidebar-item > button,
+.sidebar-item.sidebar-item>button,
 .sidebar-subcategory.sidebar-subcategory {
   padding: 12px;
 }
-.sidebar-item.sidebar-item > button {
+
+.sidebar-item.sidebar-item>button {
   padding-left: 0;
 }
 
 // Pure CSS menu item nesting
 .sidebar-item-list-item {
+
   .sidebar-subcategory,
-  .sidebar-item > button {
+  .sidebar-item>button {
     padding-left: 12px;
   }
 
   .sidebar-item-list-item {
+
     .sidebar-subcategory,
-    .sidebar-item > button {
+    .sidebar-item>button {
       padding-left: 24px;
     }
 
     .sidebar-item-list-item {
+
       .sidebar-subcategory,
-      .sidebar-item > button {
+      .sidebar-item>button {
         padding-left: 36px;
       }
 
       .sidebar-item-list-item {
+
         .sidebar-subcategory,
-        .sidebar-item > button {
+        .sidebar-item>button {
           padding-left: 48px;
         }
       }
@@ -1010,6 +1032,7 @@ code {
 }
 
 @keyframes toast {
+
   0%,
   100% {
     opacity: 0;
@@ -1066,6 +1089,7 @@ code {
 
 // Cap content to a constant on big screen size
 @media (min-width: $MaxContentLayoutWidth) {
+
   .docs-content,
   .docs-content.has-toc {
     max-width: $MaxContentWidth;
@@ -1074,6 +1098,7 @@ code {
 
 // Cap content at 100% in mobile layout
 @media (max-width: $MobileLayoutWidth) {
+
   .docs-content,
   .docs-content.has-toc {
     max-width: 100%;
