@@ -110,7 +110,7 @@ FROM cgr.dev/chainguard/python:latest
 With:
 
 ```
-FROM cgr.dev/chainguard/python:sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474360740824d8a7fa6a8fecb
+FROM cgr.dev/chainguard/python@sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474360740824d8a7fa6a8fecb
 ```
 
 And your image will then be locked into that specific build of the `python:latest` image variant.
