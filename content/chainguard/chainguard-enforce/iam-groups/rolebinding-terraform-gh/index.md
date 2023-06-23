@@ -8,7 +8,7 @@ lastmod: 2023-06-10T08:48:45+00:00
 draft: false
 tags: ["Enforce", "Product", "Procedural"]
 images: []
-weight: 005
+weight: 050
 ---
 
 There may be cases where an organization will want multiple users to have access to the same Chainguard Enforce instance. Originally, Chainguard allowed you to grant other users access to Enforce by [generating an invite link or code](/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/#inviting-others-to-a-group).
@@ -26,9 +26,9 @@ To complete this guide, you will need the following.
 * `chainctl` — the Chainguard Enforce command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
 * Access to a GitHub team. If you'd like, you can create a new GitHub organization and team for testing purposes. Check out [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/creating-a-team) for details on how to do this. 
 
-> **Note**:  In order for the procedure outlined in this guide to work correction, **each member of your GitHub team must register with Chainguard Enforce beforehand.**
+> **Note**: The procedure outlined in this guide will only create rolebindings for members of the GitHub team that have already registered with Chainguard Enforce. To register with Chainguard under their GitHub account team members must [log into Chainguard Enforce](https://edu.chainguard.dev/chainguard/chainguard-enforce/authentication/log-in-chainguard-enforce/), making sure select **Sign In with GitHub** when signing in through their browser window and logging in through the appropriate GitHub account. Any members of the GitHub team that don't complete this will not have rolebindings created for them and they will not be able to access the associated resources.
 
-* A GitHub Personal Access Token, with a minimum of **org.read** access. Follow [GitHub's documentation on the subject](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) to learn how to set one up. Additionally, you will need to [configure SSO for your personal access token](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) if required by your organization.
+* A GitHub Personal Access Token, with a minimum of **read.org** access. Follow [GitHub's documentation on the subject](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) to learn how to set one up. Additionally, you will need to [configure SSO for your personal access token](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) if required by your organization.
 
 
 ## Setting up your Environment
@@ -51,10 +51,10 @@ export GITHUB_ORG=<your GitHub organization>
 
 Next, create a variable named `GITHUB_TEAM` set to the slug of the GitHub team for which you want to create a set of rolebindings. The Terraform configuration will use this detail to find and retrieve information about your GitHub team. 
 
-If you aren't sure of what your team's slug is, you can find it with `gh`, the GitHub command line interface. You can use a command like the following to retrieve a list of all your organization's teams, replacing `ORGANIZATION` with your GitHub organization's name.
+If you aren't sure of what your team's slug is, you can find it with `gh`, the GitHub command line interface. You can use a command like the following to retrieve a list of all your organization's teams.
 
 ```sh
-gh api   -H "Accept: application/vnd.github+json"   -H "X-GitHub-Api-Version: 2022-11-28"   /orgs/ORGANIZATION/teams
+gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /orgs/$GITHUB_ORG/teams
 ```
 
 Scroll through this command's output to find the `slug` value for the team in question.
@@ -80,7 +80,7 @@ With the team's slug in hand, run the following command to create the `GITHUB_TE
 export GITHUB_TEAM=<your GitHub team slug>
 ```
 
-Following that, you will need to provide Terraform with your GitHub personal access token so it can access information related to your GitHub organization. Rather than hard coding your token into the Terraform configruation or havint Terraform prompt you to enter it manually, you can create an environment variable named `GITHUB_TOKEN` which Terraform will automatically use. Create this variable with the following command.
+Following that, you will need to provide Terraform with your GitHub personal access token so it can access information related to your GitHub organization. Rather than hard coding your token into the Terraform configuration or having Terraform prompt you to enter it manually, you can create an environment variable named `GITHUB_TOKEN` which Terraform will automatically use. Create this variable with the following command.
 
 ```sh
 export GITHUB_TOKEN=<your GitHub token>
@@ -201,7 +201,22 @@ data "chainguard_identity" "team_ids" {
 }
 ```
 
-This block's `for_each` meta-argument iterates through each member of the team. For each iteration, it retrieves that user's GitHub ID and then retrieves a Chainguard identity that it derives using that GitHub ID. If it doesn't find an existing identity that matches the `issuer` and `subject` values, then Terraform will return an error. This is why each member of your GitHub team must register with Chainguard prior to setting up these rolebindings.
+This block's `for_each` meta-argument iterates through each member of the team. For each iteration, it retrieves that user's GitHub ID and then retrieves a Chainguard identity that it derives using that GitHub ID. 
+
+It's possible, though, that there will be members of the GitHub team who have not yet registered with Chainguard, meaning their GitHub accounts do not have an associated Chaingaurd identity. If you were to use this `team_ids` data source to create rolebindings for the GitHub team, it would cause an error for each member without a Chainguard identity.
+
+To resolve this, we can add a `locals` block to create a local variable that points to a filtered list of Chainguard identities. 
+
+```
+locals {
+  identities_with_ids = [ 
+    for y in data.chainguard_identity.team_ids : try(y.id, null)
+  ]
+  filtered_identities = compact(local.identities_with_ids)
+}
+```
+
+This block creates a variable, `filtered_identities`, by taking the `team_ids` data source and removing any GitHub team members that do not have a Chainguard identity. The final block in this file will use this filtered list of identities to create rolebindings for those team members with existing Chainguard identities tied to their GitHub accounts.
 
 The next block retrieves the predefined `viewer` role from Chainguard.
 
@@ -214,15 +229,15 @@ data "chainguard_roles" "viewer" {
 The final block puts all this information together to create the rolebindings for each member of the team. 
 
 ```
-resource "chainguard_rolebinding" "cg-bindings" {
-  for_each = data.chainguard_identity.team_ids
-  identity = each.value.id
+resource "chainguard_rolebinding" "cg-binding" {
+  for_each = toset(local.filtered_identities)
+  identity = each.value
   group	= "$CHAINGUARD_GROUP"
-  role 	= data.chainguard_roles.viewer.items[0].id
+  role     = data.chainguard_roles.viewer.items[0].id
 }
 ```
 
-This `resource` block iterates through the list of Chainguard identities created by the `team_ids` block, assigns each one to the IAM group specified by the `group` argument, and binds each identity to the `viewer` role. Here, the `group` argument is set to the `CHAINGUARD_GROUP` variabile you created at the start of this guide.
+This `resource` block iterates through the filtered list of Chainguard identities created by the `locals` block, assigns each one to the IAM group specified by the `group` argument, and binds each identity to the `viewer` role. Here, the `group` argument is set to the `CHAINGUARD_GROUP` variabile you created at the start of this guide.
 
 Create the `rolebindings.tf` file with the following command.
 
@@ -248,10 +263,10 @@ data "chainguard_roles" "viewer" {
   name = "viewer"
 }
 
-resource "chainguard_rolebinding" "cg-bindings" {
-  for_each = data.chainguard_identity.team_ids
-  identity = each.value.id
-  group    = "$CHAINGUARD_GROUP"
+resource "chainguard_rolebinding" "cg-binding" {
+  for_each = toset(local.filtered_identities)
+  identity = each.value
+  group	= "$CHAINGUARD_GROUP"
   role     = data.chainguard_roles.viewer.items[0].id
 }
 EOF
@@ -328,10 +343,10 @@ data "chainguard_roles" "editor" {
   name = "editor"
 }
 
-resource "chainguard_rolebinding" "cg-bindings" {
-  for_each = data.chainguard_identity.team_ids
-  identity = each.value.id
-  group    = "$CHAINGUARD_GROUP"
+resource "chainguard_rolebinding" "cg-binding" {
+  for_each = toset(local.filtered_identities)
+  identity = each.value
+  group	= "$CHAINGUARD_GROUP"
   role     = data.chainguard_roles.editor.items[0].id
 }
 ```
@@ -375,4 +390,4 @@ Following that, all of the example resources created in this guide will be remov
 
 ## Learn More
 
-The procedure outlined in this tutorial can be tweaked to work with other identity providers, including Google and GitLab. We plan to release similar tutorials on producing rolebindings for teams managed by these identity providers soon, so watch this space.
+The procedure outlined in this tutorial can be tweaked to work with other identity providers, including Google and GitLab.
