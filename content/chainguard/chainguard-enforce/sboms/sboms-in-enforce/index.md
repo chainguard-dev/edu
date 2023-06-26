@@ -71,4 +71,4 @@ We encourage you to use this search bar to find and filter packages in your own 
 
 ## Learn more
 
-If you'd like to learn more about how Chainguard Enforce handles SBOMs, we recommend that you check out our guide on [SBOMs and Attestations in Chainguard Enforce](https://console.enforce.dev/). This conceptual article digs deeper into the differences between SBOMs and attestations and how each is handled by Enforce.
+If you'd like to learn more about how Chainguard Enforce handles SBOMs, we recommend that you check out our guide on [SBOMs and Attestations in Chainguard Enforce](/chainguard/chainguard-enforce/sboms/sboms-and-attestations/). This conceptual article digs deeper into the differences between SBOMs and attestations and how each is handled by Enforce.
