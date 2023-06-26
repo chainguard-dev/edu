@@ -85,7 +85,7 @@ chainctl iam groups list -o table
   <Group ID> | demo-group     | This is a shared IAM group for running demos.  
 ```
 
-Some other `chainctl` functions requrie you to know a group's UIDP, making this a useful option to remember.
+Some other `chainctl` functions require you to know a group's UIDP, making this a useful option to remember.
 
 
 ## Inviting Others to a Group
