@@ -1,31 +1,34 @@
 ---
 date: 2023-06-26T11:18:29Z
-title: "chainctl iam groups create"
-slug: chainctl_iam_groups_create
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_create/
+title: "chainctl iam roles delete"
+slug: chainctl_iam_roles_delete
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam groups create
+## chainctl iam roles delete
 
-Create a new group or add a group under an existing group.
+Delete a custom IAM role.
 
 ```
-chainctl iam groups create GROUP_NAME [--parent GROUP_NAME | GROUP_ID | --no-parent] [--description DESCRIPTION] [--yes] [--skip-refresh] [flags]
+chainctl iam roles delete ROLE_NAME|ROLE_ID [--yes] [--output table|json|id]
+```
+
+### Examples
+
+```
+  # Delete a role by ID
+  chainctl iam roles delete 3ed98fc...
 ```
 
 ### Options
 
 ```
-  -d, --description string   The description of the group.
-  -h, --help                 help for create
-      --no-parent            The new group should be a new root group.
-      --parent string        The id, suffix, or name of the parent group for the new group.
-      --skip-refresh         Skips attempting to reauthenticate and refresh the Chainguard auth token if it becomes out of date.
-  -y, --yes                  Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -h, --help   help for delete
+  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
@@ -43,5 +46,5 @@ chainctl iam groups create GROUP_NAME [--parent GROUP_NAME | GROUP_ID | --no-par
 
 ### SEE ALSO
 
-* [chainctl iam groups](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
+* [chainctl iam roles](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles/)	 - IAM role resource interactions.
 
