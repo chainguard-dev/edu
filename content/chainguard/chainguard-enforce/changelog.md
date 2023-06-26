@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-06-20 10:22:28 +0000 UTC
+date: 2023-06-26 10:12:08 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,12 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.132
+Release date: 2023-06-26
+#### Feature
+- Create and manage custom IAM roles with `chainctl iam roles create/update/delete`
+
 
 ### v0.1.131
 Release date: 2023-06-20
