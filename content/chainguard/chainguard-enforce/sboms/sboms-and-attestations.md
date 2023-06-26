@@ -3,6 +3,7 @@ title: "SBOMs and Attestations in Chainguard Enforce"
 linktitle: "SBOMs and Attestations"
 aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/sboms-and-attestations/
+- /chainguard/chainguard-enforce/concepts/sboms-and-attestations/
 type: "article"
 description: "An overview of how Chainguard Enforce handles attestations and SBOMs"
 date: 2023-03-19T15:56:52-07:00
