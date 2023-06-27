@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: ko"
+title: "Image Overview: Ko"
 type: "article"
-description: "Overview: ko Chainguard Images"
+description: "Overview: Ko Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/ko](https://github.com/chainguard-images/images/tree/main/images/ko)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
-
+[cgr.dev/chainguard/ko](https://github.com/chainguard-images/images/tree/main/images/ko)
 
 
 This is an image that contains ko, go, and build-base.
@@ -66,4 +62,3 @@ To push, you will need to mount in your Docker config to provide auth by adding:
 ```
 
 If you're using Docker credential helpers, those will need to be made available in the container as well so that `ko` can invoke them.
-

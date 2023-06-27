@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: metacontroller"
+title: "Image Overview: Metacontroller"
 type: "article"
-description: "Overview: metacontroller Chainguard Images"
+description: "Overview: Metacontroller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/metacontroller](https://github.com/chainguard-images/images/tree/main/images/metacontroller)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `4`, `4.10`, `4.10.3`, `4.10.3-r1`                 |
-| `latest-dev` | `4-dev`, `4.10-dev`, `4.10.3-dev`, `4.10.3-r1-dev` |
-
+[cgr.dev/chainguard/metacontroller](https://github.com/chainguard-images/images/tree/main/images/metacontroller)
 
 
 Minimal Metacontroller Container
@@ -46,4 +41,3 @@ $ helm install my-metacontroller-helm oci://ghcr.io/metacontroller/metacontrolle
 ```
 
 See the [configuration](https://metacontroller.github.io/metacontroller/guide/helm-install.html#configuration) docs for more examples.
-

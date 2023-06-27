@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: bash"
+title: "Image Overview: Bash"
 type: "article"
-description: "Overview: bash Chainguard Images"
+description: "Overview: Bash Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/bash](https://github.com/chainguard-images/images/tree/main/images/bash)
-| Tags     | Aliases                           |
-|----------|-----------------------------------|
-| `latest` | `5`, `5.2`, `5.2.15`, `5.2.15-r2` |
-
+[cgr.dev/chainguard/bash](https://github.com/chainguard-images/images/tree/main/images/bash)
 
 
 Container image with only bash and libc. Suitable for running any small scripts or binaries that need bash instead of just the busybox shell.
@@ -30,4 +26,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/bash:latest
 ```
-

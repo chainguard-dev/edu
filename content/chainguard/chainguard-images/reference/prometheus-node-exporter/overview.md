@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: prometheus-node-exporter"
+title: "Image Overview: Prometheus-node-exporter"
 type: "article"
-description: "Overview: prometheus-node-exporter Chainguard Images"
+description: "Overview: Prometheus-node-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/prometheus-node-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-node-exporter)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `1`, `1.6`, `1.6.0`, `1.6.0-r1` |
-
+[cgr.dev/chainguard/prometheus-node-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-node-exporter)
 
 
 Minimal Prometheus Node Exporter Image
@@ -97,4 +93,3 @@ Flags:
                                  Filter the `bugs` field in cpuInfo with a value
                                  that must be a regular expression
 ```
-

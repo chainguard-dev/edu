@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: newrelic-infrastructure-bundle"
+title: "Image Overview: Newrelic-infrastructure-bundle"
 type: "article"
-description: "Overview: newrelic-infrastructure-bundle Chainguard Images"
+description: "Overview: Newrelic-infrastructure-bundle Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/newrelic-infrastructure-bundle](https://github.com/chainguard-images/images/tree/main/images/newrelic-infrastructure-bundle)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `3`, `3.2`, `3.2.7`, `3.2.7-r0`                 |
-| `latest-dev` | `3-dev`, `3.2-dev`, `3.2.7-dev`, `3.2.7-r0-dev` |
-
+[cgr.dev/chainguard/newrelic-infrastructure-bundle](https://github.com/chainguard-images/images/tree/main/images/newrelic-infrastructure-bundle)
 
 
 Minimal [newrelic-infrastructure-bundle](https://github.com/newrelic/infrastructure-bundle) container image.
@@ -56,4 +51,3 @@ NOTE: This image requires a license key to run properly, which you can obtain fr
 ## Testing
 
 The tests for this image also require a license key, which is configured in a secret in Github Actions.
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: git"
+title: "Image Overview: Git"
 type: "article"
-description: "Overview: git Chainguard Images"
+description: "Overview: Git Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,16 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/git](https://github.com/chainguard-images/images/tree/main/images/git)
-| Tags                | Aliases                                                                        |
-|---------------------|--------------------------------------------------------------------------------|
-| `latest`            | `2`, `2.41`, `2.41.0`, `2.41.0-r0`                                             |
-| `latest-dev`        | `2-dev`, `2.41-dev`, `2.41.0-dev`, `2.41.0-r0-dev`                             |
-| `latest-glibc`      | `glibc-2`, `glibc-2.41`, `glibc-2.41.0`, `glibc-2.41.0-r0`                     |
-| `latest-glibc-dev`  | `glibc-2-dev`, `glibc-2.41-dev`, `glibc-2.41.0-dev`, `glibc-2.41.0-r0-dev`     |
-| `latest-root`       | `root-2`, `root-2.41`, `root-2.41.0`, `root-2.41.0-r0`                         |
-| `latest-glibc-root` | `glibc-root-2`, `glibc-root-2.41`, `glibc-root-2.41.0`, `glibc-root-2.41.0-r0` |
-
+[cgr.dev/chainguard/git](https://github.com/chainguard-images/images/tree/main/images/git)
 
 
 This is a minimal Git image based. The image contains `git`, `git-lfs`, and supporting libraries such as `openssh` (for `ssh`-based auth), and `ca-certs` (for `https`-based cloning). Both Wolfi (glibc) and Alpine (musl) versions are available.
@@ -95,4 +86,3 @@ Resolving deltas: 100% (70/70), done.
 ```
 
 You can now check the contents of your `workspace` directory, where you should find the cloned repo.
-

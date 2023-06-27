@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: kyverno"
+title: "Image Overview: Kyverno"
 type: "article"
-description: "Overview: kyverno Chainguard Images"
+description: "Overview: Kyverno Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,5 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kyverno](https://github.com/chainguard-images/images/tree/main/images/kyverno)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `1`, `1.10`, `1.10.0`, `1.10.0-r1` |
-
-
+[cgr.dev/chainguard/kyverno](https://github.com/chainguard-images/images/tree/main/images/kyverno)
 

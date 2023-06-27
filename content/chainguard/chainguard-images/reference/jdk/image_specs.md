@@ -1,7 +1,7 @@
 ---
-title: "jdk Image Variants"
+title: "Jdk Image Variants"
 type: "article"
-description: "Detailed specs for jdk Chainguard Image Variants"
+description: "Detailed information about the JdkChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "jdk"
+    parent: "Jdk"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **jdk** Image.
+This page shows detailed information about all available variants of the Chainguard **Jdk** Image.
 
 ## Variants Compared
 The **jdk** Chainguard Image currently has 4 public variants: 
@@ -32,9 +32,10 @@ The table has detailed information about each of these variants.
 | Entrypoint   | not specified | not specified | not specified | not specified  |
 | CMD          | not specified | not specified | not specified | not specified  |
 | Workdir      | `/home/build` | `/home/build` | `/home/build` | `/home/build`  |
-| Has apk?     | no            | yes           | no            | yes            |
+| Has apk?     | no            | no            | no            | no             |
 | Has a shell? | yes           | yes           | yes           | yes            |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/jdk/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -47,9 +48,5 @@ The table shows package distribution across all variants.
 | `openjdk-17`             | X      | X          |            |                |
 | `openjdk-17-default-jvm` | X      | X          |            |                |
 | `libstdc++`              | X      | X          | X          | X              |
-| `apk-tools`              |        | X          |            | X              |
-| `bash`                   |        | X          |            | X              |
-| `git`                    |        | X          |            | X              |
 | `openjdk-11`             |        |            | X          | X              |
 | `openjdk-11-default-jvm` |        |            | X          | X              |
-

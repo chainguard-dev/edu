@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: jdk"
+title: "Image Overview: Jdk"
 type: "article"
-description: "Overview: jdk Chainguard Images"
+description: "Overview: Jdk Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,14 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/jdk](https://github.com/chainguard-images/images/tree/main/images/jdk)
-| Tags             | Aliases                                                                                                          |
-|------------------|------------------------------------------------------------------------------------------------------------------|
-| `latest`         | `openjdk-17`, `openjdk-17.0`, `openjdk-17.0.8`, `openjdk-17.0.8.2`, `openjdk-17.0.8.2-r1`                        |
-| `latest-dev`     | `openjdk-17-dev`, `openjdk-17.0-dev`, `openjdk-17.0.8-dev`, `openjdk-17.0.8.2-dev`, `openjdk-17.0.8.2-r1-dev`    |
-| `openjdk-11`     | `openjdk-11`, `openjdk-11.0`, `openjdk-11.0.20`, `openjdk-11.0.20.4`, `openjdk-11.0.20.4-r1`                     |
-| `openjdk-11-dev` | `openjdk-11-dev`, `openjdk-11.0-dev`, `openjdk-11.0.20-dev`, `openjdk-11.0.20.4-dev`, `openjdk-11.0.20.4-r1-dev` |
-
+[cgr.dev/chainguard/jdk](https://github.com/chainguard-images/images/tree/main/images/jdk)
 
 
 Minimalist Wolfi-based Java JDK image using OpenJDK.  Used for compiling Java applications.
@@ -80,4 +73,3 @@ Run the image
 ```sh
 docker run my-simple-java-app
 ```
-

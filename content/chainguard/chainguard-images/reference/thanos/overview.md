@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: thanos"
+title: "Image Overview: Thanos"
 type: "article"
-description: "Overview: thanos Chainguard Images"
+description: "Overview: Thanos Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/thanos](https://github.com/chainguard-images/images/tree/main/images/thanos)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.31`, `0.31.0`, `0.31.0-r3`                 |
-| `latest-dev` | `0-dev`, `0.31-dev`, `0.31.0-dev`, `0.31.0-r3-dev` |
-
+[cgr.dev/chainguard/thanos](https://github.com/chainguard-images/images/tree/main/images/thanos)
 
 
 Minimal Thanos Image
@@ -75,4 +70,3 @@ Commands:
     Query node exposing PromQL enabled Query API with data retrieved from
     multiple store nodes.
 ```
-

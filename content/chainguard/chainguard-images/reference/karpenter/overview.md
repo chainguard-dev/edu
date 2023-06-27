@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: karpenter"
+title: "Image Overview: Karpenter"
 type: "article"
-description: "Overview: karpenter Chainguard Images"
+description: "Overview: Karpenter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/karpenter](https://github.com/chainguard-images/images/tree/main/images/karpenter)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.28`, `0.28.0`, `0.28.0-r0`                 |
-| `latest-dev` | `0-dev`, `0.28-dev`, `0.28.0-dev`, `0.28.0-r0-dev` |
-
+[cgr.dev/chainguard/karpenter](https://github.com/chainguard-images/images/tree/main/images/karpenter)
 
 
 Minimal image with Karpenter. **EXPERIMENTAL**
@@ -60,4 +55,3 @@ Finally, edit the `helm upgrade` command to include the following lines:
 --set controller.image.repository=cgr.dev/chainguard/karpenter \
 --set controller.image.digest=$DIGEST \
 ```
-

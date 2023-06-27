@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: nri-kubernetes"
+title: "Image Overview: Nri-kubernetes"
 type: "article"
-description: "Overview: nri-kubernetes Chainguard Images"
+description: "Overview: Nri-kubernetes Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/nri-kubernetes](https://github.com/chainguard-images/images/tree/main/images/nri-kubernetes)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `3`, `3.14`, `3.14.0`, `3.14.0-r1`                 |
-| `latest-dev` | `3-dev`, `3.14-dev`, `3.14.0-dev`, `3.14.0-r1-dev` |
-
+[cgr.dev/chainguard/nri-kubernetes](https://github.com/chainguard-images/images/tree/main/images/nri-kubernetes)
 
 
 Minimal image with the New Relic Kubernetes Integration binary.
@@ -51,4 +46,3 @@ NOTE: This image requires a license key to run properly, which you can obtain fr
 ## Testing
 
 The tests for this image also require a license key, which is configured in a secret in Github Actions.
-

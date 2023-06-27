@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: bazel"
+title: "Image Overview: Bazel"
 type: "article"
-description: "Overview: bazel Chainguard Images"
+description: "Overview: Bazel Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/bazel](https://github.com/chainguard-images/images/tree/main/images/bazel)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `6`, `6.2`, `6.2.1`, `6.2.1-r0` |
-
+[cgr.dev/chainguard/bazel](https://github.com/chainguard-images/images/tree/main/images/bazel)
 
 
 [Bazel](https://github.com/bazelbuild/bazel) - A fast, scalable, multi-language and extensible build system.
@@ -70,4 +66,3 @@ and see the message from the example application
 ```sh
 Hi
 ```
-

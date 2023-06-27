@@ -1,7 +1,7 @@
 ---
-title: "rust Image Variants"
+title: "Rust Image Variants"
 type: "article"
-description: "Detailed specs for rust Chainguard Image Variants"
+description: "Detailed information about the RustChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "rust"
+    parent: "Rust"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **rust** Image.
+This page shows detailed information about all available variants of the Chainguard **Rust** Image.
 
 ## Variants Compared
 The **rust** Chainguard Image currently has 2 public variants: 
@@ -30,9 +30,10 @@ The table has detailed information about each of these variants.
 | Entrypoint   | `/usr/bin/rustc` | `/usr/bin/rustc` |
 | CMD          | `--help`         | `--help`         |
 | Workdir      | `/work`          | `/work`          |
-| Has apk?     | no               | yes              |
+| Has apk?     | no               | no               |
 | Has a shell? | yes              | yes              |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/rust/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -43,8 +44,4 @@ The table shows package distribution across all variants.
 | `busybox`                | X      | X          |
 | `rust`                   | X      | X          |
 | `build-base`             | X      | X          |
-| `apk-tools`              |        | X          |
-| `bash`                   |        | X          |
-| `git`                    |        | X          |
 | `rustup`                 |        | X          |
-

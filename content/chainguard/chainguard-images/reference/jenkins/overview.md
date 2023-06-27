@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: jenkins"
+title: "Image Overview: Jenkins"
 type: "article"
-description: "Overview: jenkins Chainguard Images"
+description: "Overview: Jenkins Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/jenkins](https://github.com/chainguard-images/images/tree/main/images/jenkins)
-| Tags     | Aliases                  |
-|----------|--------------------------|
-| `latest` | `2`, `2.410`, `2.410-r0` |
-
+[cgr.dev/chainguard/jenkins](https://github.com/chainguard-images/images/tree/main/images/jenkins)
 
 
 Minimal [Jenkins](https://jenkins.io) container image. **Currently experimental.**
@@ -60,4 +56,3 @@ docker run --rm \
 cp -r /var/jenkins_home /backup-dir/
 exit
 ```
-

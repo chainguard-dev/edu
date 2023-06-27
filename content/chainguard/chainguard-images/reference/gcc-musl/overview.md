@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: gcc-musl"
+title: "Image Overview: Gcc-musl"
 type: "article"
-description: "Overview: gcc-musl Chainguard Images"
+description: "Overview: Gcc-musl Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/gcc-musl](https://github.com/chainguard-images/images/tree/main/images/gcc-musl)
-| Tags     | Aliases                                                     |
-|----------|-------------------------------------------------------------|
-| `latest` | `13`, `13.1`, `13.1.1_git20230527`, `13.1.1_git20230527-r1` |
-
+[cgr.dev/chainguard/gcc-musl](https://github.com/chainguard-images/images/tree/main/images/gcc-musl)
 
 
 Minimal container image for building C applications (which do not require glibc).
@@ -75,4 +71,3 @@ FROM cgr.dev/chainguard/static
 COPY --from=build /work/hello /hello
 CMD ["/hello"]
 ```
-

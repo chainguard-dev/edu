@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: cc-dynamic"
+title: "Image Overview: Cc-dynamic"
 type: "article"
-description: "Overview: cc-dynamic Chainguard Images"
+description: "Overview: Cc-dynamic Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`deprecated` [cgr.dev/chainguard/cc-dynamic](https://github.com/chainguard-images/images/tree/main/images/cc-dynamic)
-| Tags         | Aliases |
-|--------------|---------|
-| `latest`     |         |
-| `latest-dev` |         |
-
+[cgr.dev/chainguard/cc-dynamic](https://github.com/chainguard-images/images/tree/main/images/cc-dynamic)
 
 
 Base image with just enough to run arbitrary binaries that may require gcc or cc libraries.
@@ -38,4 +33,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/cc-dynamic:latest
 ```
-

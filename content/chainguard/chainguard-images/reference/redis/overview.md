@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: redis"
+title: "Image Overview: Redis"
 type: "article"
-description: "Overview: redis Chainguard Images"
+description: "Overview: Redis Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/redis](https://github.com/chainguard-images/images/tree/main/images/redis)
-| Tags     | Aliases                           |
-|----------|-----------------------------------|
-| `latest` | `7`, `7.0`, `7.0.11`, `7.0.11-r0` |
-
+[cgr.dev/chainguard/redis](https://github.com/chainguard-images/images/tree/main/images/redis)
 
 
 Minimalist Wolfi-based [Redis](https://github.com/redis/redis) image.
@@ -92,4 +88,3 @@ $ docker run -d -v $(pwd):/data -p 6379:6379 redis
 $ redis-cli get foo
 "bar"
 ```
-

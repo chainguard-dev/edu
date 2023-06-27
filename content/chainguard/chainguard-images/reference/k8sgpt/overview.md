@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: k8sgpt"
+title: "Image Overview: K8sgpt"
 type: "article"
-description: "Overview: k8sgpt Chainguard Images"
+description: "Overview: K8sgpt Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/k8sgpt](https://github.com/chainguard-images/images/tree/main/images/k8sgpt)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `0`, `0.3`, `0.3.8`, `0.3.8-r0` |
-
+[cgr.dev/chainguard/k8sgpt](https://github.com/chainguard-images/images/tree/main/images/k8sgpt)
 
 
 Minimal k8sgpt container image.
@@ -29,4 +25,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/k8sgpt:latest
 ```
-

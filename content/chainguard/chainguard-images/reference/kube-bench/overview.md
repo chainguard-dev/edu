@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: kube-bench"
+title: "Image Overview: Kube-bench"
 type: "article"
-description: "Overview: kube-bench Chainguard Images"
+description: "Overview: Kube-bench Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kube-bench](https://github.com/chainguard-images/images/tree/main/images/kube-bench)
-| Tags     | Aliases                           |
-|----------|-----------------------------------|
-| `latest` | `0`, `0.6`, `0.6.15`, `0.6.15-r0` |
-
+[cgr.dev/chainguard/kube-bench](https://github.com/chainguard-images/images/tree/main/images/kube-bench)
 
 
 Minimal image with [kube-bench](https://github.com/aquasecurity/kube-bench).
@@ -30,4 +26,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/kube-bench:latest
 ```
-

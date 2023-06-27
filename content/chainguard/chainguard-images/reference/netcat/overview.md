@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: netcat"
+title: "Image Overview: Netcat"
 type: "article"
-description: "Overview: netcat Chainguard Images"
+description: "Overview: Netcat Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/netcat](https://github.com/chainguard-images/images/tree/main/images/netcat)
-| Tags     | Aliases                  |
-|----------|--------------------------|
-| `latest` | `1`, `1.225`, `1.225-r0` |
-
+[cgr.dev/chainguard/netcat](https://github.com/chainguard-images/images/tree/main/images/netcat)
 
 
 Minimal image for Debian port of OpenBSD's netcat. **EXPERIMENTAL**
@@ -38,4 +34,3 @@ docker run --rm -ti cgr.dev/chainguard/netcat -zv google.com 443
 ```
 
 See [here](https://manpages.debian.org/unstable/netcat-openbsd/nc.1.en.html) for more invocation details.
-

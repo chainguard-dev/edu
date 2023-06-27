@@ -1,7 +1,7 @@
 ---
-title: "metacontroller Image Variants"
+title: "Metacontroller Image Variants"
 type: "article"
-description: "Detailed specs for metacontroller Chainguard Image Variants"
+description: "Detailed information about the MetacontrollerChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "metacontroller"
+    parent: "Metacontroller"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **metacontroller** Image.
+This page shows detailed information about all available variants of the Chainguard **Metacontroller** Image.
 
 ## Variants Compared
 The **metacontroller** Chainguard Image currently has 2 public variants: 
@@ -30,9 +30,10 @@ The table has detailed information about each of these variants.
 | Entrypoint   | `/usr/bin/metacontroller` | `/usr/bin/metacontroller` |
 | CMD          | not specified             | not specified             |
 | Workdir      | not specified             | not specified             |
-| Has apk?     | no                        | yes                       |
-| Has a shell? | no                        | yes                       |
+| Has apk?     | no                        | no                        |
+| Has a shell? | no                        | no                        |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/metacontroller/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -41,8 +42,3 @@ The table shows package distribution across all variants.
 | `wolfi-baselayout`       | X      | X          |
 | `ca-certificates-bundle` | X      | X          |
 | `metacontroller`         | X      | X          |
-| `apk-tools`              |        | X          |
-| `bash`                   |        | X          |
-| `busybox`                |        | X          |
-| `git`                    |        | X          |
-

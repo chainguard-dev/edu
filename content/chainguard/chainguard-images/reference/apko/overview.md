@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: apko"
+title: "Image Overview: Apko"
 type: "article"
-description: "Overview: apko Chainguard Images"
+description: "Overview: Apko Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/apko](https://github.com/chainguard-images/images/tree/main/images/apko)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `0`, `0.8`, `0.8.0`, `0.8.0-r3` |
-
+[cgr.dev/chainguard/apko](https://github.com/chainguard-images/images/tree/main/images/apko)
 
 
 Container image for running [apko](https://github.com/chainguard-dev/apko) container builds.
@@ -30,4 +26,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/apko:latest
 ```
-

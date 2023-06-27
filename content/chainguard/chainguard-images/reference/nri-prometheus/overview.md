@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: nri-prometheus"
+title: "Image Overview: Nri-prometheus"
 type: "article"
-description: "Overview: nri-prometheus Chainguard Images"
+description: "Overview: Nri-prometheus Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/nri-prometheus](https://github.com/chainguard-images/images/tree/main/images/nri-prometheus)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `2`, `2.18`, `2.18.1`, `2.18.1-r2`                 |
-| `latest-dev` | `2-dev`, `2.18-dev`, `2.18.1-dev`, `2.18.1-r2-dev` |
-
+[cgr.dev/chainguard/nri-prometheus](https://github.com/chainguard-images/images/tree/main/images/nri-prometheus)
 
 
 Minimal image with the New Relic Prometheus Integration binary.
@@ -50,4 +45,3 @@ NOTE: This image requires a license key to run properly, which you can obtain fr
 ## Testing
 
 The tests for this image also require a license key, which is configured in a secret in Github Actions.
-

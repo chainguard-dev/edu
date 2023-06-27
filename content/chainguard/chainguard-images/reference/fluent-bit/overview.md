@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: fluent-bit"
+title: "Image Overview: Fluent-bit"
 type: "article"
-description: "Overview: fluent-bit Chainguard Images"
+description: "Overview: Fluent-bit Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/fluent-bit](https://github.com/chainguard-images/images/tree/main/images/fluent-bit)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `2`, `2.1`, `2.1.5`, `2.1.5-r0` |
-
+[cgr.dev/chainguard/fluent-bit](https://github.com/chainguard-images/images/tree/main/images/fluent-bit)
 
 
 Fluent Bit is a lightweight and high performance log processor. In this repository you will find the container images ready for production usage.
@@ -64,4 +60,3 @@ Fluent Bit v2.0.8
 [2023/01/20 01:37:06] [ info] [output:stdout:stdout.0] worker #0 started
 {"date":1674178633.0,"container_id":"c77d18c7700cc8e552b1f137ec9e6cd922637c733463e38fc97de7d51a95e4e9","container_name":"/nice_morse","source":"stdout","log":"Testing a log message\r"}
 ```
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: wolfi-base"
+title: "Image Overview: Wolfi-base"
 type: "article"
-description: "Overview: wolfi-base Chainguard Images"
+description: "Overview: Wolfi-base Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
-
+[cgr.dev/chainguard/wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base)
 
 
 This base image comes with [apk and busybox](https://github.com/wolfi-dev/os/blob/main/wolfi-base.yaml) and starts you
@@ -31,4 +27,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/wolfi-base:latest
 ```
-

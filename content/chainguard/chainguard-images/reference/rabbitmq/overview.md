@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: rabbitmq"
+title: "Image Overview: Rabbitmq"
 type: "article"
-description: "Overview: rabbitmq Chainguard Images"
+description: "Overview: Rabbitmq Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/rabbitmq](https://github.com/chainguard-images/images/tree/main/images/rabbitmq)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `3`, `3.12`, `3.12.0`, `3.12.0-r0` |
-
+[cgr.dev/chainguard/rabbitmq](https://github.com/chainguard-images/images/tree/main/images/rabbitmq)
 
 
 [RabbitMQ](https://github.com/rabbitmq/rabbitmq-server) RabbitMQ is a message broker.
@@ -84,4 +80,3 @@ RABBITMQ_CONF_ENV_FILE=/etc/rabbitmq/rabbitmq-env.conf
 By default this image runs as a non-root user named `rabbitmq` with a uid of 65532.
 
 Logs go to `/var/log/rabbitmq/` by default.
-

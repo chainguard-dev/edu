@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: vault"
+title: "Image Overview: Vault"
 type: "article"
-description: "Overview: vault Chainguard Images"
+description: "Overview: Vault Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/vault](https://github.com/chainguard-images/images/tree/main/images/vault)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.13`, `1.13.3`, `1.13.3-r1`                 |
-| `latest-dev` | `1-dev`, `1.13-dev`, `1.13.3-dev`, `1.13.3-r1-dev` |
-
+[cgr.dev/chainguard/vault](https://github.com/chainguard-images/images/tree/main/images/vault)
 
 
 Vault Server Image.
@@ -160,4 +155,3 @@ If using the file data storage plugin, please configure it to write to `/var/lib
 
 By default logs will be streamed to stdout and stderr, but can be configured to write to
 `/var/log/vault`.
-

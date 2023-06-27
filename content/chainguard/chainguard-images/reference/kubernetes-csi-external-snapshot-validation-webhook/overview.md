@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: kubernetes-csi-external-snapshot-validation-webhook"
+title: "Image Overview: Kubernetes-csi-external-snapshot-validation-webhook"
 type: "article"
-description: "Overview: kubernetes-csi-external-snapshot-validation-webhook Chainguard Images"
+description: "Overview: Kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kubernetes-csi-external-snapshot-validation-webhook](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-snapshot-validation-webhook)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `6`, `6.2`, `6.2.2`, `6.2.2-r1` |
-
+[cgr.dev/chainguard/kubernetes-csi-external-snapshot-validation-webhook](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-snapshot-validation-webhook)
 
 
 A minimal image for Kubernetes CSI external-snapshot-validation-webhook.
@@ -30,4 +26,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/kubernetes-csi-external-snapshot-validation-webhook
 ```
-

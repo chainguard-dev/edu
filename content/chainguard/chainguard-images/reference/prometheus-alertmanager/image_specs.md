@@ -1,7 +1,7 @@
 ---
-title: "prometheus-alertmanager Image Variants"
+title: "Prometheus-alertmanager Image Variants"
 type: "article"
-description: "Detailed specs for prometheus-alertmanager Chainguard Image Variants"
+description: "Detailed information about the Prometheus-alertmanagerChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "prometheus-alertmanager"
+    parent: "Prometheus-alertmanager"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **prometheus-alertmanager** Image.
+This page shows detailed information about all available variants of the Chainguard **Prometheus-alertmanager** Image.
 
 ## Variants Compared
 The **prometheus-alertmanager** Chainguard Image currently has one public variant: 
@@ -32,6 +32,7 @@ The table has detailed information about each of these variants.
 | Has apk?     | yes                                                                             |
 | Has a shell? | yes                                                                             |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/prometheus-alertmanager/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -41,5 +42,3 @@ The table shows package distribution across all variants.
 | `wolfi-base`              | X      |
 | `ca-certificates-bundle`  | X      |
 | `busybox`                 | X      |
-| `wolfi-baselayout`        | X      |
-

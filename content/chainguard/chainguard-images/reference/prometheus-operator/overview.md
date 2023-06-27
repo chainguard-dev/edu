@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: prometheus-operator"
+title: "Image Overview: Prometheus-operator"
 type: "article"
-description: "Overview: prometheus-operator Chainguard Images"
+description: "Overview: Prometheus-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/prometheus-operator](https://github.com/chainguard-images/images/tree/main/images/prometheus-operator)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.66`, `0.66.0`, `0.66.0-r0`                 |
-| `latest-dev` | `0-dev`, `0.66-dev`, `0.66.0-dev`, `0.66.0-r0-dev` |
-
+[cgr.dev/chainguard/prometheus-operator](https://github.com/chainguard-images/images/tree/main/images/prometheus-operator)
 
 
 ## Try It Out
@@ -47,4 +42,3 @@ Upstream image uses
 ```sh
 /bin/operator
 ```
-

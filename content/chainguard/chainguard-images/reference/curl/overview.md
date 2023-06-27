@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: curl"
+title: "Image Overview: Curl"
 type: "article"
-description: "Overview: curl Chainguard Images"
+description: "Overview: Curl Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/curl](https://github.com/chainguard-images/images/tree/main/images/curl)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `8`, `8.1`, `8.1.2`, `8.1.2-r0` |
-
+[cgr.dev/chainguard/curl](https://github.com/chainguard-images/images/tree/main/images/curl)
 
 
 This is a minimal curl image base.
@@ -59,4 +55,3 @@ Release-Date: 2022-12-21
 Protocols: dict file ftp ftps gopher gophers http https imap imaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
 Features: alt-svc AsynchDNS brotli HSTS HTTP2 HTTPS-proxy IPv6 Largefile libz NTLM NTLM_WB SSL threadsafe TLS-SRP UnixSockets
 ```
-

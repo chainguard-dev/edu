@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: melange"
+title: "Image Overview: Melange"
 type: "article"
-description: "Overview: melange Chainguard Images"
+description: "Overview: Melange Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/melange](https://github.com/chainguard-images/images/tree/main/images/melange)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `0`, `0.3`, `0.3.2`, `0.3.2-r3` |
-
+[cgr.dev/chainguard/melange](https://github.com/chainguard-images/images/tree/main/images/melange)
 
 
 Container image for running [melange](https://github.com/chainguard-dev/melange) workflows to build APK packages.
@@ -56,4 +52,3 @@ docker run --privileged -v "$PWD":/work -it --entrypoint /bin/sh cgr.dev/chaingu
 Note that melange uses bubblewrap internally, which requires various Linux capabilities, hence the
 use of `--privileged`. Because of this requirement, we recommend this image is used only for local
 development and testing.
-

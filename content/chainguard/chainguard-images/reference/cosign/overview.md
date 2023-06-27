@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: cosign"
+title: "Image Overview: Cosign"
 type: "article"
-description: "Overview: cosign Chainguard Images"
+description: "Overview: Cosign Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/cosign](https://github.com/chainguard-images/images/tree/main/images/cosign)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.0`, `2.0.2`, `2.0.2-r4`                 |
-| `latest-dev` | `2-dev`, `2.0-dev`, `2.0.2-dev`, `2.0.2-r4-dev` |
-
+[cgr.dev/chainguard/cosign](https://github.com/chainguard-images/images/tree/main/images/cosign)
 
 
 Minimalist Wolfi-based Cosign images for signing and verifying images using Sigstore.
@@ -134,4 +129,3 @@ To obtain detailed information about the environment, you can run the `cosign en
 ```shell
 docker run --rm cgr.dev/chainguard/cosign env --show-descriptions=false
 ```
-

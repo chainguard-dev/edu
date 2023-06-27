@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: helm-chartmuseum"
+title: "Image Overview: Helm-chartmuseum"
 type: "article"
-description: "Overview: helm-chartmuseum Chainguard Images"
+description: "Overview: Helm-chartmuseum Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/helm-chartmuseum](https://github.com/chainguard-images/images/tree/main/images/helm-chartmuseum)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.16`, `0.16.0`, `0.16.0-r0`                 |
-| `latest-dev` | `0-dev`, `0.16-dev`, `0.16.0-dev`, `0.16.0-r0-dev` |
-
+[cgr.dev/chainguard/helm-chartmuseum](https://github.com/chainguard-images/images/tree/main/images/helm-chartmuseum)
 
 
 Minimal image with
@@ -57,4 +52,3 @@ helm repo add chartmuseum http://localhost:8080
 helm search repo chartmuseum/
 helm upgrade --install chartmuseum-demo chartmuseum/hello
 ```
-

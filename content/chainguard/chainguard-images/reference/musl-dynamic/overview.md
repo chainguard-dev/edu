@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: musl-dynamic"
+title: "Image Overview: Musl-dynamic"
 type: "article"
-description: "Overview: musl-dynamic Chainguard Images"
+description: "Overview: Musl-dynamic Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/musl-dynamic](https://github.com/chainguard-images/images/tree/main/images/musl-dynamic)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `1`, `1.2`, `1.2.4`, `1.2.4-r0` |
-
+[cgr.dev/chainguard/musl-dynamic](https://github.com/chainguard-images/images/tree/main/images/musl-dynamic)
 
 
 Base image with just enough files to run static binaries!
@@ -39,4 +35,3 @@ docker pull cgr.dev/chainguard/musl-dynamic:latest
 See the [examples/](https://github.com/chainguard-images/images/tree/main/images/musl-dynamic/examples) directory for
 an example C program and associated Dockerfile
 that can be used with this image.
-

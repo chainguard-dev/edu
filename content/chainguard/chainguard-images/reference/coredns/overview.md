@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: coredns"
+title: "Image Overview: Coredns"
 type: "article"
-description: "Overview: coredns Chainguard Images"
+description: "Overview: Coredns Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/coredns](https://github.com/chainguard-images/images/tree/main/images/coredns)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.10`, `1.10.1`, `1.10.1-r1`                 |
-| `latest-dev` | `1-dev`, `1.10-dev`, `1.10.1-dev`, `1.10.1-r1-dev` |
-
+[cgr.dev/chainguard/coredns](https://github.com/chainguard-images/images/tree/main/images/coredns)
 
 
 ## Get It!
@@ -44,4 +39,3 @@ helm install coredns coredns/coredns \
 	--set image.tag="latest" \
 	--set isClusterService=false
 ```
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: prometheus-elasticsearch-exporter"
+title: "Image Overview: Prometheus-elasticsearch-exporter"
 type: "article"
-description: "Overview: prometheus-elasticsearch-exporter Chainguard Images"
+description: "Overview: Prometheus-elasticsearch-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/prometheus-elasticsearch-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-elasticsearch-exporter)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `1`, `1.5`, `1.5.0`, `1.5.0-r4` |
-
+[cgr.dev/chainguard/prometheus-elasticsearch-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-elasticsearch-exporter)
 
 
 Minimal Prometheus Image
@@ -45,4 +41,3 @@ level=info ts=2023-03-31T23:08:40.120446635Z caller=clusterinfo.go:183 msg="prov
 level=error ts=2023-03-31T23:08:40.121301718Z caller=clusterinfo.go:267 msg="failed to get cluster info" err="Get \"http://localhost:9200/\": dial tcp 127.0.0.1:9200: connect: connection refused"
 level=error ts=2023-03-31T23:08:40.121330676Z caller=clusterinfo.go:188 msg="failed to retrieve cluster info from ES" err="Get \"http://localhost:9200/\": dial tcp 127.0.0.1:9200: connect: connection refused"
 ```
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: ffmpeg"
+title: "Image Overview: Ffmpeg"
 type: "article"
-description: "Overview: ffmpeg Chainguard Images"
+description: "Overview: Ffmpeg Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/ffmpeg](https://github.com/chainguard-images/images/tree/main/images/ffmpeg)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
-
+[cgr.dev/chainguard/ffmpeg](https://github.com/chainguard-images/images/tree/main/images/ffmpeg)
 
 
 This is an image that contains ffmpeg.
@@ -43,4 +39,3 @@ docker run --rm \
     -i tests/sample.mov \
     tests/sample.mp4
 ```
-

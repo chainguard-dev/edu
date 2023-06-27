@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: minio"
+title: "Image Overview: Minio"
 type: "article"
-description: "Overview: minio Chainguard Images"
+description: "Overview: Minio Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/minio](https://github.com/chainguard-images/images/tree/main/images/minio)
-| Tags         | Aliases                                                                        |
-|--------------|--------------------------------------------------------------------------------|
-| `latest`     | `0`, `0.20230609`, `0.20230609.073212`, `0.20230609.073212-r1`                 |
-| `latest-dev` | `0-dev`, `0.20230609-dev`, `0.20230609.073212-dev`, `0.20230609.073212-r1-dev` |
-
+[cgr.dev/chainguard/minio](https://github.com/chainguard-images/images/tree/main/images/minio)
 
 
 Minimal image with Minio. **EXPERIMENTAL**
@@ -80,4 +75,3 @@ Console: http://172.17.0.5:46387 http://127.0.0.1:46387
 Documentation: https://min.io/docs/minio/linux/index.html
 Warning: The standard parity is set to 0. This can lead to data loss.
 ```
-

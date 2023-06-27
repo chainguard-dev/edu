@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: cluster-autoscaler"
+title: "Image Overview: Cluster-autoscaler"
 type: "article"
-description: "Overview: cluster-autoscaler Chainguard Images"
+description: "Overview: Cluster-autoscaler Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/cluster-autoscaler](https://github.com/chainguard-images/images/tree/main/images/cluster-autoscaler)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.27`, `1.27.2`, `1.27.2-r2`                 |
-| `latest-dev` | `1-dev`, `1.27-dev`, `1.27.2-dev`, `1.27.2-r2-dev` |
-
+[cgr.dev/chainguard/cluster-autoscaler](https://github.com/chainguard-images/images/tree/main/images/cluster-autoscaler)
 
 
 Minimal Kubernetes Cluster Autoscaler Image
@@ -47,4 +42,3 @@ $ helm install my-release autoscaler/cluster-autoscaler \
 
 Note that the `cluster-autoscaler` does need cloud provider configuration to work correctly, so it won't run locally.
 See the [configuration](https://github.com/kubernetes/autoscaler/tree/master/charts/cluster-autoscaler) docs for more examples.
-

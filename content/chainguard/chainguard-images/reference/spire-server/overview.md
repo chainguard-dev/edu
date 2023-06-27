@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: spire-server"
+title: "Image Overview: Spire-server"
 type: "article"
-description: "Overview: spire-server Chainguard Images"
+description: "Overview: Spire-server Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/spire-server](https://github.com/chainguard-images/images/tree/main/images/spire-server)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.7`, `1.7.0`, `1.7.0-r0`                 |
-| `latest-dev` | `1-dev`, `1.7-dev`, `1.7.0-dev`, `1.7.0-r0-dev` |
-
+[cgr.dev/chainguard/spire-server](https://github.com/chainguard-images/images/tree/main/images/spire-server)
 
 
 Minimalist Wolfi-based `spire-server` image which the SPIFFE Runtime Environment
@@ -34,4 +29,3 @@ docker pull cgr.dev/chainguard/spire-server:latest
 ```
 
 ## Usage
-

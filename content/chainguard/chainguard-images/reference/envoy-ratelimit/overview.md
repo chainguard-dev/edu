@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: envoy-ratelimit"
+title: "Image Overview: Envoy-ratelimit"
 type: "article"
-description: "Overview: envoy-ratelimit Chainguard Images"
+description: "Overview: Envoy-ratelimit Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/envoy-ratelimit](https://github.com/chainguard-images/images/tree/main/images/envoy-ratelimit)
-| Tags         | Aliases                                                  |
-|--------------|----------------------------------------------------------|
-| `latest`     | `0`, `0.0_git20230508`, `0.0_git20230508-r1`             |
-| `latest-dev` | `0-dev`, `0.0_git20230508-dev`, `0.0_git20230508-r1-dev` |
-
+[cgr.dev/chainguard/envoy-ratelimit](https://github.com/chainguard-images/images/tree/main/images/envoy-ratelimit)
 
 
 [etcd](https://github.com/etcd-io/etcd) Distributed reliable key-value store for the most critical data of a distributed system
@@ -40,4 +35,3 @@ This image should be a drop-in replacement for the upstream `envoyproxy/ratelimi
 See the [full documentation](https://gateway.envoyproxy.io/latest/user/rate-limit.html) for installation and usage.
 
 See for the [examples](https://github.com/envoyproxy/ratelimit#examples).
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: nri-kube-events"
+title: "Image Overview: Nri-kube-events"
 type: "article"
-description: "Overview: nri-kube-events Chainguard Images"
+description: "Overview: Nri-kube-events Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/nri-kube-events](https://github.com/chainguard-images/images/tree/main/images/nri-kube-events)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.1`, `2.1.0`, `2.1.0-r2`                 |
-| `latest-dev` | `2-dev`, `2.1-dev`, `2.1.0-dev`, `2.1.0-r2-dev` |
-
+[cgr.dev/chainguard/nri-kube-events](https://github.com/chainguard-images/images/tree/main/images/nri-kube-events)
 
 
 Minimal image with the [nri-kube-events](https://github.com/newrelic/nri-kube-events) binary.
@@ -66,4 +61,3 @@ NOTE: This image requires a license key to run properly, which you can obtain fr
 ## Testing
 
 The tests for this image also require a license key, which is configured in a secret in Github Actions.
-

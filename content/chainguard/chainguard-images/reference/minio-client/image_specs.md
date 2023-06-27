@@ -1,7 +1,7 @@
 ---
-title: "minio-client Image Variants"
+title: "Minio-client Image Variants"
 type: "article"
-description: "Detailed specs for minio-client Chainguard Image Variants"
+description: "Detailed information about the Minio-clientChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "minio-client"
+    parent: "Minio-client"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **minio-client** Image.
+This page shows detailed information about all available variants of the Chainguard **Minio-client** Image.
 
 ## Variants Compared
 The **minio-client** Chainguard Image currently has 2 public variants: 
@@ -30,9 +30,10 @@ The table has detailed information about each of these variants.
 | Entrypoint   | `/usr/bin/mc` | `/usr/bin/mc` |
 | CMD          | not specified | not specified |
 | Workdir      | not specified | not specified |
-| Has apk?     | no            | yes           |
+| Has apk?     | no            | no            |
 | Has a shell? | yes           | yes           |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/minio-client/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -42,7 +43,3 @@ The table shows package distribution across all variants.
 | `wolfi-baselayout`       | X      | X          |
 | `mc`                     | X      | X          |
 | `bash`                   | X      | X          |
-| `apk-tools`              |        | X          |
-| `busybox`                |        | X          |
-| `git`                    |        | X          |
-

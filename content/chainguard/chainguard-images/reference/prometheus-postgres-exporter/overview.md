@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: prometheus-postgres-exporter"
+title: "Image Overview: Prometheus-postgres-exporter"
 type: "article"
-description: "Overview: prometheus-postgres-exporter Chainguard Images"
+description: "Overview: Prometheus-postgres-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/prometheus-postgres-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-postgres-exporter)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `0`, `0.12`, `0.12.1`, `0.12.1-r0` |
-
+[cgr.dev/chainguard/prometheus-postgres-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-postgres-exporter)
 
 
 Minimal Prometheus Postgres Exporter Image
@@ -105,4 +101,3 @@ Flags:
       --log.format=logfmt        Output format of log messages. One of: [logfmt,
                                  json]
 ```
-

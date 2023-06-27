@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: stakater-reloader"
+title: "Image Overview: Stakater-reloader"
 type: "article"
-description: "Overview: stakater-reloader Chainguard Images"
+description: "Overview: Stakater-reloader Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/stakater-reloader](https://github.com/chainguard-images/images/tree/main/images/stakater-reloader)
-| Tags         | Aliases |
-|--------------|---------|
-| `latest`     |         |
-| `latest-dev` |         |
-
+[cgr.dev/chainguard/stakater-reloader](https://github.com/chainguard-images/images/tree/main/images/stakater-reloader)
 
 
 Minimal image with the Keda binary. **EXPERIMENTAL**
@@ -33,4 +28,3 @@ docker pull cgr.dev/chainguard/stakader-reloader:latest
 ```
 
 This image is a drop-in replacement for the stakader-reloader image available upstream at `ghcr.io/stakater/reloader`.
-

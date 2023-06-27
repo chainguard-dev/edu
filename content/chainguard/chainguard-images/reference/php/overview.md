@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: php"
+title: "Image Overview: Php"
 type: "article"
-description: "Overview: php Chainguard Images"
+description: "Overview: Php Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,14 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/php](https://github.com/chainguard-images/images/tree/main/images/php)
-| Tags             | Aliases                                         |
-|------------------|-------------------------------------------------|
-| `latest`         | `8`, `8.2`, `8.2.7`, `8.2.7-r0`                 |
-| `latest-dev`     | `8-dev`, `8.2-dev`, `8.2.7-dev`, `8.2.7-r0-dev` |
-| `latest-fpm`     | `8`, `8.2`, `8.2.7`, `8.2.7-r0`                 |
-| `latest-fpm-dev` | `8-dev`, `8.2-dev`, `8.2.7-dev`, `8.2.7-r0-dev` |
-
+[cgr.dev/chainguard/php](https://github.com/chainguard-images/images/tree/main/images/php)
 
 
 Minimalist Wolfi-based PHP images for building and running PHP applications. Includes both `dev` and `fpm` variants.
@@ -144,4 +137,3 @@ For instance, to check for `curl` settings, you can run:
 ```shell
 docker run --rm cgr.dev/chainguard/php:latest --info | grep curl
 ```
-

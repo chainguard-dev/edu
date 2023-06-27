@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: python"
+title: "Image Overview: Python"
 type: "article"
-description: "Overview: python Chainguard Images"
+description: "Overview: Python Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,14 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/python](https://github.com/chainguard-images/images/tree/main/images/python)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `3.10`       | `3.10`, `3.10.12`, `3.10.12-r0`                    |
-| `3.10-dev`   | `3.10-dev`, `3.10.12-dev`, `3.10.12-r0-dev`        |
-| `latest`     | `3`, `3.11`, `3.11.4`, `3.11.4-r0`                 |
-| `latest-dev` | `3-dev`, `3.11-dev`, `3.11.4-dev`, `3.11.4-r0-dev` |
-
+[cgr.dev/chainguard/python](https://github.com/chainguard-images/images/tree/main/images/python)
 
 
 This is a minimal Python image based on Wolfi.
@@ -64,4 +57,3 @@ COPY main.py .
 
 ENTRYPOINT [ "python", "/app/main.py" ]
 ```
-

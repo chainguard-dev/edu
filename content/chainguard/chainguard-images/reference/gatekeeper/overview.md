@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: gatekeeper"
+title: "Image Overview: Gatekeeper"
 type: "article"
-description: "Overview: gatekeeper Chainguard Images"
+description: "Overview: Gatekeeper Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/gatekeeper](https://github.com/chainguard-images/images/tree/main/images/gatekeeper)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `3`, `3.12`, `3.12.0`, `3.12.0-r3`                 |
-| `latest-dev` | `3-dev`, `3.12-dev`, `3.12.0-dev`, `3.12.0-r3-dev` |
-
+[cgr.dev/chainguard/gatekeeper](https://github.com/chainguard-images/images/tree/main/images/gatekeeper)
 
 
 Minimalist Wolfi-based Gatekeeper which is a policy controller for Kubernetes
@@ -57,4 +52,3 @@ Once you did this, you can install Gatekeeper to the target cluster:
 	    --set image.release="latest" \
         gatekeeper/gatekeeper
 ```
-

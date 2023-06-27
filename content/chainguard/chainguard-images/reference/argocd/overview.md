@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: argocd"
+title: "Image Overview: Argocd"
 type: "article"
-description: "Overview: argocd Chainguard Images"
+description: "Overview: Argocd Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/argocd](https://github.com/chainguard-images/images/tree/main/images/argocd)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.7`, `2.7.5`, `2.7.5-r0`                 |
-| `latest-dev` | `2-dev`, `2.7-dev`, `2.7.5-dev`, `2.7.5-r0-dev` |
-
+[cgr.dev/chainguard/argocd](https://github.com/chainguard-images/images/tree/main/images/argocd)
 
 
 [argocd](https://argo-cd.readthedocs.io/en/stable/) Declarative continuous deployment for Kubernetes.
@@ -81,4 +76,3 @@ dex:
 ArgoCD is comprised of multiple [components](https://argo-cd.readthedocs.io/en/stable/operator-manual/architecture/#components) that all share the same image.
 
 Keeping in line with the philosophy of minimal components in Chainguard images, we chose to split this up to keep the number of packages in the components to a minimum. This means the overall number of images increases, but the size and complexity of each image is reduced to (almost) the bare minimum needed to function.
-

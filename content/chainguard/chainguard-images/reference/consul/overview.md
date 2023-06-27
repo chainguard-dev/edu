@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: consul"
+title: "Image Overview: Consul"
 type: "article"
-description: "Overview: consul Chainguard Images"
+description: "Overview: Consul Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/consul](https://github.com/chainguard-images/images/tree/main/images/consul)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.15`, `1.15.3`, `1.15.3-r1`                 |
-| `latest-dev` | `1-dev`, `1.15-dev`, `1.15.3-dev`, `1.15.3-r1-dev` |
-
+[cgr.dev/chainguard/consul](https://github.com/chainguard-images/images/tree/main/images/consul)
 
 
 Minimal image with Consul. **EXPERIMENTAL**
@@ -59,4 +54,3 @@ $ docker run cgr.dev/chainguard/consul
 
 ==> Log data will now stream in as it occurs:
 ```
-

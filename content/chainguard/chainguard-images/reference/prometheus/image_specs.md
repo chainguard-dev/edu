@@ -1,7 +1,7 @@
 ---
-title: "prometheus Image Variants"
+title: "Prometheus Image Variants"
 type: "article"
-description: "Detailed specs for prometheus Chainguard Image Variants"
+description: "Detailed information about the PrometheusChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "prometheus"
+    parent: "Prometheus"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **prometheus** Image.
+This page shows detailed information about all available variants of the Chainguard **Prometheus** Image.
 
 ## Variants Compared
 The **prometheus** Chainguard Image currently has one public variant: 
@@ -32,12 +32,11 @@ The table has detailed information about each of these variants.
 | Has apk?     | no            |
 | Has a shell? | no            |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/prometheus/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
 |                          | latest |
 |--------------------------|--------|
 | `prometheus`             | X      |
-| `wolfi-baselayout`       | X      |
 | `ca-certificates-bundle` | X      |
-

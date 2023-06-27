@@ -1,7 +1,7 @@
 ---
-title: "jre Image Variants"
+title: "Jre Image Variants"
 type: "article"
-description: "Detailed specs for jre Chainguard Image Variants"
+description: "Detailed information about the JreChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "jre"
+    parent: "Jre"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **jre** Image.
+This page shows detailed information about all available variants of the Chainguard **Jre** Image.
 
 ## Variants Compared
 The **jre** Chainguard Image currently has 4 public variants: 
@@ -32,9 +32,10 @@ The table has detailed information about each of these variants.
 | Entrypoint   | `/usr/bin/java` | `/usr/bin/java` | `/usr/bin/java` | `/usr/bin/java` |
 | CMD          | not specified   | not specified   | not specified   | not specified   |
 | Workdir      | `/app`          | `/app`          | `/app`          | `/app`          |
-| Has apk?     | no              | yes             | no              | yes             |
-| Has a shell? | no              | yes             | no              | yes             |
+| Has apk?     | no              | no              | no              | no              |
+| Has a shell? | no              | no              | no              | no              |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/jre/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -46,10 +47,5 @@ The table shows package distribution across all variants.
 | `openjdk-17-jre`         | X      | X          |            |                |
 | `openjdk-17-default-jvm` | X      | X          |            |                |
 | `libstdc++`              | X      | X          | X          | X              |
-| `apk-tools`              |        | X          |            | X              |
-| `bash`                   |        | X          |            | X              |
-| `busybox`                |        | X          |            | X              |
-| `git`                    |        | X          |            | X              |
 | `openjdk-11-jre`         |        |            | X          | X              |
 | `openjdk-11-default-jvm` |        |            | X          | X              |
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: nginx"
+title: "Image Overview: Nginx"
 type: "article"
-description: "Overview: nginx Chainguard Images"
+description: "Overview: Nginx Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,13 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/nginx](https://github.com/chainguard-images/images/tree/main/images/nginx)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.25`, `1.25.1`, `1.25.1-r0`                 |
-| `latest-dev` | `1-dev`, `1.25-dev`, `1.25.1-dev`, `1.25.1-r0-dev` |
-| `next`       |                                                    |
-
+[cgr.dev/chainguard/nginx](https://github.com/chainguard-images/images/tree/main/images/nginx)
 
 
 A minimal nginx base image rebuilt every night from source.
@@ -145,4 +139,3 @@ shouldn't make a difference, but note the "User Directive Warning" above.
 
 The Docker official image has support for setting environment variables that get substitued into the
 config file. Currently we do not have support for this, but are [looking into options](https://github.com/chainguard-images/images/issues/435). 
-

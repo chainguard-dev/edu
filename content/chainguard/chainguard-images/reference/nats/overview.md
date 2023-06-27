@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: nats"
+title: "Image Overview: Nats"
 type: "article"
-description: "Overview: nats Chainguard Images"
+description: "Overview: Nats Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/nats](https://github.com/chainguard-images/images/tree/main/images/nats)
-| Tags         | Aliases                                           |
-|--------------|---------------------------------------------------|
-| `latest`     | `2`, `2.9`, `2.9.18`, `2.9.18-r0`                 |
-| `latest-dev` | `2-dev`, `2.9-dev`, `2.9.18-dev`, `2.9.18-r0-dev` |
-
+[cgr.dev/chainguard/nats](https://github.com/chainguard-images/images/tree/main/images/nats)
 
 
 Minimal image with NATS. **EXPERIMENTAL**
@@ -57,4 +52,3 @@ $ docker run cgr.dev/chainguard/nats
 [1] 2023/03/13 19:37:46.087610 [WRN] Cluster name was dynamically generated, consider setting one
 [1] 2023/03/13 19:37:46.087671 [INF] Listening for route connections on 0.0.0.0:6222
 ```
-

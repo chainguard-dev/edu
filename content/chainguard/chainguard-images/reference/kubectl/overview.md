@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: kubectl"
+title: "Image Overview: Kubectl"
 type: "article"
-description: "Overview: kubectl Chainguard Images"
+description: "Overview: Kubectl Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kubectl](https://github.com/chainguard-images/images/tree/main/images/kubectl)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.27`, `1.27.3`, `1.27.3-r0`                 |
-| `latest-dev` | `1-dev`, `1.27-dev`, `1.27.3-dev`, `1.27.3-r0-dev` |
-
+[cgr.dev/chainguard/kubectl](https://github.com/chainguard-images/images/tree/main/images/kubectl)
 
 
 Minimal image with kubectl binary. **EXPERIMENTAL**
@@ -31,4 +26,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/kubectl:latest
 ```
-

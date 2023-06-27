@@ -1,7 +1,7 @@
 ---
-title: "k8sgpt-operator Image Variants"
+title: "K8sgpt-operator Image Variants"
 type: "article"
-description: "Detailed specs for k8sgpt-operator Chainguard Image Variants"
+description: "Detailed information about the K8sgpt-operatorChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "k8sgpt-operator"
+    parent: "K8sgpt-operator"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **k8sgpt-operator** Image.
+This page shows detailed information about all available variants of the Chainguard **K8sgpt-operator** Image.
 
 ## Variants Compared
 The **k8sgpt-operator** Chainguard Image currently has 2 public variants: 
@@ -30,9 +30,10 @@ The table has detailed information about each of these variants.
 | Entrypoint   | `manager`     | `manager`     |
 | CMD          | not specified | not specified |
 | Workdir      | not specified | not specified |
-| Has apk?     | no            | yes           |
-| Has a shell? | no            | yes           |
+| Has apk?     | no            | no            |
+| Has a shell? | no            | no            |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/k8sgpt-operator/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -41,8 +42,3 @@ The table shows package distribution across all variants.
 | `ca-certificates-bundle` | X      | X          |
 | `wolfi-baselayout`       | X      | X          |
 | `k8sgpt-operator`        | X      | X          |
-| `apk-tools`              |        | X          |
-| `bash`                   |        | X          |
-| `busybox`                |        | X          |
-| `git`                    |        | X          |
-

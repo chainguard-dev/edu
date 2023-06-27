@@ -1,7 +1,7 @@
 ---
-title: "apko Image Variants"
+title: "Apko Image Variants"
 type: "article"
-description: "Detailed specs for apko Chainguard Image Variants"
+description: "Detailed information about the ApkoChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "apko"
+    parent: "Apko"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **apko** Image.
+This page shows detailed information about all available variants of the Chainguard **Apko** Image.
 
 ## Variants Compared
 The **apko** Chainguard Image currently has one public variant: 
@@ -32,6 +32,7 @@ The table has detailed information about each of these variants.
 | Has apk?     | yes             |
 | Has a shell? | yes             |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/apko/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -41,5 +42,3 @@ The table shows package distribution across all variants.
 | `wolfi-base`             | X      |
 | `alpine-keys`            | X      |
 | `apko`                   | X      |
-| `wolfi-baselayout`       | X      |
-

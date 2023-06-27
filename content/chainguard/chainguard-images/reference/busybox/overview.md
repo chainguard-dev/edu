@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: busybox"
+title: "Image Overview: Busybox"
 type: "article"
-description: "Overview: busybox Chainguard Images"
+description: "Overview: Busybox Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/busybox](https://github.com/chainguard-images/images/tree/main/images/busybox)
-| Tags           | Aliases                                                    |
-|----------------|------------------------------------------------------------|
-| `latest`       | `1`, `1.36`, `1.36.1`, `1.36.1-r1`                         |
-| `latest-glibc` | `glibc-1`, `glibc-1.36`, `glibc-1.36.1`, `glibc-1.36.1-r0` |
-
+[cgr.dev/chainguard/busybox](https://github.com/chainguard-images/images/tree/main/images/busybox)
 
 
 Container image with only busybox and libc (available in both musl and glibc variants). Suitable for running any binaries that only have a dependency on glibc/musl.
@@ -64,4 +59,3 @@ You can get a running shell on the image like this:
 ```shell
 docker run -it cgr.dev/chainguard/busybox:latest sh
 ```
-

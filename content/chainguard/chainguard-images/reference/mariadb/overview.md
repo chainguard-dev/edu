@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: mariadb"
+title: "Image Overview: Mariadb"
 type: "article"
-description: "Overview: mariadb Chainguard Images"
+description: "Overview: Mariadb Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/mariadb](https://github.com/chainguard-images/images/tree/main/images/mariadb)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
-
+[cgr.dev/chainguard/mariadb](https://github.com/chainguard-images/images/tree/main/images/mariadb)
 
 
 [MariaDB](https://mariadb.org) is one of the most popular open source relational databases.
@@ -111,4 +107,3 @@ networks:
   wolfi:
     driver: bridge
 ```
-

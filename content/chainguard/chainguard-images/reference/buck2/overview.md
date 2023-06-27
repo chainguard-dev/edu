@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: buck2"
+title: "Image Overview: Buck2"
 type: "article"
-description: "Overview: buck2 Chainguard Images"
+description: "Overview: Buck2 Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/buck2](https://github.com/chainguard-images/images/tree/main/images/buck2)
-| Tags         | Aliases                                                  |
-|--------------|----------------------------------------------------------|
-| `latest`     | `0`, `0.0_git20230603`, `0.0_git20230603-r0`             |
-| `latest-dev` | `0-dev`, `0.0_git20230603-dev`, `0.0_git20230603-r0-dev` |
-
+[cgr.dev/chainguard/buck2](https://github.com/chainguard-images/images/tree/main/images/buck2)
 
 
 Minimal image with buck2 binary and toolchain.
@@ -123,4 +118,3 @@ SUBCOMMANDS:
     uquery
             Perform queries on the unconfigured target graph
 ```
-

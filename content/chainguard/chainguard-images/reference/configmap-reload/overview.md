@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: configmap-reload"
+title: "Image Overview: Configmap-reload"
 type: "article"
-description: "Overview: configmap-reload Chainguard Images"
+description: "Overview: Configmap-reload Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/configmap-reload](https://github.com/chainguard-images/images/tree/main/images/configmap-reload)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.11`, `0.11.1`, `0.11.1-r0`                 |
-| `latest-dev` | `0-dev`, `0.11-dev`, `0.11.1-dev`, `0.11.1-r0-dev` |
-
+[cgr.dev/chainguard/configmap-reload](https://github.com/chainguard-images/images/tree/main/images/configmap-reload)
 
 
 Kubernetes ConfigMap Reload
@@ -47,4 +42,3 @@ $ helm install my-release prometheus-community/alertmanager \
     --set image.tag=latest
     <other configuration parameters here>
 ```
-

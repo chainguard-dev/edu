@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: gcc-glibc"
+title: "Image Overview: Gcc-glibc"
 type: "article"
-description: "Overview: gcc-glibc Chainguard Images"
+description: "Overview: Gcc-glibc Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/gcc-glibc](https://github.com/chainguard-images/images/tree/main/images/gcc-glibc)
-| Tags     | Aliases                             |
-|----------|-------------------------------------|
-| `latest` | `13`, `13.1`, `13.1.0`, `13.1.0-r1` |
-
+[cgr.dev/chainguard/gcc-glibc](https://github.com/chainguard-images/images/tree/main/images/gcc-glibc)
 
 
 Minimal container image for building C applications (which require glibc).
@@ -77,4 +73,3 @@ FROM cgr.dev/chainguard/static
 COPY --from=build /work/hello /hello
 CMD ["/hello"]
 ```
-

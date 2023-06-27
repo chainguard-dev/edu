@@ -1,7 +1,7 @@
 ---
-title: "ruby Image Variants"
+title: "Ruby Image Variants"
 type: "article"
-description: "Detailed specs for ruby Chainguard Image Variants"
+description: "Detailed information about the RubyChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "ruby"
+    parent: "Ruby"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **ruby** Image.
+This page shows detailed information about all available variants of the Chainguard **Ruby** Image.
 
 ## Variants Compared
 The **ruby** Chainguard Image currently has 6 public variants: 
@@ -34,9 +34,10 @@ The table has detailed information about each of these variants.
 | Entrypoint   | `/usr/bin/ruby` | `/usr/bin/ruby` | `/usr/bin/ruby` | `/usr/bin/ruby` | `/usr/bin/ruby` | `/usr/bin/ruby` |
 | CMD          | `--version`     | `--version`     | `--version`     | `--version`     | `--version`     | `--version`     |
 | Workdir      | `/work`         | `/work`         | `/work`         | `/work`         | `/work`         | `/work`         |
-| Has apk?     | no              | yes             | no              | yes             | no              | yes             |
-| Has a shell? | no              | yes             | no              | yes             | no              | yes             |
+| Has apk?     | no              | no              | no              | no              | no              | no              |
+| Has a shell? | no              | no              | no              | no              | no              | no              |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/ruby/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -45,10 +46,6 @@ The table shows package distribution across all variants.
 | `wolfi-baselayout`       | X      | X          | X   | X       | X   | X       |
 | `ca-certificates-bundle` | X      | X          | X   | X       | X   | X       |
 | `ruby-3.2`               | X      | X          |     |         |     |         |
-| `apk-tools`              |        | X          |     | X       |     | X       |
-| `bash`                   |        | X          |     | X       |     | X       |
-| `busybox`                |        | X          |     | X       |     | X       |
-| `git`                    |        | X          |     | X       |     | X       |
 | `build-base`             |        | X          |     | X       |     | X       |
 | `ruby3.2-bundler`        |        | X          |     |         |     |         |
 | `ruby-3.2-dev`           |        | X          |     |         |     |         |
@@ -58,4 +55,3 @@ The table shows package distribution across all variants.
 | `ruby-3.0`               |        |            |     |         | X   | X       |
 | `ruby3.0-bundler`        |        |            |     |         |     | X       |
 | `ruby-3.0-dev`           |        |            |     |         |     | X       |
-

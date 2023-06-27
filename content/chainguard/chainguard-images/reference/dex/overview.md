@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: dex"
+title: "Image Overview: Dex"
 type: "article"
-description: "Overview: dex Chainguard Images"
+description: "Overview: Dex Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/dex](https://github.com/chainguard-images/images/tree/main/images/dex)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `2`, `2.36`, `2.36.0`, `2.36.0-r4`                 |
-| `latest-dev` | `2-dev`, `2.36-dev`, `2.36.0-dev`, `2.36.0-r4-dev` |
-
+[cgr.dev/chainguard/dex](https://github.com/chainguard-images/images/tree/main/images/dex)
 
 
 [dex](https://dexidp.io) is a federated OpenID Connect provider.
@@ -91,4 +86,3 @@ image:
   repository: cgr.dev/chainguard/dex
   tag: latest
 ```
-

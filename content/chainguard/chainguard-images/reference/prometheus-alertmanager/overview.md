@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: prometheus-alertmanager"
+title: "Image Overview: Prometheus-alertmanager"
 type: "article"
-description: "Overview: prometheus-alertmanager Chainguard Images"
+description: "Overview: Prometheus-alertmanager Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/prometheus-alertmanager](https://github.com/chainguard-images/images/tree/main/images/prometheus-alertmanager)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
-
+[cgr.dev/chainguard/prometheus-alertmanager](https://github.com/chainguard-images/images/tree/main/images/prometheus-alertmanager)
 
 
 Minimal Prometheus Image
@@ -56,4 +52,3 @@ ts=2023-03-05T17:09:57.273Z caller=tls_config.go:232 level=info msg="Listening o
 ts=2023-03-05T17:09:57.273Z caller=tls_config.go:235 level=info msg="TLS is disabled." http2=false address=[::]:9093
 ts=2023-03-05T17:09:59.257Z caller=cluster.go:706 level=info component=cluster msg="gossip not settled" polls=0 before=0 now=1 elapsed=2.000545543s
 ```
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: crane"
+title: "Image Overview: Crane"
 type: "article"
-description: "Overview: crane Chainguard Images"
+description: "Overview: Crane Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/crane](https://github.com/chainguard-images/images/tree/main/images/crane)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.15`, `0.15.2`, `0.15.2-r3`                 |
-| `latest-dev` | `0-dev`, `0.15-dev`, `0.15.2-dev`, `0.15.2-r3-dev` |
-
+[cgr.dev/chainguard/crane](https://github.com/chainguard-images/images/tree/main/images/crane)
 
 
 Minimalist Wolfi-based crane image for interacting with registries.
@@ -39,4 +34,3 @@ Inspect the crane image manifest using the crane image:
 ```
 docker run --rm cgr.dev/chainguard/crane:latest manifest cgr.dev/chainguard/crane:latest
 ```
-

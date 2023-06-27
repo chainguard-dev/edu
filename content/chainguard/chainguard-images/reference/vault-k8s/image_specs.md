@@ -1,7 +1,7 @@
 ---
-title: "vault-k8s Image Variants"
+title: "Vault-k8s Image Variants"
 type: "article"
-description: "Detailed specs for vault-k8s Chainguard Image Variants"
+description: "Detailed information about the Vault-k8sChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "vault-k8s"
+    parent: "Vault-k8s"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **vault-k8s** Image.
+This page shows detailed information about all available variants of the Chainguard **Vault-k8s** Image.
 
 ## Variants Compared
 The **vault-k8s** Chainguard Image currently has 2 public variants: 
@@ -30,9 +30,10 @@ The table has detailed information about each of these variants.
 | Entrypoint   | `/usr/bin/vault-k8s` | `/usr/bin/vault-k8s` |
 | CMD          | not specified        | not specified        |
 | Workdir      | not specified        | not specified        |
-| Has apk?     | no                   | yes                  |
-| Has a shell? | no                   | yes                  |
+| Has apk?     | no                   | no                   |
+| Has a shell? | no                   | no                   |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/vault-k8s/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -42,8 +43,3 @@ The table shows package distribution across all variants.
 | `wolfi-baselayout`       | X      | X          |
 | `vault-k8s`              | X      | X          |
 | `libcap`                 | X      | X          |
-| `apk-tools`              |        | X          |
-| `bash`                   |        | X          |
-| `busybox`                |        | X          |
-| `git`                    |        | X          |
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: newrelic-fluent-bit-output"
+title: "Image Overview: Newrelic-fluent-bit-output"
 type: "article"
-description: "Overview: newrelic-fluent-bit-output Chainguard Images"
+description: "Overview: Newrelic-fluent-bit-output Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/newrelic-fluent-bit-output](https://github.com/chainguard-images/images/tree/main/images/newrelic-fluent-bit-output)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.17`, `1.17.1`, `1.17.1-r0`                 |
-| `latest-dev` | `1-dev`, `1.17-dev`, `1.17.1-dev`, `1.17.1-r0-dev` |
-
+[cgr.dev/chainguard/newrelic-fluent-bit-output](https://github.com/chainguard-images/images/tree/main/images/newrelic-fluent-bit-output)
 
 
 The newrelic-fluent-bit-output plugin forwards output to New Relic. Minimal [newrelic-fluent-bit-output](https://github.com/newrelic/newrelic-fluent-bit-output) container image.
@@ -60,4 +55,3 @@ Then run Fluent Bit with the following command:
 ```shell
 docker run -v /path/to/your/config/file:/fluent-bit/etc/fluent-bit.conf:ro -v /path/to/your/log/file:/path/to/your/log/file:ro cgr.dev/chainguard/newrelic-fluent-bit-output -c /fluent-bit/etc/fluent-bit.conf -e /fluent-bit/bin/out_newrelic.so
 ```
-

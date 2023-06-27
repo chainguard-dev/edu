@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: cert-manager-controller"
+title: "Image Overview: Cert-manager-controller"
 type: "article"
-description: "Overview: cert-manager-controller Chainguard Images"
+description: "Overview: Cert-manager-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/cert-manager-controller](https://github.com/chainguard-images/images/tree/main/images/cert-manager-controller)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.12`, `1.12.2`, `1.12.2-r0`                 |
-| `latest-dev` | `1-dev`, `1.12-dev`, `1.12.2-dev`, `1.12.2-r0-dev` |
-
+[cgr.dev/chainguard/cert-manager-controller](https://github.com/chainguard-images/images/tree/main/images/cert-manager-controller)
 
 
 [Cert Manager](https://cert-manager.io/) Automatically provision and manage TLS certificates in Kubernetes
@@ -60,4 +55,3 @@ webhook:
         repository: cgr.dev/chainguard/cert-manager-webhook
         tag: latest
 ```
-

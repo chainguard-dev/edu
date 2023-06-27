@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: memcached"
+title: "Image Overview: Memcached"
 type: "article"
-description: "Overview: memcached Chainguard Images"
+description: "Overview: Memcached Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/memcached](https://github.com/chainguard-images/images/tree/main/images/memcached)
-| Tags     | Aliases                           |
-|----------|-----------------------------------|
-| `latest` | `1`, `1.6`, `1.6.21`, `1.6.21-r0` |
-
+[cgr.dev/chainguard/memcached](https://github.com/chainguard-images/images/tree/main/images/memcached)
 
 
 [Memcached](https://memcached.org/) is an in-memory key-value store for small chunks of arbitrary data (strings, objects) from results of database calls, API calls, or page rendering.
@@ -61,4 +57,3 @@ Connection closed by foreign host.
 ## Users and Directories
 
 By default this image runs as a non-root user named `memcached` with a uid of 65532.
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: newrelic-k8s-events-forwarder"
+title: "Image Overview: Newrelic-k8s-events-forwarder"
 type: "article"
-description: "Overview: newrelic-k8s-events-forwarder Chainguard Images"
+description: "Overview: Newrelic-k8s-events-forwarder Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/newrelic-k8s-events-forwarder](https://github.com/chainguard-images/images/tree/main/images/newrelic-k8s-events-forwarder)
-| Tags         | Aliases |
-|--------------|---------|
-| `latest`     |         |
-| `latest-dev` |         |
-
+[cgr.dev/chainguard/newrelic-k8s-events-forwarder](https://github.com/chainguard-images/images/tree/main/images/newrelic-k8s-events-forwarder)
 
 
 Minimal [New Relic Infrastructure Agent](https://github.com/newrelic/infrastructure-agent) (newrelic/k8s-events-forwarder) container image.
@@ -56,4 +51,3 @@ NOTE: This image requires a license key to run properly, which you can obtain fr
 ## Testing
 
 The tests for this image also require a license key, which is configured in a secret in Github Actions.
-

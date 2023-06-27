@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: memcached-exporter"
+title: "Image Overview: Memcached-exporter"
 type: "article"
-description: "Overview: memcached-exporter Chainguard Images"
+description: "Overview: Memcached-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/memcached-exporter](https://github.com/chainguard-images/images/tree/main/images/memcached-exporter)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `0`, `0.13`, `0.13.0`, `0.13.0-r1` |
-
+[cgr.dev/chainguard/memcached-exporter](https://github.com/chainguard-images/images/tree/main/images/memcached-exporter)
 
 
 A memcached exporter for Prometheus.
@@ -50,4 +46,3 @@ ts=2023-04-26T17:47:53.478Z caller=tls_config.go:235 level=info msg="TLS is disa
 ## Users and Directories
 
 By default this image runs as a non-root user named `nonroot` with a uid of 65532.
-

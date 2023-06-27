@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: hugo"
+title: "Image Overview: Hugo"
 type: "article"
-description: "Overview: hugo Chainguard Images"
+description: "Overview: Hugo Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/hugo](https://github.com/chainguard-images/images/tree/main/images/hugo)
-| Tags         | Aliases                                               |
-|--------------|-------------------------------------------------------|
-| `latest`     | `0`, `0.113`, `0.113.0`, `0.113.0-r1`                 |
-| `latest-dev` | `0-dev`, `0.113-dev`, `0.113.0-dev`, `0.113.0-r1-dev` |
-
+[cgr.dev/chainguard/hugo](https://github.com/chainguard-images/images/tree/main/images/hugo)
 
 
 This is a minimal [Hugo](https://gohugo.io/) image. The image only contains
@@ -45,4 +40,3 @@ hugo server --bind 0.0.0.0 --port 8080
 ```
 
 Now open your browser to [localhost:8080](http://localhost:8080)!
-

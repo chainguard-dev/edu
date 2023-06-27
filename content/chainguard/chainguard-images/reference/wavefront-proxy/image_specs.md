@@ -1,7 +1,7 @@
 ---
-title: "wavefront-proxy Image Variants"
+title: "Wavefront-proxy Image Variants"
 type: "article"
-description: "Detailed specs for wavefront-proxy Chainguard Image Variants"
+description: "Detailed information about the Wavefront-proxyChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "wavefront-proxy"
+    parent: "Wavefront-proxy"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **wavefront-proxy** Image.
+This page shows detailed information about all available variants of the Chainguard **Wavefront-proxy** Image.
 
 ## Variants Compared
 The **wavefront-proxy** Chainguard Image currently has 2 public variants: 
@@ -30,9 +30,10 @@ The table has detailed information about each of these variants.
 | Entrypoint   | `/usr/local/bin/run.sh` | `/usr/local/bin/run.sh` |
 | CMD          | not specified           | not specified           |
 | Workdir      | not specified           | not specified           |
-| Has apk?     | no                      | yes                     |
+| Has apk?     | no                      | no                      |
 | Has a shell? | yes                     | yes                     |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/wavefront-proxy/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -48,6 +49,3 @@ The table shows package distribution across all variants.
 | `wavefront-proxy-oci-entrypoint` | X      | X          |
 | `bash`                           | X      | X          |
 | `busybox`                        | X      | X          |
-| `apk-tools`                      |        | X          |
-| `git`                            |        | X          |
-

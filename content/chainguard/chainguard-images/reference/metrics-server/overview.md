@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: metrics-server"
+title: "Image Overview: Metrics-server"
 type: "article"
-description: "Overview: metrics-server Chainguard Images"
+description: "Overview: Metrics-server Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/metrics-server](https://github.com/chainguard-images/images/tree/main/images/metrics-server)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `0`, `0.6`, `0.6.3`, `0.6.3-r5`                 |
-| `latest-dev` | `0-dev`, `0.6-dev`, `0.6.3-dev`, `0.6.3-r5-dev` |
-
+[cgr.dev/chainguard/metrics-server](https://github.com/chainguard-images/images/tree/main/images/metrics-server)
 
 
 Minimal metric-server container image.
@@ -31,4 +26,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/metrics-server:latest
 ```
-

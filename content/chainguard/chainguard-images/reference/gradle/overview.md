@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: gradle"
+title: "Image Overview: Gradle"
 type: "article"
-description: "Overview: gradle Chainguard Images"
+description: "Overview: Gradle Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/gradle](https://github.com/chainguard-images/images/tree/main/images/gradle)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `8`, `8.1`, `8.1.1`, `8.1.1-r0` |
-
+[cgr.dev/chainguard/gradle](https://github.com/chainguard-images/images/tree/main/images/gradle)
 
 
 Minimal image with gradle build system. **EXPERIMENTAL**
@@ -62,4 +58,3 @@ Ant:          Apache Ant(TM) version 1.10.11 compiled on July 10 2021
 JVM:          11.0.18-internal (wolfi 11.0.18-internal+0-wolfi-r1)
 OS:           Linux 5.15.49-linuxkit aarch64
 ```
-

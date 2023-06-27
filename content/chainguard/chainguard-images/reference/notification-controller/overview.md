@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: notification-controller"
+title: "Image Overview: Notification-controller"
 type: "article"
-description: "Overview: notification-controller Chainguard Images"
+description: "Overview: Notification-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/notification-controller](https://github.com/chainguard-images/images/tree/main/images/notification-controller)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.33`, `0.33.0`, `0.33.0-r4`                 |
-| `latest-dev` | `0-dev`, `0.33-dev`, `0.33.0-dev`, `0.33.0-r4-dev` |
-
+[cgr.dev/chainguard/notification-controller](https://github.com/chainguard-images/images/tree/main/images/notification-controller)
 
 
 ## Get It
@@ -45,4 +40,3 @@ flux install --registry cgr.dev/chainguard
 # OR using the provided flux chainguard image
 docker run cgr.dev/chainguard/flux export --registry cgr.dev/chainguard | kubectl apply -f -
 ```
-

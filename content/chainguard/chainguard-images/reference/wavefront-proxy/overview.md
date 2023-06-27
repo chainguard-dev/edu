@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: wavefront-proxy"
+title: "Image Overview: Wavefront-proxy"
 type: "article"
-description: "Overview: wavefront-proxy Chainguard Images"
+description: "Overview: Wavefront-proxy Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/wavefront-proxy](https://github.com/chainguard-images/images/tree/main/images/wavefront-proxy)
-| Tags         | Aliases                             |
-|--------------|-------------------------------------|
-| `latest`     | `12`, `12.4`, `12.4-r1`             |
-| `latest-dev` | `12-dev`, `12.4-dev`, `12.4-r1-dev` |
-
+[cgr.dev/chainguard/wavefront-proxy](https://github.com/chainguard-images/images/tree/main/images/wavefront-proxy)
 
 
 Minimal wavefront-proxy image
@@ -53,4 +48,3 @@ $ docker run -d \
 
 Note that the `wavefront-proxy` does need the `WAVEFRONT_URL` and `WAVEFRONT_TOKEN`  to work correctly.
 See the [configuration](https://docs.wavefront.com/proxies_kube_container.html) docs for more examples.
-

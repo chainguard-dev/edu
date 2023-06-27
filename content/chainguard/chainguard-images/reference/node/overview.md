@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: node"
+title: "Image Overview: Node"
 type: "article"
-description: "Overview: node Chainguard Images"
+description: "Overview: Node Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,16 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/node](https://github.com/chainguard-images/images/tree/main/images/node)
-| Tags         | Aliases                                                |
-|--------------|--------------------------------------------------------|
-| `latest`     | `18`, `18.16`, `18.16.0`, `18.16.0-r2`                 |
-| `latest-dev` | `18-dev`, `18.16-dev`, `18.16.0-dev`, `18.16.0-r2-dev` |
-| `19`         | `19`, `19.9`, `19.9.0`, `19.9.0-r1`                    |
-| `19-dev`     | `19-dev`, `19.9-dev`, `19.9.0-dev`, `19.9.0-r1-dev`    |
-| `20`         | `20`, `20.3`, `20.3.0`, `20.3.0-r0`                    |
-| `20-dev`     | `20-dev`, `20.3-dev`, `20.3.0-dev`, `20.3.0-r0-dev`    |
-
+[cgr.dev/chainguard/node](https://github.com/chainguard-images/images/tree/main/images/node)
 
 
 Minimal container image for running NodeJS apps
@@ -77,4 +68,3 @@ curl --request POST \
   --header 'content-type: application/json' \
   --data '{"msg": "testing" }'
 ```
-

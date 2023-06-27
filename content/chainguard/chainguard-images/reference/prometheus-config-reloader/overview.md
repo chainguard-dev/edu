@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: prometheus-config-reloader"
+title: "Image Overview: Prometheus-config-reloader"
 type: "article"
-description: "Overview: prometheus-config-reloader Chainguard Images"
+description: "Overview: Prometheus-config-reloader Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/prometheus-config-reloader](https://github.com/chainguard-images/images/tree/main/images/prometheus-config-reloader)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.66`, `0.66.0`, `0.66.0-r0`                 |
-| `latest-dev` | `0-dev`, `0.66-dev`, `0.66.0-dev`, `0.66.0-r0-dev` |
-
+[cgr.dev/chainguard/prometheus-config-reloader](https://github.com/chainguard-images/images/tree/main/images/prometheus-config-reloader)
 
 
 ## Try It Out
@@ -33,4 +28,3 @@ helm upgrade --install cg-test \
 ```
 
 You'll want to make sure the `kube-prometheus-stack` chart is up-to-date and use the latest operator tag that's within the compatibility matrix.
-

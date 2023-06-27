@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: spire-agent"
+title: "Image Overview: Spire-agent"
 type: "article"
-description: "Overview: spire-agent Chainguard Images"
+description: "Overview: Spire-agent Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/spire-agent](https://github.com/chainguard-images/images/tree/main/images/spire-agent)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.7`, `1.7.0`, `1.7.0-r0`                 |
-| `latest-dev` | `1-dev`, `1.7-dev`, `1.7.0-dev`, `1.7.0-r0-dev` |
-
+[cgr.dev/chainguard/spire-agent](https://github.com/chainguard-images/images/tree/main/images/spire-agent)
 
 
 Minimalist Wolfi-based `spire-agent` image.
@@ -35,4 +30,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/spire-agent:latest
 ```
-

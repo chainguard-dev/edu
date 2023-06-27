@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: nvidia-device-plugin"
+title: "Image Overview: Nvidia-device-plugin"
 type: "article"
-description: "Overview: nvidia-device-plugin Chainguard Images"
+description: "Overview: Nvidia-device-plugin Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/nvidia-device-plugin](https://github.com/chainguard-images/images/tree/main/images/nvidia-device-plugin)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.14`, `0.14.0`, `0.14.0-r3`                 |
-| `latest-dev` | `0-dev`, `0.14-dev`, `0.14.0-dev`, `0.14.0-r3-dev` |
-
+[cgr.dev/chainguard/nvidia-device-plugin](https://github.com/chainguard-images/images/tree/main/images/nvidia-device-plugin)
 
 
 Minimal [nvidia-device-plugin](https://github.com/NVIDIA/k8s-device-plugin) container image.
@@ -83,4 +78,3 @@ image:
   repository: cgr.dev/chainguard/nvidia-device-plugin
   tag: latest
 ```
-

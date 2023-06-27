@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: postgres"
+title: "Image Overview: Postgres"
 type: "article"
-description: "Overview: postgres Chainguard Images"
+description: "Overview: Postgres Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/postgres](https://github.com/chainguard-images/images/tree/main/images/postgres)
-| Tags     | Aliases                 |
-|----------|-------------------------|
-| `latest` | `15`, `15.3`, `15.3-r0` |
-
+[cgr.dev/chainguard/postgres](https://github.com/chainguard-images/images/tree/main/images/postgres)
 
 
 Minimal PostgreSQL image. **EXPERIMENTAL**
@@ -90,4 +86,3 @@ You should see the newly created `accounts` table
  public | accounts | table | postgres
 (1 row)
 ```
-

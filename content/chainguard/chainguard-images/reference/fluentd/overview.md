@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: fluentd"
+title: "Image Overview: Fluentd"
 type: "article"
-description: "Overview: fluentd Chainguard Images"
+description: "Overview: Fluentd Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,14 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/fluentd](https://github.com/chainguard-images/images/tree/main/images/fluentd)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.14`, `1.14.6`, `1.14.6-r4`                 |
-| `latest-dev` | `1-dev`, `1.14-dev`, `1.14.6-dev`, `1.14.6-r4-dev` |
-| `edge`       | `1`, `1.16`, `1.16.1`, `1.16.1-r1`                 |
-| `edge-dev`   | `1-dev`, `1.16-dev`, `1.16.1-dev`, `1.16.1-r1-dev` |
-
+[cgr.dev/chainguard/fluentd](https://github.com/chainguard-images/images/tree/main/images/fluentd)
 
 
 Fluentd: Unified Logging Layer (project under CNCF)
@@ -76,4 +69,3 @@ The `-dev` variant contains a shell and tools like `apk` to allow users to easil
 ```sh
 docker run --rm --entrypoint 'sh' cgr.dev/chainguard/fluentd
 ```
-

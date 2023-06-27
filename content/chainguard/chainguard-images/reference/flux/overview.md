@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: flux"
+title: "Image Overview: Flux"
 type: "article"
-description: "Overview: flux Chainguard Images"
+description: "Overview: Flux Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/flux](https://github.com/chainguard-images/images/tree/main/images/flux)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.41`, `0.41.2`, `0.41.2-r4`                 |
-| `latest-dev` | `0-dev`, `0.41-dev`, `0.41.2-dev`, `0.41.2-r4-dev` |
-
+[cgr.dev/chainguard/flux](https://github.com/chainguard-images/images/tree/main/images/flux)
 
 
 ## Get It
@@ -40,4 +35,3 @@ The `flux` cli contains various functionality to interact with the flux gitops t
 # Install the flux gitops toolkit using chainguard images
 docker run cgr.dev/chainguard/flux export --registry cgr.dev/chainguard | kubectl apply -f -
 ```
-

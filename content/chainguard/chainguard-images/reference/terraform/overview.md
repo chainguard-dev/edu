@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: terraform"
+title: "Image Overview: Terraform"
 type: "article"
-description: "Overview: terraform Chainguard Images"
+description: "Overview: Terraform Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/terraform](https://github.com/chainguard-images/images/tree/main/images/terraform)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `1`, `1.5`, `1.5.0`, `1.5.0-r0` |
-
+[cgr.dev/chainguard/terraform](https://github.com/chainguard-images/images/tree/main/images/terraform)
 
 
 [Terraform](https://github.com/hashicorp/terraform) is an infrastructure as code tool.
@@ -30,4 +26,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/terraform
 ```
-

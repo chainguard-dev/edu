@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: dive"
+title: "Image Overview: Dive"
 type: "article"
-description: "Overview: dive Chainguard Images"
+description: "Overview: Dive Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/dive](https://github.com/chainguard-images/images/tree/main/images/dive)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `0`, `0.10`, `0.10.0`, `0.10.0-r1` |
-
+[cgr.dev/chainguard/dive](https://github.com/chainguard-images/images/tree/main/images/dive)
 
 
 Minimal [dive](https://github.com/wagoodman/dive) container image.
@@ -61,4 +57,3 @@ Flags:
 
 Use "dive [command] --help" for more information about a command.
 ```
-

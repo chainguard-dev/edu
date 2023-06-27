@@ -1,7 +1,7 @@
 ---
-title: "newrelic-infrastructure-bundle Image Variants"
+title: "Newrelic-infrastructure-bundle Image Variants"
 type: "article"
-description: "Detailed specs for newrelic-infrastructure-bundle Chainguard Image Variants"
+description: "Detailed information about the Newrelic-infrastructure-bundleChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "newrelic-infrastructure-bundle"
+    parent: "Newrelic-infrastructure-bundle"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **newrelic-infrastructure-bundle** Image.
+This page shows detailed information about all available variants of the Chainguard **Newrelic-infrastructure-bundle** Image.
 
 ## Variants Compared
 The **newrelic-infrastructure-bundle** Chainguard Image currently has 2 public variants: 
@@ -30,9 +30,10 @@ The table has detailed information about each of these variants.
 | Entrypoint   | not specified | not specified |
 | CMD          | not specified | not specified |
 | Workdir      | not specified | not specified |
-| Has apk?     | no            | yes           |
-| Has a shell? | no            | yes           |
+| Has apk?     | no            | no            |
+| Has a shell? | no            | no            |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/newrelic-infrastructure-bundle/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -43,8 +44,3 @@ The table shows package distribution across all variants.
 | `openjdk-8`                      | X      | X          |
 | `newrelic-infrastructure-agent`  | X      | X          |
 | `newrelic-infrastructure-bundle` | X      | X          |
-| `apk-tools`                      |        | X          |
-| `bash`                           |        | X          |
-| `busybox`                        |        | X          |
-| `git`                            |        | X          |
-

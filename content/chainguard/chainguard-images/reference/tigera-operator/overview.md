@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: tigera-operator"
+title: "Image Overview: Tigera-operator"
 type: "article"
-description: "Overview: tigera-operator Chainguard Images"
+description: "Overview: Tigera-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/tigera-operator](https://github.com/chainguard-images/images/tree/main/images/tigera-operator)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.30`, `1.30.3`, `1.30.3-r0`                 |
-| `latest-dev` | `1-dev`, `1.30-dev`, `1.30.3-dev`, `1.30.3-r0-dev` |
-
+[cgr.dev/chainguard/tigera-operator](https://github.com/chainguard-images/images/tree/main/images/tigera-operator)
 
 
 Minimal Project Calico Tigera Operator Image
@@ -52,4 +47,3 @@ helm install calico projectcalico/tigera-operator \
 
 kubectl wait --namespace tigera-operator --for=condition=ready pod --selector name=tigera-operator --timeout=120s
 ```
-

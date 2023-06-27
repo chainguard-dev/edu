@@ -1,7 +1,7 @@
 ---
-title: "gradle Image Variants"
+title: "Gradle Image Variants"
 type: "article"
-description: "Detailed specs for gradle Chainguard Image Variants"
+description: "Detailed information about the GradleChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "gradle"
+    parent: "Gradle"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **gradle** Image.
+This page shows detailed information about all available variants of the Chainguard **Gradle** Image.
 
 ## Variants Compared
 The **gradle** Chainguard Image currently has one public variant: 
@@ -32,6 +32,7 @@ The table has detailed information about each of these variants.
 | Has apk?     | no                |
 | Has a shell? | yes               |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/gradle/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -41,7 +42,5 @@ The table shows package distribution across all variants.
 | `glibc-locale-en`        | X      |
 | `busybox`                | X      |
 | `gradle-8`               | X      |
-| `wolfi-baselayout`       | X      |
 | `openjdk-17`             | X      |
 | `openjdk-17-default-jvm` | X      |
-

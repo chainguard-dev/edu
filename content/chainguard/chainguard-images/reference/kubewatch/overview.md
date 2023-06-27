@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: kubewatch"
+title: "Image Overview: Kubewatch"
 type: "article"
-description: "Overview: kubewatch Chainguard Images"
+description: "Overview: Kubewatch Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kubewatch](https://github.com/chainguard-images/images/tree/main/images/kubewatch)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.5`, `2.5.0`, `2.5.0-r1`                 |
-| `latest-dev` | `2-dev`, `2.5-dev`, `2.5.0-dev`, `2.5.0-r1-dev` |
-
+[cgr.dev/chainguard/kubewatch](https://github.com/chainguard-images/images/tree/main/images/kubewatch)
 
 
 [kubewatch](https://github.com/robusta-dev/kubewatch) is a Kubernetes watcher that publishes notification to available collaboration hubs/notification channels. Run it in your k8s cluster, and you will get event notifications through webhooks.
@@ -45,4 +40,3 @@ $ helm install kubewatch robusta/kubewatch \
     --set image.tag=latest
     <other configuration parameters here>
 ```
-

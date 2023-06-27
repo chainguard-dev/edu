@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: maven"
+title: "Image Overview: Maven"
 type: "article"
-description: "Overview: maven Chainguard Images"
+description: "Overview: Maven Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/maven](https://github.com/chainguard-images/images/tree/main/images/maven)
-| Tags         | Aliases                                                                     |
-|--------------|-----------------------------------------------------------------------------|
-| `latest`     | `openjdk-17-3`, `openjdk-17-3.9`, `openjdk-17-3.9.2`, `openjdk-17-3.9.2-r0` |
-| `openjdk-11` | `openjdk-11-3`, `openjdk-11-3.9`, `openjdk-11-3.9.2`, `openjdk-11-3.9.2-r0` |
-
+[cgr.dev/chainguard/maven](https://github.com/chainguard-images/images/tree/main/images/maven)
 
 
 Minimal image with Maven build system.
@@ -163,4 +158,3 @@ docker images | grep my-chainguard-springboot-app
 ```
 
 You can also check for vulnerabilities using your favorite scanner.
-

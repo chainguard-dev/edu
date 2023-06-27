@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: opensearch"
+title: "Image Overview: Opensearch"
 type: "article"
-description: "Overview: opensearch Chainguard Images"
+description: "Overview: Opensearch Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/opensearch](https://github.com/chainguard-images/images/tree/main/images/opensearch)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.8`, `2.8.0`, `2.8.0-r0`                 |
-| `latest-dev` | `2-dev`, `2.8-dev`, `2.8.0-dev`, `2.8.0-r0-dev` |
-
+[cgr.dev/chainguard/opensearch](https://github.com/chainguard-images/images/tree/main/images/opensearch)
 
 
 Minimal image with Opensearch. **EXPERIMENTAL**
@@ -58,4 +53,3 @@ $ docker run -it cgr.dev/chainguard/opensearch
 [2023-03-24T00:44:00,407][INFO ][o.o.i.r.ReindexPlugin    ] [6e57776e2bfa] Unable to find any implementation for RemoteReindexExtension
 [2023-03-24T00:44:00,415][INFO ][o.o.p.PluginsService     ] [6e57776e2bfa] loaded module [aggs-matrix-stats]
 ```
-

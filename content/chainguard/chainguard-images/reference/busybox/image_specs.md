@@ -1,7 +1,7 @@
 ---
-title: "busybox Image Variants"
+title: "Busybox Image Variants"
 type: "article"
-description: "Detailed specs for busybox Chainguard Image Variants"
+description: "Detailed information about the BusyboxChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "busybox"
+    parent: "Busybox"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **busybox** Image.
+This page shows detailed information about all available variants of the Chainguard **Busybox** Image.
 
 ## Variants Compared
 The **busybox** Chainguard Image currently has 2 public variants: 
@@ -33,6 +33,7 @@ The table has detailed information about each of these variants.
 | Has apk?     | no            | no            |
 | Has a shell? | yes           | yes           |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/busybox/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -44,4 +45,3 @@ The table shows package distribution across all variants.
 | `busybox`                | X      | X            |
 | `ssl_client`             | X      |              |
 | `wolfi-baselayout`       |        | X            |
-

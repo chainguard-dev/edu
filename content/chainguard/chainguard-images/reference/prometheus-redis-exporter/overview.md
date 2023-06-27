@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: prometheus-redis-exporter"
+title: "Image Overview: Prometheus-redis-exporter"
 type: "article"
-description: "Overview: prometheus-redis-exporter Chainguard Images"
+description: "Overview: Prometheus-redis-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/prometheus-redis-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-redis-exporter)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `1`, `1.51`, `1.51.0`, `1.51.0-r0` |
-
+[cgr.dev/chainguard/prometheus-redis-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-redis-exporter)
 
 
 A redis exporter for Prometheus.
@@ -48,4 +44,3 @@ INFO[0000] Providing metrics at :9121/metrics
 ## Users and Directories
 
 By default this image runs as a non-root user named `nonroot` with a uid of 65532.
-

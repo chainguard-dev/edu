@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: jre"
+title: "Image Overview: Jre"
 type: "article"
-description: "Overview: jre Chainguard Images"
+description: "Overview: Jre Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,14 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/jre](https://github.com/chainguard-images/images/tree/main/images/jre)
-| Tags             | Aliases                                                                                                     |
-|------------------|-------------------------------------------------------------------------------------------------------------|
-| `latest`         | `openjdk17`, `openjdk17.0`, `openjdk17.0.8`, `openjdk17.0.8.2`, `openjdk17.0.8.2-r1`                        |
-| `latest-dev`     | `openjdk17-dev`, `openjdk17.0-dev`, `openjdk17.0.8-dev`, `openjdk17.0.8.2-dev`, `openjdk17.0.8.2-r1-dev`    |
-| `openjdk-11`     | `openjdk11`, `openjdk11.0`, `openjdk11.0.20`, `openjdk11.0.20.4`, `openjdk11.0.20.4-r1`                     |
-| `openjdk-11-dev` | `openjdk11-dev`, `openjdk11.0-dev`, `openjdk11.0.20-dev`, `openjdk11.0.20.4-dev`, `openjdk11.0.20.4-r1-dev` |
-
+[cgr.dev/chainguard/jre](https://github.com/chainguard-images/images/tree/main/images/jre)
 
 
 Minimalist Wolfi-based Java JRE image using OpenJDK.  Used for running Java applications.
@@ -79,4 +72,3 @@ Run the image
 ```sh
 docker run my-simple-java-app
 ```
-

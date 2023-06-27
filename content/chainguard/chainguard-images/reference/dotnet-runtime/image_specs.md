@@ -1,7 +1,7 @@
 ---
-title: "dotnet-runtime Image Variants"
+title: "Dotnet-runtime Image Variants"
 type: "article"
-description: "Detailed specs for dotnet-runtime Chainguard Image Variants"
+description: "Detailed information about the Dotnet-runtimeChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "dotnet-runtime"
+    parent: "Dotnet-runtime"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **dotnet-runtime** Image.
+This page shows detailed information about all available variants of the Chainguard **Dotnet-runtime** Image.
 
 ## Variants Compared
 The **dotnet-runtime** Chainguard Image currently has one public variant: 
@@ -32,6 +32,7 @@ The table has detailed information about each of these variants.
 | Has apk?     | no                |
 | Has a shell? | no                |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/dotnet-runtime/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
@@ -41,4 +42,3 @@ The table shows package distribution across all variants.
 | `dotnet-7-runtime`       | X      |
 | `wolfi-baselayout`       | X      |
 | `ca-certificates-bundle` | X      |
-

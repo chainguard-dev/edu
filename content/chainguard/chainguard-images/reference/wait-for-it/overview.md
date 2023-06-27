@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: wait-for-it"
+title: "Image Overview: Wait-for-it"
 type: "article"
-description: "Overview: wait-for-it Chainguard Images"
+description: "Overview: Wait-for-it Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/wait-for-it](https://github.com/chainguard-images/images/tree/main/images/wait-for-it)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
-
+[cgr.dev/chainguard/wait-for-it](https://github.com/chainguard-images/images/tree/main/images/wait-for-it)
 
 
 Container image for testing whether a service is listening on an address/port combination.
@@ -72,4 +68,3 @@ wait-for-it: waiting 5 seconds for fake.doesnotexist:80
 wait-for-it: timeout occurred after waiting 5 seconds for fake.doesnotexist:80
 wait-for-it: strict mode, refusing to execute subprocess
 ```
-

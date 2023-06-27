@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: vault-k8s"
+title: "Image Overview: Vault-k8s"
 type: "article"
-description: "Overview: vault-k8s Chainguard Images"
+description: "Overview: Vault-k8s Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/vault-k8s](https://github.com/chainguard-images/images/tree/main/images/vault-k8s)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.2`, `1.2.1`, `1.2.1-r2`                 |
-| `latest-dev` | `1-dev`, `1.2-dev`, `1.2.1-dev`, `1.2.1-r2-dev` |
-
+[cgr.dev/chainguard/vault-k8s](https://github.com/chainguard-images/images/tree/main/images/vault-k8s)
 
 
 Image with Kubernetes Intergrations for Vault.
@@ -53,4 +48,3 @@ Available commands are:
     agent-inject    Vault Agent injector service
     version         Prints the version
 ```
-

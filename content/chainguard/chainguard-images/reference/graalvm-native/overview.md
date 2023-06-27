@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: graalvm-native"
+title: "Image Overview: Graalvm-native"
 type: "article"
-description: "Overview: graalvm-native Chainguard Images"
+description: "Overview: Graalvm-native Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,7 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/graalvm-native](https://github.com/chainguard-images/images/tree/main/images/graalvm-native)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
-
+[cgr.dev/chainguard/graalvm-native](https://github.com/chainguard-images/images/tree/main/images/graalvm-native)
 
 
 Base image with just enough files to run native GraalVM native-image binaries.
@@ -38,4 +34,3 @@ docker pull cgr.dev/chainguard/graalvm-native:latest
 ## Users
 
 The image has a single user `nonroot` with uid `65532`, belonging to gid `65532`.
-
