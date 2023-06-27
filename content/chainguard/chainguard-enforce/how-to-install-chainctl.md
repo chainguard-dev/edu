@@ -33,7 +33,15 @@ There are currently two ways to install `chainctl`, depending on your operating 
 
 You can install `chainctl` for macOS and Linux with the package manager [Homebrew](https://brew.sh/).
 
-First, use `brew tap` to bring in Chainguard's repositories.
+Note that you will need to have the Xcode Command Line Tools installed prior to installing `chainctl` with Homebrew on macOS,. Without these installed, you won't be able to install `chainctl` on your macOS device.
+
+If you haven't already done so, you can install the Xcode Command Line Tools with the following command.
+
+```sh
+xcode-select --install
+```
+
+Before installing `chainctl` with Homebrew, use `brew tap` to bring in Chainguard's repositories.
 
 ```sh
 brew tap chainguard-dev/tap
