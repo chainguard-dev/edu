@@ -13,7 +13,7 @@ weight: 020
 
 Chainguard Enforce provides a comprehensive solution for monitoring your cloud workloads and container images. In particular, its SBOM generation and ingestion features enhance your ability to manage the software components within your environment.
 
-Chainguard Enforce will automatically generate SBOMs using Grype when an existing SBOM is not available. This ensures that you always have detailed insights into the packages included in your images, without any additional effort on your part. Additionally, the Chainguard Enforce Console provides a handy interface that allows you to find and filter the SBOMs for every package on every cluster overseen by Enforce. This guide outlines these SBOM features in Enforce.
+Chainguard Enforce will automatically generate SBOMs using Syft when an existing SBOM is not available. This ensures that you always have detailed insights into the packages included in your images, without any additional effort on your part. Additionally, the Chainguard Enforce Console provides a handy interface that allows you to find and filter the SBOMs for every package on every cluster overseen by Enforce. This guide outlines these SBOM features in Enforce.
 
 
 ## Chainguard Enforce automatically ingests SBOM out of the box
@@ -23,9 +23,9 @@ When you run a workload in a supported Container Runtime (including EKS, GKE, an
 
 ## SBOM Generation in Chainguard Enforce
 
-If there are container images without an existing SBOM, Enforce will assist by automatically creating SBOMs using [Grype](https://github.com/anchore/grype). This means that you don't have to worry about generating the SBOM yourself or performing any additional steps. Enforce takes care of it for you, ensuring that you have comprehensive package information for each image.
+If there are container images without an existing SBOM, Enforce will assist by automatically creating SBOMs using [Syft](https://github.com/anchore/syft). This means that you don't have to worry about generating the SBOM yourself or performing any additional steps. Enforce takes care of it for you, ensuring that you have comprehensive package information for each image.
 
-Generated SBOMs will be clearly indicated in the Enforce user interface. In the SBOM section of the Console, you will find a list of all the SBOMs associated with your images. The generated SBOMs will be marked with a blue **Generated** tag next to them, indicating that they were automatically created by Enforce using Grype. This helps you identify which SBOMs were generated on-demand and which ones were ingested from external sources.
+Generated SBOMs will be clearly indicated in the Enforce user interface. In the SBOM section of the Console, you will find a list of all the SBOMs associated with your images. The generated SBOMs will be marked with a blue **Generated** tag next to them, indicating that they were automatically created by Enforce using Syft. This helps you identify which SBOMs were generated on-demand and which ones were ingested from external sources.
 
 ![Screenshot of a portion of the SBOM overview page in the Chainguard Enforce console, showing a list of SBOMs. Two of the SBOMs listed feature the "Generated" tag, which is white text within a blue box next to the SBOMs' names.](1-generated-sboms.png)
 
@@ -38,7 +38,7 @@ The Chainguard Enforce Console offers a high-level overview of SBOMs across diff
 
 To navigate to this overview, visit the Chainguard Enforce Console in your web browser ([`console.enforce.dev/`](https://console.enforce.dev/), expand the **Enforce** section in the left hand sidebar, and choose the **SBOM** to find the SBOM overview.
 
-![Screenshot showing the high-level view of SBOMs in the Chainguard Enforce Console. One SBOM is expanded to list a number of packages, their descriptions, and their pURLs.](2-expanded-sbom.png) 
+![Screenshot showing the high-level view of SBOMs in the Chainguard Enforce Console. One SBOM is expanded to list a number of packages, their descriptions, and their pURLs.](2-expanded-sbom.png)
 
 This overview includes a column for the **Name** of each SBOM. It also has a **Description** column that gives a breakdown of the different types of packages and files listed in each SBOM.
 
@@ -63,7 +63,7 @@ The search bar will also return files with names matching the search criteria. T
 
 ![Screenshot example showing search results for the query "bash"](4-bash-search.png)
 
-You can also search for packages matching a certain license type. This example shows some of the results for the phrase "GPL." 
+You can also search for packages matching a certain license type. This example shows some of the results for the phrase "GPL."
 
 ![Screenshot example showing search results for the query "GPL"](5-license-search.png)
 
