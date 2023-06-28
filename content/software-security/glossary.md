@@ -41,6 +41,12 @@ An artifact is an immutable blob of data. Examples of artifacts include a file, 
 
 ---
 
+### Software vulnerability
+
+A software vulnerability is a weakness in a program which, if left unaddressed, may be used by attackers to access, manipulate, or compromise a computer system. A vulnerability can impact various parts of a system depending on where or how it is introduced, and can be targeted through different vectors based on the type of weakness it introduces. Developers refer to vulnerabilities by their corresponding CVE ID when patching or remediating any known security flaws.
+
+---
+
 ### Attestation
 
 An attestation allows consumers of a software artifact to verify the quality of that artifact independently from the producer of the software. It also requires software producers to provide verifiable proof of the quality of their software. You can think of an attestation as a **proclamation** that _software artifact X was produced by Y person at Z time._
