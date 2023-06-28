@@ -43,7 +43,7 @@ An artifact is an immutable blob of data. Examples of artifacts include a file, 
 
 ### Software vulnerability
 
-A software vulnerability is a weakness in a program which if left unaddressed may be used by attackers to access, manipulate, or compromise a computer system. A vulnerability can impact various parts of a system depending on where or how it is introduced, and can be targeted through different vectors based on the type of weakness it introduces. Developers refer to vulnerabilities by their corresponding CVE ID when patching or remediating any known security flaws.
+A software vulnerability is a weakness in a program which, if left unaddressed, may be used by attackers to access, manipulate, or compromise a computer system. A vulnerability can impact various parts of a system depending on where or how it is introduced, and can be targeted through different vectors based on the type of weakness it introduces. Developers refer to vulnerabilities by their corresponding CVE ID when patching or remediating any known security flaws.
 
 ---
 
