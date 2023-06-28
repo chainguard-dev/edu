@@ -38,9 +38,6 @@ Chainguard Images are available from the [Chainguard Registry](/chainguard/chain
 
 The following graph shows a comparison between the official Nginx image and Chainguard's Nginx image, based on the number of CVEs (common vulnerabilities and exposures) detected by Trivy:
 
-<!-- {{< rumble title="Nginx" description="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx" left="nginx:latest" right="cgr.dev/chainguard/nginx:latest" >}} -->
+{{< rumble title="Nginx" description="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx" left="nginx:latest" right="cgr.dev/chainguard/nginx:latest" >}}
 
-<img src="/images/nginx-image.png" alt="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx">
-<p>
-<br>
 The major advantage of distroless images is the reduced size and complexity, which results in a vastly reduced attack surface. This is evidenced by the results from security scanners, which detect far fewer potential vulnerabilities in Chainguard Images.

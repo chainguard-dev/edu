@@ -19,12 +19,8 @@ On this page you can find comparison graphs showing the number of CVEs (common v
 
 ## Comparing the latest official Nginx image with cgr.dev/chainguard/nginx
 
-<!-- {{< rumble title="Nginx" description="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx" left="nginx:latest" right="cgr.dev/chainguard/nginx:latest" >}} -->
-
-<img src="/images/nginx-image.png" alt="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx">
+{{< rumble title="Nginx" description="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx" left="nginx:latest" right="cgr.dev/chainguard/nginx:latest" >}}
 
 ## Comparing the latest official PHP image with cgr.dev/chainguard/nginx
 
-<!-- {{< rumble title="PHP" description="Comparing the latest official PHP image with cgr.dev/chainguard/php" left="php:latest" right="cgr.dev/chainguard/php:latest" >}} -->
-
-<img src="/images/php-image.png" alt="Comparing the latest official PHP image with cgr.dev/chainguard/nginx">
+{{< rumble title="PHP" description="Comparing the latest official PHP image with cgr.dev/chainguard/php" left="php:latest" right="cgr.dev/chainguard/php:latest" >}}
