@@ -1,5 +1,5 @@
 ---
-date: 2023-06-27T18:22:50Z
+date: 2023-06-28T18:30:37Z
 title: "chainctl iam identity-providers update"
 slug: chainctl_iam_identity-providers_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_update/
@@ -40,13 +40,13 @@ chainctl iam identity-providers update IDENTITY_PROVIDER_ID [--name=NAME] [--des
 ### Options inherited from parent commands
 
 ```
-      --api string                   The url of the Chainguard platform API. (default "http://api.api-system.svc")
-      --audience string              The Chainguard token audience to request. (default "http://api.api-system.svc")
+      --api string                   The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string              The Chainguard token audience to request. (default "https://console-api.enforce.dev")
       --config string                A specific chainctl config file.
-      --console string               The url of the Chainguard platform Console. (default "http://console-ui.api-system.svc")
-      --issuer string                The url of the Chainguard STS endpoint. (default "http://issuer.oidc-system.svc")
+      --console string               The url of the Chainguard platform Console. (default "https://console.enforce.dev")
+      --issuer string                The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
   -o, --output string                Output format. One of: ["", "table", "tree", "json", "id", "wide"]
-      --timestamp-authority string   The url of the Chainguard Timestamp Authority endpoint. (default "http://tsa.timestamp-authority.svc")
+      --timestamp-authority string   The url of the Chainguard Timestamp Authority endpoint. (default "https://tsa.enforce.dev")
   -v, --v int                        Set the log verbosity level.
 ```
 
