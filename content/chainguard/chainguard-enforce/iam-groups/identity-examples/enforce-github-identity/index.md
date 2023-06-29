@@ -270,12 +270,6 @@ Then run `terraform plan`. This will produce a speculative execution plan that o
 terraform plan
 ```
 
-If the plan worked successfully and you're satisfied that it will produce the resources you expect, you can apply it. First, though, you'll need to log in to `chainctl` to ensure that Terraform can create the Chainguard resources.
-
-```sh
-chainctl auth login
-```
-
 Then apply the configuration.
 
 ```sh
@@ -316,6 +310,8 @@ This is the identity's [UIDP (unique identity path)](/chainguard/chainguard-enfo
 ```sh
 chainctl iam identities ls
 ```
+
+Note that you may receive a `PermissionDenied` error part way through the apply step. If so, run `chainctl auth login` once more, and then `terraform apply` again to resume creating the identity and resources.
 
 You're now ready to create a GitHub Actions workflow which you'll use to test out this identity.
 
