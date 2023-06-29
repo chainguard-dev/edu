@@ -95,7 +95,7 @@ resource "chainguard_group" "user-group" {
 }
 ```
 
-This section creates a Chainguard Enforce IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — which will be created by the `actions.tf` file — to access when we test it out later on.
+This section creates a Chainguard Enforce IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — which will be created by the `gitlab.tf` file — to access when we test it out later on.
 
 The next section contains these lines, which create a sample policy and apply it to the `example-group` group created in the previous section.
 
@@ -223,12 +223,12 @@ resource "chainguard_rolebinding" "view-stuff" {
 Run the following command to create this file with each of these sections. Be sure to change the `subject` value to align with your own GitLab project. For example, if your GitLab repository is located at `gitlab.com/OrgName/repo-name.git` you would set the `subject` value to `"project_path:OrgName/repo-name:ref_type:branch:ref:main`.
 
 ```sh
-cat > actions.tf <<EOF
+cat > gitlab.tf <<EOF
 resource "chainguard_identity" "gitlab" {
   parent_id   = chainguard_group.user-group.id
   name    	= "gitlab-ci"
   description = <<EOF
-	This is an identity that authorizes Gitlab CI in this
+	This is an identity that authorizes GitLab CI in this
 	repository to assume to interact with chainctl.
   EOF
 
