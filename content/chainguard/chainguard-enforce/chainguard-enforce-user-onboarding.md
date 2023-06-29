@@ -119,7 +119,13 @@ chainctl auth login
 
 You'll be taken through a workflow with an OIDC provider. You can read more about the various authentication and sign on options in our [login documentation](/chainguard/chainguard-enforce/authentication/log-in-chainguard-enforce/).
 
-You can check which group or groups you belong to, and grab the ID of the group with `chainctl`.
+Alternatively, if you're trying to access someone else's Chainguard Enforce installation (like that of a team member), they will need to [generate an invite code](/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/#inviting-others-to-a-group) and share it with you. You can then use that invite code in the following command — replacing `$INVITE_CODE` — to log in.
+
+```sh
+chainctl auth login --invite-code $INVITE_CODE
+```
+
+Once you're logged in, you can check which group or groups you belong to, and grab the ID of the group with `chainctl`.
 
 ```sh
 chainctl iam groups ls -o table
@@ -135,7 +141,7 @@ You’ll receive output in the form of a table of your current group (or groups)
   b9adda06841c1d34dfa73d5902ed44b5448b7958 | enforce-demo-group  |
 ```
 
-> **Note**: If you don't receive output like the above at all, you can create a new group by running `chainctl iam groups create --no-parent` to create a new group. The `--no-parent` flag will ensure that the new group will be a new root group; this means it won't have any connections to your existing Chainguard resources, making it safe for experimentation. After group creation, you can run `chainctl iam groups ls -o table` again to retrieve the new group's ID.
+> **Note**: If you don't receive output like the previous example, you can create a new group by running `chainctl iam groups create --no-parent` to create a new group. The `--no-parent` flag will ensure that the new group will be a new root group; this means it won't have any connections to your existing Chainguard resources, making it safe for experimentation. After group creation, you can run `chainctl iam groups ls -o table` again to retrieve the new group's ID.
 
 Let’s create a variable that stores that ID for later steps in the tutorial. Replace `$GROUP_ID` below with the relevant ID; for exmaple, in the case of `enforce-demo-group` above, you would enter `b9adda06841c1d34dfa73d5902ed44b5448b7958` instead of `$GROUP_ID` in the next command.
 
@@ -144,6 +150,7 @@ export GROUP=$GROUP_ID
 ```
 
 You can learn more about our IAM model by reading our [Overview of Chainguard Enforce IAM](/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/) article. This document will provide you with guidance on creating a group hierarchy that enables policies to be inherited from parent groups, and discrete policies for different groups depending on your needs.
+
 
 ## Step 3 — Prepare Kubernetes cluster
 
