@@ -9,7 +9,7 @@ lastmod: 2023-05-17T08:48:45+00:00
 draft: false
 tags: ["Enforce", "Product", "Procedural"]
 images: []
-weight: 015
+weight: 020
 ---
 
 In Chainguard Enforce, [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
