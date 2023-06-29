@@ -355,7 +355,7 @@ assume-and-explore:
 
 Let's go over what this configuration does. 
 
-GitLab requires that pipelines have a shell. To this end, this configuration uses the `wolfi-base` image
+First, GitLab requires that pipelines have a shell. To this end, this configuration uses the [`cgr.dev/chainguard/wolfi-base` image](https://edu.chainguard.dev/chainguard/chainguard-images/reference/wolfi-base/overview/) since it includes the `sh` shell.
 
 Next, this configuration creates a JSON Web Token (JWT) with an [`id_tokens`](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) block that will allow the job to be able to fetch an OIDC token and authenticate with Chainguard Enforce. GitLab requires that any JWTs created in this manner must include an `aud` keyword. In this case, it should align with the `audience` associated with the Chainguard identity created in the `gitlab.tf` file: `https://gitlab.com`.
 
@@ -385,7 +385,13 @@ data "chainguard_roles" "editor" {
 }
 ```
 
-You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the policies the identity has access to, you could have the workflow inspect the groups.
+To retrieve a list of all the roles available to your Chainguard Enforce installation — including any custom roles — you can run the following command.
+
+```sh
+chainctl iam roles list
+```
+
+You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the policies the identity has access to, you could have the workflow inspect the groups like in the following exmaple.
 
 ```
     # Explore
