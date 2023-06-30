@@ -1,22 +1,31 @@
 ---
 date: 2023-06-30T16:00:39Z
-title: "chainctl clusters records"
-slug: chainctl_clusters_records
-url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_records/
+title: "chainctl clusters records vulns list"
+slug: chainctl_clusters_records_vulns_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_records_vulns_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl clusters records
+## chainctl clusters records vulns list
 
-Interact with cluster records.
+List cluster records vulnerabilities.
+
+```
+chainctl clusters records vulns list CLUSTER_NAME|CLUSTER_ID [--image=IMAGE] [--cve=CVE,CVE,...] [--min-severity=LOW|MEDIUM|HIGH|CRITICAL] [--fix-states=STATE,STATE,... (STATE=UNKNOWN|FIXED|NOT_FIXED|WONT_FIX)] [--active-within=DURATION] [--output table|json|wide]
+```
 
 ### Options
 
 ```
-  -h, --help   help for records
+      --active-within duration   How recently a vuln must have been active to be listed. Zero will return all vulns. (default 24h0m0s)
+      --cve strings              A comma separated list of CVEs to filter the results.
+      --fix-states strings       A comman separated list of vulnerability fix states to return (UNKNOWN, FIXED, NOT_FIXED, WONT_FIX).
+  -h, --help                     help for list
+      --image string             The name of an image or regular expression to filter the results.
+      --min-severity string      The lowest level of severity vulnerability return (one of LOW, MEDIUM, HIGH, CRITICAL).
 ```
 
 ### Options inherited from parent commands
@@ -34,7 +43,5 @@ Interact with cluster records.
 
 ### SEE ALSO
 
-* [chainctl clusters](/chainguard/chainctl/chainctl-docs/chainctl_clusters/)	 - Cluster related commands for the Chainguard platform.
-* [chainctl clusters records list](/chainguard/chainctl/chainctl-docs/chainctl_clusters_records_list/)	 - List cluster records.
 * [chainctl clusters records vulns](/chainguard/chainctl/chainctl-docs/chainctl_clusters_records_vulns/)	 - Interact with cluster records vulnerabilities.
 
