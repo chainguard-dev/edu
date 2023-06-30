@@ -22,7 +22,7 @@ Chainguard Enforce will automatically generate SBOMs using Syft when an existing
 
 Because they can show all the software running in a given cluster, SBOMs are often discussed in the context of software supply chain security. But their use goes beyond that of a security tool; after all, when properly implemented, SBOMs provide useful information about the software you're running.
 
-Say that you're concerned about running software nearing its end-of-life. SBOMs contain information about software versions that you can use to monitor how close various software components are to the end of their lifecycle. For another example, say you're concerned about license compliance. Because SBOMs also store license information, you can also be sure that you're only running software that falls under certain licenses.
+Say that you're concerned about running software nearing its end of life. SBOMs contain information about software versions that you can use to monitor how close various software components are to the end of their lifecycle. For another example, say you're concerned about license compliance. Because SBOMs also store license information, you can also be sure that you're only running software that falls under certain licenses.
 
 Chainguard Enforce was designed to build off the value of SBOMs by harnessing the information they provide to better understand everything that's running in a given cluster. It comes with a number of useful features that help you make the most out of SBOMs in your cloud workloads, including the following.
 
@@ -37,7 +37,7 @@ The remainder of this article outlines Chainguard Enforce's SBOM features in mor
 
 SBOMs are essentially files consisting of raw JSON data. When Chainguard Enforce "ingests" an SBOM, it's converting its JSON structure into structured data that can be queried within a database. This allows Chainguard to retrieve key information about an SBOM, like the packages contained within it, their versions, and their license details.
 
-Any time you run a workload in a supported Container Runtime (including EKS, GKE, and Cloud Run) monitored by Chainguard Enforce, it will first check if there are already SBOMs included in the workload’s container images. We support both signed SBOMs (i.e. an SBOM uploaded by `cosign attest` as an in-toto attestation) as well as unsigned SBOM (i.e. an SBOM uploaded by `cosign attach sbom`). Chainguard Enforce supports both the SPDX and Cyclone DX SBOM schemas, meaning that SBOMs must conform to these standards in order for Enforce to ingest them.
+Any time you run a workload in a supported Container Runtime (including EKS, GKE, and Cloud Run) monitored by Chainguard Enforce, it will first check if there are already SBOMs included in the workload’s container images. We support both signed SBOMs (for example, an SBOM uploaded by `cosign attest` as an in-toto attestation) as well as unsigned SBOM (such as an SBOM uploaded by `cosign attach sbom`). Chainguard Enforce supports both the SPDX and Cyclone DX SBOM schemas, meaning that SBOMs must conform to these standards in order for Enforce to ingest them.
 
 
 ## SBOM Generation in Chainguard Enforce
