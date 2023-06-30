@@ -1,28 +1,22 @@
 ---
 date: 2023-06-30T16:00:39Z
-title: "chainctl auth status"
-slug: chainctl_auth_status
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth_status/
+title: "chainctl clusters records vulns"
+slug: chainctl_clusters_records_vulns
+url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_records_vulns/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth status
+## chainctl clusters records vulns
 
-Inspect the local Chainguard Token.
-
-```
-chainctl auth status [--output table|json] [flags]
-```
+Interact with cluster records vulnerabilities.
 
 ### Options
 
 ```
-  -h, --help                    help for status
-      --identity-token string   Use an explicit passed identity token or token path.
-      --quick                   Whether to perform quick offline token checks (vs. calling the Validate API).
+  -h, --help   help for vulns
 ```
 
 ### Options inherited from parent commands
@@ -40,5 +34,7 @@ chainctl auth status [--output table|json] [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl clusters records](/chainguard/chainctl/chainctl-docs/chainctl_clusters_records/)	 - Interact with cluster records.
+* [chainctl clusters records vulns describe](/chainguard/chainctl/chainctl-docs/chainctl_clusters_records_vulns_describe/)	 - Describe the CVEs from the cluster vulnerability report.
+* [chainctl clusters records vulns list](/chainguard/chainctl/chainctl-docs/chainctl_clusters_records_vulns_list/)	 - List cluster records vulnerabilities.
 
