@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-06-28 18:25:35 +0000 UTC
+date: 2023-06-30 15:36:57 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -12,10 +12,23 @@ weight: 799
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
 
+### v0.1.136
+Release date: 2023-06-30
+#### Bug or Regression
+- `chainctl auth logout` removes all Chainguard tokens. Specify a single token to remove with `--audience=AUDIENCE`.
+
+
+### v0.1.135
+Release date: 2023-06-29
+#### Feature
+- View vulnerability reports for images in your cluster with `chainctl cluster records vulns list` and `chainctl cluster records vulns describe`
+
+
 ### v0.1.134
 Release date: 2023-06-28
+#### Documentation
+- update `chainctl` docs to use public API endpoints
 
-Customer facing changes: N/A
 
 ### v0.1.133
 Release date: 2023-06-27
