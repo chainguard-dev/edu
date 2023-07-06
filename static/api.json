@@ -3020,6 +3020,16 @@
       },
       "type": "object"
     },
+    "FixState": {
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "FIXED",
+        "NOT_FIXED",
+        "WONT_FIX"
+      ],
+      "type": "string"
+    },
     "IdentityAWSIdentity": {
       "properties": {
         "arn": {
@@ -3301,6 +3311,19 @@
         },
         "version": {
           "description": "CVSS version used to populate score and severity.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VulnerabilityRecordRelatedVulnerability": {
+      "properties": {
+        "id": {
+          "description": "ID of the vulnerability.",
+          "type": "string"
+        },
+        "source": {
+          "description": "Source from where the vulnerability information was obtained, e.g. nvd, github, osv.",
           "type": "string"
         }
       },
@@ -4459,7 +4482,7 @@
     "tenantFix": {
       "properties": {
         "state": {
-          "$ref": "#/definitions/tenantFixState",
+          "$ref": "#/definitions/FixState",
           "description": "state reflects the state of the fix, e.g. fixed, unknown, not-fixed, won't-fix."
         },
         "versions": {
@@ -4471,16 +4494,6 @@
         }
       },
       "type": "object"
-    },
-    "tenantFixState": {
-      "default": "UNKNOWN",
-      "enum": [
-        "UNKNOWN",
-        "FIXED",
-        "NOT_FIXED",
-        "WONT_FIX"
-      ],
-      "type": "string"
     },
     "tenantPackage": {
       "properties": {
@@ -4778,16 +4791,6 @@
       },
       "type": "object"
     },
-    "tenantVulnReportFilterState": {
-      "default": "UNKNOWN",
-      "enum": [
-        "UNKNOWN",
-        "ACTIVE",
-        "INACTIVE",
-        "ALL"
-      ],
-      "type": "string"
-    },
     "tenantVulnReportList": {
       "properties": {
         "items": {
@@ -4843,6 +4846,10 @@
           "description": "a short description of this vulnerability.",
           "type": "string"
         },
+        "displayId": {
+          "description": "display_id is the normalized value of the vulnerability ID often defined by a CVE-ID.",
+          "type": "string"
+        },
         "id": {
           "description": "id of the vulnerability e.g. CVE_1231-12.",
           "type": "string"
@@ -4851,6 +4858,13 @@
           "description": "URLs related to this vulnerability.",
           "items": {
             "type": "string"
+          },
+          "type": "array"
+        },
+        "relatedVulnerabilities": {
+          "description": "related vulnerabilities to the main vulnerability reported here.",
+          "items": {
+            "$ref": "#/definitions/VulnerabilityRecordRelatedVulnerability"
           },
           "type": "array"
         },
