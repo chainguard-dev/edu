@@ -60,7 +60,7 @@ You may encounter an exit status due to being unable to fetch the OIDC configura
 chainctl cluster install --group=$GROUP --private --context demo 
 ```
 
-The error will be similar to the below.
+The error will be similar to the following.
 
 ```
 ...
