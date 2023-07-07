@@ -24,7 +24,7 @@ If you're encountering an issue with installation, we have a few recommendations
 
 ### Verify cluster is installed
 
-The `remoteId` in `chainctl cluster install` is the UUID of the Gulfstream namespace; this will help identify if a cluster is installed or not. You can learn more about installation in our [Installing the Chainguard Enforce Agent](/chainguard/chainguard-enforce/installation/alternative-installation-methods/) tutoria.
+The `remoteId` in `chainctl cluster install` is the UUID of the Gulfstream namespace; this will help identify whether a cluster is installed or not. You can learn more about installation in our [Installing the Chainguard Enforce Agent](/chainguard/chainguard-enforce/installation/alternative-installation-methods/) tutorial.
 
 You can get the ID for Gulfstream with `kubectl`, as in the next command.
 
