@@ -252,7 +252,11 @@ For CycloneDX, Chainguard Enforce currently only supports version 1.4.
 
 We are in the process of updating Chainguard Enforce so it can readily parse SBOM attestations out of the box. In the meantime, you can parse SBOMs through implementing specific policies that cover this use case.
 
-You can create a policy covering your image [through the Chainguard Enforce console](/chainguard/chainguard-enforce/policies/chainguard-policies-ui/) or [using the `chainctl` command line tool](/chainguard/chainguard-enforce/policies/chainguard-policies-cli/). Additionally, you can check out our [policy catalog](https://console.enforce.dev/policies/catalog) for our collection of policies that work directly with Chainguard Enforce.
+### I don't have any SBOMs
+
+We recently updated Chainguard Enforce so it will generate SBOMs for any container images it finds that don't already have one. It can now also ingest SBOMs automatically out of the box.
+
+Check out our guide on [Generating and Filtering SBOMs with Chainguard Enforce](/chainguard/chainguard-enforce/sboms/sboms-in-enforce/) to learn more about these features.
 
 ## Enforce does not block Pod creation as expected
 
