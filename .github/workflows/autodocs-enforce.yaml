@@ -49,8 +49,8 @@ jobs:
           content/chainguard/chainguard-enforce/changelog.md | \
           head -n 1)
         if [ "$current" != "$latest" ]; then
-          echo "status=outdated" >> $GITHUB_ENV
-          echo "latest=$latest" >> $GITHUB_ENV
+          echo "status=outdated" >> $GITHUB_OUTPUT
+          echo "latest=$latest" >> $GITHUB_OUTPUT
         fi
 
   integrate-enforce-docs:
@@ -65,6 +65,9 @@ jobs:
     if: needs.check-new-docs.outputs.status == 'outdated'
 
     steps:
+    - env:
+        LATEST: ${{ needs.check-new-docs.outputs.latest }}
+
     - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
       uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
 
@@ -118,8 +121,8 @@ jobs:
             gh pr create \
               --assignee jamonation \
               --base main --head autodocs \
-              --title "Enforce docs ${{needs.check-new-docs.outputs.latest}} autocommit" \
-              --body "Enforce docs ${{needs.check-new-docs.outputs.latest}} autocommit" \
+              --title "Enforce docs $LATEST autocommit" \
+              --body "Enforce docs $LATEST autocommit" \
               --no-maintainer-edit --label automated,documentation,enforce
           else
             echo "PR exists, see ${PR}"
