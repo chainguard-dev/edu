@@ -94,7 +94,7 @@ If `jwks` being inaccessible is the issue, you'll receive an error here.
 Error from server (NotFound): the server could not find the requested resource
 ```
 
-The output above reveals that the endpoints are not available to `chainctl`, whcih may be due to an auth proxy between `chainctl` and the controlplane.
+This output reveals that the endpoints are not available to `chainctl`, whcih may be due to an auth proxy between `chainctl` and the control plane.
 
 To solve for this issue, you'll need an OpenID Connect Well-Known Configuration Endpoint, which should be available at the `/.well-known/openid-configuration` path, This will enable you to use `chainctl` for installation and to register an identity. You can check that the file is there with `kubectl`.
 
