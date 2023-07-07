@@ -49,8 +49,8 @@ jobs:
           content/chainguard/chainguard-enforce/changelog.md | \
           head -n 1)
         if [ "$current" != "$latest" ]; then
-          echo "status=outdated" >> $GITHUB_OUTPUT
-          echo "latest=$latest" >> $GITHUB_OUTPUT
+          echo "status=outdated" >> $GITHUB_ENV
+          echo "latest=$latest" >> $GITHUB_ENV
         fi
 
   integrate-enforce-docs:
