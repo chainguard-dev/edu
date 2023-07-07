@@ -164,7 +164,7 @@ You can ensure that a cluster image policy is in the [ConfigMap](https://kuberne
 kubectl get cm config-image-policies -n cosign-system 
 ```
 
-A describe of the ConfigMap will show the full policy. 
+A `describe` of the ConfigMap will show the full policy. 
 
 ```
 kubectl describe  cm config-image-policies -n cosign-system 
