@@ -114,7 +114,7 @@ If you're using Rancher for Kubernetes, you'll need to point directly to your ku
 KUBECONFIG=/etc/rancher/rke2/rke2.yaml chainctl cluster install --group=$GROUP --private
 ```
 
-If you cannot reach the OIDC endpoint, this will cause issues for a cluster install, review the [section above](#cluster-oidc-configuration-exit-status) for guidance on troubleshooting this. 
+If you cannot reach the OIDC endpoint, this will cause issues for a cluster install, review the [previous section](#cluster-oidc-configuration-exit-status) for guidance on troubleshooting this. 
 
 Additionally, you'll need direct access to the authorized endpoint and not the Rancher proxy URL. When you run `kubectl config view`, you should receive something like the output below, without the Rancher URL.
 
