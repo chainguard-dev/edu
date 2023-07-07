@@ -78,7 +78,7 @@ platform:
     timestamp-authority: https://tsa.enforce.dev
 ```
 
-The full documentation for the `chainctl config` command are available on the relevant [reference page](/chainguard/chainctl/chainctl-docs/chainctl_config/).
+The full documentation for the `chainctl config` command is available on the relevant [reference page](/chainguard/chainctl/chainctl-docs/chainctl_config/).
  
 ## Edit chainctl config
 
