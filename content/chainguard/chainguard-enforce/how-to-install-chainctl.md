@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "chainguard-enforce"
 toc: true
-weight: 999
+weight: 998
 ---
 
 > _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
