@@ -148,7 +148,7 @@ For more guidance on working with the `chainctl` config, review our guide on [Ho
 
 ## Policies 
 
-If you're running into issues with policies or cluster image policies, this section has some tips for recovery.
+If you're running into issues with policies, this section has some tips for recovery.
 
 ### Policy does not cover a given image as expected
 
