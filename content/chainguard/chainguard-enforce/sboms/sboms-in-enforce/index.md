@@ -37,7 +37,7 @@ The remainder of this article outlines Chainguard Enforce's SBOM features in mor
 
 SBOMs are essentially files consisting of raw JSON data. When Chainguard Enforce "ingests" an SBOM, it's converting its JSON structure into structured data that can be queried within a database. This allows Chainguard to retrieve key information about an SBOM, like the packages contained within it, their versions, and their license details.
 
-Any time you run a workload in a supported Container Runtime (including EKS, GKE, and Cloud Run) monitored by Chainguard Enforce, it will first check if there are already SBOMs included in the workload’s container images. We support both signed SBOMs (for example, an SBOM uploaded by `cosign attest` as an in-toto attestation) as well as unsigned SBOM (such as an SBOM uploaded by `cosign attach sbom`). Chainguard Enforce supports both the SPDX and Cyclone DX SBOM schemas, meaning that SBOMs must conform to these standards in order for Enforce to ingest them.
+Any time you run a workload in a supported Container Runtime (including EKS, GKE, and Cloud Run) monitored by Chainguard Enforce, it will first check if there are already SBOMs included in the workload’s container images. We support both signed SBOMs (for example, an SBOM uploaded by `cosign attest` as an in-toto attestation) as well as unsigned SBOM (for example, an SBOM uploaded by `cosign attach sbom`). Chainguard Enforce supports both the SPDX and Cyclone DX SBOM schemas, meaning that SBOMs must conform to these standards in order for Enforce to ingest them.
 
 
 ## SBOM Generation in Chainguard Enforce
