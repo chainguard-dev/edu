@@ -103,7 +103,7 @@ Would you like to enroll 2 eligible clusters?
 Do you want to continue? [Y,n]:
 ```
 
-As this example shows, `chainctl` will prompt you to confirm whether you want to enroll all of the eligible resources. If you press `ENTER`, then all of the eligible clusters will be enrolled with Chainguard Enforce.
+As this example shows, `chainctl` will prompt you to confirm whether you want to enroll all of the eligible resources into Chainguard Enforce Agentless mode. If you press `ENTER`, then all of the eligible clusters will be enrolled with Chainguard Enforce.
 
 Be aware that the `discover` subcommand doesn’t currently have a good cleanup mechanism, meaning it doesn't provide a reliable method for deleting non-Kubernetes clusters.
 
@@ -154,7 +154,7 @@ To clean things up, you can comment out the resources and re-apply. You can alte
 
 ## Authorizing Enforce Access to GKE Cluster
 
-One instance of where a GKE cluster might be discovered and marked as `needs work` is when cluster access is only provided to an authorized network.
+One instance when a GKE cluster might be discovered and marked as `needs work` is when cluster access is only provided to an authorized network.
 
 ```
   PROVIDER |       ACCOUNT        |  LOCATION  |     NAME      | ELIGIBILITY | DETAILS
