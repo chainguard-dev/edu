@@ -60,7 +60,7 @@ export AWS_ACCOUNT_ID="12 digit AWS account ID to connect to"
 Then, run the `chainctl` command to begin setting up the AWS account with the Enforce group.
 
 ```sh
-chainctl iam group set-aws $ENFORCE_GROUP_ID --account $AWS_ACCOUNT_ID
+chainctl iam account-associations set aws $ENFORCE_GROUP_ID --account $AWS_ACCOUNT_ID
 ```
 
 Next, configure your AWS account to allow access from Enforce to specific AWS IAM roles. We provide a Terraform module to automate this setup. Using the same group and AWS account, for instance, our Terraform file will be written like this:
