@@ -2056,6 +2056,36 @@
       }
     },
     "/registry/v1/repos/{id}": {
+      "delete": {
+        "operationId": "Registry_DeleteRepo",
+        "parameters": [
+          {
+            "description": "ID, UID of the record.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      },
       "put": {
         "operationId": "Registry_UpdateRepo",
         "parameters": [
@@ -2073,6 +2103,13 @@
             "required": true,
             "schema": {
               "properties": {
+                "bundles": {
+                  "description": "bundles is a list of tags/labels that allow us to group repositories to each other for sales surposes.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
                 "catalogTier": {
                   "$ref": "#/definitions/registryCatalogTier",
                   "description": "catalog_tier is the catalog tier this repository belongs to."
@@ -2083,6 +2120,45 @@
                 }
               },
               "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryRepo"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/repos/{parentId}": {
+      "post": {
+        "operationId": "Registry_CreateRepo",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "parentId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "repo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/registryRepo"
             }
           }
         ],
@@ -4037,6 +4113,13 @@
     },
     "registryRepo": {
       "properties": {
+        "bundles": {
+          "description": "bundles is a list of tags/labels that allow us to group repositories to each other for sales surposes.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "catalogTier": {
           "$ref": "#/definitions/registryCatalogTier",
           "description": "catalog_tier is the catalog tier this repository belongs to."

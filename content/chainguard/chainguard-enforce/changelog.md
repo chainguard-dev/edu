@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-07-07 09:21:19 +0000 UTC
+date: 2023-07-11 14:58:28 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,15 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.139
+Release date: 2023-07-11
+#### Feature
+- Add support to the Chainguard terraform provider to manage IAM roles.
+- Uninstall clusters by name or ID with `chainctl clusters uninstall --cluster={CLUSTER_NAME|CLUSTER_ID}`
+#### Bug or Regression
+- `chainctl iam groups delete` now returns more useful errors on failure.
+
 
 ### v0.1.138
 Release date: 2023-07-07
