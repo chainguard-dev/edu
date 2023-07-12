@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: google-cloud-sdk"
+title: "Image Overview: Google-cloud-sdk"
 type: "article"
-description: "Overview: google-cloud-sdk Chainguard Images"
+description: "Overview: Google-cloud-sdk Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/google-cloud-sdk](https://github.com/chainguard-images/images/tree/main/images/google-cloud-sdk)
-| Tags     | Aliases                                 |
-|----------|-----------------------------------------|
-| `latest` | `427`, `427.0`, `427.0.0`, `427.0.0-r0` |
+[cgr.dev/chainguard/google-cloud-sdk](https://github.com/chainguard-images/images/tree/main/images/google-cloud-sdk)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | 20 hours ago | `sha256:1b8ec2d8beba1787883d3c806e210d64e79bcc07d00e8fdd0732c4bab1f8d430` |
 
 
 
@@ -133,4 +134,3 @@ add-iam-policy-binding     Add a binding to a BigQuery resource's policy in IAM.
                            --role='roles/bigquery.dataViewer' \
                            --project_id=proj -t ds.table1
 ```
-

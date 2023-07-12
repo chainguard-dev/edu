@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: kubernetes-ingress-defaultbackend"
+title: "Image Overview: Kubernetes-ingress-defaultbackend"
 type: "article"
-description: "Overview: kubernetes-ingress-defaultbackend Chainguard Images"
+description: "Overview: Kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kubernetes-ingress-defaultbackend](https://github.com/chainguard-images/images/tree/main/images/kubernetes-ingress-defaultbackend)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.23`, `1.23.1`, `1.23.1-r2`                 |
-| `latest-dev` | `1-dev`, `1.23-dev`, `1.23.1-dev`, `1.23.1-r2-dev` |
+[cgr.dev/chainguard/kubernetes-ingress-defaultbackend](https://github.com/chainguard-images/images/tree/main/images/kubernetes-ingress-defaultbackend)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | 20 hours ago | `sha256:6b9e1bf2709747d866b6897be6e9e4a9a82d487640bd7cdab786dbf23e588e72` |
+| `latest`     | 20 hours ago | `sha256:f2bb7657174341a7d9df0e574ee598bb5a966b0c43ca30a5c9941ecbdd8695e5` |
 
 
 
@@ -42,4 +43,3 @@ helm install <RELEASE_NAME> ingress-nginx/ingress-nginx \
   --set defaultBackend.image.image=kubernetes-ingress-defaultbackend \
   --set defaultBackend.image.tag=latest
 ```
-

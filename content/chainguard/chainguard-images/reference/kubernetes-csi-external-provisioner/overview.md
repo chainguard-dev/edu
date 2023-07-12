@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: kubernetes-csi-external-provisioner"
+title: "Image Overview: Kubernetes-csi-external-provisioner"
 type: "article"
-description: "Overview: kubernetes-csi-external-provisioner Chainguard Images"
+description: "Overview: Kubernetes-csi-external-provisioner Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kubernetes-csi-external-provisioner](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-provisioner)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `3`, `3.5`, `3.5.0`, `3.5.0-r2`                 |
-| `latest-dev` | `3-dev`, `3.5-dev`, `3.5.0-dev`, `3.5.0-r2-dev` |
+[cgr.dev/chainguard/kubernetes-csi-external-provisioner](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-provisioner)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 19 hours ago | `sha256:deb9a467096669c0dda22706e821214c806eb8a151a1a5b962c9063185d11ac2` |
+| `latest-dev` | 19 hours ago | `sha256:2f50070a7e61bdfcac51ea9520c1e62ae889f8f6d051eb63c60cc1865fd7cf9a` |
 
 
 
@@ -41,4 +42,3 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-provi
 kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-provisioner/v3.5.0/deploy/kubernetes/deployment.yaml
 kubectl set image deployment/csi-provisioner csi-provisioner="cgr.dev/chainguard/kubernetes-csi-external-provisioner:latest"
 ```
-

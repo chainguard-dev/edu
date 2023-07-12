@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: wait-for-it"
+title: "Image Overview: Wait-for-it"
 type: "article"
-description: "Overview: wait-for-it Chainguard Images"
+description: "Overview: Wait-for-it Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/wait-for-it](https://github.com/chainguard-images/images/tree/main/images/wait-for-it)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
+[cgr.dev/chainguard/wait-for-it](https://github.com/chainguard-images/images/tree/main/images/wait-for-it)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | 19 hours ago | `sha256:e9ce150f95c395447616be44524f6cad39d4520af86e0fa0fa127efb640eacd8` |
 
 
 
@@ -72,4 +73,3 @@ wait-for-it: waiting 5 seconds for fake.doesnotexist:80
 wait-for-it: timeout occurred after waiting 5 seconds for fake.doesnotexist:80
 wait-for-it: strict mode, refusing to execute subprocess
 ```
-

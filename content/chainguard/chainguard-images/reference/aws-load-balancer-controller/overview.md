@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: aws-load-balancer-controller"
+title: "Image Overview: Aws-load-balancer-controller"
 type: "article"
-description: "Overview: aws-load-balancer-controller Chainguard Images"
+description: "Overview: Aws-load-balancer-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/aws-load-balancer-controller](https://github.com/chainguard-images/images/tree/main/images/aws-load-balancer-controller)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.5`, `2.5.2`, `2.5.2-r1`                 |
-| `latest-dev` | `2-dev`, `2.5-dev`, `2.5.2-dev`, `2.5.2-r1-dev` |
+[cgr.dev/chainguard/aws-load-balancer-controller](https://github.com/chainguard-images/images/tree/main/images/aws-load-balancer-controller)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 20 hours ago | `sha256:379c24be91320594826b513f57416d907a83598d59d3e816d8cb8f4e542fdb17` |
+| `latest-dev` | 20 hours ago | `sha256:db2e30b30afa255008f8e1eb05251c1a5c959ab5a108ddf1207fc53f0d7317b2` |
 
 
 
@@ -47,4 +48,3 @@ $ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
 
 Note that the `aws-load-balancer-controller` does need cloud provider configuration to work correctly, so it won't run locally.
 See the [configuration](https://github.com/aws/eks-charts/tree/master/stable/aws-load-balancer-controller) docs for more examples.
-

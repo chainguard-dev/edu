@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: weaviate"
+title: "Image Overview: Weaviate"
 type: "article"
-description: "Overview: weaviate Chainguard Images"
+description: "Overview: Weaviate Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/weaviate](https://github.com/chainguard-images/images/tree/main/images/weaviate)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.19`, `1.19.8`, `1.19.8-r0`                 |
-| `latest-dev` | `1-dev`, `1.19-dev`, `1.19.8-dev`, `1.19.8-r0-dev` |
+[cgr.dev/chainguard/weaviate](https://github.com/chainguard-images/images/tree/main/images/weaviate)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 19 hours ago | `sha256:829e4f470dd683c4108d963d5bdd3bb62d6f73d20f94218e7156c23036b68e4d` |
+| `latest-dev` | 19 hours ago | `sha256:552b7012c8bb2eac665593050971d266a732f6af15f09435f475ce46774af407` |
 
 
 
@@ -97,4 +98,3 @@ Connector config & MQTT config:
 Help Options:
   -h, --help               Show this help message
 ```
-

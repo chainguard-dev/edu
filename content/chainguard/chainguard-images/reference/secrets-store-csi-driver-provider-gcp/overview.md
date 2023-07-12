@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: secrets-store-csi-driver-provider-gcp"
+title: "Image Overview: Secrets-store-csi-driver-provider-gcp"
 type: "article"
-description: "Overview: secrets-store-csi-driver-provider-gcp Chainguard Images"
+description: "Overview: Secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/secrets-store-csi-driver-provider-gcp](https://github.com/chainguard-images/images/tree/main/images/secrets-store-csi-driver-provider-gcp)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.2`, `1.2.0`, `1.2.0-r4`                 |
-| `latest-dev` | `1-dev`, `1.2-dev`, `1.2.0-dev`, `1.2.0-r4-dev` |
+[cgr.dev/chainguard/secrets-store-csi-driver-provider-gcp](https://github.com/chainguard-images/images/tree/main/images/secrets-store-csi-driver-provider-gcp)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 19 hours ago | `sha256:7778750d5a8091b82420241a9b9821e800ab2391a4d982b6301b3652cf72cb0c` |
+| `latest-dev` | 19 hours ago | `sha256:bc08dc708bc1260e977c054917a5edde7b206eebc2cf07b043d31a29a3646761` |
 
 
 
@@ -39,4 +40,3 @@ The Chainguard Secrets Store CSI Driver GCP Plugin image contains the `secrets-s
 ```shell
 $ docker run cgr.dev/chainguard/secrets-store-csi-driver-provider-gcp
 ```
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: vela-cli"
+title: "Image Overview: Vela-cli"
 type: "article"
-description: "Overview: vela-cli Chainguard Images"
+description: "Overview: Vela-cli Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/vela-cli](https://github.com/chainguard-images/images/tree/main/images/vela-cli)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `1`, `1.9`, `1.9.0`, `1.9.0-r0` |
+[cgr.dev/chainguard/vela-cli](https://github.com/chainguard-images/images/tree/main/images/vela-cli)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | 19 hours ago | `sha256:6009059525dc352f054b38f584467929be6ca4167eebacfbf6d4856af6584a22` |
 
 
 
@@ -30,4 +31,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/vela-cli:latest
 ```
-

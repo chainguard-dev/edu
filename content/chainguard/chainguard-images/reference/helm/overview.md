@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: helm"
+title: "Image Overview: Helm"
 type: "article"
-description: "Overview: helm Chainguard Images"
+description: "Overview: Helm Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/helm](https://github.com/chainguard-images/images/tree/main/images/helm)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `3`, `3.12`, `3.12.1`, `3.12.1-r0`                 |
-| `latest-dev` | `3-dev`, `3.12-dev`, `3.12.1-dev`, `3.12.1-r0-dev` |
+[cgr.dev/chainguard/helm](https://github.com/chainguard-images/images/tree/main/images/helm)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 20 hours ago | `sha256:59029b3babf1149868c82ae2268ea90bd580d615fbea249ce108b86d7257f57b` |
+| `latest-dev` | 20 hours ago | `sha256:0efb86e3bb13e9c3abb1d2e920f3fc372a24792105ac4170338a44f8e95e9222` |
 
 
 
@@ -31,4 +32,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/helm:latest
 ```
-

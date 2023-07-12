@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: skaffold"
+title: "Image Overview: Skaffold"
 type: "article"
-description: "Overview: skaffold Chainguard Images"
+description: "Overview: Skaffold Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/skaffold](https://github.com/chainguard-images/images/tree/main/images/skaffold)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.5`, `2.5.1`, `2.5.1-r0`                 |
-| `latest-dev` | `2-dev`, `2.5-dev`, `2.5.1-dev`, `2.5.1-r0-dev` |
+[cgr.dev/chainguard/skaffold](https://github.com/chainguard-images/images/tree/main/images/skaffold)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 19 hours ago | `sha256:885d1ffbe685977df28ae69cd5db75d1d178d46f8ef87a64181376e564bce012` |
+| `latest-dev` | 19 hours ago | `sha256:156ab41d47dfcb4793f26eb217d40cd14ce95d7aea62ec0dc13eceb8dd970def` |
 
 
 
@@ -80,4 +81,3 @@ Usage:
 Use "skaffold <command> --help" for more information about a given command.
 Use "skaffold options" for a list of global command-line options (applies to all commands).
 ```
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: kubernetes-dashboard-metrics-scraper"
+title: "Image Overview: Kubernetes-dashboard-metrics-scraper"
 type: "article"
-description: "Overview: kubernetes-dashboard-metrics-scraper Chainguard Images"
+description: "Overview: Kubernetes-dashboard-metrics-scraper Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,30 +14,19 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kubernetes-dashboard-metrics-scraper](https://github.com/chainguard-images/images/tree/main/images/kubernetes-dashboard-metrics-scraper)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.0`, `1.0.9`, `1.0.9-r2`                 |
-| `latest-dev` | `1-dev`, `1.0-dev`, `1.0.9-dev`, `1.0.9-r2-dev` |
+[cgr.dev/chainguard/kubernetes-dashboard-metrics-scraper](https://github.com/chainguard-images/images/tree/main/images/kubernetes-dashboard-metrics-scraper)
 
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 19 hours ago | `sha256:10808bb8f5a5c9024e8127c878917618db4e112efe1f87dd0b0e3d7c30d98129` |
+| `latest-dev` | 19 hours ago | `sha256:177104b5e318ddc6a74f0273461bb647c436a1a7ee52c530a6d588494341bd98` |
 
+# kubernetes-dashboard-metrics-scraper
 
-Minimal image that acts as a drop-in replacement for the `kubernetesui/metrics-scraper` image.
+Minimal kubernetes-dashboard-metrics-scraper images with nightly builds.
 
-## Get It!
+## Get it!
 
-The image is available on `cgr.dev`:
-
+```shell
+docker pull cgr.dev/chainguard/kubernetes-dashboard-metrics-scraper
 ```
-docker pull cgr.dev/chainguard/kubernetes-dashboard-metrics-scraper:latest
-```
-
-You can run it with the standard deployment with something like:
-
-```
-helm install my-release kubernetes-dashboard/kubernetes-dashboard  \
-  --set metricsScraper.image.repository=cgr.dev/chainguard/kubernetes-dashboard-metrics-scraper \
-  --set metricsScraper.image.tag=latest \
-  --set metricsScraper.enabled=true
-```
-

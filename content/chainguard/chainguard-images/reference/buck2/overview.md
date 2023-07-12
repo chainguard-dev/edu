@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: buck2"
+title: "Image Overview: Buck2"
 type: "article"
-description: "Overview: buck2 Chainguard Images"
+description: "Overview: Buck2 Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/buck2](https://github.com/chainguard-images/images/tree/main/images/buck2)
-| Tags         | Aliases                                                  |
-|--------------|----------------------------------------------------------|
-| `latest`     | `0`, `0.0_git20230603`, `0.0_git20230603-r0`             |
-| `latest-dev` | `0-dev`, `0.0_git20230603-dev`, `0.0_git20230603-r0-dev` |
+[cgr.dev/chainguard/buck2](https://github.com/chainguard-images/images/tree/main/images/buck2)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 20 hours ago | `sha256:0f2d8250c818cffe2ea06ece793dc254899cbdd806745048ef5a8156c94c3ae8` |
+| `latest-dev` | 20 hours ago | `sha256:15c401a369205e1eb032d55ad846b79f1dd7dd0b5d172a95d00112a61941f5bb` |
 
 
 
@@ -123,4 +124,3 @@ SUBCOMMANDS:
     uquery
             Perform queries on the unconfigured target graph
 ```
-

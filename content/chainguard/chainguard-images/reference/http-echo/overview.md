@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: http-echo"
+title: "Image Overview: Http-echo"
 type: "article"
-description: "Overview: http-echo Chainguard Images"
+description: "Overview: Http-echo Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/http-echo](https://github.com/chainguard-images/images/tree/main/images/http-echo)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `0`, `0.2`, `0.2.3`, `0.2.3-r1`                 |
-| `latest-dev` | `0-dev`, `0.2-dev`, `0.2.3-dev`, `0.2.3-r1-dev` |
+[cgr.dev/chainguard/http-echo](https://github.com/chainguard-images/images/tree/main/images/http-echo)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 20 hours ago | `sha256:4b253e3b4e76d298e062f068c11773c04ff71d9fd532de9ff970cee44468f825` |
+| `latest-dev` | 20 hours ago | `sha256:e00d2083ad4a3310e6d30c66fb3741e3358d63247133c7f69fe9a920c3cd591e` |
 
 
 
@@ -39,4 +40,3 @@ CONTAINER=$(docker run -d --rm cgr.dev/chainguard/http-echo:latest -listen=:8080
 curl localhost:8080
 docker kill $CONTAINER
 ```
-

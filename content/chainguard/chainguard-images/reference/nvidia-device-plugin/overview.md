@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: nvidia-device-plugin"
+title: "Image Overview: Nvidia-device-plugin"
 type: "article"
-description: "Overview: nvidia-device-plugin Chainguard Images"
+description: "Overview: Nvidia-device-plugin Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/nvidia-device-plugin](https://github.com/chainguard-images/images/tree/main/images/nvidia-device-plugin)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.14`, `0.14.0`, `0.14.0-r3`                 |
-| `latest-dev` | `0-dev`, `0.14-dev`, `0.14.0-dev`, `0.14.0-r3-dev` |
+[cgr.dev/chainguard/nvidia-device-plugin](https://github.com/chainguard-images/images/tree/main/images/nvidia-device-plugin)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 19 hours ago | `sha256:6660ff11381428b9438bb8bb9dfdd1506305d992c305ca7b0483cc5cc7a6cfa9` |
+| `latest-dev` | 19 hours ago | `sha256:d8a97e2bc054554274f2e47d28baba495c3dd6ab31d1d05307c878677b312958` |
 
 
 
@@ -83,4 +84,3 @@ image:
   repository: cgr.dev/chainguard/nvidia-device-plugin
   tag: latest
 ```
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: rqlite"
+title: "Image Overview: Rqlite"
 type: "article"
-description: "Overview: rqlite Chainguard Images"
+description: "Overview: Rqlite Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/rqlite](https://github.com/chainguard-images/images/tree/main/images/rqlite)
-| Tags         | Aliases |
-|--------------|---------|
-| `latest`     |         |
-| `latest-dev` |         |
+[cgr.dev/chainguard/rqlite](https://github.com/chainguard-images/images/tree/main/images/rqlite)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | 19 hours ago | `sha256:4fb8a63bb1de3b2a14acb6d732978de99a5cbddb2be38e09ad973b7c6c086551` |
+| `latest`     | 19 hours ago | `sha256:75092acddaa2383471e0505419f8b1953662dc20a460fb3407e7a463aca54d79` |
 
 
 
@@ -59,4 +60,3 @@ To run the `rqlite` program:
 [rqlited] 2023/03/26 21:53:22 no preexisting node state detected in /rqlite/file/data, node may be bootstrapping
 [cluster] 2023/03/26 21:53:22 service listening on d3d5c2306506:4002
 ```
-

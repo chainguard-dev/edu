@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: helm-controller"
+title: "Image Overview: Helm-controller"
 type: "article"
-description: "Overview: helm-controller Chainguard Images"
+description: "Overview: Helm-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,35 +14,19 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/helm-controller](https://github.com/chainguard-images/images/tree/main/images/helm-controller)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.34`, `0.34.1`, `0.34.1-r1`                 |
-| `latest-dev` | `0-dev`, `0.34-dev`, `0.34.1-dev`, `0.34.1-r1-dev` |
+[cgr.dev/chainguard/helm-controller](https://github.com/chainguard-images/images/tree/main/images/helm-controller)
 
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 16 days ago  | `sha256:2bcae87c7247fdde8d06ed743541b9af9b46048d1b77538ca01ab9e1e9021573` |
+| `latest-dev` | 16 days ago  | `sha256:4e09101e09ea6ba55fa5da6b5d30a691bea243d6c7db7f5cec2ba54e2d960bd6` |
 
+# helm-controller
 
-## Get It
+Minimal helm-controller images with nightly builds.
 
-The image is available on `cgr.dev`:
+## Get it!
 
-```
+```shell
 docker pull cgr.dev/chainguard/helm-controller
 ```
-
-## Using `helm-controller`
-
-The `helm-controller` is part of the flux gitops toolkit components ([docs](https://fluxcd.io/flux/components/)). It is recommended to use this component in conjunction with the remaining toolkit components during install.
-
-Although there are multiple methods of [installing](https://fluxcd.io/flux/installation/), the example below will work using the `flux` cli, also available as a chainguard image (cgr.dev/chainguard/flux):
-
-> NOTE: Installation assumes a properly connected `kubectl`
-
-```bash
-# Using a pre-installed flux cli
-flux install --registry cgr.dev/chainguard
-
-# OR using the provided flux chainguard image
-docker run cgr.dev/chainguard/flux export --registry cgr.dev/chainguard | kubectl apply -f -
-```
-

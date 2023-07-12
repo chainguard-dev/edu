@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: prometheus"
+title: "Image Overview: Prometheus"
 type: "article"
-description: "Overview: prometheus Chainguard Images"
+description: "Overview: Prometheus Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/prometheus](https://github.com/chainguard-images/images/tree/main/images/prometheus)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `2`, `2.44`, `2.44.0`, `2.44.0-r3` |
+[cgr.dev/chainguard/prometheus](https://github.com/chainguard-images/images/tree/main/images/prometheus)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 15 hours ago | `sha256:d1578906cb67c92f8e9c3155f2168c78d200fc036e38349e31b79a0787310abe` |
+| `latest-dev` | 15 hours ago | `sha256:4a35b7b14888d18eaeaaf5aee45055e1244e1fbc55d4adf31c5f4654eec4b80d` |
 
 
 
@@ -66,4 +68,3 @@ ts=2022-12-27T02:32:45.188Z caller=main.go:1234 level=info msg="Completed loadin
 ts=2022-12-27T02:32:45.188Z caller=main.go:978 level=info msg="Server is ready to receive web requests."
 ts=2022-12-27T02:32:45.188Z caller=manager.go:953 level=info component="rule manager" msg="Starting rule manager..."
 ```
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: kubernetes-csi-external-resizer"
+title: "Image Overview: Kubernetes-csi-external-resizer"
 type: "article"
-description: "Overview: kubernetes-csi-external-resizer Chainguard Images"
+description: "Overview: Kubernetes-csi-external-resizer Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kubernetes-csi-external-resizer](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-resizer)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.8`, `1.8.0`, `1.8.0-r1`                 |
-| `latest-dev` | `1-dev`, `1.8-dev`, `1.8.0-dev`, `1.8.0-r1-dev` |
+[cgr.dev/chainguard/kubernetes-csi-external-resizer](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-resizer)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 19 hours ago | `sha256:05c9e45e10cfd3ab0132bff9c71f196ab8144501a083459c96723ea0d8e392e3` |
+| `latest-dev` | 19 hours ago | `sha256:314dcfb9baa9600a53768b7dad5084180c7d9dc1b49fa0cf14ad025b4296c433` |
 
 
 
@@ -38,4 +39,3 @@ The Chainguard external-resizer image contains the `csi-resizer` controller and 
 
 To try it out, follow the [official installation
 instructions](https://github.com/kubernetes-csi/external-resizer/blob/master/README.md#usage).
-
