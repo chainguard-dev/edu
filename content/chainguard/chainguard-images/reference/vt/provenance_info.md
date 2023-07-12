@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for vt Images"
 type: "article"
-description: "Provenance information for vt Chainguard Images"
+description: "Provenance information for Vt Chainguard Images"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -32,7 +32,7 @@ By default, this command will fetch signatures for the `latest` tag. You can als
 All Chainguard Images come with a high-quality Software Bill Of Materials (SBOM) generated at build-time. The SBOM can be downloaded using the cosign tool:
 
 ```shell
-cosign download sbom cgr.dev/chainguard/vt | jq
+cosign download sbom --platform linux/amd64 cgr.dev/chainguard/vt | jq
 ```
 By default, this command will fetch the SBOM assigned to the `latest` tag. You can also specify the tag you want to fetch the SBOM from.
 

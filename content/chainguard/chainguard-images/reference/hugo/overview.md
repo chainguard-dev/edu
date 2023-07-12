@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: hugo"
+title: "Image Overview: Hugo"
 type: "article"
-description: "Overview: hugo Chainguard Images"
+description: "Overview: Hugo Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/hugo](https://github.com/chainguard-images/images/tree/main/images/hugo)
-| Tags         | Aliases                                               |
-|--------------|-------------------------------------------------------|
-| `latest`     | `0`, `0.113`, `0.113.0`, `0.113.0-r1`                 |
-| `latest-dev` | `0-dev`, `0.113-dev`, `0.113.0-dev`, `0.113.0-r1-dev` |
+[cgr.dev/chainguard/hugo](https://github.com/chainguard-images/images/tree/main/images/hugo)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | 20 hours ago | `sha256:922c59b1b7f5a39f22c71a1b94437fdabadc9729c468513fa7b54c0f791e97e5` |
+| `latest`     | 20 hours ago | `sha256:2fb7345617b05583e77744cf46b204279c7271ab82272fc5799f4c1efd082d57` |
 
 
 
@@ -45,4 +46,3 @@ hugo server --bind 0.0.0.0 --port 8080
 ```
 
 Now open your browser to [localhost:8080](http://localhost:8080)!
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: kubernetes-csi-external-attacher"
+title: "Image Overview: Kubernetes-csi-external-attacher"
 type: "article"
-description: "Overview: kubernetes-csi-external-attacher Chainguard Images"
+description: "Overview: Kubernetes-csi-external-attacher Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kubernetes-csi-external-attacher](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-attacher)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `4`, `4.3`, `4.3.0`, `4.3.0-r1`                 |
-| `latest-dev` | `4-dev`, `4.3-dev`, `4.3.0-dev`, `4.3.0-r1-dev` |
+[cgr.dev/chainguard/kubernetes-csi-external-attacher](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-attacher)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 20 hours ago | `sha256:fa13036a968125fd4de35e5067980cc4b48c6431232d54b0542563394f5f161a` |
+| `latest-dev` | 20 hours ago | `sha256:d2d883693862955a767801137ab010920c0e153959d9c5e5d5d246d39726469f` |
 
 
 
@@ -38,4 +39,3 @@ The Chainguard external-attacher image contains the `csi-attacher` controller an
 
 To try it out, follow the [official installation
 instructions](https://github.com/kubernetes-csi/external-attacher/blob/master/README.md#usage).
-

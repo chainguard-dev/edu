@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: mariadb"
+title: "Image Overview: Mariadb"
 type: "article"
-description: "Overview: mariadb Chainguard Images"
+description: "Overview: Mariadb Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/mariadb](https://github.com/chainguard-images/images/tree/main/images/mariadb)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
+[cgr.dev/chainguard/mariadb](https://github.com/chainguard-images/images/tree/main/images/mariadb)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | 19 hours ago | `sha256:e9bbd7db245ac64125b55b1c425de89f37073aa1e6c3e7e966bde81538995f40` |
 
 
 
@@ -111,4 +112,3 @@ networks:
   wolfi:
     driver: bridge
 ```
-

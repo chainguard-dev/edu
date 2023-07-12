@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: consul"
+title: "Image Overview: Consul"
 type: "article"
-description: "Overview: consul Chainguard Images"
+description: "Overview: Consul Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/consul](https://github.com/chainguard-images/images/tree/main/images/consul)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.15`, `1.15.3`, `1.15.3-r1`                 |
-| `latest-dev` | `1-dev`, `1.15-dev`, `1.15.3-dev`, `1.15.3-r1-dev` |
+[cgr.dev/chainguard/consul](https://github.com/chainguard-images/images/tree/main/images/consul)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | 20 hours ago | `sha256:7b27607ea382685d9c73676b9c39499b23d9eb28a7f32282814e239f7e13e9dc` |
+| `latest`     | 20 hours ago | `sha256:f48aa9ee0a5e1d93876b87b08e0d03cc2331a598c0e3dc72c05c9c805222bbaa` |
 
 
 
@@ -59,4 +60,3 @@ $ docker run cgr.dev/chainguard/consul
 
 ==> Log data will now stream in as it occurs:
 ```
-

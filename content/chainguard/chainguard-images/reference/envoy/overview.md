@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: envoy"
+title: "Image Overview: Envoy"
 type: "article"
-description: "Overview: envoy Chainguard Images"
+description: "Overview: Envoy Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/envoy](https://github.com/chainguard-images/images/tree/main/images/envoy)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `1`, `1.26`, `1.26.1`, `1.26.1-r0` |
+[cgr.dev/chainguard/envoy](https://github.com/chainguard-images/images/tree/main/images/envoy)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | 20 hours ago | `sha256:506c256432772a1973b56967d5a79046aa7cd855adc54a15d663740ff7fbe1f7` |
 
 
 
@@ -44,4 +45,3 @@ Or to use a customised envoy configuratiom see https://www.envoyproxy.io/docs/en
 ```sh
 docker run --platform=linux/amd64 -p10000:10000 -p 9901:9901 --rm -v $PWD/config:/etc/envoy cgr.dev/chainguard/envoy envoy --config-path /etc/envoy/envoy.yaml
 ```
-

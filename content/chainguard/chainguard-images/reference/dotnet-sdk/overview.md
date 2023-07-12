@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: dotnet-sdk"
+title: "Image Overview: Dotnet-sdk"
 type: "article"
-description: "Overview: dotnet-sdk Chainguard Images"
+description: "Overview: Dotnet-sdk Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/dotnet-sdk](https://github.com/chainguard-images/images/tree/main/images/dotnet-sdk)
-| Tags         | Aliases                                             |
-|--------------|-----------------------------------------------------|
-| `latest`     | `7`, `7.0`, `7.0.105`, `7.0.105-r1`                 |
-| `latest-dev` | `7-dev`, `7.0-dev`, `7.0.105-dev`, `7.0.105-r1-dev` |
+[cgr.dev/chainguard/dotnet-sdk](https://github.com/chainguard-images/images/tree/main/images/dotnet-sdk)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | 20 hours ago | `sha256:e5dd5e9a1f08dcb4aea7f2090858ea6cc27e75a4170ae4e857b8aed6ba7ad9ab` |
+| `latest`     | 20 hours ago | `sha256:81512ae986ef10f4c32546f606595f4fa1b9b260cacad4d8cc57aef852903033` |
 
 
 
@@ -29,4 +30,3 @@ Container image containing a Wolfi-flavored .NET SDK.
 The image is available on `cgr.dev`:
 
     docker pull cgr.dev/chainguard/dotnet-sdk:7.0
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: mdbook"
+title: "Image Overview: Mdbook"
 type: "article"
-description: "Overview: mdbook Chainguard Images"
+description: "Overview: Mdbook Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/mdbook](https://github.com/chainguard-images/images/tree/main/images/mdbook)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
+[cgr.dev/chainguard/mdbook](https://github.com/chainguard-images/images/tree/main/images/mdbook)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | 19 hours ago | `sha256:91bffe9e1ffe5f8a762013c73ea8390f87e0d8b6eff53ee66b855c4118b93df3` |
 
 
 
@@ -42,4 +43,3 @@ docker run --rm \
     cgr.dev/chainguard/mdbook:latest
     init --force --title chainguard-images --ignore git
 ```
-

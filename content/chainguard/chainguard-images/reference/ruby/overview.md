@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: ruby"
+title: "Image Overview: Ruby"
 type: "article"
-description: "Overview: ruby Chainguard Images"
+description: "Overview: Ruby Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,15 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/ruby](https://github.com/chainguard-images/images/tree/main/images/ruby)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `3`, `3.2`, `3.2.2`, `3.2.2-r1`                 |
-| `latest-dev` | `3-dev`, `3.2-dev`, `3.2.2-dev`, `3.2.2-r1-dev` |
-| `3.1`        | `3.1`, `3.1.4`, `3.1.4-r0`                      |
-| `3.1-dev`    | `3.1-dev`, `3.1.4-dev`, `3.1.4-r0-dev`          |
-| `3.0`        | `3.0`, `3.0.6`, `3.0.6-r0`                      |
-| `3.0-dev`    | `3.0-dev`, `3.0.6-dev`, `3.0.6-r0-dev`          |
+[cgr.dev/chainguard/ruby](https://github.com/chainguard-images/images/tree/main/images/ruby)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | 19 hours ago | `sha256:e142fd1ccc5a671cb74852e6e91f29ce713647334dd2039f82aca3a4896f409e` |
+| `latest`     | 19 hours ago | `sha256:fd42c25ebcf858481ab8243deb018b01fd192daa9d74c555c5d5f8055bd74e6a` |
 
 
 
@@ -35,4 +32,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/ruby:latest
 ```
-

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: haproxy-ingress"
+title: "Image Overview: Haproxy-ingress"
 type: "article"
-description: "Overview: haproxy-ingress Chainguard Images"
+description: "Overview: Haproxy-ingress Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/haproxy-ingress](https://github.com/chainguard-images/images/tree/main/images/haproxy-ingress)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.14`, `0.14.3`, `0.14.3-r1`                 |
-| `latest-dev` | `0-dev`, `0.14-dev`, `0.14.3-dev`, `0.14.3-r1-dev` |
+[cgr.dev/chainguard/haproxy-ingress](https://github.com/chainguard-images/images/tree/main/images/haproxy-ingress)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 20 hours ago | `sha256:cce9a44002f8073c38120c5c83e6020e40e668e6d660a67130b9e4c0a6020a4c` |
+| `latest-dev` | 20 hours ago | `sha256:1c8bd3a6f4d2bab95e8a4e3a6e222140912110c49af2fef233eb490ad75bf7a9` |
 
 
 
@@ -37,4 +38,3 @@ helm install ingress haproxy-ingress/haproxy-ingress \
 
 kubectl wait --for=condition=ready pod --selector "app.kubernetes.io/name=haproxy-ingress" --timeout=120s
 ```
-

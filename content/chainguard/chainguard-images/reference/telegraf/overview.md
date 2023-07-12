@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: telegraf"
+title: "Image Overview: Telegraf"
 type: "article"
-description: "Overview: telegraf Chainguard Images"
+description: "Overview: Telegraf Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,15 +14,16 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/telegraf](https://github.com/chainguard-images/images/tree/main/images/telegraf)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.27`, `1.27.0`, `1.27.0-r0`                 |
-| `latest-dev` | `1-dev`, `1.27-dev`, `1.27.0-dev`, `1.27.0-r0-dev` |
+[cgr.dev/chainguard/telegraf](https://github.com/chainguard-images/images/tree/main/images/telegraf)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 19 hours ago | `sha256:8a37469195442ca1cca10c25505f9255db18ea596b46d36e706c76f0204054f1` |
+| `latest-dev` | 19 hours ago | `sha256:d5fbbe30c031a00e78e5fb3ff9e84f7d7cda039086c4b23b620e07947c3c4ac7` |
 
 
 
-Minimal image with Telegraf. **EXPERIMENTAL**
+Minimal image with Telegraf.
 
 ## Get It!
 
@@ -47,4 +48,3 @@ This location can be overridden with the `---config` or `--config-directory` fla
 2023-03-28T14:07:48Z I! Loading config file: /etc/telegraf/telegraf.conf
 2023-03-28T14:07:48Z E! [telegraf] Error running agent: no outputs found, did you provide a valid config file?
 ```
-

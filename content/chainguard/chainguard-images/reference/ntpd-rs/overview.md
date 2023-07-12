@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: ntpd-rs"
+title: "Image Overview: Ntpd-rs"
 type: "article"
-description: "Overview: ntpd-rs Chainguard Images"
+description: "Overview: Ntpd-rs Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/ntpd-rs](https://github.com/chainguard-images/images/tree/main/images/ntpd-rs)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `0`, `0.3`, `0.3.5`, `0.3.5-r0`                 |
-| `latest-dev` | `0-dev`, `0.3-dev`, `0.3.5-dev`, `0.3.5-r0-dev` |
+[cgr.dev/chainguard/ntpd-rs](https://github.com/chainguard-images/images/tree/main/images/ntpd-rs)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 19 hours ago | `sha256:5011a890eb2fb1becb55bdbd572cafc6e512e978d36963ef60c564614d23c004` |
+| `latest-dev` | 19 hours ago | `sha256:ebb42e31d0f96a4e309d0a6e844f62099fcf77cf3c4b44970665aa97e0d9d4c8` |
 
 
 
@@ -49,4 +50,3 @@ $ docker run --cap-add SYS_TIME cgr.dev/chainguard/ntpd-rs -p pool.ntp.org
 2023-04-02T18:50:31.094893Z  WARN run{config=SystemConfig { min_intersection_survivors: 3, min_cluster_survivors: 3, frequency_tolerance: FrequencyTolerance { ppm: 15 }, distance_threshold: NtpDuration(1000.0000002328306 ms), frequency_measurement_period: NtpDuration(900000.0002095476 ms), spike_threshold: NtpDuration(900000.0002095476 ms), panic_threshold: StepThreshold { forward: Some(NtpDuration(1000000.0002328306 ms)), backward: Some(NtpDuration(1000000.0002328306 ms)) }, startup_panic_threshold: StepThreshold { forward: None, backward: None }, accumulated_threshold: None, local_stratum: 16, poll_limits: PollIntervalLimits { min: PollInterval(16 s), max: PollInterval(1024 s) }, initial_poll: PollInterval(16 s) } local_clock_time=NtpInstant { instant: Instant { tv_sec: 331968, tv_nsec: 938303897 } } system_poll=PollInterval(16 s) peers=[PeerIndex { index: 0 }]}:clock_select{peers=[(PeerIndex { index: 0 }, PeerTimeSnapshot { root_distance_without_time: NtpDuration(8035.252420705569 ms), statistics: PeerStatistics { offset: NtpDuration(47.34621826730347 ms), delay: NtpDuration(93.3494211857555 ms), dispersion: NtpDuration(7937.502728527762 ms), jitter: 3.814697266513178e-6 }, time: NtpInstant { instant: Instant { tv_sec: 331968, tv_nsec: 938270064 } }, stratum: 2, leap_indicator: NoWarning, root_delay: NtpDuration(60.57739259222927 ms), root_dispersion: NtpDuration(20.782470707963796 ms) })]}: ntp_proto::clock_select: No clique of peers that agree on the current time.
 2023-04-02T18:50:31.094923Z  INFO ntp_proto::algorithm::standard: filter and combine did not produce a result
 ```
-

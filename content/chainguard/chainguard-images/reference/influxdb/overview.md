@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: influxdb"
+title: "Image Overview: Influxdb"
 type: "article"
-description: "Overview: influxdb Chainguard Images"
+description: "Overview: Influxdb Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/influxdb](https://github.com/chainguard-images/images/tree/main/images/influxdb)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.7`, `2.7.1`, `2.7.1-r2`                 |
-| `latest-dev` | `2-dev`, `2.7-dev`, `2.7.1-dev`, `2.7.1-r2-dev` |
+[cgr.dev/chainguard/influxdb](https://github.com/chainguard-images/images/tree/main/images/influxdb)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 20 hours ago | `sha256:be2f5eeca6cec813911ff26f2344be64ee12097836e22cb8aae50824f2ed28cb` |
+| `latest-dev` | 20 hours ago | `sha256:173aa9ef4f69ed7ddf520a798053e685d9946d61dc54c822c7a6c478a79b94ab` |
 
 
 
@@ -88,4 +89,3 @@ To retrieve the password for the 'admin' user:
 
 Note: with enabled persistence, admin password is only set once during the initial deployment. The password is not changed when InfluxDB 2 is re-deployed with different password.
 ```
-

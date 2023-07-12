@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: kubewatch"
+title: "Image Overview: Kubewatch"
 type: "article"
-description: "Overview: kubewatch Chainguard Images"
+description: "Overview: Kubewatch Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kubewatch](https://github.com/chainguard-images/images/tree/main/images/kubewatch)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.5`, `2.5.0`, `2.5.0-r1`                 |
-| `latest-dev` | `2-dev`, `2.5-dev`, `2.5.0-dev`, `2.5.0-r1-dev` |
+[cgr.dev/chainguard/kubewatch](https://github.com/chainguard-images/images/tree/main/images/kubewatch)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 19 hours ago | `sha256:a05833ceac9e0084d2c9dac403ef349c4092ec5643a60a8e482e573724b8769a` |
+| `latest-dev` | 19 hours ago | `sha256:321e0a1267ec6cb68df213ec512e5764afebb5b1c11047cca027449c93e10eb4` |
 
 
 
@@ -45,4 +46,3 @@ $ helm install kubewatch robusta/kubewatch \
     --set image.tag=latest
     <other configuration parameters here>
 ```
-

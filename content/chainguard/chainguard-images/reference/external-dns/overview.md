@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: external-dns"
+title: "Image Overview: External-dns"
 type: "article"
-description: "Overview: external-dns Chainguard Images"
+description: "Overview: External-dns Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/external-dns](https://github.com/chainguard-images/images/tree/main/images/external-dns)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.13`, `0.13.5`, `0.13.5-r1`                 |
-| `latest-dev` | `0-dev`, `0.13-dev`, `0.13.5-dev`, `0.13.5-r1-dev` |
+[cgr.dev/chainguard/external-dns](https://github.com/chainguard-images/images/tree/main/images/external-dns)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 20 hours ago | `sha256:ff48aee16093966edf8f4ab561a28389d9629a41b1a67b7940f91228dfd29625` |
+| `latest-dev` | 20 hours ago | `sha256:5bb8418ec99c62401ebc2793b525627b4caa53ccc0480c13aa9214dd9fb558b2` |
 
 
 
@@ -57,4 +58,3 @@ Flags:
                                  a Kubernetes configuration file (default:
                                  auto-detect)
 ```
-

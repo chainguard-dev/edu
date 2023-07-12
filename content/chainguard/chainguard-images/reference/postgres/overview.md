@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: postgres"
+title: "Image Overview: Postgres"
 type: "article"
-description: "Overview: postgres Chainguard Images"
+description: "Overview: Postgres Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/postgres](https://github.com/chainguard-images/images/tree/main/images/postgres)
-| Tags     | Aliases                 |
-|----------|-------------------------|
-| `latest` | `15`, `15.3`, `15.3-r0` |
+[cgr.dev/chainguard/postgres](https://github.com/chainguard-images/images/tree/main/images/postgres)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | 19 hours ago | `sha256:b4876d80c1cde27353b1b80fa0bace3576908789517086bfa80e0194f0cfd7df` |
+| `latest`     | 19 hours ago | `sha256:be1056419a1bdedcf8b35ae6a1e3b02375a8f00b5b0532d42eea0da346c97bec` |
 
 
 
@@ -90,4 +92,3 @@ You should see the newly created `accounts` table
  public | accounts | table | postgres
 (1 row)
 ```
-

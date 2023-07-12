@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: kube-downscaler"
+title: "Image Overview: Kube-downscaler"
 type: "article"
-description: "Overview: kube-downscaler Chainguard Images"
+description: "Overview: Kube-downscaler Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kube-downscaler](https://github.com/chainguard-images/images/tree/main/images/kube-downscaler)
-| Tags         | Aliases                                             |
-|--------------|-----------------------------------------------------|
-| `latest`     | `23`, `23.2`, `23.2.0`, `23.2.0-r2`                 |
-| `latest-dev` | `23-dev`, `23.2-dev`, `23.2.0-dev`, `23.2.0-r2-dev` |
+[cgr.dev/chainguard/kube-downscaler](https://github.com/chainguard-images/images/tree/main/images/kube-downscaler)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | 19 hours ago | `sha256:225a377d5f5d302b4128daa65587b5f06fb111504368adff64b73001106b21fe` |
+| `latest-dev` | 19 hours ago | `sha256:5f2660ecd43bff6f88d21405f8c8a96783de1d45a02bfba8408be4e946931368` |
 
 
 
@@ -31,4 +32,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/kube-downscaler:latest
 ```
-

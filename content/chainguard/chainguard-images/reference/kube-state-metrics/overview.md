@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: kube-state-metrics"
+title: "Image Overview: Kube-state-metrics"
 type: "article"
-description: "Overview: kube-state-metrics Chainguard Images"
+description: "Overview: Kube-state-metrics Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kube-state-metrics](https://github.com/chainguard-images/images/tree/main/images/kube-state-metrics)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.9`, `2.9.2`, `2.9.2-r1`                 |
-| `latest-dev` | `2-dev`, `2.9-dev`, `2.9.2-dev`, `2.9.2-r1-dev` |
+[cgr.dev/chainguard/kube-state-metrics](https://github.com/chainguard-images/images/tree/main/images/kube-state-metrics)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | 19 hours ago | `sha256:2294463003741982751961448ec44963604c2759a265a2e775607d767c1dff7a` |
+| `latest`     | 19 hours ago | `sha256:16e228350e3b3cc5392698b663e56af9b55b462a4431a4c552f873f532583834` |
 
 
 
@@ -40,24 +41,28 @@ To test:
 $ docker run cgr.dev/chainguard/kube-state-metrics
 ```
 
-## Configuration
 
-The image can be configured through flags.
-Run it with the `--help` flag to see the full list:
+There are several methods to deploy the kube-state-metrics, but we will use the `helm` method.
+
+We should add the `prometheus-community` Helm repository to our repositories list:
 
 ```shell
-$ docker run cgr.dev/chainguard/kube-state-metrics --help
-kube-state-metrics is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects.
-
-Usage:
-  kube-state-metrics [flags]
-  kube-state-metrics [command]
-
-Available Commands:
-  completion  Generate completion script for kube-state-metrics.
-  help        Help about any command
-  version     Print version information.
-
-Flags:
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
 ```
 
+Next, we can install the kube-state-metrics with the following command:
+
+```sh
+helm upgrade --install cg-test \
+    prometheus-community/kube-state-metrics \
+    --set image.repository=chainguard/kube-state-metrics \
+    --set image.registry=cgr.dev \
+    --set image.tag=<set to the latest chainguard tag>
+```
+
+Once the kube-state-metrics has been deployed, verify the pods are running:
+
+```shell
+kubectl get pods -l app.kubernetes.io/name=kube-state-metrics
+```
