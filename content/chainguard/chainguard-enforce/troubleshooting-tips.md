@@ -1,7 +1,7 @@
 ---
 title: "Troubleshooting Tips"
 aliases:
-- /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/troubleshooting-tips/
+  - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/troubleshooting-tips/
 type: "article"
 description: "Troubleshooting tips for Chainguard Enforce"
 date: 2023-03-06T15:22:20+01:00
@@ -44,7 +44,7 @@ With `chainctl cluster list`, you can also get this ID by passing the group ID.
 chainctl cluster list --group $GROUP_ID -o json | jq -r .items[0].remoteId
 ```
 
-The output here will also be the remote ID. 
+The output here will also be the remote ID.
 
 ```
 b501db05-3702-4403-81b5-c74a55976597
@@ -57,7 +57,7 @@ You can review more options in the [`chainctl` docs](/chainguard/chainctl/chainc
 You may encounter an exit status due to being unable to fetch the OIDC configuration. This can occur when running the `chainctl cluster install` command.
 
 ```sh
-chainctl cluster install --group=$GROUP --private --context demo 
+chainctl cluster install --group=$GROUP --private --context demo
 ```
 
 The error will be similar to the following.
@@ -114,7 +114,7 @@ If you're using Rancher for Kubernetes, you'll need to point directly to your ku
 KUBECONFIG=/etc/rancher/rke2/rke2.yaml chainctl cluster install --group=$GROUP --private
 ```
 
-If you cannot reach the OIDC endpoint, this will cause issues for a cluster install, review the [previous section](#cluster-oidc-configuration-exit-status) for guidance on troubleshooting this. 
+If you cannot reach the OIDC endpoint, this will cause issues for a cluster install, review the [previous section](#cluster-oidc-configuration-exit-status) for guidance on troubleshooting this.
 
 Additionally, you'll need direct access to the authorized endpoint and not the Rancher proxy URL. When you run `kubectl config view`, you should receive something like the output below, without the Rancher URL.
 
@@ -129,7 +129,7 @@ clusters:
 Ensure that you're pointing to production. You can check the `chainctl` config.
 
 ```sh
-chainctl config view 
+chainctl config view
 ```
 
 The config should be pointing to the production environment, as in the next output.
@@ -146,7 +146,7 @@ platform:
 
 For more guidance on working with the `chainctl` config, review our guide on [How to Manage `chainctl` Configuration](/chainguard/chainguard-enforce/manage-chainctl-config/).
 
-## Policies 
+## Policies
 
 If you're running into issues with policies, this section has some tips for recovery.
 
@@ -161,13 +161,13 @@ To match _everything_ — including the `/` character — use the `**` wildcard 
 You can ensure that a cluster image policy is in the [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) with the following `kubectl` command:
 
 ```sh
-kubectl get cm config-image-policies -n cosign-system 
+kubectl get cm config-image-policies -n cosign-system
 ```
 
-A `describe` of the ConfigMap will show the full policy. 
+A `describe` of the ConfigMap will show the full policy.
 
 ```
-kubectl describe  cm config-image-policies -n cosign-system 
+kubectl describe  cm config-image-policies -n cosign-system
 Name:         config-image-policies
 Namespace:    cosign-system
 Labels:       <none>
@@ -217,7 +217,6 @@ kubectl delete mutatingwebhookconfiguration enforcer
 
 After your urgent situation is over, [reinstall Enforce in your cluster](/chainguard/chainguard-enforce/installation/alternative-installation-methods/) to restore the webhook to its normal operation.
 
-
 ## Verify that namespace is labeled for enforcement
 
 You can check that the namespace is labeled for enforcement with the following command:
@@ -229,7 +228,7 @@ kubectl label namespaces $NAME_SPACE policy.sigstore.dev/include=true
 To label an individual namespace, or set the option to on install to label all namespaces.
 
 ```sh
-chainctl install cluster --opt=namespace_enforcement_mode=opt-in
+chainctl cluster install --opt=namespace_enforcement_mode=opt-in
 ```
 
 You can read more information about installation options in Chainguard Enforce in [our guide](/chainguard/chainguard-enforce/installation/configure-enforcer-options-during-installation/#enforcer-options).
@@ -242,11 +241,9 @@ One issue that may come up when working with Chainguard Enforce is that it won't
 
 Chainguard Enforce needs access to your images in order to parse the associated SBOMs. If your image is in a private repository, check out [our guide on setting up cloud account associations](/chainguard/chainguard-enforce/cloud-account-associations/) to grant Enforce read access to the image.
 
-
 ### SBOMs using older versions of CycloneDX
 
 For CycloneDX, Chainguard Enforce currently only supports version 1.4.
-
 
 ### SBOM included as an in-toto attestation
 
