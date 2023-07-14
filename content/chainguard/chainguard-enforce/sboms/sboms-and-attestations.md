@@ -30,7 +30,7 @@ However, these commands don't work the same way, and Chainguard Enforce treats S
 The following table presents a high-level comparison of the `cosign attach` and `cosign attest` commands.
 
 |   | `cosign attach` | `cosign attest` |
-|----------|----------|----------|
+|:--- | ---: | ---:|
 | Produces an in-toto attestation (a "signed SBOM") | no  | yes  |
 | SBOM can be ingested immediately | yes  | no  |
 | SBOM requires policy for ingestion | no | yes  |
