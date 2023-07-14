@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for kubernetes-csi-external-resizer Images"
 type: "article"
-description: "Provenance information for Kubernetes-csi-external-resizer Chainguard Images"
+description: "Provenance information for kubernetes-csi-external-resizer Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

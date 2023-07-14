@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for prometheus-mysqld-exporter Images"
 type: "article"
-description: "Provenance information for Prometheus-mysqld-exporter Chainguard Images"
+description: "Provenance information for prometheus-mysqld-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

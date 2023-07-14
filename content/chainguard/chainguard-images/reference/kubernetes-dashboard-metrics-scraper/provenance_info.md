@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for kubernetes-dashboard-metrics-scraper Images"
 type: "article"
-description: "Provenance information for Kubernetes-dashboard-metrics-scraper Chainguard Images"
+description: "Provenance information for kubernetes-dashboard-metrics-scraper Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

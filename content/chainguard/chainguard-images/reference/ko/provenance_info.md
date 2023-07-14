@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for ko Images"
 type: "article"
-description: "Provenance information for Ko Chainguard Images"
+description: "Provenance information for ko Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

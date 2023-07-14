@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for aws-for-fluent-bit Images"
 type: "article"
-description: "Provenance information for Aws-for-fluent-bit Chainguard Images"
+description: "Provenance information for aws-for-fluent-bit Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

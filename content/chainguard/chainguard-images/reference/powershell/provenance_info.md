@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for powershell Images"
 type: "article"
-description: "Provenance information for Powershell Chainguard Images"
+description: "Provenance information for powershell Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

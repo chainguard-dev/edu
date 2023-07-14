@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for spire-server Images"
 type: "article"
-description: "Provenance information for Spire-server Chainguard Images"
+description: "Provenance information for spire-server Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

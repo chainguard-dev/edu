@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for helm-chartmuseum Images"
 type: "article"
-description: "Provenance information for Helm-chartmuseum Chainguard Images"
+description: "Provenance information for helm-chartmuseum Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
