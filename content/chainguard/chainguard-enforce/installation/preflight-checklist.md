@@ -35,7 +35,26 @@ Not every installation method requires each prerequisite in this list. The reaso
 
 We currently provide two ways to connect your clusters to Chainguard Enforce: with the [Chainguard Enforce Agent](/chainguard/chainguard-enforce/enforce-overview/#the-chainguard-enforce-agent) and through [Agentless connections](/chainguard/chainguard-enforce/how-to-connect-kubernetes-clusters/#agentless-connections).
 
-The remainder of this document will provide a brief overview of Chainguard's Enforce offerings and walk through their various installation methods. It will highlight each method's prerequisites and include links to appropriate documentation along the way. 
+
+## Agent or Agentless?
+
+An important decision you need to make before installation is whether you want your resources to connect to Chainguard Enforce using the Chainguard Agent or Agentless connections.
+
+A software agent is a program that performs certain actions on behalf of a user. A software agent has the authority to make decisions on its own and doesn’t necessarily require user input. Accordingly, the Chainguard Enforce Agent is able to analyze a given cluster and enforce any policies you’ve applied to the cluster without manual human oversight.
+
+Instead of installing the Agent directly on your cluster, you can allow a remote Agent — managed by Chainguard — to access your cloud account resources on your behalf. A SaaS offering of Enforce, Agentless connections can be useful since they don’t consume any cluster resources. Because they’re managed by Chainguard, issues can often be addressed more quickly than clusters using agentful connections. Additionally, Agentless connections allow for read-only access to your clusters, which some users may find desirable. Be aware that Agentless connections are limited to public GKE and EKS clusters and Google Cloud Run, AWS ECS, and AWS AppRunner projects.
+
+The following table outlines some of the key differences between the Agent and Agentless connections.
+
+|   | Chainguard Agent | Agentless Connections |
+|:--- | ---: | ---:|
+| Managed by... | User-managed | SaaS managed by Chainguard  |
+| Consumes cluster resources? | yes | no  |
+| Compatible with both `chainctl`? and the Chainguard Console? | yes | yes  |
+| Compatible with private resources? | yes | no |
+| Compatible with public resources? | yes | yes <br> (limited to certain GCP and AWS resources) |
+
+The remainder of this document will walk through the various installation methods available for the Chainguard Enforce Agent and Agentless connections. It will highlight each method's prerequisites and include links to appropriate documentation along the way.
 
 
 ## Installing the Chainguard Enforce Agent
