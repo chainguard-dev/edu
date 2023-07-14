@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: go"
 type: "article"
-description: "Overview: go Chainguard Images"
+description: "Overview: go Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,13 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/go](https://github.com/chainguard-images/images/tree/main/images/go)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `1.19`       | `1.19`, `1.19.10`, `1.19.10-r0`                    |
-| `1.19-dev`   | `1.19-dev`, `1.19.10-dev`, `1.19.10-r0-dev`        |
-| `latest`     | `1`, `1.20`, `1.20.5`, `1.20.5-r0`                 |
-| `latest-dev` | `1-dev`, `1.20-dev`, `1.20.5-dev`, `1.20.5-r0-dev` |
+[cgr.dev/chainguard/go](https://github.com/chainguard-images/images/tree/main/images/go)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | July 12th    | `sha256:990bb8eeb6ecb77e7721bc118b2df8b57075f3c954e2e955a26216633df55d5f` |
+| `latest-dev` | July 12th    | `sha256:d0f9b1559660073acb2f474ea92bb8a6bbd9558228c8758edfcbc47be9501552` |
 
 
 
@@ -123,4 +122,3 @@ docker images go-hello-world
 REPOSITORY       TAG       IMAGE ID       CREATED       SIZE
 go-hello-world   latest    859fedabd532   5 hours ago   3.21MB
 ```
-

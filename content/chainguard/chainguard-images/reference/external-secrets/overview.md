@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: external-secrets"
 type: "article"
-description: "Overview: external-secrets Chainguard Images"
+description: "Overview: external-secrets Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/external-secrets](https://github.com/chainguard-images/images/tree/main/images/external-secrets)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `0`, `0.8`, `0.8.3`, `0.8.3-r2`                 |
-| `latest-dev` | `0-dev`, `0.8-dev`, `0.8.3-dev`, `0.8.3-r2-dev` |
+[cgr.dev/chainguard/external-secrets](https://github.com/chainguard-images/images/tree/main/images/external-secrets)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:034ffdc1a6399f7b72131988b30bacd373fdd680fbeb6474cf96dd63c136ca2e` |
+| `latest`     | July 11th    | `sha256:20ec3e638422151fe6ba6f835f41f40478c88a052eb009c62441831e304455c1` |
 
 
 
@@ -50,4 +51,3 @@ $ helm install external-secrets \
 ```
 
 See the [configuration](https://github.com/external-secrets/external-secrets/tree/main/deploy/charts/external-secrets) docs for more examples.
-

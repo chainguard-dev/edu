@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: kafka"
 type: "article"
-description: "Overview: kafka Chainguard Images"
+description: "Overview: kafka Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/kafka](https://github.com/chainguard-images/images/tree/main/images/kafka)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `3`, `3.5`, `3.5.0`, `3.5.0-r0`                 |
-| `latest-dev` | `3-dev`, `3.5-dev`, `3.5.0-dev`, `3.5.0-r0-dev` |
+[cgr.dev/chainguard/kafka](https://github.com/chainguard-images/images/tree/main/images/kafka)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:139c12287ffed8af3849036f5140eca68c69d75b3b6bc1d4aafac66dfd7e2c03` |
+| `latest`     | July 11th    | `sha256:8c0d24035afc196eb33ed994a2445e5e63327a337280201bf88e6de769ce58da` |
 
 
 
@@ -76,4 +77,3 @@ $ /usr/lib/kafka/bin/kafka-server-start.sh /usr/lib/kafka/config/server.properti
 [2023-03-18 00:10:17,536] INFO Client environment:java.home=/usr/lib/jvm/openjdk-jre (org.apache.zookeeper.ZooKeeper)
 ...
 ```
-

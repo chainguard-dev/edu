@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: minio-client"
 type: "article"
-description: "Overview: minio-client Chainguard Images"
+description: "Overview: minio-client Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/minio-client](https://github.com/chainguard-images/images/tree/main/images/minio-client)
-| Tags         | Aliases                                                                        |
-|--------------|--------------------------------------------------------------------------------|
-| `latest`     | `0`, `0.20230323`, `0.20230323.200304`, `0.20230323.200304-r3`                 |
-| `latest-dev` | `0-dev`, `0.20230323-dev`, `0.20230323.200304-dev`, `0.20230323.200304-r3-dev` |
+[cgr.dev/chainguard/minio-client](https://github.com/chainguard-images/images/tree/main/images/minio-client)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:c7d6791ae967f3ef4e29fa351f98e1bc0b6ddaff6ef2c89b5451b5e3aebccd79` |
+| `latest`     | July 11th    | `sha256:cca0811c4d4a3f6a5af397821b0428a778b3d27c7404e3e0cdb9504ef1e61520` |
 
 
 
@@ -85,4 +86,3 @@ COMMANDS:
   od         measure single stream upload and download
   batch      manage batch jobs
 ```
-

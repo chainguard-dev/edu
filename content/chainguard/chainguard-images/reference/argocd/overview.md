@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: argocd"
 type: "article"
-description: "Overview: argocd Chainguard Images"
+description: "Overview: argocd Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/argocd](https://github.com/chainguard-images/images/tree/main/images/argocd)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `2`, `2.7`, `2.7.5`, `2.7.5-r0`                 |
-| `latest-dev` | `2-dev`, `2.7-dev`, `2.7.5-dev`, `2.7.5-r0-dev` |
+[cgr.dev/chainguard/argocd](https://github.com/chainguard-images/images/tree/main/images/argocd)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:9af4af9df80ac1978c16f8f4192788fde92b3328a24fddea2ca016e08b130a9d` |
+| `latest`     | July 12th    | `sha256:20fb09a96739c1e56f499b51b926f96b1b620536120416c2adbce2f8ad7467c3` |
 
 
 
@@ -26,10 +27,11 @@ toc: true
 
 ## Get It!
 
-The image is available on `cgr.dev`:
+The images available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/argocd
+docker pull cgr.dev/chainguard/argocd-repo-server
 ```
 
 ## Using argocd
@@ -66,7 +68,7 @@ Optionally, you can use Chainguard Images to replace the other ArgoCD dependenci
 
 ```yaml
 redis:
-  image: 
+  image:
     repository: cgr.dev/chainguard/redis
     tag: 7.0
 
@@ -81,4 +83,3 @@ dex:
 ArgoCD is comprised of multiple [components](https://argo-cd.readthedocs.io/en/stable/operator-manual/architecture/#components) that all share the same image.
 
 Keeping in line with the philosophy of minimal components in Chainguard images, we chose to split this up to keep the number of packages in the components to a minimum. This means the overall number of images increases, but the size and complexity of each image is reduced to (almost) the bare minimum needed to function.
-

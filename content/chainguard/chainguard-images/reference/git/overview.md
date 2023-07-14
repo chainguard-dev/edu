@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: git"
 type: "article"
-description: "Overview: git Chainguard Images"
+description: "Overview: git Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,15 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/git](https://github.com/chainguard-images/images/tree/main/images/git)
-| Tags                | Aliases                                                                        |
-|---------------------|--------------------------------------------------------------------------------|
-| `latest`            | `2`, `2.41`, `2.41.0`, `2.41.0-r0`                                             |
-| `latest-dev`        | `2-dev`, `2.41-dev`, `2.41.0-dev`, `2.41.0-r0-dev`                             |
-| `latest-glibc`      | `glibc-2`, `glibc-2.41`, `glibc-2.41.0`, `glibc-2.41.0-r0`                     |
-| `latest-glibc-dev`  | `glibc-2-dev`, `glibc-2.41-dev`, `glibc-2.41.0-dev`, `glibc-2.41.0-r0-dev`     |
-| `latest-root`       | `root-2`, `root-2.41`, `root-2.41.0`, `root-2.41.0-r0`                         |
-| `latest-glibc-root` | `glibc-root-2`, `glibc-root-2.41`, `glibc-root-2.41.0`, `glibc-root-2.41.0-r0` |
+[cgr.dev/chainguard/git](https://github.com/chainguard-images/images/tree/main/images/git)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 13th    | `sha256:850332c1197fcf61fab1435f0e32fd8d09185a8fbe57e43c759a814c0868cd97` |
+| `latest`     | July 13th    | `sha256:94e49364bb53f511ee137c21ff1f1355d12f0f03d2fac5540a21b98295781c82` |
 
 
 
@@ -95,4 +92,3 @@ Resolving deltas: 100% (70/70), done.
 ```
 
 You can now check the contents of your `workspace` directory, where you should find the cloned repo.
-

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: prometheus-postgres-exporter"
 type: "article"
-description: "Overview: prometheus-postgres-exporter Chainguard Images"
+description: "Overview: prometheus-postgres-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,95 +14,19 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/prometheus-postgres-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-postgres-exporter)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `0`, `0.12`, `0.12.1`, `0.12.1-r0` |
+[cgr.dev/chainguard/prometheus-postgres-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-postgres-exporter)
 
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:df2d09478cd4e59e935a32ced013fe8055c8ae9153ea3fac641a1cb2a49ff552` |
+| `latest`     | July 12th    | `sha256:6698be890ed1f2e488f55fb255ead9353e258da0ffa452b8edd2e496c873cb86` |
 
+# prometheus-postgres-exporter
 
-Minimal Prometheus Postgres Exporter Image
+Minimal prometheus-postgres-exporter images with nightly builds.
 
-## Get It!
-
-The image is available on `cgr.dev`:
-
-```
-docker pull cgr.dev/chainguard/prometheus-postgres-exporter:latest
-```
-
-## Usage
-
-This image listens on port 9187 by default.
-
-To test:
+## Get it!
 
 ```shell
-ts=2023-05-01T19:06:49.164Z caller=proc.go:250 msg="Excluded databases" databases=[]
-ts=2023-05-01T19:06:49.179Z caller=tls_config.go:232 level=info msg="Listening on" address=[::]:9187
-ts=2023-05-01T19:06:49.179Z caller=tls_config.go:235 level=info msg="TLS is disabled." http2=false address=[::]:9187
+docker pull cgr.dev/chainguard/prometheus-postgres-exporter
 ```
-
-## Configuration
-
-The image can be configured through flags.
-Run it with the `--help` flag to see the full list:
-
-```shell
-$ docker run cgr.dev/chainguard/prometheus-postgres-exporter --help
-usage: postgres_exporter [<flags>]
-
-
-Flags:
-  -h, --[no-]help                Show context-sensitive help (also try
-                                 --help-long and --help-man).
-      --[no-]collector.database  Enable the database collector (default:
-                                 enabled).
-      --[no-]collector.bgwriter  Enable the bgwriter collector (default:
-                                 enabled).
-      --[no-]collector.replication_slot
-                                 Enable the replication_slot collector (default:
-                                 enabled).
-      --config.file="postgres_exporter.yml"
-                                 Postgres exporter configuration file.
-      --[no-]web.systemd-socket  Use systemd socket activation listeners instead
-                                 of port listeners (Linux only).
-      --web.listen-address=:9187 ...
-                                 Addresses on which to expose metrics and web
-                                 interface. Repeatable for multiple addresses.
-      --web.config.file=""       [EXPERIMENTAL] Path to configuration file that
-                                 can enable TLS or authentication.
-      --web.telemetry-path="/metrics"
-                                 Path under which to expose metrics.
-                                 ($PG_EXPORTER_WEB_TELEMETRY_PATH)
-      --[no-]disable-default-metrics
-                                 Do not include default metrics.
-                                 ($PG_EXPORTER_DISABLE_DEFAULT_METRICS)
-      --[no-]disable-settings-metrics
-                                 Do not include pg_settings metrics.
-                                 ($PG_EXPORTER_DISABLE_SETTINGS_METRICS)
-      --[no-]auto-discover-databases
-                                 Whether to discover the databases
-                                 on a server dynamically.
-                                 ($PG_EXPORTER_AUTO_DISCOVER_DATABASES)
-      --extend.query-path=""     Path to custom queries to run.
-                                 ($PG_EXPORTER_EXTEND_QUERY_PATH)
-      --[no-]dumpmaps            Do not run, simply dump the maps.
-      --constantLabels=""        A list of label=value separated by comma(,).
-                                 ($PG_EXPORTER_CONSTANT_LABELS)
-      --exclude-databases=""     A list of databases to remove when
-                                 autoDiscoverDatabases is enabled
-                                 ($PG_EXPORTER_EXCLUDE_DATABASES)
-      --include-databases=""     A list of databases to include when
-                                 autoDiscoverDatabases is enabled
-                                 ($PG_EXPORTER_INCLUDE_DATABASES)
-      --metric-prefix="pg"       A metric prefix can be used to have non-default
-                                 (not "pg") prefixes for each of the metrics
-                                 ($PG_EXPORTER_METRIC_PREFIX)
-      --[no-]version             Show application version.
-      --log.level=info           Only log messages with the given severity or
-                                 above. One of: [debug, info, warn, error]
-      --log.format=logfmt        Output format of log messages. One of: [logfmt,
-                                 json]
-```
-

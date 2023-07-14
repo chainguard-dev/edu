@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: static"
 type: "article"
-description: "Overview: static Chainguard Images"
+description: "Overview: static Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,11 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/static](https://github.com/chainguard-images/images/tree/main/images/static)
-| Tags           | Aliases |
-|----------------|---------|
-| `latest`       |         |
-| `latest-glibc` |         |
+[cgr.dev/chainguard/static](https://github.com/chainguard-images/images/tree/main/images/static)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | July 11th    | `sha256:6b35c7e7084349b3a71e70219f61ea49b22d663b89b0ea07474e5b44cbc70860` |
 
 
 
@@ -110,4 +110,3 @@ the `defaultBaseImage` to `cgr.dev/chainguard/static`.
 ## Users
 
 The image has a single user `nonroot` with uid `65532`, belonging to gid `65532`.
-

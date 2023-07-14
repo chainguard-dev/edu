@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: nginx"
 type: "article"
-description: "Overview: nginx Chainguard Images"
+description: "Overview: nginx Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,12 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/nginx](https://github.com/chainguard-images/images/tree/main/images/nginx)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.25`, `1.25.1`, `1.25.1-r0`                 |
-| `latest-dev` | `1-dev`, `1.25-dev`, `1.25.1-dev`, `1.25.1-r0-dev` |
-| `next`       |                                                    |
+[cgr.dev/chainguard/nginx](https://github.com/chainguard-images/images/tree/main/images/nginx)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:2a2e9d0fe3896f4cadb5d2052671147a24c4d1b5e7fa7dcd96aa74f0aa087c46` |
+| `latest`     | July 11th    | `sha256:c5e3c76bd4fa4bfea67ba56b237a17e6ee6aea3b3927aee5aa084ac45fad865c` |
 
 
 
@@ -69,7 +69,7 @@ If you navigate to `localhost:8080`, you should see the nginx welcome page.
 To run an example Hello World app, navigate to the root of this repo and run:
 
 ```
-docker run -v $(pwd)/examples/hello-world/site-content:/var/lib/nginx/html -p 8080:8080 cgr.dev/chainguard/nginx
+docker run -v $(pwd)/examples/hello-world/site-content:/usr/share/nginx/html -p 8080:8080 cgr.dev/chainguard/nginx
 ```
 
 If you navigate to `localhost:8080`, you should see `Hello World from Nginx!`.
@@ -145,4 +145,3 @@ shouldn't make a difference, but note the "User Directive Warning" above.
 
 The Docker official image has support for setting environment variables that get substitued into the
 config file. Currently we do not have support for this, but are [looking into options](https://github.com/chainguard-images/images/issues/435). 
-

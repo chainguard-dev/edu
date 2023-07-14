@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: zot"
 type: "article"
-description: "Overview: zot Chainguard Images"
+description: "Overview: zot Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/zot](https://github.com/chainguard-images/images/tree/main/images/zot)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.4`, `1.4.3`, `1.4.3-r5`                 |
-| `latest-dev` | `1-dev`, `1.4-dev`, `1.4.3-dev`, `1.4.3-r5-dev` |
+[cgr.dev/chainguard/zot](https://github.com/chainguard-images/images/tree/main/images/zot)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:5fd4c51d6e017fa0e4a627bd44f363b42093e75c4754bce4b294ba4a29df3723` |
+| `latest`     | July 11th    | `sha256:c425631169cbffcf7c6b8af7d5a9a19313136d9ba939f07d57f8139e6b1c8838` |
 
 
 
@@ -79,4 +80,3 @@ docker run --rm \
   localhost:5000/demo:latest \
   -c 'echo hello world'
 ```
-

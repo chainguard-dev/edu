@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: aws-ebs-csi-driver"
 type: "article"
-description: "Overview: aws-ebs-csi-driver Chainguard Images"
+description: "Overview: aws-ebs-csi-driver Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/aws-ebs-csi-driver](https://github.com/chainguard-images/images/tree/main/images/aws-ebs-csi-driver)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.19`, `1.19.0`, `1.19.0-r1`                 |
-| `latest-dev` | `1-dev`, `1.19-dev`, `1.19.0-dev`, `1.19.0-r1-dev` |
+[cgr.dev/chainguard/aws-ebs-csi-driver](https://github.com/chainguard-images/images/tree/main/images/aws-ebs-csi-driver)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:820cde7b1776990bd718d2a7ea9d62c2ee5972104a2520fba07100dcab67fb93` |
+| `latest`     | July 11th    | `sha256:b41596676b5da11209eb34259d4cb0506fe42f5e0e4bcdda3f3e7fdafa47cc8e` |
 
 
 
@@ -71,4 +72,3 @@ Once the driver has been deployed, verify the pods are running:
 ```shell
 kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-ebs-csi-driver
 ```
-

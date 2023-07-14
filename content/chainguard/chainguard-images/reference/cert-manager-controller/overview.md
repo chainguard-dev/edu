@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: cert-manager-controller"
 type: "article"
-description: "Overview: cert-manager-controller Chainguard Images"
+description: "Overview: cert-manager-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,50 +14,19 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/cert-manager-controller](https://github.com/chainguard-images/images/tree/main/images/cert-manager-controller)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.12`, `1.12.2`, `1.12.2-r0`                 |
-| `latest-dev` | `1-dev`, `1.12-dev`, `1.12.2-dev`, `1.12.2-r0-dev` |
+[cgr.dev/chainguard/cert-manager-controller](https://github.com/chainguard-images/images/tree/main/images/cert-manager-controller)
 
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:6acb241f873295460ef5681bc7aac8c5b91eb4109b38c85b6fb046c9533aea0e` |
+| `latest`     | July 11th    | `sha256:7d7f824d3fbc58fef8958a00e80eda5fbb359afe33990f87ce0deeb66a403790` |
 
+# cert-manager-controller
 
-[Cert Manager](https://cert-manager.io/) Automatically provision and manage TLS certificates in Kubernetes
+Minimal cert-manager-controller images with nightly builds.
 
-## Get It
+## Get it!
 
-The image is available on `cgr.dev`:
-
-```
+```shell
 docker pull cgr.dev/chainguard/cert-manager-controller
 ```
-
-## Using Cert Manager
-
-This image is part of the `cert-manager` controller stack, and is used following the standard `cert-manager` installation ([here](https://cert-manager.io/docs/installation/)), and replacing them with the Chainguard images.
-
-This image is part of the `cert-manager` stack, and can be used as a drop in replacement for the images following the standard `cert-manager` [installation](https://cert-manager.io/docs/installation/).
-
-For example, we can use these images with the helm installation and the following values:
-
-```yaml
-# just this image
-image:
-    repository: cgr.dev/chainguard/cert-manager-controller
-    tag: latest
-
-# all the images
-cainjector:
-    image:
-        repository: cgr.dev/chainguard/cert-manager-cainjector
-        tag: latest
-acmesolver:
-    image:
-        repository: cgr.dev/chainguard/cert-manager-acmesolver
-        tag: latest
-webhook:
-    image:
-        repository: cgr.dev/chainguard/cert-manager-webhook
-        tag: latest
-```
-

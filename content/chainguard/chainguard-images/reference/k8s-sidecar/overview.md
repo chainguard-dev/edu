@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: k8s-sidecar"
 type: "article"
-description: "Overview: k8s-sidecar Chainguard Images"
+description: "Overview: k8s-sidecar Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/k8s-sidecar](https://github.com/chainguard-images/images/tree/main/images/k8s-sidecar)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.24`, `1.24.4`, `1.24.4-r0`                 |
-| `latest-dev` | `1-dev`, `1.24-dev`, `1.24.4-dev`, `1.24.4-r0-dev` |
+[cgr.dev/chainguard/k8s-sidecar](https://github.com/chainguard-images/images/tree/main/images/k8s-sidecar)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:6c0fa5716f05a6ae8b31b5f1dea9606a6bed1f1ebb6dff35f9bf0e4498d487c0` |
+| `latest`     | July 11th    | `sha256:966b5a91cec1b474e8eeae424f59d3c238ad6c8a94e11ca11ebf404bbc0b5ddf` |
 
 
 
@@ -46,4 +47,3 @@ $ docker run cgr.dev/chainguard/k8s-sidecar
 {"time": "2023-03-31T11:50:30.950708+00:00", "msg": "No folder annotation was provided, defaulting to k8s-sidecar-target-directory", "level": "WARNING"}
 {"time": "2023-03-31T11:50:30.950751+00:00", "msg": "Should have added {LABEL} as environment variable! Exit", "level": "CRITICAL"}
 ```
-

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: musl-dynamic"
 type: "article"
-description: "Overview: musl-dynamic Chainguard Images"
+description: "Overview: musl-dynamic Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,29 +14,17 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/musl-dynamic](https://github.com/chainguard-images/images/tree/main/images/musl-dynamic)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `1`, `1.2`, `1.2.4`, `1.2.4-r0` |
+[cgr.dev/chainguard/musl-dynamic](https://github.com/chainguard-images/images/tree/main/images/musl-dynamic)
 
+| Tag | Last Updated | Digest |
+|-----|--------------|--------|
 
+# musl-dynamic
 
-Base image with just enough files to run static binaries!
+Minimal musl-dynamic images with nightly builds.
 
-This image is meant to be used as a base image only, and is otherwise useless. It contains the `alpine-baselayout-data` package from Alpine, which is just a set of data files needed to support glibc and musl static binaries at runtime.
+## Get it!
 
-This image can be used with `ko build`, `docker`, etc, but is only suitable for running static binaries.
-
-## Get It!
-
-The image is available on `cgr.dev`:
-
+```shell
+docker pull cgr.dev/chainguard/musl-dynamic
 ```
-docker pull cgr.dev/chainguard/musl-dynamic:latest
-```
-# Usage
-
-See the [examples/](https://github.com/chainguard-images/images/tree/main/images/musl-dynamic/examples) directory for
-an example C program and associated Dockerfile
-that can be used with this image.
-

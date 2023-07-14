@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: deno"
 type: "article"
-description: "Overview: deno Chainguard Images"
+description: "Overview: deno Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/deno](https://github.com/chainguard-images/images/tree/main/images/deno)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `1`, `1.34`, `1.34.3`, `1.34.3-r0` |
+[cgr.dev/chainguard/deno](https://github.com/chainguard-images/images/tree/main/images/deno)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | July 11th    | `sha256:47760da528bcb8e1c7217060f7ab2880b277b8efb9da5653962d3a0e55b6fcef` |
 
 
 
@@ -68,4 +69,3 @@ Your user-agent is:
 
 curl/7.84.0%
 ```
-

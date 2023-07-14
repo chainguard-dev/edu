@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: wolfi-base"
 type: "article"
-description: "Overview: wolfi-base Chainguard Images"
+description: "Overview: wolfi-base Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
+[cgr.dev/chainguard/wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | July 11th    | `sha256:6e4294d9ce52d4c29edc7dcdb53ba8ae0fd5803f0634d699af1a14bf72cb9dd3` |
 
 
 
@@ -31,4 +32,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/wolfi-base:latest
 ```
-

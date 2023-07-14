@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: redis"
 type: "article"
-description: "Overview: redis Chainguard Images"
+description: "Overview: redis Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/redis](https://github.com/chainguard-images/images/tree/main/images/redis)
-| Tags     | Aliases                           |
-|----------|-----------------------------------|
-| `latest` | `7`, `7.0`, `7.0.11`, `7.0.11-r0` |
+[cgr.dev/chainguard/redis](https://github.com/chainguard-images/images/tree/main/images/redis)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | July 11th    | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
 
 
 
@@ -92,4 +93,3 @@ $ docker run -d -v $(pwd):/data -p 6379:6379 redis
 $ redis-cli get foo
 "bar"
 ```
-

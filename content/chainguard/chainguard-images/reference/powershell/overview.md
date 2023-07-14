@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: powershell"
 type: "article"
-description: "Overview: powershell Chainguard Images"
+description: "Overview: powershell Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,11 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/powershell](https://github.com/chainguard-images/images/tree/main/images/powershell)
-| Tags          | Aliases                                             |
-|---------------|-----------------------------------------------------|
-| `latest`      | `7`, `7.3`, `7.3.4`, `7.3.4-r1`                     |
-| `latest-root` | `root-7`, `root-7.3`, `root-7.3.4`, `root-7.3.4-r1` |
+[cgr.dev/chainguard/powershell](https://github.com/chainguard-images/images/tree/main/images/powershell)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | July 12th    | `sha256:b8cd06b0dce6aa70ca960338755f7d958bbb1e769af9ff7c6a7f81ff3ccec18c` |
 
 
 
@@ -29,4 +29,3 @@ Container image with PowerShell.
 The image is available on `cgr.dev`:
 
     docker pull cgr.dev/chainguard/powershell:latest
-

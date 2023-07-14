@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: cluster-proportional-autoscaler"
 type: "article"
-description: "Overview: cluster-proportional-autoscaler Chainguard Images"
+description: "Overview: cluster-proportional-autoscaler Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/cluster-proportional-autoscaler](https://github.com/chainguard-images/images/tree/main/images/cluster-proportional-autoscaler)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.8`, `1.8.8`, `1.8.8-r2`                 |
-| `latest-dev` | `1-dev`, `1.8-dev`, `1.8.8-dev`, `1.8.8-r2-dev` |
+[cgr.dev/chainguard/cluster-proportional-autoscaler](https://github.com/chainguard-images/images/tree/main/images/cluster-proportional-autoscaler)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:9e5dcaa5a49cf74ce7d8e60b1d7295e52257567243d93d98105b7dd09f2db37c` |
+| `latest`     | July 11th    | `sha256:c673d2b952b66afac1375b990ed638ca4b22f7c0322fc6de6f2fe810be82a418` |
 
 
 
@@ -46,4 +47,3 @@ $ helm install my-release cluster-proportional-autoscaler/cluster-proportional-a
 ```
 
 See the [configuration](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler/tree/master/charts/cluster-proportional-autoscaler) docs for more examples.
-

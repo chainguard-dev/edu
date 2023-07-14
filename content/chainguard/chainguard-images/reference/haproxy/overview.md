@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: haproxy"
 type: "article"
-description: "Overview: haproxy Chainguard Images"
+description: "Overview: haproxy Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/haproxy](https://github.com/chainguard-images/images/tree/main/images/haproxy)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `2`, `2.8`, `2.8.0`, `2.8.0-r0` |
+[cgr.dev/chainguard/haproxy](https://github.com/chainguard-images/images/tree/main/images/haproxy)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | July 11th    | `sha256:5c9b3161ce2677894d3c4837dafcc22fd0a36e89bd18f002254d22711746d8e1` |
 
 
 
@@ -54,4 +55,3 @@ In order for the container to work, you need to mount your custom `haproxy.cfg` 
 ```
 docker run -it --rm -v "$(pwd):/etc/haproxy" cgr.dev/chainguard/haproxy haproxy -f /etc/haproxy/haproxy.cfg
 ```
-

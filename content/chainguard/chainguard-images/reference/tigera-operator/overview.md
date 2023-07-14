@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: tigera-operator"
 type: "article"
-description: "Overview: tigera-operator Chainguard Images"
+description: "Overview: tigera-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/tigera-operator](https://github.com/chainguard-images/images/tree/main/images/tigera-operator)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.30`, `1.30.3`, `1.30.3-r0`                 |
-| `latest-dev` | `1-dev`, `1.30-dev`, `1.30.3-dev`, `1.30.3-r0-dev` |
+[cgr.dev/chainguard/tigera-operator](https://github.com/chainguard-images/images/tree/main/images/tigera-operator)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:8e4fb0d4a256fbc2083f88746482f11239bae9519fb48569af22f578b4263d5a` |
+| `latest`     | July 11th    | `sha256:91320c3646dbc11aa1ff4613513747e8fa01f5e3a8f91919cecffebafac963ef` |
 
 
 
@@ -45,11 +46,9 @@ helm install calico projectcalico/tigera-operator \
     --namespace tigera-operator \
     --create-namespace \
     --set autoDiscovery.clusterName=foo \
-    --set tigeraOperator.registry="${IMAGE_REGISTRY}" \
-    --set tigeraOperator.image="${IMAGE_REPOSITORY}" \
-    --set tigeraOperator.version="${IMAGE_TAG}" \
-    --set image.pullPolicy=IfNotPresent
+    --set tigeraOperator.registry=cgr.dev \
+    --set tigeraOperator.image=chainguard/tigera-operator \
+    --set tigeraOperator.version=latest
 
 kubectl wait --namespace tigera-operator --for=condition=ready pod --selector name=tigera-operator --timeout=120s
 ```
-

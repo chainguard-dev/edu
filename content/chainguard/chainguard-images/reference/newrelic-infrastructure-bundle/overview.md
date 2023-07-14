@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: newrelic-infrastructure-bundle"
 type: "article"
-description: "Overview: newrelic-infrastructure-bundle Chainguard Images"
+description: "Overview: newrelic-infrastructure-bundle Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,46 +14,19 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/newrelic-infrastructure-bundle](https://github.com/chainguard-images/images/tree/main/images/newrelic-infrastructure-bundle)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `3`, `3.2`, `3.2.7`, `3.2.7-r0`                 |
-| `latest-dev` | `3-dev`, `3.2-dev`, `3.2.7-dev`, `3.2.7-r0-dev` |
+[cgr.dev/chainguard/newrelic-infrastructure-bundle](https://github.com/chainguard-images/images/tree/main/images/newrelic-infrastructure-bundle)
 
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | July 11th    | `sha256:3bd6e7f0045acd57f5d40e061ab74ccb69bbfc4a967a30e187a7eee26f74b96f` |
+| `latest-dev` | June 27th    | `sha256:9fadcb135f1a039d7de85f876da3128f7dc825ba56e71a5a6b24916364917407` |
 
+# newrelic-infrastructure-bundle
 
-Minimal [newrelic-infrastructure-bundle](https://github.com/newrelic/infrastructure-bundle) container image.
+Minimal newrelic-infrastructure-bundle images with nightly builds.
 
-## Get It
-
-The image is available on `cgr.dev`:
-
-```
-docker pull cgr.dev/chainguard/newrelic-infrastructure-bundle
-```
-
-## Usage
-
-This image is a drop-in replacement for the `newrelic-infrastructure-bundle` project that image known as and available upstream at `newrelic/infrastructure-bundle`.
-
-You can run this in Helm with:
+## Get it!
 
 ```shell
-helm repo add nri-kubernetes https://newrelic.github.io/nri-kubernetes
-
-helm upgrade --install newrelic-infrastructure-bundle nri-kubernetes/newrelic-infrastructure \
-    --set images.agent.registry=cgr.dev \
-    --set images.agent.repository=chainguard/newrelic-infrastructure-bundle \
-    --set images.agent.tag=latest \
-    --set images.integration.registry=cgr.dev \
-    --set images.integration.repository=chainguard/nri-kube-events \
-    --set images.integration.tag="latest" \
-    --set cluster=$CLUSTER --set licenseKey=$LICENSE_KEY
+docker pull cgr.dev/chainguard/newrelic-infrastructure-bundle
 ```
-
-NOTE: This image requires a license key to run properly, which you can obtain from New Relic.
-
-## Testing
-
-The tests for this image also require a license key, which is configured in a secret in Github Actions.
-
