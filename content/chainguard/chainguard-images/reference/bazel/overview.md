@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: bazel"
 type: "article"
-description: "Overview: bazel Chainguard Images"
+description: "Overview: bazel Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/bazel](https://github.com/chainguard-images/images/tree/main/images/bazel)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `6`, `6.2`, `6.2.1`, `6.2.1-r0` |
+[cgr.dev/chainguard/bazel](https://github.com/chainguard-images/images/tree/main/images/bazel)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | July 12th    | `sha256:a2f8ee254688514cb885d304ba3c51dca2e936c38b9a1541a03ad47d0e459e93` |
 
 
 
@@ -70,4 +71,3 @@ and see the message from the example application
 ```sh
 Hi
 ```
-

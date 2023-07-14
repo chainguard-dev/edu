@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: gcc-glibc"
 type: "article"
-description: "Overview: gcc-glibc Chainguard Images"
+description: "Overview: gcc-glibc Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/gcc-glibc](https://github.com/chainguard-images/images/tree/main/images/gcc-glibc)
-| Tags     | Aliases                             |
-|----------|-------------------------------------|
-| `latest` | `13`, `13.1`, `13.1.0`, `13.1.0-r1` |
+[cgr.dev/chainguard/gcc-glibc](https://github.com/chainguard-images/images/tree/main/images/gcc-glibc)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | July 11th    | `sha256:cbfd978fa969e606bb8a79bb03327ae57bc4b693080a13de099674ad257c3a24` |
 
 
 
@@ -77,4 +78,3 @@ FROM cgr.dev/chainguard/static
 COPY --from=build /work/hello /hello
 CMD ["/hello"]
 ```
-

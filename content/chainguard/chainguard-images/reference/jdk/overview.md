@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: jdk"
 type: "article"
-description: "Overview: jdk Chainguard Images"
+description: "Overview: jdk Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,13 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/jdk](https://github.com/chainguard-images/images/tree/main/images/jdk)
-| Tags             | Aliases                                                                                                          |
-|------------------|------------------------------------------------------------------------------------------------------------------|
-| `latest`         | `openjdk-17`, `openjdk-17.0`, `openjdk-17.0.8`, `openjdk-17.0.8.2`, `openjdk-17.0.8.2-r1`                        |
-| `latest-dev`     | `openjdk-17-dev`, `openjdk-17.0-dev`, `openjdk-17.0.8-dev`, `openjdk-17.0.8.2-dev`, `openjdk-17.0.8.2-r1-dev`    |
-| `openjdk-11`     | `openjdk-11`, `openjdk-11.0`, `openjdk-11.0.20`, `openjdk-11.0.20.4`, `openjdk-11.0.20.4-r1`                     |
-| `openjdk-11-dev` | `openjdk-11-dev`, `openjdk-11.0-dev`, `openjdk-11.0.20-dev`, `openjdk-11.0.20.4-dev`, `openjdk-11.0.20.4-r1-dev` |
+[cgr.dev/chainguard/jdk](https://github.com/chainguard-images/images/tree/main/images/jdk)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:d0097bb31bc20c4a35a3a1ea14027f2d9181c44a80c7ba6fc3d10759c1479fe9` |
+| `latest`     | July 11th    | `sha256:fbf26e8e6a5f1931d49ed2030b34f8d65e1d694b2482bd1d65b4d4e6d84fc7ec` |
 
 
 
@@ -80,4 +79,3 @@ Run the image
 ```sh
 docker run my-simple-java-app
 ```
-

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: jre"
 type: "article"
-description: "Overview: jre Chainguard Images"
+description: "Overview: jre Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,13 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/jre](https://github.com/chainguard-images/images/tree/main/images/jre)
-| Tags             | Aliases                                                                                                     |
-|------------------|-------------------------------------------------------------------------------------------------------------|
-| `latest`         | `openjdk17`, `openjdk17.0`, `openjdk17.0.8`, `openjdk17.0.8.2`, `openjdk17.0.8.2-r1`                        |
-| `latest-dev`     | `openjdk17-dev`, `openjdk17.0-dev`, `openjdk17.0.8-dev`, `openjdk17.0.8.2-dev`, `openjdk17.0.8.2-r1-dev`    |
-| `openjdk-11`     | `openjdk11`, `openjdk11.0`, `openjdk11.0.20`, `openjdk11.0.20.4`, `openjdk11.0.20.4-r1`                     |
-| `openjdk-11-dev` | `openjdk11-dev`, `openjdk11.0-dev`, `openjdk11.0.20-dev`, `openjdk11.0.20.4-dev`, `openjdk11.0.20.4-r1-dev` |
+[cgr.dev/chainguard/jre](https://github.com/chainguard-images/images/tree/main/images/jre)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:60d5511a1e74b47b0bf5c343f7d0c5232125283031a06b5c3eb1c31940e8bd72` |
+| `latest`     | July 11th    | `sha256:80920112fe2a9b9d35cabbf3e986fdb92057c3bf7f1ac67a24bbec7a35449d22` |
 
 
 
@@ -79,4 +78,3 @@ Run the image
 ```sh
 docker run my-simple-java-app
 ```
-

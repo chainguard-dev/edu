@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: bash"
 type: "article"
-description: "Overview: bash Chainguard Images"
+description: "Overview: bash Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/bash](https://github.com/chainguard-images/images/tree/main/images/bash)
-| Tags     | Aliases                           |
-|----------|-----------------------------------|
-| `latest` | `5`, `5.2`, `5.2.15`, `5.2.15-r2` |
+[cgr.dev/chainguard/bash](https://github.com/chainguard-images/images/tree/main/images/bash)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | July 12th    | `sha256:c30b4a01941d9eb72834a5cc75465ba1dc824599f19e1e60156c8efdca0a6835` |
 
 
 
@@ -30,4 +31,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/bash:latest
 ```
-

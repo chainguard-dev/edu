@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: kyverno-cli"
 type: "article"
-description: "Overview: kyverno-cli Chainguard Images"
+description: "Overview: kyverno-cli Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,18 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kyverno-cli](https://github.com/chainguard-images/images/tree/main/images/kyverno-cli)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `1`, `1.10`, `1.10.0`, `1.10.0-r1` |
+[cgr.dev/chainguard/kyverno-cli](https://github.com/chainguard-images/images/tree/main/images/kyverno-cli)
 
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | July 11th    | `sha256:77e159167a5551d8d137a1f82ee4580dbdb381844309e78d23269f040e4a1d60` |
 
+# kyverno-cli
 
+Minimal kyverno-cli images with nightly builds.
+
+## Get it!
+
+```shell
+docker pull cgr.dev/chainguard/kyverno-cli
+```

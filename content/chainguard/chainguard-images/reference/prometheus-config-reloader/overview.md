@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: prometheus-config-reloader"
 type: "article"
-description: "Overview: prometheus-config-reloader Chainguard Images"
+description: "Overview: prometheus-config-reloader Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,23 +14,19 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/prometheus-config-reloader](https://github.com/chainguard-images/images/tree/main/images/prometheus-config-reloader)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.66`, `0.66.0`, `0.66.0-r0`                 |
-| `latest-dev` | `0-dev`, `0.66-dev`, `0.66.0-dev`, `0.66.0-r0-dev` |
+[cgr.dev/chainguard/prometheus-config-reloader](https://github.com/chainguard-images/images/tree/main/images/prometheus-config-reloader)
 
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:c8ad98e75b49b3e4ac3141b6c3978aa669aab64de085323f98f9c5cb56bedaa1` |
+| `latest`     | July 12th    | `sha256:45b0c2853e8668cfdbfc4d7122112bc7f28dceb1fd6f733a4e5b2fc1db14a315` |
 
+# prometheus-config-reloader
 
-## Try It Out
+Minimal prometheus-config-reloader images with nightly builds.
 
-```sh
-helm upgrade --install cg-test \
-    prometheus-community/kube-prometheus-stack \
-    --set prometheusOperator.prometheusConfigReloader.image.repository=chainguard/prometheus-config-reloader \
-    --set prometheusOperator.prometheusConfigReloader.image.registry=cgr.dev \
-    --set prometheusOperator.prometheusConfigReloader.image.tag=<set to the latest chainguard tag>
+## Get it!
+
+```shell
+docker pull cgr.dev/chainguard/prometheus-config-reloader
 ```
-
-You'll want to make sure the `kube-prometheus-stack` chart is up-to-date and use the latest operator tag that's within the compatibility matrix.
-

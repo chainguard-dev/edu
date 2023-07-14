@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: kubernetes-csi-external-snapshotter"
 type: "article"
-description: "Overview: kubernetes-csi-external-snapshotter Chainguard Images"
+description: "Overview: kubernetes-csi-external-snapshotter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kubernetes-csi-external-snapshotter](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-snapshotter)
-| Tags     | Aliases                         |
-|----------|---------------------------------|
-| `latest` | `6`, `6.2`, `6.2.2`, `6.2.2-r1` |
+[cgr.dev/chainguard/kubernetes-csi-external-snapshotter](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-snapshotter)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | July 11th    | `sha256:e3772692afb7bf2924e2bb2fee0456320f28e0fbd71b9960efa4f8ddb7a80328` |
 
 
 
@@ -30,4 +31,3 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/kubernetes-csi-external-snapshotter
 ```
-

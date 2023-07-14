@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: etcd"
 type: "article"
-description: "Overview: etcd Chainguard Images"
+description: "Overview: etcd Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/etcd](https://github.com/chainguard-images/images/tree/main/images/etcd)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `3`, `3.5`, `3.5.9`, `3.5.9-r1`                 |
-| `latest-dev` | `3-dev`, `3.5-dev`, `3.5.9-dev`, `3.5.9-r1-dev` |
+[cgr.dev/chainguard/etcd](https://github.com/chainguard-images/images/tree/main/images/etcd)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:68cc765b5948cead61f5e8f9b372f385b715044fb7c79f53c186ecbb40c905a6` |
+| `latest`     | July 11th    | `sha256:deec2484b4146951743b5baba7e985da4d2cdc95072d169d15f674175771376c` |
 
 
 
@@ -71,4 +72,3 @@ The default data directory for this image is `/var/lib/etcd`, and that directory
 
 If you change the user, UID, or data directory, you'll need to ensure the user running the etcd process has permissions to that
 directory.
-

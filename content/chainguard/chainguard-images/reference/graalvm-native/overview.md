@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: graalvm-native"
 type: "article"
-description: "Overview: graalvm-native Chainguard Images"
+description: "Overview: graalvm-native Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/graalvm-native](https://github.com/chainguard-images/images/tree/main/images/graalvm-native)
-| Tags     | Aliases |
-|----------|---------|
-| `latest` |         |
+[cgr.dev/chainguard/graalvm-native](https://github.com/chainguard-images/images/tree/main/images/graalvm-native)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | July 11th    | `sha256:0aaafddbd641bf1d5dda69f7a2af1d412ff6c54e4f8e3ad8af43a3b885f360cf` |
 
 
 
@@ -38,4 +39,3 @@ docker pull cgr.dev/chainguard/graalvm-native:latest
 ## Users
 
 The image has a single user `nonroot` with uid `65532`, belonging to gid `65532`.
-

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: dex"
 type: "article"
-description: "Overview: dex Chainguard Images"
+description: "Overview: dex Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`experimental` [cgr.dev/chainguard/dex](https://github.com/chainguard-images/images/tree/main/images/dex)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `2`, `2.36`, `2.36.0`, `2.36.0-r4`                 |
-| `latest-dev` | `2-dev`, `2.36-dev`, `2.36.0-dev`, `2.36.0-r4-dev` |
+[cgr.dev/chainguard/dex](https://github.com/chainguard-images/images/tree/main/images/dex)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:8745d367c643f1b8504477b5fb985a27ded58b898c57eefe88d6692c248a19a0` |
+| `latest`     | July 11th    | `sha256:16459e545d53502a719a92bc4479bc24d87aa58e4e0403946733682ac5c43b95` |
 
 
 
@@ -91,4 +92,3 @@ image:
   repository: cgr.dev/chainguard/dex
   tag: latest
 ```
-

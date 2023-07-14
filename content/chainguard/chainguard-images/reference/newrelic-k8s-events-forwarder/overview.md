@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: newrelic-k8s-events-forwarder"
 type: "article"
-description: "Overview: newrelic-k8s-events-forwarder Chainguard Images"
+description: "Overview: newrelic-k8s-events-forwarder Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,46 +14,19 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/newrelic-k8s-events-forwarder](https://github.com/chainguard-images/images/tree/main/images/newrelic-k8s-events-forwarder)
-| Tags         | Aliases |
-|--------------|---------|
-| `latest`     |         |
-| `latest-dev` |         |
+[cgr.dev/chainguard/newrelic-k8s-events-forwarder](https://github.com/chainguard-images/images/tree/main/images/newrelic-k8s-events-forwarder)
 
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | July 12th    | `sha256:3ee84e020494b252e9eb13aa00300fba4e024d4ac407c7a69a17935091ba33db` |
+| `latest-dev` | June 27th    | `sha256:0d9e538c2e7a4ad103fa360dac55276cedd6d622786edd512ac25b668aef952a` |
 
+# newrelic-k8s-events-forwarder
 
-Minimal [New Relic Infrastructure Agent](https://github.com/newrelic/infrastructure-agent) (newrelic/k8s-events-forwarder) container image.
+Minimal newrelic-k8s-events-forwarder images with nightly builds.
 
-## Get It
-
-The image is available on `cgr.dev`:
-
-```
-docker pull cgr.dev/chainguard/newrelic-k8s-events-forwarder
-```
-
-## Usage
-
-This image is a drop-in replacement for the `newrelic/infrastructure-agent` project that image known as and available upstream at `newrelic/newrelic-k8s-events-forwarder`.
-
-You can run this in Helm with:
+## Get it!
 
 ```shell
-helm repo add nri-kube-events https://newrelic.github.io/nri-kube-events
-
-helm upgrade --install newrelic-k8s-events-forwarder nri-kube-events/nri-kube-events \
-    --set images.agent.registry=cgr.dev \
-    --set images.agent.repository=chainguard/newrelic-k8s-events-forwarder \
-    --set images.agent.tag=latest \
-    --set images.integration.registry=cgr.dev \
-    --set images.integration.repository=chainguard/nri-kube-events \
-    --set images.integration.tag="latest" \
-    --set cluster=$CLUSTER --set licenseKey=$LICENSE_KEY
+docker pull cgr.dev/chainguard/newrelic-k8s-events-forwarder
 ```
-
-NOTE: This image requires a license key to run properly, which you can obtain from New Relic.
-
-## Testing
-
-The tests for this image also require a license key, which is configured in a secret in Github Actions.
-

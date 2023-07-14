@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: newrelic-fluent-bit-output"
 type: "article"
-description: "Overview: newrelic-fluent-bit-output Chainguard Images"
+description: "Overview: newrelic-fluent-bit-output Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,50 +14,19 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/newrelic-fluent-bit-output](https://github.com/chainguard-images/images/tree/main/images/newrelic-fluent-bit-output)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `1`, `1.17`, `1.17.1`, `1.17.1-r0`                 |
-| `latest-dev` | `1-dev`, `1.17-dev`, `1.17.1-dev`, `1.17.1-r0-dev` |
+[cgr.dev/chainguard/newrelic-fluent-bit-output](https://github.com/chainguard-images/images/tree/main/images/newrelic-fluent-bit-output)
 
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest`     | July 11th    | `sha256:6836dd6ea960532d551cd58ab9e563da0a951234d79b3c7adf4871c631f7e4a3` |
+| `latest-dev` | June 30th    | `sha256:731df367fe0bd4d63e5fbb43521725c4b2b65efaf58e8d7bb59203244557a51d` |
 
+# newrelic-fluent-bit-output
 
-The newrelic-fluent-bit-output plugin forwards output to New Relic. Minimal [newrelic-fluent-bit-output](https://github.com/newrelic/newrelic-fluent-bit-output) container image.
+Minimal newrelic-fluent-bit-output images with nightly builds.
 
-## Get It
-
-The image is available on `cgr.dev`:
-
-```
-docker pull cgr.dev/chainguard/newrelic-fluent-bit-output
-```
-
-## Usage
-
-Fluent Bit needs to know the location of the New Relic output plugin. We already added the plugin to the image, so you just need to tell Fluent Bit where to find it which is "/fluent-bit/bin/out_newrelic.so" in the image.
-
-Add the following to your Fluent Bit configuration file and save it as `fluent-bit.conf`:
-
-```ini
-[INPUT]
-    Name tail
-    Path /path/to/your/log/file
-
-[OUTPUT]
-    Name newrelic
-    Match *
-    licenseKey <NEW_RELIC_LICENSE_KEY>
-
-[FILTER]
-    Name modify
-    Match *
-    Add hostname <HOSTNAME>
-    Add service_name <SERVICE_NAME>
-```
-
-Then run Fluent Bit with the following command:
+## Get it!
 
 ```shell
-docker run -v /path/to/your/config/file:/fluent-bit/etc/fluent-bit.conf:ro -v /path/to/your/log/file:/path/to/your/log/file:ro cgr.dev/chainguard/newrelic-fluent-bit-output -c /fluent-bit/etc/fluent-bit.conf -e /fluent-bit/bin/out_newrelic.so
+docker pull cgr.dev/chainguard/newrelic-fluent-bit-output
 ```
-

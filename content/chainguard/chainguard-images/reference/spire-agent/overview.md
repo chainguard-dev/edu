@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: spire-agent"
 type: "article"
-description: "Overview: spire-agent Chainguard Images"
+description: "Overview: spire-agent Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,25 +14,19 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/spire-agent](https://github.com/chainguard-images/images/tree/main/images/spire-agent)
-| Tags         | Aliases                                         |
-|--------------|-------------------------------------------------|
-| `latest`     | `1`, `1.7`, `1.7.0`, `1.7.0-r0`                 |
-| `latest-dev` | `1-dev`, `1.7-dev`, `1.7.0-dev`, `1.7.0-r0-dev` |
+[cgr.dev/chainguard/spire-agent](https://github.com/chainguard-images/images/tree/main/images/spire-agent)
 
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:daf0a7989c784d18b4130be26ddff1fe64cc06d98cbb6bd7a71d30e76cb52081` |
+| `latest`     | July 11th    | `sha256:49ac396175b76178d17729becd9001059ceda12eff834656760060269499204f` |
 
+# spire-agent
 
-Minimalist Wolfi-based `spire-agent` image.
+Minimal spire-agent images with nightly builds.
 
-**Note**: Unlike most other Chainguard images, the `spire-agent` image must run as root.
-This is due to a constraint in the way it is typically deployed into Kubernetes clusters.
-See https://github.com/spiffe/spire/issues/1862 for more context.
+## Get it!
 
-## Get It!
-
-The image is available on `cgr.dev`:
-
+```shell
+docker pull cgr.dev/chainguard/spire-agent
 ```
-docker pull cgr.dev/chainguard/spire-agent:latest
-```
-

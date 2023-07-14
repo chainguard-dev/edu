@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: openai"
 type: "article"
-description: "Overview: openai Chainguard Images"
+description: "Overview: openai Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/openai](https://github.com/chainguard-images/images/tree/main/images/openai)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.27`, `0.27.8`, `0.27.8-r0`                 |
-| `latest-dev` | `0-dev`, `0.27-dev`, `0.27.8-dev`, `0.27.8-r0-dev` |
+[cgr.dev/chainguard/openai](https://github.com/chainguard-images/images/tree/main/images/openai)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:fd07d2ae90bee784ac6cd8013ebde8c9e8145c1ea8078e9cb040835dd5c96684` |
+| `latest`     | July 11th    | `sha256:90123e2cb01dd42aac4e24670e9cac82073cbf6f7d130e4d161d3d8662977f24` |
 
 
 
@@ -48,4 +49,3 @@ positional arguments:
 options:
   -h, --help            show this help message and exit
 ```
-

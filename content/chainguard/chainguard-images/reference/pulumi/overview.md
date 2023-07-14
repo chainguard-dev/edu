@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: pulumi"
 type: "article"
-description: "Overview: pulumi Chainguard Images"
+description: "Overview: pulumi Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/pulumi](https://github.com/chainguard-images/images/tree/main/images/pulumi)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `3`, `3.72`, `3.72.1`, `3.72.1-r0` |
+[cgr.dev/chainguard/pulumi](https://github.com/chainguard-images/images/tree/main/images/pulumi)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | July 12th    | `sha256:61ef9c40d77dbd5aa95a75de776611f19e4adfa734709ab1995d3d746afb2391` |
 
 
 
@@ -150,4 +151,3 @@ Now check for pods, there should not be any:
 $ kubectl get pods
 No resources found in default namespace.
 ```
-

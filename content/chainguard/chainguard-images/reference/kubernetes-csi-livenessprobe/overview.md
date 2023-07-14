@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: kubernetes-csi-livenessprobe"
 type: "article"
-description: "Overview: kubernetes-csi-livenessprobe Chainguard Images"
+description: "Overview: kubernetes-csi-livenessprobe Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,10 +14,11 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/kubernetes-csi-livenessprobe](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-livenessprobe)
-| Tags     | Aliases                            |
-|----------|------------------------------------|
-| `latest` | `2`, `2.10`, `2.10.0`, `2.10.0-r2` |
+[cgr.dev/chainguard/kubernetes-csi-livenessprobe](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-livenessprobe)
+
+| Tag      | Last Updated | Digest                                                                    |
+|----------|--------------|---------------------------------------------------------------------------|
+| `latest` | July 11th    | `sha256:bd74e638ffe80dadfd016eeb77188af0768cf4e460f74bd819b8195009d3fb2e` |
 
 
 
@@ -80,4 +81,3 @@ fi
 
 exit 0
 ```
-

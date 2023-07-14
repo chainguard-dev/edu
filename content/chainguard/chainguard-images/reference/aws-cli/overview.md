@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: aws-cli"
 type: "article"
-description: "Overview: aws-cli Chainguard Images"
+description: "Overview: aws-cli Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,11 +14,12 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/aws-cli](https://github.com/chainguard-images/images/tree/main/images/aws-cli)
-| Tags         | Aliases                                                |
-|--------------|--------------------------------------------------------|
-| `latest`     | `1`, `1.27`, `1.27.154`, `1.27.154-r0`                 |
-| `latest-dev` | `1-dev`, `1.27-dev`, `1.27.154-dev`, `1.27.154-r0-dev` |
+[cgr.dev/chainguard/aws-cli](https://github.com/chainguard-images/images/tree/main/images/aws-cli)
+
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:1706e8fd26627c3d37f8edd52318306aff5ff81c31a00e52072a64d20bde652d` |
+| `latest`     | July 12th    | `sha256:0a0f8b761ff3c799a4f8aec9e784c42cc16baab9ac8f98fb3b0dd219b577e044` |
 
 
 
@@ -54,4 +55,3 @@ For example, the following command displays help for the general AWS CLI options
 ```shell
 aws help
 ```
-

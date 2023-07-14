@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: prometheus-operator"
 type: "article"
-description: "Overview: prometheus-operator Chainguard Images"
+description: "Overview: prometheus-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,37 +14,19 @@ weight: 500
 toc: true
 ---
 
-`stable` [cgr.dev/chainguard/prometheus-operator](https://github.com/chainguard-images/images/tree/main/images/prometheus-operator)
-| Tags         | Aliases                                            |
-|--------------|----------------------------------------------------|
-| `latest`     | `0`, `0.66`, `0.66.0`, `0.66.0-r0`                 |
-| `latest-dev` | `0-dev`, `0.66-dev`, `0.66.0-dev`, `0.66.0-r0-dev` |
+[cgr.dev/chainguard/prometheus-operator](https://github.com/chainguard-images/images/tree/main/images/prometheus-operator)
 
+| Tag          | Last Updated | Digest                                                                    |
+|--------------|--------------|---------------------------------------------------------------------------|
+| `latest-dev` | July 12th    | `sha256:3745fe84084f4fd88d121ffb0402377c97343f87e631be61397025a354b0c06e` |
+| `latest`     | July 12th    | `sha256:898291061ddb2855d862c9248a124d2b649d03c02d2a9a98a59e0529335540bd` |
 
+# prometheus-operator
 
-## Try It Out
+Minimal prometheus-operator images with nightly builds.
 
-```sh
-helm upgrade --install cg-test \
-    prometheus-community/kube-prometheus-stack \
-    --set prometheusOperator.image.repository=chainguard/prometheus-operator \
-    --set prometheusOperator.image.registry=cgr.dev \
-    --set prometheusOperator.image.tag=<set to the latest chainguard tag>
+## Get it!
+
+```shell
+docker pull cgr.dev/chainguard/prometheus-operator
 ```
-
-You'll want to make sure the `kube-prometheus-stack` chart is up-to-date and use the latest operator tag that's within the compatibility matrix.
-
-## Known Deviations
-
-The location of the operator binary changes in this image. This image uses
-
-```sh
-/usr/bin/operator
-```
-
-Upstream image uses
-
-```sh
-/bin/operator
-```
-
