@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Calico-pod2daemon"
+title: "Image Overview: calico-pod2daemon"
 type: "article"
-description: "Overview: Calico-pod2daemon Chainguard Image"
+description: "Overview: calico-pod2daemon Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:b9620fefd9368b0e53a04cc649332c98867a5b838c8f8cafd3df8f8b11d225f4` |
+| `latest` | July 11th    | `sha256:b9620fefd9368b0e53a04cc649332c98867a5b838c8f8cafd3df8f8b11d225f4` |
 
 # calico-pod2daemon
 

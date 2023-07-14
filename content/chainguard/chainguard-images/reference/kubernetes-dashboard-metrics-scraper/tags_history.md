@@ -1,7 +1,7 @@
 ---
-title: "Kubernetes-dashboard-metrics-scraper Image Tags History"
+title: "kubernetes-dashboard-metrics-scraper Image Tags History"
 type: "article"
-description: "Image Tags and History for the Kubernetes-dashboard-metrics-scraper Chainguard Image"
+description: "Image Tags and History for the kubernetes-dashboard-metrics-scraper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `1.0.9-r2-dev` | 19 hours ago | `sha256:177104b5e318ddc6a74f0273461bb647c436a1a7ee52c530a6d588494341bd98` |
-| `1.0`          | 19 hours ago | `sha256:10808bb8f5a5c9024e8127c878917618db4e112efe1f87dd0b0e3d7c30d98129` |
-| `latest`       | 19 hours ago | `sha256:10808bb8f5a5c9024e8127c878917618db4e112efe1f87dd0b0e3d7c30d98129` |
-| `1.0-dev`      | 19 hours ago | `sha256:177104b5e318ddc6a74f0273461bb647c436a1a7ee52c530a6d588494341bd98` |
-| `1.0.9`        | 19 hours ago | `sha256:10808bb8f5a5c9024e8127c878917618db4e112efe1f87dd0b0e3d7c30d98129` |
-| `1`            | 19 hours ago | `sha256:10808bb8f5a5c9024e8127c878917618db4e112efe1f87dd0b0e3d7c30d98129` |
-| `1-dev`        | 19 hours ago | `sha256:177104b5e318ddc6a74f0273461bb647c436a1a7ee52c530a6d588494341bd98` |
-| `latest-dev`   | 19 hours ago | `sha256:177104b5e318ddc6a74f0273461bb647c436a1a7ee52c530a6d588494341bd98` |
-| `1.0.9-dev`    | 19 hours ago | `sha256:177104b5e318ddc6a74f0273461bb647c436a1a7ee52c530a6d588494341bd98` |
+| `latest-dev`   | July 12th    | `sha256:059f8e14613b08f41ce388243c5b816e9f8e73c7cc35954f01a5e69526901b05` |
+| `1.0-dev`      | July 12th    | `sha256:059f8e14613b08f41ce388243c5b816e9f8e73c7cc35954f01a5e69526901b05` |
+| `1.0.9-r2-dev` | July 12th    | `sha256:059f8e14613b08f41ce388243c5b816e9f8e73c7cc35954f01a5e69526901b05` |
+| `1.0.9-dev`    | July 12th    | `sha256:059f8e14613b08f41ce388243c5b816e9f8e73c7cc35954f01a5e69526901b05` |
+| `1-dev`        | July 12th    | `sha256:059f8e14613b08f41ce388243c5b816e9f8e73c7cc35954f01a5e69526901b05` |
+| `1.0`          | July 11th    | `sha256:10808bb8f5a5c9024e8127c878917618db4e112efe1f87dd0b0e3d7c30d98129` |
+| `latest`       | July 11th    | `sha256:10808bb8f5a5c9024e8127c878917618db4e112efe1f87dd0b0e3d7c30d98129` |
+| `1.0.9`        | July 11th    | `sha256:10808bb8f5a5c9024e8127c878917618db4e112efe1f87dd0b0e3d7c30d98129` |
+| `1`            | July 11th    | `sha256:10808bb8f5a5c9024e8127c878917618db4e112efe1f87dd0b0e3d7c30d98129` |

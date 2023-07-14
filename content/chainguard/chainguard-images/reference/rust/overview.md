@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Rust"
+title: "Image Overview: rust"
 type: "article"
-description: "Overview: Rust Chainguard Image"
+description: "Overview: rust Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:3c715a9520fb65b13f0243d40428facc7ee4db83a179b0d44cc7c8b3b5947ec4` |
-| `latest-dev` | 19 hours ago | `sha256:ba84319fb138521a07596a1480fab7620d39a79de94ed9f6179209165bf70bdc` |
+| `latest`     | July 12th    | `sha256:a9847d3ae567cd2c0fddfa38f50e661e5c3a757a268a665b9826ac47a99944a1` |
+| `latest-dev` | July 12th    | `sha256:846592b5f0de6ed5ed76c785222308774007664a69e01c4318611ce19acd88e5` |
 
 
 

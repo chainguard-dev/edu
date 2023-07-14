@@ -1,7 +1,7 @@
 ---
-title: "Busybox Image Tags History"
+title: "busybox Image Tags History"
 type: "article"
-description: "Image Tags and History for the Busybox Chainguard Image"
+description: "Image Tags and History for the busybox Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,11 +18,11 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `latest`       | 20 hours ago | `sha256:02d2e330ffe224bb29e674ab4ad2b4c6ffe6c319c710bc8e114939114e9c7ed8` |
-| `1.36`         | 20 hours ago | `sha256:02d2e330ffe224bb29e674ab4ad2b4c6ffe6c319c710bc8e114939114e9c7ed8` |
-| `1.36.1`       | 20 hours ago | `sha256:02d2e330ffe224bb29e674ab4ad2b4c6ffe6c319c710bc8e114939114e9c7ed8` |
-| `1`            | 20 hours ago | `sha256:02d2e330ffe224bb29e674ab4ad2b4c6ffe6c319c710bc8e114939114e9c7ed8` |
-| `latest-glibc` | 20 hours ago | `sha256:e70341724b6297218188c79ccb2e69a39ac61775fa943a500d02c2e9c867566b` |
-| `glibc-1`      | 20 hours ago | `sha256:e70341724b6297218188c79ccb2e69a39ac61775fa943a500d02c2e9c867566b` |
-| `glibc-1.36`   | 20 hours ago | `sha256:e70341724b6297218188c79ccb2e69a39ac61775fa943a500d02c2e9c867566b` |
-| `glibc-1.36.1` | 20 hours ago | `sha256:e70341724b6297218188c79ccb2e69a39ac61775fa943a500d02c2e9c867566b` |
+| `latest`       | July 11th    | `sha256:02d2e330ffe224bb29e674ab4ad2b4c6ffe6c319c710bc8e114939114e9c7ed8` |
+| `1.36`         | July 11th    | `sha256:02d2e330ffe224bb29e674ab4ad2b4c6ffe6c319c710bc8e114939114e9c7ed8` |
+| `1.36.1`       | July 11th    | `sha256:02d2e330ffe224bb29e674ab4ad2b4c6ffe6c319c710bc8e114939114e9c7ed8` |
+| `1`            | July 11th    | `sha256:02d2e330ffe224bb29e674ab4ad2b4c6ffe6c319c710bc8e114939114e9c7ed8` |
+| `latest-glibc` | July 11th    | `sha256:e70341724b6297218188c79ccb2e69a39ac61775fa943a500d02c2e9c867566b` |
+| `glibc-1`      | July 11th    | `sha256:e70341724b6297218188c79ccb2e69a39ac61775fa943a500d02c2e9c867566b` |
+| `glibc-1.36`   | July 11th    | `sha256:e70341724b6297218188c79ccb2e69a39ac61775fa943a500d02c2e9c867566b` |
+| `glibc-1.36.1` | July 11th    | `sha256:e70341724b6297218188c79ccb2e69a39ac61775fa943a500d02c2e9c867566b` |

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Crane"
+title: "Image Overview: crane"
 type: "article"
-description: "Overview: Crane Chainguard Image"
+description: "Overview: crane Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:d0bb136de40bc83245a8a1ecd87cf25dfbf2ca0c3466f74debdccbefada78558` |
-| `latest`     | 20 hours ago | `sha256:4e077e6e54d5b2b21a27528e4dfda81e9fa3399d7793e3b35454ac229d0980dc` |
+| `latest-dev` | July 12th    | `sha256:697e58aa20ce7822d986f7c1d297bd8a9af31c704dc34695f684ea275066e3c0` |
+| `latest`     | July 11th    | `sha256:4e077e6e54d5b2b21a27528e4dfda81e9fa3399d7793e3b35454ac229d0980dc` |
 
 
 

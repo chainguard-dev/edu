@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Newrelic-kube-events"
+title: "Image Overview: newrelic-kube-events"
 type: "article"
-description: "Overview: Newrelic-kube-events Chainguard Image"
+description: "Overview: newrelic-kube-events Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:b57b9535713f3721d352ff06e7147788b261554cd15b6a38db786a9d7736d61f` |
+| `latest` | July 12th    | `sha256:bf14a353c69abff23541be67fdac9feadfbcbdbf2028e3d5e019e23b66fbacb0` |
 
 # newrelic-kube-events
 

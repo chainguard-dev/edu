@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Minio-client"
+title: "Image Overview: minio-client"
 type: "article"
-description: "Overview: Minio-client Chainguard Image"
+description: "Overview: minio-client Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:cca0811c4d4a3f6a5af397821b0428a778b3d27c7404e3e0cdb9504ef1e61520` |
-| `latest-dev` | 19 hours ago | `sha256:34333eb7a69799688dc9baf9c424cf7c0019e2aaae2ef2550ccd6714b1f5979d` |
+| `latest-dev` | July 12th    | `sha256:c7d6791ae967f3ef4e29fa351f98e1bc0b6ddaff6ef2c89b5451b5e3aebccd79` |
+| `latest`     | July 11th    | `sha256:cca0811c4d4a3f6a5af397821b0428a778b3d27c7404e3e0cdb9504ef1e61520` |
 
 
 

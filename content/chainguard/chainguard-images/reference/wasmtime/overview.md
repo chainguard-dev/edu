@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Wasmtime"
+title: "Image Overview: wasmtime"
 type: "article"
-description: "Overview: Wasmtime Chainguard Image"
+description: "Overview: wasmtime Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:d24c384464634793572ec88f2723ad3dbe2c3b6fa737b8ba53f7de042afc9aa8` |
-| `latest`     | 19 hours ago | `sha256:9457b5f507f1b22c63a8d469a3eb77e4add0bf2d66ffa3279dbb5a6808e31ea8` |
+| `latest-dev` | July 12th    | `sha256:da55c2b0b5528c43e8f52fb235b049a06a3c05706c4c4d28018579cb12de5146` |
+| `latest`     | July 11th    | `sha256:9457b5f507f1b22c63a8d469a3eb77e4add0bf2d66ffa3279dbb5a6808e31ea8` |
 
 
 

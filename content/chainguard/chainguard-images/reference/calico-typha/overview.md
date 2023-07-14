@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Calico-typha"
+title: "Image Overview: calico-typha"
 type: "article"
-description: "Overview: Calico-typha Chainguard Image"
+description: "Overview: calico-typha Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:01b93f72b8157f02d61db346c39597e169aee75770954759daa7c552dbe52204` |
+| `latest` | July 11th    | `sha256:01b93f72b8157f02d61db346c39597e169aee75770954759daa7c552dbe52204` |
 
 # calico-typha
 

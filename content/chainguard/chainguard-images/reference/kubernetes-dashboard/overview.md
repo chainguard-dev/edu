@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kubernetes-dashboard"
+title: "Image Overview: kubernetes-dashboard"
 type: "article"
-description: "Overview: Kubernetes-dashboard Chainguard Image"
+description: "Overview: kubernetes-dashboard Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:f7bf57e2e15333ad394efd5596fc4b40d2ea50ffaecd633d508787839e6eea94` |
-| `latest`     | 19 hours ago | `sha256:9bdbd04a65b0370c1fb346e8daf524b1959b9bd7920425914e14ed9531ab0c1b` |
+| `latest-dev` | July 12th    | `sha256:831c778de94692140271db96ddb24b6e7e3ea9df872827ae84565042bb4a5719` |
+| `latest`     | July 11th    | `sha256:9bdbd04a65b0370c1fb346e8daf524b1959b9bd7920425914e14ed9531ab0c1b` |
 
 
 

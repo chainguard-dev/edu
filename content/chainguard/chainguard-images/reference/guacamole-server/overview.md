@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Guacamole-server"
+title: "Image Overview: guacamole-server"
 type: "article"
-description: "Overview: Guacamole-server Chainguard Image"
+description: "Overview: guacamole-server Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:f7446d25438859538a3aa0a8d2694f53a28c04dcac6a3ad395cab86581e71e40` |
-| `latest-dev` | 20 hours ago | `sha256:33bb1892fc6324e360ddc131e386eff7fddc7b5f40125e78a627852043ba59c9` |
+| `latest`     | July 12th    | `sha256:80cbd311b0572d6776d6d96abc7627b7a34810a25f3056d65fd15a51c58b637e` |
+| `latest-dev` | July 12th    | `sha256:4f0406d36e08b0561cc762bf0fc089747b6eed0555125e0de3f6c2072bb242c4` |
 
 
 

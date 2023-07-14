@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Prometheus-mysqld-exporter"
+title: "Image Overview: prometheus-mysqld-exporter"
 type: "article"
-description: "Overview: Prometheus-mysqld-exporter Chainguard Image"
+description: "Overview: prometheus-mysqld-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 15 hours ago | `sha256:9169902cf23ed533a3ea0a0a4b86a2e7c39969cd9aa7aeffee7044961cf3703a` |
-| `latest`     | 15 hours ago | `sha256:c8970e699e267ef3cabe1b721e02a5d788d1f944715bea30710c7d6ebe71b29f` |
+| `latest-dev` | July 12th    | `sha256:4c27b8c03eaf4837158d4d58b3ccd1e7cb250936fa3c5033bd0ea2e514ddc74d` |
+| `latest`     | July 12th    | `sha256:c8970e699e267ef3cabe1b721e02a5d788d1f944715bea30710c7d6ebe71b29f` |
 
 # prometheus-mysqld-exporter
 

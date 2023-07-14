@@ -1,7 +1,7 @@
 ---
-title: "Vertical-pod-autoscaler-admission-controller Image Tags History"
+title: "vertical-pod-autoscaler-admission-controller Image Tags History"
 type: "article"
-description: "Image Tags and History for the Vertical-pod-autoscaler-admission-controller Chainguard Image"
+description: "Image Tags and History for the vertical-pod-autoscaler-admission-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag             | Last Updated | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-| `0-dev`         | 19 hours ago | `sha256:b0c410b43b602f1b3f111ccd48896df33c950d89cf99586200a47d3883c447ba` |
-| `latest-dev`    | 19 hours ago | `sha256:b0c410b43b602f1b3f111ccd48896df33c950d89cf99586200a47d3883c447ba` |
-| `0`             | 19 hours ago | `sha256:309a1f609c3f351b9fc0cbc685242891ff5d0306fc9954f23164339b4765d84b` |
-| `0.14.0-r0-dev` | 19 hours ago | `sha256:b0c410b43b602f1b3f111ccd48896df33c950d89cf99586200a47d3883c447ba` |
-| `0.14-dev`      | 19 hours ago | `sha256:b0c410b43b602f1b3f111ccd48896df33c950d89cf99586200a47d3883c447ba` |
-| `0.14.0`        | 19 hours ago | `sha256:309a1f609c3f351b9fc0cbc685242891ff5d0306fc9954f23164339b4765d84b` |
-| `0.14`          | 19 hours ago | `sha256:309a1f609c3f351b9fc0cbc685242891ff5d0306fc9954f23164339b4765d84b` |
-| `0.14.0-dev`    | 19 hours ago | `sha256:b0c410b43b602f1b3f111ccd48896df33c950d89cf99586200a47d3883c447ba` |
-| `latest`        | 19 hours ago | `sha256:309a1f609c3f351b9fc0cbc685242891ff5d0306fc9954f23164339b4765d84b` |
+| `0.14-dev`      | July 12th    | `sha256:ef140db8f8024f64924ec20cf145beb4cd093cdeacb72d732fc5a6dc4d746f90` |
+| `0-dev`         | July 12th    | `sha256:ef140db8f8024f64924ec20cf145beb4cd093cdeacb72d732fc5a6dc4d746f90` |
+| `0.14.0-dev`    | July 12th    | `sha256:ef140db8f8024f64924ec20cf145beb4cd093cdeacb72d732fc5a6dc4d746f90` |
+| `latest-dev`    | July 12th    | `sha256:ef140db8f8024f64924ec20cf145beb4cd093cdeacb72d732fc5a6dc4d746f90` |
+| `0.14.0-r0-dev` | July 12th    | `sha256:ef140db8f8024f64924ec20cf145beb4cd093cdeacb72d732fc5a6dc4d746f90` |
+| `0`             | July 11th    | `sha256:309a1f609c3f351b9fc0cbc685242891ff5d0306fc9954f23164339b4765d84b` |
+| `0.14.0`        | July 11th    | `sha256:309a1f609c3f351b9fc0cbc685242891ff5d0306fc9954f23164339b4765d84b` |
+| `0.14`          | July 11th    | `sha256:309a1f609c3f351b9fc0cbc685242891ff5d0306fc9954f23164339b4765d84b` |
+| `latest`        | July 11th    | `sha256:309a1f609c3f351b9fc0cbc685242891ff5d0306fc9954f23164339b4765d84b` |

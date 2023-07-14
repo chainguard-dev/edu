@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Newrelic-kubernetes"
+title: "Image Overview: newrelic-kubernetes"
 type: "article"
-description: "Overview: Newrelic-kubernetes Chainguard Image"
+description: "Overview: newrelic-kubernetes Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:c1b8ee1f24ef0e2008224cc2e3c956f7adbb51db9a1491629a2c09e085bc3d8f` |
+| `latest` | July 12th    | `sha256:31a7b1ee13bc41c60c98b9582fdb0e190f509f4603af165fcee145f5beccd608` |
 
 # newrelic-kubernetes
 

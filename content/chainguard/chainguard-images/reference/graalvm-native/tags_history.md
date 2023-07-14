@@ -1,7 +1,7 @@
 ---
-title: "Graalvm-native Image Tags History"
+title: "graalvm-native Image Tags History"
 type: "article"
-description: "Image Tags and History for the Graalvm-native Chainguard Image"
+description: "Image Tags and History for the graalvm-native Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,4 +18,4 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:0aaafddbd641bf1d5dda69f7a2af1d412ff6c54e4f8e3ad8af43a3b885f360cf` |
+| `latest` | July 11th    | `sha256:0aaafddbd641bf1d5dda69f7a2af1d412ff6c54e4f8e3ad8af43a3b885f360cf` |

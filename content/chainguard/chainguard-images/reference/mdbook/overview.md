@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Mdbook"
+title: "Image Overview: mdbook"
 type: "article"
-description: "Overview: Mdbook Chainguard Image"
+description: "Overview: mdbook Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:91bffe9e1ffe5f8a762013c73ea8390f87e0d8b6eff53ee66b855c4118b93df3` |
+| `latest` | July 11th    | `sha256:91bffe9e1ffe5f8a762013c73ea8390f87e0d8b6eff53ee66b855c4118b93df3` |
 
 
 

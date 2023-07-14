@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Thanos"
+title: "Image Overview: thanos"
 type: "article"
-description: "Overview: Thanos Chainguard Image"
+description: "Overview: thanos Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:197252477427c2b0334c03a39a365395e7ddeaa02c51acd46c273b28f78754f5` |
-| `latest`     | 19 hours ago | `sha256:300f8224005a36f7caef35fa9465e2137557525b7c116fc769202bddb5a8fdb8` |
+| `latest-dev` | July 12th    | `sha256:822b53adcefef972ceb72ca519d978dd7653621d21f5182752fbba205a0449f5` |
+| `latest`     | July 11th    | `sha256:300f8224005a36f7caef35fa9465e2137557525b7c116fc769202bddb5a8fdb8` |
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kyverno-reports-controller"
+title: "Image Overview: kyverno-reports-controller"
 type: "article"
-description: "Overview: Kyverno-reports-controller Chainguard Image"
+description: "Overview: kyverno-reports-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:9a4ddaf89c726cb7fbad9548af039012a06242d9e853b2294f88a849615d1544` |
+| `latest` | July 11th    | `sha256:9a4ddaf89c726cb7fbad9548af039012a06242d9e853b2294f88a849615d1544` |
 
 # kyverno-reports-controller
 

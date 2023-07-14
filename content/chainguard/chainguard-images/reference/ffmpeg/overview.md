@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Ffmpeg"
+title: "Image Overview: ffmpeg"
 type: "article"
-description: "Overview: Ffmpeg Chainguard Image"
+description: "Overview: ffmpeg Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:d2d12532f835bdb7a89c15ef79e74dc92f38b27b95e688c2fa5863d13f626d32` |
+| `latest` | July 11th    | `sha256:d2d12532f835bdb7a89c15ef79e74dc92f38b27b95e688c2fa5863d13f626d32` |
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: "Kyverno Image Tags History"
+title: "kyverno Image Tags History"
 type: "article"
-description: "Image Tags and History for the Kyverno Chainguard Image"
+description: "Image Tags and History for the kyverno Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:96e61ccc4bd0743062eda1b77d94e6153b54777e54ed92c0d4aae2a2e2c1b63f` |
-| `1.10`   | 19 hours ago | `sha256:96e61ccc4bd0743062eda1b77d94e6153b54777e54ed92c0d4aae2a2e2c1b63f` |
-| `1.10.1` | 19 hours ago | `sha256:96e61ccc4bd0743062eda1b77d94e6153b54777e54ed92c0d4aae2a2e2c1b63f` |
-| `1`      | 19 hours ago | `sha256:96e61ccc4bd0743062eda1b77d94e6153b54777e54ed92c0d4aae2a2e2c1b63f` |
-| `1.10.0` | 14 days ago  | `sha256:9d6292af02d9f98ccf69c24330c8b34ddba2452bb3ddb4e44d4ef26c5a918b3a` |
+| `latest` | July 11th    | `sha256:96e61ccc4bd0743062eda1b77d94e6153b54777e54ed92c0d4aae2a2e2c1b63f` |
+| `1.10`   | July 11th    | `sha256:96e61ccc4bd0743062eda1b77d94e6153b54777e54ed92c0d4aae2a2e2c1b63f` |
+| `1.10.1` | July 11th    | `sha256:96e61ccc4bd0743062eda1b77d94e6153b54777e54ed92c0d4aae2a2e2c1b63f` |
+| `1`      | July 11th    | `sha256:96e61ccc4bd0743062eda1b77d94e6153b54777e54ed92c0d4aae2a2e2c1b63f` |
+| `1.10.0` | June 28th    | `sha256:9d6292af02d9f98ccf69c24330c8b34ddba2452bb3ddb4e44d4ef26c5a918b3a` |

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Keda-adapter"
+title: "Image Overview: keda-adapter"
 type: "article"
-description: "Overview: Keda-adapter Chainguard Image"
+description: "Overview: keda-adapter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:7d5daeffbc495ae42653de655800d413e0d81937506f5d0d599fa657d6a16665` |
-| `latest-dev` | 19 hours ago | `sha256:9ec417d077f45d8533a3b411d09a968d0dcc23b04a0d88da75674d40ff9962b7` |
+| `latest-dev` | July 12th    | `sha256:7a021eeed9a1570c8b6e537d7f5681ecde13b79b6b54d5ee5d08adb17f628404` |
+| `latest`     | July 11th    | `sha256:7d5daeffbc495ae42653de655800d413e0d81937506f5d0d599fa657d6a16665` |
 
 # keda-adapter
 

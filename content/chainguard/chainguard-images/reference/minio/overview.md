@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Minio"
+title: "Image Overview: minio"
 type: "article"
-description: "Overview: Minio Chainguard Image"
+description: "Overview: minio Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:56dd48eed80255667cb0df089015f69f2a2a9ef38b54c6a7d72b5fba47f5b507` |
-| `latest-dev` | 19 hours ago | `sha256:2877e8a5293a2bfd04cfe56b9e8a4ac4611af70eda6c97f341d5686aab7cc6da` |
+| `latest-dev` | July 12th    | `sha256:cef2fdeca95b658979b24e6e29d99d5e1c55ecfb41c89c40867838e22b501999` |
+| `latest`     | July 11th    | `sha256:56dd48eed80255667cb0df089015f69f2a2a9ef38b54c6a7d72b5fba47f5b507` |
 
 
 

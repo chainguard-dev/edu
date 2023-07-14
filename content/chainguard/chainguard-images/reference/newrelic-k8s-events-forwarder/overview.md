@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Newrelic-k8s-events-forwarder"
+title: "Image Overview: newrelic-k8s-events-forwarder"
 type: "article"
-description: "Overview: Newrelic-k8s-events-forwarder Chainguard Image"
+description: "Overview: newrelic-k8s-events-forwarder Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:e9ca108a24de6ea083ee15899acfce8ddb8711dafc97e0a48afc9b40ebbe34dc` |
-| `latest-dev` | 14 days ago  | `sha256:0d9e538c2e7a4ad103fa360dac55276cedd6d622786edd512ac25b668aef952a` |
+| `latest`     | July 12th    | `sha256:3ee84e020494b252e9eb13aa00300fba4e024d4ac407c7a69a17935091ba33db` |
+| `latest-dev` | June 27th    | `sha256:0d9e538c2e7a4ad103fa360dac55276cedd6d622786edd512ac25b668aef952a` |
 
 # newrelic-k8s-events-forwarder
 

@@ -1,7 +1,7 @@
 ---
-title: "Secrets-store-csi-driver Image Tags History"
+title: "secrets-store-csi-driver Image Tags History"
 type: "article"
-description: "Image Tags and History for the Secrets-store-csi-driver Chainguard Image"
+description: "Image Tags and History for the secrets-store-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,15 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `1.3`          | 19 hours ago | `sha256:e833fa20f464257f3a2f102d421977c3e92d66d4a447407870ee684ae5855a3f` |
-| `1`            | 19 hours ago | `sha256:e833fa20f464257f3a2f102d421977c3e92d66d4a447407870ee684ae5855a3f` |
-| `1.3.4-dev`    | 19 hours ago | `sha256:b6357b71f4f92f33b710fa39e38ec0c54c744f98024fae85630c5ab6bf1b4dde` |
-| `1.3.4`        | 19 hours ago | `sha256:e833fa20f464257f3a2f102d421977c3e92d66d4a447407870ee684ae5855a3f` |
-| `1-dev`        | 19 hours ago | `sha256:b6357b71f4f92f33b710fa39e38ec0c54c744f98024fae85630c5ab6bf1b4dde` |
-| `1.3-dev`      | 19 hours ago | `sha256:b6357b71f4f92f33b710fa39e38ec0c54c744f98024fae85630c5ab6bf1b4dde` |
-| `1.3.4-r0-dev` | 19 hours ago | `sha256:b6357b71f4f92f33b710fa39e38ec0c54c744f98024fae85630c5ab6bf1b4dde` |
-| `latest`       | 19 hours ago | `sha256:e833fa20f464257f3a2f102d421977c3e92d66d4a447407870ee684ae5855a3f` |
-| `latest-dev`   | 19 hours ago | `sha256:b6357b71f4f92f33b710fa39e38ec0c54c744f98024fae85630c5ab6bf1b4dde` |
-| `1.3.3`        | 29 days ago  | `sha256:114e5f2a524ce1cc1add56fd81a8c8e08af3f4b1e52ebbe8870f4194f27e157c` |
-| `1.3.3-r2-dev` | 29 days ago  | `sha256:2ad6b19d323f9c29065f24bb368296b77dd0364144b3046f5157ee9c6b304de2` |
-| `1.3.3-dev`    | 29 days ago  | `sha256:2ad6b19d323f9c29065f24bb368296b77dd0364144b3046f5157ee9c6b304de2` |
+| `latest-dev`   | July 12th    | `sha256:eeae01ef333f38afc7aae575d90f19ab12127cadc34cb4f33bfc72118de3c51d` |
+| `1-dev`        | July 12th    | `sha256:eeae01ef333f38afc7aae575d90f19ab12127cadc34cb4f33bfc72118de3c51d` |
+| `1.3.4-r0-dev` | July 12th    | `sha256:eeae01ef333f38afc7aae575d90f19ab12127cadc34cb4f33bfc72118de3c51d` |
+| `1.3-dev`      | July 12th    | `sha256:eeae01ef333f38afc7aae575d90f19ab12127cadc34cb4f33bfc72118de3c51d` |
+| `1.3.4-dev`    | July 12th    | `sha256:eeae01ef333f38afc7aae575d90f19ab12127cadc34cb4f33bfc72118de3c51d` |
+| `1.3`          | July 11th    | `sha256:e833fa20f464257f3a2f102d421977c3e92d66d4a447407870ee684ae5855a3f` |
+| `1`            | July 11th    | `sha256:e833fa20f464257f3a2f102d421977c3e92d66d4a447407870ee684ae5855a3f` |
+| `1.3.4`        | July 11th    | `sha256:e833fa20f464257f3a2f102d421977c3e92d66d4a447407870ee684ae5855a3f` |
+| `latest`       | July 11th    | `sha256:e833fa20f464257f3a2f102d421977c3e92d66d4a447407870ee684ae5855a3f` |

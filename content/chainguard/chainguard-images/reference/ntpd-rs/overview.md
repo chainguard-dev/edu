@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Ntpd-rs"
+title: "Image Overview: ntpd-rs"
 type: "article"
-description: "Overview: Ntpd-rs Chainguard Image"
+description: "Overview: ntpd-rs Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:5011a890eb2fb1becb55bdbd572cafc6e512e978d36963ef60c564614d23c004` |
-| `latest-dev` | 19 hours ago | `sha256:ebb42e31d0f96a4e309d0a6e844f62099fcf77cf3c4b44970665aa97e0d9d4c8` |
+| `latest-dev` | July 12th    | `sha256:d2a151accca795914ab8e338bb33ba54e79a86285821488e189c7ceb59aea204` |
+| `latest`     | July 11th    | `sha256:5011a890eb2fb1becb55bdbd572cafc6e512e978d36963ef60c564614d23c004` |
 
 
 

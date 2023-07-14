@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Vela-cli"
+title: "Image Overview: vela-cli"
 type: "article"
-description: "Overview: Vela-cli Chainguard Image"
+description: "Overview: vela-cli Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:6009059525dc352f054b38f584467929be6ca4167eebacfbf6d4856af6584a22` |
+| `latest` | July 12th    | `sha256:7d4d0bdeef677069fcf2a1a4b8d81ec07698ccd8597332699e430cdd20a53162` |
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Prometheus-postgres-exporter"
+title: "Image Overview: prometheus-postgres-exporter"
 type: "article"
-description: "Overview: Prometheus-postgres-exporter Chainguard Image"
+description: "Overview: prometheus-postgres-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 15 hours ago | `sha256:6ac0033d3bba96b0c8b8257da1871d91093b0b52814db070562377f61d0d5dc9` |
-| `latest`     | 15 hours ago | `sha256:6698be890ed1f2e488f55fb255ead9353e258da0ffa452b8edd2e496c873cb86` |
+| `latest-dev` | July 12th    | `sha256:df2d09478cd4e59e935a32ced013fe8055c8ae9153ea3fac641a1cb2a49ff552` |
+| `latest`     | July 12th    | `sha256:6698be890ed1f2e488f55fb255ead9353e258da0ffa452b8edd2e496c873cb86` |
 
 # prometheus-postgres-exporter
 

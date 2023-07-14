@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Bazel"
+title: "Image Overview: bazel"
 type: "article"
-description: "Overview: Bazel Chainguard Image"
+description: "Overview: bazel Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:34edfb4e67dc8f8c7b3948f1e8a2aef0cdb0f1f179ca1afbebf223f5904b784a` |
+| `latest` | July 12th    | `sha256:a2f8ee254688514cb885d304ba3c51dca2e936c38b9a1541a03ad47d0e459e93` |
 
 
 

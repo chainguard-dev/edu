@@ -1,7 +1,7 @@
 ---
-title: "Oauth2-proxy Image Tags History"
+title: "oauth2-proxy Image Tags History"
 type: "article"
-description: "Image Tags and History for the Oauth2-proxy Chainguard Image"
+description: "Image Tags and History for the oauth2-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `7.4-dev`      | 19 hours ago | `sha256:5c17b86727d6f166aa6c9f6e7e25ee17b42d28fc2d9e26d9b242e81eb563f568` |
-| `latest-dev`   | 19 hours ago | `sha256:5c17b86727d6f166aa6c9f6e7e25ee17b42d28fc2d9e26d9b242e81eb563f568` |
-| `7.4.0-dev`    | 19 hours ago | `sha256:5c17b86727d6f166aa6c9f6e7e25ee17b42d28fc2d9e26d9b242e81eb563f568` |
-| `7.4.0-r4-dev` | 19 hours ago | `sha256:5c17b86727d6f166aa6c9f6e7e25ee17b42d28fc2d9e26d9b242e81eb563f568` |
-| `latest`       | 19 hours ago | `sha256:a4d80b5fa63ebe19129bfde69097fb1562a7cfa13eaee77f984273c489372a4b` |
-| `7.4.0`        | 19 hours ago | `sha256:a4d80b5fa63ebe19129bfde69097fb1562a7cfa13eaee77f984273c489372a4b` |
-| `7.4`          | 19 hours ago | `sha256:a4d80b5fa63ebe19129bfde69097fb1562a7cfa13eaee77f984273c489372a4b` |
-| `7-dev`        | 19 hours ago | `sha256:5c17b86727d6f166aa6c9f6e7e25ee17b42d28fc2d9e26d9b242e81eb563f568` |
-| `7`            | 19 hours ago | `sha256:a4d80b5fa63ebe19129bfde69097fb1562a7cfa13eaee77f984273c489372a4b` |
+| `7.4-dev`      | July 12th    | `sha256:ccd70807d6de71ba37de13b39a1a7180baf2820a4d6fe6ae3a704540b36f0ba5` |
+| `7-dev`        | July 12th    | `sha256:ccd70807d6de71ba37de13b39a1a7180baf2820a4d6fe6ae3a704540b36f0ba5` |
+| `7.4.0-dev`    | July 12th    | `sha256:ccd70807d6de71ba37de13b39a1a7180baf2820a4d6fe6ae3a704540b36f0ba5` |
+| `7.4.0-r4-dev` | July 12th    | `sha256:ccd70807d6de71ba37de13b39a1a7180baf2820a4d6fe6ae3a704540b36f0ba5` |
+| `latest-dev`   | July 12th    | `sha256:ccd70807d6de71ba37de13b39a1a7180baf2820a4d6fe6ae3a704540b36f0ba5` |
+| `latest`       | July 11th    | `sha256:a4d80b5fa63ebe19129bfde69097fb1562a7cfa13eaee77f984273c489372a4b` |
+| `7.4.0`        | July 11th    | `sha256:a4d80b5fa63ebe19129bfde69097fb1562a7cfa13eaee77f984273c489372a4b` |
+| `7.4`          | July 11th    | `sha256:a4d80b5fa63ebe19129bfde69097fb1562a7cfa13eaee77f984273c489372a4b` |
+| `7`            | July 11th    | `sha256:a4d80b5fa63ebe19129bfde69097fb1562a7cfa13eaee77f984273c489372a4b` |

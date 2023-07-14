@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Coredns"
+title: "Image Overview: coredns"
 type: "article"
-description: "Overview: Coredns Chainguard Image"
+description: "Overview: coredns Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:8646ba2a16b25c7230ce446d12d4aa730c868d46c8c83e56db0fb13b2c92103c` |
-| `latest-dev` | 20 hours ago | `sha256:cc17a6a80ebd8189dea121f32c8d2ca6da3667177fb29a4425bca629490bb622` |
+| `latest-dev` | July 12th    | `sha256:32887767d33ed026bc078d74c3229ca088f3a2882d53c09183fd870a944df9c5` |
+| `latest`     | July 11th    | `sha256:8646ba2a16b25c7230ce446d12d4aa730c868d46c8c83e56db0fb13b2c92103c` |
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Memcached"
+title: "Image Overview: memcached"
 type: "article"
-description: "Overview: Memcached Chainguard Image"
+description: "Overview: memcached Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:9f3118e3ba0bd5969fa63b465501afcebada895768098432138beb9402957609` |
+| `latest` | July 11th    | `sha256:9f3118e3ba0bd5969fa63b465501afcebada895768098432138beb9402957609` |
 
 
 

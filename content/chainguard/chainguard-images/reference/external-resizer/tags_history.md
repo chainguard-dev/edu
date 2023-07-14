@@ -1,7 +1,7 @@
 ---
-title: "External-resizer Image Tags History"
+title: "external-resizer Image Tags History"
 type: "article"
-description: "Image Tags and History for the External-resizer Chainguard Image"
+description: "Image Tags and History for the external-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Wait-for-it"
+title: "Image Overview: wait-for-it"
 type: "article"
-description: "Overview: Wait-for-it Chainguard Image"
+description: "Overview: wait-for-it Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:e9ce150f95c395447616be44524f6cad39d4520af86e0fa0fa127efb640eacd8` |
+| `latest` | July 11th    | `sha256:e9ce150f95c395447616be44524f6cad39d4520af86e0fa0fa127efb640eacd8` |
 
 
 

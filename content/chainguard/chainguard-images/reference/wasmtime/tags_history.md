@@ -1,7 +1,7 @@
 ---
-title: "Wasmtime Image Tags History"
+title: "wasmtime Image Tags History"
 type: "article"
-description: "Image Tags and History for the Wasmtime Chainguard Image"
+description: "Image Tags and History for the wasmtime Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag             | Last Updated | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-| `10.0.1-dev`    | 19 hours ago | `sha256:d24c384464634793572ec88f2723ad3dbe2c3b6fa737b8ba53f7de042afc9aa8` |
-| `latest-dev`    | 19 hours ago | `sha256:d24c384464634793572ec88f2723ad3dbe2c3b6fa737b8ba53f7de042afc9aa8` |
-| `latest`        | 19 hours ago | `sha256:9457b5f507f1b22c63a8d469a3eb77e4add0bf2d66ffa3279dbb5a6808e31ea8` |
-| `10.0.1-r0-dev` | 19 hours ago | `sha256:d24c384464634793572ec88f2723ad3dbe2c3b6fa737b8ba53f7de042afc9aa8` |
-| `10.0-dev`      | 19 hours ago | `sha256:d24c384464634793572ec88f2723ad3dbe2c3b6fa737b8ba53f7de042afc9aa8` |
-| `10`            | 19 hours ago | `sha256:9457b5f507f1b22c63a8d469a3eb77e4add0bf2d66ffa3279dbb5a6808e31ea8` |
-| `10.0.1`        | 19 hours ago | `sha256:9457b5f507f1b22c63a8d469a3eb77e4add0bf2d66ffa3279dbb5a6808e31ea8` |
-| `10-dev`        | 19 hours ago | `sha256:d24c384464634793572ec88f2723ad3dbe2c3b6fa737b8ba53f7de042afc9aa8` |
-| `10.0`          | 19 hours ago | `sha256:9457b5f507f1b22c63a8d469a3eb77e4add0bf2d66ffa3279dbb5a6808e31ea8` |
+| `10.0.1-dev`    | July 12th    | `sha256:da55c2b0b5528c43e8f52fb235b049a06a3c05706c4c4d28018579cb12de5146` |
+| `10.0.1-r0-dev` | July 12th    | `sha256:da55c2b0b5528c43e8f52fb235b049a06a3c05706c4c4d28018579cb12de5146` |
+| `10.0-dev`      | July 12th    | `sha256:da55c2b0b5528c43e8f52fb235b049a06a3c05706c4c4d28018579cb12de5146` |
+| `latest-dev`    | July 12th    | `sha256:da55c2b0b5528c43e8f52fb235b049a06a3c05706c4c4d28018579cb12de5146` |
+| `10-dev`        | July 12th    | `sha256:da55c2b0b5528c43e8f52fb235b049a06a3c05706c4c4d28018579cb12de5146` |
+| `latest`        | July 11th    | `sha256:9457b5f507f1b22c63a8d469a3eb77e4add0bf2d66ffa3279dbb5a6808e31ea8` |
+| `10`            | July 11th    | `sha256:9457b5f507f1b22c63a8d469a3eb77e4add0bf2d66ffa3279dbb5a6808e31ea8` |
+| `10.0.1`        | July 11th    | `sha256:9457b5f507f1b22c63a8d469a3eb77e4add0bf2d66ffa3279dbb5a6808e31ea8` |
+| `10.0`          | July 11th    | `sha256:9457b5f507f1b22c63a8d469a3eb77e4add0bf2d66ffa3279dbb5a6808e31ea8` |

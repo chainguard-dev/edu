@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Buck2"
+title: "Image Overview: buck2"
 type: "article"
-description: "Overview: Buck2 Chainguard Image"
+description: "Overview: buck2 Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:0f2d8250c818cffe2ea06ece793dc254899cbdd806745048ef5a8156c94c3ae8` |
-| `latest-dev` | 20 hours ago | `sha256:15c401a369205e1eb032d55ad846b79f1dd7dd0b5d172a95d00112a61941f5bb` |
+| `latest-dev` | July 12th    | `sha256:0f9a05791c757bf3641d93942d6c46cc20ffc96cd8cb2db4a70a7246eecd1784` |
+| `latest`     | July 12th    | `sha256:adc6a275928a73cd10ba255b62175536496a8a689252c4ede5ca0ce261c0e47f` |
 
 
 

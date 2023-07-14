@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Vertical-pod-autoscaler-admission-controller"
+title: "Image Overview: vertical-pod-autoscaler-admission-controller"
 type: "article"
-description: "Overview: Vertical-pod-autoscaler-admission-controller Chainguard Image"
+description: "Overview: vertical-pod-autoscaler-admission-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:b0c410b43b602f1b3f111ccd48896df33c950d89cf99586200a47d3883c447ba` |
-| `latest`     | 19 hours ago | `sha256:309a1f609c3f351b9fc0cbc685242891ff5d0306fc9954f23164339b4765d84b` |
+| `latest-dev` | July 12th    | `sha256:ef140db8f8024f64924ec20cf145beb4cd093cdeacb72d732fc5a6dc4d746f90` |
+| `latest`     | July 11th    | `sha256:309a1f609c3f351b9fc0cbc685242891ff5d0306fc9954f23164339b4765d84b` |
 
 # vertical-pod-autoscaler-admission-controller
 

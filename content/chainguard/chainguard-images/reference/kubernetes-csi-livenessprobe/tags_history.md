@@ -1,7 +1,7 @@
 ---
-title: "Kubernetes-csi-livenessprobe Image Tags History"
+title: "kubernetes-csi-livenessprobe Image Tags History"
 type: "article"
-description: "Image Tags and History for the Kubernetes-csi-livenessprobe Chainguard Image"
+description: "Image Tags and History for the kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `2.10`   | 20 hours ago | `sha256:bd74e638ffe80dadfd016eeb77188af0768cf4e460f74bd819b8195009d3fb2e` |
-| `latest` | 20 hours ago | `sha256:bd74e638ffe80dadfd016eeb77188af0768cf4e460f74bd819b8195009d3fb2e` |
-| `2.10.0` | 20 hours ago | `sha256:bd74e638ffe80dadfd016eeb77188af0768cf4e460f74bd819b8195009d3fb2e` |
-| `2`      | 20 hours ago | `sha256:bd74e638ffe80dadfd016eeb77188af0768cf4e460f74bd819b8195009d3fb2e` |
+| `2.10`   | July 11th    | `sha256:bd74e638ffe80dadfd016eeb77188af0768cf4e460f74bd819b8195009d3fb2e` |
+| `latest` | July 11th    | `sha256:bd74e638ffe80dadfd016eeb77188af0768cf4e460f74bd819b8195009d3fb2e` |
+| `2.10.0` | July 11th    | `sha256:bd74e638ffe80dadfd016eeb77188af0768cf4e460f74bd819b8195009d3fb2e` |
+| `2`      | July 11th    | `sha256:bd74e638ffe80dadfd016eeb77188af0768cf4e460f74bd819b8195009d3fb2e` |

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: K8s-sidecar"
+title: "Image Overview: k8s-sidecar"
 type: "article"
-description: "Overview: K8s-sidecar Chainguard Image"
+description: "Overview: k8s-sidecar Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:966b5a91cec1b474e8eeae424f59d3c238ad6c8a94e11ca11ebf404bbc0b5ddf` |
-| `latest-dev` | 20 hours ago | `sha256:1d1cdfa190fe5ff692cd39438955ff478bcd3f426bb60975ef6e643c29ba44db` |
+| `latest-dev` | July 12th    | `sha256:6c0fa5716f05a6ae8b31b5f1dea9606a6bed1f1ebb6dff35f9bf0e4498d487c0` |
+| `latest`     | July 11th    | `sha256:966b5a91cec1b474e8eeae424f59d3c238ad6c8a94e11ca11ebf404bbc0b5ddf` |
 
 
 

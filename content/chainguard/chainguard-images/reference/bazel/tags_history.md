@@ -1,7 +1,7 @@
 ---
-title: "Bazel Image Tags History"
+title: "bazel Image Tags History"
 type: "article"
-description: "Image Tags and History for the Bazel Chainguard Image"
+description: "Image Tags and History for the bazel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:34edfb4e67dc8f8c7b3948f1e8a2aef0cdb0f1f179ca1afbebf223f5904b784a` |
-| `6.2.1`  | 20 hours ago | `sha256:34edfb4e67dc8f8c7b3948f1e8a2aef0cdb0f1f179ca1afbebf223f5904b784a` |
-| `6`      | 20 hours ago | `sha256:34edfb4e67dc8f8c7b3948f1e8a2aef0cdb0f1f179ca1afbebf223f5904b784a` |
-| `6.2`    | 20 hours ago | `sha256:34edfb4e67dc8f8c7b3948f1e8a2aef0cdb0f1f179ca1afbebf223f5904b784a` |
+| `latest` | July 12th    | `sha256:a2f8ee254688514cb885d304ba3c51dca2e936c38b9a1541a03ad47d0e459e93` |
+| `6`      | July 12th    | `sha256:a2f8ee254688514cb885d304ba3c51dca2e936c38b9a1541a03ad47d0e459e93` |
+| `6.2`    | July 12th    | `sha256:a2f8ee254688514cb885d304ba3c51dca2e936c38b9a1541a03ad47d0e459e93` |
+| `6.2.1`  | July 12th    | `sha256:a2f8ee254688514cb885d304ba3c51dca2e936c38b9a1541a03ad47d0e459e93` |

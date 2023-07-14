@@ -1,7 +1,7 @@
 ---
-title: "Kubernetes-csi-external-snapshot-controller Image Tags History"
+title: "kubernetes-csi-external-snapshot-controller Image Tags History"
 type: "article"
-description: "Image Tags and History for the Kubernetes-csi-external-snapshot-controller Chainguard Image"
+description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `6-dev`        | 19 hours ago | `sha256:5ce0689652ac508d6c8f3350407de8f84dc7f954802a19e5a46d719b18560ed5` |
-| `6.2`          | 19 hours ago | `sha256:13608c56257ae4c274a91c922429a4ed793a06a3011d4d69ba948a065734780e` |
-| `latest`       | 19 hours ago | `sha256:13608c56257ae4c274a91c922429a4ed793a06a3011d4d69ba948a065734780e` |
-| `6.2.2-dev`    | 19 hours ago | `sha256:5ce0689652ac508d6c8f3350407de8f84dc7f954802a19e5a46d719b18560ed5` |
-| `6.2-dev`      | 19 hours ago | `sha256:5ce0689652ac508d6c8f3350407de8f84dc7f954802a19e5a46d719b18560ed5` |
-| `6`            | 19 hours ago | `sha256:13608c56257ae4c274a91c922429a4ed793a06a3011d4d69ba948a065734780e` |
-| `6.2.2-r1-dev` | 19 hours ago | `sha256:5ce0689652ac508d6c8f3350407de8f84dc7f954802a19e5a46d719b18560ed5` |
-| `latest-dev`   | 19 hours ago | `sha256:5ce0689652ac508d6c8f3350407de8f84dc7f954802a19e5a46d719b18560ed5` |
-| `6.2.2`        | 19 hours ago | `sha256:13608c56257ae4c274a91c922429a4ed793a06a3011d4d69ba948a065734780e` |
+| `6.2.2-dev`    | July 12th    | `sha256:032689d6b1e16cb3d5558fea0b5d6ff7c9e3282ca9acbd4e6776726784877b63` |
+| `6.2.2-r1-dev` | July 12th    | `sha256:032689d6b1e16cb3d5558fea0b5d6ff7c9e3282ca9acbd4e6776726784877b63` |
+| `6-dev`        | July 12th    | `sha256:032689d6b1e16cb3d5558fea0b5d6ff7c9e3282ca9acbd4e6776726784877b63` |
+| `latest-dev`   | July 12th    | `sha256:032689d6b1e16cb3d5558fea0b5d6ff7c9e3282ca9acbd4e6776726784877b63` |
+| `6.2-dev`      | July 12th    | `sha256:032689d6b1e16cb3d5558fea0b5d6ff7c9e3282ca9acbd4e6776726784877b63` |
+| `6.2`          | July 11th    | `sha256:13608c56257ae4c274a91c922429a4ed793a06a3011d4d69ba948a065734780e` |
+| `latest`       | July 11th    | `sha256:13608c56257ae4c274a91c922429a4ed793a06a3011d4d69ba948a065734780e` |
+| `6`            | July 11th    | `sha256:13608c56257ae4c274a91c922429a4ed793a06a3011d4d69ba948a065734780e` |
+| `6.2.2`        | July 11th    | `sha256:13608c56257ae4c274a91c922429a4ed793a06a3011d4d69ba948a065734780e` |

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Gcc-musl"
+title: "Image Overview: gcc-musl"
 type: "article"
-description: "Overview: Gcc-musl Chainguard Image"
+description: "Overview: gcc-musl Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

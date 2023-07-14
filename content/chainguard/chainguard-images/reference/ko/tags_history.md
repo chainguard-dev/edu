@@ -1,7 +1,7 @@
 ---
-title: "Ko Image Tags History"
+title: "ko Image Tags History"
 type: "article"
-description: "Image Tags and History for the Ko Chainguard Image"
+description: "Image Tags and History for the ko Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,9 +18,9 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:318f42050b625276fa5b7e84d60a3f303060b63c2b72c6939eb12fde38d3a6ff` |
-| `0.14`   | 19 hours ago | `sha256:318f42050b625276fa5b7e84d60a3f303060b63c2b72c6939eb12fde38d3a6ff` |
-| `0.14.1` | 19 hours ago | `sha256:318f42050b625276fa5b7e84d60a3f303060b63c2b72c6939eb12fde38d3a6ff` |
-| `0`      | 19 hours ago | `sha256:318f42050b625276fa5b7e84d60a3f303060b63c2b72c6939eb12fde38d3a6ff` |
-| `0.13.0` | 21 days ago  | `sha256:13f2fcc63b02fc1611075fc140be782a201d492022a9b74d45a60eba5f240d28` |
-| `0.13`   | 21 days ago  | `sha256:13f2fcc63b02fc1611075fc140be782a201d492022a9b74d45a60eba5f240d28` |
+| `0.14`   | July 12th    | `sha256:7c942105013446ec3f0dd4d039dcb437be9bc9a448e51401a46311f6189747fd` |
+| `0.14.1` | July 12th    | `sha256:7c942105013446ec3f0dd4d039dcb437be9bc9a448e51401a46311f6189747fd` |
+| `latest` | July 12th    | `sha256:7c942105013446ec3f0dd4d039dcb437be9bc9a448e51401a46311f6189747fd` |
+| `0`      | July 12th    | `sha256:7c942105013446ec3f0dd4d039dcb437be9bc9a448e51401a46311f6189747fd` |
+| `0.13.0` | June 20th    | `sha256:13f2fcc63b02fc1611075fc140be782a201d492022a9b74d45a60eba5f240d28` |
+| `0.13`   | June 20th    | `sha256:13f2fcc63b02fc1611075fc140be782a201d492022a9b74d45a60eba5f240d28` |

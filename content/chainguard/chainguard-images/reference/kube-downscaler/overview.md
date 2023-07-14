@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kube-downscaler"
+title: "Image Overview: kube-downscaler"
 type: "article"
-description: "Overview: Kube-downscaler Chainguard Image"
+description: "Overview: kube-downscaler Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:225a377d5f5d302b4128daa65587b5f06fb111504368adff64b73001106b21fe` |
-| `latest-dev` | 19 hours ago | `sha256:5f2660ecd43bff6f88d21405f8c8a96783de1d45a02bfba8408be4e946931368` |
+| `latest-dev` | July 12th    | `sha256:fae65e82f6f3c7680c3c7cb41b0697c4599277b6c9de1602dbe71d6ab4a6bd66` |
+| `latest`     | July 11th    | `sha256:225a377d5f5d302b4128daa65587b5f06fb111504368adff64b73001106b21fe` |
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Git"
+title: "Image Overview: git"
 type: "article"
-description: "Overview: Git Chainguard Image"
+description: "Overview: git Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:8cf0d7bd1ac33876ba810deb9377c98a02474609fda851dc92d17a0af39377d8` |
-| `latest`     | 20 hours ago | `sha256:c498617cc6fd52c2578d7076dadaa15337e9a100fe0a35a8ffb1255c49fb35f5` |
+| `latest-dev` | July 13th    | `sha256:850332c1197fcf61fab1435f0e32fd8d09185a8fbe57e43c759a814c0868cd97` |
+| `latest`     | July 13th    | `sha256:94e49364bb53f511ee137c21ff1f1355d12f0f03d2fac5540a21b98295781c82` |
 
 
 

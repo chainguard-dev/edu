@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Consul"
+title: "Image Overview: consul"
 type: "article"
-description: "Overview: Consul Chainguard Image"
+description: "Overview: consul Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:7b27607ea382685d9c73676b9c39499b23d9eb28a7f32282814e239f7e13e9dc` |
-| `latest`     | 20 hours ago | `sha256:f48aa9ee0a5e1d93876b87b08e0d03cc2331a598c0e3dc72c05c9c805222bbaa` |
+| `latest`     | July 12th    | `sha256:dded04e7e867d8c9b1f4792c35f31df385298a10ff512ec55d40c40cb6c129c7` |
+| `latest-dev` | July 12th    | `sha256:9c5b9c78457f77b4ce5ef7a1c2cdae7ee29c858a4423216973680e8143ee0799` |
 
 
 

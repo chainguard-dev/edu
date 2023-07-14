@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Nats"
+title: "Image Overview: nats"
 type: "article"
-description: "Overview: Nats Chainguard Image"
+description: "Overview: nats Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:8c87166f39e6708658045bba61beb21957f74c9295d37d5d5aa1aaebb1d60fc2` |
-| `latest-dev` | 19 hours ago | `sha256:d981cc6f6c6724c9026bc6a31e5e4a2b180c166bfbf7f15200594e4f3663b52a` |
+| `latest-dev` | July 12th    | `sha256:00ac44030b76dd2e17827f66969f3302607a08ee71006f6c277608a65ba28658` |
+| `latest`     | July 11th    | `sha256:8c87166f39e6708658045bba61beb21957f74c9295d37d5d5aa1aaebb1d60fc2` |
 
 
 

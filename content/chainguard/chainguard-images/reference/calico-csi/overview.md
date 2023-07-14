@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Calico-csi"
+title: "Image Overview: calico-csi"
 type: "article"
-description: "Overview: Calico-csi Chainguard Image"
+description: "Overview: calico-csi Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:a97f9d4ec36b6f0a31ed9b1ddd6ef5ad3f8df5378dc46cd74e93ef0bdc93dae2` |
+| `latest` | July 11th    | `sha256:a97f9d4ec36b6f0a31ed9b1ddd6ef5ad3f8df5378dc46cd74e93ef0bdc93dae2` |
 
 # calico-csi
 

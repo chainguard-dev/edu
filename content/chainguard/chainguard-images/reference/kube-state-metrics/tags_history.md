@@ -1,7 +1,7 @@
 ---
-title: "Kube-state-metrics Image Tags History"
+title: "kube-state-metrics Image Tags History"
 type: "article"
-description: "Image Tags and History for the Kube-state-metrics Chainguard Image"
+description: "Image Tags and History for the kube-state-metrics Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `2.9.2`        | 19 hours ago | `sha256:16e228350e3b3cc5392698b663e56af9b55b462a4431a4c552f873f532583834` |
-| `2.9.2-r1-dev` | 19 hours ago | `sha256:2294463003741982751961448ec44963604c2759a265a2e775607d767c1dff7a` |
-| `latest-dev`   | 19 hours ago | `sha256:2294463003741982751961448ec44963604c2759a265a2e775607d767c1dff7a` |
-| `2`            | 19 hours ago | `sha256:16e228350e3b3cc5392698b663e56af9b55b462a4431a4c552f873f532583834` |
-| `latest`       | 19 hours ago | `sha256:16e228350e3b3cc5392698b663e56af9b55b462a4431a4c552f873f532583834` |
-| `2-dev`        | 19 hours ago | `sha256:2294463003741982751961448ec44963604c2759a265a2e775607d767c1dff7a` |
-| `2.9.2-dev`    | 19 hours ago | `sha256:2294463003741982751961448ec44963604c2759a265a2e775607d767c1dff7a` |
-| `2.9`          | 19 hours ago | `sha256:16e228350e3b3cc5392698b663e56af9b55b462a4431a4c552f873f532583834` |
-| `2.9-dev`      | 19 hours ago | `sha256:2294463003741982751961448ec44963604c2759a265a2e775607d767c1dff7a` |
+| `2.9-dev`      | July 12th    | `sha256:bb1773947789b2a6897256f942821c2d4f37621b438bd521ce0976cd22428138` |
+| `2-dev`        | July 12th    | `sha256:bb1773947789b2a6897256f942821c2d4f37621b438bd521ce0976cd22428138` |
+| `latest-dev`   | July 12th    | `sha256:bb1773947789b2a6897256f942821c2d4f37621b438bd521ce0976cd22428138` |
+| `2.9.2-r1-dev` | July 12th    | `sha256:bb1773947789b2a6897256f942821c2d4f37621b438bd521ce0976cd22428138` |
+| `2.9.2-dev`    | July 12th    | `sha256:bb1773947789b2a6897256f942821c2d4f37621b438bd521ce0976cd22428138` |
+| `2.9.2`        | July 11th    | `sha256:16e228350e3b3cc5392698b663e56af9b55b462a4431a4c552f873f532583834` |
+| `2`            | July 11th    | `sha256:16e228350e3b3cc5392698b663e56af9b55b462a4431a4c552f873f532583834` |
+| `latest`       | July 11th    | `sha256:16e228350e3b3cc5392698b663e56af9b55b462a4431a4c552f873f532583834` |
+| `2.9`          | July 11th    | `sha256:16e228350e3b3cc5392698b663e56af9b55b462a4431a4c552f873f532583834` |

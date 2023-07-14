@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kustomize-controller"
+title: "Image Overview: kustomize-controller"
 type: "article"
-description: "Overview: Kustomize-controller Chainguard Image"
+description: "Overview: kustomize-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

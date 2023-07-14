@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Argocd-repo-server"
+title: "Image Overview: argocd-repo-server"
 type: "article"
-description: "Overview: Argocd-repo-server Chainguard Image"
+description: "Overview: argocd-repo-server Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:a5d0fa1dde5f5235f89b8560ecac14579a472a76a56f8757a25fb6351d5d5782` |
-| `latest-dev` | 19 hours ago | `sha256:256dd6fd8225e530bed57ac64439716cbb4e75df40cc05c34850fea2889f2439` |
+| `latest-dev` | July 12th    | `sha256:e65e7f6d8dc2bcc3c9fe1b156674b4608e30c1f57b51fa8f03d03f030ee5b67f` |
+| `latest`     | July 12th    | `sha256:fc74c60857781e6b9622caefca9cacb79884119be40aa66610305b8fb1897663` |
 
 # argocd-repo-server
 

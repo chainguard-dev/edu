@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Vt"
+title: "Image Overview: vt"
 type: "article"
-description: "Overview: Vt Chainguard Image"
+description: "Overview: vt Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:e97e875d68d73db197a0bdcbacbff74894ce07a7ff8232d92d268b171ad6c9fd` |
-| `latest-dev` | 19 hours ago | `sha256:21509fcb8f7fc3e477e58ed00bfc5b342c37c4f2c2e024a1f59dfec5b72f4596` |
+| `latest-dev` | July 12th    | `sha256:ce38f53ddbcb42860ebb6ccb0b6af209fb6d6ecca39f822e79c6744f45260196` |
+| `latest`     | July 11th    | `sha256:e97e875d68d73db197a0bdcbacbff74894ce07a7ff8232d92d268b171ad6c9fd` |
 
 
 

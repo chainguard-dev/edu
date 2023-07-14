@@ -1,7 +1,7 @@
 ---
-title: "Mariadb Image Tags History"
+title: "mariadb Image Tags History"
 type: "article"
-description: "Image Tags and History for the Mariadb Chainguard Image"
+description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag       | Last Updated | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-| `latest`  | 19 hours ago | `sha256:e9bbd7db245ac64125b55b1c425de89f37073aa1e6c3e7e966bde81538995f40` |
-| `10.11.4` | 19 hours ago | `sha256:e9bbd7db245ac64125b55b1c425de89f37073aa1e6c3e7e966bde81538995f40` |
-| `10.11`   | 19 hours ago | `sha256:e9bbd7db245ac64125b55b1c425de89f37073aa1e6c3e7e966bde81538995f40` |
-| `10`      | 19 hours ago | `sha256:e9bbd7db245ac64125b55b1c425de89f37073aa1e6c3e7e966bde81538995f40` |
+| `latest`  | July 11th    | `sha256:e9bbd7db245ac64125b55b1c425de89f37073aa1e6c3e7e966bde81538995f40` |
+| `10.11.4` | July 11th    | `sha256:e9bbd7db245ac64125b55b1c425de89f37073aa1e6c3e7e966bde81538995f40` |
+| `10.11`   | July 11th    | `sha256:e9bbd7db245ac64125b55b1c425de89f37073aa1e6c3e7e966bde81538995f40` |
+| `10`      | July 11th    | `sha256:e9bbd7db245ac64125b55b1c425de89f37073aa1e6c3e7e966bde81538995f40` |

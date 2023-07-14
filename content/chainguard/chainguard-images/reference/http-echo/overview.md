@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Http-echo"
+title: "Image Overview: http-echo"
 type: "article"
-description: "Overview: Http-echo Chainguard Image"
+description: "Overview: http-echo Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:4b253e3b4e76d298e062f068c11773c04ff71d9fd532de9ff970cee44468f825` |
-| `latest-dev` | 20 hours ago | `sha256:e00d2083ad4a3310e6d30c66fb3741e3358d63247133c7f69fe9a920c3cd591e` |
+| `latest-dev` | July 12th    | `sha256:6c3729058923030e9d24255aa88e450a5e076b1fe3af06dba17425478a320e4b` |
+| `latest`     | July 11th    | `sha256:4b253e3b4e76d298e062f068c11773c04ff71d9fd532de9ff970cee44468f825` |
 
 
 

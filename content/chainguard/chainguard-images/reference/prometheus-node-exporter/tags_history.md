@@ -1,7 +1,7 @@
 ---
-title: "Prometheus-node-exporter Image Tags History"
+title: "prometheus-node-exporter Image Tags History"
 type: "article"
-description: "Image Tags and History for the Prometheus-node-exporter Chainguard Image"
+description: "Image Tags and History for the prometheus-node-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `1.6.0-dev`    | 15 hours ago | `sha256:0f2848b787cb630e519b3241151087b36ed4f3e24727435aaa410cad50b15b79` |
-| `1-dev`        | 15 hours ago | `sha256:0f2848b787cb630e519b3241151087b36ed4f3e24727435aaa410cad50b15b79` |
-| `latest-dev`   | 15 hours ago | `sha256:0f2848b787cb630e519b3241151087b36ed4f3e24727435aaa410cad50b15b79` |
-| `latest`       | 15 hours ago | `sha256:3c2b2cc6ba7d88e5d7bbbb6c6d6e58379e37516536457c17a13f78500cc09b90` |
-| `1.6`          | 15 hours ago | `sha256:3c2b2cc6ba7d88e5d7bbbb6c6d6e58379e37516536457c17a13f78500cc09b90` |
-| `1.6-dev`      | 15 hours ago | `sha256:0f2848b787cb630e519b3241151087b36ed4f3e24727435aaa410cad50b15b79` |
-| `1.6.0-r1-dev` | 15 hours ago | `sha256:0f2848b787cb630e519b3241151087b36ed4f3e24727435aaa410cad50b15b79` |
-| `1`            | 15 hours ago | `sha256:3c2b2cc6ba7d88e5d7bbbb6c6d6e58379e37516536457c17a13f78500cc09b90` |
-| `1.6.0`        | 15 hours ago | `sha256:3c2b2cc6ba7d88e5d7bbbb6c6d6e58379e37516536457c17a13f78500cc09b90` |
+| `latest-dev`   | July 12th    | `sha256:44e3db38503e817bc3b012dc976bfaf6fd63ac06bedb98fd6b2be689bd813802` |
+| `1.6-dev`      | July 12th    | `sha256:44e3db38503e817bc3b012dc976bfaf6fd63ac06bedb98fd6b2be689bd813802` |
+| `1.6.0-dev`    | July 12th    | `sha256:44e3db38503e817bc3b012dc976bfaf6fd63ac06bedb98fd6b2be689bd813802` |
+| `1-dev`        | July 12th    | `sha256:44e3db38503e817bc3b012dc976bfaf6fd63ac06bedb98fd6b2be689bd813802` |
+| `1.6.0-r1-dev` | July 12th    | `sha256:44e3db38503e817bc3b012dc976bfaf6fd63ac06bedb98fd6b2be689bd813802` |
+| `latest`       | July 12th    | `sha256:3c2b2cc6ba7d88e5d7bbbb6c6d6e58379e37516536457c17a13f78500cc09b90` |
+| `1.6`          | July 12th    | `sha256:3c2b2cc6ba7d88e5d7bbbb6c6d6e58379e37516536457c17a13f78500cc09b90` |
+| `1`            | July 12th    | `sha256:3c2b2cc6ba7d88e5d7bbbb6c6d6e58379e37516536457c17a13f78500cc09b90` |
+| `1.6.0`        | July 12th    | `sha256:3c2b2cc6ba7d88e5d7bbbb6c6d6e58379e37516536457c17a13f78500cc09b90` |

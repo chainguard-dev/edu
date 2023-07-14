@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Dex"
+title: "Image Overview: dex"
 type: "article"
-description: "Overview: Dex Chainguard Image"
+description: "Overview: dex Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:38b8298db31a11d326a79f89be3d0485fb0728e9f27fab53a57958da9c1a07e6` |
-| `latest`     | 20 hours ago | `sha256:16459e545d53502a719a92bc4479bc24d87aa58e4e0403946733682ac5c43b95` |
+| `latest-dev` | July 12th    | `sha256:8745d367c643f1b8504477b5fb985a27ded58b898c57eefe88d6692c248a19a0` |
+| `latest`     | July 11th    | `sha256:16459e545d53502a719a92bc4479bc24d87aa58e4e0403946733682ac5c43b95` |
 
 
 

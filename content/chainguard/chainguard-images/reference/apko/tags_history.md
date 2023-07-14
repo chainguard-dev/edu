@@ -1,7 +1,7 @@
 ---
-title: "Apko Image Tags History"
+title: "apko Image Tags History"
 type: "article"
-description: "Image Tags and History for the Apko Chainguard Image"
+description: "Image Tags and History for the apko Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,9 +18,9 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `0.9`    | 20 hours ago | `sha256:9fa18e1a731710c4d30f725453f50278f6f4a5ceebd7164f8e6b33438f36cbc8` |
-| `0`      | 20 hours ago | `sha256:9fa18e1a731710c4d30f725453f50278f6f4a5ceebd7164f8e6b33438f36cbc8` |
-| `0.9.0`  | 20 hours ago | `sha256:9fa18e1a731710c4d30f725453f50278f6f4a5ceebd7164f8e6b33438f36cbc8` |
-| `latest` | 20 hours ago | `sha256:9fa18e1a731710c4d30f725453f50278f6f4a5ceebd7164f8e6b33438f36cbc8` |
-| `0.8`    | 16 days ago  | `sha256:5370b6bf8f85f0ddeae20e11d1632afeacfd50559f332742b9ed843e8963cb74` |
-| `0.8.0`  | 16 days ago  | `sha256:5370b6bf8f85f0ddeae20e11d1632afeacfd50559f332742b9ed843e8963cb74` |
+| `0.9`    | July 11th    | `sha256:9fa18e1a731710c4d30f725453f50278f6f4a5ceebd7164f8e6b33438f36cbc8` |
+| `0`      | July 11th    | `sha256:9fa18e1a731710c4d30f725453f50278f6f4a5ceebd7164f8e6b33438f36cbc8` |
+| `0.9.0`  | July 11th    | `sha256:9fa18e1a731710c4d30f725453f50278f6f4a5ceebd7164f8e6b33438f36cbc8` |
+| `latest` | July 11th    | `sha256:9fa18e1a731710c4d30f725453f50278f6f4a5ceebd7164f8e6b33438f36cbc8` |
+| `0.8`    | June 26th    | `sha256:5370b6bf8f85f0ddeae20e11d1632afeacfd50559f332742b9ed843e8963cb74` |
+| `0.8.0`  | June 26th    | `sha256:5370b6bf8f85f0ddeae20e11d1632afeacfd50559f332742b9ed843e8963cb74` |

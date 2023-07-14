@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Musl-dynamic"
+title: "Image Overview: musl-dynamic"
 type: "article"
-description: "Overview: Musl-dynamic Chainguard Image"
+description: "Overview: musl-dynamic Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

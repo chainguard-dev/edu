@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Nri-prometheus"
+title: "Image Overview: nri-prometheus"
 type: "article"
-description: "Overview: Nri-prometheus Chainguard Image"
+description: "Overview: nri-prometheus Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 days ago  | `sha256:ced62fa10104ba6b18f1fa407c23314ce663748b01dba85f9d0efaa0641ee3f9` |
-| `latest`     | 19 days ago  | `sha256:04a610b1cde698897c0b213bea6ecb31793eb3a03600accbf077d6d9d0bba747` |
+| `latest-dev` | June 23rd    | `sha256:ced62fa10104ba6b18f1fa407c23314ce663748b01dba85f9d0efaa0641ee3f9` |
+| `latest`     | June 23rd    | `sha256:04a610b1cde698897c0b213bea6ecb31793eb3a03600accbf077d6d9d0bba747` |
 
 # nri-prometheus
 

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Deno"
+title: "Image Overview: deno"
 type: "article"
-description: "Overview: Deno Chainguard Image"
+description: "Overview: deno Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:47760da528bcb8e1c7217060f7ab2880b277b8efb9da5653962d3a0e55b6fcef` |
+| `latest` | July 11th    | `sha256:47760da528bcb8e1c7217060f7ab2880b277b8efb9da5653962d3a0e55b6fcef` |
 
 
 

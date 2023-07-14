@@ -1,7 +1,7 @@
 ---
-title: "Memcached-exporter Image Tags History"
+title: "memcached-exporter Image Tags History"
 type: "article"
-description: "Image Tags and History for the Memcached-exporter Chainguard Image"
+description: "Image Tags and History for the memcached-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `0.13.0` | 19 hours ago | `sha256:f98898ca7d897bec5c1feb678ecbaf6346fd18d4c11f5abd678739bdf84c2da5` |
-| `0`      | 19 hours ago | `sha256:f98898ca7d897bec5c1feb678ecbaf6346fd18d4c11f5abd678739bdf84c2da5` |
-| `latest` | 19 hours ago | `sha256:f98898ca7d897bec5c1feb678ecbaf6346fd18d4c11f5abd678739bdf84c2da5` |
-| `0.13`   | 19 hours ago | `sha256:f98898ca7d897bec5c1feb678ecbaf6346fd18d4c11f5abd678739bdf84c2da5` |
+| `0.13.0` | July 11th    | `sha256:f98898ca7d897bec5c1feb678ecbaf6346fd18d4c11f5abd678739bdf84c2da5` |
+| `0`      | July 11th    | `sha256:f98898ca7d897bec5c1feb678ecbaf6346fd18d4c11f5abd678739bdf84c2da5` |
+| `latest` | July 11th    | `sha256:f98898ca7d897bec5c1feb678ecbaf6346fd18d4c11f5abd678739bdf84c2da5` |
+| `0.13`   | July 11th    | `sha256:f98898ca7d897bec5c1feb678ecbaf6346fd18d4c11f5abd678739bdf84c2da5` |

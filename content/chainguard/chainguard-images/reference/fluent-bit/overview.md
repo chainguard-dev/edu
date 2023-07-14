@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Fluent-bit"
+title: "Image Overview: fluent-bit"
 type: "article"
-description: "Overview: Fluent-bit Chainguard Image"
+description: "Overview: fluent-bit Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:efeaae24b2ccc67d905706a1297676487a666c6df1c1883d06926dfd77b442a1` |
+| `latest` | July 11th    | `sha256:efeaae24b2ccc67d905706a1297676487a666c6df1c1883d06926dfd77b442a1` |
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Static"
+title: "Image Overview: static"
 type: "article"
-description: "Overview: Static Chainguard Image"
+description: "Overview: static Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:6b35c7e7084349b3a71e70219f61ea49b22d663b89b0ea07474e5b44cbc70860` |
+| `latest` | July 11th    | `sha256:6b35c7e7084349b3a71e70219f61ea49b22d663b89b0ea07474e5b44cbc70860` |
 
 
 

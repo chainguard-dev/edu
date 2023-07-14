@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: K8sgpt"
+title: "Image Overview: k8sgpt"
 type: "article"
-description: "Overview: K8sgpt Chainguard Image"
+description: "Overview: k8sgpt Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:e04f9b801bc13d1262218331970852aed1bf5c086b76adb17e45ce863def9897` |
+| `latest` | July 11th    | `sha256:e04f9b801bc13d1262218331970852aed1bf5c086b76adb17e45ce863def9897` |
 
 
 

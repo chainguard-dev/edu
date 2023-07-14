@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Python"
+title: "Image Overview: python"
 type: "article"
-description: "Overview: Python Chainguard Image"
+description: "Overview: python Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:3b6e070dbe4c01a913eac02743626b40a50f0cc37fa44fd34ed1f7c711a2adbe` |
-| `latest`     | 19 hours ago | `sha256:ba8dff86ed0c5f579972f14f0c41be6121c6b6cc77668161a7d8f3de9158d063` |
+| `latest-dev` | July 12th    | `sha256:225f68a9eec3e29ce356a8e3699ab6eb75972082047115a75769d3ed2e78b17b` |
+| `latest`     | July 11th    | `sha256:ba8dff86ed0c5f579972f14f0c41be6121c6b6cc77668161a7d8f3de9158d063` |
 
 
 

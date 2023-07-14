@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Secrets-store-csi-driver"
+title: "Image Overview: secrets-store-csi-driver"
 type: "article"
-description: "Overview: Secrets-store-csi-driver Chainguard Image"
+description: "Overview: secrets-store-csi-driver Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:e833fa20f464257f3a2f102d421977c3e92d66d4a447407870ee684ae5855a3f` |
-| `latest-dev` | 19 hours ago | `sha256:b6357b71f4f92f33b710fa39e38ec0c54c744f98024fae85630c5ab6bf1b4dde` |
+| `latest-dev` | July 12th    | `sha256:eeae01ef333f38afc7aae575d90f19ab12127cadc34cb4f33bfc72118de3c51d` |
+| `latest`     | July 11th    | `sha256:e833fa20f464257f3a2f102d421977c3e92d66d4a447407870ee684ae5855a3f` |
 
 
 

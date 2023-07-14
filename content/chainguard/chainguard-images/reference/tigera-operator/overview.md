@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Tigera-operator"
+title: "Image Overview: tigera-operator"
 type: "article"
-description: "Overview: Tigera-operator Chainguard Image"
+description: "Overview: tigera-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:91320c3646dbc11aa1ff4613513747e8fa01f5e3a8f91919cecffebafac963ef` |
-| `latest-dev` | 19 hours ago | `sha256:42dc7be37b42e54b8669391d4e8ebbea29449a2902435fbd226ceec84d84d3b2` |
+| `latest-dev` | July 12th    | `sha256:8e4fb0d4a256fbc2083f88746482f11239bae9519fb48569af22f578b4263d5a` |
+| `latest`     | July 11th    | `sha256:91320c3646dbc11aa1ff4613513747e8fa01f5e3a8f91919cecffebafac963ef` |
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: "Zot Image Tags History"
+title: "zot Image Tags History"
 type: "article"
-description: "Image Tags and History for the Zot Chainguard Image"
+description: "Image Tags and History for the zot Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,13 +18,13 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `1.4.3-dev`    | 19 hours ago | `sha256:06adb5d97cf3b1e21cd80c7acadf41906a86ee5cfcf4648d7902062bf2a320c2` |
-| `1`            | 19 hours ago | `sha256:c425631169cbffcf7c6b8af7d5a9a19313136d9ba939f07d57f8139e6b1c8838` |
-| `1.4.3-r6-dev` | 19 hours ago | `sha256:06adb5d97cf3b1e21cd80c7acadf41906a86ee5cfcf4648d7902062bf2a320c2` |
-| `1.4-dev`      | 19 hours ago | `sha256:06adb5d97cf3b1e21cd80c7acadf41906a86ee5cfcf4648d7902062bf2a320c2` |
-| `latest-dev`   | 19 hours ago | `sha256:06adb5d97cf3b1e21cd80c7acadf41906a86ee5cfcf4648d7902062bf2a320c2` |
-| `1.4`          | 19 hours ago | `sha256:c425631169cbffcf7c6b8af7d5a9a19313136d9ba939f07d57f8139e6b1c8838` |
-| `1.4.3`        | 19 hours ago | `sha256:c425631169cbffcf7c6b8af7d5a9a19313136d9ba939f07d57f8139e6b1c8838` |
-| `latest`       | 19 hours ago | `sha256:c425631169cbffcf7c6b8af7d5a9a19313136d9ba939f07d57f8139e6b1c8838` |
-| `1-dev`        | 19 hours ago | `sha256:06adb5d97cf3b1e21cd80c7acadf41906a86ee5cfcf4648d7902062bf2a320c2` |
-| `1.4.3-r5-dev` | 8 days ago   | `sha256:e6bff645d2a74abc46beba15949e88c5e7bf79e92a56dc054ebcad86f81abd75` |
+| `1.4-dev`      | July 12th    | `sha256:5fd4c51d6e017fa0e4a627bd44f363b42093e75c4754bce4b294ba4a29df3723` |
+| `1.4.3-dev`    | July 12th    | `sha256:5fd4c51d6e017fa0e4a627bd44f363b42093e75c4754bce4b294ba4a29df3723` |
+| `1.4.3-r6-dev` | July 12th    | `sha256:5fd4c51d6e017fa0e4a627bd44f363b42093e75c4754bce4b294ba4a29df3723` |
+| `latest-dev`   | July 12th    | `sha256:5fd4c51d6e017fa0e4a627bd44f363b42093e75c4754bce4b294ba4a29df3723` |
+| `1-dev`        | July 12th    | `sha256:5fd4c51d6e017fa0e4a627bd44f363b42093e75c4754bce4b294ba4a29df3723` |
+| `1`            | July 11th    | `sha256:c425631169cbffcf7c6b8af7d5a9a19313136d9ba939f07d57f8139e6b1c8838` |
+| `1.4`          | July 11th    | `sha256:c425631169cbffcf7c6b8af7d5a9a19313136d9ba939f07d57f8139e6b1c8838` |
+| `1.4.3`        | July 11th    | `sha256:c425631169cbffcf7c6b8af7d5a9a19313136d9ba939f07d57f8139e6b1c8838` |
+| `latest`       | July 11th    | `sha256:c425631169cbffcf7c6b8af7d5a9a19313136d9ba939f07d57f8139e6b1c8838` |
+| `1.4.3-r5-dev` | July 4th     | `sha256:e6bff645d2a74abc46beba15949e88c5e7bf79e92a56dc054ebcad86f81abd75` |

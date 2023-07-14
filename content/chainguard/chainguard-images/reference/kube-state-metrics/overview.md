@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kube-state-metrics"
+title: "Image Overview: kube-state-metrics"
 type: "article"
-description: "Overview: Kube-state-metrics Chainguard Image"
+description: "Overview: kube-state-metrics Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:2294463003741982751961448ec44963604c2759a265a2e775607d767c1dff7a` |
-| `latest`     | 19 hours ago | `sha256:16e228350e3b3cc5392698b663e56af9b55b462a4431a4c552f873f532583834` |
+| `latest-dev` | July 12th    | `sha256:bb1773947789b2a6897256f942821c2d4f37621b438bd521ce0976cd22428138` |
+| `latest`     | July 11th    | `sha256:16e228350e3b3cc5392698b663e56af9b55b462a4431a4c552f873f532583834` |
 
 
 

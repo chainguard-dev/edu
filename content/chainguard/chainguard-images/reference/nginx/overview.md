@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Nginx"
+title: "Image Overview: nginx"
 type: "article"
-description: "Overview: Nginx Chainguard Image"
+description: "Overview: nginx Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:86e91659abd1d2978c0abac3a554a7572a7905a4b9bd8baa0d92e19d4b52c511` |
-| `latest`     | 19 hours ago | `sha256:c5e3c76bd4fa4bfea67ba56b237a17e6ee6aea3b3927aee5aa084ac45fad865c` |
+| `latest-dev` | July 12th    | `sha256:2a2e9d0fe3896f4cadb5d2052671147a24c4d1b5e7fa7dcd96aa74f0aa087c46` |
+| `latest`     | July 11th    | `sha256:c5e3c76bd4fa4bfea67ba56b237a17e6ee6aea3b3927aee5aa084ac45fad865c` |
 
 
 

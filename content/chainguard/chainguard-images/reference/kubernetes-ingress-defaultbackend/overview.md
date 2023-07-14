@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kubernetes-ingress-defaultbackend"
+title: "Image Overview: kubernetes-ingress-defaultbackend"
 type: "article"
-description: "Overview: Kubernetes-ingress-defaultbackend Chainguard Image"
+description: "Overview: kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:6b9e1bf2709747d866b6897be6e9e4a9a82d487640bd7cdab786dbf23e588e72` |
-| `latest`     | 20 hours ago | `sha256:f2bb7657174341a7d9df0e574ee598bb5a966b0c43ca30a5c9941ecbdd8695e5` |
+| `latest-dev` | July 12th    | `sha256:681aff826ec3444a4357c4b4a4619e362b46ec2c8b986e584e9057e4f13d7902` |
+| `latest`     | July 11th    | `sha256:f2bb7657174341a7d9df0e574ee598bb5a966b0c43ca30a5c9941ecbdd8695e5` |
 
 
 

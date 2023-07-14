@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: External-resizer"
+title: "Image Overview: external-resizer"
 type: "article"
-description: "Overview: External-resizer Chainguard Image"
+description: "Overview: external-resizer Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

@@ -1,7 +1,7 @@
 ---
-title: "Gatekeeper Image Tags History"
+title: "gatekeeper Image Tags History"
 type: "article"
-description: "Image Tags and History for the Gatekeeper Chainguard Image"
+description: "Image Tags and History for the gatekeeper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag             | Last Updated | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-| `3`             | 20 hours ago | `sha256:02e519e4c71ae9b7fe064e2768a1f5d421fd7d8f443a1e1c52648979db899112` |
-| `3.12-dev`      | 20 hours ago | `sha256:94872dcf14a3eb957a79ae6b8650f53254e86a76326509370a61369692b4c8b1` |
-| `3-dev`         | 20 hours ago | `sha256:94872dcf14a3eb957a79ae6b8650f53254e86a76326509370a61369692b4c8b1` |
-| `3.12.0`        | 20 hours ago | `sha256:02e519e4c71ae9b7fe064e2768a1f5d421fd7d8f443a1e1c52648979db899112` |
-| `3.12.0-r3-dev` | 20 hours ago | `sha256:94872dcf14a3eb957a79ae6b8650f53254e86a76326509370a61369692b4c8b1` |
-| `3.12`          | 20 hours ago | `sha256:02e519e4c71ae9b7fe064e2768a1f5d421fd7d8f443a1e1c52648979db899112` |
-| `latest-dev`    | 20 hours ago | `sha256:94872dcf14a3eb957a79ae6b8650f53254e86a76326509370a61369692b4c8b1` |
-| `latest`        | 20 hours ago | `sha256:02e519e4c71ae9b7fe064e2768a1f5d421fd7d8f443a1e1c52648979db899112` |
-| `3.12.0-dev`    | 20 hours ago | `sha256:94872dcf14a3eb957a79ae6b8650f53254e86a76326509370a61369692b4c8b1` |
+| `3.12.0-r3-dev` | July 12th    | `sha256:6245437b1cac331174ff0293850739e12ff5e7697e1f5845bcc08a2ddde389fe` |
+| `3.12-dev`      | July 12th    | `sha256:6245437b1cac331174ff0293850739e12ff5e7697e1f5845bcc08a2ddde389fe` |
+| `3-dev`         | July 12th    | `sha256:6245437b1cac331174ff0293850739e12ff5e7697e1f5845bcc08a2ddde389fe` |
+| `3.12.0-dev`    | July 12th    | `sha256:6245437b1cac331174ff0293850739e12ff5e7697e1f5845bcc08a2ddde389fe` |
+| `latest-dev`    | July 12th    | `sha256:6245437b1cac331174ff0293850739e12ff5e7697e1f5845bcc08a2ddde389fe` |
+| `3`             | July 11th    | `sha256:02e519e4c71ae9b7fe064e2768a1f5d421fd7d8f443a1e1c52648979db899112` |
+| `3.12.0`        | July 11th    | `sha256:02e519e4c71ae9b7fe064e2768a1f5d421fd7d8f443a1e1c52648979db899112` |
+| `3.12`          | July 11th    | `sha256:02e519e4c71ae9b7fe064e2768a1f5d421fd7d8f443a1e1c52648979db899112` |
+| `latest`        | July 11th    | `sha256:02e519e4c71ae9b7fe064e2768a1f5d421fd7d8f443a1e1c52648979db899112` |

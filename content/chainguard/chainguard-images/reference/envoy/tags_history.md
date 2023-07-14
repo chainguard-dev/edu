@@ -1,7 +1,7 @@
 ---
-title: "Envoy Image Tags History"
+title: "envoy Image Tags History"
 type: "article"
-description: "Image Tags and History for the Envoy Chainguard Image"
+description: "Image Tags and History for the envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `1.26`   | 20 hours ago | `sha256:506c256432772a1973b56967d5a79046aa7cd855adc54a15d663740ff7fbe1f7` |
-| `1.26.2` | 20 hours ago | `sha256:506c256432772a1973b56967d5a79046aa7cd855adc54a15d663740ff7fbe1f7` |
-| `1`      | 20 hours ago | `sha256:506c256432772a1973b56967d5a79046aa7cd855adc54a15d663740ff7fbe1f7` |
-| `latest` | 20 hours ago | `sha256:506c256432772a1973b56967d5a79046aa7cd855adc54a15d663740ff7fbe1f7` |
-| `1.26.1` | 8 days ago   | `sha256:51da7b6f7aec02b514b989185f3bfb792027cb5502c709cffd9e3efcc69cb9d7` |
+| `1.26`   | July 11th    | `sha256:506c256432772a1973b56967d5a79046aa7cd855adc54a15d663740ff7fbe1f7` |
+| `1.26.2` | July 11th    | `sha256:506c256432772a1973b56967d5a79046aa7cd855adc54a15d663740ff7fbe1f7` |
+| `1`      | July 11th    | `sha256:506c256432772a1973b56967d5a79046aa7cd855adc54a15d663740ff7fbe1f7` |
+| `latest` | July 11th    | `sha256:506c256432772a1973b56967d5a79046aa7cd855adc54a15d663740ff7fbe1f7` |
+| `1.26.1` | July 4th     | `sha256:51da7b6f7aec02b514b989185f3bfb792027cb5502c709cffd9e3efcc69cb9d7` |

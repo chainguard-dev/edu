@@ -1,7 +1,7 @@
 ---
-title: "Newrelic-kubernetes Image Tags History"
+title: "newrelic-kubernetes Image Tags History"
 type: "article"
-description: "Image Tags and History for the Newrelic-kubernetes Chainguard Image"
+description: "Image Tags and History for the newrelic-kubernetes Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `3.15.1` | 19 hours ago | `sha256:c1b8ee1f24ef0e2008224cc2e3c956f7adbb51db9a1491629a2c09e085bc3d8f` |
-| `3.15`   | 19 hours ago | `sha256:c1b8ee1f24ef0e2008224cc2e3c956f7adbb51db9a1491629a2c09e085bc3d8f` |
-| `3`      | 19 hours ago | `sha256:c1b8ee1f24ef0e2008224cc2e3c956f7adbb51db9a1491629a2c09e085bc3d8f` |
-| `latest` | 19 hours ago | `sha256:c1b8ee1f24ef0e2008224cc2e3c956f7adbb51db9a1491629a2c09e085bc3d8f` |
+| `3`      | July 12th    | `sha256:31a7b1ee13bc41c60c98b9582fdb0e190f509f4603af165fcee145f5beccd608` |
+| `3.15`   | July 12th    | `sha256:31a7b1ee13bc41c60c98b9582fdb0e190f509f4603af165fcee145f5beccd608` |
+| `3.15.1` | July 12th    | `sha256:31a7b1ee13bc41c60c98b9582fdb0e190f509f4603af165fcee145f5beccd608` |
+| `latest` | July 12th    | `sha256:31a7b1ee13bc41c60c98b9582fdb0e190f509f4603af165fcee145f5beccd608` |

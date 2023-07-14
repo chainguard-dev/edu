@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Gradle"
+title: "Image Overview: gradle"
 type: "article"
-description: "Overview: Gradle Chainguard Image"
+description: "Overview: gradle Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:e6779dec9d114872e3c8bc69cf92e063666fdee6e12fb4454f748300c8e15248` |
+| `latest` | July 11th    | `sha256:e6779dec9d114872e3c8bc69cf92e063666fdee6e12fb4454f748300c8e15248` |
 
 
 

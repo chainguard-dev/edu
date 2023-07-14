@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kubernetes-csi-external-resizer"
+title: "Image Overview: kubernetes-csi-external-resizer"
 type: "article"
-description: "Overview: Kubernetes-csi-external-resizer Chainguard Image"
+description: "Overview: kubernetes-csi-external-resizer Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:05c9e45e10cfd3ab0132bff9c71f196ab8144501a083459c96723ea0d8e392e3` |
-| `latest-dev` | 19 hours ago | `sha256:314dcfb9baa9600a53768b7dad5084180c7d9dc1b49fa0cf14ad025b4296c433` |
+| `latest-dev` | July 12th    | `sha256:0f0d806714870b55e278dfae923ededc9611723d089b03cabb6a8fa4fcebd340` |
+| `latest`     | July 11th    | `sha256:05c9e45e10cfd3ab0132bff9c71f196ab8144501a083459c96723ea0d8e392e3` |
 
 
 

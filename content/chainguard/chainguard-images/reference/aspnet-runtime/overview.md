@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Aspnet-runtime"
+title: "Image Overview: aspnet-runtime"
 type: "article"
-description: "Overview: Aspnet-runtime Chainguard Image"
+description: "Overview: aspnet-runtime Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:b095e25c6154143054f7db24c095e07d46df5eee565253d3166d31551376a470` |
+| `latest` | July 12th    | `sha256:e645d5ea7ac5feccfdbea09bbb992f2484dca4f6bd2bad4b7c70832dbaac4068` |
 
 
 

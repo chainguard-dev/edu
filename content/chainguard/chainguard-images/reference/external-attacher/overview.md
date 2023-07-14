@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: External-attacher"
+title: "Image Overview: external-attacher"
 type: "article"
-description: "Overview: External-attacher Chainguard Image"
+description: "Overview: external-attacher Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Envoy"
+title: "Image Overview: envoy"
 type: "article"
-description: "Overview: Envoy Chainguard Image"
+description: "Overview: envoy Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:506c256432772a1973b56967d5a79046aa7cd855adc54a15d663740ff7fbe1f7` |
+| `latest` | July 11th    | `sha256:506c256432772a1973b56967d5a79046aa7cd855adc54a15d663740ff7fbe1f7` |
 
 
 

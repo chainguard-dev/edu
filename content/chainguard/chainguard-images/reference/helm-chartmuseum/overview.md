@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Helm-chartmuseum"
+title: "Image Overview: helm-chartmuseum"
 type: "article"
-description: "Overview: Helm-chartmuseum Chainguard Image"
+description: "Overview: helm-chartmuseum Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:af6b780ae104e11ac317e4a2204cf2581bca507b8b4ce78f3ec17c81fe70cff7` |
-| `latest-dev` | 20 hours ago | `sha256:089fdd9341de0d8e33273490ad8bce083ff96ca6c6bd147e96de88e9981401f9` |
+| `latest-dev` | July 12th    | `sha256:d55c6814124ec11caf301be490b97640d8d831b48e1fdfb3512db74134ffac18` |
+| `latest`     | July 11th    | `sha256:af6b780ae104e11ac317e4a2204cf2581bca507b8b4ce78f3ec17c81fe70cff7` |
 
 
 

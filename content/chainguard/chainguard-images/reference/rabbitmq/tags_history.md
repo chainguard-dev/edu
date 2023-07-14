@@ -1,7 +1,7 @@
 ---
-title: "Rabbitmq Image Tags History"
+title: "rabbitmq Image Tags History"
 type: "article"
-description: "Image Tags and History for the Rabbitmq Chainguard Image"
+description: "Image Tags and History for the rabbitmq Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `3`      | 19 hours ago | `sha256:f161105670facf2d36342fab0820815f82bcc307b30431cd0faf07af8698fe6b` |
-| `3.12`   | 19 hours ago | `sha256:f161105670facf2d36342fab0820815f82bcc307b30431cd0faf07af8698fe6b` |
-| `3.12.1` | 19 hours ago | `sha256:f161105670facf2d36342fab0820815f82bcc307b30431cd0faf07af8698fe6b` |
-| `latest` | 19 hours ago | `sha256:f161105670facf2d36342fab0820815f82bcc307b30431cd0faf07af8698fe6b` |
-| `3.12.0` | 7 days ago   | `sha256:488b0abddd667c4bc6cf55a0e6e5f96a3d0396e5930e3dfa6e64d73b99dd93a7` |
+| `3`      | July 11th    | `sha256:f161105670facf2d36342fab0820815f82bcc307b30431cd0faf07af8698fe6b` |
+| `3.12`   | July 11th    | `sha256:f161105670facf2d36342fab0820815f82bcc307b30431cd0faf07af8698fe6b` |
+| `3.12.1` | July 11th    | `sha256:f161105670facf2d36342fab0820815f82bcc307b30431cd0faf07af8698fe6b` |
+| `latest` | July 11th    | `sha256:f161105670facf2d36342fab0820815f82bcc307b30431cd0faf07af8698fe6b` |
+| `3.12.0` | July 5th     | `sha256:488b0abddd667c4bc6cf55a0e6e5f96a3d0396e5930e3dfa6e64d73b99dd93a7` |

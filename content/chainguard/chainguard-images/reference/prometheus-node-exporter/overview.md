@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Prometheus-node-exporter"
+title: "Image Overview: prometheus-node-exporter"
 type: "article"
-description: "Overview: Prometheus-node-exporter Chainguard Image"
+description: "Overview: prometheus-node-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 15 hours ago | `sha256:0f2848b787cb630e519b3241151087b36ed4f3e24727435aaa410cad50b15b79` |
-| `latest`     | 15 hours ago | `sha256:3c2b2cc6ba7d88e5d7bbbb6c6d6e58379e37516536457c17a13f78500cc09b90` |
+| `latest-dev` | July 12th    | `sha256:44e3db38503e817bc3b012dc976bfaf6fd63ac06bedb98fd6b2be689bd813802` |
+| `latest`     | July 12th    | `sha256:3c2b2cc6ba7d88e5d7bbbb6c6d6e58379e37516536457c17a13f78500cc09b90` |
 
 # prometheus-node-exporter
 

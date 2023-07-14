@@ -1,7 +1,7 @@
 ---
-title: "Node-problem-detector Image Tags History"
+title: "node-problem-detector Image Tags History"
 type: "article"
-description: "Image Tags and History for the Node-problem-detector Chainguard Image"
+description: "Image Tags and History for the node-problem-detector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag             | Last Updated | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-| `latest`        | 19 hours ago | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
-| `0.8.13-r4-dev` | 19 hours ago | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
-| `0.8.13-dev`    | 19 hours ago | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
-| `0.8.13`        | 19 hours ago | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
-| `0-dev`         | 19 hours ago | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
-| `0`             | 19 hours ago | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
-| `0.8`           | 19 hours ago | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
-| `latest-dev`    | 19 hours ago | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
-| `0.8-dev`       | 19 hours ago | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
+| `latest`        | July 11th    | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
+| `0.8.13-r4-dev` | July 11th    | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
+| `0.8.13-dev`    | July 11th    | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
+| `0.8.13`        | July 11th    | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
+| `0-dev`         | July 11th    | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
+| `0`             | July 11th    | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
+| `0.8`           | July 11th    | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
+| `latest-dev`    | July 11th    | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
+| `0.8-dev`       | July 11th    | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Gatekeeper"
+title: "Image Overview: gatekeeper"
 type: "article"
-description: "Overview: Gatekeeper Chainguard Image"
+description: "Overview: gatekeeper Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:94872dcf14a3eb957a79ae6b8650f53254e86a76326509370a61369692b4c8b1` |
-| `latest`     | 20 hours ago | `sha256:02e519e4c71ae9b7fe064e2768a1f5d421fd7d8f443a1e1c52648979db899112` |
+| `latest-dev` | July 12th    | `sha256:6245437b1cac331174ff0293850739e12ff5e7697e1f5845bcc08a2ddde389fe` |
+| `latest`     | July 11th    | `sha256:02e519e4c71ae9b7fe064e2768a1f5d421fd7d8f443a1e1c52648979db899112` |
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: "Notification-controller Image Tags History"
+title: "notification-controller Image Tags History"
 type: "article"
-description: "Image Tags and History for the Notification-controller Chainguard Image"
+description: "Image Tags and History for the notification-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false

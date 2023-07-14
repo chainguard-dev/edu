@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Weaviate"
+title: "Image Overview: weaviate"
 type: "article"
-description: "Overview: Weaviate Chainguard Image"
+description: "Overview: weaviate Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:829e4f470dd683c4108d963d5bdd3bb62d6f73d20f94218e7156c23036b68e4d` |
-| `latest-dev` | 19 hours ago | `sha256:552b7012c8bb2eac665593050971d266a732f6af15f09435f475ce46774af407` |
+| `latest-dev` | July 12th    | `sha256:f57c3fec99e8aa62f0afca4874b6f308084d28a410f5e865e8c185814a1b5f4a` |
+| `latest`     | July 11th    | `sha256:829e4f470dd683c4108d963d5bdd3bb62d6f73d20f94218e7156c23036b68e4d` |
 
 
 

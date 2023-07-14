@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Cert-manager-controller"
+title: "Image Overview: cert-manager-controller"
 type: "article"
-description: "Overview: Cert-manager-controller Chainguard Image"
+description: "Overview: cert-manager-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:7d7f824d3fbc58fef8958a00e80eda5fbb359afe33990f87ce0deeb66a403790` |
-| `latest-dev` | 20 hours ago | `sha256:92091778dd9611a9c7f1a669d00a56151520dc4bb0ebe267e0e73a2a1f005886` |
+| `latest-dev` | July 12th    | `sha256:6acb241f873295460ef5681bc7aac8c5b91eb4109b38c85b6fb046c9533aea0e` |
+| `latest`     | July 11th    | `sha256:7d7f824d3fbc58fef8958a00e80eda5fbb359afe33990f87ce0deeb66a403790` |
 
 # cert-manager-controller
 

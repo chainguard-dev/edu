@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Spire-agent"
+title: "Image Overview: spire-agent"
 type: "article"
-description: "Overview: Spire-agent Chainguard Image"
+description: "Overview: spire-agent Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:49ac396175b76178d17729becd9001059ceda12eff834656760060269499204f` |
-| `latest-dev` | 19 hours ago | `sha256:397f26031274e5bad58a42cac87758f22e99c80ace019424bbb63a373655fbfb` |
+| `latest-dev` | July 12th    | `sha256:daf0a7989c784d18b4130be26ddff1fe64cc06d98cbb6bd7a71d30e76cb52081` |
+| `latest`     | July 11th    | `sha256:49ac396175b76178d17729becd9001059ceda12eff834656760060269499204f` |
 
 # spire-agent
 

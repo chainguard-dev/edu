@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kubernetes-csi-external-snapshot-validation-webhook"
+title: "Image Overview: kubernetes-csi-external-snapshot-validation-webhook"
 type: "article"
-description: "Overview: Kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
+description: "Overview: kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:1abcccdbec6d82c8cf2a0fed7377f9e486536d6121692f94f9f62a85f8302aa2` |
+| `latest` | July 11th    | `sha256:1abcccdbec6d82c8cf2a0fed7377f9e486536d6121692f94f9f62a85f8302aa2` |
 
 
 

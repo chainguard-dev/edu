@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Rqlite"
+title: "Image Overview: rqlite"
 type: "article"
-description: "Overview: Rqlite Chainguard Image"
+description: "Overview: rqlite Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:4fb8a63bb1de3b2a14acb6d732978de99a5cbddb2be38e09ad973b7c6c086551` |
-| `latest`     | 19 hours ago | `sha256:75092acddaa2383471e0505419f8b1953662dc20a460fb3407e7a463aca54d79` |
+| `latest-dev` | July 12th    | `sha256:911565f82de2d87c47d7c1b2e17f7d3bf4fed9f41037187de1a3ed7d3083eb14` |
+| `latest`     | July 11th    | `sha256:75092acddaa2383471e0505419f8b1953662dc20a460fb3407e7a463aca54d79` |
 
 
 

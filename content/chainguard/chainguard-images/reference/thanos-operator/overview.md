@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Thanos-operator"
+title: "Image Overview: thanos-operator"
 type: "article"
-description: "Overview: Thanos-operator Chainguard Image"
+description: "Overview: thanos-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:c89b138e3a328b512aa3a1722b359e8a666357997c8c3b46c0eb34d377cbceb4` |
-| `latest-dev` | 19 hours ago | `sha256:e31c27ecc37809eedd15a8076fee3240cbc7d57d6d1c4cf3f5d1239daeec986b` |
+| `latest-dev` | July 12th    | `sha256:b137a4f02faad8f4f14b4e93960bc21aa2873b21a855f0574d058faf9f88cc17` |
+| `latest`     | July 11th    | `sha256:c89b138e3a328b512aa3a1722b359e8a666357997c8c3b46c0eb34d377cbceb4` |
 
 
 

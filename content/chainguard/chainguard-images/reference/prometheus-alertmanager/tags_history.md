@@ -1,7 +1,7 @@
 ---
-title: "Prometheus-alertmanager Image Tags History"
+title: "prometheus-alertmanager Image Tags History"
 type: "article"
-description: "Image Tags and History for the Prometheus-alertmanager Chainguard Image"
+description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag             | Last Updated | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-| `0.25-dev`      | 15 hours ago | `sha256:337d5f01c1389757107a20e18cbeca8ef00775de65088297eb368cbb1c394866` |
-| `0.25`          | 15 hours ago | `sha256:d2c6c285afbe275eefd06b8e5ca2ebcaa360a03aac60e5bb87521d61789b2f2d` |
-| `latest`        | 15 hours ago | `sha256:d2c6c285afbe275eefd06b8e5ca2ebcaa360a03aac60e5bb87521d61789b2f2d` |
-| `latest-dev`    | 15 hours ago | `sha256:337d5f01c1389757107a20e18cbeca8ef00775de65088297eb368cbb1c394866` |
-| `0-dev`         | 15 hours ago | `sha256:337d5f01c1389757107a20e18cbeca8ef00775de65088297eb368cbb1c394866` |
-| `0.25.0-dev`    | 15 hours ago | `sha256:337d5f01c1389757107a20e18cbeca8ef00775de65088297eb368cbb1c394866` |
-| `0`             | 15 hours ago | `sha256:d2c6c285afbe275eefd06b8e5ca2ebcaa360a03aac60e5bb87521d61789b2f2d` |
-| `0.25.0-r4-dev` | 15 hours ago | `sha256:337d5f01c1389757107a20e18cbeca8ef00775de65088297eb368cbb1c394866` |
-| `0.25.0`        | 15 hours ago | `sha256:d2c6c285afbe275eefd06b8e5ca2ebcaa360a03aac60e5bb87521d61789b2f2d` |
+| `0.25-dev`      | July 12th    | `sha256:8543342eb152b8d30d64971d061273f78e1853ddfbd0911a50c223b03f3d1016` |
+| `0-dev`         | July 12th    | `sha256:8543342eb152b8d30d64971d061273f78e1853ddfbd0911a50c223b03f3d1016` |
+| `latest-dev`    | July 12th    | `sha256:8543342eb152b8d30d64971d061273f78e1853ddfbd0911a50c223b03f3d1016` |
+| `0.25.0-dev`    | July 12th    | `sha256:8543342eb152b8d30d64971d061273f78e1853ddfbd0911a50c223b03f3d1016` |
+| `0.25.0-r4-dev` | July 12th    | `sha256:8543342eb152b8d30d64971d061273f78e1853ddfbd0911a50c223b03f3d1016` |
+| `0.25`          | July 12th    | `sha256:d2c6c285afbe275eefd06b8e5ca2ebcaa360a03aac60e5bb87521d61789b2f2d` |
+| `latest`        | July 12th    | `sha256:d2c6c285afbe275eefd06b8e5ca2ebcaa360a03aac60e5bb87521d61789b2f2d` |
+| `0`             | July 12th    | `sha256:d2c6c285afbe275eefd06b8e5ca2ebcaa360a03aac60e5bb87521d61789b2f2d` |
+| `0.25.0`        | July 12th    | `sha256:d2c6c285afbe275eefd06b8e5ca2ebcaa360a03aac60e5bb87521d61789b2f2d` |

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Jenkins"
+title: "Image Overview: jenkins"
 type: "article"
-description: "Overview: Jenkins Chainguard Image"
+description: "Overview: jenkins Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:6606a4f0874612031e0862d7f6f690b9077e8f723deef63b5b478f21faca5557` |
+| `latest` | July 11th    | `sha256:6606a4f0874612031e0862d7f6f690b9077e8f723deef63b5b478f21faca5557` |
 
 
 

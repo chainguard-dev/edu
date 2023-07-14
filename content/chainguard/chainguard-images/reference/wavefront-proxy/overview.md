@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Wavefront-proxy"
+title: "Image Overview: wavefront-proxy"
 type: "article"
-description: "Overview: Wavefront-proxy Chainguard Image"
+description: "Overview: wavefront-proxy Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:ad01fd5f1af93fec1db7aee20214170450e1d240abbed6c83d6dd694575a5978` |
-| `latest-dev` | 19 hours ago | `sha256:db8a0166d1c97f17d861b426c6a444696c2456110a6e03f65a9e329438b40fe0` |
+| `latest-dev` | July 12th    | `sha256:538b3b486f8561b2f212e940f426595e7e92797e39825777d5e063d455464ff2` |
+| `latest`     | July 11th    | `sha256:ad01fd5f1af93fec1db7aee20214170450e1d240abbed6c83d6dd694575a5978` |
 
 
 

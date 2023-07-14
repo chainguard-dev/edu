@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Netcat"
+title: "Image Overview: netcat"
 type: "article"
-description: "Overview: Netcat Chainguard Image"
+description: "Overview: netcat Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:df5593af7c09ae0398838b4fbcf9505f287c3373d8556106c104c9a8a18e5d7e` |
+| `latest` | July 11th    | `sha256:df5593af7c09ae0398838b4fbcf9505f287c3373d8556106c104c9a8a18e5d7e` |
 
 
 

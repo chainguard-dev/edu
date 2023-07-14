@@ -1,7 +1,7 @@
 ---
-title: "Kustomize-controller Image Tags History"
+title: "kustomize-controller Image Tags History"
 type: "article"
-description: "Image Tags and History for the Kustomize-controller Chainguard Image"
+description: "Image Tags and History for the kustomize-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false

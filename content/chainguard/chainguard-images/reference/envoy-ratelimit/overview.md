@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Envoy-ratelimit"
+title: "Image Overview: envoy-ratelimit"
 type: "article"
-description: "Overview: Envoy-ratelimit Chainguard Image"
+description: "Overview: envoy-ratelimit Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:2007c187eff4fa07b9114b586a5e6606d9ec919f30835dbbd5e4c4d73f79775b` |
-| `latest-dev` | 20 hours ago | `sha256:3302a8c224bf5e1a89e04ca7b5e4051cced83e4018d3047c205e6312c7baadd9` |
+| `latest-dev` | July 12th    | `sha256:eaf5e63e8d64dd5d2d342fc00b182c101bf88aa5b93f3f36d1cb3779ccc5fd95` |
+| `latest`     | July 11th    | `sha256:2007c187eff4fa07b9114b586a5e6606d9ec919f30835dbbd5e4c4d73f79775b` |
 
 
 

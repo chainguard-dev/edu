@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Dotnet-sdk"
+title: "Image Overview: dotnet-sdk"
 type: "article"
-description: "Overview: Dotnet-sdk Chainguard Image"
+description: "Overview: dotnet-sdk Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:e5dd5e9a1f08dcb4aea7f2090858ea6cc27e75a4170ae4e857b8aed6ba7ad9ab` |
-| `latest`     | 20 hours ago | `sha256:81512ae986ef10f4c32546f606595f4fa1b9b260cacad4d8cc57aef852903033` |
+| `latest-dev` | July 12th    | `sha256:d5fcbb29ca525bd1158d1779c82ac4e5cc7bb3fe4ee5ea79af2b23600aba75a2` |
+| `latest`     | July 12th    | `sha256:6ae24e33ffe12289654fbad12d681636c970171d317654af266ed0636105b5b9` |
 
 
 

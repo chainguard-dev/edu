@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Nodetaint"
+title: "Image Overview: nodetaint"
 type: "article"
-description: "Overview: Nodetaint Chainguard Image"
+description: "Overview: nodetaint Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:6a47bf8d0b4d970e4597dd0ba98765e03cfee9a1ebd9bf768e4e38b9d9036981` |
-| `latest-dev` | 19 hours ago | `sha256:d81eff434b9bb277469281c29b253f67ba029dc5466548d55676b852b810af15` |
+| `latest-dev` | July 12th    | `sha256:4369db8a38c27be0befd680aacac72e25ce92436cce82e29eb0fe3ca34822037` |
+| `latest`     | July 11th    | `sha256:6a47bf8d0b4d970e4597dd0ba98765e03cfee9a1ebd9bf768e4e38b9d9036981` |
 
 
 

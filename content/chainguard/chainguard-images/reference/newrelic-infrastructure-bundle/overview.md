@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Newrelic-infrastructure-bundle"
+title: "Image Overview: newrelic-infrastructure-bundle"
 type: "article"
-description: "Overview: Newrelic-infrastructure-bundle Chainguard Image"
+description: "Overview: newrelic-infrastructure-bundle Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:3bd6e7f0045acd57f5d40e061ab74ccb69bbfc4a967a30e187a7eee26f74b96f` |
-| `latest-dev` | 14 days ago  | `sha256:9fadcb135f1a039d7de85f876da3128f7dc825ba56e71a5a6b24916364917407` |
+| `latest`     | July 11th    | `sha256:3bd6e7f0045acd57f5d40e061ab74ccb69bbfc4a967a30e187a7eee26f74b96f` |
+| `latest-dev` | June 27th    | `sha256:9fadcb135f1a039d7de85f876da3128f7dc825ba56e71a5a6b24916364917407` |
 
 # newrelic-infrastructure-bundle
 
