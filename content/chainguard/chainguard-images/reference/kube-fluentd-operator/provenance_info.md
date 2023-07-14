@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for kube-fluentd-operator Images"
 type: "article"
-description: "Provenance information for Kube-fluentd-operator Chainguard Images"
+description: "Provenance information for kube-fluentd-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

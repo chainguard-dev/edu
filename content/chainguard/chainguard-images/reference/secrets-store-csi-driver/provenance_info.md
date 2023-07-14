@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for secrets-store-csi-driver Images"
 type: "article"
-description: "Provenance information for Secrets-store-csi-driver Chainguard Images"
+description: "Provenance information for secrets-store-csi-driver Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for google-cloud-sdk Images"
 type: "article"
-description: "Provenance information for Google-cloud-sdk Chainguard Images"
+description: "Provenance information for google-cloud-sdk Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

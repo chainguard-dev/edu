@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for node-problem-detector Images"
 type: "article"
-description: "Provenance information for Node-problem-detector Chainguard Images"
+description: "Provenance information for node-problem-detector Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

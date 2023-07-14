@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for k3s-embedded Images"
 type: "article"
-description: "Provenance information for K3s-embedded Chainguard Images"
+description: "Provenance information for k3s-embedded Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

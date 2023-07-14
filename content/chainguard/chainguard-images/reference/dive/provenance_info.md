@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for dive Images"
 type: "article"
-description: "Provenance information for Dive Chainguard Images"
+description: "Provenance information for dive Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

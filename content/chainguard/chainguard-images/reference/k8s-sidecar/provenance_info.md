@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for k8s-sidecar Images"
 type: "article"
-description: "Provenance information for K8s-sidecar Chainguard Images"
+description: "Provenance information for k8s-sidecar Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

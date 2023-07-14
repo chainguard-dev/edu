@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for kube-downscaler Images"
 type: "article"
-description: "Provenance information for Kube-downscaler Chainguard Images"
+description: "Provenance information for kube-downscaler Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

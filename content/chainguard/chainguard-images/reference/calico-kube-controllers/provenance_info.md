@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for calico-kube-controllers Images"
 type: "article"
-description: "Provenance information for Calico-kube-controllers Chainguard Images"
+description: "Provenance information for calico-kube-controllers Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

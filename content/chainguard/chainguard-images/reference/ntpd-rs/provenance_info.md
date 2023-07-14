@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for ntpd-rs Images"
 type: "article"
-description: "Provenance information for Ntpd-rs Chainguard Images"
+description: "Provenance information for ntpd-rs Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false

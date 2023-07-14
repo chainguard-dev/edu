@@ -1,7 +1,7 @@
 ---
 title: "Provenance Information for jre Images"
 type: "article"
-description: "Provenance information for Jre Chainguard Images"
+description: "Provenance information for jre Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
