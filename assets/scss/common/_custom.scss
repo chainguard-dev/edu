@@ -15,6 +15,11 @@
   margin-top: 0;
 }
 
+// tag history page image digests are long, wrap them
+.docs-content > table > tbody > tr > td:nth-child(3) > code {
+  max-width: 320px;
+}
+
 // Beat <a> reset
 .docs-content.docs-content a:not(.tag) {
   color: var(--article-link-color);
