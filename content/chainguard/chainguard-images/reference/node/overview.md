@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Node"
+title: "Image Overview: node"
 type: "article"
-description: "Overview: Node Chainguard Image"
+description: "Overview: node Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:5c12fb264cb03903c7b5b115c01f27f5242693ca320a9de975e92926983793a8` |
-| `latest`     | 19 hours ago | `sha256:4eb52204c6d776d96c9e0157776709c2c8cf0d2a99a3affc0d74c6989c5efb16` |
+| `latest-dev` | July 12th    | `sha256:ad7c8730181a62faa07c50479d15e162abb0eecd01f3e9befe060c8b800fb455` |
+| `latest`     | July 12th    | `sha256:88d402ca93aa900ec0bcd5ea4f7f5743c360e7455b20d2e5a0cf6ccd248ca591` |
 
 
 

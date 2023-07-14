@@ -1,7 +1,7 @@
 ---
-title: "Kubernetes-csi-external-snapshotter Image Tags History"
+title: "kubernetes-csi-external-snapshotter Image Tags History"
 type: "article"
-description: "Image Tags and History for the Kubernetes-csi-external-snapshotter Chainguard Image"
+description: "Image Tags and History for the kubernetes-csi-external-snapshotter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:e3772692afb7bf2924e2bb2fee0456320f28e0fbd71b9960efa4f8ddb7a80328` |
-| `6`      | 20 hours ago | `sha256:e3772692afb7bf2924e2bb2fee0456320f28e0fbd71b9960efa4f8ddb7a80328` |
-| `6.2.2`  | 20 hours ago | `sha256:e3772692afb7bf2924e2bb2fee0456320f28e0fbd71b9960efa4f8ddb7a80328` |
-| `6.2`    | 20 hours ago | `sha256:e3772692afb7bf2924e2bb2fee0456320f28e0fbd71b9960efa4f8ddb7a80328` |
+| `latest` | July 11th    | `sha256:e3772692afb7bf2924e2bb2fee0456320f28e0fbd71b9960efa4f8ddb7a80328` |
+| `6`      | July 11th    | `sha256:e3772692afb7bf2924e2bb2fee0456320f28e0fbd71b9960efa4f8ddb7a80328` |
+| `6.2.2`  | July 11th    | `sha256:e3772692afb7bf2924e2bb2fee0456320f28e0fbd71b9960efa4f8ddb7a80328` |
+| `6.2`    | July 11th    | `sha256:e3772692afb7bf2924e2bb2fee0456320f28e0fbd71b9960efa4f8ddb7a80328` |

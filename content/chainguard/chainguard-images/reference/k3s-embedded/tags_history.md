@@ -1,7 +1,7 @@
 ---
-title: "K3s-embedded Image Tags History"
+title: "k3s-embedded Image Tags History"
 type: "article"
-description: "Image Tags and History for the K3s-embedded Chainguard Image"
+description: "Image Tags and History for the k3s-embedded Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag                  | Last Updated | Digest                                                                    |
 |----------------------|--------------|---------------------------------------------------------------------------|
-| `latest`             | 20 hours ago | `sha256:d96de04fffa34cca49272c95d2b4157b9856e82d73a30cd306dd238e5a76c441` |
-| `1.27.3`             | 20 hours ago | `sha256:d96de04fffa34cca49272c95d2b4157b9856e82d73a30cd306dd238e5a76c441` |
-| `1`                  | 20 hours ago | `sha256:d96de04fffa34cca49272c95d2b4157b9856e82d73a30cd306dd238e5a76c441` |
-| `1.27`               | 20 hours ago | `sha256:d96de04fffa34cca49272c95d2b4157b9856e82d73a30cd306dd238e5a76c441` |
-| `1.27-embedded`      | 7 days ago   | `sha256:60c8726951f2d0c953e0e58a0ef61c116132d030812b50bd673b8f6abd913483` |
-| `1-embedded`         | 7 days ago   | `sha256:60c8726951f2d0c953e0e58a0ef61c116132d030812b50bd673b8f6abd913483` |
-| `latest-embedded`    | 7 days ago   | `sha256:60c8726951f2d0c953e0e58a0ef61c116132d030812b50bd673b8f6abd913483` |
-| `1.27.3-embedded`    | 7 days ago   | `sha256:60c8726951f2d0c953e0e58a0ef61c116132d030812b50bd673b8f6abd913483` |
-| `1.27.3-r0-embedded` | 7 days ago   | `sha256:60c8726951f2d0c953e0e58a0ef61c116132d030812b50bd673b8f6abd913483` |
+| `1.27`               | July 12th    | `sha256:841ff138bc1aa1842f5d496194a59c37c9537019a891d995908bd19f0a600dc0` |
+| `1`                  | July 12th    | `sha256:841ff138bc1aa1842f5d496194a59c37c9537019a891d995908bd19f0a600dc0` |
+| `1.27.3`             | July 12th    | `sha256:841ff138bc1aa1842f5d496194a59c37c9537019a891d995908bd19f0a600dc0` |
+| `latest`             | July 12th    | `sha256:841ff138bc1aa1842f5d496194a59c37c9537019a891d995908bd19f0a600dc0` |
+| `1.27-embedded`      | July 5th     | `sha256:60c8726951f2d0c953e0e58a0ef61c116132d030812b50bd673b8f6abd913483` |
+| `1-embedded`         | July 5th     | `sha256:60c8726951f2d0c953e0e58a0ef61c116132d030812b50bd673b8f6abd913483` |
+| `latest-embedded`    | July 5th     | `sha256:60c8726951f2d0c953e0e58a0ef61c116132d030812b50bd673b8f6abd913483` |
+| `1.27.3-embedded`    | July 5th     | `sha256:60c8726951f2d0c953e0e58a0ef61c116132d030812b50bd673b8f6abd913483` |
+| `1.27.3-r0-embedded` | July 5th     | `sha256:60c8726951f2d0c953e0e58a0ef61c116132d030812b50bd673b8f6abd913483` |

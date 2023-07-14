@@ -1,7 +1,7 @@
 ---
-title: "Newrelic-kube-events Image Tags History"
+title: "newrelic-kube-events Image Tags History"
 type: "article"
-description: "Image Tags and History for the Newrelic-kube-events Chainguard Image"
+description: "Image Tags and History for the newrelic-kube-events Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `2.1.2`  | 19 hours ago | `sha256:b57b9535713f3721d352ff06e7147788b261554cd15b6a38db786a9d7736d61f` |
-| `latest` | 19 hours ago | `sha256:b57b9535713f3721d352ff06e7147788b261554cd15b6a38db786a9d7736d61f` |
-| `2`      | 19 hours ago | `sha256:b57b9535713f3721d352ff06e7147788b261554cd15b6a38db786a9d7736d61f` |
-| `2.1`    | 19 hours ago | `sha256:b57b9535713f3721d352ff06e7147788b261554cd15b6a38db786a9d7736d61f` |
+| `2.1`    | July 12th    | `sha256:bf14a353c69abff23541be67fdac9feadfbcbdbf2028e3d5e019e23b66fbacb0` |
+| `2`      | July 12th    | `sha256:bf14a353c69abff23541be67fdac9feadfbcbdbf2028e3d5e019e23b66fbacb0` |
+| `2.1.2`  | July 12th    | `sha256:bf14a353c69abff23541be67fdac9feadfbcbdbf2028e3d5e019e23b66fbacb0` |
+| `latest` | July 12th    | `sha256:bf14a353c69abff23541be67fdac9feadfbcbdbf2028e3d5e019e23b66fbacb0` |

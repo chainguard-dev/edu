@@ -1,7 +1,7 @@
 ---
-title: "Aws-for-fluent-bit Image Tags History"
+title: "aws-for-fluent-bit Image Tags History"
 type: "article"
-description: "Image Tags and History for the Aws-for-fluent-bit Chainguard Image"
+description: "Image Tags and History for the aws-for-fluent-bit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag       | Last Updated | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-| `2.31.12` | 19 hours ago | `sha256:874fbb9c5727aebcdd7d0e5c22e5db44757ee97ffb604a0e44b356e781f32947` |
-| `latest`  | 19 hours ago | `sha256:874fbb9c5727aebcdd7d0e5c22e5db44757ee97ffb604a0e44b356e781f32947` |
-| `2`       | 19 hours ago | `sha256:874fbb9c5727aebcdd7d0e5c22e5db44757ee97ffb604a0e44b356e781f32947` |
-| `2.31`    | 19 hours ago | `sha256:874fbb9c5727aebcdd7d0e5c22e5db44757ee97ffb604a0e44b356e781f32947` |
+| `2.31.12` | July 11th    | `sha256:874fbb9c5727aebcdd7d0e5c22e5db44757ee97ffb604a0e44b356e781f32947` |
+| `latest`  | July 11th    | `sha256:874fbb9c5727aebcdd7d0e5c22e5db44757ee97ffb604a0e44b356e781f32947` |
+| `2`       | July 11th    | `sha256:874fbb9c5727aebcdd7d0e5c22e5db44757ee97ffb604a0e44b356e781f32947` |
+| `2.31`    | July 11th    | `sha256:874fbb9c5727aebcdd7d0e5c22e5db44757ee97ffb604a0e44b356e781f32947` |

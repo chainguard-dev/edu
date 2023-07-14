@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kubewatch"
+title: "Image Overview: kubewatch"
 type: "article"
-description: "Overview: Kubewatch Chainguard Image"
+description: "Overview: kubewatch Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:a05833ceac9e0084d2c9dac403ef349c4092ec5643a60a8e482e573724b8769a` |
-| `latest-dev` | 19 hours ago | `sha256:321e0a1267ec6cb68df213ec512e5764afebb5b1c11047cca027449c93e10eb4` |
+| `latest-dev` | July 12th    | `sha256:af21197bb2330379c51ae8105a4c0452174581f31bbd0e86be84cc89dbfd0562` |
+| `latest`     | July 11th    | `sha256:a05833ceac9e0084d2c9dac403ef349c4092ec5643a60a8e482e573724b8769a` |
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Newrelic-fluent-bit-output"
+title: "Image Overview: newrelic-fluent-bit-output"
 type: "article"
-description: "Overview: Newrelic-fluent-bit-output Chainguard Image"
+description: "Overview: newrelic-fluent-bit-output Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:6836dd6ea960532d551cd58ab9e563da0a951234d79b3c7adf4871c631f7e4a3` |
-| `latest-dev` | 12 days ago  | `sha256:731df367fe0bd4d63e5fbb43521725c4b2b65efaf58e8d7bb59203244557a51d` |
+| `latest`     | July 11th    | `sha256:6836dd6ea960532d551cd58ab9e563da0a951234d79b3c7adf4871c631f7e4a3` |
+| `latest-dev` | June 30th    | `sha256:731df367fe0bd4d63e5fbb43521725c4b2b65efaf58e8d7bb59203244557a51d` |
 
 # newrelic-fluent-bit-output
 

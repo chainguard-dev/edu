@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Configmap-reload"
+title: "Image Overview: configmap-reload"
 type: "article"
-description: "Overview: Configmap-reload Chainguard Image"
+description: "Overview: configmap-reload Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:f1cbccfdf58f54b1724dceb377d30af82f7bce4369ee4e5015f1555f1dae24f6` |
-| `latest`     | 20 hours ago | `sha256:0b15bd64ae9f1ddc21cf9afc518f4f90548caf8a440e7d5280c78f65a4e88e51` |
+| `latest-dev` | July 12th    | `sha256:2fc6b940a03559565286ade827e757a512a8a20b8aa97c71982dde50ddc38249` |
+| `latest`     | July 11th    | `sha256:0b15bd64ae9f1ddc21cf9afc518f4f90548caf8a440e7d5280c78f65a4e88e51` |
 
 
 

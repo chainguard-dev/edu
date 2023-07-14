@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Spire-server"
+title: "Image Overview: spire-server"
 type: "article"
-description: "Overview: Spire-server Chainguard Image"
+description: "Overview: spire-server Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:b2c2e957f58b2525047a003aed9185928d7336266da128244d3f124b04364404` |
-| `latest`     | 19 hours ago | `sha256:594c4e2f2f9d8c46671b8bfafeeba5dda6092deabb5b9e6c19db0d0cae122e28` |
+| `latest-dev` | July 12th    | `sha256:6e24d698619947711d10aec6290494985bbed1a595a9ec7e0f6595cda1e5227a` |
+| `latest`     | July 11th    | `sha256:594c4e2f2f9d8c46671b8bfafeeba5dda6092deabb5b9e6c19db0d0cae122e28` |
 
 # spire-server
 

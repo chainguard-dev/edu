@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Haproxy"
+title: "Image Overview: haproxy"
 type: "article"
-description: "Overview: Haproxy Chainguard Image"
+description: "Overview: haproxy Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:5c9b3161ce2677894d3c4837dafcc22fd0a36e89bd18f002254d22711746d8e1` |
+| `latest` | July 11th    | `sha256:5c9b3161ce2677894d3c4837dafcc22fd0a36e89bd18f002254d22711746d8e1` |
 
 
 

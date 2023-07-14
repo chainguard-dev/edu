@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kubernetes-csi-livenessprobe"
+title: "Image Overview: kubernetes-csi-livenessprobe"
 type: "article"
-description: "Overview: Kubernetes-csi-livenessprobe Chainguard Image"
+description: "Overview: kubernetes-csi-livenessprobe Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:bd74e638ffe80dadfd016eeb77188af0768cf4e460f74bd819b8195009d3fb2e` |
+| `latest` | July 11th    | `sha256:bd74e638ffe80dadfd016eeb77188af0768cf4e460f74bd819b8195009d3fb2e` |
 
 
 

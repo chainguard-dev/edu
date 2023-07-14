@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Jre"
+title: "Image Overview: jre"
 type: "article"
-description: "Overview: Jre Chainguard Image"
+description: "Overview: jre Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:80920112fe2a9b9d35cabbf3e986fdb92057c3bf7f1ac67a24bbec7a35449d22` |
-| `latest-dev` | 20 hours ago | `sha256:eb181693e9bd0d605b5fdb1febb55ac1568bd24accef6d54fde4887408187c19` |
+| `latest-dev` | July 12th    | `sha256:60d5511a1e74b47b0bf5c343f7d0c5232125283031a06b5c3eb1c31940e8bd72` |
+| `latest`     | July 11th    | `sha256:80920112fe2a9b9d35cabbf3e986fdb92057c3bf7f1ac67a24bbec7a35449d22` |
 
 
 

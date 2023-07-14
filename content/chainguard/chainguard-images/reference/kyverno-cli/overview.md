@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kyverno-cli"
+title: "Image Overview: kyverno-cli"
 type: "article"
-description: "Overview: Kyverno-cli Chainguard Image"
+description: "Overview: kyverno-cli Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:77e159167a5551d8d137a1f82ee4580dbdb381844309e78d23269f040e4a1d60` |
+| `latest` | July 11th    | `sha256:77e159167a5551d8d137a1f82ee4580dbdb381844309e78d23269f040e4a1d60` |
 
 # kyverno-cli
 

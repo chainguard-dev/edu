@@ -1,7 +1,7 @@
 ---
-title: "Kubernetes-csi-node-driver-registrar Image Tags History"
+title: "kubernetes-csi-node-driver-registrar Image Tags History"
 type: "article"
-description: "Image Tags and History for the Kubernetes-csi-node-driver-registrar Chainguard Image"
+description: "Image Tags and History for the kubernetes-csi-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `2`      | 16 hours ago | `sha256:122f95fd5199f825276824da0df7a59800319f976a9cd5b3d5965b05eab21567` |
-| `2.8`    | 16 hours ago | `sha256:122f95fd5199f825276824da0df7a59800319f976a9cd5b3d5965b05eab21567` |
-| `latest` | 16 hours ago | `sha256:122f95fd5199f825276824da0df7a59800319f976a9cd5b3d5965b05eab21567` |
-| `2.8.0`  | 16 hours ago | `sha256:122f95fd5199f825276824da0df7a59800319f976a9cd5b3d5965b05eab21567` |
+| `2`      | July 12th    | `sha256:122f95fd5199f825276824da0df7a59800319f976a9cd5b3d5965b05eab21567` |
+| `2.8`    | July 12th    | `sha256:122f95fd5199f825276824da0df7a59800319f976a9cd5b3d5965b05eab21567` |
+| `latest` | July 12th    | `sha256:122f95fd5199f825276824da0df7a59800319f976a9cd5b3d5965b05eab21567` |
+| `2.8.0`  | July 12th    | `sha256:122f95fd5199f825276824da0df7a59800319f976a9cd5b3d5965b05eab21567` |

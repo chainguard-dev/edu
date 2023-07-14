@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Haproxy-ingress"
+title: "Image Overview: haproxy-ingress"
 type: "article"
-description: "Overview: Haproxy-ingress Chainguard Image"
+description: "Overview: haproxy-ingress Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:cce9a44002f8073c38120c5c83e6020e40e668e6d660a67130b9e4c0a6020a4c` |
-| `latest-dev` | 20 hours ago | `sha256:1c8bd3a6f4d2bab95e8a4e3a6e222140912110c49af2fef233eb490ad75bf7a9` |
+| `latest-dev` | July 12th    | `sha256:b84bc5efbd407665bdbc2849153f63d6ebdd960fd6ac33819063cec8c836c3ce` |
+| `latest`     | July 11th    | `sha256:cce9a44002f8073c38120c5c83e6020e40e668e6d660a67130b9e4c0a6020a4c` |
 
 
 

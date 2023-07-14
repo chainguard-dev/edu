@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kube-fluentd-operator"
+title: "Image Overview: kube-fluentd-operator"
 type: "article"
-description: "Overview: Kube-fluentd-operator Chainguard Image"
+description: "Overview: kube-fluentd-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:2530f52ed49c1f6b4ef23e587bfc2b2665f6c982c1e52861d4cc4cfe35aa864a` |
+| `latest` | July 11th    | `sha256:2530f52ed49c1f6b4ef23e587bfc2b2665f6c982c1e52861d4cc4cfe35aa864a` |
 
 
 

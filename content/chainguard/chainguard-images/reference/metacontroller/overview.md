@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Metacontroller"
+title: "Image Overview: metacontroller"
 type: "article"
-description: "Overview: Metacontroller Chainguard Image"
+description: "Overview: metacontroller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:1268faacdf6d35939c309d526aed97d015dc7e07473cd76bfc835d957dcdc07a` |
-| `latest`     | 19 hours ago | `sha256:6c31166d0efe91874fb04ab7b3dbaeea484a86c5c85ac01de1ded8f0d8cecfb6` |
+| `latest-dev` | July 12th    | `sha256:fa50eea8925beb2c2d09513498098bbc25760b2ca8116754bda74242d9d5ca5a` |
+| `latest`     | July 11th    | `sha256:6c31166d0efe91874fb04ab7b3dbaeea484a86c5c85ac01de1ded8f0d8cecfb6` |
 
 
 

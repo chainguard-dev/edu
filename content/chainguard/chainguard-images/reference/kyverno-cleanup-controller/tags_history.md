@@ -1,7 +1,7 @@
 ---
-title: "Kyverno-cleanup-controller Image Tags History"
+title: "kyverno-cleanup-controller Image Tags History"
 type: "article"
-description: "Image Tags and History for the Kyverno-cleanup-controller Chainguard Image"
+description: "Image Tags and History for the kyverno-cleanup-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `1.10.1` | 19 hours ago | `sha256:b3fc8344d0b55359a4e1254f5a910136b990bfcd0cdcfe3a4a748aa710acc23d` |
-| `latest` | 19 hours ago | `sha256:b3fc8344d0b55359a4e1254f5a910136b990bfcd0cdcfe3a4a748aa710acc23d` |
-| `1`      | 19 hours ago | `sha256:b3fc8344d0b55359a4e1254f5a910136b990bfcd0cdcfe3a4a748aa710acc23d` |
-| `1.10`   | 19 hours ago | `sha256:b3fc8344d0b55359a4e1254f5a910136b990bfcd0cdcfe3a4a748aa710acc23d` |
-| `1.10.0` | 14 days ago  | `sha256:f4cf934b5411dbbecda1a9bddb419407df281abc8782bcedb7fecf10d23aa1ab` |
+| `1.10.1` | July 11th    | `sha256:b3fc8344d0b55359a4e1254f5a910136b990bfcd0cdcfe3a4a748aa710acc23d` |
+| `latest` | July 11th    | `sha256:b3fc8344d0b55359a4e1254f5a910136b990bfcd0cdcfe3a4a748aa710acc23d` |
+| `1`      | July 11th    | `sha256:b3fc8344d0b55359a4e1254f5a910136b990bfcd0cdcfe3a4a748aa710acc23d` |
+| `1.10`   | July 11th    | `sha256:b3fc8344d0b55359a4e1254f5a910136b990bfcd0cdcfe3a4a748aa710acc23d` |
+| `1.10.0` | June 28th    | `sha256:f4cf934b5411dbbecda1a9bddb419407df281abc8782bcedb7fecf10d23aa1ab` |

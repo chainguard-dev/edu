@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Flux-image-automation-controller"
+title: "Image Overview: flux-image-automation-controller"
 type: "article"
-description: "Overview: Flux-image-automation-controller Chainguard Image"
+description: "Overview: flux-image-automation-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:d897edf48a05843360defc2db1456923222f36e0a3fef12b134b0aedc46eabbc` |
-| `latest`     | 20 hours ago | `sha256:89677e2c63c431138e5bcc59c9fdf2d7a47f9c7e7e622eb35e95d9f955720e52` |
+| `latest-dev` | July 12th    | `sha256:9158fa5ad2be81931220ef99f5965115ff8f7fc0928b10f7b5d00e5c0fe1682e` |
+| `latest`     | July 11th    | `sha256:89677e2c63c431138e5bcc59c9fdf2d7a47f9c7e7e622eb35e95d9f955720e52` |
 
 # flux-image-automation-controller
 

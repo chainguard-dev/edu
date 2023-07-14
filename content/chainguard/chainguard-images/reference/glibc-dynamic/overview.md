@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Glibc-dynamic"
+title: "Image Overview: glibc-dynamic"
 type: "article"
-description: "Overview: Glibc-dynamic Chainguard Image"
+description: "Overview: glibc-dynamic Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:84330a5c2f3b425a77320bc599a6a813fa986aab9b6a0fd7f58d753d6fe2143e` |
-| `latest-dev` | 20 hours ago | `sha256:cc4400fa6dcf522db3243e0bca42d75182bc893513cd650b4c68b8d8a723ded7` |
+| `latest-dev` | July 12th    | `sha256:6ce5f5093aa282a814ac7b4fe5efde0ec641624eda89961d2a248325ad456496` |
+| `latest`     | July 11th    | `sha256:84330a5c2f3b425a77320bc599a6a813fa986aab9b6a0fd7f58d753d6fe2143e` |
 
 
 

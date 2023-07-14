@@ -1,7 +1,7 @@
 ---
-title: "Thanos Image Tags History"
+title: "thanos Image Tags History"
 type: "article"
-description: "Image Tags and History for the Thanos Chainguard Image"
+description: "Image Tags and History for the thanos Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag             | Last Updated | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-| `0.31`          | 19 hours ago | `sha256:300f8224005a36f7caef35fa9465e2137557525b7c116fc769202bddb5a8fdb8` |
-| `0`             | 19 hours ago | `sha256:300f8224005a36f7caef35fa9465e2137557525b7c116fc769202bddb5a8fdb8` |
-| `latest-dev`    | 19 hours ago | `sha256:197252477427c2b0334c03a39a365395e7ddeaa02c51acd46c273b28f78754f5` |
-| `0.31-dev`      | 19 hours ago | `sha256:197252477427c2b0334c03a39a365395e7ddeaa02c51acd46c273b28f78754f5` |
-| `latest`        | 19 hours ago | `sha256:300f8224005a36f7caef35fa9465e2137557525b7c116fc769202bddb5a8fdb8` |
-| `0-dev`         | 19 hours ago | `sha256:197252477427c2b0334c03a39a365395e7ddeaa02c51acd46c273b28f78754f5` |
-| `0.31.0-r3-dev` | 19 hours ago | `sha256:197252477427c2b0334c03a39a365395e7ddeaa02c51acd46c273b28f78754f5` |
-| `0.31.0`        | 19 hours ago | `sha256:300f8224005a36f7caef35fa9465e2137557525b7c116fc769202bddb5a8fdb8` |
-| `0.31.0-dev`    | 19 hours ago | `sha256:197252477427c2b0334c03a39a365395e7ddeaa02c51acd46c273b28f78754f5` |
+| `latest-dev`    | July 12th    | `sha256:822b53adcefef972ceb72ca519d978dd7653621d21f5182752fbba205a0449f5` |
+| `0.31-dev`      | July 12th    | `sha256:822b53adcefef972ceb72ca519d978dd7653621d21f5182752fbba205a0449f5` |
+| `0.31.0-dev`    | July 12th    | `sha256:822b53adcefef972ceb72ca519d978dd7653621d21f5182752fbba205a0449f5` |
+| `0-dev`         | July 12th    | `sha256:822b53adcefef972ceb72ca519d978dd7653621d21f5182752fbba205a0449f5` |
+| `0.31.0-r3-dev` | July 12th    | `sha256:822b53adcefef972ceb72ca519d978dd7653621d21f5182752fbba205a0449f5` |
+| `0.31`          | July 11th    | `sha256:300f8224005a36f7caef35fa9465e2137557525b7c116fc769202bddb5a8fdb8` |
+| `0`             | July 11th    | `sha256:300f8224005a36f7caef35fa9465e2137557525b7c116fc769202bddb5a8fdb8` |
+| `latest`        | July 11th    | `sha256:300f8224005a36f7caef35fa9465e2137557525b7c116fc769202bddb5a8fdb8` |
+| `0.31.0`        | July 11th    | `sha256:300f8224005a36f7caef35fa9465e2137557525b7c116fc769202bddb5a8fdb8` |

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Secrets-store-csi-driver-provider-gcp"
+title: "Image Overview: secrets-store-csi-driver-provider-gcp"
 type: "article"
-description: "Overview: Secrets-store-csi-driver-provider-gcp Chainguard Image"
+description: "Overview: secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:7778750d5a8091b82420241a9b9821e800ab2391a4d982b6301b3652cf72cb0c` |
-| `latest-dev` | 19 hours ago | `sha256:bc08dc708bc1260e977c054917a5edde7b206eebc2cf07b043d31a29a3646761` |
+| `latest-dev` | July 12th    | `sha256:965caffcda10f6994b63dfcab797150512b1f7f4f17e8f4bbd6adbc17da695b2` |
+| `latest`     | July 11th    | `sha256:7778750d5a8091b82420241a9b9821e800ab2391a4d982b6301b3652cf72cb0c` |
 
 
 

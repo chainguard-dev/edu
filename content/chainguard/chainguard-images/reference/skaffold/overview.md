@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Skaffold"
+title: "Image Overview: skaffold"
 type: "article"
-description: "Overview: Skaffold Chainguard Image"
+description: "Overview: skaffold Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:885d1ffbe685977df28ae69cd5db75d1d178d46f8ef87a64181376e564bce012` |
-| `latest-dev` | 19 hours ago | `sha256:156ab41d47dfcb4793f26eb217d40cd14ce95d7aea62ec0dc13eceb8dd970def` |
+| `latest-dev` | July 12th    | `sha256:0755b41aa9c452c854474d3a9d99780fc9454ff0c9a05704029aadb8b0ab9dca` |
+| `latest`     | July 11th    | `sha256:885d1ffbe685977df28ae69cd5db75d1d178d46f8ef87a64181376e564bce012` |
 
 
 

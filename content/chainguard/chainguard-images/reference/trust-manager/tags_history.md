@@ -1,7 +1,7 @@
 ---
-title: "Trust-manager Image Tags History"
+title: "trust-manager Image Tags History"
 type: "article"
-description: "Image Tags and History for the Trust-manager Chainguard Image"
+description: "Image Tags and History for the trust-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `0.5`          | 19 hours ago | `sha256:f65e6d8f8c9e0316e53f086d626cc19e0301085ce79b5ee4c1714244ff7874e7` |
-| `0`            | 19 hours ago | `sha256:f65e6d8f8c9e0316e53f086d626cc19e0301085ce79b5ee4c1714244ff7874e7` |
-| `latest`       | 19 hours ago | `sha256:f65e6d8f8c9e0316e53f086d626cc19e0301085ce79b5ee4c1714244ff7874e7` |
-| `0.5.0-dev`    | 19 hours ago | `sha256:60dfac0151753ea6ef1ad39e7b16f92d59ce3ee9f39880b705b5adeefd7f8f4e` |
-| `0.5.0`        | 19 hours ago | `sha256:f65e6d8f8c9e0316e53f086d626cc19e0301085ce79b5ee4c1714244ff7874e7` |
-| `0.5-dev`      | 19 hours ago | `sha256:60dfac0151753ea6ef1ad39e7b16f92d59ce3ee9f39880b705b5adeefd7f8f4e` |
-| `0.5.0-r2-dev` | 19 hours ago | `sha256:60dfac0151753ea6ef1ad39e7b16f92d59ce3ee9f39880b705b5adeefd7f8f4e` |
-| `latest-dev`   | 19 hours ago | `sha256:60dfac0151753ea6ef1ad39e7b16f92d59ce3ee9f39880b705b5adeefd7f8f4e` |
-| `0-dev`        | 19 hours ago | `sha256:60dfac0151753ea6ef1ad39e7b16f92d59ce3ee9f39880b705b5adeefd7f8f4e` |
+| `latest-dev`   | July 12th    | `sha256:a1ac8b847a34874622d15573196d601607b43ff2518bf8e0b4b465c3694798f7` |
+| `0.5.0-dev`    | July 12th    | `sha256:a1ac8b847a34874622d15573196d601607b43ff2518bf8e0b4b465c3694798f7` |
+| `0.5-dev`      | July 12th    | `sha256:a1ac8b847a34874622d15573196d601607b43ff2518bf8e0b4b465c3694798f7` |
+| `0.5.0-r2-dev` | July 12th    | `sha256:a1ac8b847a34874622d15573196d601607b43ff2518bf8e0b4b465c3694798f7` |
+| `0-dev`        | July 12th    | `sha256:a1ac8b847a34874622d15573196d601607b43ff2518bf8e0b4b465c3694798f7` |
+| `0.5`          | July 11th    | `sha256:f65e6d8f8c9e0316e53f086d626cc19e0301085ce79b5ee4c1714244ff7874e7` |
+| `0`            | July 11th    | `sha256:f65e6d8f8c9e0316e53f086d626cc19e0301085ce79b5ee4c1714244ff7874e7` |
+| `latest`       | July 11th    | `sha256:f65e6d8f8c9e0316e53f086d626cc19e0301085ce79b5ee4c1714244ff7874e7` |
+| `0.5.0`        | July 11th    | `sha256:f65e6d8f8c9e0316e53f086d626cc19e0301085ce79b5ee4c1714244ff7874e7` |

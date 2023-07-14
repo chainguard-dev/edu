@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kyverno"
+title: "Image Overview: kyverno"
 type: "article"
-description: "Overview: Kyverno Chainguard Image"
+description: "Overview: kyverno Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,6 +18,6 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:96e61ccc4bd0743062eda1b77d94e6153b54777e54ed92c0d4aae2a2e2c1b63f` |
+| `latest` | July 11th    | `sha256:96e61ccc4bd0743062eda1b77d94e6153b54777e54ed92c0d4aae2a2e2c1b63f` |
 
 

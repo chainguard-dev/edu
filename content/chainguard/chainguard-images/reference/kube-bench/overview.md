@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kube-bench"
+title: "Image Overview: kube-bench"
 type: "article"
-description: "Overview: Kube-bench Chainguard Image"
+description: "Overview: kube-bench Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:0963a0009a85ceaa1e6e07b977deb6f589ea9580e14bcabe79996dd2af8bce45` |
+| `latest` | July 11th    | `sha256:0963a0009a85ceaa1e6e07b977deb6f589ea9580e14bcabe79996dd2af8bce45` |
 
 
 

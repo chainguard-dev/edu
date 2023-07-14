@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Fluentd"
+title: "Image Overview: fluentd"
 type: "article"
-description: "Overview: Fluentd Chainguard Image"
+description: "Overview: fluentd Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:830105cd14fca5a2089bb3cde17446b4422647f7f5d49849cb3a45fd430e6bfe` |
-| `latest`     | 20 hours ago | `sha256:674d6af4fedf2c97ea4cd650db3227100c4a139806c1f7b595088f7eef414e02` |
+| `latest-dev` | July 12th    | `sha256:61660fb5167efcad34cdd7a05e78dec1a2d3aad242080ff339d26c333467672c` |
+| `latest`     | July 11th    | `sha256:674d6af4fedf2c97ea4cd650db3227100c4a139806c1f7b595088f7eef414e02` |
 
 
 

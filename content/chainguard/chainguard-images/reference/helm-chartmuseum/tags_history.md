@@ -1,7 +1,7 @@
 ---
-title: "Helm-chartmuseum Image Tags History"
+title: "helm-chartmuseum Image Tags History"
 type: "article"
-description: "Image Tags and History for the Helm-chartmuseum Chainguard Image"
+description: "Image Tags and History for the helm-chartmuseum Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag             | Last Updated | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-| `0-dev`         | 20 hours ago | `sha256:089fdd9341de0d8e33273490ad8bce083ff96ca6c6bd147e96de88e9981401f9` |
-| `0.16.0-r0-dev` | 20 hours ago | `sha256:089fdd9341de0d8e33273490ad8bce083ff96ca6c6bd147e96de88e9981401f9` |
-| `0.16-dev`      | 20 hours ago | `sha256:089fdd9341de0d8e33273490ad8bce083ff96ca6c6bd147e96de88e9981401f9` |
-| `0`             | 20 hours ago | `sha256:af6b780ae104e11ac317e4a2204cf2581bca507b8b4ce78f3ec17c81fe70cff7` |
-| `0.16.0-dev`    | 20 hours ago | `sha256:089fdd9341de0d8e33273490ad8bce083ff96ca6c6bd147e96de88e9981401f9` |
-| `0.16.0`        | 20 hours ago | `sha256:af6b780ae104e11ac317e4a2204cf2581bca507b8b4ce78f3ec17c81fe70cff7` |
-| `latest`        | 20 hours ago | `sha256:af6b780ae104e11ac317e4a2204cf2581bca507b8b4ce78f3ec17c81fe70cff7` |
-| `latest-dev`    | 20 hours ago | `sha256:089fdd9341de0d8e33273490ad8bce083ff96ca6c6bd147e96de88e9981401f9` |
-| `0.16`          | 20 hours ago | `sha256:af6b780ae104e11ac317e4a2204cf2581bca507b8b4ce78f3ec17c81fe70cff7` |
+| `0-dev`         | July 12th    | `sha256:d55c6814124ec11caf301be490b97640d8d831b48e1fdfb3512db74134ffac18` |
+| `0.16.0-r0-dev` | July 12th    | `sha256:d55c6814124ec11caf301be490b97640d8d831b48e1fdfb3512db74134ffac18` |
+| `0.16-dev`      | July 12th    | `sha256:d55c6814124ec11caf301be490b97640d8d831b48e1fdfb3512db74134ffac18` |
+| `0.16.0-dev`    | July 12th    | `sha256:d55c6814124ec11caf301be490b97640d8d831b48e1fdfb3512db74134ffac18` |
+| `latest-dev`    | July 12th    | `sha256:d55c6814124ec11caf301be490b97640d8d831b48e1fdfb3512db74134ffac18` |
+| `0`             | July 11th    | `sha256:af6b780ae104e11ac317e4a2204cf2581bca507b8b4ce78f3ec17c81fe70cff7` |
+| `0.16.0`        | July 11th    | `sha256:af6b780ae104e11ac317e4a2204cf2581bca507b8b4ce78f3ec17c81fe70cff7` |
+| `latest`        | July 11th    | `sha256:af6b780ae104e11ac317e4a2204cf2581bca507b8b4ce78f3ec17c81fe70cff7` |
+| `0.16`          | July 11th    | `sha256:af6b780ae104e11ac317e4a2204cf2581bca507b8b4ce78f3ec17c81fe70cff7` |

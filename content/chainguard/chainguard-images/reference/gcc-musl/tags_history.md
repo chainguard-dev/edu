@@ -1,7 +1,7 @@
 ---
-title: "Gcc-musl Image Tags History"
+title: "gcc-musl Image Tags History"
 type: "article"
-description: "Image Tags and History for the Gcc-musl Chainguard Image"
+description: "Image Tags and History for the gcc-musl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false

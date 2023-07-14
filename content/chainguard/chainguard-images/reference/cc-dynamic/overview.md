@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Cc-dynamic"
+title: "Image Overview: cc-dynamic"
 type: "article"
-description: "Overview: Cc-dynamic Chainguard Image"
+description: "Overview: cc-dynamic Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:e0aad14b57e7ba41e51eccfe93d6bac3c928a34cb2d8e056a69869e074f83f01` |
-| `latest`     | 20 hours ago | `sha256:fdb7305a66e1c254bfc248d5e4a65b254dc7c5dcc1e6cdb97b391efb3bfcc1b1` |
+| `latest-dev` | July 12th    | `sha256:28f2b05efbacc28363b8deab4ff1d1498f2ae34d1d41e2a139a548ef0b96cd37` |
+| `latest`     | July 11th    | `sha256:fdb7305a66e1c254bfc248d5e4a65b254dc7c5dcc1e6cdb97b391efb3bfcc1b1` |
 
 
 

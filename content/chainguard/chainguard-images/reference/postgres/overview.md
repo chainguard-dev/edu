@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Postgres"
+title: "Image Overview: postgres"
 type: "article"
-description: "Overview: Postgres Chainguard Image"
+description: "Overview: postgres Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:b4876d80c1cde27353b1b80fa0bace3576908789517086bfa80e0194f0cfd7df` |
-| `latest`     | 19 hours ago | `sha256:be1056419a1bdedcf8b35ae6a1e3b02375a8f00b5b0532d42eea0da346c97bec` |
+| `latest-dev` | July 12th    | `sha256:b50c603f128965db582a3419cb26b6b60aa58350d0ef6bbda0286a585018a054` |
+| `latest`     | July 11th    | `sha256:be1056419a1bdedcf8b35ae6a1e3b02375a8f00b5b0532d42eea0da346c97bec` |
 
 
 

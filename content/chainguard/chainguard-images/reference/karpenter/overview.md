@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Karpenter"
+title: "Image Overview: karpenter"
 type: "article"
-description: "Overview: Karpenter Chainguard Image"
+description: "Overview: karpenter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:86b318e0ddfca455e5c3f0f0f29844d38c227b1b8cafceef36761ad130f3bd95` |
-| `latest`     | 20 hours ago | `sha256:1b8d7f33a13810d3e5bd24218087e08593354c5673c7b8480dc9369e8775a5ff` |
+| `latest-dev` | July 12th    | `sha256:35945961f5fb3d3ad900d51b6f6f8d4f1ca892ba93923332b3f0f80af830986a` |
+| `latest`     | July 11th    | `sha256:1b8d7f33a13810d3e5bd24218087e08593354c5673c7b8480dc9369e8775a5ff` |
 
 
 

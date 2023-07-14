@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kubernetes-csi-node-driver-registrar"
+title: "Image Overview: kubernetes-csi-node-driver-registrar"
 type: "article"
-description: "Overview: Kubernetes-csi-node-driver-registrar Chainguard Image"
+description: "Overview: kubernetes-csi-node-driver-registrar Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 16 hours ago | `sha256:122f95fd5199f825276824da0df7a59800319f976a9cd5b3d5965b05eab21567` |
+| `latest` | July 12th    | `sha256:122f95fd5199f825276824da0df7a59800319f976a9cd5b3d5965b05eab21567` |
 
 
 

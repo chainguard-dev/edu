@@ -1,7 +1,7 @@
 ---
-title: "Wait-for-it Image Tags History"
+title: "wait-for-it Image Tags History"
 type: "article"
-description: "Image Tags and History for the Wait-for-it Chainguard Image"
+description: "Image Tags and History for the wait-for-it Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,5 +18,5 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:e9ce150f95c395447616be44524f6cad39d4520af86e0fa0fa127efb640eacd8` |
-| `0`      | 19 hours ago | `sha256:e9ce150f95c395447616be44524f6cad39d4520af86e0fa0fa127efb640eacd8` |
+| `latest` | July 11th    | `sha256:e9ce150f95c395447616be44524f6cad39d4520af86e0fa0fa127efb640eacd8` |
+| `0`      | July 11th    | `sha256:e9ce150f95c395447616be44524f6cad39d4520af86e0fa0fa127efb640eacd8` |

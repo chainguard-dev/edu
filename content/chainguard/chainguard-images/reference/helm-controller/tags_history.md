@@ -1,7 +1,7 @@
 ---
-title: "Helm-controller Image Tags History"
+title: "helm-controller Image Tags History"
 type: "article"
-description: "Image Tags and History for the Helm-controller Chainguard Image"
+description: "Image Tags and History for the helm-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag             | Last Updated | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-| `0`             | 16 days ago  | `sha256:2bcae87c7247fdde8d06ed743541b9af9b46048d1b77538ca01ab9e1e9021573` |
-| `0-dev`         | 16 days ago  | `sha256:4e09101e09ea6ba55fa5da6b5d30a691bea243d6c7db7f5cec2ba54e2d960bd6` |
-| `latest`        | 16 days ago  | `sha256:2bcae87c7247fdde8d06ed743541b9af9b46048d1b77538ca01ab9e1e9021573` |
-| `0.34`          | 16 days ago  | `sha256:2bcae87c7247fdde8d06ed743541b9af9b46048d1b77538ca01ab9e1e9021573` |
-| `latest-dev`    | 16 days ago  | `sha256:4e09101e09ea6ba55fa5da6b5d30a691bea243d6c7db7f5cec2ba54e2d960bd6` |
-| `0.34-dev`      | 16 days ago  | `sha256:4e09101e09ea6ba55fa5da6b5d30a691bea243d6c7db7f5cec2ba54e2d960bd6` |
-| `0.34.2-dev`    | 16 days ago  | `sha256:4e09101e09ea6ba55fa5da6b5d30a691bea243d6c7db7f5cec2ba54e2d960bd6` |
-| `0.34.2`        | 16 days ago  | `sha256:2bcae87c7247fdde8d06ed743541b9af9b46048d1b77538ca01ab9e1e9021573` |
-| `0.34.2-r0-dev` | 16 days ago  | `sha256:4e09101e09ea6ba55fa5da6b5d30a691bea243d6c7db7f5cec2ba54e2d960bd6` |
+| `0`             | June 26th    | `sha256:2bcae87c7247fdde8d06ed743541b9af9b46048d1b77538ca01ab9e1e9021573` |
+| `0-dev`         | June 26th    | `sha256:4e09101e09ea6ba55fa5da6b5d30a691bea243d6c7db7f5cec2ba54e2d960bd6` |
+| `latest`        | June 26th    | `sha256:2bcae87c7247fdde8d06ed743541b9af9b46048d1b77538ca01ab9e1e9021573` |
+| `0.34`          | June 26th    | `sha256:2bcae87c7247fdde8d06ed743541b9af9b46048d1b77538ca01ab9e1e9021573` |
+| `latest-dev`    | June 26th    | `sha256:4e09101e09ea6ba55fa5da6b5d30a691bea243d6c7db7f5cec2ba54e2d960bd6` |
+| `0.34-dev`      | June 26th    | `sha256:4e09101e09ea6ba55fa5da6b5d30a691bea243d6c7db7f5cec2ba54e2d960bd6` |
+| `0.34.2-dev`    | June 26th    | `sha256:4e09101e09ea6ba55fa5da6b5d30a691bea243d6c7db7f5cec2ba54e2d960bd6` |
+| `0.34.2`        | June 26th    | `sha256:2bcae87c7247fdde8d06ed743541b9af9b46048d1b77538ca01ab9e1e9021573` |
+| `0.34.2-r0-dev` | June 26th    | `sha256:4e09101e09ea6ba55fa5da6b5d30a691bea243d6c7db7f5cec2ba54e2d960bd6` |

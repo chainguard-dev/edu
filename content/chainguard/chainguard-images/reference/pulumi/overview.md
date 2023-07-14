@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Pulumi"
+title: "Image Overview: pulumi"
 type: "article"
-description: "Overview: Pulumi Chainguard Image"
+description: "Overview: pulumi Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:f412ca4bd63c781c6376690fd862b1e663912fdadc79861511d061a390693ea3` |
+| `latest` | July 12th    | `sha256:61ef9c40d77dbd5aa95a75de776611f19e4adfa734709ab1995d3d746afb2391` |
 
 
 

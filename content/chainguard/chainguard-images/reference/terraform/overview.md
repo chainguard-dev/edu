@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Terraform"
+title: "Image Overview: terraform"
 type: "article"
-description: "Overview: Terraform Chainguard Image"
+description: "Overview: terraform Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:71bed6077bf49942a445274e466e41595b38c0107a46e5ce1760ada522b91d63` |
+| `latest` | July 11th    | `sha256:71bed6077bf49942a445274e466e41595b38c0107a46e5ce1760ada522b91d63` |
 
 
 

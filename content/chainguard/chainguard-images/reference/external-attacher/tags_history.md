@@ -1,7 +1,7 @@
 ---
-title: "External-attacher Image Tags History"
+title: "external-attacher Image Tags History"
 type: "article"
-description: "Image Tags and History for the External-attacher Chainguard Image"
+description: "Image Tags and History for the external-attacher Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false

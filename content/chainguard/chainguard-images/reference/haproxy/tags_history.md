@@ -1,7 +1,7 @@
 ---
-title: "Haproxy Image Tags History"
+title: "haproxy Image Tags History"
 type: "article"
-description: "Image Tags and History for the Haproxy Chainguard Image"
+description: "Image Tags and History for the haproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `2.8.0`  | 20 hours ago | `sha256:5c9b3161ce2677894d3c4837dafcc22fd0a36e89bd18f002254d22711746d8e1` |
-| `latest` | 20 hours ago | `sha256:5c9b3161ce2677894d3c4837dafcc22fd0a36e89bd18f002254d22711746d8e1` |
-| `2`      | 20 hours ago | `sha256:5c9b3161ce2677894d3c4837dafcc22fd0a36e89bd18f002254d22711746d8e1` |
-| `2.8`    | 20 hours ago | `sha256:5c9b3161ce2677894d3c4837dafcc22fd0a36e89bd18f002254d22711746d8e1` |
+| `2.8.0`  | July 11th    | `sha256:5c9b3161ce2677894d3c4837dafcc22fd0a36e89bd18f002254d22711746d8e1` |
+| `latest` | July 11th    | `sha256:5c9b3161ce2677894d3c4837dafcc22fd0a36e89bd18f002254d22711746d8e1` |
+| `2`      | July 11th    | `sha256:5c9b3161ce2677894d3c4837dafcc22fd0a36e89bd18f002254d22711746d8e1` |
+| `2.8`    | July 11th    | `sha256:5c9b3161ce2677894d3c4837dafcc22fd0a36e89bd18f002254d22711746d8e1` |

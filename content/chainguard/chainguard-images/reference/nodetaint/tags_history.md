@@ -1,7 +1,7 @@
 ---
-title: "Nodetaint Image Tags History"
+title: "nodetaint Image Tags History"
 type: "article"
-description: "Image Tags and History for the Nodetaint Chainguard Image"
+description: "Image Tags and History for the nodetaint Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `0`            | 19 hours ago | `sha256:6a47bf8d0b4d970e4597dd0ba98765e03cfee9a1ebd9bf768e4e38b9d9036981` |
-| `0.0`          | 19 hours ago | `sha256:6a47bf8d0b4d970e4597dd0ba98765e03cfee9a1ebd9bf768e4e38b9d9036981` |
-| `0.0.4-dev`    | 19 hours ago | `sha256:d81eff434b9bb277469281c29b253f67ba029dc5466548d55676b852b810af15` |
-| `0.0-dev`      | 19 hours ago | `sha256:d81eff434b9bb277469281c29b253f67ba029dc5466548d55676b852b810af15` |
-| `latest`       | 19 hours ago | `sha256:6a47bf8d0b4d970e4597dd0ba98765e03cfee9a1ebd9bf768e4e38b9d9036981` |
-| `latest-dev`   | 19 hours ago | `sha256:d81eff434b9bb277469281c29b253f67ba029dc5466548d55676b852b810af15` |
-| `0-dev`        | 19 hours ago | `sha256:d81eff434b9bb277469281c29b253f67ba029dc5466548d55676b852b810af15` |
-| `0.0.4`        | 19 hours ago | `sha256:6a47bf8d0b4d970e4597dd0ba98765e03cfee9a1ebd9bf768e4e38b9d9036981` |
-| `0.0.4-r0-dev` | 19 hours ago | `sha256:d81eff434b9bb277469281c29b253f67ba029dc5466548d55676b852b810af15` |
+| `0.0.4-r0-dev` | July 12th    | `sha256:4369db8a38c27be0befd680aacac72e25ce92436cce82e29eb0fe3ca34822037` |
+| `0.0-dev`      | July 12th    | `sha256:4369db8a38c27be0befd680aacac72e25ce92436cce82e29eb0fe3ca34822037` |
+| `latest-dev`   | July 12th    | `sha256:4369db8a38c27be0befd680aacac72e25ce92436cce82e29eb0fe3ca34822037` |
+| `0.0.4-dev`    | July 12th    | `sha256:4369db8a38c27be0befd680aacac72e25ce92436cce82e29eb0fe3ca34822037` |
+| `0-dev`        | July 12th    | `sha256:4369db8a38c27be0befd680aacac72e25ce92436cce82e29eb0fe3ca34822037` |
+| `0`            | July 11th    | `sha256:6a47bf8d0b4d970e4597dd0ba98765e03cfee9a1ebd9bf768e4e38b9d9036981` |
+| `0.0`          | July 11th    | `sha256:6a47bf8d0b4d970e4597dd0ba98765e03cfee9a1ebd9bf768e4e38b9d9036981` |
+| `latest`       | July 11th    | `sha256:6a47bf8d0b4d970e4597dd0ba98765e03cfee9a1ebd9bf768e4e38b9d9036981` |
+| `0.0.4`        | July 11th    | `sha256:6a47bf8d0b4d970e4597dd0ba98765e03cfee9a1ebd9bf768e4e38b9d9036981` |

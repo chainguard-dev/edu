@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Calico-node"
+title: "Image Overview: calico-node"
 type: "article"
-description: "Overview: Calico-node Chainguard Image"
+description: "Overview: calico-node Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:2b87d61fea4fe1ee8b02eacf2523c130171566fdef6569a228c5540551b09e9e` |
+| `latest` | July 12th    | `sha256:324d5ef1335c8d10314ed2000a521b8f3eba9f2c133fd1f68ecc68986369a7d7` |
 
 # calico-node
 

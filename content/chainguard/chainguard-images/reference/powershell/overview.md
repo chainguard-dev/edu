@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Powershell"
+title: "Image Overview: powershell"
 type: "article"
-description: "Overview: Powershell Chainguard Image"
+description: "Overview: powershell Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:1247e54d8df1d6de7e40c02833353b0a4ea33f4bbba4f2effeab48c48a2973da` |
+| `latest` | July 12th    | `sha256:b8cd06b0dce6aa70ca960338755f7d958bbb1e769af9ff7c6a7f81ff3ccec18c` |
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kubernetes-csi-external-snapshotter"
+title: "Image Overview: kubernetes-csi-external-snapshotter"
 type: "article"
-description: "Overview: Kubernetes-csi-external-snapshotter Chainguard Image"
+description: "Overview: kubernetes-csi-external-snapshotter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:e3772692afb7bf2924e2bb2fee0456320f28e0fbd71b9960efa4f8ddb7a80328` |
+| `latest` | July 11th    | `sha256:e3772692afb7bf2924e2bb2fee0456320f28e0fbd71b9960efa4f8ddb7a80328` |
 
 
 

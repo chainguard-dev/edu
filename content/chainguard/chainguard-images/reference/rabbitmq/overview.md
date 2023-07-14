@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Rabbitmq"
+title: "Image Overview: rabbitmq"
 type: "article"
-description: "Overview: Rabbitmq Chainguard Image"
+description: "Overview: rabbitmq Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:f161105670facf2d36342fab0820815f82bcc307b30431cd0faf07af8698fe6b` |
+| `latest` | July 11th    | `sha256:f161105670facf2d36342fab0820815f82bcc307b30431cd0faf07af8698fe6b` |
 
 
 

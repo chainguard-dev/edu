@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: K3s-embedded"
+title: "Image Overview: k3s-embedded"
 type: "article"
-description: "Overview: K3s-embedded Chainguard Image"
+description: "Overview: k3s-embedded Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:d96de04fffa34cca49272c95d2b4157b9856e82d73a30cd306dd238e5a76c441` |
+| `latest` | July 12th    | `sha256:841ff138bc1aa1842f5d496194a59c37c9537019a891d995908bd19f0a600dc0` |
 
 # k3s-embedded
 

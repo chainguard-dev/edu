@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Telegraf"
+title: "Image Overview: telegraf"
 type: "article"
-description: "Overview: Telegraf Chainguard Image"
+description: "Overview: telegraf Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:8a37469195442ca1cca10c25505f9255db18ea596b46d36e706c76f0204054f1` |
-| `latest-dev` | 19 hours ago | `sha256:d5fbbe30c031a00e78e5fb3ff9e84f7d7cda039086c4b23b620e07947c3c4ac7` |
+| `latest-dev` | July 12th    | `sha256:d1810261374f46019257385aab758108e651297e69e3a13ad40ab3c4a0f27e88` |
+| `latest`     | July 11th    | `sha256:8a37469195442ca1cca10c25505f9255db18ea596b46d36e706c76f0204054f1` |
 
 
 

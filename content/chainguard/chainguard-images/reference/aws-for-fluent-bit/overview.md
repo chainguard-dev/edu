@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Aws-for-fluent-bit"
+title: "Image Overview: aws-for-fluent-bit"
 type: "article"
-description: "Overview: Aws-for-fluent-bit Chainguard Image"
+description: "Overview: aws-for-fluent-bit Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:874fbb9c5727aebcdd7d0e5c22e5db44757ee97ffb604a0e44b356e781f32947` |
+| `latest` | July 11th    | `sha256:874fbb9c5727aebcdd7d0e5c22e5db44757ee97ffb604a0e44b356e781f32947` |
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: "Coredns Image Tags History"
+title: "coredns Image Tags History"
 type: "article"
-description: "Image Tags and History for the Coredns Chainguard Image"
+description: "Image Tags and History for the coredns Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag             | Last Updated | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-| `1`             | 20 hours ago | `sha256:8646ba2a16b25c7230ce446d12d4aa730c868d46c8c83e56db0fb13b2c92103c` |
-| `1.10.1`        | 20 hours ago | `sha256:8646ba2a16b25c7230ce446d12d4aa730c868d46c8c83e56db0fb13b2c92103c` |
-| `latest`        | 20 hours ago | `sha256:8646ba2a16b25c7230ce446d12d4aa730c868d46c8c83e56db0fb13b2c92103c` |
-| `1.10-dev`      | 20 hours ago | `sha256:cc17a6a80ebd8189dea121f32c8d2ca6da3667177fb29a4425bca629490bb622` |
-| `latest-dev`    | 20 hours ago | `sha256:cc17a6a80ebd8189dea121f32c8d2ca6da3667177fb29a4425bca629490bb622` |
-| `1.10.1-r1-dev` | 20 hours ago | `sha256:cc17a6a80ebd8189dea121f32c8d2ca6da3667177fb29a4425bca629490bb622` |
-| `1-dev`         | 20 hours ago | `sha256:cc17a6a80ebd8189dea121f32c8d2ca6da3667177fb29a4425bca629490bb622` |
-| `1.10`          | 20 hours ago | `sha256:8646ba2a16b25c7230ce446d12d4aa730c868d46c8c83e56db0fb13b2c92103c` |
-| `1.10.1-dev`    | 20 hours ago | `sha256:cc17a6a80ebd8189dea121f32c8d2ca6da3667177fb29a4425bca629490bb622` |
+| `1-dev`         | July 12th    | `sha256:32887767d33ed026bc078d74c3229ca088f3a2882d53c09183fd870a944df9c5` |
+| `1.10.1-r1-dev` | July 12th    | `sha256:32887767d33ed026bc078d74c3229ca088f3a2882d53c09183fd870a944df9c5` |
+| `1.10.1-dev`    | July 12th    | `sha256:32887767d33ed026bc078d74c3229ca088f3a2882d53c09183fd870a944df9c5` |
+| `1.10-dev`      | July 12th    | `sha256:32887767d33ed026bc078d74c3229ca088f3a2882d53c09183fd870a944df9c5` |
+| `latest-dev`    | July 12th    | `sha256:32887767d33ed026bc078d74c3229ca088f3a2882d53c09183fd870a944df9c5` |
+| `1`             | July 11th    | `sha256:8646ba2a16b25c7230ce446d12d4aa730c868d46c8c83e56db0fb13b2c92103c` |
+| `1.10.1`        | July 11th    | `sha256:8646ba2a16b25c7230ce446d12d4aa730c868d46c8c83e56db0fb13b2c92103c` |
+| `latest`        | July 11th    | `sha256:8646ba2a16b25c7230ce446d12d4aa730c868d46c8c83e56db0fb13b2c92103c` |
+| `1.10`          | July 11th    | `sha256:8646ba2a16b25c7230ce446d12d4aa730c868d46c8c83e56db0fb13b2c92103c` |

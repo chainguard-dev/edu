@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Openai"
+title: "Image Overview: openai"
 type: "article"
-description: "Overview: Openai Chainguard Image"
+description: "Overview: openai Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:90123e2cb01dd42aac4e24670e9cac82073cbf6f7d130e4d161d3d8662977f24` |
-| `latest-dev` | 19 hours ago | `sha256:47c719cc1534de7b824106ec3de25e58b626d44362c4a7f515416db919eb4b2a` |
+| `latest-dev` | July 12th    | `sha256:fd07d2ae90bee784ac6cd8013ebde8c9e8145c1ea8078e9cb040835dd5c96684` |
+| `latest`     | July 11th    | `sha256:90123e2cb01dd42aac4e24670e9cac82073cbf6f7d130e4d161d3d8662977f24` |
 
 
 

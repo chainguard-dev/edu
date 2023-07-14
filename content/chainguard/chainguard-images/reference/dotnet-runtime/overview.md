@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Dotnet-runtime"
+title: "Image Overview: dotnet-runtime"
 type: "article"
-description: "Overview: Dotnet-runtime Chainguard Image"
+description: "Overview: dotnet-runtime Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:a8aa5bd50f1cda4c1be6edd08e94d955594fb9b5dee317dc8e4d9aef96b24144` |
-| `latest`     | 20 hours ago | `sha256:68db54e58c5a2676261cc8f7bdff3f8e78de2e5447e33114f1fb92a85ec7a5f9` |
+| `latest`     | July 12th    | `sha256:3098fd549880a6217fc5c3f5600c9a79afa1d9e2ef71c16cf2447d6e33333681` |
+| `latest-dev` | July 12th    | `sha256:8f8cc5f5a683f30d8524f66253cff703b34a9e380cfac61873373bab0fad3434` |
 
 
 

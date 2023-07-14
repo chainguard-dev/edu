@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Vault"
+title: "Image Overview: vault"
 type: "article"
-description: "Overview: Vault Chainguard Image"
+description: "Overview: vault Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:48e824c622b767480dadec5bddf909dcecf8c5e41e71747ceff9808cf7317c6c` |
-| `latest`     | 19 hours ago | `sha256:32fab4921e56df3b64f9e9e0fdc0557671726f395564a93ae2aea25c5d8cf17d` |
+| `latest-dev` | July 12th    | `sha256:338a5d1943601143d75907fea18a7a09acb643d12db6154544958a7a1b29f387` |
+| `latest`     | July 11th    | `sha256:32fab4921e56df3b64f9e9e0fdc0557671726f395564a93ae2aea25c5d8cf17d` |
 
 
 

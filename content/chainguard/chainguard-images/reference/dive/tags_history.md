@@ -1,7 +1,7 @@
 ---
-title: "Dive Image Tags History"
+title: "dive Image Tags History"
 type: "article"
-description: "Image Tags and History for the Dive Chainguard Image"
+description: "Image Tags and History for the dive Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,9 +18,9 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:78206f17fe90ed22a4be8744d64859ebdb3662d966149743fab665594db2eeeb` |
-| `0.11.0` | 20 hours ago | `sha256:78206f17fe90ed22a4be8744d64859ebdb3662d966149743fab665594db2eeeb` |
-| `0.11`   | 20 hours ago | `sha256:78206f17fe90ed22a4be8744d64859ebdb3662d966149743fab665594db2eeeb` |
-| `0`      | 20 hours ago | `sha256:78206f17fe90ed22a4be8744d64859ebdb3662d966149743fab665594db2eeeb` |
-| `0.10.0` | 5 days ago   | `sha256:e2b63337a5fb224f766768bd3f13d05e42259b083a2fd2879c1fbd3bfa0c46dc` |
-| `0.10`   | 5 days ago   | `sha256:e2b63337a5fb224f766768bd3f13d05e42259b083a2fd2879c1fbd3bfa0c46dc` |
+| `latest` | July 11th    | `sha256:78206f17fe90ed22a4be8744d64859ebdb3662d966149743fab665594db2eeeb` |
+| `0.11.0` | July 11th    | `sha256:78206f17fe90ed22a4be8744d64859ebdb3662d966149743fab665594db2eeeb` |
+| `0.11`   | July 11th    | `sha256:78206f17fe90ed22a4be8744d64859ebdb3662d966149743fab665594db2eeeb` |
+| `0`      | July 11th    | `sha256:78206f17fe90ed22a4be8744d64859ebdb3662d966149743fab665594db2eeeb` |
+| `0.10.0` | July 7th     | `sha256:e2b63337a5fb224f766768bd3f13d05e42259b083a2fd2879c1fbd3bfa0c46dc` |
+| `0.10`   | July 7th     | `sha256:e2b63337a5fb224f766768bd3f13d05e42259b083a2fd2879c1fbd3bfa0c46dc` |

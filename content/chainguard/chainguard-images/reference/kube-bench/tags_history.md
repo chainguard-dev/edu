@@ -1,7 +1,7 @@
 ---
-title: "Kube-bench Image Tags History"
+title: "kube-bench Image Tags History"
 type: "article"
-description: "Image Tags and History for the Kube-bench Chainguard Image"
+description: "Image Tags and History for the kube-bench Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `0.6`    | 20 hours ago | `sha256:0963a0009a85ceaa1e6e07b977deb6f589ea9580e14bcabe79996dd2af8bce45` |
-| `latest` | 20 hours ago | `sha256:0963a0009a85ceaa1e6e07b977deb6f589ea9580e14bcabe79996dd2af8bce45` |
-| `0`      | 20 hours ago | `sha256:0963a0009a85ceaa1e6e07b977deb6f589ea9580e14bcabe79996dd2af8bce45` |
-| `0.6.15` | 20 hours ago | `sha256:0963a0009a85ceaa1e6e07b977deb6f589ea9580e14bcabe79996dd2af8bce45` |
+| `0.6`    | July 11th    | `sha256:0963a0009a85ceaa1e6e07b977deb6f589ea9580e14bcabe79996dd2af8bce45` |
+| `latest` | July 11th    | `sha256:0963a0009a85ceaa1e6e07b977deb6f589ea9580e14bcabe79996dd2af8bce45` |
+| `0`      | July 11th    | `sha256:0963a0009a85ceaa1e6e07b977deb6f589ea9580e14bcabe79996dd2af8bce45` |
+| `0.6.15` | July 11th    | `sha256:0963a0009a85ceaa1e6e07b977deb6f589ea9580e14bcabe79996dd2af8bce45` |

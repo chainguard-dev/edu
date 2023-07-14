@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Flux"
+title: "Image Overview: flux"
 type: "article"
-description: "Overview: Flux Chainguard Image"
+description: "Overview: flux Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:6524cb1b94edf76539c8cae72e70995a172c1d6aff17321cb5721e9f6b077882` |
-| `latest`     | 20 hours ago | `sha256:bd78e62f5bcb7ad9603abd79df7e9361f5480b05cc7b6768a7e2eb2d33895fe0` |
+| `latest-dev` | July 12th    | `sha256:62412f69dd8e86389bc13fbe78e715e8ef7cd751ed9745b873443e0c25e0fb79` |
+| `latest`     | July 11th    | `sha256:bd78e62f5bcb7ad9603abd79df7e9361f5480b05cc7b6768a7e2eb2d33895fe0` |
 
 
 

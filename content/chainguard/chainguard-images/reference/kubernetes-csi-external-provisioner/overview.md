@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kubernetes-csi-external-provisioner"
+title: "Image Overview: kubernetes-csi-external-provisioner"
 type: "article"
-description: "Overview: Kubernetes-csi-external-provisioner Chainguard Image"
+description: "Overview: kubernetes-csi-external-provisioner Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:deb9a467096669c0dda22706e821214c806eb8a151a1a5b962c9063185d11ac2` |
-| `latest-dev` | 19 hours ago | `sha256:2f50070a7e61bdfcac51ea9520c1e62ae889f8f6d051eb63c60cc1865fd7cf9a` |
+| `latest-dev` | July 12th    | `sha256:2220f3b7b0d0f9aefec5c71bc5668f45538a0a1b0a98de9321c26f63aa63f504` |
+| `latest`     | July 11th    | `sha256:deb9a467096669c0dda22706e821214c806eb8a151a1a5b962c9063185d11ac2` |
 
 
 

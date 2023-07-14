@@ -1,7 +1,7 @@
 ---
-title: "Calico-cni Image Tags History"
+title: "calico-cni Image Tags History"
 type: "article"
-description: "Image Tags and History for the Calico-cni Chainguard Image"
+description: "Image Tags and History for the calico-cni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `3`      | 20 hours ago | `sha256:56d0e396762354781d0f0794ec0a1e62f99ba21998ead9ec39af3dc1349759ac` |
-| `latest` | 20 hours ago | `sha256:56d0e396762354781d0f0794ec0a1e62f99ba21998ead9ec39af3dc1349759ac` |
-| `3.26.1` | 20 hours ago | `sha256:56d0e396762354781d0f0794ec0a1e62f99ba21998ead9ec39af3dc1349759ac` |
-| `3.26`   | 20 hours ago | `sha256:56d0e396762354781d0f0794ec0a1e62f99ba21998ead9ec39af3dc1349759ac` |
+| `3`      | July 11th    | `sha256:56d0e396762354781d0f0794ec0a1e62f99ba21998ead9ec39af3dc1349759ac` |
+| `latest` | July 11th    | `sha256:56d0e396762354781d0f0794ec0a1e62f99ba21998ead9ec39af3dc1349759ac` |
+| `3.26.1` | July 11th    | `sha256:56d0e396762354781d0f0794ec0a1e62f99ba21998ead9ec39af3dc1349759ac` |
+| `3.26`   | July 11th    | `sha256:56d0e396762354781d0f0794ec0a1e62f99ba21998ead9ec39af3dc1349759ac` |

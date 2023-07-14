@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Aws-load-balancer-controller"
+title: "Image Overview: aws-load-balancer-controller"
 type: "article"
-description: "Overview: Aws-load-balancer-controller Chainguard Image"
+description: "Overview: aws-load-balancer-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:379c24be91320594826b513f57416d907a83598d59d3e816d8cb8f4e542fdb17` |
-| `latest-dev` | 20 hours ago | `sha256:db2e30b30afa255008f8e1eb05251c1a5c959ab5a108ddf1207fc53f0d7317b2` |
+| `latest-dev` | July 12th    | `sha256:8c65a9ad77dca5dc3f4bde1e51a20ee40225cdaf1a820d70b75cdd29e1f5bafa` |
+| `latest`     | July 11th    | `sha256:379c24be91320594826b513f57416d907a83598d59d3e816d8cb8f4e542fdb17` |
 
 
 

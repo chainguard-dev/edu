@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Keda-admission-webhooks"
+title: "Image Overview: keda-admission-webhooks"
 type: "article"
-description: "Overview: Keda-admission-webhooks Chainguard Image"
+description: "Overview: keda-admission-webhooks Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:f47bac3ce809208fb91220a6a3d8a7aec6820acfe67db4af47fbd56c7dbaf00a` |
-| `latest-dev` | 19 hours ago | `sha256:9f2e6db31f5eca7db6c6b729c5aa623ad0e528cb0006ff238e254880211b7ffc` |
+| `latest-dev` | July 12th    | `sha256:278a5d5218fbc3bb84227a903178ccc7a9392196df854a0a403628df473d5dba` |
+| `latest`     | July 11th    | `sha256:f47bac3ce809208fb91220a6a3d8a7aec6820acfe67db4af47fbd56c7dbaf00a` |
 
 # keda-admission-webhooks
 

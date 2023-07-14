@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Calico-kube-controllers"
+title: "Image Overview: calico-kube-controllers"
 type: "article"
-description: "Overview: Calico-kube-controllers Chainguard Image"
+description: "Overview: calico-kube-controllers Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:17b0ce976ddf167dd2150bfd97ed1c57f89301b95beb43e87f282d01bbe32d13` |
+| `latest` | July 11th    | `sha256:17b0ce976ddf167dd2150bfd97ed1c57f89301b95beb43e87f282d01bbe32d13` |
 
 # calico-kube-controllers
 

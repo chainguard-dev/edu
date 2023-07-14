@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Aws-cli"
+title: "Image Overview: aws-cli"
 type: "article"
-description: "Overview: Aws-cli Chainguard Image"
+description: "Overview: aws-cli Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:ce554d18445c43ba929dfb28edd4d8431d977e91b938b82c2ebbb7e5d7bc50e8` |
-| `latest-dev` | 20 hours ago | `sha256:c2b052d4fb5bdf0be7ea694d8f27dc7c24bed3ee0c501bb9067027749fb02224` |
+| `latest-dev` | July 12th    | `sha256:1706e8fd26627c3d37f8edd52318306aff5ff81c31a00e52072a64d20bde652d` |
+| `latest`     | July 12th    | `sha256:0a0f8b761ff3c799a4f8aec9e784c42cc16baab9ac8f98fb3b0dd219b577e044` |
 
 
 

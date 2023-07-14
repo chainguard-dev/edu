@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Melange"
+title: "Image Overview: melange"
 type: "article"
-description: "Overview: Melange Chainguard Image"
+description: "Overview: melange Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:679d32a45c3586c2319f0d43b6681970653cf3e810efa25f800f607d7780f4b6` |
+| `latest` | July 11th    | `sha256:679d32a45c3586c2319f0d43b6681970653cf3e810efa25f800f607d7780f4b6` |
 
 
 

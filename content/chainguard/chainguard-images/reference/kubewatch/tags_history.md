@@ -1,7 +1,7 @@
 ---
-title: "Kubewatch Image Tags History"
+title: "kubewatch Image Tags History"
 type: "article"
-description: "Image Tags and History for the Kubewatch Chainguard Image"
+description: "Image Tags and History for the kubewatch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `2.5`          | 19 hours ago | `sha256:a05833ceac9e0084d2c9dac403ef349c4092ec5643a60a8e482e573724b8769a` |
-| `latest`       | 19 hours ago | `sha256:a05833ceac9e0084d2c9dac403ef349c4092ec5643a60a8e482e573724b8769a` |
-| `2.5.0`        | 19 hours ago | `sha256:a05833ceac9e0084d2c9dac403ef349c4092ec5643a60a8e482e573724b8769a` |
-| `2.5.0-dev`    | 19 hours ago | `sha256:321e0a1267ec6cb68df213ec512e5764afebb5b1c11047cca027449c93e10eb4` |
-| `2.5-dev`      | 19 hours ago | `sha256:321e0a1267ec6cb68df213ec512e5764afebb5b1c11047cca027449c93e10eb4` |
-| `2.5.0-r1-dev` | 19 hours ago | `sha256:321e0a1267ec6cb68df213ec512e5764afebb5b1c11047cca027449c93e10eb4` |
-| `latest-dev`   | 19 hours ago | `sha256:321e0a1267ec6cb68df213ec512e5764afebb5b1c11047cca027449c93e10eb4` |
-| `2`            | 19 hours ago | `sha256:a05833ceac9e0084d2c9dac403ef349c4092ec5643a60a8e482e573724b8769a` |
-| `2-dev`        | 19 hours ago | `sha256:321e0a1267ec6cb68df213ec512e5764afebb5b1c11047cca027449c93e10eb4` |
+| `2-dev`        | July 12th    | `sha256:af21197bb2330379c51ae8105a4c0452174581f31bbd0e86be84cc89dbfd0562` |
+| `latest-dev`   | July 12th    | `sha256:af21197bb2330379c51ae8105a4c0452174581f31bbd0e86be84cc89dbfd0562` |
+| `2.5-dev`      | July 12th    | `sha256:af21197bb2330379c51ae8105a4c0452174581f31bbd0e86be84cc89dbfd0562` |
+| `2.5.0-r1-dev` | July 12th    | `sha256:af21197bb2330379c51ae8105a4c0452174581f31bbd0e86be84cc89dbfd0562` |
+| `2.5.0-dev`    | July 12th    | `sha256:af21197bb2330379c51ae8105a4c0452174581f31bbd0e86be84cc89dbfd0562` |
+| `2.5`          | July 11th    | `sha256:a05833ceac9e0084d2c9dac403ef349c4092ec5643a60a8e482e573724b8769a` |
+| `latest`       | July 11th    | `sha256:a05833ceac9e0084d2c9dac403ef349c4092ec5643a60a8e482e573724b8769a` |
+| `2.5.0`        | July 11th    | `sha256:a05833ceac9e0084d2c9dac403ef349c4092ec5643a60a8e482e573724b8769a` |
+| `2`            | July 11th    | `sha256:a05833ceac9e0084d2c9dac403ef349c4092ec5643a60a8e482e573724b8769a` |

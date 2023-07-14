@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Zookeeper"
+title: "Image Overview: zookeeper"
 type: "article"
-description: "Overview: Zookeeper Chainguard Image"
+description: "Overview: zookeeper Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:3d9310a1528db6759ec9c0f914ff2a0264c777cdb4b79bab876704bd3bb2b892` |
-| `latest`     | 19 hours ago | `sha256:6b745edc5c5c95c74741b09f58db257606cb71858495bd7c47f46fa89fd355c2` |
+| `latest-dev` | July 12th    | `sha256:3ca2382505c9598d64a20c0e920e426012414cff1e7bae38d03d6011ada6d4ed` |
+| `latest`     | July 11th    | `sha256:6b745edc5c5c95c74741b09f58db257606cb71858495bd7c47f46fa89fd355c2` |
 
 
 

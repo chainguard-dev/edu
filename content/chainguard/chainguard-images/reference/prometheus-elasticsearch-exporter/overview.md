@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Prometheus-elasticsearch-exporter"
+title: "Image Overview: prometheus-elasticsearch-exporter"
 type: "article"
-description: "Overview: Prometheus-elasticsearch-exporter Chainguard Image"
+description: "Overview: prometheus-elasticsearch-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 15 hours ago | `sha256:5441d307b00718c19acfe834868bee69399cc4f7aa116df0903e37a0274993ae` |
-| `latest-dev` | 15 hours ago | `sha256:49fd323369fe8c60eef3eed762c5821f10d5acfae9ea5b6b10ffa965f5effc8f` |
+| `latest-dev` | July 12th    | `sha256:4afdd6c2e478191958ad288bde13351691a3d0674ef1788e2fcd67e4c141544c` |
+| `latest`     | July 12th    | `sha256:5441d307b00718c19acfe834868bee69399cc4f7aa116df0903e37a0274993ae` |
 
 # prometheus-elasticsearch-exporter
 

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: External-secrets"
+title: "Image Overview: external-secrets"
 type: "article"
-description: "Overview: External-secrets Chainguard Image"
+description: "Overview: external-secrets Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:20ec3e638422151fe6ba6f835f41f40478c88a052eb009c62441831e304455c1` |
-| `latest-dev` | 20 hours ago | `sha256:1cdb579d86d87d30a1913f12690fdf17138cc23de7badb8a22f735ca5fd7ab8f` |
+| `latest-dev` | July 12th    | `sha256:034ffdc1a6399f7b72131988b30bacd373fdd680fbeb6474cf96dd63c136ca2e` |
+| `latest`     | July 11th    | `sha256:20ec3e638422151fe6ba6f835f41f40478c88a052eb009c62441831e304455c1` |
 
 
 

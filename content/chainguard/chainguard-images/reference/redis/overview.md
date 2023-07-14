@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Redis"
+title: "Image Overview: redis"
 type: "article"
-description: "Overview: Redis Chainguard Image"
+description: "Overview: redis Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
+| `latest` | July 11th    | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
 
 
 

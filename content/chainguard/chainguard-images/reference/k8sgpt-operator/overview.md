@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: K8sgpt-operator"
+title: "Image Overview: k8sgpt-operator"
 type: "article"
-description: "Overview: K8sgpt-operator Chainguard Image"
+description: "Overview: k8sgpt-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:a3684110c0dfbe48138754239d06c05f542923a1184a624e06a0c37fd4d918be` |
-| `latest`     | 20 hours ago | `sha256:5277e93fb7498aa1f68a0cec98d573c6f1cf6571522b6396adbd908573caf09b` |
+| `latest-dev` | July 12th    | `sha256:1d32c5baaff162164500065eea3e3363d6dff4f07ae256ad82fcc3d0aa761e28` |
+| `latest`     | July 11th    | `sha256:5277e93fb7498aa1f68a0cec98d573c6f1cf6571522b6396adbd908573caf09b` |
 
 
 

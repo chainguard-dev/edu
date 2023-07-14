@@ -1,7 +1,7 @@
 ---
-title: "Postgres Image Tags History"
+title: "postgres Image Tags History"
 type: "article"
-description: "Image Tags and History for the Postgres Chainguard Image"
+description: "Image Tags and History for the postgres Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,10 +18,10 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag           | Last Updated | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-| `15.3-dev`    | 19 hours ago | `sha256:b4876d80c1cde27353b1b80fa0bace3576908789517086bfa80e0194f0cfd7df` |
-| `15.3-r0-dev` | 19 hours ago | `sha256:b4876d80c1cde27353b1b80fa0bace3576908789517086bfa80e0194f0cfd7df` |
-| `latest-dev`  | 19 hours ago | `sha256:b4876d80c1cde27353b1b80fa0bace3576908789517086bfa80e0194f0cfd7df` |
-| `15`          | 19 hours ago | `sha256:be1056419a1bdedcf8b35ae6a1e3b02375a8f00b5b0532d42eea0da346c97bec` |
-| `15.3`        | 19 hours ago | `sha256:be1056419a1bdedcf8b35ae6a1e3b02375a8f00b5b0532d42eea0da346c97bec` |
-| `latest`      | 19 hours ago | `sha256:be1056419a1bdedcf8b35ae6a1e3b02375a8f00b5b0532d42eea0da346c97bec` |
-| `15-dev`      | 19 hours ago | `sha256:b4876d80c1cde27353b1b80fa0bace3576908789517086bfa80e0194f0cfd7df` |
+| `15-dev`      | July 12th    | `sha256:b50c603f128965db582a3419cb26b6b60aa58350d0ef6bbda0286a585018a054` |
+| `15.3-r0-dev` | July 12th    | `sha256:b50c603f128965db582a3419cb26b6b60aa58350d0ef6bbda0286a585018a054` |
+| `latest-dev`  | July 12th    | `sha256:b50c603f128965db582a3419cb26b6b60aa58350d0ef6bbda0286a585018a054` |
+| `15.3-dev`    | July 12th    | `sha256:b50c603f128965db582a3419cb26b6b60aa58350d0ef6bbda0286a585018a054` |
+| `15`          | July 11th    | `sha256:be1056419a1bdedcf8b35ae6a1e3b02375a8f00b5b0532d42eea0da346c97bec` |
+| `15.3`        | July 11th    | `sha256:be1056419a1bdedcf8b35ae6a1e3b02375a8f00b5b0532d42eea0da346c97bec` |
+| `latest`      | July 11th    | `sha256:be1056419a1bdedcf8b35ae6a1e3b02375a8f00b5b0532d42eea0da346c97bec` |

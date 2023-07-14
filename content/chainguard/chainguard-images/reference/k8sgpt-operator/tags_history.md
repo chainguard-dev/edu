@@ -1,7 +1,7 @@
 ---
-title: "K8sgpt-operator Image Tags History"
+title: "k8sgpt-operator Image Tags History"
 type: "article"
-description: "Image Tags and History for the K8sgpt-operator Chainguard Image"
+description: "Image Tags and History for the k8sgpt-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag             | Last Updated | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-| `0.0.19-dev`    | 20 hours ago | `sha256:a3684110c0dfbe48138754239d06c05f542923a1184a624e06a0c37fd4d918be` |
-| `0.0.19-r0-dev` | 20 hours ago | `sha256:a3684110c0dfbe48138754239d06c05f542923a1184a624e06a0c37fd4d918be` |
-| `0.0-dev`       | 20 hours ago | `sha256:a3684110c0dfbe48138754239d06c05f542923a1184a624e06a0c37fd4d918be` |
-| `0.0`           | 20 hours ago | `sha256:5277e93fb7498aa1f68a0cec98d573c6f1cf6571522b6396adbd908573caf09b` |
-| `0`             | 20 hours ago | `sha256:5277e93fb7498aa1f68a0cec98d573c6f1cf6571522b6396adbd908573caf09b` |
-| `0-dev`         | 20 hours ago | `sha256:a3684110c0dfbe48138754239d06c05f542923a1184a624e06a0c37fd4d918be` |
-| `0.0.19`        | 20 hours ago | `sha256:5277e93fb7498aa1f68a0cec98d573c6f1cf6571522b6396adbd908573caf09b` |
-| `latest-dev`    | 20 hours ago | `sha256:a3684110c0dfbe48138754239d06c05f542923a1184a624e06a0c37fd4d918be` |
-| `latest`        | 20 hours ago | `sha256:5277e93fb7498aa1f68a0cec98d573c6f1cf6571522b6396adbd908573caf09b` |
+| `0-dev`         | July 12th    | `sha256:1d32c5baaff162164500065eea3e3363d6dff4f07ae256ad82fcc3d0aa761e28` |
+| `0.0.19-dev`    | July 12th    | `sha256:1d32c5baaff162164500065eea3e3363d6dff4f07ae256ad82fcc3d0aa761e28` |
+| `0.0.19-r0-dev` | July 12th    | `sha256:1d32c5baaff162164500065eea3e3363d6dff4f07ae256ad82fcc3d0aa761e28` |
+| `latest-dev`    | July 12th    | `sha256:1d32c5baaff162164500065eea3e3363d6dff4f07ae256ad82fcc3d0aa761e28` |
+| `0.0-dev`       | July 12th    | `sha256:1d32c5baaff162164500065eea3e3363d6dff4f07ae256ad82fcc3d0aa761e28` |
+| `0.0`           | July 11th    | `sha256:5277e93fb7498aa1f68a0cec98d573c6f1cf6571522b6396adbd908573caf09b` |
+| `0`             | July 11th    | `sha256:5277e93fb7498aa1f68a0cec98d573c6f1cf6571522b6396adbd908573caf09b` |
+| `0.0.19`        | July 11th    | `sha256:5277e93fb7498aa1f68a0cec98d573c6f1cf6571522b6396adbd908573caf09b` |
+| `latest`        | July 11th    | `sha256:5277e93fb7498aa1f68a0cec98d573c6f1cf6571522b6396adbd908573caf09b` |

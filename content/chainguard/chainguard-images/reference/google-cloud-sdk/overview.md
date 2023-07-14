@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Google-cloud-sdk"
+title: "Image Overview: google-cloud-sdk"
 type: "article"
-description: "Overview: Google-cloud-sdk Chainguard Image"
+description: "Overview: google-cloud-sdk Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:1b8ec2d8beba1787883d3c806e210d64e79bcc07d00e8fdd0732c4bab1f8d430` |
+| `latest` | July 11th    | `sha256:1b8ec2d8beba1787883d3c806e210d64e79bcc07d00e8fdd0732c4bab1f8d430` |
 
 
 

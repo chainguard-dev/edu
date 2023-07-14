@@ -1,7 +1,7 @@
 ---
-title: "Opensearch Image Tags History"
+title: "opensearch Image Tags History"
 type: "article"
-description: "Image Tags and History for the Opensearch Chainguard Image"
+description: "Image Tags and History for the opensearch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `2.8-dev`      | 19 hours ago | `sha256:292df82eb44c8116d023cbfa4916b6fce1a823dc1f1b0029d69f3dd6ae8f5407` |
-| `2.8.0-dev`    | 19 hours ago | `sha256:292df82eb44c8116d023cbfa4916b6fce1a823dc1f1b0029d69f3dd6ae8f5407` |
-| `2-dev`        | 19 hours ago | `sha256:292df82eb44c8116d023cbfa4916b6fce1a823dc1f1b0029d69f3dd6ae8f5407` |
-| `latest-dev`   | 19 hours ago | `sha256:292df82eb44c8116d023cbfa4916b6fce1a823dc1f1b0029d69f3dd6ae8f5407` |
-| `2.8`          | 19 hours ago | `sha256:1573f007c077e794f029d4cd848d0a5e47036f77b462b5ec2897c75e460c185d` |
-| `2.8.0-r0-dev` | 19 hours ago | `sha256:292df82eb44c8116d023cbfa4916b6fce1a823dc1f1b0029d69f3dd6ae8f5407` |
-| `2`            | 19 hours ago | `sha256:1573f007c077e794f029d4cd848d0a5e47036f77b462b5ec2897c75e460c185d` |
-| `latest`       | 19 hours ago | `sha256:1573f007c077e794f029d4cd848d0a5e47036f77b462b5ec2897c75e460c185d` |
-| `2.8.0`        | 19 hours ago | `sha256:1573f007c077e794f029d4cd848d0a5e47036f77b462b5ec2897c75e460c185d` |
+| `2.8-dev`      | July 12th    | `sha256:ff146b6a42581ef859e6f3ffab0a0d54d0d0b215557954d648ea0c6c58e987c6` |
+| `latest-dev`   | July 12th    | `sha256:ff146b6a42581ef859e6f3ffab0a0d54d0d0b215557954d648ea0c6c58e987c6` |
+| `2.8.0-dev`    | July 12th    | `sha256:ff146b6a42581ef859e6f3ffab0a0d54d0d0b215557954d648ea0c6c58e987c6` |
+| `2-dev`        | July 12th    | `sha256:ff146b6a42581ef859e6f3ffab0a0d54d0d0b215557954d648ea0c6c58e987c6` |
+| `2.8.0-r0-dev` | July 12th    | `sha256:ff146b6a42581ef859e6f3ffab0a0d54d0d0b215557954d648ea0c6c58e987c6` |
+| `2.8`          | July 11th    | `sha256:1573f007c077e794f029d4cd848d0a5e47036f77b462b5ec2897c75e460c185d` |
+| `2`            | July 11th    | `sha256:1573f007c077e794f029d4cd848d0a5e47036f77b462b5ec2897c75e460c185d` |
+| `latest`       | July 11th    | `sha256:1573f007c077e794f029d4cd848d0a5e47036f77b462b5ec2897c75e460c185d` |
+| `2.8.0`        | July 11th    | `sha256:1573f007c077e794f029d4cd848d0a5e47036f77b462b5ec2897c75e460c185d` |

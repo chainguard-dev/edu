@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Cedar"
+title: "Image Overview: cedar"
 type: "article"
-description: "Overview: Cedar Chainguard Image"
+description: "Overview: cedar Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:3c57d68315107bbbc564d7008d3e56ebf5c0e7edc5dbec14e2d5f86764d2ed36` |
-| `latest`     | 20 hours ago | `sha256:881050eeb96fab073d0f1476a22b583f1e36de903f9d60280b94fb01eaee4348` |
+| `latest-dev` | July 12th    | `sha256:5bf88442d5d5630c0ac86a642466783bd7bfd19f24cd451b029087bba2fdad9b` |
+| `latest`     | July 11th    | `sha256:881050eeb96fab073d0f1476a22b583f1e36de903f9d60280b94fb01eaee4348` |
 
 
 

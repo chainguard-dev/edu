@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Traefik"
+title: "Image Overview: traefik"
 type: "article"
-description: "Overview: Traefik Chainguard Image"
+description: "Overview: traefik Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:1b665bfa9fbf087a0d8626b98b08ac53d7506f5e86bcbaad14e1c26fe53c428f` |
+| `latest` | July 11th    | `sha256:1b665bfa9fbf087a0d8626b98b08ac53d7506f5e86bcbaad14e1c26fe53c428f` |
 
 
 

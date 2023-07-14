@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Node-problem-detector"
+title: "Image Overview: node-problem-detector"
 type: "article"
-description: "Overview: Node-problem-detector Chainguard Image"
+description: "Overview: node-problem-detector Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
-| `latest-dev` | 19 hours ago | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
+| `latest`     | July 11th    | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
+| `latest-dev` | July 11th    | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
 
 
 

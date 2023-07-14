@@ -1,7 +1,7 @@
 ---
-title: "Source-controller Image Tags History"
+title: "source-controller Image Tags History"
 type: "article"
-description: "Image Tags and History for the Source-controller Chainguard Image"
+description: "Image Tags and History for the source-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false

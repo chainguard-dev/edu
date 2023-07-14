@@ -1,7 +1,7 @@
 ---
-title: "Spire-agent Image Tags History"
+title: "spire-agent Image Tags History"
 type: "article"
-description: "Image Tags and History for the Spire-agent Chainguard Image"
+description: "Image Tags and History for the spire-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `latest`       | 19 hours ago | `sha256:49ac396175b76178d17729becd9001059ceda12eff834656760060269499204f` |
-| `1.7`          | 19 hours ago | `sha256:49ac396175b76178d17729becd9001059ceda12eff834656760060269499204f` |
-| `1`            | 19 hours ago | `sha256:49ac396175b76178d17729becd9001059ceda12eff834656760060269499204f` |
-| `1.7.0`        | 19 hours ago | `sha256:49ac396175b76178d17729becd9001059ceda12eff834656760060269499204f` |
-| `1-dev`        | 19 hours ago | `sha256:397f26031274e5bad58a42cac87758f22e99c80ace019424bbb63a373655fbfb` |
-| `1.7.0-r0-dev` | 19 hours ago | `sha256:397f26031274e5bad58a42cac87758f22e99c80ace019424bbb63a373655fbfb` |
-| `1.7-dev`      | 19 hours ago | `sha256:397f26031274e5bad58a42cac87758f22e99c80ace019424bbb63a373655fbfb` |
-| `1.7.0-dev`    | 19 hours ago | `sha256:397f26031274e5bad58a42cac87758f22e99c80ace019424bbb63a373655fbfb` |
-| `latest-dev`   | 19 hours ago | `sha256:397f26031274e5bad58a42cac87758f22e99c80ace019424bbb63a373655fbfb` |
+| `1.7.0-r0-dev` | July 12th    | `sha256:daf0a7989c784d18b4130be26ddff1fe64cc06d98cbb6bd7a71d30e76cb52081` |
+| `latest-dev`   | July 12th    | `sha256:daf0a7989c784d18b4130be26ddff1fe64cc06d98cbb6bd7a71d30e76cb52081` |
+| `1.7.0-dev`    | July 12th    | `sha256:daf0a7989c784d18b4130be26ddff1fe64cc06d98cbb6bd7a71d30e76cb52081` |
+| `1.7-dev`      | July 12th    | `sha256:daf0a7989c784d18b4130be26ddff1fe64cc06d98cbb6bd7a71d30e76cb52081` |
+| `1-dev`        | July 12th    | `sha256:daf0a7989c784d18b4130be26ddff1fe64cc06d98cbb6bd7a71d30e76cb52081` |
+| `latest`       | July 11th    | `sha256:49ac396175b76178d17729becd9001059ceda12eff834656760060269499204f` |
+| `1.7`          | July 11th    | `sha256:49ac396175b76178d17729becd9001059ceda12eff834656760060269499204f` |
+| `1`            | July 11th    | `sha256:49ac396175b76178d17729becd9001059ceda12eff834656760060269499204f` |
+| `1.7.0`        | July 11th    | `sha256:49ac396175b76178d17729becd9001059ceda12eff834656760060269499204f` |

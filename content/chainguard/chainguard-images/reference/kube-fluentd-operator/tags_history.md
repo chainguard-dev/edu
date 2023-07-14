@@ -1,7 +1,7 @@
 ---
-title: "Kube-fluentd-operator Image Tags History"
+title: "kube-fluentd-operator Image Tags History"
 type: "article"
-description: "Image Tags and History for the Kube-fluentd-operator Chainguard Image"
+description: "Image Tags and History for the kube-fluentd-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:2530f52ed49c1f6b4ef23e587bfc2b2665f6c982c1e52861d4cc4cfe35aa864a` |
-| `1`      | 19 hours ago | `sha256:2530f52ed49c1f6b4ef23e587bfc2b2665f6c982c1e52861d4cc4cfe35aa864a` |
-| `1.17`   | 19 hours ago | `sha256:2530f52ed49c1f6b4ef23e587bfc2b2665f6c982c1e52861d4cc4cfe35aa864a` |
-| `1.17.5` | 19 hours ago | `sha256:2530f52ed49c1f6b4ef23e587bfc2b2665f6c982c1e52861d4cc4cfe35aa864a` |
-| `1.17.4` | 1 day ago    | `sha256:ebc31da9f1d27410050963e0320e4aa2c04f44b634d0ce49931cc376481047a4` |
+| `latest` | July 11th    | `sha256:2530f52ed49c1f6b4ef23e587bfc2b2665f6c982c1e52861d4cc4cfe35aa864a` |
+| `1`      | July 11th    | `sha256:2530f52ed49c1f6b4ef23e587bfc2b2665f6c982c1e52861d4cc4cfe35aa864a` |
+| `1.17`   | July 11th    | `sha256:2530f52ed49c1f6b4ef23e587bfc2b2665f6c982c1e52861d4cc4cfe35aa864a` |
+| `1.17.5` | July 11th    | `sha256:2530f52ed49c1f6b4ef23e587bfc2b2665f6c982c1e52861d4cc4cfe35aa864a` |
+| `1.17.4` | July 10th    | `sha256:ebc31da9f1d27410050963e0320e4aa2c04f44b634d0ce49931cc376481047a4` |

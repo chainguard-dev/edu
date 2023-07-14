@@ -1,7 +1,7 @@
 ---
-title: "Newrelic-prometheus Image Tags History"
+title: "newrelic-prometheus Image Tags History"
 type: "article"
-description: "Image Tags and History for the Newrelic-prometheus Chainguard Image"
+description: "Image Tags and History for the newrelic-prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,8 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:8e36d212f55c55988c2357118dec4d37a0228f78484b8240b7bcf5a48d59560b` |
-| `2.18`   | 19 hours ago | `sha256:8e36d212f55c55988c2357118dec4d37a0228f78484b8240b7bcf5a48d59560b` |
-| `2`      | 19 hours ago | `sha256:8e36d212f55c55988c2357118dec4d37a0228f78484b8240b7bcf5a48d59560b` |
-| `2.18.4` | 19 hours ago | `sha256:8e36d212f55c55988c2357118dec4d37a0228f78484b8240b7bcf5a48d59560b` |
+| `latest` | July 12th    | `sha256:891b6e7ec5ce8780ca42c7783e49b225779f7e4e677b9f1e79523ca47bcfdea6` |
+| `2.18.5` | July 12th    | `sha256:891b6e7ec5ce8780ca42c7783e49b225779f7e4e677b9f1e79523ca47bcfdea6` |
+| `2`      | July 12th    | `sha256:891b6e7ec5ce8780ca42c7783e49b225779f7e4e677b9f1e79523ca47bcfdea6` |
+| `2.18`   | July 12th    | `sha256:891b6e7ec5ce8780ca42c7783e49b225779f7e4e677b9f1e79523ca47bcfdea6` |
+| `2.18.4` | July 11th    | `sha256:8e36d212f55c55988c2357118dec4d37a0228f78484b8240b7bcf5a48d59560b` |

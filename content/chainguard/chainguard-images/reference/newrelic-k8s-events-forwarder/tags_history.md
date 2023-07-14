@@ -1,7 +1,7 @@
 ---
-title: "Newrelic-k8s-events-forwarder Image Tags History"
+title: "newrelic-k8s-events-forwarder Image Tags History"
 type: "article"
-description: "Image Tags and History for the Newrelic-k8s-events-forwarder Chainguard Image"
+description: "Image Tags and History for the newrelic-k8s-events-forwarder Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:e9ca108a24de6ea083ee15899acfce8ddb8711dafc97e0a48afc9b40ebbe34dc` |
-| `1.43.2`     | 19 hours ago | `sha256:e9ca108a24de6ea083ee15899acfce8ddb8711dafc97e0a48afc9b40ebbe34dc` |
-| `1`          | 19 hours ago | `sha256:e9ca108a24de6ea083ee15899acfce8ddb8711dafc97e0a48afc9b40ebbe34dc` |
-| `1.43`       | 19 hours ago | `sha256:e9ca108a24de6ea083ee15899acfce8ddb8711dafc97e0a48afc9b40ebbe34dc` |
-| `latest-dev` | 14 days ago  | `sha256:0d9e538c2e7a4ad103fa360dac55276cedd6d622786edd512ac25b668aef952a` |
+| `1.43.2`     | July 12th    | `sha256:3ee84e020494b252e9eb13aa00300fba4e024d4ac407c7a69a17935091ba33db` |
+| `latest`     | July 12th    | `sha256:3ee84e020494b252e9eb13aa00300fba4e024d4ac407c7a69a17935091ba33db` |
+| `1.43`       | July 12th    | `sha256:3ee84e020494b252e9eb13aa00300fba4e024d4ac407c7a69a17935091ba33db` |
+| `1`          | July 12th    | `sha256:3ee84e020494b252e9eb13aa00300fba4e024d4ac407c7a69a17935091ba33db` |
+| `latest-dev` | June 27th    | `sha256:0d9e538c2e7a4ad103fa360dac55276cedd6d622786edd512ac25b668aef952a` |

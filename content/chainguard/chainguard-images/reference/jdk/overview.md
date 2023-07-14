@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Jdk"
+title: "Image Overview: jdk"
 type: "article"
-description: "Overview: Jdk Chainguard Image"
+description: "Overview: jdk Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:fbf26e8e6a5f1931d49ed2030b34f8d65e1d694b2482bd1d65b4d4e6d84fc7ec` |
-| `latest-dev` | 20 hours ago | `sha256:f773cebb6efc5208a96a840c9fff8e9a35b1a16483275319bffbfb6b86099ff2` |
+| `latest-dev` | July 12th    | `sha256:d0097bb31bc20c4a35a3a1ea14027f2d9181c44a80c7ba6fc3d10759c1479fe9` |
+| `latest`     | July 11th    | `sha256:fbf26e8e6a5f1931d49ed2030b34f8d65e1d694b2482bd1d65b4d4e6d84fc7ec` |
 
 
 

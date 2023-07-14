@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Memcached-exporter"
+title: "Image Overview: memcached-exporter"
 type: "article"
-description: "Overview: Memcached-exporter Chainguard Image"
+description: "Overview: memcached-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:f98898ca7d897bec5c1feb678ecbaf6346fd18d4c11f5abd678739bdf84c2da5` |
+| `latest` | July 11th    | `sha256:f98898ca7d897bec5c1feb678ecbaf6346fd18d4c11f5abd678739bdf84c2da5` |
 
 
 

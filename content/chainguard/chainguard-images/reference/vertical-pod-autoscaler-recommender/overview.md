@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Vertical-pod-autoscaler-recommender"
+title: "Image Overview: vertical-pod-autoscaler-recommender"
 type: "article"
-description: "Overview: Vertical-pod-autoscaler-recommender Chainguard Image"
+description: "Overview: vertical-pod-autoscaler-recommender Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:a640b02e765212d7a786370c5d6d50a7f65de99d11cf4c10f2da3f3214d3b4bc` |
-| `latest-dev` | 19 hours ago | `sha256:23fe82f544dbfabf2b3bac8dac5dbc87f771b5497a77254e90af98e690dcb9d6` |
+| `latest-dev` | July 12th    | `sha256:049ebda1c1266817d5e71d7ce59aeb3f766fcee9a7ef9354e60411c983e9d99d` |
+| `latest`     | July 11th    | `sha256:a640b02e765212d7a786370c5d6d50a7f65de99d11cf4c10f2da3f3214d3b4bc` |
 
 # vertical-pod-autoscaler-recommender
 

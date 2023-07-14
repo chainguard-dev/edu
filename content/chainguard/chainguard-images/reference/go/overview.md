@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Go"
+title: "Image Overview: go"
 type: "article"
-description: "Overview: Go Chainguard Image"
+description: "Overview: go Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:ae39fcd9fdc9d1a55361a5ef5c9ae9c11a212582731f26646a94c66a77a65d53` |
-| `latest-dev` | 19 hours ago | `sha256:6c32bcf38379fa1a9edd18ccbc26895907e995cbbdd0da2d9c4d59342d8b5180` |
+| `latest`     | July 12th    | `sha256:990bb8eeb6ecb77e7721bc118b2df8b57075f3c954e2e955a26216633df55d5f` |
+| `latest-dev` | July 12th    | `sha256:d0f9b1559660073acb2f474ea92bb8a6bbd9558228c8758edfcbc47be9501552` |
 
 
 

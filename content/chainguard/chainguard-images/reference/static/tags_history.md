@@ -1,7 +1,7 @@
 ---
-title: "Static Image Tags History"
+title: "static Image Tags History"
 type: "article"
-description: "Image Tags and History for the Static Chainguard Image"
+description: "Image Tags and History for the static Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,5 +18,5 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `latest`       | 19 hours ago | `sha256:6b35c7e7084349b3a71e70219f61ea49b22d663b89b0ea07474e5b44cbc70860` |
-| `latest-glibc` | 19 hours ago | `sha256:475c607938a6121d4c361c20aef8d9b082348bb7f5a544b989decfb79b67753e` |
+| `latest`       | July 11th    | `sha256:6b35c7e7084349b3a71e70219f61ea49b22d663b89b0ea07474e5b44cbc70860` |
+| `latest-glibc` | July 11th    | `sha256:475c607938a6121d4c361c20aef8d9b082348bb7f5a544b989decfb79b67753e` |

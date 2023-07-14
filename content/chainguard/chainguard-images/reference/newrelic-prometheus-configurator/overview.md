@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Newrelic-prometheus-configurator"
+title: "Image Overview: newrelic-prometheus-configurator"
 type: "article"
-description: "Overview: Newrelic-prometheus-configurator Chainguard Image"
+description: "Overview: newrelic-prometheus-configurator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:30b5b301cda696c69e23b8341af8ec1bbc2e4c1673db4374a0098e21bfeaa5fc` |
+| `latest` | July 11th    | `sha256:30b5b301cda696c69e23b8341af8ec1bbc2e4c1673db4374a0098e21bfeaa5fc` |
 
 # newrelic-prometheus-configurator
 

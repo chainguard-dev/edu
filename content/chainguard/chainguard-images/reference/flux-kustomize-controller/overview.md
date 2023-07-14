@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Flux-kustomize-controller"
+title: "Image Overview: flux-kustomize-controller"
 type: "article"
-description: "Overview: Flux-kustomize-controller Chainguard Image"
+description: "Overview: flux-kustomize-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:f375faeaa2484e03b643218fa8e2ae4791b191b1315e7d2d2ae16b0933cb6bd2` |
-| `latest-dev` | 20 hours ago | `sha256:45d0930eea62db36b23b0ba3bcf32527e8970d53243457f4bc6ca5880fe6d5d2` |
+| `latest-dev` | July 12th    | `sha256:1161ef3ba12d1cbfce7db009c5ea3144e299a514e6ef085c1e881a3820b8a249` |
+| `latest`     | July 11th    | `sha256:f375faeaa2484e03b643218fa8e2ae4791b191b1315e7d2d2ae16b0933cb6bd2` |
 
 # flux-kustomize-controller
 

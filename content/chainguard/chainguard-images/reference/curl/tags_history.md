@@ -1,7 +1,7 @@
 ---
-title: "Curl Image Tags History"
+title: "curl Image Tags History"
 type: "article"
-description: "Image Tags and History for the Curl Chainguard Image"
+description: "Image Tags and History for the curl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `8.1.2`  | 20 hours ago | `sha256:73992422b3e634c520483bb0aeda22c405d4701ccf5c2294c71d7f67373301cb` |
-| `8`      | 20 hours ago | `sha256:73992422b3e634c520483bb0aeda22c405d4701ccf5c2294c71d7f67373301cb` |
-| `8.1`    | 20 hours ago | `sha256:73992422b3e634c520483bb0aeda22c405d4701ccf5c2294c71d7f67373301cb` |
-| `latest` | 20 hours ago | `sha256:73992422b3e634c520483bb0aeda22c405d4701ccf5c2294c71d7f67373301cb` |
+| `8.1.2`  | July 12th    | `sha256:55bae972389bed67ffa5c2f907ff9c375921344555107667c3703024951a2bff` |
+| `8`      | July 12th    | `sha256:55bae972389bed67ffa5c2f907ff9c375921344555107667c3703024951a2bff` |
+| `8.1`    | July 12th    | `sha256:55bae972389bed67ffa5c2f907ff9c375921344555107667c3703024951a2bff` |
+| `latest` | July 12th    | `sha256:55bae972389bed67ffa5c2f907ff9c375921344555107667c3703024951a2bff` |

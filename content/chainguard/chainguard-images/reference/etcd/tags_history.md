@@ -1,7 +1,7 @@
 ---
-title: "Etcd Image Tags History"
+title: "etcd Image Tags History"
 type: "article"
-description: "Image Tags and History for the Etcd Chainguard Image"
+description: "Image Tags and History for the etcd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `3.5`          | 20 hours ago | `sha256:deec2484b4146951743b5baba7e985da4d2cdc95072d169d15f674175771376c` |
-| `3.5.9`        | 20 hours ago | `sha256:deec2484b4146951743b5baba7e985da4d2cdc95072d169d15f674175771376c` |
-| `3`            | 20 hours ago | `sha256:deec2484b4146951743b5baba7e985da4d2cdc95072d169d15f674175771376c` |
-| `3.5.9-dev`    | 20 hours ago | `sha256:d965b0fd1105986b0f3b871d4d7d994ea3314280678de5bc16ec1dcc32095263` |
-| `latest-dev`   | 20 hours ago | `sha256:d965b0fd1105986b0f3b871d4d7d994ea3314280678de5bc16ec1dcc32095263` |
-| `3.5-dev`      | 20 hours ago | `sha256:d965b0fd1105986b0f3b871d4d7d994ea3314280678de5bc16ec1dcc32095263` |
-| `3.5.9-r1-dev` | 20 hours ago | `sha256:d965b0fd1105986b0f3b871d4d7d994ea3314280678de5bc16ec1dcc32095263` |
-| `latest`       | 20 hours ago | `sha256:deec2484b4146951743b5baba7e985da4d2cdc95072d169d15f674175771376c` |
-| `3-dev`        | 20 hours ago | `sha256:d965b0fd1105986b0f3b871d4d7d994ea3314280678de5bc16ec1dcc32095263` |
+| `3.5.9-r1-dev` | July 12th    | `sha256:68cc765b5948cead61f5e8f9b372f385b715044fb7c79f53c186ecbb40c905a6` |
+| `3.5-dev`      | July 12th    | `sha256:68cc765b5948cead61f5e8f9b372f385b715044fb7c79f53c186ecbb40c905a6` |
+| `latest-dev`   | July 12th    | `sha256:68cc765b5948cead61f5e8f9b372f385b715044fb7c79f53c186ecbb40c905a6` |
+| `3-dev`        | July 12th    | `sha256:68cc765b5948cead61f5e8f9b372f385b715044fb7c79f53c186ecbb40c905a6` |
+| `3.5.9-dev`    | July 12th    | `sha256:68cc765b5948cead61f5e8f9b372f385b715044fb7c79f53c186ecbb40c905a6` |
+| `3.5`          | July 11th    | `sha256:deec2484b4146951743b5baba7e985da4d2cdc95072d169d15f674175771376c` |
+| `3.5.9`        | July 11th    | `sha256:deec2484b4146951743b5baba7e985da4d2cdc95072d169d15f674175771376c` |
+| `3`            | July 11th    | `sha256:deec2484b4146951743b5baba7e985da4d2cdc95072d169d15f674175771376c` |
+| `latest`       | July 11th    | `sha256:deec2484b4146951743b5baba7e985da4d2cdc95072d169d15f674175771376c` |

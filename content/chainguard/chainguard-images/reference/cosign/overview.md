@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Cosign"
+title: "Image Overview: cosign"
 type: "article"
-description: "Overview: Cosign Chainguard Image"
+description: "Overview: cosign Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:5868d288de539fe7f56c58c524a3e00b8dc7bb87784742554f260aadcb35f59e` |
-| `latest`     | 20 hours ago | `sha256:9d1bca8da6817cc7bec19d1b943bf5078cefae2a92029e9779791c0f1baae13e` |
+| `latest-dev` | July 12th    | `sha256:05f2162271304054c907baf3532273e0c418ce2ce8c3806ecdf2a70ce42278fa` |
+| `latest`     | July 11th    | `sha256:9d1bca8da6817cc7bec19d1b943bf5078cefae2a92029e9779791c0f1baae13e` |
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Aws-ebs-csi-driver"
+title: "Image Overview: aws-ebs-csi-driver"
 type: "article"
-description: "Overview: Aws-ebs-csi-driver Chainguard Image"
+description: "Overview: aws-ebs-csi-driver Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:b41596676b5da11209eb34259d4cb0506fe42f5e0e4bcdda3f3e7fdafa47cc8e` |
-| `latest-dev` | 20 hours ago | `sha256:edd103aea368cfebec8c2472cc3af657bcc0829090b00f017b58ba98835c9e2f` |
+| `latest-dev` | July 12th    | `sha256:820cde7b1776990bd718d2a7ea9d62c2ee5972104a2520fba07100dcab67fb93` |
+| `latest`     | July 11th    | `sha256:b41596676b5da11209eb34259d4cb0506fe42f5e0e4bcdda3f3e7fdafa47cc8e` |
 
 
 

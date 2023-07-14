@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Ruby"
+title: "Image Overview: ruby"
 type: "article"
-description: "Overview: Ruby Chainguard Image"
+description: "Overview: ruby Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:e142fd1ccc5a671cb74852e6e91f29ce713647334dd2039f82aca3a4896f409e` |
-| `latest`     | 19 hours ago | `sha256:fd42c25ebcf858481ab8243deb018b01fd192daa9d74c555c5d5f8055bd74e6a` |
+| `latest-dev` | July 12th    | `sha256:0e63cdd889a7d5c1977023e43e6f15b7c3180f7423691da5beb1b4695895a3b3` |
+| `latest`     | July 11th    | `sha256:fd42c25ebcf858481ab8243deb018b01fd192daa9d74c555c5d5f8055bd74e6a` |
 
 
 

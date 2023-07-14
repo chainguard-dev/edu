@@ -1,7 +1,7 @@
 ---
-title: "Redis Image Tags History"
+title: "redis Image Tags History"
 type: "article"
-description: "Image Tags and History for the Redis Chainguard Image"
+description: "Image Tags and History for the redis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `7`      | 19 hours ago | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
-| `latest` | 19 hours ago | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
-| `7.0.12` | 19 hours ago | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
-| `7.0`    | 19 hours ago | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
-| `7.0.11` | 4 days ago   | `sha256:ed2eb05fccd98a05ad481e7a323d2d86b3d20dc068ad1508804553753a3eff26` |
+| `7`      | July 11th    | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
+| `latest` | July 11th    | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
+| `7.0.12` | July 11th    | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
+| `7.0`    | July 11th    | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
+| `7.0.11` | July 8th     | `sha256:ed2eb05fccd98a05ad481e7a323d2d86b3d20dc068ad1508804553753a3eff26` |

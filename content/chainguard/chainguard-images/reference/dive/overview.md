@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Dive"
+title: "Image Overview: dive"
 type: "article"
-description: "Overview: Dive Chainguard Image"
+description: "Overview: dive Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:78206f17fe90ed22a4be8744d64859ebdb3662d966149743fab665594db2eeeb` |
+| `latest` | July 11th    | `sha256:78206f17fe90ed22a4be8744d64859ebdb3662d966149743fab665594db2eeeb` |
 
 
 

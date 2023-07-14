@@ -1,7 +1,7 @@
 ---
-title: "Kyverno-background-controller Image Tags History"
+title: "kyverno-background-controller Image Tags History"
 type: "article"
-description: "Image Tags and History for the Kyverno-background-controller Chainguard Image"
+description: "Image Tags and History for the kyverno-background-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:4c558340544f84f9183ec0a5218de598ca871226f394b75b06e0ad83b40e20b9` |
-| `1`      | 19 hours ago | `sha256:4c558340544f84f9183ec0a5218de598ca871226f394b75b06e0ad83b40e20b9` |
-| `1.10`   | 19 hours ago | `sha256:4c558340544f84f9183ec0a5218de598ca871226f394b75b06e0ad83b40e20b9` |
-| `1.10.1` | 19 hours ago | `sha256:4c558340544f84f9183ec0a5218de598ca871226f394b75b06e0ad83b40e20b9` |
-| `1.10.0` | 14 days ago  | `sha256:5a22271536a0bae2d500bbd3bd2268a9058512d5902d22d9e89f2da8162dff18` |
+| `latest` | July 11th    | `sha256:4c558340544f84f9183ec0a5218de598ca871226f394b75b06e0ad83b40e20b9` |
+| `1`      | July 11th    | `sha256:4c558340544f84f9183ec0a5218de598ca871226f394b75b06e0ad83b40e20b9` |
+| `1.10`   | July 11th    | `sha256:4c558340544f84f9183ec0a5218de598ca871226f394b75b06e0ad83b40e20b9` |
+| `1.10.1` | July 11th    | `sha256:4c558340544f84f9183ec0a5218de598ca871226f394b75b06e0ad83b40e20b9` |
+| `1.10.0` | June 28th    | `sha256:5a22271536a0bae2d500bbd3bd2268a9058512d5902d22d9e89f2da8162dff18` |

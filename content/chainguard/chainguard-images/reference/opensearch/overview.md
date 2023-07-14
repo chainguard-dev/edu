@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Opensearch"
+title: "Image Overview: opensearch"
 type: "article"
-description: "Overview: Opensearch Chainguard Image"
+description: "Overview: opensearch Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:292df82eb44c8116d023cbfa4916b6fce1a823dc1f1b0029d69f3dd6ae8f5407` |
-| `latest`     | 19 hours ago | `sha256:1573f007c077e794f029d4cd848d0a5e47036f77b462b5ec2897c75e460c185d` |
+| `latest-dev` | July 12th    | `sha256:ff146b6a42581ef859e6f3ffab0a0d54d0d0b215557954d648ea0c6c58e987c6` |
+| `latest`     | July 11th    | `sha256:1573f007c077e794f029d4cd848d0a5e47036f77b462b5ec2897c75e460c185d` |
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: "Tigera-operator Image Tags History"
+title: "tigera-operator Image Tags History"
 type: "article"
-description: "Image Tags and History for the Tigera-operator Chainguard Image"
+description: "Image Tags and History for the tigera-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,15 +18,15 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag             | Last Updated | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-| `1.30.4-dev`    | 19 hours ago | `sha256:42dc7be37b42e54b8669391d4e8ebbea29449a2902435fbd226ceec84d84d3b2` |
-| `latest`        | 19 hours ago | `sha256:91320c3646dbc11aa1ff4613513747e8fa01f5e3a8f91919cecffebafac963ef` |
-| `1.30`          | 19 hours ago | `sha256:91320c3646dbc11aa1ff4613513747e8fa01f5e3a8f91919cecffebafac963ef` |
-| `1`             | 19 hours ago | `sha256:91320c3646dbc11aa1ff4613513747e8fa01f5e3a8f91919cecffebafac963ef` |
-| `1.30.4`        | 19 hours ago | `sha256:91320c3646dbc11aa1ff4613513747e8fa01f5e3a8f91919cecffebafac963ef` |
-| `1.30-dev`      | 19 hours ago | `sha256:42dc7be37b42e54b8669391d4e8ebbea29449a2902435fbd226ceec84d84d3b2` |
-| `1-dev`         | 19 hours ago | `sha256:42dc7be37b42e54b8669391d4e8ebbea29449a2902435fbd226ceec84d84d3b2` |
-| `latest-dev`    | 19 hours ago | `sha256:42dc7be37b42e54b8669391d4e8ebbea29449a2902435fbd226ceec84d84d3b2` |
-| `1.30.4-r0-dev` | 19 hours ago | `sha256:42dc7be37b42e54b8669391d4e8ebbea29449a2902435fbd226ceec84d84d3b2` |
-| `1.30.3`        | 27 days ago  | `sha256:3e675a52a956e3ff36ce760d532b6262de8ec0e7765d8bec2115cb4642189299` |
-| `1.30.3-r0-dev` | 27 days ago  | `sha256:9880f948ab89eff52bdb1751919fca2526f96f482037c4f7ad22434efaf5d17a` |
-| `1.30.3-dev`    | 27 days ago  | `sha256:9880f948ab89eff52bdb1751919fca2526f96f482037c4f7ad22434efaf5d17a` |
+| `1.30.4-r0-dev` | July 12th    | `sha256:8e4fb0d4a256fbc2083f88746482f11239bae9519fb48569af22f578b4263d5a` |
+| `1-dev`         | July 12th    | `sha256:8e4fb0d4a256fbc2083f88746482f11239bae9519fb48569af22f578b4263d5a` |
+| `1.30.4-dev`    | July 12th    | `sha256:8e4fb0d4a256fbc2083f88746482f11239bae9519fb48569af22f578b4263d5a` |
+| `1.30-dev`      | July 12th    | `sha256:8e4fb0d4a256fbc2083f88746482f11239bae9519fb48569af22f578b4263d5a` |
+| `latest-dev`    | July 12th    | `sha256:8e4fb0d4a256fbc2083f88746482f11239bae9519fb48569af22f578b4263d5a` |
+| `latest`        | July 11th    | `sha256:91320c3646dbc11aa1ff4613513747e8fa01f5e3a8f91919cecffebafac963ef` |
+| `1.30`          | July 11th    | `sha256:91320c3646dbc11aa1ff4613513747e8fa01f5e3a8f91919cecffebafac963ef` |
+| `1`             | July 11th    | `sha256:91320c3646dbc11aa1ff4613513747e8fa01f5e3a8f91919cecffebafac963ef` |
+| `1.30.4`        | July 11th    | `sha256:91320c3646dbc11aa1ff4613513747e8fa01f5e3a8f91919cecffebafac963ef` |
+| `1.30.3`        | June 15th    | `sha256:3e675a52a956e3ff36ce760d532b6262de8ec0e7765d8bec2115cb4642189299` |
+| `1.30.3-r0-dev` | June 15th    | `sha256:9880f948ab89eff52bdb1751919fca2526f96f482037c4f7ad22434efaf5d17a` |
+| `1.30.3-dev`    | June 15th    | `sha256:9880f948ab89eff52bdb1751919fca2526f96f482037c4f7ad22434efaf5d17a` |

@@ -1,7 +1,7 @@
 ---
-title: "Minio-client Image Tags History"
+title: "minio-client Image Tags History"
 type: "article"
-description: "Image Tags and History for the Minio-client Chainguard Image"
+description: "Image Tags and History for the minio-client Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `0`          | 19 hours ago | `sha256:cca0811c4d4a3f6a5af397821b0428a778b3d27c7404e3e0cdb9504ef1e61520` |
-| `0-dev`      | 19 hours ago | `sha256:34333eb7a69799688dc9baf9c424cf7c0019e2aaae2ef2550ccd6714b1f5979d` |
-| `latest`     | 19 hours ago | `sha256:cca0811c4d4a3f6a5af397821b0428a778b3d27c7404e3e0cdb9504ef1e61520` |
-| `latest-dev` | 19 hours ago | `sha256:34333eb7a69799688dc9baf9c424cf7c0019e2aaae2ef2550ccd6714b1f5979d` |
+| `latest-dev` | July 12th    | `sha256:c7d6791ae967f3ef4e29fa351f98e1bc0b6ddaff6ef2c89b5451b5e3aebccd79` |
+| `0-dev`      | July 12th    | `sha256:c7d6791ae967f3ef4e29fa351f98e1bc0b6ddaff6ef2c89b5451b5e3aebccd79` |
+| `0`          | July 11th    | `sha256:cca0811c4d4a3f6a5af397821b0428a778b3d27c7404e3e0cdb9504ef1e61520` |
+| `latest`     | July 11th    | `sha256:cca0811c4d4a3f6a5af397821b0428a778b3d27c7404e3e0cdb9504ef1e61520` |

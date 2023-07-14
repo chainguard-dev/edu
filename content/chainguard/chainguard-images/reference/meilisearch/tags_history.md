@@ -1,7 +1,7 @@
 ---
-title: "Meilisearch Image Tags History"
+title: "meilisearch Image Tags History"
 type: "article"
-description: "Image Tags and History for the Meilisearch Chainguard Image"
+description: "Image Tags and History for the meilisearch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:67f73ae0d02ed29304db9ff735971369fb4c1dc27c055fe21b50eb7dc5a3bc5b` |
-| `1`      | 19 hours ago | `sha256:67f73ae0d02ed29304db9ff735971369fb4c1dc27c055fe21b50eb7dc5a3bc5b` |
-| `1.2`    | 19 hours ago | `sha256:67f73ae0d02ed29304db9ff735971369fb4c1dc27c055fe21b50eb7dc5a3bc5b` |
-| `1.2.0`  | 19 hours ago | `sha256:67f73ae0d02ed29304db9ff735971369fb4c1dc27c055fe21b50eb7dc5a3bc5b` |
+| `latest` | July 11th    | `sha256:67f73ae0d02ed29304db9ff735971369fb4c1dc27c055fe21b50eb7dc5a3bc5b` |
+| `1`      | July 11th    | `sha256:67f73ae0d02ed29304db9ff735971369fb4c1dc27c055fe21b50eb7dc5a3bc5b` |
+| `1.2`    | July 11th    | `sha256:67f73ae0d02ed29304db9ff735971369fb4c1dc27c055fe21b50eb7dc5a3bc5b` |
+| `1.2.0`  | July 11th    | `sha256:67f73ae0d02ed29304db9ff735971369fb4c1dc27c055fe21b50eb7dc5a3bc5b` |

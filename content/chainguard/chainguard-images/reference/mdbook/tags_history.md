@@ -1,7 +1,7 @@
 ---
-title: "Mdbook Image Tags History"
+title: "mdbook Image Tags History"
 type: "article"
-description: "Image Tags and History for the Mdbook Chainguard Image"
+description: "Image Tags and History for the mdbook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `0.4`    | 19 hours ago | `sha256:91bffe9e1ffe5f8a762013c73ea8390f87e0d8b6eff53ee66b855c4118b93df3` |
-| `0`      | 19 hours ago | `sha256:91bffe9e1ffe5f8a762013c73ea8390f87e0d8b6eff53ee66b855c4118b93df3` |
-| `latest` | 19 hours ago | `sha256:91bffe9e1ffe5f8a762013c73ea8390f87e0d8b6eff53ee66b855c4118b93df3` |
-| `0.4.31` | 19 hours ago | `sha256:91bffe9e1ffe5f8a762013c73ea8390f87e0d8b6eff53ee66b855c4118b93df3` |
-| `0.4.30` | 16 days ago  | `sha256:a634e056063a8a423313578dc7cd36c3f57f7bbe5666a0c52bd208781e305038` |
+| `0.4`    | July 11th    | `sha256:91bffe9e1ffe5f8a762013c73ea8390f87e0d8b6eff53ee66b855c4118b93df3` |
+| `0`      | July 11th    | `sha256:91bffe9e1ffe5f8a762013c73ea8390f87e0d8b6eff53ee66b855c4118b93df3` |
+| `latest` | July 11th    | `sha256:91bffe9e1ffe5f8a762013c73ea8390f87e0d8b6eff53ee66b855c4118b93df3` |
+| `0.4.31` | July 11th    | `sha256:91bffe9e1ffe5f8a762013c73ea8390f87e0d8b6eff53ee66b855c4118b93df3` |
+| `0.4.30` | June 26th    | `sha256:a634e056063a8a423313578dc7cd36c3f57f7bbe5666a0c52bd208781e305038` |

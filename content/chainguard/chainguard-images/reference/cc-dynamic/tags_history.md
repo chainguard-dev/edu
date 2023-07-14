@@ -1,7 +1,7 @@
 ---
-title: "Cc-dynamic Image Tags History"
+title: "cc-dynamic Image Tags History"
 type: "article"
-description: "Image Tags and History for the Cc-dynamic Chainguard Image"
+description: "Image Tags and History for the cc-dynamic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag             | Last Updated | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev`    | 20 hours ago | `sha256:e0aad14b57e7ba41e51eccfe93d6bac3c928a34cb2d8e056a69869e074f83f01` |
-| `13.1.0-r1-dev` | 20 hours ago | `sha256:e0aad14b57e7ba41e51eccfe93d6bac3c928a34cb2d8e056a69869e074f83f01` |
-| `13.1-dev`      | 20 hours ago | `sha256:e0aad14b57e7ba41e51eccfe93d6bac3c928a34cb2d8e056a69869e074f83f01` |
-| `13-dev`        | 20 hours ago | `sha256:e0aad14b57e7ba41e51eccfe93d6bac3c928a34cb2d8e056a69869e074f83f01` |
-| `13.1`          | 20 hours ago | `sha256:fdb7305a66e1c254bfc248d5e4a65b254dc7c5dcc1e6cdb97b391efb3bfcc1b1` |
-| `latest`        | 20 hours ago | `sha256:fdb7305a66e1c254bfc248d5e4a65b254dc7c5dcc1e6cdb97b391efb3bfcc1b1` |
-| `13.1.0`        | 20 hours ago | `sha256:fdb7305a66e1c254bfc248d5e4a65b254dc7c5dcc1e6cdb97b391efb3bfcc1b1` |
-| `13.1.0-dev`    | 20 hours ago | `sha256:e0aad14b57e7ba41e51eccfe93d6bac3c928a34cb2d8e056a69869e074f83f01` |
-| `13`            | 20 hours ago | `sha256:fdb7305a66e1c254bfc248d5e4a65b254dc7c5dcc1e6cdb97b391efb3bfcc1b1` |
+| `13.1.0-r1-dev` | July 12th    | `sha256:28f2b05efbacc28363b8deab4ff1d1498f2ae34d1d41e2a139a548ef0b96cd37` |
+| `latest-dev`    | July 12th    | `sha256:28f2b05efbacc28363b8deab4ff1d1498f2ae34d1d41e2a139a548ef0b96cd37` |
+| `13.1-dev`      | July 12th    | `sha256:28f2b05efbacc28363b8deab4ff1d1498f2ae34d1d41e2a139a548ef0b96cd37` |
+| `13.1.0-dev`    | July 12th    | `sha256:28f2b05efbacc28363b8deab4ff1d1498f2ae34d1d41e2a139a548ef0b96cd37` |
+| `13-dev`        | July 12th    | `sha256:28f2b05efbacc28363b8deab4ff1d1498f2ae34d1d41e2a139a548ef0b96cd37` |
+| `13.1`          | July 11th    | `sha256:fdb7305a66e1c254bfc248d5e4a65b254dc7c5dcc1e6cdb97b391efb3bfcc1b1` |
+| `latest`        | July 11th    | `sha256:fdb7305a66e1c254bfc248d5e4a65b254dc7c5dcc1e6cdb97b391efb3bfcc1b1` |
+| `13.1.0`        | July 11th    | `sha256:fdb7305a66e1c254bfc248d5e4a65b254dc7c5dcc1e6cdb97b391efb3bfcc1b1` |
+| `13`            | July 11th    | `sha256:fdb7305a66e1c254bfc248d5e4a65b254dc7c5dcc1e6cdb97b391efb3bfcc1b1` |

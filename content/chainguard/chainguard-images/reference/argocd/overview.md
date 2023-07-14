@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Argocd"
+title: "Image Overview: argocd"
 type: "article"
-description: "Overview: Argocd Chainguard Image"
+description: "Overview: argocd Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:bbe08f765d479d0876c0963b9893e74b88a400d1d6e8a0f8d421709835e0bd7f` |
-| `latest-dev` | 19 hours ago | `sha256:727b3f4aceae4fdcbd8fb8c9665714f5f65459342b8ad8ab6e73189bc33a1a9a` |
+| `latest-dev` | July 12th    | `sha256:9af4af9df80ac1978c16f8f4192788fde92b3328a24fddea2ca016e08b130a9d` |
+| `latest`     | July 12th    | `sha256:20fb09a96739c1e56f499b51b926f96b1b620536120416c2adbce2f8ad7467c3` |
 
 
 

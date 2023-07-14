@@ -1,7 +1,7 @@
 ---
-title: "Bash Image Tags History"
+title: "bash Image Tags History"
 type: "article"
-description: "Image Tags and History for the Bash Chainguard Image"
+description: "Image Tags and History for the bash Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `5.2`    | 20 hours ago | `sha256:2b9f61e3549b0f3494e24a236cf216d24c79cbefc11fc8fc0df7de6599718b32` |
-| `latest` | 20 hours ago | `sha256:2b9f61e3549b0f3494e24a236cf216d24c79cbefc11fc8fc0df7de6599718b32` |
-| `5`      | 20 hours ago | `sha256:2b9f61e3549b0f3494e24a236cf216d24c79cbefc11fc8fc0df7de6599718b32` |
-| `5.2.15` | 20 hours ago | `sha256:2b9f61e3549b0f3494e24a236cf216d24c79cbefc11fc8fc0df7de6599718b32` |
+| `latest` | July 12th    | `sha256:c30b4a01941d9eb72834a5cc75465ba1dc824599f19e1e60156c8efdca0a6835` |
+| `5`      | July 12th    | `sha256:c30b4a01941d9eb72834a5cc75465ba1dc824599f19e1e60156c8efdca0a6835` |
+| `5.2`    | July 12th    | `sha256:c30b4a01941d9eb72834a5cc75465ba1dc824599f19e1e60156c8efdca0a6835` |
+| `5.2.15` | July 12th    | `sha256:c30b4a01941d9eb72834a5cc75465ba1dc824599f19e1e60156c8efdca0a6835` |

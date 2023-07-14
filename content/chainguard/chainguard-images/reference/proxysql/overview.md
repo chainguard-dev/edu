@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Proxysql"
+title: "Image Overview: proxysql"
 type: "article"
-description: "Overview: Proxysql Chainguard Image"
+description: "Overview: proxysql Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:79751a1152739bc05f9dfdc09e76c6f4b619ca1990c05ebdfebd4f45da9d64ac` |
-| `latest-dev` | 19 hours ago | `sha256:a95311cf6d2f8d472b0a8b161c2711848223cd901e2686d9cd652aeea5498f16` |
+| `latest-dev` | July 12th    | `sha256:6ebf222a633fbd055758be45e5391a204e0dcd4f777e3dab757236fabedb8565` |
+| `latest`     | July 11th    | `sha256:79751a1152739bc05f9dfdc09e76c6f4b619ca1990c05ebdfebd4f45da9d64ac` |
 
 
 

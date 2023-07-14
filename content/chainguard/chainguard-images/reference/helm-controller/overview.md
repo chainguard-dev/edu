@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Helm-controller"
+title: "Image Overview: helm-controller"
 type: "article"
-description: "Overview: Helm-controller Chainguard Image"
+description: "Overview: helm-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 16 days ago  | `sha256:2bcae87c7247fdde8d06ed743541b9af9b46048d1b77538ca01ab9e1e9021573` |
-| `latest-dev` | 16 days ago  | `sha256:4e09101e09ea6ba55fa5da6b5d30a691bea243d6c7db7f5cec2ba54e2d960bd6` |
+| `latest`     | June 26th    | `sha256:2bcae87c7247fdde8d06ed743541b9af9b46048d1b77538ca01ab9e1e9021573` |
+| `latest-dev` | June 26th    | `sha256:4e09101e09ea6ba55fa5da6b5d30a691bea243d6c7db7f5cec2ba54e2d960bd6` |
 
 # helm-controller
 

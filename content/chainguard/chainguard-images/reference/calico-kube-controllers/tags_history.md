@@ -1,7 +1,7 @@
 ---
-title: "Calico-kube-controllers Image Tags History"
+title: "calico-kube-controllers Image Tags History"
 type: "article"
-description: "Image Tags and History for the Calico-kube-controllers Chainguard Image"
+description: "Image Tags and History for the calico-kube-controllers Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `3.26`   | 20 hours ago | `sha256:17b0ce976ddf167dd2150bfd97ed1c57f89301b95beb43e87f282d01bbe32d13` |
-| `3.26.1` | 20 hours ago | `sha256:17b0ce976ddf167dd2150bfd97ed1c57f89301b95beb43e87f282d01bbe32d13` |
-| `3`      | 20 hours ago | `sha256:17b0ce976ddf167dd2150bfd97ed1c57f89301b95beb43e87f282d01bbe32d13` |
-| `latest` | 20 hours ago | `sha256:17b0ce976ddf167dd2150bfd97ed1c57f89301b95beb43e87f282d01bbe32d13` |
+| `3.26`   | July 11th    | `sha256:17b0ce976ddf167dd2150bfd97ed1c57f89301b95beb43e87f282d01bbe32d13` |
+| `3.26.1` | July 11th    | `sha256:17b0ce976ddf167dd2150bfd97ed1c57f89301b95beb43e87f282d01bbe32d13` |
+| `3`      | July 11th    | `sha256:17b0ce976ddf167dd2150bfd97ed1c57f89301b95beb43e87f282d01bbe32d13` |
+| `latest` | July 11th    | `sha256:17b0ce976ddf167dd2150bfd97ed1c57f89301b95beb43e87f282d01bbe32d13` |

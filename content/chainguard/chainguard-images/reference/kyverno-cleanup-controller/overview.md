@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kyverno-cleanup-controller"
+title: "Image Overview: kyverno-cleanup-controller"
 type: "article"
-description: "Overview: Kyverno-cleanup-controller Chainguard Image"
+description: "Overview: kyverno-cleanup-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:b3fc8344d0b55359a4e1254f5a910136b990bfcd0cdcfe3a4a748aa710acc23d` |
+| `latest` | July 11th    | `sha256:b3fc8344d0b55359a4e1254f5a910136b990bfcd0cdcfe3a4a748aa710acc23d` |
 
 # kyverno-cleanup-controller
 

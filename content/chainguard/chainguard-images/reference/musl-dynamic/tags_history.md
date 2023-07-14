@@ -1,7 +1,7 @@
 ---
-title: "Musl-dynamic Image Tags History"
+title: "musl-dynamic Image Tags History"
 type: "article"
-description: "Image Tags and History for the Musl-dynamic Chainguard Image"
+description: "Image Tags and History for the musl-dynamic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false

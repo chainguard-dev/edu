@@ -1,7 +1,7 @@
 ---
-title: "Secrets-store-csi-driver-provider-gcp Image Tags History"
+title: "secrets-store-csi-driver-provider-gcp Image Tags History"
 type: "article"
-description: "Image Tags and History for the Secrets-store-csi-driver-provider-gcp Chainguard Image"
+description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `1.2.0-r4-dev` | 19 hours ago | `sha256:bc08dc708bc1260e977c054917a5edde7b206eebc2cf07b043d31a29a3646761` |
-| `1.2`          | 19 hours ago | `sha256:7778750d5a8091b82420241a9b9821e800ab2391a4d982b6301b3652cf72cb0c` |
-| `latest`       | 19 hours ago | `sha256:7778750d5a8091b82420241a9b9821e800ab2391a4d982b6301b3652cf72cb0c` |
-| `latest-dev`   | 19 hours ago | `sha256:bc08dc708bc1260e977c054917a5edde7b206eebc2cf07b043d31a29a3646761` |
-| `1-dev`        | 19 hours ago | `sha256:bc08dc708bc1260e977c054917a5edde7b206eebc2cf07b043d31a29a3646761` |
-| `1.2.0`        | 19 hours ago | `sha256:7778750d5a8091b82420241a9b9821e800ab2391a4d982b6301b3652cf72cb0c` |
-| `1.2-dev`      | 19 hours ago | `sha256:bc08dc708bc1260e977c054917a5edde7b206eebc2cf07b043d31a29a3646761` |
-| `1`            | 19 hours ago | `sha256:7778750d5a8091b82420241a9b9821e800ab2391a4d982b6301b3652cf72cb0c` |
-| `1.2.0-dev`    | 19 hours ago | `sha256:bc08dc708bc1260e977c054917a5edde7b206eebc2cf07b043d31a29a3646761` |
+| `1.2.0-dev`    | July 12th    | `sha256:965caffcda10f6994b63dfcab797150512b1f7f4f17e8f4bbd6adbc17da695b2` |
+| `latest-dev`   | July 12th    | `sha256:965caffcda10f6994b63dfcab797150512b1f7f4f17e8f4bbd6adbc17da695b2` |
+| `1.2.0-r4-dev` | July 12th    | `sha256:965caffcda10f6994b63dfcab797150512b1f7f4f17e8f4bbd6adbc17da695b2` |
+| `1.2-dev`      | July 12th    | `sha256:965caffcda10f6994b63dfcab797150512b1f7f4f17e8f4bbd6adbc17da695b2` |
+| `1-dev`        | July 12th    | `sha256:965caffcda10f6994b63dfcab797150512b1f7f4f17e8f4bbd6adbc17da695b2` |
+| `1.2`          | July 11th    | `sha256:7778750d5a8091b82420241a9b9821e800ab2391a4d982b6301b3652cf72cb0c` |
+| `latest`       | July 11th    | `sha256:7778750d5a8091b82420241a9b9821e800ab2391a4d982b6301b3652cf72cb0c` |
+| `1.2.0`        | July 11th    | `sha256:7778750d5a8091b82420241a9b9821e800ab2391a4d982b6301b3652cf72cb0c` |
+| `1`            | July 11th    | `sha256:7778750d5a8091b82420241a9b9821e800ab2391a4d982b6301b3652cf72cb0c` |

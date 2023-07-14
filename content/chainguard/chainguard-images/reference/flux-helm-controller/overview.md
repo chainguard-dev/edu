@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Flux-helm-controller"
+title: "Image Overview: flux-helm-controller"
 type: "article"
-description: "Overview: Flux-helm-controller Chainguard Image"
+description: "Overview: flux-helm-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:43568562ffb7d7e3127f6113ca6369dfe3a44c6f5f9042a4d2343cbac6389c1a` |
-| `latest-dev` | 20 hours ago | `sha256:344015a050fc10634460440cf9776d3f578f99119f15bdad624ec5054e9de10f` |
+| `latest-dev` | July 12th    | `sha256:6535b94e31d28716706989d011f30423d9efc0a92a8d2c80877077e366f246d6` |
+| `latest`     | July 11th    | `sha256:43568562ffb7d7e3127f6113ca6369dfe3a44c6f5f9042a4d2343cbac6389c1a` |
 
 # flux-helm-controller
 

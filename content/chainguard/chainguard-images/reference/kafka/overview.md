@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kafka"
+title: "Image Overview: kafka"
 type: "article"
-description: "Overview: Kafka Chainguard Image"
+description: "Overview: kafka Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:8c0d24035afc196eb33ed994a2445e5e63327a337280201bf88e6de769ce58da` |
-| `latest-dev` | 19 hours ago | `sha256:cca343f3e2ada7337efddd028fbe7f3b751393914dbf747984127fbd865f817e` |
+| `latest-dev` | July 12th    | `sha256:139c12287ffed8af3849036f5140eca68c69d75b3b6bc1d4aafac66dfd7e2c03` |
+| `latest`     | July 11th    | `sha256:8c0d24035afc196eb33ed994a2445e5e63327a337280201bf88e6de769ce58da` |
 
 
 

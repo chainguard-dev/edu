@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: K3s"
+title: "Image Overview: k3s"
 type: "article"
-description: "Overview: K3s Chainguard Image"
+description: "Overview: k3s Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 20 hours ago | `sha256:f101973228825c392610387e7b2a7224c8563a8b2bd1151fd13120583ffbf59a` |
-| `latest`     | 7 days ago   | `sha256:ab900ffe02fc1263b671c801b3cfc6070db76eaf5a57ee0d31e186d821d49c44` |
+| `latest-dev` | July 12th    | `sha256:c13241d84917f710dcf22d0ce753fa8ea6990b93c641121ef053d04b13d6c44f` |
+| `latest`     | July 5th     | `sha256:ab900ffe02fc1263b671c801b3cfc6070db76eaf5a57ee0d31e186d821d49c44` |
 
 
 

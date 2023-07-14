@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Cluster-autoscaler"
+title: "Image Overview: cluster-autoscaler"
 type: "article"
-description: "Overview: Cluster-autoscaler Chainguard Image"
+description: "Overview: cluster-autoscaler Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:03b9c0794865fec49035a955f73be35d2fd42db09f6a8e5714899ae59c81c027` |
-| `latest-dev` | 20 hours ago | `sha256:d1a4d9e7df85d5147cfae8518400a854133c7d72626d485e777d44eae51f9384` |
+| `latest-dev` | July 12th    | `sha256:f026c5a7acf24e2e76f4b89619441485b07301940036197a819a5be19b3f611b` |
+| `latest`     | July 11th    | `sha256:03b9c0794865fec49035a955f73be35d2fd42db09f6a8e5714899ae59c81c027` |
 
 
 

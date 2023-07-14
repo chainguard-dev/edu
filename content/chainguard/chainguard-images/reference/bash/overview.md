@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Bash"
+title: "Image Overview: bash"
 type: "article"
-description: "Overview: Bash Chainguard Image"
+description: "Overview: bash Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:2b9f61e3549b0f3494e24a236cf216d24c79cbefc11fc8fc0df7de6599718b32` |
+| `latest` | July 12th    | `sha256:c30b4a01941d9eb72834a5cc75465ba1dc824599f19e1e60156c8efdca0a6835` |
 
 
 

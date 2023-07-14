@@ -1,7 +1,7 @@
 ---
-title: "Google-cloud-sdk Image Tags History"
+title: "google-cloud-sdk Image Tags History"
 type: "article"
-description: "Image Tags and History for the Google-cloud-sdk Chainguard Image"
+description: "Image Tags and History for the google-cloud-sdk Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag       | Last Updated | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-| `427.0`   | 20 hours ago | `sha256:1b8ec2d8beba1787883d3c806e210d64e79bcc07d00e8fdd0732c4bab1f8d430` |
-| `427.0.0` | 20 hours ago | `sha256:1b8ec2d8beba1787883d3c806e210d64e79bcc07d00e8fdd0732c4bab1f8d430` |
-| `427`     | 20 hours ago | `sha256:1b8ec2d8beba1787883d3c806e210d64e79bcc07d00e8fdd0732c4bab1f8d430` |
-| `latest`  | 20 hours ago | `sha256:1b8ec2d8beba1787883d3c806e210d64e79bcc07d00e8fdd0732c4bab1f8d430` |
+| `427.0`   | July 11th    | `sha256:1b8ec2d8beba1787883d3c806e210d64e79bcc07d00e8fdd0732c4bab1f8d430` |
+| `427.0.0` | July 11th    | `sha256:1b8ec2d8beba1787883d3c806e210d64e79bcc07d00e8fdd0732c4bab1f8d430` |
+| `427`     | July 11th    | `sha256:1b8ec2d8beba1787883d3c806e210d64e79bcc07d00e8fdd0732c4bab1f8d430` |
+| `latest`  | July 11th    | `sha256:1b8ec2d8beba1787883d3c806e210d64e79bcc07d00e8fdd0732c4bab1f8d430` |

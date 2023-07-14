@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Graalvm-native"
+title: "Image Overview: graalvm-native"
 type: "article"
-description: "Overview: Graalvm-native Chainguard Image"
+description: "Overview: graalvm-native Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:0aaafddbd641bf1d5dda69f7a2af1d412ff6c54e4f8e3ad8af43a3b885f360cf` |
+| `latest` | July 11th    | `sha256:0aaafddbd641bf1d5dda69f7a2af1d412ff6c54e4f8e3ad8af43a3b885f360cf` |
 
 
 

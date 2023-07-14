@@ -1,7 +1,7 @@
 ---
-title: "Spire-oidc-discovery-provider Image Tags History"
+title: "spire-oidc-discovery-provider Image Tags History"
 type: "article"
-description: "Image Tags and History for the Spire-oidc-discovery-provider Chainguard Image"
+description: "Image Tags and History for the spire-oidc-discovery-provider Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag            | Last Updated | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-| `1.7`          | 19 hours ago | `sha256:7067f7cfcecb71553d20f7d40f767d1c869e859d48eb135c3c62333a8c87c2bb` |
-| `1-dev`        | 19 hours ago | `sha256:a300c4bab408cbc03e9389fde0d959356af0fda846c122bf3994e7e435f78550` |
-| `1`            | 19 hours ago | `sha256:7067f7cfcecb71553d20f7d40f767d1c869e859d48eb135c3c62333a8c87c2bb` |
-| `1.7.0-r0-dev` | 19 hours ago | `sha256:a300c4bab408cbc03e9389fde0d959356af0fda846c122bf3994e7e435f78550` |
-| `latest`       | 19 hours ago | `sha256:7067f7cfcecb71553d20f7d40f767d1c869e859d48eb135c3c62333a8c87c2bb` |
-| `1.7.0-dev`    | 19 hours ago | `sha256:a300c4bab408cbc03e9389fde0d959356af0fda846c122bf3994e7e435f78550` |
-| `latest-dev`   | 19 hours ago | `sha256:a300c4bab408cbc03e9389fde0d959356af0fda846c122bf3994e7e435f78550` |
-| `1.7.0`        | 19 hours ago | `sha256:7067f7cfcecb71553d20f7d40f767d1c869e859d48eb135c3c62333a8c87c2bb` |
-| `1.7-dev`      | 19 hours ago | `sha256:a300c4bab408cbc03e9389fde0d959356af0fda846c122bf3994e7e435f78550` |
+| `1-dev`        | July 12th    | `sha256:60df1b28406a711327f281e54673a5a4c19b8cb583b7462fb9a0e3cc705f1307` |
+| `1.7-dev`      | July 12th    | `sha256:60df1b28406a711327f281e54673a5a4c19b8cb583b7462fb9a0e3cc705f1307` |
+| `1.7.0-r0-dev` | July 12th    | `sha256:60df1b28406a711327f281e54673a5a4c19b8cb583b7462fb9a0e3cc705f1307` |
+| `1.7.0-dev`    | July 12th    | `sha256:60df1b28406a711327f281e54673a5a4c19b8cb583b7462fb9a0e3cc705f1307` |
+| `latest-dev`   | July 12th    | `sha256:60df1b28406a711327f281e54673a5a4c19b8cb583b7462fb9a0e3cc705f1307` |
+| `1.7`          | July 11th    | `sha256:7067f7cfcecb71553d20f7d40f767d1c869e859d48eb135c3c62333a8c87c2bb` |
+| `1`            | July 11th    | `sha256:7067f7cfcecb71553d20f7d40f767d1c869e859d48eb135c3c62333a8c87c2bb` |
+| `latest`       | July 11th    | `sha256:7067f7cfcecb71553d20f7d40f767d1c869e859d48eb135c3c62333a8c87c2bb` |
+| `1.7.0`        | July 11th    | `sha256:7067f7cfcecb71553d20f7d40f767d1c869e859d48eb135c3c62333a8c87c2bb` |

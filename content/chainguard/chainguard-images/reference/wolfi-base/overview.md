@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Wolfi-base"
+title: "Image Overview: wolfi-base"
 type: "article"
-description: "Overview: Wolfi-base Chainguard Image"
+description: "Overview: wolfi-base Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:6e4294d9ce52d4c29edc7dcdb53ba8ae0fd5803f0634d699af1a14bf72cb9dd3` |
+| `latest` | July 11th    | `sha256:6e4294d9ce52d4c29edc7dcdb53ba8ae0fd5803f0634d699af1a14bf72cb9dd3` |
 
 
 

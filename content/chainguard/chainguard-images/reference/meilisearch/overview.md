@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Meilisearch"
+title: "Image Overview: meilisearch"
 type: "article"
-description: "Overview: Meilisearch Chainguard Image"
+description: "Overview: meilisearch Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:67f73ae0d02ed29304db9ff735971369fb4c1dc27c055fe21b50eb7dc5a3bc5b` |
+| `latest` | July 11th    | `sha256:67f73ae0d02ed29304db9ff735971369fb4c1dc27c055fe21b50eb7dc5a3bc5b` |
 
 
 

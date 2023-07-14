@@ -1,7 +1,7 @@
 ---
-title: "Dex Image Tags History"
+title: "dex Image Tags History"
 type: "article"
-description: "Image Tags and History for the Dex Chainguard Image"
+description: "Image Tags and History for the dex Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,17 +18,17 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag             | Last Updated | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-| `2.37.0-r0-dev` | 20 hours ago | `sha256:38b8298db31a11d326a79f89be3d0485fb0728e9f27fab53a57958da9c1a07e6` |
-| `2.37.0-dev`    | 20 hours ago | `sha256:38b8298db31a11d326a79f89be3d0485fb0728e9f27fab53a57958da9c1a07e6` |
-| `2.37-dev`      | 20 hours ago | `sha256:38b8298db31a11d326a79f89be3d0485fb0728e9f27fab53a57958da9c1a07e6` |
-| `latest-dev`    | 20 hours ago | `sha256:38b8298db31a11d326a79f89be3d0485fb0728e9f27fab53a57958da9c1a07e6` |
-| `2.37`          | 20 hours ago | `sha256:16459e545d53502a719a92bc4479bc24d87aa58e4e0403946733682ac5c43b95` |
-| `2.37.0`        | 20 hours ago | `sha256:16459e545d53502a719a92bc4479bc24d87aa58e4e0403946733682ac5c43b95` |
-| `2`             | 20 hours ago | `sha256:16459e545d53502a719a92bc4479bc24d87aa58e4e0403946733682ac5c43b95` |
-| `2-dev`         | 20 hours ago | `sha256:38b8298db31a11d326a79f89be3d0485fb0728e9f27fab53a57958da9c1a07e6` |
-| `latest`        | 20 hours ago | `sha256:16459e545d53502a719a92bc4479bc24d87aa58e4e0403946733682ac5c43b95` |
-| `2.36.0`        | 14 days ago  | `sha256:54d9e45d239daa4a2455bb08ed3212b061163b8ad90e1b93d8226efb0c67de7c` |
-| `2.36.0-r4-dev` | 14 days ago  | `sha256:17dc0fbbf99dd00377b000ae2e3ee5202ac19b72e13f17a3b8c6136ea7d3f502` |
-| `2.36-dev`      | 14 days ago  | `sha256:17dc0fbbf99dd00377b000ae2e3ee5202ac19b72e13f17a3b8c6136ea7d3f502` |
-| `2.36`          | 14 days ago  | `sha256:54d9e45d239daa4a2455bb08ed3212b061163b8ad90e1b93d8226efb0c67de7c` |
-| `2.36.0-dev`    | 14 days ago  | `sha256:17dc0fbbf99dd00377b000ae2e3ee5202ac19b72e13f17a3b8c6136ea7d3f502` |
+| `latest-dev`    | July 12th    | `sha256:8745d367c643f1b8504477b5fb985a27ded58b898c57eefe88d6692c248a19a0` |
+| `2.37.0-dev`    | July 12th    | `sha256:8745d367c643f1b8504477b5fb985a27ded58b898c57eefe88d6692c248a19a0` |
+| `2.37-dev`      | July 12th    | `sha256:8745d367c643f1b8504477b5fb985a27ded58b898c57eefe88d6692c248a19a0` |
+| `2-dev`         | July 12th    | `sha256:8745d367c643f1b8504477b5fb985a27ded58b898c57eefe88d6692c248a19a0` |
+| `2.37.0-r0-dev` | July 12th    | `sha256:8745d367c643f1b8504477b5fb985a27ded58b898c57eefe88d6692c248a19a0` |
+| `2.37`          | July 11th    | `sha256:16459e545d53502a719a92bc4479bc24d87aa58e4e0403946733682ac5c43b95` |
+| `2.37.0`        | July 11th    | `sha256:16459e545d53502a719a92bc4479bc24d87aa58e4e0403946733682ac5c43b95` |
+| `2`             | July 11th    | `sha256:16459e545d53502a719a92bc4479bc24d87aa58e4e0403946733682ac5c43b95` |
+| `latest`        | July 11th    | `sha256:16459e545d53502a719a92bc4479bc24d87aa58e4e0403946733682ac5c43b95` |
+| `2.36.0`        | June 27th    | `sha256:54d9e45d239daa4a2455bb08ed3212b061163b8ad90e1b93d8226efb0c67de7c` |
+| `2.36.0-r4-dev` | June 27th    | `sha256:17dc0fbbf99dd00377b000ae2e3ee5202ac19b72e13f17a3b8c6136ea7d3f502` |
+| `2.36-dev`      | June 27th    | `sha256:17dc0fbbf99dd00377b000ae2e3ee5202ac19b72e13f17a3b8c6136ea7d3f502` |
+| `2.36`          | June 27th    | `sha256:54d9e45d239daa4a2455bb08ed3212b061163b8ad90e1b93d8226efb0c67de7c` |
+| `2.36.0-dev`    | June 27th    | `sha256:17dc0fbbf99dd00377b000ae2e3ee5202ac19b72e13f17a3b8c6136ea7d3f502` |

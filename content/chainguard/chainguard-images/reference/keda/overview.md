@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Keda"
+title: "Image Overview: keda"
 type: "article"
-description: "Overview: Keda Chainguard Image"
+description: "Overview: keda Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 19 hours ago | `sha256:a0eaab85e5590fe74cb0c4348a18a7e5814f89b31919eaad3495ae29b937c99d` |
-| `latest-dev` | 19 hours ago | `sha256:2fd09e303b63978094ab53f613dbf99e5e6b70a087162768f4da5922157a8ceb` |
+| `latest-dev` | July 12th    | `sha256:284428488dccd5480c1972afefc3caaa3c32fa2b7997b9195e5b10e6d2ea71d3` |
+| `latest`     | July 11th    | `sha256:a0eaab85e5590fe74cb0c4348a18a7e5814f89b31919eaad3495ae29b937c99d` |
 
 
 

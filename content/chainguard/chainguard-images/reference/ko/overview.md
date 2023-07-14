@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Ko"
+title: "Image Overview: ko"
 type: "article"
-description: "Overview: Ko Chainguard Image"
+description: "Overview: ko Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 19 hours ago | `sha256:318f42050b625276fa5b7e84d60a3f303060b63c2b72c6939eb12fde38d3a6ff` |
+| `latest` | July 12th    | `sha256:7c942105013446ec3f0dd4d039dcb437be9bc9a448e51401a46311f6189747fd` |
 
 
 

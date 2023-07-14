@@ -1,7 +1,7 @@
 ---
-title: "Envoy-ratelimit Image Tags History"
+title: "envoy-ratelimit Image Tags History"
 type: "article"
-description: "Image Tags and History for the Envoy-ratelimit Chainguard Image"
+description: "Image Tags and History for the envoy-ratelimit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,9 +18,9 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `0-dev`      | 20 hours ago | `sha256:3302a8c224bf5e1a89e04ca7b5e4051cced83e4018d3047c205e6312c7baadd9` |
-| `0`          | 20 hours ago | `sha256:2007c187eff4fa07b9114b586a5e6606d9ec919f30835dbbd5e4c4d73f79775b` |
-| `latest`     | 20 hours ago | `sha256:2007c187eff4fa07b9114b586a5e6606d9ec919f30835dbbd5e4c4d73f79775b` |
-| `latest-dev` | 20 hours ago | `sha256:3302a8c224bf5e1a89e04ca7b5e4051cced83e4018d3047c205e6312c7baadd9` |
-| `0.0`        | 4 days ago   | `sha256:0123b33523b214f44a37ed6696b6a1b1f52b76af865cd9b719cc844aca1c090f` |
-| `0.0-dev`    | 4 days ago   | `sha256:c9075817f35f42d6b12949874bf667b0fda51a94ee619782f5e9755fd6f36707` |
+| `0-dev`      | July 12th    | `sha256:eaf5e63e8d64dd5d2d342fc00b182c101bf88aa5b93f3f36d1cb3779ccc5fd95` |
+| `latest-dev` | July 12th    | `sha256:eaf5e63e8d64dd5d2d342fc00b182c101bf88aa5b93f3f36d1cb3779ccc5fd95` |
+| `0`          | July 11th    | `sha256:2007c187eff4fa07b9114b586a5e6606d9ec919f30835dbbd5e4c4d73f79775b` |
+| `latest`     | July 11th    | `sha256:2007c187eff4fa07b9114b586a5e6606d9ec919f30835dbbd5e4c4d73f79775b` |
+| `0.0`        | July 8th     | `sha256:0123b33523b214f44a37ed6696b6a1b1f52b76af865cd9b719cc844aca1c090f` |
+| `0.0-dev`    | July 8th     | `sha256:c9075817f35f42d6b12949874bf667b0fda51a94ee619782f5e9755fd6f36707` |

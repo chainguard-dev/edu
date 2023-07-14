@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Busybox"
+title: "Image Overview: busybox"
 type: "article"
-description: "Overview: Busybox Chainguard Image"
+description: "Overview: busybox Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:02d2e330ffe224bb29e674ab4ad2b4c6ffe6c319c710bc8e114939114e9c7ed8` |
+| `latest` | July 11th    | `sha256:02d2e330ffe224bb29e674ab4ad2b4c6ffe6c319c710bc8e114939114e9c7ed8` |
 
 
 

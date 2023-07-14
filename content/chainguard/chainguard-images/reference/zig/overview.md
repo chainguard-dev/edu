@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Zig"
+title: "Image Overview: zig"
 type: "article"
-description: "Overview: Zig Chainguard Image"
+description: "Overview: zig Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 15 hours ago | `sha256:b4a84cbc30fd742d6b2793c6f54cb1b97f79f53ad946d4da200a8fc22f81e9d9` |
-| `latest`     | 15 hours ago | `sha256:d503ec0d806c2fe0caed49d8f86dcaf291297d7ab8dad087f2f4386ac7a24ffc` |
+| `latest-dev` | July 12th    | `sha256:b1946542e0dfb7b59cd8da95e6684690fbc8691f117ef9256d5ab5c2adcb1cd9` |
+| `latest`     | July 12th    | `sha256:d503ec0d806c2fe0caed49d8f86dcaf291297d7ab8dad087f2f4386ac7a24ffc` |
 
 
 

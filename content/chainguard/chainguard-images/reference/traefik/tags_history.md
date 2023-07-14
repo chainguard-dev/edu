@@ -1,7 +1,7 @@
 ---
-title: "Traefik Image Tags History"
+title: "traefik Image Tags History"
 type: "article"
-description: "Image Tags and History for the Traefik Chainguard Image"
+description: "Image Tags and History for the traefik Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `2`      | 19 hours ago | `sha256:1b665bfa9fbf087a0d8626b98b08ac53d7506f5e86bcbaad14e1c26fe53c428f` |
-| `2.10.1` | 19 hours ago | `sha256:1b665bfa9fbf087a0d8626b98b08ac53d7506f5e86bcbaad14e1c26fe53c428f` |
-| `2.10`   | 19 hours ago | `sha256:1b665bfa9fbf087a0d8626b98b08ac53d7506f5e86bcbaad14e1c26fe53c428f` |
-| `latest` | 19 hours ago | `sha256:1b665bfa9fbf087a0d8626b98b08ac53d7506f5e86bcbaad14e1c26fe53c428f` |
+| `2`      | July 11th    | `sha256:1b665bfa9fbf087a0d8626b98b08ac53d7506f5e86bcbaad14e1c26fe53c428f` |
+| `2.10.1` | July 11th    | `sha256:1b665bfa9fbf087a0d8626b98b08ac53d7506f5e86bcbaad14e1c26fe53c428f` |
+| `2.10`   | July 11th    | `sha256:1b665bfa9fbf087a0d8626b98b08ac53d7506f5e86bcbaad14e1c26fe53c428f` |
+| `latest` | July 11th    | `sha256:1b665bfa9fbf087a0d8626b98b08ac53d7506f5e86bcbaad14e1c26fe53c428f` |

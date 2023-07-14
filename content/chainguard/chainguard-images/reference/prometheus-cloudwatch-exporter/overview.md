@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Prometheus-cloudwatch-exporter"
+title: "Image Overview: prometheus-cloudwatch-exporter"
 type: "article"
-description: "Overview: Prometheus-cloudwatch-exporter Chainguard Image"
+description: "Overview: prometheus-cloudwatch-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 15 hours ago | `sha256:e26519be15965111200054f5576f83be059a058c5fa5026afff90350201bea0b` |
-| `latest`     | 15 hours ago | `sha256:486bdf1d8f8ce366f0e3d763b2af2428094091b13c208dc5b04f3ee6fcfa4109` |
+| `latest-dev` | July 12th    | `sha256:1f2db581e3219e9a552c8c0b8cb64661894abcb1f92a57e009b2f6b95c2d5ac5` |
+| `latest`     | July 12th    | `sha256:486bdf1d8f8ce366f0e3d763b2af2428094091b13c208dc5b04f3ee6fcfa4109` |
 
 # prometheus-cloudwatch-exporter
 

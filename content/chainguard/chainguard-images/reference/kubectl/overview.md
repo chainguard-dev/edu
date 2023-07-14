@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Kubectl"
+title: "Image Overview: kubectl"
 type: "article"
-description: "Overview: Kubectl Chainguard Image"
+description: "Overview: kubectl Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 20 hours ago | `sha256:45494b5d6dea22cb4a9170596305145cf73f75a37211de5212d5777befb4221e` |
-| `latest-dev` | 20 hours ago | `sha256:766d8b8837b828ec6380d65c43c64dd56c972e2124f6586100cd182a381b32cb` |
+| `latest-dev` | July 12th    | `sha256:98eb7f94eeb0168fe322dd624418d717715c06fbaae7a090b8e63674052f96fe` |
+| `latest`     | July 11th    | `sha256:45494b5d6dea22cb4a9170596305145cf73f75a37211de5212d5777befb4221e` |
 
 
 

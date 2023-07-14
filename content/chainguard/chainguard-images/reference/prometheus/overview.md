@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Prometheus"
+title: "Image Overview: prometheus"
 type: "article"
-description: "Overview: Prometheus Chainguard Image"
+description: "Overview: prometheus Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 15 hours ago | `sha256:d1578906cb67c92f8e9c3155f2168c78d200fc036e38349e31b79a0787310abe` |
-| `latest-dev` | 15 hours ago | `sha256:4a35b7b14888d18eaeaaf5aee45055e1244e1fbc55d4adf31c5f4654eec4b80d` |
+| `latest-dev` | July 12th    | `sha256:65b98211ff6407102b1c5a848a72a3aa531664603126355676ab77a043885ff9` |
+| `latest`     | July 12th    | `sha256:d1578906cb67c92f8e9c3155f2168c78d200fc036e38349e31b79a0787310abe` |
 
 
 

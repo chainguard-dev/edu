@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Curl"
+title: "Image Overview: curl"
 type: "article"
-description: "Overview: Curl Chainguard Image"
+description: "Overview: curl Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,7 +18,7 @@ toc: true
 
 | Tag      | Last Updated | Digest                                                                    |
 |----------|--------------|---------------------------------------------------------------------------|
-| `latest` | 20 hours ago | `sha256:73992422b3e634c520483bb0aeda22c405d4701ccf5c2294c71d7f67373301cb` |
+| `latest` | July 12th    | `sha256:55bae972389bed67ffa5c2f907ff9c375921344555107667c3703024951a2bff` |
 
 
 

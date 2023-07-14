@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Zot"
+title: "Image Overview: zot"
 type: "article"
-description: "Overview: Zot Chainguard Image"
+description: "Overview: zot Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | 19 hours ago | `sha256:06adb5d97cf3b1e21cd80c7acadf41906a86ee5cfcf4648d7902062bf2a320c2` |
-| `latest`     | 19 hours ago | `sha256:c425631169cbffcf7c6b8af7d5a9a19313136d9ba939f07d57f8139e6b1c8838` |
+| `latest-dev` | July 12th    | `sha256:5fd4c51d6e017fa0e4a627bd44f363b42093e75c4754bce4b294ba4a29df3723` |
+| `latest`     | July 11th    | `sha256:c425631169cbffcf7c6b8af7d5a9a19313136d9ba939f07d57f8139e6b1c8838` |
 
 
 

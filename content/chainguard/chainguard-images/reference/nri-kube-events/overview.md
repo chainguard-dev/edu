@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: Nri-kube-events"
+title: "Image Overview: nri-kube-events"
 type: "article"
-description: "Overview: Nri-kube-events Chainguard Image"
+description: "Overview: nri-kube-events Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -18,8 +18,8 @@ toc: true
 
 | Tag          | Last Updated | Digest                                                                    |
 |--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | 18 days ago  | `sha256:846a033b176d26f724c5a7bd16b7456f20c657c3a07e88a37bb7e54417b4ee1a` |
-| `latest-dev` | 18 days ago  | `sha256:575f5b219dbbd4cd06a9aec67d167dc6dd70d87a22eff0a9d919e6f1c9c02803` |
+| `latest`     | June 24th    | `sha256:846a033b176d26f724c5a7bd16b7456f20c657c3a07e88a37bb7e54417b4ee1a` |
+| `latest-dev` | June 24th    | `sha256:575f5b219dbbd4cd06a9aec67d167dc6dd70d87a22eff0a9d919e6f1c9c02803` |
 
 # nri-kube-events
 

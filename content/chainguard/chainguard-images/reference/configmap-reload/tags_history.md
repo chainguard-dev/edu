@@ -1,7 +1,7 @@
 ---
-title: "Configmap-reload Image Tags History"
+title: "configmap-reload Image Tags History"
 type: "article"
-description: "Image Tags and History for the Configmap-reload Chainguard Image"
+description: "Image Tags and History for the configmap-reload Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,12 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 | Tag             | Last Updated | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-| `0-dev`         | 20 hours ago | `sha256:f1cbccfdf58f54b1724dceb377d30af82f7bce4369ee4e5015f1555f1dae24f6` |
-| `0.11.1-r0-dev` | 20 hours ago | `sha256:f1cbccfdf58f54b1724dceb377d30af82f7bce4369ee4e5015f1555f1dae24f6` |
-| `latest-dev`    | 20 hours ago | `sha256:f1cbccfdf58f54b1724dceb377d30af82f7bce4369ee4e5015f1555f1dae24f6` |
-| `latest`        | 20 hours ago | `sha256:0b15bd64ae9f1ddc21cf9afc518f4f90548caf8a440e7d5280c78f65a4e88e51` |
-| `0.11-dev`      | 20 hours ago | `sha256:f1cbccfdf58f54b1724dceb377d30af82f7bce4369ee4e5015f1555f1dae24f6` |
-| `0`             | 20 hours ago | `sha256:0b15bd64ae9f1ddc21cf9afc518f4f90548caf8a440e7d5280c78f65a4e88e51` |
-| `0.11.1`        | 20 hours ago | `sha256:0b15bd64ae9f1ddc21cf9afc518f4f90548caf8a440e7d5280c78f65a4e88e51` |
-| `0.11.1-dev`    | 20 hours ago | `sha256:f1cbccfdf58f54b1724dceb377d30af82f7bce4369ee4e5015f1555f1dae24f6` |
-| `0.11`          | 20 hours ago | `sha256:0b15bd64ae9f1ddc21cf9afc518f4f90548caf8a440e7d5280c78f65a4e88e51` |
+| `0.11.1-dev`    | July 12th    | `sha256:2fc6b940a03559565286ade827e757a512a8a20b8aa97c71982dde50ddc38249` |
+| `0.11.1-r0-dev` | July 12th    | `sha256:2fc6b940a03559565286ade827e757a512a8a20b8aa97c71982dde50ddc38249` |
+| `0-dev`         | July 12th    | `sha256:2fc6b940a03559565286ade827e757a512a8a20b8aa97c71982dde50ddc38249` |
+| `latest-dev`    | July 12th    | `sha256:2fc6b940a03559565286ade827e757a512a8a20b8aa97c71982dde50ddc38249` |
+| `0.11-dev`      | July 12th    | `sha256:2fc6b940a03559565286ade827e757a512a8a20b8aa97c71982dde50ddc38249` |
+| `latest`        | July 11th    | `sha256:0b15bd64ae9f1ddc21cf9afc518f4f90548caf8a440e7d5280c78f65a4e88e51` |
+| `0`             | July 11th    | `sha256:0b15bd64ae9f1ddc21cf9afc518f4f90548caf8a440e7d5280c78f65a4e88e51` |
+| `0.11.1`        | July 11th    | `sha256:0b15bd64ae9f1ddc21cf9afc518f4f90548caf8a440e7d5280c78f65a4e88e51` |
+| `0.11`          | July 11th    | `sha256:0b15bd64ae9f1ddc21cf9afc518f4f90548caf8a440e7d5280c78f65a4e88e51` |
