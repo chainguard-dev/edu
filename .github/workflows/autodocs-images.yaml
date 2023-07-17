@@ -105,6 +105,7 @@ jobs:
           command: notify pullrequest
         env:
           YAMLDOCS_TEMPLATES: "${{ github.workspace }}/edu/autodocs/templates"
+          YAMLDOCS_CACHE: "${{ github.workspace }}"
           AUTODOCS_SLACK_PRIMARY: ${{ secrets.AUTODOCS_SLACK_PRIMARY }}
           AUTODOCS_SLACK_SECONDARY: ${{ secrets.AUTODOCS_SLACK_SECONDARY }}
           AUTODOCS_SLACK_GENERAL: ${{ secrets.AUTODOCS_SLACK_GENERAL }}
