@@ -21,7 +21,7 @@ toc: true
 
 One of the first steps to improving your software supply chain security is to establish a process for creating quality *Software Bills of Materials* (SBOMs). An [SBOM](/open-source/sbom/) is a formal record that contains the details and supply chain relationships (such as dependencies) of the components used in building software.
 
-[Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/)  — a part of the Sigstore project — supports software artifact signing, verification, and storage in an [OCI (Open Container Initiative)](/open-source/oci/) registry. The `cosign` command line tool offers two subcommands that you can use to associate an SBOM with a container image and then upload them to a registry: `cosign attach` and `cosign attest`.
+[Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/) — a part of the Sigstore project — supports software artifact signing, verification, and storage in an [OCI (Open Container Initiative)](/open-source/oci/) registry. The `cosign` command line tool offers two subcommands that you can use to associate an SBOM with a container image and then upload them to a registry: `cosign attach` and `cosign attest`.
 
 However, these commands don't work the same way. This guide outlines the differences between these two subcommands and provides guidance for when you might want to use one over the other.
 
@@ -57,6 +57,8 @@ cosign attach sbom --sbom image.sbom $IMAGE
 This will upload the SBOM to the registry as an OCI artifact with a `.sbom` extension.
 
 Be aware that there is also the `cosign sign` command. After running `cosign attach` to attach an SBOM and upload it to a registry, you can then run `cosign sign` to sign the SBOM, and upload the signature to the registry as a separate OCI artifact, this time with the `.sig` extension.
+
+If you'd like to learn more about working with SBOMs and Cosign, we encourage you to checkout our tutorial on [How to Sign an SBOM with Cosign](/open-source/sigstore/cosign/how-to-sign-an-sbom-with-cosign/).
 
 
 ## A note on generating SBOMs
