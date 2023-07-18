@@ -16,9 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kyvernopre](https://github.com/chainguard-images/images/tree/main/images/kyvernopre)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:10b5d04195d4cc641164337e740c35c6bd1a41d4a48b8881baf2b90e96b361a2` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 14th    | `sha256:9779d56d2ab49faf12d416f054357b40a91dc4fa8455f6310a135bc7e34bba97` |
+|           | June 28th    | `sha256:1890a93052701b99b23cf4f015ab028f42b8d5ab280649fa116e125623913780` |
 
 # kyvernopre
 

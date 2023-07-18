@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/metacontroller](https://github.com/chainguard-images/images/tree/main/images/metacontroller)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:fa50eea8925beb2c2d09513498098bbc25760b2ca8116754bda74242d9d5ca5a` |
-| `latest`     | July 11th    | `sha256:6c31166d0efe91874fb04ab7b3dbaeea484a86c5c85ac01de1ded8f0d8cecfb6` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:eda8c12a029de85282c848647134ea088f700cb92f4231d8c7e8b4b0f3bf1978` |
+|  `latest`     | July 11th    | `sha256:6c31166d0efe91874fb04ab7b3dbaeea484a86c5c85ac01de1ded8f0d8cecfb6` |
 
 
 
@@ -47,3 +47,4 @@ $ helm install my-metacontroller-helm oci://ghcr.io/metacontroller/metacontrolle
 ```
 
 See the [configuration](https://metacontroller.github.io/metacontroller/guide/helm-install.html#configuration) docs for more examples.
+

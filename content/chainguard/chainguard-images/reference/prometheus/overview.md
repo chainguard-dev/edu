@@ -16,10 +16,13 @@ toc: true
 
 [cgr.dev/chainguard/prometheus](https://github.com/chainguard-images/images/tree/main/images/prometheus)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:65b98211ff6407102b1c5a848a72a3aa531664603126355676ab77a043885ff9` |
-| `latest`     | July 12th    | `sha256:d1578906cb67c92f8e9c3155f2168c78d200fc036e38349e31b79a0787310abe` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:ac0f44d271ffaa3319786fcb53f399f74bf16185d39d97da3e0e14155af9123a` |
+|  `latest`     | July 14th    | `sha256:90e0afaa953e38881cc1866983676fbaee008a1b5bd5751f7f40c01a7137cd47` |
+|               | July 12th    | `sha256:65b98211ff6407102b1c5a848a72a3aa531664603126355676ab77a043885ff9` |
+|               | June 29th    | `sha256:ee932ec3c082d2ea76f21bac17715fdf796b2237c2178270b707e73bf80d9213` |
+|               | June 26th    | `sha256:adddd9a6f0b881aa9dec783c7dcfabff0958079b9cb5862da2e97bd2dea28f93` |
 
 
 
@@ -68,3 +71,4 @@ ts=2022-12-27T02:32:45.188Z caller=main.go:1234 level=info msg="Completed loadin
 ts=2022-12-27T02:32:45.188Z caller=main.go:978 level=info msg="Server is ready to receive web requests."
 ts=2022-12-27T02:32:45.188Z caller=manager.go:953 level=info component="rule manager" msg="Starting rule manager..."
 ```
+

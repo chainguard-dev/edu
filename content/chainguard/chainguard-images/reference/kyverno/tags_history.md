@@ -16,10 +16,9 @@ toc: true
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:96e61ccc4bd0743062eda1b77d94e6153b54777e54ed92c0d4aae2a2e2c1b63f` |
-| `1.10`   | July 11th    | `sha256:96e61ccc4bd0743062eda1b77d94e6153b54777e54ed92c0d4aae2a2e2c1b63f` |
-| `1.10.1` | July 11th    | `sha256:96e61ccc4bd0743062eda1b77d94e6153b54777e54ed92c0d4aae2a2e2c1b63f` |
-| `1`      | July 11th    | `sha256:96e61ccc4bd0743062eda1b77d94e6153b54777e54ed92c0d4aae2a2e2c1b63f` |
-| `1.10.0` | June 28th    | `sha256:9d6292af02d9f98ccf69c24330c8b34ddba2452bb3ddb4e44d4ef26c5a918b3a` |
+Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
+
+| Tag (s)                       | Last Changed | Digest                                                                    |
+|-------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `1.10` `1` `1.10.1` | July 14th    | `sha256:5fdc6ebe42c843d20bad00459c55be311373a6d8ac2b0918843d3c007223a4af` |
+|  `1.10.0`                     | June 28th    | `sha256:9d6292af02d9f98ccf69c24330c8b34ddba2452bb3ddb4e44d4ef26c5a918b3a` |

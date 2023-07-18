@@ -16,10 +16,12 @@ toc: true
 
 [cgr.dev/chainguard/jre](https://github.com/chainguard-images/images/tree/main/images/jre)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:60d5511a1e74b47b0bf5c343f7d0c5232125283031a06b5c3eb1c31940e8bd72` |
-| `latest`     | July 11th    | `sha256:80920112fe2a9b9d35cabbf3e986fdb92057c3bf7f1ac67a24bbec7a35449d22` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|               | July 18th    | `sha256:2da8be60fb120e47f70bf6ea278797d2c08fbd1c5c0cc1f91d6575ba5d3fa463` |
+|  `latest-dev` | July 18th    | `sha256:9c68725c883cd9053d125c62dcc35a92e1ea7d2e1d7ad50cadcd40799953b221` |
+|               | July 11th    | `sha256:74c49f868e8eee7f958a8283a2d0ae0326f73c2bb73608d0b8f87a479775ab24` |
+|  `latest`     | July 11th    | `sha256:80920112fe2a9b9d35cabbf3e986fdb92057c3bf7f1ac67a24bbec7a35449d22` |
 
 
 
@@ -78,3 +80,4 @@ Run the image
 ```sh
 docker run my-simple-java-app
 ```
+

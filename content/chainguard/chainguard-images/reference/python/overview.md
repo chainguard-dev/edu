@@ -16,10 +16,12 @@ toc: true
 
 [cgr.dev/chainguard/python](https://github.com/chainguard-images/images/tree/main/images/python)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:225f68a9eec3e29ce356a8e3699ab6eb75972082047115a75769d3ed2e78b17b` |
-| `latest`     | July 11th    | `sha256:ba8dff86ed0c5f579972f14f0c41be6121c6b6cc77668161a7d8f3de9158d063` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | July 18th    | `sha256:bbaba40f4dfff902af5ec49793a8d42478cae07ad9fcd6eace93a55c348a2aa6` |
+|               | July 18th    | `sha256:f11fd6c4bab683d539ffbd520b652dc141ff49d7ddd0e20bc3c4f7add26c5e29` |
+|  `latest-dev` | July 18th    | `sha256:2039e5c2b13b9ebb6b6ddba3bddcb60796ef83c2400a7442447fc65eec6f6e48` |
+|               | July 18th    | `sha256:b080c0199c144b5463149103ab6aedc0d0ac9f2c15b04adf26b319b142d594af` |
 
 
 
@@ -63,3 +65,4 @@ COPY main.py .
 
 ENTRYPOINT [ "python", "/app/main.py" ]
 ```
+

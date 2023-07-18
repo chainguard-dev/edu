@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/thanos](https://github.com/chainguard-images/images/tree/main/images/thanos)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:822b53adcefef972ceb72ca519d978dd7653621d21f5182752fbba205a0449f5` |
-| `latest`     | July 11th    | `sha256:300f8224005a36f7caef35fa9465e2137557525b7c116fc769202bddb5a8fdb8` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:52c88e94bf7e4d87c2c3603c0669ca314e64c9f70d0f1a522dece838344c5f79` |
+|  `latest`     | July 11th    | `sha256:300f8224005a36f7caef35fa9465e2137557525b7c116fc769202bddb5a8fdb8` |
 
 
 
@@ -76,3 +76,4 @@ Commands:
     Query node exposing PromQL enabled Query API with data retrieved from
     multiple store nodes.
 ```
+

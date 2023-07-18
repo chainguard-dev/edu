@@ -16,9 +16,8 @@ toc: true
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `2.1`    | July 12th    | `sha256:bf14a353c69abff23541be67fdac9feadfbcbdbf2028e3d5e019e23b66fbacb0` |
-| `2`      | July 12th    | `sha256:bf14a353c69abff23541be67fdac9feadfbcbdbf2028e3d5e019e23b66fbacb0` |
-| `2.1.2`  | July 12th    | `sha256:bf14a353c69abff23541be67fdac9feadfbcbdbf2028e3d5e019e23b66fbacb0` |
-| `latest` | July 12th    | `sha256:bf14a353c69abff23541be67fdac9feadfbcbdbf2028e3d5e019e23b66fbacb0` |
+Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
+
+| Tag (s)                     | Last Changed | Digest                                                                    |
+|-----------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.1.2` `2` `latest` `2.1` | July 18th    | `sha256:d35f8ea93ccac18d4e1dbcf4272890b9167af2be4dc7ae40f0024e6d6b1b345f` |

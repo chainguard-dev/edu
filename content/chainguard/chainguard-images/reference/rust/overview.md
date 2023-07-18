@@ -16,10 +16,12 @@ toc: true
 
 [cgr.dev/chainguard/rust](https://github.com/chainguard-images/images/tree/main/images/rust)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | July 12th    | `sha256:a9847d3ae567cd2c0fddfa38f50e661e5c3a757a268a665b9826ac47a99944a1` |
-| `latest-dev` | July 12th    | `sha256:846592b5f0de6ed5ed76c785222308774007664a69e01c4318611ce19acd88e5` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:aa7d297c76d0cffe9ac657543eb77e7a6be2b63f30e1d16ab63a13d3ab2aef93` |
+|  `latest`     | July 18th    | `sha256:6a50d7da2f41fe81299d80bc7fed58bee44df3fe82743f7f19ee9b24b0b4d858` |
+|               | July 12th    | `sha256:a9847d3ae567cd2c0fddfa38f50e661e5c3a757a268a665b9826ac47a99944a1` |
+|               | July 12th    | `sha256:846592b5f0de6ed5ed76c785222308774007664a69e01c4318611ce19acd88e5` |
 
 
 
@@ -119,3 +121,4 @@ dlorenc@DANIELs-MacBook-Air rust-web-app % docker run foo /usr/local/bin/shop
 ```
 
 If you're interested in enterprise support, SLAs, and access to older tags, [get in touch](https://www.chainguard.dev/chainguard-images).
+

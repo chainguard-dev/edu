@@ -16,9 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/melange](https://github.com/chainguard-images/images/tree/main/images/melange)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:679d32a45c3586c2319f0d43b6681970653cf3e810efa25f800f607d7780f4b6` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:a56e4b1e7d2843b3d9ca7209067548372755acef08a4163306de69fc4fac86e1` |
+|           | June 26th    | `sha256:72a48e37cd6bfab90c0ec2527ab04939ea09ed18b6371211a8d04d3c354b2fa2` |
 
 
 
@@ -57,3 +58,4 @@ docker run --privileged -v "$PWD":/work -it --entrypoint /bin/sh cgr.dev/chaingu
 Note that melange uses bubblewrap internally, which requires various Linux capabilities, hence the
 use of `--privileged`. Because of this requirement, we recommend this image is used only for local
 development and testing.
+

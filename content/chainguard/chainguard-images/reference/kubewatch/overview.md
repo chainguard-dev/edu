@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/kubewatch](https://github.com/chainguard-images/images/tree/main/images/kubewatch)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:af21197bb2330379c51ae8105a4c0452174581f31bbd0e86be84cc89dbfd0562` |
-| `latest`     | July 11th    | `sha256:a05833ceac9e0084d2c9dac403ef349c4092ec5643a60a8e482e573724b8769a` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:372271cea1e3768566fffe4ebb028d806b8582af9fafe749f6e30279a64711df` |
+|  `latest`     | July 14th    | `sha256:255cc18d95a82134053abbfd4f80853358e1f2757506f45df4caeaa34705c5fb` |
+|               | July 12th    | `sha256:af21197bb2330379c51ae8105a4c0452174581f31bbd0e86be84cc89dbfd0562` |
 
 
 
@@ -46,3 +47,4 @@ $ helm install kubewatch robusta/kubewatch \
     --set image.tag=latest
     <other configuration parameters here>
 ```
+

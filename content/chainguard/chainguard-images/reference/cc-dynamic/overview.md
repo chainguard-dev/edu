@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/cc-dynamic](https://github.com/chainguard-images/images/tree/main/images/cc-dynamic)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:28f2b05efbacc28363b8deab4ff1d1498f2ae34d1d41e2a139a548ef0b96cd37` |
-| `latest`     | July 11th    | `sha256:fdb7305a66e1c254bfc248d5e4a65b254dc7c5dcc1e6cdb97b391efb3bfcc1b1` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:3c492c45d77a1db642b1d6af1cc46add23c37f915c8635e1d42f03cce85158f2` |
+|  `latest`     | July 11th    | `sha256:fdb7305a66e1c254bfc248d5e4a65b254dc7c5dcc1e6cdb97b391efb3bfcc1b1` |
 
 
 
@@ -39,3 +39,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/cc-dynamic:latest
 ```
+

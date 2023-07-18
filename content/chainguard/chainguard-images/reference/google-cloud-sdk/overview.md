@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/google-cloud-sdk](https://github.com/chainguard-images/images/tree/main/images/google-cloud-sdk)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:1b8ec2d8beba1787883d3c806e210d64e79bcc07d00e8fdd0732c4bab1f8d430` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:38d4ce4a5f732a55c27d7eafdbed7888637647a384ce7a00b578e14d169cf0c3` |
 
 
 
@@ -134,3 +134,4 @@ add-iam-policy-binding     Add a binding to a BigQuery resource's policy in IAM.
                            --role='roles/bigquery.dataViewer' \
                            --project_id=proj -t ds.table1
 ```
+

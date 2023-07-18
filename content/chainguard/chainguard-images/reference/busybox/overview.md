@@ -16,9 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/busybox](https://github.com/chainguard-images/images/tree/main/images/busybox)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:02d2e330ffe224bb29e674ab4ad2b4c6ffe6c319c710bc8e114939114e9c7ed8` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 16th    | `sha256:73cb23f57cf51e4b6beec65233cd0445aebc0e47f1cee8bd9c77f5cb93eb5d10` |
+|           | July 11th    | `sha256:e70341724b6297218188c79ccb2e69a39ac61775fa943a500d02c2e9c867566b` |
 
 
 
@@ -64,3 +65,4 @@ You can get a running shell on the image like this:
 ```shell
 docker run -it cgr.dev/chainguard/busybox:latest sh
 ```
+

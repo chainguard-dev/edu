@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/secrets-store-csi-driver-provider-gcp](https://github.com/chainguard-images/images/tree/main/images/secrets-store-csi-driver-provider-gcp)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:965caffcda10f6994b63dfcab797150512b1f7f4f17e8f4bbd6adbc17da695b2` |
-| `latest`     | July 11th    | `sha256:7778750d5a8091b82420241a9b9821e800ab2391a4d982b6301b3652cf72cb0c` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:48e1257b5aaaaa4b00d7973850427a3542ee4db74102aa3d3b6fda1d17935004` |
+|  `latest`     | July 14th    | `sha256:d77a1f80f91a2e4d199e1c612a65c6f49f1c01d1c6e0099c5055d0efe72494f0` |
+|               | July 12th    | `sha256:965caffcda10f6994b63dfcab797150512b1f7f4f17e8f4bbd6adbc17da695b2` |
 
 
 
@@ -40,3 +41,4 @@ The Chainguard Secrets Store CSI Driver GCP Plugin image contains the `secrets-s
 ```shell
 $ docker run cgr.dev/chainguard/secrets-store-csi-driver-provider-gcp
 ```
+

@@ -16,10 +16,14 @@ toc: true
 
 [cgr.dev/chainguard/dotnet-sdk](https://github.com/chainguard-images/images/tree/main/images/dotnet-sdk)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:d5fcbb29ca525bd1158d1779c82ac4e5cc7bb3fe4ee5ea79af2b23600aba75a2` |
-| `latest`     | July 12th    | `sha256:6ae24e33ffe12289654fbad12d681636c970171d317654af266ed0636105b5b9` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | July 18th    | `sha256:5e63a0ecfc087de045ccd6d89945488ebc5f78f71f757290ea7493a61c0a4ec5` |
+|  `latest-dev` | July 18th    | `sha256:bce83af5ff8539adb092a9bdcfc85f308c1aebb03a1fea50223d79b1864a672d` |
+|               | July 11th    | `sha256:e5dd5e9a1f08dcb4aea7f2090858ea6cc27e75a4170ae4e857b8aed6ba7ad9ab` |
+|               | July 11th    | `sha256:81512ae986ef10f4c32546f606595f4fa1b9b260cacad4d8cc57aef852903033` |
+|               | June 22nd    | `sha256:1aa38fa9f0ece3ac289b9a140e3f1991a5aabe678d20742fb310d5db651a8e7b` |
+|               | June 22nd    | `sha256:20ba1b90bd09b11b951c0b9f1a813e110cfc23832ec27e361ae825347bc4a4e7` |
 
 
 
@@ -30,3 +34,4 @@ Container image containing a Wolfi-flavored .NET SDK.
 The image is available on `cgr.dev`:
 
     docker pull cgr.dev/chainguard/dotnet-sdk:7.0
+

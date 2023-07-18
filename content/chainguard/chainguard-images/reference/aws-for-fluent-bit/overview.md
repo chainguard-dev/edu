@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/aws-for-fluent-bit](https://github.com/chainguard-images/images/tree/main/images/aws-for-fluent-bit)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:874fbb9c5727aebcdd7d0e5c22e5db44757ee97ffb604a0e44b356e781f32947` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:15b4d953b0e7bd06a1d3c6cc3ca9e91bc5eeb436f35d7efb5b3c05262849a3b1` |
 
 
 
@@ -41,3 +41,4 @@ Run:
 ```sh
 docker run --rm cgr.dev/chainguard/aws-for-fluent-bit
 ```
+

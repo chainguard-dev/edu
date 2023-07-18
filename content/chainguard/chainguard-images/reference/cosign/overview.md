@@ -16,10 +16,15 @@ toc: true
 
 [cgr.dev/chainguard/cosign](https://github.com/chainguard-images/images/tree/main/images/cosign)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:05f2162271304054c907baf3532273e0c418ce2ce8c3806ecdf2a70ce42278fa` |
-| `latest`     | July 11th    | `sha256:9d1bca8da6817cc7bec19d1b943bf5078cefae2a92029e9779791c0f1baae13e` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:c0f285782b86ce0eff41d7aec820866201ce71a36b06aaea60d17a629716d9df` |
+|  `latest`     | July 14th    | `sha256:6a24f17205099d24d1547d4550049109b746f53327fd7bbcc0126a273995b7ab` |
+|               | July 12th    | `sha256:05f2162271304054c907baf3532273e0c418ce2ce8c3806ecdf2a70ce42278fa` |
+|               | June 26th    | `sha256:c85b78a0875bb7a9152c39ad256ff9d55f1e38b6b32db4b02d7512c409bff968` |
+|               | June 26th    | `sha256:689af5f25d69f10e9f0671e473520d05b92a98831291be9a972161d203781f76` |
+|               | June 22nd    | `sha256:27d3a44274b18724138fbc2f88e35fe4a9072d5e061ec52245b2de9b109a956d` |
+|               | June 22nd    | `sha256:4cb14728d440c6e59d3a6af106ac34ef56232bc8519c3d631a19bb15aa434949` |
 
 
 
@@ -135,3 +140,4 @@ To obtain detailed information about the environment, you can run the `cosign en
 ```shell
 docker run --rm cgr.dev/chainguard/cosign env --show-descriptions=false
 ```
+

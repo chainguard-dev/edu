@@ -16,9 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/aspnet-runtime](https://github.com/chainguard-images/images/tree/main/images/aspnet-runtime)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 12th    | `sha256:e645d5ea7ac5feccfdbea09bbb992f2484dca4f6bd2bad4b7c70832dbaac4068` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:90edb58cea351c8805a8257bcbed6c5231c00b74e05d78265bd0be9c6a19fc81` |
+|           | July 11th    | `sha256:b095e25c6154143054f7db24c095e07d46df5eee565253d3166d31551376a470` |
+|           | June 21st    | `sha256:7387f670be7214bd86f05560a9d55fb3996c76511b364613b04418ae96ad2797` |
 
 
 
@@ -29,3 +31,4 @@ Container image with the latest ASP.NET runtime.
 The image is available on `cgr.dev`:
 
     docker pull cgr.dev/chainguard/aspnet-runtime:7.0
+

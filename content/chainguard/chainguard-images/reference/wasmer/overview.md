@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/wasmer](https://github.com/chainguard-images/images/tree/main/images/wasmer)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:c4a31ad4e595ab14f8869427a4b815bb0ed12a78489817ec2afdcc965ac877d8` |
-| `latest`     | July 11th    | `sha256:267ccc01508505d9f1550161e50e95f4da364395bdcbfd21a9806add21defd4e` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:e6af0c3c5da07a0711ffce62dd1c4033b322d9369927e139da7f3e738143e551` |
+|  `latest`     | July 11th    | `sha256:267ccc01508505d9f1550161e50e95f4da364395bdcbfd21a9806add21defd4e` |
 
 
 
@@ -32,3 +32,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/wasmer:latest
 ```
+

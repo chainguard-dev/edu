@@ -16,10 +16,12 @@ toc: true
 
 [cgr.dev/chainguard/zot](https://github.com/chainguard-images/images/tree/main/images/zot)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:5fd4c51d6e017fa0e4a627bd44f363b42093e75c4754bce4b294ba4a29df3723` |
-| `latest`     | July 11th    | `sha256:c425631169cbffcf7c6b8af7d5a9a19313136d9ba939f07d57f8139e6b1c8838` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:d7b56aa8b2a7c15bfc79e8b2fd7d05442180904e652863a879b3a71e3139d6cc` |
+|  `latest`     | July 14th    | `sha256:f05866a66fd9a040a485e5276d1bdc3825f5fc8b88b0a734e3cfeae90255b4f3` |
+|               | July 12th    | `sha256:5fd4c51d6e017fa0e4a627bd44f363b42093e75c4754bce4b294ba4a29df3723` |
+|               | July 4th     | `sha256:e6bff645d2a74abc46beba15949e88c5e7bf79e92a56dc054ebcad86f81abd75` |
 
 
 
@@ -80,3 +82,4 @@ docker run --rm \
   localhost:5000/demo:latest \
   -c 'echo hello world'
 ```
+

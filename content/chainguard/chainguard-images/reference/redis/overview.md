@@ -16,9 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/redis](https://github.com/chainguard-images/images/tree/main/images/redis)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:9cdc90a57fa0cc23dce9a934313cc5412a3b8415a60e79797ee9cb4ca04a3968` |
+|           | July 8th     | `sha256:ed2eb05fccd98a05ad481e7a323d2d86b3d20dc068ad1508804553753a3eff26` |
 
 
 
@@ -93,3 +94,4 @@ $ docker run -d -v $(pwd):/data -p 6379:6379 redis
 $ redis-cli get foo
 "bar"
 ```
+

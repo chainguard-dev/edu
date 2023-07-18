@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/glibc-dynamic](https://github.com/chainguard-images/images/tree/main/images/glibc-dynamic)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:6ce5f5093aa282a814ac7b4fe5efde0ec641624eda89961d2a248325ad456496` |
-| `latest`     | July 11th    | `sha256:84330a5c2f3b425a77320bc599a6a813fa986aab9b6a0fd7f58d753d6fe2143e` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:fbff2177efe9f2ad0d33ffa425d08925f3fa6ea9490d2759ee940b3daed4c180` |
+|  `latest`     | July 11th    | `sha256:84330a5c2f3b425a77320bc599a6a813fa986aab9b6a0fd7f58d753d6fe2143e` |
 
 
 
@@ -38,3 +38,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/glibc-dynamic:latest
 ```
+

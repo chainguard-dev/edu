@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/memcached](https://github.com/chainguard-images/images/tree/main/images/memcached)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:9f3118e3ba0bd5969fa63b465501afcebada895768098432138beb9402957609` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:e9571a7794bd9fc8e19d14ec466b961b2e4facf478f3908a0ed05c06415ea79f` |
 
 
 
@@ -62,3 +62,4 @@ Connection closed by foreign host.
 ## Users and Directories
 
 By default this image runs as a non-root user named `memcached` with a uid of 65532.
+
