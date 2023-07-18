@@ -8,6 +8,13 @@ on:
 
 env:
   WORKDIR: reference
+  YAMLDOCS_IMAGES_SOURCE: "${{ github.workspace }}/images/images"
+  YAMLDOCS_DIFF_SOURCE: "${{ github.workspace }}/edu/content/chainguard/chainguard-images/reference"
+  YAMLDOCS_OUTPUT: "${{ github.workspace }}/reference"
+  YAMLDOCS_TEMPLATES: "${{ github.workspace }}/edu/autodocs/templates"
+  YAMLDOCS_CACHE: "${{ github.workspace }}"
+  YAMLDOCS_CHANGELOG: "${{ github.workspace }}/reference/changelog.md"
+  YAMLDOCS_LASTUPDATE: "${{ github.workspace }}/reference/last-update.md"
 
 jobs:
   main:
@@ -17,40 +24,44 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     steps:
-      - name: "Check out Destination Repo"
+      - name: Check out Destination Repo
         uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
         with:
           path: edu
 
-      - name: "Check out Images Monorepo"
+      - name: Check out Images Monorepo
         uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
         with:
           repository: chainguard-images/images
           path: images
 
-      - name: 'Setup gitsign'
+      - name: Set up gitsign
         uses: chainguard-dev/actions/setup-gitsign@main
 
-      - name: "Set up workdir"
+      - name: Set up workdir
         run: |
           mkdir -p "${{ github.workspace }}/${{ env.WORKDIR }}" && \
           chmod 777 "${{ github.workspace }}/${{ env.WORKDIR }}"
 
-      - name: "Copy current changelog to workdir"
+      - name: Set up Chainctl
+        uses: chainguard-dev/actions/setup-chainctl@main
+        with:
+          identity: "${{ secrets.CHAINCTL_IDENTITY }}"
+
+      - name: Fetch images list
+        run: |
+          chainctl img ls --group "${{ secrets.CHAINCTL_GROUP_PUBLIC }}" -ojson > "${{ github.workspace }}/images-tags.json"
+
+      - name: Copy current changelog to workdir
         run: |
           cp "${{ github.workspace }}/edu/autodocs/changelog.md" \
           "${{ github.workspace }}/${{ env.WORKDIR }}/changelog.md" && \
           chmod 777 "${{ github.workspace }}/${{ env.WORKDIR }}/changelog.md"
 
-      - name: "Update the reference docs for Chainguard Images"
-        uses: chainguard-dev/deved-autodocs@1.4.0
+      - name: Update the reference docs for Chainguard Images
+        uses: chainguard-dev/deved-autodocs@1.6.6
         with:
           command: build images
-        env:
-          YAMLDOCS_IMAGES_SOURCE: "${{ github.workspace }}/images/images"
-          YAMLDOCS_DIFF_SOURCE: "${{ github.workspace }}/edu/content/chainguard/chainguard-images/${{ env.WORKDIR }}"
-          YAMLDOCS_OUTPUT: "${{ github.workspace }}/${{ env.WORKDIR }}"
-          YAMLDOCS_TEMPLATES: "${{ github.workspace }}/edu/autodocs/templates"
 
       - name: "Copy updated changelog to autodocs folder"
         run: |
@@ -88,7 +99,7 @@ jobs:
 
       - name: "Send notification to Slack"
         if: ${{ steps.cpr.outputs.pull-request-number }}
-        uses: chainguard-dev/deved-autodocs@1.4.0
+        uses: chainguard-dev/deved-autodocs@1.6.6
         with:
           command: notify pullrequest
         env:
