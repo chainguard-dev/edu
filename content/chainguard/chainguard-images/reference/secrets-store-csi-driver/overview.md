@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/secrets-store-csi-driver](https://github.com/chainguard-images/images/tree/main/images/secrets-store-csi-driver)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:eeae01ef333f38afc7aae575d90f19ab12127cadc34cb4f33bfc72118de3c51d` |
-| `latest`     | July 11th    | `sha256:e833fa20f464257f3a2f102d421977c3e92d66d4a447407870ee684ae5855a3f` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:6c4c487b4b266bed1518901c6325449100a299c5875711e4ea12a882ed7c902b` |
+|  `latest`     | July 14th    | `sha256:69ea76caa8874e0d625fc1635c0641ead0811639f8656586c7e1f8af9f8bb2a3` |
+|               | July 12th    | `sha256:eeae01ef333f38afc7aae575d90f19ab12127cadc34cb4f33bfc72118de3c51d` |
 
 
 
@@ -38,3 +39,4 @@ docker pull cgr.dev/chainguard/secrets-store-csi-driver:latest
 The Chainguard Secrets Store CSI DRiver image contains the `secrets-store-csi-driver` binary and required utilities.
 
 The driver typically requires a plugin to be installed and configured separately to run.
+

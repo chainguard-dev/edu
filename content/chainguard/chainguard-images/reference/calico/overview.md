@@ -16,8 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/calico](https://github.com/chainguard-images/images/tree/main/images/calico)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:7365f13dc60a3fda75ded51fd62bd1382caec4f7d7a159adae6ff0bfb433baa4` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:0924745e0d67c12e0626fa53cc486d278e392179bb3b2f5c2c59f6353b2453d6` |
+
 
 

@@ -16,10 +16,23 @@ toc: true
 
 [cgr.dev/chainguard/go](https://github.com/chainguard-images/images/tree/main/images/go)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | July 12th    | `sha256:990bb8eeb6ecb77e7721bc118b2df8b57075f3c954e2e955a26216633df55d5f` |
-| `latest-dev` | July 12th    | `sha256:d0f9b1559660073acb2f474ea92bb8a6bbd9558228c8758edfcbc47be9501552` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:df4ec2234180dd1261103eea0ecfc9a9c6a44eaf0f8256a0fe71b51868552223` |
+|  `latest`     | July 18th    | `sha256:abcb7be3360f5151a53a44d71d67a81591c9a53b2245703f9dd77c4f977d8109` |
+|               | July 18th    | `sha256:ef9b0a3e8d4aba6b0c8a8bbaa13171f24d506349c0a5a625d41c333274086af8` |
+|               | July 18th    | `sha256:ef650e759e66428d9488cef7e7705da13b9ff9d3bfec412988eb8c74e49f6648` |
+|               | July 18th    | `sha256:6eefc5402968dd465e2cd4c2368c34cba6d6dcbccad43ea2e4d3323ac6168cf3` |
+|               | July 18th    | `sha256:044626f8ff3f9d353ab5bacbd52cefc61f1cebb639b82efd7b0adc6a3d9698b2` |
+|               | July 12th    | `sha256:fecc5b671b063aa1e6bb8e6211cf84c0b945fbb6360df9d29236365465bf5e64` |
+|               | July 12th    | `sha256:643d38bc0e21b87917241613962331927f4f0b006c550950dfbcc81591eaf41a` |
+|               | July 11th    | `sha256:0a2b247527b7d57ef9fdfe0dfa1500915d4c1e58050c88d29e849b39caa4cbc3` |
+|               | July 11th    | `sha256:6c32bcf38379fa1a9edd18ccbc26895907e995cbbdd0da2d9c4d59342d8b5180` |
+|               | July 11th    | `sha256:daa971e728d10513821f36d339738d8e8d1a89979da67a6d2afddfb428265917` |
+|               | July 11th    | `sha256:ae39fcd9fdc9d1a55361a5ef5c9ae9c11a212582731f26646a94c66a77a65d53` |
+|               | July 11th    | `sha256:c52c640eaaa1c5032d9eaa25e81e8ab0b7543d0ab1e2c09a0baec98e28620c9c` |
+|               | July 8th     | `sha256:f807658ebd070455c2ec930407fb4427c0761f5401c5c84e9b0dac3ee99c1da8` |
+|               | July 8th     | `sha256:1a938f192199fc3a30ef5d1af6bbfb872f5df6871d0e522bb98c950adf432fe5` |
 
 
 
@@ -122,3 +135,4 @@ docker images go-hello-world
 REPOSITORY       TAG       IMAGE ID       CREATED       SIZE
 go-hello-world   latest    859fedabd532   5 hours ago   3.21MB
 ```
+

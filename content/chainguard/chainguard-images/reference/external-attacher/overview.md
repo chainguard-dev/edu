@@ -16,8 +16,8 @@ toc: true
 
 [cgr.dev/chainguard/external-attacher](https://github.com/chainguard-images/images/tree/main/images/external-attacher)
 
-| Tag | Last Updated | Digest |
-|-----|--------------|--------|
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 
 # external-attacher
 

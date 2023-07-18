@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/wait-for-it](https://github.com/chainguard-images/images/tree/main/images/wait-for-it)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:e9ce150f95c395447616be44524f6cad39d4520af86e0fa0fa127efb640eacd8` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 11th    | `sha256:e9ce150f95c395447616be44524f6cad39d4520af86e0fa0fa127efb640eacd8` |
 
 
 
@@ -73,3 +73,4 @@ wait-for-it: waiting 5 seconds for fake.doesnotexist:80
 wait-for-it: timeout occurred after waiting 5 seconds for fake.doesnotexist:80
 wait-for-it: strict mode, refusing to execute subprocess
 ```
+

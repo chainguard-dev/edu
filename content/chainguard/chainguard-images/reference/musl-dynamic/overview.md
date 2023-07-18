@@ -16,8 +16,8 @@ toc: true
 
 [cgr.dev/chainguard/musl-dynamic](https://github.com/chainguard-images/images/tree/main/images/musl-dynamic)
 
-| Tag | Last Updated | Digest |
-|-----|--------------|--------|
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 
 # musl-dynamic
 

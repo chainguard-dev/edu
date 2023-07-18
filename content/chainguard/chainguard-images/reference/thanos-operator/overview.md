@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/thanos-operator](https://github.com/chainguard-images/images/tree/main/images/thanos-operator)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:b137a4f02faad8f4f14b4e93960bc21aa2873b21a855f0574d058faf9f88cc17` |
-| `latest`     | July 11th    | `sha256:c89b138e3a328b512aa3a1722b359e8a666357997c8c3b46c0eb34d377cbceb4` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:1fbe0d8a0310465a3f56490d9d9c550c305ec1ea5a24b246358d5d53d3b92586` |
+|  `latest`     | July 14th    | `sha256:294c787ec59cd7b099ae54f547ddcca40eafbeae4fa4e86146cecfd158d61b6a` |
+|               | July 12th    | `sha256:b137a4f02faad8f4f14b4e93960bc21aa2873b21a855f0574d058faf9f88cc17` |
 
 
 
@@ -42,3 +43,4 @@ helm install thanos-operator banzaicloud-stable/thanos-operator \
     --set image.repository=cgr.dev/chainguard/thanos-operator \
     --set image.tag=latest
 ```
+

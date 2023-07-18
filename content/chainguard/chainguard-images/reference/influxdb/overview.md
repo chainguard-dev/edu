@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/influxdb](https://github.com/chainguard-images/images/tree/main/images/influxdb)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | July 12th    | `sha256:4c51f33a73f70f47cbb07205e5cf6dcc2867979ba7b81bd6a433dce0c6cd130f` |
-| `latest-dev` | July 12th    | `sha256:3fff29ae8340f38c729ea52f27bb60fe7769c455f4bfd2bfebc0b8df4658ec2d` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:8d74f92c6ba0d58fd0df3e43945c6ea4206851dde4b6a5184a9ca35c7f2a1af1` |
+|  `latest`     | July 14th    | `sha256:b637f415319b0921ec32819f2ee28387186ce83eab7e7a5361e07f1a8ace7767` |
+|               | July 12th    | `sha256:3fff29ae8340f38c729ea52f27bb60fe7769c455f4bfd2bfebc0b8df4658ec2d` |
 
 
 
@@ -89,3 +90,4 @@ To retrieve the password for the 'admin' user:
 
 Note: with enabled persistence, admin password is only set once during the initial deployment. The password is not changed when InfluxDB 2 is re-deployed with different password.
 ```
+

@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/tigera-operator](https://github.com/chainguard-images/images/tree/main/images/tigera-operator)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:8e4fb0d4a256fbc2083f88746482f11239bae9519fb48569af22f578b4263d5a` |
-| `latest`     | July 11th    | `sha256:91320c3646dbc11aa1ff4613513747e8fa01f5e3a8f91919cecffebafac963ef` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:701234965a4244d0fc79b2474fc0bbd0b02aa3da49b90d94265f3613bf90b0c6` |
+|  `latest`     | July 14th    | `sha256:c57ee9b14679369e4f2fcd0999a46cf591810d06469917a97c1c4ece8cc05d84` |
+|               | July 12th    | `sha256:8e4fb0d4a256fbc2083f88746482f11239bae9519fb48569af22f578b4263d5a` |
 
 
 
@@ -52,3 +53,4 @@ helm install calico projectcalico/tigera-operator \
 
 kubectl wait --namespace tigera-operator --for=condition=ready pod --selector name=tigera-operator --timeout=120s
 ```
+

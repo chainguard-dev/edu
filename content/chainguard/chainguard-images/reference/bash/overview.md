@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/bash](https://github.com/chainguard-images/images/tree/main/images/bash)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 12th    | `sha256:c30b4a01941d9eb72834a5cc75465ba1dc824599f19e1e60156c8efdca0a6835` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:078e3cf5035bf09cb043299d4e26735377d4d8a28ffea00fc870aa222da49ea1` |
 
 
 
@@ -31,3 +31,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/bash:latest
 ```
+

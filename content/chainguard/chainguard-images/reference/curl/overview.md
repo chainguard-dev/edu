@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/curl](https://github.com/chainguard-images/images/tree/main/images/curl)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 12th    | `sha256:55bae972389bed67ffa5c2f907ff9c375921344555107667c3703024951a2bff` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:a99e00758d55169b4dd8f1c1887d0faaaa00e0b10c36e0ecd4eb1e0410aea6f3` |
 
 
 
@@ -60,3 +60,4 @@ Release-Date: 2022-12-21
 Protocols: dict file ftp ftps gopher gophers http https imap imaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
 Features: alt-svc AsynchDNS brotli HSTS HTTP2 HTTPS-proxy IPv6 Largefile libz NTLM NTLM_WB SSL threadsafe TLS-SRP UnixSockets
 ```
+

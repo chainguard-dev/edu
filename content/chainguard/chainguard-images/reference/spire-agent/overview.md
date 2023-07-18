@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/spire-agent](https://github.com/chainguard-images/images/tree/main/images/spire-agent)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:daf0a7989c784d18b4130be26ddff1fe64cc06d98cbb6bd7a71d30e76cb52081` |
-| `latest`     | July 11th    | `sha256:49ac396175b76178d17729becd9001059ceda12eff834656760060269499204f` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:f289e230173192297d9e6b0fef92cad9b993c539a07ebe2d688ce56334d10b5e` |
+|  `latest`     | July 14th    | `sha256:b8c5bca2e03376ffaf00b8efd19cc8c0f707ea9aa9764be5894c5e8c7e6539e2` |
+|               | July 12th    | `sha256:daf0a7989c784d18b4130be26ddff1fe64cc06d98cbb6bd7a71d30e76cb52081` |
 
 # spire-agent
 

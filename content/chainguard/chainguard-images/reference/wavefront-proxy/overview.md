@@ -16,10 +16,12 @@ toc: true
 
 [cgr.dev/chainguard/wavefront-proxy](https://github.com/chainguard-images/images/tree/main/images/wavefront-proxy)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:538b3b486f8561b2f212e940f426595e7e92797e39825777d5e063d455464ff2` |
-| `latest`     | July 11th    | `sha256:ad01fd5f1af93fec1db7aee20214170450e1d240abbed6c83d6dd694575a5978` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:fdc3b55f497a4e3dac55d778d3f0c7f87a615dacb6d30bd73635a2ed1947e115` |
+|  `latest`     | July 11th    | `sha256:ad01fd5f1af93fec1db7aee20214170450e1d240abbed6c83d6dd694575a5978` |
+|               | June 23rd    | `sha256:ced4b291a637be215999d3602d2f7b603c53ad7ebdd9154c2a8e0e6ef7c77c6a` |
+|               | June 23rd    | `sha256:053df074cbe310c3e2c6e75175c202429e97bdb16b0ffe502352f606b84c9e35` |
 
 
 
@@ -54,3 +56,4 @@ $ docker run -d \
 
 Note that the `wavefront-proxy` does need the `WAVEFRONT_URL` and `WAVEFRONT_TOKEN`  to work correctly.
 See the [configuration](https://docs.wavefront.com/proxies_kube_container.html) docs for more examples.
+

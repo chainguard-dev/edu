@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/kubernetes-csi-external-snapshotter](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-snapshotter)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:e3772692afb7bf2924e2bb2fee0456320f28e0fbd71b9960efa4f8ddb7a80328` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 14th    | `sha256:5e3c5b22e04dddb40ca4d04ccb33fec93f48f2b974f51eb1611880a13434b237` |
 
 
 
@@ -31,3 +31,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/kubernetes-csi-external-snapshotter
 ```
+

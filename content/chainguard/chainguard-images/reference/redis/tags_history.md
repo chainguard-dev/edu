@@ -16,10 +16,9 @@ toc: true
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `7`      | July 11th    | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
-| `latest` | July 11th    | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
-| `7.0.12` | July 11th    | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
-| `7.0`    | July 11th    | `sha256:5fe3aa36c9b48cc92f4a7b9fadc171c248ada73ca1c8cd302ec10ec18c16f9f5` |
-| `7.0.11` | July 8th     | `sha256:ed2eb05fccd98a05ad481e7a323d2d86b3d20dc068ad1508804553753a3eff26` |
+Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
+
+| Tag (s)                      | Last Changed | Digest                                                                    |
+|------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `7` `7.0.12` `7.0` | July 18th    | `sha256:9cdc90a57fa0cc23dce9a934313cc5412a3b8415a60e79797ee9cb4ca04a3968` |
+|  `7.0.11`                    | July 8th     | `sha256:ed2eb05fccd98a05ad481e7a323d2d86b3d20dc068ad1508804553753a3eff26` |

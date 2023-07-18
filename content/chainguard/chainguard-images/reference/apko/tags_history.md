@@ -16,11 +16,9 @@ toc: true
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `0.9`    | July 11th    | `sha256:9fa18e1a731710c4d30f725453f50278f6f4a5ceebd7164f8e6b33438f36cbc8` |
-| `0`      | July 11th    | `sha256:9fa18e1a731710c4d30f725453f50278f6f4a5ceebd7164f8e6b33438f36cbc8` |
-| `0.9.0`  | July 11th    | `sha256:9fa18e1a731710c4d30f725453f50278f6f4a5ceebd7164f8e6b33438f36cbc8` |
-| `latest` | July 11th    | `sha256:9fa18e1a731710c4d30f725453f50278f6f4a5ceebd7164f8e6b33438f36cbc8` |
-| `0.8`    | June 26th    | `sha256:5370b6bf8f85f0ddeae20e11d1632afeacfd50559f332742b9ed843e8963cb74` |
-| `0.8.0`  | June 26th    | `sha256:5370b6bf8f85f0ddeae20e11d1632afeacfd50559f332742b9ed843e8963cb74` |
+Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
+
+| Tag (s)                     | Last Changed | Digest                                                                    |
+|-----------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.9` `0.9.0` `0` `latest` | July 18th    | `sha256:86ea673ae4549fcb6d2eaa2765fbc03905918efa76c8a0196730371054367883` |
+|  `0.8` `0.8.0`              | June 26th    | `sha256:5370b6bf8f85f0ddeae20e11d1632afeacfd50559f332742b9ed843e8963cb74` |

@@ -16,14 +16,9 @@ toc: true
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
-| Tag             | Last Updated | Digest                                                                    |
-|-----------------|--------------|---------------------------------------------------------------------------|
-| `15.0-dev`      | July 12th    | `sha256:4ff1af5e666f2272faec6e2e95ef04d949f9877f67e6b01ba1180b9a8b7af04f` |
-| `15.0.7-r0-dev` | July 12th    | `sha256:4ff1af5e666f2272faec6e2e95ef04d949f9877f67e6b01ba1180b9a8b7af04f` |
-| `latest-dev`    | July 12th    | `sha256:4ff1af5e666f2272faec6e2e95ef04d949f9877f67e6b01ba1180b9a8b7af04f` |
-| `15-dev`        | July 12th    | `sha256:4ff1af5e666f2272faec6e2e95ef04d949f9877f67e6b01ba1180b9a8b7af04f` |
-| `15.0.7-dev`    | July 12th    | `sha256:4ff1af5e666f2272faec6e2e95ef04d949f9877f67e6b01ba1180b9a8b7af04f` |
-| `latest`        | July 11th    | `sha256:b750120eccfa738d74c90b82df1f30ef2baded2af0bee3525c62c4340e4e152d` |
-| `15`            | July 11th    | `sha256:b750120eccfa738d74c90b82df1f30ef2baded2af0bee3525c62c4340e4e152d` |
-| `15.0.7`        | July 11th    | `sha256:b750120eccfa738d74c90b82df1f30ef2baded2af0bee3525c62c4340e4e152d` |
-| `15.0`          | July 11th    | `sha256:b750120eccfa738d74c90b82df1f30ef2baded2af0bee3525c62c4340e4e152d` |
+Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
+
+| Tag (s)                                                        | Last Changed | Digest                                                                    |
+|----------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `15.0.7-dev` `15.0.7-r0-dev` `15-dev` `15.0-dev` `latest-dev` | July 18th    | `sha256:e5badf6156216f7e5feb5eb596df0119bc3991cd9dc54db9f04eb3d8e7dc7293` |
+|  `latest` `15` `15.0.7` `15.0`                                 | July 11th    | `sha256:b750120eccfa738d74c90b82df1f30ef2baded2af0bee3525c62c4340e4e152d` |

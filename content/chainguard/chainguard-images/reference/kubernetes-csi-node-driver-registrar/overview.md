@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/kubernetes-csi-node-driver-registrar](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-node-driver-registrar)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 12th    | `sha256:122f95fd5199f825276824da0df7a59800319f976a9cd5b3d5965b05eab21567` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 14th    | `sha256:4edc7a997a6a4f6800a35e70418f90e709a074f48dcde8838f227d1f6e7a61a8` |
 
 
 
@@ -33,3 +33,4 @@ docker pull cgr.dev/chainguard/kubernetes-csi-node-driver-registrar
 ## Run it
 
 Generally speaking, the `kubernetes-csi-node-driver-registrar` is a low level Kubernetes component used to register drivers, and not meant to be managed directly. However, all the steps outlined in the [upstream repo](https://github.com/kubernetes-csi/node-driver-registrar) apply just as well to the Chainguard Image version.
+

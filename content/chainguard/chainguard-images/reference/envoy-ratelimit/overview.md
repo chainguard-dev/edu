@@ -16,10 +16,12 @@ toc: true
 
 [cgr.dev/chainguard/envoy-ratelimit](https://github.com/chainguard-images/images/tree/main/images/envoy-ratelimit)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:eaf5e63e8d64dd5d2d342fc00b182c101bf88aa5b93f3f36d1cb3779ccc5fd95` |
-| `latest`     | July 11th    | `sha256:2007c187eff4fa07b9114b586a5e6606d9ec919f30835dbbd5e4c4d73f79775b` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:96a1ee2eea48c7d758113b99be52c7c181df138100ef43b5a5c7698b62f33041` |
+|  `latest`     | July 11th    | `sha256:2007c187eff4fa07b9114b586a5e6606d9ec919f30835dbbd5e4c4d73f79775b` |
+|               | July 8th     | `sha256:0123b33523b214f44a37ed6696b6a1b1f52b76af865cd9b719cc844aca1c090f` |
+|               | July 8th     | `sha256:c9075817f35f42d6b12949874bf667b0fda51a94ee619782f5e9755fd6f36707` |
 
 
 
@@ -41,3 +43,4 @@ This image should be a drop-in replacement for the upstream `envoyproxy/ratelimi
 See the [full documentation](https://gateway.envoyproxy.io/latest/user/rate-limit.html) for installation and usage.
 
 See for the [examples](https://github.com/envoyproxy/ratelimit#examples).
+

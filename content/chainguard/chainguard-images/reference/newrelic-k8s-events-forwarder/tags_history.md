@@ -16,10 +16,10 @@ toc: true
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `1.43.2`     | July 12th    | `sha256:3ee84e020494b252e9eb13aa00300fba4e024d4ac407c7a69a17935091ba33db` |
-| `latest`     | July 12th    | `sha256:3ee84e020494b252e9eb13aa00300fba4e024d4ac407c7a69a17935091ba33db` |
-| `1.43`       | July 12th    | `sha256:3ee84e020494b252e9eb13aa00300fba4e024d4ac407c7a69a17935091ba33db` |
-| `1`          | July 12th    | `sha256:3ee84e020494b252e9eb13aa00300fba4e024d4ac407c7a69a17935091ba33db` |
-| `latest-dev` | June 27th    | `sha256:0d9e538c2e7a4ad103fa360dac55276cedd6d622786edd512ac25b668aef952a` |
+Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
+
+| Tag (s)                       | Last Changed | Digest                                                                    |
+|-------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.44.0` `latest` `1` `1.44` | July 18th    | `sha256:1a63da283d86fd7f502903e57f2daaece738964a05451192648a6b574b60db62` |
+|  `1.43.2` `1.43`              | July 14th    | `sha256:5be4870e4390ec5ffd5d5f45d9fa23be92bc2b71c8f34e8d6da7302a46e4a17d` |
+|  `latest-dev`                 | June 27th    | `sha256:0d9e538c2e7a4ad103fa360dac55276cedd6d622786edd512ac25b668aef952a` |

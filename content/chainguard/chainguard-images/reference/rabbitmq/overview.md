@@ -16,9 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/rabbitmq](https://github.com/chainguard-images/images/tree/main/images/rabbitmq)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:f161105670facf2d36342fab0820815f82bcc307b30431cd0faf07af8698fe6b` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:ac17a34587d113af5c26340407cf52a35c5f4545e3772790cfe8f7c99ee6f52e` |
+|           | July 5th     | `sha256:488b0abddd667c4bc6cf55a0e6e5f96a3d0396e5930e3dfa6e64d73b99dd93a7` |
 
 
 
@@ -85,3 +86,4 @@ RABBITMQ_CONF_ENV_FILE=/etc/rabbitmq/rabbitmq-env.conf
 By default this image runs as a non-root user named `rabbitmq` with a uid of 65532.
 
 Logs go to `/var/log/rabbitmq/` by default.
+

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/minio-client](https://github.com/chainguard-images/images/tree/main/images/minio-client)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:c7d6791ae967f3ef4e29fa351f98e1bc0b6ddaff6ef2c89b5451b5e3aebccd79` |
-| `latest`     | July 11th    | `sha256:cca0811c4d4a3f6a5af397821b0428a778b3d27c7404e3e0cdb9504ef1e61520` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:3988b7053b87724a361e4dcf1b52d709f07265b55d8b011677605d14ef0208f2` |
+|  `latest`     | July 14th    | `sha256:6d52ef29dd213f3628fdb3b2e45f7a27e5f800a8d272bd5d62d505f8f8b7f3b1` |
 
 
 
@@ -86,3 +86,4 @@ COMMANDS:
   od         measure single stream upload and download
   batch      manage batch jobs
 ```
+

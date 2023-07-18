@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/calico-pod2daemon](https://github.com/chainguard-images/images/tree/main/images/calico-pod2daemon)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:b9620fefd9368b0e53a04cc649332c98867a5b838c8f8cafd3df8f8b11d225f4` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:d52d886d501c993f7d521a1cc0eb61c859bfc47885165b1394c7fcd24bd43c89` |
 
 # calico-pod2daemon
 

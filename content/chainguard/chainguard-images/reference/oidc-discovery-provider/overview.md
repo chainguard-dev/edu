@@ -16,10 +16,8 @@ toc: true
 
 [cgr.dev/chainguard/oidc-discovery-provider](https://github.com/chainguard-images/images/tree/main/images/oidc-discovery-provider)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | June 15th    | `sha256:0c6f48aedd53b11efee3f385fe1694a844b3621da4e6092a44f7228733f3c90e` |
-| `latest-dev` | June 15th    | `sha256:ec327f3c4729e95c6320323618bc5471e76cb931892ec4bb8204b06b8539f7c0` |
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 
 # oidc-discovery-provider
 

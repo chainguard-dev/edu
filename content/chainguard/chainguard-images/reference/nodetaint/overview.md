@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/nodetaint](https://github.com/chainguard-images/images/tree/main/images/nodetaint)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:4369db8a38c27be0befd680aacac72e25ce92436cce82e29eb0fe3ca34822037` |
-| `latest`     | July 11th    | `sha256:6a47bf8d0b4d970e4597dd0ba98765e03cfee9a1ebd9bf768e4e38b9d9036981` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:c7daed613ce3c9262086557aa1b625f918c97e7aa136344879389be02bf7214d` |
+|  `latest`     | July 14th    | `sha256:77b685960bfdddb81598316fdc56fdbb2c98c338a75398b61830be3bc7922637` |
+|               | July 12th    | `sha256:4369db8a38c27be0befd680aacac72e25ce92436cce82e29eb0fe3ca34822037` |
 
 
 
@@ -47,3 +48,4 @@ helm install nodetaint ./chart \
   --set image.repository=${IMAGE_REPOSITORY} \
   --set image.tag=${IMAGE_TAG}
 ```
+

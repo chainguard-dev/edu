@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/kube-state-metrics](https://github.com/chainguard-images/images/tree/main/images/kube-state-metrics)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:bb1773947789b2a6897256f942821c2d4f37621b438bd521ce0976cd22428138` |
-| `latest`     | July 11th    | `sha256:16e228350e3b3cc5392698b663e56af9b55b462a4431a4c552f873f532583834` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:48de4a70a1a909ff486fc6133bdcd6c950395d89bd04df3fc3b4996a30f96b4b` |
+|  `latest`     | July 14th    | `sha256:bda0db21c62c9af9376dde2d2d6013b44d7f7120c979e0f380f5c556a5a8e3ba` |
+|               | July 12th    | `sha256:bb1773947789b2a6897256f942821c2d4f37621b438bd521ce0976cd22428138` |
 
 
 
@@ -66,3 +67,4 @@ Once the kube-state-metrics has been deployed, verify the pods are running:
 ```shell
 kubectl get pods -l app.kubernetes.io/name=kube-state-metrics
 ```
+

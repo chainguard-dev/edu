@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/vault](https://github.com/chainguard-images/images/tree/main/images/vault)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:338a5d1943601143d75907fea18a7a09acb643d12db6154544958a7a1b29f387` |
-| `latest`     | July 11th    | `sha256:32fab4921e56df3b64f9e9e0fdc0557671726f395564a93ae2aea25c5d8cf17d` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:ab42ee3554570818ebc47374a447e037c5f69c33987333eb15d04516939ac632` |
+|  `latest`     | July 14th    | `sha256:3b1110c4b2b710e124f4efd072e25328c991c1000496d769eb7e9356b867d94b` |
+|               | July 12th    | `sha256:338a5d1943601143d75907fea18a7a09acb643d12db6154544958a7a1b29f387` |
 
 
 
@@ -161,3 +162,4 @@ If using the file data storage plugin, please configure it to write to `/var/lib
 
 By default logs will be streamed to stdout and stderr, but can be configured to write to
 `/var/log/vault`.
+

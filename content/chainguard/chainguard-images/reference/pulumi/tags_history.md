@@ -16,16 +16,11 @@ toc: true
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 12th    | `sha256:61ef9c40d77dbd5aa95a75de776611f19e4adfa734709ab1995d3d746afb2391` |
-| `3.74.0` | July 12th    | `sha256:61ef9c40d77dbd5aa95a75de776611f19e4adfa734709ab1995d3d746afb2391` |
-| `3`      | July 12th    | `sha256:61ef9c40d77dbd5aa95a75de776611f19e4adfa734709ab1995d3d746afb2391` |
-| `3.74`   | July 12th    | `sha256:61ef9c40d77dbd5aa95a75de776611f19e4adfa734709ab1995d3d746afb2391` |
-| `3.73.0` | June 27th    | `sha256:817bc83cef676bd508aee60d4c84fe35202635b70b0b262a46c6bb469a139dc0` |
-| `3.73`   | June 27th    | `sha256:817bc83cef676bd508aee60d4c84fe35202635b70b0b262a46c6bb469a139dc0` |
-| `3.72.2` | June 21st    | `sha256:c3b3d473103b23c575153e70a27b4232b8e0c24fe72d19de9af533518e50ca16` |
-| `3.72`   | June 21st    | `sha256:c3b3d473103b23c575153e70a27b4232b8e0c24fe72d19de9af533518e50ca16` |
-| `3.72.1` | June 18th    | `sha256:fb5e075c8d5e625b57e413492defb843492e731825831591dcb93a95b5a2d95c` |
-| `3.71.0` | June 16th    | `sha256:276d0733b20b2c0aead8876ffda883f82a966a8c3bfeeaad824653d27dda4da5` |
-| `3.71`   | June 16th    | `sha256:276d0733b20b2c0aead8876ffda883f82a966a8c3bfeeaad824653d27dda4da5` |
+Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
+
+| Tag (s)                       | Last Changed | Digest                                                                    |
+|-------------------------------|--------------|---------------------------------------------------------------------------|
+|  `3` `latest` `3.75` `3.75.0` | July 18th    | `sha256:7f1a6dbc059cbd90724706bdc97d7b23ef045b289c858796d96ef3a663cb789b` |
+|  `3.74` `3.74.0`              | July 14th    | `sha256:ebce2a39c556cca7ee2eabf237bd17cd38699e18a6430f9caf99e44ded67cd4d` |
+|  `3.73.0` `3.73`              | June 27th    | `sha256:817bc83cef676bd508aee60d4c84fe35202635b70b0b262a46c6bb469a139dc0` |
+|  `3.72.2` `3.72`              | June 21st    | `sha256:c3b3d473103b23c575153e70a27b4232b8e0c24fe72d19de9af533518e50ca16` |

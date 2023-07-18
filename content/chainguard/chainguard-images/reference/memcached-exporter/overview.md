@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/memcached-exporter](https://github.com/chainguard-images/images/tree/main/images/memcached-exporter)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:f98898ca7d897bec5c1feb678ecbaf6346fd18d4c11f5abd678739bdf84c2da5` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 14th    | `sha256:298ba5c3895de3e0c375593926e0672907d2b12f5948fceb409f9d675ebec040` |
 
 
 
@@ -51,3 +51,4 @@ ts=2023-04-26T17:47:53.478Z caller=tls_config.go:235 level=info msg="TLS is disa
 ## Users and Directories
 
 By default this image runs as a non-root user named `nonroot` with a uid of 65532.
+

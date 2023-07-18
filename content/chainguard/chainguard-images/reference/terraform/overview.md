@@ -16,9 +16,12 @@ toc: true
 
 [cgr.dev/chainguard/terraform](https://github.com/chainguard-images/images/tree/main/images/terraform)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:71bed6077bf49942a445274e466e41595b38c0107a46e5ce1760ada522b91d63` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 14th    | `sha256:411d7430a4c958752f8d16a8bee9a78b86341b3f315fe158626529191f85c8e5` |
+|           | July 14th    | `sha256:a0a19ac757c80623cdbd4a96c61ac27a983b9418dc322c3a1bc2e56964d506ba` |
+|           | June 26th    | `sha256:12a7f887f7551854b8ec3bb3d072cdb1f31a6e3fdb41a96a9ccf64cf0f06c705` |
+|           | June 20th    | `sha256:4f14759422943cebbf22884e26f04002fcdc1814fdccd461e269f9b29deeabc8` |
 
 
 
@@ -31,3 +34,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/terraform
 ```
+

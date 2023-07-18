@@ -16,9 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/clang](https://github.com/chainguard-images/images/tree/main/images/clang)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:4ff1af5e666f2272faec6e2e95ef04d949f9877f67e6b01ba1180b9a8b7af04f` |
-| `latest`     | July 11th    | `sha256:b750120eccfa738d74c90b82df1f30ef2baded2af0bee3525c62c4340e4e152d` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:e5badf6156216f7e5feb5eb596df0119bc3991cd9dc54db9f04eb3d8e7dc7293` |
+|  `latest`     | July 11th    | `sha256:b750120eccfa738d74c90b82df1f30ef2baded2af0bee3525c62c4340e4e152d` |
+
 
 

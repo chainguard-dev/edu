@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/kubernetes-csi-external-provisioner](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-provisioner)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:2220f3b7b0d0f9aefec5c71bc5668f45538a0a1b0a98de9321c26f63aa63f504` |
-| `latest`     | July 11th    | `sha256:deb9a467096669c0dda22706e821214c806eb8a151a1a5b962c9063185d11ac2` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | July 18th    | `sha256:c581b78e1ca4b1cf515d74283aa759b58d9643b0b028ec7ed63336a388b6f99f` |
+|  `latest-dev` | July 18th    | `sha256:0ce5fef0691f1979a010c2c00cdaad6b20a1b540f372b454ce59f50bd58e285e` |
+|               | July 12th    | `sha256:2220f3b7b0d0f9aefec5c71bc5668f45538a0a1b0a98de9321c26f63aa63f504` |
 
 
 
@@ -42,3 +43,4 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-provi
 kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-provisioner/v3.5.0/deploy/kubernetes/deployment.yaml
 kubectl set image deployment/csi-provisioner csi-provisioner="cgr.dev/chainguard/kubernetes-csi-external-provisioner:latest"
 ```
+

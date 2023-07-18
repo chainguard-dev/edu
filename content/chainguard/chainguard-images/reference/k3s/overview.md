@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/k3s](https://github.com/chainguard-images/images/tree/main/images/k3s)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:c13241d84917f710dcf22d0ce753fa8ea6990b93c641121ef053d04b13d6c44f` |
-| `latest`     | July 5th     | `sha256:ab900ffe02fc1263b671c801b3cfc6070db76eaf5a57ee0d31e186d821d49c44` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:ccf352af88627912e48e90f973a4b325f655a73ba791c7713b91ef2d410b33c0` |
+|               | July 12th    | `sha256:c13241d84917f710dcf22d0ce753fa8ea6990b93c641121ef053d04b13d6c44f` |
+|  `latest`     | July 5th     | `sha256:ab900ffe02fc1263b671c801b3cfc6070db76eaf5a57ee0d31e186d821d49c44` |
 
 
 
@@ -48,3 +49,4 @@ You can also use it as a drop in replacement in `k3d`:
 ```bash
 k3d cluster create -i cgr.dev/chainguard/k3s:latest
 ```
+

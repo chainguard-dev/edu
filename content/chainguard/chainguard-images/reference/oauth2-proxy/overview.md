@@ -16,9 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/oauth2-proxy](https://github.com/chainguard-images/images/tree/main/images/oauth2-proxy)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:ccd70807d6de71ba37de13b39a1a7180baf2820a4d6fe6ae3a704540b36f0ba5` |
-| `latest`     | July 11th    | `sha256:a4d80b5fa63ebe19129bfde69097fb1562a7cfa13eaee77f984273c489372a4b` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:69ebe6196e762de30f7faf676e4d07145e9a91aa7501524f8771248dc8f2252e` |
+|  `latest`     | July 14th    | `sha256:94746b56201271e44d189d7d39f7a10ec68494055dfcd2dd242edb4027c9c9f8` |
+|               | July 12th    | `sha256:ccd70807d6de71ba37de13b39a1a7180baf2820a4d6fe6ae3a704540b36f0ba5` |
+
 
 

@@ -16,10 +16,12 @@ toc: true
 
 [cgr.dev/chainguard/zookeeper](https://github.com/chainguard-images/images/tree/main/images/zookeeper)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:3ca2382505c9598d64a20c0e920e426012414cff1e7bae38d03d6011ada6d4ed` |
-| `latest`     | July 11th    | `sha256:6b745edc5c5c95c74741b09f58db257606cb71858495bd7c47f46fa89fd355c2` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:3a8f97e4291990738988f7b8782d2d24a6dfd96fba951be90f4d8f046f70bd6b` |
+|  `latest`     | July 11th    | `sha256:6b745edc5c5c95c74741b09f58db257606cb71858495bd7c47f46fa89fd355c2` |
+|               | July 4th     | `sha256:39583c633e88e392889c00ee0807620fc363be8dedfa57c7c7b2c54c2304831b` |
+|               | July 4th     | `sha256:fd731e680a47cd6ceed0d82068f31a1b06e612314ba142e8785f2ad2351dd12b` |
 
 
 
@@ -78,3 +80,4 @@ Using config: /usr/share/java/zookeeper/bin/../conf/zoo_sample.cfg
 2023-03-12 20:38:22,357 [myid:] - INFO  [main:o.a.z.Environment@98] - Server environment:zookeeper.version=3.8.1-74db005175a4ec545697012f9069cb9dcc8cdda7, built on 2023-03-12 20:32 UTC
 2023-03-12 20:38:22,357 [myid:] - INFO  [main:o.a.z.Environment@98] - Server environment:host.name=f0739f928721
 ```
+

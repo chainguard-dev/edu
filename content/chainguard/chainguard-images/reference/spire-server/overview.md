@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/spire-server](https://github.com/chainguard-images/images/tree/main/images/spire-server)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:6e24d698619947711d10aec6290494985bbed1a595a9ec7e0f6595cda1e5227a` |
-| `latest`     | July 11th    | `sha256:594c4e2f2f9d8c46671b8bfafeeba5dda6092deabb5b9e6c19db0d0cae122e28` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:f83379809be4481992b27c76d4b732149530d0bfac4c01ef2d444054899d5476` |
+|  `latest`     | July 14th    | `sha256:cdc7eb34388143def6f27cbd6421de4d6f9a5a007fdf693dced3d5fe7b72001b` |
+|               | July 12th    | `sha256:6e24d698619947711d10aec6290494985bbed1a595a9ec7e0f6595cda1e5227a` |
 
 # spire-server
 

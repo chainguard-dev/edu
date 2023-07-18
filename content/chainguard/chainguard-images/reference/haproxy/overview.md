@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/haproxy](https://github.com/chainguard-images/images/tree/main/images/haproxy)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:5c9b3161ce2677894d3c4837dafcc22fd0a36e89bd18f002254d22711746d8e1` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:4f1d8dcd871d501f27d233e6fb403209c55c7cace19c3ac97c280e9c752d74e8` |
 
 
 
@@ -55,3 +55,4 @@ In order for the container to work, you need to mount your custom `haproxy.cfg` 
 ```
 docker run -it --rm -v "$(pwd):/etc/haproxy" cgr.dev/chainguard/haproxy haproxy -f /etc/haproxy/haproxy.cfg
 ```
+

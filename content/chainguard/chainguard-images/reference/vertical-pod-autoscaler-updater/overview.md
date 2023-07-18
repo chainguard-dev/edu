@@ -16,10 +16,12 @@ toc: true
 
 [cgr.dev/chainguard/vertical-pod-autoscaler-updater](https://github.com/chainguard-images/images/tree/main/images/vertical-pod-autoscaler-updater)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:725701e36b600933840f10c720f68db642591daf139b28379cad5191c5de2fb8` |
-| `latest`     | July 11th    | `sha256:7abbdc5f01ec82f85ece325788994bb38edfaf9ff2e7855d9f247d2ec6f89eb1` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:f2d9acefba2beabbe475ab81cd6d82655aa75f234a8afbc5a866c4eafbb3c478` |
+|  `latest`     | July 14th    | `sha256:cacb64d39eb7bfbcc615b055ab1e43a2f9ff26d19c60dac56283968e1d05f65d` |
+|               | July 12th    | `sha256:725701e36b600933840f10c720f68db642591daf139b28379cad5191c5de2fb8` |
+|               | June 21st    | `sha256:d3174ca484923b6d93cff9618d3b390b8797e293ef97e24b1b4c3116dadd1a67` |
 
 # vertical-pod-autoscaler-updater
 
