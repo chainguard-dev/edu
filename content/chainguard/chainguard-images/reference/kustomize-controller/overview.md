@@ -16,8 +16,8 @@ toc: true
 
 [cgr.dev/chainguard/kustomize-controller](https://github.com/chainguard-images/images/tree/main/images/kustomize-controller)
 
-| Tag | Last Updated | Digest |
-|-----|--------------|--------|
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 
 # kustomize-controller
 

@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/gatekeeper](https://github.com/chainguard-images/images/tree/main/images/gatekeeper)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:6245437b1cac331174ff0293850739e12ff5e7697e1f5845bcc08a2ddde389fe` |
-| `latest`     | July 11th    | `sha256:02e519e4c71ae9b7fe064e2768a1f5d421fd7d8f443a1e1c52648979db899112` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:a31ed2adb42114de65edcd6b000a61ccb4a58a3ed7e4044a1d96da067ffe58c7` |
+|  `latest`     | July 14th    | `sha256:8c63a2ef5cc4f94837871af5feafcff6c5af91ad27811c9a505a4e94d97df855` |
+|               | July 12th    | `sha256:6245437b1cac331174ff0293850739e12ff5e7697e1f5845bcc08a2ddde389fe` |
 
 
 
@@ -58,3 +59,4 @@ Once you did this, you can install Gatekeeper to the target cluster:
 	    --set image.release="latest" \
         gatekeeper/gatekeeper
 ```
+

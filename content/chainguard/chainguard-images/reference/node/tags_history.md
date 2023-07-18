@@ -16,33 +16,15 @@ toc: true
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
-| Tag              | Last Updated | Digest                                                                    |
-|------------------|--------------|---------------------------------------------------------------------------|
-| `20.4`           | July 12th    | `sha256:2cadde43968b609759cd05174625b496cdc3ad0afbd7194eed2bc421eba12280` |
-| `20.4.0`         | July 12th    | `sha256:2cadde43968b609759cd05174625b496cdc3ad0afbd7194eed2bc421eba12280` |
-| `20`             | July 12th    | `sha256:2cadde43968b609759cd05174625b496cdc3ad0afbd7194eed2bc421eba12280` |
-| `19.9.0-r1-dev`  | July 12th    | `sha256:498d664d9463a911c33ee2cb69959a167f1ed2cdf7dfa2b1f982137d250336e5` |
-| `18.16-dev`      | July 12th    | `sha256:ad7c8730181a62faa07c50479d15e162abb0eecd01f3e9befe060c8b800fb455` |
-| `20.4.0-dev`     | July 12th    | `sha256:105b165a26967947705a6d873d9f3e4aee9e636b3d056d51d3229edb56a0c1c0` |
-| `19-dev`         | July 12th    | `sha256:498d664d9463a911c33ee2cb69959a167f1ed2cdf7dfa2b1f982137d250336e5` |
-| `20.4-dev`       | July 12th    | `sha256:105b165a26967947705a6d873d9f3e4aee9e636b3d056d51d3229edb56a0c1c0` |
-| `18`             | July 12th    | `sha256:88d402ca93aa900ec0bcd5ea4f7f5743c360e7455b20d2e5a0cf6ccd248ca591` |
-| `20-dev`         | July 12th    | `sha256:105b165a26967947705a6d873d9f3e4aee9e636b3d056d51d3229edb56a0c1c0` |
-| `18.16.1`        | July 12th    | `sha256:88d402ca93aa900ec0bcd5ea4f7f5743c360e7455b20d2e5a0cf6ccd248ca591` |
-| `18.16`          | July 12th    | `sha256:88d402ca93aa900ec0bcd5ea4f7f5743c360e7455b20d2e5a0cf6ccd248ca591` |
-| `18.16.1-r0-dev` | July 12th    | `sha256:ad7c8730181a62faa07c50479d15e162abb0eecd01f3e9befe060c8b800fb455` |
-| `latest-dev`     | July 12th    | `sha256:ad7c8730181a62faa07c50479d15e162abb0eecd01f3e9befe060c8b800fb455` |
-| `19.9.0-dev`     | July 12th    | `sha256:498d664d9463a911c33ee2cb69959a167f1ed2cdf7dfa2b1f982137d250336e5` |
-| `19.9`           | July 12th    | `sha256:2e6a7db3736573b457e832e9c16498b17549ef5560312fdeb2a520788cf69983` |
-| `latest`         | July 12th    | `sha256:88d402ca93aa900ec0bcd5ea4f7f5743c360e7455b20d2e5a0cf6ccd248ca591` |
-| `19.9.0`         | July 12th    | `sha256:2e6a7db3736573b457e832e9c16498b17549ef5560312fdeb2a520788cf69983` |
-| `18-dev`         | July 12th    | `sha256:ad7c8730181a62faa07c50479d15e162abb0eecd01f3e9befe060c8b800fb455` |
-| `19.9-dev`       | July 12th    | `sha256:498d664d9463a911c33ee2cb69959a167f1ed2cdf7dfa2b1f982137d250336e5` |
-| `20.4.0-r0-dev`  | July 12th    | `sha256:105b165a26967947705a6d873d9f3e4aee9e636b3d056d51d3229edb56a0c1c0` |
-| `19`             | July 12th    | `sha256:2e6a7db3736573b457e832e9c16498b17549ef5560312fdeb2a520788cf69983` |
-| `18.16.1-dev`    | July 12th    | `sha256:ad7c8730181a62faa07c50479d15e162abb0eecd01f3e9befe060c8b800fb455` |
-| `20.3.1-dev`     | July 4th     | `sha256:5d3aa26fffd3cf21fdc200144675ab909e3a5ffd2b7cad98da6a29694e1568c7` |
-| `20.3.1-r0-dev`  | July 4th     | `sha256:5d3aa26fffd3cf21fdc200144675ab909e3a5ffd2b7cad98da6a29694e1568c7` |
-| `20.3-dev`       | July 4th     | `sha256:5d3aa26fffd3cf21fdc200144675ab909e3a5ffd2b7cad98da6a29694e1568c7` |
-| `20.3.1`         | July 4th     | `sha256:e41414b4bd7b773159e3fa0781e37d22c580fb31bf91c945916db3bf2a6b35a1` |
-| `20.3`           | July 4th     | `sha256:e41414b4bd7b773159e3fa0781e37d22c580fb31bf91c945916db3bf2a6b35a1` |
+Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
+
+| Tag (s)                                                           | Last Changed | Digest                                                                    |
+|-------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `19.9.0-r1-dev` `19-dev` `19.9-dev` `19.9.0-dev`                 | July 18th    | `sha256:c41d69ec8d938d693ffbc812dd34cfabc874f5dbc3d312c0ee8da847f60db9eb` |
+|  `20-dev` `20.4-dev` `20.4.0-r0-dev` `20.4.0-dev`                 | July 18th    | `sha256:b1d87ebfd90198dfed10a38f20bfc78241adb77e8ab1ae0aa8ef33d2f3558117` |
+|  `20.4.0` `20` `20.4`                                             | July 18th    | `sha256:f4c712953222187dc861c53ea6c53c1cc8b4d44fec988916778523c53248e9af` |
+|  `18.16-dev` `18-dev` `latest-dev` `18.16.1-dev` `18.16.1-r0-dev` | July 18th    | `sha256:3bf0d16b4a77a6381a2b3ca844a4aad421e9dd41bbb432d9d7e4a4296c44b30e` |
+|  `19.9.0` `19.9` `19`                                             | July 18th    | `sha256:7b1cf5bbd194b0d808fa4b93bcc59246477e67dd0a4afbd4680e65d4900c7ac7` |
+|  `18.16` `latest` `18.16.1` `18`                                  | July 18th    | `sha256:9b4310b99d50cc4c30a3ded94fc8a962f987ed1a1c9ba4f058c95cc7e766908e` |
+|  `20.3.1-dev` `20.3.1-r0-dev` `20.3-dev`                          | July 4th     | `sha256:5d3aa26fffd3cf21fdc200144675ab909e3a5ffd2b7cad98da6a29694e1568c7` |
+|  `20.3.1` `20.3`                                                  | July 4th     | `sha256:e41414b4bd7b773159e3fa0781e37d22c580fb31bf91c945916db3bf2a6b35a1` |

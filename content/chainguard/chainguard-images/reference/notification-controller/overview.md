@@ -16,8 +16,8 @@ toc: true
 
 [cgr.dev/chainguard/notification-controller](https://github.com/chainguard-images/images/tree/main/images/notification-controller)
 
-| Tag | Last Updated | Digest |
-|-----|--------------|--------|
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 
 # notification-controller
 

@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/calico-cni](https://github.com/chainguard-images/images/tree/main/images/calico-cni)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:56d0e396762354781d0f0794ec0a1e62f99ba21998ead9ec39af3dc1349759ac` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:7e47f42841be44b64db67acab487718a7156885a531fa2e6c080f0ee028bded0` |
 
 # calico-cni
 

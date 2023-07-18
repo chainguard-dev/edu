@@ -16,10 +16,16 @@ toc: true
 
 [cgr.dev/chainguard/flux](https://github.com/chainguard-images/images/tree/main/images/flux)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:62412f69dd8e86389bc13fbe78e715e8ef7cd751ed9745b873443e0c25e0fb79` |
-| `latest`     | July 11th    | `sha256:bd78e62f5bcb7ad9603abd79df7e9361f5480b05cc7b6768a7e2eb2d33895fe0` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:5877d62d32090f31123945918f0e7a915e475b8bf19104f7a7735a17e6a18c12` |
+|  `latest`     | July 14th    | `sha256:a7cd3a6872dd11489d78b2f188f380788a03190d641ca8cf7e0c5921041e67a4` |
+|               | July 12th    | `sha256:62412f69dd8e86389bc13fbe78e715e8ef7cd751ed9745b873443e0c25e0fb79` |
+|               | July 8th     | `sha256:cd731887ebca60fa5ff2a0dd4b1d2bb14b9ea1585513c8dd2605a76086fb65b1` |
+|               | July 8th     | `sha256:b56dec6807fb26cd009433c0a86022cf30d90253e47c990db4c7b3ecd32d9897` |
+|               | July 4th     | `sha256:fd9c25a32ff6d5a752f92172ef45826e7edf6112e8c9746806e5c1190d4d5eae` |
+|               | July 4th     | `sha256:d4627a96a1045973f7c455c3be9033f24a6e02e20ef53ed16bed0a61463d5b8d` |
+|               | June 26th    | `sha256:e827663f4da12b1645ce553451a2f9fe4b663603c624be6c0db33f8c1cce435e` |
 
 
 
@@ -41,3 +47,4 @@ The `flux` cli contains various functionality to interact with the flux gitops t
 # Install the flux gitops toolkit using chainguard images
 docker run cgr.dev/chainguard/flux export --registry cgr.dev/chainguard | kubectl apply -f -
 ```
+

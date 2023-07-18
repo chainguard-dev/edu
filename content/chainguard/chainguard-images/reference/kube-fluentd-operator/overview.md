@@ -16,9 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kube-fluentd-operator](https://github.com/chainguard-images/images/tree/main/images/kube-fluentd-operator)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:2530f52ed49c1f6b4ef23e587bfc2b2665f6c982c1e52861d4cc4cfe35aa864a` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:9aaee8747958134577d3f4a0cd684ad053bc94beeaf828d3e1f4c23840d62b7a` |
+|           | July 10th    | `sha256:ebc31da9f1d27410050963e0320e4aa2c04f44b634d0ce49931cc376481047a4` |
 
 
 
@@ -46,3 +47,4 @@ helm install --create-namespace kfo ./kube-fluentd-operator/charts/log-router \
   --set image.tag=latest \
   --set image.repository=cgr.dev/chainguard/kube-fluentd-operator
 ```
+

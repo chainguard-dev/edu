@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/newrelic-k8s-events-forwarder](https://github.com/chainguard-images/images/tree/main/images/newrelic-k8s-events-forwarder)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | July 12th    | `sha256:3ee84e020494b252e9eb13aa00300fba4e024d4ac407c7a69a17935091ba33db` |
-| `latest-dev` | June 27th    | `sha256:0d9e538c2e7a4ad103fa360dac55276cedd6d622786edd512ac25b668aef952a` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | July 18th    | `sha256:1a63da283d86fd7f502903e57f2daaece738964a05451192648a6b574b60db62` |
+|               | July 14th    | `sha256:5be4870e4390ec5ffd5d5f45d9fa23be92bc2b71c8f34e8d6da7302a46e4a17d` |
+|  `latest-dev` | June 27th    | `sha256:0d9e538c2e7a4ad103fa360dac55276cedd6d622786edd512ac25b668aef952a` |
 
 # newrelic-k8s-events-forwarder
 

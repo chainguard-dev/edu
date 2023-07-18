@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/calico-typha](https://github.com/chainguard-images/images/tree/main/images/calico-typha)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:01b93f72b8157f02d61db346c39597e169aee75770954759daa7c552dbe52204` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:a1fef5a05baab8cd977a176da2f2ea309b99b47a62594c91ec93180babcfe7c9` |
 
 # calico-typha
 

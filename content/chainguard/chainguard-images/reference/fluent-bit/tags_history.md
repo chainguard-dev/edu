@@ -16,11 +16,9 @@ toc: true
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:efeaae24b2ccc67d905706a1297676487a666c6df1c1883d06926dfd77b442a1` |
-| `2.1.6`  | July 11th    | `sha256:efeaae24b2ccc67d905706a1297676487a666c6df1c1883d06926dfd77b442a1` |
-| `2`      | July 11th    | `sha256:efeaae24b2ccc67d905706a1297676487a666c6df1c1883d06926dfd77b442a1` |
-| `2.1`    | July 11th    | `sha256:efeaae24b2ccc67d905706a1297676487a666c6df1c1883d06926dfd77b442a1` |
-| `2.1.5`  | June 15th    | `sha256:9f8febbdca27173047aae2912b284789c5a4b724c0d7586555f11a9f8fde5e75` |
-| `2.1.2`  | June 15th    | `sha256:d7807d2378ac38e820edb22dee0bc4c7e6f47a0bdc7917e2bc9eb6e8b8c39ba7` |
+Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
+
+| Tag (s)                     | Last Changed | Digest                                                                    |
+|-----------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.1.7` `2.1` `2` `latest` | July 18th    | `sha256:74176ce1b42f97058fe6601584b565cda50ad73057d85a5bd2d15929210bf921` |
+|  `2.1.6`                    | July 11th    | `sha256:efeaae24b2ccc67d905706a1297676487a666c6df1c1883d06926dfd77b442a1` |

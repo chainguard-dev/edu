@@ -16,9 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/gradle](https://github.com/chainguard-images/images/tree/main/images/gradle)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:e6779dec9d114872e3c8bc69cf92e063666fdee6e12fb4454f748300c8e15248` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 14th    | `sha256:dab6406703c38f341b03df958286728f2478661356ac380cd3ac861cb4b1cb7c` |
+|           | July 11th    | `sha256:e6779dec9d114872e3c8bc69cf92e063666fdee6e12fb4454f748300c8e15248` |
+|           | June 27th    | `sha256:ec4dd3208cd89e1178ceb997453016d5e953ae88d54c85766a20d17ee24f3e5c` |
 
 
 
@@ -63,3 +65,4 @@ Ant:          Apache Ant(TM) version 1.10.11 compiled on July 10 2021
 JVM:          11.0.18-internal (wolfi 11.0.18-internal+0-wolfi-r1)
 OS:           Linux 5.15.49-linuxkit aarch64
 ```
+

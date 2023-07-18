@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/k8sgpt-operator](https://github.com/chainguard-images/images/tree/main/images/k8sgpt-operator)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:1d32c5baaff162164500065eea3e3363d6dff4f07ae256ad82fcc3d0aa761e28` |
-| `latest`     | July 11th    | `sha256:5277e93fb7498aa1f68a0cec98d573c6f1cf6571522b6396adbd908573caf09b` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:e14f70ac645c919a1271bb4507a248a37157b97872c310ed902f3694d8361cd5` |
+|  `latest`     | July 14th    | `sha256:1c8fe5e5ddcc4251bf8260e6bac1927cfffe3034bd4df388db98e509e8a67b04` |
+|               | July 12th    | `sha256:1d32c5baaff162164500065eea3e3363d6dff4f07ae256ad82fcc3d0aa761e28` |
 
 
 
@@ -32,3 +33,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/k8sgpt-operator:latest
 ```
+

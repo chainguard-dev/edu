@@ -16,9 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/fluent-bit](https://github.com/chainguard-images/images/tree/main/images/fluent-bit)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:efeaae24b2ccc67d905706a1297676487a666c6df1c1883d06926dfd77b442a1` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:74176ce1b42f97058fe6601584b565cda50ad73057d85a5bd2d15929210bf921` |
+|           | July 11th    | `sha256:efeaae24b2ccc67d905706a1297676487a666c6df1c1883d06926dfd77b442a1` |
 
 
 
@@ -65,3 +66,4 @@ Fluent Bit v2.0.8
 [2023/01/20 01:37:06] [ info] [output:stdout:stdout.0] worker #0 started
 {"date":1674178633.0,"container_id":"c77d18c7700cc8e552b1f137ec9e6cd922637c733463e38fc97de7d51a95e4e9","container_name":"/nice_morse","source":"stdout","log":"Testing a log message\r"}
 ```
+

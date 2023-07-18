@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/prometheus-config-reloader](https://github.com/chainguard-images/images/tree/main/images/prometheus-config-reloader)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:c8ad98e75b49b3e4ac3141b6c3978aa669aab64de085323f98f9c5cb56bedaa1` |
-| `latest`     | July 12th    | `sha256:45b0c2853e8668cfdbfc4d7122112bc7f28dceb1fd6f733a4e5b2fc1db14a315` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:13622da111eed506980d3063b8371195144649ca7de8f2773f842a40de63bf5a` |
+|  `latest`     | July 14th    | `sha256:93f36668b6f003ad17e186f675cab3517e9bc4ba8197591459ab943de125e47b` |
+|               | July 12th    | `sha256:c8ad98e75b49b3e4ac3141b6c3978aa669aab64de085323f98f9c5cb56bedaa1` |
 
 # prometheus-config-reloader
 

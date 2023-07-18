@@ -16,9 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/newrelic-prometheus](https://github.com/chainguard-images/images/tree/main/images/newrelic-prometheus)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 12th    | `sha256:891b6e7ec5ce8780ca42c7783e49b225779f7e4e677b9f1e79523ca47bcfdea6` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:9d2992eee6381faccc0524ceda401362228edf165d3196ec8e4ebfd74218897a` |
+|           | July 11th    | `sha256:8e36d212f55c55988c2357118dec4d37a0228f78484b8240b7bcf5a48d59560b` |
 
 # newrelic-prometheus
 

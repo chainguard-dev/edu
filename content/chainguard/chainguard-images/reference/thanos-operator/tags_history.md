@@ -16,14 +16,10 @@ toc: true
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
-| Tag            | Last Updated | Digest                                                                    |
-|----------------|--------------|---------------------------------------------------------------------------|
-| `0-dev`        | July 12th    | `sha256:b137a4f02faad8f4f14b4e93960bc21aa2873b21a855f0574d058faf9f88cc17` |
-| `0.3.7-r1-dev` | July 12th    | `sha256:b137a4f02faad8f4f14b4e93960bc21aa2873b21a855f0574d058faf9f88cc17` |
-| `0.3-dev`      | July 12th    | `sha256:b137a4f02faad8f4f14b4e93960bc21aa2873b21a855f0574d058faf9f88cc17` |
-| `latest-dev`   | July 12th    | `sha256:b137a4f02faad8f4f14b4e93960bc21aa2873b21a855f0574d058faf9f88cc17` |
-| `0.3.7-dev`    | July 12th    | `sha256:b137a4f02faad8f4f14b4e93960bc21aa2873b21a855f0574d058faf9f88cc17` |
-| `0.3`          | July 11th    | `sha256:c89b138e3a328b512aa3a1722b359e8a666357997c8c3b46c0eb34d377cbceb4` |
-| `latest`       | July 11th    | `sha256:c89b138e3a328b512aa3a1722b359e8a666357997c8c3b46c0eb34d377cbceb4` |
-| `0.3.7`        | July 11th    | `sha256:c89b138e3a328b512aa3a1722b359e8a666357997c8c3b46c0eb34d377cbceb4` |
-| `0`            | July 11th    | `sha256:c89b138e3a328b512aa3a1722b359e8a666357997c8c3b46c0eb34d377cbceb4` |
+Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
+
+| Tag (s)                                                    | Last Changed | Digest                                                                    |
+|------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.3-dev` `0.3.7-dev` `latest-dev` `0.3.7-r2-dev` `0-dev` | July 18th    | `sha256:1fbe0d8a0310465a3f56490d9d9c550c305ec1ea5a24b246358d5d53d3b92586` |
+|  `0.3.7` `latest` `0.3` `0`                                | July 14th    | `sha256:294c787ec59cd7b099ae54f547ddcca40eafbeae4fa4e86146cecfd158d61b6a` |
+|  `0.3.7-r1-dev`                                            | July 12th    | `sha256:b137a4f02faad8f4f14b4e93960bc21aa2873b21a855f0574d058faf9f88cc17` |

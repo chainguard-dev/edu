@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/mariadb](https://github.com/chainguard-images/images/tree/main/images/mariadb)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:e9bbd7db245ac64125b55b1c425de89f37073aa1e6c3e7e966bde81538995f40` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:8c5332ee98a7d05563f0ac7f2805c9e247f2a404cf9eea37398d3ab630807af4` |
 
 
 
@@ -112,3 +112,4 @@ networks:
   wolfi:
     driver: bridge
 ```
+

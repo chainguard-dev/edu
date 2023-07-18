@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/node-problem-detector](https://github.com/chainguard-images/images/tree/main/images/node-problem-detector)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | July 11th    | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
-| `latest-dev` | July 11th    | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
+| Tag (s)                | Last Changed | Digest                                                                    |
+|------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `latest` | July 14th    | `sha256:83a9d92c2dce42a5a09f885c51456e20aae027eaf88af2801771f4fc334e0e2a` |
+|                        | July 11th    | `sha256:b2dda8bb4631f9c8ea9151b47f8f272f7224a28faaa88973727b6a4d2335c7d7` |
 
 
 
@@ -45,3 +45,4 @@ helm upgrade --install npd deliveryhero/node-problem-detector \
   --set image.repository=cgr.dev/chainguard/node-problem-detector \
   --set image.tag=latest
 ```
+

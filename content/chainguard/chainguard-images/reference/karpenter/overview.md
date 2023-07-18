@@ -16,10 +16,12 @@ toc: true
 
 [cgr.dev/chainguard/karpenter](https://github.com/chainguard-images/images/tree/main/images/karpenter)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:35945961f5fb3d3ad900d51b6f6f8d4f1ca892ba93923332b3f0f80af830986a` |
-| `latest`     | July 11th    | `sha256:1b8d7f33a13810d3e5bd24218087e08593354c5673c7b8480dc9369e8775a5ff` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:70c344c5250d58c8b01dc6af4e9c552e1dc5d67c5ee83babd1d7a2dfb64a8492` |
+|  `latest`     | July 11th    | `sha256:1b8d7f33a13810d3e5bd24218087e08593354c5673c7b8480dc9369e8775a5ff` |
+|               | July 4th     | `sha256:d76d1c0e6f120d5c42455995778122136ecf97829a860a3735e3315532f5063f` |
+|               | June 26th    | `sha256:4a3d8f489e5e26aeca8997a090b8b94f714c404f68b91ff66d536ec5001166e2` |
 
 
 
@@ -61,3 +63,4 @@ Finally, edit the `helm upgrade` command to include the following lines:
 --set controller.image.repository=cgr.dev/chainguard/karpenter \
 --set controller.image.digest=$DIGEST \
 ```
+

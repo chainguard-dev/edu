@@ -16,9 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/static](https://github.com/chainguard-images/images/tree/main/images/static)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:6b35c7e7084349b3a71e70219f61ea49b22d663b89b0ea07474e5b44cbc70860` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 11th    | `sha256:6b35c7e7084349b3a71e70219f61ea49b22d663b89b0ea07474e5b44cbc70860` |
+|           | July 11th    | `sha256:475c607938a6121d4c361c20aef8d9b082348bb7f5a544b989decfb79b67753e` |
 
 
 
@@ -110,3 +111,4 @@ the `defaultBaseImage` to `cgr.dev/chainguard/static`.
 ## Users
 
 The image has a single user `nonroot` with uid `65532`, belonging to gid `65532`.
+

@@ -16,9 +16,12 @@ toc: true
 
 [cgr.dev/chainguard/pulumi](https://github.com/chainguard-images/images/tree/main/images/pulumi)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 12th    | `sha256:61ef9c40d77dbd5aa95a75de776611f19e4adfa734709ab1995d3d746afb2391` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:7f1a6dbc059cbd90724706bdc97d7b23ef045b289c858796d96ef3a663cb789b` |
+|           | July 14th    | `sha256:ebce2a39c556cca7ee2eabf237bd17cd38699e18a6430f9caf99e44ded67cd4d` |
+|           | June 27th    | `sha256:817bc83cef676bd508aee60d4c84fe35202635b70b0b262a46c6bb469a139dc0` |
+|           | June 21st    | `sha256:c3b3d473103b23c575153e70a27b4232b8e0c24fe72d19de9af533518e50ca16` |
 
 
 
@@ -151,3 +154,4 @@ Now check for pods, there should not be any:
 $ kubectl get pods
 No resources found in default namespace.
 ```
+

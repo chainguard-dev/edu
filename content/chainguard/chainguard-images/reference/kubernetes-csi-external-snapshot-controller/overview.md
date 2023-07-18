@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/kubernetes-csi-external-snapshot-controller](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-snapshot-controller)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:032689d6b1e16cb3d5558fea0b5d6ff7c9e3282ca9acbd4e6776726784877b63` |
-| `latest`     | July 11th    | `sha256:13608c56257ae4c274a91c922429a4ed793a06a3011d4d69ba948a065734780e` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:4e6ca99c8d7f8ad4c383a7418154099f05203ae2738fc3f51b7ba308a16af2c4` |
+|  `latest`     | July 14th    | `sha256:f84ac11ab58695363c2faa4dba0cab93fcd242574c5321e6d05deab16fede123` |
+|               | July 12th    | `sha256:032689d6b1e16cb3d5558fea0b5d6ff7c9e3282ca9acbd4e6776726784877b63` |
 
 
 
@@ -32,3 +33,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/kubernetes-csi-external-snapshot-controller
 ```
+

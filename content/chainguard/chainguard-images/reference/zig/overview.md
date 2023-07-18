@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/zig](https://github.com/chainguard-images/images/tree/main/images/zig)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:b1946542e0dfb7b59cd8da95e6684690fbc8691f117ef9256d5ab5c2adcb1cd9` |
-| `latest`     | July 12th    | `sha256:d503ec0d806c2fe0caed49d8f86dcaf291297d7ab8dad087f2f4386ac7a24ffc` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:6e0a90a7bc747db73d95733a81ffe2b24c6fd26788d28cff3e7853ba6095bb0b` |
+|  `latest`     | July 12th    | `sha256:d503ec0d806c2fe0caed49d8f86dcaf291297d7ab8dad087f2f4386ac7a24ffc` |
 
 
 
@@ -197,3 +197,4 @@ $ docker run mysecondwasmapp
 All your codebase are belong to us.
 Run `zig build test` to run the tests.
 ```
+

@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/prometheus-redis-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-redis-exporter)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:96552b721bb30b3a81e4275e63dad1fac085df3202df1dc50b7f23bacd2e8a90` |
-| `latest`     | July 12th    | `sha256:921e1b38e32752b96a41edea387a5a3c910f2b4ff684b487f8be12a1e0cd1b9a` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:b4d9abbdb5a356106e781a6cc22ab167dc2c7b833ee47cf4b05cefcc19ccb853` |
+|  `latest`     | July 14th    | `sha256:546d9f7ff2645f5113ff040411845af040261d18e8654244e7eafeb70bec3c62` |
+|               | July 12th    | `sha256:96552b721bb30b3a81e4275e63dad1fac085df3202df1dc50b7f23bacd2e8a90` |
 
 # prometheus-redis-exporter
 

@@ -16,8 +16,8 @@ toc: true
 
 [cgr.dev/chainguard/source-controller](https://github.com/chainguard-images/images/tree/main/images/source-controller)
 
-| Tag | Last Updated | Digest |
-|-----|--------------|--------|
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 
 # source-controller
 
