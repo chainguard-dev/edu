@@ -187,7 +187,7 @@ The next major part of this YAML file is installing Cosign.
 
 ```js
       - name: Install cosign
-          uses: sigstore/cosign-installer@main
+        uses: sigstore/cosign-installer@main
 ```
 
 Cosign is available through the [GitHub Action Marketplace](https://github.com/marketplace/actions/cosign-installer), which is why we can add it to our GitHub Action as above. 
@@ -196,16 +196,16 @@ You can pin your workflow to a particular release of Cosign. For example, here y
 
 ```js
       - name: Install cosign
-          uses: sigstore/cosign-installer@main
-            with:
-             cosign-release: 'v2.1.1'
+        uses: sigstore/cosign-installer@main
+        with:
+          cosign-release: 'v2.1.1'
 ```
 
 After this step, there will be some actions to setup the Docker build, log into the GitHub Container Registry, and build and push the container image. The next piece that is most relevant to our work with Sigstore is signing the container image.
 
 ```js
       - name: Sign the container image
-          run: cosign sign --yes ghcr.io/${{ github.repository }}@${{ steps.push-step.outputs.digest }}
+        run: cosign sign --yes ghcr.io/${{ github.repository }}@${{ steps.push-step.outputs.digest }}
 ```
 
 Here you’ll run the `cosign sign` command on the container we are pushing to GitHub Container Registry with the relevant variable calling our repository and digest. 
