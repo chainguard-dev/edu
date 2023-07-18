@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/trust-manager](https://github.com/chainguard-images/images/tree/main/images/trust-manager)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:a1ac8b847a34874622d15573196d601607b43ff2518bf8e0b4b465c3694798f7` |
-| `latest`     | July 11th    | `sha256:f65e6d8f8c9e0316e53f086d626cc19e0301085ce79b5ee4c1714244ff7874e7` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:71cdeb099042c0ab8ce38ce290eed2b45ef5d03da92b2ba5e23e99a4c35c4a36` |
+|  `latest`     | July 14th    | `sha256:3564b6b9473440afd927cb6cfae6ccb14344db17f719edad792ce7607c7e6bff` |
+|               | July 12th    | `sha256:a1ac8b847a34874622d15573196d601607b43ff2518bf8e0b4b465c3694798f7` |
 
 
 
@@ -32,3 +33,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/trust-manager:latest
 ```
+

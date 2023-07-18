@@ -16,14 +16,10 @@ toc: true
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
-| Tag             | Last Updated | Digest                                                                    |
-|-----------------|--------------|---------------------------------------------------------------------------|
-| `1.12.2-r0-dev` | July 12th    | `sha256:9dcd777d1f56229518cc2eea3974f805cabe02eb9e16fe000fb62ced4387bbe0` |
-| `1-dev`         | July 12th    | `sha256:9dcd777d1f56229518cc2eea3974f805cabe02eb9e16fe000fb62ced4387bbe0` |
-| `latest-dev`    | July 12th    | `sha256:9dcd777d1f56229518cc2eea3974f805cabe02eb9e16fe000fb62ced4387bbe0` |
-| `1.12.2-dev`    | July 12th    | `sha256:9dcd777d1f56229518cc2eea3974f805cabe02eb9e16fe000fb62ced4387bbe0` |
-| `1.12-dev`      | July 12th    | `sha256:9dcd777d1f56229518cc2eea3974f805cabe02eb9e16fe000fb62ced4387bbe0` |
-| `1`             | July 11th    | `sha256:c164487863241eacfedd63a65c4f086159932fc0709ac66c14a258ba3190fe56` |
-| `latest`        | July 11th    | `sha256:c164487863241eacfedd63a65c4f086159932fc0709ac66c14a258ba3190fe56` |
-| `1.12`          | July 11th    | `sha256:c164487863241eacfedd63a65c4f086159932fc0709ac66c14a258ba3190fe56` |
-| `1.12.2`        | July 11th    | `sha256:c164487863241eacfedd63a65c4f086159932fc0709ac66c14a258ba3190fe56` |
+Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
+
+| Tag (s)                                                       | Last Changed | Digest                                                                    |
+|---------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1-dev` `latest-dev` `1.12.2-dev` `1.12.2-r1-dev` `1.12-dev` | July 18th    | `sha256:feb23dd9ab252f1e280dcc0f75c9a3be30d87b8617626d0fccfd5aa5da7f15f1` |
+|  `1` `1.12` `latest` `1.12.2`                                 | July 14th    | `sha256:cccc3a09b021763fdaca826310281b8e0cf68ffbddda38dae7e20d046f9583fd` |
+|  `1.12.2-r0-dev`                                              | July 12th    | `sha256:9dcd777d1f56229518cc2eea3974f805cabe02eb9e16fe000fb62ced4387bbe0` |

@@ -16,10 +16,18 @@ toc: true
 
 [cgr.dev/chainguard/maven](https://github.com/chainguard-images/images/tree/main/images/maven)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:b7b7b9dfda463a39e552be66b80b78948c1406ad5b90cc83e63c03b04d9bec7a` |
-| `latest`     | July 11th    | `sha256:63d0f1b038b2c2b0c8a1727ed0d7fe54df88ce3f4f0642f8c47648bd83133680` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|               | July 18th    | `sha256:8ae7efcb1a3cbc52156513fea1c50df4a10aebb10cce1b00428ea488325bce87` |
+|  `latest-dev` | July 18th    | `sha256:b0f86613d6c7eefb0f47f8eac002af1800f1fd10294e54e7f1501940f0217133` |
+|  `latest`     | July 11th    | `sha256:63d0f1b038b2c2b0c8a1727ed0d7fe54df88ce3f4f0642f8c47648bd83133680` |
+|               | July 11th    | `sha256:2213e3523cdd37fc057416b5c0c7c9fe520dde70c3e1954d866658bbc643552e` |
+|               | July 4th     | `sha256:f498a25da3c87131ce4edc2d87f0976428fa987353237374034d418d6a3d3071` |
+|               | July 4th     | `sha256:9346e9dffcab6e4ccc9948879b466e0fc9a878840e9f1ab7a281301e2041c4a3` |
+|               | June 26th    | `sha256:811d218034857dc9c67092773a0df50e27879a23e1e47ecb3936d111120da6e4` |
+|               | June 26th    | `sha256:27e5222f539e9380493040ce983fa8dda4ab70b8326fd3dbd8e11a3ded59b3d4` |
+|               | June 26th    | `sha256:0a17c8668979f455fb84fe0d605e135002cc7d6fc703327dfdb89d7bf1354b48` |
+|               | June 26th    | `sha256:ecdf39b0f7a9a7e99e2b83d42d125635546eb25a72f7e1545271b17cc371ab8a` |
 
 
 
@@ -164,3 +172,4 @@ docker images | grep my-chainguard-springboot-app
 ```
 
 You can also check for vulnerabilities using your favorite scanner.
+

@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/cluster-proportional-autoscaler](https://github.com/chainguard-images/images/tree/main/images/cluster-proportional-autoscaler)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:9e5dcaa5a49cf74ce7d8e60b1d7295e52257567243d93d98105b7dd09f2db37c` |
-| `latest`     | July 11th    | `sha256:c673d2b952b66afac1375b990ed638ca4b22f7c0322fc6de6f2fe810be82a418` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:7d4ab384e767e5e58142d7524bf62d24961e7673c12cabb61974b6f472ffc88e` |
+|  `latest`     | July 14th    | `sha256:faf26c99426072a4313e0d7adb04a8ef3752be3b2bb6959b485be6c48666883b` |
+|               | July 12th    | `sha256:9e5dcaa5a49cf74ce7d8e60b1d7295e52257567243d93d98105b7dd09f2db37c` |
 
 
 
@@ -47,3 +48,4 @@ $ helm install my-release cluster-proportional-autoscaler/cluster-proportional-a
 ```
 
 See the [configuration](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler/tree/master/charts/cluster-proportional-autoscaler) docs for more examples.
+

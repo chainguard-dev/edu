@@ -16,10 +16,13 @@ toc: true
 
 [cgr.dev/chainguard/consul](https://github.com/chainguard-images/images/tree/main/images/consul)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest`     | July 12th    | `sha256:dded04e7e867d8c9b1f4792c35f31df385298a10ff512ec55d40c40cb6c129c7` |
-| `latest-dev` | July 12th    | `sha256:9c5b9c78457f77b4ce5ef7a1c2cdae7ee29c858a4423216973680e8143ee0799` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | July 18th    | `sha256:734a867f144338fc6aa00c775b10d2d92719c55054720e3fa3a59167afc2e766` |
+|  `latest-dev` | July 18th    | `sha256:5cfb532d2aff365abd3892e0ceaec06d106b0a38f8f22db8de03600a3d89bfb7` |
+|               | July 12th    | `sha256:9c5b9c78457f77b4ce5ef7a1c2cdae7ee29c858a4423216973680e8143ee0799` |
+|               | June 26th    | `sha256:4ddb03f73d2a1eb565cc9f452693e92ce60f4f8578ecb09da34d95d8033c81a6` |
+|               | June 26th    | `sha256:9fa47b6238e9619d87d2103fc4c2280608ca02eb77ba8e01ae286dcbcdcecf14` |
 
 
 
@@ -60,3 +63,4 @@ $ docker run cgr.dev/chainguard/consul
 
 ==> Log data will now stream in as it occurs:
 ```
+

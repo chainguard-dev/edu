@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/vault-k8s](https://github.com/chainguard-images/images/tree/main/images/vault-k8s)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:2db2854fb01e5b1740bbad12be4306fd3816bb54625054b4c53d87d5475eb732` |
-| `latest`     | July 11th    | `sha256:db52792a310837e925ad00d0e2fe99a027bdebca7ca0fab3f11c9267b3deeb5c` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:fc8671abbc8028917c20295871a9286720770f984d3c88615eaa6ab786fd2582` |
+|  `latest`     | July 14th    | `sha256:765e916cb14b6818a957cdf2c9e341fa0646a926135bfd65243cab052241c572` |
+|               | July 12th    | `sha256:2db2854fb01e5b1740bbad12be4306fd3816bb54625054b4c53d87d5475eb732` |
 
 # vault-k8s
 

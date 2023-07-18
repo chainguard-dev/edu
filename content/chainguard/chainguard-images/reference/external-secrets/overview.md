@@ -16,10 +16,15 @@ toc: true
 
 [cgr.dev/chainguard/external-secrets](https://github.com/chainguard-images/images/tree/main/images/external-secrets)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:034ffdc1a6399f7b72131988b30bacd373fdd680fbeb6474cf96dd63c136ca2e` |
-| `latest`     | July 11th    | `sha256:20ec3e638422151fe6ba6f835f41f40478c88a052eb009c62441831e304455c1` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:1fc194a3841e8fc4e5aecfa54437b7affe89d98f38ade69e843d366fd5650246` |
+|  `latest`     | July 14th    | `sha256:6d0bce976f04816dcef1d3f163b19457bc9922ca77681d60eb44cdc912ea3a80` |
+|               | July 12th    | `sha256:034ffdc1a6399f7b72131988b30bacd373fdd680fbeb6474cf96dd63c136ca2e` |
+|               | July 7th     | `sha256:0f6319818aa52823d8dfb70270065316f82112494eb8c80888edf2abd1b0aab4` |
+|               | July 7th     | `sha256:66c18ef07d8656170434a4f0f9d3a7510889bff7038326909b56a88d474af2a1` |
+|               | June 21st    | `sha256:6d18968c3766633de27665dd134b4dc711c927b53cbb924917ffb966b1540d30` |
+|               | June 21st    | `sha256:d55cd0e0c7d6db36b61a6456d49db6d3a5dbac977fa023a14718a5ef91619aab` |
 
 
 
@@ -51,3 +56,4 @@ $ helm install external-secrets \
 ```
 
 See the [configuration](https://github.com/external-secrets/external-secrets/tree/main/deploy/charts/external-secrets) docs for more examples.
+

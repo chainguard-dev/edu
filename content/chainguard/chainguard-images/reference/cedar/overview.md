@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/cedar](https://github.com/chainguard-images/images/tree/main/images/cedar)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:5bf88442d5d5630c0ac86a642466783bd7bfd19f24cd451b029087bba2fdad9b` |
-| `latest`     | July 11th    | `sha256:881050eeb96fab073d0f1476a22b583f1e36de903f9d60280b94fb01eaee4348` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:1b650fa7c712d773299e98bbb8d50a3ed22f76c0131536e83d4471dfed4d41c9` |
+|  `latest`     | July 11th    | `sha256:881050eeb96fab073d0f1476a22b583f1e36de903f9d60280b94fb01eaee4348` |
 
 
 
@@ -59,3 +59,4 @@ Options:
   ```
 
 ```
+

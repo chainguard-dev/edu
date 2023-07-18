@@ -16,10 +16,13 @@ toc: true
 
 [cgr.dev/chainguard/telegraf](https://github.com/chainguard-images/images/tree/main/images/telegraf)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:d1810261374f46019257385aab758108e651297e69e3a13ad40ab3c4a0f27e88` |
-| `latest`     | July 11th    | `sha256:8a37469195442ca1cca10c25505f9255db18ea596b46d36e706c76f0204054f1` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:e9f865fa8a43b7ca2e9dc437b370ffb411aa69c34d6970cbaeaece9b1f17ff8d` |
+|  `latest`     | July 14th    | `sha256:dc63911be8051cd2d919bd53e9789ea9e01261b4f26c6935db92b29767f254bf` |
+|               | July 12th    | `sha256:d1810261374f46019257385aab758108e651297e69e3a13ad40ab3c4a0f27e88` |
+|               | July 8th     | `sha256:cc8b77cf6b6aa61cb4676896a4d34511d44444132830dcb5dee05f5166537bd2` |
+|               | July 8th     | `sha256:32682f4dbf7eace82f23a5f8fae357291c547276eccfcf04a9c8a2c2768b77da` |
 
 
 
@@ -48,3 +51,4 @@ This location can be overridden with the `---config` or `--config-directory` fla
 2023-03-28T14:07:48Z I! Loading config file: /etc/telegraf/telegraf.conf
 2023-03-28T14:07:48Z E! [telegraf] Error running agent: no outputs found, did you provide a valid config file?
 ```
+

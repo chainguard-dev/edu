@@ -16,10 +16,13 @@ toc: true
 
 [cgr.dev/chainguard/nats](https://github.com/chainguard-images/images/tree/main/images/nats)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:00ac44030b76dd2e17827f66969f3302607a08ee71006f6c277608a65ba28658` |
-| `latest`     | July 11th    | `sha256:8c87166f39e6708658045bba61beb21957f74c9295d37d5d5aa1aaebb1d60fc2` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:b628a61db625ce56d8bb2a162fb9f1f7621dffd225f32d203bda71f66991febc` |
+|  `latest`     | July 14th    | `sha256:2301f7157b0a20798256ca7e0b72606d27ab9159d76db0d7f69ba4fad53d2fdd` |
+|               | July 14th    | `sha256:6513d7d62e15daa63d7a8580d2b2f9830f468b263d536b68102659035ef34124` |
+|               | July 14th    | `sha256:85f91cd13232576d8ea05385ba8a26a5298353890f741e5fb06969f991995b35` |
+|               | July 12th    | `sha256:00ac44030b76dd2e17827f66969f3302607a08ee71006f6c277608a65ba28658` |
 
 
 
@@ -58,3 +61,4 @@ $ docker run cgr.dev/chainguard/nats
 [1] 2023/03/13 19:37:46.087610 [WRN] Cluster name was dynamically generated, consider setting one
 [1] 2023/03/13 19:37:46.087671 [INF] Listening for route connections on 0.0.0.0:6222
 ```
+

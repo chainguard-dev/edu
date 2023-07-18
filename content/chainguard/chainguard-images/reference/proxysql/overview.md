@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/proxysql](https://github.com/chainguard-images/images/tree/main/images/proxysql)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:6ebf222a633fbd055758be45e5391a204e0dcd4f777e3dab757236fabedb8565` |
-| `latest`     | July 11th    | `sha256:79751a1152739bc05f9dfdc09e76c6f4b619ca1990c05ebdfebd4f45da9d64ac` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:a9dd47de0209a8c21c7602d0aa0030fa8baa300a1485bc032e821145a02be7d7` |
+|  `latest`     | July 11th    | `sha256:79751a1152739bc05f9dfdc09e76c6f4b619ca1990c05ebdfebd4f45da9d64ac` |
 
 
 
@@ -108,3 +108,4 @@ Standard MySQL Monitor (StdMyMon) rev. 2.0.1226 -- MySQL_Monitor.cpp -- Thu Jun 
 2023-06-28 13:27:29 [INFO] For consultancy visit: https://proxysql.com/services/consulting/
 2023-06-28 13:27:29 [INFO] Latest ProxySQL version available: 2.5.3-89-g86ce115
 ```
+

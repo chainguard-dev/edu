@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/minio](https://github.com/chainguard-images/images/tree/main/images/minio)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:cef2fdeca95b658979b24e6e29d99d5e1c55ecfb41c89c40867838e22b501999` |
-| `latest`     | July 11th    | `sha256:56dd48eed80255667cb0df089015f69f2a2a9ef38b54c6a7d72b5fba47f5b507` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:e92160dc644f041669c595a3d61b86fb435ea8ceea709dc20ed181550b0f8eb4` |
+|  `latest`     | July 11th    | `sha256:56dd48eed80255667cb0df089015f69f2a2a9ef38b54c6a7d72b5fba47f5b507` |
 
 
 
@@ -81,3 +81,4 @@ Console: http://172.17.0.5:46387 http://127.0.0.1:46387
 Documentation: https://min.io/docs/minio/linux/index.html
 Warning: The standard parity is set to 0. This can lead to data loss.
 ```
+

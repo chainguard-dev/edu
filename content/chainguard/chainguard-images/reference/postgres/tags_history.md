@@ -16,12 +16,9 @@ toc: true
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
-| Tag           | Last Updated | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-| `15-dev`      | July 12th    | `sha256:b50c603f128965db582a3419cb26b6b60aa58350d0ef6bbda0286a585018a054` |
-| `15.3-r0-dev` | July 12th    | `sha256:b50c603f128965db582a3419cb26b6b60aa58350d0ef6bbda0286a585018a054` |
-| `latest-dev`  | July 12th    | `sha256:b50c603f128965db582a3419cb26b6b60aa58350d0ef6bbda0286a585018a054` |
-| `15.3-dev`    | July 12th    | `sha256:b50c603f128965db582a3419cb26b6b60aa58350d0ef6bbda0286a585018a054` |
-| `15`          | July 11th    | `sha256:be1056419a1bdedcf8b35ae6a1e3b02375a8f00b5b0532d42eea0da346c97bec` |
-| `15.3`        | July 11th    | `sha256:be1056419a1bdedcf8b35ae6a1e3b02375a8f00b5b0532d42eea0da346c97bec` |
-| `latest`      | July 11th    | `sha256:be1056419a1bdedcf8b35ae6a1e3b02375a8f00b5b0532d42eea0da346c97bec` |
+Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
+
+| Tag (s)                                         | Last Changed | Digest                                                                    |
+|-------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `15` `15.3`                           | July 18th    | `sha256:0aa7e4ee1850d0b692ae99871b7e48cdc0016774441f6d078ba4a1b86e7654f5` |
+|  `15.3-dev` `15-dev` `15.3-r0-dev` `latest-dev` | July 18th    | `sha256:ef30389fc6b67deb342e683532b64d5ba926d70f86a3847b78338b20eb2dd4db` |

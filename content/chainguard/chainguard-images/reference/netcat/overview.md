@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/netcat](https://github.com/chainguard-images/images/tree/main/images/netcat)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:df5593af7c09ae0398838b4fbcf9505f287c3373d8556106c104c9a8a18e5d7e` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 11th    | `sha256:df5593af7c09ae0398838b4fbcf9505f287c3373d8556106c104c9a8a18e5d7e` |
 
 
 
@@ -39,3 +39,4 @@ docker run --rm -ti cgr.dev/chainguard/netcat -zv google.com 443
 ```
 
 See [here](https://manpages.debian.org/unstable/netcat-openbsd/nc.1.en.html) for more invocation details.
+

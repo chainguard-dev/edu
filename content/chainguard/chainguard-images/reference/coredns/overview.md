@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/coredns](https://github.com/chainguard-images/images/tree/main/images/coredns)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:32887767d33ed026bc078d74c3229ca088f3a2882d53c09183fd870a944df9c5` |
-| `latest`     | July 11th    | `sha256:8646ba2a16b25c7230ce446d12d4aa730c868d46c8c83e56db0fb13b2c92103c` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:79c1f325407104a8c3e64d5b07cfc6678a42f417a1dd750f93251406591dd2de` |
+|  `latest`     | July 14th    | `sha256:a6ef7bf830c51c0f86d74b07929b19723642e90d25e48b444bb2ac808cc3d80c` |
+|               | July 12th    | `sha256:32887767d33ed026bc078d74c3229ca088f3a2882d53c09183fd870a944df9c5` |
 
 
 
@@ -45,3 +46,4 @@ helm install coredns coredns/coredns \
 	--set image.tag="latest" \
 	--set isClusterService=false
 ```
+

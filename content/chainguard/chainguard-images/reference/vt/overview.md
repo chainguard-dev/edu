@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/vt](https://github.com/chainguard-images/images/tree/main/images/vt)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:ce38f53ddbcb42860ebb6ccb0b6af209fb6d6ecca39f822e79c6744f45260196` |
-| `latest`     | July 11th    | `sha256:e97e875d68d73db197a0bdcbacbff74894ce07a7ff8232d92d268b171ad6c9fd` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:7aeab41dc0445ae419615d3464b7f96849ec5bddb66717fa7adf9c235161caaf` |
+|  `latest`     | July 14th    | `sha256:7089f5dfb1eb8567855d1591805e87637694b252c55ecbc1fdcdb37a2d89aa62` |
+|               | July 12th    | `sha256:ce38f53ddbcb42860ebb6ccb0b6af209fb6d6ecca39f822e79c6744f45260196` |
 
 
 
@@ -36,3 +37,4 @@ docker pull cgr.dev/chainguard/vt:latest
 This image contains the `vt-cli` tool.
 Note that you will need an api key for most operations.
 This can be configured with `vt init`, with the `--apikey` flag, or with the `VTCLI_APIKEY` environment variable.
+

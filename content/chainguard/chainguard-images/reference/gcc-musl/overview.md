@@ -16,8 +16,8 @@ toc: true
 
 [cgr.dev/chainguard/gcc-musl](https://github.com/chainguard-images/images/tree/main/images/gcc-musl)
 
-| Tag | Last Updated | Digest |
-|-----|--------------|--------|
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 
 # gcc-musl
 

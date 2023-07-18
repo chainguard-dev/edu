@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kubectl](https://github.com/chainguard-images/images/tree/main/images/kubectl)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:98eb7f94eeb0168fe322dd624418d717715c06fbaae7a090b8e63674052f96fe` |
-| `latest`     | July 11th    | `sha256:45494b5d6dea22cb4a9170596305145cf73f75a37211de5212d5777befb4221e` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:7e1b231bc4b75d8f3ec38d8d85c2cefe60708541b28915ef5a3211c1f6d3c25d` |
+|  `latest`     | July 11th    | `sha256:45494b5d6dea22cb4a9170596305145cf73f75a37211de5212d5777befb4221e` |
 
 
 
@@ -32,3 +32,4 @@ The image is available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/kubectl:latest
 ```
+

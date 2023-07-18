@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/bazel](https://github.com/chainguard-images/images/tree/main/images/bazel)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 12th    | `sha256:a2f8ee254688514cb885d304ba3c51dca2e936c38b9a1541a03ad47d0e459e93` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:31f90061404fac029683e7d81597b698de44a5ca3496e2ad02676f902704832b` |
 
 
 
@@ -71,3 +71,4 @@ and see the message from the example application
 ```sh
 Hi
 ```
+

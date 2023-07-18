@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/kubernetes-csi-external-resizer](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-resizer)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:0f0d806714870b55e278dfae923ededc9611723d089b03cabb6a8fa4fcebd340` |
-| `latest`     | July 11th    | `sha256:05c9e45e10cfd3ab0132bff9c71f196ab8144501a083459c96723ea0d8e392e3` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:7f3caac7c2d3ad11bec74bde4e177a2dd550f9b964a32a935a5734d70a43a14e` |
+|  `latest`     | July 14th    | `sha256:9e8ffd1301b16c279b1481f77f2dd18cc75de3c5b192905d237f74c3cb02a48a` |
+|               | July 12th    | `sha256:0f0d806714870b55e278dfae923ededc9611723d089b03cabb6a8fa4fcebd340` |
 
 
 
@@ -39,3 +40,4 @@ The Chainguard external-resizer image contains the `csi-resizer` controller and 
 
 To try it out, follow the [official installation
 instructions](https://github.com/kubernetes-csi/external-resizer/blob/master/README.md#usage).
+

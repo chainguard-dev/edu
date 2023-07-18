@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/meilisearch](https://github.com/chainguard-images/images/tree/main/images/meilisearch)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:67f73ae0d02ed29304db9ff735971369fb4c1dc27c055fe21b50eb7dc5a3bc5b` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 11th    | `sha256:67f73ae0d02ed29304db9ff735971369fb4c1dc27c055fe21b50eb7dc5a3bc5b` |
 
 
 
@@ -50,3 +50,4 @@ docker run \
 ```
 
 Then you can follow the [meilisearch quick start guide](https://www.meilisearch.com/docs/learn/getting_started/quick_start#add-documents) and start adding documents.
+

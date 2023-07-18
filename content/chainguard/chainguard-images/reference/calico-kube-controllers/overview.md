@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/calico-kube-controllers](https://github.com/chainguard-images/images/tree/main/images/calico-kube-controllers)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 11th    | `sha256:17b0ce976ddf167dd2150bfd97ed1c57f89301b95beb43e87f282d01bbe32d13` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 18th    | `sha256:6261da2b07727410647e84d0ec41609fb5f72364b00a7d1345fff21411572d22` |
 
 # calico-kube-controllers
 

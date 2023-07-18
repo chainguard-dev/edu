@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/nginx](https://github.com/chainguard-images/images/tree/main/images/nginx)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:2a2e9d0fe3896f4cadb5d2052671147a24c4d1b5e7fa7dcd96aa74f0aa087c46` |
-| `latest`     | July 11th    | `sha256:c5e3c76bd4fa4bfea67ba56b237a17e6ee6aea3b3927aee5aa084ac45fad865c` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:7e42bf877e36bc2d03b0685600e7f7cce2632ada138403fcadee97929f928990` |
+|  `latest`     | July 18th    | `sha256:d2b0e52d7c2e5dd9fe5266b163e14d41ed97fd380deb55a36ff17efd145549cd` |
+|               | June 21st    | `sha256:d5bc947f91934feb448053b6ad011da030b728dea092ce2cbf43647139403b4d` |
 
 
 
@@ -145,3 +146,4 @@ shouldn't make a difference, but note the "User Directive Warning" above.
 
 The Docker official image has support for setting environment variables that get substitued into the
 config file. Currently we do not have support for this, but are [looking into options](https://github.com/chainguard-images/images/issues/435). 
+

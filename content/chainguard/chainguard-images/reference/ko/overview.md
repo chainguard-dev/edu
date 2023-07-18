@@ -16,9 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/ko](https://github.com/chainguard-images/images/tree/main/images/ko)
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `latest` | July 12th    | `sha256:7c942105013446ec3f0dd4d039dcb437be9bc9a448e51401a46311f6189747fd` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | July 14th    | `sha256:360c632cbda9bd55ecbcab808ff27e2abecabf327a3b72d321b4a28091c1a1ef` |
+|           | June 20th    | `sha256:13f2fcc63b02fc1611075fc140be782a201d492022a9b74d45a60eba5f240d28` |
 
 
 
@@ -67,3 +68,4 @@ To push, you will need to mount in your Docker config to provide auth by adding:
 ```
 
 If you're using Docker credential helpers, those will need to be made available in the container as well so that `ko` can invoke them.
+

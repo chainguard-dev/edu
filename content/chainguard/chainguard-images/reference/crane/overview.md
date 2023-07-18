@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/crane](https://github.com/chainguard-images/images/tree/main/images/crane)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:697e58aa20ce7822d986f7c1d297bd8a9af31c704dc34695f684ea275066e3c0` |
-| `latest`     | July 11th    | `sha256:4e077e6e54d5b2b21a27528e4dfda81e9fa3399d7793e3b35454ac229d0980dc` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:c2dfc5765d2a4c8bbc1075eaed0173e3612785dd6a11b0ba69b6a256ad299e07` |
+|  `latest`     | July 14th    | `sha256:d12a953a042f5a484eca29fca3df32d002f193f156f4ace82b2e9e37585d2853` |
+|               | July 12th    | `sha256:697e58aa20ce7822d986f7c1d297bd8a9af31c704dc34695f684ea275066e3c0` |
 
 
 
@@ -40,3 +41,4 @@ Inspect the crane image manifest using the crane image:
 ```
 docker run --rm cgr.dev/chainguard/crane:latest manifest cgr.dev/chainguard/crane:latest
 ```
+

@@ -16,10 +16,9 @@ toc: true
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
-| Tag      | Last Updated | Digest                                                                    |
-|----------|--------------|---------------------------------------------------------------------------|
-| `1.10`   | July 11th    | `sha256:77e159167a5551d8d137a1f82ee4580dbdb381844309e78d23269f040e4a1d60` |
-| `1.10.1` | July 11th    | `sha256:77e159167a5551d8d137a1f82ee4580dbdb381844309e78d23269f040e4a1d60` |
-| `1`      | July 11th    | `sha256:77e159167a5551d8d137a1f82ee4580dbdb381844309e78d23269f040e4a1d60` |
-| `latest` | July 11th    | `sha256:77e159167a5551d8d137a1f82ee4580dbdb381844309e78d23269f040e4a1d60` |
-| `1.10.0` | June 26th    | `sha256:81ecbdaa3ef6ee6d360190a9571546d493329c1021d5455639224436562ec5de` |
+Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
+
+| Tag (s)                       | Last Changed | Digest                                                                    |
+|-------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `1.10.1` `1.10` `1` | July 14th    | `sha256:787cbfdd7606711c8e853a6b485767626c7c61e7924bb0204d968163571b3a54` |
+|  `1.10.0`                     | June 26th    | `sha256:81ecbdaa3ef6ee6d360190a9571546d493329c1021d5455639224436562ec5de` |

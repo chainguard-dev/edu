@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/kafka](https://github.com/chainguard-images/images/tree/main/images/kafka)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:139c12287ffed8af3849036f5140eca68c69d75b3b6bc1d4aafac66dfd7e2c03` |
-| `latest`     | July 11th    | `sha256:8c0d24035afc196eb33ed994a2445e5e63327a337280201bf88e6de769ce58da` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:c1a73dab6ae2c7f65566f859e8fac2d0fd27c6c48413c95fdeedcd013e76da83` |
+|  `latest`     | July 18th    | `sha256:3e9ac9547412c3cbb943c125a4364e885fa8888514fd6a8eb9a1fad494518052` |
+|               | July 12th    | `sha256:139c12287ffed8af3849036f5140eca68c69d75b3b6bc1d4aafac66dfd7e2c03` |
 
 
 
@@ -77,3 +78,4 @@ $ /usr/lib/kafka/bin/kafka-server-start.sh /usr/lib/kafka/config/server.properti
 [2023-03-18 00:10:17,536] INFO Client environment:java.home=/usr/lib/jvm/openjdk-jre (org.apache.zookeeper.ZooKeeper)
 ...
 ```
+

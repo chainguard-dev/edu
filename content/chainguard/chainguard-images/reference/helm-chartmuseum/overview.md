@@ -16,10 +16,11 @@ toc: true
 
 [cgr.dev/chainguard/helm-chartmuseum](https://github.com/chainguard-images/images/tree/main/images/helm-chartmuseum)
 
-| Tag          | Last Updated | Digest                                                                    |
-|--------------|--------------|---------------------------------------------------------------------------|
-| `latest-dev` | July 12th    | `sha256:d55c6814124ec11caf301be490b97640d8d831b48e1fdfb3512db74134ffac18` |
-| `latest`     | July 11th    | `sha256:af6b780ae104e11ac317e4a2204cf2581bca507b8b4ce78f3ec17c81fe70cff7` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 18th    | `sha256:1a0353cfdeb6ceb3c2df78186cb400c6dc0bdcb025cd528c469d8e2e7cb1d784` |
+|  `latest`     | July 14th    | `sha256:0ed92c5ae2229336a500189e77f0e32ffd294f4470033dc146c76b67c47d44d9` |
+|               | July 12th    | `sha256:d55c6814124ec11caf301be490b97640d8d831b48e1fdfb3512db74134ffac18` |
 
 
 
@@ -58,3 +59,4 @@ helm repo add chartmuseum http://localhost:8080
 helm search repo chartmuseum/
 helm upgrade --install chartmuseum-demo chartmuseum/hello
 ```
+
