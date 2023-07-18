@@ -9,12 +9,12 @@ on:
 env:
   WORKDIR: reference
   YAMLDOCS_IMAGES_SOURCE: "${{ github.workspace }}/images/images"
-  YAMLDOCS_DIFF_SOURCE: "${{ github.workspace }}/edu/content/chainguard/chainguard-images/${{ env.WORKDIR }}"
-  YAMLDOCS_OUTPUT: "${{ github.workspace }}/${{ env.WORKDIR }}"
+  YAMLDOCS_DIFF_SOURCE: "${{ github.workspace }}/edu/content/chainguard/chainguard-images/reference"
+  YAMLDOCS_OUTPUT: "${{ github.workspace }}/reference"
   YAMLDOCS_TEMPLATES: "${{ github.workspace }}/edu/autodocs/templates"
   YAMLDOCS_CACHE: "${{ github.workspace }}"
-  YAMLDOCS_CHANGELOG: "${{ github.workspace }}/${{ env.WORKDIR }}/changelog.md"
-  YAMLDOCS_LASTUPDATE: "${{ github.workspace }}/${{ env.WORKDIR }}/last-update.md"
+  YAMLDOCS_CHANGELOG: "${{ github.workspace }}/reference/changelog.md"
+  YAMLDOCS_LASTUPDATE: "${{ github.workspace }}/reference/last-update.md"
 
 jobs:
   main:
@@ -62,8 +62,6 @@ jobs:
         uses: chainguard-dev/deved-autodocs@1.6.6
         with:
           command: build images
-        env:
-
 
       - name: "Copy updated changelog to autodocs folder"
         run: |
