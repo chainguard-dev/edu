@@ -1,5 +1,5 @@
 ---
-date: 2023-07-13T20:57:00Z
+date: 2023-07-18T12:25:34Z
 title: "chainctl sigstore env"
 slug: chainctl_sigstore_env
 url: /chainguard/chainctl/chainctl-docs/chainctl_sigstore_env/
