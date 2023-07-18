@@ -8,7 +8,7 @@ lastmod: 2023-06-23T08:48:45+00:00
 draft: false
 tags: ["Enforce", "Product", "SBOM", "Reference"]
 images: []
-weight: 020
+weight: 040
 ---
 
 Chainguard Enforce provides a comprehensive solution for monitoring your cloud workloads and container images. In particular, its SBOM generation and ingestion features enhance your ability to manage the software components within your environment.
