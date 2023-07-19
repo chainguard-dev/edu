@@ -20,7 +20,6 @@ toc: true
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | July 18th    | `sha256:feb23dd9ab252f1e280dcc0f75c9a3be30d87b8617626d0fccfd5aa5da7f15f1` |
 |  `latest`     | July 14th    | `sha256:cccc3a09b021763fdaca826310281b8e0cf68ffbddda38dae7e20d046f9583fd` |
-|               | July 12th    | `sha256:9dcd777d1f56229518cc2eea3974f805cabe02eb9e16fe000fb62ced4387bbe0` |
 
 # cert-manager-acmesolver
 

@@ -20,7 +20,6 @@ toc: true
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest`     | July 18th    | `sha256:fcc48f9aa933a58891acdb6ee31d7d6d46658c0266e78ab4444490106ac088b7` |
 |  `latest-dev` | June 30th    | `sha256:731df367fe0bd4d63e5fbb43521725c4b2b65efaf58e8d7bb59203244557a51d` |
-|               | June 24th    | `sha256:eefb6035a739a90bb6eac5fca44287e120baba82d4249eee412fd064a880df01` |
 
 # newrelic-fluent-bit-output
 
