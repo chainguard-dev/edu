@@ -20,7 +20,6 @@ toc: true
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | July 18th    | `sha256:13622da111eed506980d3063b8371195144649ca7de8f2773f842a40de63bf5a` |
 |  `latest`     | July 14th    | `sha256:93f36668b6f003ad17e186f675cab3517e9bc4ba8197591459ab943de125e47b` |
-|               | July 12th    | `sha256:c8ad98e75b49b3e4ac3141b6c3978aa669aab64de085323f98f9c5cb56bedaa1` |
 
 # prometheus-config-reloader
 

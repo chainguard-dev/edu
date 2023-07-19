@@ -20,11 +20,6 @@ toc: true
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | July 18th    | `sha256:237105bbb308c5910f4dd7a2b16a86a12c5b8712a3d77bb0302b364328eb1571` |
 |  `latest`     | July 14th    | `sha256:470c1cb1c239302391074f2f83d8229922a510b42e15e85fadfc0f59acee2f63` |
-|               | July 12th    | `sha256:1161ef3ba12d1cbfce7db009c5ea3144e299a514e6ef085c1e881a3820b8a249` |
-|               | July 8th     | `sha256:821a3132b147076a94a732c659022320db6e431356d93198e15cf9d0faf92acf` |
-|               | July 8th     | `sha256:9dfeeb3ca48031be112ac65a206b49529be58420fe558cfcfdae2bb2e184dc3c` |
-|               | July 4th     | `sha256:7606412336d8ef34bee0459b5a98d55c7d630445fb4f0628ecbc29f96450c3cf` |
-|               | June 29th    | `sha256:55726810f4e529d26b292b8a8d173cf3236b963609cd703b06ad4f51281098e0` |
 
 # flux-kustomize-controller
 
