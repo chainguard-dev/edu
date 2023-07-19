@@ -20,15 +20,6 @@ toc: true
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest`     | July 18th    | `sha256:9cc38c31beaad722b2fccf7f7c337ffab0dab609ec34d15dae4b84cf8d2ab2af` |
 |  `latest-dev` | July 18th    | `sha256:e7072a4f9677772ef067bca78b5f2903f796923b83556ab26d081dec8afece8a` |
-|               | July 14th    | `sha256:082ae80875583f45323462aca5244912d648270f93093d86233e632d899b9556` |
-|               | July 14th    | `sha256:700a61284d7d19dd6afe43455cfdca50bc50f08a292c87c373e755a11584c3d0` |
-|               | July 12th    | `sha256:f57c3fec99e8aa62f0afca4874b6f308084d28a410f5e865e8c185814a1b5f4a` |
-|               | July 4th     | `sha256:0f5260ac26e9f6c5c8bcf764045519a3e6a1a3a0e225356f3c6dd5aadf82f102` |
-|               | July 1st     | `sha256:13e15a871173be0e3f9c3399668e4f76fb08512c72f716fa69806f7d49e5e46e` |
-|               | June 29th    | `sha256:5d6d7350ac9d3afb4a4d0f4804607739e7521204cb2ad72ed0ca36b07c1d6e14` |
-|               | June 29th    | `sha256:cffa0dbde3257307aaec65bb6fed13b8bf33ee91a4f72ac8dfc27ee30b03623d` |
-|               | June 23rd    | `sha256:bc822c01cc6f23e912490bac3571491ff2779ffbdfc159ddfd1917cbbdc9d4cf` |
-|               | June 23rd    | `sha256:a21a9dd827da25a3739e0a4c121c343631eed0f3a82997e1c3c6b3a392843d9b` |
 
 
 
