@@ -20,7 +20,6 @@ toc: true
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | July 18th    | `sha256:d517ee7b81c91e10ce331cfef2573f3cc89c3f75a5a4aedba8f7586b7e0b6b4c` |
 |  `latest`     | July 14th    | `sha256:68c827cc2ec9444e53a7d290a3821a6dd0254daef829d1867186d12a5fc2356f` |
-|               | July 12th    | `sha256:74716de9611171074414d695eaa5eb31050120648f0760badbcb3552b2442de5` |
 
 # cert-manager-cainjector
 

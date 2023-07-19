@@ -20,7 +20,6 @@ toc: true
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | July 18th    | `sha256:4e2e711cffd322f79d0a0d84d8b56e685ae3562e06294c5d796fe3df77e67bf3` |
 |  `latest`     | July 14th    | `sha256:f84f1cad69649ccf25c5c5a3bfffed057eea0942da165437e8b2d212d18a352a` |
-|               | July 12th    | `sha256:44e3db38503e817bc3b012dc976bfaf6fd63ac06bedb98fd6b2be689bd813802` |
 
 # prometheus-node-exporter
 

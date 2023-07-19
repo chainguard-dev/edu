@@ -20,7 +20,6 @@ toc: true
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | July 18th    | `sha256:8d74f92c6ba0d58fd0df3e43945c6ea4206851dde4b6a5184a9ca35c7f2a1af1` |
 |  `latest`     | July 14th    | `sha256:b637f415319b0921ec32819f2ee28387186ce83eab7e7a5361e07f1a8ace7767` |
-|               | July 12th    | `sha256:3fff29ae8340f38c729ea52f27bb60fe7769c455f4bfd2bfebc0b8df4658ec2d` |
 
 
 
