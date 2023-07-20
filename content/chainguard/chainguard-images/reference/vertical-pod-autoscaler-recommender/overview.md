@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 18th    | `sha256:f29994f08606c045bbbf7c0358774a7949283c446d832f6636bfb18f1143acae` |
+|  `latest-dev` | July 19th    | `sha256:59162ce8d00ca7b09f22547ea5b2b52913f0407ec5dd6665050ff59a78bd42b2` |
 |  `latest`     | July 14th    | `sha256:77c60d4b2bc2a2d7122949cca7274de8430e3d8054a4f0746bf96fb008894ad9` |
 
 # vertical-pod-autoscaler-recommender

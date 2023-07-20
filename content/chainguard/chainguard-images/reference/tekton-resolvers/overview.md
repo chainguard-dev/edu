@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 19th    | `sha256:b559853292c0952a39e6ed8253cb23c711e5d6395f220866bbb4df032e085baa` |
 |  `latest`     | July 18th    | `sha256:9a933f6fc9f087e871961395a543dfe040517d846340764d6d2ffb5f16b2afa0` |
-|  `latest-dev` | July 18th    | `sha256:ed6dea4f14ad5e83922c51b33ea933d9b644f735344f563b6a4ba9441c62f153` |
 
 # tekton-resolvers
 
