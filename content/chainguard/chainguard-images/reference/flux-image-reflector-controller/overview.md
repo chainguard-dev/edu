@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 18th    | `sha256:341ec3193e0d1afdcd469f10312f3f961a294fd531c4e83236c642c192f9348d` |
+|  `latest-dev` | July 19th    | `sha256:e528766fe175a2533e15f372738e8642d6ebac82f9d8fa43cea8bbcae9c9bb35` |
 |  `latest`     | July 14th    | `sha256:e920563809cbeab2fa7dbab823c07d8d1ab9bc00147ba0fcf80d3f56cdf7970b` |
 
 # flux-image-reflector-controller
