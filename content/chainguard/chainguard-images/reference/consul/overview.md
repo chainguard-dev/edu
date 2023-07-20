@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 18th    | `sha256:734a867f144338fc6aa00c775b10d2d92719c55054720e3fa3a59167afc2e766` |
-|  `latest-dev` | July 18th    | `sha256:5cfb532d2aff365abd3892e0ceaec06d106b0a38f8f22db8de03600a3d89bfb7` |
+|  `latest`     | July 19th    | `sha256:fde0b3fbe2ec3d1fa906f976f563c9281073c097b6c081897cd1c26701bf3347` |
+|  `latest-dev` | July 19th    | `sha256:11475a3eb7c283c0a036c975036652930da400180799516e6452da6e0c804b8d` |
 
 
 

@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 19th    | `sha256:42e7ad008f2d9646f125edc622dbc6692880857ee60f909177510b1e2df44400` |
 |  `latest`     | July 18th    | `sha256:2402eb11559b6922344662995632de5150e305b647d031d1e8f8cde90aafe06f` |
-|  `latest-dev` | July 18th    | `sha256:eabf05b51ad8654e6571ab576716086f3db215dd1aacfa51a1f2c386850f4baf` |
 
 # tekton-events
 
