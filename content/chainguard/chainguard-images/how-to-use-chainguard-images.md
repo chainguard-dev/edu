@@ -94,10 +94,6 @@ REPOSITORY     TAG       IMAGE ID       CREATED              SIZE
 c-distroless   latest    de04a116ff9d   18 seconds ago   1.57MB
 ```
 
-If your binary is dependent on `glibc` or `musl`, take a look at the [glibc-dynamic](https://github.com/chainguard-images/glibc-dynamic) and [musl-dynamic](https://github.com/chainguard-images/musl-dynamic) images.
-
-We are working on similar images for runtimes such as the JVM.
-
 ### Extending Chainguard Base Images
 
 It often happens that you want a distroless image with one or two extra packages, for example you may have a binary with a dependency on `curl` or `git`. Ideally you’d like a base image with this dependency already installed. There are a few options here:
