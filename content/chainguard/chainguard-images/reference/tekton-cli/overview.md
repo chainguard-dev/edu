@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 19th    | `sha256:fe8b07a4949775ee8f8136577e8af2ce66459693f47bb9416ca459f9f89833b3` |
+|  `latest-dev` | July 20th    | `sha256:5d3d67cf98eda214fd21256bcccd0416b22b2499ab93cdfd352e7c9cc36e4f06` |
 |  `latest`     | July 18th    | `sha256:521cb147c999d9aa3c3705db53ad369173299d7675f8e3d0bfb4c28b859e9323` |
 
 # tekton-cli

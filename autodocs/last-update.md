@@ -1,5 +1,7 @@
-## 2023-07-20
+## 2023-07-21
 
 Updated image reference docs.
 
-No new images added.
+New images added:
+
+- slim-toolkit-debug

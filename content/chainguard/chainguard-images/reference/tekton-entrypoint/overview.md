@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 19th    | `sha256:6507f1bebabb00200d2720406af4162627185b97eb121aa2bdc518abe5601782` |
+|  `latest-dev` | July 20th    | `sha256:f368d2eb90f0e31ca42cfe99fb31d97594c469c69f15084e70538d0248f1608c` |
 |  `latest`     | July 18th    | `sha256:e181c038d7a3d75ffd9c0b4aafcb287a81147d6d8a51be568bbc18dea7cbd143` |
 
 # tekton-entrypoint

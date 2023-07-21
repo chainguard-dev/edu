@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 19th    | `sha256:59162ce8d00ca7b09f22547ea5b2b52913f0407ec5dd6665050ff59a78bd42b2` |
-|  `latest`     | July 14th    | `sha256:77c60d4b2bc2a2d7122949cca7274de8430e3d8054a4f0746bf96fb008894ad9` |
+|  `latest`     | July 20th    | `sha256:24e17090c59813317d8d2dcf8f6d60f68c8f63d262bf855b45e7ae7b1cd9e8fe` |
+|  `latest-dev` | July 20th    | `sha256:4706c034dcbe8e6bc2331b38b3d5a811783bbafb6e85d216b59f225356d7d7ea` |
 
 # vertical-pod-autoscaler-recommender
 
