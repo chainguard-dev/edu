@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 19th    | `sha256:b4f4a1e08069b151b9fb1fb0040cdb23e31e2a5e6d0e51950082a9b1da46b455` |
+|  `latest-dev` | July 20th    | `sha256:8c009ac953c7bbd885a5c9b486023de07c6f9375edae5a3a746ea34719fb7350` |
 |  `latest`     | July 14th    | `sha256:ebcdfa031e8daa7a76e90eedd39ebe16ce121ce3d531e34163953c6f1746b9f5` |
 
 # cert-manager-controller
