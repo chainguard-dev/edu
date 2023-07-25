@@ -128,6 +128,7 @@ Tags are based on:
 * apko
 * chainctl 
 * Cosign
+* CVE
 * Enforce
 * Fulcio
 * Chainguard Images
@@ -146,6 +147,7 @@ Tags are based on:
 ### Type 
 
 * Cheat Sheet
+* Comic
 * Conceptual
 * FAQ
 * Interactive

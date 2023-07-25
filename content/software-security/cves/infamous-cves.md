@@ -4,10 +4,10 @@ description: "An overview a few of the most critical, widespread, and impactful 
 lead: "An overview a few of the most critical, widespread, and impactful known software vulnerabilities"
 type: "article"
 date: 2023-07-21T19:16:39+00:00
-lastmod: 2023-07-21T19:54:48+00:00
+lastmod: 2023-07-25T17:17:48+00:00
 contributors: ["Michelle McAveety"]
 draft: false
-tags: ["Overview"]
+tags: ["CVE", "Overview"]
 images: []
 menu:
   docs:
