@@ -48,9 +48,17 @@ function timer() {
   };
 })();
 
-window.terminal.load();
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  const response = await fetch("https://storage.googleapis.com/chainguard-academy/terminal/status.json");
+  const status = await response.json();
+  if (status.enabled == false) {
+    return;
+  }
+
+  document.querySelector(".terminal-top-container").style.display = "flex";
+
+  window.terminal.load();
   // For resizing
   const resizable = document.querySelector(".resizable");
   window
