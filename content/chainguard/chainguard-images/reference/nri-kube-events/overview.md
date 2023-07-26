@@ -16,10 +16,8 @@ toc: true
 
 [cgr.dev/chainguard/nri-kube-events](https://github.com/chainguard-images/images/tree/main/images/nri-kube-events)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 24th    | `sha256:846a033b176d26f724c5a7bd16b7456f20c657c3a07e88a37bb7e54417b4ee1a` |
-|  `latest-dev` | June 24th    | `sha256:575f5b219dbbd4cd06a9aec67d167dc6dd70d87a22eff0a9d919e6f1c9c02803` |
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 
 # nri-kube-events
 

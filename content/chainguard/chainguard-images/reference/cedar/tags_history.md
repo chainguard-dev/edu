@@ -20,5 +20,7 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                    | Last Changed | Digest                                                                    |
 |------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.3.0-r0-dev` `2-dev` `2.3.0-dev` `2.3-dev` | July 20th    | `sha256:8fe16ef11378fdb3803d7644a053ec2e6db2d6640064832307c9c555bce197ff` |
-|  `2` `2.3` `2.3.0` `latest`                                | July 11th    | `sha256:881050eeb96fab073d0f1476a22b583f1e36de903f9d60280b94fb01eaee4348` |
+|  `2` `latest` `2.3` `2.3.1`                                | July 22nd    | `sha256:cfba9e919fcb06290fd4aec59e2c25e6bebdbb254be4b776f9b2111b7c460a52` |
+|  `2.3.1-r0-dev` `2-dev` `latest-dev` `2.3-dev` `2.3.1-dev` | July 22nd    | `sha256:e3fd6e83c0f51b71aa0176ae8143a2c810314346cbe5506e07bab17eca9bf511` |
+|  `2.3.0-r0-dev` `2.3.0-dev`                                | July 20th    | `sha256:8fe16ef11378fdb3803d7644a053ec2e6db2d6640064832307c9c555bce197ff` |
+|  `2.3.0`                                                   | July 11th    | `sha256:881050eeb96fab073d0f1476a22b583f1e36de903f9d60280b94fb01eaee4348` |

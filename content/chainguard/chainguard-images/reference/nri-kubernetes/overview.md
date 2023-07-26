@@ -16,10 +16,8 @@ toc: true
 
 [cgr.dev/chainguard/nri-kubernetes](https://github.com/chainguard-images/images/tree/main/images/nri-kubernetes)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 24th    | `sha256:81e1f3f84599f161b2ac3bd8a4d0566e2a5305601017c9624708e828e4603988` |
-|  `latest-dev` | June 24th    | `sha256:92ad13acf9ece39264009723dab800bc3ab3c8854f998d1f44f996dbe8b493a9` |
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 
 # nri-kubernetes
 

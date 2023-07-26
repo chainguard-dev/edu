@@ -16,10 +16,8 @@ toc: true
 
 [cgr.dev/chainguard/nri-prometheus](https://github.com/chainguard-images/images/tree/main/images/nri-prometheus)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | June 23rd    | `sha256:ced62fa10104ba6b18f1fa407c23314ce663748b01dba85f9d0efaa0641ee3f9` |
-|  `latest`     | June 23rd    | `sha256:04a610b1cde698897c0b213bea6ecb31793eb3a03600accbf077d6d9d0bba747` |
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 
 # nri-prometheus
 
