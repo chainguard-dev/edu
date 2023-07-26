@@ -16,7 +16,7 @@ weight: 003
 toc: true
 ---
 
-[Software vulnerabilities](/software-security/cves/cve-intro/) vary in their severity – some are difficult to exploit and have minimal implications, while others can be exploited easily and give an attacker significant leverage over a computer system. In cases where widely-implemented software contains high-severity vulnerabilities, the damage caused by their exploitation can affect millions of developers and services worldwide.
+[Software vulnerabilities](/software-security/cves/cve-intro/) vary in their severity – some are difficult to exploit and have minimal implications, while others can be exploited easily, giving an attacker significant leverage over a computer system. In cases where widely-implemented software contains high-severity vulnerabilities, the damage caused by their exploitation can affect millions of developers and services worldwide.
 
 In this article, you will learn how the KEV Catalog tracks known exploited software vulnerabilities, and how it serves as a tool for developers and federal agencies. In addition, you will explore Log4Shell, Heartbleed, and Shellshock, three infamous software vulnerabilities which have had major impacts on software security worldwide.
 
