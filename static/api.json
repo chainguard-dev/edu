@@ -670,6 +670,18 @@
                 "name": {
                   "description": "name, human readable name of group.",
                   "type": "string"
+                },
+                "resourceLimits": {
+                  "additionalProperties": {
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "description": "resource_limits indicate the maximum number of resources allowed for this group by type.",
+                  "type": "object"
+                },
+                "verified": {
+                  "title": "verified means we've verified the owners of this organization. Restrictions include:\n- Only organizations (root groups) can be verified\n- Property can only be set by manually by Chainguardians\n- If verified is set, the organizations name field must be globally unique\n- If verified is set the organizations name should be a domain name",
+                  "type": "boolean"
                 }
               },
               "type": "object"
@@ -3707,6 +3719,18 @@
         "name": {
           "description": "name, human readable name of group.",
           "type": "string"
+        },
+        "resourceLimits": {
+          "additionalProperties": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "description": "resource_limits indicate the maximum number of resources allowed for this group by type.",
+          "type": "object"
+        },
+        "verified": {
+          "title": "verified means we've verified the owners of this organization. Restrictions include:\n- Only organizations (root groups) can be verified\n- Property can only be set by manually by Chainguardians\n- If verified is set, the organizations name field must be globally unique\n- If verified is set the organizations name should be a domain name",
+          "type": "boolean"
         }
       },
       "type": "object"
