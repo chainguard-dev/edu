@@ -14,9 +14,11 @@ toc: true
 ---
 
 
-The MariaDB images based on Wolfi and maintained by Chainguard provide distroless images that are suitable for building and running MariaDB workloads.
+The MariaDB image based on Wolfi and maintained by Chainguard provide a distroless container image that is suitable for building and running MariaDB workloads.
 
-In order to illustrate how the MariaDB Chainguard Image might be used in practice, this tutorial involves setting up an example PHP application that uses a MariaDB database. This guide assumes you have Docker installed to run the demo; specifically, the procedure outlined in this guide uses Docker Compose to manage the environment on your local machine.
+Because Chainguard Images (including the MariaDB image) are rebuilt daily with the latest sources and include the absolute minimum of dependencies, they have significantly less vulnerabilities than equivalent images, typically zero. This means you can use the Chainguard MariaDB Image to run MariaDB databases in containerized environments with a smaller footprint and greater security. 
+
+In order to illustrate how the MariaDB Chainguard Image might be used in practice, this tutorial involves setting up an example PHP application that uses a MariaDB database. This guide assumes you have Docker installed to run the demo; specifically, the procedure outlined in this guide uses [Docker Compose](https://docs.docker.com/compose/install/) to manage the environment on your local machine.
 
 {{< details "What is distroless" >}}
 {{< blurb/distroless >}}
@@ -33,15 +35,21 @@ In order to illustrate how the MariaDB Chainguard Image might be used in practic
 
 ## Step 1: Setting up a Demo Application
 
-The code that comprises this demo application is hosted in a public GitHub repository managed by Chainguard. Start by pulling down the example application files from GitHub with the following command.
+This step involves downloading the demo application code to your local machine. To ensure that the application files don't remain on your system navigate to a temporary directory like `/tmp/`.
 
 ```sh
-git clone --depth 1 --sparse https://github.com/chainguard-dev/edu-images-demos.git
+cd /tmp/
 ```
 
-Because this guide's demo application code is stored in a repository with other examples, we don't need to pull down every file from this repository. For this reason, this command includes a few options to limit the amount of data pulled down to your local machine. 
+Your system will automatically delete the `/tmp/` directory's contents the next time it shuts down or reboots.
 
-First, it includes the `--depth 1` argument. This means that `git` will clone the repository but with its history cut down to the previous `1` commit. It also includes the `--sparse` option, which will initialize a sparse-checkout file, causing the working directory to contain only the files in the root of the repository until the sparse-checkout configuration is modified.
+The code that comprises this demo application is hosted in a public GitHub repository managed by Chainguard. Pull down the example application files from GitHub with the following command.
+
+```sh
+git clone --sparse https://github.com/chainguard-dev/edu-images-demos.git
+```
+
+Because this guide's demo application code is stored in a repository with other examples, we don't need to pull down every file from this repository. For this reason, this command includes the `--sparse` option. This will initialize a sparse-checkout file, causing the working directory to contain only the files in the root of the repository until the sparse-checkout configuration is modified.
 
 Navigate into this new directory and list its contents to confirm this.
 
@@ -63,33 +71,26 @@ git sparse-checkout set mariadb
 
 This modifies the sparse-checkout configuration initialized in the previous `git clone` command so that the checkout only consists of the repo's `mariadb` directory.
 
-```sh
-ls
-```
-```
-mariadb
-```
-
 Navigate into this new directory.
 
 ```sh
 cd mariadb/
 ```
 
-From here, you can run the application and use a web browser to observe it working in real time.
+From here, you can run the application and use a web browser to observe it working in real time, which we'll do in the next section.
 
 
 ## Step 2: Inspect, run, and test the sample application
 
-We encourage you to check out [the application code on GItHub](https://github.com/chainguard-dev/edu-images-demos/tree/main/mariadb) to better understand how this application works, but we'll provide a brief overview here.
+We encourage you to check out [the application code on GitHub](https://github.com/chainguard-dev/edu-images-demos/tree/main/mariadb) to better understand how this application works, but we'll provide a brief overview here.
 
 This demo creates a LEMP (Linux, (E)Nginx, MariaDB and PHP-FPM) environment based on Wolfi Chainguard Images. We will use Docker Compose to bring up the environment, which will spin up three containers: an `app` container, a `mariadb` container, and an `nginx` container. These will run as services.
 
-Once the environment is up, you can visit the demo in your web browser. The `index.php` file contains code that does the following.
+Once the environment is up, you can visit the demo in your web browser. The `index.php` file contains code that does the following:
 
 * Connects to the MariaDB server running in the `mariadb` container
 * Creates a new table named `data` if it doesn't already exist
-* Inserts a new entry entry into the table with a random number
+* Inserts a new entry into the table with a random number
 * Queries the table to show all the entries
 
 Every time you reload the page, a new entry will be added to the table.
@@ -162,7 +163,7 @@ Following that, the remainder of this command represents the command that will b
 Enter password:
 ```
 
-Enter "password" and you'll then be presented with the MariaDB command line SQL shell.
+Enter `password` and you'll then be presented with the MariaDB command line SQL shell.
 
 ```
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -176,80 +177,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 MariaDB [(none)]>
 ```
 
-From here, you can interact with the database running off of a Chainguard Image in a Docker container as you would with any other MariaDB database. For example, say you want to inspect the data generated by the example application. First, you'd select the sample database. 
-
-```MariaDB
-USE php-test;
-```
-```
-Database changed
-```
-
-You can check what tables are stored within the currently selected database with this command.
-
-```MariaDB
-SHOW TABLES;
-```
-
-By default, this database will only hold a single table named `data`.
-
-```
-+--------------------+
-| Tables_in_php-test |
-+--------------------+
-| data           	|
-+--------------------+
-1 row in set (0.000 sec)
-```
-
-Knowing this table's name, you can run any valid SQL query you'd like against it. As an example, the following query will retrieve every row from every column of the table. 
-
-```MariaDB
-SELECT * FROM data;
-```
-```
-+----------+------------+
-| data_key | data_value |
-+----------+------------+
-| code 	| 8898   	|
-| code 	| 3857   	|
-| code 	| 4314   	|
-| code 	| 3153   	|
-| code 	| 6259   	|
-| code 	| 2331   	|
-| code 	| 1418   	|
-| code 	| 6348   	|
-+----------+------------+
-8 rows in set (0.011 sec)
-```
-
-You could also create new tables and insert data into them. The following example creates a table named `example_table` with three columns.
-
-```MariaDB
-CREATE TABLE example_table (
-col_a varchar(30),
-col_b int,
-col_c date
-);
-```
-```
-Query OK, 0 rows affected (0.013 sec)
-```
-
-This command inserts a couple rows of sample data into the newly created table.
-
-```MariaDB
-INSERT INTO example_table
-VALUES
-('example', 3, '2021-04-15'),
-('sample', 2443, '1776-07-04'),
-('illustration', 814123715, '1897-10-29'),
-('archetype', 42, '1898-01-01');
-```
-```
-Query OK, 4 rows affected (0.011 sec)
-Records: 4  Duplicates: 0  Warnings: 0
-```
+From here, you can interact with the database from within the `mariadb-mariadb-1` container as you would with any other MariaDB database. For example, you could update existing tables, create new ones, and insert or delete data.
 
 To close the MariaDB prompt, you can enter the following command.
 
