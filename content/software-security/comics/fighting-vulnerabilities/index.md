@@ -16,4 +16,4 @@ weight: 001
 toc: true
 ---
 
-![Comic featuring Chainguard's mascot, Inky the octopus, using their tentacles to defend a vulnerable computer from software vulnerabilities. The vulnerabilities take the form of robotic octopi charging forward as an army toward the computer.](seacuring-software-ep1.png)
+![Comic featuring Chainguard's mascot, Inky the octopus, using their tentacles to defend a vulnerable computer from software vulnerabilities. The vulnerabilities take the form of robotic octopuses charging forward as an army toward the computer.](seacuring-software-ep1.png)
