@@ -1,5 +1,6 @@
 ---
 title: "Network Requirements for Chainguard Images"
+linktitle: "Network Requirements"
 lead: "Using Chainguard Images with firewalls, access control lists, and proxies"
 type: "article"
 description: "Using Chainguard Images with firewalls, access control lists, and proxies"

@@ -188,9 +188,15 @@
   parent = "resources"
 
 [[footer]]
+  name = "Security"
+  url = "https://www.chainguard.dev/security"
+  weight = 3
+  parent = "resources"
+
+[[footer]]
   name = "Education"
   url = "/"
-  weight = 3
+  weight = 4
   parent = "resources"
 
 [[footer]]
@@ -205,21 +211,27 @@
   parent = "company"
 
 [[footer]]
+  name = "Newsroom"
+  url = "https://www.chainguard.dev/newsroom"
+  weight = 2
+  parent = "company"
+
+[[footer]]
   name = "Careers"
   url = "https://www.chainguard.dev/careers"
-  weight = 2
+  weight = 3
   parent = "company"
 
 [[footer]]
   name = "Legal"
   url = "https://www.chainguard.dev/acceptable-use-policy"
-  weight = 3
+  weight = 4
   parent = "company"
 
 [[footer]]
   name = "Contact"
   url = "https://www.chainguard.dev/contact"
-  weight = 4
+  weight = 5
   parent = "company"
 
 [[footer]]

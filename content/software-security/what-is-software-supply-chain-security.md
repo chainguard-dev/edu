@@ -1,5 +1,6 @@
 ---
 title: "What is software supply chain security"
+linktitle: "Software Supply Chain Security"
 description: "Software supply chain security - an explanation"
 lead: "A beginner's guide to software supply chain security"
 type: "article"

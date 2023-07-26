@@ -1,5 +1,6 @@
 ---
 title: "Getting Started with OpenVEX and vexctl"
+linktitle: "OpenVEX and vexctl"
 description: "Using vexctl to manage vulnerability communications"
 lead: "A guide to SBOM quality"
 type: "article"
