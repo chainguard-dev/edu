@@ -9,7 +9,7 @@ mkdir ~/enforce-demo && cd $_
 To install `chainctl`, we’ll use the `curl` command to pull the application down.
 
 ```sh
-curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
+curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
 ```
 
 Move `chainctl` into your `/usr/local/bin` directory and elevate its permissions so that it can execute as needed.
