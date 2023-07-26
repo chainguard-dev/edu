@@ -2,7 +2,7 @@
 title: "Getting Started with melange"
 lead: "An apk builder tool"
 type: "article"
-description: "melange is a declaritive apk builder"
+description: "melange is a declarative apk builder"
 date: 2022-07-21T15:21:01+02:00
 lastmod: 2022-07-21T15:21:01+02:00
 contributors: ["Erika Heidi"]

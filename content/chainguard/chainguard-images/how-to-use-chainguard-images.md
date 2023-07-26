@@ -1,5 +1,6 @@
 ---
 title: "How to Use Chainguard Images"
+linktitle: "How to Use"
 type: "article"
 description: "A primer on how to migrate to Chainguard Images"
 lead: "A primer on how to migrate to Chainguard Images"
