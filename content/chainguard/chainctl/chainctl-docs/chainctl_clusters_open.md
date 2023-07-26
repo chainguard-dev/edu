@@ -1,5 +1,5 @@
 ---
-date: 2023-07-20T09:07:04Z
+date: 2023-07-25T15:47:21Z
 title: "chainctl clusters open"
 slug: chainctl_clusters_open
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_open/
