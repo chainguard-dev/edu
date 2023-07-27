@@ -1,7 +1,7 @@
 ---
 title: "Zookeeper Image Variants"
 type: "article"
-description: "Detailed information about the ZookeeperChainguard Image variants"
+description: "Detailed information about the Zookeeper Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false

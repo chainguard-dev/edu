@@ -1,7 +1,7 @@
 ---
 title: "Buck2 Image Variants"
 type: "article"
-description: "Detailed information about the Buck2Chainguard Image variants"
+description: "Detailed information about the Buck2 Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false

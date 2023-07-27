@@ -1,7 +1,7 @@
 ---
 title: "Secrets-store-csi-driver-provider-gcp Image Variants"
 type: "article"
-description: "Detailed information about the Secrets-store-csi-driver-provider-gcpChainguard Image variants"
+description: "Detailed information about the Secrets-store-csi-driver-provider-gcp Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false

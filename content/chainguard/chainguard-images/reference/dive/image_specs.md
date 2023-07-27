@@ -1,7 +1,7 @@
 ---
 title: "Dive Image Variants"
 type: "article"
-description: "Detailed information about the DiveChainguard Image variants"
+description: "Detailed information about the Dive Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false

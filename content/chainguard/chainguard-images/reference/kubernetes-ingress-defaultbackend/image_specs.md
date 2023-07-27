@@ -1,7 +1,7 @@
 ---
 title: "Kubernetes-ingress-defaultbackend Image Variants"
 type: "article"
-description: "Detailed information about the Kubernetes-ingress-defaultbackendChainguard Image variants"
+description: "Detailed information about the Kubernetes-ingress-defaultbackend Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false

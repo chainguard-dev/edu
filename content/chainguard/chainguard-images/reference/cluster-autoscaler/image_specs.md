@@ -1,7 +1,7 @@
 ---
 title: "Cluster-autoscaler Image Variants"
 type: "article"
-description: "Detailed information about the Cluster-autoscalerChainguard Image variants"
+description: "Detailed information about the Cluster-autoscaler Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
