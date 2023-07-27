@@ -1,7 +1,7 @@
 ---
-title: "vt Image Variants"
+title: "Vt Image Variants"
 type: "article"
-description: "Detailed specs for vt Chainguard Image Variants"
+description: "Detailed information about the VtChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "vt"
+    parent: "Vt"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **vt** Image.
+This page shows detailed information about all available variants of the Chainguard **Vt** Image.
 
 ## Variants Compared
 The **vt** Chainguard Image currently has 2 public variants: 
@@ -33,15 +33,11 @@ The table has detailed information about each of these variants.
 | Has apk?     | no            | yes           |
 | Has a shell? | yes           | yes           |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/vt/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest | latest-dev |
-|--------------------------|--------|------------|
-| `ca-certificates-bundle` | X      | X          |
-| `busybox`                | X      | X          |
-| `vt-cli`                 | X      | X          |
-| `apk-tools`              |        | X          |
-| `bash`                   |        | X          |
-| `git`                    |        | X          |
-
+|           | latest | latest-dev |
+|-----------|--------|------------|
+| `busybox` | X      | X          |
+| `vt-cli`  | X      | X          |

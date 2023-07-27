@@ -1,7 +1,7 @@
 ---
-title: "k8sgpt Image Variants"
+title: "K8sgpt Image Variants"
 type: "article"
-description: "Detailed specs for k8sgpt Chainguard Image Variants"
+description: "Detailed information about the K8sgptChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,35 +9,34 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "k8sgpt"
+    parent: "K8sgpt"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **k8sgpt** Image.
+This page shows detailed information about all available variants of the Chainguard **K8sgpt** Image.
 
 ## Variants Compared
-The **k8sgpt** Chainguard Image currently has one public variant: 
+The **k8sgpt** Chainguard Image currently has 2 public variants: 
 
 - `latest`
+- `latest-dev`
 
 The table has detailed information about each of these variants.
 
-|              | latest        |
-|--------------|---------------|
-| Default User | `nonroot`     |
-| Entrypoint   | `k8sgpt`      |
-| CMD          | not specified |
-| Workdir      | not specified |
-| Has apk?     | no            |
-| Has a shell? | no            |
+|              | latest        | latest-dev    |
+|--------------|---------------|---------------|
+| Default User | `nonroot`     | `nonroot`     |
+| Entrypoint   | `k8sgpt`      | `k8sgpt`      |
+| CMD          | not specified | not specified |
+| Workdir      | not specified | not specified |
+| Has apk?     | no            | yes           |
+| Has a shell? | no            | yes           |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/k8sgpt/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `k8sgpt`                 | X      |
-| `ca-certificates-bundle` | X      |
-| `wolfi-baselayout`       | X      |
-
+|          | latest | latest-dev |
+|----------|--------|------------|
+| `k8sgpt` | X      | X          |

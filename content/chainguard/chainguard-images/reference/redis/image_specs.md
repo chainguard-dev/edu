@@ -1,7 +1,7 @@
 ---
-title: "redis Image Variants"
+title: "Redis Image Variants"
 type: "article"
-description: "Detailed specs for redis Chainguard Image Variants"
+description: "Detailed information about the RedisChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,35 +9,35 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "redis"
+    parent: "Redis"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **redis** Image.
+This page shows detailed information about all available variants of the Chainguard **Redis** Image.
 
 ## Variants Compared
-The **redis** Chainguard Image currently has one public variant: 
+The **redis** Chainguard Image currently has 2 public variants: 
 
 - `latest`
+- `latest-dev`
 
 The table has detailed information about each of these variants.
 
-|              | latest         |
-|--------------|----------------|
-| Default User | `redis`        |
-| Entrypoint   | `redis-server` |
-| CMD          | not specified  |
-| Workdir      | `/data`        |
-| Has apk?     | no             |
-| Has a shell? | yes            |
+|              | latest         | latest-dev     |
+|--------------|----------------|----------------|
+| Default User | `redis`        | `redis`        |
+| Entrypoint   | `redis-server` | `redis-server` |
+| CMD          | not specified  | not specified  |
+| Workdir      | `/data`        | `/data`        |
+| Has apk?     | no             | yes            |
+| Has a shell? | yes            | yes            |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/redis/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                    | latest |
-|--------------------|--------|
-| `redis`            | X      |
-| `busybox`          | X      |
-| `wolfi-baselayout` | X      |
-
+|           | latest | latest-dev |
+|-----------|--------|------------|
+| `redis`   | X      | X          |
+| `busybox` | X      | X          |

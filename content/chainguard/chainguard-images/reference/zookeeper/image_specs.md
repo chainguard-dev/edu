@@ -1,7 +1,7 @@
 ---
-title: "zookeeper Image Variants"
+title: "Zookeeper Image Variants"
 type: "article"
-description: "Detailed specs for zookeeper Chainguard Image Variants"
+description: "Detailed information about the ZookeeperChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "zookeeper"
+    parent: "Zookeeper"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **zookeeper** Image.
+This page shows detailed information about all available variants of the Chainguard **Zookeeper** Image.
 
 ## Variants Compared
 The **zookeeper** Chainguard Image currently has 2 public variants: 
@@ -33,19 +33,15 @@ The table has detailed information about each of these variants.
 | Has apk?     | no                                          | yes                                         |
 | Has a shell? | yes                                         | yes                                         |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/zookeeper/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
 |                          | latest | latest-dev |
 |--------------------------|--------|------------|
-| `ca-certificates-bundle` | X      | X          |
-| `wolfi-baselayout`       | X      | X          |
 | `busybox`                | X      | X          |
 | `glibc-locale-en`        | X      | X          |
 | `bash`                   | X      | X          |
 | `zookeeper`              | X      | X          |
 | `openjdk-17-jre`         | X      | X          |
 | `openjdk-17-default-jvm` | X      | X          |
-| `apk-tools`              |        | X          |
-| `git`                    |        | X          |
-

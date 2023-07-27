@@ -1,7 +1,7 @@
 ---
-title: "melange Image Variants"
+title: "Melange Image Variants"
 type: "article"
-description: "Detailed specs for melange Chainguard Image Variants"
+description: "Detailed information about the MelangeChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,38 +9,37 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "melange"
+    parent: "Melange"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **melange** Image.
+This page shows detailed information about all available variants of the Chainguard **Melange** Image.
 
 ## Variants Compared
-The **melange** Chainguard Image currently has one public variant: 
+The **melange** Chainguard Image currently has 2 public variants: 
 
 - `latest`
+- `latest-dev`
 
 The table has detailed information about each of these variants.
 
-|              | latest             |
-|--------------|--------------------|
-| Default User | `root`             |
-| Entrypoint   | `/usr/bin/melange` |
-| CMD          | `--help`           |
-| Workdir      | `/work`            |
-| Has apk?     | yes                |
-| Has a shell? | yes                |
+|              | latest             | latest-dev         |
+|--------------|--------------------|--------------------|
+| Default User | `root`             | `root`             |
+| Entrypoint   | `/usr/bin/melange` | `/usr/bin/melange` |
+| CMD          | `--help`           | `--help`           |
+| Workdir      | `/work`            | `/work`            |
+| Has apk?     | yes                | yes                |
+| Has a shell? | yes                | yes                |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/melange/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `alpine-keys`            | X      |
-| `ca-certificates-bundle` | X      |
-| `wolfi-base`             | X      |
-| `bubblewrap`             | X      |
-| `melange`                | X      |
-| `wolfi-baselayout`       | X      |
-
+|               | latest | latest-dev |
+|---------------|--------|------------|
+| `alpine-keys` | X      | X          |
+| `wolfi-base`  | X      | X          |
+| `bubblewrap`  | X      | X          |
+| `melange`     | X      | X          |

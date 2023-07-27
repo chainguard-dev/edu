@@ -1,7 +1,7 @@
 ---
-title: "metrics-server Image Variants"
+title: "Metrics-server Image Variants"
 type: "article"
-description: "Detailed specs for metrics-server Chainguard Image Variants"
+description: "Detailed information about the Metrics-serverChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "metrics-server"
+    parent: "Metrics-server"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **metrics-server** Image.
+This page shows detailed information about all available variants of the Chainguard **Metrics-server** Image.
 
 ## Variants Compared
 The **metrics-server** Chainguard Image currently has 2 public variants: 
@@ -33,16 +33,10 @@ The table has detailed information about each of these variants.
 | Has apk?     | no                               | yes                              |
 | Has a shell? | no                               | yes                              |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/metrics-server/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest | latest-dev |
-|--------------------------|--------|------------|
-| `ca-certificates-bundle` | X      | X          |
-| `wolfi-baselayout`       | X      | X          |
-| `metrics-server`         | X      | X          |
-| `apk-tools`              |        | X          |
-| `bash`                   |        | X          |
-| `busybox`                |        | X          |
-| `git`                    |        | X          |
-
+|                  | latest | latest-dev |
+|------------------|--------|------------|
+| `metrics-server` | X      | X          |

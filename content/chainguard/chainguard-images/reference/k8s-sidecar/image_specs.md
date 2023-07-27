@@ -1,7 +1,7 @@
 ---
-title: "k8s-sidecar Image Variants"
+title: "K8s-sidecar Image Variants"
 type: "article"
-description: "Detailed specs for k8s-sidecar Chainguard Image Variants"
+description: "Detailed information about the K8s-sidecarChainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "k8s-sidecar"
+    parent: "K8s-sidecar"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **k8s-sidecar** Image.
+This page shows detailed information about all available variants of the Chainguard **K8s-sidecar** Image.
 
 ## Variants Compared
 The **k8s-sidecar** Chainguard Image currently has 2 public variants: 
@@ -33,16 +33,11 @@ The table has detailed information about each of these variants.
 | Has apk?     | no                                                             | yes                                                            |
 | Has a shell? | yes                                                            | yes                                                            |
 
+Check the [tags history page](/chainguard/chainguard-images/reference/k8s-sidecar/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest | latest-dev |
-|--------------------------|--------|------------|
-| `ca-certificates-bundle` | X      | X          |
-| `wolfi-baselayout`       | X      | X          |
-| `k8s-sidecar`            | X      | X          |
-| `busybox`                | X      | X          |
-| `apk-tools`              |        | X          |
-| `bash`                   |        | X          |
-| `git`                    |        | X          |
-
+|               | latest | latest-dev |
+|---------------|--------|------------|
+| `k8s-sidecar` | X      | X          |
+| `busybox`     | X      | X          |
