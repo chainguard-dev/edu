@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | July 25th    | `sha256:9339b6c1425fec105aed6c13f628aa843785a77ba7a2cc69febed03546719055` |
+|  `latest` | July 27th    | `sha256:7bd1b151694c4317bcc079363c15a7f52c4c9fcf9cda3afbeac5ee3cd4a157b7` |
 
 # newrelic-kube-events
 

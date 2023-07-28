@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | July 25th    | `sha256:ac6b2dc23cde7226ed9265ab3534a8a2fe41b70917fad712904d433c93975012` |
+|  `latest` | July 27th    | `sha256:47c424842537115c36aa036f1f5cbe296ea7181a2d3c095868e741c9da01ce28` |
 
 # newrelic-kubernetes
 

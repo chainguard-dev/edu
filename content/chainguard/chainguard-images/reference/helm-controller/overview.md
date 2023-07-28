@@ -16,10 +16,8 @@ toc: true
 
 [cgr.dev/chainguard/helm-controller](https://github.com/chainguard-images/images/tree/main/images/helm-controller)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | June 26th    | `sha256:2bcae87c7247fdde8d06ed743541b9af9b46048d1b77538ca01ab9e1e9021573` |
-|  `latest-dev` | June 26th    | `sha256:4e09101e09ea6ba55fa5da6b5d30a691bea243d6c7db7f5cec2ba54e2d960bd6` |
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 
 # helm-controller
 

@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 20th    | `sha256:7a7e9a909a2e4c44d33f97169675a3e563f4220558df894c9d6bcd10e283d289` |
-|  `latest`     | July 20th    | `sha256:f63e0946381f3c2470d5e10620136381d405bbef32f33c49ffbc14f55b8c7ac3` |
+|  `latest-dev` | July 27th    | `sha256:6620fcf90ae8d04de5ddea88c4ecafc93d8552b8f7e3edd598f7a9dda3b2622c` |
+|  `latest`     | July 26th    | `sha256:f5ad2c74ecf64cf6a3a6b0296d4e4e1c6d851e1fd173602b100982e41d2c7067` |
 
 # flux-image-automation-controller
 
