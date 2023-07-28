@@ -1,5 +1,6 @@
 ---
 title: "What is the Open Container Initiative?"
+linktitle: "What is the OCI?"
 type: "article"
 description: "The Open Container Initiative (OCI) is a Linux Foundation project dedicated to managing specifications and projects related to the storage, distribution, and execution of container images."
 date: 2022-06-09T15:22:20+01:00

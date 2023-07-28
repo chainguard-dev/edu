@@ -1,5 +1,6 @@
 ---
 title: "What is an SBOM (software bill of materials)?"
+linktitle: "What is an SBOM?"
 description: "A conceptual overview of SBOMs"
 lead: "A conceptual overview of SBOMs"
 type: "article"
