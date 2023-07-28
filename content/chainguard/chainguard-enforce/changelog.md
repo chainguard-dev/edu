@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-07-25 15:37:32 +0000 UTC
+date: 2023-07-27 14:26:10 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,13 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.145
+Release date: 2023-07-27
+#### Feature
+- Delete all policies in a group with `chainctl policies delete --group=GROUP`. To remove policies from all subgroups too, use `--recursive`.
+- Use organization name for registry slug in console if verified
+
 
 ### v0.1.144
 Release date: 2023-07-25
