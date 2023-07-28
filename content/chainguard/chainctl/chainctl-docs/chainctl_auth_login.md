@@ -1,5 +1,5 @@
 ---
-date: 2023-07-25T15:47:21Z
+date: 2023-07-27T14:41:01Z
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_login/
@@ -14,7 +14,7 @@ toc: true
 Login to the Chainguard platform.
 
 ```
-chainctl auth login [--identity-token TOKEN] [--invite-code INVITE_CODE | --register] [--cluster CLUSTER_ID] [--refresh]
+chainctl auth login [--invite-code=INVITE_CODE | --register] [--identity-token=PATH_TO_TOKEN] [--identity=IDENTITY_ID] [--identity-provider=IDP_ID] [--cluster=CLUSTER] [--headless] [--prefer-ambient-credentials] [--refresh] [--output table|id|json|none]
 ```
 
 ### Examples
@@ -36,15 +36,16 @@ chainctl auth login [--identity-token TOKEN] [--invite-code INVITE_CODE | --regi
 ### Options
 
 ```
-      --cluster string             UID of the Cluster.
-      --headless                   Skip browser authentication and use device flow.
-  -h, --help                       help for login
-      --identity string            The unique ID of the identity to assume when logging in.
-      --identity-provider string   The unique ID of the customer managed identity provider to authenticate with
-      --identity-token string      Use an explicit passed identity token or token path.
-      --invite-code string         Registration invite code.
-      --refresh                    Enable auto refresh of the Chainguard token (for workloads).
-      --register                   Register a new account if needed. Will create a new root group when an invite code is not specified.
+      --cluster string               UID of the Cluster.
+      --headless                     Skip browser authentication and use device flow.
+  -h, --help                         help for login
+      --identity string              The unique ID of the identity to assume when logging in.
+      --identity-provider string     The unique ID of the customer managed identity provider to authenticate with
+      --identity-token string        Use an explicit passed identity token or token path.
+      --invite-code string           Registration invite code.
+      --prefer-ambient-credentials   Auth with ambient credentials, if present, before using a supplied identity token.
+      --refresh                      Enable auto refresh of the Chainguard token (for workloads).
+      --register                     Register a new account if needed. Will create a new root group when an invite code is not specified.
 ```
 
 ### Options inherited from parent commands

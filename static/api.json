@@ -2116,7 +2116,7 @@
             "schema": {
               "properties": {
                 "bundles": {
-                  "description": "bundles is a list of tags/labels that allow us to group repositories to each other for sales surposes.",
+                  "description": "bundles is a list of tags/labels that allow us to group repositories to each other for sales purposes.",
                   "items": {
                     "type": "string"
                   },
@@ -2253,6 +2253,12 @@
             "name": "excludeEpochs",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2260,6 +2266,102 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/registryTagList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/tags/{id}": {
+      "delete": {
+        "operationId": "Registry_DeleteTag",
+        "parameters": [
+          {
+            "description": "ID, UID of the record.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      },
+      "put": {
+        "operationId": "Registry_UpdateTag",
+        "parameters": [
+          {
+            "description": "id, identifier of this Tag, a UIDP under a Repo.",
+            "in": "path",
+            "name": "id",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "bundles": {
+                  "description": "bundles is a list of tags/labels for sales purposes.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "deprecated": {
+                  "description": "deprecated, true if the tag is deprecated.",
+                  "type": "boolean"
+                },
+                "digest": {
+                  "description": "digest, the digest of the manifest with this tag.",
+                  "type": "string"
+                },
+                "lastUpdated": {
+                  "description": "last time this tag was updated.",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "name, the unique name of the Tag.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryTag"
             }
           },
           "default": {
@@ -2306,6 +2408,45 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/registryTagHistoryList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/tags/{repoId}": {
+      "post": {
+        "operationId": "Registry_CreateTag",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "repoId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "tag",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/registryTag"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryTag"
             }
           },
           "default": {
@@ -4138,7 +4279,7 @@
     "registryRepo": {
       "properties": {
         "bundles": {
-          "description": "bundles is a list of tags/labels that allow us to group repositories to each other for sales surposes.",
+          "description": "bundles is a list of tags/labels that allow us to group repositories to each other for sales purposes.",
           "items": {
             "type": "string"
           },
@@ -4172,6 +4313,13 @@
     },
     "registryTag": {
       "properties": {
+        "bundles": {
+          "description": "bundles is a list of tags/labels for sales purposes.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "deprecated": {
           "description": "deprecated, true if the tag is deprecated.",
           "type": "boolean"
