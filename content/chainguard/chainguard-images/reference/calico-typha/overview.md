@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | July 18th    | `sha256:a1fef5a05baab8cd977a176da2f2ea309b99b47a62594c91ec93180babcfe7c9` |
+|  `latest` | July 26th    | `sha256:cbce341c74ed08faa3ed1be07a7e195b32ebda698fb666c9278cfc250e38f726` |
 
 # calico-typha
 
