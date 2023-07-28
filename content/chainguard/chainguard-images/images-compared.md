@@ -1,5 +1,6 @@
 ---
 title: "Comparison of Vulnerabilities in Container Images"
+linktitle: "Images Compared"
 lead: "Detected CVEs Over Time"
 type: "article"
 description: "Comparing popular base images with Chainguard Images in number of CVEs detected over time"

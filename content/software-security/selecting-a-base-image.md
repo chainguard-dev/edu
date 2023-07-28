@@ -1,5 +1,6 @@
 ---
-title: "Selecting a base image"
+title: "Selecting a Base Image"
+linktitle: "Selecting a Base Image"
 description: "Criteria for selecting a base image"
 lead: "What to look for when choosing a hardened, minimal base image"
 type: "article"

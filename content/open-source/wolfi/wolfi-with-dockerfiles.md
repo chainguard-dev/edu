@@ -1,5 +1,6 @@
 ---
 title: "Creating Wolfi Images with Dockerfiles"
+linktitle: "Wolfi Images with Dockerfiles"
 type: "article"
 description: "This tutorial demonstrates how to build a Wolfi Python image from scratch, using a Dockerfile workflow."
 date: 2022-12-19T08:49:31+00:00

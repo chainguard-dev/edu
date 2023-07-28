@@ -1,5 +1,6 @@
 ---
 title: "Troubleshooting melange Builds"
+linktitle: "Troubleshooting Builds"
 type: "article"
 lead: "Debugging and common errors"
 description: "Debugging and common errors with melange build"

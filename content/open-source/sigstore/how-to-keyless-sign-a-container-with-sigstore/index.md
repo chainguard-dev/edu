@@ -1,5 +1,6 @@
 ---
 title: "How to Keyless Sign a Container Image with Sigstore"
+linktitle: "Keyless Signing"
 type: "article"
 lead: "Using GitHub Actions with Cosign"
 description: "Use Cosign and GitHub Actions to Keyless Sign a Django Container Image"
