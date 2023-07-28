@@ -20,6 +20,14 @@
   max-width: 320px;
 }
 
+.docs-content > table {
+  table-layout: fixed;
+}
+
+.docs-content > table > code{
+  word-wrap: anywhere;
+}
+
 // Beat <a> reset
 .docs-content.docs-content a:not(.tag) {
   color: var(--article-link-color);

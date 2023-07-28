@@ -1,7 +1,7 @@
 ---
-title: "nginx Image Variants"
+title: "Nginx Image Variants"
 type: "article"
-description: "Detailed specs for nginx Chainguard Image Variants"
+description: "Detailed information about the Nginx Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,42 +9,40 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "nginx"
+    parent: "Nginx"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **nginx** Image.
+This page shows detailed information about all available variants of the Chainguard **Nginx** Image.
 
 ## Variants Compared
-The **nginx** Chainguard Image currently has 3 public variants: 
+The **nginx** Chainguard Image currently has 2 public variants: 
 
 - `latest`
 - `latest-dev`
-- `next`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nginx`
 
-|              | latest                                                     | latest-dev                                                 | next                                                       |
-|--------------|------------------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------|
-| Default User | `nginx`                                                    | `nginx`                                                    | `nginx`                                                    |
-| Entrypoint   | `/usr/sbin/nginx`                                          | `/usr/sbin/nginx`                                          | `/usr/sbin/nginx`                                          |
-| CMD          | `-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` | `-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` | `-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` |
-| Workdir      | not specified                                              | not specified                                              | not specified                                              |
-| Has apk?     | no                                                         | yes                                                        | no                                                         |
-| Has a shell? | no                                                         | yes                                                        | no                                                         |
+`WORKDIR`:	not specified
 
+`ENTRYPOINT`:	`/usr/sbin/nginx`
+
+`CMD`:		`-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | no     | yes        |
+
+Check the [tags history page](/chainguard/chainguard-images/reference/nginx/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest | latest-dev | next |
-|--------------------------|--------|------------|------|
-| `ca-certificates-bundle` | X      | X          | X    |
-| `wolfi-baselayout`       | X      | X          | X    |
-| `nginx`                  | X      | X          | X    |
-| `nginx-package-config`   | X      | X          | X    |
-| `apk-tools`              |        | X          |      |
-| `bash`                   |        | X          |      |
-| `busybox`                |        | X          |      |
-| `git`                    |        | X          |      |
-
+|                        | latest | latest-dev |
+|------------------------|--------|------------|
+| `nginx`                | X      | X          |
+| `nginx-package-config` | X      | X          |
