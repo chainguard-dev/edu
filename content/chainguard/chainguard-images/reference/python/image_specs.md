@@ -26,16 +26,21 @@ The **python** Chainguard Image currently has 6 public variants:
 - `3.10`
 - `3.10-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nonroot`
 
-|              | latest            | latest-dev        | 3.11              | 3.11-dev          | 3.10              | 3.10-dev          |
-|--------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
-| Default User | `nonroot`         | `nonroot`         | `nonroot`         | `nonroot`         | `nonroot`         | `nonroot`         |
-| Entrypoint   | `/usr/bin/python` | `/usr/bin/python` | `/usr/bin/python` | `/usr/bin/python` | `/usr/bin/python` | `/usr/bin/python` |
-| CMD          | not specified     | not specified     | not specified     | not specified     | not specified     | not specified     |
-| Workdir      | not specified     | not specified     | not specified     | not specified     | not specified     | not specified     |
-| Has apk?     | no                | yes               | no                | yes               | no                | yes               |
-| Has a shell? | no                | yes               | no                | yes               | no                | yes               |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/bin/python`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev | 3.11 | 3.11-dev | 3.10 | 3.10-dev |
+|--------------|--------|------------|------|----------|------|----------|
+| Has apk?     | no     | yes        | no   | yes      | no   | yes      |
+| Has a shell? | no     | yes        | no   | yes      | no   | yes      |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/python/tags_history/) for the full list of available tags.
 ## Image Dependencies

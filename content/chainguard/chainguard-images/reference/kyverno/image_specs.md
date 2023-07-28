@@ -32,16 +32,21 @@ The **kyverno** Chainguard Image currently has 12 public variants:
 - `latest.admission`
 - `latest.admission-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nonroot`
 
-|              | latest.reports                | latest.reports-dev            | latest.init           | latest.init-dev       | latest.cli                 | latest.cli-dev             | latest.cleanup                | latest.cleanup-dev            | latest.background                | latest.background-dev            | latest.admission   | latest.admission-dev |
-|--------------|-------------------------------|-------------------------------|-----------------------|-----------------------|----------------------------|----------------------------|-------------------------------|-------------------------------|----------------------------------|----------------------------------|--------------------|----------------------|
-| Default User | `nonroot`                     | `nonroot`                     | `nonroot`             | `nonroot`             | `nonroot`                  | `nonroot`                  | `nonroot`                     | `nonroot`                     | `nonroot`                        | `nonroot`                        | `nonroot`          | `nonroot`            |
-| Entrypoint   | `/usr/bin/reports-controller` | `/usr/bin/reports-controller` | `/usr/bin/kyvernopre` | `/usr/bin/kyvernopre` | `/usr/bin/kubectl-kyverno` | `/usr/bin/kubectl-kyverno` | `/usr/bin/cleanup-controller` | `/usr/bin/cleanup-controller` | `/usr/bin/background-controller` | `/usr/bin/background-controller` | `/usr/bin/kyverno` | `/usr/bin/kyverno`   |
-| CMD          | `help`                        | `help`                        | `help`                | `help`                | `help`                     | `help`                     | `help`                        | `help`                        | `help`                           | `help`                           | `help`             | `help`               |
-| Workdir      | not specified                 | not specified                 | not specified         | not specified         | not specified              | not specified              | not specified                 | not specified                 | not specified                    | not specified                    | not specified      | not specified        |
-| Has apk?     | no                            | yes                           | no                    | yes                   | no                         | yes                        | no                            | yes                           | no                               | yes                              | no                 | yes                  |
-| Has a shell? | no                            | yes                           | no                    | yes                   | no                         | yes                        | no                            | yes                           | no                               | yes                              | no                 | yes                  |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/bin/kyverno`
+
+`CMD`:		`help`
+
+The following table has additional information about each of these variants.
+
+|              | latest.reports | latest.reports-dev | latest.init | latest.init-dev | latest.cli | latest.cli-dev | latest.cleanup | latest.cleanup-dev | latest.background | latest.background-dev | latest.admission | latest.admission-dev |
+|--------------|----------------|--------------------|-------------|-----------------|------------|----------------|----------------|--------------------|-------------------|-----------------------|------------------|----------------------|
+| Has apk?     | no             | yes                | no          | yes             | no         | yes            | no             | yes                | no                | yes                   | no               | yes                  |
+| Has a shell? | no             | yes                | no          | yes             | no         | yes            | no             | yes                | no                | yes                   | no               | yes                  |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kyverno/tags_history/) for the full list of available tags.
 ## Image Dependencies

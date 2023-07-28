@@ -22,16 +22,21 @@ The **bazel** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`bazel`
 
-|              | latest           | latest-dev       |
-|--------------|------------------|------------------|
-| Default User | `bazel`          | `bazel`          |
-| Entrypoint   | `/usr/bin/bazel` | `/usr/bin/bazel` |
-| CMD          | not specified    | not specified    |
-| Workdir      | `/home/bazel`    | `/home/bazel`    |
-| Has apk?     | no               | yes              |
-| Has a shell? | yes              | yes              |
+`WORKDIR`:	`/home/bazel`
+
+`ENTRYPOINT`:	`/usr/bin/bazel`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | yes    | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/bazel/tags_history/) for the full list of available tags.
 ## Image Dependencies

@@ -22,16 +22,21 @@ The **rust** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nonroot`
 
-|              | latest           | latest-dev       |
-|--------------|------------------|------------------|
-| Default User | `nonroot`        | `nonroot`        |
-| Entrypoint   | `/usr/bin/rustc` | `/usr/bin/rustc` |
-| CMD          | `--help`         | `--help`         |
-| Workdir      | `/work`          | `/work`          |
-| Has apk?     | no               | yes              |
-| Has a shell? | yes              | yes              |
+`WORKDIR`:	`/work`
+
+`ENTRYPOINT`:	`/usr/bin/rustc`
+
+`CMD`:		`--help`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | yes    | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/rust/tags_history/) for the full list of available tags.
 ## Image Dependencies

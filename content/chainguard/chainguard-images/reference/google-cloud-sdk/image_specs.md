@@ -22,16 +22,21 @@ The **google-cloud-sdk** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`gcloud`
 
-|              | latest            | latest-dev        |
-|--------------|-------------------|-------------------|
-| Default User | `gcloud`          | `gcloud`          |
-| Entrypoint   | not specified     | not specified     |
-| CMD          | `/usr/bin/gcloud` | `/usr/bin/gcloud` |
-| Workdir      | not specified     | not specified     |
-| Has apk?     | yes               | yes               |
-| Has a shell? | yes               | yes               |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	not specified
+
+`CMD`:		`/usr/bin/gcloud`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | yes    | yes        |
+| Has a shell? | yes    | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/google-cloud-sdk/tags_history/) for the full list of available tags.
 ## Image Dependencies

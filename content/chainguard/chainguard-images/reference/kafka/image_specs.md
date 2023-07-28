@@ -22,16 +22,21 @@ The **kafka** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`kafka`
 
-|              | latest                                     | latest-dev                                 |
-|--------------|--------------------------------------------|--------------------------------------------|
-| Default User | `kafka`                                    | `kafka`                                    |
-| Entrypoint   | `/usr/lib/kafka/bin/kafka-server-start.sh` | `/usr/lib/kafka/bin/kafka-server-start.sh` |
-| CMD          | `/usr/lib/kafka/config/server.properties`  | `/usr/lib/kafka/config/server.properties`  |
-| Workdir      | not specified                              | not specified                              |
-| Has apk?     | no                                         | yes                                        |
-| Has a shell? | yes                                        | yes                                        |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/lib/kafka/bin/kafka-server-start.sh`
+
+`CMD`:		`/usr/lib/kafka/config/server.properties`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | yes    | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kafka/tags_history/) for the full list of available tags.
 ## Image Dependencies

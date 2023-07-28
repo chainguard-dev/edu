@@ -22,16 +22,21 @@ The **wasmer** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nonroot`
 
-|              | latest            | latest-dev        |
-|--------------|-------------------|-------------------|
-| Default User | `nonroot`         | `nonroot`         |
-| Entrypoint   | `/usr/bin/wasmer` | `/usr/bin/wasmer` |
-| CMD          | `--help`          | `--help`          |
-| Workdir      | not specified     | not specified     |
-| Has apk?     | no                | yes               |
-| Has a shell? | no                | yes               |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/bin/wasmer`
+
+`CMD`:		`--help`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | no     | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/wasmer/tags_history/) for the full list of available tags.
 ## Image Dependencies

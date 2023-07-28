@@ -22,16 +22,21 @@ The **zookeeper** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`zookeeper`
 
-|              | latest                                      | latest-dev                                  |
-|--------------|---------------------------------------------|---------------------------------------------|
-| Default User | `zookeeper`                                 | `zookeeper`                                 |
-| Entrypoint   | `/usr/share/java/zookeeper/bin/zkServer.sh` | `/usr/share/java/zookeeper/bin/zkServer.sh` |
-| CMD          | `start-foreground`                          | `start-foreground`                          |
-| Workdir      | not specified                               | not specified                               |
-| Has apk?     | no                                          | yes                                         |
-| Has a shell? | yes                                         | yes                                         |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/share/java/zookeeper/bin/zkServer.sh`
+
+`CMD`:		`start-foreground`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | yes    | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/zookeeper/tags_history/) for the full list of available tags.
 ## Image Dependencies

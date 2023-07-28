@@ -26,16 +26,21 @@ The **k3s** Chainguard Image currently has 6 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`root`
 
-|              | latest.images | latest.images-dev | latest.embedded | latest.embedded-dev | latest        | latest-dev    |
-|--------------|---------------|-------------------|-----------------|---------------------|---------------|---------------|
-| Default User | `root`        | `root`            | `root`          | `root`              | `root`        | `root`        |
-| Entrypoint   | `/bin/k3s`    | `/bin/k3s`        | `/bin/k3s`      | `/bin/k3s`          | `/bin/k3s`    | `/bin/k3s`    |
-| CMD          | `agent`       | `agent`           | `agent`         | `agent`             | `agent`       | `agent`       |
-| Workdir      | not specified | not specified     | not specified   | not specified       | not specified | not specified |
-| Has apk?     | no            | yes               | no              | yes                 | no            | yes           |
-| Has a shell? | no            | yes               | no              | yes                 | no            | yes           |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/bin/k3s`
+
+`CMD`:		`agent`
+
+The following table has additional information about each of these variants.
+
+|              | latest.images | latest.images-dev | latest.embedded | latest.embedded-dev | latest | latest-dev |
+|--------------|---------------|-------------------|-----------------|---------------------|--------|------------|
+| Has apk?     | no            | yes               | no              | yes                 | no     | yes        |
+| Has a shell? | no            | yes               | no              | yes                 | no     | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/k3s/tags_history/) for the full list of available tags.
 ## Image Dependencies

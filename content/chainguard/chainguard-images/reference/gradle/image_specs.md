@@ -22,16 +22,21 @@ The **gradle** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`gradle`
 
-|              | latest            | latest-dev        |
-|--------------|-------------------|-------------------|
-| Default User | `gradle`          | `gradle`          |
-| Entrypoint   | `/usr/bin/gradle` | `/usr/bin/gradle` |
-| CMD          | not specified     | not specified     |
-| Workdir      | `/home/build`     | `/home/build`     |
-| Has apk?     | no                | yes               |
-| Has a shell? | yes               | yes               |
+`WORKDIR`:	`/home/build`
+
+`ENTRYPOINT`:	`/usr/bin/gradle`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | yes    | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/gradle/tags_history/) for the full list of available tags.
 ## Image Dependencies

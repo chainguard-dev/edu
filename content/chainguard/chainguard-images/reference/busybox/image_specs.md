@@ -24,16 +24,21 @@ The **busybox** Chainguard Image currently has 4 public variants:
 - `latest.alpine`
 - `latest.alpine-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nonroot`
 
-|              | latest.wolfi  | latest.wolfi-dev | latest.alpine | latest.alpine-dev |
-|--------------|---------------|------------------|---------------|-------------------|
-| Default User | `nonroot`     | `nonroot`        | `nonroot`     | `nonroot`         |
-| Entrypoint   | not specified | not specified    | not specified | not specified     |
-| CMD          | not specified | not specified    | not specified | not specified     |
-| Workdir      | not specified | not specified    | not specified | not specified     |
-| Has apk?     | no            | yes              | no            | yes               |
-| Has a shell? | yes           | yes              | yes           | yes               |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	not specified
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest.wolfi | latest.wolfi-dev | latest.alpine | latest.alpine-dev |
+|--------------|--------------|------------------|---------------|-------------------|
+| Has apk?     | no           | yes              | no            | yes               |
+| Has a shell? | yes          | yes              | yes           | yes               |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/busybox/tags_history/) for the full list of available tags.
 ## Image Dependencies

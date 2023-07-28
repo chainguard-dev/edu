@@ -22,16 +22,21 @@ The **cluster-proportional-autoscaler** Chainguard Image currently has 2 public 
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`cluster-proportional-autoscaler`
 
-|              | latest                                     | latest-dev                                 |
-|--------------|--------------------------------------------|--------------------------------------------|
-| Default User | `cluster-proportional-autoscaler`          | `cluster-proportional-autoscaler`          |
-| Entrypoint   | `/usr/bin/cluster-proportional-autoscaler` | `/usr/bin/cluster-proportional-autoscaler` |
-| CMD          | not specified                              | not specified                              |
-| Workdir      | not specified                              | not specified                              |
-| Has apk?     | no                                         | yes                                        |
-| Has a shell? | no                                         | yes                                        |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/bin/cluster-proportional-autoscaler`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | no     | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/cluster-proportional-autoscaler/tags_history/) for the full list of available tags.
 ## Image Dependencies

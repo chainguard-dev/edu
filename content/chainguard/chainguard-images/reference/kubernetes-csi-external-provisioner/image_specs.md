@@ -22,16 +22,21 @@ The **kubernetes-csi-external-provisioner** Chainguard Image currently has 2 pub
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`root`
 
-|              | latest                     | latest-dev                 |
-|--------------|----------------------------|----------------------------|
-| Default User | `root`                     | `root`                     |
-| Entrypoint   | `/usr/bin/csi-provisioner` | `/usr/bin/csi-provisioner` |
-| CMD          | not specified              | not specified              |
-| Workdir      | not specified              | not specified              |
-| Has apk?     | no                         | yes                        |
-| Has a shell? | no                         | yes                        |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/bin/csi-provisioner`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | no     | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kubernetes-csi-external-provisioner/tags_history/) for the full list of available tags.
 ## Image Dependencies

@@ -22,16 +22,21 @@ The **kube-bench** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`root`
 
-|              | latest                | latest-dev            |
-|--------------|-----------------------|-----------------------|
-| Default User | `root`                | `root`                |
-| Entrypoint   | `/usr/bin/kube-bench` | `/usr/bin/kube-bench` |
-| CMD          | `help`                | `help`                |
-| Workdir      | `/etc/kube-bench`     | `/etc/kube-bench`     |
-| Has apk?     | no                    | yes                   |
-| Has a shell? | no                    | yes                   |
+`WORKDIR`:	`/etc/kube-bench`
+
+`ENTRYPOINT`:	`/usr/bin/kube-bench`
+
+`CMD`:		`help`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | no     | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kube-bench/tags_history/) for the full list of available tags.
 ## Image Dependencies

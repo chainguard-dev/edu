@@ -22,16 +22,21 @@ The **memcached** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`memcached`
 
-|              | latest        | latest-dev    |
-|--------------|---------------|---------------|
-| Default User | `memcached`   | `memcached`   |
-| Entrypoint   | `memcached`   | `memcached`   |
-| CMD          | not specified | not specified |
-| Workdir      | not specified | not specified |
-| Has apk?     | no            | yes           |
-| Has a shell? | no            | yes           |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`memcached`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | no     | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/memcached/tags_history/) for the full list of available tags.
 ## Image Dependencies

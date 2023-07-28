@@ -28,16 +28,21 @@ The **ruby** Chainguard Image currently has 8 public variants:
 - `3.0`
 - `3.0-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nonroot`
 
-|              | latest          | latest-dev      | 3.2             | 3.2-dev         | 3.1             | 3.1-dev         | 3.0             | 3.0-dev         |
-|--------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-| Default User | `nonroot`       | `nonroot`       | `nonroot`       | `nonroot`       | `nonroot`       | `nonroot`       | `nonroot`       | `nonroot`       |
-| Entrypoint   | `/usr/bin/ruby` | `/usr/bin/ruby` | `/usr/bin/ruby` | `/usr/bin/ruby` | `/usr/bin/ruby` | `/usr/bin/ruby` | `/usr/bin/ruby` | `/usr/bin/ruby` |
-| CMD          | `--version`     | `--version`     | `--version`     | `--version`     | `--version`     | `--version`     | `--version`     | `--version`     |
-| Workdir      | `/work`         | `/work`         | `/work`         | `/work`         | `/work`         | `/work`         | `/work`         | `/work`         |
-| Has apk?     | no              | yes             | no              | yes             | no              | yes             | no              | yes             |
-| Has a shell? | no              | yes             | no              | yes             | no              | yes             | no              | yes             |
+`WORKDIR`:	`/work`
+
+`ENTRYPOINT`:	`/usr/bin/ruby`
+
+`CMD`:		`--version`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev | 3.2 | 3.2-dev | 3.1 | 3.1-dev | 3.0 | 3.0-dev |
+|--------------|--------|------------|-----|---------|-----|---------|-----|---------|
+| Has apk?     | no     | yes        | no  | yes     | no  | yes     | no  | yes     |
+| Has a shell? | no     | yes        | no  | yes     | no  | yes     | no  | yes     |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/ruby/tags_history/) for the full list of available tags.
 ## Image Dependencies

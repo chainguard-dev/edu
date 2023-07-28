@@ -22,16 +22,21 @@ The **rabbitmq** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`rabbitmq`
 
-|              | latest                      | latest-dev                  |
-|--------------|-----------------------------|-----------------------------|
-| Default User | `rabbitmq`                  | `rabbitmq`                  |
-| Entrypoint   | `/usr/sbin/rabbitmq-server` | `/usr/sbin/rabbitmq-server` |
-| CMD          | not specified               | not specified               |
-| Workdir      | `/var/lib/rabbitmq`         | `/var/lib/rabbitmq`         |
-| Has apk?     | no                          | yes                         |
-| Has a shell? | yes                         | yes                         |
+`WORKDIR`:	`/var/lib/rabbitmq`
+
+`ENTRYPOINT`:	`/usr/sbin/rabbitmq-server`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | yes    | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/rabbitmq/tags_history/) for the full list of available tags.
 ## Image Dependencies

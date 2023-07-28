@@ -24,16 +24,21 @@ The **vault** Chainguard Image currently has 4 public variants:
 - `latest.vault-k8s`
 - `latest.vault-k8s-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`vault`
 
-|              | latest.vault                    | latest.vault-dev                | latest.vault-k8s     | latest.vault-k8s-dev |
-|--------------|---------------------------------|---------------------------------|----------------------|----------------------|
-| Default User | `root`                          | `root`                          | `vault`              | `vault`              |
-| Entrypoint   | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/vault-k8s` | `/usr/bin/vault-k8s` |
-| CMD          | `server -dev`                   | `server -dev`                   | not specified        | not specified        |
-| Workdir      | not specified                   | not specified                   | not specified        | not specified        |
-| Has apk?     | no                              | yes                             | no                   | yes                  |
-| Has a shell? | no                              | yes                             | no                   | yes                  |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/bin/vault-k8s`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest.vault | latest.vault-dev | latest.vault-k8s | latest.vault-k8s-dev |
+|--------------|--------------|------------------|------------------|----------------------|
+| Has apk?     | no           | yes              | no               | yes                  |
+| Has a shell? | no           | yes              | no               | yes                  |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/vault/tags_history/) for the full list of available tags.
 ## Image Dependencies

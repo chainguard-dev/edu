@@ -22,16 +22,21 @@ The **nats** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nats`
 
-|              | latest                                | latest-dev                            |
-|--------------|---------------------------------------|---------------------------------------|
-| Default User | `nats`                                | `nats`                                |
-| Entrypoint   | `/usr/bin/nats-server`                | `/usr/bin/nats-server`                |
-| CMD          | `--config=/etc/nats/nats-server.conf` | `--config=/etc/nats/nats-server.conf` |
-| Workdir      | not specified                         | not specified                         |
-| Has apk?     | no                                    | yes                                   |
-| Has a shell? | no                                    | yes                                   |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/bin/nats-server`
+
+`CMD`:		`--config=/etc/nats/nats-server.conf`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | no     | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/nats/tags_history/) for the full list of available tags.
 ## Image Dependencies

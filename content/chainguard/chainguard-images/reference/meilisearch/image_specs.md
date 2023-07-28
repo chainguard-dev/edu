@@ -22,16 +22,21 @@ The **meilisearch** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`meilisearch`
 
-|              | latest                 | latest-dev             |
-|--------------|------------------------|------------------------|
-| Default User | `meilisearch`          | `meilisearch`          |
-| Entrypoint   | `/usr/bin/meilisearch` | `/usr/bin/meilisearch` |
-| CMD          | `--help`               | `--help`               |
-| Workdir      | not specified          | not specified          |
-| Has apk?     | no                     | yes                    |
-| Has a shell? | no                     | yes                    |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/bin/meilisearch`
+
+`CMD`:		`--help`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | no     | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/meilisearch/tags_history/) for the full list of available tags.
 ## Image Dependencies

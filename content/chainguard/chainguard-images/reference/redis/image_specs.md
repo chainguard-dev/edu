@@ -22,16 +22,21 @@ The **redis** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`redis`
 
-|              | latest         | latest-dev     |
-|--------------|----------------|----------------|
-| Default User | `redis`        | `redis`        |
-| Entrypoint   | `redis-server` | `redis-server` |
-| CMD          | not specified  | not specified  |
-| Workdir      | `/data`        | `/data`        |
-| Has apk?     | no             | yes            |
-| Has a shell? | yes            | yes            |
+`WORKDIR`:	`/data`
+
+`ENTRYPOINT`:	`redis-server`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | yes    | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/redis/tags_history/) for the full list of available tags.
 ## Image Dependencies

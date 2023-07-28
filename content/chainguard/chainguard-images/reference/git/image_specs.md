@@ -28,14 +28,19 @@ The **git** Chainguard Image currently has 8 public variants:
 - `latest.alpine.nonroot`
 - `latest.alpine.nonroot-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`git`
+
+`WORKDIR`:	`/home/git`
+
+`ENTRYPOINT`:	`/usr/bin/git`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
 
 |              | latest.wolfi.root | latest.wolfi.root-dev | latest.wolfi.nonroot | latest.wolfi.nonroot-dev | latest.alpine.root | latest.alpine.root-dev | latest.alpine.nonroot | latest.alpine.nonroot-dev |
 |--------------|-------------------|-----------------------|----------------------|--------------------------|--------------------|------------------------|-----------------------|---------------------------|
-| Default User | `root`            | `root`                | `git`                | `git`                    | `root`             | `root`                 | `git`                 | `git`                     |
-| Entrypoint   | `/usr/bin/git`    | `/usr/bin/git`        | `/usr/bin/git`       | `/usr/bin/git`           | `/usr/bin/git`     | `/usr/bin/git`         | `/usr/bin/git`        | `/usr/bin/git`            |
-| CMD          | not specified     | not specified         | not specified        | not specified            | not specified      | not specified          | not specified         | not specified             |
-| Workdir      | `/home/git`       | `/home/git`           | `/home/git`          | `/home/git`              | `/home/git`        | `/home/git`            | `/home/git`           | `/home/git`               |
 | Has apk?     | no                | yes                   | no                   | yes                      | no                 | yes                    | no                    | yes                       |
 | Has a shell? | no                | yes                   | no                   | yes                      | no                 | yes                    | no                    | yes                       |
 

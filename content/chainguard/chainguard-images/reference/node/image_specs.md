@@ -28,16 +28,21 @@ The **node** Chainguard Image currently has 8 public variants:
 - `18`
 - `18-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`node`
 
-|              | latest          | latest-dev      | 20              | 20-dev          | 19              | 19-dev          | 18              | 18-dev          |
-|--------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-| Default User | `node`          | `node`          | `node`          | `node`          | `node`          | `node`          | `node`          | `node`          |
-| Entrypoint   | `/usr/bin/node` | `/usr/bin/node` | `/usr/bin/node` | `/usr/bin/node` | `/usr/bin/node` | `/usr/bin/node` | `/usr/bin/node` | `/usr/bin/node` |
-| CMD          | `--help`        | `--help`        | `--help`        | `--help`        | `--help`        | `--help`        | `--help`        | `--help`        |
-| Workdir      | `/app`          | `/app`          | `/app`          | `/app`          | `/app`          | `/app`          | `/app`          | `/app`          |
-| Has apk?     | no              | yes             | no              | yes             | no              | yes             | no              | yes             |
-| Has a shell? | yes             | yes             | yes             | yes             | yes             | yes             | yes             | yes             |
+`WORKDIR`:	`/app`
+
+`ENTRYPOINT`:	`/usr/bin/node`
+
+`CMD`:		`--help`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev | 20  | 20-dev | 19  | 19-dev | 18  | 18-dev |
+|--------------|--------|------------|-----|--------|-----|--------|-----|--------|
+| Has apk?     | no     | yes        | no  | yes    | no  | yes    | no  | yes    |
+| Has a shell? | yes    | yes        | yes | yes    | yes | yes    | yes | yes    |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/node/tags_history/) for the full list of available tags.
 ## Image Dependencies

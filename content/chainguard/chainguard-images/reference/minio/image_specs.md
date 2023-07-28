@@ -24,16 +24,21 @@ The **minio** Chainguard Image currently has 4 public variants:
 - `latest.minio-client`
 - `latest.minio-client-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`minio`
 
-|              | latest.minio     | latest.minio-dev | latest.minio-client | latest.minio-client-dev |
-|--------------|------------------|------------------|---------------------|-------------------------|
-| Default User | `minio`          | `minio`          | `minio`             | `minio`                 |
-| Entrypoint   | `/usr/bin/minio` | `/usr/bin/minio` | `/usr/bin/mc`       | `/usr/bin/mc`           |
-| CMD          | not specified    | not specified    | not specified       | not specified           |
-| Workdir      | not specified    | not specified    | not specified       | not specified           |
-| Has apk?     | no               | yes              | no                  | yes                     |
-| Has a shell? | no               | yes              | yes                 | yes                     |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/bin/mc`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest.minio | latest.minio-dev | latest.minio-client | latest.minio-client-dev |
+|--------------|--------------|------------------|---------------------|-------------------------|
+| Has apk?     | no           | yes              | no                  | yes                     |
+| Has a shell? | no           | yes              | yes                 | yes                     |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/minio/tags_history/) for the full list of available tags.
 ## Image Dependencies

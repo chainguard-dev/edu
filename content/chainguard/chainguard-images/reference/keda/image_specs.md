@@ -26,16 +26,21 @@ The **keda** Chainguard Image currently has 6 public variants:
 - `latest.adapter`
 - `latest.adapter-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nonroot`
 
-|              | latest.webhooks                                                               | latest.webhooks-dev                                                           | latest.controller                                          | latest.controller-dev                                      | latest.adapter                                                      | latest.adapter-dev                                                  |
-|--------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------|---------------------------------------------------------------------|---------------------------------------------------------------------|
-| Default User | `nonroot`                                                                     | `nonroot`                                                                     | `nonroot`                                                  | `nonroot`                                                  | `nonroot`                                                           | `nonroot`                                                           |
-| Entrypoint   | `/usr/bin/keda-admission-webhooks --zap-log-level=info --zap-encoder=console` | `/usr/bin/keda-admission-webhooks --zap-log-level=info --zap-encoder=console` | `/usr/bin/keda --zap-log-level=info --zap-encoder=console` | `/usr/bin/keda --zap-log-level=info --zap-encoder=console` | `/usr/bin/keda-adapter --secure-port=6443 --logtostderr=true --v=0` | `/usr/bin/keda-adapter --secure-port=6443 --logtostderr=true --v=0` |
-| CMD          | not specified                                                                 | not specified                                                                 | not specified                                              | not specified                                              | not specified                                                       | not specified                                                       |
-| Workdir      | not specified                                                                 | not specified                                                                 | not specified                                              | not specified                                              | not specified                                                       | not specified                                                       |
-| Has apk?     | no                                                                            | yes                                                                           | no                                                         | yes                                                        | no                                                                  | yes                                                                 |
-| Has a shell? | yes                                                                           | yes                                                                           | yes                                                        | yes                                                        | yes                                                                 | yes                                                                 |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/bin/keda-adapter --secure-port=6443 --logtostderr=true --v=0`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest.webhooks | latest.webhooks-dev | latest.controller | latest.controller-dev | latest.adapter | latest.adapter-dev |
+|--------------|-----------------|---------------------|-------------------|-----------------------|----------------|--------------------|
+| Has apk?     | no              | yes                 | no                | yes                   | no             | yes                |
+| Has a shell? | yes             | yes                 | yes               | yes                   | yes            | yes                |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/keda/tags_history/) for the full list of available tags.
 ## Image Dependencies

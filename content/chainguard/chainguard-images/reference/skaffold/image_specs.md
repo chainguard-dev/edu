@@ -22,16 +22,21 @@ The **skaffold** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`skaffold`
 
-|              | latest              | latest-dev          |
-|--------------|---------------------|---------------------|
-| Default User | `skaffold`          | `skaffold`          |
-| Entrypoint   | `/usr/bin/skaffold` | `/usr/bin/skaffold` |
-| CMD          | `--help`            | `--help`            |
-| Workdir      | `/app`              | `/app`              |
-| Has apk?     | no                  | yes                 |
-| Has a shell? | no                  | yes                 |
+`WORKDIR`:	`/app`
+
+`ENTRYPOINT`:	`/usr/bin/skaffold`
+
+`CMD`:		`--help`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | no     | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/skaffold/tags_history/) for the full list of available tags.
 ## Image Dependencies

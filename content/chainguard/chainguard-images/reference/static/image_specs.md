@@ -26,16 +26,21 @@ The **static** Chainguard Image currently has 6 public variants:
 - `alpine`
 - `alpine-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nonroot`
 
-|              | latest        | latest-dev    | wolfi         | wolfi-dev     | alpine        | alpine-dev    |
-|--------------|---------------|---------------|---------------|---------------|---------------|---------------|
-| Default User | `nonroot`     | `nonroot`     | `nonroot`     | `nonroot`     | `nonroot`     | `nonroot`     |
-| Entrypoint   | not specified | not specified | not specified | not specified | not specified | not specified |
-| CMD          | not specified | not specified | not specified | not specified | not specified | not specified |
-| Workdir      | not specified | not specified | not specified | not specified | not specified | not specified |
-| Has apk?     | no            | yes           | no            | yes           | no            | yes           |
-| Has a shell? | no            | yes           | no            | yes           | no            | yes           |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	not specified
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev | wolfi | wolfi-dev | alpine | alpine-dev |
+|--------------|--------|------------|-------|-----------|--------|------------|
+| Has apk?     | no     | yes        | no    | yes       | no     | yes        |
+| Has a shell? | no     | yes        | no    | yes       | no     | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/static/tags_history/) for the full list of available tags.
 ## Image Dependencies

@@ -24,16 +24,21 @@ The **kubernetes-dashboard** Chainguard Image currently has 4 public variants:
 - `latest.dashboard`
 - `latest.dashboard-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nonroot`
 
-|              | latest.metrics-scraper     | latest.metrics-scraper-dev | latest.dashboard                                                                                   | latest.dashboard-dev                                                                               |
-|--------------|----------------------------|----------------------------|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Default User | `nonroot`                  | `nonroot`                  | `nonroot`                                                                                          | `nonroot`                                                                                          |
-| Entrypoint   | `/usr/bin/metrics-sidecar` | `/usr/bin/metrics-sidecar` | `/usr/share/kubernetes-dashboard/dashboard --insecure-bind-address=0.0.0.0 --bind-address=0.0.0.0` | `/usr/share/kubernetes-dashboard/dashboard --insecure-bind-address=0.0.0.0 --bind-address=0.0.0.0` |
-| CMD          | not specified              | not specified              | not specified                                                                                      | not specified                                                                                      |
-| Workdir      | not specified              | not specified              | not specified                                                                                      | not specified                                                                                      |
-| Has apk?     | no                         | yes                        | no                                                                                                 | yes                                                                                                |
-| Has a shell? | no                         | yes                        | no                                                                                                 | yes                                                                                                |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/share/kubernetes-dashboard/dashboard --insecure-bind-address=0.0.0.0 --bind-address=0.0.0.0`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest.metrics-scraper | latest.metrics-scraper-dev | latest.dashboard | latest.dashboard-dev |
+|--------------|------------------------|----------------------------|------------------|----------------------|
+| Has apk?     | no                     | yes                        | no               | yes                  |
+| Has a shell? | no                     | yes                        | no               | yes                  |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kubernetes-dashboard/tags_history/) for the full list of available tags.
 ## Image Dependencies

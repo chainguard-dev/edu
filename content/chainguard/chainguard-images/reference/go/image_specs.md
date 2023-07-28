@@ -28,16 +28,21 @@ The **go** Chainguard Image currently has 8 public variants:
 - `1.19`
 - `1.19-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`root`
 
-|              | latest        | latest-dev    | 1.21          | 1.21-dev      | 1.20          | 1.20-dev      | 1.19          | 1.19-dev      |
-|--------------|---------------|---------------|---------------|---------------|---------------|---------------|---------------|---------------|
-| Default User | `root`        | `root`        | `root`        | `root`        | `root`        | `root`        | `root`        | `root`        |
-| Entrypoint   | `/usr/bin/go` | `/usr/bin/go` | `/usr/bin/go` | `/usr/bin/go` | `/usr/bin/go` | `/usr/bin/go` | `/usr/bin/go` | `/usr/bin/go` |
-| CMD          | `help`        | `help`        | `help`        | `help`        | `help`        | `help`        | `help`        | `help`        |
-| Workdir      | not specified | not specified | not specified | not specified | not specified | not specified | not specified | not specified |
-| Has apk?     | no            | yes           | no            | yes           | no            | yes           | no            | yes           |
-| Has a shell? | yes           | yes           | yes           | yes           | yes           | yes           | yes           | yes           |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/bin/go`
+
+`CMD`:		`help`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev | 1.21 | 1.21-dev | 1.20 | 1.20-dev | 1.19 | 1.19-dev |
+|--------------|--------|------------|------|----------|------|----------|------|----------|
+| Has apk?     | no     | yes        | no   | yes      | no   | yes      | no   | yes      |
+| Has a shell? | yes    | yes        | yes  | yes      | yes  | yes      | yes  | yes      |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/go/tags_history/) for the full list of available tags.
 ## Image Dependencies

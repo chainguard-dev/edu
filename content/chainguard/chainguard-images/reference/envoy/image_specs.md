@@ -22,16 +22,21 @@ The **envoy** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`envoy`
 
-|              | latest                                    | latest-dev                                |
-|--------------|-------------------------------------------|-------------------------------------------|
-| Default User | `envoy`                                   | `envoy`                                   |
-| Entrypoint   | `/var/lib/envoy/init/envoy-entrypoint.sh` | `/var/lib/envoy/init/envoy-entrypoint.sh` |
-| CMD          | not specified                             | not specified                             |
-| Workdir      | not specified                             | not specified                             |
-| Has apk?     | no                                        | yes                                       |
-| Has a shell? | no                                        | yes                                       |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/var/lib/envoy/init/envoy-entrypoint.sh`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | no     | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/envoy/tags_history/) for the full list of available tags.
 ## Image Dependencies

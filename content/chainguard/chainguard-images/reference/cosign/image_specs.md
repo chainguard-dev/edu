@@ -22,16 +22,21 @@ The **cosign** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nonroot`
 
-|              | latest            | latest-dev        |
-|--------------|-------------------|-------------------|
-| Default User | `nonroot`         | `nonroot`         |
-| Entrypoint   | `/usr/bin/cosign` | `/usr/bin/cosign` |
-| CMD          | `help`            | `help`            |
-| Workdir      | not specified     | not specified     |
-| Has apk?     | no                | yes               |
-| Has a shell? | yes               | yes               |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/bin/cosign`
+
+`CMD`:		`help`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | yes    | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/cosign/tags_history/) for the full list of available tags.
 ## Image Dependencies

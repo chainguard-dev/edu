@@ -26,16 +26,21 @@ The **jre** Chainguard Image currently has 6 public variants:
 - `openjdk-11`
 - `openjdk-11-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`java`
 
-|              | latest          | latest-dev      | openjdk-17      | openjdk-17-dev  | openjdk-11      | openjdk-11-dev  |
-|--------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-| Default User | `java`          | `java`          | `java`          | `java`          | `java`          | `java`          |
-| Entrypoint   | `/usr/bin/java` | `/usr/bin/java` | `/usr/bin/java` | `/usr/bin/java` | `/usr/bin/java` | `/usr/bin/java` |
-| CMD          | not specified   | not specified   | not specified   | not specified   | not specified   | not specified   |
-| Workdir      | `/app`          | `/app`          | `/app`          | `/app`          | `/app`          | `/app`          |
-| Has apk?     | no              | yes             | no              | yes             | no              | yes             |
-| Has a shell? | no              | yes             | no              | yes             | no              | yes             |
+`WORKDIR`:	`/app`
+
+`ENTRYPOINT`:	`/usr/bin/java`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev | openjdk-17 | openjdk-17-dev | openjdk-11 | openjdk-11-dev |
+|--------------|--------|------------|------------|----------------|------------|----------------|
+| Has apk?     | no     | yes        | no         | yes            | no         | yes            |
+| Has a shell? | no     | yes        | no         | yes            | no         | yes            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/jre/tags_history/) for the full list of available tags.
 ## Image Dependencies

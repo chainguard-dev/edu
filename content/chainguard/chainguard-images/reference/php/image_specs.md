@@ -24,16 +24,21 @@ The **php** Chainguard Image currently has 4 public variants:
 - `latest-fpm`
 - `latest-fpm-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`php`
 
-|              | latest        | latest-dev    | latest-fpm     | latest-fpm-dev |
-|--------------|---------------|---------------|----------------|----------------|
-| Default User | `php`         | `php`         | `php`          | `php`          |
-| Entrypoint   | `/bin/php`    | `/bin/php`    | Service Bundle | Service Bundle |
-| CMD          | not specified | not specified | not specified  | not specified  |
-| Workdir      | `/app`        | `/app`        | `/app`         | `/app`         |
-| Has apk?     | no            | yes           | no             | yes            |
-| Has a shell? | no            | yes           | no             | yes            |
+`WORKDIR`:	`/app`
+
+`ENTRYPOINT`:	Service Bundle
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev | latest-fpm | latest-fpm-dev |
+|--------------|--------|------------|------------|----------------|
+| Has apk?     | no     | yes        | no         | yes            |
+| Has a shell? | no     | yes        | no         | yes            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/php/tags_history/) for the full list of available tags.
 ## Image Dependencies

@@ -22,16 +22,21 @@ The **deno** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`deno`
 
-|              | latest          | latest-dev      |
-|--------------|-----------------|-----------------|
-| Default User | `deno`          | `deno`          |
-| Entrypoint   | `/usr/bin/deno` | `/usr/bin/deno` |
-| CMD          | `--help`        | `--help`        |
-| Workdir      | `/app`          | `/app`          |
-| Has apk?     | no              | yes             |
-| Has a shell? | no              | yes             |
+`WORKDIR`:	`/app`
+
+`ENTRYPOINT`:	`/usr/bin/deno`
+
+`CMD`:		`--help`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | no     | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/deno/tags_history/) for the full list of available tags.
 ## Image Dependencies

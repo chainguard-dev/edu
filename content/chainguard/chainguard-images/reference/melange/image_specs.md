@@ -22,16 +22,21 @@ The **melange** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`root`
 
-|              | latest             | latest-dev         |
-|--------------|--------------------|--------------------|
-| Default User | `root`             | `root`             |
-| Entrypoint   | `/usr/bin/melange` | `/usr/bin/melange` |
-| CMD          | `--help`           | `--help`           |
-| Workdir      | `/work`            | `/work`            |
-| Has apk?     | yes                | yes                |
-| Has a shell? | yes                | yes                |
+`WORKDIR`:	`/work`
+
+`ENTRYPOINT`:	`/usr/bin/melange`
+
+`CMD`:		`--help`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | yes    | yes        |
+| Has a shell? | yes    | yes        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/melange/tags_history/) for the full list of available tags.
 ## Image Dependencies

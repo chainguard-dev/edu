@@ -24,16 +24,21 @@ The **powershell** Chainguard Image currently has 4 public variants:
 - `latest-root`
 - `latest-root-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`root`
 
-|              | latest          | latest-dev      | latest-root     | latest-root-dev |
-|--------------|-----------------|-----------------|-----------------|-----------------|
-| Default User | `nonroot`       | `nonroot`       | `root`          | `root`          |
-| Entrypoint   | `/usr/bin/pwsh` | `/usr/bin/pwsh` | `/usr/bin/pwsh` | `/usr/bin/pwsh` |
-| CMD          | not specified   | not specified   | not specified   | not specified   |
-| Workdir      | not specified   | not specified   | not specified   | not specified   |
-| Has apk?     | no              | yes             | no              | yes             |
-| Has a shell? | yes             | yes             | yes             | yes             |
+`WORKDIR`:	not specified
+
+`ENTRYPOINT`:	`/usr/bin/pwsh`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev | latest-root | latest-root-dev |
+|--------------|--------|------------|-------------|-----------------|
+| Has apk?     | no     | yes        | no          | yes             |
+| Has a shell? | yes    | yes        | yes         | yes             |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/powershell/tags_history/) for the full list of available tags.
 ## Image Dependencies
