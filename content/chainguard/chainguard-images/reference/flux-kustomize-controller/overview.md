@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | July 20th    | `sha256:56cf3b813c98d9b638439e52348e1e381bf467c6ea27ec1bf2b8f99a565fde76` |
-|  `latest-dev` | July 20th    | `sha256:57fd4ceae0ab8f87f2c8b5df58d54a198e944fe93ea80d081e7220ad57f829e1` |
+|  `latest-dev` | July 27th    | `sha256:b67a945aee92c7a4237dc2774309d38bb117b18bfe0195469982a7b8b338c793` |
+|  `latest`     | July 26th    | `sha256:87d145082f93890b36a880b80c2396c4a18ef935dddec2217a96be8b8c452a6b` |
 
 # flux-kustomize-controller
 

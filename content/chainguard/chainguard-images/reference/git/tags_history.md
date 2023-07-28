@@ -20,14 +20,14 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                                                                              | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2` `2.41` `2.41.0`                                                                                        | July 25th    | `sha256:115264e4bb7844ed0635a51630b9fbfb507e3292d8542bf27ed4613642059995` |
-|  `2.41.0-r2-dev` `2.41.0-dev` `2.41-dev` `latest-dev` `2-dev`                                                        | July 25th    | `sha256:f3b8c5f883ad67c4425bc48d79f040a1b074c7c9a9a6b26e59e7a1ba9626a32c` |
-|  `root-2.41.0-dev` `latest-root-dev` `root-2.41.0-r2-dev` `root-2.41-dev` `root-2-dev`                               | July 25th    | `sha256:ed664f2e8eb702af20053d91df48ba102b6735ddf498559774f714ea76c4e52a` |
-|  `root-2.41` `latest-root` `root-2.41.0` `root-2`                                                                    | July 25th    | `sha256:69304b49be97b96cedddb5353e176b4fe4767b955c31413a90ca6a9d30834886` |
-|  `glibc-root-2-dev` `glibc-root-2.41-dev` `glibc-root-2.41.0-dev` `latest-glibc-root-dev` `glibc-root-2.41.0-r0-dev` | July 20th    | `sha256:8c7f174bf87c48042f2d6890b4efb79572f7b09455ee3c0853e3d17038752478` |
-|  `glibc-2.41.0-dev` `latest-glibc-dev` `glibc-2.41.0-r0-dev` `glibc-2.41-dev` `glibc-2-dev`                          | July 20th    | `sha256:e9a2aad48ef43574bf465f6158d22e83f902ff4d16870604429a2cb542c37d7f` |
-|  `latest-glibc-root` `glibc-root-2` `glibc-root-2.41.0` `glibc-root-2.41`                                            | July 20th    | `sha256:ada6309247c98d0af26830f24c70eca9452890a2e7e07efe2588e8366091babe` |
-|  `glibc-2` `glibc-2.41.0` `glibc-2.41` `latest-glibc`                                                                | July 20th    | `sha256:d1e984ac118a210b3a0bec520930e2d95bbb68614d03b21a9198878638848e83` |
+|  `glibc-2.41.0-r0-dev` `glibc-2.41-dev` `latest-glibc-dev` `glibc-2.41.0-dev` `glibc-2-dev`                          | July 27th    | `sha256:f6be19374213435c257b873864f817d6ac65494b8f92b83581cc195a8d1de5ec` |
+|  `root-2-dev` `root-2.41-dev` `root-2.41.0-dev` `latest-root-dev` `root-2.41.0-r2-dev`                               | July 27th    | `sha256:e1b785bb14694f407d0098462a6834e791bd4d49c3160718378e9b48c1009725` |
+|  `latest-glibc-root-dev` `glibc-root-2.41-dev` `glibc-root-2.41.0-r0-dev` `glibc-root-2.41.0-dev` `glibc-root-2-dev` | July 27th    | `sha256:07451858308524182ac8949c39d6656b45443764b8d2a39749e2406b84a733da` |
+|  `latest-root` `root-2` `root-2.41.0` `root-2.41`                                                                    | July 27th    | `sha256:2f11d062bbf25d1a16a7720f8b979fa988aa542dce283a87bc12d362c191c971` |
+|  `glibc-2.41` `glibc-2` `glibc-2.41.0` `latest-glibc`                                                                | July 27th    | `sha256:9bb6ff1343e264010e9b6633960766ce6cc98c90298a99e032fbf55270322314` |
+|  `latest-glibc-root` `glibc-root-2.41` `glibc-root-2` `glibc-root-2.41.0`                                            | July 27th    | `sha256:7e691342cbae8a334b0a95cc72b96bff381d2ae9f82b7a82fdd775154881e9c8` |
+|  `2.41.0` `2.41` `2` `latest`                                                                                        | July 27th    | `sha256:49c8fbb26ddd369f014d9c0132183061ea4c78a1065ea674acd125a347b871f6` |
+|  `2-dev` `2.41-dev` `2.41.0-dev` `latest-dev` `2.41.0-r2-dev`                                                        | July 27th    | `sha256:391531db2b6bab3b2bc2cb34434481fd79c2f792eb46999044e4625693c4cefc` |
 |  `root-2.41.0-r1-dev`                                                                                                | July 14th    | `sha256:f84e212076ec63cf9171f7569d2e97f705ef12c9218f726f38637bae4f3855a1` |
 |  `2.41.0-r1-dev`                                                                                                     | July 14th    | `sha256:c7bd030a434fd60da3368e4f1c4e92377f3b4d4af937d3771c640f293f93ad50` |
 |  `root-2.41.0-r0-dev`                                                                                                | July 3rd     | `sha256:74f408188469af5d87a4052ead3eedc5b2b501dcd30262dbdf75db4ee868691e` |
