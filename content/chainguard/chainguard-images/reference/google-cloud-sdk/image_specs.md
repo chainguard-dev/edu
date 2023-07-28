@@ -1,7 +1,7 @@
 ---
-title: "google-cloud-sdk Image Variants"
+title: "Google-cloud-sdk Image Variants"
 type: "article"
-description: "Detailed specs for google-cloud-sdk Chainguard Image Variants"
+description: "Detailed information about the Google-cloud-sdk Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,38 +9,42 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "google-cloud-sdk"
+    parent: "Google-cloud-sdk"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **google-cloud-sdk** Image.
+This page shows detailed information about all available variants of the Chainguard **Google-cloud-sdk** Image.
 
 ## Variants Compared
-The **google-cloud-sdk** Chainguard Image currently has one public variant: 
+The **google-cloud-sdk** Chainguard Image currently has 2 public variants: 
 
 - `latest`
+- `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`gcloud`
 
-|              | latest            |
-|--------------|-------------------|
-| Default User | `gcloud`          |
-| Entrypoint   | not specified     |
-| CMD          | `/usr/bin/gcloud` |
-| Workdir      | not specified     |
-| Has apk?     | yes               |
-| Has a shell? | yes               |
+`WORKDIR`:	not specified
 
+`ENTRYPOINT`:	not specified
+
+`CMD`:		`/usr/bin/gcloud`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | yes    | yes        |
+| Has a shell? | yes    | yes        |
+
+Check the [tags history page](/chainguard/chainguard-images/reference/google-cloud-sdk/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `ca-certificates-bundle` | X      |
-| `wolfi-baselayout`       | X      |
-| `google-cloud-sdk`       | X      |
-| `apk-tools`              | X      |
-| `busybox`                | X      |
-| `bash`                   | X      |
-
+|                    | latest | latest-dev |
+|--------------------|--------|------------|
+| `google-cloud-sdk` | X      | X          |
+| `apk-tools`        | X      | X          |
+| `busybox`          | X      | X          |
+| `bash`             | X      | X          |

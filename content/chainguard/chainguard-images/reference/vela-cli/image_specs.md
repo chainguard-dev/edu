@@ -1,7 +1,7 @@
 ---
-title: "vela-cli Image Variants"
+title: "Vela-cli Image Variants"
 type: "article"
-description: "Detailed specs for vela-cli Chainguard Image Variants"
+description: "Detailed information about the Vela-cli Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,37 +9,41 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "vela-cli"
+    parent: "Vela-cli"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **vela-cli** Image.
+This page shows detailed information about all available variants of the Chainguard **Vela-cli** Image.
 
 ## Variants Compared
-The **vela-cli** Chainguard Image currently has one public variant: 
+The **vela-cli** Chainguard Image currently has 2 public variants: 
 
 - `latest`
+- `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nonroot`
 
-|              | latest          |
-|--------------|-----------------|
-| Default User | `nonroot`       |
-| Entrypoint   | `/usr/bin/vela` |
-| CMD          | not specified   |
-| Workdir      | not specified   |
-| Has apk?     | no              |
-| Has a shell? | yes             |
+`WORKDIR`:	not specified
 
+`ENTRYPOINT`:	`/usr/bin/vela`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | yes    | yes        |
+
+Check the [tags history page](/chainguard/chainguard-images/reference/vela-cli/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `ca-certificates-bundle` | X      |
-| `wolfi-baselayout`       | X      |
-| `kubevela`               | X      |
-| `bash`                   | X      |
-| `expat`                  | X      |
-
+|            | latest | latest-dev |
+|------------|--------|------------|
+| `kubevela` | X      | X          |
+| `bash`     | X      | X          |
+| `expat`    | X      | X          |

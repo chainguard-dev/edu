@@ -1,7 +1,7 @@
 ---
-title: "dotnet-runtime Image Variants"
+title: "Dotnet-runtime Image Variants"
 type: "article"
-description: "Detailed specs for dotnet-runtime Chainguard Image Variants"
+description: "Detailed information about the Dotnet-runtime Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,36 +9,40 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "dotnet-runtime"
+    parent: "Dotnet-runtime"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **dotnet-runtime** Image.
+This page shows detailed information about all available variants of the Chainguard **Dotnet-runtime** Image.
 
 ## Variants Compared
-The **dotnet-runtime** Chainguard Image currently has one public variant: 
+The **dotnet-runtime** Chainguard Image currently has 2 public variants: 
 
 - `latest`
+- `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nonroot`
 
-|              | latest            |
-|--------------|-------------------|
-| Default User | `nonroot`         |
-| Entrypoint   | `/usr/bin/dotnet` |
-| CMD          | `--help`          |
-| Workdir      | not specified     |
-| Has apk?     | no                |
-| Has a shell? | no                |
+`WORKDIR`:	not specified
 
+`ENTRYPOINT`:	`/usr/bin/dotnet`
+
+`CMD`:		`--help`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | no     | yes        |
+
+Check the [tags history page](/chainguard/chainguard-images/reference/dotnet-runtime/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `dotnet-7`               | X      |
-| `dotnet-7-runtime`       | X      |
-| `wolfi-baselayout`       | X      |
-| `ca-certificates-bundle` | X      |
-
+|                    | latest | latest-dev |
+|--------------------|--------|------------|
+| `dotnet-7`         | X      | X          |
+| `dotnet-7-runtime` | X      | X          |

@@ -1,7 +1,7 @@
 ---
-title: "apko Image Variants"
+title: "Apko Image Variants"
 type: "article"
-description: "Detailed specs for apko Chainguard Image Variants"
+description: "Detailed information about the Apko Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,37 +9,41 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "apko"
+    parent: "Apko"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **apko** Image.
+This page shows detailed information about all available variants of the Chainguard **Apko** Image.
 
 ## Variants Compared
-The **apko** Chainguard Image currently has one public variant: 
+The **apko** Chainguard Image currently has 2 public variants: 
 
 - `latest`
+- `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`root`
 
-|              | latest          |
-|--------------|-----------------|
-| Default User | `root`          |
-| Entrypoint   | `/usr/bin/apko` |
-| CMD          | `--help`        |
-| Workdir      | `/work`         |
-| Has apk?     | yes             |
-| Has a shell? | yes             |
+`WORKDIR`:	`/work`
 
+`ENTRYPOINT`:	`/usr/bin/apko`
+
+`CMD`:		`--help`
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | yes    | yes        |
+| Has a shell? | yes    | yes        |
+
+Check the [tags history page](/chainguard/chainguard-images/reference/apko/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `ca-certificates-bundle` | X      |
-| `wolfi-base`             | X      |
-| `alpine-keys`            | X      |
-| `apko`                   | X      |
-| `wolfi-baselayout`       | X      |
-
+|               | latest | latest-dev |
+|---------------|--------|------------|
+| `wolfi-base`  | X      | X          |
+| `alpine-keys` | X      | X          |
+| `apko`        | X      | X          |

@@ -1,7 +1,7 @@
 ---
-title: "glibc-dynamic Image Variants"
+title: "Glibc-dynamic Image Variants"
 type: "article"
-description: "Detailed specs for glibc-dynamic Chainguard Image Variants"
+description: "Detailed information about the Glibc-dynamic Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,37 +9,41 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "glibc-dynamic"
+    parent: "Glibc-dynamic"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **glibc-dynamic** Image.
+This page shows detailed information about all available variants of the Chainguard **Glibc-dynamic** Image.
 
 ## Variants Compared
-The **glibc-dynamic** Chainguard Image currently has one public variant: 
+The **glibc-dynamic** Chainguard Image currently has 2 public variants: 
 
 - `latest`
+- `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nonroot`
 
-|              | latest        |
-|--------------|---------------|
-| Default User | `root`        |
-| Entrypoint   | not specified |
-| CMD          | not specified |
-| Workdir      | not specified |
-| Has apk?     | no            |
-| Has a shell? | no            |
+`WORKDIR`:	not specified
 
+`ENTRYPOINT`:	not specified
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | no     | yes        |
+
+Check the [tags history page](/chainguard/chainguard-images/reference/glibc-dynamic/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `ca-certificates-bundle` | X      |
-| `glibc`                  | X      |
-| `libgcc`                 | X      |
-| `libstdc++`              | X      |
-| `wolfi-baselayout`       | X      |
-
+|             | latest | latest-dev |
+|-------------|--------|------------|
+| `glibc`     | X      | X          |
+| `libgcc`    | X      | X          |
+| `libstdc++` | X      | X          |

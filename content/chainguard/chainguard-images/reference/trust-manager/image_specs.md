@@ -1,7 +1,7 @@
 ---
-title: "trust-manager Image Variants"
+title: "Trust-manager Image Variants"
 type: "article"
-description: "Detailed specs for trust-manager Chainguard Image Variants"
+description: "Detailed information about the Trust-manager Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "trust-manager"
+    parent: "Trust-manager"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **trust-manager** Image.
+This page shows detailed information about all available variants of the Chainguard **Trust-manager** Image.
 
 ## Variants Compared
 The **trust-manager** Chainguard Image currently has 2 public variants: 
@@ -22,26 +22,26 @@ The **trust-manager** Chainguard Image currently has 2 public variants:
 - `latest`
 - `latest-dev`
 
-The table has detailed information about each of these variants.
+## Default Image Settings
+`USER`:		`nonroot`
 
-|              | latest                   | latest-dev               |
-|--------------|--------------------------|--------------------------|
-| Default User | `nonroot`                | `nonroot`                |
-| Entrypoint   | `/usr/bin/trust-manager` | `/usr/bin/trust-manager` |
-| CMD          | not specified            | not specified            |
-| Workdir      | not specified            | not specified            |
-| Has apk?     | no                       | yes                      |
-| Has a shell? | no                       | yes                      |
+`WORKDIR`:	not specified
 
+`ENTRYPOINT`:	`/usr/bin/trust-manager`
+
+`CMD`:		not specified
+
+The following table has additional information about each of these variants.
+
+|              | latest | latest-dev |
+|--------------|--------|------------|
+| Has apk?     | no     | yes        |
+| Has a shell? | no     | yes        |
+
+Check the [tags history page](/chainguard/chainguard-images/reference/trust-manager/tags_history/) for the full list of available tags.
 ## Image Dependencies
 The table shows package distribution across all variants.
 
-|                    | latest | latest-dev |
-|--------------------|--------|------------|
-| `wolfi-baselayout` | X      | X          |
-| `trust-manager`    | X      | X          |
-| `apk-tools`        |        | X          |
-| `bash`             |        | X          |
-| `busybox`          |        | X          |
-| `git`              |        | X          |
-
+|                 | latest | latest-dev |
+|-----------------|--------|------------|
+| `trust-manager` | X      | X          |
