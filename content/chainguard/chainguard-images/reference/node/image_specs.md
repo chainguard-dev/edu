@@ -54,4 +54,4 @@ The table shows package distribution across all variants.
 | `nghttp2`   | X      | X          | X  | X      | X  | X      | X  | X      |
 | `nodejs-20` | X      | X          | X  | X      |    |        |    |        |
 | `nodejs-19` |        |            |    |        | X  | X      |    |        |
-| `nodejs`    |        |            |    |        |    |        | X  | X      |
+| `nodejs-18` |        |            |    |        |    |        | X  | X      |
