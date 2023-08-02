@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 27th    | `sha256:6e6ed51f2b06e689735b360d2094337f00054bd986700ff3c08c12d1e4d6b2ae` |
+|  `latest-dev` | July 28th    | `sha256:26544b1a871f974ef93c2be3874cbdecf174c919cec61342d5e730c20da20c05` |
 |  `latest`     | July 26th    | `sha256:4ba2a1ab90fd2d2cc18b03ffa3263d1eb260d7be8f3af6d667ab665101c9fac6` |
 
 # tekton-sidecarlogresults

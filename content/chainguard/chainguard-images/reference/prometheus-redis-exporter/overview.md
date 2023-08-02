@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | July 28th    | `sha256:27e728292048883a1608b9810f9c977e9f7657ff37ea201e70c63c9eb0bfa873` |
 |  `latest`     | July 27th    | `sha256:172f8e0f7f95b871a35e08db470e999028f91ea4002233b2059542695279a90c` |
-|  `latest-dev` | July 27th    | `sha256:f772864896f6b51f95f4a517be49fa4c5fba0e2c3494daff324f816c094baf61` |
 
 # prometheus-redis-exporter
 

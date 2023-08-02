@@ -20,6 +20,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `8` `8.2` `8.2.1` | July 27th    | `sha256:bf60254f429787747c3e020cee1b00d0863a68d109fc15691847b01f07ed3efe` |
+|  `latest` `8` `8.2` `8.2.1` | July 29th    | `sha256:e091c81ed474a11d6b2da9218deb2bae38c1d9fac6491f3039a00acdf61f16ac` |
 |  `8.2.0`                    | July 26th    | `sha256:cacf323c9cf2c17e650ebdde3df295233cdcb54981706695aa8f031e5264a4a6` |
 |  `8.1` `8.1.2`              | July 18th    | `sha256:a99e00758d55169b4dd8f1c1887d0faaaa00e0b10c36e0ecd4eb1e0410aea6f3` |

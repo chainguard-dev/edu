@@ -1,6 +1,5 @@
 ---
 title: "Chainguard Images Reference"
-linktitle: "Reference"
 description: "Chainguard Images Reference Docs"
 type: "article"
 date: 2022-11-28T08:49:15+00:00

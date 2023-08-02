@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | July 27th    | `sha256:dd6eedf5d460937246d91af57c22f16efc3701d5f31f20531e3d0d773d3492c6` |
+|  `latest` | July 29th    | `sha256:d6ac43fff705fab68144d9a013c3da6b94bfd68d7e63e812dfa0d03a9d51afc2` |
 
 # newrelic-infrastructure-bundle
 

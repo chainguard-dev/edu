@@ -20,12 +20,12 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                           | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `18.17.0-dev` `latest-dev` `18-dev` `18.17.0-r0-dev` `18.17-dev` | July 27th    | `sha256:266795e737b3b42cd90a50a378e9daff445f2f19d32f9509f27ab87963ea59a5` |
-|  `19-dev` `19.9.0-dev` `19.9-dev` `19.9.0-r1-dev`                 | July 27th    | `sha256:40e0555b4d1188e1e242c0a914091c7d99cf4e81d6bcae35e2d4152956e712cc` |
-|  `20.5.0-r0-dev` `20.5-dev` `20.5.0-dev` `20-dev`                 | July 27th    | `sha256:668bc6f92991437620fd11b3f566c72a100ea0de9947c023b2b34f19a08a00cb` |
-|  `20.5.0` `20.5` `20`                                             | July 26th    | `sha256:afae552eab593ff374d396919b37e1838d8716d8a3b8693f45622693a467c470` |
-|  `19.9` `19.9.0` `19`                                             | July 26th    | `sha256:7f9d21f869062d3b2ee800283ded825404bdc3ca00618b001858050585722301` |
-|  `18` `18.17.0` `18.17` `latest`                                  | July 26th    | `sha256:e2b02013504c9e34ec7a867663f6e6c0beea5e1f971ede9feeef454d38cc07e8` |
+|  `18.17.0-dev` `18.17-dev` `latest-dev` `18-dev` `18.17.0-r0-dev` | July 29th    | `sha256:aad8abeae6285b694ad79489bc4b46443e70e32379aace27c207c2a8f9a54aa1` |
+|  `19.9-dev` `19.9.0-r1-dev` `19-dev` `19.9.0-dev`                 | July 29th    | `sha256:24ef4707a07aa0e61447440ddac9b187be7b6af3f602b5269bb5e65879c6347a` |
+|  `20.5-dev` `20.5.0-r0-dev` `20-dev` `20.5.0-dev`                 | July 29th    | `sha256:f4197d4b424ef1113657534197d806b092dbe75b2a686d158840ee2b2a07bb05` |
+|  `18.17.0` `latest` `18.17` `18`                                  | July 29th    | `sha256:7746b27c732b20c78d275bd4aa8f92ef473114a6d581c6178fac42176f4e6cb7` |
+|  `19.9.0` `19` `19.9`                                             | July 29th    | `sha256:09d242bff5a2e075fae551f289fee744ccb9262c141fff30c543607daa3769a9` |
+|  `20.5.0` `20.5` `20`                                             | July 29th    | `sha256:98779d07e544467e85f886dc9287ff744717869e7daa2e719251c4201bb3bbcb` |
 |  `20.4.0` `20.4`                                                  | July 20th    | `sha256:a3e020d3659a4730a637522b187490877c269a57108df5814ceb7f83ee3512d5` |
 |  `20.4.0-dev` `20.4-dev` `20.4.0-r0-dev`                          | July 20th    | `sha256:481b7dc9d56f387a3b824d1e9724271ae10fa6369ae91e445bbd4ae7a87d3cb0` |
 |  `18.16-dev` `18.16.1-dev` `18.16.1-r0-dev`                       | July 18th    | `sha256:3bf0d16b4a77a6381a2b3ca844a4aad421e9dd41bbb432d9d7e4a4296c44b30e` |

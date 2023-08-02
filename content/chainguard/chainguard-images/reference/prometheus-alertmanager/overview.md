@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 27th    | `sha256:b70234171cfaf8fa3e13d360807d252b517510d9c0908c23ccb68e452b367a8f` |
+|  `latest-dev` | July 28th    | `sha256:8f924dfe30f171df165ed39d2a31211c9d26069b1dc6f4b5dafe7eb0d7614818` |
 |  `latest`     | July 26th    | `sha256:d6414fa6f381caccb823369af43d0681e4ade325bc9faf052885e18b29ded907` |
 
 # prometheus-alertmanager
