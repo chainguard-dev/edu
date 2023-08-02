@@ -3,6 +3,8 @@ on:
   schedule:
     - cron: "0 0 * * *"
   workflow_dispatch:
+  push:
+    branches: [terminal-images]
 
 env:
   PROJECT_ID: "${{ secrets.TERMINAL_PROJECT_ID}}"
@@ -88,9 +90,9 @@ jobs:
             -u oauth2accesstoken \
             ${{ env.REGISTRY_URL }}
 
-      - name: cosign attest sbom
-        working-directory: terminal-images/${{ matrix.image }}
-        run: cosign attest -y --predicate sbom-x86_64.spdx.json --type spdxjson "$(cat image-refs.txt)"
+#       - name: cosign attest sbom
+#         working-directory: terminal-images/${{ matrix.image }}
+#         run: cosign attest -y --predicate sbom-x86_64.spdx.json --type spdxjson "$(cat image-refs.txt)"
 
       - name: cosign sign image
         working-directory: terminal-images/${{ matrix.image }}
