@@ -81,6 +81,7 @@ jobs:
             "${{ env.REGISTRY_URL}}/${{ env.REPOSITORY }}/${{ matrix.image }}:latest" \
             -k melange.rsa.pub \
             --sbom-path .
+          cat image-refs.txt
 
       - name: cosign login
         shell: bash
@@ -94,6 +95,6 @@ jobs:
 #         working-directory: terminal-images/${{ matrix.image }}
 #         run: cosign attest -y --predicate sbom-x86_64.spdx.json --type spdxjson "$(cat image-refs.txt)"
 
-      - name: cosign sign image
-        working-directory: terminal-images/${{ matrix.image }}
-        run: cosign sign -y "$(cat image-refs.txt)"
+#       - name: cosign sign image
+#         working-directory: terminal-images/${{ matrix.image }}
+#         run: cosign sign -y "$(cat image-refs.txt)"
