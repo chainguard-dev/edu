@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 27th    | `sha256:551f6a891931a48947fbf28a2c892ddffd5d7aa1ca725adb9128140625f9ecc4` |
+|  `latest-dev` | July 28th    | `sha256:a4a33bfe3775a5c5eefb12a7479502fddd51085b96e77f5a1c2c1dd37e912bec` |
 |  `latest`     | July 26th    | `sha256:92535650cbe6dd3dc8d70f7d52ccc63c4bbdfa18ea62763984a719e40b4c8ff9` |
 
 # tekton-workingdirinit
