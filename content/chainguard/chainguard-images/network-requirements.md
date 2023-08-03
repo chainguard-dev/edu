@@ -28,6 +28,10 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | enforce.dev | 443 | HTTPS | Registry authentication |
 | packages.wolfi.dev | 443 | HTTPS | Package repository|
 
+Note that to be able to authenticate with the `enforce.dev` domain, you will need to ensure access to and from the following CIDR ranges:
+
+{{< blurb/enforce-ips >}}
+
 ## Third-party Hosts
 
 This table lists the third-party DNS hostnames, associated ports, and protocols that will need to be allowed through firewalls and proxies to use Chainguard Images:
