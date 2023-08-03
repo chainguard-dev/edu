@@ -200,7 +200,7 @@ data "chainguard_identity" "team_ids" {
 
 This block's `for_each` meta-argument iterates through each member of the team. For each iteration, it retrieves that user's GitHub ID and then retrieves a Chainguard identity that it derives using that GitHub ID.
 
-If there are members of the Github team who have not yet registered with Chainguard, this method will still assign them the correct permissions when they log in for the first time.
+If there are members of the GitHub team who have not yet registered with Chainguard, this method will still assign them the correct permissions when they log in for the first time.
 
 The next block retrieves the predefined `viewer` role from Chainguard.
 
