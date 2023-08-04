@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 28th    | `sha256:53017f48a44ea42f9fbc58a7aa8de884c0144c65e6479777ba31f62c199fc5a1` |
+|  `latest-dev` | August 3rd   | `sha256:5f39ab3d9a6a55411659c4b8eba3b98e3c83c57c3988007be384f2bc960935c0` |
 |  `latest`     | July 26th    | `sha256:7614aeda83856c30417ac9340a060b5a8c9515c3743ddc461aef37e1f360d1fe` |
 
 # flux-helm-controller

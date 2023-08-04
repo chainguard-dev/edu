@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | July 26th    | `sha256:dc69fe0438814073c36809d9395c9ff2a969bb9c0f34993bdf88dc586e024573` |
+|  `latest` | August 3rd   | `sha256:c3e734dab0c8f5fd121da956ece04fc869f42ae3e534942968f62bd771605785` |
 
 # k3s-embedded
 
