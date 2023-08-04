@@ -361,7 +361,7 @@ The following command will set up a volume sharing your current folder with the 
 ```shell
 docker run --rm -v ${PWD}:/work cgr.dev/chainguard/apko \
   build apko.yaml hello-minicli:test hello-minicli.tar \
-  --arch host
+  --arch host \
   -k melange.rsa.pub
 ```
 This will build an OCI image based on your host system's architecture (specified by the `--arch host` flag). If you receive warnings at this point, those are likely related to the types of SBOMs being uploaded and can be safely ignored.
@@ -381,6 +381,9 @@ docker load < hello-minicli.tar
 10f951ac3cd2: Loading layer [==================================================>]  7.764MB/7.764MB
 Loaded image: hello-minicli:test-%host-architecture%
 ```
+
+Note that the `%host-architecture%` will vary, and there may be multiple images loaded into your Docker daemon. Be sure to edit the variable in the following `docker run` command to match your target architecture. You can also click to edit it inline on this page.
+
 Now you can run your Minicli program with:
 
 ```shell
