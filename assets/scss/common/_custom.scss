@@ -18,13 +18,15 @@
 // tag history page image digests are long, wrap them
 .docs-content > table > tbody > tr > td:nth-child(3) > code {
   max-width: 320px;
+  word-wrap: anywhere;
 }
 
 .docs-content > table {
   table-layout: fixed;
+  word-wrap: anywhere;
 }
 
-.docs-content > table > code{
+.docs-content > table > code {
   word-wrap: anywhere;
 }
 

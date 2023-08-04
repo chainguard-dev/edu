@@ -25,14 +25,19 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | Hostname |Port |Protocol | Notes |
 |----------|-----|---------|-------|
 | cgr.dev | 443 | HTTPS | Main image registry|
+| enforce.dev | 443 | HTTPS | Registry authentication |
 | packages.wolfi.dev | 443 | HTTPS | Package repository|
+
+Note that to be able to authenticate with the `enforce.dev` domain, you will need to ensure access to and from the following CIDR ranges:
+
+{{< blurb/enforce-ips >}}
 
 ## Third-party Hosts
 
 This table lists the third-party DNS hostnames, associated ports, and protocols that will need to be allowed through firewalls and proxies to use Chainguard Images:
 
-| Hostname |Port |Protocol |Notes |
-|----------|-----|---------|------|
+|Hostname |Port |Protocol |Notes |
+|---------|-----|---------|------|
 | ghcr.io | 443 | HTTPS | Used for wolfi development|
 | *.r2.cloudflarestorage.com | 443 | HTTPS | Blob storage for cgr.dev|
 | 9236a389bd48b98df91adc1bc924620.r2.cloudflarestorage.com | 443 | HTTPS | Blob storage for cgr.dev|
