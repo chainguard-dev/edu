@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 28th    | `sha256:cc35fd92bba45fdb634ac923efd314538e6940c3ee2f6332bd98dbb416026975` |
+|  `latest-dev` | August 3rd   | `sha256:425c370703e5e9af70f579788fdbf3583fa586f808d3f828c7d1dda353aa120b` |
 |  `latest`     | July 26th    | `sha256:4075119438f7127af643c195aee67bb37990bdfac446eac0cf1e48d06d1e42e0` |
 
 # flux-source-controller

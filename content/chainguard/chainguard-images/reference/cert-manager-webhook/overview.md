@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 28th    | `sha256:66a0fae287ce3aa9f3f56d7b2d92ae716e58ce52e87c4a4ec0b874f2abdedbe0` |
+|  `latest-dev` | August 3rd   | `sha256:d7c25979cf742cef028390326a841e4ed923041e863253bd227b0714d2984af3` |
 |  `latest`     | July 27th    | `sha256:e4e8de10a186f01ac9a3b59356c78799a06deb927ff9836d28e0302e49b4c587` |
 
 # cert-manager-webhook

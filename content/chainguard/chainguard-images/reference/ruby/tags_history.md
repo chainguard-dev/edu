@@ -20,9 +20,10 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                    | Last Changed | Digest                                                                    |
 |------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `3` `3.2` `3.2.2`                                | July 29th    | `sha256:5c63f17fffe89ecd0fb55ad25876d266db592d80172790ce21b95ad23457cef7` |
-|  `3.2.2-r1-dev` `latest-dev` `3.2-dev` `3.2.2-dev` `3-dev` | July 29th    | `sha256:222a6923a0287d4e490f92aee96518a9204a24ae4b02fb5a2aaa4013e17ea3e6` |
-|  `3.1.4-r1-dev` `3.1-dev` `3.1.4-dev`                      | July 29th    | `sha256:e87be379e717f4a46280631ac27e22beff2b91f98b8d2df84846383539a2ec2c` |
-|  `3.0.6-dev` `3.0-dev` `3.0.6-r1-dev`                      | July 29th    | `sha256:40465631d3ee501fd6f8da06fcd01ffb34c4d7a00d68ef73480bf4cf68982ffd` |
-|  `3.0` `3.0.6`                                             | July 26th    | `sha256:a506654453128edcda7ce607e0996e25dca4efea745ee9d7056395943513e87b` |
-|  `3.1` `3.1.4`                                             | July 26th    | `sha256:23ccb3eec96f81d74a3ce563cb05b7dc491f682f9ba422277280ef2ea104acda` |
+|  `3.1-dev` `3.1.4-dev` `3.1.4-r1-dev`                      | August 3rd   | `sha256:f28452439fc1b3fe18f25ea5fccf6d577b7eeb9e98810c99fa910ca03a968b28` |
+|  `3` `latest` `3.2` `3.2.2`                                | August 3rd   | `sha256:d083dd3e732f1be4c0c0cc6866648c124486a56001d5f376fcf5083623e42aa0` |
+|  `3.2-dev` `3.2.2-r1-dev` `latest-dev` `3-dev` `3.2.2-dev` | August 3rd   | `sha256:82256159cc6c7e4721b98bbf2202994aa7125480117732a06011e90a68c2c5de` |
+|  `3.0.6-dev` `3.0.6-r2-dev` `3.0-dev`                      | August 3rd   | `sha256:c42a9a563d0b8e9f0653fac421a1e31743e28f8b045b693611edb621addc3d39` |
+|  `3.1` `3.1.4`                                             | August 3rd   | `sha256:764dd612f6fde8a097d84afd2b88181faa6b5b97ec4a623c2437e608360cd84e` |
+|  `3.0.6` `3.0`                                             | August 3rd   | `sha256:a7e50e17f97bedf3693fbbc42cc9b0e59ee89e94e1a58ff9a24802acd03a36f7` |
+|  `3.0.6-r1-dev`                                            | July 29th    | `sha256:40465631d3ee501fd6f8da06fcd01ffb34c4d7a00d68ef73480bf4cf68982ffd` |
