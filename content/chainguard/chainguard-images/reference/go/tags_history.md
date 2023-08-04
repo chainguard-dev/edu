@@ -20,12 +20,16 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                       | Last Changed | Digest                                                                    |
 |---------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.21_rc3`                                                   | July 29th    | `sha256:669d569df865f066c47a07361b48d5b9a8af26c88a0a21d495f838109dda3d67` |
-|  `1.20.6-r0-dev` `1.20-dev` `1-dev` `latest-dev` `1.20.6-dev` | July 29th    | `sha256:a80c1971282cfe613a5aa591597509e33e405fa2046d53d2a91e3f04c02fb06d` |
-|  `1.20` `latest` `1` `1.20.6`                                 | July 29th    | `sha256:016996c4a4e6ef5595e8683e0958975fd1b5b432be4c9a4ef503a0107dbe872a` |
-|  `1.21_rc3-dev` `1.21_rc3-r2-dev`                             | July 29th    | `sha256:5cb8364c16e77d8ae47eeec3d100fa4371654bba39287456418ee77f365d8dd8` |
-|  `1.19.11-r0-dev` `1.19-dev` `1.19.11-dev`                    | July 29th    | `sha256:1606ad2b8a142bba0599187160256626212385d8f0c176fe4e896ecc624efa5e` |
-|  `1.19.11` `1.19`                                             | July 29th    | `sha256:8407f7a464c400f4e796090eaaaab54f2db1674df8e1c79f870a9d9294658fbc` |
+|  `1.21_rc3-dev` `1.21_rc3-r2-dev`                             | August 3rd   | `sha256:02faf4f74ad86b1c9220ccb7479a581386a8f517c20ca1b8953e6b56aca5b04c` |
+|  `1-dev` `latest-dev` `1.20.7-dev` `1.20.7-r0-dev` `1.20-dev` | August 3rd   | `sha256:9335a5c466a4a59ccba5c95c7ac4ac05f168cf490b8788c0fe246ec139daa380` |
+|  `latest` `1` `1.20.7` `1.20`                                 | August 3rd   | `sha256:7fe1a9b7eac134afdb0447b7e801dd1e80bdac37103fad89e85c374d1a5f82f2` |
+|  `1.19-dev` `1.19.12-r0-dev` `1.19.12-dev`                    | August 3rd   | `sha256:aaafea4dc34c67540eea8c77818e7d3343aebada8772043d0ff1a146de2d22e5` |
+|  `1.19` `1.19.12`                                             | August 3rd   | `sha256:2a616b671a85de666607324491317e52b4b46abc3bb2955538b3d0ecc804afa4` |
+|  `1.21_rc3`                                                   | August 3rd   | `sha256:70a2c5f1fbe3ae35cc0b1af49516482583d1bac2760964a3afb9682487202577` |
+|  `1.20.6-dev` `1.20.6-r0-dev`                                 | July 31st    | `sha256:f947aeb95c8dd21d84272ca9568128825711187122508dfbef82f08596f57353` |
+|  `1.20.6`                                                     | July 31st    | `sha256:8ffe97d212aa488979cf6f6943acfa50549a29499f14fe1be7cff48b5f7588b7` |
+|  `1.19.11-r0-dev` `1.19.11-dev`                               | July 31st    | `sha256:389bc257db05762088b1e9cc2c87857fd43eac8fe3109b6962e08b0f39a025a4` |
+|  `1.19.11`                                                    | July 31st    | `sha256:d74117d242a2a8c55b7f30d51660fd60779ebe72c547e32043c1d551b23f1386` |
 |  `1.21_rc2-r1-dev` `1.21_rc2-dev`                             | July 12th    | `sha256:fecc5b671b063aa1e6bb8e6211cf84c0b945fbb6360df9d29236365465bf5e64` |
 |  `1.21_rc2`                                                   | July 12th    | `sha256:643d38bc0e21b87917241613962331927f4f0b006c550950dfbcc81591eaf41a` |
 |  `1.19.10-dev` `1.19.10-r0-dev`                               | July 11th    | `sha256:0a2b247527b7d57ef9fdfe0dfa1500915d4c1e58050c88d29e849b39caa4cbc3` |

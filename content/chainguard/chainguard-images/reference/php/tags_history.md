@@ -20,10 +20,10 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                                        | Last Changed | Digest                                                                    |
 |--------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.2.8-r0-dev` `8.2.8-dev` `latest-dev` `8.2-dev` `8-dev`                     | July 28th    | `sha256:da1bf1172aa1d6d6e08c0c388019e11509fcc39850b49258c23c7fb2935765fb` |
-|  `8-fpm-dev` `8.2.8-r0-fpm-dev` `8.2-fpm-dev` `latest-fpm-dev` `8.2.8-fpm-dev` | July 28th    | `sha256:1de086aabfb2414330f942817adbaaee08d026907deac4929a03178d90b29e4a` |
-|  `8.2-fpm` `8.2.8-r0-fpm` `8.2.8-fpm` `8-fpm` `latest-fpm`                     | July 27th    | `sha256:9e7ead2b72cf17939f72c2f234b0fabf440fc616f94ea39ab8f56b559d247900` |
-|  `8.2.8` `latest` `8` `8.2`                                                    | July 27th    | `sha256:a87d30fc56c1a8ade6c5c6f03203e6990196822c31c33b4740fd8c7e696aade0` |
+|  `latest-fpm-dev` `8-fpm-dev` `8.2.8-fpm-dev` `8.2-fpm-dev` `8.2.8-r0-fpm-dev` | August 3rd   | `sha256:347eba75e10c2b0d22cf070ba5c78fb5341c2780a8f17e2ad9ac6c70d722fcae` |
+|  `8-fpm` `8.2.8-r0-fpm` `latest-fpm` `8.2-fpm` `8.2.8-fpm`                     | August 3rd   | `sha256:a4d459df63362f139e728e40e71775d8c5dfaaed1cd2a38fa7fbe16222511778` |
+|  `8-dev` `8.2-dev` `latest-dev` `8.2.8-r0-dev` `8.2.8-dev`                     | August 3rd   | `sha256:6c65607186e0e246b9d5c08410d4e3038afd7e3e197cfc3c20134529fe304773` |
+|  `8.2` `8` `latest` `8.2.8`                                                    | August 3rd   | `sha256:85040c15866963b405bcb4493ee63a312bed915c64b16d717d6f09d8f8674cd4` |
 |  `8.2.7-fpm-dev` `8.2.7-r2-fpm-dev`                                            | July 4th     | `sha256:94e445056d899722dd030ebeeb67796c62d5d8905358699938b5ebffdfcfd06f` |
 |  `8.2.7-dev` `8.2.7-r2-dev`                                                    | July 4th     | `sha256:eec9aeeee5f62cc114b528bcee4de7d6e2beca6fcc91428d325c1bab848ee11b` |
 |  `8.2.7-fpm` `8.2.7-r2-fpm`                                                    | July 4th     | `sha256:374b91cf7c7b73f8144066c1d1b1018ce6e6f931cf4af625c3d9a8558600be71` |
