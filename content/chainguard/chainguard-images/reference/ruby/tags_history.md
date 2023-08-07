@@ -20,10 +20,10 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                    | Last Changed | Digest                                                                    |
 |------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.1-dev` `3.1.4-dev` `3.1.4-r1-dev`                      | August 3rd   | `sha256:f28452439fc1b3fe18f25ea5fccf6d577b7eeb9e98810c99fa910ca03a968b28` |
-|  `3` `latest` `3.2` `3.2.2`                                | August 3rd   | `sha256:d083dd3e732f1be4c0c0cc6866648c124486a56001d5f376fcf5083623e42aa0` |
-|  `3.2-dev` `3.2.2-r1-dev` `latest-dev` `3-dev` `3.2.2-dev` | August 3rd   | `sha256:82256159cc6c7e4721b98bbf2202994aa7125480117732a06011e90a68c2c5de` |
-|  `3.0.6-dev` `3.0.6-r2-dev` `3.0-dev`                      | August 3rd   | `sha256:c42a9a563d0b8e9f0653fac421a1e31743e28f8b045b693611edb621addc3d39` |
+|  `3.1.4-r1-dev` `3.1.4-dev` `3.1-dev`                      | August 5th   | `sha256:826c3033599f205f4cb9c4022c0fc3b862aefeaab39c9e1de3cd65545d6e9fd4` |
+|  `3.2.2-r1-dev` `latest-dev` `3.2.2-dev` `3-dev` `3.2-dev` | August 5th   | `sha256:979848900faa60fbf7c8d16dc2ff0e02a57b2be26069e72acc3dadad8ccae138` |
+|  `3.0-dev` `3.0.6-dev` `3.0.6-r2-dev`                      | August 5th   | `sha256:7fae82126a218f7111be98c30c0841105cffa300975d07862691435f6f864b3a` |
+|  `3.2.2` `latest` `3` `3.2`                                | August 4th   | `sha256:f3f181aa39daad205216321791ca8796eb288ed516b2ba8b66a92e87f1f51c2a` |
 |  `3.1` `3.1.4`                                             | August 3rd   | `sha256:764dd612f6fde8a097d84afd2b88181faa6b5b97ec4a623c2437e608360cd84e` |
 |  `3.0.6` `3.0`                                             | August 3rd   | `sha256:a7e50e17f97bedf3693fbbc42cc9b0e59ee89e94e1a58ff9a24802acd03a36f7` |
 |  `3.0.6-r1-dev`                                            | July 29th    | `sha256:40465631d3ee501fd6f8da06fcd01ffb34c4d7a00d68ef73480bf4cf68982ffd` |
