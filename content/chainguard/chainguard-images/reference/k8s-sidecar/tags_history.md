@@ -20,12 +20,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                       | Last Changed | Digest                                                                    |
 |---------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.25.0-dev` `latest-dev` `1-dev` `1.25-dev` `1.25.0-r0-dev` | August 3rd   | `sha256:2883f8f3c652c617bcedc79607313424749623d0ad3f4b1aabf8534c6aed1225` |
-|  `1.25.0` `1` `latest` `1.25`                                 | August 3rd   | `sha256:9ed62d1f57a0ec327165ea081487774fa709e2e66fbeb48e9f5ed81f594b4207` |
+|  `1.25.0-dev` `1-dev` `1.25.0-r0-dev` `latest-dev` `1.25-dev` | August 4th   | `sha256:fdef05e8929c3c8a2af567d043f91a9eeb2ad69d56f364c52a6db7de23a68d93` |
+|  `1.25.0` `1` `latest` `1.25`                                 | August 4th   | `sha256:f50c61b61177e555439d954486c6f9502cd54d0d2ae7dd2f95d64923a21c2e60` |
 |  `1.24-dev` `1.24.6-r1-dev` `1.24.6-dev`                      | July 12th    | `sha256:6c0fa5716f05a6ae8b31b5f1dea9606a6bed1f1ebb6dff35f9bf0e4498d487c0` |
 |  `1.24` `1.24.6`                                              | July 11th    | `sha256:966b5a91cec1b474e8eeae424f59d3c238ad6c8a94e11ca11ebf404bbc0b5ddf` |
 |  `1.24.6-r0-dev`                                              | July 7th     | `sha256:5156479e706dc16f34244017f10011309a03abfbf63defdf2cd56c31910fdd9a` |
-|  `1.24.5-r0-dev` `1.24.5-dev`                                 | July 5th     | `sha256:949694d2eaf88e8a965f8400f4501a87df5dd19fdfde03f0e47fbc010c9f20df` |
-|  `1.24.5`                                                     | July 5th     | `sha256:bb6ed06ed4dfb33c16b2f706432b4cb3cbdde9483a98b6afba8e6574c0ce4470` |
-|  `1.24.4-dev` `1.24.4-r0-dev`                                 | July 4th     | `sha256:cf393f9f35cea42e5c4435ac26435dea17fbbb3634b63b009079f91b8de77f96` |
-|  `1.24.4`                                                     | July 4th     | `sha256:4d289a1ce2a5ff293dd7b12efb05fe655cbae1618a436b964ca7914141e747ac` |

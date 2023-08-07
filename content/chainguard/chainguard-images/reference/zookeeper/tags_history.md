@@ -24,5 +24,3 @@ Please note that digests and timestamps only change when there is a change to th
 |  `3.9` `3.9.0.1` `latest` `3.9.0` `3`                                      | August 2nd   | `sha256:f10251d7355637c54c2ab591f0159b6a449b8f90aea303ed9f4b9d756bb65a1c` |
 |  `3.8` `3.8.2` `3.8.2.0`                                                   | July 26th    | `sha256:455a614dff102a9f9f485c31c4c04dc29be32f796644b87ab94e21509eba189c` |
 |  `3.8.2-dev` `3.8.2.0-dev` `3.8.2.0-r0-dev` `3.8-dev`                      | July 26th    | `sha256:9ecd809d39f8f8f9624bab0499c40e94e1ed6929d73b0efbf20263711b44f32d` |
-|  `3.8.1`                                                                   | July 4th     | `sha256:39583c633e88e392889c00ee0807620fc363be8dedfa57c7c7b2c54c2304831b` |
-|  `3.8.1-r2-dev` `3.8.1-dev`                                                | July 4th     | `sha256:fd731e680a47cd6ceed0d82068f31a1b06e612314ba142e8785f2ad2351dd12b` |
