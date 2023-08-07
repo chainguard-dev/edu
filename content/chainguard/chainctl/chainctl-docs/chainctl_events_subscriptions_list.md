@@ -1,5 +1,5 @@
 ---
-date: 2023-08-03T20:00:23Z
+date: 2023-08-07T16:21:27Z
 title: "chainctl events subscriptions list"
 slug: chainctl_events_subscriptions_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_list/
