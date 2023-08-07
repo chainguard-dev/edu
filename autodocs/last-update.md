@@ -1,7 +1,5 @@
-## 2023-08-04
+## 2023-08-07
 
 Updated image reference docs.
 
-New images added:
-
-- redis-sentinel
+No new images added.
