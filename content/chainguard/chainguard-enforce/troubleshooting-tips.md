@@ -5,7 +5,7 @@ aliases:
 type: "article"
 description: "Troubleshooting tips for Chainguard Enforce"
 date: 2023-03-06T15:22:20+01:00
-lastmod: 2023-07-05T15:22:20+01:00
+lastmod: 2023-08-09T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Product", "Troubleshooting"]
 images: []
@@ -96,7 +96,7 @@ Error from server (NotFound): the server could not find the requested resource
 
 This output reveals that the endpoints are not available to `chainctl`, whcih may be due to an auth proxy between `chainctl` and the control plane.
 
-To solve for this issue, you'll need an OpenID Connect Well-Known Configuration Endpoint, which should be available at the `/.well-known/openid-configuration` path, This will enable you to use `chainctl` for installation and to register an identity. You can check that the file is there with `kubectl`.
+To solve for this issue, you'll need an OpenID Connect Well-Known Configuration Endpoint, which should be available at the `/.well-known/openid-configuration` path, this will enable you to use `chainctl` for installation and to register an organization. You can check that the file is there with `kubectl`.
 
 ```sh
 kubectl get --raw /.well-known/openid-configuration

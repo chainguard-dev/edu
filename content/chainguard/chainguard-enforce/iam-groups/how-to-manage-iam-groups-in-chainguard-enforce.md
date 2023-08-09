@@ -5,8 +5,8 @@ aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-manage-iam-groups-in-chainguard-enforce/
 type: "article"
 description: "Understanding Identity and Access Management in Chainguard Enforce"
-date: 2022-15-07T15:22:20+01:00
-lastmod: 2022-13-09T15:22:20+01:00
+date: 2022-07-15T15:22:20+01:00
+lastmod: 2023-08-09T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Product", "Procedural"]
 images: []
@@ -36,13 +36,13 @@ A web browser window will open to prompt you to login via Google’s OIDC flow (
 
 ## Creating a Group
 
-Begin by creating a root group for your desired organization tied to the account you just used to authenticate to Chainguard Enforce.
+Begin by creating an organization tied to the account you just used to authenticate to Chainguard Enforce.
 
 ```sh
 chainctl iam groups create $NAME --no-parent
 ```
 
-After creating the root group, you can create your desired group hierarchy. Keep in mind that policies roll down, meaning that any policy created at the root level will be inherited by its children.
+After creating the organization, you can create your desired group hierarchy. Keep in mind that policies roll down, meaning that any policy created at the root level will be inherited by its children.
 
 ```sh
 chainctl iam group create $CHILD_NAME --parent $ROOT_ID
