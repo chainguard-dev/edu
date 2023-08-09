@@ -94,7 +94,7 @@ const customizeUI = (pre) => {
   const codeContentHeight = codeContent.offsetHeight - 48; // 48 = padding(24px) * 2
   const lineHeight = 22;
   let expanded = false;
-  if (codeContentHeight / lineHeight > 6) {
+  if (codeContentHeight / lineHeight > 25) {
     expanded = true;
     const expandButtonContainer = document.createElement("div");
     expandButtonContainer.classList.add("expand-btn-container");
