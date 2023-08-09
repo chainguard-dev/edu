@@ -11,49 +11,114 @@
 
   <div class="content-and-terminal">
   <div class="center-content single-html">
-    <main class="docs-content {{ if ne .Params.toc false -}} has-toc {{ end }}">
+    <main class="docs-content">
+       <div class="back-button">
+        {{ $parentTitle := .Parent.Title }}
+        {{ $parentLink := .Parent.Permalink }}
+        {{ if or (eq $parentTitle "Product Docs") (eq $parentTitle "Open Source") (eq $parentTitle "Education") }}
+          {{ $parentTitle = "Home" }}
+          {{ $parentLink = "/" }}
+        {{ end }}
 
-      {{ if not .Params.hide_title -}}<h1>{{ .Title }}</h1>{{ end -}}
+        <a class="pills-link" href="{{ $parentLink }}">
+          <div class="d-flex align-items-center justify-content-center pills-icon">
+            <div class="chevron-rotator">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 6" fill="none">
+                <path d="M1.06199 5.729L0.291992 4.938L4.99999 0.229004L9.70799 4.938L8.93799 5.729L4.99999 1.792L1.06199 5.729Z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <span class="pills-text">{{ $parentTitle }}</span>
+        </a>
+      </div> 
 
-      <p class="lead">{{ .Params.lead | safeHTML }}</p>
+      {{ if not .Params.hide_title -}}
+        <h1>{{ .Title }}</h1>
+        <div>{{ .Description }}</div>
+      {{ end -}}
 
-            <p class="contributors">
-        {{ if .Params.contributors -}} <small>By
-        {{ range $index, $contributor := .Params.contributors }}
-        {{ if gt $index 0 }}{{ if eq $index }} and {{ else }}, {{ end }}{{ end }}
-        <a class="stretched-link position-relative" href="{{ "/contributors/" | relURL }}{{ . | urlize }}/">{{ . }}</a>{{ end -}}{{ end -}}</small></p>
+      <div class="contributors">
+        {{ if .Params.contributors -}}
+        <div class="mt-4 d-flex align-items-center">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <g style="stroke:currentColor; fill: none; stroke-width: 1.5px;">
+              <circle r="22" cx="24" cy="24"></circle>
+              <circle r="6" cx="24" cy="22"></circle>
+              <path d="M 12 40 A 8 8 90 0 1 20 32 h 8 a 8 8 90 0 1 8 8"></path>
+            </g>
+          </svg> -->
+          <!-- <small>by&nbsp;</small> -->
+          <div><small>
+            {{ range $index, $contributor := .Params.contributors }}
+              {{ if gt $index 0 }}
+                {{ if eq $index }} and {{ else }},
+                {{ end }}
+              {{ end }}
+              {{ . }}
+            {{ end -}}
+          </small></div>
+        </div>
+        {{ end -}}
+      </div>
 
       {{ if .Params.tags -}}
-      <div class="mt-4">
+      <div class="tag-container">
         {{ range $index, $tag := .Params.tags -}}
-          <a class="btn btn-light" href="{{ "/tags/" | absURL }}{{ . | urlize }}/" role="button">{{ . }}</a>{{end}}{{end}}
-          <p></p>
+          <a class="tag" href="{{ "/tags/" | absURL }}{{ . | urlize }}/" role="button">{{ . }}</a>
+        {{end}}
+        </div>
+      {{end}}
+      
+      {{ if .Params.images }}
+        <div class="mt-4">
+          {{range .Params.images}}
+            <img class="attached-image--border mt-3" src="{{.}}" alt="Attached Image">
+          {{end}}
+        </div>
+      {{ end }}
           
-        {{ if ne .Params.toc false -}}
+      <!-- {{ if ne .Params.toc false -}}
       <nav class="d-xl-none" aria-label="Quaternary navigation">
         {{ partial "sidebar/docs-toc.html" . }}
       </nav>
-      {{ end -}}
+      {{ end -}} -->
       {{ partial "notice.html" . }}
+      {{ partial "rumble.html" . }}
+      <div class="mb-5"></div>
       {{ .Content }}
+      
       <div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
         {{ if .Site.Params.lastMod -}}
-        {{ partial "main/last-modified.html" . }}
+          {{ partial "main/last-modified.html" . }}
         {{ end -}}
         {{ if .Site.Params.editPage -}}
-        {{ partial "main/edit-page.html" . }}
+          {{ partial "main/edit-page.html" . }}
         {{ end -}}
       </div>
-      {{ partial "main/docs-navigation.html" . }}
-      <!--
-      {{ if not .Site.Params.options.collapsibleSidebar -}}
-        {{ partial "main/docs-navigation.html" . }}
-      {{ else -}}
-        <div class="my-n3"></div>
-      {{ end -}}
-      -->
 
-      {{ partial "terminal.html" . }}
+      <!-- <a class="btn cta-button" href="https://www.chainguard.dev/contact?utm_source=docs">Contact Us</a> -->
+
+      {{ partial "footer/main/docs-navigation.html" . }}
+
     </main>
+    {{ $snippetsStyle := resources.Get "scss/snippets.scss" | resources.ToCSS }}
+    <link rel="stylesheet" href="{{ $snippetsStyle.Permalink }}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    {{- $snippets := resources.Get "js/snippets.js" -}}
+    <script src="{{ $snippets.Permalink }}" integrity="{{ $snippets.Data.Integrity }}"></script>
+    {{- $titles := resources.Get "js/titles.js" -}}
+    <script src="{{ $titles.Permalink }}" integrity="{{ $titles.Data.Integrity }}"></script>
+    <!-- {{ if ne .Params.toc false -}}
+    <nav class="docs-toc{{ if ne .Site.Params.options.navbarSticky true }} docs-toc-top{{ end }}" aria-label="Secondary navigation">
+      {{ partial "sidebar/docs-toc.html" . }}
+    </nav> -->
+    <!-- {{ end -}} -->
+  </div>
+
+  <div class="row terminal resizable">
+    {{ partial "terminal.html" . }}
+    {{ partial "replacer.html" . }}
+  </div>
+  </div>
 </div>
 {{ end }}
