@@ -20,8 +20,10 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                          | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.116.1-dev` `0.116.1-r0-dev` `0-dev` `latest-dev` `0.116-dev` | August 3rd   | `sha256:d3500bf4d6feb36d3e49516763f9445ef1695d7d636a74cbb9aa5071d04abb81` |
-|  `0.116.1` `0.116` `0` `latest`                                  | August 3rd   | `sha256:bd3da3fa0c6dbc430628fdce06d602bdfe4f78a854c69c2e069d95d57516dd54` |
+|  `0.117` `latest` `0` `0.117.0`                                  | August 8th   | `sha256:3a4f883dbfa30181febe128612876613198ce3edb07311eab211dc4be266dd47` |
+|  `latest-dev` `0-dev` `0.117.0-dev` `0.117.0-r0-dev` `0.117-dev` | August 8th   | `sha256:01d70aa872f0a687c85963108b88dbe1086f8fa8d98f6935b56b3a3c02cb4bc1` |
+|  `0.116.1-dev` `0.116.1-r0-dev` `0.116-dev`                      | August 3rd   | `sha256:d3500bf4d6feb36d3e49516763f9445ef1695d7d636a74cbb9aa5071d04abb81` |
+|  `0.116.1` `0.116`                                               | August 3rd   | `sha256:bd3da3fa0c6dbc430628fdce06d602bdfe4f78a854c69c2e069d95d57516dd54` |
 |  `0.116.0-dev` `0.116.0-r0-dev`                                  | July 31st    | `sha256:d4f04f1bc040d67312872fb6e9f1e714ecbb043644e9df243ce13d5f856b634e` |
 |  `0.116.0`                                                       | July 31st    | `sha256:1a5b198e305a5c8226581b027a7403cce03b79e5216ef53853a1ab148165d3fd` |
 |  `0.115.4-r0-dev` `0.115.4-dev` `0.115-dev`                      | July 28th    | `sha256:9824dde1d24c5294131d6a8fd8683d641dd2eda371fdbbe366c4e8ff678149aa` |
@@ -30,5 +32,3 @@ Please note that digests and timestamps only change when there is a change to th
 |  `0.115.3`                                                       | July 14th    | `sha256:c8e60c8f0258d196f0a00d24159b8941d4dce86a7069ea6ff8876e0ba22216a3` |
 |  `0.115.2-r0-dev` `0.115.2-dev`                                  | July 12th    | `sha256:cb21a7ec1088c6141e502a2db6bc0d599c321932c5296ea9d3fbbd912811321a` |
 |  `0.115.2`                                                       | July 11th    | `sha256:2fb7345617b05583e77744cf46b204279c7271ab82272fc5799f4c1efd082d57` |
-|  `0.115.1-r0-dev` `0.115.1-dev`                                  | July 8th     | `sha256:5a89ccf60d766a54ddaf554890fceba742adc8f64b32ab2c274118153ec2f68c` |
-|  `0.115.1`                                                       | July 8th     | `sha256:bfb698f3f9cbeafcfc5f25ff407665494140adab4b8d33f92f517301db901c1f` |
