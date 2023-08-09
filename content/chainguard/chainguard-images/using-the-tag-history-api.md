@@ -150,7 +150,7 @@ Be sure to keep a copy of the username and password created.
 
 ### Optional: Storing Credentials 
 
-The username and password can be used if required, but if you’d like to use the default Docker functionality, then this is base64 encoded and stored within `~/.docker/config.json`. 
+You can use the username and password you just created if required. However, Docker's default functionality is to encode these credentials in base64 and then store them within `~/.docker/config.json`. 
 
 To set that up, following the previous example, replace the username and password value, keeping the colon (`:`) to separate the values.
 
