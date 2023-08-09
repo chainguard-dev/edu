@@ -117,7 +117,7 @@ And your image will then be locked into that specific build of the `python:lates
 
 ## Accessing the History API for Standard and Custom Images
 
-If you are a customer who would like to access the history API for the Standard Catalog or a Custom Catalog, you can create credentials to store the credentials in order to access the API with curl and Bash. 
+If you are a customer who would like to access the history API for the Standard Catalog or a Custom Catalog, you must create credentials to access the API with curl and Bash. 
 
 ### Create Credentials
 
