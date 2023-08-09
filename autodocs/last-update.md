@@ -1,5 +1,7 @@
-## 2023-08-08
+## 2023-08-09
 
 Updated image reference docs.
 
-No new images added.
+New images added:
+
+- kube-logging-operator

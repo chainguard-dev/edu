@@ -1,7 +1,7 @@
 ---
-title: "Image Overview: k3s-embedded"
+title: "Image Overview: kube-logging-operator"
 type: "article"
-description: "Overview: k3s-embedded Chainguard Image"
+description: "Overview: kube-logging-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,18 +14,11 @@ weight: 500
 toc: true
 ---
 
-[cgr.dev/chainguard/k3s-embedded](https://github.com/chainguard-images/images/tree/main/images/k3s-embedded)
+[cgr.dev/chainguard/kube-logging-operator](https://github.com/chainguard-images/images/tree/main/images/kube-logging-operator)
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 8th   | `sha256:c26178d63497409b8f2b58716931f03430788884d916c5552f3b5a22fab0fc42` |
+|  `latest` | August 8th   | `sha256:b0cea66f9c4f4e7102daf8aa8da81a4bfea3271ba64315fdf46950f87a04385c` |
 
-# k3s-embedded
 
-Minimal k3s-embedded images with nightly builds.
 
-## Get it!
-
-```shell
-docker pull cgr.dev/chainguard/k3s-embedded
-```
