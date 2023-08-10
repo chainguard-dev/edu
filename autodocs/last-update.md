@@ -1,7 +1,9 @@
-## 2023-08-09
+## 2023-08-10
 
 Updated image reference docs.
 
 New images added:
 
-- kube-logging-operator
+- cadvisor
+- opentelemetry-collector-contrib
+- k3s-allinone
