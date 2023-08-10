@@ -4,7 +4,7 @@ lead: "Software supply chain security vocabulary"
 description: "Software supply chain security vocabulary"
 type: "article"
 date: 2022-08-01T15:21:01+02:00
-lastmod: 2023-06-16T13:23:25+00:00
+lastmod: 2023-08-10T15:38:59+00:00
 draft: false
 tags: ["Conceptual"]
 images: []
