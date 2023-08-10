@@ -2,8 +2,8 @@
 title: "Getting Started with the MariaDB Chainguard Image"
 type: "article"
 description: "Tutorial on how to get started with the MariaDB Chainguard Image"
-date: 2023-01-09T11:07:52+02:00
-lastmod: 2023-01-19T11:07:52+02:00
+date: 2023-07-28T11:07:52+02:00
+lastmod: 2023-08-10T11:07:52+02:00
 draft: false
 images: []
 menu:
@@ -12,7 +12,6 @@ menu:
 weight: 610
 toc: true
 ---
-
 
 The MariaDB image based on Wolfi and maintained by Chainguard provide a distroless container image that is suitable for building and running MariaDB workloads.
 
@@ -33,7 +32,7 @@ In order to illustrate how the MariaDB Chainguard Image might be used in practic
 {{< /details >}}
 
 
-## Step 1: Setting up a Demo Application
+## Step 1: Setting up a demo application
 
 This step involves downloading the demo application code to your local machine. To ensure that the application files don't remain on your system navigate to a temporary directory like `/tmp/`.
 
@@ -118,7 +117,7 @@ This shows that the application is recording each visit in the MariaDB database 
 After confirming that the application is functioning as expected, you can read through the next section to explore how else you can work with the `mariadb` container.
 
 
-## Step 3: Managing the database over the command line
+## Step 3: Working with the database
 
 The `docker-compose.yml` file contains some configuration details regarding the MariaDB database used in this example application. Run the following command to inspect the contents of this file.
 
