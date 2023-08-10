@@ -4,7 +4,7 @@ lead: "Software supply chain security vocabulary"
 description: "Software supply chain security vocabulary"
 type: "article"
 date: 2022-08-01T15:21:01+02:00
-lastmod: 2023-08-10T15:38:59+00:00
+lastmod: 2023-08-10T19:14:34+00:00
 draft: false
 tags: ["Conceptual"]
 images: []
@@ -61,7 +61,7 @@ A pipeline approach to code development and release. CI stands for **c**ontinuou
 
 ### CISA
 
-The [Cybersecurity and Infrastructure Security Agency (CISA)](https://www.cisa.gov/) is a U.S. federal government agency under the Department of Homeland Security. Since its inception in 2018, the CISA has championed the adoption of secure software development practices, such as the use of SBOMs and VEX documentation. The CISA operates the KEV Catalog, a helpful tool to software developers who are working on vulnerability remediation.
+The [**C**ybersecurity and **I**nfrastructure **S**ecurity **A**gency (CISA)](https://www.cisa.gov/) is a U.S. federal government agency under the Department of Homeland Security. Since its inception in 2018, the CISA has championed the adoption of secure software development practices, such as the use of SBOMs and VEX documentation. The CISA operates the Known Exploited Vulnerabilities (KEV) Catalog, a helpful tool to software developers who are working on vulnerability remediation. Additionally, they sponsor the National Vulnerability Database (NVD).
 
 ---
 
@@ -73,13 +73,13 @@ Standing for **C**ommon **V**ulnerabilities and **E**xposures, CVEs are records 
 
 ### KEV Catalog
 
-Operated by the CISA, the [Known Exploited Vulnerabilities (KEV) Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) is populated with CVEs that have existing exploits “in the wild”. The KEV Catalog serves as a tool for developers as it identifies CVEs that need to be prioritized for remediation because of their exploitability status.
+Operated by the Cybersecurity and Infrastructure Security Agency (CISA), the [**K**nown **E**xploited **V**ulnerabilities (KEV) Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) is populated with CVEs that have existing exploits “in the wild”. The KEV Catalog serves as a tool for developers as it identifies CVEs that need to be prioritized for remediation because of their exploitability status.
 
 ---
 
 ### NVD
 
-The [National Vulnerability Database (NVD)](https://nvd.nist.gov/) is operated by the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/), an agency of the U.S. Department of Commerce. The NVD analyzes CVE records with the goal of providing additional information on how they impact products through the corroboration of public advisories and reports. The NVD is often used by vulnerability scanners as a reference for CVE information.
+The [National Vulnerability Database (NVD)](https://nvd.nist.gov/) is operated by the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/), an agency of the U.S. Department of Commerce. The NVD analyzes CVE records and their related public advisories to provide additional information on how a vulnerability impacts a software product. The NVD is often used by vulnerability scanners as a primary reference.
 
 ---
 
