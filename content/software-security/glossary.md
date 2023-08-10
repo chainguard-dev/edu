@@ -51,7 +51,7 @@ A software vulnerability is a weakness in a program which, if left unaddressed, 
 
 An attestation allows consumers of a software artifact to verify the quality of that artifact independently from the producer of the software. It also requires software producers to provide verifiable proof of the quality of their software. You can think of an attestation as a **proclamation** that _software artifact X was produced by Y person at Z time._
 
-___
+---
 
 ### CI/CD
 
@@ -59,9 +59,27 @@ A pipeline approach to code development and release. CI stands for **c**ontinuou
 
 ---
 
+### CISA
+
+The [Cybersecurity and Infrastructure Security Agency (CISA)](https://www.cisa.gov/) is a U.S. federal government agency under the Department of Homeland Security. Since its inception in 2018, the CISA has championed the adoption of secure software development practices, such as the use of SBOMs and VEX documentation. The CISA operates the KEV Catalog, a helpful tool to software developers who are working on vulnerability remediation.
+
+---
+
 ### CVE
 
 Standing for **C**ommon **V**ulnerabilities and **E**xposures, CVEs are records assigned to publicly disclosed software vulnerabilities, stored in a searchable catalog. Each CVE consists of a unique CVE ID, a description of the vulnerability, and any relevant references or advisories. The CVE Program is operated by The MITRE Corporation and supported by a variety of U.S. government agencies.
+
+---
+
+### KEV Catalog
+
+Operated by the CISA, the [Known Exploited Vulnerabilities (KEV) Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) is populated with CVEs that have existing exploits “in the wild”. The KEV Catalog serves as a tool for developers as it identifies CVEs that need to be prioritized for remediation because of their exploitability status.
+
+---
+
+### NVD
+
+The [National Vulnerability Database (NVD)](https://nvd.nist.gov/) is operated by the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/), an agency of the U.S. Department of Commerce. The NVD analyzes CVE records with the goal of providing additional information on how they impact products through the corroboration of public advisories and reports. The NVD is often used by vulnerability scanners as a reference for CVE information.
 
 ---
 
