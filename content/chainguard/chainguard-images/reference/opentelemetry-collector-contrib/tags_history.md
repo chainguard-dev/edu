@@ -1,7 +1,7 @@
 ---
-title: "clang Image Tags History"
+title: "opentelemetry-collector-contrib Image Tags History"
 type: "article"
-description: "Image Tags and History for the clang Chainguard Image"
+description: "Image Tags and History for the opentelemetry-collector-contrib Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,8 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                        | Last Changed | Digest                                                                    |
-|----------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `15` `latest` `15.0` `15.0.7`                                 | August 9th   | `sha256:b42960c0489ac25efc8df0fc544c0220f3d809d7c0d07b49f3dd397ec7aa60e5` |
-|  `latest-dev` `15-dev` `15.0.7-dev` `15.0.7-r2-dev` `15.0-dev` | August 9th   | `sha256:c4060acdaf3d1181f84c616619895aa9623b7f711c6dea190b6cee9ca7ba5adc` |
-|  `15.0.7-r0-dev`                                               | August 5th   | `sha256:697a85a7619824254369bf4497d858a7c11bc00f875a25a32758878bff86a3ae` |
+| Tag (s)                                                       | Last Changed | Digest                                                                    |
+|---------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.82.0-dev` `0-dev` `0.82.0-r0-dev` `latest-dev` `0.82-dev` | August 9th   | `sha256:becc1491b9abfed532a3fcf9778d2261da931823990db7ea4ba4c7f5c6337c82` |
+|  `0` `0.82.0` `0.82` `latest`                                 | August 9th   | `sha256:604c72a8f233ab453969c2fbec5c913e2c162e648567cd090808eabd6497bc5a` |
