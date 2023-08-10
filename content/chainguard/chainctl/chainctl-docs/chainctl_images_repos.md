@@ -1,5 +1,5 @@
 ---
-date: 2023-08-07T16:21:27Z
+date: 2023-08-10T17:12:48Z
 title: "chainctl images repos"
 slug: chainctl_images_repos
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos/
