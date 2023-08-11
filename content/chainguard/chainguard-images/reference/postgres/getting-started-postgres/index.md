@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with the PostgreSQL Chainguard Image"
 type: "article"
-description: "Tutorial on how to get started with the PostgreSQL Chainguard Image"
+lead: "Tutorial on how to get started with the PostgreSQL Chainguard Image"
 date: 2023-08-10T11:07:52+02:00
 lastmod: 2023-08-10T11:07:52+02:00
 draft: false
@@ -13,7 +13,7 @@ weight: 610
 toc: true
 ---
 
-PostgreSQL — commonly known as "Postgres" — is a popular open-source relational database. The PostgreSQL images based on Wolfi and maintained by Chainguard provide distroless images that are suitable for building and running PostgreSQL workloads.
+PostgreSQL — commonly known as "Postgres" — is a popular open-source relational database. The PostgreSQL Images based on Wolfi and maintained by Chainguard provide distroless Images that are suitable for building and running PostgreSQL workloads.
 
 Because Chainguard Images (including the PostgreSQL image) are rebuilt daily with the latest sources and include the absolute minimum of dependencies, they have significantly fewer vulnerabilities than equivalent images, typically zero. This means you can use the Chainguard PostgreSQL Image to run Postgres databases in containerized environments with a smaller footprint and greater security. 
 
@@ -77,7 +77,7 @@ From here, you can run the application and use a web browser to observe it worki
 
 We encourage you to check out [the application code on GitHub](https://github.com/chainguard-dev/edu-images-demos/tree/main/postgres) to better understand how this application works, but we'll provide a brief overview here.
 
-This demo creates a LEPP (Linux, (E)Nginx, PostgreSQL and PHP-FPM) environment based on Wolfi Chainguard Images. We will use Docker Compose to bring up the environment, which will spin up three containers: an `app` container, a `postgres` container, and an `nginx` container. These will run as services.
+This demo creates a LEPP (Linux, (E)NGINX, PostgreSQL and PHP-FPM) environment based on Wolfi Chainguard Images. We will use Docker Compose to bring up the environment, which will spin up three containers: an `app` container, a `postgres` container, and an `nginx` container. These will run as services.
 
 Once the environment is up, you can visit the demo in your web browser. The `index.php` file contains code that does the following:
 
@@ -110,7 +110,7 @@ Execute the following command to build an image with this Dockerfile, and then c
 docker compose up -d
 ```
 
-The `-d` option is short for `--detach`; this will cause the containers to run in the background, allowing you to continue using the same terminal window. 
+The `-d` option is short for `--detach`; this will cause the containers to run in the background, allowing you to continue using the same terminal window. If you run into permissions issues when running this command, try running it again with `sudo` privileges.
 
 > **Note**: If at any point you'd like to stop and remove these containers, run `docker compose down`. 
 
