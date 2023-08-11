@@ -95,7 +95,7 @@ nano Dockerfile
 
 Copy the following content to it:
 
-```
+```Dockerfile
 FROM cgr.dev/chainguard/wolfi-base
 
 ARG version=3.11
@@ -152,7 +152,7 @@ nano DockerfileDistroless
 
 Copy the following code into your new file:
 
-```
+```Dockerfile
 FROM cgr.dev/chainguard/wolfi-base as builder
 
 ARG version=3.11
@@ -166,7 +166,7 @@ USER nonroot
 COPY requirements.txt /app/
 RUN  pip3 install -r requirements.txt --user
 
-FROM cgr.dev/chainguard/python:3.11
+FROM cgr.dev/chainguard/python:latest
 
 ARG version=3.11
 WORKDIR /app
