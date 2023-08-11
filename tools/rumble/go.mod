@@ -6,6 +6,7 @@ require (
 	cloud.google.com/go/bigquery v1.52.0
 	cloud.google.com/go/storage v1.30.1
 	github.com/mattn/go-sqlite3 v1.14.17
+	golang.org/x/sync v0.2.0
 	google.golang.org/api v0.126.0
 )
 
@@ -39,7 +40,6 @@ require (
 	golang.org/x/mod v0.10.0 // indirect
 	golang.org/x/net v0.10.0 // indirect
 	golang.org/x/oauth2 v0.8.0 // indirect
-	golang.org/x/sync v0.2.0 // indirect
 	golang.org/x/sys v0.8.0 // indirect
 	golang.org/x/text v0.9.0 // indirect
 	golang.org/x/tools v0.9.1 // indirect

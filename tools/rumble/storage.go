@@ -10,12 +10,10 @@ import (
 	"encoding/csv"
 	"encoding/json"
 	"fmt"
-	"log"
 	"os"
 
 	"cloud.google.com/go/storage"
 	"golang.org/x/sync/errgroup"
-	"google.golang.org/api/iterator"
 )
 
 type gcsClient struct {
@@ -64,10 +62,6 @@ func (g *gcsClient) saveJSON(vulns []vuln) error {
 				return err
 			}
 
-			// err = os.WriteFile("/tmp/cves/"+v.Id+".json", js, os.ModePerm)
-			// if err != nil {
-			// 	return err
-			// }
 			fmt.Printf("Wrote %s\n", fName)
 			return nil
 		})
@@ -79,33 +73,7 @@ func (g *gcsClient) saveJSON(vulns []vuln) error {
 	return nil
 }
 
-func (c *gcsClient) query() {
-	bkt := c.Client.Bucket("chainguard-academy")
-	query := &storage.Query{Prefix: "cve-data"}
-
-	var names [][]string
-	it := bkt.Objects(c.Ctx, query)
-	for {
-		attrs, err := it.Next()
-		if err == iterator.Done {
-			break
-		}
-		if err != nil {
-			log.Fatal(err)
-		}
-		names = append(names, []string{attrs.Name})
-	}
-
-	w := csv.NewWriter(os.Stdout)
-
-	for _, v := range names {
-		if err := w.Write(v); err != nil {
-			log.Fatalln("error writing record to csv:", err)
-		}
-
-	}
-}
-
+// unused, but can print a csv to stdout if needed
 func printRecords(records []interface{}, queryType string) error {
 	w := csv.NewWriter(os.Stdout)
 

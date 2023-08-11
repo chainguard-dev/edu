@@ -53,51 +53,9 @@ func NewBqClient() (bqClient, error) {
 	return b, nil
 }
 
-const csvQuery = `
-SELECT
-ROW_NUMBER() OVER (ORDER BY time),
-image,
-scanner,
-scanner_version,
-scanner_db_version,
-FORMAT_DATETIME("%Y-%m-%d %H:%M:%S", DATE(time)) as time,
-low_cve_count as low_cve_cnt,
-med_cve_count as med_cve_cnt,
-high_cve_count as high_cve_cnt,
-crit_cve_count as crit_cve_cnt,
-unknown_cve_count as unknown_cve_cnt,
-low_cve_count + med_cve_count + high_cve_count + crit_cve_count + unknown_cve_count AS tot_cve_cnt,
-digest FROM base-image-rumble.rumble.scheduled
-WHERE DATE(time) BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY) AND CURRENT_DATE()
-	AND scanner = "grype"
-	LIMIT 10
-`
-
 const allVulnsQuery = `
 SELECT DISTINCT vulnerability
 FROM base-image-rumble.rumble.scheduled_vulns
-`
-
-const cveQuery = `
-WITH ruuuumble AS (
-	SELECT s1.image,
-			s1.time as t,
-			s1.raw_grype_json,
-			s2.vulnerability,
-			s2.installed as version,
-			s2.type,
-			s2.severity
-	FROM base-image-rumble.rumble.scheduled_vulns
-	AS s2
-	INNER JOIN base-image-rumble.rumble.scheduled
-	AS s1
-	ON s1.id = s2.scan_id
-	WHERE s1.image = "golang:latest"
-	OR s1.image = "cgr.dev/chainguard/golang:latest"
-  )
-  SELECT image, t, vulnerability, version, type, severity FROM ruuuumble
-  WHERE DATE(t) BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY) AND CURRENT_DATE()
-  GROUP BY vulnerability, t, image, version, type, severity
 `
 
 const affectedImagesQuery = `
@@ -115,9 +73,10 @@ ORDER BY s1.image, s1.time
 func (b *bqClient) queryAffectedImages(qr string, vulns []vuln) ([]vuln, error) {
 	eg := new(errgroup.Group)
 	eg.SetLimit(50)
-	for i, v := range vulns {
+	for idx, v := range vulns {
+		vulnerability := v
+		i := idx
 		eg.Go(func() error {
-			vulnerability := v
 			fmt.Printf("querying %v\n", vulnerability.Id)
 			q := b.Client.Query(qr)
 			q.Parameters = []bigquery.QueryParameter{
