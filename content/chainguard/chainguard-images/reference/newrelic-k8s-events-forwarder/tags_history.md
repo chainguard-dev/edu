@@ -20,7 +20,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.46.0` `latest` `1` `1.46` | August 9th   | `sha256:23c79f960a347cb70b11fd2f61c58227bec736f74e56f170650e6131980a5b19` |
+|  `latest` `1.46` `1.46.1` `1` | August 10th  | `sha256:707234c77be65fead92ce62f272f8a270cc2d708f4cb7b6d36af01c70fa39832` |
+|  `1.46.0`                     | August 9th   | `sha256:23c79f960a347cb70b11fd2f61c58227bec736f74e56f170650e6131980a5b19` |
 |  `1.45` `1.45.0`              | August 3rd   | `sha256:b0850bfc604b82a464ebfb688b0d45c2c9a270b883bb02fe0a787d01bf2c18fa` |
 |  `1.44.0` `1.44`              | July 26th    | `sha256:aa983fa279491bc8814e5b4e19b2d9190d957f4321fe92b0698f7f51e15592c5` |
 |  `1.43.2` `1.43`              | July 14th    | `sha256:5be4870e4390ec5ffd5d5f45d9fa23be92bc2b71c8f34e8d6da7302a46e4a17d` |
