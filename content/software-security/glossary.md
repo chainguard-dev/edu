@@ -73,7 +73,7 @@ Standing for **C**ommon **V**ulnerabilities and **E**xposures, CVEs are records 
 
 ### KEV Catalog
 
-Operated by the Cybersecurity and Infrastructure Security Agency (CISA), the [**K**nown **E**xploited **V**ulnerabilities (KEV) Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) is populated with CVEs that have existing exploits “in the wild”. The KEV Catalog serves as a tool for developers as it identifies CVEs that need to be prioritized for remediation because of their exploitability status.
+The [**K**nown **E**xploited **V**ulnerabilities (KEV) Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) is populated with CVEs that have existing exploits “in the wild”. Operated by the Cybersecurity and Infrastructure Security Agency (CISA), the KEV Catalog serves as a tool for developers as it identifies CVEs that need to be prioritized for remediation because of their exploitability status.
 
 ---
 
