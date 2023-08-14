@@ -61,7 +61,7 @@ A pipeline approach to code development and release. CI stands for **c**ontinuou
 
 ### CISA
 
-The [**C**ybersecurity and **I**nfrastructure **S**ecurity **A**gency (CISA)](https://www.cisa.gov/) is a U.S. federal government agency under the Department of Homeland Security. Since its inception in 2018, the CISA has championed the adoption of secure software development practices, such as the use of SBOMs and VEX documentation. The CISA operates the Known Exploited Vulnerabilities (KEV) Catalog, a helpful tool to software developers who are working on vulnerability remediation. Additionally, they sponsor the National Vulnerability Database (NVD).
+The [**C**ybersecurity and **I**nfrastructure **S**ecurity **A**gency (CISA)](https://www.cisa.gov/) is a U.S. federal government agency under the Department of Homeland Security. Since its inception in 2018, CISA has championed the adoption of secure software development practices, such as the use of SBOMs and VEX documentation. CISA operates the Known Exploited Vulnerabilities (KEV) Catalog, a helpful tool to software developers who are working on vulnerability remediation. Additionally, they sponsor the National Vulnerability Database (NVD).
 
 ---
 
