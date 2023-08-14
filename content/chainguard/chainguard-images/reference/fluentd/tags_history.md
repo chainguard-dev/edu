@@ -20,9 +20,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                                      | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `edge-dev` `1.16.2-r0-dev` `1.16.2-dev` `1.16-dev` `1-dev`     | August 12th  | `sha256:d03ca8fbfc6b150d75064d4975e8ba1774affa4da01e5daaa0aa4017630ee661` |
 |  `1.16.2-splunk` `1-splunk` `1.16-splunk` `1.16.2-r0-splunk` `latest-splunk` | August 10th  | `sha256:12049f5aa05cd34fa2a2caba5d216dc4233af372f8f4c616b1f0f7b6bd11074b` |
-|  `1.16.2-dev` `latest-dev` `1-dev` `edge-dev` `1.16.2-r0-dev` `1.16-dev`     | August 5th   | `sha256:7327d7c68862547d1b3b39401a3c6c8e23e8e9af4dbddf1bedc5ef7cbb9d5b89` |
 |  `1.16` `1` `edge` `1.16.2` `latest`                                         | August 4th   | `sha256:e03451d1ccd6e19c28e4f6bfb3d48f46c6068627a880f63d33ddfe87dcdcbab5` |
-|  `1.16.1-dev` `1.16.1-r0-dev`                                                | July 12th    | `sha256:61660fb5167efcad34cdd7a05e78dec1a2d3aad242080ff339d26c333467672c` |
-|  `1.16.1-r0-splunk` `1.16.1-splunk`                                          | July 11th    | `sha256:58124997aa13ed51a8878d1ead85d76ae6d0918cb17976a4bca483af9013f3b5` |
-|  `1.16.1`                                                                    | July 11th    | `sha256:674d6af4fedf2c97ea4cd650db3227100c4a139806c1f7b595088f7eef414e02` |

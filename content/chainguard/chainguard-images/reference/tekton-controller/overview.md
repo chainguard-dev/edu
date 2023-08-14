@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 3rd   | `sha256:e6e22e45573779b298a859b93b6a46de33021c37f234fb842454f0a55b81b39d` |
-|  `latest`     | July 26th    | `sha256:c82b7290d6645f01dbeaa8a068bf246f772a305317769040e43530e1c2b829ec` |
+|  `latest`     | August 11th  | `sha256:a3bb3b6c69d9875d595d0ee9fc41986abc524a00ee1a085d2860358c071936b8` |
+|  `latest-dev` | August 11th  | `sha256:f8c6ba84f285acf46ffe56ad4f40a8fea9d871a907e8b0ff916a486dbd49e4cf` |
 
 # tekton-controller
 

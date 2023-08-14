@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 2nd   | `sha256:d68ac9162ac1f44a858ab3a5c1ab8898fb948f56b5e7a9c109e32fa731c8b6f3` |
+|  `latest` | August 13th  | `sha256:e49062244ceeee2879eaaa02ac18c9aece033031ecf279ab919e5f0df1db367d` |
 
 
 

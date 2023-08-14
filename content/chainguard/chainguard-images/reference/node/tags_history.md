@@ -20,11 +20,11 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                           | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `19.9.0-dev` `19.9.0-r2-dev` `19-dev` `19.9-dev`                 | August 12th  | `sha256:df907b08d19d4c03db031c281840e9da631afabf047a35703e48f7e3faf9c426` |
+|  `20-dev` `20.5.1-dev` `20.5-dev` `20.5.1-r0-dev`                 | August 12th  | `sha256:9a9aec7479b7a7d3217a6cee654afaeba629436611953a66da06a1d2720c759c` |
+|  `18.17.1-dev` `18.17.1-r0-dev` `18-dev` `18.17-dev` `latest-dev` | August 12th  | `sha256:d52ef28ecda5de16522a6290c7b5489f786ee32cc56e9d62cc2333cfde6bf0c5` |
 |  `20.5` `20` `20.5.1`                                             | August 10th  | `sha256:1286827f0cccc47f5aeaa8281f164a5f3503b0c23a7dedd9ece9f68cfd4598fe` |
-|  `20.5.1-r0-dev` `20.5-dev` `20-dev` `20.5.1-dev`                 | August 10th  | `sha256:2998c9c276ed02eb3ae2284dce3f391c2d3727329056f6abe6fa05692673b7ba` |
-|  `18.17.1-dev` `latest-dev` `18.17-dev` `18-dev` `18.17.1-r0-dev` | August 10th  | `sha256:52b719f30e62cb70462ea0ff469cb9798600326ec93cb74f9704344165502fac` |
 |  `18.17` `18` `18.17.1` `latest`                                  | August 10th  | `sha256:0d469193352e30e18a4eb50e32d3dac008d153cb0e3f63d18f2ff622d971e2e9` |
-|  `19.9-dev` `19-dev` `19.9.0-r2-dev` `19.9.0-dev`                 | August 5th   | `sha256:84da6b6e9ae744aa72597b08676aa6e39f21b6ca4f5a1eb4dba2d76e90ea4442` |
 |  `18.17.0-r1-dev` `18.17.0-dev`                                   | August 5th   | `sha256:e9ce9d15f86e6342d2915cbb626352aad2b7fb29180e9144c895bf3d79b52986` |
 |  `20.5.0-dev` `20.5.0-r1-dev`                                     | August 5th   | `sha256:aa0fd35d1361e6bfdd354d996a765565ed6b648d89372960ea7d4c46dcdb474d` |
 |  `19` `19.9.0` `19.9`                                             | August 4th   | `sha256:c205e35cc5227b3e2e041b563cd41a2490e70d2469985d5706c8907b51230b24` |
