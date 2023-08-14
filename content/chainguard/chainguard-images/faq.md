@@ -55,7 +55,7 @@ Review the comparison table below for additional information about our catalog t
 
 Catalog | Public Catalog | Standard Catalog | Custom Catalog
 --------|----------------|------------------|---------------
-**Versions** | `:latest`, `:latest-dev`, and images by digest | **All upstream supported versions** including `:latest` and `:latest-dev` | **All upstream supported versions** including `:latest` and `:latest-dev`
+**Versions** | `:latest`, `:latest-dev`, and images by digest | All upstream supported version tags including ``:latest`` and ``:latest-dev`` | All upstream supported version tags including ``:latest`` and ``:latest-dev``, plus end-of-life versions
 **Image Signatures** | Yes | Yes | Yes 
 **SBOMS and Attestations** | Yes | Yes | Yes
 **SLSA Provenance** | Build Level 2 | Build Level 2 | Build Level 2
