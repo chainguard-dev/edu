@@ -20,10 +20,14 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                                                                                 | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `openjdk-11` `openjdk-11.0.20.8` `openjdk-11.0` `openjdk-11.0.20`                                                      | August 4th   | `sha256:d275648732403114a4bf3ff007f6665ebf9433dd5495373cfab22f4fa9f3f38d` |
-|  `openjdk-17.0.8.7-dev` `openjdk-17.0.8.7-r1-dev` `openjdk-17.0.8-dev` `latest-dev` `openjdk-17-dev` `openjdk-17.0-dev` | August 4th   | `sha256:5163c9e5f9742cbaa3ade6491b0ee6c75d9b44edd0e6142a056d88f7fa6ebbf9` |
-|  `openjdk-17` `latest` `openjdk-17.0.8` `openjdk-17.0.8.7` `openjdk-17.0`                                               | August 4th   | `sha256:9b13b6480cadb3587a61554105b435d5fd2d841f738422032acb3aeebeebfd94` |
-|  `openjdk-11.0.20.8-r1-dev` `openjdk-11.0-dev` `openjdk-11-dev` `openjdk-11.0.20-dev` `openjdk-11.0.20.8-dev`           | August 4th   | `sha256:1d94f3c2f2635ae17daec7c9cfd4cf760a70fba0c6f3672bff4c8c09bb7f99f5` |
+|  `openjdk-17` `latest` `openjdk-17.0` `openjdk-17.0.9.2` `openjdk-17.0.9`                                               | August 13th  | `sha256:365b37574279445638a6c23ed41292e822818eef6aa95102fd730c18374d05ce` |
+|  `openjdk-11.0.21` `openjdk-11.0.21.2` `openjdk-11` `openjdk-11.0`                                                      | August 13th  | `sha256:744762e3e53a58561469e0b1f88cb012831c4d73cbce85ff66fbebd47c02887c` |
+|  `openjdk-11-dev` `openjdk-11.0.21.2-r0-dev` `openjdk-11.0.21-dev` `openjdk-11.0-dev` `openjdk-11.0.21.2-dev`           | August 13th  | `sha256:c145076b1582294bfe1c8ecb7471a4dd567364666bd6a7cff951c9b8d70b8174` |
+|  `openjdk-17-dev` `openjdk-17.0.9.2-r0-dev` `latest-dev` `openjdk-17.0-dev` `openjdk-17.0.9.2-dev` `openjdk-17.0.9-dev` | August 13th  | `sha256:0bcb5c10479b358ae9841edbd4b13827398f6bac8883f28799cc6fab55385c09` |
+|  `openjdk-17.0.8.7-dev` `openjdk-17.0.8.7-r1-dev` `openjdk-17.0.8-dev`                                                  | August 4th   | `sha256:5163c9e5f9742cbaa3ade6491b0ee6c75d9b44edd0e6142a056d88f7fa6ebbf9` |
+|  `openjdk-11.0.20.8-r1-dev` `openjdk-11.0.20-dev` `openjdk-11.0.20.8-dev`                                               | August 4th   | `sha256:1d94f3c2f2635ae17daec7c9cfd4cf760a70fba0c6f3672bff4c8c09bb7f99f5` |
+|  `openjdk-17.0.8` `openjdk-17.0.8.7`                                                                                    | August 4th   | `sha256:9b13b6480cadb3587a61554105b435d5fd2d841f738422032acb3aeebeebfd94` |
+|  `openjdk-11.0.20.8` `openjdk-11.0.20`                                                                                  | August 4th   | `sha256:d275648732403114a4bf3ff007f6665ebf9433dd5495373cfab22f4fa9f3f38d` |
 |  `openjdk-17.0.8.2`                                                                                                     | July 26th    | `sha256:bbe81dd37fe6652b0b092d32ad6f70630120e070a62ac24dbd1adba56cb2c22c` |
 |  `openjdk-11.0.20.4-dev` `openjdk-11.0.20.4-r3-dev`                                                                     | July 26th    | `sha256:3f3c4b9a7de979bf111452ea6bafdde480249f642bd03550f20a0101650d4125` |
 |  `openjdk-17.0.8.2-dev` `openjdk-17.0.8.2-r2-dev`                                                                       | July 26th    | `sha256:dc2f52cce60ed661aee48669d46e807dbccb2eec4151cb9d49870075f0cc613d` |

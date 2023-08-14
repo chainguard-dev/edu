@@ -23,4 +23,3 @@ Please note that digests and timestamps only change when there is a change to th
 |  `1.8-dev` `1.8.0-r3-dev` `1-dev` `1.8.0-dev` `latest-dev` | August 3rd   | `sha256:b07eb4b0983474c506a561396cdce2372d0e7aa84087748e0b123652ce018e3b` |
 |  `1` `1.8` `1.8.0` `latest`                                | July 26th    | `sha256:11f3437be84dffc08e301b26e46db4bea9892684c8c71f3fd6779b19b5eec80f` |
 |  `1.8.0-r2-dev`                                            | July 20th    | `sha256:a78a8da192633f6666ddb332080394b13fdb3b92407288d31df5403c6ecfc763` |
-|  `1.8.0-r1-dev`                                            | July 12th    | `sha256:0f0d806714870b55e278dfae923ededc9611723d089b03cabb6a8fa4fcebd340` |

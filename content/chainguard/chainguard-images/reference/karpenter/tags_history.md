@@ -25,4 +25,3 @@ Please note that digests and timestamps only change when there is a change to th
 |  `0.29.1-r0-dev` `0.29.1-dev`                                 | July 20th    | `sha256:249d71becea80e684e65d539ea496e90b41ec3701778bbc56af6750d9a7b3cc7` |
 |  `0.29.1`                                                     | July 19th    | `sha256:26267b01d67cdaf69fc9f688a7e02abdc8932a7af586f242ec331bb740a34acd` |
 |  `0.29.0-dev` `0.29.0-r0-dev`                                 | July 18th    | `sha256:70c344c5250d58c8b01dc6af4e9c552e1dc5d67c5ee83babd1d7a2dfb64a8492` |
-|  `0.29.0`                                                     | July 11th    | `sha256:1b8d7f33a13810d3e5bd24218087e08593354c5673c7b8480dc9369e8775a5ff` |
