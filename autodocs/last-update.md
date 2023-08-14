@@ -1,5 +1,8 @@
-## 2023-08-11
+## 2023-08-14
 
 Updated image reference docs.
 
-No new images added.
+New images added:
+
+- cassandra
+- kubernetes-dns-node-cache

@@ -23,4 +23,3 @@ Please note that digests and timestamps only change when there is a change to th
 |  `1.27.0` `latest` `1.27` `1` | August 9th   | `sha256:d4b9f9178dc48d7cf0d7d7501e24922d4aeaeea9ff507460ac592aec14bbf825` |
 |  `1.26` `1.26.4`              | August 3rd   | `sha256:6669a2688b55031ba48b7c9c3f7805a59af42d0f6e6fbfccf11ac78a08da7005` |
 |  `1.26.3`                     | July 26th    | `sha256:01c775a200ca811690d82e5d98327a33b619949a8d05247f6f92497dc47a86b0` |
-|  `1.26.2`                     | July 11th    | `sha256:506c256432772a1973b56967d5a79046aa7cd855adc54a15d663740ff7fbe1f7` |
