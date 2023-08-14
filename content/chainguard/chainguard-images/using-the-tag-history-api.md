@@ -3,7 +3,7 @@ title: "Using the Tag History API"
 type: "article"
 description: "Learn how to use the Chainguard Images Tag History API to fetch the tag history of image variants."
 date: 2023-05-26T08:49:31+00:00
-lastmod: 2023-05-26T08:49:31+00:00
+lastmod: 2023-08-09T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "Product"]
 images: []
@@ -114,6 +114,92 @@ FROM cgr.dev/chainguard/python@sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474
 ```
 
 And your image will then be locked into that specific build of the `python:latest` image variant.
+
+## Accessing the History API for Standard and Custom Images
+
+If you are a customer who would like to access the history API for the Standard Catalog or a Custom Catalog, you must create credentials to access the API with curl and Bash. 
+
+### Create Credentials
+
+You'll need to use credentials to access the Registry. First, authenticate with `chainctl`.
+
+```sh
+chainctl auth login
+```
+
+Next, grab your Group ID and store it in a variable.
+
+```sh
+chainctl iam groups ls -o table
+export GROUP_ID="cc...52"
+```
+
+At this point, you can create a token for 30 days. Note that 30 days is the default, the max you can initialize a token for is 1 year.
+
+```sh
+chainctl auth configure-docker --pull-token --group $GROUP_ID --ttl 720h
+```
+
+If you would like to use this pull token in another environment, run this command with Docker.
+
+```sh
+docker login "cgr.dev" --username "cc..96" --password "eyJ...X34"
+```
+
+Be sure to keep a copy of the username and password created.
+
+### Optional: Storing Credentials 
+
+You can use the username and password you just created if required. However, Docker's default functionality is to encode these credentials in base64 and then store them within `~/.docker/config.json`. 
+
+To set that up, following the previous example, replace the username and password value, keeping the colon (`:`) to separate the values.
+
+```sh
+echo -n "username:password" | base64
+Y2M...Wc=
+```
+
+Add the base64 encoded value to `~/.docker/config.json` with the following format:
+
+```sh
+{
+  "auths": {
+    "https://cgr.dev": {
+      "auth": "Y2M...Wc="
+    }
+  }
+}
+```
+
+You can review more about Docker Configs from the [official Docker docs](https://docs.docker.com/engine/swarm/configs/). 
+
+### Access the History API with curl and Bash 
+
+Now that we have the credentials, we can use curl and Bash to access the endpoints (the following example uses jq as well). Here, you will replace `private-registry.com/apko` with your relevant Registry and Image information. 
+
+```sh
+IMAGE=private-registry.com/apko
+USERNAME="cc..96"
+PASSWORD="eyJ...X34"
+TOKEN=$(echo -n "${USERNAME}:${PASSWORD}" | base64 -w0)
+curl -s -H "Authorization: Bearer \
+  $(curl -s -H "Authorization: Basic $TOKEN" \
+  "https://cgr.dev/token?scope=repository:${IMAGE}:pull" | jq -r .token)" \
+  "https://cgr.dev/v2/${IMAGE}/_chainguard/history/latest" | jq .
+```
+
+If you have set a `~/.docker/config.json` file within the optional step, you can run the following. 
+
+```sh
+IMAGE=private-registry.com/apko
+curl -s -H "Authorization: Bearer \
+  $(curl -s -H "Authorization: Basic \
+  $(jq -r ".auths[\"cgr.dev\"].auth" < ~/.docker/config.json)" \
+  "https://cgr.dev/token?scope=repository:${IMAGE}:pull" | jq -r .token)" \
+  "https://cgr.dev/v2/${IMAGE}/_chainguard/history/latest" | jq .
+```
+
+Again, you would replace `private-registry.com/apko` with your relevant Registry and Image information. 
 
 ## Images Catalogs and Tags
 
