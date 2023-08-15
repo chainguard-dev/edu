@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 |              | latest        |
 |--------------|---------------|
 | Default User | `nonroot`     |
-| Entrypoint   | ``            |
+| Entrypoint   | not specified |
 | CMD          | not specified |
 | Workdir      | not specified |
 | Has apk?     | no            |

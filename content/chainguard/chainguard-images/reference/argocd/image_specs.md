@@ -29,7 +29,7 @@ The table has detailed information about each of these variants.
 |              | latest-dev     | latest         | repo-server-latest-dev              | repo-server-latest                  |
 |--------------|----------------|----------------|-------------------------------------|-------------------------------------|
 | Default User | `argocd`       | `argocd`       | `argocd`                            | `argocd`                            |
-| Entrypoint   | ``             | ``             | `/usr/local/bin/argocd-repo-server` | `/usr/local/bin/argocd-repo-server` |
+| Entrypoint   | not specified  | not specified  | `/usr/local/bin/argocd-repo-server` | `/usr/local/bin/argocd-repo-server` |
 | CMD          | not specified  | not specified  | not specified                       | not specified                       |
 | Workdir      | `/home/argocd` | `/home/argocd` | `/home/argocd`                      | `/home/argocd`                      |
 | Has apk?     | yes            | no             | yes                                 | no                                  |

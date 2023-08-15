@@ -27,7 +27,7 @@ The table has detailed information about each of these variants.
 |              | latest-dev    | latest        |
 |--------------|---------------|---------------|
 | Default User | `java`        | `java`        |
-| Entrypoint   | ``            | ``            |
+| Entrypoint   | not specified | not specified |
 | CMD          | not specified | not specified |
 | Workdir      | `/home/build` | `/home/build` |
 | Has apk?     | yes           | no            |
