@@ -1,5 +1,5 @@
 ---
-date: 2023-08-10T21:18:13Z
+date: 2023-08-15T09:26:23Z
 title: "chainctl sigstore env"
 slug: chainctl_sigstore_env
 url: /chainguard/chainctl/chainctl-docs/chainctl_sigstore_env/
@@ -30,6 +30,7 @@ chainctl sigstore env [SIGSTORE_ID | SIGSTORE_NAME] [flags]
   -h, --help                       help for env
       --identity string            The unique ID of the identity to assume when logging in.
       --identity-provider string   The unique ID of the customer managed identity provider to authenticate with
+      --org-name string            Organization to use for authentication. If configured the organization's custom identity provider will be used
   -y, --yes                        Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 

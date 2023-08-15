@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-08-10 21:12:28 +0000 UTC
+date: 2023-08-15 09:14:43 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,12 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.153
+Release date: 2023-08-15
+#### Feature
+- Add `--org-name` option to `chainctl` authentication commands to select an organization identity provider to authenticate with
+
 
 ### v0.1.152
 Release date: 2023-08-10
