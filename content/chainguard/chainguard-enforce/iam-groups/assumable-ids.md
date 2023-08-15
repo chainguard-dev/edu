@@ -63,7 +63,7 @@ This example provides literal values for both the `issuer` and `subject` fields.
   claim_match {
 	issuer_pattern = ".*"
 	subject_pattern = ".*"
-	aduience_pattern = ".*"
+	audience_pattern = ".*"
   }
 ```
 

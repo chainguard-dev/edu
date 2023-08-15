@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | July 29th    | `sha256:6daf8411919a7f7a17d68b606551f5160fbb19b433cd6a8ae425f89d583f9bb6` |
+|  `latest` | August 11th  | `sha256:be50d26fb1acb3c93aef34919c6c1a54551b83eacfac7f07a8c4166c3a66223b` |
 
 # newrelic-fluent-bit-output
 

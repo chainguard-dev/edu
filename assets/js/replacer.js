@@ -20,7 +20,7 @@ function makeVarsEditable() {
         }
 
         // add a span around variables
-        let newElem = `<span data-title="test" class="inline-variable">${m[0]}</span>`;
+        let newElem = `<span data-title="test" title="Click to edit" class="inline-variable">${m[0]}</span>`;
         element.innerHTML = element.innerHTML.replace(m[0], newElem);
 
         // make it editable

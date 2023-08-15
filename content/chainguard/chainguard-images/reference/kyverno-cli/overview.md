@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | July 28th    | `sha256:26b985487fa94fb61eb7d3eb93b9fc58c6a164c2160e765a2f5eb891283751cb` |
+|  `latest` | August 11th  | `sha256:2adf2da13ed5e83c225be1493eba7cbb8320e2529371138e90dffd05f82fd7ca` |
 
 # kyverno-cli
 

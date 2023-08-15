@@ -1,7 +1,7 @@
 ---
-title: "Bazel Image Variants"
+title: "bazel Image Variants"
 type: "article"
-description: "Detailed information about the Bazel Chainguard Image variants"
+description: "Detailed information about the public bazel Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,49 +9,101 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Bazel"
+    parent: "bazel"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Bazel** Image.
+This page shows detailed information about all public variants of the Chainguard **bazel** Image.
 
 ## Variants Compared
-The **bazel** Chainguard Image currently has 2 public variants: 
+The **bazel** Chainguard Image currently has one public variant: 
 
 - `latest`
-- `latest-dev`
 
-## Default Image Settings
-`USER`:		`bazel`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	`/home/bazel`
-
-`ENTRYPOINT`:	`/usr/bin/bazel`
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest | latest-dev |
-|--------------|--------|------------|
-| Has apk?     | no     | yes        |
-| Has a shell? | yes    | yes        |
+|              | latest           |
+|--------------|------------------|
+| Default User | `bazel`          |
+| Entrypoint   | `/usr/bin/bazel` |
+| CMD          | not specified    |
+| Workdir      | `/home/bazel`    |
+| Has apk?     | no               |
+| Has a shell? | yes              |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/bazel/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|                          | latest | latest-dev |
-|--------------------------|--------|------------|
-| `openjdk-17`             | X      | X          |
-| `openjdk-17-default-jvm` | X      | X          |
-| `bash`                   | X      | X          |
-| `busybox`                | X      | X          |
-| `gcc`                    | X      | X          |
-| `git`                    | X      | X          |
-| `bazel-6`                | X      | X          |
-| `zip`                    | X      | X          |
-| `file`                   | X      | X          |
-| `openssh-client`         | X      | X          |
-| `build-base`             | X      | X          |
+## Packages Included
+The table shows package distribution across variants.
+
+|                          | latest |
+|--------------------------|--------|
+| `bash`                   | X      |
+| `bazel-6`                | X      |
+| `binutils`               | X      |
+| `build-base`             | X      |
+| `busybox`                | X      |
+| `ca-certificates-bundle` | X      |
+| `file`                   | X      |
+| `fontconfig-config`      | X      |
+| `freetype`               | X      |
+| `gcc`                    | X      |
+| `gdbm`                   | X      |
+| `git`                    | X      |
+| `glibc`                  | X      |
+| `glibc-dev`              | X      |
+| `glibc-locale-posix`     | X      |
+| `gmp`                    | X      |
+| `isl`                    | X      |
+| `java-cacerts`           | X      |
+| `java-common`            | X      |
+| `jq`                     | X      |
+| `ld-linux`               | X      |
+| `libatomic`              | X      |
+| `libbrotlicommon1`       | X      |
+| `libbrotlidec1`          | X      |
+| `libbz2-1`               | X      |
+| `libcrypt1`              | X      |
+| `libcrypto3`             | X      |
+| `libcurl-openssl4`       | X      |
+| `libedit`                | X      |
+| `libexpat1`              | X      |
+| `libffi`                 | X      |
+| `libfontconfig1`         | X      |
+| `libgcc`                 | X      |
+| `libgo`                  | X      |
+| `libgomp`                | X      |
+| `libmagic`               | X      |
+| `libnghttp2-14`          | X      |
+| `libpcre2-8-0`           | X      |
+| `libpng`                 | X      |
+| `libssl3`                | X      |
+| `libstdc++`              | X      |
+| `libstdc++-dev`          | X      |
+| `linux-headers`          | X      |
+| `make`                   | X      |
+| `mpc`                    | X      |
+| `mpdecimal`              | X      |
+| `mpfr`                   | X      |
+| `ncurses`                | X      |
+| `ncurses-terminfo-base`  | X      |
+| `nss-db`                 | X      |
+| `nss-hesiod`             | X      |
+| `oniguruma`              | X      |
+| `openjdk-17`             | X      |
+| `openjdk-17-default-jvm` | X      |
+| `openjdk-17-jre`         | X      |
+| `openjdk-17-jre-base`    | X      |
+| `openssh-client`         | X      |
+| `openssl-config`         | X      |
+| `patch`                  | X      |
+| `pkgconf`                | X      |
+| `posix-cc-wrappers`      | X      |
+| `python-3.11`            | X      |
+| `readline`               | X      |
+| `sqlite-libs`            | X      |
+| `wolfi-baselayout`       | X      |
+| `xz`                     | X      |
+| `zip`                    | X      |
+| `zlib`                   | X      |
