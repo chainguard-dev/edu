@@ -1,7 +1,7 @@
 ---
-title: "Melange Image Variants"
+title: "melange Image Variants"
 type: "article"
-description: "Detailed information about the Melange Chainguard Image variants"
+description: "Detailed information about the public melange Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,42 +9,51 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Melange"
+    parent: "melange"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Melange** Image.
+This page shows detailed information about all public variants of the Chainguard **melange** Image.
 
 ## Variants Compared
-The **melange** Chainguard Image currently has 2 public variants: 
+The **melange** Chainguard Image currently has one public variant: 
 
 - `latest`
-- `latest-dev`
 
-## Default Image Settings
-`USER`:		`root`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	`/work`
-
-`ENTRYPOINT`:	`/usr/bin/melange`
-
-`CMD`:		`--help`
-
-The following table has additional information about each of these variants.
-
-|              | latest | latest-dev |
-|--------------|--------|------------|
-| Has apk?     | yes    | yes        |
-| Has a shell? | yes    | yes        |
+|              | latest             |
+|--------------|--------------------|
+| Default User | `root`             |
+| Entrypoint   | `/usr/bin/melange` |
+| CMD          | `--help`           |
+| Workdir      | `/work`            |
+| Has apk?     | yes                |
+| Has a shell? | yes                |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/melange/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|               | latest | latest-dev |
-|---------------|--------|------------|
-| `alpine-keys` | X      | X          |
-| `wolfi-base`  | X      | X          |
-| `bubblewrap`  | X      | X          |
-| `melange`     | X      | X          |
+## Packages Included
+The table shows package distribution across variants.
+
+|                          | latest |
+|--------------------------|--------|
+| `alpine-keys`            | X      |
+| `apk-tools`              | X      |
+| `bubblewrap`             | X      |
+| `busybox`                | X      |
+| `ca-certificates-bundle` | X      |
+| `glibc`                  | X      |
+| `glibc-locale-posix`     | X      |
+| `ld-linux`               | X      |
+| `libcap`                 | X      |
+| `libcrypt1`              | X      |
+| `libcrypto3`             | X      |
+| `libssl3`                | X      |
+| `melange`                | X      |
+| `openssl-config`         | X      |
+| `wolfi-base`             | X      |
+| `wolfi-baselayout`       | X      |
+| `wolfi-keys`             | X      |
+| `zlib`                   | X      |
