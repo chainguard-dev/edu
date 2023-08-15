@@ -28,5 +28,3 @@ Please note that digests and timestamps only change when there is a change to th
 |  `glibc-root-2.41.0-r0-dev` `latest-glibc-root-dev` `glibc-root-2-dev` `glibc-root-2.41-dev` `glibc-root-2.41.0-dev` | August 10th  | `sha256:4172910d83617e258a7139b278d398e537b823bd909ff90f3e7a4c0b11765271` |
 |  `glibc-2.41.0-r0-dev` `glibc-2.41-dev` `glibc-2-dev` `latest-glibc-dev` `glibc-2.41.0-dev`                          | August 10th  | `sha256:86316604e4ce0b6f3e6cd6c3818bdcca8aee9e7d3e2d93732d27169eaf223cf9` |
 |  `glibc-root-2` `glibc-root-2.41.0` `latest-glibc-root` `glibc-root-2.41`                                            | August 10th  | `sha256:5c3b997be3d437a2294a621a13da980e260dc0b49ee3f769af86092d7cb8ea96` |
-|  `root-2.41.0-r1-dev`                                                                                                | July 14th    | `sha256:f84e212076ec63cf9171f7569d2e97f705ef12c9218f726f38637bae4f3855a1` |
-|  `2.41.0-r1-dev`                                                                                                     | July 14th    | `sha256:c7bd030a434fd60da3368e4f1c4e92377f3b4d4af937d3771c640f293f93ad50` |
