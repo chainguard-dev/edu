@@ -1,7 +1,7 @@
 ---
-title: "Git Image Variants"
+title: "git Image Variants"
 type: "article"
-description: "Detailed information about the Git Chainguard Image variants"
+description: "Detailed information about the public git Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,47 +9,85 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Git"
+    parent: "git"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Git** Image.
+This page shows detailed information about all public variants of the Chainguard **git** Image.
 
 ## Variants Compared
 The **git** Chainguard Image currently has 8 public variants: 
 
-- `latest.wolfi.root`
-- `latest.wolfi.root-dev`
-- `latest.wolfi.nonroot`
-- `latest.wolfi.nonroot-dev`
-- `latest.alpine.root`
-- `latest.alpine.root-dev`
-- `latest.alpine.nonroot`
-- `latest.alpine.nonroot-dev`
+- `latest-dev`
+- `latest-glibc-dev`
+- `latest-glibc-root-dev`
+- `latest-glibc-root`
+- `latest-glibc`
+- `latest-root-dev`
+- `latest-root`
+- `latest`
 
-## Default Image Settings
-`USER`:		`git`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	`/home/git`
-
-`ENTRYPOINT`:	`/usr/bin/git`
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest.wolfi.root | latest.wolfi.root-dev | latest.wolfi.nonroot | latest.wolfi.nonroot-dev | latest.alpine.root | latest.alpine.root-dev | latest.alpine.nonroot | latest.alpine.nonroot-dev |
-|--------------|-------------------|-----------------------|----------------------|--------------------------|--------------------|------------------------|-----------------------|---------------------------|
-| Has apk?     | no                | yes                   | no                   | yes                      | no                 | yes                    | no                    | yes                       |
-| Has a shell? | no                | yes                   | no                   | yes                      | no                 | yes                    | no                    | yes                       |
+|              | latest-dev     | latest-glibc-dev | latest-glibc-root-dev | latest-glibc-root | latest-glibc   | latest-root-dev | latest-root    | latest         |
+|--------------|----------------|------------------|-----------------------|-------------------|----------------|-----------------|----------------|----------------|
+| Default User | `git`          | `git`            | `root`                | `root`            | `git`          | `root`          | `root`         | `git`          |
+| Entrypoint   | `/usr/bin/git` | `/usr/bin/git`   | `/usr/bin/git`        | `/usr/bin/git`    | `/usr/bin/git` | `/usr/bin/git`  | `/usr/bin/git` | `/usr/bin/git` |
+| CMD          | not specified  | not specified    | not specified         | not specified     | not specified  | not specified   | not specified  | not specified  |
+| Workdir      | `/home/git`    | `/home/git`      | `/home/git`           | `/home/git`       | `/home/git`    | `/home/git`     | `/home/git`    | `/home/git`    |
+| Has apk?     | yes            | yes              | yes                   | no                | no             | yes             | no             | no             |
+| Has a shell? | yes            | yes              | yes                   | no                | no             | yes             | yes            | yes            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/git/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|                  | latest.wolfi.root | latest.wolfi.root-dev | latest.wolfi.nonroot | latest.wolfi.nonroot-dev | latest.alpine.root | latest.alpine.root-dev | latest.alpine.nonroot | latest.alpine.nonroot-dev |
-|------------------|-------------------|-----------------------|----------------------|--------------------------|--------------------|------------------------|-----------------------|---------------------------|
-| `git`            | X                 | X                     | X                    | X                        | X                  | X                      | X                     | X                         |
-| `git-lfs`        | X                 | X                     | X                    | X                        | X                  | X                      | X                     | X                         |
-| `openssh-client` | X                 | X                     | X                    | X                        | X                  | X                      | X                     | X                         |
+## Packages Included
+The table shows package distribution across variants.
+
+|                          | latest-dev | latest-glibc-dev | latest-glibc-root-dev | latest-glibc-root | latest-glibc | latest-root-dev | latest-root | latest |
+|--------------------------|------------|------------------|-----------------------|-------------------|--------------|-----------------|-------------|--------|
+| `alpine-baselayout-data` | X          |                  |                       |                   |              | X               | X           | X      |
+| `alpine-keys`            | X          |                  |                       |                   |              | X               | X           | X      |
+| `alpine-release`         | X          |                  |                       |                   |              | X               | X           | X      |
+| `apk-tools`              | X          | X                | X                     |                   |              | X               |             |        |
+| `bash`                   | X          | X                | X                     |                   |              | X               |             |        |
+| `brotli-libs`            | X          |                  |                       |                   |              | X               | X           | X      |
+| `busybox`                | X          | X                | X                     |                   |              | X               | X           | X      |
+| `busybox-binsh`          | X          |                  |                       |                   |              | X               | X           | X      |
+| `c-ares`                 | X          |                  |                       |                   |              | X               | X           | X      |
+| `ca-certificates`        | X          |                  |                       |                   |              | X               | X           | X      |
+| `ca-certificates-bundle` | X          | X                | X                     | X                 | X            | X               | X           | X      |
+| `git`                    | X          | X                | X                     | X                 | X            | X               | X           | X      |
+| `git-lfs`                | X          | X                | X                     | X                 | X            | X               | X           | X      |
+| `libcrypto3`             | X          | X                | X                     | X                 | X            | X               | X           | X      |
+| `libcurl`                | X          |                  |                       |                   |              | X               | X           | X      |
+| `libedit`                | X          | X                | X                     | X                 | X            | X               | X           | X      |
+| `libexpat`               | X          |                  |                       |                   |              | X               | X           | X      |
+| `libidn2`                | X          |                  |                       |                   |              | X               | X           | X      |
+| `libncursesw`            | X          |                  |                       |                   |              | X               | X           | X      |
+| `libssl3`                | X          | X                | X                     | X                 | X            | X               | X           | X      |
+| `libunistring`           | X          |                  |                       |                   |              | X               | X           | X      |
+| `musl`                   | X          |                  |                       |                   |              | X               | X           | X      |
+| `ncurses-terminfo-base`  | X          | X                | X                     | X                 | X            | X               | X           | X      |
+| `nghttp2-libs`           | X          |                  |                       |                   |              | X               | X           | X      |
+| `openssh-client-common`  | X          |                  |                       |                   |              | X               | X           | X      |
+| `openssh-client-default` | X          |                  |                       |                   |              | X               | X           | X      |
+| `openssh-keygen`         | X          |                  |                       |                   |              | X               | X           | X      |
+| `pcre2`                  | X          |                  |                       |                   |              | X               | X           | X      |
+| `readline`               | X          |                  |                       |                   |              | X               |             |        |
+| `ssl_client`             | X          |                  |                       |                   |              | X               | X           | X      |
+| `zlib`                   | X          | X                | X                     | X                 | X            | X               | X           | X      |
+| `glibc`                  |            | X                | X                     | X                 | X            |                 |             |        |
+| `glibc-locale-posix`     |            | X                | X                     | X                 | X            |                 |             |        |
+| `ld-linux`               |            | X                | X                     | X                 | X            |                 |             |        |
+| `libbrotlicommon1`       |            | X                | X                     | X                 | X            |                 |             |        |
+| `libbrotlidec1`          |            | X                | X                     | X                 | X            |                 |             |        |
+| `libcrypt1`              |            | X                | X                     |                   |              |                 |             |        |
+| `libcurl-openssl4`       |            | X                | X                     | X                 | X            |                 |             |        |
+| `libexpat1`              |            | X                | X                     | X                 | X            |                 |             |        |
+| `libnghttp2-14`          |            | X                | X                     | X                 | X            |                 |             |        |
+| `libpcre2-8-0`           |            | X                | X                     | X                 | X            |                 |             |        |
+| `ncurses`                |            | X                | X                     | X                 | X            |                 |             |        |
+| `openssh-client`         |            | X                | X                     | X                 | X            |                 |             |        |
+| `openssl-config`         |            | X                | X                     | X                 | X            |                 |             |        |
+| `wolfi-baselayout`       |            | X                | X                     | X                 | X            |                 |             |        |

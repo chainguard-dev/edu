@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 28th    | `sha256:6841eca8dac6058e1d1920f276280d9a7e2b97d09c757fb6a7bbc4d29015639e` |
-|  `latest`     | July 26th    | `sha256:143d982534eeb833c17cdd2db0c4217f960a5ede8bf4c03068cf3ed0d35b5f1a` |
+|  `latest`     | August 11th  | `sha256:eb03ec1345d0ce9bc58c102f9ebb5cf035908f364d28c2f577e3827400e38476` |
+|  `latest-dev` | August 11th  | `sha256:a9af7fe15d81b1096259cd99fa28aed4cc9fb5649144c3dbacfed3cbc597e4d1` |
 
 # tekton-webhook
 

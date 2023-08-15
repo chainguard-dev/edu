@@ -1,7 +1,7 @@
 ---
-title: "Oauth2-proxy Image Variants"
+title: "oauth2-proxy Image Variants"
 type: "article"
-description: "Detailed information about the Oauth2-proxy Chainguard Image variants"
+description: "Detailed information about the public oauth2-proxy Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,39 +9,57 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Oauth2-proxy"
+    parent: "oauth2-proxy"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Oauth2-proxy** Image.
+This page shows detailed information about all public variants of the Chainguard **oauth2-proxy** Image.
 
 ## Variants Compared
 The **oauth2-proxy** Chainguard Image currently has 2 public variants: 
 
-- `latest`
 - `latest-dev`
+- `latest`
 
-## Default Image Settings
-`USER`:		`oauth2-proxy`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	not specified
-
-`ENTRYPOINT`:	`/usr/bin/oauth2-proxy`
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest | latest-dev |
-|--------------|--------|------------|
-| Has apk?     | no     | yes        |
-| Has a shell? | no     | yes        |
+|              | latest-dev              | latest                  |
+|--------------|-------------------------|-------------------------|
+| Default User | `oauth2-proxy`          | `oauth2-proxy`          |
+| Entrypoint   | `/usr/bin/oauth2-proxy` | `/usr/bin/oauth2-proxy` |
+| CMD          | not specified           | not specified           |
+| Workdir      | not specified           | not specified           |
+| Has apk?     | yes                     | no                      |
+| Has a shell? | yes                     | no                      |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/oauth2-proxy/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|                | latest | latest-dev |
-|----------------|--------|------------|
-| `oauth2-proxy` | X      | X          |
+## Packages Included
+The table shows package distribution across variants.
+
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `busybox`                | X          |        |
+| `ca-certificates-bundle` | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
+| `libcrypt1`              | X          |        |
+| `libcrypto3`             | X          |        |
+| `libcurl-openssl4`       | X          |        |
+| `libexpat1`              | X          |        |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libssl3`                | X          |        |
+| `ncurses`                | X          |        |
+| `ncurses-terminfo-base`  | X          |        |
+| `oauth2-proxy`           | X          | X      |
+| `openssl-config`         | X          |        |
+| `wolfi-baselayout`       | X          | X      |
+| `zlib`                   | X          |        |

@@ -4954,6 +4954,10 @@
           "title": "Short description of the Sbom",
           "type": "string"
         },
+        "digest": {
+          "title": "digest of the SBOM when ingested",
+          "type": "string"
+        },
         "format": {
           "description": "format holds whether the SBOM is SPDX, CycloneDX, or other.",
           "type": "string"

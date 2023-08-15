@@ -1,7 +1,7 @@
 ---
-title: "Kubernetes-ingress-defaultbackend Image Variants"
+title: "kubernetes-ingress-defaultbackend Image Variants"
 type: "article"
-description: "Detailed information about the Kubernetes-ingress-defaultbackend Chainguard Image variants"
+description: "Detailed information about the public kubernetes-ingress-defaultbackend Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,39 +9,57 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Kubernetes-ingress-defaultbackend"
+    parent: "kubernetes-ingress-defaultbackend"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Kubernetes-ingress-defaultbackend** Image.
+This page shows detailed information about all public variants of the Chainguard **kubernetes-ingress-defaultbackend** Image.
 
 ## Variants Compared
 The **kubernetes-ingress-defaultbackend** Chainguard Image currently has 2 public variants: 
 
-- `latest`
 - `latest-dev`
+- `latest`
 
-## Default Image Settings
-`USER`:		`nonroot`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	not specified
-
-`ENTRYPOINT`:	`/usr/bin/defaultbackend`
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest | latest-dev |
-|--------------|--------|------------|
-| Has apk?     | no     | yes        |
-| Has a shell? | no     | yes        |
+|              | latest-dev                | latest                    |
+|--------------|---------------------------|---------------------------|
+| Default User | `nonroot`                 | `nonroot`                 |
+| Entrypoint   | `/usr/bin/defaultbackend` | `/usr/bin/defaultbackend` |
+| CMD          | not specified             | not specified             |
+| Workdir      | not specified             | not specified             |
+| Has apk?     | yes                       | no                        |
+| Has a shell? | yes                       | no                        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kubernetes-ingress-defaultbackend/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|                                     | latest | latest-dev |
-|-------------------------------------|--------|------------|
-| `kubernetes-ingress-defaultbackend` | X      | X          |
+## Packages Included
+The table shows package distribution across variants.
+
+|                                     | latest-dev | latest |
+|-------------------------------------|------------|--------|
+| `apk-tools`                         | X          |        |
+| `bash`                              | X          |        |
+| `busybox`                           | X          |        |
+| `ca-certificates-bundle`            | X          | X      |
+| `git`                               | X          |        |
+| `glibc`                             | X          |        |
+| `glibc-locale-posix`                | X          |        |
+| `kubernetes-ingress-defaultbackend` | X          | X      |
+| `ld-linux`                          | X          |        |
+| `libbrotlicommon1`                  | X          |        |
+| `libbrotlidec1`                     | X          |        |
+| `libcrypt1`                         | X          |        |
+| `libcrypto3`                        | X          |        |
+| `libcurl-openssl4`                  | X          |        |
+| `libexpat1`                         | X          |        |
+| `libnghttp2-14`                     | X          |        |
+| `libpcre2-8-0`                      | X          |        |
+| `libssl3`                           | X          |        |
+| `ncurses`                           | X          |        |
+| `ncurses-terminfo-base`             | X          |        |
+| `openssl-config`                    | X          |        |
+| `wolfi-baselayout`                  | X          | X      |
+| `zlib`                              | X          |        |

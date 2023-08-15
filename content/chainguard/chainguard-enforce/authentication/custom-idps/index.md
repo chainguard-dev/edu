@@ -16,14 +16,13 @@ weight: 010
 
 The Chainguard Enforce platform supports Single Sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication. This is helpful when your organization mandates using a corporate identity provider — like Okta or Azure Active Directory — to authenticate to SaaS products.
 
-
 ## Usage
 
-Once an administrator has [configured an identity provider](#setup-and-administration), users can authenticate at the command line and in the web console using the identity provider’s unique ID.
+Once an administrator has [configured an identity provider](#setup-and-administration) and set up their organization, users can authenticate at the command line and in the web console using the identity provider’s organization.
 
 ### Authenticate with `chainctl`
 
-`chainctl`, the Chainguard command line interface (CLI), supports SSO authentication by supplying the identity provider unique ID as a flag or by setting it as a default in configuration. To use a flag to authenticate using SSO, pass the `--identity-provider` flag to `chainctl auth login`.
+`chainctl`, the Chainguard command line interface (CLI), supports SSO authentication by supplying the identity provider organization name as a flag or by setting it as a default in configuration. To use a flag to authenticate using SSO, pass the `--identity-provider` flag to `chainctl auth login`.
 
 ```sh
 export IDP_ID=<your identity provider id here>

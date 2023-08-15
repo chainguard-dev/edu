@@ -20,12 +20,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                       | Last Changed | Digest                                                                    |
 |---------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.25` `1` `latest` `1.25.0`                                 | July 29th    | `sha256:af089ec24106c87feba5e10b530d3e6643e172ec1648b464969865183e58348f` |
-|  `1-dev` `1.25.0-dev` `1.25-dev` `1.25.0-r0-dev` `latest-dev` | July 29th    | `sha256:f776bb8cd0dc2148c7701f16b4645ebb9ceba47bdb8cdf8773c6141c9dd14e1a` |
-|  `1.24-dev` `1.24.6-r1-dev` `1.24.6-dev`                      | July 12th    | `sha256:6c0fa5716f05a6ae8b31b5f1dea9606a6bed1f1ebb6dff35f9bf0e4498d487c0` |
-|  `1.24` `1.24.6`                                              | July 11th    | `sha256:966b5a91cec1b474e8eeae424f59d3c238ad6c8a94e11ca11ebf404bbc0b5ddf` |
-|  `1.24.6-r0-dev`                                              | July 7th     | `sha256:5156479e706dc16f34244017f10011309a03abfbf63defdf2cd56c31910fdd9a` |
-|  `1.24.5-r0-dev` `1.24.5-dev`                                 | July 5th     | `sha256:949694d2eaf88e8a965f8400f4501a87df5dd19fdfde03f0e47fbc010c9f20df` |
-|  `1.24.5`                                                     | July 5th     | `sha256:bb6ed06ed4dfb33c16b2f706432b4cb3cbdde9483a98b6afba8e6574c0ce4470` |
-|  `1.24.4-dev` `1.24.4-r0-dev`                                 | July 4th     | `sha256:cf393f9f35cea42e5c4435ac26435dea17fbbb3634b63b009079f91b8de77f96` |
-|  `1.24.4`                                                     | July 4th     | `sha256:4d289a1ce2a5ff293dd7b12efb05fe655cbae1618a436b964ca7914141e747ac` |
+|  `1.25` `latest` `1.25.0` `1`                                 | August 11th  | `sha256:4490329b81a913cf83d1cc90aed31ff4cb03ce2f967732c108ac8decc3d0b91c` |
+|  `latest-dev` `1.25-dev` `1.25.0-dev` `1-dev` `1.25.0-r1-dev` | August 11th  | `sha256:b8f3084597e817ffb235e5e31e2fdabbe23cab158ed58b87249f23c8b4c7128f` |
+|  `1.25.0-r0-dev`                                              | August 4th   | `sha256:fdef05e8929c3c8a2af567d043f91a9eeb2ad69d56f364c52a6db7de23a68d93` |

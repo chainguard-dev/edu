@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | July 28th    | `sha256:468a891f781a165b74ef27a83bf2e48615ce57f8b15c345bfc7c6a3177e49126` |
+|  `latest-dev` | August 3rd   | `sha256:62d1d6601529518e7e9c6a07a5cc2ea0ce0a2ad6a4e6728d370e77a7be8e4887` |
 |  `latest`     | July 27th    | `sha256:ac7f9737583f72b6fdbacdac64d0ce53737111c2f8ad1eef5777d28d406303b5` |
 
 # cert-manager-cainjector
