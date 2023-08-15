@@ -1,7 +1,7 @@
 ---
-title: "Powershell Image Variants"
+title: "Powershell Public Image Variants"
 type: "article"
-description: "Detailed information about the Powershell Chainguard Image variants"
+description: "Detailed information about the public Powershell Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -14,37 +14,51 @@ weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Powershell** Image.
+This page shows detailed information about all public variants of the Chainguard **Powershell** Image.
 
 ## Variants Compared
-The **powershell** Chainguard Image currently has 4 public variants: 
+The **powershell** Chainguard Image currently has 2 public variants: 
 
-- `latest`
-- `latest-dev`
 - `latest-root`
-- `latest-root-dev`
+- `latest`
 
-## Default Image Settings
-`USER`:		`root`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	not specified
-
-`ENTRYPOINT`:	`/usr/bin/pwsh`
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest | latest-dev | latest-root | latest-root-dev |
-|--------------|--------|------------|-------------|-----------------|
-| Has apk?     | no     | yes        | no          | yes             |
-| Has a shell? | yes    | yes        | yes         | yes             |
+|              | latest-root     | latest          |
+|--------------|-----------------|-----------------|
+| Default User | `root`          | `nonroot`       |
+| Entrypoint   | `/usr/bin/pwsh` | `/usr/bin/pwsh` |
+| CMD          | not specified   | not specified   |
+| Workdir      | not specified   | not specified   |
+| Has apk?     | no              | no              |
+| Has a shell? | yes             | yes             |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/powershell/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|              | latest | latest-dev | latest-root | latest-root-dev |
-|--------------|--------|------------|-------------|-----------------|
-| `busybox`    | X      | X          | X           | X               |
-| `powershell` | X      | X          | X           | X               |
+## Packages Included
+The table shows package distribution across variants.
+
+|                          | latest-root | latest |
+|--------------------------|-------------|--------|
+| `busybox`                | X           | X      |
+| `ca-certificates-bundle` | X           | X      |
+| `dotnet-7`               | X           | X      |
+| `dotnet-7-runtime`       | X           | X      |
+| `glibc`                  | X           | X      |
+| `glibc-locale-posix`     | X           | X      |
+| `icu`                    | X           | X      |
+| `ld-linux`               | X           | X      |
+| `libcrypt1`              | X           | X      |
+| `libcrypto3`             | X           | X      |
+| `libgcc`                 | X           | X      |
+| `libpsl-native`          | X           | X      |
+| `libssl3`                | X           | X      |
+| `libstdc++`              | X           | X      |
+| `libunwind`              | X           | X      |
+| `lttng-ust`              | X           | X      |
+| `ncurses-terminfo-base`  | X           | X      |
+| `openssl-config`         | X           | X      |
+| `powershell`             | X           | X      |
+| `wolfi-baselayout`       | X           | X      |
+| `xz`                     | X           | X      |
+| `zlib`                   | X           | X      |

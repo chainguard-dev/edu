@@ -1,7 +1,7 @@
 ---
-title: "newrelic-fluent-bit-output Image Variants"
+title: "Newrelic-fluent-bit-output Public Image Variants"
 type: "article"
-description: "Detailed specs for newrelic-fluent-bit-output Chainguard Image Variants"
+description: "Detailed information about the public Newrelic-fluent-bit-output Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,41 +9,50 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "newrelic-fluent-bit-output"
+    parent: "Newrelic-fluent-bit-output"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **newrelic-fluent-bit-output** Image.
+This page shows detailed information about all public variants of the Chainguard **Newrelic-fluent-bit-output** Image.
 
 ## Variants Compared
-The **newrelic-fluent-bit-output** Chainguard Image currently has 2 public variants: 
+The **newrelic-fluent-bit-output** Chainguard Image currently has one public variant: 
 
 - `latest`
-- `latest-dev`
 
 The table has detailed information about each of these variants.
 
-|              | latest                                                                  | latest-dev                                                              |
-|--------------|-------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| Default User | `nonroot`                                                               | `nonroot`                                                               |
-| Entrypoint   | `/usr/bin/fluent-bit`                                                   | `/usr/bin/fluent-bit`                                                   |
-| CMD          | `-c /fluent-bit/etc/fluent-bit.conf -e /fluent-bit/bin/out_newrelic.so` | `-c /fluent-bit/etc/fluent-bit.conf -e /fluent-bit/bin/out_newrelic.so` |
-| Workdir      | not specified                                                           | not specified                                                           |
-| Has apk?     | no                                                                      | yes                                                                     |
-| Has a shell? | no                                                                      | yes                                                                     |
+|              | latest                                                                  |
+|--------------|-------------------------------------------------------------------------|
+| Default User | `root`                                                                  |
+| Entrypoint   | `/usr/bin/fluent-bit`                                                   |
+| CMD          | `-c /fluent-bit/etc/fluent-bit.conf -e /fluent-bit/bin/out_newrelic.so` |
+| Workdir      | not specified                                                           |
+| Has apk?     | no                                                                      |
+| Has a shell? | no                                                                      |
 
-## Image Dependencies
-The table shows package distribution across all variants.
+Check the [tags history page](/chainguard/chainguard-images/reference/newrelic-fluent-bit-output/tags_history/) for the full list of available tags.
 
-|                              | latest | latest-dev |
-|------------------------------|--------|------------|
-| `ca-certificates-bundle`     | X      | X          |
-| `wolfi-baselayout`           | X      | X          |
-| `newrelic-fluent-bit-output` | X      | X          |
-| `fluent-bit`                 | X      | X          |
-| `apk-tools`                  |        | X          |
-| `bash`                       |        | X          |
-| `busybox`                    |        | X          |
-| `git`                        |        | X          |
+## Packages Included
+The table shows package distribution across variants.
 
+|                                     | latest |
+|-------------------------------------|--------|
+| `ca-certificates-bundle`            | X      |
+| `fluent-bit`                        | X      |
+| `glibc`                             | X      |
+| `glibc-locale-posix`                | X      |
+| `ld-linux`                          | X      |
+| `libcap`                            | X      |
+| `libcrypto3`                        | X      |
+| `libgcc`                            | X      |
+| `libpq-15`                          | X      |
+| `libssl3`                           | X      |
+| `libsystemd`                        | X      |
+| `newrelic-fluent-bit-output`        | X      |
+| `newrelic-fluent-bit-output-compat` | X      |
+| `openssl-config`                    | X      |
+| `wolfi-baselayout`                  | X      |
+| `yaml`                              | X      |
+| `zlib`                              | X      |

@@ -1,7 +1,7 @@
 ---
-title: "Gradle Image Variants"
+title: "Gradle Public Image Variants"
 type: "article"
-description: "Detailed information about the Gradle Chainguard Image variants"
+description: "Detailed information about the public Gradle Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -14,38 +14,52 @@ weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Gradle** Image.
+This page shows detailed information about all public variants of the Chainguard **Gradle** Image.
 
 ## Variants Compared
-The **gradle** Chainguard Image currently has 2 public variants: 
+The **gradle** Chainguard Image currently has one public variant: 
 
 - `latest`
-- `latest-dev`
 
-## Default Image Settings
-`USER`:		`gradle`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	`/home/build`
-
-`ENTRYPOINT`:	`/usr/bin/gradle`
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest | latest-dev |
-|--------------|--------|------------|
-| Has apk?     | no     | yes        |
-| Has a shell? | yes    | yes        |
+|              | latest            |
+|--------------|-------------------|
+| Default User | `gradle`          |
+| Entrypoint   | `/usr/bin/gradle` |
+| CMD          | not specified     |
+| Workdir      | `/home/build`     |
+| Has apk?     | no                |
+| Has a shell? | yes               |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/gradle/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|                          | latest | latest-dev |
-|--------------------------|--------|------------|
-| `glibc-locale-en`        | X      | X          |
-| `busybox`                | X      | X          |
-| `gradle-8`               | X      | X          |
-| `openjdk-17`             | X      | X          |
-| `openjdk-17-default-jvm` | X      | X          |
+## Packages Included
+The table shows package distribution across variants.
+
+|                          | latest |
+|--------------------------|--------|
+| `busybox`                | X      |
+| `ca-certificates-bundle` | X      |
+| `fontconfig-config`      | X      |
+| `freetype`               | X      |
+| `glibc`                  | X      |
+| `glibc-locale-en`        | X      |
+| `glibc-locale-posix`     | X      |
+| `gradle-8`               | X      |
+| `java-cacerts`           | X      |
+| `java-common`            | X      |
+| `ld-linux`               | X      |
+| `libbrotlicommon1`       | X      |
+| `libbrotlidec1`          | X      |
+| `libbz2-1`               | X      |
+| `libcrypt1`              | X      |
+| `libexpat1`              | X      |
+| `libfontconfig1`         | X      |
+| `libpng`                 | X      |
+| `openjdk-17`             | X      |
+| `openjdk-17-default-jvm` | X      |
+| `openjdk-17-jre`         | X      |
+| `openjdk-17-jre-base`    | X      |
+| `wolfi-baselayout`       | X      |
+| `zlib`                   | X      |

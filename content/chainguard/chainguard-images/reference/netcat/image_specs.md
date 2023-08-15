@@ -1,7 +1,7 @@
 ---
-title: "Netcat Image Variants"
+title: "Netcat Public Image Variants"
 type: "article"
-description: "Detailed information about the Netcat Chainguard Image variants"
+description: "Detailed information about the public Netcat Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -14,35 +14,38 @@ weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Netcat** Image.
+This page shows detailed information about all public variants of the Chainguard **Netcat** Image.
 
 ## Variants Compared
-The **netcat** Chainguard Image currently has 2 public variants: 
+The **netcat** Chainguard Image currently has one public variant: 
 
 - `latest`
-- `latest-dev`
 
-## Default Image Settings
-`USER`:		`nonroot`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	`/home/nc`
-
-`ENTRYPOINT`:	`/usr/bin/nc`
-
-`CMD`:		`-h`
-
-The following table has additional information about each of these variants.
-
-|              | latest | latest-dev |
-|--------------|--------|------------|
-| Has apk?     | no     | yes        |
-| Has a shell? | yes    | yes        |
+|              | latest        |
+|--------------|---------------|
+| Default User | `nonroot`     |
+| Entrypoint   | `/usr/bin/nc` |
+| CMD          | `-h`          |
+| Workdir      | `/home/nc`    |
+| Has apk?     | no            |
+| Has a shell? | yes           |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/netcat/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|                  | latest | latest-dev |
-|------------------|--------|------------|
-| `busybox`        | X      | X          |
-| `netcat-openbsd` | X      | X          |
+## Packages Included
+The table shows package distribution across variants.
+
+|                          | latest |
+|--------------------------|--------|
+| `busybox`                | X      |
+| `ca-certificates-bundle` | X      |
+| `glibc`                  | X      |
+| `glibc-locale-posix`     | X      |
+| `ld-linux`               | X      |
+| `libbsd`                 | X      |
+| `libcrypt1`              | X      |
+| `libmd`                  | X      |
+| `netcat-openbsd`         | X      |
+| `wolfi-baselayout`       | X      |

@@ -1,7 +1,7 @@
 ---
-title: "Hugo Image Variants"
+title: "Hugo Public Image Variants"
 type: "article"
-description: "Detailed information about the Hugo Chainguard Image variants"
+description: "Detailed information about the public Hugo Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -14,34 +14,52 @@ weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Hugo** Image.
+This page shows detailed information about all public variants of the Chainguard **Hugo** Image.
 
 ## Variants Compared
 The **hugo** Chainguard Image currently has 2 public variants: 
 
-- `latest`
 - `latest-dev`
+- `latest`
 
-## Default Image Settings
-`USER`:		`nonroot`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	`/hugo`
-
-`ENTRYPOINT`:	`/usr/bin/hugo`
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest | latest-dev |
-|--------------|--------|------------|
-| Has apk?     | no     | yes        |
-| Has a shell? | no     | yes        |
+|              | latest-dev      | latest          |
+|--------------|-----------------|-----------------|
+| Default User | `nonroot`       | `nonroot`       |
+| Entrypoint   | `/usr/bin/hugo` | `/usr/bin/hugo` |
+| CMD          | not specified   | not specified   |
+| Workdir      | `/hugo`         | `/hugo`         |
+| Has apk?     | yes             | no              |
+| Has a shell? | yes             | no              |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/hugo/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|        | latest | latest-dev |
-|--------|--------|------------|
-| `hugo` | X      | X          |
+## Packages Included
+The table shows package distribution across variants.
+
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `busybox`                | X          |        |
+| `ca-certificates-bundle` | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `hugo`                   | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
+| `libcrypt1`              | X          |        |
+| `libcrypto3`             | X          |        |
+| `libcurl-openssl4`       | X          |        |
+| `libexpat1`              | X          |        |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libssl3`                | X          |        |
+| `ncurses`                | X          |        |
+| `ncurses-terminfo-base`  | X          |        |
+| `openssl-config`         | X          |        |
+| `wolfi-baselayout`       | X          | X      |
+| `zlib`                   | X          |        |

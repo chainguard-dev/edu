@@ -1,7 +1,7 @@
 ---
-title: "Calico Image Variants"
+title: "Calico Public Image Variants"
 type: "article"
-description: "Detailed information about the Calico Chainguard Image variants"
+description: "Detailed information about the public Calico Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -14,54 +14,88 @@ weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Calico** Image.
+This page shows detailed information about all public variants of the Chainguard **Calico** Image.
 
 ## Variants Compared
-The **calico** Chainguard Image currently has 14 public variants: 
+The **calico** Chainguard Image currently has 7 public variants: 
 
-- `latest.typha`
-- `latest.typha-dev`
-- `latest.pod2daemon`
-- `latest.pod2daemon-dev`
-- `latest.node`
-- `latest.node-dev`
-- `latest.kube-controllers`
-- `latest.kube-controllers-dev`
-- `latest.csi`
-- `latest.csi-dev`
-- `latest.cni`
-- `latest.cni-dev`
-- `latest.calicoctl`
-- `latest.calicoctl-dev`
+- `cni-latest`
+- `csi-latest`
+- `kube-controllers-latest`
+- `latest`
+- `node-latest`
+- `pod2daemon-latest`
+- `typha-latest`
 
-## Default Image Settings
-`USER`:		`nonroot`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	not specified
-
-`ENTRYPOINT`:	`/usr/bin/calicoctl`
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest.typha | latest.typha-dev | latest.pod2daemon | latest.pod2daemon-dev | latest.node | latest.node-dev | latest.kube-controllers | latest.kube-controllers-dev | latest.csi | latest.csi-dev | latest.cni | latest.cni-dev | latest.calicoctl | latest.calicoctl-dev |
-|--------------|--------------|------------------|-------------------|-----------------------|-------------|-----------------|-------------------------|-----------------------------|------------|----------------|------------|----------------|------------------|----------------------|
-| Has apk?     | no           | yes              | no                | yes                   | no          | yes             | no                      | yes                         | no         | yes            | no         | yes            | no               | yes                  |
-| Has a shell? | no           | yes              | yes               | yes                   | yes         | yes             | no                      | yes                         | no         | yes            | no         | yes            | no               | yes                  |
+|              | cni-latest             | csi-latest                             | kube-controllers-latest            | latest               | node-latest             | pod2daemon-latest     | typha-latest            |
+|--------------|------------------------|----------------------------------------|------------------------------------|----------------------|-------------------------|-----------------------|-------------------------|
+| Default User | `root`                 | `root`                                 | `nonroot`                          | `nonroot`            | `root`                  | `root`                | `nonroot`               |
+| Entrypoint   | `/opt/cni/bin/install` | `/usr/bin/calico-pod2daemon-csidriver` | `/usr/bin/calico-kube-controllers` | `/usr/bin/calicoctl` | `/usr/sbin/start_runit` | `/usr/bin/flexvol.sh` | `/sbin/tini --`         |
+| CMD          | not specified          | not specified                          | not specified                      | not specified        | not specified           | not specified         | `/usr/bin/calico-typha` |
+| Workdir      | not specified          | not specified                          | not specified                      | not specified        | not specified           | not specified         | not specified           |
+| Has apk?     | no                     | no                                     | no                                 | no                   | no                      | no                    | no                      |
+| Has a shell? | no                     | no                                     | no                                 | no                   | yes                     | yes                   | no                      |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/calico/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|                           | latest.typha | latest.typha-dev | latest.pod2daemon | latest.pod2daemon-dev | latest.node | latest.node-dev | latest.kube-controllers | latest.kube-controllers-dev | latest.csi | latest.csi-dev | latest.cni | latest.cni-dev | latest.calicoctl | latest.calicoctl-dev |
-|---------------------------|--------------|------------------|-------------------|-----------------------|-------------|-----------------|-------------------------|-----------------------------|------------|----------------|------------|----------------|------------------|----------------------|
-| `calico-typhad`           | X            | X                |                   |                       |             |                 |                         |                             |            |                |            |                |                  |                      |
-| `tini`                    | X            | X                |                   |                       |             |                 |                         |                             |            |                |            |                |                  |                      |
-| `calico-pod2daemon`       |              |                  | X                 | X                     |             |                 |                         |                             | X          | X              |            |                |                  |                      |
-| `busybox`                 |              |                  | X                 | X                     | X           | X               |                         |                             |            |                |            |                |                  |                      |
-| `calico-node`             |              |                  |                   |                       | X           | X               |                         |                             |            |                |            |                |                  |                      |
-| `calico-kube-controllers` |              |                  |                   |                       |             |                 | X                       | X                           |            |                |            |                |                  |                      |
-| `calico-cni`              |              |                  |                   |                       |             |                 |                         |                             |            |                | X          | X              |                  |                      |
-| `calico-cni-compat`       |              |                  |                   |                       |             |                 |                         |                             |            |                | X          | X              |                  |                      |
-| `calicoctl`               |              |                  |                   |                       |             |                 |                         |                             |            |                |            |                | X                | X                    |
+## Packages Included
+The table shows package distribution across variants.
+
+|                                 | cni-latest | csi-latest | kube-controllers-latest | latest | node-latest | pod2daemon-latest | typha-latest |
+|---------------------------------|------------|------------|-------------------------|--------|-------------|-------------------|--------------|
+| `ca-certificates-bundle`        | X          | X          | X                       | X      | X           | X                 | X            |
+| `calico-cni`                    | X          |            |                         |        |             |                   |              |
+| `calico-cni-compat`             | X          |            |                         |        |             |                   |              |
+| `cni-plugins-bandwidth`         | X          |            |                         |        |             |                   |              |
+| `cni-plugins-bandwidth-compat`  | X          |            |                         |        |             |                   |              |
+| `cni-plugins-host-local`        | X          |            |                         |        |             |                   |              |
+| `cni-plugins-host-local-compat` | X          |            |                         |        |             |                   |              |
+| `cni-plugins-loopback`          | X          |            |                         |        |             |                   |              |
+| `cni-plugins-loopback-compat`   | X          |            |                         |        |             |                   |              |
+| `cni-plugins-portmap`           | X          |            |                         |        |             |                   |              |
+| `cni-plugins-portmap-compat`    | X          |            |                         |        |             |                   |              |
+| `cni-plugins-tuning`            | X          |            |                         |        |             |                   |              |
+| `cni-plugins-tuning-compat`     | X          |            |                         |        |             |                   |              |
+| `flannel-cni-plugin`            | X          |            |                         |        |             |                   |              |
+| `flannel-cni-plugin-compat`     | X          |            |                         |        |             |                   |              |
+| `wolfi-baselayout`              | X          | X          | X                       | X      | X           | X                 | X            |
+| `calico-pod2daemon`             |            | X          |                         |        |             | X                 |              |
+| `glibc`                         |            | X          | X                       | X      | X           | X                 | X            |
+| `glibc-locale-posix`            |            | X          | X                       | X      | X           | X                 | X            |
+| `ld-linux`                      |            | X          | X                       | X      | X           | X                 | X            |
+| `calico-kube-controllers`       |            |            | X                       |        |             |                   |              |
+| `glibc-dev`                     |            |            | X                       |        |             |                   |              |
+| `libcrypt1`                     |            |            | X                       |        | X           | X                 |              |
+| `linux-headers`                 |            |            | X                       |        |             |                   |              |
+| `nss-db`                        |            |            | X                       |        |             |                   |              |
+| `nss-hesiod`                    |            |            | X                       |        |             |                   |              |
+| `calicoctl`                     |            |            |                         | X      |             |                   |              |
+| `busybox`                       |            |            |                         |        | X           | X                 |              |
+| `calico-node`                   |            |            |                         |        | X           |                   |              |
+| `conntrack-tools`               |            |            |                         |        | X           |                   |              |
+| `ip6tables`                     |            |            |                         |        | X           |                   |              |
+| `iproute2`                      |            |            |                         |        | X           |                   |              |
+| `ipset`                         |            |            |                         |        | X           |                   |              |
+| `iptables`                      |            |            |                         |        | X           |                   |              |
+| `libbpf`                        |            |            |                         |        | X           |                   |              |
+| `libbz2-1`                      |            |            |                         |        | X           |                   |              |
+| `libelf`                        |            |            |                         |        | X           |                   |              |
+| `libmnl`                        |            |            |                         |        | X           |                   |              |
+| `libnetfilter_conntrack`        |            |            |                         |        | X           |                   |              |
+| `libnetfilter_cthelper`         |            |            |                         |        | X           |                   |              |
+| `libnetfilter_cttimeout`        |            |            |                         |        | X           |                   |              |
+| `libnetfilter_queue`            |            |            |                         |        | X           |                   |              |
+| `libnfnetlink`                  |            |            |                         |        | X           |                   |              |
+| `libnftnl`                      |            |            |                         |        | X           |                   |              |
+| `libpcap`                       |            |            |                         |        | X           |                   |              |
+| `libproc-2-0`                   |            |            |                         |        | X           |                   |              |
+| `ncurses`                       |            |            |                         |        | X           |                   |              |
+| `ncurses-terminfo-base`         |            |            |                         |        | X           |                   |              |
+| `procps`                        |            |            |                         |        | X           |                   |              |
+| `runit`                         |            |            |                         |        | X           |                   |              |
+| `xz`                            |            |            |                         |        | X           |                   |              |
+| `zlib`                          |            |            |                         |        | X           |                   |              |
+| `calico-typhad`                 |            |            |                         |        |             |                   | X            |
+| `tini`                          |            |            |                         |        |             |                   | X            |
