@@ -1,7 +1,7 @@
 ---
-title: "Postgres Image Variants"
+title: "Postgres Public Image Variants"
 type: "article"
-description: "Detailed information about the Postgres Chainguard Image variants"
+description: "Detailed information about the public Postgres Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -14,41 +14,60 @@ weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Postgres** Image.
+This page shows detailed information about all public variants of the Chainguard **Postgres** Image.
 
 ## Variants Compared
 The **postgres** Chainguard Image currently has 2 public variants: 
 
-- `latest`
 - `latest-dev`
+- `latest`
 
-## Default Image Settings
-`USER`:		`root`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	`/home/postgres`
-
-`ENTRYPOINT`:	`/var/lib/postgres/initdb/postgresql-entrypoint.sh postgres`
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest | latest-dev |
-|--------------|--------|------------|
-| Has apk?     | no     | yes        |
-| Has a shell? | yes    | yes        |
+|              | latest-dev                                                   | latest                                                       |
+|--------------|--------------------------------------------------------------|--------------------------------------------------------------|
+| Default User | `root`                                                       | `root`                                                       |
+| Entrypoint   | `/var/lib/postgres/initdb/postgresql-entrypoint.sh postgres` | `/var/lib/postgres/initdb/postgresql-entrypoint.sh postgres` |
+| CMD          | not specified                                                | not specified                                                |
+| Workdir      | `/home/postgres`                                             | `/home/postgres`                                             |
+| Has apk?     | yes                                                          | no                                                           |
+| Has a shell? | yes                                                          | yes                                                          |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/postgres/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|                                | latest | latest-dev |
-|--------------------------------|--------|------------|
-| `glibc-locale-en`              | X      | X          |
-| `busybox`                      | X      | X          |
-| `postgresql-15`                | X      | X          |
-| `postgresql-15-client`         | X      | X          |
-| `postgresql-15-oci-entrypoint` | X      | X          |
-| `postgresql-15-contrib`        | X      | X          |
-| `libpq-15`                     | X      | X          |
-| `su-exec`                      | X      | X          |
+## Packages Included
+The table shows package distribution across variants.
+
+|                                | latest-dev | latest |
+|--------------------------------|------------|--------|
+| `apk-tools`                    | X          |        |
+| `bash`                         | X          | X      |
+| `busybox`                      | X          | X      |
+| `ca-certificates-bundle`       | X          | X      |
+| `git`                          | X          |        |
+| `glibc`                        | X          | X      |
+| `glibc-locale-en`              | X          | X      |
+| `glibc-locale-posix`           | X          | X      |
+| `ld-linux`                     | X          | X      |
+| `libbrotlicommon1`             | X          |        |
+| `libbrotlidec1`                | X          |        |
+| `libcrypt1`                    | X          | X      |
+| `libcrypto3`                   | X          | X      |
+| `libcurl-openssl4`             | X          |        |
+| `libedit`                      | X          | X      |
+| `libexpat1`                    | X          |        |
+| `libnghttp2-14`                | X          |        |
+| `libpcre2-8-0`                 | X          |        |
+| `libpq-15`                     | X          | X      |
+| `libssl3`                      | X          | X      |
+| `libuuid`                      | X          | X      |
+| `ncurses`                      | X          | X      |
+| `ncurses-terminfo-base`        | X          | X      |
+| `openssl-config`               | X          | X      |
+| `postgresql-15`                | X          | X      |
+| `postgresql-15-client`         | X          | X      |
+| `postgresql-15-contrib`        | X          | X      |
+| `postgresql-15-oci-entrypoint` | X          | X      |
+| `su-exec`                      | X          | X      |
+| `wolfi-baselayout`             | X          | X      |
+| `zlib`                         | X          | X      |

@@ -1,7 +1,7 @@
 ---
-title: "cert-manager-controller Image Variants"
+title: "Cert-manager-controller Public Image Variants"
 type: "article"
-description: "Detailed specs for cert-manager-controller Chainguard Image Variants"
+description: "Detailed information about the public Cert-manager-controller Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,41 +9,58 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "cert-manager-controller"
+    parent: "Cert-manager-controller"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **cert-manager-controller** Image.
+This page shows detailed information about all public variants of the Chainguard **Cert-manager-controller** Image.
 
 ## Variants Compared
 The **cert-manager-controller** Chainguard Image currently has 2 public variants: 
 
-- `latest`
 - `latest-dev`
+- `latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest                | latest-dev            |
+|              | latest-dev            | latest                |
 |--------------|-----------------------|-----------------------|
 | Default User | `nonroot`             | `nonroot`             |
 | Entrypoint   | `/usr/bin/controller` | `/usr/bin/controller` |
 | CMD          | not specified         | not specified         |
 | Workdir      | not specified         | not specified         |
-| Has apk?     | no                    | yes                   |
-| Has a shell? | no                    | yes                   |
+| Has apk?     | yes                   | no                    |
+| Has a shell? | yes                   | no                    |
 
-## Image Dependencies
-The table shows package distribution across all variants.
+Check the [tags history page](/chainguard/chainguard-images/reference/cert-manager-controller/tags_history/) for the full list of available tags.
 
-|                           | latest | latest-dev |
-|---------------------------|--------|------------|
-| `ca-certificates-bundle`  | X      | X          |
-| `wolfi-baselayout`        | X      | X          |
-| `cert-manager-controller` | X      | X          |
-| `apk-tools`               |        | X          |
-| `bash`                    |        | X          |
-| `busybox`                 |        | X          |
-| `git`                     |        | X          |
-| `cmctl`                   |        | X          |
+## Packages Included
+The table shows package distribution across variants.
 
+|                           | latest-dev | latest |
+|---------------------------|------------|--------|
+| `apk-tools`               | X          |        |
+| `bash`                    | X          |        |
+| `busybox`                 | X          |        |
+| `ca-certificates-bundle`  | X          | X      |
+| `cert-manager-controller` | X          | X      |
+| `cmctl`                   | X          |        |
+| `git`                     | X          |        |
+| `glibc`                   | X          |        |
+| `glibc-locale-posix`      | X          |        |
+| `ld-linux`                | X          |        |
+| `libbrotlicommon1`        | X          |        |
+| `libbrotlidec1`           | X          |        |
+| `libcrypt1`               | X          |        |
+| `libcrypto3`              | X          |        |
+| `libcurl-openssl4`        | X          |        |
+| `libexpat1`               | X          |        |
+| `libnghttp2-14`           | X          |        |
+| `libpcre2-8-0`            | X          |        |
+| `libssl3`                 | X          |        |
+| `ncurses`                 | X          |        |
+| `ncurses-terminfo-base`   | X          |        |
+| `openssl-config`          | X          |        |
+| `wolfi-baselayout`        | X          | X      |
+| `zlib`                    | X          |        |

@@ -1,7 +1,7 @@
 ---
-title: "Kube-fluentd-operator Image Variants"
+title: "Kube-fluentd-operator Public Image Variants"
 type: "article"
-description: "Detailed information about the Kube-fluentd-operator Chainguard Image variants"
+description: "Detailed information about the public Kube-fluentd-operator Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -14,37 +14,55 @@ weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Kube-fluentd-operator** Image.
+This page shows detailed information about all public variants of the Chainguard **Kube-fluentd-operator** Image.
 
 ## Variants Compared
-The **kube-fluentd-operator** Chainguard Image currently has 2 public variants: 
+The **kube-fluentd-operator** Chainguard Image currently has one public variant: 
 
 - `latest`
-- `latest-dev`
 
-## Default Image Settings
-`USER`:		`root`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	not specified
-
-`ENTRYPOINT`:	`/fluentd/entrypoint.sh`
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest | latest-dev |
-|--------------|--------|------------|
-| Has apk?     | no     | yes        |
-| Has a shell? | no     | yes        |
+|              | latest                   |
+|--------------|--------------------------|
+| Default User | `root`                   |
+| Entrypoint   | `/fluentd/entrypoint.sh` |
+| CMD          | not specified            |
+| Workdir      | not specified            |
+| Has apk?     | no                       |
+| Has a shell? | yes                      |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kube-fluentd-operator/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|                                        | latest | latest-dev |
-|----------------------------------------|--------|------------|
-| `kube-fluentd-operator`                | X      | X          |
-| `kube-fluentd-operator-oci-entrypoint` | X      | X          |
-| `kube-fluentd-operator-default-config` | X      | X          |
-| `kube-fluentd-operator-compat`         | X      | X          |
+## Packages Included
+The table shows package distribution across variants.
+
+|                                        | latest |
+|----------------------------------------|--------|
+| `bash`                                 | X      |
+| `busybox`                              | X      |
+| `ca-certificates-bundle`               | X      |
+| `glibc`                                | X      |
+| `glibc-locale-posix`                   | X      |
+| `jemalloc`                             | X      |
+| `kube-fluentd-operator`                | X      |
+| `kube-fluentd-operator-compat`         | X      |
+| `kube-fluentd-operator-default-config` | X      |
+| `kube-fluentd-operator-oci-entrypoint` | X      |
+| `ld-linux`                             | X      |
+| `libcap`                               | X      |
+| `libcrypt1`                            | X      |
+| `libcrypto3`                           | X      |
+| `libffi`                               | X      |
+| `libgcc`                               | X      |
+| `libssl3`                              | X      |
+| `libstdc++`                            | X      |
+| `libsystemd`                           | X      |
+| `ncurses`                              | X      |
+| `ncurses-terminfo-base`                | X      |
+| `openssl-config`                       | X      |
+| `readline`                             | X      |
+| `ruby-3.2`                             | X      |
+| `wolfi-baselayout`                     | X      |
+| `yaml`                                 | X      |
+| `zlib`                                 | X      |

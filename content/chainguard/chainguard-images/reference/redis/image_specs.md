@@ -1,7 +1,7 @@
 ---
-title: "Redis Image Variants"
+title: "Redis Public Image Variants"
 type: "article"
-description: "Detailed information about the Redis Chainguard Image variants"
+description: "Detailed information about the public Redis Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -14,35 +14,39 @@ weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Redis** Image.
+This page shows detailed information about all public variants of the Chainguard **Redis** Image.
 
 ## Variants Compared
-The **redis** Chainguard Image currently has 2 public variants: 
+The **redis** Chainguard Image currently has one public variant: 
 
 - `latest`
-- `latest-dev`
 
-## Default Image Settings
-`USER`:		`redis`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	`/data`
-
-`ENTRYPOINT`:	`redis-server`
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest | latest-dev |
-|--------------|--------|------------|
-| Has apk?     | no     | yes        |
-| Has a shell? | yes    | yes        |
+|              | latest         |
+|--------------|----------------|
+| Default User | `redis`        |
+| Entrypoint   | `redis-server` |
+| CMD          | not specified  |
+| Workdir      | `/data`        |
+| Has apk?     | no             |
+| Has a shell? | yes            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/redis/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|           | latest | latest-dev |
-|-----------|--------|------------|
-| `redis`   | X      | X          |
-| `busybox` | X      | X          |
+## Packages Included
+The table shows package distribution across variants.
+
+|                          | latest |
+|--------------------------|--------|
+| `busybox`                | X      |
+| `ca-certificates-bundle` | X      |
+| `glibc`                  | X      |
+| `glibc-locale-posix`     | X      |
+| `ld-linux`               | X      |
+| `libcrypt1`              | X      |
+| `libcrypto3`             | X      |
+| `libssl3`                | X      |
+| `openssl-config`         | X      |
+| `redis`                  | X      |
+| `wolfi-baselayout`       | X      |

@@ -1,7 +1,7 @@
 ---
-title: "Argocd Image Variants"
+title: "Argocd Public Image Variants"
 type: "article"
-description: "Detailed information about the Argocd Chainguard Image variants"
+description: "Detailed information about the public Argocd Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -14,39 +14,72 @@ weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Argocd** Image.
+This page shows detailed information about all public variants of the Chainguard **Argocd** Image.
 
 ## Variants Compared
 The **argocd** Chainguard Image currently has 4 public variants: 
 
-- `latest.repo-server`
-- `latest.repo-server-dev`
-- `latest.argocd`
-- `latest.argocd-dev`
+- `latest-dev`
+- `latest`
+- `repo-server-latest-dev`
+- `repo-server-latest`
 
-## Default Image Settings
-`USER`:		`argocd`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	`/home/argocd`
-
-`ENTRYPOINT`:	not specified
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest.repo-server | latest.repo-server-dev | latest.argocd | latest.argocd-dev |
-|--------------|--------------------|------------------------|---------------|-------------------|
-| Has apk?     | no                 | yes                    | no            | yes               |
-| Has a shell? | yes                | yes                    | yes           | yes               |
+|              | latest-dev     | latest         | repo-server-latest-dev              | repo-server-latest                  |
+|--------------|----------------|----------------|-------------------------------------|-------------------------------------|
+| Default User | `argocd`       | `argocd`       | `argocd`                            | `argocd`                            |
+| Entrypoint   | ``             | ``             | `/usr/local/bin/argocd-repo-server` | `/usr/local/bin/argocd-repo-server` |
+| CMD          | not specified  | not specified  | not specified                       | not specified                       |
+| Workdir      | `/home/argocd` | `/home/argocd` | `/home/argocd`                      | `/home/argocd`                      |
+| Has apk?     | yes            | no             | yes                                 | no                                  |
+| Has a shell? | yes            | yes            | yes                                 | yes                                 |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/argocd/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|                       | latest.repo-server | latest.repo-server-dev | latest.argocd | latest.argocd-dev |
-|-----------------------|--------------------|------------------------|---------------|-------------------|
-| `busybox`             | X                  | X                      | X             | X                 |
-| `argo-cd-repo-server` | X                  | X                      |               |                   |
-| `argo-cd-compat`      | X                  | X                      | X             | X                 |
-| `argo-cd`             |                    |                        | X             | X                 |
+## Packages Included
+The table shows package distribution across variants.
+
+|                          | latest-dev | latest | repo-server-latest-dev | repo-server-latest |
+|--------------------------|------------|--------|------------------------|--------------------|
+| `apk-tools`              | X          |        | X                      |                    |
+| `argo-cd`                | X          | X      |                        |                    |
+| `argo-cd-compat`         | X          | X      | X                      | X                  |
+| `bash`                   | X          |        | X                      |                    |
+| `busybox`                | X          | X      | X                      | X                  |
+| `ca-certificates-bundle` | X          | X      | X                      | X                  |
+| `git`                    | X          |        | X                      | X                  |
+| `glibc`                  | X          | X      | X                      | X                  |
+| `glibc-locale-posix`     | X          | X      | X                      | X                  |
+| `ld-linux`               | X          | X      | X                      | X                  |
+| `libbrotlicommon1`       | X          |        | X                      | X                  |
+| `libbrotlidec1`          | X          |        | X                      | X                  |
+| `libcrypt1`              | X          | X      | X                      | X                  |
+| `libcrypto3`             | X          |        | X                      | X                  |
+| `libcurl-openssl4`       | X          |        | X                      | X                  |
+| `libexpat1`              | X          |        | X                      | X                  |
+| `libnghttp2-14`          | X          |        | X                      | X                  |
+| `libpcre2-8-0`           | X          |        | X                      | X                  |
+| `libssl3`                | X          |        | X                      | X                  |
+| `ncurses`                | X          |        | X                      |                    |
+| `ncurses-terminfo-base`  | X          |        | X                      |                    |
+| `openssl-config`         | X          |        | X                      | X                  |
+| `wolfi-baselayout`       | X          | X      | X                      | X                  |
+| `zlib`                   | X          |        | X                      | X                  |
+| `argo-cd-repo-server`    |            |        | X                      | X                  |
+| `git-lfs`                |            |        | X                      | X                  |
+| `gnupg`                  |            |        | X                      | X                  |
+| `gnupg-gpgconf`          |            |        | X                      | X                  |
+| `gpg`                    |            |        | X                      | X                  |
+| `gpg-agent`              |            |        | X                      | X                  |
+| `helm`                   |            |        | X                      | X                  |
+| `kustomize`              |            |        | X                      | X                  |
+| `libassuan`              |            |        | X                      | X                  |
+| `libbz2-1`               |            |        | X                      | X                  |
+| `libgcrypt`              |            |        | X                      | X                  |
+| `libgpg-error`           |            |        | X                      | X                  |
+| `npth`                   |            |        | X                      | X                  |
+| `openssh-keygen`         |            |        | X                      | X                  |
+| `openssh-server`         |            |        | X                      | X                  |
+| `sqlite-libs`            |            |        | X                      | X                  |
+| `tzdata`                 |            |        | X                      | X                  |

@@ -1,7 +1,7 @@
 ---
-title: "external-attacher Image Variants"
+title: "External-attacher Public Image Variants"
 type: "article"
-description: "Detailed specs for external-attacher Chainguard Image Variants"
+description: "Detailed information about the public External-attacher Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,40 +9,33 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "external-attacher"
+    parent: "External-attacher"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **external-attacher** Image.
+This page shows detailed information about all public variants of the Chainguard **External-attacher** Image.
 
 ## Variants Compared
-The **external-attacher** Chainguard Image currently has 2 public variants: 
+The **external-attacher** Chainguard Image currently has 0 public variants: 
 
-- `latest`
-- `latest-dev`
+- ``
 
 The table has detailed information about each of these variants.
 
-|              | latest         | latest-dev     |
-|--------------|----------------|----------------|
-| Default User | `nonroot`      | `nonroot`      |
-| Entrypoint   | `csi-attacher` | `csi-attacher` |
-| CMD          | not specified  | not specified  |
-| Workdir      | not specified  | not specified  |
-| Has apk?     | no             | yes            |
-| Has a shell? | no             | yes            |
+|              |
+|--------------|
+| Default User |
+| Entrypoint   |
+| CMD          |
+| Workdir      |
+| Has apk?     |
+| Has a shell? |
 
-## Image Dependencies
-The table shows package distribution across all variants.
+Check the [tags history page](/chainguard/chainguard-images/reference/external-attacher/tags_history/) for the full list of available tags.
 
-|                          | latest | latest-dev |
-|--------------------------|--------|------------|
-| `ca-certificates-bundle` | X      | X          |
-| `wolfi-baselayout`       | X      | X          |
-| `external-attacher`      | X      | X          |
-| `apk-tools`              |        | X          |
-| `bash`                   |        | X          |
-| `busybox`                |        | X          |
-| `git`                    |        | X          |
+## Packages Included
+The table shows package distribution across variants.
 
+|  |
+|--|

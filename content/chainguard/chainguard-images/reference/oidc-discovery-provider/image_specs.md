@@ -1,7 +1,7 @@
 ---
-title: "oidc-discovery-provider Image Variants"
+title: "Oidc-discovery-provider Public Image Variants"
 type: "article"
-description: "Detailed specs for oidc-discovery-provider Chainguard Image Variants"
+description: "Detailed information about the public Oidc-discovery-provider Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,40 +9,33 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "oidc-discovery-provider"
+    parent: "Oidc-discovery-provider"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **oidc-discovery-provider** Image.
+This page shows detailed information about all public variants of the Chainguard **Oidc-discovery-provider** Image.
 
 ## Variants Compared
-The **oidc-discovery-provider** Chainguard Image currently has 2 public variants: 
+The **oidc-discovery-provider** Chainguard Image currently has 0 public variants: 
 
-- `latest`
-- `latest-dev`
+- ``
 
 The table has detailed information about each of these variants.
 
-|              | latest                             | latest-dev                         |
-|--------------|------------------------------------|------------------------------------|
-| Default User | `nonroot`                          | `nonroot`                          |
-| Entrypoint   | `/usr/bin/oidc-discovery-provider` | `/usr/bin/oidc-discovery-provider` |
-| CMD          | `--help`                           | `--help`                           |
-| Workdir      | not specified                      | not specified                      |
-| Has apk?     | no                                 | yes                                |
-| Has a shell? | no                                 | yes                                |
+|              |
+|--------------|
+| Default User |
+| Entrypoint   |
+| CMD          |
+| Workdir      |
+| Has apk?     |
+| Has a shell? |
 
-## Image Dependencies
-The table shows package distribution across all variants.
+Check the [tags history page](/chainguard/chainguard-images/reference/oidc-discovery-provider/tags_history/) for the full list of available tags.
 
-|                                 | latest | latest-dev |
-|---------------------------------|--------|------------|
-| `wolfi-baselayout`              | X      | X          |
-| `ca-certificates-bundle`        | X      | X          |
-| `spire-oidc-discovery-provider` | X      | X          |
-| `apk-tools`                     |        | X          |
-| `bash`                          |        | X          |
-| `busybox`                       |        | X          |
-| `git`                           |        | X          |
+## Packages Included
+The table shows package distribution across variants.
 
+|  |
+|--|

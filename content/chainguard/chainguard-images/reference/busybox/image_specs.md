@@ -1,7 +1,7 @@
 ---
-title: "Busybox Image Variants"
+title: "Busybox Public Image Variants"
 type: "article"
-description: "Detailed information about the Busybox Chainguard Image variants"
+description: "Detailed information about the public Busybox Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -14,37 +14,43 @@ weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Busybox** Image.
+This page shows detailed information about all public variants of the Chainguard **Busybox** Image.
 
 ## Variants Compared
-The **busybox** Chainguard Image currently has 4 public variants: 
+The **busybox** Chainguard Image currently has 2 public variants: 
 
-- `latest.wolfi`
-- `latest.wolfi-dev`
-- `latest.alpine`
-- `latest.alpine-dev`
+- `latest-glibc`
+- `latest`
 
-## Default Image Settings
-`USER`:		`nonroot`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	not specified
-
-`ENTRYPOINT`:	not specified
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest.wolfi | latest.wolfi-dev | latest.alpine | latest.alpine-dev |
-|--------------|--------------|------------------|---------------|-------------------|
-| Has apk?     | no           | yes              | no            | yes               |
-| Has a shell? | yes          | yes              | yes           | yes               |
+|              | latest-glibc  | latest        |
+|--------------|---------------|---------------|
+| Default User | `nonroot`     | `nonroot`     |
+| Entrypoint   | ``            | ``            |
+| CMD          | not specified | not specified |
+| Workdir      | not specified | not specified |
+| Has apk?     | no            | no            |
+| Has a shell? | yes           | yes           |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/busybox/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|              | latest.wolfi | latest.wolfi-dev | latest.alpine | latest.alpine-dev |
-|--------------|--------------|------------------|---------------|-------------------|
-| `busybox`    | X            | X                | X             | X                 |
-| `ssl_client` |              |                  | X             | X                 |
+## Packages Included
+The table shows package distribution across variants.
+
+|                          | latest-glibc | latest |
+|--------------------------|--------------|--------|
+| `busybox`                | X            | X      |
+| `ca-certificates-bundle` | X            | X      |
+| `glibc`                  | X            |        |
+| `glibc-locale-posix`     | X            |        |
+| `ld-linux`               | X            |        |
+| `libcrypt1`              | X            |        |
+| `wolfi-baselayout`       | X            |        |
+| `alpine-baselayout-data` |              | X      |
+| `alpine-keys`            |              | X      |
+| `alpine-release`         |              | X      |
+| `libcrypto3`             |              | X      |
+| `libssl3`                |              | X      |
+| `musl`                   |              | X      |
+| `ssl_client`             |              | X      |

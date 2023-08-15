@@ -1,7 +1,7 @@
 ---
-title: "Ruby Image Variants"
+title: "Ruby Public Image Variants"
 type: "article"
-description: "Detailed information about the Ruby Chainguard Image variants"
+description: "Detailed information about the public Ruby Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -14,42 +14,77 @@ weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Ruby** Image.
+This page shows detailed information about all public variants of the Chainguard **Ruby** Image.
 
 ## Variants Compared
-The **ruby** Chainguard Image currently has 8 public variants: 
+The **ruby** Chainguard Image currently has 2 public variants: 
 
-- `latest`
 - `latest-dev`
-- `3.2`
-- `3.2-dev`
-- `3.1`
-- `3.1-dev`
-- `3.0`
-- `3.0-dev`
+- `latest`
 
-## Default Image Settings
-`USER`:		`nonroot`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	`/work`
-
-`ENTRYPOINT`:	`/usr/bin/ruby`
-
-`CMD`:		`--version`
-
-The following table has additional information about each of these variants.
-
-|              | latest | latest-dev | 3.2 | 3.2-dev | 3.1 | 3.1-dev | 3.0 | 3.0-dev |
-|--------------|--------|------------|-----|---------|-----|---------|-----|---------|
-| Has apk?     | no     | yes        | no  | yes     | no  | yes     | no  | yes     |
-| Has a shell? | no     | yes        | no  | yes     | no  | yes     | no  | yes     |
+|              | latest-dev      | latest          |
+|--------------|-----------------|-----------------|
+| Default User | `nonroot`       | `nonroot`       |
+| Entrypoint   | `/usr/bin/ruby` | `/usr/bin/ruby` |
+| CMD          | `--version`     | `--version`     |
+| Workdir      | `/work`         | `/work`         |
+| Has apk?     | yes             | no              |
+| Has a shell? | yes             | no              |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/ruby/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|            | latest | latest-dev | 3.2 | 3.2-dev | 3.1 | 3.1-dev | 3.0 | 3.0-dev |
-|------------|--------|------------|-----|---------|-----|---------|-----|---------|
-| `ruby-3.2` | X      | X          | X   | X       |     |         |     |         |
-| `ruby-3.1` |        |            |     |         | X   | X       |     |         |
-| `ruby-3.0` |        |            |     |         |     |         | X   | X       |
+## Packages Included
+The table shows package distribution across variants.
+
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `binutils`               | X          |        |
+| `build-base`             | X          |        |
+| `busybox`                | X          |        |
+| `ca-certificates-bundle` | X          | X      |
+| `gcc`                    | X          |        |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-dev`              | X          |        |
+| `glibc-locale-posix`     | X          | X      |
+| `gmp`                    | X          |        |
+| `isl`                    | X          |        |
+| `ld-linux`               | X          | X      |
+| `libatomic`              | X          |        |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
+| `libcrypt1`              | X          | X      |
+| `libcrypto3`             | X          | X      |
+| `libcurl-openssl4`       | X          |        |
+| `libexpat1`              | X          |        |
+| `libffi`                 | X          | X      |
+| `libgcc`                 | X          | X      |
+| `libgo`                  | X          |        |
+| `libgomp`                | X          |        |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libssl3`                | X          | X      |
+| `libstdc++`              | X          |        |
+| `libstdc++-dev`          | X          |        |
+| `linux-headers`          | X          |        |
+| `make`                   | X          |        |
+| `mpc`                    | X          |        |
+| `mpfr`                   | X          |        |
+| `ncurses`                | X          | X      |
+| `ncurses-terminfo-base`  | X          | X      |
+| `nss-db`                 | X          |        |
+| `nss-hesiod`             | X          |        |
+| `openssl-config`         | X          | X      |
+| `pkgconf`                | X          |        |
+| `posix-cc-wrappers`      | X          |        |
+| `readline`               | X          | X      |
+| `ruby-3.2`               | X          | X      |
+| `ruby-3.2-dev`           | X          |        |
+| `ruby3.2-bundler`        | X          |        |
+| `wolfi-baselayout`       | X          | X      |
+| `yaml`                   | X          | X      |
+| `zlib`                   | X          | X      |

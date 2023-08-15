@@ -1,7 +1,7 @@
 ---
-title: "Wavefront-proxy Image Variants"
+title: "Wavefront-proxy Public Image Variants"
 type: "article"
-description: "Detailed information about the Wavefront-proxy Chainguard Image variants"
+description: "Detailed information about the public Wavefront-proxy Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -14,41 +14,65 @@ weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Wavefront-proxy** Image.
+This page shows detailed information about all public variants of the Chainguard **Wavefront-proxy** Image.
 
 ## Variants Compared
 The **wavefront-proxy** Chainguard Image currently has 2 public variants: 
 
-- `latest`
 - `latest-dev`
+- `latest`
 
-## Default Image Settings
-`USER`:		`wavefront`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	not specified
-
-`ENTRYPOINT`:	`/usr/local/bin/run.sh`
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest | latest-dev |
-|--------------|--------|------------|
-| Has apk?     | no     | yes        |
-| Has a shell? | yes    | yes        |
+|              | latest-dev              | latest                  |
+|--------------|-------------------------|-------------------------|
+| Default User | `wavefront`             | `wavefront`             |
+| Entrypoint   | `/usr/local/bin/run.sh` | `/usr/local/bin/run.sh` |
+| CMD          | not specified           | not specified           |
+| Workdir      | not specified           | not specified           |
+| Has apk?     | yes                     | no                      |
+| Has a shell? | yes                     | yes                     |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/wavefront-proxy/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|                                  | latest | latest-dev |
-|----------------------------------|--------|------------|
-| `openjdk-11-jre`                 | X      | X          |
-| `openjdk-11-default-jvm`         | X      | X          |
-| `wavefront-proxy`                | X      | X          |
-| `wavefront-proxy-config`         | X      | X          |
-| `wavefront-proxy-licenses`       | X      | X          |
-| `wavefront-proxy-oci-entrypoint` | X      | X          |
-| `bash`                           | X      | X          |
-| `busybox`                        | X      | X          |
+## Packages Included
+The table shows package distribution across variants.
+
+|                                  | latest-dev | latest |
+|----------------------------------|------------|--------|
+| `apk-tools`                      | X          |        |
+| `bash`                           | X          | X      |
+| `busybox`                        | X          | X      |
+| `ca-certificates-bundle`         | X          | X      |
+| `fontconfig-config`              | X          | X      |
+| `freetype`                       | X          | X      |
+| `git`                            | X          |        |
+| `glibc`                          | X          | X      |
+| `glibc-locale-posix`             | X          | X      |
+| `java-cacerts`                   | X          | X      |
+| `java-common`                    | X          | X      |
+| `ld-linux`                       | X          | X      |
+| `libbrotlicommon1`               | X          | X      |
+| `libbrotlidec1`                  | X          | X      |
+| `libbz2-1`                       | X          | X      |
+| `libcrypt1`                      | X          | X      |
+| `libcrypto3`                     | X          |        |
+| `libcurl-openssl4`               | X          |        |
+| `libexpat1`                      | X          | X      |
+| `libfontconfig1`                 | X          | X      |
+| `libnghttp2-14`                  | X          |        |
+| `libpcre2-8-0`                   | X          |        |
+| `libpng`                         | X          | X      |
+| `libssl3`                        | X          |        |
+| `ncurses`                        | X          | X      |
+| `ncurses-terminfo-base`          | X          | X      |
+| `openjdk-11-default-jvm`         | X          | X      |
+| `openjdk-11-jre`                 | X          | X      |
+| `openjdk-11-jre-base`            | X          | X      |
+| `openssl-config`                 | X          |        |
+| `wavefront-proxy`                | X          | X      |
+| `wavefront-proxy-config`         | X          | X      |
+| `wavefront-proxy-licenses`       | X          | X      |
+| `wavefront-proxy-oci-entrypoint` | X          | X      |
+| `wolfi-baselayout`               | X          | X      |
+| `zlib`                           | X          | X      |
