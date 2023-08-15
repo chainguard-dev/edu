@@ -1,7 +1,7 @@
 ---
-title: "Cert-manager-cainjector Public Image Variants"
+title: "cert-manager-cainjector Image Variants"
 type: "article"
-description: "Detailed information about the public Cert-manager-cainjector Chainguard Image variants"
+description: "Detailed information about the public cert-manager-cainjector Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Cert-manager-cainjector"
+    parent: "cert-manager-cainjector"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Cert-manager-cainjector** Image.
+This page shows detailed information about all public variants of the Chainguard **cert-manager-cainjector** Image.
 
 ## Variants Compared
 The **cert-manager-cainjector** Chainguard Image currently has 2 public variants: 

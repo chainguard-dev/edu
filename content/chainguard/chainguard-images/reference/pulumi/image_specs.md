@@ -1,7 +1,7 @@
 ---
-title: "Pulumi Public Image Variants"
+title: "pulumi Image Variants"
 type: "article"
-description: "Detailed information about the public Pulumi Chainguard Image variants"
+description: "Detailed information about the public pulumi Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Pulumi"
+    parent: "pulumi"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Pulumi** Image.
+This page shows detailed information about all public variants of the Chainguard **pulumi** Image.
 
 ## Variants Compared
 The **pulumi** Chainguard Image currently has one public variant: 

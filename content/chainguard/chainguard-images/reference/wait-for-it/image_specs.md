@@ -1,7 +1,7 @@
 ---
-title: "Wait-for-it Public Image Variants"
+title: "wait-for-it Image Variants"
 type: "article"
-description: "Detailed information about the public Wait-for-it Chainguard Image variants"
+description: "Detailed information about the public wait-for-it Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Wait-for-it"
+    parent: "wait-for-it"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Wait-for-it** Image.
+This page shows detailed information about all public variants of the Chainguard **wait-for-it** Image.
 
 ## Variants Compared
 The **wait-for-it** Chainguard Image currently has one public variant: 

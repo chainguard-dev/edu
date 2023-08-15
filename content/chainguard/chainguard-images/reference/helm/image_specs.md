@@ -1,7 +1,7 @@
 ---
-title: "Helm Public Image Variants"
+title: "helm Image Variants"
 type: "article"
-description: "Detailed information about the public Helm Chainguard Image variants"
+description: "Detailed information about the public helm Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Helm"
+    parent: "helm"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Helm** Image.
+This page shows detailed information about all public variants of the Chainguard **helm** Image.
 
 ## Variants Compared
 The **helm** Chainguard Image currently has 6 public variants: 

@@ -1,7 +1,7 @@
 ---
-title: "Deno Public Image Variants"
+title: "deno Image Variants"
 type: "article"
-description: "Detailed information about the public Deno Chainguard Image variants"
+description: "Detailed information about the public deno Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Deno"
+    parent: "deno"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Deno** Image.
+This page shows detailed information about all public variants of the Chainguard **deno** Image.
 
 ## Variants Compared
 The **deno** Chainguard Image currently has one public variant: 

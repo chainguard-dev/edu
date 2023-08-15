@@ -1,7 +1,7 @@
 ---
-title: "Kubernetes-csi-external-attacher Public Image Variants"
+title: "kubernetes-csi-external-attacher Image Variants"
 type: "article"
-description: "Detailed information about the public Kubernetes-csi-external-attacher Chainguard Image variants"
+description: "Detailed information about the public kubernetes-csi-external-attacher Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Kubernetes-csi-external-attacher"
+    parent: "kubernetes-csi-external-attacher"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Kubernetes-csi-external-attacher** Image.
+This page shows detailed information about all public variants of the Chainguard **kubernetes-csi-external-attacher** Image.
 
 ## Variants Compared
 The **kubernetes-csi-external-attacher** Chainguard Image currently has 2 public variants: 

@@ -1,7 +1,7 @@
 ---
-title: "Busybox Public Image Variants"
+title: "busybox Image Variants"
 type: "article"
-description: "Detailed information about the public Busybox Chainguard Image variants"
+description: "Detailed information about the public busybox Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Busybox"
+    parent: "busybox"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Busybox** Image.
+This page shows detailed information about all public variants of the Chainguard **busybox** Image.
 
 ## Variants Compared
 The **busybox** Chainguard Image currently has 2 public variants: 

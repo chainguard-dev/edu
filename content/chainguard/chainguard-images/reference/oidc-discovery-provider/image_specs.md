@@ -1,7 +1,7 @@
 ---
-title: "Oidc-discovery-provider Public Image Variants"
+title: "oidc-discovery-provider Image Variants"
 type: "article"
-description: "Detailed information about the public Oidc-discovery-provider Chainguard Image variants"
+description: "Detailed information about the public oidc-discovery-provider Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Oidc-discovery-provider"
+    parent: "oidc-discovery-provider"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Oidc-discovery-provider** Image.
+This page shows detailed information about all public variants of the Chainguard **oidc-discovery-provider** Image.
 
 ## Variants Compared
 The **oidc-discovery-provider** Chainguard Image currently has 0 public variants: 

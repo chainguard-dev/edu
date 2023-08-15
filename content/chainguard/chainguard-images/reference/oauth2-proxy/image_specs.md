@@ -1,7 +1,7 @@
 ---
-title: "Oauth2-proxy Public Image Variants"
+title: "oauth2-proxy Image Variants"
 type: "article"
-description: "Detailed information about the public Oauth2-proxy Chainguard Image variants"
+description: "Detailed information about the public oauth2-proxy Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Oauth2-proxy"
+    parent: "oauth2-proxy"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Oauth2-proxy** Image.
+This page shows detailed information about all public variants of the Chainguard **oauth2-proxy** Image.
 
 ## Variants Compared
 The **oauth2-proxy** Chainguard Image currently has 2 public variants: 

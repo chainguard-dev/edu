@@ -1,7 +1,7 @@
 ---
-title: "Memcached-exporter Public Image Variants"
+title: "memcached-exporter Image Variants"
 type: "article"
-description: "Detailed information about the public Memcached-exporter Chainguard Image variants"
+description: "Detailed information about the public memcached-exporter Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Memcached-exporter"
+    parent: "memcached-exporter"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Memcached-exporter** Image.
+This page shows detailed information about all public variants of the Chainguard **memcached-exporter** Image.
 
 ## Variants Compared
 The **memcached-exporter** Chainguard Image currently has one public variant: 

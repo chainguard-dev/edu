@@ -1,7 +1,7 @@
 ---
-title: "Cert-manager-acmesolver Public Image Variants"
+title: "cert-manager-acmesolver Image Variants"
 type: "article"
-description: "Detailed information about the public Cert-manager-acmesolver Chainguard Image variants"
+description: "Detailed information about the public cert-manager-acmesolver Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Cert-manager-acmesolver"
+    parent: "cert-manager-acmesolver"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Cert-manager-acmesolver** Image.
+This page shows detailed information about all public variants of the Chainguard **cert-manager-acmesolver** Image.
 
 ## Variants Compared
 The **cert-manager-acmesolver** Chainguard Image currently has 2 public variants: 

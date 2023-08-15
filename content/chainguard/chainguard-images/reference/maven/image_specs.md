@@ -1,7 +1,7 @@
 ---
-title: "Maven Public Image Variants"
+title: "maven Image Variants"
 type: "article"
-description: "Detailed information about the public Maven Chainguard Image variants"
+description: "Detailed information about the public maven Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Maven"
+    parent: "maven"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Maven** Image.
+This page shows detailed information about all public variants of the Chainguard **maven** Image.
 
 ## Variants Compared
 The **maven** Chainguard Image currently has 2 public variants: 

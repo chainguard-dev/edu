@@ -1,7 +1,7 @@
 ---
-title: "Graalvm-native Public Image Variants"
+title: "graalvm-native Image Variants"
 type: "article"
-description: "Detailed information about the public Graalvm-native Chainguard Image variants"
+description: "Detailed information about the public graalvm-native Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Graalvm-native"
+    parent: "graalvm-native"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Graalvm-native** Image.
+This page shows detailed information about all public variants of the Chainguard **graalvm-native** Image.
 
 ## Variants Compared
 The **graalvm-native** Chainguard Image currently has one public variant: 

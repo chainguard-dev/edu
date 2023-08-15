@@ -1,7 +1,7 @@
 ---
-title: "Kube-state-metrics Public Image Variants"
+title: "kube-state-metrics Image Variants"
 type: "article"
-description: "Detailed information about the public Kube-state-metrics Chainguard Image variants"
+description: "Detailed information about the public kube-state-metrics Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Kube-state-metrics"
+    parent: "kube-state-metrics"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Kube-state-metrics** Image.
+This page shows detailed information about all public variants of the Chainguard **kube-state-metrics** Image.
 
 ## Variants Compared
 The **kube-state-metrics** Chainguard Image currently has 2 public variants: 

@@ -1,7 +1,7 @@
 ---
-title: "Cert-manager-webhook Public Image Variants"
+title: "cert-manager-webhook Image Variants"
 type: "article"
-description: "Detailed information about the public Cert-manager-webhook Chainguard Image variants"
+description: "Detailed information about the public cert-manager-webhook Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Cert-manager-webhook"
+    parent: "cert-manager-webhook"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Cert-manager-webhook** Image.
+This page shows detailed information about all public variants of the Chainguard **cert-manager-webhook** Image.
 
 ## Variants Compared
 The **cert-manager-webhook** Chainguard Image currently has 2 public variants: 

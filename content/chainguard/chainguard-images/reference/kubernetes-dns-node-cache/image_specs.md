@@ -1,7 +1,7 @@
 ---
-title: "Kubernetes-dns-node-cache Public Image Variants"
+title: "kubernetes-dns-node-cache Image Variants"
 type: "article"
-description: "Detailed information about the public Kubernetes-dns-node-cache Chainguard Image variants"
+description: "Detailed information about the public kubernetes-dns-node-cache Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Kubernetes-dns-node-cache"
+    parent: "kubernetes-dns-node-cache"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Kubernetes-dns-node-cache** Image.
+This page shows detailed information about all public variants of the Chainguard **kubernetes-dns-node-cache** Image.
 
 ## Variants Compared
 The **kubernetes-dns-node-cache** Chainguard Image currently has one public variant: 

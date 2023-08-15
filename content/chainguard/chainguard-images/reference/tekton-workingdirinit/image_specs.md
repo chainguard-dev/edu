@@ -1,7 +1,7 @@
 ---
-title: "Tekton-workingdirinit Public Image Variants"
+title: "tekton-workingdirinit Image Variants"
 type: "article"
-description: "Detailed information about the public Tekton-workingdirinit Chainguard Image variants"
+description: "Detailed information about the public tekton-workingdirinit Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Tekton-workingdirinit"
+    parent: "tekton-workingdirinit"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Tekton-workingdirinit** Image.
+This page shows detailed information about all public variants of the Chainguard **tekton-workingdirinit** Image.
 
 ## Variants Compared
 The **tekton-workingdirinit** Chainguard Image currently has 2 public variants: 

@@ -1,7 +1,7 @@
 ---
-title: "Haproxy Public Image Variants"
+title: "haproxy Image Variants"
 type: "article"
-description: "Detailed information about the public Haproxy Chainguard Image variants"
+description: "Detailed information about the public haproxy Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Haproxy"
+    parent: "haproxy"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Haproxy** Image.
+This page shows detailed information about all public variants of the Chainguard **haproxy** Image.
 
 ## Variants Compared
 The **haproxy** Chainguard Image currently has 3 public variants: 

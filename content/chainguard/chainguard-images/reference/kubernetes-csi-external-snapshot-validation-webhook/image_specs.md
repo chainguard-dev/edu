@@ -1,7 +1,7 @@
 ---
-title: "Kubernetes-csi-external-snapshot-validation-webhook Public Image Variants"
+title: "kubernetes-csi-external-snapshot-validation-webhook Image Variants"
 type: "article"
-description: "Detailed information about the public Kubernetes-csi-external-snapshot-validation-webhook Chainguard Image variants"
+description: "Detailed information about the public kubernetes-csi-external-snapshot-validation-webhook Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Kubernetes-csi-external-snapshot-validation-webhook"
+    parent: "kubernetes-csi-external-snapshot-validation-webhook"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Kubernetes-csi-external-snapshot-validation-webhook** Image.
+This page shows detailed information about all public variants of the Chainguard **kubernetes-csi-external-snapshot-validation-webhook** Image.
 
 ## Variants Compared
 The **kubernetes-csi-external-snapshot-validation-webhook** Chainguard Image currently has one public variant: 

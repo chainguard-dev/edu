@@ -1,7 +1,7 @@
 ---
-title: "Jenkins Public Image Variants"
+title: "jenkins Image Variants"
 type: "article"
-description: "Detailed information about the public Jenkins Chainguard Image variants"
+description: "Detailed information about the public jenkins Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Jenkins"
+    parent: "jenkins"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Jenkins** Image.
+This page shows detailed information about all public variants of the Chainguard **jenkins** Image.
 
 ## Variants Compared
 The **jenkins** Chainguard Image currently has one public variant: 

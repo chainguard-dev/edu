@@ -1,7 +1,7 @@
 ---
-title: "Vertical-pod-autoscaler-recommender Public Image Variants"
+title: "vertical-pod-autoscaler-recommender Image Variants"
 type: "article"
-description: "Detailed information about the public Vertical-pod-autoscaler-recommender Chainguard Image variants"
+description: "Detailed information about the public vertical-pod-autoscaler-recommender Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Vertical-pod-autoscaler-recommender"
+    parent: "vertical-pod-autoscaler-recommender"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Vertical-pod-autoscaler-recommender** Image.
+This page shows detailed information about all public variants of the Chainguard **vertical-pod-autoscaler-recommender** Image.
 
 ## Variants Compared
 The **vertical-pod-autoscaler-recommender** Chainguard Image currently has 2 public variants: 

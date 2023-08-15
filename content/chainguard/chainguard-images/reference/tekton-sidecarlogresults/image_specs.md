@@ -1,7 +1,7 @@
 ---
-title: "Tekton-sidecarlogresults Public Image Variants"
+title: "tekton-sidecarlogresults Image Variants"
 type: "article"
-description: "Detailed information about the public Tekton-sidecarlogresults Chainguard Image variants"
+description: "Detailed information about the public tekton-sidecarlogresults Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Tekton-sidecarlogresults"
+    parent: "tekton-sidecarlogresults"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Tekton-sidecarlogresults** Image.
+This page shows detailed information about all public variants of the Chainguard **tekton-sidecarlogresults** Image.
 
 ## Variants Compared
 The **tekton-sidecarlogresults** Chainguard Image currently has 2 public variants: 

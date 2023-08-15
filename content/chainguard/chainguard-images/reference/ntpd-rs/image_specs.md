@@ -1,7 +1,7 @@
 ---
-title: "Ntpd-rs Public Image Variants"
+title: "ntpd-rs Image Variants"
 type: "article"
-description: "Detailed information about the public Ntpd-rs Chainguard Image variants"
+description: "Detailed information about the public ntpd-rs Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Ntpd-rs"
+    parent: "ntpd-rs"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Ntpd-rs** Image.
+This page shows detailed information about all public variants of the Chainguard **ntpd-rs** Image.
 
 ## Variants Compared
 The **ntpd-rs** Chainguard Image currently has 2 public variants: 

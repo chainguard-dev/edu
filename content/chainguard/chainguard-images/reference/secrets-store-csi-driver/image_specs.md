@@ -1,7 +1,7 @@
 ---
-title: "Secrets-store-csi-driver Public Image Variants"
+title: "secrets-store-csi-driver Image Variants"
 type: "article"
-description: "Detailed information about the public Secrets-store-csi-driver Chainguard Image variants"
+description: "Detailed information about the public secrets-store-csi-driver Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Secrets-store-csi-driver"
+    parent: "secrets-store-csi-driver"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Secrets-store-csi-driver** Image.
+This page shows detailed information about all public variants of the Chainguard **secrets-store-csi-driver** Image.
 
 ## Variants Compared
 The **secrets-store-csi-driver** Chainguard Image currently has 4 public variants: 
