@@ -1,22 +1,30 @@
 ---
 date: 2023-08-15T09:26:23Z
-title: "chainctl images repos"
-slug: chainctl_images_repos
-url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos/
+title: "chainctl images diff"
+slug: chainctl_images_diff
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_diff/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl images repos
+## chainctl images diff
 
-Image repo related commands for the Chainguard platform.
+Diff images.
+
+```
+chainctl images diff FROM_IMAGE TO_IMAGE [flags]
+```
 
 ### Options
 
 ```
-  -h, --help   help for repos
+      --group string     The name or id of the parent group to list image repos.
+  -h, --help             help for diff
+      --show-dates       Whether to show date tags of the form latest-{date}.
+      --show-epochs      Whether to show epoch tags of the form 1.2.3-r4.
+      --show-referrers   Whether to show referrer tags of the form sha256-deadbeef.{sig,sbom,att}.
 ```
 
 ### Options inherited from parent commands
@@ -35,5 +43,4 @@ Image repo related commands for the Chainguard platform.
 ### SEE ALSO
 
 * [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
-* [chainctl images repos list](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_list/)	 - List image repositories.
 
