@@ -1,7 +1,7 @@
 ---
-title: "Jdk Image Variants"
+title: "jdk Image Variants"
 type: "article"
-description: "Detailed information about the Jdk Chainguard Image variants"
+description: "Detailed information about the public jdk Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,49 +9,70 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Jdk"
+    parent: "jdk"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **Jdk** Image.
+This page shows detailed information about all public variants of the Chainguard **jdk** Image.
 
 ## Variants Compared
-The **jdk** Chainguard Image currently has 6 public variants: 
+The **jdk** Chainguard Image currently has 2 public variants: 
 
-- `latest`
 - `latest-dev`
-- `openjdk-17`
-- `openjdk-17-dev`
-- `openjdk-11`
-- `openjdk-11-dev`
+- `latest`
 
-## Default Image Settings
-`USER`:		`java`
+The table has detailed information about each of these variants.
 
-`WORKDIR`:	`/home/build`
-
-`ENTRYPOINT`:	not specified
-
-`CMD`:		not specified
-
-The following table has additional information about each of these variants.
-
-|              | latest | latest-dev | openjdk-17 | openjdk-17-dev | openjdk-11 | openjdk-11-dev |
-|--------------|--------|------------|------------|----------------|------------|----------------|
-| Has apk?     | no     | yes        | no         | yes            | no         | yes            |
-| Has a shell? | yes    | yes        | yes        | yes            | yes        | yes            |
+|              | latest-dev    | latest        |
+|--------------|---------------|---------------|
+| Default User | `java`        | `java`        |
+| Entrypoint   | not specified | not specified |
+| CMD          | not specified | not specified |
+| Workdir      | `/home/build` | `/home/build` |
+| Has apk?     | yes           | no            |
+| Has a shell? | yes           | yes           |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/jdk/tags_history/) for the full list of available tags.
-## Image Dependencies
-The table shows package distribution across all variants.
 
-|                          | latest | latest-dev | openjdk-17 | openjdk-17-dev | openjdk-11 | openjdk-11-dev |
-|--------------------------|--------|------------|------------|----------------|------------|----------------|
-| `glibc-locale-en`        | X      | X          | X          | X              | X          | X              |
-| `busybox`                | X      | X          | X          | X              | X          | X              |
-| `openjdk-17`             | X      | X          | X          | X              |            |                |
-| `openjdk-17-default-jvm` | X      | X          | X          | X              |            |                |
-| `libstdc++`              | X      | X          | X          | X              | X          | X              |
-| `openjdk-11`             |        |            |            |                | X          | X              |
-| `openjdk-11-default-jvm` |        |            |            |                | X          | X              |
+## Packages Included
+The table shows package distribution across variants.
+
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `busybox`                | X          | X      |
+| `ca-certificates-bundle` | X          | X      |
+| `fontconfig-config`      | X          | X      |
+| `freetype`               | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-en`        | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `java-cacerts`           | X          | X      |
+| `java-common`            | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libbrotlicommon1`       | X          | X      |
+| `libbrotlidec1`          | X          | X      |
+| `libbz2-1`               | X          | X      |
+| `libcrypt1`              | X          | X      |
+| `libcrypto3`             | X          |        |
+| `libcurl-openssl4`       | X          |        |
+| `libexpat1`              | X          | X      |
+| `libfontconfig1`         | X          | X      |
+| `libgcc`                 | X          | X      |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libpng`                 | X          | X      |
+| `libssl3`                | X          |        |
+| `libstdc++`              | X          | X      |
+| `ncurses`                | X          |        |
+| `ncurses-terminfo-base`  | X          |        |
+| `openjdk-17`             | X          | X      |
+| `openjdk-17-default-jvm` | X          | X      |
+| `openjdk-17-jre`         | X          | X      |
+| `openjdk-17-jre-base`    | X          | X      |
+| `openssl-config`         | X          |        |
+| `wolfi-baselayout`       | X          | X      |
+| `zlib`                   | X          | X      |
