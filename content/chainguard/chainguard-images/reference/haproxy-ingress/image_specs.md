@@ -1,7 +1,7 @@
 ---
-title: "Haproxy-ingress Public Image Variants"
+title: "haproxy-ingress Image Variants"
 type: "article"
-description: "Detailed information about the public Haproxy-ingress Chainguard Image variants"
+description: "Detailed information about the public haproxy-ingress Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Haproxy-ingress"
+    parent: "haproxy-ingress"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Haproxy-ingress** Image.
+This page shows detailed information about all public variants of the Chainguard **haproxy-ingress** Image.
 
 ## Variants Compared
 The **haproxy-ingress** Chainguard Image currently has 2 public variants: 

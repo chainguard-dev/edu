@@ -1,7 +1,7 @@
 ---
-title: "Calico-pod2daemon Public Image Variants"
+title: "calico-pod2daemon Image Variants"
 type: "article"
-description: "Detailed information about the public Calico-pod2daemon Chainguard Image variants"
+description: "Detailed information about the public calico-pod2daemon Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Calico-pod2daemon"
+    parent: "calico-pod2daemon"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Calico-pod2daemon** Image.
+This page shows detailed information about all public variants of the Chainguard **calico-pod2daemon** Image.
 
 ## Variants Compared
 The **calico-pod2daemon** Chainguard Image currently has one public variant: 

@@ -1,7 +1,7 @@
 ---
-title: "Crane Public Image Variants"
+title: "crane Image Variants"
 type: "article"
-description: "Detailed information about the public Crane Chainguard Image variants"
+description: "Detailed information about the public crane Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Crane"
+    parent: "crane"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Crane** Image.
+This page shows detailed information about all public variants of the Chainguard **crane** Image.
 
 ## Variants Compared
 The **crane** Chainguard Image currently has 2 public variants: 

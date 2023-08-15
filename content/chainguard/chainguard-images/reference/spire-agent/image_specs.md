@@ -1,7 +1,7 @@
 ---
-title: "Spire-agent Public Image Variants"
+title: "spire-agent Image Variants"
 type: "article"
-description: "Detailed information about the public Spire-agent Chainguard Image variants"
+description: "Detailed information about the public spire-agent Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Spire-agent"
+    parent: "spire-agent"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Spire-agent** Image.
+This page shows detailed information about all public variants of the Chainguard **spire-agent** Image.
 
 ## Variants Compared
 The **spire-agent** Chainguard Image currently has 2 public variants: 

@@ -1,7 +1,7 @@
 ---
-title: "Flux-notification-controller Public Image Variants"
+title: "flux-notification-controller Image Variants"
 type: "article"
-description: "Detailed information about the public Flux-notification-controller Chainguard Image variants"
+description: "Detailed information about the public flux-notification-controller Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Flux-notification-controller"
+    parent: "flux-notification-controller"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Flux-notification-controller** Image.
+This page shows detailed information about all public variants of the Chainguard **flux-notification-controller** Image.
 
 ## Variants Compared
 The **flux-notification-controller** Chainguard Image currently has 2 public variants: 

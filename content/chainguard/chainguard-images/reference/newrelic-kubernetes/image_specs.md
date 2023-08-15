@@ -1,7 +1,7 @@
 ---
-title: "Newrelic-kubernetes Public Image Variants"
+title: "newrelic-kubernetes Image Variants"
 type: "article"
-description: "Detailed information about the public Newrelic-kubernetes Chainguard Image variants"
+description: "Detailed information about the public newrelic-kubernetes Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Newrelic-kubernetes"
+    parent: "newrelic-kubernetes"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Newrelic-kubernetes** Image.
+This page shows detailed information about all public variants of the Chainguard **newrelic-kubernetes** Image.
 
 ## Variants Compared
 The **newrelic-kubernetes** Chainguard Image currently has one public variant: 

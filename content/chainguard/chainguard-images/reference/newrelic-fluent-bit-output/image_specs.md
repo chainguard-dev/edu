@@ -1,7 +1,7 @@
 ---
-title: "Newrelic-fluent-bit-output Public Image Variants"
+title: "newrelic-fluent-bit-output Image Variants"
 type: "article"
-description: "Detailed information about the public Newrelic-fluent-bit-output Chainguard Image variants"
+description: "Detailed information about the public newrelic-fluent-bit-output Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Newrelic-fluent-bit-output"
+    parent: "newrelic-fluent-bit-output"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Newrelic-fluent-bit-output** Image.
+This page shows detailed information about all public variants of the Chainguard **newrelic-fluent-bit-output** Image.
 
 ## Variants Compared
 The **newrelic-fluent-bit-output** Chainguard Image currently has one public variant: 

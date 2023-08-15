@@ -1,7 +1,7 @@
 ---
-title: "Prometheus-postgres-exporter Public Image Variants"
+title: "prometheus-postgres-exporter Image Variants"
 type: "article"
-description: "Detailed information about the public Prometheus-postgres-exporter Chainguard Image variants"
+description: "Detailed information about the public prometheus-postgres-exporter Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Prometheus-postgres-exporter"
+    parent: "prometheus-postgres-exporter"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Prometheus-postgres-exporter** Image.
+This page shows detailed information about all public variants of the Chainguard **prometheus-postgres-exporter** Image.
 
 ## Variants Compared
 The **prometheus-postgres-exporter** Chainguard Image currently has 2 public variants: 

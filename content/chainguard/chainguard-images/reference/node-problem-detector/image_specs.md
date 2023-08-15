@@ -1,7 +1,7 @@
 ---
-title: "Node-problem-detector Public Image Variants"
+title: "node-problem-detector Image Variants"
 type: "article"
-description: "Detailed information about the public Node-problem-detector Chainguard Image variants"
+description: "Detailed information about the public node-problem-detector Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Node-problem-detector"
+    parent: "node-problem-detector"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Node-problem-detector** Image.
+This page shows detailed information about all public variants of the Chainguard **node-problem-detector** Image.
 
 ## Variants Compared
 The **node-problem-detector** Chainguard Image currently has 2 public variants: 

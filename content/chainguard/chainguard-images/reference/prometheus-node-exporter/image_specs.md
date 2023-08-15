@@ -1,7 +1,7 @@
 ---
-title: "Prometheus-node-exporter Public Image Variants"
+title: "prometheus-node-exporter Image Variants"
 type: "article"
-description: "Detailed information about the public Prometheus-node-exporter Chainguard Image variants"
+description: "Detailed information about the public prometheus-node-exporter Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Prometheus-node-exporter"
+    parent: "prometheus-node-exporter"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Prometheus-node-exporter** Image.
+This page shows detailed information about all public variants of the Chainguard **prometheus-node-exporter** Image.
 
 ## Variants Compared
 The **prometheus-node-exporter** Chainguard Image currently has 2 public variants: 

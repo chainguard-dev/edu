@@ -1,7 +1,7 @@
 ---
-title: "Kube-fluentd-operator Public Image Variants"
+title: "kube-fluentd-operator Image Variants"
 type: "article"
-description: "Detailed information about the public Kube-fluentd-operator Chainguard Image variants"
+description: "Detailed information about the public kube-fluentd-operator Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Kube-fluentd-operator"
+    parent: "kube-fluentd-operator"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Kube-fluentd-operator** Image.
+This page shows detailed information about all public variants of the Chainguard **kube-fluentd-operator** Image.
 
 ## Variants Compared
 The **kube-fluentd-operator** Chainguard Image currently has one public variant: 

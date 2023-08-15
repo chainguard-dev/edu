@@ -1,7 +1,7 @@
 ---
-title: "Newrelic-infrastructure-bundle Public Image Variants"
+title: "newrelic-infrastructure-bundle Image Variants"
 type: "article"
-description: "Detailed information about the public Newrelic-infrastructure-bundle Chainguard Image variants"
+description: "Detailed information about the public newrelic-infrastructure-bundle Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Newrelic-infrastructure-bundle"
+    parent: "newrelic-infrastructure-bundle"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Newrelic-infrastructure-bundle** Image.
+This page shows detailed information about all public variants of the Chainguard **newrelic-infrastructure-bundle** Image.
 
 ## Variants Compared
 The **newrelic-infrastructure-bundle** Chainguard Image currently has one public variant: 

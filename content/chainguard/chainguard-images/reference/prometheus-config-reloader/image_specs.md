@@ -1,7 +1,7 @@
 ---
-title: "Prometheus-config-reloader Public Image Variants"
+title: "prometheus-config-reloader Image Variants"
 type: "article"
-description: "Detailed information about the public Prometheus-config-reloader Chainguard Image variants"
+description: "Detailed information about the public prometheus-config-reloader Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Prometheus-config-reloader"
+    parent: "prometheus-config-reloader"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Prometheus-config-reloader** Image.
+This page shows detailed information about all public variants of the Chainguard **prometheus-config-reloader** Image.
 
 ## Variants Compared
 The **prometheus-config-reloader** Chainguard Image currently has 2 public variants: 

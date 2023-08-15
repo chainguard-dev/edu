@@ -1,7 +1,7 @@
 ---
-title: "Nginx Public Image Variants"
+title: "nginx Image Variants"
 type: "article"
-description: "Detailed information about the public Nginx Chainguard Image variants"
+description: "Detailed information about the public nginx Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Nginx"
+    parent: "nginx"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Nginx** Image.
+This page shows detailed information about all public variants of the Chainguard **nginx** Image.
 
 ## Variants Compared
 The **nginx** Chainguard Image currently has 2 public variants: 

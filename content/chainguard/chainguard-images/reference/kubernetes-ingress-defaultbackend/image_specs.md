@@ -1,7 +1,7 @@
 ---
-title: "Kubernetes-ingress-defaultbackend Public Image Variants"
+title: "kubernetes-ingress-defaultbackend Image Variants"
 type: "article"
-description: "Detailed information about the public Kubernetes-ingress-defaultbackend Chainguard Image variants"
+description: "Detailed information about the public kubernetes-ingress-defaultbackend Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Kubernetes-ingress-defaultbackend"
+    parent: "kubernetes-ingress-defaultbackend"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Kubernetes-ingress-defaultbackend** Image.
+This page shows detailed information about all public variants of the Chainguard **kubernetes-ingress-defaultbackend** Image.
 
 ## Variants Compared
 The **kubernetes-ingress-defaultbackend** Chainguard Image currently has 2 public variants: 

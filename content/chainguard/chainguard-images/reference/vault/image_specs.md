@@ -1,7 +1,7 @@
 ---
-title: "Vault Public Image Variants"
+title: "vault Image Variants"
 type: "article"
-description: "Detailed information about the public Vault Chainguard Image variants"
+description: "Detailed information about the public vault Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Vault"
+    parent: "vault"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Vault** Image.
+This page shows detailed information about all public variants of the Chainguard **vault** Image.
 
 ## Variants Compared
 The **vault** Chainguard Image currently has 4 public variants: 

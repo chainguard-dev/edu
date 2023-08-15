@@ -1,7 +1,7 @@
 ---
-title: "Slim-toolkit-debug Public Image Variants"
+title: "slim-toolkit-debug Image Variants"
 type: "article"
-description: "Detailed information about the public Slim-toolkit-debug Chainguard Image variants"
+description: "Detailed information about the public slim-toolkit-debug Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Slim-toolkit-debug"
+    parent: "slim-toolkit-debug"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Slim-toolkit-debug** Image.
+This page shows detailed information about all public variants of the Chainguard **slim-toolkit-debug** Image.
 
 ## Variants Compared
 The **slim-toolkit-debug** Chainguard Image currently has one public variant: 

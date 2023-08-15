@@ -1,7 +1,7 @@
 ---
-title: "Gcc-glibc Public Image Variants"
+title: "gcc-glibc Image Variants"
 type: "article"
-description: "Detailed information about the public Gcc-glibc Chainguard Image variants"
+description: "Detailed information about the public gcc-glibc Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Gcc-glibc"
+    parent: "gcc-glibc"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Gcc-glibc** Image.
+This page shows detailed information about all public variants of the Chainguard **gcc-glibc** Image.
 
 ## Variants Compared
 The **gcc-glibc** Chainguard Image currently has one public variant: 

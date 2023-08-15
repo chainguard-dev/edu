@@ -1,7 +1,7 @@
 ---
-title: "Php Public Image Variants"
+title: "php Image Variants"
 type: "article"
-description: "Detailed information about the public Php Chainguard Image variants"
+description: "Detailed information about the public php Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Php"
+    parent: "php"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Php** Image.
+This page shows detailed information about all public variants of the Chainguard **php** Image.
 
 ## Variants Compared
 The **php** Chainguard Image currently has 4 public variants: 

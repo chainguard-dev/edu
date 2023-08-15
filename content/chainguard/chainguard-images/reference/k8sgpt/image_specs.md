@@ -1,7 +1,7 @@
 ---
-title: "K8sgpt Public Image Variants"
+title: "k8sgpt Image Variants"
 type: "article"
-description: "Detailed information about the public K8sgpt Chainguard Image variants"
+description: "Detailed information about the public k8sgpt Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "K8sgpt"
+    parent: "k8sgpt"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **K8sgpt** Image.
+This page shows detailed information about all public variants of the Chainguard **k8sgpt** Image.
 
 ## Variants Compared
 The **k8sgpt** Chainguard Image currently has 3 public variants: 

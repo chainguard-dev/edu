@@ -1,7 +1,7 @@
 ---
-title: "Kube-bench Public Image Variants"
+title: "kube-bench Image Variants"
 type: "article"
-description: "Detailed information about the public Kube-bench Chainguard Image variants"
+description: "Detailed information about the public kube-bench Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Kube-bench"
+    parent: "kube-bench"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Kube-bench** Image.
+This page shows detailed information about all public variants of the Chainguard **kube-bench** Image.
 
 ## Variants Compared
 The **kube-bench** Chainguard Image currently has one public variant: 

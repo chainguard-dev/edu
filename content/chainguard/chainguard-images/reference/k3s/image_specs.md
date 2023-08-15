@@ -1,7 +1,7 @@
 ---
-title: "K3s Public Image Variants"
+title: "k3s Image Variants"
 type: "article"
-description: "Detailed information about the public K3s Chainguard Image variants"
+description: "Detailed information about the public k3s Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "K3s"
+    parent: "k3s"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **K3s** Image.
+This page shows detailed information about all public variants of the Chainguard **k3s** Image.
 
 ## Variants Compared
 The **k3s** Chainguard Image currently has 10 public variants: 

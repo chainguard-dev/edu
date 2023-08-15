@@ -1,7 +1,7 @@
 ---
-title: "Vt Public Image Variants"
+title: "vt Image Variants"
 type: "article"
-description: "Detailed information about the public Vt Chainguard Image variants"
+description: "Detailed information about the public vt Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Vt"
+    parent: "vt"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Vt** Image.
+This page shows detailed information about all public variants of the Chainguard **vt** Image.
 
 ## Variants Compared
 The **vt** Chainguard Image currently has 2 public variants: 

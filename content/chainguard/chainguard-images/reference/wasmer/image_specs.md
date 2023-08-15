@@ -1,7 +1,7 @@
 ---
-title: "Wasmer Public Image Variants"
+title: "wasmer Image Variants"
 type: "article"
-description: "Detailed information about the public Wasmer Chainguard Image variants"
+description: "Detailed information about the public wasmer Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Wasmer"
+    parent: "wasmer"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Wasmer** Image.
+This page shows detailed information about all public variants of the Chainguard **wasmer** Image.
 
 ## Variants Compared
 The **wasmer** Chainguard Image currently has 2 public variants: 

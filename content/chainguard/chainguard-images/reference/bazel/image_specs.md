@@ -1,7 +1,7 @@
 ---
-title: "Bazel Public Image Variants"
+title: "bazel Image Variants"
 type: "article"
-description: "Detailed information about the public Bazel Chainguard Image variants"
+description: "Detailed information about the public bazel Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Bazel"
+    parent: "bazel"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Bazel** Image.
+This page shows detailed information about all public variants of the Chainguard **bazel** Image.
 
 ## Variants Compared
 The **bazel** Chainguard Image currently has one public variant: 

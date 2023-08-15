@@ -1,7 +1,7 @@
 ---
-title: "Kubernetes-dashboard-metrics-scraper Public Image Variants"
+title: "kubernetes-dashboard-metrics-scraper Image Variants"
 type: "article"
-description: "Detailed information about the public Kubernetes-dashboard-metrics-scraper Chainguard Image variants"
+description: "Detailed information about the public kubernetes-dashboard-metrics-scraper Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Kubernetes-dashboard-metrics-scraper"
+    parent: "kubernetes-dashboard-metrics-scraper"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Kubernetes-dashboard-metrics-scraper** Image.
+This page shows detailed information about all public variants of the Chainguard **kubernetes-dashboard-metrics-scraper** Image.
 
 ## Variants Compared
 The **kubernetes-dashboard-metrics-scraper** Chainguard Image currently has 2 public variants: 

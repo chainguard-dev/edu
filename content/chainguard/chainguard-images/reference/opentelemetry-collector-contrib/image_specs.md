@@ -1,7 +1,7 @@
 ---
-title: "Opentelemetry-collector-contrib Public Image Variants"
+title: "opentelemetry-collector-contrib Image Variants"
 type: "article"
-description: "Detailed information about the public Opentelemetry-collector-contrib Chainguard Image variants"
+description: "Detailed information about the public opentelemetry-collector-contrib Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Opentelemetry-collector-contrib"
+    parent: "opentelemetry-collector-contrib"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Opentelemetry-collector-contrib** Image.
+This page shows detailed information about all public variants of the Chainguard **opentelemetry-collector-contrib** Image.
 
 ## Variants Compared
 The **opentelemetry-collector-contrib** Chainguard Image currently has 2 public variants: 

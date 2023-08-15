@@ -1,7 +1,7 @@
 ---
-title: "Cluster-proportional-autoscaler Public Image Variants"
+title: "cluster-proportional-autoscaler Image Variants"
 type: "article"
-description: "Detailed information about the public Cluster-proportional-autoscaler Chainguard Image variants"
+description: "Detailed information about the public cluster-proportional-autoscaler Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,12 +9,12 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "Cluster-proportional-autoscaler"
+    parent: "cluster-proportional-autoscaler"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **Cluster-proportional-autoscaler** Image.
+This page shows detailed information about all public variants of the Chainguard **cluster-proportional-autoscaler** Image.
 
 ## Variants Compared
 The **cluster-proportional-autoscaler** Chainguard Image currently has 2 public variants: 
