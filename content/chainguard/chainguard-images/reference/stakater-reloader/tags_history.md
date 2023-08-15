@@ -31,4 +31,3 @@ Please note that digests and timestamps only change when there is a change to th
 |  `1.0.30-r0-dev` `1.0.30-dev`                                | July 26th    | `sha256:5d8fc2f82ff9701709da1c6bf1a641562aa30df4750843583e3d88718c26dfb1` |
 |  `1.0.30`                                                    | July 26th    | `sha256:5a17317576eade53cdfca5d322fa4726d2d2c66eaf2986f6f43abc1bd1020b03` |
 |  `1.0.29-dev` `1.0.29-r1-dev`                                | July 18th    | `sha256:ab2b2f05c9bf541ee70ce67dbeeaa4cabf46ab34ec313547e080163cc88a63cb` |
-|  `1.0.29`                                                    | July 14th    | `sha256:8cd03a515ff73980c79eab24c2ed9d573b5c6d88195c422acad5a046f80a686e` |
