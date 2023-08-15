@@ -27,7 +27,7 @@ The table has detailed information about each of these variants.
 |              | latest-dev                                                        | latest                                                            |
 |--------------|-------------------------------------------------------------------|-------------------------------------------------------------------|
 | Default User | `65532`                                                           | `65532`                                                           |
-| Entrypoint   | ``                                                                | ``                                                                |
+| Entrypoint   | not specified                                                     | not specified                                                     |
 | CMD          | `/bin/sh -c '/usr/sbin/guacd  -b 0.0.0.0 -L $GUACD_LOG_LEVEL -f'` | `/bin/sh -c '/usr/sbin/guacd  -b 0.0.0.0 -L $GUACD_LOG_LEVEL -f'` |
 | Workdir      | not specified                                                     | not specified                                                     |
 | Has apk?     | yes                                                               | no                                                                |

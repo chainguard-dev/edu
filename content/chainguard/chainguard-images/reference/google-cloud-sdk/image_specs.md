@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 |              | latest            |
 |--------------|-------------------|
 | Default User | `gcloud`          |
-| Entrypoint   | ``                |
+| Entrypoint   | not specified     |
 | CMD          | `/usr/bin/gcloud` |
 | Workdir      | not specified     |
 | Has apk?     | yes               |

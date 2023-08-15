@@ -27,7 +27,7 @@ The table has detailed information about each of these variants.
 |              | latest-dev    | latest        |
 |--------------|---------------|---------------|
 | Default User | `nonroot`     | `nonroot`     |
-| Entrypoint   | ``            | ``            |
+| Entrypoint   | not specified | not specified |
 | CMD          | `/bin/sh -l`  | `/bin/sh -l`  |
 | Workdir      | not specified | not specified |
 | Has apk?     | yes           | no            |
