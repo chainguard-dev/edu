@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 3rd   | `sha256:d7c25979cf742cef028390326a841e4ed923041e863253bd227b0714d2984af3` |
-|  `latest`     | July 27th    | `sha256:e4e8de10a186f01ac9a3b59356c78799a06deb927ff9836d28e0302e49b4c587` |
+|  `latest-dev` | August 15th  | `sha256:21c0ec6f0254a67b1d7e237048578a6aaae8e03b318857aa37cc5b0c1d28225a` |
+|  `latest`     | August 15th  | `sha256:b46015c5bef244ec3e1f79edf8c7c89df48b4bf4ed72dcf409c0f4f62caf89fb` |
 
 # cert-manager-webhook
 

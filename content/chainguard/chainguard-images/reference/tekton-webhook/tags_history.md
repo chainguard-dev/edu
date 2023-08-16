@@ -20,8 +20,9 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                       | Last Changed | Digest                                                                    |
 |---------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.50.1` `0.50`                                 | August 11th  | `sha256:eb03ec1345d0ce9bc58c102f9ebb5cf035908f364d28c2f577e3827400e38476` |
-|  `0-dev` `0.50-dev` `0.50.1-dev` `0.50.1-r0-dev` `latest-dev` | August 11th  | `sha256:a9af7fe15d81b1096259cd99fa28aed4cc9fb5649144c3dbacfed3cbc597e4d1` |
+|  `0` `latest` `0.50` `0.50.1`                                 | August 15th  | `sha256:9a8a9551b1a60281d5e1a26385fbfbedc7861dcc10daaefc7a3a2cf067169cf4` |
+|  `0-dev` `0.50.1-r1-dev` `0.50-dev` `0.50.1-dev` `latest-dev` | August 15th  | `sha256:f47dec8aacba13a967f803a30940430ac36ac0ff0b4c0e097cd2c4d7afa7ac03` |
+|  `0.50.1-r0-dev`                                              | August 11th  | `sha256:a9af7fe15d81b1096259cd99fa28aed4cc9fb5649144c3dbacfed3cbc597e4d1` |
 |  `0.50.0-dev` `0.50.0-r0-dev`                                 | August 3rd   | `sha256:9eed76aef5276cce1e0b4b57a1f98e4ee671ab89dce812e8d193874209d2bdcd` |
 |  `0.50.0`                                                     | July 26th    | `sha256:143d982534eeb833c17cdd2db0c4217f960a5ede8bf4c03068cf3ed0d35b5f1a` |
 |  `0.49-dev` `0.49.0-dev` `0.49.0-r2-dev`                      | July 20th    | `sha256:98e2c8614f3139d5f7a9688abd7fb9cbd9853ff163f592d99219abc2d93f739e` |

@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 3rd   | `sha256:58eca15038ccf9759f2ca105e1dadf42aae6d2c9726fc9c442255af3684f75b3` |
-|  `latest-dev` | August 3rd   | `sha256:3f21783d9dc65a2e98e62bd3ac7737927ff07fff905a8e7ff0fda8de76bbf9bc` |
+|  `latest-dev` | August 15th  | `sha256:a1b06948548c2bdbc0a295b7f03315b292024bfa08a64ef13785c7b7898a5d2e` |
+|  `latest`     | August 15th  | `sha256:48279f1ec1fbbe930b5078eaf4b9f9b6a7ef6093f8e361874ecc3de9edb01130` |
 
 # prometheus-alertmanager
 
