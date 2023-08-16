@@ -2,7 +2,7 @@
 title : "Assumable Identities in Chainguard Enforce"
 linktitle: "Assumable Identities"
 lead: ""
-description: "An overview of what assumable identities are and how they can be used in Chainguard Enforce"
+description: "An overview of what assumable identities are and how they can be used in Chainguard Enforce."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
 lastmod: 2023-05-04T08:48:45+00:00
