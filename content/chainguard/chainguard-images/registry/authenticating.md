@@ -3,7 +3,7 @@ title: "Authenticating to Chainguard Registry"
 type: "article"
 description: "A guide on authenticating to the Chainguard Registry to get images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2023-03-21T15:10:16+00:00
+lastmod: 2023-08-16T15:10:16+00:00
 draft: false
 images: []
 menu:
@@ -15,11 +15,9 @@ toc: true
 
 ## Public Images
 
-All public Chainguard Images are available for free.
+Chainguard Images tagged `:latest` or `:latest-dev`, and Images by digest are available for free in the Public catalog. However, logging in with a Chainguard account and authenticating when pulling from the registry provides a mechanism for Chainguard to contact you if there are any issues with images you are pulling. This may enable Chainguard to notify you of upcoming deprecations, changes in behavior, critical vulnerabilities and remediations for images you have recently pulled.
 
-However, logging in with a Chainguard account and authenticating when pulling from the registry provides a mechanism for Chainguard to contact you if there are any issues with images you are pulling.
-
-This may enable Chainguard to notify you of upcoming deprecations, changes in behavior, critical vulnerabilities and remediations for images you have recently pulled.
+As of August 16, 2023, all other tags for Chainguard Images in the Public catalog are unavailable without paying for access to the Standard or Custom catalogs. This means that Public catalog users, including open source projects, will either need to pin to the digest they currently use, migrate to the software version associated with `:latest`, or build upon [wolfi-base](/chainguard/chainguard-images/reference/wolfi-base/) to build their desired image. You can read about these changes in the [Important updates for Chainguard Images public catalog users](https://www.chainguard.dev/unchained/important-updates-for-chainguard-images-public-catalog-users).
 
 ## Signing Up
 

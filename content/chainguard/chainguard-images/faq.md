@@ -3,7 +3,7 @@ title: "Chainguard Images FAQs"
 type: "article"
 description: "Frequently asked questions about Chainguard Images"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2022-09-01T08:49:31+00:00
+lastmod: 2023-08-16T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "FAQ", "Product"]
 images: []
@@ -81,7 +81,10 @@ Chainguard Images are designed to be minimalist, and many of them are distroless
 Chainguard Images are rebuilt every night to ensure that new package versions and security updates in upstream Wolfi are quickly applied.
 
 ## Do I need to authenticate into Chainguard to use Chainguard Images?
+Logging in is optional if you are only using `:latest` and `:latest-dev` tags or image digests. 
 
-Logging in is optional, but it will be the primary mechanism we will use to notify users of upcoming changes moving forward. We encourage users of our free, public Images to start doing this today. Logging in will also give users access to browse our Images in the Chainguard platform.
+As of August 16, 2023, all other tags for Chainguard Images in the Public catalog are unavailable without paying for access to the Standard or Custom catalogs. This means that public catalog users, including open source projects, will either need to pin to the digest they currently use, migrate to the software version associated with `:latest`, or build upon [wolfi-base](/chainguard/chainguard-images/reference/wolfi-base/) to build their desired image.
 
-To learn how to authenticate into the Chainguard Registry, you can review our [authentication documentation](/chainguard/chainguard-images/registry/authenticating/). You can read more about our Images catalogs and some of the thought process behind authentication in our blog post, [Scaling Chainguard Images with a growing catalog and proactive security updates](https://www.chainguard.dev/unchained/scaling-chainguard-images-with-a-growing-catalog-and-proactive-security-updates).
+There are benefits for all users who authenticate to the Chainguard Registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates. However, users can continue to pull Images by digest or Images tagged `:latest` anonymously. 
+
+To learn how to authenticate into the Chainguard Registry, you can review our [authentication documentation](/chainguard/chainguard-images/registry/authenticating/). You can read more about our Images catalogs and some of the thought process behind authentication in our blog post, [Scaling Chainguard Images with a growing catalog and proactive security updates](https://www.chainguard.dev/unchained/scaling-chainguard-images-with-a-growing-catalog-and-proactive-security-updates). You can read about the August 16, 2023 changes in the [Important updates for Chainguard Images public catalog users](https://www.chainguard.dev/unchained/important-updates-for-chainguard-images-public-catalog-users).
