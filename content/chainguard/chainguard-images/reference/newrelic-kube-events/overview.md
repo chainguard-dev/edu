@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 3rd   | `sha256:eff108fa3dec5939e6bddc6f1fe488a4c05c7ff8504805b71a87e69b25eb07db` |
+|  `latest` | August 15th  | `sha256:0a8cbc96e7b85f69b58677d084f0195744e0c4d78dc068bd58c74d10f4faef1b` |
 
 # newrelic-kube-events
 

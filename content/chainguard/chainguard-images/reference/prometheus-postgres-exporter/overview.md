@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 3rd   | `sha256:4b582e319214f3c58dd59de456665da1a218d7a5398103533a0fc237ad7ba28a` |
-|  `latest`     | August 3rd   | `sha256:7bf931d8a79f8352d0fe646adb3f3c195e3234a92c47bccb87a43fdba8cfca76` |
+|  `latest`     | August 15th  | `sha256:2ac2ac5b9ae84c3076f42894cf1d6445d013a9d1ca9129fa8afa4c3a06d2c025` |
+|  `latest-dev` | August 15th  | `sha256:e5dc47c739a334b794b483486e1c15cd4c1b9fc526e16b271fd236e36dd3be74` |
 
 # prometheus-postgres-exporter
 
