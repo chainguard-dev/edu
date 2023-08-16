@@ -1,5 +1,5 @@
 ---
-date: 2023-08-15T09:26:23Z
+date: 2023-08-16T08:39:46Z
 title: "chainctl images diff"
 slug: chainctl_images_diff
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_diff/
@@ -20,11 +20,8 @@ chainctl images diff FROM_IMAGE TO_IMAGE [flags]
 ### Options
 
 ```
-      --group string     The name or id of the parent group to list image repos.
-  -h, --help             help for diff
-      --show-dates       Whether to show date tags of the form latest-{date}.
-      --show-epochs      Whether to show epoch tags of the form 1.2.3-r4.
-      --show-referrers   Whether to show referrer tags of the form sha256-deadbeef.{sig,sbom,att}.
+  -h, --help              help for diff
+      --platform string   Specifies the platform in the form os/arch (e.g. linux/amd64)
 ```
 
 ### Options inherited from parent commands

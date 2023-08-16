@@ -1,5 +1,5 @@
 ---
-date: 2023-08-15T09:26:23Z
+date: 2023-08-16T08:39:46Z
 title: "chainctl iam identity-providers create"
 slug: chainctl_iam_identity-providers_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_create/
