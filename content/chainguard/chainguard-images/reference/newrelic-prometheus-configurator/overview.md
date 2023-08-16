@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | July 26th    | `sha256:e206443db7f99f6762762f5b8ad2b7291df9256e9c483bd3a695911c631bfe5f` |
+|  `latest` | August 15th  | `sha256:03aa7b16643c38d17a330c434f6bf038979cb0c18ac641d9005ec6e42e179f21` |
 
 # newrelic-prometheus-configurator
 
