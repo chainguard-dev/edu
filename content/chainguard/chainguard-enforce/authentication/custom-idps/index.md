@@ -56,46 +56,38 @@ Once set, the configured identity provider will be used automatically any time y
 
 > **Note**: `chainctl auth login --headless` is not currently compatible with SSO authentication.
 
-#### Authenticating with `chainctl` using a Verified Organization
+### Authenticate with `chainctl` using a Verified Organization
 
-If your organization is [verified]({{< ref "../../iam-groups/verified-orgs.md" >}}) you
-can use your organization name instead of the ID of your identity provider to authenticate.
+If your organization is [verified](/chainguard/chainguard-enforce/iam-groups/verified-orgs/), you can use your organization name instead of the ID of your identity provider to authenticate.
 
 ```sh
 chainctl auth login --org-name example.com
 ```
 
-Similarly, you can add
+You can add your organization's name to your `chainctl` config to make this a default setting.
 
 ```yaml
 defaults:
   org-name: example.com
 ```
 
-to your `chainctl` config.
-
+To learn more about working with your `chainctl` config, you can read our doc on  [How to Manage chainctl Configuration](/chainguard/chainguard-enforce/manage-chainctl-config/).
 
 ### Authenticate with the Chainguard Enforce Console
 
 To authenticate with the Chainguard Enforce Consle using SSO, click the **Use your identity provider** link on the login page.
 
-![Screenshot showing an example Chainguard login page, with a red arrow pointing to the "Use your identity provider" link.](sso-1.png)
+![Screenshot showing an example Chainguard login page, with a yellow ellipse around the "Use your identity provider" link.](chainguard-sign-in.gif)
 
-On the next page, add the identity provider's unique ID.
+On the next page, you can choose to sign in with your organization email. When authenticating to a [Verified Organization](/chainguard/chainguard-enforce/iam-groups/verified-orgs/) via the Chainguard Console, your organization name will be detected from your email address and you do not need to supply the identity provider ID.
 
-![Screenshot showing an example Chainguard login page with a field reading "IDP Identifier"](sso-2.png)
+![Screenshot showing an example Chainguard login page with a field reading "Enter your organization's email address"](chainguard-email-sign-in.png)
 
-After adding your ID, click the **Continue** button. You'll then be redirected to your identity provider to authenticate, after which you'll be redirected back to the Console.
+If your organization name does not match your email domain, you can input it specifically to authenticate with your organization's custom identity provider. Click on the link below the field to navigate between the options, or alternatively return to the screen with the social providers login option.
 
-#### Authenticating with the Chainguard Enforce Console to a Verified Organization
+![Screenshot showing an example Chainguard login page with a field reading "Enter your organization's name"](chainguard-org-sign-in.png)
 
-When authenticating to a [Verified Organization]({{< ref
-"../../iam-groups/verified-orgs.md" >}}) via the console your organization name
-will be detected from your email address and you do not need to supply the
-identity provider ID.
-
-If your organization name does not match your email domain, you can input it
-specifically to authenticate with your organization's custom identity provider.
+After adding your ID, click the **Login with provider** button. You'll then be redirected to your identity provider to authenticate, after which you'll be redirected back to the Console.
 
 ## Setup and Administration
 
