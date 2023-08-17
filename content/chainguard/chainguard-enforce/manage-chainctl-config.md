@@ -3,7 +3,7 @@ title: "How to Manage chainctl Configuration"
 linktitle: "chainctl Config"
 type: "article"
 date: 2023-07-07T05:56:52-07:00
-lastmod: 2023-07-07T05:56:52-07:00
+lastmod: 2023-08-16T05:56:52-07:00
 draft: false
 tags: ["Enforce", "chainctl", "Product"]
 images: []
@@ -82,7 +82,13 @@ The full documentation for the `chainctl config` command is available on the rel
  
 ## Edit chainctl config
 
-You can edit the `chainctl` config directly with an editor. Alternatively, you can update one attribute at a time with the `set` option, as demonstrated in the next command. 
+You can edit the `chainctl` config directly with an editor. The following command will open a text editor (nano, by default) where you can edit the local `chainctl` config. 
+
+```sh
+chainctl config edit
+```
+
+Alternatively, you can update one attribute at a time with the `set` option, as demonstrated in the next command. 
 
 ```sh
 chainctl config set platform.api=https://console-api.enforce.dev

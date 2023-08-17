@@ -5,7 +5,7 @@ lead: ""
 description: "An introduction to and overview of Chainguard's custom IDP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2023-08-09T08:48:45+00:00
+lastmod: 2023-08-15T08:48:45+00:00
 draft: false
 tags: ["Enforce", "Chainguard Images", "Overview"]
 images: []
@@ -44,7 +44,7 @@ default:
   identity-provider: <your identity provider id here>
 ```
 
-Then save and close the file. If you used the default editor, `nano`, you can do so by pressing `CTRL + X`, `Y`, and then `ENTER`. 
+Then save and close the file. If you used the default editor, `nano`, you can do so by pressing `CTRL + X`, `Y`, and then `ENTER`.
 
 You can also set this with a single command using the `chainctl config set` subcommand, as in this example.
 
@@ -56,19 +56,38 @@ Once set, the configured identity provider will be used automatically any time y
 
 > **Note**: `chainctl auth login --headless` is not currently compatible with SSO authentication.
 
+### Authenticate with `chainctl` using a Verified Organization
+
+If your organization is [verified](/chainguard/chainguard-enforce/iam-groups/verified-orgs/), you can use your organization name instead of the ID of your identity provider to authenticate.
+
+```sh
+chainctl auth login --org-name example.com
+```
+
+You can add your organization's name to your `chainctl` config to make this a default setting.
+
+```yaml
+defaults:
+  org-name: example.com
+```
+
+To learn more about working with your `chainctl` config, you can read our doc on  [How to Manage chainctl Configuration](/chainguard/chainguard-enforce/manage-chainctl-config/).
 
 ### Authenticate with the Chainguard Enforce Console
 
 To authenticate with the Chainguard Enforce Consle using SSO, click the **Use your identity provider** link on the login page.
 
-![Screenshot showing an example Chainguard login page, with a red arrow pointing to the "Use your identity provider" link.](sso-1.png)
+![Screenshot showing an example Chainguard login page, with a yellow ellipse around the "Use your identity provider" link.](chainguard-sign-in.gif)
 
-On the next page, add the identity provider's unique ID.
+On the next page, you can choose to sign in with your organization email. When authenticating to a [Verified Organization](/chainguard/chainguard-enforce/iam-groups/verified-orgs/) via the Chainguard Console, your organization name will be detected from your email address and you do not need to supply the identity provider ID.
 
-![Screenshot showing an example Chainguard login page with a field reading "IDP Identifier"](sso-2.png)
+![Screenshot showing an example Chainguard login page with a field reading "Enter your organization's email address"](chainguard-email-sign-in.png)
 
-After adding your ID, click the **Continue** button. You'll then be redirected to your identity provider to authenticate, after which you'll be redirected back to the Console.
+If your organization name does not match your email domain, you can input it specifically to authenticate with your organization's custom identity provider. Click on the link below the field to navigate between the options, or alternatively return to the screen with the social providers login option.
 
+![Screenshot showing an example Chainguard login page with a field reading "Enter your organization's name"](chainguard-org-sign-in.png)
+
+After adding your ID, click the **Login with provider** button. You'll then be redirected to your identity provider to authenticate, after which you'll be redirected back to the Console.
 
 ## Setup and Administration
 
@@ -176,7 +195,7 @@ Lastly, to delete an identity provider, run the `delete` subcommand.
 
 ```sh
 chainctl iam identity-provider delete
-``` 
+```
 
 For more details, check out the [`chainctl` documentation for these commands](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/).
 
