@@ -70,7 +70,7 @@ When authenticating via the Chainguard Console, your organization name is detect
 
 ## Verified Organizations and Chainguard Images
 
-If you've purchased Chainguard images, your Images are available via a private catalog. Your images are available to pull via `cgr.dev/<org id>/<image name>`, where `<org id>` is the unique identifier for your organization. Once your organization is verified, you can use the name of your organization instead. For example, if your organization is named `example.com` you can now pull private images from your catalog with `cgr.dev/example.com/<image name>`.
+If you've purchased Chainguard Images, your images are available via a private catalog. Your images are available to pull via `cgr.dev/<org id>/<image name>`, where `<org id>` is the unique identifier for your organization. Once your organization is verified, you can use the name of your organization instead of your organization identifer. For example, if your organization is named `example.com` and is verified, you can pull private images from your catalog with `cgr.dev/example.com/<image name>`.
 
 ## Restrictions for Verified Organizations
 
