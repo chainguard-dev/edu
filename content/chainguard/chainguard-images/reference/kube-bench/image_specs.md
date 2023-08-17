@@ -44,7 +44,7 @@ The table shows package distribution across variants.
 | `glibc-locale-posix`     | X      |
 | `kube-bench`             | X      |
 | `kube-bench-configs`     | X      |
-| `kubectl`                | X      |
+| `kubectl-1.28`           | X      |
 | `ld-linux`               | X      |
 | `libproc-2-0`            | X      |
 | `ncurses`                | X      |
