@@ -381,6 +381,21 @@ h2[id^="chainctl"] {
   color: var(--navbar-contact-color) !important;
 }
 
+.navbar-title {
+  font-weight: 600;
+  font-size: 16px;
+  height: 20px;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+.navbar-title-padding {
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 50px;
+  padding-left: 1px;
+}
+
 .a--original {
   color: var(--a-original-color);
 }
