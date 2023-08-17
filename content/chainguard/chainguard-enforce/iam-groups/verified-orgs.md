@@ -12,7 +12,7 @@ images: []
 weight: 015
 ---
 
-Resources on the Chainguard platform are organized in a hierarchical structure called [IAM Groups](/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/). A root-level IAM Group is called an _Organization_. Single customers or organizations typically only uses a single root-level _Organization_ to manage their
+Resources on the Chainguard platform are organized in a hierarchical structure called [IAM Groups](/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/). A root-level IAM Group is called an _Organization_. Single customers or organizations typically use a single root-level _Organization_ to manage their
 Chainguard resources.
 
 Organizations can optionally be verified. Verification modifies some aspects of the Chainguard platform user experience to help large organizations guide their user base to the correct resources.
