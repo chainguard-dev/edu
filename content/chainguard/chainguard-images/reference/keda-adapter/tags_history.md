@@ -18,10 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                       | Last Changed | Digest                                                                    |
-|---------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.11.2` `2` `2.11` `latest`                                 | August 15th  | `sha256:79dad0014a50b8e6eface2ba52cc87145bb61d67593c21fb1a35a519fc7c9223` |
-|  `latest-dev` `2.11-dev` `2-dev` `2.11.2-dev` `2.11.2-r1-dev` | August 15th  | `sha256:09144a69a37b2b1202e3bb1341d1d73182b27594aebf6248f68c4f4c091a43f4` |
-|  `2.11.2-r0-dev`                                              | August 3rd   | `sha256:a27126dc774436a7895256882cb56455ccc6feed3c984a785e587074bc0bad60` |
-|  `2.11.1-r2-dev` `2.11.1-dev`                                 | July 27th    | `sha256:79995bc54412a0c8fd81178058741dfea54d2a726c4ca0f8d8256afd3de4a20c` |
-|  `2.11.1`                                                     | July 26th    | `sha256:0207beb1a0db59dce4698b92ab83e7382d1a82c4fc73af2d7fb266267f663cff` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | August 15th  | `sha256:09144a69a37b2b1202e3bb1341d1d73182b27594aebf6248f68c4f4c091a43f4` |
+|  `latest`     | August 15th  | `sha256:79dad0014a50b8e6eface2ba52cc87145bb61d67593c21fb1a35a519fc7c9223` |

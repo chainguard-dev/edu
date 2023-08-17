@@ -18,12 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                       | Last Changed | Digest                                                                    |
-|---------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.50.1-r1-dev` `0.50.1-dev` `0-dev` `latest-dev` `0.50-dev` | August 15th  | `sha256:7bcd292bd240c9b1ecf6e992e268fb83eb0aecaeb036105ce81622f2e128ef08` |
-|  `0.50.1` `latest` `0` `0.50`                                 | August 15th  | `sha256:a1072e245e5bb196ef426f9111a3445f4a9f2911c3f3e3ddfb5a547d9f51e533` |
-|  `0.50.1-r0-dev`                                              | August 11th  | `sha256:05314797583f42ee3a9071b9a66e4b0026dcb1547426f54802a4e1444ba6d2cb` |
-|  `0.50.0-dev` `0.50.0-r0-dev`                                 | August 3rd   | `sha256:e9e25f1115524f8bc1052222803e1a1e12cc6b99720eef92412bed84fdd266b5` |
-|  `0.50.0`                                                     | July 26th    | `sha256:4ba2a1ab90fd2d2cc18b03ffa3263d1eb260d7be8f3af6d667ab665101c9fac6` |
-|  `0.49.0-r2-dev` `0.49.0-dev` `0.49-dev`                      | July 20th    | `sha256:7b90c1c23ded75c43e920ccc47fed6ca16f7fe887711cd18b5c007b707e86eec` |
-|  `0.49` `0.49.0`                                              | July 18th    | `sha256:bed2f19d35203047f888fa5686df4b57d87eda3483aaab6a2d39bc0f1fea5a37` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | August 15th  | `sha256:a1072e245e5bb196ef426f9111a3445f4a9f2911c3f3e3ddfb5a547d9f51e533` |
+|  `latest-dev` | August 15th  | `sha256:7bcd292bd240c9b1ecf6e992e268fb83eb0aecaeb036105ce81622f2e128ef08` |

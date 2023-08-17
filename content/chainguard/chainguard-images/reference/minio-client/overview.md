@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 15th  | `sha256:d794ea475b7963581361760dae139ab97f24fe3cfbc8c51c0de077562958ef01` |
 |  `latest`     | August 15th  | `sha256:b0eb77188261c48e29481f3a8d1c0f2f826db27d6bf28fc2248e533e8346ba49` |
+|  `latest-dev` | August 15th  | `sha256:d794ea475b7963581361760dae139ab97f24fe3cfbc8c51c0de077562958ef01` |
 
 # minio-client
 

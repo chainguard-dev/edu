@@ -18,10 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                    | Last Changed | Digest                                                                    |
-|------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.8.9-dev` `1.8-dev` `1.8.9-r1-dev` | August 15th  | `sha256:f4f5115ae831d5bb5a99837f30d258930e62bc8bc8fbb11c1d0498d17fd88041` |
-|  `1` `latest` `1.8` `1.8.9`                                | August 15th  | `sha256:08b790f6c7997618fa372d93cee50a6c8e08920de2360ea81228bc1e45bdd009` |
-|  `1.8.9-r0-dev`                                            | August 3rd   | `sha256:3eb877e9ab2eedc181ea0f49e8a70e4de274d7944677d583a014e3b65e349e01` |
-|  `1.8.8-r3-dev` `1.8.8-dev`                                | July 26th    | `sha256:f36619956272af4093212717e6695dffb89092429cedc9898a8dbcc4b694aba4` |
-|  `1.8.8`                                                   | July 26th    | `sha256:a754565e0e698745d874a4163dffcab2c3c4e22a31d11dac5dcb94ecf10d959f` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | August 15th  | `sha256:f4f5115ae831d5bb5a99837f30d258930e62bc8bc8fbb11c1d0498d17fd88041` |
+|  `latest`     | August 15th  | `sha256:08b790f6c7997618fa372d93cee50a6c8e08920de2360ea81228bc1e45bdd009` |

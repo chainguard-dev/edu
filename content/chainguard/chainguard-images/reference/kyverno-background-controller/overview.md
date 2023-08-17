@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 15th  | `sha256:9be12fa9f16575734abd4ae4ea0cae6504dbe95b4e187ce72f98584b08bd8a90` |
+|  `latest` | August 16th  | `sha256:e6269bff40ef2d7d55b99979aad5ee800f03bfa0f711ae179531021440f96417` |
 
 # kyverno-background-controller
 

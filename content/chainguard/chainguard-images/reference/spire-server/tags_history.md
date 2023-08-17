@@ -18,10 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                    | Last Changed | Digest                                                                    |
-|------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7.1` `1` `latest` `1.7`                                | August 3rd   | `sha256:658af9c85a8b458ff1acb39df8d8804ca1e092bce4eddef4ba525df507b93cde` |
-|  `1.7-dev` `1.7.1-dev` `latest-dev` `1.7.1-r0-dev` `1-dev` | August 3rd   | `sha256:8a6f2eebf405b804092c5fcee8a522e6bf6a658f9c1130205ca85474558d716c` |
-|  `1.7.0-dev` `1.7.0-r2-dev`                                | July 28th    | `sha256:ef1ccc8510dc3ea9192e94d2734b6ad31d225f42c72e75d35745264b4022505d` |
-|  `1.7.0`                                                   | July 26th    | `sha256:1d8cad0242f3ec17e8730062bfb8bc4a21ca1185ba7566e74df3bf3662d5bf45` |
-|  `1.7.0-r1-dev`                                            | July 20th    | `sha256:6a21dc8a95cfd13d0c184c44818297c65800ca27dea473cf6af3283c83cf31a6` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | August 16th  | `sha256:7dbb251f723935960678e8adeec66bbdaa67e353161e3253c5e30cc732a5a67b` |
+|  `latest`     | August 16th  | `sha256:d69541b103f7f334c213ea9f9ad0ceead5411dbdeecfb13ab673b40d7ca48d7c` |
