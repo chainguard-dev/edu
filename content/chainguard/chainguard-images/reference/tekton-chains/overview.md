@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 15th  | `sha256:2b7650d2ea55b927b2d2ec6d76e2ecf7b463383e46109929591ffd670afa7775` |
 |  `latest`     | August 15th  | `sha256:493eb4c6f1623b2a3df9d0898f884cd7631c7c2d2ac1c69e1c3f0bb609c29aaa` |
+|  `latest-dev` | August 15th  | `sha256:2b7650d2ea55b927b2d2ec6d76e2ecf7b463383e46109929591ffd670afa7775` |
 
 # tekton-chains
 

@@ -18,10 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                    | Last Changed | Digest                                                                    |
-|------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.7.1-r0-dev` `1.7.1-dev` `1.7-dev` | August 3rd   | `sha256:28b12b010033190390c429320893a69d06de08bc25407c8d7ffb8e80b96a62c6` |
-|  `latest` `1.7` `1` `1.7.1`                                | August 3rd   | `sha256:daaffc0e7efd8034e1501d9e12710e948d446a7d341f75336755ae6a92c80a2e` |
-|  `1.7.0-dev` `1.7.0-r2-dev`                                | July 28th    | `sha256:094609b155ec61d4a5ec52af43990d2d519b77d9eaca7a9d41d8965e8c29b0a8` |
-|  `1.7.0`                                                   | July 26th    | `sha256:fff9d26e7f36c0f4d8841209251e0c595c62d00ae506bb26377d80f545fd5f51` |
-|  `1.7.0-r1-dev`                                            | July 20th    | `sha256:adb438bfceda8beb3d0eea8161a6d74e0643bfa6fe3a014b0afddb09e1169e83` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | August 16th  | `sha256:2ea6593780912048c3368b2b1d8ffc98ccf933486ba46725c5ecc4c501dc4471` |
+|  `latest`     | August 16th  | `sha256:198d526b6dc5c6e49bdf3a521aec05a86372fc1ff612a6a706bfe7f654122a39` |

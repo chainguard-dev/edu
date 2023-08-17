@@ -1,5 +1,7 @@
-## 2023-08-16
+## 2023-08-17
 
 Updated image reference docs.
 
-No new images added.
+New images added:
+
+- kubeflow-jupyter-web-app

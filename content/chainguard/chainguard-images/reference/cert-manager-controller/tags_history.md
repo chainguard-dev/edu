@@ -18,10 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                       | Last Changed | Digest                                                                    |
-|---------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.12.3-r1-dev` `1.12-dev` `latest-dev` `1.12.3-dev` `1-dev` | August 15th  | `sha256:315689782493753d13877524f885a74a117f142b77239c5228c80464abf79b10` |
-|  `1` `1.12` `1.12.3` `latest`                                 | August 15th  | `sha256:0b377ef35d14fd8d6ba5dfb31860b8151208e227f1ee05d7a84aaf9763722b0d` |
-|  `1.12.3-r0-dev`                                              | August 3rd   | `sha256:26271e08e28ee0eb93368fcb426632b47cb9720f0d46a2d2527a9e48d167620f` |
-|  `1.12.2-dev` `1.12.2-r1-dev`                                 | July 26th    | `sha256:ae7e01f1e839e6968ef9ef51b91daa55b2a89ffbd4edc31aec7debd4afd38a9f` |
-|  `1.12.2`                                                     | July 26th    | `sha256:c5c1953e32726397527e3440e6914bafb39ddc3f2703b1c754301d8d6daa8f7c` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | August 15th  | `sha256:315689782493753d13877524f885a74a117f142b77239c5228c80464abf79b10` |
+|  `latest`     | August 15th  | `sha256:0b377ef35d14fd8d6ba5dfb31860b8151208e227f1ee05d7a84aaf9763722b0d` |

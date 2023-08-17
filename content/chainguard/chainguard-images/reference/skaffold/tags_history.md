@@ -18,13 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                    | Last Changed | Digest                                                                    |
-|------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.6.3` `2.6` `2`                                | August 15th  | `sha256:168ed12054e618fb24fe7187927d3c6c2fdbbb212145f4496d38bfd1efc1a5b3` |
-|  `2.6-dev` `2.6.3-r1-dev` `2-dev` `latest-dev` `2.6.3-dev` | August 15th  | `sha256:7d8672f2c500478364cdc7b198b8839063e80ba35259e49a630e74d4a4171291` |
-|  `2.6.3-r0-dev`                                            | August 11th  | `sha256:6a03f54a549f3e984bd002f2fa43ef5889813964b8945f6fcc13d13d1a176d47` |
-|  `2.6.2`                                                   | August 4th   | `sha256:998e4f95c5ed4c6c55118e42680d01235c7ec4429bc8332fdf79da8c8302883d` |
-|  `2.6.2-r1-dev` `2.6.2-dev`                                | August 4th   | `sha256:79947e1a89d447bd06cde80479b4b62d90efa88a03c70af40bdb9361e4fd05af` |
-|  `2.6.2-r0-dev`                                            | August 2nd   | `sha256:4b97fe810eda0b5d4bfe98e71f80f824c6fa6ad648964a563e89b544ad8dc7c6` |
-|  `2.6.1`                                                   | July 26th    | `sha256:538df60b073cc945d7f494be7d7134ab3c90806809650854fae5176e9d4b0959` |
-|  `2.6.1-r1-dev` `2.6.1-dev`                                | July 26th    | `sha256:12a294bf9ba91c86a89f45048bb5881b96fbd905ea25b9be18425df552a789c3` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | August 15th  | `sha256:168ed12054e618fb24fe7187927d3c6c2fdbbb212145f4496d38bfd1efc1a5b3` |
+|  `latest-dev` | August 15th  | `sha256:7d8672f2c500478364cdc7b198b8839063e80ba35259e49a630e74d4a4171291` |
