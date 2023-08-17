@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 3rd   | `sha256:976ebb80135a25c00ef484f447ccea03ebe7b0892e7d42e3a6206f478124cb60` |
+|  `latest` | August 16th  | `sha256:41097c21430adbd638cd059db9fd14c6384fd8ddbbcf3dd03d676c869a5a3a24` |
 
 # calico-pod2daemon
 

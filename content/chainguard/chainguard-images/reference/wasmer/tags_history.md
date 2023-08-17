@@ -18,10 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                    | Last Changed | Digest                                                                    |
-|------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.1` `4` `latest` `4.1.1`                                | August 5th   | `sha256:e2cc0f1fd9fb4d2ffd66dc40480455a660edd1daaaf417e893375779b77f45cf` |
-|  `latest-dev` `4.1-dev` `4-dev` `4.1.1-dev` `4.1.1-r0-dev` | August 5th   | `sha256:72e73e1eb440509442d33cff4d48187c2fe335067fd50c266f35fb359a3e449e` |
-|  `4.1.0`                                                   | August 4th   | `sha256:f587e9c2a3b9f4adbdfad1f2083054bed13cc6561473aa6b9588733880a0039f` |
-|  `4.1.0-r0-dev` `4.1.0-dev`                                | August 4th   | `sha256:3595e6f6293582fd904b5235a450dc131eb579018cc63523703c35ec77743d49` |
-|  `4.0.0-dev` `4.0-dev` `4.0.0-r0-dev`                      | July 20th    | `sha256:b01756c740bd864ac6155dc31090b3e9b1d849de37a527a8484d7a0eebe7b136` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | August 5th   | `sha256:e2cc0f1fd9fb4d2ffd66dc40480455a660edd1daaaf417e893375779b77f45cf` |
+|  `latest-dev` | August 5th   | `sha256:72e73e1eb440509442d33cff4d48187c2fe335067fd50c266f35fb359a3e449e` |
