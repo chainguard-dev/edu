@@ -29,8 +29,8 @@ The table has detailed information about each of these variants.
 | Entrypoint   | `/usr/bin/apko` |
 | CMD          | `--help`        |
 | Workdir      | `/work`         |
-| Has apk?     | yes             |
-| Has a shell? | yes             |
+| Has apk?     | no              |
+| Has a shell? | no              |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/apko/tags_history/) for the full list of available tags.
 
@@ -40,18 +40,7 @@ The table shows package distribution across variants.
 |                          | latest |
 |--------------------------|--------|
 | `alpine-keys`            | X      |
-| `apk-tools`              | X      |
 | `apko`                   | X      |
-| `busybox`                | X      |
 | `ca-certificates-bundle` | X      |
-| `glibc`                  | X      |
-| `glibc-locale-posix`     | X      |
-| `ld-linux`               | X      |
-| `libcrypt1`              | X      |
-| `libcrypto3`             | X      |
-| `libssl3`                | X      |
-| `openssl-config`         | X      |
-| `wolfi-base`             | X      |
 | `wolfi-baselayout`       | X      |
 | `wolfi-keys`             | X      |
-| `zlib`                   | X      |

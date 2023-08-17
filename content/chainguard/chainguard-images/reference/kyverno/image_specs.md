@@ -44,7 +44,7 @@ The table shows package distribution across variants.
 |                                 | background-controller-latest | cleanup-controller-latest | cli-latest | latest | reports-controller-latest |
 |---------------------------------|------------------------------|---------------------------|------------|--------|---------------------------|
 | `ca-certificates-bundle`        | X                            | X                         | X          | X      | X                         |
-| `kubectl`                       | X                            | X                         | X          | X      | X                         |
+| `kubectl-1.28`                  | X                            | X                         | X          | X      | X                         |
 | `kyverno-background-controller` | X                            |                           |            |        |                           |
 | `wolfi-baselayout`              | X                            | X                         | X          | X      | X                         |
 | `kyverno-cleanup-controller`    |                              | X                         |            |        |                           |
