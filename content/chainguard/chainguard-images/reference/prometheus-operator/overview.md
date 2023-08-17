@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 15th  | `sha256:74770b8487ae95e2ed357155e23a4615da0c1d8ad807e849a011dbe434674194` |
 |  `latest-dev` | August 15th  | `sha256:0c2e5b7c64429b36a795888c190a6a10d0f42f4733284b682ca5535fb0048f1d` |
+|  `latest`     | August 15th  | `sha256:74770b8487ae95e2ed357155e23a4615da0c1d8ad807e849a011dbe434674194` |
 
 # prometheus-operator
 

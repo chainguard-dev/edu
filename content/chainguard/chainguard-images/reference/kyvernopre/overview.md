@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 15th  | `sha256:406e7ef57a72d0054e99bd9e5bb12bbf3a314929d4db765080ec9e979be30eef` |
+|  `latest` | August 16th  | `sha256:0fd176369b0d4843afba0a6c90eabefe0a44794fd88953c18dea601fd3d98675` |
 
 # kyvernopre
 

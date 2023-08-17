@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 15th  | `sha256:5fb2fea643fb34e3e0bbf9e630bc219436c96237613077b1c37f736cc0bd9621` |
+|  `latest` | August 16th  | `sha256:d70ef36cc124d8c4ec86438ed51fbaa2e00b6ffb8b15a072c87cc1bea16541db` |
 
 # calico-cni
 

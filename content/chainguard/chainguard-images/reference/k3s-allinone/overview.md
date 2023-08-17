@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 11th  | `sha256:bcc5c1a2c84de0fd00ca020a043d54e9d84efd857f79bc100c82dc08314b3086` |
-|  `latest`     | August 11th  | `sha256:5647b7894d8be830a934def3651cb412fc99783dea291676bea190ef48f9735c` |
+|  `latest-dev` | August 16th  | `sha256:1d1ed50f78e9ae4f29c609279a1dfac72e36486fab1910a523dceb2b873c53b8` |
+|  `latest`     | August 16th  | `sha256:38922d38ffcab838083fc91511204942b659a62c55bb731b10f6dcd7ab9f4983` |
 
 # k3s-allinone
 

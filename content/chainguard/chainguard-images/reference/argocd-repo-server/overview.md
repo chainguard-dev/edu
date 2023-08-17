@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 15th  | `sha256:4a9dfa416cb1565960240db633cec8cf2bc8907868252f24326ce11580c8904b` |
 |  `latest-dev` | August 15th  | `sha256:a1f968325b674db9516376bdbdef59caa0803841a128bb5cbe34d398e3d8ac3a` |
+|  `latest`     | August 15th  | `sha256:4a9dfa416cb1565960240db633cec8cf2bc8907868252f24326ce11580c8904b` |
 
 # argocd-repo-server
 

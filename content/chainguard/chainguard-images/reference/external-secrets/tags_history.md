@@ -18,10 +18,7 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                    | Last Changed | Digest                                                                    |
-|------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.9.2-dev` `0-dev` `0.9-dev` `0.9.2-r1-dev` | August 15th  | `sha256:2cf9cbf832a3a879dc19ea1df7f2c53f7aa318875904c8b7752bf5e7dba520ca` |
-|  `0.9.2` `0` `0.9` `latest`                                | August 15th  | `sha256:f3e0a508ed14376412c73558ae5837b2a39715f1e1a5e9692571476bbf4e93f4` |
-|  `0.9.2-r0-dev`                                            | August 5th   | `sha256:a5a3e7cd25c21fe2c2e1df84f4b95f1f87d7cf6870cc69bb1588a6fa3f29a12e` |
-|  `0.9.1-r1-dev` `0.9.1-dev`                                | August 3rd   | `sha256:d7eed46bf731211d438f63fcf26b57e97dac347d2c5eb7e6c432786f1540f7db` |
-|  `0.9.1`                                                   | July 26th    | `sha256:0cbec0fab60fb39a01fe834f6a278205b8e2991aead30001c21607d42aebea07` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | August 16th  | `sha256:e2fc6cbf66e2287e3a21a2aaef19131b7bccf2c60c0e13af51fb48f1f117c41d` |
+|  `latest`     | August 16th  | `sha256:fd3d67facbe363fa5f22eff1623a5423b9572f7ae1b152ed13ce9ece365e31c6` |

@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 3rd   | `sha256:6bf8fefa1708d2b29ed39063b8f229aabbfca1651b1f0d035ac5e31ed15c177e` |
+|  `latest` | August 16th  | `sha256:76634931ecae8dd12a6cabace7825d3e029dda5784f2f753cd1c539b33f9407f` |
 
 # calico-node
 
