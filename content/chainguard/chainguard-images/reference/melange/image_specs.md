@@ -29,7 +29,7 @@ The table has detailed information about each of these variants.
 | Entrypoint   | `/usr/bin/melange` |
 | CMD          | `--help`           |
 | Workdir      | `/work`            |
-| Has apk?     | yes                |
+| Has apk?     | no                 |
 | Has a shell? | yes                |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/melange/tags_history/) for the full list of available tags.
@@ -40,7 +40,6 @@ The table shows package distribution across variants.
 |                          | latest |
 |--------------------------|--------|
 | `alpine-keys`            | X      |
-| `apk-tools`              | X      |
 | `bubblewrap`             | X      |
 | `busybox`                | X      |
 | `ca-certificates-bundle` | X      |
@@ -49,11 +48,6 @@ The table shows package distribution across variants.
 | `ld-linux`               | X      |
 | `libcap`                 | X      |
 | `libcrypt1`              | X      |
-| `libcrypto3`             | X      |
-| `libssl3`                | X      |
 | `melange`                | X      |
-| `openssl-config`         | X      |
-| `wolfi-base`             | X      |
 | `wolfi-baselayout`       | X      |
 | `wolfi-keys`             | X      |
-| `zlib`                   | X      |

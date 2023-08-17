@@ -70,4 +70,4 @@ The table shows package distribution across variants.
 | `expat`                  |                        |                    | X                     |                   |            |        |
 | `flux-helm-controller`   |                        |                    | X                     | X                 |            |        |
 | `helm`                   |                        |                    |                       |                   | X          | X      |
-| `kubectl`                |                        |                    |                       |                   | X          | X      |
+| `kubectl-1.28`           |                        |                    |                       |                   | X          | X      |
