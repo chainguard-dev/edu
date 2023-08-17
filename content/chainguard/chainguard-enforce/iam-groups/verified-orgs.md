@@ -66,7 +66,7 @@ default:
 
 Once set, the configured identity provider will be used automatically any time you run `chainctl auth login`.
 
-When authenticating via the Chainguard Console, your organization name is detected from your email address in most cases In cases where your organization name does not match your email domain, it can be input manually to select your custom identity provider.
+When authenticating via the Chainguard Console, your organization name is detected from your email address in most cases. If your organization name does not match your email domain, it can be input manually to select your custom identity provider.
 
 ## Verified Organizations and Chainguard Images
 
