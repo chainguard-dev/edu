@@ -40,4 +40,3 @@ $ kubectl wait pods -n kubeflow -l app=jupyter-web-app --for=condition=Ready --t
 ````
 
 then you will be having a Jupyter Web Application running in your kubernetes cluster, voila!
-
