@@ -1,7 +1,7 @@
 ---
-title: "cassandra Image Tags History"
+title: "nri-kubernetes Image Tags History"
 type: "article"
-description: "Image Tags and History for the cassandra Chainguard Image"
+description: "Image Tags and History for the nri-kubernetes Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -18,7 +18,5 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 17th  | `sha256:61e53ec7d801b2015a9264923ffc5a29e33537f4579e54b615b73d4d1946c56f` |
-|  `latest-dev` | August 17th  | `sha256:0dab1c7adbaa2bbf544e56889f4b0fc5040e216aa06a42a63fbd77b3cf5f61f7` |
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
