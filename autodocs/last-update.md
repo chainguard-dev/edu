@@ -1,9 +1,7 @@
-## 2023-08-18
+## 2023-08-17
 
 Updated image reference docs.
 
 New images added:
 
-- nri-kubernetes
-- nri-kube-events
-- nri-prometheus
+- kubeflow-jupyter-web-app
