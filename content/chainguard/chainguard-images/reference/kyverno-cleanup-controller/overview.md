@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 16th  | `sha256:3fb8a4b7ca032b9748bff91dcdd27e45a04a1d1267df3c3578f1a452a0ed1934` |
+|  `latest` | August 17th  | `sha256:e6f9ece151a0432c8ef1e7ab9ec158c4e343ece6d37c4d2a45761e2cec61cf29` |
 
 # kyverno-cleanup-controller
 
