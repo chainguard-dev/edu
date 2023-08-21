@@ -15,6 +15,7 @@ env:
   YAMLDOCS_CACHE: "${{ github.workspace }}"
   YAMLDOCS_CHANGELOG: "${{ github.workspace }}/reference/changelog.md"
   YAMLDOCS_LASTUPDATE: "${{ github.workspace }}/reference/last-update.md"
+  YAMLDOCS_BUILD_PAGES: "overview,tags,provenance"
 
 jobs:
   main:
@@ -59,7 +60,7 @@ jobs:
           chmod 777 "${{ github.workspace }}/${{ env.WORKDIR }}/changelog.md"
 
       - name: Update the reference docs for Chainguard Images
-        uses: chainguard-dev/deved-autodocs@1.7.0
+        uses: chainguard-dev/deved-autodocs@1.8.0
         with:
           command: build images
 
@@ -99,7 +100,7 @@ jobs:
 
       - name: "Send notification to Slack"
         if: ${{ steps.cpr.outputs.pull-request-number }}
-        uses: chainguard-dev/deved-autodocs@1.7.0
+        uses: chainguard-dev/deved-autodocs@1.8.0
         with:
           command: notify pullrequest
         env:
