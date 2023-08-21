@@ -71,3 +71,4 @@ The table shows package distribution across variants.
 | `flux-helm-controller`   |                        |                    | X                     | X                 |            |        |
 | `helm`                   |                        |                    |                       |                   | X          | X      |
 | `kubectl-1.28`           |                        |                    |                       |                   | X          | X      |
+| `kubectl-latest`         |                        |                    |                       |                   | X          | X      |

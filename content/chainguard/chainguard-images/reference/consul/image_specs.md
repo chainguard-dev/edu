@@ -38,35 +38,35 @@ Check the [tags history page](/chainguard/chainguard-images/reference/consul/tag
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                | latest-dev | latest |
-|--------------------------------|------------|--------|
-| `apk-tools`                    | X          |        |
-| `bash`                         | X          |        |
-| `busybox`                      | X          | X      |
-| `ca-certificates-bundle`       | X          | X      |
-| `consul-1.16`                  | X          | X      |
-| `consul-oci-entrypoint`        | X          | X      |
-| `consul-oci-entrypoint-compat` | X          | X      |
-| `curl`                         | X          | X      |
-| `dumb-init`                    | X          | X      |
-| `git`                          | X          |        |
-| `glibc`                        | X          | X      |
-| `glibc-locale-posix`           | X          | X      |
-| `ld-linux`                     | X          | X      |
-| `libbrotlicommon1`             | X          | X      |
-| `libbrotlidec1`                | X          | X      |
-| `libcap`                       | X          | X      |
-| `libcap-utils`                 | X          | X      |
-| `libcrypt1`                    | X          | X      |
-| `libcrypto3`                   | X          | X      |
-| `libcurl-openssl4`             | X          | X      |
-| `libexpat1`                    | X          |        |
-| `libnghttp2-14`                | X          | X      |
-| `libpcre2-8-0`                 | X          |        |
-| `libssl3`                      | X          | X      |
-| `ncurses`                      | X          |        |
-| `ncurses-terminfo-base`        | X          |        |
-| `openssl-config`               | X          | X      |
-| `su-exec`                      | X          | X      |
-| `wolfi-baselayout`             | X          | X      |
-| `zlib`                         | X          | X      |
+|                                     | latest-dev | latest |
+|-------------------------------------|------------|--------|
+| `apk-tools`                         | X          |        |
+| `bash`                              | X          |        |
+| `busybox`                           | X          | X      |
+| `ca-certificates-bundle`            | X          | X      |
+| `consul-1.16`                       | X          | X      |
+| `consul-1.16-oci-entrypoint`        | X          | X      |
+| `consul-1.16-oci-entrypoint-compat` | X          | X      |
+| `curl`                              | X          | X      |
+| `dumb-init`                         | X          | X      |
+| `git`                               | X          |        |
+| `glibc`                             | X          | X      |
+| `glibc-locale-posix`                | X          | X      |
+| `ld-linux`                          | X          | X      |
+| `libbrotlicommon1`                  | X          | X      |
+| `libbrotlidec1`                     | X          | X      |
+| `libcap`                            | X          | X      |
+| `libcap-utils`                      | X          | X      |
+| `libcrypt1`                         | X          | X      |
+| `libcrypto3`                        | X          | X      |
+| `libcurl-openssl4`                  | X          | X      |
+| `libexpat1`                         | X          |        |
+| `libnghttp2-14`                     | X          | X      |
+| `libpcre2-8-0`                      | X          |        |
+| `libssl3`                           | X          | X      |
+| `ncurses`                           | X          |        |
+| `ncurses-terminfo-base`             | X          |        |
+| `openssl-config`                    | X          | X      |
+| `su-exec`                           | X          | X      |
+| `wolfi-baselayout`                  | X          | X      |
+| `zlib`                              | X          | X      |
