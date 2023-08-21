@@ -70,11 +70,11 @@ Optionally, you can use Chainguard Images to replace the other ArgoCD dependenci
 redis:
   image:
     repository: cgr.dev/chainguard/redis
-    tag: 7.0
+    tag: latest
 
 dex:
   image:
-    repository: cgr.dev/chainguard/dev
+    repository: cgr.dev/chainguard/dex
     tag: latest
 ```
 

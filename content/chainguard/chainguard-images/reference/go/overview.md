@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 13th  | `sha256:aeefb6ffbcbb41c52a67d8c481ad9bd17316597f97f23a520201c0f15e8773ab` |
-|  `latest`     | August 13th  | `sha256:5b38eade1728ebe11473c832176e080e4baae756ef1f324e6712075b26bf111c` |
+|  `latest-dev` | August 18th  | `sha256:41d4df5891d0bc65691715a88e8b734901de10f153230fccd1e6c418993357ff` |
+|  `latest`     | August 18th  | `sha256:eb2d1372867b054146bcd0035a83772f486f01f7f0a05ac35f0866fe87264741` |
 
 
 
@@ -42,16 +42,17 @@ still available at `cgr.dev/chainguard/go:latest-musl`.
 
 ## Host architecture example
 
-To build the Go application in [examples/hello/main.go](https://github.com/chainguard-images/images/blob/main/images/go/examples/hello/main.go)
+To build the Go application in [tests/hello/main.go](https://github.com/chainguard-images/images/blob/main/images/go/examples/hello/main.go)
 using the host architecture:
 
 ```sh
-docker run --rm -v "${PWD}:/work" -w /work/examples/hello \
+docker run --rm -v "${PWD}:/work" -w /work/tests/hello \
     -e GOOS="$(go env GOOS)" -e GOARCH="$(go env GOARCH)" \
     cgr.dev/chainguard/go build -o /work/hello .
 ```
 
 The example application will be built to `./hello`:
+
 ```
 $ ./hello
 Hello World!
