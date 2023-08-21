@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 16th  | `sha256:61ecd055bc747257a6a84f70a16ea10b90b3b836b3bf221bfc1ef3de315ab76e` |
-|  `latest`     | August 16th  | `sha256:0f6b6844f232f6c7917990e9d08ea4e342dc8669c6dedf83319e58aabe118726` |
+|  `latest`     | August 17th  | `sha256:0f6b6844f232f6c7917990e9d08ea4e342dc8669c6dedf83319e58aabe118726` |
+|  `latest-dev` | August 17th  | `sha256:61ecd055bc747257a6a84f70a16ea10b90b3b836b3bf221bfc1ef3de315ab76e` |
 
 
 
@@ -56,12 +56,12 @@ Next create a multistage Dockerfile and add the Java class
 
 ```sh
 cat >Dockerfile <<EOL
-FROM cgr.dev/chainguard/jdk:openjdk-17
+FROM cgr.dev/chainguard/jdk
 
 COPY HelloWolfi.java /home/build/
-RUN /usr/lib/jvm/java-17-openjdk/bin/javac HelloWolfi.java
+RUN javac HelloWolfi.java
 
-FROM cgr.dev/chainguard/jre:openjdk-17
+FROM cgr.dev/chainguard/jre
 
 COPY --from=0 /home/build/HelloWolfi.class /app/
 CMD ["HelloWolfi"]
