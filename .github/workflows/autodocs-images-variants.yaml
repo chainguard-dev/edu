@@ -1,4 +1,4 @@
-name: Build Images Reference Docs
+name: Build Images Variants Pages
 
 on:
   workflow_dispatch:
