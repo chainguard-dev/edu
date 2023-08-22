@@ -45,6 +45,7 @@ The table shows package distribution across variants.
 |---------------------------------|------------------------------|---------------------------|------------|--------|---------------------------|
 | `ca-certificates-bundle`        | X                            | X                         | X          | X      | X                         |
 | `kubectl-1.28`                  | X                            | X                         | X          | X      | X                         |
+| `kubectl-latest`                | X                            | X                         | X          | X      | X                         |
 | `kyverno-background-controller` | X                            |                           |            |        |                           |
 | `wolfi-baselayout`              | X                            | X                         | X          | X      | X                         |
 | `kyverno-cleanup-controller`    |                              | X                         |            |        |                           |
