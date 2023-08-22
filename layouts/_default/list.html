@@ -75,7 +75,7 @@
                   {{ range $index, $page := and $listed_pages $tutorials }}
                     {{ if le $index 5 }}
                       <div class="d-flex">
-                        <a class="tutorial caption" href="{{ .RelPermalink }}">{{ .Params.title | title }}</a>
+                        <a class="tutorial caption" href="{{ .RelPermalink }}">{{ .Params.linktitle | title }}</a>
                       </div>
                     {{ end }}
                   {{ end }}
@@ -94,7 +94,7 @@
                   {{ range $index, $page := and $listed_pages $tutorials }}
                     {{ if le $index 5 }}
                       <div class="d-flex">
-                        <a class="tutorial caption" href="{{ .RelPermalink }}">{{ .Params.title | title }}</a>
+                        <a class="tutorial caption" href="{{ .RelPermalink }}">{{ .Params.linktitle | title }}</a>
                       </div>
                     {{ end }}
                   {{ end }}

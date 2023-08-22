@@ -5,14 +5,14 @@ lead: "Using Chainguard Images with firewalls, access control lists, and proxies
 type: "article"
 description: "Using Chainguard Images with firewalls, access control lists, and proxies"
 date: 2023-05-15T08:49:31+00:00
-lastmod: 2023-05-15T08:49:31+00:00
+lastmod: 2023-08-22T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "Product", "Reference"]
 images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 500
+weight: 400
 toc: true
 ---
 

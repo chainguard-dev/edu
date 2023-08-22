@@ -1,16 +1,17 @@
 ---
 title: "Chainguard Images FAQs"
+linktitle: "FAQs"
 type: "article"
 description: "Frequently asked questions about Chainguard Images"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2023-08-16T08:49:31+00:00
+lastmod: 2023-08-22T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "FAQ", "Product"]
 images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 600
+weight: 500
 toc: true
 ---
 
