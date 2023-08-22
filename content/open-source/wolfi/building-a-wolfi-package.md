@@ -14,17 +14,19 @@ weight: 300
 toc: true
 ---
 
-Wolfi is a Linux distro created specifically to build stripped down container images that only include the essential packages needed to run applications in containers. This makes it more secure, as there are fewer potential attack vectors due to the reduced surface area. Another important attribute that contributes to Wolfi's status as a security-first distribution is how fast packages are updated, thanks to a fine-tuned maintenance process combining top-notch automation and established best practices from maintainers. This ensures that Wolfi users get patches and latest versions of packages at a much faster pace than other distributions. Additionally, Wolfi includes a number of features that help to ensure the provenance and authenticity of packages. For example, all packages are built directly from source and signed with cryptographic signatures. This helps to prevent malicious code from being introduced into the system. Wolfi also provides a high-quality build-time [SBOM](https://edu.chainguard.dev/open-source/sbom/what-is-an-sbom/) as standard for all packages.
+Wolfi is a Linux distro created specifically for building stripped-down container images that only include the essential packages needed to run applications in containers. This makes it more secure, as there are fewer potential attack vectors due to the reduced surface area.
+
+Thanks to a fine-tuned maintenance process combining top-notch automation and established best practices from maintainers, Wolfi packages are updated quickly. This ensures that Wolfi users get patches and latest versions of packages at a much faster pace than other distributions. Additionally, Wolfi includes a number of features that help to ensure the provenance and authenticity of packages. For example, all packages are built directly from source and signed with cryptographic signatures. This helps to prevent malicious code from being introduced into the system. Wolfi also provides a high-quality build-time [SBOM](https://edu.chainguard.dev/open-source/sbom/what-is-an-sbom/) as standard for all packages.
 
 That being said, it's important to note that Wolfi is rather new; it just recently crossed the mark of 1,000 packages in the Wolfi OS repository. That means some packages that you would find in a more established distro won't be available yet in Wolfi. In this article, we'll cover the whole process involved in building a new Wolfi package, or how a Wolfi package comes to be.
 
-Note: Many of the examples shown in this article are based on the [Wolfi PHP package](https://github.com/wolfi-dev/os/blob/main/php.yaml), which is a slightly complex build that generates several subpackages from a single melange YAML file. You can keep that link open in a separate tab to use as reference as you go through this guide.
+> Note: Many of the examples shown in this article are based on the [Wolfi PHP package](https://github.com/wolfi-dev/os/blob/main/php.yaml), which is a slightly complex build that generates several subpackages from a single melange YAML file. You can keep that link open in a separate tab to use as reference as you go through this guide.
 ## How Does it Compile?
 The first step in building a new Wolfi package is finding official documentation with guidance on how to build the package from source. All Wolfi packages need to be built from source in order to assure provenance and authenticity of package contents.
 
-Because Wolfi uses [apk](https://wiki.alpinelinux.org/wiki/Alpine_Package_Keeper) and thus has some similar design principles as Alpine, it is a good idea to have a look at the [Alpine package index](https://pkgs.alpinelinux.org/packages) to find out how the package is built there. This can give you insights about configuration options, dependencies, and eventual subpackages that can be stripped from the main package. For example, when compiling PHP from source, you have the choice of compiling several extensions either as built-in or as shared libraries. Although compiling said extensions as built-in packages makes for a simpler build, it also increases the size of the original package and creates a wider surface for possible vulnerabilities.
+Because Wolfi uses [apk](https://wiki.alpinelinux.org/wiki/Alpine_Package_Keeper) and thus has some similar design principles to Alpine, it is a good idea to review the [Alpine package index](https://pkgs.alpinelinux.org/packages) to find out how the package is built there. This can give you insights about configuration options, dependencies, and eventual subpackages that can be stripped from the main package. For example, when compiling PHP from source, you have the choice of compiling several extensions either as built-in or as shared libraries. Although compiling said extensions as built-in packages makes for a simpler build, it also increases the size of the original package and creates a wider surface for possible vulnerabilities.
 
-If you aren't very familiar with building packages from source using tools such as `cmake` and `autoconf`, it's a good idea to compile the package locally first - you don't need to run "make install"  at the end to get the package installed on your own system, but running the configure and make processes will give you a better understanding of the build requirements and configure options.
+If you aren't very familiar with building packages from source using tools such as `cmake` and `autoconf`, it's a good idea to compile the package locally first - you don't need to run `make install`  at the end to get the package installed on your own system, but running the `configure` and `make` processes will give you a better understanding of the build requirements and configure options.
 ## The melange YAML File
 The melange YAML file is where you'll define the details about the package and its build pipeline. If you are familiar with GitHub Actions, you'll find out that melange definitions are very similar to GitHub Actions workflows.
 ### The `package` Section
@@ -44,16 +46,16 @@ package:
       - libxml2
 ```
 
-- **Package name**: convention is to use the same name as the YAML file without extension. This is what people will search for, so it's a good idea to keep it consistent with how the package is named in other distributions.
+- **Package name**: the current convention is to use the same name as the YAML file without extension. This is what people will search for, so it's a good idea to keep it consistent with how the package is named in other distributions.
 - **Description**: this information shows up when searching for the package with apk.
 - **Version**: the version of the package.
-- **Epoch**: this is a numeric field set to zero by default, that only needs to be incremented when there is a non-version change in the package. For instance, when build options such as compiler flags have changed or new subpackages have been added but the upstream package version hasn't changed - in such cases, you'd need to "bump the epoch" in order to trigger the build.
+- **Epoch**: a numeric field set to zero by default; this only needs to be incremented when there is a non-version change in the package. For instance, when build options such as compiler flags have changed or new subpackages have been added but the upstream package version hasn't changed — in such cases, you'd need to "bump the epoch" in order to trigger the build.
 - **License**: the package license. It is important to note that only packages with OSI-approved licenses can be included in Wolfi. You can check the relevant package info in the [licenses page at opensource.org](https://opensource.org/licenses/).
 - **Runtime dependencies**: any dependencies needed by your package at runtime. Not to be confused with build dependencies, these will come up in the environment section of the file.
 
 ### The `environment` Section
 
-The next section is the environment section. It defines how the build environment should look in order to build your package. Packages listed in this section won't be included in the final package, because they are only needed at build time.
+The next section is the `environment` section. It defines how the build environment should look in order to build your package. Packages listed in this section won't be included in the final package, because they are only needed at build time.
 
 When building locally, you'll also need to include information about where to find Wolfi packages. This is not needed when submitting the package to the Wolfi OS repository. The `contents` node is used for that:
 
@@ -68,7 +70,7 @@ environment:
       - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
 ```
 
-Dependencies are defined in a `packages` section. An example excerpt from the Wolfi PHP package, which is a fairly complex build with many dependencies, is below:
+The `packages` section is where you can define dependencies. The following example is an excerpt from the Wolfi PHP package, which is a fairly complex build with many dependencies:
 
 ```yaml
 environment:
@@ -105,15 +107,15 @@ environment:
 
 Don't worry if you don't know everything you'll need upfront at build time. Even if you build the package locally first, your system most likely has many dependencies already installed; by paying attention to the output provided by melange, you will be able to figure out what is missing, and iterate until your build environment looks right.
 
-One thing that may happen during this process is finding out that one or more dependencies needed by your package are not yet available in Wolfi, so they need to be built first. It is a normal part of the process, so don't worry – you will be able to build incrementally and test everything locally.
+One thing that may happen during this process is finding out that one or more dependencies needed by your package are not yet available in Wolfi, so they need to be built first. It is a normal part of the process, so don't worry — you will be able to build incrementally and test everything locally.
 
 ### The `pipeline` Section
 
-With package metadata and build environment defined, it's time to create the pipeline that will build your package. The pipeline section looks a lot like a GitHub Actions workflow, defining a series of steps that must be executed in the same order they are defined, creating output that will be packaged into one or more apk packages.
+With package metadata and build environment defined, it's time to create the pipeline that will build your package. The `pipeline` section has a structure similar to a GitHub Actions workflow, defining a series of steps that must be executed in the same order they are defined, creating output that will be packaged into one or more apk packages.
 
 A package build pipeline typically starts with fetching the package (as a tarball or directly from a Git branch) and matching the downloaded artifact against an expected sha hash.
 
-Some of the actions executed in build pipelines are very similar across packages: downloading a package, running configure and make, fetching a package from git… Luckily for us, melange bakes a lot of repetitive tasks into reusable [pipelines](https://github.com/chainguard-dev/melange/tree/main/pkg/build/pipelines):
+Some of the actions executed in build pipelines are very similar across packages: downloading a package, running configure and make, fetching a package from git, etc. Luckily for us, melange bakes a lot of repetitive tasks into reusable [pipelines](https://github.com/chainguard-dev/melange/tree/main/pkg/build/pipelines):
 
 - Downloading Packages
   - `fetch`
@@ -148,7 +150,7 @@ Some of the actions executed in build pipelines are very similar across packages
   - `strip`
   - `patch`
 
-Each pipeline can have one or more parameters that should be provided as keypairs in a `with` entry. For example, this is how a download-and-check step looks like in the melange YAML, using the built-in pipeline `fetch`:
+Each pipeline can have one or more parameters that should be provided as keypairs in a `with` entry. For example, a download-and-check has the following structure in the melange YAML, using the built-in pipeline `fetch`:
 
 ```yaml
   - uses: fetch
@@ -179,7 +181,7 @@ As indicated, a pipeline step will have either a `uses` or a `run` directive. Yo
 You can find more details about available pipelines in the [melange pipelines documentation](https://edu.chainguard.dev/open-source/melange/melange-pipelines).
 
 ### The `subpackages` Section
-As mentioned above, a package may extract parts of its contents into subpackages, in order to make for a slimmer final apk. Many packages have resources that are not required at execution time: development headers, man pages, shared libraries that are optional… you name it. This part is really important in Wolfi, because we want packages to be minimal. The `subpackages` section of the melange YAML file looks a lot like the pipeline section, and it essentially works the same way. You'll just have to make sure you place any subpackage files in the `targets.subpkgdir` location.
+As mentioned previously, a package may extract parts of its contents into subpackages in order to make for a slimmer final apk. Many packages have resources that are not required at execution time, including development headers, man pages, shared libraries that are optional. This part is really important in Wolfi, because we want packages to be minimal. The `subpackages` section of the melange YAML file looks a lot like the pipeline section, and it essentially works the same way. You'll just have to make sure you place any subpackage files in the `targets.subpkgdir` location.
 
 The `split` built-in pipelines were created to facilitate the creation of subpackages. They implement code to remove development headers (`split/dev`), man pages (`split/manpages`), among other resources that aren't typically required at runtime. You can experiment with those, just be aware that they use standard path locations and some compiled packages may use different paths for certain resources.
 
@@ -192,7 +194,7 @@ For example, this is how a step in the subpackages section would be written, usi
       - uses: split/dev
 ```
 
-#### Looping with Ranges
+**Looping with Ranges**
 In some cases, you may find yourself repeating the same task over and over with just a couple different values (such as package names). In such scenarios, you can define a range of data that you can "loop" through in a step. For example, let's have a look at how the PHP package uses this feature to create its subpackages.
 
 First, we define an `extensions` range. This should go on a `data` node at the same level as the `pipelines` section of your YAML:
@@ -236,9 +238,9 @@ In the subpackages section, we define a pipeline for that range:
 And this will loop through all values of the `extensions` range and execute the described pipeline.
 
 #### The `update` Section
-This final section of the YAML file is only required when submitting the package to the Wolfi OS repository. The update section is used by Wolfi CI/CD systems to detect new package releases.
+This final section of the YAML file is only required when submitting the package to the Wolfi OS repository. The `update` section is used by Wolfi CI/CD systems to detect new package releases.
 
-Wolfi uses multiple tools and services to keep track of upstream releases, including the [Release Monitoring](https://release-monitoring.org/) service. For packages that are released via GitHub, tracking is made via the project org/name and a monitored tag.
+Wolfi uses multiple tools and services to keep track of upstream releases, including the [Release Monitoring](https://release-monitoring.org/) service. For packages that are released via GitHub, tracking occurs using the project org/name and a monitored tag.
 
 Here's an example of the update section of the PHP package, which uses the Release Monitoring service:
 
@@ -248,7 +250,7 @@ update:
   release-monitor:
     identifier: 3627
 ```
-The identifier can be obtained from the [release monitoring page](https://release-monitoring.org/) - search for the package and grab the ID that shows up at the URL.
+You can obtain the identifier from the [release monitoring page](https://release-monitoring.org/) - search for the package and grab the ID that shows up at the URL.
 
 Here is another example, this time from a package that is released via GitHub:
 
@@ -281,8 +283,8 @@ docker run --rm -v "${PWD}":/work cgr.dev/chainguard/melange keygen
 
 Once you have the key, you can run the `build` command. A few explanations before you hit the keyboard:
 
-- **Building as root:** building packages require you to run melange as root, thus the `--privileged` parameter.
-- **Volumes:** here we set up **two** volumes: the current folder is shared with the /work location in the container, so that the packages generated will be available in your local system at the ./packages location. The second volume shares the `/tmp/melange_out` location in the container with your `/tmp` folder, so that you can have access to melange's working files even when the build fails. This helps a lot with debugging!
+- **Building as root:** building packages require you to run melange as root, meaning you must include the `--privileged` parameter.
+- **Volumes:** here we set up **two** volumes: the current folder is shared with the /work location in the container, so that the packages generated will be available in your local system at the ./packages location. The second volume shares the `/tmp/melange_out` location in the container with your `/tmp` folder, so that you can have access to melange's working files even when the build fails. This helps a lot with debugging.
 - **Architecture:** limit the build to your own system's architecture while you are developing the package, this will make the build faster and avoid issues.
 - **Signing key:** remember this key will be required later as well, when you install the package in a container image using apko.
 
@@ -332,7 +334,9 @@ environment:
 This will look for a package named "mypackage" in your local packages/ folder.
 
 ### When the build is successful
-First of all, celebrate!: 🎉 Check the packages folder, you should see a directory for each built architecture (in my case I get x86_64) with your built apks (package + subpackages) AND an `APKINDEX.tar.gz` file:
+First of all, celebrate! 🎉
+
+Check the packages folder, you should find a directory for each built architecture (in my case I get x86_64) with your built apks (package + subpackages) along with an `APKINDEX.tar.gz` file:
 
 ```shell
 ./php-full-wolfi-demo/packages/x86_64
@@ -414,8 +418,10 @@ docker load < php-test.zip
 
 Then run the image to see if the package works as expected.
 
-More info about building container images with apko can be found in [this Academy link](https://edu.chainguard.dev/open-source/apko/getting-started-with-apko/).
-Submitting the Package to Wolfi OS
+More info about building container images with apko can be found in our guide on [Getting Started with apko](https://edu.chainguard.dev/open-source/apko/getting-started-with-apko/).
+
+## Submitting the Package to Wolfi OS
+
 Once you are satisfied with your set of packages and subpackages, you may consider submitting your package to [Wolfi OS](https://github.com/wolfi-dev/os).
 
 From this point, the process is essentially the following:
