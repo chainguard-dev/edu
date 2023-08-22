@@ -19,22 +19,18 @@ sectiontitle: "Compare Popular Images"
 tutorials: [
   {
     title: "Node",
-    description: "",
     url: "/chainguard/chainguard-images/vuln-comparison/node/"
   },
   {
     title: "Python",
-    description: "",
-    url: "/chainguard/chainguard-images/vuln-comparison/pytho/"
+    url: "/chainguard/chainguard-images/vuln-comparison/python/"
   },
   {
     title: "Rust",
-    description: "",
     url: "/chainguard/chainguard-images/vuln-comparison/rust/"
   },
   {
     title: "NGINX",
-    description: "",
     url: "/chainguard/chainguard-images/vuln-comparison/nginx/"
   },
   {
