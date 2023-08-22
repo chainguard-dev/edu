@@ -38,10 +38,10 @@ package:
   epoch: 0
   description: the PHP programming language
   copyright:
-	- license: PHP-3.01
+    - license: PHP-3.01
   dependencies:
-	runtime:
-  	  - libxml2
+    runtime:
+      - libxml2
 ```
 
 - **Package name**: convention is to use the same name as the YAML file without extension. This is what people will search for, so it's a good idea to keep it consistent with how the package is named in other distributions.
@@ -60,12 +60,12 @@ When building locally, you'll also need to include information about where to fi
 ```yaml
 environment:
   contents:
-	repositories:
-  	  - https://packages.wolfi.dev/bootstrap/stage3
-  	  - https://packages.wolfi.dev/os
-	keyring:
-  	  - https://packages.wolfi.dev/bootstrap/stage3/wolfi-signing.rsa.pub
-  	  - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    repositories:
+      - https://packages.wolfi.dev/bootstrap/stage3
+      - https://packages.wolfi.dev/os
+    keyring:
+      - https://packages.wolfi.dev/bootstrap/stage3/wolfi-signing.rsa.pub
+      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
 ```
 
 Dependencies are defined in a `packages` section. An example excerpt from the Wolfi PHP package, which is a fairly complex build with many dependencies, is below:
@@ -153,8 +153,8 @@ Each pipeline can have one or more parameters that should be provided as keypair
 ```yaml
   - uses: fetch
     with:
-  	  uri: https://libzip.org/download/libzip-${{package.version}}.tar.gz
-  	  expected-sha256: 52a60b46182587e083b71e2b82fcaaba64dd5eb01c5b1f1bc71069a3858e40fe
+      uri: https://libzip.org/download/libzip-${{package.version}}.tar.gz
+      expected-sha256: 52a60b46182587e083b71e2b82fcaaba64dd5eb01c5b1f1bc71069a3858e40fe
 ```
 
 Naturally, you can also run raw bash commands in your pipeline. The following example shows the build of [Composer](https://getcomposer.org/), the PHP package manager, which is not compiled as a typical package:
@@ -162,10 +162,10 @@ Naturally, you can also run raw bash commands in your pipeline. The following ex
 ```yaml
   - name: Install Composer
     runs: |
-  	 EXEC_DIR="${{targets.destdir}}/usr/bin"
-  	 mkdir -p "${EXEC_DIR}"
-  	 mv composer.phar "${EXEC_DIR}/composer"
-  	 chmod +x "${EXEC_DIR}/composer"
+      EXEC_DIR="${{targets.destdir}}/usr/bin"
+      mkdir -p "${EXEC_DIR}"
+      mv composer.phar "${EXEC_DIR}/composer"
+      chmod +x "${EXEC_DIR}/composer"
 ```
 
 As indicated, a pipeline step will have either a `uses` or a `run` directive. You can have as many steps as you need, and you can use special variable substitutions inside steps:
@@ -201,18 +201,18 @@ First, we define an `extensions` range. This should go on a `data` node at the s
 data:
   - name: extensions
     items:
-  	  bz2: Bzip2
-  	  curl: cURL
-  	  gd: GD imaging
-  	  gmp: GNU GMP support
-  	  ldap: LDAP
-  	  mysqlnd: MySQLnd
-  	  openssl: OpenSSL
-  	  pdo_mysql: MySQL driver for PDO
-  	  pdo_sqlite: SQLite 3.x driver for PDO
-  	  soap: SOAP
-  	  sodium: Sodium
-  	  calendar: Calendar
+      bz2: Bzip2
+      curl: cURL
+      gd: GD imaging
+      gmp: GNU GMP support
+      ldap: LDAP
+      mysqlnd: MySQLnd
+      openssl: OpenSSL
+      pdo_mysql: MySQL driver for PDO
+      pdo_sqlite: SQLite 3.x driver for PDO
+      soap: SOAP
+      sodium: Sodium
+      calendar: Calendar
 ```
 
 In the subpackages section, we define a pipeline for that range:
@@ -222,15 +222,15 @@ In the subpackages section, we define a pipeline for that range:
     name: "php-${{range.key}}"
     description: "The ${{range.value}} extension"
     pipeline:
-       - runs: |
-      	  export EXTENSIONS_DIR=usr/lib/php/modules
-      	  export CONF_DIR="${{targets.subpkgdir}}/etc/php/conf.d"
-      	  mkdir -p "${{targets.subpkgdir}}"/$EXTENSIONS_DIR $CONF_DIR
-      	  mv "${{targets.destdir}}/$EXTENSIONS_DIR/${{range.key}}.so" \
-          	"${{targets.subpkgdir}}/$EXTENSIONS_DIR/${{range.key}}.so"
-      	  prefix=
-      	  [ "${{range.key}}" != "opcache" ] || prefix="zend_"
-      	  echo "${prefix}extension=${{range.key}}.so" > $CONF_DIR/"${{range.key}}.ini"
+      - runs: |
+        export EXTENSIONS_DIR=usr/lib/php/modules
+        export CONF_DIR="${{targets.subpkgdir}}/etc/php/conf.d"
+        mkdir -p "${{targets.subpkgdir}}"/$EXTENSIONS_DIR $CONF_DIR
+        mv "${{targets.destdir}}/$EXTENSIONS_DIR/${{range.key}}.so" \
+          "${{targets.subpkgdir}}/$EXTENSIONS_DIR/${{range.key}}.so"
+        prefix=
+        [ "${{range.key}}" != "opcache" ] || prefix="zend_"
+        echo "${prefix}extension=${{range.key}}.so" > $CONF_DIR/"${{range.key}}.ini"
 ```
 
 And this will loop through all values of the `extensions` range and execute the described pipeline.
@@ -246,7 +246,7 @@ Here's an example of the update section of the PHP package, which uses the Relea
 update:
   enabled: true
   release-monitor:
-	identifier: 3627
+    identifier: 3627
 ```
 The identifier can be obtained from the [release monitoring page](https://release-monitoring.org/) - search for the package and grab the ID that shows up at the URL.
 
@@ -256,9 +256,9 @@ Here is another example, this time from a package that is released via GitHub:
 update:
   enabled: true
   github:
-	identifier: php-amqp/php-amqp
-	strip-prefix: v
-	tag-filter: v
+    identifier: php-amqp/php-amqp
+    strip-prefix: v
+    tag-filter: v
 ```
 Again, this section is only required when submitting the package to Wolfi.
 
@@ -301,11 +301,11 @@ It is likely that your build won't work on the first run, and that is completely
 ```yaml
   - name: Install Composer
     runs: |
-  	  set -x
-  	  EXEC_DIR="${{targets.destdir}}/usr/bin"
-  	  mkdir -p "${EXEC_DIR}"
-  	  mv composer.phar "${EXEC_DIR}/composer"
-  	  chmod +x "${EXEC_DIR}/composer"
+      set -x
+      EXEC_DIR="${{targets.destdir}}/usr/bin"
+      mkdir -p "${EXEC_DIR}"
+      mv composer.phar "${EXEC_DIR}/composer"
+      chmod +x "${EXEC_DIR}/composer"
 ```
 
 Most build issues are caused by missed dependencies, even when the error message might be misleading. Another common reason for build errors are wrong file or directory paths. The [melange documentation](https://edu.chainguard.dev/open-source/melange/troubleshooting/) has more pointers to help with debugging, in case you need it.
@@ -317,14 +317,14 @@ When working with local dependencies, use the following notation in your `packag
 ```yaml
 environment:
   contents:
-	repositories:
-  	  - https://packages.wolfi.dev/bootstrap/stage3
-  	  - https://packages.wolfi.dev/os
-  	  - '@local /work/packages'
-	keyring:
-  	  - https://packages.wolfi.dev/bootstrap/stage3/wolfi-signing.rsa.pub
-  	  - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
-	packages:
+    repositories:
+      - https://packages.wolfi.dev/bootstrap/stage3
+      - https://packages.wolfi.dev/os
+      - '@local /work/packages'
+    keyring:
+      - https://packages.wolfi.dev/bootstrap/stage3/wolfi-signing.rsa.pub
+      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    packages:
       - busybox
       - mypackage@local
 ```
@@ -357,19 +357,19 @@ Once you have packages ready to be installed, you may try them with an apko buil
 ```yaml
 contents:
   keyring:
-	- https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
     - /work/melange.rsa.pub
   repositories:
-	- https://packages.wolfi.dev/os
+    - https://packages.wolfi.dev/os
     - '@local /work/packages'
   packages:
-	- ca-certificates
-	- curl
-	- php@local
-	- php-curl@local
-	- php-openssl@local
-	- php-iconv@local
-	- php-mbstring@local
+    - ca-certificates
+    - curl
+    - php@local
+    - php-curl@local
+    - php-openssl@local
+    - php-iconv@local
+    - php-mbstring@local
 
 entrypoint:
   command: /bin/php
@@ -379,21 +379,21 @@ environment:
 
 paths:
   - path: /app
-	type: directory
-	permissions: 0o777
-	uid: 65532
-	gid: 65532
+    type: directory
+    permissions: 0o777
+    uid: 65532
+    gid: 65532
 
 work-dir: /app
 
 accounts:
   groups:
-	- groupname: php
-  	  gid: 65532
+    - groupname: php
+      gid: 65532
   users:
-	- username: php
-  	  uid: 65532
-  	  gid: 65532
+    - username: php
+      uid: 65532
+      gid: 65532
   run-as: 65532
 
 ```
