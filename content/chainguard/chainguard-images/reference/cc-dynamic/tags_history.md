@@ -18,7 +18,11 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 4th   | `sha256:0ff308d6cec8f946f5aa998a6bab708fe88c2ce913cf7e09301cde4ca05c0948` |
-|  `latest`     | August 4th   | `sha256:861428657a01896c08d66a63f7584934e4916d93ccf02f2456f61c442c22dd2f` |
+| Tag (s)                                                        | Last Changed | Digest                                                                    |
+|----------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `13.2-dev` `13.2.0-dev` `latest-dev` `13-dev` `13.2.0-r2-dev` | August 4th   | `sha256:47e73dfe664e342a3c6854b9bba891cb8fdb23e555d2beb08876c0bdacee613a` |
+|  `latest` `13.2.0` `13.2` `13`                                 | August 4th   | `sha256:8f87825d5cacfb0af01c0e88acadb3fd630167a5acf41b7c1ae65dfda7e61ebf` |
+|  `13.2.0-r1-dev`                                               | August 3rd   | `sha256:06222329dbcd3c29220addeba98a268930dc671178c8ecad00076f2de63c0bde` |
+|  `13.2.0-r0-dev`                                               | August 2nd   | `sha256:91eb5c3e73db7d45918e0a19ba6606094159ef6e41aa20ad330bd5fe48c133c1` |
+|  `13.1.0-dev` `13.1-dev` `13.1.0-r1-dev`                       | July 27th    | `sha256:f915cb91f75e46d559d3c5a81d153ea38d8b8ab5293d0ab0c4adfd595ac3f361` |
+|  `13.1` `13.1.0`                                               | July 26th    | `sha256:3d68af03816ce01f81995e9401e71d670eab78c706da300b5aae4bb781968ebe` |

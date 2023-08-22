@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 15th  | `sha256:f6276fcee6af0cb85b8cec8485e1b8e4e545883ab00616055d3c0f9bf0f1366f` |
-|  `latest-dev` | August 15th  | `sha256:b36d971437e95e3f112b208c1b699031ba61e9a99a2de453a72288e6a13301da` |
+|  `latest-dev` | August 15th  | `sha256:b22524bf4f49b2968a22a9bcf8dce08cfbf36b5bc675c0492f27e25cb70502a7` |
+|  `latest`     | August 15th  | `sha256:805dadc9f36ba024c9756727c7538c31cd90b82eaf3fef9d45d0630c07284d10` |
 
 # tekton-entrypoint
 

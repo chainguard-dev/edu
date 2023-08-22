@@ -18,7 +18,10 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 15th  | `sha256:18c5ee243e3874410b8664d93a47ad69ffd15103847d1779925a71b047338577` |
-|  `latest-dev` | August 15th  | `sha256:771a81afd69bbec2bab9986356df0309fa2be62d032d30ea9b4643a051f88218` |
+| Tag (s)                                                    | Last Changed | Digest                                                                    |
+|------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.4` `1.4.0` `1` `latest`                                | August 15th  | `sha256:49fb53ec7ac074a623087cc7761b9feb1261b5b5124eb69a836ea708430e4984` |
+|  `1.4.0-dev` `latest-dev` `1.4-dev` `1-dev` `1.4.0-r1-dev` | August 15th  | `sha256:ac44fc9481cc2d0dc5966fff0fc5103204cf54e20b221d06aaedfb6a111b13dd` |
+|  `1.4.0-r0-dev`                                            | August 11th  | `sha256:451bceb14bbfad40b3579cd63da0d1da988c705da11e066ceb46f2944fbabcfa` |
+|  `1.3.1-dev` `1.3-dev` `1.3.1-r0-dev`                      | August 2nd   | `sha256:1043c48c4c1626faffbef1f5123ee6b29fd94868e16179d92dc0740521771563` |
+|  `1.3.1` `1.3`                                             | August 2nd   | `sha256:eb0605f4534df1ab3ee856f522c0f925f1e92f9737076db839b4ab8b5a09aa48` |

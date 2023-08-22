@@ -18,7 +18,10 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 15th  | `sha256:3824e1a2fef9ae375df7a7e80487cb21f5556477acd132970f8d51e359b20b9b` |
-|  `latest`     | August 15th  | `sha256:3c1d929306b2a1e2c8d6a54b552654d884eb3eb30bb50d256ea64ae421d65e64` |
+| Tag (s)                                                       | Last Changed | Digest                                                                    |
+|---------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2` `2.11` `latest` `2.11.2`                                 | August 15th  | `sha256:3f93167b4e23096ece50531dc123a484078cdb66754fc98e5a6e0ff961eb685c` |
+|  `latest-dev` `2.11.2-r1-dev` `2-dev` `2.11-dev` `2.11.2-dev` | August 15th  | `sha256:bb5c9bb305ad87c5c6caba7294fe94567760e34136e27e884cf604ecad551a1d` |
+|  `2.11.2-r0-dev`                                              | August 2nd   | `sha256:2ca31bd67c293fc1ce2cae380ff98dbb785fac19c10d8f5e2c3b5cff797ed6e0` |
+|  `2.11.1-dev` `2.11.1-r2-dev`                                 | July 27th    | `sha256:21fdde716f930202745aa2a97888ee819e230bda33d3fae27549fd425f7ede12` |
+|  `2.11.1`                                                     | July 26th    | `sha256:76a8e94fa7811e3700ed70a5c8314d1ae71df411e50e39b04ec8f2f9e26837b9` |

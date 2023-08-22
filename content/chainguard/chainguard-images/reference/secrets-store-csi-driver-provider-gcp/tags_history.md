@@ -18,7 +18,10 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 19th  | `sha256:df987e81c179412327aef3f303e38c21b10788e6529eae8be5b97a3cc70c1413` |
-|  `latest-dev` | August 19th  | `sha256:4f3c7b5809ef7d1a4908332c104e92a4c477db65a16cd8f8041b3d8818d84b9f` |
+| Tag (s)                                                    | Last Changed | Digest                                                                    |
+|------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `1` `1.3` `1.3.0`                                | August 19th  | `sha256:2fe31f376ababbd23ed6c7d6afc7aca29a3bcc43c4a58efe14852e01abcc77e7` |
+|  `latest-dev` `1.3.0-dev` `1-dev` `1.3-dev` `1.3.0-r0-dev` | August 19th  | `sha256:1a64e796d3e7ffb3e5785cf24fdb460ff617baefa995763b54db62d21f17c138` |
+|  `1.2-dev` `1.2.0-dev` `1.2.0-r6-dev`                      | August 15th  | `sha256:5ea3b020ec77380dd39ae3251cfdf18e545908c834776a979a67f9a7ec475c5b` |
+|  `1.2` `1.2.0`                                             | August 15th  | `sha256:678ce2d78f8c2ddcd665c3da4e1327b3c3ce1ad36edaaabc655b3a3b968d5adf` |
+|  `1.2.0-r5-dev`                                            | August 2nd   | `sha256:2350337ad119ac04709bda286fe71c68d57f58b7c3205815083e0843c6135d9d` |

@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 15th  | `sha256:19bd72b2ca52b848cd56c50d47c783b4631506e89c16d117235f7c042458f21b` |
-|  `latest`     | August 15th  | `sha256:6837d4b7b1c6a27cbcd29dd315fe55d888ec25f53f8b5d0a3a37f7b1e975c817` |
+|  `latest`     | August 15th  | `sha256:547c18061664d9f4b00f1dce455094a422cbe55f3171444fa21b0a7a5c63f2fc` |
+|  `latest-dev` | August 15th  | `sha256:409ac44d77e9bbf1420c774bf51c40ab5687d7a148ffca98957451eaf97c4e9b` |
 
 # vertical-pod-autoscaler-admission-controller
 

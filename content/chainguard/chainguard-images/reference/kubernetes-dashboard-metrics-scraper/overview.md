@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 15th  | `sha256:57935968d3f11c85991367e414f6fba4e02b219c37153ef5dafbd4a4b471559c` |
-|  `latest-dev` | August 15th  | `sha256:4cc3e1afd4f4b38955b99744b1c7d9206b369147872c1a198806ea8a591de0f6` |
+|  `latest-dev` | August 15th  | `sha256:c583feaf4e67517390f267cb1f2dc18eaed113a58381ebc47704ce6db72c6214` |
+|  `latest`     | August 15th  | `sha256:707ee53eb66af30131c1d39eaa9e21731bdc6a07e0b66b0d9ce962557a8d86a0` |
 
 # kubernetes-dashboard-metrics-scraper
 

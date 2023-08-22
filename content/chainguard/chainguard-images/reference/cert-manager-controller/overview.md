@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 15th  | `sha256:315689782493753d13877524f885a74a117f142b77239c5228c80464abf79b10` |
-|  `latest`     | August 15th  | `sha256:0b377ef35d14fd8d6ba5dfb31860b8151208e227f1ee05d7a84aaf9763722b0d` |
+|  `latest-dev` | August 15th  | `sha256:8c25f81048c24c7cbf254aed9390d64afd36080c93d8f04ae3df5eba4c96b8d8` |
+|  `latest`     | August 15th  | `sha256:39fd00dd01a32a770171752fcb044d247a95b2a328f927912260dd0e653e560f` |
 
 # cert-manager-controller
 

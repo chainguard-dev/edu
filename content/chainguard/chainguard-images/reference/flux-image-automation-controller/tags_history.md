@@ -18,7 +18,10 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 15th  | `sha256:d65f89afc4edacbecc46faab38876c5d1802effb0ac4aa19099021bb46f905d8` |
-|  `latest`     | August 15th  | `sha256:4e414bb551a0538520fba36bb0dd5ab5c8857c11c008a70a590016d037309a1c` |
+| Tag (s)                                                       | Last Changed | Digest                                                                    |
+|---------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0` `0.35.0` `latest` `0.35`                                 | August 15th  | `sha256:a7101a1e79b7c94ed8dda262e2dd049633c995587debf7156a82fcdb07b6ce76` |
+|  `0.35-dev` `0.35.0-r2-dev` `latest-dev` `0-dev` `0.35.0-dev` | August 15th  | `sha256:b2fc70efc8c20ede82a61368e568b4581266c6298ccb683b225446cd90fce6d0` |
+|  `0.31-dev` `0.31.0-r0-dev` `0.31.0-dev`                      | August 2nd   | `sha256:db4c15416dc050d95a638f18ab1757bd4ac08a65e273dbe7dc4560059c0398e4` |
+|  `0.31` `0.31.0`                                              | August 2nd   | `sha256:a7b5ea53a1371f33197049977fe7214a5b608e519b26e18b79ee38611ad2b12f` |
+|  `0.35.0-r1-dev`                                              | August 2nd   | `sha256:4dce03514d5a2062cc6660aac6b6b46556e149431c97464073a28787177d2cd4` |

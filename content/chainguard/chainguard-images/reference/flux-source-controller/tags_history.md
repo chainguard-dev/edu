@@ -18,7 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 15th  | `sha256:01b32d45cd150826b7613aff9fc45086d950dd5c12c9b9a065bad6d6efe81299` |
-|  `latest-dev` | August 15th  | `sha256:059a2d2cfecc75c9dc85e64f2b9561737f4492e8b8bd940e5306e6a5b86360a7` |
+| Tag (s)                                                    | Last Changed | Digest                                                                    |
+|------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.32.1-dev` `0.32-dev` `0.32.1-r0-dev`                   | August 22nd  | `sha256:f5d2158a354fa0bde22b2c39de1c40269fce47c5f3aa15874d4cc14c0a304631` |
+|  `0-dev` `0.36-dev` `0.36.1-r0-dev` `0.36.1-dev`           | August 22nd  | `sha256:2d587416b7ca3fd99017584672871b50b00dd5454c8466b0d130db2be6dffa4d` |
+|  `1` `latest` `1.0` `1.0.1`                                | August 15th  | `sha256:9aa88b4cb366b0b8fe1fa5099224ac00c986aca634ce15b9cd5ded60684fdc9c` |
+|  `1.0-dev` `latest-dev` `1.0.1-dev` `1-dev` `1.0.1-r2-dev` | August 15th  | `sha256:3c9e4498e3ffd16fe11ef30e2ea04ea8672a977a641c920dd367aa3f09d80ed4` |
+|  `0.32` `0.32.1`                                           | August 7th   | `sha256:87210797fd401dd2ac4bf55d8d386d69d660b8887a1b9760aa75d7e33671614a` |
+|  `0.36` `0.36.1` `0`                                       | August 7th   | `sha256:863733afabf5b8486ef2f67b15d0b3d766a5ae60a6d65165ca58adfdae86322e` |
+|  `1.0.1-r1-dev`                                            | August 2nd   | `sha256:51bbcc928fbc6c1241a707e1f786bf0a32ec0dd410d56869aca9a34180a04983` |

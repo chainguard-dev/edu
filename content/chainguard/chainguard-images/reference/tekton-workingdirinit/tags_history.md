@@ -18,7 +18,10 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 15th  | `sha256:0ce4c3e41e4d62187282301344fa11d1ca9588a960eaf4665e2ac11672ef5a9b` |
-|  `latest-dev` | August 15th  | `sha256:e49c9b99d4b3d8bd28b3be3ede2b88cd635d3cbf028f91cd22568fc8986a1543` |
+| Tag (s)                                                       | Last Changed | Digest                                                                    |
+|---------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `0.50-dev` `0.50.1-r1-dev` `0-dev` `0.50.1-dev` | August 15th  | `sha256:9f6daac72db8e3fdc631162c06f4e4f3493ddee5e02652018425ff6598de10ec` |
+|  `0` `latest` `0.50` `0.50.1`                                 | August 15th  | `sha256:5afe57dd21862667cbb0e59a1a6bfc103a92614635af859af5192ddc3a3869b1` |
+|  `0.50.1-r0-dev`                                              | August 12th  | `sha256:cf6c411b4cee6eead7b12fbed810ba95a85dcc7a37ec596dd346060e56525c3c` |
+|  `0.50.0`                                                     | August 2nd   | `sha256:3514d56889685e80db31cc0d821c8b5c2dc752e50c81cb4b5cd3eacdbe5fdd57` |
+|  `0.50.0-r0-dev` `0.50.0-dev`                                 | August 2nd   | `sha256:a0841a1caaf350ac29b543fa3a390bbb3ef52660395a77a7216471d619790bfd` |

@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 16th  | `sha256:629094659128aa098d3c8599f958e33f72893c56a8d2b6252eb612d1e20c5904` |
+|  `latest` | August 17th  | `sha256:28e9552a2a69b9f6ebdb9f1498f99675105504b70af14e174912a3fabce313ef` |
 
 # calico-kube-controllers
 

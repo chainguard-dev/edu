@@ -18,7 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 16th  | `sha256:5abcfc1b912d382677c60a68766b3d8ac91caf46230e83872ce56f8ff9720e96` |
-|  `latest-dev` | August 16th  | `sha256:fcab7e0ffb7c878d9be0e4774a2300c7ae04cb6de8d6a6022456d842a731aca0` |
+| Tag (s)                                                        | Last Changed | Digest                                                                    |
+|----------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `23.7.2` `23` `23.7`                                 | August 17th  | `sha256:5366c3d1e6811621e16daebf0611d2a150302ed6fb2ccb6af35f26774869b3b2` |
+|  `23.7-dev` `23.7.2-r4-dev` `latest-dev` `23.7.2-dev` `23-dev` | August 17th  | `sha256:64e0e4f5eee77dfa6fd275b5ca2b2940f28e5be040f7edbf4936df853edce006` |
+|  `23.7.2-r0-dev`                                               | August 2nd   | `sha256:ab698c263fc7fdc5aa5634aaeae43abd4a6f5d886e86ba6bebde4a1bdbdbff98` |
+|  `23.7.0`                                                      | July 27th    | `sha256:bbb04e4250c56d593ab1abf33ead023c2d8f7bfb1a06cd0cd4d3fffbca68098c` |
+|  `23.7.0-r0-dev` `23.7.0-dev`                                  | July 27th    | `sha256:180c2865bb7b0800e74c935f95e2c6b55dc6e791bbd757f0101ef806c60503a9` |
+|  `23.5-dev` `23.5.2-dev` `23.5.2-r0-dev`                       | July 26th    | `sha256:f39c2ad63df95c131b5545a255aeab8ab0893d87c21d41d2d15011d4e722f19f` |
+|  `23.5` `23.5.2`                                               | July 26th    | `sha256:cc3672091467c8d89a465874cce55bde02e09631020f52d8c357b35b28c5b3de` |
