@@ -18,7 +18,9 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 16th  | `sha256:f544bc5a090c227871f64926d88b35b1888f99b4fa160c1149bfe8394f7a0ae3` |
-|  `latest-dev` | August 16th  | `sha256:335329d223414bb959366b3e2e79c2dbd70e53a477b90bc66fc5541ed2c2135e` |
+| Tag (s)                        | Last Changed | Digest                                                                    |
+|--------------------------------|--------------|---------------------------------------------------------------------------|
+|  `openjdk-11-dev`              | August 22nd  | `sha256:c87646f4e1c6d502af8798a8209c41aed0484908f32b87d25914cb81c8147752` |
+|  `openjdk-11`                  | August 22nd  | `sha256:0c3bab214250e98a76ee1cd61164664a0c8ef4314998b07af3a01b8f1ea2cbfd` |
+|  `latest-dev` `openjdk-17-dev` | August 22nd  | `sha256:b067acf8aafd926d72fb320801307f82170abb265b44df3f4e39dfa7d588c5a0` |
+|  `latest` `openjdk-17`         | August 22nd  | `sha256:8b4d1141052165cf594285cedb53e50c5e607ba8b1a64650e8c960ff60cd1f9c` |

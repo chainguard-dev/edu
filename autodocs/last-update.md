@@ -1,5 +1,7 @@
-## 2023-08-22
+## 2023-08-23
 
 Updated image reference docs.
 
-No new images added.
+New images added:
+
+- r-base
