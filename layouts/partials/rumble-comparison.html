@@ -1,0 +1,80 @@
+{{ range $i := $.Site.Data.rumble }}
+{{ $title := print "Vulnerability Comparison: " $i.image }}
+{{ if eq $title $.Params.Title }}
+
+<div id="rumble">
+  <h2>Comparison chart for {{ $i.image }} images</h2>
+  <p>The following chart shows the past 30 days of Grype scans against the <code>{{ $i.left}}</code> image, and the
+    <code>{{$i.right}}</code> Chainguard Image.</code>
+  </p>
+  <div>
+    <iframe scrolling="no" style="width:100%; min-height:400px; border: none; overflow: hidden"
+      src="/rumble/bar/?left={{ $i.left }}&right={{ $i.right}}">
+    </iframe>
+  </div>
+
+  <h3>Vulnerability Details for {{ $i.image }} images</h3>
+  <p>The following tables of vulnerabilities include the total number of unique vulnerabilities detected in the last 30
+    days in
+    the refereced external <code>{{ $i.left}}</code> image, and the <code>{{$i.right}}</code> Chainguard Image. The
+    totals include patched, withdrawn, or contested vulnerabilites within the 30 day window. Refer to the individual
+    vulnerabilities for more
+    date information and extended
+    descriptions.</p>
+
+  <div class="tables">
+    <span id="segmentBackground"></span>
+    <input type="radio" name="images" id="images-external" checked />
+    <label id="images-external-label" for="images-external">External</label>
+    <div id="rumble-images-external" class="tab-content" data-theirs="{{ $i.left}}"></div>
+
+    <input type="radio" name="images" id="images-chainguard" />
+    <label id="images-chainguard-label" for="images-chainguard" role="tab" tabindex="0">Chainguard</label>
+    <div id="rumble-images-chainguard" class="tab-content" data-ours="{{ $i.right}}"></div>
+
+    <form class="search">
+      <ul>
+        <li>
+          <input class="form-control is-search" id="filterInput" placeholder="Search packages and vulnerabilities"
+            size="25" />
+        </li>
+        <li id="severity-picker">
+          <input id="dropdown" type="checkbox" autocomplete="off" />
+          <label for="dropdown" class="dropdown-btn">
+            <span>Severity<span class="bi-chevron-down"></span></span>
+          </label>
+
+          <ul class="dropdown-content">
+            <li data-severity=""><span data-severity="">View all</span></li>
+            <li data-severity="Critical"><span data-severity="Critical"><span class="severity sev-critical"
+                  data-severity="Critical">⬤</span>Critical</span></li>
+            <li data-severity="High"><span data-severity="High"><span class="severity sev-high"
+                  data-severity="High">⬤</span>High</span></li>
+            <li data-severity="Medium"><span data-severity="Medium"><span class="severity sev-medium"
+                  data-severity="Medium">⬤</span>Medium</span></li>
+            <li data-severity="Low"><span data-severity="Low"><span class="severity sev-low"
+                  data-severity="Low">⬤</span>Low</span></li>
+            <li data-severity="Negligible"><span data-severity="Negligible"><span class="severity sev-negligible"
+                  data-severity="Negligible">⬤</span>Negligible</span></li>
+            <li data-severity="Unknown"><span data-severity="Unknown"><span class="severity sev-unknown"
+                  data-severity="Unknown">⬤</span>Unknown</span></li>
+          </ul>
+        </li>
+      </ul>
+    </form>
+
+  </div>
+
+</div>
+
+{{ $rumbleBase := resources.Get "js/rumble/base.js" }}
+{{ $rumbleComparison := resources.Get "js/rumble/comparison.js" }}
+{{ $rumble := slice $rumbleBase $rumbleComparison | resources.Concat "js/rumble-comparison.js" }}
+<script type="module" src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>
+
+{{ $scss := resources.Get "scss/rumble.scss" }}
+{{ $rumble_style := $scss | resources.ToCSS }}
+<link rel="stylesheet" href="{{ $rumble_style.Permalink }}" />
+
+{{ end }}
+{{ end }}

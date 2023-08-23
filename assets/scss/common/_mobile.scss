@@ -53,7 +53,7 @@
     display: none;
   }
 
-  #sidebar-default > div {
+  #sidebar-default>div {
     margin-top: 0 !important;
     width: 100%;
   }
@@ -78,6 +78,7 @@
 }
 
 @media (max-width: $MobileLayoutWidth) {
+
   // Collapse leftnav on mobile width
   .leftnav-container {
     display: none;
@@ -119,9 +120,9 @@
     display: none;
   }
 
-  .content > .row,
-  .content > .row > .row,
-  .content > .row > .row > .col-md-12 {
+  .content>.row,
+  .content>.row>.row,
+  .content>.row>.row>.col-md-12 {
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -216,5 +217,9 @@
   #sidebar-default,
   .sidebar-bottom {
     background: inherit;
+  }
+
+  #severity-picker {
+    display: none;
   }
 }

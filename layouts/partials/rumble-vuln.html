@@ -1,0 +1,36 @@
+{{ if eq "Vulnerability Information" .Title }}
+<div id="rumble-vuln">
+  <h2 id="id" hidden=true></h2>
+  <div id="vuln-details" class="rumbleRow"></div>
+
+  <div class="tables">
+    <span id="segmentBackground"></span>
+    <input type="radio" name="images" id="images-external" checked />
+    <label id="images-external-label" for="images-external">External</label>
+    <div id="rumble-images-external" class="tab-content"></div>
+
+    <input type="radio" name="images" id="images-chainguard" />
+    <label id="images-chainguard-label" for="images-chainguard" role="tab" tabindex="0">Chainguard</label>
+    <div id="rumble-images-chainguard" class="tab-content"></div>
+
+    <form class="search">
+      <ul>
+        <li>
+          <input class="form-control is-search" type="search" id="filterInput" placeholder="Search images" size="25" />
+        </li>
+      </ul>
+    </form>
+  </div>
+
+</div>
+
+{{ $rumbleBase := resources.Get "js/rumble/base.js" }}
+{{ $rumbleVulnerability := resources.Get "/js/rumble/vulnerability.js" }}
+{{ $rumble := slice $rumbleBase $rumbleVulnerability | resources.Concat "js/rumble-vulnerability.js" }}
+<script type="module" src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>
+
+{{ $scss := resources.Get "/scss/rumble.scss" }}
+{{ $rumble_style := $scss | resources.ToCSS }}
+<link rel="stylesheet" href="{{ $rumble_style.Permalink }}" />
+
+{{ end }}
