@@ -355,6 +355,9 @@ Check the packages folder, you should find a directory for each built architectu
 ├── php-exif-8.2.7-r1.apk
 …
 ```
+
+In the next section, we'll demonstrate how you can compose a test image with these packages using a tool called **apko**, which is the same tool we use to build [Chainguard Images](https://edu.chainguard.dev/chainguard/chainguard-images/overview/).
+
 ## Does it Work? Try with apko
 Once you have packages ready to be installed, you may try them with an apko build. The syntax used by apko YAML files is very similar to what we've seen with melange. There are just a few minor differences in structure. Here is an example apko file to build a PHP image using some of the subpackages created with my previous build commands:
 
@@ -428,7 +431,7 @@ From this point, the process is essentially the following:
 
 - Create a fork of the [wolfi-dev/os](https://github.com/wolfi-dev/os) repository
 - Create a branch with the name of your package, for instance: add-php-package
-- Remove the **repositories** and **keyring** sections of the YAML file
+- Remove the `repositories` and `keyring` sections of the YAML file
 - Add the `release-monitor` info to the YAML file
 - Add the package to the bottom of the `packages.txt` file in the root of the Wolfi OS repository
 - Create a signed commit
