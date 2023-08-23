@@ -1,5 +1,5 @@
 ---
-date: 2023-08-21T16:12:10Z
+date: 2023-08-23T00:12:48Z
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_login/
@@ -47,6 +47,8 @@ chainctl auth login [--invite-code=INVITE_CODE | --register] [--identity-token=P
       --prefer-ambient-credentials   Auth with ambient credentials, if present, before using a supplied identity token.
       --refresh                      Enable auto refresh of the Chainguard token (for workloads).
       --register                     Register a new account if needed. Will create a new root group when an invite code is not specified.
+      --sts-http1-downgrade          Downgrade STS requests to HTTP/1.x
+      --validate                     Validates token after exchange (default true)
 ```
 
 ### Options inherited from parent commands
