@@ -237,7 +237,7 @@ In the subpackages section, we define a pipeline for that range:
 
 And this will loop through all values of the `extensions` range and execute the described pipeline.
 
-#### The `update` Section
+### The `update` Section
 This final section of the YAML file is only required when submitting the package to the Wolfi OS repository. The `update` section is used by Wolfi CI/CD systems to detect new package releases.
 
 Wolfi uses multiple tools and services to keep track of upstream releases, including the [Release Monitoring](https://release-monitoring.org/) service. For packages that are released via GitHub, tracking occurs using the project org/name and a monitored tag.
