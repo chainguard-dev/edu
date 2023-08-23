@@ -1,7 +1,7 @@
 ---
-title: "kubectl Image Tags History"
+title: "r-base Image Tags History"
 type: "article"
-description: "Image Tags and History for the kubectl Chainguard Image"
+description: "Image Tags and History for the r-base Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -20,5 +20,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 22nd  | `sha256:adfbbaa57b185d9923bfdcb313b59d7a1f36e98b57c764f358f49e25f87008fd` |
-|  `latest-dev` | August 22nd  | `sha256:2c8f9abd7a5dd21261a4f552c2664e475c6f2da45e029f01771e1d8482bfd52a` |
+|  `latest`     | August 22nd  | `sha256:41dbceeff2e303519c3daefa0ccf56064b0f4d7b72a88ec5e0062390080b5af5` |
+|  `latest-dev` | August 22nd  | `sha256:ce22e4fc290d965c9a79b40b249dbbe7af90cee3ad569a4d85d2347113eb7935` |
