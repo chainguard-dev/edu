@@ -5,14 +5,14 @@ lead: "Detected CVEs Over Time"
 type: "article"
 description: "Comparing popular base images with Chainguard Images in number of CVEs detected over time"
 date: 2022-09-15T08:49:31+00:00
-lastmod: 2022-09-15T08:49:31+00:00
+lastmod: 2023-08-22T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "Product"]
 images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 400
+weight: 700
 toc: true
 ---
 

@@ -4,6 +4,8 @@
   {"image":"deno","left":"deno:latest","right":"cgr.dev/chainguard/deno:latest"},
   {"image":"git","left":"bitnami/git:latest","right":"cgr.dev/chainguard/git:latest"},
   {"image":"go","left":"golang:latest","right":"cgr.dev/chainguard/go:latest"},
+  {"image":"gradle","left":"gradle:latest","right":"cgr.dev/chainguard/gradle:latest"},
+  {"image":"jenkins","left":"jenkins/jenkins:lts","right":"cgr.dev/chainguard/jenkins:latest"},
   {"image":"kube-state-metrics","left":"bitnami/kube-state-metrics:latest","right":"cgr.dev/chainguard/kube-state-metrics:latest"},
   {"image":"mariadb","left":"mariadb:latest","right":"cgr.dev/chainguard/mariadb:latest"},
   {"image":"maven","left":"maven:latest","right":"cgr.dev/chainguard/maven:latest"},

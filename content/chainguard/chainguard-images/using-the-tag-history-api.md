@@ -3,14 +3,14 @@ title: "Using the Tag History API"
 type: "article"
 description: "Learn how to use the Chainguard Images Tag History API to fetch the tag history of image variants."
 date: 2023-05-26T08:49:31+00:00
-lastmod: 2023-08-09T08:49:31+00:00
+lastmod: 2023-08-22T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "Product"]
 images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 590
+weight: 900
 toc: true
 ---
 

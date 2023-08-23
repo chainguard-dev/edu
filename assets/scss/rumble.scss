@@ -1,0 +1,318 @@
+// colours for severity circle/blobs
+$sev-critical: #F236F6;
+$sev-high: #3443F4;
+$sev-medium: #1F2892;
+$sev-low: #16C0D7;
+$sev-negligible: #C5C5C5;
+$sev-unknown: #8C8C8C;
+
+// [id^="rumble"] matches across comparison and vulnerability pages.
+// e.g. id="rumble" and id="rumble-vuln" both match the selector,
+// which makes these styles work for both pages
+
+[id^="rumble"] iframe {
+  margin: 32px 0 4px 0;
+}
+
+[id^="rumble"] .search {
+  order: 5;
+  flex: 1;
+}
+
+[id^="rumble"] .search ul {
+  list-style: none;
+  height: 1rem;
+  float: right;
+  margin: 0;
+}
+
+[id^="rumble"] .search ul li {
+  display: inline-flex;
+}
+
+[id^="rumble"] .search ul li input {
+  margin: 0;
+  min-width: 160px;
+  height: 48px !important;
+  vertical-align: middle;
+  font-size: 16px;
+  padding: 0 1rem 0 2rem;
+
+  background: var(--search-icon-url) !important;
+  background-repeat: no-repeat !important;
+  background-color: var(--severity-search-background) !important;
+  background-position: 12px 16px !important;
+  border: 1px solid var(--search-background);
+
+  &:focus {
+    border: 1px solid var(--severity-search-border);
+  }
+}
+
+.tables {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 42px;
+}
+
+// empty span, used as the background for segmented button
+.tables #segmentBackground {
+  position: absolute;
+  background: var(--segmented-button-background);
+  width: 222px;
+  height: 48px;
+  z-index: -1;
+  border-radius: 100px;
+}
+
+.tables label {
+  order: 0; // Put the labels first
+  padding: 9px 16px 7px 16px;
+  background: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 100px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  height: 42px;
+  color: var(--segmented-button-color);
+  margin: 3px -4px 0 4px;
+}
+
+// needed since tables and labels are intermixed in the DOM
+// must make tables last for segmented selector to work
+.tables .tab-content {
+  order: 99; // Put the tabs last
+  width: 100%;
+  display: none;
+  background: none;
+  table-layout: fixed;
+  margin: 42px 0 0 0 !important; //
+}
+
+// make table headings stick when scrolling
+.tables table th {
+  font-weight: 500 !important;
+  position: sticky;
+  top: 0;
+  background: var(--table-row-background);
+}
+
+.tables table thead,
+tbody,
+tr,
+td,
+th {
+  border-bottom: 1px solid var(--table-row-border-color) !important;
+  width: 25%;
+  padding: 24px 12px;
+}
+
+.tables table tbody tr:hover {
+  background: var(--table-row-hover-background);
+}
+
+.tables input[type="radio"] {
+  display: none;
+}
+
+.tables input[type="radio"]:checked+label {
+  background: var(--segmented-button-checked);
+  color: white;
+}
+
+// show table when its radio is checked, default is display: none
+.tables input[type="radio"]:checked+label+.tab-content {
+  display: block;
+
+  table {
+    --bs-table-bg: none;
+    border-collapse: separate;
+    border-spacing: 0px;
+    margin: 0 !important;
+
+    tbody {
+      border-top: none !important;
+
+      tr {
+        color: var(--table-vulnerability-color);
+
+        &:hover {
+          background: var(--table-row-hover-background);
+        }
+
+        td {
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 22px;
+        }
+
+        td a {
+          color: var(--table-vulnerability-color);
+        }
+      }
+    }
+  }
+}
+
+// only comparison page table rows are links
+#rumble .tables table tbody tr:hover {
+  cursor: pointer;
+}
+
+// remove info icon on vulnerability info pages
+blockquote::before {
+  content: none;
+}
+
+// Severity dropdown container
+#severity-picker {
+  padding: 0 0 0 1rem !important;
+  height: 48px !important;
+  width: 130px;
+  background: var(--severity-background);
+  border: 1px solid var(--severity-border);
+  position: relative;
+  border-radius: 8px;
+  margin: 0 0 0 1.5rem !important;
+  top: -2px;
+
+  .bi-chevron-down {
+    position: absolute;
+    right: 1rem;
+  }
+
+  // severity dropdown span
+  .severity {
+    padding: 0 0.5rem 0 0;
+    font-size: 0.75rem;
+    vertical-align: top;
+  }
+
+  // coloured circles in dropdown menu
+  .sev-critical {
+    color: $sev-critical;
+    font-size: 8px;
+  }
+
+  .sev-high {
+    color: $sev-high;
+    font-size: 8px;
+  }
+
+  .sev-medium {
+    color: $sev-medium;
+    font-size: 8px;
+  }
+
+  .sev-low {
+    color: $sev-low;
+    font-size: 8px;
+  }
+
+  .sev-negligible {
+    color: $sev-negligible;
+    font-size: 8px;
+  }
+
+  .sev-unknown {
+    color: $sev-unknown;
+    font-size: 8px;
+  }
+
+  // severity dropdown button
+  .dropdown-btn {
+    width: 130px;
+    border: none;
+    color: var(--severity-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 !important;
+    margin: 0;
+
+    span {
+      margin: 0 0 0 0;
+      font-weight: normal;
+
+      &::selection {
+        background: none;
+      }
+    }
+  }
+
+  // container for dropdown items
+  .dropdown-content {
+    list-style: none;
+    position: absolute;
+    //top: 3em;
+    width: 130px;
+    visibility: hidden;
+    z-index: 100;
+    margin: -3px 0 0 0;
+    left: -1px;
+    padding: 0;
+    border-radius: 8px 8px 0 0;
+  }
+
+  // severity dropdown items
+  .dropdown-content li {
+    background: var(--severity-background);
+    display: block;
+    width: 130px;
+    float: left;
+    padding: 8px 12px;
+    cursor: pointer;
+    box-shadow: 0px 8px 16px 0px #3443F41F;
+
+    &:first-child {
+      border-radius: 8px 8px 0 0;
+    }
+
+    // need a bottom border for the dropdown
+    &:last-child {
+      border-radius: 0 0 8px 8px;
+    }
+  }
+
+  .dropdown-content li:hover {
+    background: var(--severity-background);
+    border-radius: 4px;
+    background: var(--severity-hover-background);
+  }
+
+  .dropdown-content li span {
+
+    // don't show highlighted text selections
+    &::selection {
+      background: none;
+    }
+  }
+
+  .dropdown:focus-within .dropdown-content li {
+    left: 0;
+  }
+
+  .dropdown:focus-within .dropdown-content {
+    visibility: visible;
+    //box-shadow: 0px 8px 16px 0px #3443F41F;
+  }
+
+  // used to toggle dropdown menu
+  input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+  }
+
+  input[type="checkbox"]:checked~.dropdown-content {
+    visibility: visible;
+  }
+
+}
