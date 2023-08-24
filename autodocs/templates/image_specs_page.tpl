@@ -14,6 +14,6 @@ weight: 550
 toc: true
 ---
 
-This page shows detailed information about all available variants of the Chainguard **{{ title }}** Image.
+This page shows detailed information about all public variants of the Chainguard **{{ title }}** Image.
 
 {{ content }}
