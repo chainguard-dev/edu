@@ -20,11 +20,11 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-root-dev`       | August 17th  | `sha256:61d7a4c8b4e2a5be287b18466fe5072005984523f51d2f52c4762d52f421da8a` |
-|  `latest`                | August 17th  | `sha256:f4c9fa2831b0a706582611517c5d9086cb307cdfbcaa8c02fcfc031451eb095e` |
-|  `latest-root`           | August 17th  | `sha256:207a794a4b2e755f95099b214126483365bcbee7a2687afec25bff0632eedb06` |
-|  `latest-dev`            | August 17th  | `sha256:0786e72eafc64ceef751401839033836afbb9be6ef64f4f9c9dc24fa7c0cdd42` |
-|  `latest-glibc`          | August 15th  | `sha256:cad92d8373a56177dd859be312f4283e1bf94bd0255c3234d6dac07303df510e` |
-|  `latest-glibc-dev`      | August 15th  | `sha256:b90120fcb1b80cf9acddf4fe9264f486cad9bbc6a740c11713816829983e9d5f` |
-|  `latest-glibc-root-dev` | August 15th  | `sha256:1c6bcc9256a75189fde17a192ad38a910becfdce065bf08d27ad3006e46faa18` |
-|  `latest-glibc-root`     | August 15th  | `sha256:6f009fd0b2525e32bc45be1f1ad489bbbba8afe9f1f428c7a4cd04f275a44830` |
+|  `latest-glibc-dev`      | August 23rd  | `sha256:59110b05dc8df5130bba2438c995fe032c3ecaead819035bc8c0d00ea051a73e` |
+|  `latest-glibc-root-dev` | August 23rd  | `sha256:ed57c24eb245eebf754e8e5b44e8fca58e39e150b16bcf6f6ac015fb3c5522ef` |
+|  `latest-glibc-root`     | August 23rd  | `sha256:7c601b15f6255979690086b9f4b3d52ff23b5c062791a0aabd9c9135ae8e3658` |
+|  `latest-glibc`          | August 23rd  | `sha256:c0c8208f2d32572b1a78b840d6663b1334c3db867eb2d86fc65244bf4660dead` |
+|  `latest`                | August 23rd  | `sha256:2529db9b1f7a2f0817a3715a53a0bce125f4ac241a67e5745072cd1912523f7b` |
+|  `latest-root`           | August 23rd  | `sha256:0ce33f72d2a5b4506393d7546048d58111e01bd0c309d95cace436bffda6592b` |
+|  `latest-root-dev`       | August 23rd  | `sha256:8b6318e9349006ad732c9414d0ed34e11859e98c81abae72ca549f9295f9b91f` |
+|  `latest-dev`            | August 23rd  | `sha256:061d9311949cf2398faf870541e2a5e6c11c89a88c273a90bc7844f7c19dd6b7` |
