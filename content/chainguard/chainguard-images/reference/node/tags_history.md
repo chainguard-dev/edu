@@ -20,9 +20,9 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                                                                      | Last Changed | Digest                                                                    |
 |--------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `18.16.0-r2-dev` `18.17.1-r1-dev` `18.17-dev` `18-dev` `18.17.1-dev` `18.16.0-dev` `18.16-dev` `latest-dev` | August 18th  | `sha256:5103d4d5d7999901f3852a5d39f7d528aee261f872c84c5a71697a196498b2d6` |
-|  `20.5.1-r1-dev` `20.5-dev` `20-dev` `20.5.1-dev`                                                            | August 18th  | `sha256:9203b5c8cfff2f7c08c4deb0be7ba5d68457e6b15db26a9777592d5149cf2713` |
-|  `19.9.0-r3-dev` `19-dev` `19.9.0-dev` `19.9-dev`                                                            | August 18th  | `sha256:13e243368a119c093309eaf39315482c4a67d12f7cd8f557afa072ae55f49db5` |
-|  `20.5` `20.5.1` `20`                                                                                        | August 17th  | `sha256:4b3723b98cbdd9da09ce9b70f539670b294cc043ad0b2b4811977154adfb0319` |
-|  `18.16` `18.17.1` `18.16.0` `18.17` `18` `latest`                                                           | August 17th  | `sha256:1503cb6568807812370f77f0f2dbe416291c1f6e24eff555c1fb92165899bb86` |
-|  `19.9` `19.9.0` `19`                                                                                        | August 17th  | `sha256:c22d481e1c8e43511585f6f6cedc7ef6d075fb9451eed19d10664fe986d26ba3` |
+|  `20.5.1-r1-dev` `20.5.1-dev` `20.5-dev` `20-dev`                                                            | August 23rd  | `sha256:35a49e62a39bcaa3af93d5012cab8f6b04b20b51c49e8fb6b95245963555104c` |
+|  `18.16` `latest` `18.16.0` `18` `18.17.1` `18.17`                                                           | August 23rd  | `sha256:fbaecf4d6ac9883699078c0b501aad22c866f9ce039d009212c0eed260914875` |
+|  `19.9.0-dev` `19-dev` `19.9-dev` `19.9.0-r3-dev`                                                            | August 23rd  | `sha256:4a8333d17a3555ff59fa6d4ed416530e3dfa07fefd36b9d314dc3ecb2ff25784` |
+|  `19.9` `19` `19.9.0`                                                                                        | August 23rd  | `sha256:1e8e3fc64b5a6356bda5b44cdb7ebc9502fe892af3853c93b32ea842428775fc` |
+|  `18-dev` `latest-dev` `18.16-dev` `18.17.1-r1-dev` `18.16.0-dev` `18.17.1-dev` `18.17-dev` `18.16.0-r2-dev` | August 23rd  | `sha256:2595750e788483e6e05612cb158770657b9499b0c1b68219b7f67fb8055a9773` |
+|  `20.5` `20` `20.5.1`                                                                                        | August 23rd  | `sha256:c0a2c81062d469776b9dd535418b8737fc59bdd13ebfe59f988c98d5f822a2f5` |
