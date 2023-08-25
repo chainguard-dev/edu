@@ -56,8 +56,9 @@ jobs:
         run: |
           echo "Fetching variants config...";
           for image in $(jq -r '.[].repo.name' ${{ github.workspace }}/images-tags.json); do
-            echo '#########################'
+            echo '\n##################################################################\n'
             echo "Fetching latest tags info for ${image} image"
+            echo '\n##################################################################\n'
             for tags in $(jq --arg image_repo $image -r 'map(select(.repo.name == $image_repo)) | [.[].tags[].name] | map(select(startswith("latest"))) | .[]' ${{ github.workspace }}/images-tags.json); do
               for tag in $tags; do
                 cosign verify-attestation $(crane digest --full-ref --platform=linux/amd64 cgr.dev/chainguard/${image}:${tag}) \
