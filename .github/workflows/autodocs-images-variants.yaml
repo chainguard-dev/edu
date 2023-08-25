@@ -1,0 +1,96 @@
+name: Build Images Variants Pages
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+
+env:
+  WORKDIR: reference
+  YAMLDOCS_IMAGES_SOURCE: "${{ github.workspace }}/images/images"
+  YAMLDOCS_DIFF_SOURCE: "${{ github.workspace }}/edu/content/chainguard/chainguard-images/reference"
+  YAMLDOCS_OUTPUT: "${{ github.workspace }}/reference"
+  YAMLDOCS_TEMPLATES: "${{ github.workspace }}/edu/autodocs/templates"
+  YAMLDOCS_CACHE: "${{ github.workspace }}"
+  YAMLDOCS_CHANGELOG: "${{ github.workspace }}/reference/changelog.md"
+  YAMLDOCS_LASTUPDATE: "${{ github.workspace }}/reference/last-update.md"
+  YAMLDOCS_BUILD_PAGES: "variants"
+
+jobs:
+  main:
+    permissions:
+      id-token: write # Enable OIDC
+      pull-requests: write
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Destination Repo
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
+        with:
+          path: edu
+
+      - name: Set up gitsign
+        uses: chainguard-dev/actions/setup-gitsign@main
+
+      - name: Set up workdir
+        run: |
+          mkdir -p "${{ github.workspace }}/${{ env.WORKDIR }}" && \
+          chmod 777 "${{ github.workspace }}/${{ env.WORKDIR }}"
+
+      - name: Set up Chainctl
+        uses: chainguard-dev/actions/setup-chainctl@main
+        with:
+          identity: "${{ secrets.CHAINCTL_IDENTITY }}"
+
+      - name: Set up Crane
+        uses: imjasonh/setup-crane@v0.1
+
+      - name: Set up Cosign
+        uses: sigstore/cosign-installer@v3.1.1
+
+      - name: Fetch images list
+        run: |
+          chainctl img ls --group "${{ secrets.CHAINCTL_GROUP_PUBLIC }}" -ojson > "${{ github.workspace }}/images-tags.json"
+
+      - name: Fetch images metadata
+        run: |
+          echo "Fetching variants config...";
+          for image in $(jq -r '.[].repo.name' ${{ github.workspace }}/images-tags.json); do
+            echo '\n##################################################################\n'
+            echo "Fetching latest tags info for ${image} image"
+            echo '\n##################################################################\n'
+            for tags in $(jq --arg image_repo $image -r 'map(select(.repo.name == $image_repo)) | [.[].tags[].name] | map(select(startswith("latest"))) | .[]' ${{ github.workspace }}/images-tags.json); do
+              for tag in $tags; do
+                cosign verify-attestation $(crane digest --full-ref --platform=linux/amd64 cgr.dev/chainguard/${image}:${tag}) \
+                  --certificate-identity="https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main" \
+                  --certificate-oidc-issuer="https://token.actions.githubusercontent.com" --type="https://apko.dev/image-configuration" \
+                  | jq -r .payload | base64 -d | jq -r '.predicate' > ${{ github.workspace }}/${image}-${tag}.json
+              done
+            done
+          done
+
+      - name: Update the reference docs for Chainguard Images
+        uses: chainguard-dev/deved-autodocs@1.8.0
+        with:
+          command: build images --skip-changelog
+
+      - name: "Copy updates to main repo"
+        run: |
+          echo "Copying files..." && \
+          cp -R "${{ github.workspace }}/${{ env.WORKDIR }}" "${{ github.workspace }}/edu/content/chainguard/chainguard-images" && \
+          echo "Finished copy"
+
+      - name: Create a PR
+        uses: peter-evans/create-pull-request@2b011faafdcbc9ceb11414d64d0573f37c774b04 # v4.2.3
+        id: cpr
+        with:
+          path: "${{ github.workspace }}/edu"
+          commit-message: Update Images Reference
+          title: "[AutoDocs] Update Images Reference Docs: Variants Pages"
+          body: "Updated Variants Pages of Chainguard Images."
+          signoff: true
+          labels: |
+            documentation
+            images
+            automated
+          assignees: erikaheidi
