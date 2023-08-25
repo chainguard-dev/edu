@@ -60,3 +60,4 @@ The table shows package distribution across variants.
 | `openssl-config`         |                 | X      |
 | `readline`               |                 | X      |
 | `sqlite-libs`            |                 | X      |
+

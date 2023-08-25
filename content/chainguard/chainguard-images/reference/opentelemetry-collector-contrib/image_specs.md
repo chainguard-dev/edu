@@ -64,3 +64,4 @@ The table shows package distribution across variants.
 | `opentelemetry-collector-contrib-compat` | X          | X      |
 | `wolfi-baselayout`                       | X          | X      |
 | `zlib`                                   | X          |        |
+

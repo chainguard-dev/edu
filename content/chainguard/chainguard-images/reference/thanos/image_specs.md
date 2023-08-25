@@ -67,3 +67,4 @@ The table shows package distribution across variants.
 | `zlib`                   | X          |        | X                   |                 |
 | `thanos-operator`        |            |        | X                   | X               |
 | `thanos-operator-compat` |            |        | X                   | X               |
+

@@ -107,3 +107,4 @@ The table shows package distribution across variants.
 | `xz`                     | X      |
 | `zip`                    | X      |
 | `zlib`                   | X      |
+

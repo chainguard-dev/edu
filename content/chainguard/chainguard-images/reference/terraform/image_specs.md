@@ -45,3 +45,4 @@ The table shows package distribution across variants.
 | `ld-linux`               | X      |
 | `terraform`              | X      |
 | `wolfi-baselayout`       | X      |
+

@@ -55,3 +55,4 @@ The table shows package distribution across variants.
 | `flannel-cni-plugin`            | X      |
 | `flannel-cni-plugin-compat`     | X      |
 | `wolfi-baselayout`              | X      |
+

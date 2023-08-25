@@ -74,3 +74,4 @@ The table shows package distribution across variants.
 | `proxysql`               | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |
+

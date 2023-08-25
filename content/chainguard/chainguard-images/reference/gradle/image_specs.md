@@ -63,3 +63,4 @@ The table shows package distribution across variants.
 | `openjdk-17-jre-base`    | X      |
 | `wolfi-baselayout`       | X      |
 | `zlib`                   | X      |
+

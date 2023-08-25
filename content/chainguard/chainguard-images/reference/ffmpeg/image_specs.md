@@ -56,3 +56,4 @@ The table shows package distribution across variants.
 | `libtheora`              | X      |
 | `wolfi-baselayout`       | X      |
 | `x264`                   | X      |
+

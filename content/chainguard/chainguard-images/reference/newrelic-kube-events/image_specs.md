@@ -48,3 +48,4 @@ The table shows package distribution across variants.
 | `newrelic-nri-kube-events` | X      |
 | `tini`                     | X      |
 | `wolfi-baselayout`         | X      |
+

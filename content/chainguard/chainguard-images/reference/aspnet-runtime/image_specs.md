@@ -57,3 +57,4 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`       | X      |
 | `xz`                     | X      |
 | `zlib`                   | X      |
+

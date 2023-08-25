@@ -60,6 +60,7 @@ The table shows package distribution across variants.
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
 | `openssl-config`         | X          |        |
-| `telegraf`               | X          | X      |
+| `telegraf-1.27`          | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
+

@@ -69,3 +69,4 @@ The table shows package distribution across variants.
 | `xz`                     | X               | X      |
 | `zlib`                   | X               | X      |
 | `libcrypt1`              |                 | X      |
+

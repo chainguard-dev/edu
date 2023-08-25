@@ -63,3 +63,4 @@ The table shows package distribution across variants.
 | `vertical-pod-autoscaler` | X          | X      |
 | `wolfi-baselayout`        | X          | X      |
 | `zlib`                    | X          |        |
+
