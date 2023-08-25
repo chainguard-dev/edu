@@ -90,3 +90,4 @@ The table shows package distribution across variants.
 | `posix-cc-wrappers`      | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |
+

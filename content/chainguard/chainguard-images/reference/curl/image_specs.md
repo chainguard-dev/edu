@@ -51,3 +51,4 @@ The table shows package distribution across variants.
 | `libnghttp2-14`          | X      |
 | `wolfi-baselayout`       | X      |
 | `zlib`                   | X      |
+

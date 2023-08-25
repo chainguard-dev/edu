@@ -64,3 +64,4 @@ The table shows package distribution across variants.
 | `vault-k8s`              | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
+

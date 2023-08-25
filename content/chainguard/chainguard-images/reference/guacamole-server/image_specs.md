@@ -134,3 +134,4 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`        | X          | X      |
 | `x264`                    | X          | X      |
 | `zlib`                    | X          | X      |
+

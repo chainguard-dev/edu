@@ -65,3 +65,4 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`        | X          | X      |
 | `wolfi-keys`              | X          | X      |
 | `zlib`                    | X          | X      |
+

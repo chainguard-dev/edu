@@ -42,3 +42,4 @@ The table shows package distribution across variants.
 | `ca-certificates-bundle`                              | X      |
 | `kubernetes-csi-external-snapshot-validation-webhook` | X      |
 | `wolfi-baselayout`                                    | X      |
+

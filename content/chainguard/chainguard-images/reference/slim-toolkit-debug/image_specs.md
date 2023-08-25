@@ -140,3 +140,4 @@ The table shows package distribution across variants.
 | `xz`                      | X      |
 | `yq`                      | X      |
 | `zlib`                    | X      |
+

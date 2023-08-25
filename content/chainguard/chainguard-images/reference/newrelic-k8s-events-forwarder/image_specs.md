@@ -55,3 +55,4 @@ The table shows package distribution across variants.
 | `tini`                          | X      |
 | `wolfi-baselayout`              | X      |
 | `zlib`                          | X      |
+

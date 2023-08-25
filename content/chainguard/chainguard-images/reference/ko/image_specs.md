@@ -73,3 +73,4 @@ The table shows package distribution across variants.
 | `posix-cc-wrappers`      | X      |
 | `wolfi-baselayout`       | X      |
 | `zlib`                   | X      |
+

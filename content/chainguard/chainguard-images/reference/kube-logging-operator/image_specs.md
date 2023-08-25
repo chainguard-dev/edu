@@ -43,3 +43,4 @@ The table shows package distribution across variants.
 | `kube-logging-operator`        | X      |
 | `kube-logging-operator-compat` | X      |
 | `wolfi-baselayout`             | X      |
+

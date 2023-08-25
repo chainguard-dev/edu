@@ -51,3 +51,4 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`  | X      |
 | `procps`                 | X      |
 | `wolfi-baselayout`       | X      |
+

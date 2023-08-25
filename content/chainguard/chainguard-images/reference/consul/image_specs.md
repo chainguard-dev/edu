@@ -70,3 +70,4 @@ The table shows package distribution across variants.
 | `su-exec`                           | X          | X      |
 | `wolfi-baselayout`                  | X          | X      |
 | `zlib`                              | X          | X      |
+

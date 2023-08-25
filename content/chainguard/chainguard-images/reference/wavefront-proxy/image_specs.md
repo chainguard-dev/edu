@@ -76,3 +76,4 @@ The table shows package distribution across variants.
 | `wavefront-proxy-oci-entrypoint` | X          | X      |
 | `wolfi-baselayout`               | X          | X      |
 | `zlib`                           | X          | X      |
+

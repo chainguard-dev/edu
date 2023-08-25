@@ -51,3 +51,4 @@ The table shows package distribution across variants.
 | `melange`                | X      |
 | `wolfi-baselayout`       | X      |
 | `wolfi-keys`             | X      |
+
