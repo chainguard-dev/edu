@@ -50,3 +50,4 @@ The table shows package distribution across variants.
 | `libcrypt1`                        |                     | X      |
 | `nri-prometheus`                   |                     | X      |
 | `tini`                             |                     | X      |
+

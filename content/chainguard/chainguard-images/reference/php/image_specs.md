@@ -88,3 +88,4 @@ The table shows package distribution across variants.
 | `php-fpm`                |            | X              | X          |        |
 | `s6`                     |            | X              | X          |        |
 | `skalibs`                |            | X              | X          |        |
+

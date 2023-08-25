@@ -72,3 +72,4 @@ The table shows package distribution across variants.
 | `helm`                   |                        |                    |                       |                   | X          | X      |
 | `kubectl-1.28`           |                        |                    |                       |                   | X          | X      |
 | `kubectl-latest`         |                        |                    |                       |                   | X          | X      |
+

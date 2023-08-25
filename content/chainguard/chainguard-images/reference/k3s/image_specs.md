@@ -101,3 +101,4 @@ The table shows package distribution across variants.
 | `fuse-overlayfs-snapshotter` |                     |                 |                          |                 |                   |                          |                      |               | X          | X      |
 | `fuse3`                      |                     |                 |                          |                 |                   |                          |                      |               | X          | X      |
 | `fuse3-libs`                 |                     |                 |                          |                 |                   |                          |                      |               | X          | X      |
+

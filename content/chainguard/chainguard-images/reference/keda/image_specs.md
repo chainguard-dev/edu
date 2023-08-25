@@ -70,3 +70,4 @@ The table shows package distribution across variants.
 | `zlib`                    | X                  |                | X                             |                           | X          |        |
 | `keda-admission-webhooks` |                    |                | X                             | X                         |            |        |
 | `keda`                    |                    |                |                               |                           | X          | X      |
+

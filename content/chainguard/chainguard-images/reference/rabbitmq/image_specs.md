@@ -58,3 +58,4 @@ The table shows package distribution across variants.
 | `tzdata`                 | X      |
 | `wolfi-baselayout`       | X      |
 | `zlib`                   | X      |
+

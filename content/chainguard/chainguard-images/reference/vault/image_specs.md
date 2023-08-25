@@ -69,5 +69,6 @@ The table shows package distribution across variants.
 | `dumb-init`              |                |            | X          | X      |
 | `libcap-utils`           |                |            | X          | X      |
 | `su-exec`                |                |            | X          | X      |
-| `vault`                  |                |            | X          | X      |
-| `vault-entrypoint`       |                |            | X          | X      |
+| `vault-1.14`             |                |            | X          | X      |
+| `vault-1.14-entrypoint`  |                |            | X          | X      |
+

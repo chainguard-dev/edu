@@ -69,3 +69,4 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`  |        | X                    |                  |
 | `openssl-config`         |        | X                    |                  |
 | `zlib`                   |        | X                    |                  |
+

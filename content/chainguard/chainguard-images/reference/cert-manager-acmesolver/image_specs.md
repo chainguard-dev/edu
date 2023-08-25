@@ -38,29 +38,30 @@ Check the [tags history page](/chainguard/chainguard-images/reference/cert-manag
 ## Packages Included
 The table shows package distribution across variants.
 
-|                           | latest-dev | latest |
-|---------------------------|------------|--------|
-| `apk-tools`               | X          |        |
-| `bash`                    | X          |        |
-| `busybox`                 | X          |        |
-| `ca-certificates-bundle`  | X          | X      |
-| `cert-manager-acmesolver` | X          | X      |
-| `cmctl`                   | X          |        |
-| `git`                     | X          |        |
-| `glibc`                   | X          |        |
-| `glibc-locale-posix`      | X          |        |
-| `ld-linux`                | X          |        |
-| `libbrotlicommon1`        | X          |        |
-| `libbrotlidec1`           | X          |        |
-| `libcrypt1`               | X          |        |
-| `libcrypto3`              | X          |        |
-| `libcurl-openssl4`        | X          |        |
-| `libexpat1`               | X          |        |
-| `libnghttp2-14`           | X          |        |
-| `libpcre2-8-0`            | X          |        |
-| `libssl3`                 | X          |        |
-| `ncurses`                 | X          |        |
-| `ncurses-terminfo-base`   | X          |        |
-| `openssl-config`          | X          |        |
-| `wolfi-baselayout`        | X          | X      |
-| `zlib`                    | X          |        |
+|                                | latest-dev | latest |
+|--------------------------------|------------|--------|
+| `apk-tools`                    | X          |        |
+| `bash`                         | X          |        |
+| `busybox`                      | X          |        |
+| `ca-certificates-bundle`       | X          | X      |
+| `cert-manager-1.12-acmesolver` | X          | X      |
+| `cmctl-1.12`                   | X          |        |
+| `git`                          | X          |        |
+| `glibc`                        | X          |        |
+| `glibc-locale-posix`           | X          |        |
+| `ld-linux`                     | X          |        |
+| `libbrotlicommon1`             | X          |        |
+| `libbrotlidec1`                | X          |        |
+| `libcrypt1`                    | X          |        |
+| `libcrypto3`                   | X          |        |
+| `libcurl-openssl4`             | X          |        |
+| `libexpat1`                    | X          |        |
+| `libnghttp2-14`                | X          |        |
+| `libpcre2-8-0`                 | X          |        |
+| `libssl3`                      | X          |        |
+| `ncurses`                      | X          |        |
+| `ncurses-terminfo-base`        | X          |        |
+| `openssl-config`               | X          |        |
+| `wolfi-baselayout`             | X          | X      |
+| `zlib`                         | X          |        |
+

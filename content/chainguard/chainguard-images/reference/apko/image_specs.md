@@ -44,3 +44,4 @@ The table shows package distribution across variants.
 | `ca-certificates-bundle` | X      |
 | `wolfi-baselayout`       | X      |
 | `wolfi-keys`             | X      |
+

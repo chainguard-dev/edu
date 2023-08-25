@@ -50,3 +50,4 @@ The table shows package distribution across variants.
 | `nss-db`                  | X      |
 | `nss-hesiod`              | X      |
 | `wolfi-baselayout`        | X      |
+

@@ -64,3 +64,4 @@ The table shows package distribution across variants.
 | `rqlite-oci-entrypoint`  | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
+

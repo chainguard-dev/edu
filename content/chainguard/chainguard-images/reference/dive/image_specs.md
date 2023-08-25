@@ -42,3 +42,4 @@ The table shows package distribution across variants.
 | `ca-certificates-bundle` | X      |
 | `dive`                   | X      |
 | `wolfi-baselayout`       | X      |
+

@@ -46,3 +46,4 @@ The table shows package distribution across variants.
 | `ld-linux`               | X      |
 | `tini`                   | X      |
 | `wolfi-baselayout`       | X      |
+
