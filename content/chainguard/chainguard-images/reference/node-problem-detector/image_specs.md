@@ -59,3 +59,4 @@ The table shows package distribution across variants.
 | `systemd`                      | X          | X      |
 | `systemd-dev`                  | X          | X      |
 | `wolfi-baselayout`             | X          | X      |
+

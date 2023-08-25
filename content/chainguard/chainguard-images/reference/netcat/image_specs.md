@@ -49,3 +49,4 @@ The table shows package distribution across variants.
 | `libmd`                  | X      |
 | `netcat-openbsd`         | X      |
 | `wolfi-baselayout`       | X      |
+

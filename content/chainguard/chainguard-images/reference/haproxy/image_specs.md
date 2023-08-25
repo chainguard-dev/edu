@@ -72,3 +72,4 @@ The table shows package distribution across variants.
 | `zlib`                   | X                  |                |        |
 | `dataplaneapi`           |                    |                | X      |
 | `haproxy-oci-entrypoint` |                    |                | X      |
+

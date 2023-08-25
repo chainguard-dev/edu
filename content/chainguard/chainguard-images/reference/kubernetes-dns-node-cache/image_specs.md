@@ -49,3 +49,4 @@ The table shows package distribution across variants.
 | `libmnl`                    | X      |
 | `libnftnl`                  | X      |
 | `wolfi-baselayout`          | X      |
+

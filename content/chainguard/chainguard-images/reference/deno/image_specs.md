@@ -46,3 +46,4 @@ The table shows package distribution across variants.
 | `ld-linux`               | X      |
 | `libgcc`                 | X      |
 | `wolfi-baselayout`       | X      |
+

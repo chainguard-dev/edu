@@ -63,3 +63,4 @@ The table shows package distribution across variants.
 | `secrets-store-csi-driver-provider-gcp` | X          | X      |
 | `wolfi-baselayout`                      | X          | X      |
 | `zlib`                                  | X          |        |
+

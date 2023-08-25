@@ -134,3 +134,4 @@ The table shows package distribution across variants.
 | `ruby3.2-validate_email`           |            | X             |        |
 | `ruby3.2-validate_url`             |            | X             |        |
 | `ruby3.2-webfinger`                |            | X             |        |
+

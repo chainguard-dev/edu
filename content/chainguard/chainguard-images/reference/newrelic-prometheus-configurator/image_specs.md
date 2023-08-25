@@ -42,3 +42,4 @@ The table shows package distribution across variants.
 | `ca-certificates-bundle`           | X      |
 | `newrelic-prometheus-configurator` | X      |
 | `wolfi-baselayout`                 | X      |
+

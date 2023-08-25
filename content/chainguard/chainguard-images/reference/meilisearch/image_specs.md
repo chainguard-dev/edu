@@ -46,3 +46,4 @@ The table shows package distribution across variants.
 | `libgcc`                 | X      |
 | `meilisearch`            | X      |
 | `wolfi-baselayout`       | X      |
+

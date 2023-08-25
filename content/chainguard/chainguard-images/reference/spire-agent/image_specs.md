@@ -65,3 +65,4 @@ The table shows package distribution across variants.
 | `spire-agent`            | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
+

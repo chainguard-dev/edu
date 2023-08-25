@@ -63,3 +63,4 @@ The table shows package distribution across variants.
 | `paranoia`               | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
+

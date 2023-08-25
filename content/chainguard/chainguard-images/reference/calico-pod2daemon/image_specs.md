@@ -47,3 +47,4 @@ The table shows package distribution across variants.
 | `ld-linux`               | X      |
 | `libcrypt1`              | X      |
 | `wolfi-baselayout`       | X      |
+

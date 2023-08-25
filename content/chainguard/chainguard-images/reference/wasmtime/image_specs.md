@@ -64,3 +64,4 @@ The table shows package distribution across variants.
 | `wasmtime`               | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
+

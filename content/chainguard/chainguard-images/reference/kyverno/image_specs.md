@@ -52,3 +52,4 @@ The table shows package distribution across variants.
 | `kyverno-cli`                   |                              |                           | X          |        |                           |
 | `kyverno`                       |                              |                           |            | X      |                           |
 | `kyverno-reports-controller`    |                              |                           |            |        | X                         |
+

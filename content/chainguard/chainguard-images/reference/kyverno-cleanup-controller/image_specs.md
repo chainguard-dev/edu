@@ -44,3 +44,4 @@ The table shows package distribution across variants.
 | `kubectl-latest`             | X      |
 | `kyverno-cleanup-controller` | X      |
 | `wolfi-baselayout`           | X      |
+
