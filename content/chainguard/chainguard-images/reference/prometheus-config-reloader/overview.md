@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 23rd  | `sha256:c3e60e4c9c5e66040efe57425459d1c7962a7c83c79c01bcdbce59409b7257fe` |
+|  `latest-dev` | August 26th  | `sha256:01f565a91352fd778008af24c4fb4d199b5ce3c35e8c8c9b9c684d0c452eeab4` |
 |  `latest`     | August 15th  | `sha256:6fcc919d34cba9a27b11b70111925abb8eb1462c53ae5c891c9d0fca881d699b` |
 
 # prometheus-config-reloader
