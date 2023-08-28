@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 23rd  | `sha256:fdad430b17a3d878f3090d98b54d38e909fedeb1aa66146cba6f102ed1c343ac` |
+|  `latest-dev` | August 26th  | `sha256:0babf8217837c159e90d9b9f07007b28ab81470f84bc8cc8068dae38d748b51c` |
 |  `latest`     | August 15th  | `sha256:57935968d3f11c85991367e414f6fba4e02b219c37153ef5dafbd4a4b471559c` |
 
 # kubernetes-dashboard-metrics-scraper
