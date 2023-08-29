@@ -35,3 +35,41 @@ Wolfi, whose name was inspired by the [world's smallest octopus](https://en.wiki
 - Designed to support glibc and musl
 
 Wolfi enables Chainguard to solve the software supply chain security problem from the outside in. It gives developers the secure-by-default base they need to build software, it scales to support organizations running massive environments and provides the control needed to fix most modern supply chain threats. Wolfi builds all packages directly from source, allowing us to fix vulnerabilities or apply customizations that improve the supply chain security posture of everything from compilers to language package managers.
+
+## Quickstart
+
+This site contains full information on Wolfi and how to build Wolfi packages, but if you just
+want to quickly see what Wolfi looks like, try the [wolfi-base
+image](/chainguard/chainguard-images/reference/wolfi-base). You can run it with:
+
+```
+docker run -it cgr.dev/chainguard/wolfi-base
+```
+
+This should start a Wolfi container where you can explore the file system and investigate which
+packages are availble. Here is an example session:
+
+```
+docker run -it cgr.dev/chainguard/wolfi-base
+ce557598406a:/# cat /etc/os-release
+ID=wolfi
+NAME="Wolfi"
+PRETTY_NAME="Wolfi"
+VERSION_ID="20230201"
+HOME_URL="https://wolfi.dev"
+ce557598406a:/# apk update
+fetch https://packages.wolfi.dev/os/aarch64/APKINDEX.tar.gz
+ [https://packages.wolfi.dev/os]
+OK: 15046 distinct packages available
+ce557598406a:/# curl
+/bin/sh: curl: not found
+ce557598406a:/# apk add curl
+(1/5) Installing libbrotlicommon1 (1.0.9-r3)
+(2/5) Installing libbrotlidec1 (1.0.9-r3)
+(3/5) Installing libnghttp2-14 (1.55.1-r0)
+(4/5) Installing libcurl-openssl4 (8.2.1-r0)
+(5/5) Installing curl (8.2.1-r0)
+OK: 13 MiB in 19 packages
+ce557598406a:/# curl google.com
+...
+```
