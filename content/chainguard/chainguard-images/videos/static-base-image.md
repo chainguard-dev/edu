@@ -2,10 +2,10 @@
 title: "Using the Chainguard Static Base Image"
 linktitle: "Static Base"
 lead: ""
-description: "Video demonstration of how to get the software version information from Chainguard Images"
+description: "Video demonstration of how to use the Chainguard static base image to create minimal images"
 type: "article"
-date: 2023-08-29T15:21:01+00:00
-lastmod: 2023-08-29T15:21:01+00:00
+date: 2023-08-30T15:21:01+00:00
+lastmod: 2023-08-30T15:21:01+00:00
 draft: false
 images: []
 menu:
@@ -36,7 +36,6 @@ FROM cgr.dev/chainguard/static
 COPY --from=build /hello /usr/local/bin/
 CMD ["hello"]
 ```
-
 
 ## Transcript
 
