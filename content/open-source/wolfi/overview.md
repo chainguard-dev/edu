@@ -47,7 +47,9 @@ docker run -it cgr.dev/chainguard/wolfi-base
 ```
 
 This should start a Wolfi container where you can explore the file system and investigate which
-packages are available. Here is an example session:
+packages are available. This container is intentionally minimal - it includes the filesystem for
+Wolfi, a package manager (apk) and a shell, but not much else. You will need to use apk to install
+any tools you need. Here is an example session:
 
 ```
 docker run -it cgr.dev/chainguard/wolfi-base
