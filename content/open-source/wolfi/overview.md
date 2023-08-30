@@ -38,16 +38,16 @@ Wolfi enables Chainguard to solve the software supply chain security problem fro
 
 ## Quickstart
 
-This site contains full information on Wolfi and how to build Wolfi packages, but if you just
-want to quickly see what Wolfi looks like, try the [wolfi-base
+This site's [Wolfi section](/open-source/wolfi/) contains full information on Wolfi and how to build Wolfi packages, but if you
+would like to quickly review how to work with Wolfi, try the [wolfi-base
 image](/chainguard/chainguard-images/reference/wolfi-base). You can run it with:
 
-```
+```sh
 docker run -it cgr.dev/chainguard/wolfi-base
 ```
 
 This should start a Wolfi container where you can explore the file system and investigate which
-packages are availble. Here is an example session:
+packages are available. Here is an example session:
 
 ```
 docker run -it cgr.dev/chainguard/wolfi-base
