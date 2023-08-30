@@ -1,6 +1,6 @@
 ---
 title: "Using the Chainguard Static Base Image"
-linktitle: "Static Base"
+linktitle: "Using the Static Base Image"
 lead: ""
 description: "Video demonstration of how to use the Chainguard static base image to create minimal images"
 type: "article"
