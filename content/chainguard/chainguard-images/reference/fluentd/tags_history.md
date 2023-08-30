@@ -20,6 +20,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
-|  `edge-dev` `latest-dev` | August 26th  | `sha256:a172e35b7a28a344c8b4988c7a3c338e984a30dc526b0fcac29584f923eb37ce` |
-|  `edge` `latest`         | August 23rd  | `sha256:d1c7b5edde89fbf1ab8460c262eb1cdb404c94e81d87baa45cd5d384a41c3cef` |
-|  `latest-splunk`         | August 23rd  | `sha256:2ff16fba30d9e122b8bd2294b63c8db431f09688db7f83837daf6d65c1695199` |
+|  `latest-dev` `edge-dev` | August 29th  | `sha256:b73e3924b1661491ef306f80182e576daab01724e1f314c79613184dd73441c6` |
+|  `latest` `edge`         | August 29th  | `sha256:848ac33a54fdfb7766057f82f8b11e1d02c2aaf20c52afcd9a2f5c05786dd7ba` |
+|  `latest-splunk`         | August 29th  | `sha256:7a2de335c244df91280481adbf0cf137ee0b1ea3d1b9b9632ba49f7651be65b7` |
