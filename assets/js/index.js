@@ -16,7 +16,7 @@ Array.from(searchForms).forEach(container => {
     }
     if (e.key === 'Escape' ) {
       search.blur();
-      search.classList.add('d-none');
+      suggestions.classList.add('d-none');
     }
   }
 
