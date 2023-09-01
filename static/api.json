@@ -5,6 +5,37 @@
     "version": "alpha"
   },
   "paths": {
+    "/advisory/v1/advisories": {
+      "get": {
+        "operationId": "SecurityAdvisory_ListAdvisories",
+        "parameters": [
+          {
+            "description": "package_name is the exact name of a package.",
+            "in": "query",
+            "name": "packageName",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/advisoryAdvisoryList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "SecurityAdvisory"
+        ]
+      }
+    },
     "/auth/v1/ok": {
       "get": {
         "operationId": "Auth_Validate",
@@ -3569,6 +3600,54 @@
       ],
       "type": "string"
     },
+    "advisoryAdvisory": {
+      "properties": {
+        "events": {
+          "items": {
+            "$ref": "#/definitions/advisoryEvent"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "id is the identifier of this specific advisory.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryAdvisoryList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/advisoryAdvisory"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryEvent": {
+      "properties": {
+        "lastUpdated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/advisoryEventType"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryEventType": {
+      "default": "EVENT_TYPE_UNSPECIFIED",
+      "description": " - EVENT_TYPE_UNSPECIFIED: The \"unset\" value.\n - TRUE_POSITIVE_DETERMINATION: The vulnerability is a true positive.\n - FALSE_POSITIVE_DETERMINATION: The vulnerability is a false positive.",
+      "enum": [
+        "EVENT_TYPE_UNSPECIFIED",
+        "TRUE_POSITIVE_DETERMINATION",
+        "FALSE_POSITIVE_DETERMINATION"
+      ],
+      "type": "string"
+    },
     "authRegistrationRequest": {
       "properties": {
         "clusterDescription": {
@@ -5142,6 +5221,9 @@
   "produces": null,
   "consumes": null,
   "tags": [
+    {
+      "name": "SecurityAdvisory"
+    },
     {
       "name": "Auth"
     },
