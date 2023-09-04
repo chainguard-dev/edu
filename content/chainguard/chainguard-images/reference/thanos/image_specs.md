@@ -62,7 +62,7 @@ The table shows package distribution across variants.
 | `ncurses`                | X          |        | X                   |                 |
 | `ncurses-terminfo-base`  | X          |        | X                   |                 |
 | `openssl-config`         | X          |        | X                   |                 |
-| `thanos`                 | X          | X      |                     |                 |
+| `thanos-0.32`            | X          | X      |                     |                 |
 | `wolfi-baselayout`       | X          | X      | X                   | X               |
 | `zlib`                   | X          |        | X                   |                 |
 | `thanos-operator`        |            |        | X                   | X               |

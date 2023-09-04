@@ -38,33 +38,33 @@ Check the [tags history page](/chainguard/chainguard-images/reference/nginx/tags
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest-dev | latest |
-|--------------------------|------------|--------|
-| `apk-tools`              | X          |        |
-| `bash`                   | X          |        |
-| `busybox`                | X          |        |
-| `ca-certificates-bundle` | X          | X      |
-| `git`                    | X          |        |
-| `glibc`                  | X          | X      |
-| `glibc-locale-posix`     | X          | X      |
-| `ld-linux`               | X          | X      |
-| `libbrotlicommon1`       | X          |        |
-| `libbrotlidec1`          | X          |        |
-| `libcrypt1`              | X          | X      |
-| `libcrypto3`             | X          | X      |
-| `libcurl-openssl4`       | X          |        |
-| `libexpat1`              | X          |        |
-| `libgcc`                 | X          | X      |
-| `libnghttp2-14`          | X          |        |
-| `libpcre2-8-0`           | X          |        |
-| `libssl3`                | X          | X      |
-| `libstdc++`              | X          | X      |
-| `ncurses`                | X          |        |
-| `ncurses-terminfo-base`  | X          |        |
-| `nginx`                  | X          | X      |
-| `nginx-package-config`   | X          | X      |
-| `openssl-config`         | X          | X      |
-| `pcre`                   | X          | X      |
-| `wolfi-baselayout`       | X          | X      |
-| `zlib`                   | X          | X      |
+|                                 | latest-dev | latest |
+|---------------------------------|------------|--------|
+| `apk-tools`                     | X          |        |
+| `bash`                          | X          |        |
+| `busybox`                       | X          |        |
+| `ca-certificates-bundle`        | X          | X      |
+| `git`                           | X          |        |
+| `glibc`                         | X          | X      |
+| `glibc-locale-posix`            | X          | X      |
+| `ld-linux`                      | X          | X      |
+| `libbrotlicommon1`              | X          |        |
+| `libbrotlidec1`                 | X          |        |
+| `libcrypt1`                     | X          | X      |
+| `libcrypto3`                    | X          | X      |
+| `libcurl-openssl4`              | X          |        |
+| `libexpat1`                     | X          |        |
+| `libgcc`                        | X          | X      |
+| `libnghttp2-14`                 | X          |        |
+| `libpcre2-8-0`                  | X          |        |
+| `libssl3`                       | X          | X      |
+| `libstdc++`                     | X          | X      |
+| `ncurses`                       | X          |        |
+| `ncurses-terminfo-base`         | X          |        |
+| `nginx-mainline`                | X          | X      |
+| `nginx-mainline-package-config` | X          | X      |
+| `openssl-config`                | X          | X      |
+| `pcre`                          | X          | X      |
+| `wolfi-baselayout`              | X          | X      |
+| `zlib`                          | X          | X      |
 
