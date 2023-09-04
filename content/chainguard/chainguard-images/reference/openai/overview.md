@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/openai](https://github.com/chainguard-images/images/tree/main/images/openai)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 26th  | `sha256:c5c23a56828286954058308a3867b8c09b4004ea5d74c6f53aa3ca04b0c936b0` |
-|  `latest`     | August 25th  | `sha256:3c5c6b6bc42bb7b3917406a0e41d416a8a253a75471564f39fa3c5f20fe2920a` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 3rd | `sha256:520cfa720dbc87af7b4c386486d4c7ef44ff21dc5a41456f73d1f7db3066f8eb` |
+|  `latest-dev` | September 3rd | `sha256:1d83fc573685665d1a8905ea03635c24951b29c764d63cf988b0a7dd3ab453ec` |
 
 
 

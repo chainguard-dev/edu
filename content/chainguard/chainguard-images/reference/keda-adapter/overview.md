@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 26th  | `sha256:5e0008cdec3250b430cee0c40a5a725c1cd36fabc6326a2b6170d716b965e05a` |
-|  `latest`     | August 15th  | `sha256:79dad0014a50b8e6eface2ba52cc87145bb61d67593c21fb1a35a519fc7c9223` |
+|  `latest-dev` | August 31st  | `sha256:2dedf21a5e5f089a7969b01703d183aab4d6ce2e66d5648519502a49e0d1eb81` |
+|  `latest`     | August 31st  | `sha256:e74fa4d3b1387818ec6c4b454ec02a945fa9e25ac5071a4379732efee6cc3bf0` |
 
 # keda-adapter
 

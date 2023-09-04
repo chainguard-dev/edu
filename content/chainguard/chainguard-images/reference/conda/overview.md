@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/conda](https://github.com/chainguard-images/images/tree/main/images/conda)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 30th  | `sha256:1b8983c1822db4e5e95e6c16ac6fed6af2ec5ea893e90830384ba8df2d58058f` |
-|  `latest-dev` | August 30th  | `sha256:c40c260bb8f24ce1cd5a39392c883e85f5442bf15b3a1dc73a65c83231c37f51` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 3rd | `sha256:60770d6a7fde145a9682e614e3a407d9914cb6ca5eab28ba0659517600576a0c` |
+|  `latest-dev` | September 3rd | `sha256:206f437750d59e79200a2724c118ee555a46ae768c7e30864529c1c7543f2e76` |
 
 
 

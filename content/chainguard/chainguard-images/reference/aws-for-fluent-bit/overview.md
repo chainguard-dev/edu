@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/aws-for-fluent-bit](https://github.com/chainguard-images/images/tree/main/images/aws-for-fluent-bit)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 26th  | `sha256:8cd980dd1dcef3e1024866a1456603b8968c67e205d88e392bf2f5fa864a83aa` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 2nd | `sha256:275c46035179b1a10c1cf976c1c5935d6dae989928ee33eee80c7c9356e7a794` |
 
 
 

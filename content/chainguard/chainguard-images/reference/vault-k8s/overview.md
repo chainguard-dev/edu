@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 26th  | `sha256:82058eea04a877475909533a2db9b804c2947cca28624c56ee1d2f4e3455f33f` |
-|  `latest`     | August 15th  | `sha256:9bff138467808452f040d23aa037bae874ec01eee659672e1a3b58e0841b1472` |
+|  `latest-dev` | August 31st  | `sha256:ad0c65651a08eb67e78da60875a37dbdf9c2ec578d7ed44623594993379731d2` |
+|  `latest`     | August 31st  | `sha256:308570a52da5a3f4f6a9f1b8497a34140e6cb1c26e304bb6953b96efb39819f8` |
 
 # vault-k8s
 
