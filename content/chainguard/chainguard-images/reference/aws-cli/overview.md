@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/aws-cli](https://github.com/chainguard-images/images/tree/main/images/aws-cli)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 30th  | `sha256:f25b1739718c49896ba5415dd68faaaf70c1ae6b848c4ab54c8a22666c810d50` |
-|  `latest`     | August 30th  | `sha256:f351ed93684e7722f21ac87b537df04392d367c57850fc4f1b9aadd93ee3d6ae` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 3rd | `sha256:b1f3e9f32ee8d43bd459af1da9e60a1781aac0ec5793086fdaeb53435e8e9264` |
+|  `latest`     | September 3rd | `sha256:ac962ac5ab588310d7d58e2e190177e0166c4ad9204ca404d2a5075bbf18df3a` |
 
 
 

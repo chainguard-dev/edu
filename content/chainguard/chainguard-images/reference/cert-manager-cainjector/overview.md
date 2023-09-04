@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/cert-manager-cainjector](https://github.com/chainguard-images/images/tree/main/images/cert-manager-cainjector)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 26th  | `sha256:0039b25fdec1a5b134f0886b9e663c93f535e16c3b5d9b305ef4bb2bcff683d1` |
-|  `latest`     | August 22nd  | `sha256:a97416098a20048652e5769710832f2165c9515fa2901db52ab0b6d9d9db07a0` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 2nd | `sha256:4f39a32c00699f2d378847d63c700516b49377d89ababd36c556ed710fbde53c` |
+|  `latest`     | September 2nd | `sha256:ce05f98c20d8cdb65746b7565b70301599dda99a699ce4a4bcbad9a43f6e04f1` |
 
 # cert-manager-cainjector
 

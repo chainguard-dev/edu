@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 26th  | `sha256:86f372975134bc5bf10daf3c571c75eab32247b856a751f0e70883d23a06bdec` |
-|  `latest`     | August 17th  | `sha256:e3b688997ccef05686232d8990bcd01952641a889157e3e59597871aeda95ed3` |
+|  `latest-dev` | August 31st  | `sha256:284e0999f0da2a3dbb39e4564e12cdde7258b0bd92dde1a4292b387ae0328ae0` |
+|  `latest`     | August 31st  | `sha256:99555bc36d1d79455c6e26e00b39febd1fde5a899b498248ca15fbbca6ab2b8a` |
 
 # spire-server
 

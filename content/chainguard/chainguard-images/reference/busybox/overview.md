@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/busybox](https://github.com/chainguard-images/images/tree/main/images/busybox)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 17th  | `sha256:29ac1d02ebb6e23c05b9d9714834814a0ef5249f44fa33265dc8eb5bbde99e5e` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 2nd | `sha256:528f4788b7d6de62b05c50b88af7f504496b855690ad56a0432a5932885cae1c` |
 
 
 

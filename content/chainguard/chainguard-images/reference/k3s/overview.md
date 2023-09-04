@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/k3s](https://github.com/chainguard-images/images/tree/main/images/k3s)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 30th  | `sha256:4e6fca8f1cbe304d06d870c0b0b3634d017f184a4de65000f288b51d34b549f5` |
-|  `latest-dev` | August 30th  | `sha256:1eea803479254d5b34545ba472b44e623e1c802d6654478994f35510daa3ce8b` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 3rd | `sha256:5bea762b6b04b67a8da8754309c9c0c9ee7a5df01fc9053e4af312262aa7b79f` |
+|  `latest`     | September 3rd | `sha256:8fa32f1d5bd91717cb316492f38212fbeb681b9c56805bc18a75278a6553046f` |
 
 
 

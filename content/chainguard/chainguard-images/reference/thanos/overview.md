@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/thanos](https://github.com/chainguard-images/images/tree/main/images/thanos)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 29th  | `sha256:6cfcd7bd7a4510eca40f032e12ebc79031a2bec44e6b0590ca5a98f62c044234` |
-|  `latest`     | August 29th  | `sha256:8fc2caec25bc8cf12f9a97c082aa183824a2a51da40b60051294bfcc21bc82ce` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 1st | `sha256:f57cfddc6c9d4ff8d0b3982425664cde287f05afdf48112ffe7e985a7196bbe9` |
+|  `latest-dev` | September 1st | `sha256:c46db98ae5c57a38132a6db7056c1255cf4b1818d96f24c68001d394439d6fc4` |
 
 
 

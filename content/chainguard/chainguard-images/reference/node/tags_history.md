@@ -18,11 +18,12 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                                                                      | Last Changed | Digest                                                                    |
-|--------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `20.5.1-r1-dev` `20-dev` `20.5.1-dev` `20.5-dev`                                                            | August 26th  | `sha256:01814bcdff9c9e9d1cc2da53b57216ef08a93f55327b23097bba71a9da581b08` |
-|  `latest-dev` `18.17.1-r1-dev` `18-dev` `18.17-dev` `18.16.0-r2-dev` `18.16.0-dev` `18.17.1-dev` `18.16-dev` | August 26th  | `sha256:c215650ba6c77116f7943bffaacb3cf5ef7878f809d31f863a37403b51abcc6f` |
-|  `19.9-dev` `19-dev` `19.9.0-dev` `19.9.0-r3-dev`                                                            | August 26th  | `sha256:eaa2252ff765eb63b768d3d7f2f40263d1cd21f029167b6a21dc09ed3672bf1c` |
-|  `18.16` `latest` `18.16.0` `18` `18.17.1` `18.17`                                                           | August 23rd  | `sha256:fbaecf4d6ac9883699078c0b501aad22c866f9ce039d009212c0eed260914875` |
-|  `19.9` `19` `19.9.0`                                                                                        | August 23rd  | `sha256:1e8e3fc64b5a6356bda5b44cdb7ebc9502fe892af3853c93b32ea842428775fc` |
-|  `20.5` `20` `20.5.1`                                                                                        | August 23rd  | `sha256:c0a2c81062d469776b9dd535418b8737fc59bdd13ebfe59f988c98d5f822a2f5` |
+| Tag (s)                                                                                         | Last Changed  | Digest                                                                    |
+|-------------------------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev`                                                                                   | September 2nd | `sha256:fb3a60135384c3fe018a1801a6b64a9c7b36af3a351a3fd6809147c85cef12ed` |
+|  `19.9-dev` `19.9.0-dev` `19.9.0-r3-dev` `19-dev`                                               | September 1st | `sha256:cc1e1944efd51869d0cc2b5f847ddc68ed0fe34be2c349fc24ce81b368b828be` |
+|  `18.16.0` `18.16` `18.17.1` `18.17` `18` `latest`                                              | September 1st | `sha256:af073516c203b6bd0b55a77a806a0950b486f2e9ea7387a32b0f41ea72f20886` |
+|  `18.16.0-r2-dev` `18.17-dev` `18.17.1-r1-dev` `18.16.0-dev` `18.17.1-dev` `18.16-dev` `18-dev` | September 1st | `sha256:0b91333f21897380b94c5ec4eef05722db35de37734399c6a454e8ed399330f1` |
+|  `20` `20.5.1` `20.5`                                                                           | September 1st | `sha256:f30d39c6980f0a50119f2aa269498307a80c2654928d8e23bb25431b9cbbdc4f` |
+|  `19.9.0` `19.9` `19`                                                                           | September 1st | `sha256:c97dff66fe71fbe56493a867e819d0b7859b8c6fe1fd7a47074c78ae46864666` |
+|  `20.5.1-dev` `20.5-dev` `20-dev` `20.5.1-r1-dev`                                               | September 1st | `sha256:893a3af766380ae1caaf0cbccbc0d6b8fcc97b86eac29df7dbd2ba89acfb22d3` |

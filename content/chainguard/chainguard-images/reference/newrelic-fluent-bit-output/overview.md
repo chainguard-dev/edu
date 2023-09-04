@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/newrelic-fluent-bit-output](https://github.com/chainguard-images/images/tree/main/images/newrelic-fluent-bit-output)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 23rd  | `sha256:c214f959f39b651326e15b6fc539aeb805ff56e3997c35882028841bf1fe23c0` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 2nd | `sha256:173d646d68af4fee298dcbb151eae9119d7627d039f870d74d78e65b1d4192a0` |
 
 # newrelic-fluent-bit-output
 

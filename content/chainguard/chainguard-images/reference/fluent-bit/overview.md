@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/fluent-bit](https://github.com/chainguard-images/images/tree/main/images/fluent-bit)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 23rd  | `sha256:ce42b19b2e58aa452d3aaca9cc3d5a20ab22212a50405bfb116d680f166217d5` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 2nd | `sha256:47920c0ee3e2fd4ced4b5bd3bc83af678bc2e62c416c3434c4f3f1a0750056ac` |
 
 
 
