@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 24th  | `sha256:65e63616f0cbebdd34d20847de45e32dd4cc7c8ffda5456886f2268c2de1edc5` |
-|  `latest-dev` | August 24th  | `sha256:18a543a0c85920a1da9c8d2abc3fbf1e5804f7e2c5537249d95938541af26b8b` |
+|  `latest-dev` | August 31st  | `sha256:3b49ccf5aa52279ca19461264058d97fb868396ddc3a4e81bed612581a90c048` |
+|  `latest`     | August 31st  | `sha256:60545ca8d87154fee2b97562de4041c2c4f74c363ba0ec6366985a9398ef2631` |
 
 # flux-notification-controller
 

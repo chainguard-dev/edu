@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/kube-bench](https://github.com/chainguard-images/images/tree/main/images/kube-bench)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 25th  | `sha256:cedd5cbc0ac7831007cd2698c323a3f7ef08f418a978bcc37bc7890f843990ee` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 2nd | `sha256:1034a8cbb4187d08774662b582f2702ec731be055f6f2821a8fda0fee234e769` |
 
 
 

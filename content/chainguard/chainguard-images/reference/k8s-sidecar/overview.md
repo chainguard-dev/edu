@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/k8s-sidecar](https://github.com/chainguard-images/images/tree/main/images/k8s-sidecar)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 30th  | `sha256:e9c91421ecff6ee8070c89899079c8589b0bbd0342574f5328e770f6a092cd38` |
-|  `latest`     | August 30th  | `sha256:7ea8e8207b4fe6522c92e5406b81d6241fb59c13b21ad2e7506b189e77bb34f2` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 3rd | `sha256:977ca49e33454fc43c977bc52dc9eeee07da4474708e28c16e86993030c2c8b7` |
+|  `latest`     | September 3rd | `sha256:edfbe0c87700ba50eeb56cf6dcaf76a6cd20466048bb80479ad63382771ad441` |
 
 
 

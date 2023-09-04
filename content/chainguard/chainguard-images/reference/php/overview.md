@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/php](https://github.com/chainguard-images/images/tree/main/images/php)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 26th  | `sha256:4902f261ddea93b3b44ff3906694d30f5f586801e0e67c1777ffdd8ad0b40dc4` |
-|  `latest`     | August 23rd  | `sha256:ebbca3863ced517accd6f33753f0227a94f23878bbc4f55c9bf0e682af04ad6d` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 2nd | `sha256:c160ee60ca319c0a0a3bedea1edcf9265951f1f68fb60ff2ffede7d9e6903fc4` |
+|  `latest`     | September 2nd | `sha256:9c153e68c9f1ed3dade0377ed75be89e76b57b8f55c3fb6da8918f04de9d4502` |
 
 
 
