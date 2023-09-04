@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/slim-toolkit-debug](https://github.com/chainguard-images/images/tree/main/images/slim-toolkit-debug)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 29th  | `sha256:8441a9e3c20b732b7c17f79c90b2893cc27053aa382dbdee726f91e57d35f145` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 3rd | `sha256:f895a7c47c39f2a07c3ccdb4c1e7cceda4230b4149cdf0573a757ba795447b51` |
 
 
 

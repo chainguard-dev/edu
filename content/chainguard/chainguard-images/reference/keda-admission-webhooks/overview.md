@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 26th  | `sha256:6ffab44d456adf36b2ba2c7f5f734970f415752fb346625b92b1e361561b8ae3` |
-|  `latest`     | August 15th  | `sha256:3c1d929306b2a1e2c8d6a54b552654d884eb3eb30bb50d256ea64ae421d65e64` |
+|  `latest-dev` | August 31st  | `sha256:370ddf2908bc934edd1e616f7f4f576ccfb62c9aba505c2e704fa8735784a6d2` |
+|  `latest`     | August 31st  | `sha256:d8957a255c858cd0425b03ac0697748f5ff1c0310ed73c6e194f39f862767c2b` |
 
 # keda-admission-webhooks
 

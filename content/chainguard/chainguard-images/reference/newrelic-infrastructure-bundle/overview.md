@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/newrelic-infrastructure-bundle](https://github.com/chainguard-images/images/tree/main/images/newrelic-infrastructure-bundle)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 30th  | `sha256:10fce0448edd282b5f7470acb7e6bd8219a323de1447019baab15157dcb984ed` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 1st | `sha256:bf33a0dd4a494277f788ddeac5845adeaa78f8e58a426200e7a1361135c5fae0` |
 
 # newrelic-infrastructure-bundle
 

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kube-state-metrics](https://github.com/chainguard-images/images/tree/main/images/kube-state-metrics)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 26th  | `sha256:53a373dd56091bde2699e438083b6bd412f39509d2579bafeba3446d0c331f64` |
-|  `latest`     | August 15th  | `sha256:900ee6a853a0a8f6964fa540bc9030203bc3856c18abdd67018bfb2f47d78b00` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 1st | `sha256:07c037b11194c0e371692248ab2021e22107ed9996cd1dab95c110821ad6d8cd` |
+|  `latest-dev` | September 1st | `sha256:d586ce0a64dbfe1f42306e49977c636a68bde069a92960f221255424dfed9069` |
 
 
 
