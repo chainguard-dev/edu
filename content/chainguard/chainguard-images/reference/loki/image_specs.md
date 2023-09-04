@@ -1,7 +1,7 @@
 ---
-title: "gatekeeper Image Variants"
+title: "loki Image Variants"
 type: "article"
-description: "Detailed information about the public gatekeeper Chainguard Image variants"
+description: "Detailed information about the public loki Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,31 +9,31 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "gatekeeper"
+    parent: "loki"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **gatekeeper** Image.
+This page shows detailed information about all public variants of the Chainguard **loki** Image.
 
 ## Variants Compared
-The **gatekeeper** Chainguard Image currently has 2 public variants: 
+The **loki** Chainguard Image currently has 2 public variants: 
 
 - `latest-dev`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev    | latest        |
-|--------------|---------------|---------------|
-| Default User | `nonroot`     | `nonroot`     |
-| Entrypoint   | `manager`     | `manager`     |
-| CMD          | `--help`      | `--help`      |
-| Workdir      | not specified | not specified |
-| Has apk?     | yes           | no            |
-| Has a shell? | yes           | no            |
+|              | latest-dev                                 | latest                                     |
+|--------------|--------------------------------------------|--------------------------------------------|
+| Default User | `loki`                                     | `loki`                                     |
+| Entrypoint   | `/usr/bin/loki`                            | `/usr/bin/loki`                            |
+| CMD          | `-config.file=/etc/loki/local-config.yaml` | `-config.file=/etc/loki/local-config.yaml` |
+| Workdir      | not specified                              | not specified                              |
+| Has apk?     | yes                                        | no                                         |
+| Has a shell? | yes                                        | no                                         |
 
-Check the [tags history page](/chainguard/chainguard-images/reference/gatekeeper/tags_history/) for the full list of available tags.
+Check the [tags history page](/chainguard/chainguard-images/reference/loki/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
@@ -44,8 +44,6 @@ The table shows package distribution across variants.
 | `bash`                   | X          |        |
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
-| `gatekeeper-3.13`        | X          | X      |
-| `gatekeeper-3.13-compat` | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          |        |
 | `glibc-locale-posix`     | X          |        |
@@ -59,6 +57,7 @@ The table shows package distribution across variants.
 | `libnghttp2-14`          | X          |        |
 | `libpcre2-8-0`           | X          |        |
 | `libssl3`                | X          |        |
+| `loki`                   | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
 | `openssl-config`         | X          |        |
