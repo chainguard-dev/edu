@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev     | latest         |
 |--------------|----------------|----------------|
-| Default User | `nonroot`      | `nonroot`      |
+| Default User | `root`         | `root`         |
 | Entrypoint   | `/usr/bin/zig` | `/usr/bin/zig` |
 | CMD          | `help`         | `help`         |
 | Workdir      | not specified  | not specified  |
@@ -48,10 +48,10 @@ The table shows package distribution across variants.
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |
 | `ld-linux`               | X          | X      |
-| `libLLVM-15`             | X          | X      |
+| `libLLVM-16`             | X          | X      |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
-| `libclang-cpp-15`        | X          | X      |
+| `libclang-cpp-16`        | X          | X      |
 | `libcrypt1`              | X          | X      |
 | `libcrypto3`             | X          |        |
 | `libcurl-openssl4`       | X          |        |
@@ -63,7 +63,7 @@ The table shows package distribution across variants.
 | `libssl3`                | X          |        |
 | `libstdc++`              | X          | X      |
 | `libxml2`                | X          | X      |
-| `llvm-lld-15`            | X          |        |
+| `llvm-lld-16`            | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
 | `openssl-config`         | X          |        |
@@ -71,5 +71,4 @@ The table shows package distribution across variants.
 | `xz`                     | X          | X      |
 | `zig`                    | X          | X      |
 | `zlib`                   | X          | X      |
-| `llvm-lld`               |            | X      |
 
