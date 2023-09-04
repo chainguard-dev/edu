@@ -38,25 +38,25 @@ Check the [tags history page](/chainguard/chainguard-images/reference/node-probl
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                | latest-dev | latest |
-|--------------------------------|------------|--------|
-| `busybox`                      | X          | X      |
-| `ca-certificates-bundle`       | X          | X      |
-| `glibc`                        | X          | X      |
-| `glibc-locale-posix`           | X          | X      |
-| `health-checker`               | X          | X      |
-| `ld-linux`                     | X          | X      |
-| `libblkid`                     | X          | X      |
-| `libcap`                       | X          | X      |
-| `libcrypt1`                    | X          | X      |
-| `libfdisk`                     | X          | X      |
-| `libmount`                     | X          | X      |
-| `libsystemd`                   | X          | X      |
-| `libuuid`                      | X          | X      |
-| `log-counter`                  | X          | X      |
-| `node-problem-detector`        | X          | X      |
-| `node-problem-detector-compat` | X          | X      |
-| `systemd`                      | X          | X      |
-| `systemd-dev`                  | X          | X      |
-| `wolfi-baselayout`             | X          | X      |
+|                                    | latest-dev | latest |
+|------------------------------------|------------|--------|
+| `busybox`                          | X          | X      |
+| `ca-certificates-bundle`           | X          | X      |
+| `glibc`                            | X          | X      |
+| `glibc-locale-posix`               | X          | X      |
+| `health-checker-0.8`               | X          | X      |
+| `ld-linux`                         | X          | X      |
+| `libblkid`                         | X          | X      |
+| `libcap`                           | X          | X      |
+| `libcrypt1`                        | X          | X      |
+| `libfdisk`                         | X          | X      |
+| `libmount`                         | X          | X      |
+| `libsystemd`                       | X          | X      |
+| `libuuid`                          | X          | X      |
+| `log-counter-0.8`                  | X          | X      |
+| `node-problem-detector-0.8`        | X          | X      |
+| `node-problem-detector-0.8-compat` | X          | X      |
+| `systemd`                          | X          | X      |
+| `systemd-dev`                      | X          | X      |
+| `wolfi-baselayout`                 | X          | X      |
 

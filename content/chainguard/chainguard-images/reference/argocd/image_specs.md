@@ -40,47 +40,47 @@ Check the [tags history page](/chainguard/chainguard-images/reference/argocd/tag
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest-dev | latest | repo-server-latest-dev | repo-server-latest |
-|--------------------------|------------|--------|------------------------|--------------------|
-| `apk-tools`              | X          |        | X                      |                    |
-| `argo-cd`                | X          | X      |                        |                    |
-| `argo-cd-compat`         | X          | X      | X                      | X                  |
-| `bash`                   | X          |        | X                      |                    |
-| `busybox`                | X          | X      | X                      | X                  |
-| `ca-certificates-bundle` | X          | X      | X                      | X                  |
-| `git`                    | X          |        | X                      | X                  |
-| `glibc`                  | X          | X      | X                      | X                  |
-| `glibc-locale-posix`     | X          | X      | X                      | X                  |
-| `ld-linux`               | X          | X      | X                      | X                  |
-| `libbrotlicommon1`       | X          |        | X                      | X                  |
-| `libbrotlidec1`          | X          |        | X                      | X                  |
-| `libcrypt1`              | X          | X      | X                      | X                  |
-| `libcrypto3`             | X          |        | X                      | X                  |
-| `libcurl-openssl4`       | X          |        | X                      | X                  |
-| `libexpat1`              | X          |        | X                      | X                  |
-| `libnghttp2-14`          | X          |        | X                      | X                  |
-| `libpcre2-8-0`           | X          |        | X                      | X                  |
-| `libssl3`                | X          |        | X                      | X                  |
-| `ncurses`                | X          |        | X                      |                    |
-| `ncurses-terminfo-base`  | X          |        | X                      |                    |
-| `openssl-config`         | X          |        | X                      | X                  |
-| `wolfi-baselayout`       | X          | X      | X                      | X                  |
-| `zlib`                   | X          |        | X                      | X                  |
-| `argo-cd-repo-server`    |            |        | X                      | X                  |
-| `git-lfs`                |            |        | X                      | X                  |
-| `gnupg`                  |            |        | X                      | X                  |
-| `gnupg-gpgconf`          |            |        | X                      | X                  |
-| `gpg`                    |            |        | X                      | X                  |
-| `gpg-agent`              |            |        | X                      | X                  |
-| `helm`                   |            |        | X                      | X                  |
-| `kustomize`              |            |        | X                      | X                  |
-| `libassuan`              |            |        | X                      | X                  |
-| `libbz2-1`               |            |        | X                      | X                  |
-| `libgcrypt`              |            |        | X                      | X                  |
-| `libgpg-error`           |            |        | X                      | X                  |
-| `npth`                   |            |        | X                      | X                  |
-| `openssh-keygen`         |            |        | X                      | X                  |
-| `openssh-server`         |            |        | X                      | X                  |
-| `sqlite-libs`            |            |        | X                      | X                  |
-| `tzdata`                 |            |        | X                      | X                  |
+|                           | latest-dev | latest | repo-server-latest-dev | repo-server-latest |
+|---------------------------|------------|--------|------------------------|--------------------|
+| `apk-tools`               | X          |        | X                      |                    |
+| `argo-cd-2.8`             | X          | X      |                        |                    |
+| `argo-cd-2.8-compat`      | X          | X      | X                      | X                  |
+| `bash`                    | X          |        | X                      |                    |
+| `busybox`                 | X          | X      | X                      | X                  |
+| `ca-certificates-bundle`  | X          | X      | X                      | X                  |
+| `git`                     | X          |        | X                      | X                  |
+| `glibc`                   | X          | X      | X                      | X                  |
+| `glibc-locale-posix`      | X          | X      | X                      | X                  |
+| `ld-linux`                | X          | X      | X                      | X                  |
+| `libbrotlicommon1`        | X          |        | X                      | X                  |
+| `libbrotlidec1`           | X          |        | X                      | X                  |
+| `libcrypt1`               | X          | X      | X                      | X                  |
+| `libcrypto3`              | X          |        | X                      | X                  |
+| `libcurl-openssl4`        | X          |        | X                      | X                  |
+| `libexpat1`               | X          |        | X                      | X                  |
+| `libnghttp2-14`           | X          |        | X                      | X                  |
+| `libpcre2-8-0`            | X          |        | X                      | X                  |
+| `libssl3`                 | X          |        | X                      | X                  |
+| `ncurses`                 | X          |        | X                      |                    |
+| `ncurses-terminfo-base`   | X          |        | X                      |                    |
+| `openssl-config`          | X          |        | X                      | X                  |
+| `wolfi-baselayout`        | X          | X      | X                      | X                  |
+| `zlib`                    | X          |        | X                      | X                  |
+| `argo-cd-2.8-repo-server` |            |        | X                      | X                  |
+| `git-lfs`                 |            |        | X                      | X                  |
+| `gnupg`                   |            |        | X                      | X                  |
+| `gnupg-gpgconf`           |            |        | X                      | X                  |
+| `gpg`                     |            |        | X                      | X                  |
+| `gpg-agent`               |            |        | X                      | X                  |
+| `helm`                    |            |        | X                      | X                  |
+| `kustomize`               |            |        | X                      | X                  |
+| `libassuan`               |            |        | X                      | X                  |
+| `libbz2-1`                |            |        | X                      | X                  |
+| `libgcrypt`               |            |        | X                      | X                  |
+| `libgpg-error`            |            |        | X                      | X                  |
+| `npth`                    |            |        | X                      | X                  |
+| `openssh-keygen`          |            |        | X                      | X                  |
+| `openssh-server`          |            |        | X                      | X                  |
+| `sqlite-libs`             |            |        | X                      | X                  |
+| `tzdata`                  |            |        | X                      | X                  |
 

@@ -54,7 +54,7 @@ The table shows package distribution across variants.
 | `gmp`                    | X          | X      |
 | `isl`                    | X          | X      |
 | `ld-linux`               | X          | X      |
-| `libLLVM-15`             | X          | X      |
+| `libLLVM-16`             | X          | X      |
 | `libatomic`              | X          | X      |
 | `libbrotlicommon1`       | X          | X      |
 | `libbrotlidec1`          | X          | X      |
