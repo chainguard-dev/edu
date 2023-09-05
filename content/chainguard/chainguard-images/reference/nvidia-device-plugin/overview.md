@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/nvidia-device-plugin](https://github.com/chainguard-images/images/tree/main/images/nvidia-device-plugin)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:c298772f5b62296e1790268af88fecc8a6aeed10a35cf0d449fbe5a012489703` |
-|  `latest-dev` | August 31st  | `sha256:1b50205e8045b62826cc7998e891060e58f5eaf171b9675ec82cc16b73d87707` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:38c31acfad5d8226ee004324cf978bd520b0381a06ce01de07a7e64e72eebe64` |
+|  `latest`     | September 4th | `sha256:e1a95fda08b2cbe4334865300e9b76a9c1f097b6638a73f66d0d49723eda0c1a` |
 
 
 

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/prometheus-cloudwatch-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-cloudwatch-exporter)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:cad09c4c97c437c36d14eb959f31406f353afcf933a85f1dd1de88e93a567ece` |
-|  `latest`     | August 31st  | `sha256:9625bbae323b9d77937d12fb60bbc1e5f67bb89d6a14a315a428764c4babaa28` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:1dfe22d5677771a01c0497796debc36b6f77ad4b8e5244c3fd218a0bbca43ac0` |
+|  `latest`     | September 4th | `sha256:511d89000e48835f2518ea660da72a85ce3d51f1693564837902a582e859bbd2` |
 
 # prometheus-cloudwatch-exporter
 

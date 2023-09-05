@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/secrets-store-csi-driver](https://github.com/chainguard-images/images/tree/main/images/secrets-store-csi-driver)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:4dd3b6b3d5f5e583772f4f7d0fa0f9086fd9baf1e7a14ce31e27657a6c3197ae` |
-|  `latest-dev` | August 31st  | `sha256:0fe410d8d1340f95fc551377796eb66ca927dd084e5f61d34aee72ed9233a4c3` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:c45a6ba62dc23a31a837580af7a2d985499d081bd62e1fa5e713634ebca3ef1a` |
+|  `latest-dev` | September 4th | `sha256:72218f825a36c80f9cc9ed298452a11d8c1f13d53a05f768730207e6a3922462` |
 
 
 

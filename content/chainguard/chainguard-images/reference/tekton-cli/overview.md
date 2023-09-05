@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/tekton-cli](https://github.com/chainguard-images/images/tree/main/images/tekton-cli)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:10d4743e4499098f53ab8f2151404b139e330a1508669751fe64dc740163b051` |
-|  `latest`     | August 31st  | `sha256:fd68cd3cee1321a4664a80d9d2a8b934a94d4c3c22ffd09ffdddc8220164f760` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:8a5480cf4d51dad03fdf6e8703656e15c5fb841b2ae3116d7541ccecfa2bd645` |
+|  `latest-dev` | September 4th | `sha256:34aae15b02d0bd068ae76cb349a14b85dd43bcb2af5f106bb2560f8462224768` |
 
 # tekton-cli
 

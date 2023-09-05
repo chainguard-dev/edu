@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/haproxy-ingress](https://github.com/chainguard-images/images/tree/main/images/haproxy-ingress)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:77d3fe978791efb59d701346d7e2da567d30398928963a122419eb84dfb038ca` |
-|  `latest-dev` | August 31st  | `sha256:e31ddcd12e0d0be16af23fceac16e4fac97c003bccd130680b5efde18f322ed7` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:8887aebec72255928a89da98312ab56416ed65e571dad44ac929eff8c55a740d` |
+|  `latest-dev` | September 4th | `sha256:0a62ebe89fd47258edd0db333472d16d4c7f5d0f924614039e0bee590a13a4f8` |
 
 
 

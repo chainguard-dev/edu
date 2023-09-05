@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/kyverno-cli](https://github.com/chainguard-images/images/tree/main/images/kyverno-cli)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:e6931fe5eb29608d1589b6399234a78cf6ba6b582eb7a03f324da055bc587eb0` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:6237c27951ca919853d03f317cbe6ae11247b1e5b22301987a60764550b7d7ae` |
 
 # kyverno-cli
 

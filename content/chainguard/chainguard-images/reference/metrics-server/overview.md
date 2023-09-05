@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/metrics-server](https://github.com/chainguard-images/images/tree/main/images/metrics-server)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:d8fb20c40716b65f9e0722b0aa2e0f543fb55a8e4d577b3b5527505170cf8b43` |
-|  `latest-dev` | August 31st  | `sha256:5453615407917305e39dad5de03612c8624eb67d1be5538eff5e4794cda859ed` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:a66b998fb0e3d798b996ec9a57388c9d71adb0f349ec209e66ee1e44e861e470` |
+|  `latest-dev` | September 4th | `sha256:a9b8d52071f5957dbaef98e8386c9ef9be31e181036ff6a294d3ba49463b66e3` |
 
 
 

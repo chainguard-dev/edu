@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/tekton-workingdirinit](https://github.com/chainguard-images/images/tree/main/images/tekton-workingdirinit)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:f4525f7dc18c05a82ab78794227ba35a2fc93a0103a86b96f296959984bdaf3d` |
-|  `latest`     | August 31st  | `sha256:790360e7b31609cea87d3904c1e7bf7a8be7cfe6d5a6889383e5117b63265b6f` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:8efe1c3652a161f95568fa6875b4322791b6b8715288e0cc9c57c25336f761e0` |
+|  `latest`     | September 4th | `sha256:f3c162a61d48a8d3e886f55f2d5ccd7475de87c400d950a6522ea70e9273d2af` |
 
 # tekton-workingdirinit
 

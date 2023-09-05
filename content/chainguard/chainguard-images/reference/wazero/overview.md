@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/wazero](https://github.com/chainguard-images/images/tree/main/images/wazero)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:d8b950653ac6a1dc9fa6d220b622053fba877be3ec73a7e30bf802b89b2b4cf4` |
-|  `latest-dev` | August 31st  | `sha256:ebf5b181df0d4391830215b7849c120081921bb6307c7d859d6a1eeb05e631f9` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:ba637bfd695a27a0069554f9a23286d97bc8fb6c92978eaedacd58072b02d2bd` |
+|  `latest`     | September 4th | `sha256:99dc4d82daead6207ced448a3132b278cade000e6996c53c6e491e22bcca3921` |
 
 
 

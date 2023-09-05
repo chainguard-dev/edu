@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/tekton-sidecarlogresults](https://github.com/chainguard-images/images/tree/main/images/tekton-sidecarlogresults)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:c6df1048f6ff2176821fe1d442bf8e1ff579666a735c55ebf371ca0052854586` |
-|  `latest-dev` | August 31st  | `sha256:3a5b3a02155fd0a2bed5a05d249b282e64af1c633950ac51229b75805b5d4bed` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:0bc856ff9eff090cef5455d2bf63a576a668af472c683f93211ac604677fee5d` |
+|  `latest-dev` | September 4th | `sha256:92291d28066c05304bf8d5d6bc670efc4f322fd0f8a1380f7a4704ca9f76c436` |
 
 # tekton-sidecarlogresults
 

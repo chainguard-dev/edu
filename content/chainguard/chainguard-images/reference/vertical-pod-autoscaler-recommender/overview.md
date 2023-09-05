@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/vertical-pod-autoscaler-recommender](https://github.com/chainguard-images/images/tree/main/images/vertical-pod-autoscaler-recommender)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:d0cba67b9a500f02fee4b02616887b0d6cbca4a8ff7657234702f315d0123553` |
-|  `latest`     | August 31st  | `sha256:8cf3c9068dc1651ec44b48af47a56c5ee28382a6ae0ea3e9fb82d33d3e16938f` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:d254e88f5197ad35224cd1639382956d262c2a861cd352063d464545abe0b853` |
+|  `latest`     | September 4th | `sha256:ca1c9bfe89594c0f2bc62373ad9d0cc7f6806d7b8d478a3a948883c39a0de6ab` |
 
 # vertical-pod-autoscaler-recommender
 

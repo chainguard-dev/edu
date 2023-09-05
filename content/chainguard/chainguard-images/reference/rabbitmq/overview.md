@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/rabbitmq](https://github.com/chainguard-images/images/tree/main/images/rabbitmq)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:272fc012375738997d0a19ce16661ff573bd898c29ef736be2e3e5cbd8b445dc` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:b84b9d6b91bd24bef4bbbe873b3df34d37a3fe57cc269ec9033ccda9f0d7065b` |
 
 
 

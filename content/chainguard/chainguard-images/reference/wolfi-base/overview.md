@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:6823db3719cabd2e6de71f7a521907827eacabbff4a272a807bc1c66c9f95b6c` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:f73a3360466ecc4d6df3f451d7d5c4c49663096e158848ddbc9603c52a47bffe` |
 
 
 

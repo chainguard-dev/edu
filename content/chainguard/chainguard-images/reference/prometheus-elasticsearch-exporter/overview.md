@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/prometheus-elasticsearch-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-elasticsearch-exporter)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:4807685efe2addfd0bc3971b366ca8aafdb542a3b4e1cd14e73d3c1c7e55bf23` |
-|  `latest-dev` | August 31st  | `sha256:b3ad9ff185bcb2a763e371bc5d5d1211935c4c13d32abd17c52aecfa13e69d47` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:b54c49e5810c5fdf05834be1143b8f241caf6246da40f195fd4870935cb639c3` |
+|  `latest-dev` | September 4th | `sha256:05a7c24f348081a9dd13bf2aee8db841ef7e9c16f52d73fb7e9832d16cff1624` |
 
 # prometheus-elasticsearch-exporter
 
