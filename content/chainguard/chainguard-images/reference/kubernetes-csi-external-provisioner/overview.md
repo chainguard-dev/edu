@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kubernetes-csi-external-provisioner](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-provisioner)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:079c10f4079844041f3005af4729a047c159b793c4c73db7949b3523486a166f` |
-|  `latest`     | August 31st  | `sha256:4a906e3770336c9cbb09122422e7ec95b2f31663eb9a33b13467b4e37c1a3e9e` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:2070ebebe1b089b961cc138edf99a1b1507277fb64739d3461887f611a672cb4` |
+|  `latest-dev` | September 4th | `sha256:1528545c7f4b96570616896e5b7c0adc2d4ab824deb03a10e2923e5210e1e747` |
 
 
 

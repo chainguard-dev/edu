@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/metacontroller](https://github.com/chainguard-images/images/tree/main/images/metacontroller)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:9ceddc53be73d5263017b0e32390c0167c3a406953b2ef7333b045202d81e1fc` |
-|  `latest-dev` | August 31st  | `sha256:299b647faba24a8127d8589034cc8a9f57fd869c22dd2b869a9222678f6d3f7f` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:f0eede4f067803bdc54c5da8654ba0269cb3459c09a7dccaa04132b4ea762072` |
+|  `latest-dev` | September 4th | `sha256:54fa05ab4a43aff902a3f7f4c2e23b3c967f9454cf33601ff849e152176d7561` |
 
 
 

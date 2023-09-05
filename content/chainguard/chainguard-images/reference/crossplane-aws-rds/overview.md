@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 1st | `sha256:493108c32285346411aa849d5d059c9ab958cd19dc7c746f9f4eabe719d4060b` |
+|  `latest` | September 4th | `sha256:dd468f86a5b0668f7404d17c0bc9bcd94cd3271dc446bc218006460a0dfc16ad` |
 
 # crossplane-aws-rds
 

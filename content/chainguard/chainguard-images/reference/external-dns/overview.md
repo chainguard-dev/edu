@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/external-dns](https://github.com/chainguard-images/images/tree/main/images/external-dns)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:1cf16dec9b13f118ce8cb8618145a85ad1e30161aff139538b88a19b7adc6626` |
-|  `latest`     | August 31st  | `sha256:e5173dcbde33876105911ed15fd5266a5c99bda37c0f207bec1b11468dee1a9d` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:32cf0894a411937c70679c5a4a3ccc06badc167645431c38b9feec3fb792b28c` |
+|  `latest-dev` | September 4th | `sha256:3ffa43a18a2d613d28abc39991a40db83d0f73288c4bd98d4f65e73c6154334f` |
 
 
 

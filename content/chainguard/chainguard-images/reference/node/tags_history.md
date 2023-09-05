@@ -20,9 +20,10 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                                                         | Last Changed  | Digest                                                                    |
 |-------------------------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev`                                                                                   | September 2nd | `sha256:fb3a60135384c3fe018a1801a6b64a9c7b36af3a351a3fd6809147c85cef12ed` |
+|  `latest-dev`                                                                                   | September 4th | `sha256:03c70ba5d73573db2f3d484918ad9c3a644d7facc0e439b83fdc2d908a58e4ab` |
+|  `latest`                                                                                       | September 4th | `sha256:e4bcf9352537b4ecc0eee319d8462153c71dbeb5a73c87170d1558a762309e0d` |
 |  `19.9-dev` `19.9.0-dev` `19.9.0-r3-dev` `19-dev`                                               | September 1st | `sha256:cc1e1944efd51869d0cc2b5f847ddc68ed0fe34be2c349fc24ce81b368b828be` |
-|  `18.16.0` `18.16` `18.17.1` `18.17` `18` `latest`                                              | September 1st | `sha256:af073516c203b6bd0b55a77a806a0950b486f2e9ea7387a32b0f41ea72f20886` |
+|  `18.16.0` `18.16` `18.17.1` `18.17` `18`                                                       | September 1st | `sha256:af073516c203b6bd0b55a77a806a0950b486f2e9ea7387a32b0f41ea72f20886` |
 |  `18.16.0-r2-dev` `18.17-dev` `18.17.1-r1-dev` `18.16.0-dev` `18.17.1-dev` `18.16-dev` `18-dev` | September 1st | `sha256:0b91333f21897380b94c5ec4eef05722db35de37734399c6a454e8ed399330f1` |
 |  `20` `20.5.1` `20.5`                                                                           | September 1st | `sha256:f30d39c6980f0a50119f2aa269498307a80c2654928d8e23bb25431b9cbbdc4f` |
 |  `19.9.0` `19.9` `19`                                                                           | September 1st | `sha256:c97dff66fe71fbe56493a867e819d0b7859b8c6fe1fd7a47074c78ae46864666` |

@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/kube-fluentd-operator](https://github.com/chainguard-images/images/tree/main/images/kube-fluentd-operator)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:3b3c124ac608c58b5aaa8f47d3159739f70b60bfbae4ebb89f54a4665f83fc94` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:6cb84144d22803f3a7310cf785d070028fb708f471bece330d06ae2fb4548390` |
 
 
 

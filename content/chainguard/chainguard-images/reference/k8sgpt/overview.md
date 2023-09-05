@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/k8sgpt](https://github.com/chainguard-images/images/tree/main/images/k8sgpt)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:b60a6115505c220722e5913a27a7eb25b5d6a20caf0139487ee488d1ed9bc26a` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:1f7f256e271a9b4fd1d389c8382fe7e404686728a5d85355e4937aa445dc9f16` |
 
 
 

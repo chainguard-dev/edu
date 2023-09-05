@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/kubernetes-csi-livenessprobe](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-livenessprobe)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:6bd0c625b4af9b7d462f26ebfb5cce1f8d7b89e91fd9a13602eca128d0af6072` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:6d24935988b62a7defd933e1cb6667565374da18a44d5390cf3fb8c225fa4e88` |
 
 
 

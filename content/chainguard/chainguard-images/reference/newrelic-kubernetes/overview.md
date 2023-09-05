@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/newrelic-kubernetes](https://github.com/chainguard-images/images/tree/main/images/newrelic-kubernetes)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:41620192ca5fc8cf01870154c4b15bd0ab0e6ab963497b80a53011ecabd97d38` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:aaa868ef2686a469d5cb8a8247f6ad1da9918a18a8e1212f34245961fec402dc` |
 
 # newrelic-kubernetes
 

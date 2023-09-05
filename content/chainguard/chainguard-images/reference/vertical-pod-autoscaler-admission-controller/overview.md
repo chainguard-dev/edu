@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/vertical-pod-autoscaler-admission-controller](https://github.com/chainguard-images/images/tree/main/images/vertical-pod-autoscaler-admission-controller)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:1e5a41bab2901debef7a267a769a8d65d4d7efc54e9e87b36f61a0fa1413ad92` |
-|  `latest`     | August 31st  | `sha256:2c037224b43ca9ac0182fa1c92c7462c81cd058211570f9b7a1d6d70552a479e` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:5e1cbd3aab1a2d191f8de6c7f9ae78c816f0cc26fe57393f9fe39e5e8cbb0588` |
+|  `latest-dev` | September 4th | `sha256:e2b6b3058b01bab1186698b5a9930ae30fbb343ba859a93d19d7f3f9f09f26f2` |
 
 # vertical-pod-autoscaler-admission-controller
 

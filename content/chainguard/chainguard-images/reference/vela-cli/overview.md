@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/vela-cli](https://github.com/chainguard-images/images/tree/main/images/vela-cli)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:76b7319a317ed47290341f0993767031543aaafded1a9720847e52df89ad3de9` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:1f406759398e3cefdec45a4f7ece01177bfea62e3aa18a9e90a0e04aba765245` |
 
 
 

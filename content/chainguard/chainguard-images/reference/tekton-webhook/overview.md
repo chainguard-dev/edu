@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/tekton-webhook](https://github.com/chainguard-images/images/tree/main/images/tekton-webhook)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:8e2f25adcf08481aee3de335c21e95b7a2af9763b20eaa7a6fbdd2ba383af3da` |
-|  `latest`     | August 31st  | `sha256:b7c8b6162a7282e459894e3c0276d10f936c0dea7304a550c7b699c904b74a64` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:300228634ae666bff2f75c66fedcbae4ba25198de9957ad1df4a2369cc793d79` |
+|  `latest`     | September 4th | `sha256:d1ea4cdfd137e55a4baa2179706b10e7a149e2c05599fad0e297ea50fee80e34` |
 
 # tekton-webhook
 

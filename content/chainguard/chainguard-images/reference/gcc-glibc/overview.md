@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/gcc-glibc](https://github.com/chainguard-images/images/tree/main/images/gcc-glibc)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:4b520be50a5c3da0645e864db837a7051e5abebd8aa96c91a738ca3abf1bc5c0` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:8fec58a709cd8343c7969132d9bc7e93465faf2f9e714228a81ff107cdb56816` |
 
 
 

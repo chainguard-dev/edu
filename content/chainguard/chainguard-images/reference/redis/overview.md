@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/redis](https://github.com/chainguard-images/images/tree/main/images/redis)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:0c19ce07fa6952f872b15d5da4cb0681402775ad8f159cfcfb0c10b6e8c8bd37` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:059843c22125f04ff6c68b0c0825b72fbb5bc9088cd6acea149f9018b29dc344` |
 
 
 

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kubernetes-dashboard](https://github.com/chainguard-images/images/tree/main/images/kubernetes-dashboard)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:af1775e7fd2fa7b7c709ae781c9c5935d01bd284b3de8fcdbd0fa8d6357e2575` |
-|  `latest`     | August 31st  | `sha256:e9dbb40e79e9dc1d9ebf3908b665cca0676944dbb3c758763a0243bf3c94cefa` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:0caef54220c525f173183ed1a9c198da2919deca743e9b998fcc23f9352f9af1` |
+|  `latest-dev` | September 4th | `sha256:77bf09832673b74ef466606cc9248684a912c024b03c7c8b4486b0fd1517f690` |
 
 
 
