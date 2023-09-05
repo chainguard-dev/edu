@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/calicoctl](https://github.com/chainguard-images/images/tree/main/images/calicoctl)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:fd460f45531349d79f60db5a017e2d8bd162e0c8b9184f42562620573a474158` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:de78e3f87a5abb2e968c35541d53f9594b544661435366250c37d33319bc83b5` |
 
 # calicoctl
 

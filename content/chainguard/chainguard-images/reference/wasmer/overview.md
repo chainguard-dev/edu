@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/wasmer](https://github.com/chainguard-images/images/tree/main/images/wasmer)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:6a528c7f5b668abbd04fadb6c99040683ea9cc83904e22f1adba68c793c66424` |
-|  `latest-dev` | August 31st  | `sha256:7509f8cbe130a3afc986987e5dde56fe262c453261b02a562db196eaca6db45e` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:9d7db14c5fc0d89c070d9ab59ab35f6a1411b00b036350cd37390c5778a6b046` |
+|  `latest-dev` | September 4th | `sha256:a055bc21e37de35ba8893743500cefa5b8d769c536b68d4cca148d756f1646fc` |
 
 
 

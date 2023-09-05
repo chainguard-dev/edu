@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/ntpd-rs](https://github.com/chainguard-images/images/tree/main/images/ntpd-rs)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:28321db9dc772ca9931c56a3370be2c617b8dfd42dcc12c4c839813e3ca4ca88` |
-|  `latest-dev` | August 31st  | `sha256:8542c83a6d3a65c13f69425ef19d2a9a65c01d2712c812c283920a6ba5ef463d` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:49a63f1f445f21287da8607493fd1c7d11204070597b28634c69aab0b394739e` |
+|  `latest`     | September 4th | `sha256:b23aec374dc2f1aec403927f43729e60d906e2b83ca25fdcb9f41df531124b8b` |
 
 
 

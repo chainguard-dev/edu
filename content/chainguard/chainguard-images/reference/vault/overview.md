@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/vault](https://github.com/chainguard-images/images/tree/main/images/vault)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:947843915f9396f59c06e920335d23530755961410dd2e59d4c619f9e52fd227` |
-|  `latest-dev` | August 31st  | `sha256:bafa7759beb85271c95e72bdd6f414962334930b5f8f714f058b1566ad8c28d3` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:8eede85e5e523a5535ca225f0eefc03aeefb6f5f8b4e96b629a26a809ebf4890` |
+|  `latest-dev` | September 4th | `sha256:6ebab62398430d431d677343b0e9c8d043ce64b65d8a83894ffc0c09cc964e4e` |
 
 
 

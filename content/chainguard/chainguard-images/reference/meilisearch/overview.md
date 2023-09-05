@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/meilisearch](https://github.com/chainguard-images/images/tree/main/images/meilisearch)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:d316bb2155eea45025daf2ebfd9c9aa7f071760872bae982fb135044745de13f` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:12a1a5719959dec1bdcc5aceb98294a4730a401d82a6193b704cf0e883d003d3` |
 
 
 

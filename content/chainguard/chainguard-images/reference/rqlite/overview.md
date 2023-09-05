@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/rqlite](https://github.com/chainguard-images/images/tree/main/images/rqlite)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:3bd086c30eb7ad5d89484fc716fe49131603854fb069958469771f02207bcabc` |
-|  `latest`     | August 31st  | `sha256:d18f6791383faa19bb5d0d922fa945a79f1c4e2483cbf27476d0d381c768fbc9` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:56bf1749b0c2ea3c05f2a661bdc95b1086659263213c24b56c65c3a3a90fead7` |
+|  `latest`     | September 4th | `sha256:ce63052a88d2bad2eaf33d5d406d598617f771ddc1c08980a9c9ae579b06abff` |
 
 
 

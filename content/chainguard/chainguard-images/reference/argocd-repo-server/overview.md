@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/argocd-repo-server](https://github.com/chainguard-images/images/tree/main/images/argocd-repo-server)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:0a8b828dbc60dac41cbbdb0f1f9e774119d884f0638c0cedd6495230207d3da1` |
-|  `latest-dev` | August 31st  | `sha256:34396ab50caa4e624588fd3666a930bde3ee7631cdf1596de9a87863fc31a186` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:ab92cfdc6d96b723ffbaa5223d6befa0c4f2c5c30e179eeec8ae48638444947e` |
+|  `latest`     | September 4th | `sha256:c712019fa358c40f64d0f43ce2c6b54c36086a890eb665d46c1eb8eb344a6005` |
 
 # argocd-repo-server
 

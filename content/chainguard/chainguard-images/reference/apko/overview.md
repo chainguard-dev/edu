@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/apko](https://github.com/chainguard-images/images/tree/main/images/apko)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:6c5b80a6f637a1f0c5c36b37d3f7b4f8e78778787188d92bd200fd1590048662` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:68184b256826259a4d03e88f9431b1841589892c148b56d39a4f6017125bed5e` |
 
 
 

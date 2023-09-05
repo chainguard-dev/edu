@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/prometheus-operator](https://github.com/chainguard-images/images/tree/main/images/prometheus-operator)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:f1b574c135e2ad2037ef7b5916190e5ad87a853eaa52696b0443f4d210a7658f` |
-|  `latest-dev` | August 31st  | `sha256:d7080e820a916e4f0fc461618a9740b03460e8f48baa6ac904b6438634a1ef97` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:67747f078407bdd0c1e543ae321314235b6175c6f5fddf9f7bbcd5749aabe556` |
+|  `latest-dev` | September 4th | `sha256:4cc85e231ac4bcbf2864ba37ebab7bae8ecc1c40a7fd70ea732c1e5530feb5d5` |
 
 # prometheus-operator
 

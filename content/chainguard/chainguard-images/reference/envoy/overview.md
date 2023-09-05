@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/envoy](https://github.com/chainguard-images/images/tree/main/images/envoy)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:1a4e60d48b1b9ab1ad91c4fff26d5e3b127cdc1f26807f54ede8a7da203c6c22` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:14cf17f4716593022c395c68ca824267ad143a20a34e2fee36ca93ce49a74faa` |
 
 
 

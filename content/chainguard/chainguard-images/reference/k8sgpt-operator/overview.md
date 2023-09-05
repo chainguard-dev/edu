@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/k8sgpt-operator](https://github.com/chainguard-images/images/tree/main/images/k8sgpt-operator)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:2d90f6abdb0c3a12176f5aed603dba59e6d086db6f488a97ea6224e5831cdc6b` |
-|  `latest`     | August 31st  | `sha256:26194a35c332a10cf56f236ed7725f3847b1c9d52ca0e6e28069ada9ff1e4e44` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:eb68c88e93e30d91f004c7c8e2f2946f41a7a98685b721119a5687d422d1af9a` |
+|  `latest-dev` | September 4th | `sha256:865592c6e4d33efe4aaa1442ad633cfca74aae1fe55d865aa84497d1e26cc781` |
 
 
 

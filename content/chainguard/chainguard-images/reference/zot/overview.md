@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/zot](https://github.com/chainguard-images/images/tree/main/images/zot)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:b3d9b36d9003dc28fdab58d26e3c5a9c5047250897d4901b6b256af28cea3b44` |
-|  `latest`     | August 31st  | `sha256:5db5e165b40e3f4397b8a4d050bdd1f0e7e3af8595ddea51c12f2bdf2c3334f9` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:9da4d00a42baf25b9d633129152d1662f82f8f45afe572e6fd6ed0d2595436b2` |
+|  `latest-dev` | September 4th | `sha256:11e336348b9664bdc93a80956128ec4ec37f8e184a98647b0f2ce0ddcd84053c` |
 
 
 

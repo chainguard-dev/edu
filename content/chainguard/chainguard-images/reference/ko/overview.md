@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/ko](https://github.com/chainguard-images/images/tree/main/images/ko)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:fb7fe5c29166c327a7fcdb9dcdad19f3aaa1492df3eca516869005ace50e6726` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:f4e67c68408506a1f76311e3369066e1c96fdeb59ab43945c7add7d0a8b1753c` |
 
 
 

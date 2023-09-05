@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/prometheus-alertmanager](https://github.com/chainguard-images/images/tree/main/images/prometheus-alertmanager)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:1a6842a5440e0541b2b291c7302b7e5b3a299fd49d4c0633bb30038431f543e9` |
-|  `latest`     | August 31st  | `sha256:1e33be5e540598cb22e1b5da5c13eeb916858c899f8954dcfdfc71db4898c111` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:28495ff6e5b81afaf5acc8449923e4f9e9b39833f19600323e8bd60b01340993` |
+|  `latest`     | September 4th | `sha256:66b9dc2c040034fec75da0aaf4f8da0a80d622903daa5054b8104ded5577128c` |
 
 # prometheus-alertmanager
 

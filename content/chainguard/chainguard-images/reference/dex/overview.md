@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/dex](https://github.com/chainguard-images/images/tree/main/images/dex)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:2ff08781491954ef82023fc13d759775cc27fe089904b3f28a90253c8ff0a12e` |
-|  `latest`     | August 31st  | `sha256:0c7d7b3bc7de6ea31a9a248b574c90b4b40c678ddb6309a5d9047a4a2937eb07` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:218dd07d0655b9f3d8bb5273eb61b66ead2926075843cddb7d96e47c0653cc3c` |
+|  `latest-dev` | September 4th | `sha256:7a71a588bdacdf846bf1f0d3fd6b040bc04a436e2af7fece22a092c3e6c35e04` |
 
 
 

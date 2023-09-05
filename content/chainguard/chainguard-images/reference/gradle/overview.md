@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/gradle](https://github.com/chainguard-images/images/tree/main/images/gradle)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:f04fa40f286f6a1f6049eb770fe3c66e91b6bb558bc16f0acb5d2458b0351629` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:c94c52e7968d6b6bc1fa2c9d8a834bcd103fe5caae8e17f0819c7604d5205872` |
 
 
 

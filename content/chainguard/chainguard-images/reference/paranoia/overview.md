@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/paranoia](https://github.com/chainguard-images/images/tree/main/images/paranoia)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:9cd3469b0e879f7a4da919f7c8f6e60d3dac82dc745d0780fa1a79ca38038b38` |
-|  `latest-dev` | August 31st  | `sha256:cf6d150757a42d94d7e2f9e13baa6b4f7ca4f064735c3d7ee0391b9195fb1e2e` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:18587724249a9174a6cb976a58d93f2d777cdc21c94c6afd756e1d896fa34178` |
+|  `latest-dev` | September 4th | `sha256:69227679b3079e89998944a6d053225cea438ec4f5c4745acbc002c3e4a8261d` |
 
 
 
