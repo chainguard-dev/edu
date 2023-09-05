@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/powershell](https://github.com/chainguard-images/images/tree/main/images/powershell)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:68bb2ade01f2ec32fe1f36eceb5c56e11837ac2bb3501325dada0c654350ff7e` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:fa5a69d19a5c0d87e0799381598862077e4c9341227819633dcb9c6eb82dcbfc` |
 
 
 

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/configmap-reload](https://github.com/chainguard-images/images/tree/main/images/configmap-reload)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:fe3a9573f36494799cf606677f4f40d6bf7efa01fc5b3059589c27f8c2bd46fe` |
-|  `latest`     | August 31st  | `sha256:2d2497783009a2f3ecd48fdc32b61aa2802548e687340beae81fe359c580588b` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:26b2f38ac65ca2bdac8e25105baa57304ec5d30d4213b1431724d07bcc1e319d` |
+|  `latest-dev` | September 4th | `sha256:0c5179e08e9fcfbecc0398c58644c5357e48e7d60f9ddb7abd87625bd282d73d` |
 
 
 

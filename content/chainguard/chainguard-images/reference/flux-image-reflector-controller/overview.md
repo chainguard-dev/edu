@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/flux-image-reflector-controller](https://github.com/chainguard-images/images/tree/main/images/flux-image-reflector-controller)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:4ce021a94abfd2736178c4f3216a55cf6ec9fd08c2579d7d55c6629ea1076e63` |
-|  `latest`     | August 31st  | `sha256:ee61b31797ff3e9f65b2aa3bf94a00ebce9e735e7de531b90c401fb44e77912c` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:ef74fede3eefe17b14a6fcce5d5cb765a7ed1c65f5c0998be58e53066df0a9ba` |
+|  `latest`     | September 4th | `sha256:1f2d31f27076eb2693c76efe18b897acf3d5e4a45a324d87ba4f66377d49918d` |
 
 # flux-image-reflector-controller
 

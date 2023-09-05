@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/melange](https://github.com/chainguard-images/images/tree/main/images/melange)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:f1529cff65481cd0750ee0a232b3fe858fcf053de85148561145a12ee6e34686` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:1974784ae0b1fe0d471348ae532336cc487a8df600f3c9648156e78d12cc561a` |
 
 
 

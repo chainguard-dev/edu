@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kubernetes-ingress-defaultbackend](https://github.com/chainguard-images/images/tree/main/images/kubernetes-ingress-defaultbackend)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:75becb8bfdb4923a476f9b3b3dbbfbfcab7f07116a28fdbb0a40baa7a8844883` |
-|  `latest`     | August 31st  | `sha256:cce9565f89c8e725aaf242dbc0fdbb0e9d2034aabda5be8f4ae0124f5acfaff0` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:a2f14727618f5c36ada4e0c0995a17c99e394a6d0b1a93e3856068c1826d1388` |
+|  `latest`     | September 4th | `sha256:dcf480b8cdc15170b15806bda13186059fe4ce8dd27a40184ee1ab8859e33de6` |
 
 
 

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/coredns](https://github.com/chainguard-images/images/tree/main/images/coredns)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:fa314c749bb0182c6887341ad30685a485df6b8296dfe2b84be23238668ed213` |
-|  `latest-dev` | August 31st  | `sha256:b53f474abbb21e4bfe95d92d2827686c7d085f1db544ef09ca6b1cd7ce6b3f4c` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:a24af3d3eee0b1cf9c20dd39ef09828a9b502a874d0a2f74db65cf7e71ad0363` |
+|  `latest-dev` | September 4th | `sha256:915dd0a23afd975f3b85a26d3fcdbf2aac52612927084e07b5c5b21b3d2a6184` |
 
 
 

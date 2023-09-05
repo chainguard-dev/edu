@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/dotnet-runtime](https://github.com/chainguard-images/images/tree/main/images/dotnet-runtime)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | August 31st  | `sha256:c26919f001b8b838172859b19248f6a815eaf73474fea8fb6d6827589ba143ea` |
-|  `latest`     | August 31st  | `sha256:0711b27182f3d7b5ff11dece574003f83f1a99b291015d84e573805d8e93fbb4` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:20daa925345acce39acc18bc4db9107c9779edbb34694f13aa00b08b438120e4` |
+|  `latest`     | September 4th | `sha256:1113a2b2b71da75cc798b578802f30c6bfd6c997234cf850937856831c34a654` |
 
 
 

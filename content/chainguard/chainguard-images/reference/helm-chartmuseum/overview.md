@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/helm-chartmuseum](https://github.com/chainguard-images/images/tree/main/images/helm-chartmuseum)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:3d644a7747ac55bf53d60853113bff9c39f0b8b63b2983cbac3ce9921f550ca7` |
-|  `latest-dev` | August 31st  | `sha256:7dbc9645349eedceb2e630158a2ababbd2ce0ea93c9ca7e1f4169db7bef807c6` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:5708ae6ddf0160c900be408cf41ab9d8866dfd55def75ccfc10414c929464626` |
+|  `latest`     | September 4th | `sha256:86a2d08471c56dc0b99be403adfcaf7226b318553d58ea25c58a040207217a14` |
 
 
 

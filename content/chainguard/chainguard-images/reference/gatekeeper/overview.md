@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/gatekeeper](https://github.com/chainguard-images/images/tree/main/images/gatekeeper)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:8630caafa81b47ef2cf2f6c0835968890b7ea7d28b2975b5b62e6719fe8ed6cb` |
-|  `latest-dev` | August 31st  | `sha256:6f579184ba6f8ce48e09fbd9dd2506da8f7a39e50e8e6b9fbabb25d13f5151b0` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:d937dff89f2b30a8f59ec9719fd3f68507fc1e562e395a3e3273810a17dbbee9` |
+|  `latest-dev` | September 4th | `sha256:1beb5179c1ca6671aecf4c4c9c413420f21c96f422de1572f94801386ddf5286` |
 
 
 

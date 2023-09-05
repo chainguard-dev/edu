@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/mariadb](https://github.com/chainguard-images/images/tree/main/images/mariadb)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:982a900f6743ac5d8861be35ef0b294bd57991b146d4dcb9b8e5a9941e951cdb` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:b6239a612884e27a8a314cf9f04668ad982d7ddb70c464581625d336190b0202` |
 
 
 

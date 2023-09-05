@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/newrelic-kube-events](https://github.com/chainguard-images/images/tree/main/images/newrelic-kube-events)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:e2af91399f38198737418aec8ab4ca91fb196623a83e4d6e56bb57ae6f2e8b70` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:bd74200ed37e2f508f10255577795efe6b37119f541d5c9505b3a8baa4e63a4f` |
 
 # newrelic-kube-events
 

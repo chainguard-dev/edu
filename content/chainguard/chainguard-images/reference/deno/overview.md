@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/deno](https://github.com/chainguard-images/images/tree/main/images/deno)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:85b16dbc1b2954cf095d8292e7a84a37e4529c3650e621eb60068d07e154c60a` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:57f6fbc1e857509e343e7a622cb04ba2463cdbbff059ac100613092a785ea723` |
 
 
 

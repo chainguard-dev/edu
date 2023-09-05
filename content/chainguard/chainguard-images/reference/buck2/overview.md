@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/buck2](https://github.com/chainguard-images/images/tree/main/images/buck2)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:7e9801f444acee0d3a7aa08fbf1a89175a8ecd493ce19bcd3b148a3724886e2c` |
-|  `latest-dev` | August 31st  | `sha256:306ac7b82bc130fb9fa8f3978886d88365b5b659eb7f61411536dee5e6cc5bd3` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | September 4th | `sha256:bebd617909c94644655674ca2c6ab14f759a3fc556d2ffc6a92f8ebe5e84caa8` |
+|  `latest-dev` | September 4th | `sha256:8420d1217d3061acb65aabb2a32386c09446e864e566c54e61e5fc54fd61ee43` |
 
 
 

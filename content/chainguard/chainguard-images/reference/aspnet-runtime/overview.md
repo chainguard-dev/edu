@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/aspnet-runtime](https://github.com/chainguard-images/images/tree/main/images/aspnet-runtime)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:0989eed414309184cc4eca2a69d25e58c1f27ed50775473f0bc771a83e9e1909` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:2cf800fa69c5ab52da759811683c481a7e14e4012204be5b73f81a1a35e79f1e` |
 
 
 

@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/kyverno-cleanup-controller](https://github.com/chainguard-images/images/tree/main/images/kyverno-cleanup-controller)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:c7889eda00ef94402ef9b8e48793b31980461f74a1f19a526395aba0ff067401` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:892509f0c7c3b0bf32e30616d99db50d96bf94404c121bc8440f29b935bb3838` |
 
 # kyverno-cleanup-controller
 

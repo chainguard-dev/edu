@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/graalvm-native](https://github.com/chainguard-images/images/tree/main/images/graalvm-native)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:e27f465936bc4b6ccdfa245fd75b0d035a38adab746d785e1bdb139d92d28fc2` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:3304ed3e5fc8a5e8b8f370f79b1d8f2850d27f279892bbed2ad8bbf4c3bacd8e` |
 
 
 

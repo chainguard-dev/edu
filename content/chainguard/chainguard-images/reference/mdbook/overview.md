@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/mdbook](https://github.com/chainguard-images/images/tree/main/images/mdbook)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:0028f5bed4539dd01b5b4ca0a470d47a4883c7bf74b672360be695791dafa837` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:054385006ae142555fe14e2a5dead6a5ffffeacc0d6c36b8c7a06af1521f9345` |
 
 
 

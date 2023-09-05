@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/calico-node-driver-registrar](https://github.com/chainguard-images/images/tree/main/images/calico-node-driver-registrar)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 31st  | `sha256:d10077500e8af45ee64fbe402e2e4429b5c0d85c77292a328b0bc070afcc6498` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | September 4th | `sha256:a0b2b64b601294806cb20524bcefaed52bc754bb8258c97240b48182bd5e2582` |
 
 # calico-node-driver-registrar
 

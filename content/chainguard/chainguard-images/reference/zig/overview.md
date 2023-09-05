@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/zig](https://github.com/chainguard-images/images/tree/main/images/zig)
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | August 31st  | `sha256:4d889ba62ac012e69d01dc40f5c1aaa4234a5e0bebbf62ca645277b2bb914bda` |
-|  `latest-dev` | August 31st  | `sha256:080dd964f08cfe107f07dc31f8b3af41c14a09fd2f5b3d33bb4e66829156ac2d` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 4th | `sha256:c225fcbab621befa8891a78cabb08f9fdcd13e8aa0cb87f6f0396ed7cd013fbb` |
+|  `latest`     | September 4th | `sha256:20eaf90598eba4429d34c2acdb27d035e0e95422ef4771a7cb3897431ad78cab` |
 
 
 
