@@ -4,7 +4,7 @@ linktitle: "Minimal Runtime Images"
 lead: ""
 description: "Video demonstration of creating minimal images for applications with runtimes, such as Java"
 type: "article"
-date: 2023-09-06T15:21:01+00:00
+date: 2023-09-06T01:21:01+00:00
 lastmod: 2023-09-06T15:21:01+00:00
 draft: false
 images: []
