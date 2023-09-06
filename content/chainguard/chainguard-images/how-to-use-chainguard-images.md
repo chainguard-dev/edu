@@ -23,7 +23,114 @@ Each image has its own usage instructions, which is detailed in their READMEs. A
 
 In this guide, you'll learn how to get started using Chainguard Images and how to migrate existing container-based workflows to use our images.
 
-## Getting Started
+## Quickstart: Using Chainguard Images
+
+To get up and running with Chainguard Images, you can use `docker` commands to pull and run images. For each specific image, you'll find this guidance on its overview page (for example, see [Node](/chainguard/chainguard-images/reference/node/overview/), [Python](/chainguard/chainguard-images/reference/python/overview/), or [NGINX](/chainguard/chainguard-images/reference/nginx/overview/)). 
+
+### Pulling a Chainguard Image
+
+You can pull a Chainguard Image with the `docker pull` command. For example, to pull down the Git Chainguard Image, you can run the following.
+
+```sh
+docker pull cgr.dev/chainguard/git
+```
+
+Without passing a tag or a digest, the reference to the Git image will pull down the default tag, which is `:latest`.
+
+Note that if you have your own registry, you'll need to change the `cgr.dev/chainguard` path to your own registry path. 
+
+### Pulling by Tag
+
+You can also add a relevant tag that you have access to. In the case of the Git image, you can pull the `:latest-glibc` tag for the Git image. [Note that not all tags are available in the public catalog](/chainguard/chainguard-images/faq/#do-i-need-to-authenticate-into-chainguard-to-use-chainguard-images). 
+
+```sh
+docker pull cgr.dev/chainguard/git:latest-glibc
+```
+
+You may use tags to pull a specific version of a software like Git, or programming language version in a catalog you have access to. Chainguard Academy has tag history pages for each image, which you can find in our reference docs. For example, the [Git Image Tags History](/chainguard/chainguard-images/reference/git/tags_history/), [PHP Image Tags History](/chainguard/chainguard-images/reference/php/tags_history/), and [JDK Image Tags Hisory](/chainguard/chainguard-images/reference/jdk/tags_history/).
+
+You can learn about the Chainguard Images tags history in our guide about [Using the Tag History API](chainguard/chainguard-images/using-the-tag-history-api/). 
+
+### Pulling by Digest
+
+Pulling a Chainguard Image by its digest guarantees reproducibility, as it will ensure that you are using the same image each time (versus the tag that may receive updates). 
+
+To pull an image by its digest, you can do so by appending the digest which begins with `sha256`. You can find these on our reference tags history pages.
+
+In our Git example, we can review the [Git Image Tags History](/chainguard/chainguard-images/reference/git/tags_history/) page and choose a relevant digest. We will choose the `:latest-dev` image that was last updated on September 2, 2023 at the time this document was being prepared. 
+
+```sh
+docker pull cgr.dev/chainguard/git@sha256:f6658e10edde332c6f1dc804f0f664676dc40db78ba4009071fea6b9d97d592f
+```
+
+When you pull this image, you'll receive output of the digest which should match the exact digest you have pulled. 
+
+To learn more about image digests, you can review our video [How to Use Container Image Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/).
+
+### Specifying Architecture
+
+As Chainguard Images are [built for both AMD64 and ARM64 architecture](/chainguard/chainguard-images/overview/#architecture), you can specify the architecture you would like to use by employing the `--platform` flag with the `docker pull` command. In this example, we'll specify using the `linux/arm64` architecture with the Go image.
+
+```sh
+docker pull --platform=linux/arm64 cgr.dev/chainguard/go
+```
+
+After pulling the image, you can verify the architecture by calling the version.
+
+```sh
+docker run --rm -t cgr.dev/chainguard/go:latest version
+```
+
+You'll receive output similar to the following:
+
+```sh
+go version go1.21.0 linux/arm64
+```
+
+Specifying the platform will ensure that you're using the desired image and relevant architecture.
+
+### Running a Chainguard Image
+
+You can run a Chainguard Image with the `docker run` command. Note that because Chainguard Images are minimalist containers, most of them ship without a shell or package manager. If you would like a shell, you can often use the development image, which is tagged as `:latest-dev` (for example, [Python](/chainguard/chainguard-images/reference/python/getting-started-python/) has its dev image at `cgr.dev/chainguard/python:latest-dev`). Otherwise, you can work with Chainguard Images in way similar to other images.
+
+Let's run the [Cosign Chainguard Image](/chainguard/chainguard-images/reference/cosign/overview/) to check its version.
+
+```sh
+docker run --rm -t cgr.dev/chainguard/cosign:latest version
+```
+
+You'll receive the version information that confirms the image is working as expected. 
+
+```
+  ______   ______        _______. __    _______ .__   __.
+ /      | /  __  \      /       ||  |  /  _____||  \ |  |
+|  ,----'|  |  |  |    |   (----`|  | |  |  __  |   \|  |
+|  |     |  |  |  |     \   \    |  | |  | |_ | |  . `  |
+|  `----.|  `--'  | .----)   |   |  | |  |__| | |  |\   |
+ \______| \______/  |_______/    |__|  \______| |__| \__|
+cosign: A tool for Container Signing, Verification and Storage in an OCI registry.
+
+GitVersion:    2.0.0
+GitCommit:     unknown
+GitTreeState:  unknown
+BuildDate:     unknown
+GoVersion:     go1.20.1
+Compiler:      gc
+Platform:      linux/arm64
+```
+
+If you would like to review a filesystem, you can use the [wolfi-base image](/chainguard/chainguard-images/reference/wolfi-base/overview/):
+
+```sh
+docker run -it cgr.dev/chainguard/wolfi-base
+```
+
+This will start a Wolfi container where you can explore the file system and investigate which packages are available. 
+
+Continue reading the next section to learn more about building off of the Wolfi base image. 
+
+## Getting Started with Distroless Base Images
+
 Chainguard Images are fully OCI compatible, which means they work seamlessly with any system that supports that standard, including Docker.
 
 Most Chainguard Images do not include a package manager such as `apt` or `apk`. This is by design to keep images minimal, following the distroless approach.
