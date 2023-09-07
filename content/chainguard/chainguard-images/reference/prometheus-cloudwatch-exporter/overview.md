@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 4th | `sha256:1dfe22d5677771a01c0497796debc36b6f77ad4b8e5244c3fd218a0bbca43ac0` |
+|  `latest-dev` | September 6th | `sha256:0d5db8fa17c8b7be5a22e13b7b5fad2bd8ff0a3149211b3e4f88f9ddcabdd91f` |
 |  `latest`     | September 4th | `sha256:511d89000e48835f2518ea660da72a85ce3d51f1693564837902a582e859bbd2` |
 
 # prometheus-cloudwatch-exporter

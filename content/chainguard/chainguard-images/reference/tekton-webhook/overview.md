@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 4th | `sha256:300228634ae666bff2f75c66fedcbae4ba25198de9957ad1df4a2369cc793d79` |
+|  `latest-dev` | September 6th | `sha256:acb2ecdc9ffc1aa24d7da56009572dcbbbc029bebde1dd9320c887693ee4322d` |
 |  `latest`     | September 4th | `sha256:d1ea4cdfd137e55a4baa2179706b10e7a149e2c05599fad0e297ea50fee80e34` |
 
 # tekton-webhook

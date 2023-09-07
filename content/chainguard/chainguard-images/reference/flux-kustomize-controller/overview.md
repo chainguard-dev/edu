@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 4th | `sha256:917e5378bb666735993143cb18dc69795d0fd45712a6cd9be9fad18f6cfb81d8` |
+|  `latest-dev` | September 6th | `sha256:a95d69bad86377b38240cdbdd3f4cbfda1ec98081ae8b2cf7193e1b9fee39c86` |
 |  `latest`     | September 4th | `sha256:2ed90c405ed3f5a65401a5de016f2c86825da26f3a4bd3fe82c98a1762e90116` |
 
 # flux-kustomize-controller
