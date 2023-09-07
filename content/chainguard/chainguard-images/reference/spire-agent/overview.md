@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 4th | `sha256:baa104fd1a7324b129391dc0ef7bf7a7607a06bed0b0f85782927163885045c8` |
+|  `latest-dev` | September 6th | `sha256:e8f6eba2b1fc0f3436646a94c50489849adae9484674b2c3c6d13a0519f2cac8` |
 |  `latest`     | September 4th | `sha256:27b4c8b7ed43dc765c5b972d8d672e5eb3435ae787716910c25aa0c6e04e8a55` |
 
 # spire-agent
