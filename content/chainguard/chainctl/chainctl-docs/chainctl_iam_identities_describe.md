@@ -1,26 +1,26 @@
 ---
-date: 2023-08-30T16:50:18Z
-title: "chainctl iam identities view"
-slug: chainctl_iam_identities_view
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_view/
+date: 2023-09-07T16:25:59Z
+title: "chainctl iam identities describe"
+slug: chainctl_iam_identities_describe
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_describe/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam identities view
+## chainctl iam identities describe
 
 View the details of an identity.
 
 ```
-chainctl iam identities view {IDENTITY_NAME | IDENTITY_ID} [flags]
+chainctl iam identities describe {IDENTITY_NAME | IDENTITY_ID} [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for view
+  -h, --help   help for describe
 ```
 
 ### Options inherited from parent commands

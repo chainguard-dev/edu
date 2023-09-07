@@ -1,5 +1,5 @@
 ---
-date: 2023-08-30T16:50:18Z
+date: 2023-09-07T16:25:59Z
 title: "chainctl clusters records list"
 slug: chainctl_clusters_records_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_records_list/
