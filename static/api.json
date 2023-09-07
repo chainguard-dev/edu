@@ -5,9 +5,9 @@
     "version": "alpha"
   },
   "paths": {
-    "/advisory/v1/advisories": {
+    "/advisory/v1/packages": {
       "get": {
-        "operationId": "SecurityAdvisory_ListAdvisories",
+        "operationId": "SecurityAdvisory_ListPackages",
         "parameters": [
           {
             "description": "package_name is the exact name of a package.",
@@ -15,13 +15,23 @@
             "name": "packageName",
             "required": false,
             "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "cves",
+            "required": false,
+            "type": "array"
           }
         ],
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/advisoryAdvisoryList"
+              "$ref": "#/definitions/advisoryPackageList"
             }
           },
           "default": {
@@ -3615,20 +3625,9 @@
       },
       "type": "object"
     },
-    "advisoryAdvisoryList": {
-      "properties": {
-        "items": {
-          "items": {
-            "$ref": "#/definitions/advisoryAdvisory"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "advisoryEvent": {
       "properties": {
-        "lastUpdated": {
+        "timestamp": {
           "format": "date-time",
           "type": "string"
         },
@@ -3647,6 +3646,31 @@
         "FALSE_POSITIVE_DETERMINATION"
       ],
       "type": "string"
+    },
+    "advisoryPackage": {
+      "properties": {
+        "advisories": {
+          "items": {
+            "$ref": "#/definitions/advisoryAdvisory"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryPackageList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/advisoryPackage"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
     },
     "authRegistrationRequest": {
       "properties": {
