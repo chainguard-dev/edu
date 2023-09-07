@@ -1,5 +1,7 @@
-## 2023-09-06
+## 2023-09-07
 
 Updated image reference docs.
 
-No new images added.
+New images added:
+
+- opentf
