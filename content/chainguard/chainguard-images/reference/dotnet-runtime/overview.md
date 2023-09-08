@@ -18,16 +18,15 @@ toc: true
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 6th | `sha256:6e79dde20aa77e0e862c9b0635ff9439a80e501fbc15a951d2050fab331a4701` |
-|  `latest`     | September 4th | `sha256:1113a2b2b71da75cc798b578802f30c6bfd6c997234cf850937856831c34a654` |
+|  `latest-dev` | September 7th | `sha256:4da887bb51a787cb6bc9a3e6cd30c3003e97ef6067e9a09b46dac7ebe049d615` |
+|  `latest`     | September 7th | `sha256:95eeceaf4bd696cb561b174846e62c4cc3e7ac97273615582b4c60f8418a4ccc` |
 
+# dotnet-runtime
 
-
-Container image with the latest .NET runtime.
+Minimal dotnet-runtime images with nightly builds.
 
 ## Get it!
 
-The image is available on `cgr.dev`:
-
-    docker pull cgr.dev/chainguard/dotnet-runtime:latest
-
+```shell
+docker pull cgr.dev/chainguard/dotnet-runtime
+```

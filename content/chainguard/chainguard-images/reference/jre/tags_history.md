@@ -20,8 +20,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                                                                       | Last Changed  | Digest                                                                    |
 |---------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev`                                                                                                 | September 5th | `sha256:9e79bd3ee33be3084b8c46d8304bcc0c0380af53070de4ddfa4e54e0f7606380` |
-|  `latest`                                                                                                     | September 4th | `sha256:511a4db375a47ae3426338ff2089e5da9ad009467072d598cfd3d8a245d95493` |
+|  `latest-dev`                                                                                                 | September 7th | `sha256:4b2fa1c7c92983084973be241267d17afb709ac8829da045d6ac716336f56b4a` |
+|  `latest`                                                                                                     | September 7th | `sha256:067446d9df89ac3cbf0201945a738646ff53ee3531511a666b4dca108a8e64f6` |
 |  `openjdk-17` `openjdk-17.0` `openjdk-17.0.9` `openjdk-17.0.9.5`                                              | August 31st   | `sha256:702459e4c1d0366751c3e228425d6bb98897e7d3def2c907209ed8d7fa5bcb6e` |
 |  `openjdk-11` `openjdk-11.0` `openjdk-11.0.21` `openjdk-11.0.21.5`                                            | August 31st   | `sha256:33a96bcbfcb7cd2869a7e8f97ff177b58d5f7d48c8b94af0c10d65b51b8bba02` |
 |  `openjdk-17.0.9.5-r1-dev` `openjdk-17.0.9-dev` `openjdk-17.0-dev` `openjdk-17-dev` `openjdk-17.0.9.5-dev`    | August 31st   | `sha256:cf86462519dfdb4046899335d85e980bafe531c552d7499edcc67e8def3a8a7b` |
