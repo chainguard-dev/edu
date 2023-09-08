@@ -63,10 +63,8 @@ When building locally, you'll also need to include information about where to fi
 environment:
   contents:
     repositories:
-      - https://packages.wolfi.dev/bootstrap/stage3
       - https://packages.wolfi.dev/os
     keyring:
-      - https://packages.wolfi.dev/bootstrap/stage3/wolfi-signing.rsa.pub
       - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
 ```
 
@@ -320,11 +318,9 @@ When working with local dependencies, use the following notation in your `packag
 environment:
   contents:
     repositories:
-      - https://packages.wolfi.dev/bootstrap/stage3
       - https://packages.wolfi.dev/os
       - '@local /work/packages'
     keyring:
-      - https://packages.wolfi.dev/bootstrap/stage3/wolfi-signing.rsa.pub
       - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
     packages:
       - busybox
