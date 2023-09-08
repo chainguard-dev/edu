@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 6th | `sha256:3ad30c1d99143cb54f6c75b3df6faf2e818a8e782ca98e4d295962c669fd31c9` |
-|  `latest`     | September 4th | `sha256:6235a5ee2cd17a24f96a1b25381e920d7690839cd1e094b11e1dbcc2e565e503` |
+|  `latest-dev` | September 7th | `sha256:3e4cc4b464bff89dd3071aa54576e7ce5ed64d10fcd8fada168582ef665a2dc1` |
+|  `latest`     | September 7th | `sha256:142e46dd27a422cf505d5e845ad1d94b4024b16701c21cd28ca5d87dbc70974d` |
 
 # spire-oidc-discovery-provider
 

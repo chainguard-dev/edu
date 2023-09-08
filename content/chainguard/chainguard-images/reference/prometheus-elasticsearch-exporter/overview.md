@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 6th | `sha256:1a20c75f2073b491c0c0be930dcf7aba0a15157fc38f41602ab056b1ec46a126` |
+|  `latest-dev` | September 7th | `sha256:89d48da068f99959c05e4238e6fe1fb352c34fe4a213499f0d6dada4547df527` |
 |  `latest`     | September 4th | `sha256:b54c49e5810c5fdf05834be1143b8f241caf6246da40f195fd4870935cb639c3` |
 
 # prometheus-elasticsearch-exporter
