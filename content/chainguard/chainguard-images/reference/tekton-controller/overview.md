@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 6th | `sha256:f6ef54b97a17c6a467d979c56416435f0f0aded63faee2f3032b475122351132` |
+|  `latest-dev` | September 7th | `sha256:9131e149168c7e89f75007e068aadf0a1fec81e5d1f0f5938e39e6f6bca6e9a0` |
 |  `latest`     | September 4th | `sha256:0eca6c1494825216a7562e632f84025c273829423cb7a0785fb67164988e3c7e` |
 
 # tekton-controller

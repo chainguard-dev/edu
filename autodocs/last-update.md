@@ -1,7 +1,8 @@
-## 2023-09-07
+## 2023-09-08
 
 Updated image reference docs.
 
 New images added:
 
-- opentf
+- istio-proxy
+- istio-pilot
