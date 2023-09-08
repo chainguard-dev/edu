@@ -35,6 +35,7 @@
 
 [[main]]
   name = "Chainguard Images"
+  identifier = "chainguard-images"
   url = "/chainguard/chainguard-images/"
   parent = "menu-chainguard"
   weight = 15
@@ -44,6 +45,12 @@
   url = "/chainguard/chainctl/"
   parent = "menu-chainguard"
   weight = 20
+
+[[main]]
+  name = "Network Requirements"
+  url = "/chainguard/network-requirements/"
+  parent = "menu-chainguard"
+  weight = 25
 
 [[main]]
   name = "Sigstore"
