@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 6th | `sha256:d79f91ed7d2b645ffff989a953d2377b103364c69fa942681decc735fa9113a4` |
+|  `latest-dev` | September 7th | `sha256:7c846bde545ac163981ac7a10c8ce8f736282d8aea495dfaa3891faef98cfdb5` |
 |  `latest`     | September 4th | `sha256:94bfe4f7246af21a50487aea75409e65343455e12daf0ea18d5808908d7f3cbf` |
 
 # cert-manager-acmesolver

@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:de4477888b55b28f405b2ab34863caf9fb03044fd2dff9e0494a5058c838b950` |
+|  `latest` | September 7th | `sha256:b3cb64657df7a0bddef9378b4961a14d6e564bce5eb888a94eec4ad7b2e57ebf` |
 
 # newrelic-k8s-events-forwarder
 
