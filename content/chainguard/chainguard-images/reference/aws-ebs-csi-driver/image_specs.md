@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev           | latest               |
 |--------------|----------------------|----------------------|
-| Default User | `nonroot`            | `nonroot`            |
+| Default User | `65532`              | `65532`              |
 | Entrypoint   | `aws-ebs-csi-driver` | `aws-ebs-csi-driver` |
 | CMD          | not specified        | not specified        |
 | Workdir      | not specified        | not specified        |
@@ -82,4 +82,3 @@ The table shows package distribution across variants.
 | `xfsprogs`               | X          | X      |
 | `xfsprogs-libs`          | X          | X      |
 | `zlib`                   | X          |        |
-

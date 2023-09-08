@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                 |
 |--------------|------------------------|
-| Default User | `nonroot`              |
+| Default User | `65532`                |
 | Entrypoint   | `/usr/bin/wait-for-it` |
 | CMD          | not specified          |
 | Workdir      | not specified          |
@@ -51,4 +51,3 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`  | X      |
 | `wait-for-it`            | X      |
 | `wolfi-baselayout`       | X      |
-

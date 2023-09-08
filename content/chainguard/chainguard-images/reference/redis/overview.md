@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: redis"
 type: "article"
-description: "Overview: redis Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/redis](https://github.com/chainguard-images/images/tree/main/images/redis)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:c8e6dc4e679bb407d017f957338a385c75178b38304bde9c1bdc2a59daec04a5` |
 
 
 

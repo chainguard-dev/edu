@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                          | latest                              |
 |--------------|-------------------------------------|-------------------------------------|
-| Default User | `argocd`                            | `argocd`                            |
+| Default User | `999`                               | `999`                               |
 | Entrypoint   | `/usr/local/bin/argocd-repo-server` | `/usr/local/bin/argocd-repo-server` |
 | CMD          | not specified                       | not specified                       |
 | Workdir      | `/home/argocd`                      | `/home/argocd`                      |
@@ -80,4 +80,3 @@ The table shows package distribution across variants.
 | `tzdata`                  | X          | X      |
 | `wolfi-baselayout`        | X          | X      |
 | `zlib`                    | X          | X      |
-

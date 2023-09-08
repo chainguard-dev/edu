@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev               | latest                   |
 |--------------|--------------------------|--------------------------|
-| Default User | `node_exporter`          | `node_exporter`          |
+| Default User | `65532`                  | `65532`                  |
 | Entrypoint   | `/usr/bin/node_exporter` | `/usr/bin/node_exporter` |
 | CMD          | not specified            | not specified            |
 | Workdir      | not specified            | not specified            |
@@ -63,4 +63,3 @@ The table shows package distribution across variants.
 | `prometheus-node-exporter` | X          | X      |
 | `wolfi-baselayout`         | X          | X      |
 | `zlib`                     | X          |        |
-

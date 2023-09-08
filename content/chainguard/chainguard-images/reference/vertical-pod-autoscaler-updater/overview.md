@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: vertical-pod-autoscaler-updater"
 type: "article"
-description: "Overview: vertical-pod-autoscaler-updater Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,19 +14,12 @@ weight: 500
 toc: true
 ---
 
-[cgr.dev/chainguard/vertical-pod-autoscaler-updater](https://github.com/chainguard-images/images/tree/main/images/vertical-pod-autoscaler-updater)
+Overview of `vertical-pod-autoscaler-updater` Chainguard Image
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:fc36d6cda77bfb4e590e6e895e8a83191e9be530af9eba2c0704619622bb6601` |
-|  `latest`     | September 4th | `sha256:0586abe36b78765685912a27c378a00d55811828b38de77be222c191c4a16552` |
-
-# vertical-pod-autoscaler-updater
-
-Minimal vertical-pod-autoscaler-updater images with nightly builds.
 
 ## Get it!
 
-```shell
-docker pull cgr.dev/chainguard/vertical-pod-autoscaler-updater
 ```
+docker pull cgr.dev/chainguard/vertical-pod-autoscaler-updater:latest
+```
+

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: php"
 type: "article"
-description: "Overview: php Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/php](https://github.com/chainguard-images/images/tree/main/images/php)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 6th | `sha256:fa74e234ea08484a1339b847ddc8f8e102e93c35e5afbfae33e15b423350cf86` |
-|  `latest`     | September 6th | `sha256:a91660177848578ee13dbceab21aeb1631e55d9bf2a293592de83b84bd9dbe48` |
 
 
 

@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-embedded | latest        |
 |--------------|-----------------|---------------|
-| Default User | `root`          | `root`        |
+| Default User | `0`             | `0`           |
 | Entrypoint   | `/bin/k3s`      | `/bin/k3s`    |
 | CMD          | `agent`         | `agent`       |
 | Workdir      | not specified   | not specified |
@@ -69,4 +69,3 @@ The table shows package distribution across variants.
 | `xz`                     | X               | X      |
 | `zlib`                   | X               | X      |
 | `libcrypt1`              |                 | X      |
-

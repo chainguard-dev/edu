@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                   | latest                                                       |
 |--------------|--------------------------------------------------------------|--------------------------------------------------------------|
-| Default User | `root`                                                       | `root`                                                       |
+| Default User | `0`                                                          | `0`                                                          |
 | Entrypoint   | `/var/lib/postgres/initdb/postgresql-entrypoint.sh postgres` | `/var/lib/postgres/initdb/postgresql-entrypoint.sh postgres` |
 | CMD          | not specified                                                | not specified                                                |
 | Workdir      | `/home/postgres`                                             | `/home/postgres`                                             |
@@ -71,4 +71,3 @@ The table shows package distribution across variants.
 | `su-exec`                      | X          | X      |
 | `wolfi-baselayout`             | X          | X      |
 | `zlib`                         | X          | X      |
-

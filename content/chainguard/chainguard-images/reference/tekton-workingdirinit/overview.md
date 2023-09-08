@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: tekton-workingdirinit"
 type: "article"
-description: "Overview: tekton-workingdirinit Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,19 +14,12 @@ weight: 500
 toc: true
 ---
 
-[cgr.dev/chainguard/tekton-workingdirinit](https://github.com/chainguard-images/images/tree/main/images/tekton-workingdirinit)
+Overview of `tekton-workingdirinit` Chainguard Image
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:ef9735fcd33a72ba5f6956c12143411854d5d74cd249dda12c370b98707ce352` |
-|  `latest`     | September 4th | `sha256:f3c162a61d48a8d3e886f55f2d5ccd7475de87c400d950a6522ea70e9273d2af` |
-
-# tekton-workingdirinit
-
-Minimal tekton-workingdirinit images with nightly builds.
 
 ## Get it!
 
-```shell
-docker pull cgr.dev/chainguard/tekton-workingdirinit
 ```
+docker pull cgr.dev/chainguard/tekton-workingdirinit:latest
+```
+

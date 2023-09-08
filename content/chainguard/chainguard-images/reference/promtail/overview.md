@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: promtail"
 type: "article"
-description: "Overview: promtail Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/promtail](https://github.com/chainguard-images/images/tree/main/images/promtail)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:557518dc3ecbba140c61cb21a64bbfb1f4cc4bf07c1786f526dfc273fa0d2801` |
-|  `latest-dev` | September 7th | `sha256:6dbf09bfbb7e36a2a31642614522c6b5eac47636e2cbab225a17d14597f2edb5` |
 
 
 

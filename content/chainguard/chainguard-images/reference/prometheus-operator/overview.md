@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: prometheus-operator"
 type: "article"
-description: "Overview: prometheus-operator Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,19 +14,12 @@ weight: 500
 toc: true
 ---
 
-[cgr.dev/chainguard/prometheus-operator](https://github.com/chainguard-images/images/tree/main/images/prometheus-operator)
+Overview of `prometheus-operator` Chainguard Image
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:a21adcde5fef20a1a03cf257d07e7fbe50627ade732bf20715fc965e76ae6ddd` |
-|  `latest`     | September 4th | `sha256:67747f078407bdd0c1e543ae321314235b6175c6f5fddf9f7bbcd5749aabe556` |
-
-# prometheus-operator
-
-Minimal prometheus-operator images with nightly builds.
 
 ## Get it!
 
-```shell
-docker pull cgr.dev/chainguard/prometheus-operator
 ```
+docker pull cgr.dev/chainguard/prometheus-operator:latest
+```
+

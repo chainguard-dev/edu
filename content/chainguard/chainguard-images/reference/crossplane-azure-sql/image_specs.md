@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                    |
 |--------------|---------------------------|
-| Default User | `nonroot`                 |
+| Default User | `65532`                   |
 | Entrypoint   | `/usr/local/bin/provider` |
 | CMD          | not specified             |
 | Workdir      | not specified             |
@@ -47,4 +47,3 @@ The table shows package distribution across variants.
 | `terraform-local-provider-config` | X      |
 | `terraform-provider-azurerm`      | X      |
 | `wolfi-baselayout`                | X      |
-

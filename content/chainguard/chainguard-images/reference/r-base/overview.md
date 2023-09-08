@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: r-base"
 type: "article"
-description: "Overview: r-base Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/r-base](https://github.com/chainguard-images/images/tree/main/images/r-base)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:45f7c598fde82543521e3e8b348ac3a42f1a9e3643f7f89c7e53cea9a4f146bc` |
-|  `latest-dev` | September 7th | `sha256:9773688ae15b8f6d0636d3adb1f03cef03adda3e74967f2403d72f2dbcee5a63` |
 
 
 

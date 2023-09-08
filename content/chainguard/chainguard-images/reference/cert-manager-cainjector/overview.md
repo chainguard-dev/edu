@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: cert-manager-cainjector"
 type: "article"
-description: "Overview: cert-manager-cainjector Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,19 +14,12 @@ weight: 500
 toc: true
 ---
 
-[cgr.dev/chainguard/cert-manager-cainjector](https://github.com/chainguard-images/images/tree/main/images/cert-manager-cainjector)
+Overview of `cert-manager-cainjector` Chainguard Image
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:ca5718af2e0db5ce3d2b53fb7349636905d9b3f47d5ec53ebf528984ef3ee3f0` |
-|  `latest`     | September 4th | `sha256:3e3bd7de5026daf167816463f4b4f8480b2cb12a7a997adaf56f69a1c9f15f0f` |
-
-# cert-manager-cainjector
-
-Minimal cert-manager-cainjector images with nightly builds.
 
 ## Get it!
 
-```shell
-docker pull cgr.dev/chainguard/cert-manager-cainjector
 ```
+docker pull cgr.dev/chainguard/cert-manager-cainjector:latest
+```
+

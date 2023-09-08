@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: aws-cli"
 type: "article"
-description: "Overview: aws-cli Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/aws-cli](https://github.com/chainguard-images/images/tree/main/images/aws-cli)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:e1b80ceda915aa92bb0cb6ea05f811552ecb124f9e6da5f771fc98859eb59b00` |
-|  `latest-dev` | September 7th | `sha256:d5a372344a8c17749b858655949b0e50c175002d190f118510da7ceebe7b9f71` |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: gatekeeper"
 type: "article"
-description: "Overview: gatekeeper Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/gatekeeper](https://github.com/chainguard-images/images/tree/main/images/gatekeeper)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:57c2b143273943db67268b3ad905ec61bd47595d5f76d59edb8562ef612fe279` |
-|  `latest-dev` | September 7th | `sha256:4e62df6477d122e70cd3b7e896630718abe1446466b85f7a8953d814e23715d9` |
 
 
 

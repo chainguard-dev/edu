@@ -28,7 +28,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                                                         | latest                                                                                             | metrics-scraper-latest-dev | metrics-scraper-latest     |
 |--------------|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|----------------------------|----------------------------|
-| Default User | `nonroot`                                                                                          | `nonroot`                                                                                          | `nonroot`                  | `nonroot`                  |
+| Default User | `65532`                                                                                            | `65532`                                                                                            | `65532`                    | `65532`                    |
 | Entrypoint   | `/usr/share/kubernetes-dashboard/dashboard --insecure-bind-address=0.0.0.0 --bind-address=0.0.0.0` | `/usr/share/kubernetes-dashboard/dashboard --insecure-bind-address=0.0.0.0 --bind-address=0.0.0.0` | `/usr/bin/metrics-sidecar` | `/usr/bin/metrics-sidecar` |
 | CMD          | not specified                                                                                      | not specified                                                                                      | not specified              | not specified              |
 | Workdir      | not specified                                                                                      | not specified                                                                                      | not specified              | not specified              |
@@ -66,4 +66,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`                     | X          | X      | X                          | X                      |
 | `zlib`                                 | X          |        | X                          |                        |
 | `kubernetes-dashboard-metrics-scraper` |            |        | X                          | X                      |
-

@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev      | latest          |
 |--------------|-----------------|-----------------|
-| Default User | `java`          | `java`          |
+| Default User | `65532`         | `65532`         |
 | Entrypoint   | `/usr/bin/java` | `/usr/bin/java` |
 | CMD          | not specified   | not specified   |
 | Workdir      | `/app`          | `/app`          |
@@ -75,4 +75,3 @@ The table shows package distribution across variants.
 | `openssl-config`         | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |
-

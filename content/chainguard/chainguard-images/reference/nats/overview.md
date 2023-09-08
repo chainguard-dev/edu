@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: nats"
 type: "article"
-description: "Overview: nats Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/nats](https://github.com/chainguard-images/images/tree/main/images/nats)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:35d169f52f98feb2efd6ddec7115439fd281ad411b45fdf6c279e8625680acbc` |
-|  `latest-dev` | September 7th | `sha256:2ae2ccc110f9c200309c82cd838063a1ebf740698f087bdd87bfff685de7ca0f` |
 
 
 

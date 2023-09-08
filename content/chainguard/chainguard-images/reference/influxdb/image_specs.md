@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev               | latest                   |
 |--------------|--------------------------|--------------------------|
-| Default User | `influxdb`               | `influxdb`               |
+| Default User | `1000`                   | `1000`                   |
 | Entrypoint   | `/usr/bin/entrypoint.sh` | `/usr/bin/entrypoint.sh` |
 | CMD          | not specified            | not specified            |
 | Workdir      | not specified            | not specified            |
@@ -67,4 +67,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`       | X          | X      |
 | `yq`                     | X          | X      |
 | `zlib`                   | X          |        |
-

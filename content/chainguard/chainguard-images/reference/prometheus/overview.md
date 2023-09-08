@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: prometheus"
 type: "article"
-description: "Overview: prometheus Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/prometheus](https://github.com/chainguard-images/images/tree/main/images/prometheus)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:7c8cc20b28d88fb750ad952c10fac9f0c917f575053bb2a98e43cd852b9213e9` |
-|  `latest`     | September 7th | `sha256:2bcc4dad33f5275c5abfb837887ba4af2156160b51568e90b1e066c22adbb43f` |
 
 
 

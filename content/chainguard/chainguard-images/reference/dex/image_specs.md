@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                              | latest                                  |
 |--------------|-----------------------------------------|-----------------------------------------|
-| Default User | `nonroot`                               | `nonroot`                               |
+| Default User | `1001`                                  | `1001`                                  |
 | Entrypoint   | `/usr/bin/docker-entrypoint`            | `/usr/bin/docker-entrypoint`            |
 | CMD          | `dex serve /etc/dex/config.docker.yaml` | `dex serve /etc/dex/config.docker.yaml` |
 | Workdir      | not specified                           | not specified                           |
@@ -64,4 +64,3 @@ The table shows package distribution across variants.
 | `openssl-config`         | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
-

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: etcd"
 type: "article"
-description: "Overview: etcd Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/etcd](https://github.com/chainguard-images/images/tree/main/images/etcd)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:3aea9e100760e29af398ae0fc5c2642f45c3cc4612c8037c425c1c01910ea194` |
-|  `latest`     | September 7th | `sha256:68c2d80b1df86e139862bfc349dd636e5448a506dee5a38d3adecf8bd552a6e9` |
 
 
 

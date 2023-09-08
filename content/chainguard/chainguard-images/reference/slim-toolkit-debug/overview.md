@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: slim-toolkit-debug"
 type: "article"
-description: "Overview: slim-toolkit-debug Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/slim-toolkit-debug](https://github.com/chainguard-images/images/tree/main/images/slim-toolkit-debug)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:9eddbb6867ddcc6ade864635a1c765e6e2127d4669586bf94060dab0d9d9f51f` |
 
 
 

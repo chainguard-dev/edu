@@ -28,7 +28,7 @@ The table has detailed information about each of these variants.
 
 |              | iam-latest                | latest                    | rds-latest                | s3-latest                 |
 |--------------|---------------------------|---------------------------|---------------------------|---------------------------|
-| Default User | `nonroot`                 | `nonroot`                 | `nonroot`                 | `nonroot`                 |
+| Default User | `65532`                   | `65532`                   | `65532`                   | `65532`                   |
 | Entrypoint   | `/usr/local/bin/provider` | `/usr/local/bin/provider` | `/usr/local/bin/provider` | `/usr/local/bin/provider` |
 | CMD          | not specified             | not specified             | not specified             | not specified             |
 | Workdir      | not specified             | not specified             | not specified             | not specified             |
@@ -53,4 +53,3 @@ The table shows package distribution across variants.
 | `crossplane-provider-aws-family`  |            | X      |            |           |
 | `crossplane-provider-aws-rds`     |            |        | X          |           |
 | `crossplane-provider-aws-s3`      |            |        |            | X         |
-

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: aws-ebs-csi-driver"
 type: "article"
-description: "Overview: aws-ebs-csi-driver Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/aws-ebs-csi-driver](https://github.com/chainguard-images/images/tree/main/images/aws-ebs-csi-driver)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:4c74258f2a6ba3cd39a71b70352bde50c02d91bd0b8f0195b782b2b95ac18f4e` |
-|  `latest`     | September 4th | `sha256:0093e0df6a2d3cbfb9fa802187b496e8d04cb62d9c6a6969151d7e3f165352d0` |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: conda"
 type: "article"
-description: "Overview: conda Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/conda](https://github.com/chainguard-images/images/tree/main/images/conda)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:300ec0fbd5cf8b611979a2a6ad92d666cae01709004e2c0e35582a87157a2b79` |
-|  `latest-dev` | September 7th | `sha256:8f83e357ca842a3a7a76da845484a4f679fcbf09e674d0d1e515c9ae1db62afd` |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: cluster-autoscaler"
 type: "article"
-description: "Overview: cluster-autoscaler Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/cluster-autoscaler](https://github.com/chainguard-images/images/tree/main/images/cluster-autoscaler)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:97df5e0e2e6669d5a599805d60ccf25003ce840ceac0d0e0af7319278111cba7` |
-|  `latest`     | September 4th | `sha256:6a9b064c3523996cd75a9a16103a7a9dcf28b7f7e9b454a85823788d19f89aeb` |
 
 
 

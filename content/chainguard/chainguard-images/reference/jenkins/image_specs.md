@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                                                                 |
 |--------------|----------------------------------------------------------------------------------------|
-| Default User | `jenkins`                                                                              |
+| Default User | `65532`                                                                                |
 | Entrypoint   | `/usr/bin/java -Duser.home=/var/jenkins_home -jar /usr/share/java/jenkins/jenkins.war` |
 | CMD          | not specified                                                                          |
 | Workdir      | `/app`                                                                                 |
@@ -70,4 +70,3 @@ The table shows package distribution across variants.
 | `tzdata`                 | X      |
 | `wolfi-baselayout`       | X      |
 | `zlib`                   | X      |
-

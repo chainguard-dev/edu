@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | exporter-latest               | latest        |
 |--------------|-------------------------------|---------------|
-| Default User | `nonroot`                     | `memcached`   |
+| Default User | `65532`                       | `65532`       |
 | Entrypoint   | `/usr/bin/memcached_exporter` | `memcached`   |
 | CMD          | not specified                 | not specified |
 | Workdir      | not specified                 | not specified |
@@ -60,4 +60,3 @@ The table shows package distribution across variants.
 | `openssl-config`         |                 | X      |
 | `readline`               |                 | X      |
 | `sqlite-libs`            |                 | X      |
-

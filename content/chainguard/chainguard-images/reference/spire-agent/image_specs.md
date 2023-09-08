@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                 | latest                     |
 |--------------|----------------------------|----------------------------|
-| Default User | `root`                     | `root`                     |
+| Default User | `0`                        | `0`                        |
 | Entrypoint   | `/usr/bin/spire-agent run` | `/usr/bin/spire-agent run` |
 | CMD          | not specified              | not specified              |
 | Workdir      | not specified              | not specified              |
@@ -65,4 +65,3 @@ The table shows package distribution across variants.
 | `spire-agent`            | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
-

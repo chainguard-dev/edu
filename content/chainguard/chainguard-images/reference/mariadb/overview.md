@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: mariadb"
 type: "article"
-description: "Overview: mariadb Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/mariadb](https://github.com/chainguard-images/images/tree/main/images/mariadb)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:b6239a612884e27a8a314cf9f04668ad982d7ddb70c464581625d336190b0202` |
 
 
 

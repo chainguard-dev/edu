@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: rust"
 type: "article"
-description: "Overview: rust Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/rust](https://github.com/chainguard-images/images/tree/main/images/rust)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:91e9ace4904e620c59c6948151cfe029b8f9c17fe308c7c4fed42a89a0ff80ea` |
-|  `latest-dev` | September 7th | `sha256:2a245040dfee160caffbd610dde11cf99528588dd97d660b5f34e7c6d0149435` |
 
 
 

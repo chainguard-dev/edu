@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: postgres"
 type: "article"
-description: "Overview: postgres Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/postgres](https://github.com/chainguard-images/images/tree/main/images/postgres)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:51509414d1bff58aae1505e7b6fca49fe352456b89e0ce86d953cf64fcc44bc0` |
-|  `latest`     | September 4th | `sha256:7d306c6e2c981e7f7b6fbb07b78f78c4dd438696f71436b15aa3d63bb02be5b3` |
 
 
 

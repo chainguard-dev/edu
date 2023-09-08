@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: ffmpeg"
 type: "article"
-description: "Overview: ffmpeg Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/ffmpeg](https://github.com/chainguard-images/images/tree/main/images/ffmpeg)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:fa654db777a66d110007b0a735dad5dd834ddc03ddefc0dfab99a117da408c1e` |
 
 
 

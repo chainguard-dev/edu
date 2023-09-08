@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: opensearch"
 type: "article"
-description: "Overview: opensearch Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/opensearch](https://github.com/chainguard-images/images/tree/main/images/opensearch)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:2a3b2cc32883dbfe369c1e166067301983d0dc67371dfe6b5546ab24bf436ea0` |
-|  `latest`     | September 7th | `sha256:0838053b7ce800f6010eb903ffd14c9dc7ad9633a634ed78635eda5c647c52ad` |
 
 
 

@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                   |
 |--------------|--------------------------|
-| Default User | `root`                   |
+| Default User | `0`                      |
 | Entrypoint   | `/fluentd/entrypoint.sh` |
 | CMD          | not specified            |
 | Workdir      | not specified            |
@@ -66,4 +66,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`                     | X      |
 | `yaml`                                 | X      |
 | `zlib`                                 | X      |
-

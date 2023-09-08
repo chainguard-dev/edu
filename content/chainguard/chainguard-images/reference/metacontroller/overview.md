@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: metacontroller"
 type: "article"
-description: "Overview: metacontroller Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/metacontroller](https://github.com/chainguard-images/images/tree/main/images/metacontroller)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:5157585e6911586b5d8e5909d924602815a34c667c5ba649f4e9f939fe21e0a8` |
-|  `latest`     | September 4th | `sha256:f0eede4f067803bdc54c5da8654ba0269cb3459c09a7dccaa04132b4ea762072` |
 
 
 

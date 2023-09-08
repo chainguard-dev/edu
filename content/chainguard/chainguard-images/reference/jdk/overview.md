@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: jdk"
 type: "article"
-description: "Overview: jdk Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/jdk](https://github.com/chainguard-images/images/tree/main/images/jdk)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:54413bc19b4ac258fb6401788ff2b89214e0978495152ba7b900275c6ae10bc3` |
-|  `latest-dev` | September 7th | `sha256:8e31d0cce159449a8ab3909b0fd62fc4e50adf792d611dd889730c50cc9a2f7b` |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: kube-state-metrics"
 type: "article"
-description: "Overview: kube-state-metrics Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/kube-state-metrics](https://github.com/chainguard-images/images/tree/main/images/kube-state-metrics)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:8b359a2603304a7727cab9e4311b3f46c8f903a07b8d940822a6cfdb0d3ad5df` |
-|  `latest`     | September 4th | `sha256:8e065f9f28c418a5817aa897d0a443738eb2e45a9ab1dd1b19fc3c55bcdcf481` |
 
 
 

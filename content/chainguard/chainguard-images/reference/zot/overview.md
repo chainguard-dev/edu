@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: zot"
 type: "article"
-description: "Overview: zot Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/zot](https://github.com/chainguard-images/images/tree/main/images/zot)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:83af2c881a5d59bd81d27ff591337bc92a5f8b60c787dc6d6f6b488e644e63aa` |
-|  `latest`     | September 4th | `sha256:9da4d00a42baf25b9d633129152d1662f82f8f45afe572e6fd6ed0d2595436b2` |
 
 
 

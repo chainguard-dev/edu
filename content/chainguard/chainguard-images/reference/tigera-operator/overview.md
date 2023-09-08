@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: tigera-operator"
 type: "article"
-description: "Overview: tigera-operator Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/tigera-operator](https://github.com/chainguard-images/images/tree/main/images/tigera-operator)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:4dff663e9fdfdfb981a929df817ed389ab1a2d805f2e098abeb09213e79b9a7e` |
-|  `latest-dev` | September 7th | `sha256:e4d32dedba9960ba48285418be8695911eb0a2bc10b6a537f6208e8afe6fadc4` |
 
 
 

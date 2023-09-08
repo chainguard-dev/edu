@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                                      | latest                                                                          |
 |--------------|---------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Default User | `alertmanager`                                                                  | `alertmanager`                                                                  |
+| Default User | `65532`                                                                         | `65532`                                                                         |
 | Entrypoint   | `/usr/bin/alertmanager`                                                         | `/usr/bin/alertmanager`                                                         |
 | CMD          | `--config.file=/etc/alertmanager/alertmanager.yml --storage.path=/alertmanager` | `--config.file=/etc/alertmanager/alertmanager.yml --storage.path=/alertmanager` |
 | Workdir      | not specified                                                                   | not specified                                                                   |
@@ -65,4 +65,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`        | X          | X      |
 | `wolfi-keys`              | X          | X      |
 | `zlib`                    | X          | X      |
-

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: vertical-pod-autoscaler-admission-controller"
 type: "article"
-description: "Overview: vertical-pod-autoscaler-admission-controller Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,19 +14,12 @@ weight: 500
 toc: true
 ---
 
-[cgr.dev/chainguard/vertical-pod-autoscaler-admission-controller](https://github.com/chainguard-images/images/tree/main/images/vertical-pod-autoscaler-admission-controller)
+Overview of `vertical-pod-autoscaler-admission-controller` Chainguard Image
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:8581a7a332bb88c86061421ee797ef7115f38134d576c38f7b53be2592b0db35` |
-|  `latest`     | September 4th | `sha256:5e1cbd3aab1a2d191f8de6c7f9ae78c816f0cc26fe57393f9fe39e5e8cbb0588` |
-
-# vertical-pod-autoscaler-admission-controller
-
-Minimal vertical-pod-autoscaler-admission-controller images with nightly builds.
 
 ## Get it!
 
-```shell
-docker pull cgr.dev/chainguard/vertical-pod-autoscaler-admission-controller
 ```
+docker pull cgr.dev/chainguard/vertical-pod-autoscaler-admission-controller:latest
+```
+

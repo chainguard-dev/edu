@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: node-problem-detector"
 type: "article"
-description: "Overview: node-problem-detector Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/node-problem-detector](https://github.com/chainguard-images/images/tree/main/images/node-problem-detector)
-
-| Tag (s)                | Last Changed  | Digest                                                                    |
-|------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `latest` | September 7th | `sha256:627ae33ed9aef46397fb024b08ceae2a40796dee4ab1386dca09fe7511fd4324` |
 
 
 

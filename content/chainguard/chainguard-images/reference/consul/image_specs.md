@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                      | latest                          |
 |--------------|---------------------------------|---------------------------------|
-| Default User | `root`                          | `root`                          |
+| Default User | `0`                             | `0`                             |
 | Entrypoint   | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` |
 | CMD          | `agent -dev -client 0.0.0.0`    | `agent -dev -client 0.0.0.0`    |
 | Workdir      | not specified                   | not specified                   |
@@ -70,4 +70,3 @@ The table shows package distribution across variants.
 | `su-exec`                           | X          | X      |
 | `wolfi-baselayout`                  | X          | X      |
 | `zlib`                              | X          | X      |
-

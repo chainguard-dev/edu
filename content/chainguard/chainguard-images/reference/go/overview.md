@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: go"
 type: "article"
-description: "Overview: go Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/go](https://github.com/chainguard-images/images/tree/main/images/go)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:5e4f59c6647331d4e57f26121c0bd2b8110e406c64ce7f1597a71965c80ded46` |
-|  `latest`     | September 7th | `sha256:80317f19adf0372d8be8355af905ff18138e58b01c1f161997f4722a82df8b09` |
 
 
 

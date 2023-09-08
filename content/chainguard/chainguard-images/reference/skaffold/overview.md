@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: skaffold"
 type: "article"
-description: "Overview: skaffold Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/skaffold](https://github.com/chainguard-images/images/tree/main/images/skaffold)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:3df3a14e6dfa9ef57aace74730660aeb359ec91c6419bc26c0d762fe68345a07` |
-|  `latest`     | September 7th | `sha256:f08c05d04ef8f95d859ef4d0b7c7af458d1bbcda8afaf6e89c575da4f790e01e` |
 
 
 

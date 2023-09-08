@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev      | latest          |
 |--------------|-----------------|-----------------|
-| Default User | `nonroot`       | `nonroot`       |
+| Default User | `65532`         | `65532`         |
 | Entrypoint   | `/usr/bin/ruby` | `/usr/bin/ruby` |
 | CMD          | `--version`     | `--version`     |
 | Workdir      | `/work`         | `/work`         |
@@ -88,4 +88,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`       | X          | X      |
 | `yaml`                   | X          | X      |
 | `zlib`                   | X          | X      |
-

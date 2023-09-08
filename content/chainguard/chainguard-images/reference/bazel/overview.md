@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: bazel"
 type: "article"
-description: "Overview: bazel Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/bazel](https://github.com/chainguard-images/images/tree/main/images/bazel)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:4c72f5ee2048f4b395080d91ba0f00f9d9f53e1f59462475ea4a951f1a2359d6` |
 
 
 

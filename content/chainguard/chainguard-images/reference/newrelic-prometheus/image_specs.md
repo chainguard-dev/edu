@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | configurator-latest                | latest                                  |
 |--------------|------------------------------------|-----------------------------------------|
-| Default User | `nonroot`                          | `nonroot`                               |
+| Default User | `65532`                            | `65532`                                 |
 | Entrypoint   | `/usr/bin/prometheus-configurator` | `/sbin/tini -- /usr/bin/nri-prometheus` |
 | CMD          | not specified                      | not specified                           |
 | Workdir      | not specified                      | not specified                           |
@@ -50,4 +50,3 @@ The table shows package distribution across variants.
 | `libcrypt1`                        |                     | X      |
 | `nri-prometheus`                   |                     | X      |
 | `tini`                             |                     | X      |
-

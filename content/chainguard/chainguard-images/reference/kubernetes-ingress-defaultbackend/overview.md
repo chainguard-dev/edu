@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: kubernetes-ingress-defaultbackend"
 type: "article"
-description: "Overview: kubernetes-ingress-defaultbackend Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/kubernetes-ingress-defaultbackend](https://github.com/chainguard-images/images/tree/main/images/kubernetes-ingress-defaultbackend)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:e0176cc1461688af576bb71ff7faf03e3d8acfa8d71fc1096475f163c0d9f981` |
-|  `latest`     | September 4th | `sha256:dcf480b8cdc15170b15806bda13186059fe4ce8dd27a40184ee1ab8859e33de6` |
 
 
 

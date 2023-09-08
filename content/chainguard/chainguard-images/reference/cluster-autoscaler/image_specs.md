@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                    | latest                        |
 |--------------|-------------------------------|-------------------------------|
-| Default User | `cluster-autoscaler`          | `cluster-autoscaler`          |
+| Default User | `65532`                       | `65532`                       |
 | Entrypoint   | `/usr/bin/cluster-autoscaler` | `/usr/bin/cluster-autoscaler` |
 | CMD          | not specified                 | not specified                 |
 | Workdir      | `/`                           | `/`                           |
@@ -64,4 +64,3 @@ The table shows package distribution across variants.
 | `openssl-config`            | X          |        |
 | `wolfi-baselayout`          | X          | X      |
 | `zlib`                      | X          |        |
-

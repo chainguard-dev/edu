@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev              | latest                  |
 |--------------|-------------------------|-------------------------|
-| Default User | `external-dns`          | `external-dns`          |
+| Default User | `65532`                 | `65532`                 |
 | Entrypoint   | `/usr/bin/external-dns` | `/usr/bin/external-dns` |
 | CMD          | `--help`                | `--help`                |
 | Workdir      | not specified           | not specified           |
@@ -63,4 +63,3 @@ The table shows package distribution across variants.
 | `openssl-config`         | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
-

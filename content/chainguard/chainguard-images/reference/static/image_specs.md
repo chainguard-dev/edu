@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-glibc  | latest        |
 |--------------|---------------|---------------|
-| Default User | `nonroot`     | `nonroot`     |
+| Default User | `65532`       | `65532`       |
 | Entrypoint   | not specified | not specified |
 | CMD          | not specified | not specified |
 | Workdir      | not specified | not specified |
@@ -46,4 +46,3 @@ The table shows package distribution across variants.
 | `alpine-baselayout-data` |              | X      |
 | `alpine-keys`            |              | X      |
 | `alpine-release`         |              | X      |
-

@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest            |
 |--------------|-------------------|
-| Default User | `nonroot`         |
+| Default User | `65532`           |
 | Entrypoint   | `/usr/bin/ffmpeg` |
 | CMD          | `--help`          |
 | Workdir      | not specified     |
@@ -56,4 +56,3 @@ The table shows package distribution across variants.
 | `libtheora`              | X      |
 | `wolfi-baselayout`       | X      |
 | `x264`                   | X      |
-

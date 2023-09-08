@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: oidc-discovery-provider"
 type: "article"
-description: "Overview: oidc-discovery-provider Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,17 +14,12 @@ weight: 500
 toc: true
 ---
 
-[cgr.dev/chainguard/oidc-discovery-provider](https://github.com/chainguard-images/images/tree/main/images/oidc-discovery-provider)
+Overview of `oidc-discovery-provider` Chainguard Image
 
-| Tag (s) | Last Changed | Digest |
-|---------|--------------|--------|
-
-# oidc-discovery-provider
-
-Minimal oidc-discovery-provider images with nightly builds.
 
 ## Get it!
 
-```shell
-docker pull cgr.dev/chainguard/oidc-discovery-provider
 ```
+docker pull cgr.dev/chainguard/oidc-discovery-provider:latest
+```
+

@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                                            | latest                                                                                |
 |--------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
-| Default User | `nonroot`                                                                             | `nonroot`                                                                             |
+| Default User | `65532`                                                                               | `65532`                                                                               |
 | Entrypoint   | `/usr/bin/java -jar /usr/share/java/cloudwatch_exporter/cloudwatch_exporter.jar 9106` | `/usr/bin/java -jar /usr/share/java/cloudwatch_exporter/cloudwatch_exporter.jar 9106` |
 | CMD          | `/config/config.yml`                                                                  | `/config/config.yml`                                                                  |
 | Workdir      | not specified                                                                         | not specified                                                                         |
@@ -73,4 +73,3 @@ The table shows package distribution across variants.
 | `openssl-config`         | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |
-

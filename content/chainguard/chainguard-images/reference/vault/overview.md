@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: vault"
 type: "article"
-description: "Overview: vault Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/vault](https://github.com/chainguard-images/images/tree/main/images/vault)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:fb1d6296374fed0815fbf4429ee23b94b2fee69b810f33606ee03a8a50c6059b` |
-|  `latest`     | September 4th | `sha256:8eede85e5e523a5535ca225f0eefc03aeefb6f5f8b4e96b629a26a809ebf4890` |
 
 
 

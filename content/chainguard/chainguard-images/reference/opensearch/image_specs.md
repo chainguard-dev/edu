@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                      | latest                          |
 |--------------|---------------------------------|---------------------------------|
-| Default User | `opensearch`                    | `opensearch`                    |
+| Default User | `65532`                         | `65532`                         |
 | Entrypoint   | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` |
 | CMD          | `opensearchwrapper`             | `opensearchwrapper`             |
 | Workdir      | not specified                   | not specified                   |
@@ -73,4 +73,3 @@ The table shows package distribution across variants.
 | `openssl-config`         | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |
-

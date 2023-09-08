@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: argocd"
 type: "article"
-description: "Overview: argocd Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/argocd](https://github.com/chainguard-images/images/tree/main/images/argocd)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:62a45186331e26a5e97946bf36201745632cdfdce3c920b651985128d13d39ed` |
-|  `latest`     | September 4th | `sha256:026047b1ca99b5f3e2892129c6996aa64cd75c3e86ba90031cc248cce658147a` |
 
 
 

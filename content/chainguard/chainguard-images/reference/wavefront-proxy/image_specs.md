@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev              | latest                  |
 |--------------|-------------------------|-------------------------|
-| Default User | `wavefront`             | `wavefront`             |
+| Default User | `65532`                 | `65532`                 |
 | Entrypoint   | `/usr/local/bin/run.sh` | `/usr/local/bin/run.sh` |
 | CMD          | not specified           | not specified           |
 | Workdir      | not specified           | not specified           |
@@ -76,4 +76,3 @@ The table shows package distribution across variants.
 | `wavefront-proxy-oci-entrypoint` | X          | X      |
 | `wolfi-baselayout`               | X          | X      |
 | `zlib`                           | X          | X      |
-

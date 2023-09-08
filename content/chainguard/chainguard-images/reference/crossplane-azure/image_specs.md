@@ -29,7 +29,7 @@ The table has detailed information about each of these variants.
 
 |              | authorization-latest      | latest                    | managedidentity-latest    | sql-latest                | storage-latest            |
 |--------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|
-| Default User | `nonroot`                 | `nonroot`                 | `nonroot`                 | `nonroot`                 | `nonroot`                 |
+| Default User | `65532`                   | `65532`                   | `65532`                   | `65532`                   | `65532`                   |
 | Entrypoint   | `/usr/local/bin/provider` | `/usr/local/bin/provider` | `/usr/local/bin/provider` | `/usr/local/bin/provider` | `/usr/local/bin/provider` |
 | CMD          | not specified             | not specified             | not specified             | not specified             | not specified             |
 | Workdir      | not specified             | not specified             | not specified             | not specified             | not specified             |
@@ -55,4 +55,3 @@ The table shows package distribution across variants.
 | `crossplane-provider-azure-managedidentity` |                      |        | X                      |            |                |
 | `crossplane-provider-azure-sql`             |                      |        |                        | X          |                |
 | `crossplane-provider-azure-storage`         |                      |        |                        |            | X              |
-

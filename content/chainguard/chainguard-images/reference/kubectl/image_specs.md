@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev         | latest             |
 |--------------|--------------------|--------------------|
-| Default User | `nonroot`          | `nonroot`          |
+| Default User | `65532`            | `65532`            |
 | Entrypoint   | `/usr/bin/kubectl` | `/usr/bin/kubectl` |
 | CMD          | `help`             | `help`             |
 | Workdir      | not specified      | not specified      |
@@ -48,7 +48,7 @@ The table shows package distribution across variants.
 | `glibc`                  | X          |        |
 | `glibc-locale-posix`     | X          |        |
 | `kubectl-1.28`           | X          | X      |
-| `kubectl-latest`         | X          | X      |
+| `kubectl-1.28-default`   | X          | X      |
 | `ld-linux`               | X          |        |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
@@ -64,4 +64,3 @@ The table shows package distribution across variants.
 | `openssl-config`         | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
-

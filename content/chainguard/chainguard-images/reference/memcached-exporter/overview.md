@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: memcached-exporter"
 type: "article"
-description: "Overview: memcached-exporter Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/memcached-exporter](https://github.com/chainguard-images/images/tree/main/images/memcached-exporter)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:7c8310c5bedae88d41d4d39dcc5b129e4c32ec4846031f34cdc3fc71ddaa5a9d` |
 
 
 

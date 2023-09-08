@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: kubernetes-dns-node-cache"
 type: "article"
-description: "Overview: kubernetes-dns-node-cache Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/kubernetes-dns-node-cache](https://github.com/chainguard-images/images/tree/main/images/kubernetes-dns-node-cache)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:0964adc311ba1d980faf18caa839ad97c4c85c31f4c0cc6c70ad14f6539781de` |
 
 
 

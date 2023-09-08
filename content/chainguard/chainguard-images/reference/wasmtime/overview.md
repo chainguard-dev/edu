@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: wasmtime"
 type: "article"
-description: "Overview: wasmtime Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/wasmtime](https://github.com/chainguard-images/images/tree/main/images/wasmtime)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:aa9b5a4f22f8b0ceb30503300dff3534e0776d8467e0f9812c32d780c0902b51` |
-|  `latest`     | September 4th | `sha256:758c3f36c4d5f7b2bbb80812bbfe204174139eecea2c6999d9ad83f62bada153` |
 
 
 

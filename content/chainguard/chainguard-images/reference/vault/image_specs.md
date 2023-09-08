@@ -28,7 +28,7 @@ The table has detailed information about each of these variants.
 
 |              | k8s-latest-dev       | k8s-latest           | latest-dev                      | latest                          |
 |--------------|----------------------|----------------------|---------------------------------|---------------------------------|
-| Default User | `vault`              | `vault`              | `root`                          | `root`                          |
+| Default User | `65532`              | `65532`              | `0`                             | `0`                             |
 | Entrypoint   | `/usr/bin/vault-k8s` | `/usr/bin/vault-k8s` | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` |
 | CMD          | not specified        | not specified        | `server -dev`                   | `server -dev`                   |
 | Workdir      | not specified        | not specified        | not specified                   | not specified                   |
@@ -71,4 +71,3 @@ The table shows package distribution across variants.
 | `su-exec`                |                |            | X          | X      |
 | `vault-1.14`             |                |            | X          | X      |
 | `vault-1.14-entrypoint`  |                |            | X          | X      |
-

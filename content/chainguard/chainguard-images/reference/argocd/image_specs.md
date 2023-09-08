@@ -28,7 +28,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev     | latest         | repo-server-latest-dev              | repo-server-latest                  |
 |--------------|----------------|----------------|-------------------------------------|-------------------------------------|
-| Default User | `argocd`       | `argocd`       | `argocd`                            | `argocd`                            |
+| Default User | `999`          | `999`          | `999`                               | `999`                               |
 | Entrypoint   | not specified  | not specified  | `/usr/local/bin/argocd-repo-server` | `/usr/local/bin/argocd-repo-server` |
 | CMD          | not specified  | not specified  | not specified                       | not specified                       |
 | Workdir      | `/home/argocd` | `/home/argocd` | `/home/argocd`                      | `/home/argocd`                      |
@@ -83,4 +83,3 @@ The table shows package distribution across variants.
 | `openssh-server`          |            |        | X                      | X                  |
 | `sqlite-libs`             |            |        | X                      | X                  |
 | `tzdata`                  |            |        | X                      | X                  |
-

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: opentf"
 type: "article"
-description: "Overview: opentf Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/opentf](https://github.com/chainguard-images/images/tree/main/images/opentf)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 6th | `sha256:c85dfe89118b258f424ce6928a48798f1cc4022a336179d728c9ba4f703fd9e7` |
-|  `latest`     | September 6th | `sha256:8a7d3e99605d80b63c6793f64f6be928e8ef47afef08a41baa3511cecb35ee0e` |
 
 
 

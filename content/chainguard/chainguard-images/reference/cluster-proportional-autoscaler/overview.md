@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: cluster-proportional-autoscaler"
 type: "article"
-description: "Overview: cluster-proportional-autoscaler Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/cluster-proportional-autoscaler](https://github.com/chainguard-images/images/tree/main/images/cluster-proportional-autoscaler)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:4f059e54b671e9683d50323bddbc52cb04b07e013b832e3708bd78ac2510f604` |
-|  `latest`     | September 4th | `sha256:6c874df6cdf70ec48dd1ae5d5c4fafb2682d7c9b05d67dde9701d527168953c6` |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: kafka"
 type: "article"
-description: "Overview: kafka Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/kafka](https://github.com/chainguard-images/images/tree/main/images/kafka)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:3891c2447c6aabcb40ce08b27940c2daccaa36db8488b14c010708dd95a786bc` |
-|  `latest`     | September 7th | `sha256:eaebb0fa31c521b46eb04d8b04045f5b182c2938ea03a398c4d0544e1e33532a` |
 
 
 

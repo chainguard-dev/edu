@@ -28,7 +28,7 @@ The table has detailed information about each of these variants.
 
 |              | client-latest-dev | client-latest | latest-dev       | latest           |
 |--------------|-------------------|---------------|------------------|------------------|
-| Default User | `minio`           | `minio`       | `minio`          | `minio`          |
+| Default User | `65532`           | `65532`       | `65532`          | `65532`          |
 | Entrypoint   | `/usr/bin/mc`     | `/usr/bin/mc` | `/usr/bin/minio` | `/usr/bin/minio` |
 | CMD          | not specified     | not specified | not specified    | not specified    |
 | Workdir      | not specified     | not specified | not specified    | not specified    |
@@ -66,4 +66,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`       | X                 | X             | X          | X      |
 | `zlib`                   | X                 |               | X          |        |
 | `minio`                  |                   |               | X          | X      |
-

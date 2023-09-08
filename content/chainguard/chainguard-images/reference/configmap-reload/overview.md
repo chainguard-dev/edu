@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: configmap-reload"
 type: "article"
-description: "Overview: configmap-reload Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/configmap-reload](https://github.com/chainguard-images/images/tree/main/images/configmap-reload)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:25aa183d06f3135020fc4e5392284e798e3dd32bff08fc1e87d8dee9cf4af952` |
-|  `latest`     | September 4th | `sha256:26b2f38ac65ca2bdac8e25105baa57304ec5d30d4213b1431724d07bcc1e319d` |
 
 
 

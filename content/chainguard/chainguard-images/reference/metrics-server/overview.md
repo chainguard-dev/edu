@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: metrics-server"
 type: "article"
-description: "Overview: metrics-server Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/metrics-server](https://github.com/chainguard-images/images/tree/main/images/metrics-server)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:00317f6b97653876324b7d0b3f2de2c536cadd4e3fa2bbe11937fe6f0ca1932d` |
-|  `latest`     | September 4th | `sha256:a66b998fb0e3d798b996ec9a57388c9d71adb0f349ec209e66ee1e44e861e470` |
 
 
 

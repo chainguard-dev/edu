@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                                                                                                 |
 |--------------|------------------------------------------------------------------------------------------------------------------------|
-| Default User | `nonroot`                                                                                                              |
+| Default User | `65532`                                                                                                                |
 | Entrypoint   | `/fluent-bit/bin/fluent-bit`                                                                                           |
 | CMD          | `-e /fluent-bit/firehose.so -e /fluent-bit/cloudwatch.so -e /fluent-bit/kinesis.so -c /fluent-bit/etc/fluent-bit.conf` |
 | Workdir      | not specified                                                                                                          |
@@ -55,11 +55,10 @@ The table shows package distribution across variants.
 | `libcap`                    | X      |
 | `libcrypto3`                | X      |
 | `libgcc`                    | X      |
-| `libpq-16`                  | X      |
+| `libpq-11`                  | X      |
 | `libssl3`                   | X      |
 | `libsystemd`                | X      |
 | `openssl-config`            | X      |
 | `wolfi-baselayout`          | X      |
 | `yaml`                      | X      |
 | `zlib`                      | X      |
-

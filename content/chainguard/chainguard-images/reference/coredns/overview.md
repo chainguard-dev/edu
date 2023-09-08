@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: coredns"
 type: "article"
-description: "Overview: coredns Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/coredns](https://github.com/chainguard-images/images/tree/main/images/coredns)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:39ddc0c3791e90387294b4a8fc05bf57648b19e86e8114271d293ee1e28dd85c` |
-|  `latest-dev` | September 7th | `sha256:a89c89888dc445d70e88e91ce31186e65f5e69e7a3d82349e7cee1436f2fad07` |
 
 
 

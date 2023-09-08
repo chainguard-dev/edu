@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: kubewatch"
 type: "article"
-description: "Overview: kubewatch Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/kubewatch](https://github.com/chainguard-images/images/tree/main/images/kubewatch)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:f1d052879f1c50dd3e3829df2c91d13e46e367b133ff68869112c7716e1e4b2e` |
-|  `latest`     | September 4th | `sha256:28349a1eb64e5ea2633c13b5be99d1c70b45d8c5aa303e7f8746df72ad1a0c77` |
 
 
 

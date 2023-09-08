@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                        | latest                            |
 |--------------|-----------------------------------|-----------------------------------|
-| Default User | `prometheus-config-reloader`      | `prometheus-config-reloader`      |
+| Default User | `65532`                           | `65532`                           |
 | Entrypoint   | `/bin/prometheus-config-reloader` | `/bin/prometheus-config-reloader` |
 | CMD          | not specified                     | not specified                     |
 | Workdir      | not specified                     | not specified                     |
@@ -64,4 +64,3 @@ The table shows package distribution across variants.
 | `prometheus-config-reloader-oci-entrypoint-compat` | X          | X      |
 | `wolfi-baselayout`                                 | X          | X      |
 | `zlib`                                             | X          |        |
-

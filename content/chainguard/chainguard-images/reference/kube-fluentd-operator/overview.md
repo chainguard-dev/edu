@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: kube-fluentd-operator"
 type: "article"
-description: "Overview: kube-fluentd-operator Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/kube-fluentd-operator](https://github.com/chainguard-images/images/tree/main/images/kube-fluentd-operator)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:36468967632df7759671da7eb06b760eaa76924d7a30d4c2a9c2aa264909b6c5` |
 
 
 

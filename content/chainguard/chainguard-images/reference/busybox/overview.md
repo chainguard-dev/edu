@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: busybox"
 type: "article"
-description: "Overview: busybox Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/busybox](https://github.com/chainguard-images/images/tree/main/images/busybox)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 2nd | `sha256:528f4788b7d6de62b05c50b88af7f504496b855690ad56a0432a5932885cae1c` |
 
 
 

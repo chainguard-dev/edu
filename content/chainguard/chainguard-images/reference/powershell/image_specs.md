@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-root     | latest          |
 |--------------|-----------------|-----------------|
-| Default User | `root`          | `nonroot`       |
+| Default User | `0`             | `65532`         |
 | Entrypoint   | `/usr/bin/pwsh` | `/usr/bin/pwsh` |
 | CMD          | not specified   | not specified   |
 | Workdir      | not specified   | not specified   |
@@ -62,4 +62,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`       | X           | X      |
 | `xz`                     | X           | X      |
 | `zlib`                   | X           | X      |
-

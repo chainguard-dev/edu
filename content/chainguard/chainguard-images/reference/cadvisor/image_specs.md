@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev          | latest              |
 |--------------|---------------------|---------------------|
-| Default User | `root`              | `root`              |
+| Default User | `0`                 | `0`                 |
 | Entrypoint   | `/usr/bin/cadvisor` | `/usr/bin/cadvisor` |
 | CMD          | `-logtostderr`      | `-logtostderr`      |
 | Workdir      | not specified       | not specified       |
@@ -63,4 +63,3 @@ The table shows package distribution across variants.
 | `openssl-config`         | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
-

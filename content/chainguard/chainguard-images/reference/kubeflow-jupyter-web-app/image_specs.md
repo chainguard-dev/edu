@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                                                                                      | latest                                                                                                                          |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| Default User | `nonroot`                                                                                                                       | `nonroot`                                                                                                                       |
+| Default User | `65532`                                                                                                                         | `65532`                                                                                                                         |
 | Entrypoint   | `/bin/bash -c "gunicorn -w 3 --bind 0.0.0.0:5000 --chdir usr/share/kubeflow-jupyter-web-app --access-logfile - entrypoint:app"` | `/bin/bash -c "gunicorn -w 3 --bind 0.0.0.0:5000 --chdir usr/share/kubeflow-jupyter-web-app --access-logfile - entrypoint:app"` |
 | CMD          | not specified                                                                                                                   | not specified                                                                                                                   |
 | Workdir      | not specified                                                                                                                   | not specified                                                                                                                   |
@@ -67,6 +67,13 @@ The table shows package distribution across variants.
 | `ncurses`                  | X          | X      |
 | `ncurses-terminfo-base`    | X          | X      |
 | `openssl-config`           | X          | X      |
+| `py3-certifi`              | X          | X      |
+| `py3-gunicorn`             | X          | X      |
+| `py3-importlib-metadata`   | X          | X      |
+| `py3-packaging`            | X          | X      |
+| `py3-parsing`              | X          | X      |
+| `py3-typing-extensions`    | X          | X      |
+| `py3-zipp`                 | X          | X      |
 | `py3.11-setuptools`        | X          | X      |
 | `python-3.11`              | X          | X      |
 | `readline`                 | X          | X      |
@@ -74,4 +81,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`         | X          | X      |
 | `xz`                       | X          | X      |
 | `zlib`                     | X          | X      |
-

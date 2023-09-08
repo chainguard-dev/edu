@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: meilisearch"
 type: "article"
-description: "Overview: meilisearch Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/meilisearch](https://github.com/chainguard-images/images/tree/main/images/meilisearch)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:12a1a5719959dec1bdcc5aceb98294a4730a401d82a6193b704cf0e883d003d3` |
 
 
 

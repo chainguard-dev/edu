@@ -39,4 +39,3 @@ The table shows package distribution across variants.
 
 |  |
 |--|
-

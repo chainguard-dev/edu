@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: thanos"
 type: "article"
-description: "Overview: thanos Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/thanos](https://github.com/chainguard-images/images/tree/main/images/thanos)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:db274ddf8f595f25ddbeda7ab2a3ec961c68e88071b81386984ea2a49ec42966` |
-|  `latest-dev` | September 7th | `sha256:616fbe33022699dc51e33fabe81d69a483abff13f4c8d90981bd73f2331c0501` |
 
 
 

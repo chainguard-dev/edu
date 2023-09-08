@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: rabbitmq"
 type: "article"
-description: "Overview: rabbitmq Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/rabbitmq](https://github.com/chainguard-images/images/tree/main/images/rabbitmq)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:b84b9d6b91bd24bef4bbbe873b3df34d37a3fe57cc269ec9033ccda9f0d7065b` |
 
 
 

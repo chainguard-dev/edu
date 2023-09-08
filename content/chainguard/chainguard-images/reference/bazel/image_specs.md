@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest           |
 |--------------|------------------|
-| Default User | `bazel`          |
+| Default User | `65532`          |
 | Entrypoint   | `/usr/bin/bazel` |
 | CMD          | not specified    |
 | Workdir      | `/home/bazel`    |
@@ -107,4 +107,3 @@ The table shows package distribution across variants.
 | `xz`                     | X      |
 | `zip`                    | X      |
 | `zlib`                   | X      |
-

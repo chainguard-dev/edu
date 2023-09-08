@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: crossplane-azure-managedidentity"
 type: "article"
-description: "Overview: crossplane-azure-managedidentity Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,18 +14,12 @@ weight: 500
 toc: true
 ---
 
-[cgr.dev/chainguard/crossplane-azure-managedidentity](https://github.com/chainguard-images/images/tree/main/images/crossplane-azure-managedidentity)
+Overview of `crossplane-azure-managedidentity` Chainguard Image
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:b0254f2868fd9ec3ab7f386d69efcadc803c65c953fe9d9ecf01348d2d57fd60` |
-
-# crossplane-azure-managedidentity
-
-Minimal crossplane-azure-managedidentity images with nightly builds.
 
 ## Get it!
 
-```shell
-docker pull cgr.dev/chainguard/crossplane-azure-managedidentity
 ```
+docker pull cgr.dev/chainguard/crossplane-azure-managedidentity:latest
+```
+

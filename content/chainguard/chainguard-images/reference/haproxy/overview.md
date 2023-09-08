@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: haproxy"
 type: "article"
-description: "Overview: haproxy Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/haproxy](https://github.com/chainguard-images/images/tree/main/images/haproxy)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:3db673858f8ef66bf1be9228e8f7d40226bcee7bb565d7ef70f5dfd5306c2d2c` |
 
 
 

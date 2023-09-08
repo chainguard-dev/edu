@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                        | latest                            |
 |--------------|-----------------------------------|-----------------------------------|
-| Default User | `elasticsearch_exporter`          | `elasticsearch_exporter`          |
+| Default User | `65532`                           | `65532`                           |
 | Entrypoint   | `/usr/bin/elasticsearch_exporter` | `/usr/bin/elasticsearch_exporter` |
 | CMD          | not specified                     | not specified                     |
 | Workdir      | not specified                     | not specified                     |
@@ -65,4 +65,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`                  | X          | X      |
 | `wolfi-keys`                        | X          | X      |
 | `zlib`                              | X          | X      |
-

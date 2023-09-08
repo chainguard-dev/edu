@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: paranoia"
 type: "article"
-description: "Overview: paranoia Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/paranoia](https://github.com/chainguard-images/images/tree/main/images/paranoia)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:a1a85f77d544d929a4c28f7ccd200cab5e43dfdc172506af0449bae88931b7c7` |
-|  `latest`     | September 4th | `sha256:18587724249a9174a6cb976a58d93f2d777cdc21c94c6afd756e1d896fa34178` |
 
 
 

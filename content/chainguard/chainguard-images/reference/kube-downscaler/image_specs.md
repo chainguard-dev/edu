@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                   | latest                       |
 |--------------|------------------------------|------------------------------|
-| Default User | `nonroot`                    | `nonroot`                    |
+| Default User | `65532`                      | `65532`                      |
 | Entrypoint   | `python3 -m kube_downscaler` | `python3 -m kube_downscaler` |
 | CMD          | not specified                | not specified                |
 | Workdir      | not specified                | not specified                |
@@ -73,4 +73,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`       | X          | X      |
 | `xz`                     | X          | X      |
 | `zlib`                   | X          | X      |
-

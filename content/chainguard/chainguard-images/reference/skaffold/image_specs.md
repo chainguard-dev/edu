@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev          | latest              |
 |--------------|---------------------|---------------------|
-| Default User | `skaffold`          | `skaffold`          |
+| Default User | `65532`             | `65532`             |
 | Entrypoint   | `/usr/bin/skaffold` | `/usr/bin/skaffold` |
 | CMD          | `--help`            | `--help`            |
 | Workdir      | `/app`              | `/app`              |
@@ -77,4 +77,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`       | X          | X      |
 | `xz`                     | X          | X      |
 | `zlib`                   | X          | X      |
-

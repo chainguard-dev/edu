@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: wavefront-proxy"
 type: "article"
-description: "Overview: wavefront-proxy Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/wavefront-proxy](https://github.com/chainguard-images/images/tree/main/images/wavefront-proxy)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:50d2df2d73b6fee7cc8a067cf9759848da445d8260986f4c17715209348235f4` |
-|  `latest-dev` | September 7th | `sha256:16c7f99fdf3c26360568cf50cc0c97337749a7584ba05d3205925d39de1eb494` |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: rqlite"
 type: "article"
-description: "Overview: rqlite Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/rqlite](https://github.com/chainguard-images/images/tree/main/images/rqlite)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:277ef15f602029cac28062c068f89ecfd38199e5ad9141fc3900569b0baf5763` |
-|  `latest`     | September 7th | `sha256:ce63052a88d2bad2eaf33d5d406d598617f771ddc1c08980a9c9ae579b06abff` |
 
 
 

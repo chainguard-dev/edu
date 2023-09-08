@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: melange"
 type: "article"
-description: "Overview: melange Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/melange](https://github.com/chainguard-images/images/tree/main/images/melange)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:1974784ae0b1fe0d471348ae532336cc487a8df600f3c9648156e78d12cc561a` |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: cedar"
 type: "article"
-description: "Overview: cedar Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/cedar](https://github.com/chainguard-images/images/tree/main/images/cedar)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:9cd82b6b76b07e0fdc1f644c8f7860bd710d0d2e95434f8ce5334fef95a9495f` |
-|  `latest`     | September 4th | `sha256:cddb4d0cc5a204813d9f8d29fe05212b4c60781798abffe058a1dfc1ea996a48` |
 
 
 

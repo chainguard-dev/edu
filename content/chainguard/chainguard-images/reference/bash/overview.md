@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: bash"
 type: "article"
-description: "Overview: bash Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/bash](https://github.com/chainguard-images/images/tree/main/images/bash)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:24fb0581797a49b490792054f402ab6b62e72cb4822e4d22da427d0fcc994e61` |
 
 
 

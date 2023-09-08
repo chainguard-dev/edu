@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: cadvisor"
 type: "article"
-description: "Overview: cadvisor Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/cadvisor](https://github.com/chainguard-images/images/tree/main/images/cadvisor)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:f0bac3cac592e9605d427bbdfb8c6a8da63c57259119b7eb7d4cf9b6e912fb32` |
-|  `latest`     | September 4th | `sha256:283aef23f79076708b84639f0371fb6f8b88c7ee0619242db919d1287e026974` |
 
 
 

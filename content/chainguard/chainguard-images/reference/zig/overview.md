@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: zig"
 type: "article"
-description: "Overview: zig Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/zig](https://github.com/chainguard-images/images/tree/main/images/zig)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:cda939e6f15f7fa4ebd5f4cc37b459c7b0975e2f9b6e6ac2aed0cd8e0eeeaea9` |
-|  `latest`     | September 4th | `sha256:20eaf90598eba4429d34c2acdb27d035e0e95422ef4771a7cb3897431ad78cab` |
 
 
 

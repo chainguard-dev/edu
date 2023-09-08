@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev     | latest         |
 |--------------|----------------|----------------|
-| Default User | `root`         | `root`         |
+| Default User | `0`            | `0`            |
 | Entrypoint   | `/usr/bin/zig` | `/usr/bin/zig` |
 | CMD          | `help`         | `help`         |
 | Workdir      | not specified  | not specified  |
@@ -71,4 +71,3 @@ The table shows package distribution across variants.
 | `xz`                     | X          | X      |
 | `zig`                    | X          | X      |
 | `zlib`                   | X          | X      |
-

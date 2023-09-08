@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | chartmuseum-latest-dev | chartmuseum-latest     | controller-latest-dev      | controller-latest          | latest-dev      | latest          |
 |--------------|------------------------|------------------------|----------------------------|----------------------------|-----------------|-----------------|
-| Default User | `nonroot`              | `nonroot`              | `nonroot`                  | `nonroot`                  | `nonroot`       | `nonroot`       |
+| Default User | `65532`                | `65532`                | `65532`                    | `65532`                    | `65532`         | `65532`         |
 | Entrypoint   | `/usr/bin/chartmuseum` | `/usr/bin/chartmuseum` | `/usr/bin/helm-controller` | `/usr/bin/helm-controller` | `/usr/bin/helm` | `/usr/bin/helm` |
 | CMD          | not specified          | not specified          | not specified              | not specified              | `help`          | `help`          |
 | Workdir      | not specified          | not specified          | not specified              | not specified              | not specified   | not specified   |
@@ -72,4 +72,3 @@ The table shows package distribution across variants.
 | `helm`                   |                        |                    |                       |                   | X          | X      |
 | `kubectl-1.28`           |                        |                    |                       |                   | X          | X      |
 | `kubectl-latest`         |                        |                    |                       |                   | X          | X      |
-

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: notification-controller"
 type: "article"
-description: "Overview: notification-controller Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,17 +14,12 @@ weight: 500
 toc: true
 ---
 
-[cgr.dev/chainguard/notification-controller](https://github.com/chainguard-images/images/tree/main/images/notification-controller)
+Overview of `notification-controller` Chainguard Image
 
-| Tag (s) | Last Changed | Digest |
-|---------|--------------|--------|
-
-# notification-controller
-
-Minimal notification-controller images with nightly builds.
 
 ## Get it!
 
-```shell
-docker pull cgr.dev/chainguard/notification-controller
 ```
+docker pull cgr.dev/chainguard/notification-controller:latest
+```
+

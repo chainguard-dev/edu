@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: gradle"
 type: "article"
-description: "Overview: gradle Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/gradle](https://github.com/chainguard-images/images/tree/main/images/gradle)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:c026ee827e2c7cd33decad7d19c8d92ad84c23f89d5d0cb3ec6b9881bdf351c7` |
 
 
 

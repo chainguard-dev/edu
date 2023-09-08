@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | driver-registrar-latest              | latest                  |
 |--------------|--------------------------------------|-------------------------|
-| Default User | `nonroot`                            | `root`                  |
+| Default User | `65532`                              | `0`                     |
 | Entrypoint   | `/usr/bin/csi-node-driver-registrar` | `/usr/sbin/start_runit` |
 | CMD          | not specified                        | not specified           |
 | Workdir      | not specified                        | not specified           |
@@ -73,4 +73,3 @@ The table shows package distribution across variants.
 | `runit`                                       |                         | X      |
 | `xz`                                          |                         | X      |
 | `zlib`                                        |                         | X      |
-

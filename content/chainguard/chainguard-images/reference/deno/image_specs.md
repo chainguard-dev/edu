@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest          |
 |--------------|-----------------|
-| Default User | `deno`          |
+| Default User | `65532`         |
 | Entrypoint   | `/usr/bin/deno` |
 | CMD          | `--help`        |
 | Workdir      | `/app`          |
@@ -46,4 +46,3 @@ The table shows package distribution across variants.
 | `ld-linux`               | X      |
 | `libgcc`                 | X      |
 | `wolfi-baselayout`       | X      |
-

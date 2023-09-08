@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: fluentd"
 type: "article"
-description: "Overview: fluentd Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/fluentd](https://github.com/chainguard-images/images/tree/main/images/fluentd)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:6d0e4716f2143e11bf554d00d88aea4b11cf33fdd46b951b500f993171626743` |
-|  `latest`     | September 7th | `sha256:c42eec6f25cd1538dbc712b43b319bfd6ed0dba6f4896103ec3816d87843a84e` |
 
 
 

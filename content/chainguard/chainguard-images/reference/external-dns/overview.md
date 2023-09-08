@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: external-dns"
 type: "article"
-description: "Overview: external-dns Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/external-dns](https://github.com/chainguard-images/images/tree/main/images/external-dns)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:fefcf4601dfe8ef95552315081abbb3b4026f1b0d4d63c849723d7d970591201` |
-|  `latest-dev` | September 7th | `sha256:879b9d22600b9c3e41109d01125861c9841b33ad840c147db3ada76b956ad0d1` |
 
 
 

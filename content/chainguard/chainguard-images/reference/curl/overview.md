@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: curl"
 type: "article"
-description: "Overview: curl Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/curl](https://github.com/chainguard-images/images/tree/main/images/curl)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:0dbf1a0dce2306f27f6be79cef206487f2e95371841d96961a7283c0041c7127` |
 
 
 

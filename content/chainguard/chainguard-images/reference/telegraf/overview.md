@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: telegraf"
 type: "article"
-description: "Overview: telegraf Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/telegraf](https://github.com/chainguard-images/images/tree/main/images/telegraf)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:1975f6cea101830646dc56e3f58dbe141b66e157ec03fdbf8184a71ad40c323d` |
-|  `latest`     | September 7th | `sha256:baa954aa8d4294547e937b1f6d454ce30800f220c2e944f5f2a0bdac5f2b9d1b` |
 
 
 

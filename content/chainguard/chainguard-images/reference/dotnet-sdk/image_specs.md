@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev    | latest        |
 |--------------|---------------|---------------|
-| Default User | `nonroot`     | `nonroot`     |
+| Default User | `65532`       | `65532`       |
 | Entrypoint   | not specified | not specified |
 | CMD          | `/bin/sh -l`  | `/bin/sh -l`  |
 | Workdir      | not specified | not specified |
@@ -41,14 +41,13 @@ The table shows package distribution across variants.
 |                           | latest-dev | latest |
 |---------------------------|------------|--------|
 | `apk-tools`               | X          |        |
-| `aspnet-7-runtime`        | X          | X      |
-| `aspnet-7-targeting-pack` | X          | X      |
 | `bash`                    | X          |        |
 | `busybox`                 | X          | X      |
 | `ca-certificates-bundle`  | X          | X      |
 | `dotnet-7`                | X          | X      |
 | `dotnet-7-runtime`        | X          | X      |
 | `dotnet-7-sdk`            | X          | X      |
+| `dotnet-7-sdk-default`    | X          | X      |
 | `dotnet-7-targeting-pack` | X          | X      |
 | `git`                     | X          |        |
 | `glibc`                   | X          | X      |
@@ -74,4 +73,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`        | X          | X      |
 | `xz`                      | X          | X      |
 | `zlib`                    | X          | X      |
-

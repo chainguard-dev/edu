@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest            |
 |--------------|-------------------|
-| Default User | `gradle`          |
+| Default User | `65532`           |
 | Entrypoint   | `/usr/bin/gradle` |
 | CMD          | not specified     |
 | Workdir      | `/home/build`     |
@@ -63,4 +63,3 @@ The table shows package distribution across variants.
 | `openjdk-17-jre-base`    | X      |
 | `wolfi-baselayout`       | X      |
 | `zlib`                   | X      |
-

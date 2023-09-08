@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: redis-sentinel"
 type: "article"
-description: "Overview: redis-sentinel Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,11 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/redis-sentinel](https://github.com/chainguard-images/images/tree/main/images/redis-sentinel)
-
-| Tag (s) | Last Changed | Digest |
-|---------|--------------|--------|
 
 
 

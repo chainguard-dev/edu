@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: consul"
 type: "article"
-description: "Overview: consul Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/consul](https://github.com/chainguard-images/images/tree/main/images/consul)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:075b55444dd05f6ab81f30814eca1256b85c9ed6a5f49a2ef230321718ee038f` |
-|  `latest-dev` | September 7th | `sha256:2fab3ea2115c165a41bf8a0531aaaa16aa221560ade8b812b3f3ebb4486504d3` |
 
 
 

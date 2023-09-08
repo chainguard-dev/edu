@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                      | latest                          |
 |--------------|---------------------------------|---------------------------------|
-| Default User | `nonroot`                       | `nonroot`                       |
+| Default User | `65532`                         | `65532`                         |
 | Entrypoint   | `/usr/bin/admission-controller` | `/usr/bin/admission-controller` |
 | CMD          | `--v=4 --stderrthreshold=info`  | `--v=4 --stderrthreshold=info`  |
 | Workdir      | not specified                   | not specified                   |
@@ -63,4 +63,3 @@ The table shows package distribution across variants.
 | `vertical-pod-autoscaler` | X          | X      |
 | `wolfi-baselayout`        | X          | X      |
 | `zlib`                    | X          |        |
-

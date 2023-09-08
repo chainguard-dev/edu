@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                 |
 |--------------|----------------------------------------|
-| Default User | `root`                                 |
+| Default User | `0`                                    |
 | Entrypoint   | `/usr/bin/calico-pod2daemon-csidriver` |
 | CMD          | not specified                          |
 | Workdir      | not specified                          |
@@ -45,4 +45,3 @@ The table shows package distribution across variants.
 | `glibc-locale-posix`     | X      |
 | `ld-linux`               | X      |
 | `wolfi-baselayout`       | X      |
-

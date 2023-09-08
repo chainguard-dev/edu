@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: memcached"
 type: "article"
-description: "Overview: memcached Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/memcached](https://github.com/chainguard-images/images/tree/main/images/memcached)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:c3eddf8a4661b13867abbb8fa4444b985a2c9229adc99b759f265b76d2f52c37` |
 
 
 

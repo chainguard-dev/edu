@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: external-resizer"
 type: "article"
-description: "Overview: external-resizer Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,17 +14,12 @@ weight: 500
 toc: true
 ---
 
-[cgr.dev/chainguard/external-resizer](https://github.com/chainguard-images/images/tree/main/images/external-resizer)
+Overview of `external-resizer` Chainguard Image
 
-| Tag (s) | Last Changed | Digest |
-|---------|--------------|--------|
-
-# external-resizer
-
-Minimal external-resizer images with nightly builds.
 
 ## Get it!
 
-```shell
-docker pull cgr.dev/chainguard/external-resizer
 ```
+docker pull cgr.dev/chainguard/external-resizer:latest
+```
+

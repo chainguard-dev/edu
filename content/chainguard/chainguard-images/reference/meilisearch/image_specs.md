@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                 |
 |--------------|------------------------|
-| Default User | `meilisearch`          |
+| Default User | `999`                  |
 | Entrypoint   | `/usr/bin/meilisearch` |
 | CMD          | `--help`               |
 | Workdir      | not specified          |
@@ -46,4 +46,3 @@ The table shows package distribution across variants.
 | `libgcc`                 | X      |
 | `meilisearch`            | X      |
 | `wolfi-baselayout`       | X      |
-

@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                 | latest                                     |
 |--------------|--------------------------------------------|--------------------------------------------|
-| Default User | `kafka`                                    | `kafka`                                    |
+| Default User | `65532`                                    | `65532`                                    |
 | Entrypoint   | `/usr/lib/kafka/bin/kafka-server-start.sh` | `/usr/lib/kafka/bin/kafka-server-start.sh` |
 | CMD          | `/usr/lib/kafka/config/server.properties`  | `/usr/lib/kafka/config/server.properties`  |
 | Workdir      | not specified                              | not specified                              |
@@ -73,4 +73,3 @@ The table shows package distribution across variants.
 | `openssl-config`         | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |
-

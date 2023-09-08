@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                   |
 |--------------|------------------------------------------|
-| Default User | `nri-kube-events`                        |
+| Default User | `65532`                                  |
 | Entrypoint   | `/sbin/tini -- /usr/bin/nri-kube-events` |
 | CMD          | not specified                            |
 | Workdir      | not specified                            |
@@ -48,4 +48,3 @@ The table shows package distribution across variants.
 | `newrelic-nri-kube-events` | X      |
 | `tini`                     | X      |
 | `wolfi-baselayout`         | X      |
-

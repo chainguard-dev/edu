@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                      |
 |--------------|-----------------------------|
-| Default User | `rabbitmq`                  |
+| Default User | `999`                       |
 | Entrypoint   | `/usr/sbin/rabbitmq-server` |
 | CMD          | not specified               |
 | Workdir      | `/var/lib/rabbitmq`         |
@@ -58,4 +58,3 @@ The table shows package distribution across variants.
 | `tzdata`                 | X      |
 | `wolfi-baselayout`       | X      |
 | `zlib`                   | X      |
-

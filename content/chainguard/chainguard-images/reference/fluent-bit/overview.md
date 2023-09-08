@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: fluent-bit"
 type: "article"
-description: "Overview: fluent-bit Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/fluent-bit](https://github.com/chainguard-images/images/tree/main/images/fluent-bit)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 6th | `sha256:8d0d61fa83b6ffd9f6255183227d3e18254ce0a6df4b6091071b7d63a7fbd48f` |
 
 
 

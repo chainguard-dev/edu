@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: loki"
 type: "article"
-description: "Overview: loki Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/loki](https://github.com/chainguard-images/images/tree/main/images/loki)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:f2353662832d6d665b97a8f4b7a48c82b5ed7791db6f85dab28153d368a6167f` |
-|  `latest`     | September 4th | `sha256:1dc04d318fd2f1e85203a1b0d065b6881fa9f3216402249c1a923b39922ca466` |
 
 
 

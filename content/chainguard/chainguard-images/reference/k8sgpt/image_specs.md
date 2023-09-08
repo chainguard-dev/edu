@@ -27,7 +27,7 @@ The table has detailed information about each of these variants.
 
 |              | latest        | operator-latest-dev | operator-latest |
 |--------------|---------------|---------------------|-----------------|
-| Default User | `nonroot`     | `nonroot`           | `nonroot`       |
+| Default User | `65532`       | `65532`             | `65532`         |
 | Entrypoint   | `k8sgpt`      | `manager`           | `manager`       |
 | CMD          | not specified | not specified       | not specified   |
 | Workdir      | not specified | not specified       | not specified   |
@@ -65,4 +65,3 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`  |        | X                   |                 |
 | `openssl-config`         |        | X                   |                 |
 | `zlib`                   |        | X                   |                 |
-

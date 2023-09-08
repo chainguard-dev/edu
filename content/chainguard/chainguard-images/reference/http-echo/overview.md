@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: http-echo"
 type: "article"
-description: "Overview: http-echo Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/http-echo](https://github.com/chainguard-images/images/tree/main/images/http-echo)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:6348669355461c1817f4dc0f962ecba1b60a396374e43728260bc7c9275a0e45` |
-|  `latest`     | September 4th | `sha256:ddfdc831f801adab123b04fc08cd99cac40b6e4a41210d07525d3d049e966359` |
 
 
 

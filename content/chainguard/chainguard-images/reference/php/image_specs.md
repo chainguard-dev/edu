@@ -28,7 +28,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev    | latest-fpm-dev | latest-fpm     | latest        |
 |--------------|---------------|----------------|----------------|---------------|
-| Default User | `php`         | `php`          | `php`          | `php`         |
+| Default User | `65532`       | `65532`        | `65532`        | `65532`       |
 | Entrypoint   | `/bin/php`    | Service Bundle | Service Bundle | `/bin/php`    |
 | CMD          | not specified | not specified  | not specified  | not specified |
 | Workdir      | `/app`        | `/app`         | `/app`         | `/app`        |
@@ -68,7 +68,7 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`  | X          | X              | X          | X      |
 | `oniguruma`              | X          | X              | X          | X      |
 | `openssl-config`         | X          | X              | X          | X      |
-| `php`                    | X          | X              | X          | X      |
+| `php-8.2`                | X          | X              | X          | X      |
 | `php-curl`               | X          | X              | X          | X      |
 | `php-iconv`              | X          | X              | X          | X      |
 | `php-mbstring`           | X          | X              | X          | X      |
@@ -88,4 +88,3 @@ The table shows package distribution across variants.
 | `php-fpm`                |            | X              | X          |        |
 | `s6`                     |            | X              | X          |        |
 | `skalibs`                |            | X              | X          |        |
-

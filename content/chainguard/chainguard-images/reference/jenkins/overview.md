@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: jenkins"
 type: "article"
-description: "Overview: jenkins Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/jenkins](https://github.com/chainguard-images/images/tree/main/images/jenkins)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:8155f6c8a9405d0b673a25d4e24dff11fdf50dd949497d2c216bcc655ea0f348` |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: kubernetes-csi-external-provisioner"
 type: "article"
-description: "Overview: kubernetes-csi-external-provisioner Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/kubernetes-csi-external-provisioner](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-provisioner)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:f75876bab0b63350ac341234238e2aa08dc80b0c4aad09dc9dff9d1d6a1866d8` |
-|  `latest`     | September 4th | `sha256:2070ebebe1b089b961cc138edf99a1b1507277fb64739d3461887f611a672cb4` |
 
 
 

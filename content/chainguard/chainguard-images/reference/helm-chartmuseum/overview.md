@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: helm-chartmuseum"
 type: "article"
-description: "Overview: helm-chartmuseum Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/helm-chartmuseum](https://github.com/chainguard-images/images/tree/main/images/helm-chartmuseum)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:2c62cc5dda0a431ca5cddb14007031d24048dfc2855336e556ea7219bbe6fca0` |
-|  `latest`     | September 4th | `sha256:86a2d08471c56dc0b99be403adfcaf7226b318553d58ea25c58a040207217a14` |
 
 
 

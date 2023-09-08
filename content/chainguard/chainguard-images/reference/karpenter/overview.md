@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: karpenter"
 type: "article"
-description: "Overview: karpenter Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/karpenter](https://github.com/chainguard-images/images/tree/main/images/karpenter)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:3d557ea4d4d5689156a3c2c6a766a33fc0854b82da75d9fc776a8260358a73a4` |
-|  `latest`     | September 4th | `sha256:56f9392ed076f97a3b8f59fbb70d435c02801a519f2d287ee6879a71bcf02a71` |
 
 
 

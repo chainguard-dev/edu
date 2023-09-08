@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: minio"
 type: "article"
-description: "Overview: minio Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/minio](https://github.com/chainguard-images/images/tree/main/images/minio)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:f73fe5bf5fc9b4ed56afe9f7ba5751b916e94357193e43618657092f650fa652` |
-|  `latest-dev` | September 7th | `sha256:9f774bfcc4253291f45adef60c199a7b1750960d0b4042a3c8ae67e11068bad0` |
 
 
 

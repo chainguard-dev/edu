@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: glibc-dynamic"
 type: "article"
-description: "Overview: glibc-dynamic Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/glibc-dynamic](https://github.com/chainguard-images/images/tree/main/images/glibc-dynamic)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:9794fb7321da33b16024a7453647c966519b701250fc039ba3ea52c77804b294` |
-|  `latest`     | September 4th | `sha256:b6d081a888e083ae88541c6da0c6c08077bb6b60c04b21813e7eea92d900e4be` |
 
 
 

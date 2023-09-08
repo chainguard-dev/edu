@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: aws-load-balancer-controller"
 type: "article"
-description: "Overview: aws-load-balancer-controller Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/aws-load-balancer-controller](https://github.com/chainguard-images/images/tree/main/images/aws-load-balancer-controller)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:afa846faaf2257ae1d557824374a0e4229c4b078a76ce743ad80c31be86e25da` |
-|  `latest`     | September 4th | `sha256:c0345572d2433bf55b398252977c923a9f28e0dbfda48e0b975457685e0117a8` |
 
 
 

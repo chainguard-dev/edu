@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: k3s"
 type: "article"
-description: "Overview: k3s Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/k3s](https://github.com/chainguard-images/images/tree/main/images/k3s)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:9956f95fa7a67de6a743cbcd809e3aa0f89c8325f535ef79af3849a74d0dd8c7` |
-|  `latest`     | September 7th | `sha256:9e50e87e6b64a05957a4aaf8fef15bb1e36d25cd6c1f5521255afcc7d033537b` |
 
 
 

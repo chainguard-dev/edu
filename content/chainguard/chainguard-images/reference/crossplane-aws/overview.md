@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: crossplane-aws"
 type: "article"
-description: "Overview: crossplane-aws Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/crossplane-aws](https://github.com/chainguard-images/images/tree/main/images/crossplane-aws)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:000719c7c097b8ec4cc69d21fea4219d05fed65c5466e7d727a0b6740de4c09c` |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: external-secrets"
 type: "article"
-description: "Overview: external-secrets Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/external-secrets](https://github.com/chainguard-images/images/tree/main/images/external-secrets)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:e0de408362a277b697b0c6078b66613c1e322c766d50251a57bcc46d7ddeaa1b` |
-|  `latest`     | September 7th | `sha256:b55993f970a49f75cd3a3b8576eae1375bbf50981004817ad793ddc660d81955` |
 
 
 

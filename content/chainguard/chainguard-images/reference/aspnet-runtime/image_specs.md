@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest            |
 |--------------|-------------------|
-| Default User | `nonroot`         |
+| Default User | `65532`           |
 | Entrypoint   | `/usr/bin/dotnet` |
 | CMD          | `--help`          |
 | Workdir      | not specified     |
@@ -57,4 +57,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`       | X      |
 | `xz`                     | X      |
 | `zlib`                   | X      |
-

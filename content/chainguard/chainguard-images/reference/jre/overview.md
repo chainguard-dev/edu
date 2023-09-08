@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: jre"
 type: "article"
-description: "Overview: jre Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/jre](https://github.com/chainguard-images/images/tree/main/images/jre)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:4b2fa1c7c92983084973be241267d17afb709ac8829da045d6ac716336f56b4a` |
-|  `latest`     | September 7th | `sha256:067446d9df89ac3cbf0201945a738646ff53ee3531511a666b4dca108a8e64f6` |
 
 
 

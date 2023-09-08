@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: node"
 type: "article"
-description: "Overview: node Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/node](https://github.com/chainguard-images/images/tree/main/images/node)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:836686ad32f189d5712b75318a1e3a2e3d9f32eac70f9d0f39cd2ba972a6d7f7` |
-|  `latest`     | September 7th | `sha256:f73e14400dc773a4d3e2d89c81788d8be253188aabaec6df7f991bf03e2d18e3` |
 
 
 

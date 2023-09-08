@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: helm-controller"
 type: "article"
-description: "Overview: helm-controller Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,17 +14,12 @@ weight: 500
 toc: true
 ---
 
-[cgr.dev/chainguard/helm-controller](https://github.com/chainguard-images/images/tree/main/images/helm-controller)
+Overview of `helm-controller` Chainguard Image
 
-| Tag (s) | Last Changed | Digest |
-|---------|--------------|--------|
-
-# helm-controller
-
-Minimal helm-controller images with nightly builds.
 
 ## Get it!
 
-```shell
-docker pull cgr.dev/chainguard/helm-controller
 ```
+docker pull cgr.dev/chainguard/helm-controller:latest
+```
+

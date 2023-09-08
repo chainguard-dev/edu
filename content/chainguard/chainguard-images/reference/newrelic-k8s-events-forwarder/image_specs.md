@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                            |
 |--------------|-----------------------------------|
-| Default User | `nonroot`                         |
+| Default User | `65532`                           |
 | Entrypoint   | `/sbin/tini --`                   |
 | CMD          | `/usr/bin/newrelic-infra-service` |
 | Workdir      | not specified                     |
@@ -55,4 +55,3 @@ The table shows package distribution across variants.
 | `tini`                          | X      |
 | `wolfi-baselayout`              | X      |
 | `zlib`                          | X      |
-

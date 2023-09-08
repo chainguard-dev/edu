@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: ko"
 type: "article"
-description: "Overview: ko Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/ko](https://github.com/chainguard-images/images/tree/main/images/ko)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:6f4db9c35b7d1d59f2c2dc04ee8db42be7f97ab4a7165f758568e4d8b0b3c75f` |
 
 
 

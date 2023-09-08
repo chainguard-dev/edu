@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: dive"
 type: "article"
-description: "Overview: dive Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/dive](https://github.com/chainguard-images/images/tree/main/images/dive)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:9e868d11732a4b45b45c10583fe51255ff9cfa19249eb17465b149893c238a89` |
 
 
 

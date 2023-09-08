@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: static"
 type: "article"
-description: "Overview: static Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/static](https://github.com/chainguard-images/images/tree/main/images/static)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 2nd | `sha256:a432665213f109d5e48111316030eecc5191654cf02a5b66ac6c5d6b310a5511` |
 
 
 

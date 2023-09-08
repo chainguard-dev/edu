@@ -34,7 +34,7 @@ The table has detailed information about each of these variants.
 
 |              | allinone-latest-dev | allinone-latest | embedded-latest-embedded | embedded-latest | images-latest-dev | images-latest-images-dev | images-latest-images | images-latest | latest-dev    | latest        |
 |--------------|---------------------|-----------------|--------------------------|-----------------|-------------------|--------------------------|----------------------|---------------|---------------|---------------|
-| Default User | `root`              | `root`          | `root`                   | `root`          | `root`            | `root`                   | `root`               | `root`        | `root`        | `root`        |
+| Default User | `0`                 | `0`             | `0`                      | `0`             | `0`               | `0`                      | `0`                  | `0`           | `0`           | `0`           |
 | Entrypoint   | `/bin/k3s`          | `/bin/k3s`      | `/bin/k3s`               | `/bin/k3s`      | `/bin/k3s`        | `/bin/k3s`               | `/bin/k3s`           | `/bin/k3s`    | `/bin/k3s`    | `/bin/k3s`    |
 | CMD          | `agent`             | `agent`         | `agent`                  | `agent`         | `agent`           | `agent`                  | `agent`              | `agent`       | `agent`       | `agent`       |
 | Workdir      | not specified       | not specified   | not specified            | not specified   | not specified     | not specified            | not specified        | not specified | not specified | not specified |
@@ -101,4 +101,3 @@ The table shows package distribution across variants.
 | `fuse-overlayfs-snapshotter` |                     |                 |                          |                 |                   |                          |                      |               | X          | X      |
 | `fuse3`                      |                     |                 |                          |                 |                   |                          |                      |               | X          | X      |
 | `fuse3-libs`                 |                     |                 |                          |                 |                   |                          |                      |               | X          | X      |
-

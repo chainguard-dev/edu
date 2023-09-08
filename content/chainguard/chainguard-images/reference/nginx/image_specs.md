@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                 | latest                                                     |
 |--------------|------------------------------------------------------------|------------------------------------------------------------|
-| Default User | `nginx`                                                    | `nginx`                                                    |
+| Default User | `65532`                                                    | `65532`                                                    |
 | Entrypoint   | `/usr/sbin/nginx`                                          | `/usr/sbin/nginx`                                          |
 | CMD          | `-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` | `-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` |
 | Workdir      | not specified                                              | not specified                                              |
@@ -67,4 +67,3 @@ The table shows package distribution across variants.
 | `pcre`                          | X          | X      |
 | `wolfi-baselayout`              | X          | X      |
 | `zlib`                          | X          | X      |
-

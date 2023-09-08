@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: hugo"
 type: "article"
-description: "Overview: hugo Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/hugo](https://github.com/chainguard-images/images/tree/main/images/hugo)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:ae1bc1c3228f30c1ea27ba556568011e3b4cc5e69ca55a831cab4265c16f483c` |
-|  `latest`     | September 4th | `sha256:ef92c9a509330741b390c4a760f972e41d8f5aef2d3de540ad4ff872dc918034` |
 
 
 

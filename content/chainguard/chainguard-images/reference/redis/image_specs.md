@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest         |
 |--------------|----------------|
-| Default User | `redis`        |
+| Default User | `65532`        |
 | Entrypoint   | `redis-server` |
 | CMD          | not specified  |
 | Workdir      | `/data`        |
@@ -50,4 +50,3 @@ The table shows package distribution across variants.
 | `openssl-config`         | X      |
 | `redis`                  | X      |
 | `wolfi-baselayout`       | X      |
-

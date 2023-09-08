@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: k8s-sidecar"
 type: "article"
-description: "Overview: k8s-sidecar Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/k8s-sidecar](https://github.com/chainguard-images/images/tree/main/images/k8s-sidecar)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:a4a839261ea6c75a3041d71e012359da9a7c222a66c78161958f736de7f64655` |
-|  `latest-dev` | September 7th | `sha256:83ec764fa2e8e4eb9c534187c7f6c25f26e1327c1cbcfb078ee068db38dbd8e1` |
 
 
 

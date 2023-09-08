@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: aws-for-fluent-bit"
 type: "article"
-description: "Overview: aws-for-fluent-bit Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/aws-for-fluent-bit](https://github.com/chainguard-images/images/tree/main/images/aws-for-fluent-bit)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:e90d4f3a839e921bedb76fdf49787066056174bca27650f936519777198a4ac1` |
 
 
 

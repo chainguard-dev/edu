@@ -27,7 +27,7 @@ The table has detailed information about each of these variants.
 
 |              | ingress-latest-dev                        | ingress-latest                            | latest                                |
 |--------------|-------------------------------------------|-------------------------------------------|---------------------------------------|
-| Default User | `haproxy`                                 | `haproxy`                                 | `haproxy`                             |
+| Default User | `65532`                                   | `65532`                                   | `65532`                               |
 | Entrypoint   | `/usr/bin/dumb-init -- /usr/bin/start.sh` | `/usr/bin/dumb-init -- /usr/bin/start.sh` | `/usr/local/bin/docker-entrypoint.sh` |
 | CMD          | not specified                             | not specified                             | not specified                         |
 | Workdir      | not specified                             | not specified                             | not specified                         |
@@ -72,4 +72,3 @@ The table shows package distribution across variants.
 | `zlib`                   | X                  |                |        |
 | `dataplaneapi`           |                    |                | X      |
 | `haproxy-oci-entrypoint` |                    |                | X      |
-

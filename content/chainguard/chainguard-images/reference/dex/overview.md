@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: dex"
 type: "article"
-description: "Overview: dex Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/dex](https://github.com/chainguard-images/images/tree/main/images/dex)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:0a05871e1f59b06d01192c26ee4db787fcff442df71a8ec5e2dea919b73ade3e` |
-|  `latest`     | September 7th | `sha256:fcabcbdf7b66de95227c98d23afbd84627eb04bba7dd832b4ad549721400bfc6` |
 
 
 

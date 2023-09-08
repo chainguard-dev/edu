@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                |
 |--------------|-----------------------|
-| Default User | `root`                |
+| Default User | `0`                   |
 | Entrypoint   | `/usr/bin/kube-bench` |
 | CMD          | `help`                |
 | Workdir      | `/etc/kube-bench`     |
@@ -51,4 +51,3 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`  | X      |
 | `procps`                 | X      |
 | `wolfi-baselayout`       | X      |
-

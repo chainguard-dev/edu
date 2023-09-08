@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: kubeflow-jupyter-web-app"
 type: "article"
-description: "Overview: kubeflow-jupyter-web-app Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/kubeflow-jupyter-web-app](https://github.com/chainguard-images/images/tree/main/images/kubeflow-jupyter-web-app)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:91e3df3795481f1f3e4a292e283aceb40ffdd2ea16894bd39e9b38ad5d3bc6a5` |
-|  `latest`     | September 7th | `sha256:ee2c0b9c737d589a2ef642dedd01bde46d6529937a7d99ed1bb55f7b97e4a88c` |
 
 
 

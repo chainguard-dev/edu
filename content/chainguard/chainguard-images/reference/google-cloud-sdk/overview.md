@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: google-cloud-sdk"
 type: "article"
-description: "Overview: google-cloud-sdk Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/google-cloud-sdk](https://github.com/chainguard-images/images/tree/main/images/google-cloud-sdk)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:17d952394ef5016deb41df2be82cf6c50d9cd8e22ccb249df74b39ffc2840a3b` |
 
 
 

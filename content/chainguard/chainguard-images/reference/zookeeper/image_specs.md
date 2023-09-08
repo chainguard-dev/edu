@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                  | latest                                      |
 |--------------|---------------------------------------------|---------------------------------------------|
-| Default User | `zookeeper`                                 | `zookeeper`                                 |
+| Default User | `65532`                                     | `65532`                                     |
 | Entrypoint   | `/usr/share/java/zookeeper/bin/zkServer.sh` | `/usr/share/java/zookeeper/bin/zkServer.sh` |
 | CMD          | `start-foreground`                          | `start-foreground`                          |
 | Workdir      | not specified                               | not specified                               |
@@ -74,4 +74,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |
 | `zookeeper`              | X          | X      |
-

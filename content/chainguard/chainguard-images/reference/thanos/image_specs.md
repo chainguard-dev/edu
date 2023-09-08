@@ -28,7 +28,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev    | latest        | operator-latest-dev | operator-latest    |
 |--------------|---------------|---------------|---------------------|--------------------|
-| Default User | `thanos`      | `thanos`      | `nonroot`           | `nonroot`          |
+| Default User | `65532`       | `65532`       | `65532`             | `65532`            |
 | Entrypoint   | `thanos`      | `thanos`      | `/usr/bin/manager`  | `/usr/bin/manager` |
 | CMD          | not specified | not specified | not specified       | not specified      |
 | Workdir      | not specified | not specified | not specified       | not specified      |
@@ -67,4 +67,3 @@ The table shows package distribution across variants.
 | `zlib`                   | X          |        | X                   |                 |
 | `thanos-operator`        |            |        | X                   | X               |
 | `thanos-operator-compat` |            |        | X                   | X               |
-

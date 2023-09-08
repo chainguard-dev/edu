@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: envoy"
 type: "article"
-description: "Overview: envoy Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/envoy](https://github.com/chainguard-images/images/tree/main/images/envoy)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:14cf17f4716593022c395c68ca824267ad143a20a34e2fee36ca93ce49a74faa` |
 
 
 

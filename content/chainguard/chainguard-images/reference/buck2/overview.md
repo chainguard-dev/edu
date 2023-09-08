@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: buck2"
 type: "article"
-description: "Overview: buck2 Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/buck2](https://github.com/chainguard-images/images/tree/main/images/buck2)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:67ccafe34cd29f660843f749331481f1b2234f69208d1bb6f4d96f08f82131b2` |
-|  `latest-dev` | September 7th | `sha256:27e43986074fedf4e52d5b8e5bcab9e8813ac2474f030720426ef8852a40b52a` |
 
 
 

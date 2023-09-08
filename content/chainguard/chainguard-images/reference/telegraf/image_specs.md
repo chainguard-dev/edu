@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev          | latest              |
 |--------------|---------------------|---------------------|
-| Default User | `telegraf`          | `telegraf`          |
+| Default User | `65532`             | `65532`             |
 | Entrypoint   | `/usr/bin/telegraf` | `/usr/bin/telegraf` |
 | CMD          | not specified       | not specified       |
 | Workdir      | not specified       | not specified       |
@@ -63,4 +63,3 @@ The table shows package distribution across variants.
 | `telegraf-1.27`          | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
-

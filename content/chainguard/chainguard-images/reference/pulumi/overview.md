@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: pulumi"
 type: "article"
-description: "Overview: pulumi Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/pulumi](https://github.com/chainguard-images/images/tree/main/images/pulumi)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:bf4350d0b0ad30c40e367f3202206e9a3960018215022804320b1a0a1db8005d` |
 
 
 

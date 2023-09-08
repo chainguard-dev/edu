@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: kubernetes-dashboard"
 type: "article"
-description: "Overview: kubernetes-dashboard Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/kubernetes-dashboard](https://github.com/chainguard-images/images/tree/main/images/kubernetes-dashboard)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:3934e7dbb3411c441f4071d6c0cacc56c7dd0c7d713fe26019b9704ed0fbf27f` |
-|  `latest`     | September 4th | `sha256:0caef54220c525f173183ed1a9c198da2919deca743e9b998fcc23f9352f9af1` |
 
 
 

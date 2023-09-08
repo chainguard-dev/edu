@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                  |
 |--------------|-----------------------------------------|
-| Default User | `nri`                                   |
+| Default User | `1000`                                  |
 | Entrypoint   | `/sbin/tini -- /usr/bin/nri-kubernetes` |
 | CMD          | not specified                           |
 | Workdir      | not specified                           |
@@ -71,4 +71,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`       | X      |
 | `xz`                     | X      |
 | `zlib`                   | X      |
-

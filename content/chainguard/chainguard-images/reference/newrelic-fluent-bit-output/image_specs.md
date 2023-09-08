@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                                                  |
 |--------------|-------------------------------------------------------------------------|
-| Default User | `root`                                                                  |
+| Default User | `0`                                                                     |
 | Entrypoint   | `/usr/bin/fluent-bit`                                                   |
 | CMD          | `-c /fluent-bit/etc/fluent-bit.conf -e /fluent-bit/bin/out_newrelic.so` |
 | Workdir      | not specified                                                           |
@@ -47,7 +47,7 @@ The table shows package distribution across variants.
 | `libcap`                            | X      |
 | `libcrypto3`                        | X      |
 | `libgcc`                            | X      |
-| `libpq-16`                          | X      |
+| `libpq-11`                          | X      |
 | `libssl3`                           | X      |
 | `libsystemd`                        | X      |
 | `newrelic-fluent-bit-output`        | X      |
@@ -56,4 +56,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`                  | X      |
 | `yaml`                              | X      |
 | `zlib`                              | X      |
-

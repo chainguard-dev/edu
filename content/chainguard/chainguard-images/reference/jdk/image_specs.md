@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev    | latest        |
 |--------------|---------------|---------------|
-| Default User | `java`        | `java`        |
+| Default User | `65532`       | `65532`       |
 | Entrypoint   | not specified | not specified |
 | CMD          | not specified | not specified |
 | Workdir      | `/home/build` | `/home/build` |
@@ -70,10 +70,10 @@ The table shows package distribution across variants.
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
 | `openjdk-17`             | X          | X      |
+| `openjdk-17-default-jdk` | X          | X      |
 | `openjdk-17-default-jvm` | X          | X      |
 | `openjdk-17-jre`         | X          | X      |
 | `openjdk-17-jre-base`    | X          | X      |
 | `openssl-config`         | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |
-

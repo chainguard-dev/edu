@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                       | latest                                           |
 |--------------|--------------------------------------------------|--------------------------------------------------|
-| Default User | `root`                                           | `root`                                           |
+| Default User | `0`                                              | `0`                                              |
 | Entrypoint   | `/usr/bin/secrets-store-csi-driver-provider-gcp` | `/usr/bin/secrets-store-csi-driver-provider-gcp` |
 | CMD          | not specified                                    | not specified                                    |
 | Workdir      | not specified                                    | not specified                                    |
@@ -63,4 +63,3 @@ The table shows package distribution across variants.
 | `secrets-store-csi-driver-provider-gcp` | X          | X      |
 | `wolfi-baselayout`                      | X          | X      |
 | `zlib`                                  | X          |        |
-

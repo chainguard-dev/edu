@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: gcc-glibc"
 type: "article"
-description: "Overview: gcc-glibc Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/gcc-glibc](https://github.com/chainguard-images/images/tree/main/images/gcc-glibc)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:8fec58a709cd8343c7969132d9bc7e93465faf2f9e714228a81ff107cdb56816` |
 
 
 

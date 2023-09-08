@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: openai"
 type: "article"
-description: "Overview: openai Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/openai](https://github.com/chainguard-images/images/tree/main/images/openai)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:4a9e4d9ccb80947740473a0a4469944172b6b6e5cc5c3bcda66ddf1b940550d5` |
-|  `latest-dev` | September 7th | `sha256:b5167fe5332705158943256378195b218c670d42528bf4f406a4f0e414c07e8f` |
 
 
 

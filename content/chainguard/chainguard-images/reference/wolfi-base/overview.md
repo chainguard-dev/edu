@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: wolfi-base"
 type: "article"
-description: "Overview: wolfi-base Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/wolfi-base](https://github.com/chainguard-images/images/tree/main/images/wolfi-base)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:f73a3360466ecc4d6df3f451d7d5c4c49663096e158848ddbc9603c52a47bffe` |
 
 
 

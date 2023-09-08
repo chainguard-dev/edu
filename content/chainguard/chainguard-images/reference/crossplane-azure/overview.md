@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: crossplane-azure"
 type: "article"
-description: "Overview: crossplane-azure Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/crossplane-azure](https://github.com/chainguard-images/images/tree/main/images/crossplane-azure)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:42f1700d924c033688b7e08f4b843a9eaaa14ffb8f72dea23315a281c7e1bcd7` |
 
 
 

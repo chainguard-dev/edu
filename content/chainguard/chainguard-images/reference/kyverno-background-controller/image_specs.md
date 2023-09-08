@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                           |
 |--------------|----------------------------------|
-| Default User | `nonroot`                        |
+| Default User | `65532`                          |
 | Entrypoint   | `/usr/bin/background-controller` |
 | CMD          | `help`                           |
 | Workdir      | not specified                    |
@@ -44,4 +44,3 @@ The table shows package distribution across variants.
 | `kubectl-latest`                | X      |
 | `kyverno-background-controller` | X      |
 | `wolfi-baselayout`              | X      |
-

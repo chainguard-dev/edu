@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest        |
 |--------------|---------------|
-| Default User | `nonroot`     |
+| Default User | `65532`       |
 | Entrypoint   | `/usr/bin/nc` |
 | CMD          | `-h`          |
 | Workdir      | `/home/nc`    |
@@ -49,4 +49,3 @@ The table shows package distribution across variants.
 | `libmd`                  | X      |
 | `netcat-openbsd`         | X      |
 | `wolfi-baselayout`       | X      |
-

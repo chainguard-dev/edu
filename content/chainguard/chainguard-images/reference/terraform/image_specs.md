@@ -17,29 +17,49 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **terraform** Image.
 
 ## Variants Compared
-The **terraform** Chainguard Image currently has one public variant: 
+The **terraform** Chainguard Image currently has 2 public variants: 
 
+- `latest-dev`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest               |
-|--------------|----------------------|
-| Default User | `nonroot`            |
-| Entrypoint   | `/usr/bin/terraform` |
-| CMD          | `--help`             |
-| Workdir      | not specified        |
-| Has apk?     | no                   |
-| Has a shell? | no                   |
+|              | latest-dev           | latest               |
+|--------------|----------------------|----------------------|
+| Default User | `65532`              | `65532`              |
+| Entrypoint   | `/usr/bin/terraform` | `/usr/bin/terraform` |
+| CMD          | `--help`             | `--help`             |
+| Workdir      | not specified        | not specified        |
+| Has apk?     | yes                  | no                   |
+| Has a shell? | yes                  | no                   |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/terraform/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `ca-certificates-bundle` | X      |
-| `terraform`              | X      |
-| `wolfi-baselayout`       | X      |
-
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `busybox`                | X          |        |
+| `ca-certificates-bundle` | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          |        |
+| `glibc-locale-posix`     | X          |        |
+| `ld-linux`               | X          |        |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
+| `libcrypt1`              | X          |        |
+| `libcrypto3`             | X          |        |
+| `libcurl-openssl4`       | X          |        |
+| `libexpat1`              | X          |        |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libssl3`                | X          |        |
+| `ncurses`                | X          |        |
+| `ncurses-terminfo-base`  | X          |        |
+| `openssl-config`         | X          |        |
+| `terraform`              | X          | X      |
+| `wolfi-baselayout`       | X          | X      |
+| `zlib`                   | X          |        |

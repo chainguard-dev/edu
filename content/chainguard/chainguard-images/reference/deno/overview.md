@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: deno"
 type: "article"
-description: "Overview: deno Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/deno](https://github.com/chainguard-images/images/tree/main/images/deno)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 6th | `sha256:a5ed48eda0cbadafcfcf2ea6cc8080ab87cd895c83fafb7b4da62f11920a1213` |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: opentelemetry-collector-contrib"
 type: "article"
-description: "Overview: opentelemetry-collector-contrib Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/opentelemetry-collector-contrib](https://github.com/chainguard-images/images/tree/main/images/opentelemetry-collector-contrib)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:3fd959a6cd9966bf107c5386585f42b29c4c287484b6e4a222bdb1ae0c045277` |
-|  `latest`     | September 4th | `sha256:c02089339e1279c3bbb0f887dac1b5162b68e9b14ba215acaf7b1858b44ae40e` |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: influxdb"
 type: "article"
-description: "Overview: influxdb Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/influxdb](https://github.com/chainguard-images/images/tree/main/images/influxdb)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:5d755ee0946319f32002d53de3e155a675e4484d5ca69e10a64b2700787d7f26` |
-|  `latest`     | September 4th | `sha256:7e1d54b0d940b81d82416688a9b069e1a86d3b3ed7fc9c429a346f938bbaa8ac` |
 
 
 

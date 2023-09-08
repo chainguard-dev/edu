@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: helm"
 type: "article"
-description: "Overview: helm Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/helm](https://github.com/chainguard-images/images/tree/main/images/helm)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:bb1dcbd5e5674003a7176774e53a1aeb299ded9be644344246db5d18d635316d` |
-|  `latest-dev` | September 7th | `sha256:e084ddb5de637206149294e339bb64e86f0f295c6d5d9d606452aac1d771afdd` |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: vt"
 type: "article"
-description: "Overview: vt Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/vt](https://github.com/chainguard-images/images/tree/main/images/vt)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:e78cfcad15663a95e6e865bf40268b3bdf0fa5e748f4c282f69c1526d7415fdc` |
-|  `latest`     | September 4th | `sha256:950dbba7b840bcb8a8a133f64b876bd2b467ebea8c29044aa30c4bbcfa0ee42d` |
 
 
 

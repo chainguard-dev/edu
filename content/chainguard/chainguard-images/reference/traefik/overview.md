@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: traefik"
 type: "article"
-description: "Overview: traefik Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/traefik](https://github.com/chainguard-images/images/tree/main/images/traefik)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:d3d582a5e7be0b48020e422b1f035af46407f7eaae00002860465a9201c7d54f` |
 
 
 

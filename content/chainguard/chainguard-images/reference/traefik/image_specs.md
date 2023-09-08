@@ -25,7 +25,7 @@ The table has detailed information about each of these variants.
 
 |              | latest             |
 |--------------|--------------------|
-| Default User | `traefik`          |
+| Default User | `65532`            |
 | Entrypoint   | `/usr/bin/traefik` |
 | CMD          | not specified      |
 | Workdir      | not specified      |
@@ -42,4 +42,3 @@ The table shows package distribution across variants.
 | `ca-certificates-bundle` | X      |
 | `traefik`                | X      |
 | `wolfi-baselayout`       | X      |
-

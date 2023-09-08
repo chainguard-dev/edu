@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: wazero"
 type: "article"
-description: "Overview: wazero Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/wazero](https://github.com/chainguard-images/images/tree/main/images/wazero)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:1a5a5be283235125069c044efc9248ac679e69c196885678382894b0468ef6d4` |
-|  `latest`     | September 4th | `sha256:99dc4d82daead6207ced448a3132b278cade000e6996c53c6e491e22bcca3921` |
 
 
 

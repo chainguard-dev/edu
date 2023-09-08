@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: kustomize-controller"
 type: "article"
-description: "Overview: kustomize-controller Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -14,17 +14,12 @@ weight: 500
 toc: true
 ---
 
-[cgr.dev/chainguard/kustomize-controller](https://github.com/chainguard-images/images/tree/main/images/kustomize-controller)
+Overview of `kustomize-controller` Chainguard Image
 
-| Tag (s) | Last Changed | Digest |
-|---------|--------------|--------|
-
-# kustomize-controller
-
-Minimal kustomize-controller images with nightly builds.
 
 ## Get it!
 
-```shell
-docker pull cgr.dev/chainguard/kustomize-controller
 ```
+docker pull cgr.dev/chainguard/kustomize-controller:latest
+```
+

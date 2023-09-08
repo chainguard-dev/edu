@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: ntpd-rs"
 type: "article"
-description: "Overview: ntpd-rs Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/ntpd-rs](https://github.com/chainguard-images/images/tree/main/images/ntpd-rs)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:d0d7fdce3cd4859d20151f8c0aee740828cf2a5ae9f98addfe5950776186056c` |
-|  `latest`     | September 6th | `sha256:e70d4dc8fd680ba823eb152f06426b0f18e38907f0c4344f783d93d1a320ec61` |
 
 
 

@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev           | latest               |
 |--------------|----------------------|----------------------|
-| Default User | `vault`              | `vault`              |
+| Default User | `65532`              | `65532`              |
 | Entrypoint   | `/usr/bin/vault-k8s` | `/usr/bin/vault-k8s` |
 | CMD          | not specified        | not specified        |
 | Workdir      | not specified        | not specified        |
@@ -64,4 +64,3 @@ The table shows package distribution across variants.
 | `vault-k8s`              | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
-

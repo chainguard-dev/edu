@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: nodetaint"
 type: "article"
-description: "Overview: nodetaint Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/nodetaint](https://github.com/chainguard-images/images/tree/main/images/nodetaint)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:5e698724f3a7fc0bcbe42858127e950e29b998ea1c7376400114e4383b16fb5c` |
-|  `latest`     | September 4th | `sha256:6b5332555e8b0c499a7a7278f4d48242911ee1e0cda1350fb6e0a7383e134db2` |
 
 
 

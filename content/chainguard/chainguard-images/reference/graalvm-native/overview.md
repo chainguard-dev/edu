@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: graalvm-native"
 type: "article"
-description: "Overview: graalvm-native Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/graalvm-native](https://github.com/chainguard-images/images/tree/main/images/graalvm-native)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:3304ed3e5fc8a5e8b8f370f79b1d8f2850d27f279892bbed2ad8bbf4c3bacd8e` |
 
 
 

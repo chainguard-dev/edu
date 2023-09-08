@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | flexvol-latest        | latest                |
 |--------------|-----------------------|-----------------------|
-| Default User | `root`                | `root`                |
+| Default User | `0`                   | `0`                   |
 | Entrypoint   | `/usr/bin/flexvol.sh` | `/usr/bin/flexvol.sh` |
 | CMD          | not specified         | not specified         |
 | Workdir      | not specified         | not specified         |
@@ -49,4 +49,3 @@ The table shows package distribution across variants.
 | `ld-linux`                         | X              | X      |
 | `libcrypt1`                        | X              | X      |
 | `wolfi-baselayout`                 | X              | X      |
-

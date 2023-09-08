@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev              | latest                  |
 |--------------|-------------------------|-------------------------|
-| Default User | `oauth2-proxy`          | `oauth2-proxy`          |
+| Default User | `65532`                 | `65532`                 |
 | Entrypoint   | `/usr/bin/oauth2-proxy` | `/usr/bin/oauth2-proxy` |
 | CMD          | not specified           | not specified           |
 | Workdir      | not specified           | not specified           |
@@ -63,4 +63,3 @@ The table shows package distribution across variants.
 | `openssl-config`         | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
-

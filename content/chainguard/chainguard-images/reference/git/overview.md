@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: git"
 type: "article"
-description: "Overview: git Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/git](https://github.com/chainguard-images/images/tree/main/images/git)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:488041b2944944260473a5012494006730a0fecd677f16d0bdb20dc458a171fe` |
-|  `latest`     | September 7th | `sha256:58ea1e584518b279c15839abc16e8cda39ad2e25595e26e1b285be2f5ef0a3ba` |
 
 
 

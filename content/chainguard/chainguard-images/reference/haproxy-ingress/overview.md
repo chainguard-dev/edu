@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: haproxy-ingress"
 type: "article"
-description: "Overview: haproxy-ingress Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/haproxy-ingress](https://github.com/chainguard-images/images/tree/main/images/haproxy-ingress)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:5ae5c5bd2e2b5cd5da11827dbbf81e1e1f909cac4c2f924b42259662651b99f6` |
-|  `latest`     | September 7th | `sha256:3de26adb05f0fb848d4778de6d223431b4db3c858a99d068a25dd83826cf84b7` |
 
 
 

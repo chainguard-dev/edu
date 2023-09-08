@@ -27,7 +27,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                    | ratelimit-latest-dev | ratelimit-latest     |
 |--------------|-------------------------------------------|----------------------|----------------------|
-| Default User | `envoy`                                   | `nonroot`            | `nonroot`            |
+| Default User | `65532`                                   | `65532`              | `65532`              |
 | Entrypoint   | `/var/lib/envoy/init/envoy-entrypoint.sh` | `/usr/bin/ratelimit` | `/usr/bin/ratelimit` |
 | CMD          | not specified                             | not specified        | not specified        |
 | Workdir      | not specified                             | not specified        | not specified        |
@@ -69,4 +69,3 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`  |        | X                    |                  |
 | `openssl-config`         |        | X                    |                  |
 | `zlib`                   |        | X                    |                  |
-

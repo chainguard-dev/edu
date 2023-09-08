@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: envoy-ratelimit"
 type: "article"
-description: "Overview: envoy-ratelimit Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/envoy-ratelimit](https://github.com/chainguard-images/images/tree/main/images/envoy-ratelimit)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:af39910d836feb3014965b53a1674366113c342f654b6481969a5bf246e40bce` |
-|  `latest`     | September 7th | `sha256:645866f03fb85cf24d57c29f47f6602e102dd22024ca0a069b802902112ea708` |
 
 
 

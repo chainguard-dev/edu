@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                | latest                                                    |
 |--------------|-----------------------------------------------------------|-----------------------------------------------------------|
-| Default User | `root`                                                    | `root`                                                    |
+| Default User | `0`                                                       | `0`                                                       |
 | Entrypoint   | `/usr/bin/node-problem-detector`                          | `/usr/bin/node-problem-detector`                          |
 | CMD          | `--config.system-log-monitor=/config/kernel-monitor.json` | `--config.system-log-monitor=/config/kernel-monitor.json` |
 | Workdir      | not specified                                             | not specified                                             |
@@ -59,4 +59,3 @@ The table shows package distribution across variants.
 | `systemd`                          | X          | X      |
 | `systemd-dev`                      | X          | X      |
 | `wolfi-baselayout`                 | X          | X      |
-

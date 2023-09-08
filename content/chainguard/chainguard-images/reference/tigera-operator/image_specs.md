@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev          | latest              |
 |--------------|---------------------|---------------------|
-| Default User | `tigera-operator`   | `tigera-operator`   |
+| Default User | `65532`             | `65532`             |
 | Entrypoint   | `/usr/bin/operator` | `/usr/bin/operator` |
 | CMD          | `--help`            | `--help`            |
 | Workdir      | not specified       | not specified       |
@@ -63,4 +63,3 @@ The table shows package distribution across variants.
 | `tigera-operator`        | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
-

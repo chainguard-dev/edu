@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev     | latest         |
 |--------------|----------------|----------------|
-| Default User | `cassandra`    | `cassandra`    |
+| Default User | `999`          | `999`          |
 | Entrypoint   | `cassandra -f` | `cassandra -f` |
 | CMD          | not specified  | not specified  |
 | Workdir      | `/`            | `/`            |
@@ -98,4 +98,3 @@ The table shows package distribution across variants.
 | `wolfi-baselayout`       | X          | X      |
 | `xz`                     | X          | X      |
 | `zlib`                   | X          | X      |
-

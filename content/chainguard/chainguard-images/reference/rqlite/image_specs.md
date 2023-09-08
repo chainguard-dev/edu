@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                      | latest                          |
 |--------------|---------------------------------|---------------------------------|
-| Default User | `rqlite`                        | `rqlite`                        |
+| Default User | `65532`                         | `65532`                         |
 | Entrypoint   | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` |
 | CMD          | not specified                   | not specified                   |
 | Workdir      | not specified                   | not specified                   |
@@ -64,4 +64,3 @@ The table shows package distribution across variants.
 | `rqlite-oci-entrypoint`  | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
-

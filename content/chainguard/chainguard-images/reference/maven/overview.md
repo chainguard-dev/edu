@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: maven"
 type: "article"
-description: "Overview: maven Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/maven](https://github.com/chainguard-images/images/tree/main/images/maven)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:3296a4a33c7fbd32237cbf3b6b5c8dfbb75602bca752b3f734fbb133cf7c742f` |
-|  `latest`     | September 7th | `sha256:4c7d9bf62c4bb78c9f25194f490ad67923f59e44b07b741f5ec5fbc66e4073f9` |
 
 
 

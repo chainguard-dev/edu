@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: mdbook"
 type: "article"
-description: "Overview: mdbook Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,12 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/mdbook](https://github.com/chainguard-images/images/tree/main/images/mdbook)
-
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 6th | `sha256:5fc4d3cadd7bac63478ecd73ba30ccc2e204670cc2ef8d05ae06ec448f295b9e` |
 
 
 

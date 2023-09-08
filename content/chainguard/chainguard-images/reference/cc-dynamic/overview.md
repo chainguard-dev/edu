@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: cc-dynamic"
 type: "article"
-description: "Overview: cc-dynamic Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/cc-dynamic](https://github.com/chainguard-images/images/tree/main/images/cc-dynamic)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:98e8f40047cff314eab9c94900d9af7846120cc6ee8ddf595879ee1c0e67be2d` |
-|  `latest`     | September 4th | `sha256:2d626e63bc0c767c02d6dd18a4d90ef13e10841e12d752e0307626cfe7e7c439` |
 
 
 

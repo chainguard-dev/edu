@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                         | latest                             |
 |--------------|------------------------------------|------------------------------------|
-| Default User | `nonroot`                          | `nonroot`                          |
+| Default User | `65532`                            | `65532`                            |
 | Entrypoint   | `/usr/bin/oidc-discovery-provider` | `/usr/bin/oidc-discovery-provider` |
 | CMD          | `--help`                           | `--help`                           |
 | Workdir      | not specified                      | not specified                      |
@@ -63,4 +63,3 @@ The table shows package distribution across variants.
 | `spire-oidc-discovery-provider` | X          | X      |
 | `wolfi-baselayout`              | X          | X      |
 | `zlib`                          | X          |        |
-

@@ -1,7 +1,7 @@
 ---
 title: "Image Overview: secrets-store-csi-driver"
 type: "article"
-description: "Overview: secrets-store-csi-driver Chainguard Image"
+description: "{{ description }}"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
@@ -13,13 +13,6 @@ menu:
 weight: 500
 toc: true
 ---
-
-[cgr.dev/chainguard/secrets-store-csi-driver](https://github.com/chainguard-images/images/tree/main/images/secrets-store-csi-driver)
-
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:a0b8e59d2a85a64e1c5271e60620941d804e938ae5432d6afb63fbc1c4e0dedd` |
-|  `latest`     | September 4th | `sha256:c45a6ba62dc23a31a837580af7a2d985499d081bd62e1fa5e713634ebca3ef1a` |
 
 
 

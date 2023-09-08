@@ -32,7 +32,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev     | latest-glibc-dev | latest-glibc-root-dev | latest-glibc-root | latest-glibc   | latest-root-dev | latest-root    | latest         |
 |--------------|----------------|------------------|-----------------------|-------------------|----------------|-----------------|----------------|----------------|
-| Default User | `git`          | `git`            | `root`                | `root`            | `git`          | `root`          | `root`         | `git`          |
+| Default User | `65532`        | `65532`          | `root`                | `root`            | `65532`        | `root`          | `root`         | `65532`        |
 | Entrypoint   | `/usr/bin/git` | `/usr/bin/git`   | `/usr/bin/git`        | `/usr/bin/git`    | `/usr/bin/git` | `/usr/bin/git`  | `/usr/bin/git` | `/usr/bin/git` |
 | CMD          | not specified  | not specified    | not specified         | not specified     | not specified  | not specified   | not specified  | not specified  |
 | Workdir      | `/home/git`    | `/home/git`      | `/home/git`           | `/home/git`       | `/home/git`    | `/home/git`     | `/home/git`    | `/home/git`    |
@@ -91,4 +91,3 @@ The table shows package distribution across variants.
 | `openssh-client`         |            | X                | X                     | X                 | X            |                 |             |        |
 | `openssl-config`         |            | X                | X                     | X                 | X            |                 |             |        |
 | `wolfi-baselayout`       |            | X                | X                     | X                 | X            |                 |             |        |
-

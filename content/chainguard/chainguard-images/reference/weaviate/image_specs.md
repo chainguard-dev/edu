@@ -26,7 +26,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                 | latest                                     |
 |--------------|--------------------------------------------|--------------------------------------------|
-| Default User | `weaviate`                                 | `weaviate`                                 |
+| Default User | `65532`                                    | `65532`                                    |
 | Entrypoint   | `/bin/weaviate`                            | `/bin/weaviate`                            |
 | CMD          | `--host 0.0.0.0 --port 8080 --scheme http` | `--host 0.0.0.0 --port 8080 --scheme http` |
 | Workdir      | not specified                              | not specified                              |
@@ -65,4 +65,3 @@ The table shows package distribution across variants.
 | `weaviate`                | X          | X      |
 | `wolfi-baselayout`        | X          | X      |
 | `zlib`                    | X          |        |
-
