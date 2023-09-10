@@ -41,14 +41,13 @@ The table shows package distribution across variants.
 |                           | latest-dev | latest |
 |---------------------------|------------|--------|
 | `apk-tools`               | X          |        |
-| `aspnet-7-runtime`        | X          | X      |
-| `aspnet-7-targeting-pack` | X          | X      |
 | `bash`                    | X          |        |
 | `busybox`                 | X          | X      |
 | `ca-certificates-bundle`  | X          | X      |
 | `dotnet-7`                | X          | X      |
 | `dotnet-7-runtime`        | X          | X      |
 | `dotnet-7-sdk`            | X          | X      |
+| `dotnet-7-sdk-default`    | X          | X      |
 | `dotnet-7-targeting-pack` | X          | X      |
 | `git`                     | X          |        |
 | `glibc`                   | X          | X      |

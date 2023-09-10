@@ -47,7 +47,7 @@ The table shows package distribution across variants.
 | `libcap`                 | X      |
 | `libcrypto3`             | X      |
 | `libgcc`                 | X      |
-| `libpq-16`               | X      |
+| `libpq-11`               | X      |
 | `libssl3`                | X      |
 | `libsystemd`             | X      |
 | `openssl-config`         | X      |

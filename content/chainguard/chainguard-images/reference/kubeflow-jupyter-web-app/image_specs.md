@@ -67,6 +67,13 @@ The table shows package distribution across variants.
 | `ncurses`                  | X          | X      |
 | `ncurses-terminfo-base`    | X          | X      |
 | `openssl-config`           | X          | X      |
+| `py3-certifi`              | X          | X      |
+| `py3-gunicorn`             | X          | X      |
+| `py3-importlib-metadata`   | X          | X      |
+| `py3-packaging`            | X          | X      |
+| `py3-parsing`              | X          | X      |
+| `py3-typing-extensions`    | X          | X      |
+| `py3-zipp`                 | X          | X      |
 | `py3.11-setuptools`        | X          | X      |
 | `python-3.11`              | X          | X      |
 | `readline`                 | X          | X      |

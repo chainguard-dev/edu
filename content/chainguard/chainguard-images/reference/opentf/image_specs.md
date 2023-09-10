@@ -1,7 +1,7 @@
 ---
-title: "kubectl Image Variants"
+title: "opentf Image Variants"
 type: "article"
-description: "Detailed information about the public kubectl Chainguard Image variants"
+description: "Detailed information about the public opentf Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -9,31 +9,31 @@ tags: ["Reference", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "kubectl"
+    parent: "opentf"
 weight: 550
 toc: true
 ---
 
-This page shows detailed information about all public variants of the Chainguard **kubectl** Image.
+This page shows detailed information about all public variants of the Chainguard **opentf** Image.
 
 ## Variants Compared
-The **kubectl** Chainguard Image currently has 2 public variants: 
+The **opentf** Chainguard Image currently has 2 public variants: 
 
 - `latest-dev`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev         | latest             |
-|--------------|--------------------|--------------------|
-| Default User | `nonroot`          | `nonroot`          |
-| Entrypoint   | `/usr/bin/kubectl` | `/usr/bin/kubectl` |
-| CMD          | `help`             | `help`             |
-| Workdir      | not specified      | not specified      |
-| Has apk?     | yes                | no                 |
-| Has a shell? | yes                | no                 |
+|              | latest-dev        | latest            |
+|--------------|-------------------|-------------------|
+| Default User | `nonroot`         | `nonroot`         |
+| Entrypoint   | `/usr/bin/opentf` | `/usr/bin/opentf` |
+| CMD          | `--help`          | `--help`          |
+| Workdir      | not specified     | not specified     |
+| Has apk?     | yes               | no                |
+| Has a shell? | yes               | no                |
 
-Check the [tags history page](/chainguard/chainguard-images/reference/kubectl/tags_history/) for the full list of available tags.
+Check the [tags history page](/chainguard/chainguard-images/reference/opentf/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
@@ -47,8 +47,6 @@ The table shows package distribution across variants.
 | `git`                    | X          |        |
 | `glibc`                  | X          |        |
 | `glibc-locale-posix`     | X          |        |
-| `kubectl-1.28`           | X          | X      |
-| `kubectl-1.28-default`   | X          | X      |
 | `ld-linux`               | X          |        |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
@@ -62,6 +60,7 @@ The table shows package distribution across variants.
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
 | `openssl-config`         | X          |        |
+| `opentf`                 | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
 
