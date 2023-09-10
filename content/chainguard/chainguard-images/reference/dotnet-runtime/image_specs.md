@@ -38,36 +38,37 @@ Check the [tags history page](/chainguard/chainguard-images/reference/dotnet-run
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest-dev | latest |
-|--------------------------|------------|--------|
-| `apk-tools`              | X          |        |
-| `bash`                   | X          |        |
-| `busybox`                | X          |        |
-| `ca-certificates-bundle` | X          | X      |
-| `dotnet-7`               | X          | X      |
-| `dotnet-7-runtime`       | X          | X      |
-| `git`                    | X          |        |
-| `glibc`                  | X          | X      |
-| `glibc-locale-posix`     | X          | X      |
-| `icu`                    | X          | X      |
-| `ld-linux`               | X          | X      |
-| `libbrotlicommon1`       | X          |        |
-| `libbrotlidec1`          | X          |        |
-| `libcrypt1`              | X          |        |
-| `libcrypto3`             | X          | X      |
-| `libcurl-openssl4`       | X          |        |
-| `libexpat1`              | X          |        |
-| `libgcc`                 | X          | X      |
-| `libnghttp2-14`          | X          |        |
-| `libpcre2-8-0`           | X          |        |
-| `libssl3`                | X          | X      |
-| `libstdc++`              | X          | X      |
-| `libunwind`              | X          | X      |
-| `lttng-ust`              | X          | X      |
-| `ncurses`                | X          |        |
-| `ncurses-terminfo-base`  | X          |        |
-| `openssl-config`         | X          | X      |
-| `wolfi-baselayout`       | X          | X      |
-| `xz`                     | X          | X      |
-| `zlib`                   | X          | X      |
+|                            | latest-dev | latest |
+|----------------------------|------------|--------|
+| `apk-tools`                | X          |        |
+| `bash`                     | X          |        |
+| `busybox`                  | X          |        |
+| `ca-certificates-bundle`   | X          | X      |
+| `dotnet-7`                 | X          | X      |
+| `dotnet-7-runtime`         | X          | X      |
+| `dotnet-7-runtime-default` | X          | X      |
+| `git`                      | X          |        |
+| `glibc`                    | X          | X      |
+| `glibc-locale-posix`       | X          | X      |
+| `icu`                      | X          | X      |
+| `ld-linux`                 | X          | X      |
+| `libbrotlicommon1`         | X          |        |
+| `libbrotlidec1`            | X          |        |
+| `libcrypt1`                | X          |        |
+| `libcrypto3`               | X          | X      |
+| `libcurl-openssl4`         | X          |        |
+| `libexpat1`                | X          |        |
+| `libgcc`                   | X          | X      |
+| `libnghttp2-14`            | X          |        |
+| `libpcre2-8-0`             | X          |        |
+| `libssl3`                  | X          | X      |
+| `libstdc++`                | X          | X      |
+| `libunwind`                | X          | X      |
+| `lttng-ust`                | X          | X      |
+| `ncurses`                  | X          |        |
+| `ncurses-terminfo-base`    | X          |        |
+| `openssl-config`           | X          | X      |
+| `wolfi-baselayout`         | X          | X      |
+| `xz`                       | X          | X      |
+| `zlib`                     | X          | X      |
 
