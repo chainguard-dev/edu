@@ -9,7 +9,7 @@ draft: false
 images: []
 menu:
 docs:
-parent: "ruby-guides"
+parent: "tutorials"
 weight: 610
 toc: true
 ---

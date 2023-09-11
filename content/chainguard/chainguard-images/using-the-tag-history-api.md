@@ -10,7 +10,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 900
+weight: 450
 toc: true
 ---
 
@@ -117,7 +117,7 @@ And your image will then be locked into that specific build of the `python:lates
 
 ## Accessing the History API for Standard and Custom Images
 
-If you are a customer who would like to access the history API for the Standard Catalog or a Custom Catalog, you must create credentials to access the API with curl and Bash. 
+If you are a customer who would like to access the history API for the Standard Catalog or a Custom Catalog, you must create credentials to access the API with curl and Bash.
 
 ### Create Credentials
 
@@ -148,9 +148,9 @@ docker login "cgr.dev" --username "cc..96" --password "eyJ...X34"
 
 Be sure to keep a copy of the username and password created.
 
-### Optional: Storing Credentials 
+### Optional: Storing Credentials
 
-You can use the username and password you just created if required. However, Docker's default functionality is to encode these credentials in base64 and then store them within `~/.docker/config.json`. 
+You can use the username and password you just created if required. However, Docker's default functionality is to encode these credentials in base64 and then store them within `~/.docker/config.json`.
 
 To set that up, following the previous example, replace the username and password value, keeping the colon (`:`) to separate the values.
 
@@ -171,11 +171,11 @@ Add the base64 encoded value to `~/.docker/config.json` with the following forma
 }
 ```
 
-You can review more about Docker Configs from the [official Docker docs](https://docs.docker.com/engine/swarm/configs/). 
+You can review more about Docker Configs from the [official Docker docs](https://docs.docker.com/engine/swarm/configs/).
 
-### Access the History API with curl and Bash 
+### Access the History API with curl and Bash
 
-Now that we have the credentials, we can use curl and Bash to access the endpoints (the following example uses jq as well). Here, you will replace `private-registry.com/apko` with your relevant Registry and Image information. 
+Now that we have the credentials, we can use curl and Bash to access the endpoints (the following example uses jq as well). Here, you will replace `private-registry.com/apko` with your relevant Registry and Image information.
 
 ```sh
 IMAGE=private-registry.com/apko
@@ -188,7 +188,7 @@ curl -s -H "Authorization: Bearer \
   "https://cgr.dev/v2/${IMAGE}/_chainguard/history/latest" | jq .
 ```
 
-If you have set a `~/.docker/config.json` file within the optional step, you can run the following. 
+If you have set a `~/.docker/config.json` file within the optional step, you can run the following.
 
 ```sh
 IMAGE=private-registry.com/apko
@@ -199,7 +199,7 @@ curl -s -H "Authorization: Bearer \
   "https://cgr.dev/v2/${IMAGE}/_chainguard/history/latest" | jq .
 ```
 
-Again, you would replace `private-registry.com/apko` with your relevant Registry and Image information. 
+Again, you would replace `private-registry.com/apko` with your relevant Registry and Image information.
 
 ## Images Catalogs and Tags
 

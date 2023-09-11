@@ -8,7 +8,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "node-guides"
+    parent: "tutorials"
 weight: 610
 toc: true
 ---
