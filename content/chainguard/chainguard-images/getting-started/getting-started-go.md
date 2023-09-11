@@ -8,7 +8,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "tutorials"
+    parent: "getting-started"
 weight: 610
 toc: true
 ---

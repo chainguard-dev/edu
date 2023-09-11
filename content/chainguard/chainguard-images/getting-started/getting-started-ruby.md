@@ -8,8 +8,8 @@ tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
 menu:
-docs:
-parent: "tutorials"
+  docs:
+    parent: "getting-started"
 weight: 610
 toc: true
 ---
