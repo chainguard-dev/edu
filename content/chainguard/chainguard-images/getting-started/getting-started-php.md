@@ -1,6 +1,7 @@
 ---
 title: "Getting Started with the PHP Chainguard Image"
 type: "article"
+linktitle: "PHP"
 description: "Tutorial on how to get started with the PHP Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
 lastmod: 2023-01-19T11:07:52+02:00
@@ -8,7 +9,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "php-guides"
+    parent: "getting-started"
 weight: 610
 toc: true
 ---
@@ -163,7 +164,7 @@ Copy this content to your own `Dockerfile`:
 ```Dockerfile
 FROM cgr.dev/chainguard/php:latest-dev AS builder
 USER root
-COPY . /app
+COPY ../reference/php /app
 RUN chown -R php /app
 USER php
 RUN cd /app && \

@@ -11,7 +11,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 500
+weight: 900
 toc: true
 ---
 
@@ -36,7 +36,7 @@ We call Wolfi an undistro because unlike a typical Linux distribution, Wolfi is 
 
 There are currently over 100 Chainguard Images available, which are segmented in [three catalog tiers](#what-are-the-different-catalog-tiers-of-chainguard-images). You can read more about the tiers in the [next question](#what-are-the-different-catalog-tiers-of-chainguard-images).
 
-Our full Images Catalog is available on the Chainguard Console at [https://console.enforce.dev/images/catalog](https://console.enforce.dev/images/catalog) (you will need to be logged in). 
+Our full Images Catalog is available on the Chainguard Console at [https://console.enforce.dev/images/catalog](https://console.enforce.dev/images/catalog) (you will need to be logged in).
 
 To review our public catalog, you can check out either the [Chainguard Images Reference Docs](https://edu.chainguard.dev/chainguard/chainguard-images/reference/) or the  [GitHub Repository](https://github.com/chainguard-images).
 
@@ -44,7 +44,7 @@ Chainguard Images are available through the [Chainguard Registry](/chainguard/ch
 
 ## What are the different catalog tiers of Chainguard Images?
 
-The Public Chainguard Images Catalog is available at no cost to users. Our paid catalogs currently include Standard and Custom subscription tiers, featuring enterprise-grade patching SLAs and customer support. 
+The Public Chainguard Images Catalog is available at no cost to users. Our paid catalogs currently include Standard and Custom subscription tiers, featuring enterprise-grade patching SLAs and customer support.
 
 The **Public Catalog** includes no cost access to the latest version of all images from applications and middleware, development and build tools and language runtimes.
 
@@ -57,7 +57,7 @@ Review the comparison table below for additional information about our catalog t
 Catalog | Public Catalog | Standard Catalog | Custom Catalog
 --------|----------------|------------------|---------------
 **Versions** | `:latest`, `:latest-dev`, and images by digest | All upstream supported version tags including ``:latest`` and ``:latest-dev`` | All upstream supported version tags including ``:latest`` and ``:latest-dev``, plus end-of-life versions
-**Image Signatures** | Yes | Yes | Yes 
+**Image Signatures** | Yes | Yes | Yes
 **SBOMS and Attestations** | Yes | Yes | Yes
 **SLSA Provenance** | Build Level 2 | Build Level 2 | Build Level 2
 **Notifications** | Only when logged in, via email | Yes, webhook and email | Yes, webhook and email
@@ -82,10 +82,10 @@ Chainguard Images are designed to be minimalist, and many of them are distroless
 Chainguard Images are rebuilt every night to ensure that new package versions and security updates in upstream Wolfi are quickly applied.
 
 ## Do I need to authenticate into Chainguard to use Chainguard Images?
-Logging in is optional if you are only using `:latest` and `:latest-dev` tags or image digests. 
+Logging in is optional if you are only using `:latest` and `:latest-dev` tags or image digests.
 
 As of August 16, 2023, all other tags for Chainguard Images in the Public catalog are unavailable without paying for access to the Standard or Custom catalogs. This means that Public catalog users, including open source projects, will either need to pin to the digest they currently use, migrate to the software version associated with `:latest`, or build upon [wolfi-base](/chainguard/chainguard-images/reference/wolfi-base/) to build their desired image.
 
-There are benefits for all users who authenticate to the Chainguard Registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates. However, users can continue to pull Images by digest or Images tagged `:latest` anonymously. 
+There are benefits for all users who authenticate to the Chainguard Registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates. However, users can continue to pull Images by digest or Images tagged `:latest` anonymously.
 
 To learn how to authenticate into the Chainguard Registry, you can review our [authentication documentation](/chainguard/chainguard-images/registry/authenticating/). You can read more about our Images catalogs and some of the thought process behind authentication in our blog post, [Scaling Chainguard Images with a growing catalog and proactive security updates](https://www.chainguard.dev/unchained/scaling-chainguard-images-with-a-growing-catalog-and-proactive-security-updates). You can read about the August 16, 2023 changes in the [Important updates for Chainguard Images public catalog users](https://www.chainguard.dev/unchained/important-updates-for-chainguard-images-public-catalog-users) blog post.

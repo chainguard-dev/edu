@@ -1,5 +1,6 @@
 ---
 title: "Getting Started with the Ruby Chainguard Image"
+linktitle: "Ruby"
 type: "article"
 description: "Tutorial on how to get started with the Ruby Chainguard Image"
 date: 2023-05-10T11:07:52+02:00
@@ -8,8 +9,8 @@ tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
 menu:
-docs:
-parent: "ruby-guides"
+  docs:
+    parent: "getting-started"
 weight: 610
 toc: true
 ---
