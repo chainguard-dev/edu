@@ -29,7 +29,7 @@ FROM cgr.dev/chainguard/go as build
 
 
 COPY main.go /main.go
-RUN CG_ENABLED=0 go build -o /hello /main.go
+RUN CGO_ENABLED=0 go build -o /hello /main.go
 
 
 FROM cgr.dev/chainguard/static
