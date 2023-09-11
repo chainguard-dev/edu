@@ -6,7 +6,7 @@ date: 2023-08-22T08:49:15+00:00
 lastmod: 2023-08-22T08:49:15+00:00
 draft: false
 images: []
-weight: 925
+weight: 450
 topic: true
 banner: {
     image: "/go-logo-white.svg",
