@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:2da0e25041785a5b6cd7528b5db7dab14fb8f8198e1b225a784fe05691c43723` |
+|  `latest` | September 8th | `sha256:0edec912686a0ffd38018a9dfdda37ba65ad1c2356298574ad3d5395e82e8686` |
 
 # crossplane-aws-iam
 

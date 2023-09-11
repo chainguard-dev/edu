@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/aws-efs-csi-driver](https://github.com/chainguard-images/images/tree/main/images/aws-efs-csi-driver)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:8730318b3f017ac8dfbb1ffa7cc5c034a406b7a81cc58b6461dfd068928812e9` |
-|  `latest-dev` | September 7th | `sha256:f0a9b01c113427706708eebad5f3c0fa7cfd60b39265e0f449d17e1bb42b9b0e` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 10th | `sha256:0bfde8bd3141dfa717cd7b4da910b7b08e11dc6314334cbbd817eb2183f417f8` |
+|  `latest`     | September 10th | `sha256:7866c13e526e5f80ae5b1cc7133e0301b07796ed90c1e648352a4f22a69f369d` |
 
 
 
