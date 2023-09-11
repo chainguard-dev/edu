@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:d9052b55165ad899adc397246d77d0e8fb587fd135412f2a0b6bf050bfbe4a59` |
-|  `latest`     | September 4th | `sha256:5ded199e926f777bf42d0223ed329c101339c985311fdeb8987a2511e359cbba` |
+|  `latest`     | September 8th | `sha256:fd8b254b94cf9b086cd8d5816046901a4b61b3356a7e1a9fde7bf5d660bb4c66` |
+|  `latest-dev` | September 8th | `sha256:3f30ca36a15e441ec115dbf2f3746d6d92d1b0deffe1253d1febf622ae66a5a2` |
 
 # prometheus-mysqld-exporter
 

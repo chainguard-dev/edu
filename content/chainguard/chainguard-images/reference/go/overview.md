@@ -18,8 +18,8 @@ toc: true
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:5e4f59c6647331d4e57f26121c0bd2b8110e406c64ce7f1597a71965c80ded46` |
-|  `latest`     | September 7th | `sha256:80317f19adf0372d8be8355af905ff18138e58b01c1f161997f4722a82df8b09` |
+|  `latest-dev` | September 8th | `sha256:8b635919fab8d88cca70f486aa6a9334ea491acc747370ae2b6d6de478589878` |
+|  `latest`     | September 8th | `sha256:dcbc6fbe5dd829aa5ce8eceb3466c3b26f7e8ce3c3b7561719297d2b69381fb0` |
 
 
 
@@ -42,7 +42,7 @@ still available at `cgr.dev/chainguard/go:latest-musl`.
 
 ## Host architecture example
 
-To build the Go application in [tests/hello/main.go](https://github.com/chainguard-images/images/blob/main/images/go/examples/hello/main.go)
+To build the Go application in [tests/hello/main.go](https://github.com/chainguard-images/images/blob/main/images/go/tests/hello/main.go)
 using the host architecture:
 
 ```sh

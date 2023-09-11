@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:a0b2b64b601294806cb20524bcefaed52bc754bb8258c97240b48182bd5e2582` |
+|  `latest` | September 8th | `sha256:7bd166e13def1374f07097d63112569ea0b6044fbad05627dcd2232176835801` |
 
 # calico-node-driver-registrar
 
