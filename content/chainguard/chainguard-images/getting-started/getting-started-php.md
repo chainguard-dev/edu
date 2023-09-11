@@ -1,6 +1,7 @@
 ---
 title: "Getting Started with the PHP Chainguard Image"
 type: "article"
+linktitle: "PHP"
 description: "Tutorial on how to get started with the PHP Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
 lastmod: 2023-01-19T11:07:52+02:00
