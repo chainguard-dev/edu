@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/node](https://github.com/chainguard-images/images/tree/main/images/node)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:836686ad32f189d5712b75318a1e3a2e3d9f32eac70f9d0f39cd2ba972a6d7f7` |
-|  `latest`     | September 7th | `sha256:f73e14400dc773a4d3e2d89c81788d8be253188aabaec6df7f991bf03e2d18e3` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 10th | `sha256:1d4bb3af97a81b6fdbbc3d1e749bebc7b5f5e269ba5a36d84e10492f2f2e2523` |
+|  `latest`     | September 10th | `sha256:e73ff1c760efb325401078566de59d84283c007ec943a97e109cabf7a3cf4388` |
 
 
 

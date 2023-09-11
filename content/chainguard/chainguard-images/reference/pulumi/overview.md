@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/pulumi](https://github.com/chainguard-images/images/tree/main/images/pulumi)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:bf4350d0b0ad30c40e367f3202206e9a3960018215022804320b1a0a1db8005d` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 10th | `sha256:eaaca5a43b5fc4df1cd4e4c39c330125ebdb72743855ee732ccd2b6c125df990` |
 
 
 
