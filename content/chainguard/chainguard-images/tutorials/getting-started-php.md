@@ -8,7 +8,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "php-guides"
+    parent: "tutorials"
 weight: 610
 toc: true
 ---
@@ -163,7 +163,7 @@ Copy this content to your own `Dockerfile`:
 ```Dockerfile
 FROM cgr.dev/chainguard/php:latest-dev AS builder
 USER root
-COPY . /app
+COPY ../reference/php /app
 RUN chown -R php /app
 USER php
 RUN cd /app && \

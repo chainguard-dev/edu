@@ -8,14 +8,14 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "postgres-guides"
+    parent: "tutorials"
 weight: 610
 toc: true
 ---
 
 PostgreSQL — commonly known as "Postgres" — is a popular open-source relational database. The PostgreSQL Images based on Wolfi and maintained by Chainguard provide distroless Images that are suitable for building and running PostgreSQL workloads.
 
-Because Chainguard Images (including the PostgreSQL image) are rebuilt daily with the latest sources and include the absolute minimum of dependencies, they have significantly fewer vulnerabilities than equivalent images, typically zero. This means you can use the Chainguard PostgreSQL Image to run Postgres databases in containerized environments with a smaller footprint and greater security. 
+Because Chainguard Images (including the PostgreSQL image) are rebuilt daily with the latest sources and include the absolute minimum of dependencies, they have significantly fewer vulnerabilities than equivalent images, typically zero. This means you can use the Chainguard PostgreSQL Image to run Postgres databases in containerized environments with a smaller footprint and greater security.
 
 In order to illustrate how the PostgreSQL Chainguard Image might be used in practice, this tutorial involves setting up an example PHP application that uses a Postgres database. This guide assumes you have Docker installed to run the demo; specifically, the procedure outlined in this guide uses [Docker Compose](https://docs.docker.com/compose/install/) to manage the environment on your local machine.
 
@@ -88,7 +88,7 @@ Once the environment is up, you can visit the demo in your web browser. The `ind
 
 Every time you reload the page, a new entry will be added to the table.
 
-Note that this application includes a Dockerfile. 
+Note that this application includes a Dockerfile.
 
 ```sh
 cat Dockerfile
@@ -102,7 +102,7 @@ RUN apk update && apk add php-pgsql
 USER php
 ```
 
-This Dockerfile takes the public `php:latest-fpm-dev` Chainguard Image and installs the `php-pgsql` package onto it. This image comes with drivers that allow PHP applications to connect to MySQL or MariaDB databases by default but it doesn't have an equivalent for PostgreSQL. For this reason, we use this Dockerfile to install this package in order for the PHP application to be able to connect to the Postgres database. 
+This Dockerfile takes the public `php:latest-fpm-dev` Chainguard Image and installs the `php-pgsql` package onto it. This image comes with drivers that allow PHP applications to connect to MySQL or MariaDB databases by default but it doesn't have an equivalent for PostgreSQL. For this reason, we use this Dockerfile to install this package in order for the PHP application to be able to connect to the Postgres database.
 
 Execute the following command to build an image with this Dockerfile, and then create and start each of the three containers and bring up the application.
 
@@ -112,11 +112,11 @@ docker compose up -d
 
 The `-d` option is short for `--detach`; this will cause the containers to run in the background, allowing you to continue using the same terminal window. If you run into permissions issues when running this command, try running it again with `sudo` privileges.
 
-> **Note**: If at any point you'd like to stop and remove these containers, run `docker compose down`. 
+> **Note**: If at any point you'd like to stop and remove these containers, run `docker compose down`.
 
 Once all the containers have started, you'll be able to visit the application and observe it working. Open up your preferred web browser and navigate to `localhost:8000`. There, you'll be presented with text like the following
 
-![Screenshot showing a Firefox web browser window with "localhost:8000" in the address bar. On the page is the following text: "Array ( [data_key] => code [data_value] => 8404 )"](pg-demo-success-1.png) 
+![Screenshot showing a Firefox web browser window with "localhost:8000" in the address bar. On the page is the following text: "Array ( [data_key] => code [data_value] => 8404 )"](pg-demo-success-1.png)
 
 Every time you refresh your browser, a new entry will appear.
 
