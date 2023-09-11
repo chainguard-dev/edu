@@ -1,6 +1,7 @@
 ---
 title: "Getting Started with the MariaDB Chainguard Image"
 type: "article"
+linktitle: "MariaDB"
 lead: "Tutorial on how to get started with the MariaDB Chainguard Image"
 date: 2023-07-28T11:07:52+02:00
 lastmod: 2023-08-10T11:07:52+02:00
@@ -8,14 +9,14 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "mariadb-guides"
+    parent: "getting-started"
 weight: 610
 toc: true
 ---
 
 The MariaDB Image based on Wolfi and maintained by Chainguard provide a distroless container Image that is suitable for building and running MariaDB workloads.
 
-Because Chainguard Images (including the MariaDB image) are rebuilt daily with the latest sources and include the absolute minimum of dependencies, they have significantly less vulnerabilities than equivalent images, typically zero. This means you can use the Chainguard MariaDB Image to run MariaDB databases in containerized environments with a smaller footprint and greater security. 
+Because Chainguard Images (including the MariaDB image) are rebuilt daily with the latest sources and include the absolute minimum of dependencies, they have significantly less vulnerabilities than equivalent images, typically zero. This means you can use the Chainguard MariaDB Image to run MariaDB databases in containerized environments with a smaller footprint and greater security.
 
 In order to illustrate how the MariaDB Chainguard Image might be used in practice, this tutorial involves setting up an example PHP application that uses a MariaDB database. This guide assumes you have Docker installed to run the demo; specifically, the procedure outlined in this guide uses [Docker Compose](https://docs.docker.com/compose/install/) to manage the environment on your local machine.
 
@@ -102,7 +103,7 @@ docker compose up -d
 
 The `-d` option is short for `--detach`; this will cause the containers to run in the background, allowing you to continue using the same terminal window. If you run into permissions issues when running this command, try running it again with `sudo` privileges.
 
-> **Note**: If at any point you'd like to stop and remove these containers, run `docker compose down`. 
+> **Note**: If at any point you'd like to stop and remove these containers, run `docker compose down`.
 
 Once all the containers have started, you'll be able to visit the application and observe it working. Open up your preferred web browser and navigate to `localhost:8000`. There, you'll be presented with text like the following.
 

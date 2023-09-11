@@ -1,6 +1,7 @@
 ---
 title: "Getting Started with the Go Chainguard Image"
 type: "article"
+linktitle: "Go"
 description: "Tutorial on the distroless Go Chainguard Image"
 date: 2023-02-28T11:07:52+02:00
 lastmod: 2023-02-28T11:07:52+02:00
@@ -8,14 +9,14 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "go-guides"
+    parent: "getting-started"
 weight: 610
 toc: true
 ---
 
 The Go images based on Wolfi and maintained by Chainguard provide distroless images that are suitable for building Go workloads.
 
-Chainguard offers a minimal runtime image designed for running Go workloads, and a development image that contains a shell and the standard Go build tooling. 
+Chainguard offers a minimal runtime image designed for running Go workloads, and a development image that contains a shell and the standard Go build tooling.
 
 We'll demonstrate two ways that you can build the Go image. The [first example](#example-1-minimal-go-chainguard-image-built-with-ko) will show how to build the Go Chainguard Image with [ko](https://ko.build/). ko enables you to build images from Go programs and push them to container registries without requiring a Dockerfile. The [second example](#example-2--multistage-docker-build-for-go-chainguard-image) will show how to create a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses the [glibc-dynamic runtime image](/chainguard/chainguard-images/reference/glibc-dynamic/overview/) along with the Go Chainguard Image.
 
@@ -48,7 +49,7 @@ First, create a directory for your app. You can use any meaningful name and path
 mkdir ~/go-digester/ && cd $_
 ```
 
-Next, initialize your app by creating a new module and installing dependencies. 
+Next, initialize your app by creating a new module and installing dependencies.
 
 ```shell
 go mod init go-digester
@@ -106,7 +107,7 @@ With the program running as expected, you're ready to move onto either or both e
 
 ## Example 1 — Minimal Go Chainguard Image Built with ko
 
-In this example, we'll build a distroless Go Chainguard Image with ko from the demo app we created in the [prerequisite step](#prerequisite--setting-up-a-demo-application-in-go). 
+In this example, we'll build a distroless Go Chainguard Image with ko from the demo app we created in the [prerequisite step](#prerequisite--setting-up-a-demo-application-in-go).
 
 ko offers fast container image builds for Go applications. It builds images by executing `go build` on your local machine, and because of this, you are not required to have Docker installed to build the image. Additionally, ko produces [SBOMs](/open-source/sbom/what-is-an-sbom/) by default, supporting a holistic approach to software security.
 
@@ -153,7 +154,7 @@ Now that you have built the Go Chainguard Image with ko, you can continue onto [
 
 Because Go applications are compiled and the toolchain is not typically required in a runtime image, we suggest the usage of a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses the [glibc-dynamic runtime image](/chainguard/chainguard-images/reference/glibc-dynamic/overview/). In some cases, the [static image](/chainguard/chainguard-images/reference/static/overview/) may be used as well for an even smaller image, but extra care must be taken to ensure the Go binary is statically-compiled.
 
-For this multi-stage build, we'll use two `FROM` lines in our Dockerfile. To create this Dockerfile, you can use any code editor of your choice, we'll use Nano for demonstation purposes. 
+For this multi-stage build, we'll use two `FROM` lines in our Dockerfile. To create this Dockerfile, you can use any code editor of your choice, we'll use Nano for demonstation purposes.
 
 ```shell
 nano Dockerfile
@@ -168,7 +169,7 @@ The following Dockerfile will:
 
 ```Dockerfile
 FROM cgr.dev/chainguard/go AS builder
-COPY . /app
+COPY ../reference/go /app
 RUN cd /app && go build -o go-digester .
 
 FROM cgr.dev/chainguard/glibc-dynamic

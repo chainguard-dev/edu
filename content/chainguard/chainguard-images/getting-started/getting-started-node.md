@@ -1,6 +1,7 @@
 ---
 title: "Getting Started with the Node Chainguard Image"
 type: "article"
+linktitle: "Node"
 description: "Tutorial on how to get started with the Node Chainguard Image"
 date: 2023-02-01T11:07:52+02:00
 lastmod: 2023-02-01T11:07:52+02:00
@@ -8,7 +9,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "node-guides"
+    parent: "getting-started"
 weight: 610
 toc: true
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Getting Started with the Python Chainguard Image"
 type: "article"
+linktitle: "Python"
 description: "Tutorial on the distroless Python Chainguard Image"
 date: 2023-02-28T11:07:52+02:00
 lastmod: 2023-02-28T11:07:52+02:00
@@ -8,7 +9,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "python-guides"
+    parent: "getting-started"
 weight: 610
 toc: true
 ---
@@ -84,7 +85,7 @@ curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/p
 At this point, you can run the script and be sure you are satisfied with the functionality. It is recommended that you use a Python programming environment. Ensure whether you will be using the `python` or `python3` command.
 
 ```shell
-python main.py 
+python main.py
 ```
 
 You should receive the output of a randomized octopus fact.
@@ -95,11 +96,11 @@ The wolfi octopus was discovered in 1913.
 
 The demo application is now ready. In the next step, you’ll create a Dockerfile to run your app.
 
-### Step 2: Creating the Dockerfile 
+### Step 2: Creating the Dockerfile
 
 For this single-stage build, we'll only use one `FROM` line in our Dockerfile. Our resulting image will be based on the distroless Python Wolfi image, which means it doesn’t come with a package manager or even a shell.
 
-We'll begin by creating a Dockerfile. Again, you can use any code editor of your choice, we'll use Nano for demonstation purposes. 
+We'll begin by creating a Dockerfile. Again, you can use any code editor of your choice, we'll use Nano for demonstation purposes.
 
 ```shell
 nano Dockerfile
@@ -146,11 +147,11 @@ You have successfully completed the single-stage Python Chainguard Image. At thi
 
 ## Example 2 — Multi-Stage Build for Python Chainguard Image
 
-In this example, we'll build and run a multi-stage Python Chainguard Image to demonstrate the process that includes a build image with pip and a shell, and a final distroless image. 
+In this example, we'll build and run a multi-stage Python Chainguard Image to demonstrate the process that includes a build image with pip and a shell, and a final distroless image.
 
 ### Step 1: Setting up a Demo Application
 
-We'll start by creating a Python application that will take in an image file and convert it to ANSI escape sequences on the CLI to render an image. 
+We'll start by creating a Python application that will take in an image file and convert it to ANSI escape sequences on the CLI to render an image.
 
 To begin, create a directory for your app. You can use any meaningful name and path that resonates with you, our example will use `inky/`.
 
@@ -202,7 +203,7 @@ python inky.py
 
 You'll receive a representation of the Chainguard Inky logo on the command line. With your demo application ready, you're ready to move onto the container stage.
 
-### Step 2: Creating the Dockerfile 
+### Step 2: Creating the Dockerfile
 
 To make sure our final image is distroless while still being able to install dependencies with pip, our build will consist of two stages: first, we’ll build the application using the dev image variant, a Wolfi-based image that includes pip and other useful tools for development. Then, we’ll create a separate stage for the final image. The resulting image will be based on the distroless Python Wolfi image, which means it doesn’t come with pip or even a shell.
 
@@ -246,7 +247,7 @@ ENTRYPOINT [ "python", "/inky/inky.py" ]
 
 Save the file when you’re finished.
 
-You can now build the image. If you receive a permission error, try running under `sudo`. 
+You can now build the image. If you receive a permission error, try running under `sudo`.
 
 ```shell
 docker build . -t inky
@@ -258,7 +259,7 @@ Once the build is finished, run the image with:
 docker run --rm inky
 ```
 
-And you should get output similar to what you got before, with a printed Inky on the command line. 
+And you should get output similar to what you got before, with a printed Inky on the command line.
 
 ## Advanced Usage
 
