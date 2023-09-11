@@ -16,9 +16,8 @@ toc: true
 
 [cgr.dev/chainguard/k3s-embedded](https://github.com/chainguard-images/images/tree/main/images/k3s-embedded)
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | August 8th   | `sha256:c26178d63497409b8f2b58716931f03430788884d916c5552f3b5a22fab0fc42` |
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 
 # k3s-embedded
 

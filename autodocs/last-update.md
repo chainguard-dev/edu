@@ -1,8 +1,7 @@
-## 2023-09-08
+## 2023-09-11
 
 Updated image reference docs.
 
 New images added:
 
-- istio-proxy
-- istio-pilot
+- pgbouncer

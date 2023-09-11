@@ -18,13 +18,13 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                                                         | Last Changed  | Digest                                                                    |
-|-------------------------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev`                                                                                   | September 7th | `sha256:836686ad32f189d5712b75318a1e3a2e3d9f32eac70f9d0f39cd2ba972a6d7f7` |
-|  `latest`                                                                                       | September 7th | `sha256:f73e14400dc773a4d3e2d89c81788d8be253188aabaec6df7f991bf03e2d18e3` |
-|  `19.9-dev` `19.9.0-dev` `19.9.0-r3-dev` `19-dev`                                               | September 1st | `sha256:cc1e1944efd51869d0cc2b5f847ddc68ed0fe34be2c349fc24ce81b368b828be` |
-|  `18.16.0` `18.16` `18.17.1` `18.17` `18`                                                       | September 1st | `sha256:af073516c203b6bd0b55a77a806a0950b486f2e9ea7387a32b0f41ea72f20886` |
-|  `18.16.0-r2-dev` `18.17-dev` `18.17.1-r1-dev` `18.16.0-dev` `18.17.1-dev` `18.16-dev` `18-dev` | September 1st | `sha256:0b91333f21897380b94c5ec4eef05722db35de37734399c6a454e8ed399330f1` |
-|  `20` `20.5.1` `20.5`                                                                           | September 1st | `sha256:f30d39c6980f0a50119f2aa269498307a80c2654928d8e23bb25431b9cbbdc4f` |
-|  `19.9.0` `19.9` `19`                                                                           | September 1st | `sha256:c97dff66fe71fbe56493a867e819d0b7859b8c6fe1fd7a47074c78ae46864666` |
-|  `20.5.1-dev` `20.5-dev` `20-dev` `20.5.1-r1-dev`                                               | September 1st | `sha256:893a3af766380ae1caaf0cbccbc0d6b8fcc97b86eac29df7dbd2ba89acfb22d3` |
+| Tag (s)                                                                                         | Last Changed   | Digest                                                                    |
+|-------------------------------------------------------------------------------------------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev`                                                                                   | September 10th | `sha256:1d4bb3af97a81b6fdbbc3d1e749bebc7b5f5e269ba5a36d84e10492f2f2e2523` |
+|  `latest`                                                                                       | September 10th | `sha256:e73ff1c760efb325401078566de59d84283c007ec943a97e109cabf7a3cf4388` |
+|  `19.9-dev` `19.9.0-dev` `19.9.0-r3-dev` `19-dev`                                               | September 1st  | `sha256:cc1e1944efd51869d0cc2b5f847ddc68ed0fe34be2c349fc24ce81b368b828be` |
+|  `18.16.0` `18.16` `18.17.1` `18.17` `18`                                                       | September 1st  | `sha256:af073516c203b6bd0b55a77a806a0950b486f2e9ea7387a32b0f41ea72f20886` |
+|  `18.16.0-r2-dev` `18.17-dev` `18.17.1-r1-dev` `18.16.0-dev` `18.17.1-dev` `18.16-dev` `18-dev` | September 1st  | `sha256:0b91333f21897380b94c5ec4eef05722db35de37734399c6a454e8ed399330f1` |
+|  `20` `20.5.1` `20.5`                                                                           | September 1st  | `sha256:f30d39c6980f0a50119f2aa269498307a80c2654928d8e23bb25431b9cbbdc4f` |
+|  `19.9.0` `19.9` `19`                                                                           | September 1st  | `sha256:c97dff66fe71fbe56493a867e819d0b7859b8c6fe1fd7a47074c78ae46864666` |
+|  `20.5.1-dev` `20.5-dev` `20-dev` `20.5.1-r1-dev`                                               | September 1st  | `sha256:893a3af766380ae1caaf0cbccbc0d6b8fcc97b86eac29df7dbd2ba89acfb22d3` |

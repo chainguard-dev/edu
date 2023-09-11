@@ -18,7 +18,7 @@ toc: true
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:ab7f1e2da07e4a8692b49ccf753670994f83d17e1543c149fff6d3aae0927f61` |
+|  `latest` | September 8th | `sha256:3c70065ece0f30c5eb2925a1f84d7f7fde4adb9f48e8f6378bc63c47531ce89b` |
 
 # crossplane-azure-sql
 
