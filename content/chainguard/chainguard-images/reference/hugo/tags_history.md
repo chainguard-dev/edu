@@ -1,18 +1,23 @@
 ---
 title: "hugo Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the hugo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/hugo/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/hugo/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/hugo/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/hugo/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest`     | September 11th | `sha256:18d20c8eda50961ca784114d2489806b9364013aa47f2840e3135d4b6f8e0992` |
 |  `latest-dev` | September 11th | `sha256:dcb6cbfc3a889c0a21ec8f98081e2b9f9e2d5a70b577d51bf19faeb6df579dc2` |
+

@@ -1,18 +1,23 @@
 ---
 title: "prometheus-pushgateway Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public prometheus-pushgateway Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "prometheus-pushgateway"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/prometheus-pushgateway/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/prometheus-pushgateway/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/prometheus-pushgateway/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/prometheus-pushgateway/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **prometheus-pushgateway** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev             | latest                 |
 |--------------|------------------------|------------------------|
-| Default User | `nonroot`              | `nonroot`              |
+| Default User | `65534`                | `65534`                |
 | Entrypoint   | `/usr/bin/pushgateway` | `/usr/bin/pushgateway` |
 | CMD          | not specified          | not specified          |
 | Workdir      | `/pushgateway`         | `/pushgateway`         |

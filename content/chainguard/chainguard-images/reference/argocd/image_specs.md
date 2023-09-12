@@ -1,18 +1,23 @@
 ---
 title: "argocd Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public argocd Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "argocd"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/argocd/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/argocd/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/argocd/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/argocd/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **argocd** Image.
 
@@ -28,7 +33,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev     | latest         | repo-server-latest-dev              | repo-server-latest                  |
 |--------------|----------------|----------------|-------------------------------------|-------------------------------------|
-| Default User | `argocd`       | `argocd`       | `argocd`                            | `argocd`                            |
+| Default User | `999`          | `999`          | `999`                               | `999`                               |
 | Entrypoint   | not specified  | not specified  | `/usr/local/bin/argocd-repo-server` | `/usr/local/bin/argocd-repo-server` |
 | CMD          | not specified  | not specified  | not specified                       | not specified                       |
 | Workdir      | `/home/argocd` | `/home/argocd` | `/home/argocd`                      | `/home/argocd`                      |

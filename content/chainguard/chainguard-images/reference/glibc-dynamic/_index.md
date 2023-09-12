@@ -1,11 +1,43 @@
 ---
-title: "glibc-dynamic"
-description: "Chainguard Images Reference: glibc-dynamic"
+title: "Image Overview: glibc-dynamic"
+linktitle: "glibc-dynamic"
 type: "article"
-date: 2022-11-28T08:49:15+00:00
-lastmod: 2022-11-28T08:49:15+00:00
+layout: "single"
+description: "Overview: glibc-dynamic Chainguard Image"
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
+menu:
+  docs:
+    parent: "images-reference"
+weight: 500
+toc: true
 ---
 
-Reference docs for the glibc-dynamic Chainguard Image
+{{< tabs >}}
+{{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/glibc-dynamic/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/glibc-dynamic/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/glibc-dynamic/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/glibc-dynamic/provenance_info/" >}}
+{{</ tabs >}}
+
+
+
+Base image with just enough to run arbitrary glibc binaries.
+
+This image is meant to be used as just a base image only. It does not contain any programs that can be run, other than `/sbin/ldconfig`.
+
+You must bring your own artifacts to use this image, e.g. with a Docker multi-stage build. If you want locale support other than `C.UTF-8`, you must bring your own locale data as well. This may change in the future based on user feedback.
+
+See also [musl-dynamic](https://github.com/chainguard-images/images/tree/main/images/musl-dynamic) which is an equivalent image for running dynamically-linked musl binaries.
+
+## Get It!
+
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/glibc-dynamic:latest
+```
+

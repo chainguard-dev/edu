@@ -1,18 +1,23 @@
 ---
 title: "prometheus-node-exporter Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the prometheus-node-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/prometheus-node-exporter/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/prometheus-node-exporter/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/prometheus-node-exporter/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/prometheus-node-exporter/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest-dev` | September 11th | `sha256:5ae84bc702be4438d9fab90f38cb108d54d9ac46ba8e5f44a0b9723b96a26049` |
 |  `latest`     | September 11th | `sha256:cb346878ab02f08d6298df8ee99f6f430db13919014125b203311e56ceae3755` |
+

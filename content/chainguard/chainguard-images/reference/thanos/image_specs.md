@@ -1,18 +1,23 @@
 ---
 title: "thanos Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public thanos Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "thanos"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/thanos/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/thanos/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/thanos/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/thanos/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **thanos** Image.
 
@@ -28,7 +33,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev    | latest        | operator-latest-dev | operator-latest    |
 |--------------|---------------|---------------|---------------------|--------------------|
-| Default User | `thanos`      | `thanos`      | `nonroot`           | `nonroot`          |
+| Default User | `65532`       | `65532`       | `65532`             | `65532`            |
 | Entrypoint   | `thanos`      | `thanos`      | `/usr/bin/manager`  | `/usr/bin/manager` |
 | CMD          | not specified | not specified | not specified       | not specified      |
 | Workdir      | not specified | not specified | not specified       | not specified      |

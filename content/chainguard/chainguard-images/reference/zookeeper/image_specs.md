@@ -1,18 +1,23 @@
 ---
 title: "zookeeper Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public zookeeper Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "zookeeper"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/zookeeper/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/zookeeper/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/zookeeper/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/zookeeper/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **zookeeper** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                  | latest                                      |
 |--------------|---------------------------------------------|---------------------------------------------|
-| Default User | `zookeeper`                                 | `zookeeper`                                 |
+| Default User | `65532`                                     | `65532`                                     |
 | Entrypoint   | `/usr/share/java/zookeeper/bin/zkServer.sh` | `/usr/share/java/zookeeper/bin/zkServer.sh` |
 | CMD          | `start-foreground`                          | `start-foreground`                          |
 | Workdir      | not specified                               | not specified                               |

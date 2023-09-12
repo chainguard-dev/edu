@@ -1,18 +1,23 @@
 ---
 title: "crossplane-azure-storage Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public crossplane-azure-storage Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "crossplane-azure-storage"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/crossplane-azure-storage/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/crossplane-azure-storage/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/crossplane-azure-storage/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/crossplane-azure-storage/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **crossplane-azure-storage** Image.
 
@@ -25,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                    |
 |--------------|---------------------------|
-| Default User | `nonroot`                 |
+| Default User | `65532`                   |
 | Entrypoint   | `/usr/local/bin/provider` |
 | CMD          | not specified             |
 | Workdir      | not specified             |

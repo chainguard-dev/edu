@@ -1,18 +1,23 @@
 ---
 title: "vault Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public vault Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "vault"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/vault/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/vault/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/vault/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/vault/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **vault** Image.
 
@@ -28,7 +33,7 @@ The table has detailed information about each of these variants.
 
 |              | k8s-latest-dev       | k8s-latest           | latest-dev                      | latest                          |
 |--------------|----------------------|----------------------|---------------------------------|---------------------------------|
-| Default User | `vault`              | `vault`              | `root`                          | `root`                          |
+| Default User | `65532`              | `65532`              | `0`                             | `0`                             |
 | Entrypoint   | `/usr/bin/vault-k8s` | `/usr/bin/vault-k8s` | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` |
 | CMD          | not specified        | not specified        | `server -dev`                   | `server -dev`                   |
 | Workdir      | not specified        | not specified        | not specified                   | not specified                   |

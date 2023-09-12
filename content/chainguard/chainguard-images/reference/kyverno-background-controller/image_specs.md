@@ -1,18 +1,23 @@
 ---
 title: "kyverno-background-controller Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public kyverno-background-controller Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "kyverno-background-controller"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kyverno-background-controller/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/kyverno-background-controller/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kyverno-background-controller/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kyverno-background-controller/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **kyverno-background-controller** Image.
 
@@ -25,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                           |
 |--------------|----------------------------------|
-| Default User | `nonroot`                        |
+| Default User | `65532`                          |
 | Entrypoint   | `/usr/bin/background-controller` |
 | CMD          | `help`                           |
 | Workdir      | not specified                    |

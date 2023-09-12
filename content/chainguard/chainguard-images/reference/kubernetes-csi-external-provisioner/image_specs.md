@@ -1,18 +1,23 @@
 ---
 title: "kubernetes-csi-external-provisioner Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public kubernetes-csi-external-provisioner Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "kubernetes-csi-external-provisioner"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-provisioner/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/kubernetes-csi-external-provisioner/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-provisioner/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-provisioner/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **kubernetes-csi-external-provisioner** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                 | latest                     |
 |--------------|----------------------------|----------------------------|
-| Default User | `root`                     | `root`                     |
+| Default User | `0`                        | `0`                        |
 | Entrypoint   | `/usr/bin/csi-provisioner` | `/usr/bin/csi-provisioner` |
 | CMD          | not specified              | not specified              |
 | Workdir      | not specified              | not specified              |

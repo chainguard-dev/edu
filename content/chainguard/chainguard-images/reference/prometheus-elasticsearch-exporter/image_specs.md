@@ -1,18 +1,23 @@
 ---
 title: "prometheus-elasticsearch-exporter Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public prometheus-elasticsearch-exporter Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "prometheus-elasticsearch-exporter"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/prometheus-elasticsearch-exporter/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/prometheus-elasticsearch-exporter/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/prometheus-elasticsearch-exporter/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/prometheus-elasticsearch-exporter/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **prometheus-elasticsearch-exporter** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                        | latest                            |
 |--------------|-----------------------------------|-----------------------------------|
-| Default User | `elasticsearch_exporter`          | `elasticsearch_exporter`          |
+| Default User | `65532`                           | `65532`                           |
 | Entrypoint   | `/usr/bin/elasticsearch_exporter` | `/usr/bin/elasticsearch_exporter` |
 | CMD          | not specified                     | not specified                     |
 | Workdir      | not specified                     | not specified                     |

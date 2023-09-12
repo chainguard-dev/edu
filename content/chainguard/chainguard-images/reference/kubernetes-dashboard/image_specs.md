@@ -1,18 +1,23 @@
 ---
 title: "kubernetes-dashboard Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public kubernetes-dashboard Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "kubernetes-dashboard"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubernetes-dashboard/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/kubernetes-dashboard/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kubernetes-dashboard/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubernetes-dashboard/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **kubernetes-dashboard** Image.
 
@@ -28,7 +33,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                                                         | latest                                                                                             | metrics-scraper-latest-dev | metrics-scraper-latest     |
 |--------------|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|----------------------------|----------------------------|
-| Default User | `nonroot`                                                                                          | `nonroot`                                                                                          | `nonroot`                  | `nonroot`                  |
+| Default User | `65532`                                                                                            | `65532`                                                                                            | `65532`                    | `65532`                    |
 | Entrypoint   | `/usr/share/kubernetes-dashboard/dashboard --insecure-bind-address=0.0.0.0 --bind-address=0.0.0.0` | `/usr/share/kubernetes-dashboard/dashboard --insecure-bind-address=0.0.0.0 --bind-address=0.0.0.0` | `/usr/bin/metrics-sidecar` | `/usr/bin/metrics-sidecar` |
 | CMD          | not specified                                                                                      | not specified                                                                                      | not specified              | not specified              |
 | Workdir      | not specified                                                                                      | not specified                                                                                      | not specified              | not specified              |

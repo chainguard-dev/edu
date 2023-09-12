@@ -1,18 +1,23 @@
 ---
 title: "calico-typha Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public calico-typha Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "calico-typha"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/calico-typha/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/calico-typha/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/calico-typha/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/calico-typha/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **calico-typha** Image.
 
@@ -25,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                  |
 |--------------|-------------------------|
-| Default User | `nonroot`               |
+| Default User | `65532`                 |
 | Entrypoint   | `/sbin/tini --`         |
 | CMD          | `/usr/bin/calico-typha` |
 | Workdir      | not specified           |

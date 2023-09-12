@@ -1,18 +1,23 @@
 ---
 title: "secrets-store-csi-driver Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public secrets-store-csi-driver Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "secrets-store-csi-driver"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/secrets-store-csi-driver/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/secrets-store-csi-driver/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/secrets-store-csi-driver/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/secrets-store-csi-driver/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **secrets-store-csi-driver** Image.
 
@@ -28,7 +33,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                   | latest                       | provider-gcp-latest-dev                          | provider-gcp-latest                              |
 |--------------|------------------------------|------------------------------|--------------------------------------------------|--------------------------------------------------|
-| Default User | `root`                       | `root`                       | `root`                                           | `root`                                           |
+| Default User | `0`                          | `0`                          | `0`                                              | `0`                                              |
 | Entrypoint   | `/usr/bin/secrets-store-csi` | `/usr/bin/secrets-store-csi` | `/usr/bin/secrets-store-csi-driver-provider-gcp` | `/usr/bin/secrets-store-csi-driver-provider-gcp` |
 | CMD          | not specified                | not specified                | not specified                                    | not specified                                    |
 | Workdir      | not specified                | not specified                | not specified                                    | not specified                                    |

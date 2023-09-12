@@ -1,18 +1,23 @@
 ---
 title: "buck2 Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public buck2 Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "buck2"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/buck2/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/buck2/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/buck2/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/buck2/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **buck2** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev       | latest           |
 |--------------|------------------|------------------|
-| Default User | `nonroot`        | `nonroot`        |
+| Default User | `65532`          | `65532`          |
 | Entrypoint   | `/usr/bin/buck2` | `/usr/bin/buck2` |
 | CMD          | `help`           | `help`           |
 | Workdir      | not specified    | not specified    |

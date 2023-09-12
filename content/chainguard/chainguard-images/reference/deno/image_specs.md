@@ -1,18 +1,23 @@
 ---
 title: "deno Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public deno Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "deno"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/deno/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/deno/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/deno/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/deno/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **deno** Image.
 
@@ -25,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest          |
 |--------------|-----------------|
-| Default User | `deno`          |
+| Default User | `65532`         |
 | Entrypoint   | `/usr/bin/deno` |
 | CMD          | `--help`        |
 | Workdir      | `/app`          |

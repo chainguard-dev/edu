@@ -1,18 +1,23 @@
 ---
 title: "thanos-operator Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public thanos-operator Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "thanos-operator"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/thanos-operator/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/thanos-operator/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/thanos-operator/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/thanos-operator/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **thanos-operator** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev         | latest             |
 |--------------|--------------------|--------------------|
-| Default User | `nonroot`          | `nonroot`          |
+| Default User | `65532`            | `65532`            |
 | Entrypoint   | `/usr/bin/manager` | `/usr/bin/manager` |
 | CMD          | not specified      | not specified      |
 | Workdir      | not specified      | not specified      |

@@ -1,18 +1,23 @@
 ---
 title: "git Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/git/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/git/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/git/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/git/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -28,3 +33,4 @@ Please note that digests and timestamps only change when there is a change to th
 |  `latest`                | September 9th  | `sha256:80da59b3bf811d85da34729c6fb582bcd73e076c7c0908535cd9ae8527e44ab9` |
 |  `latest-dev`            | September 9th  | `sha256:c781942e6a8f37f2aacc35ad94d0b71f6e702c16e8b4dba1d99ba0822336041f` |
 |  `latest-root`           | September 9th  | `sha256:0877b8dea2f18abde1e9c6044fb7251579b6beab35410c192598ffe07448ada7` |
+
