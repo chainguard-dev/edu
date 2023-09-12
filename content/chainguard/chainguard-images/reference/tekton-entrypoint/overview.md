@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/tekton-entrypoint](https://github.com/chainguard-images/images/tree/main/images/tekton-entrypoint)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 8th | `sha256:cae118dc1911f0f30ba08bbebbc4465a43e32b90725e8d68b0ba37a4d6b961a8` |
-|  `latest-dev` | September 8th | `sha256:e1cce585f499cfee19de12ac5cc6a6f6449806a0eb92b3bb5a84fc87e8cd5122` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:1c3493a7e2cc6b95bbf43b720fc64b9c52bf41216f2717a146413273e5b2ae03` |
+|  `latest-dev` | September 11th | `sha256:490acc54504842326346fb56a1f7abf04cfeaedcd7acd8fb00949427aa0cb8dd` |
 
 # tekton-entrypoint
 

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kubernetes-csi-external-resizer](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-resizer)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 8th | `sha256:05c4caa1dfa70c8c0bd0a7b244905aed8f911e768a7989a967df9dcc7ec95e19` |
-|  `latest-dev` | September 8th | `sha256:8c39e2bbb4b951f40308e6e37efb05a60206e2c72ddfbdac65d7176cee5f0757` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:6d4339527217741f4ddcac882811f97bf4ee8eb39fe3e09ea696d1d87afc12de` |
+|  `latest-dev` | September 11th | `sha256:95b1022c79625ccf7bff9b5ead3b755927b99a6f8e915cd2907760f6274b1607` |
 
 
 

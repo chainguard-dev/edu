@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/weaviate](https://github.com/chainguard-images/images/tree/main/images/weaviate)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:2ed02fcfec78a86c26d16e61c58f2270a944c3d730bb8f3c90af280a6c981612` |
-|  `latest`     | September 8th | `sha256:9431d1fc0a0c686b0e9109e9e4e7208d7edbdc063cc889a71e12ebc4c710ec6f` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:d4b3ec4aeb685ba8cd6f992c8139efd06df95f72554ff059e06cb565ce0ec90d` |
+|  `latest`     | September 11th | `sha256:adbd276d0cd1fc779dd289a444f90d3b4aefff1cb36b078455359724246aeb17` |
 
 
 

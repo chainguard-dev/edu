@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/istio-pilot](https://github.com/chainguard-images/images/tree/main/images/istio-pilot)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 9th | `sha256:dc0d2aa9eedc8b53e0978d405455c54cc6cf989ea742877a4a0bc03973b8d87d` |
-|  `latest-dev` | September 9th | `sha256:dc540a5dedc00d096d8cdbf9cdfabedeb55c4b540dbf4ef199fdc3d6534051d6` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:9920e43cbbe3e915f0ba2035001d4ab337df8e0e2445e34f3119a7aa3a9abd06` |
+|  `latest-dev` | September 11th | `sha256:a76b29ca388b9049c27e5b7a1c1c9d397eedd8f9767abd7a4347fda7c337701a` |
 
 # istio-pilot
 

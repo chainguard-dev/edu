@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/prometheus-node-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-node-exporter)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:f5485234c41aec960760a69bfcfab9d8a40a28f7252162b4b2b82ff12b06c80e` |
-|  `latest`     | September 8th | `sha256:e0b5312b2eb0b19c5c158ec694e3cb11318afd5e3cdd9faf4987bceeb43388b0` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:5ae84bc702be4438d9fab90f38cb108d54d9ac46ba8e5f44a0b9723b96a26049` |
+|  `latest`     | September 11th | `sha256:cb346878ab02f08d6298df8ee99f6f430db13919014125b203311e56ceae3755` |
 
 # prometheus-node-exporter
 

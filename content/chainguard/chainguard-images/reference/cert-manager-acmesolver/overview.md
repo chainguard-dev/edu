@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/cert-manager-acmesolver](https://github.com/chainguard-images/images/tree/main/images/cert-manager-acmesolver)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:531f49d7afec16e0d080ceec0304d6b8908fc1e94da2d58b92af0f57b46b3f9d` |
-|  `latest`     | September 8th | `sha256:b66096e246d931f6b7e13087a1eb651d542b7bef1ab53e0bdae4ae1533922370` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:5b3c8c4cf6835168901e6d859245978027b0fe0553930974f574d4e468435725` |
+|  `latest-dev` | September 11th | `sha256:9646b730ed447508a9f2265a16597a96e5d6e72461f0397680e7de0418c5ed9c` |
 
 # cert-manager-acmesolver
 

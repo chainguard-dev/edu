@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/python](https://github.com/chainguard-images/images/tree/main/images/python)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:6367024ce52bb4a4ca96e31a30a578c4c80950b4f188e71b076521128e2bbc37` |
-|  `latest`     | September 7th | `sha256:c8cbd40534c4db9d7167aec76982a248d2a3c21d42dcb4af411da552708067b3` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:36d5863f021b07564c5a0fd17c3a95b02a573d46c5d8615e718e9ad63ce47128` |
+|  `latest`     | September 11th | `sha256:43076811b945c62746d086eaec9cd3833078935d3c3c67650bef09989e277cbd` |
 
 
 

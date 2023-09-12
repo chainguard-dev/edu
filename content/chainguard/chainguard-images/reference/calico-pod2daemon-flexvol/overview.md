@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/calico-pod2daemon-flexvol](https://github.com/chainguard-images/images/tree/main/images/calico-pod2daemon-flexvol)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 8th | `sha256:77f7284c26739c7cb75096171e6c22e9c10bf962d89fb0bb6638f2aab83119e5` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:8869a1c68cc09fa148d77d661604aacf8d03e348a9462bf3f6552a7ca07dc94d` |
 
 # calico-pod2daemon-flexvol
 

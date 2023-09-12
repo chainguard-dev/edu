@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/rust](https://github.com/chainguard-images/images/tree/main/images/rust)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 9th | `sha256:dcf513f8cb6b60513a4455ca317015df3e207d70a618a837a07c1760cd77b1f4` |
-|  `latest-dev` | September 9th | `sha256:874911700273e42afed007edf48862e9b3e2a9cd9c47caa6ff0403ee289f03d2` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:14f6be36ed5f36e031be577225efb2c0c7a1308721e06ef55082656cc8ee9109` |
+|  `latest-dev` | September 11th | `sha256:86e058f43ac77bd30e4f9c378d02201616fb989b99a0e22838ceb8cb3fba09c2` |
 
 
 

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/skaffold](https://github.com/chainguard-images/images/tree/main/images/skaffold)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 8th | `sha256:c80a96f80e502d207953e169f03321ac6dc5af0b74b703c140c839a0a73a679b` |
-|  `latest-dev` | September 8th | `sha256:38cca993d9695fbca120c85e4822c1316fb82bc5dfc07ca36d6ab481035bcde2` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:37345283e8c6bf234bd15ccb6a67a8a4548a504f89c37d8d7a98a928c7ac929f` |
+|  `latest-dev` | September 11th | `sha256:ffd3bb8a94902ed23fd886758714d537912f82fa182b70ca200298799fc6b84a` |
 
 
 

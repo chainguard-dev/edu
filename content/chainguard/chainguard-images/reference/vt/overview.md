@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/vt](https://github.com/chainguard-images/images/tree/main/images/vt)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:b295c82576000b7931d970297f0ad6c2495c08d5eb6d4f9689e565bc03879ccd` |
-|  `latest`     | September 8th | `sha256:e0026b66ab451be12b41e488b5a9945a23d9f2e86b505ea34b8aa8ab8eb0267e` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:24f67f31ce25bad9215b738cc043c38b0db9522921e26a04ee2cf0cbd4d71c5f` |
+|  `latest`     | September 11th | `sha256:5daf61f50be04940aefcdac54e25e4e9ed371a28a682085df114e96ab93fdd32` |
 
 
 

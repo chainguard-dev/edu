@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/ffmpeg](https://github.com/chainguard-images/images/tree/main/images/ffmpeg)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:fa654db777a66d110007b0a735dad5dd834ddc03ddefc0dfab99a117da408c1e` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:27a7e5951240dda480793804a0ffcd33cf8d33e87e84643df7919d85c76dd415` |
 
 
 

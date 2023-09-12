@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/kyverno-background-controller](https://github.com/chainguard-images/images/tree/main/images/kyverno-background-controller)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 8th | `sha256:45ace482af6e5a45054c48e12cc35d518e44dbee109b74f43aab4b0afbb52306` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:cbc5e1a816fe71839a022edf4763ff5ce153731c162eec5ae0f880026ced9a2e` |
 
 # kyverno-background-controller
 

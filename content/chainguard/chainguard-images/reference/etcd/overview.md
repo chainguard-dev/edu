@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/etcd](https://github.com/chainguard-images/images/tree/main/images/etcd)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:3aea9e100760e29af398ae0fc5c2642f45c3cc4612c8037c425c1c01910ea194` |
-|  `latest`     | September 7th | `sha256:68c2d80b1df86e139862bfc349dd636e5448a506dee5a38d3adecf8bd552a6e9` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:ed62df720695ffc00aa758e64774bf8b3b6695141f4e32f0e80c477e083f43e5` |
+|  `latest`     | September 11th | `sha256:787e472b17f6e11732f2d89dcf6172ca363dfcac93c47a6659c5fa0e23eec9ed` |
 
 
 

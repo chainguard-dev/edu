@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/crossplane-azure-managedidentity](https://github.com/chainguard-images/images/tree/main/images/crossplane-azure-managedidentity)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 8th | `sha256:499287564aabdb3d411b91b6f33eae420d6d6134c7f6e18a1d9936995a8e15b7` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:5308620ac78d78830ffaf5d1bde51e5f2eefefdb781ee189856c45f6d76ec852` |
 
 # crossplane-azure-managedidentity
 

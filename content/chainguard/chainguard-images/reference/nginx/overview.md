@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/nginx](https://github.com/chainguard-images/images/tree/main/images/nginx)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 6th | `sha256:2773091cfad02f528e31c1b9a06f08dbcba57b365de38cfa16726491515ed6fe` |
-|  `latest`     | September 4th | `sha256:6fc88127201c4338e2278501a52714abb1dedbb664f936eee0927488df5545b3` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:6d7790da3c75552c7041f95b439bc8c86058f701fe06b2f381203407b7e46121` |
+|  `latest`     | September 11th | `sha256:9619cdefed8f52a964f3e522a936b1f02f0bc8bc6eff2589bf330ec2c70ea346` |
 
 
 

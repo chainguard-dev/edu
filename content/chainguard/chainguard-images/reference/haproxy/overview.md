@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/haproxy](https://github.com/chainguard-images/images/tree/main/images/haproxy)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 9th | `sha256:9870e50ac3655d8f5264b21ca8b98600656e75fed6a3910918cd5e684285ab68` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:dc91d8112c96245a30efa66842b2b23d3e7a1fbe459a28c9040c3005d9f08982` |
 
 
 

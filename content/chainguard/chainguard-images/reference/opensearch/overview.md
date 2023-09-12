@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/opensearch](https://github.com/chainguard-images/images/tree/main/images/opensearch)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:2a3b2cc32883dbfe369c1e166067301983d0dc67371dfe6b5546ab24bf436ea0` |
-|  `latest`     | September 7th | `sha256:0838053b7ce800f6010eb903ffd14c9dc7ad9633a634ed78635eda5c647c52ad` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:0ff2e760304ae180803a602c1ada882c20c1690a1bd26fa2c122d28db96d139e` |
+|  `latest-dev` | September 11th | `sha256:12d9a9fd3ec92acce964b74576e4e08c9e61c25de7c340f4c7f760c4f602bcbd` |
 
 
 

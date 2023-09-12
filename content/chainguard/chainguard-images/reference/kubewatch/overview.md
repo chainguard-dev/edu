@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kubewatch](https://github.com/chainguard-images/images/tree/main/images/kubewatch)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 8th | `sha256:23c97ed513e8b6c367679145fb7b486fc21eac591e0d654581677790864fc901` |
-|  `latest-dev` | September 8th | `sha256:3c12f3760271a0d1a7ecf1bcb9e3a970cdb1d1caa45c4bea555a54706273b085` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:4ee9ce490f9a76a1135974ab1346c066b39cfe23052c160df23856e2ab2c831b` |
+|  `latest-dev` | September 11th | `sha256:ec25f87960a2d77ac5ff97ab08e7bd000f0cc2a0e47877828c9b29c423329ea5` |
 
 
 

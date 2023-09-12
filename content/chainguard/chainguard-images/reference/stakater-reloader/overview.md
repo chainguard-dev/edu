@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/stakater-reloader](https://github.com/chainguard-images/images/tree/main/images/stakater-reloader)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:b97053d7c268e911b8a7c5b089f411c4a649279ba7411e09717c35fdf4cec6b8` |
-|  `latest`     | September 7th | `sha256:977bcc9fe087e83e45e5c350ecdb25530338d5b912157174fdcea33c104a7379` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:48750711259eee224b9db693af0ed93ef35239d5c79c44043259e06582ac7463` |
+|  `latest`     | September 11th | `sha256:930812a793bf51b27eee8a8b28715b81e6c1029a986ecf68b4b2b704bd83955e` |
 
 
 

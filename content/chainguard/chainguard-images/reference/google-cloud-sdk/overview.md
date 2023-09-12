@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/google-cloud-sdk](https://github.com/chainguard-images/images/tree/main/images/google-cloud-sdk)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:17d952394ef5016deb41df2be82cf6c50d9cd8e22ccb249df74b39ffc2840a3b` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:11e35cf9f4a8923801b0246fc4fbeb6d872b78a3d1f4b2a8d489e40bfc2b5d44` |
 
 
 

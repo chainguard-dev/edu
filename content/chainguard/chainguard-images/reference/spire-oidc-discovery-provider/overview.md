@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/spire-oidc-discovery-provider](https://github.com/chainguard-images/images/tree/main/images/spire-oidc-discovery-provider)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:3e4cc4b464bff89dd3071aa54576e7ce5ed64d10fcd8fada168582ef665a2dc1` |
-|  `latest`     | September 7th | `sha256:142e46dd27a422cf505d5e845ad1d94b4024b16701c21cd28ca5d87dbc70974d` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:d2138ee161db969f9ef50bc01c69c9ff16df367c2eafec83bf421469558ee06b` |
+|  `latest-dev` | September 11th | `sha256:e4b980f6641b25f473207f8d89a1935b27b5a7a0679556f99d8da85db29ec712` |
 
 # spire-oidc-discovery-provider
 

@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/curl](https://github.com/chainguard-images/images/tree/main/images/curl)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:0dbf1a0dce2306f27f6be79cef206487f2e95371841d96961a7283c0041c7127` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:98e2bdddafea6a6aada087db75e2398760e3dd6daef9d0443f899f7c0c76c922` |
 
 
 

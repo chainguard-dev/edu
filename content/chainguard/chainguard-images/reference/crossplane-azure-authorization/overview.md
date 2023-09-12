@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/crossplane-azure-authorization](https://github.com/chainguard-images/images/tree/main/images/crossplane-azure-authorization)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 8th | `sha256:bee7cf9ac1cbe6f1864f7892bb8dd6284451590b0973c733e5259a6c9a734c2c` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:595d4b77bc3d366428375f8ed0e8aa9e8205751f3e15294086ed647f545bd18d` |
 
 # crossplane-azure-authorization
 
