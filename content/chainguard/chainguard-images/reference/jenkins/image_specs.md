@@ -1,18 +1,23 @@
 ---
 title: "jenkins Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public jenkins Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "jenkins"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/jenkins/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/jenkins/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/jenkins/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/jenkins/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **jenkins** Image.
 
@@ -25,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                                                                 |
 |--------------|----------------------------------------------------------------------------------------|
-| Default User | `jenkins`                                                                              |
+| Default User | `65532`                                                                                |
 | Entrypoint   | `/usr/bin/java -Duser.home=/var/jenkins_home -jar /usr/share/java/jenkins/jenkins.war` |
 | CMD          | not specified                                                                          |
 | Workdir      | `/app`                                                                                 |

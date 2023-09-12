@@ -1,11 +1,45 @@
 ---
-title: "http-echo"
-description: "Chainguard Images Reference: http-echo"
+title: "Image Overview: http-echo"
+linktitle: "http-echo"
 type: "article"
-date: 2022-11-28T08:49:15+00:00
-lastmod: 2022-11-28T08:49:15+00:00
+layout: "single"
+description: "Overview: http-echo Chainguard Image"
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
+menu:
+  docs:
+    parent: "images-reference"
+weight: 500
+toc: true
 ---
 
-Reference docs for the http-echo Chainguard Image
+{{< tabs >}}
+{{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/http-echo/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/http-echo/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/http-echo/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/http-echo/provenance_info/" >}}
+{{</ tabs >}}
+
+
+
+Minimalist Wolfi-based http-echo image that echos what you start it with.
+
+## Get It!
+
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/http-echo:latest
+```
+
+## Usage
+
+```
+CONTAINER=$(docker run -d --rm cgr.dev/chainguard/http-echo:latest -listen=:8080 -text="hello world")
+curl localhost:8080
+docker kill $CONTAINER
+```
+

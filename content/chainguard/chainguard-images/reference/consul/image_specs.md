@@ -1,18 +1,23 @@
 ---
 title: "consul Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public consul Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "consul"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/consul/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/consul/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/consul/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/consul/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **consul** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                      | latest                          |
 |--------------|---------------------------------|---------------------------------|
-| Default User | `root`                          | `root`                          |
+| Default User | `0`                             | `0`                             |
 | Entrypoint   | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` |
 | CMD          | `agent -dev -client 0.0.0.0`    | `agent -dev -client 0.0.0.0`    |
 | Workdir      | not specified                   | not specified                   |

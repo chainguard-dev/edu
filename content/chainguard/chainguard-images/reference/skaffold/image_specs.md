@@ -1,18 +1,23 @@
 ---
 title: "skaffold Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public skaffold Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "skaffold"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/skaffold/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/skaffold/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/skaffold/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/skaffold/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **skaffold** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev          | latest              |
 |--------------|---------------------|---------------------|
-| Default User | `skaffold`          | `skaffold`          |
+| Default User | `65532`             | `65532`             |
 | Entrypoint   | `/usr/bin/skaffold` | `/usr/bin/skaffold` |
 | CMD          | `--help`            | `--help`            |
 | Workdir      | `/app`              | `/app`              |

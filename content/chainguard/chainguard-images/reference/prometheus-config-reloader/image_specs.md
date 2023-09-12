@@ -1,18 +1,23 @@
 ---
 title: "prometheus-config-reloader Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public prometheus-config-reloader Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "prometheus-config-reloader"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/prometheus-config-reloader/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/prometheus-config-reloader/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/prometheus-config-reloader/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/prometheus-config-reloader/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **prometheus-config-reloader** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                        | latest                            |
 |--------------|-----------------------------------|-----------------------------------|
-| Default User | `prometheus-config-reloader`      | `prometheus-config-reloader`      |
+| Default User | `65532`                           | `65532`                           |
 | Entrypoint   | `/bin/prometheus-config-reloader` | `/bin/prometheus-config-reloader` |
 | CMD          | not specified                     | not specified                     |
 | Workdir      | not specified                     | not specified                     |

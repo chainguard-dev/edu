@@ -1,18 +1,23 @@
 ---
 title: "k8s-sidecar Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public k8s-sidecar Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "k8s-sidecar"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/k8s-sidecar/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/k8s-sidecar/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/k8s-sidecar/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/k8s-sidecar/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **k8s-sidecar** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                            | latest                                |
 |--------------|---------------------------------------|---------------------------------------|
-| Default User | `k8s-sidecar`                         | `k8s-sidecar`                         |
+| Default User | `65532`                               | `65532`                               |
 | Entrypoint   | `python -u /usr/share/app/sidecar.py` | `python -u /usr/share/app/sidecar.py` |
 | CMD          | not specified                         | not specified                         |
 | Workdir      | not specified                         | not specified                         |

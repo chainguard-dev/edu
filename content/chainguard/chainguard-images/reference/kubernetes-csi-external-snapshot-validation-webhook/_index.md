@@ -1,11 +1,37 @@
 ---
-title: "kubernetes-csi-external-snapshot-validation-webhook"
-description: "Chainguard Images Reference: kubernetes-csi-external-snapshot-validation-webhook"
+title: "Image Overview: kubernetes-csi-external-snapshot-validation-webhook"
+linktitle: "kubernetes-csi-external-snapshot-validation-webhook"
 type: "article"
-date: 2022-11-28T08:49:15+00:00
-lastmod: 2022-11-28T08:49:15+00:00
+layout: "single"
+description: "Overview: kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
+menu:
+  docs:
+    parent: "images-reference"
+weight: 500
+toc: true
 ---
 
-Reference docs for the kubernetes-csi-external-snapshot-validation-webhook Chainguard Image
+{{< tabs >}}
+{{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-validation-webhook/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-validation-webhook/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-validation-webhook/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-validation-webhook/provenance_info/" >}}
+{{</ tabs >}}
+
+
+
+A minimal image for Kubernetes CSI external-snapshot-validation-webhook.
+
+## Get It
+
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/kubernetes-csi-external-snapshot-validation-webhook
+```
+

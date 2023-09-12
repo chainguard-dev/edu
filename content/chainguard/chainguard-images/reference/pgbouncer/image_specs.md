@@ -1,8 +1,8 @@
 ---
-title: "vault-k8s Image Variants"
+title: "pgbouncer Image Variants"
 type: "article"
 unlisted: true
-description: "Detailed information about the public vault-k8s Chainguard Image variants"
+description: "Detailed information about the public pgbouncer Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -13,16 +13,16 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/vault-k8s/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/vault-k8s/image_specs/" >}}
-{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/vault-k8s/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/vault-k8s/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/pgbouncer/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/pgbouncer/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/pgbouncer/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/pgbouncer/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **vault-k8s** Image.
+This page shows detailed information about all public variants of the Chainguard **pgbouncer** Image.
 
 ## Variants Compared
-The **vault-k8s** Chainguard Image currently has 2 public variants: 
+The **pgbouncer** Chainguard Image currently has 2 public variants: 
 
 - `latest-dev`
 - `latest`
@@ -32,13 +32,13 @@ The table has detailed information about each of these variants.
 |              | latest-dev           | latest               |
 |--------------|----------------------|----------------------|
 | Default User | `65532`              | `65532`              |
-| Entrypoint   | `/usr/bin/vault-k8s` | `/usr/bin/vault-k8s` |
-| CMD          | not specified        | not specified        |
+| Entrypoint   | `/usr/bin/pgbouncer` | `/usr/bin/pgbouncer` |
+| CMD          | `--help`             | `--help`             |
 | Workdir      | not specified        | not specified        |
 | Has apk?     | yes                  | no                   |
 | Has a shell? | yes                  | no                   |
 
-Check the [tags history page](/chainguard/chainguard-images/reference/vault-k8s/tags_history/) for the full list of available tags.
+Check the [tags history page](/chainguard/chainguard-images/reference/pgbouncer/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
@@ -48,6 +48,7 @@ The table shows package distribution across variants.
 | `apk-tools`              | X          |        |
 | `bash`                   | X          |        |
 | `busybox`                | X          |        |
+| `c-ares`                 | X          | X      |
 | `ca-certificates-bundle` | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
@@ -55,18 +56,18 @@ The table shows package distribution across variants.
 | `ld-linux`               | X          | X      |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
-| `libcap`                 | X          | X      |
 | `libcrypt1`              | X          |        |
-| `libcrypto3`             | X          |        |
+| `libcrypto3`             | X          | X      |
 | `libcurl-openssl4`       | X          |        |
+| `libevent`               | X          | X      |
 | `libexpat1`              | X          |        |
 | `libnghttp2-14`          | X          |        |
 | `libpcre2-8-0`           | X          |        |
-| `libssl3`                | X          |        |
+| `libssl3`                | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
-| `openssl-config`         | X          |        |
-| `vault-k8s`              | X          | X      |
+| `openssl-config`         | X          | X      |
+| `pgbouncer`              | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
 

@@ -1,18 +1,23 @@
 ---
 title: "kubernetes-csi-external-resizer Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-resizer/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-resizer/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/kubernetes-csi-external-resizer/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-resizer/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -20,5 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed   | Digest                                                                    |
 |---------------|----------------|---------------------------------------------------------------------------|
-|  `latest`     | September 11th | `sha256:6d4339527217741f4ddcac882811f97bf4ee8eb39fe3e09ea696d1d87afc12de` |
-|  `latest-dev` | September 11th | `sha256:95b1022c79625ccf7bff9b5ead3b755927b99a6f8e915cd2907760f6274b1607` |
+|  `latest-dev` | September 12th | `sha256:0234f9cab10a2b0c24c68905504407ca0d1d3a4642f100abb0b34334ab938861` |
+|  `latest`     | September 12th | `sha256:41bd24630bd681dda6542bcffb65a14ba0d05712c2271f778ade66d4bee47cf2` |
+

@@ -1,18 +1,23 @@
 ---
 title: "kafka Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public kafka Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "kafka"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kafka/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/kafka/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kafka/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kafka/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **kafka** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                 | latest                                     |
 |--------------|--------------------------------------------|--------------------------------------------|
-| Default User | `kafka`                                    | `kafka`                                    |
+| Default User | `65532`                                    | `65532`                                    |
 | Entrypoint   | `/usr/lib/kafka/bin/kafka-server-start.sh` | `/usr/lib/kafka/bin/kafka-server-start.sh` |
 | CMD          | `/usr/lib/kafka/config/server.properties`  | `/usr/lib/kafka/config/server.properties`  |
 | Workdir      | not specified                              | not specified                              |

@@ -1,18 +1,23 @@
 ---
 title: "kubernetes-csi-external-provisioner Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-provisioner/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-provisioner/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/kubernetes-csi-external-provisioner/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-provisioner/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest`     | September 11th | `sha256:e8f63be35d1c1fdf6e5a97eec7b14d7f29667135af43ce0020c294ba0c0edd56` |
 |  `latest-dev` | September 11th | `sha256:809d8a2fa1f9a880f2efceb41d43391ad25860d38432d37b257ba922e32523b5` |
+

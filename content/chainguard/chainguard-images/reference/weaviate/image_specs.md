@@ -1,18 +1,23 @@
 ---
 title: "weaviate Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public weaviate Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "weaviate"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/weaviate/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/weaviate/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/weaviate/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/weaviate/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **weaviate** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                 | latest                                     |
 |--------------|--------------------------------------------|--------------------------------------------|
-| Default User | `weaviate`                                 | `weaviate`                                 |
+| Default User | `65532`                                    | `65532`                                    |
 | Entrypoint   | `/bin/weaviate`                            | `/bin/weaviate`                            |
 | CMD          | `--host 0.0.0.0 --port 8080 --scheme http` | `--host 0.0.0.0 --port 8080 --scheme http` |
 | Workdir      | not specified                              | not specified                              |

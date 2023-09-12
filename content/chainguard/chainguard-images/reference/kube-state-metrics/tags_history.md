@@ -1,18 +1,23 @@
 ---
 title: "kube-state-metrics Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the kube-state-metrics Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kube-state-metrics/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/kube-state-metrics/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/kube-state-metrics/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kube-state-metrics/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest`     | September 11th | `sha256:8c259c1ec3f582c33377e952f1895c6701b84fb964055256b663b16e0747c612` |
 |  `latest-dev` | September 11th | `sha256:e10d95e736ed0b502ba2d8c682aadb24c0a94f1eec60b62651e8257d3306c20b` |
+

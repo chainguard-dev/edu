@@ -1,18 +1,23 @@
 ---
 title: "secrets-store-csi-driver Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/secrets-store-csi-driver/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/secrets-store-csi-driver/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/secrets-store-csi-driver/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/secrets-store-csi-driver/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest-dev` | September 11th | `sha256:3317a12183b68634650545a4bc0e8de1af9d765a9c6297a5f0f767af1b52beb6` |
 |  `latest`     | September 11th | `sha256:c39eeb78dd1218a9535a8ddf9e3abb87aaa0f62687ef51d35649ab7c89d130fc` |
+

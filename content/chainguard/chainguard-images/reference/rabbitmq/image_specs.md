@@ -1,18 +1,23 @@
 ---
 title: "rabbitmq Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public rabbitmq Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "rabbitmq"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/rabbitmq/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/rabbitmq/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/rabbitmq/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/rabbitmq/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **rabbitmq** Image.
 
@@ -25,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                      |
 |--------------|-----------------------------|
-| Default User | `rabbitmq`                  |
+| Default User | `999`                       |
 | Entrypoint   | `/usr/sbin/rabbitmq-server` |
 | CMD          | not specified               |
 | Workdir      | `/var/lib/rabbitmq`         |

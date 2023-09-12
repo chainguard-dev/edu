@@ -1,18 +1,23 @@
 ---
 title: "tekton-resolvers Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the tekton-resolvers Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/tekton-resolvers/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/tekton-resolvers/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/tekton-resolvers/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/tekton-resolvers/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest`     | September 11th | `sha256:38d43f51ad616ff2d649728cd4af9e3d8380f9af48af29379db3cbe570083186` |
 |  `latest-dev` | September 11th | `sha256:33e046a40fdd11fb514a07b8bf30f6cd6f16e2e3a5dde5bf101d4890b0e75847` |
+

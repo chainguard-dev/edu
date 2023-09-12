@@ -1,11 +1,33 @@
 ---
-title: "kyverno-cli"
-description: "Chainguard Images Reference: kyverno-cli"
+title: "Image Overview: kyverno-cli"
+linktitle: "kyverno-cli"
 type: "article"
-date: 2022-11-28T08:49:15+00:00
-lastmod: 2022-11-28T08:49:15+00:00
+layout: "single"
+description: "Overview: kyverno-cli Chainguard Image"
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
+menu:
+  docs:
+    parent: "images-reference"
+weight: 500
+toc: true
 ---
 
-Reference docs for the kyverno-cli Chainguard Image
+{{< tabs >}}
+{{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/kyverno-cli/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/kyverno-cli/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kyverno-cli/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kyverno-cli/provenance_info/" >}}
+{{</ tabs >}}
+
+Minimal **kyverno-cli** images with nightly builds.
+
+## Get it!
+
+```
+docker pull cgr.dev/chainguard/kyverno-cli:latest
+```
+

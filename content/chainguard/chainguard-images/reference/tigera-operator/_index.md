@@ -1,11 +1,57 @@
 ---
-title: "tigera-operator"
-description: "Chainguard Images Reference: tigera-operator"
+title: "Image Overview: tigera-operator"
+linktitle: "tigera-operator"
 type: "article"
-date: 2022-11-28T08:49:15+00:00
-lastmod: 2022-11-28T08:49:15+00:00
+layout: "single"
+description: "Overview: tigera-operator Chainguard Image"
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
+menu:
+  docs:
+    parent: "images-reference"
+weight: 500
+toc: true
 ---
 
-Reference docs for the tigera-operator Chainguard Image
+{{< tabs >}}
+{{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/tigera-operator/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/tigera-operator/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/tigera-operator/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/tigera-operator/provenance_info/" >}}
+{{</ tabs >}}
+
+
+
+Minimal Project Calico Tigera Operator Image
+
+## Get It!
+
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/tigera-operator:latest
+```
+
+## Usage
+
+This image is a drop-in replacement for the upstream image.
+You can run it using the helm chart with:
+
+```shell
+helm repo add projectcalico https://projectcalico.docs.tigera.io/charts
+helm repo update
+
+helm install calico projectcalico/tigera-operator \
+    --namespace tigera-operator \
+    --create-namespace \
+    --set autoDiscovery.clusterName=foo \
+    --set tigeraOperator.registry=cgr.dev \
+    --set tigeraOperator.image=chainguard/tigera-operator \
+    --set tigeraOperator.version=latest
+
+kubectl wait --namespace tigera-operator --for=condition=ready pod --selector name=tigera-operator --timeout=120s
+```
+

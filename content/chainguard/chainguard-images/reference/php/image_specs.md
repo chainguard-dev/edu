@@ -1,18 +1,23 @@
 ---
 title: "php Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public php Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "php"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/php/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/php/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/php/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/php/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **php** Image.
 
@@ -28,7 +33,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev    | latest-fpm-dev | latest-fpm     | latest        |
 |--------------|---------------|----------------|----------------|---------------|
-| Default User | `php`         | `php`          | `php`          | `php`         |
+| Default User | `65532`       | `65532`        | `65532`        | `65532`       |
 | Entrypoint   | `/bin/php`    | Service Bundle | Service Bundle | `/bin/php`    |
 | CMD          | not specified | not specified  | not specified  | not specified |
 | Workdir      | `/app`        | `/app`         | `/app`         | `/app`        |

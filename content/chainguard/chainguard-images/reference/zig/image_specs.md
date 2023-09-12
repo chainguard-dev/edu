@@ -1,18 +1,23 @@
 ---
 title: "zig Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public zig Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "zig"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/zig/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/zig/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/zig/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/zig/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **zig** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev     | latest         |
 |--------------|----------------|----------------|
-| Default User | `root`         | `root`         |
+| Default User | `0`            | `0`            |
 | Entrypoint   | `/usr/bin/zig` | `/usr/bin/zig` |
 | CMD          | `help`         | `help`         |
 | Workdir      | not specified  | not specified  |

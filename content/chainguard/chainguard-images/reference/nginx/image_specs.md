@@ -1,18 +1,23 @@
 ---
 title: "nginx Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public nginx Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "nginx"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/nginx/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/nginx/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/nginx/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/nginx/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **nginx** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                 | latest                                                     |
 |--------------|------------------------------------------------------------|------------------------------------------------------------|
-| Default User | `nginx`                                                    | `nginx`                                                    |
+| Default User | `65532`                                                    | `65532`                                                    |
 | Entrypoint   | `/usr/sbin/nginx`                                          | `/usr/sbin/nginx`                                          |
 | CMD          | `-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` | `-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` |
 | Workdir      | not specified                                              | not specified                                              |

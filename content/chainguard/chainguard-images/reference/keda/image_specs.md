@@ -1,18 +1,23 @@
 ---
 title: "keda Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public keda Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "keda"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/keda/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/keda/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/keda/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/keda/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **keda** Image.
 
@@ -30,7 +35,7 @@ The table has detailed information about each of these variants.
 
 |              | adapter-latest-dev                                                  | adapter-latest                                                      | admission-webhooks-latest-dev                                                 | admission-webhooks-latest                                                     | latest-dev                                                 | latest                                                     |
 |--------------|---------------------------------------------------------------------|---------------------------------------------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------|
-| Default User | `nonroot`                                                           | `nonroot`                                                           | `nonroot`                                                                     | `nonroot`                                                                     | `nonroot`                                                  | `nonroot`                                                  |
+| Default User | `65532`                                                             | `65532`                                                             | `65532`                                                                       | `65532`                                                                       | `65532`                                                    | `65532`                                                    |
 | Entrypoint   | `/usr/bin/keda-adapter --secure-port=6443 --logtostderr=true --v=0` | `/usr/bin/keda-adapter --secure-port=6443 --logtostderr=true --v=0` | `/usr/bin/keda-admission-webhooks --zap-log-level=info --zap-encoder=console` | `/usr/bin/keda-admission-webhooks --zap-log-level=info --zap-encoder=console` | `/usr/bin/keda --zap-log-level=info --zap-encoder=console` | `/usr/bin/keda --zap-log-level=info --zap-encoder=console` |
 | CMD          | not specified                                                       | not specified                                                       | not specified                                                                 | not specified                                                                 | not specified                                              | not specified                                              |
 | Workdir      | not specified                                                       | not specified                                                       | not specified                                                                 | not specified                                                                 | not specified                                              | not specified                                              |

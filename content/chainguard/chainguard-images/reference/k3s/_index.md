@@ -1,11 +1,53 @@
 ---
-title: "k3s"
-description: "Chainguard Images Reference: k3s"
+title: "Image Overview: k3s"
+linktitle: "k3s"
 type: "article"
-date: 2022-11-28T08:49:15+00:00
-lastmod: 2022-11-28T08:49:15+00:00
+layout: "single"
+description: "Overview: k3s Chainguard Image"
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
+menu:
+  docs:
+    parent: "images-reference"
+weight: 500
+toc: true
 ---
 
-Reference docs for the k3s Chainguard Image
+{{< tabs >}}
+{{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/k3s/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/k3s/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/k3s/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/k3s/provenance_info/" >}}
+{{</ tabs >}}
+
+
+
+Minimal image with kubectl binary. **EXPERIMENTAL**
+
+## Get It!
+
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/k3s:latest
+```
+
+This image is a drop in replacement for the upstream `rancher/k3s` image, which means it works everywhere you would expect.
+
+The quickest way to test it is locally with `docker`:
+
+```bash
+docker run --rm -v `pwd`:/etc/rancher/k3s --privileged -p 6443:6443 cgr.dev/chainguard/k3s:latest
+
+KUBECONFIG=k3s.yaml kubectl get po -A
+```
+
+You can also use it as a drop in replacement in `k3d`:
+
+```bash
+k3d cluster create -i cgr.dev/chainguard/k3s:latest
+```
+

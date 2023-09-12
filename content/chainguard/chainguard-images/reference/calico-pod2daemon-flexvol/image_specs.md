@@ -1,18 +1,23 @@
 ---
 title: "calico-pod2daemon-flexvol Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public calico-pod2daemon-flexvol Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "calico-pod2daemon-flexvol"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/calico-pod2daemon-flexvol/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/calico-pod2daemon-flexvol/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/calico-pod2daemon-flexvol/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/calico-pod2daemon-flexvol/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **calico-pod2daemon-flexvol** Image.
 
@@ -25,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                |
 |--------------|-----------------------|
-| Default User | `root`                |
+| Default User | `0`                   |
 | Entrypoint   | `/usr/bin/flexvol.sh` |
 | CMD          | not specified         |
 | Workdir      | not specified         |

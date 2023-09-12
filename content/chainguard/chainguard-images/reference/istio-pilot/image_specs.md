@@ -1,18 +1,23 @@
 ---
 title: "istio-pilot Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public istio-pilot Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "istio-pilot"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/istio-pilot/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/istio-pilot/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/istio-pilot/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/istio-pilot/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **istio-pilot** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                       | latest                           |
 |--------------|----------------------------------|----------------------------------|
-| Default User | `nobody`                         | `nobody`                         |
+| Default User | `65532`                          | `65532`                          |
 | Entrypoint   | `/usr/local/bin/pilot-discovery` | `/usr/local/bin/pilot-discovery` |
 | CMD          | not specified                    | not specified                    |
 | Workdir      | not specified                    | not specified                    |

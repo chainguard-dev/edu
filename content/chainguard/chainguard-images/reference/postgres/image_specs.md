@@ -1,18 +1,23 @@
 ---
 title: "postgres Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public postgres Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "postgres"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/postgres/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/postgres/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/postgres/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/postgres/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **postgres** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                   | latest                                                       |
 |--------------|--------------------------------------------------------------|--------------------------------------------------------------|
-| Default User | `root`                                                       | `root`                                                       |
+| Default User | `0`                                                          | `0`                                                          |
 | Entrypoint   | `/var/lib/postgres/initdb/postgresql-entrypoint.sh postgres` | `/var/lib/postgres/initdb/postgresql-entrypoint.sh postgres` |
 | CMD          | not specified                                                | not specified                                                |
 | Workdir      | `/home/postgres`                                             | `/home/postgres`                                             |
