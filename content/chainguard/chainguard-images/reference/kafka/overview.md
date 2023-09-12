@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kafka](https://github.com/chainguard-images/images/tree/main/images/kafka)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:3891c2447c6aabcb40ce08b27940c2daccaa36db8488b14c010708dd95a786bc` |
-|  `latest`     | September 7th | `sha256:eaebb0fa31c521b46eb04d8b04045f5b182c2938ea03a398c4d0544e1e33532a` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:d303e3e32bc5e571d03b901624de4a025d591970620296602e963a343583e8ac` |
+|  `latest-dev` | September 11th | `sha256:835c21ea967db72521453d5b1e3d203112c2f6c14961cf4f17b93808b943447e` |
 
 
 

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kubectl](https://github.com/chainguard-images/images/tree/main/images/kubectl)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:40fb29130430095dd2fcb946f66567155f81bdb99fa7240ca8066ac1b7a46dac` |
-|  `latest`     | September 8th | `sha256:6c645b2ab5d640cdc97490eb868084359072147c400db6f0fcc3f55f1051ae63` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:1e13dc70233d7abbce5110bb43d0c076bc74f5d8aebdfdc8c591e217177dad77` |
+|  `latest`     | September 11th | `sha256:250f8c1a7fee0a55ee127005c42eeb10ccf78c9ddf99b23363e80b8e3fc3c97b` |
 
 
 

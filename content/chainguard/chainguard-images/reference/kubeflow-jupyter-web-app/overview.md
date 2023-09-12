@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kubeflow-jupyter-web-app](https://github.com/chainguard-images/images/tree/main/images/kubeflow-jupyter-web-app)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 9th | `sha256:6d4934a0fcdce0787ff0dc02fd4deabf0aae0003160cf032afc4def28f22e706` |
-|  `latest`     | September 9th | `sha256:17ea49816c3ea0e2b6e483f9a476c564caef37b8770a70eefcde19e5d9333b15` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:96da05523784bd3257a440cdbb19dd8c0b1689997f75ce9ec120ec21c381a8cb` |
+|  `latest`     | September 11th | `sha256:d702fe9c4261a197ca96aae0ac30d8c27dcc09804266730a82841fd1820c94c4` |
 
 
 

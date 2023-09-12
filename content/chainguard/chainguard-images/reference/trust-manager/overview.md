@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/trust-manager](https://github.com/chainguard-images/images/tree/main/images/trust-manager)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:423e0293a5ef21930d9a5f0f4fa616bb8abe467cdf6ec8ae543a6b55cdbbe8e8` |
-|  `latest`     | September 8th | `sha256:a083adbbee46045daac64b89e88e5ba2e4bd40eb159a064650d5ae327395864b` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:daa8b23a4d4f52d27456c155852c05556afcc597a37679048bbeb2eb109f22fb` |
+|  `latest`     | September 11th | `sha256:9fd9f45a5b23fe088a5806f809dd9cf39a0c193702eba217acddbd4363127456` |
 
 
 

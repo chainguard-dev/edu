@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/crossplane-azure-sql](https://github.com/chainguard-images/images/tree/main/images/crossplane-azure-sql)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 8th | `sha256:3c70065ece0f30c5eb2925a1f84d7f7fde4adb9f48e8f6378bc63c47531ce89b` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:edcc3ba34cad1c61b00974a4c0d7b394b68027c46897c5945282e38478649b72` |
 
 # crossplane-azure-sql
 

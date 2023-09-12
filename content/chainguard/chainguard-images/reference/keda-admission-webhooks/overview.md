@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/keda-admission-webhooks](https://github.com/chainguard-images/images/tree/main/images/keda-admission-webhooks)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 8th | `sha256:d27e69c65be068c1c839239460b4a9e406c5328fd7787888232fbbcf27630a90` |
-|  `latest-dev` | September 8th | `sha256:547910a9c61666de928a840f6cbf73687fc5bea0f5a7032ad99189028d484845` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:0e7c8cdd432088e77f80aa53fcae446f2c97c2db39fd0f7e2232732e55a85354` |
+|  `latest`     | September 11th | `sha256:b48d5793e1ce2b3a0b79303d730592b64360ad41c4d7e543de73b101f7ed23dd` |
 
 # keda-admission-webhooks
 

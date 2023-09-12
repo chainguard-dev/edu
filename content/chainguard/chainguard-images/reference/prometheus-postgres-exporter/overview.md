@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/prometheus-postgres-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-postgres-exporter)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 8th | `sha256:88e33251ccbe6505dc185f37800cb9f72ea751bb0b8546c737ed7e5a478141ef` |
-|  `latest-dev` | September 8th | `sha256:4538b483b56c9a60fda7564622789821c62ab7b7564fbd3c944855cceb02a633` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:37f83b05e47c262e1fd8bc8054249ad58fed92c04dd5550eead78bf0e3c6009e` |
+|  `latest-dev` | September 11th | `sha256:af40e11342dc0ca187c69dde06f14fa3394a8d97bdf052983155aaf9afae9e6b` |
 
 # prometheus-postgres-exporter
 

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/fluentd](https://github.com/chainguard-images/images/tree/main/images/fluentd)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 9th | `sha256:9768c3162906a7bd8e5b1214270b8945db7c3de0ff67837c813cdd11db45d530` |
-|  `latest`     | September 7th | `sha256:c42eec6f25cd1538dbc712b43b319bfd6ed0dba6f4896103ec3816d87843a84e` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:47b984d2136afc4508e99d8116f8117e2c1a122b3852e9f76e81fba5100f3d46` |
+|  `latest-dev` | September 11th | `sha256:04df77bb3d09e23c4566b40b23c10a2dbd2cad44148ffd9b7f2d034a151106dd` |
 
 
 

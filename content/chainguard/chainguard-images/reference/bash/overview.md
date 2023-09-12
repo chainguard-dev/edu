@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/bash](https://github.com/chainguard-images/images/tree/main/images/bash)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:24fb0581797a49b490792054f402ab6b62e72cb4822e4d22da427d0fcc994e61` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:e89c123bce4842c25cb9e0632d76a1dbcebd929cd93583aa28751c6e238b3506` |
 
 
 

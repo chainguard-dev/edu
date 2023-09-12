@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/crossplane-aws-s3](https://github.com/chainguard-images/images/tree/main/images/crossplane-aws-s3)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 8th | `sha256:cd5c55fb0563b706efe87fb868888677c085d675fef08ba57eb2a6c60f9ac85f` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:5bca077de9674e4bcb1f56354cbcdb8f84e9c094620ce6a9a47d984ce41236b1` |
 
 # crossplane-aws-s3
 

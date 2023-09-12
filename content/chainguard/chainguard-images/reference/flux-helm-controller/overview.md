@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/flux-helm-controller](https://github.com/chainguard-images/images/tree/main/images/flux-helm-controller)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:5719f75e71ae4bcfe95fe37c13c7c142c4350e1f1049e863c59eece8e0bf262a` |
-|  `latest`     | September 7th | `sha256:21a901627ad9dd746a28a1baf21af036b077816d9b4befcdb70c08ff3b57d21e` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:ba9af41c3e17f6f5057a47d9cd9d934dafd1ae10daeddaec18d92d3e99cdc2ec` |
+|  `latest-dev` | September 11th | `sha256:11bf218492d671d3e5902e7937a69489d9e8b4c1dc0fc39d70e18f3df1c0b796` |
 
 # flux-helm-controller
 

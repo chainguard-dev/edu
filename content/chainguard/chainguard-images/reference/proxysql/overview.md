@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/proxysql](https://github.com/chainguard-images/images/tree/main/images/proxysql)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:55118f3fccebf6fc4bf924746abdf3090150be868acf510d2d99756e6461302c` |
-|  `latest`     | September 4th | `sha256:aa5c9a1c05ebdc376a63be10530c03c6b5d7c63a5facb74c6b705048639a28df` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:10911209259e6fea966539f9f98cb0d73247b519e66790696885ff733bfc8e12` |
+|  `latest-dev` | September 11th | `sha256:095f1e189c42c62880bfa614ef4826c6cf2fae96d8e39b63648a91c7f66bfa6d` |
 
 
 

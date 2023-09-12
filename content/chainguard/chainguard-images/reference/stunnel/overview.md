@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/stunnel](https://github.com/chainguard-images/images/tree/main/images/stunnel)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:2e7eed36d7b5fb742f5764a368293b3e97cde91752e73c78d8999a66d476f727` |
-|  `latest`     | September 8th | `sha256:80fd015f74bb69339a5b57bd6007c0224cf89bc5e54952514dc9da35433ec453` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:4989c0991eab651ec7bf2ba6c90e28eff53d1231acba88b21bb0f483c2d7ebf1` |
+|  `latest-dev` | September 11th | `sha256:cbfc239695b2e615e60a0397850ae167cfa49767ce2f269e079d2525ed477da3` |
 
 
 

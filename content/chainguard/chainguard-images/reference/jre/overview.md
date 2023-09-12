@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/jre](https://github.com/chainguard-images/images/tree/main/images/jre)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:4b2fa1c7c92983084973be241267d17afb709ac8829da045d6ac716336f56b4a` |
-|  `latest`     | September 7th | `sha256:067446d9df89ac3cbf0201945a738646ff53ee3531511a666b4dca108a8e64f6` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:de08b6279df57e9351a39163512734c60cd641195495d3406ef9f0e4142ea4fa` |
+|  `latest-dev` | September 11th | `sha256:f3695650252d923d2d706bfe72155a2b642964695616e1bd5b3ad47ee3a65dac` |
 
 
 

@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/wait-for-it](https://github.com/chainguard-images/images/tree/main/images/wait-for-it)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:5279020d24e8025f68f17337bf4679352031326ecd7765f4dd9ef534ebbe67dd` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:2271950aabdab656b9fe033d20f445e1b834fda1e7f5c2e55f0aa1254ad3f67c` |
 
 
 

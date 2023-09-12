@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/minio-client](https://github.com/chainguard-images/images/tree/main/images/minio-client)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:b96f8102154ab1bc0e8bf4c0049dd000402ca9fa3e06f149be41616f14c80bb7` |
-|  `latest`     | September 8th | `sha256:86b5d4db6cca59ea88b9b6a7353bde8025fca2326ce3d6b485c46237076ff986` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:88a0b5e464fa3837f88644fa769826dafa205af6e87662753b2da8b459005632` |
+|  `latest-dev` | September 11th | `sha256:6b25d50ce5ce0839208f93348d38599d16fed67b6b62277b979d33a0b2458e4f` |
 
 # minio-client
 

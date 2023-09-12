@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/kubernetes-dns-node-cache](https://github.com/chainguard-images/images/tree/main/images/kubernetes-dns-node-cache)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 8th | `sha256:25972da39348e16a766b0df253de47027e14c970574851068594b686cf6a82df` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:cfa942f8fd0e76b0336635cab00e41246528d593f15d17154043fed814a9775c` |
 
 
 

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kubernetes-dashboard-metrics-scraper](https://github.com/chainguard-images/images/tree/main/images/kubernetes-dashboard-metrics-scraper)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:1eb3bc8d056ff179cdd609ddef384aec9f4e718a820d07b1a050369ee9ee901e` |
-|  `latest`     | September 8th | `sha256:9af03744a9dffa9411517e45de578587089edd20eff296779a466085c3e468ff` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:f50f0f0ec7fe979669ef8afa3ad06646af9a9bc9173ad6994957b9cc882c5d97` |
+|  `latest`     | September 11th | `sha256:b5ee290f748bd5d6ec826e3ae0c5541d97c6c29aacedc175cda2424acb8e5f59` |
 
 # kubernetes-dashboard-metrics-scraper
 

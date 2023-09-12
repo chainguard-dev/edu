@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/r-base](https://github.com/chainguard-images/images/tree/main/images/r-base)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:45f7c598fde82543521e3e8b348ac3a42f1a9e3643f7f89c7e53cea9a4f146bc` |
-|  `latest-dev` | September 7th | `sha256:9773688ae15b8f6d0636d3adb1f03cef03adda3e74967f2403d72f2dbcee5a63` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:80f66c9e3a997d165c4f286e8fbccd6076170b463f146f724d503e031a5c4bd7` |
+|  `latest-dev` | September 11th | `sha256:87348599a88d53fd79b144206ae432d79f94f95d414a93faa20d784633203621` |
 
 
 

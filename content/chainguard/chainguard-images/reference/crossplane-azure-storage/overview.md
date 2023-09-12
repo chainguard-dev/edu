@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/crossplane-azure-storage](https://github.com/chainguard-images/images/tree/main/images/crossplane-azure-storage)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 8th | `sha256:c248c2dae81e1257748b183bbaa0671397a7abe5a026148002523d036695b953` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:f260252526c26aa5558abf0004d53663520c4d46467a7a85cb2e75d95d3553a6` |
 
 # crossplane-azure-storage
 

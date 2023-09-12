@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/influxdb](https://github.com/chainguard-images/images/tree/main/images/influxdb)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:21be48ced859aea3681fb55ac41675e7eaa6427acafc5ca12797b6f894a93e24` |
-|  `latest`     | September 8th | `sha256:de03925453f613cd203404c7cf03b73bea4b6ab773568996111a7af64119ca63` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:a59093e1544e5624371a0d79dda133edd0cf20b570c5a29ea75e0c69004aab8f` |
+|  `latest-dev` | September 11th | `sha256:072792bafe39556152c370fcc8078356188217a59fe01849d5b1daffc717460f` |
 
 
 

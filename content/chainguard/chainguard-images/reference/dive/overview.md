@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/dive](https://github.com/chainguard-images/images/tree/main/images/dive)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 7th | `sha256:9e868d11732a4b45b45c10583fe51255ff9cfa19249eb17465b149893c238a89` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:711c8746b338efef082b893c213c563fcad3b1297610216dcd0cdd449e4843a4` |
 
 
 

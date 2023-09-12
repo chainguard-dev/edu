@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/crossplane-aws-rds](https://github.com/chainguard-images/images/tree/main/images/crossplane-aws-rds)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 8th | `sha256:c0bb726dbce0dbbcb03f98d3e65fa8cce5125886490309553f6556fa65d490fd` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:a85cc6455e45da717250ce56f2705fe868e218de4800004e5e7675654014ebe2` |
 
 # crossplane-aws-rds
 

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/external-secrets](https://github.com/chainguard-images/images/tree/main/images/external-secrets)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:e0de408362a277b697b0c6078b66613c1e322c766d50251a57bcc46d7ddeaa1b` |
-|  `latest`     | September 7th | `sha256:b55993f970a49f75cd3a3b8576eae1375bbf50981004817ad793ddc660d81955` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:3db98a468427151f55df63df5d38cfd12688ec2e3420902f79a707750f2fbab1` |
+|  `latest`     | September 11th | `sha256:645b83a9ddd047e771ee71a475671a828361bc67860dd894e5e1f3882d992377` |
 
 
 
