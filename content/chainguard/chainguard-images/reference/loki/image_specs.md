@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                 | latest                                     |
 |--------------|--------------------------------------------|--------------------------------------------|
-| Default User | `65532`                                    | `65532`                                    |
+| Default User | `loki`                                     | `loki`                                     |
 | Entrypoint   | `/usr/bin/loki`                            | `/usr/bin/loki`                            |
 | CMD          | `-config.file=/etc/loki/local-config.yaml` | `-config.file=/etc/loki/local-config.yaml` |
 | Workdir      | not specified                              | not specified                              |

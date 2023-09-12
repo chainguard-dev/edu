@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev              | latest                  |
 |--------------|-------------------------|-------------------------|
-| Default User | `65532`                 | `65532`                 |
+| Default User | `external-dns`          | `external-dns`          |
 | Entrypoint   | `/usr/bin/external-dns` | `/usr/bin/external-dns` |
 | CMD          | `--help`                | `--help`                |
 | Workdir      | not specified           | not specified           |

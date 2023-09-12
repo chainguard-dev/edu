@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                 |
 |--------------|------------------------|
-| Default User | `999`                  |
+| Default User | `meilisearch`          |
 | Entrypoint   | `/usr/bin/meilisearch` |
 | CMD          | `--help`               |
 | Workdir      | not specified          |

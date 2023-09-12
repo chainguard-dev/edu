@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                 | latest                                                     |
 |--------------|------------------------------------------------------------|------------------------------------------------------------|
-| Default User | `65532`                                                    | `65532`                                                    |
+| Default User | `nginx`                                                    | `nginx`                                                    |
 | Entrypoint   | `/usr/sbin/nginx`                                          | `/usr/sbin/nginx`                                          |
 | CMD          | `-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` | `-c /etc/nginx/nginx.conf -e /dev/stderr -g "daemon off;"` |
 | Workdir      | not specified                                              | not specified                                              |

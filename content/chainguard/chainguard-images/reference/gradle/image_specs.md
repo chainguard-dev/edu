@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest            |
 |--------------|-------------------|
-| Default User | `65532`           |
+| Default User | `gradle`          |
 | Entrypoint   | `/usr/bin/gradle` |
 | CMD          | not specified     |
 | Workdir      | `/home/build`     |

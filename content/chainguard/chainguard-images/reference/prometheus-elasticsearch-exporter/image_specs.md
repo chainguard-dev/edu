@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                        | latest                            |
 |--------------|-----------------------------------|-----------------------------------|
-| Default User | `65532`                           | `65532`                           |
+| Default User | `elasticsearch_exporter`          | `elasticsearch_exporter`          |
 | Entrypoint   | `/usr/bin/elasticsearch_exporter` | `/usr/bin/elasticsearch_exporter` |
 | CMD          | not specified                     | not specified                     |
 | Workdir      | not specified                     | not specified                     |

@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                    | latest                        |
 |--------------|-------------------------------|-------------------------------|
-| Default User | `65532`                       | `65532`                       |
+| Default User | `cluster-autoscaler`          | `cluster-autoscaler`          |
 | Entrypoint   | `/usr/bin/cluster-autoscaler` | `/usr/bin/cluster-autoscaler` |
 | CMD          | not specified                 | not specified                 |
 | Workdir      | `/`                           | `/`                           |

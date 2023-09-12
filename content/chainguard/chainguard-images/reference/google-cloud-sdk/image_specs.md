@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest            |
 |--------------|-------------------|
-| Default User | `65532`           |
+| Default User | `gcloud`          |
 | Entrypoint   | not specified     |
 | CMD          | `/usr/bin/gcloud` |
 | Workdir      | not specified     |

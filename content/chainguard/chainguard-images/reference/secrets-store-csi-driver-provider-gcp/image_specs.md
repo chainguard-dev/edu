@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                       | latest                                           |
 |--------------|--------------------------------------------------|--------------------------------------------------|
-| Default User | `0`                                              | `0`                                              |
+| Default User | `root`                                           | `root`                                           |
 | Entrypoint   | `/usr/bin/secrets-store-csi-driver-provider-gcp` | `/usr/bin/secrets-store-csi-driver-provider-gcp` |
 | CMD          | not specified                                    | not specified                                    |
 | Workdir      | not specified                                    | not specified                                    |

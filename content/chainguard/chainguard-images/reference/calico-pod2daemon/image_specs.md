@@ -22,36 +22,34 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **calico-pod2daemon** Image.
 
 ## Variants Compared
-The **calico-pod2daemon** Chainguard Image currently has 2 public variants: 
+The **calico-pod2daemon** Chainguard Image currently has one public variant: 
 
-- `flexvol-latest`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | flexvol-latest        | latest                |
-|--------------|-----------------------|-----------------------|
-| Default User | `0`                   | `0`                   |
-| Entrypoint   | `/usr/bin/flexvol.sh` | `/usr/bin/flexvol.sh` |
-| CMD          | not specified         | not specified         |
-| Workdir      | not specified         | not specified         |
-| Has apk?     | no                    | no                    |
-| Has a shell? | yes                   | yes                   |
+|              | latest                |
+|--------------|-----------------------|
+| Default User | `root`                |
+| Entrypoint   | `/usr/bin/flexvol.sh` |
+| CMD          | not specified         |
+| Workdir      | not specified         |
+| Has apk?     | no                    |
+| Has a shell? | yes                   |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/calico-pod2daemon/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                    | flexvol-latest | latest |
-|------------------------------------|----------------|--------|
-| `busybox`                          | X              | X      |
-| `ca-certificates-bundle`           | X              | X      |
-| `calico-pod2daemon`                | X              | X      |
-| `calico-pod2daemon-flexvol-compat` | X              |        |
-| `glibc`                            | X              | X      |
-| `glibc-locale-posix`               | X              | X      |
-| `ld-linux`                         | X              | X      |
-| `libcrypt1`                        | X              | X      |
-| `wolfi-baselayout`                 | X              | X      |
+|                          | latest |
+|--------------------------|--------|
+| `busybox`                | X      |
+| `ca-certificates-bundle` | X      |
+| `calico-pod2daemon`      | X      |
+| `glibc`                  | X      |
+| `glibc-locale-posix`     | X      |
+| `ld-linux`               | X      |
+| `libcrypt1`              | X      |
+| `wolfi-baselayout`       | X      |
 

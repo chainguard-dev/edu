@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                          | latest                                                              |
 |--------------|---------------------------------------------------------------------|---------------------------------------------------------------------|
-| Default User | `65532`                                                             | `65532`                                                             |
+| Default User | `nonroot`                                                           | `nonroot`                                                           |
 | Entrypoint   | `/usr/bin/keda-adapter --secure-port=6443 --logtostderr=true --v=0` | `/usr/bin/keda-adapter --secure-port=6443 --logtostderr=true --v=0` |
 | CMD          | not specified                                                       | not specified                                                       |
 | Workdir      | not specified                                                       | not specified                                                       |

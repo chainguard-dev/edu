@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                 |
 |--------------|------------------------|
-| Default User | `0`                    |
+| Default User | `root`                 |
 | Entrypoint   | `/opt/cni/bin/install` |
 | CMD          | not specified          |
 | Workdir      | not specified          |

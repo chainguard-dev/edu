@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                      | latest                          |
 |--------------|---------------------------------|---------------------------------|
-| Default User | `65532`                         | `65532`                         |
+| Default User | `opensearch`                    | `opensearch`                    |
 | Entrypoint   | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` |
 | CMD          | `opensearchwrapper`             | `opensearchwrapper`             |
 | Workdir      | not specified                   | not specified                   |
