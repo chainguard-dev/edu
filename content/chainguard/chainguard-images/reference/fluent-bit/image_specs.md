@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                               |
 |--------------|--------------------------------------|
-| Default User | `65532`                              |
+| Default User | `nonroot`                            |
 | Entrypoint   | `/usr/bin/fluent-bit`                |
 | CMD          | `-c /fluent-bit/etc/fluent-bit.conf` |
 | Workdir      | not specified                        |

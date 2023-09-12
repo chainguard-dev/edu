@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev    | latest        |
 |--------------|---------------|---------------|
-| Default User | `0`           | `0`           |
+| Default User | `root`        | `root`        |
 | Entrypoint   | `/bin/k3s`    | `/bin/k3s`    |
 | CMD          | `agent`       | `agent`       |
 | Workdir      | not specified | not specified |

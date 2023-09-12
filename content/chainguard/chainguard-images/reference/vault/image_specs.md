@@ -22,58 +22,55 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **vault** Image.
 
 ## Variants Compared
-The **vault** Chainguard Image currently has 4 public variants: 
+The **vault** Chainguard Image currently has 2 public variants: 
 
-- `k8s-latest-dev`
-- `k8s-latest`
 - `latest-dev`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | k8s-latest-dev       | k8s-latest           | latest-dev                      | latest                          |
-|--------------|----------------------|----------------------|---------------------------------|---------------------------------|
-| Default User | `65532`              | `65532`              | `0`                             | `0`                             |
-| Entrypoint   | `/usr/bin/vault-k8s` | `/usr/bin/vault-k8s` | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` |
-| CMD          | not specified        | not specified        | `server -dev`                   | `server -dev`                   |
-| Workdir      | not specified        | not specified        | not specified                   | not specified                   |
-| Has apk?     | yes                  | no                   | yes                             | no                              |
-| Has a shell? | yes                  | no                   | yes                             | yes                             |
+|              | latest-dev                      | latest                          |
+|--------------|---------------------------------|---------------------------------|
+| Default User | `root`                          | `root`                          |
+| Entrypoint   | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` |
+| CMD          | `server -dev`                   | `server -dev`                   |
+| Workdir      | not specified                   | not specified                   |
+| Has apk?     | yes                             | no                              |
+| Has a shell? | yes                             | yes                             |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/vault/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | k8s-latest-dev | k8s-latest | latest-dev | latest |
-|--------------------------|----------------|------------|------------|--------|
-| `apk-tools`              | X              |            | X          |        |
-| `bash`                   | X              |            | X          |        |
-| `busybox`                | X              |            | X          | X      |
-| `ca-certificates-bundle` | X              | X          | X          | X      |
-| `git`                    | X              |            | X          |        |
-| `glibc`                  | X              | X          | X          | X      |
-| `glibc-locale-posix`     | X              | X          | X          | X      |
-| `ld-linux`               | X              | X          | X          | X      |
-| `libbrotlicommon1`       | X              |            | X          |        |
-| `libbrotlidec1`          | X              |            | X          |        |
-| `libcap`                 | X              | X          | X          | X      |
-| `libcrypt1`              | X              |            | X          | X      |
-| `libcrypto3`             | X              |            | X          |        |
-| `libcurl-openssl4`       | X              |            | X          |        |
-| `libexpat1`              | X              |            | X          |        |
-| `libnghttp2-14`          | X              |            | X          |        |
-| `libpcre2-8-0`           | X              |            | X          |        |
-| `libssl3`                | X              |            | X          |        |
-| `ncurses`                | X              |            | X          |        |
-| `ncurses-terminfo-base`  | X              |            | X          |        |
-| `openssl-config`         | X              |            | X          |        |
-| `vault-k8s`              | X              | X          |            |        |
-| `wolfi-baselayout`       | X              | X          | X          | X      |
-| `zlib`                   | X              |            | X          |        |
-| `dumb-init`              |                |            | X          | X      |
-| `libcap-utils`           |                |            | X          | X      |
-| `su-exec`                |                |            | X          | X      |
-| `vault-1.14`             |                |            | X          | X      |
-| `vault-1.14-entrypoint`  |                |            | X          | X      |
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `busybox`                | X          | X      |
+| `ca-certificates-bundle` | X          | X      |
+| `dumb-init`              | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
+| `libcap`                 | X          | X      |
+| `libcap-utils`           | X          | X      |
+| `libcrypt1`              | X          | X      |
+| `libcrypto3`             | X          |        |
+| `libcurl-openssl4`       | X          |        |
+| `libexpat1`              | X          |        |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libssl3`                | X          |        |
+| `ncurses`                | X          |        |
+| `ncurses-terminfo-base`  | X          |        |
+| `openssl-config`         | X          |        |
+| `su-exec`                | X          | X      |
+| `vault-1.14`             | X          | X      |
+| `vault-1.14-entrypoint`  | X          | X      |
+| `wolfi-baselayout`       | X          | X      |
+| `zlib`                   | X          |        |
 

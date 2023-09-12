@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev          | latest              |
 |--------------|---------------------|---------------------|
-| Default User | `65532`             | `65532`             |
+| Default User | `skaffold`          | `skaffold`          |
 | Entrypoint   | `/usr/bin/skaffold` | `/usr/bin/skaffold` |
 | CMD          | `--help`            | `--help`            |
 | Workdir      | `/app`              | `/app`              |

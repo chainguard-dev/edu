@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev     | latest         |
 |--------------|----------------|----------------|
-| Default User | `999`          | `999`          |
+| Default User | `cassandra`    | `cassandra`    |
 | Entrypoint   | `cassandra -f` | `cassandra -f` |
 | CMD          | not specified  | not specified  |
 | Workdir      | `/`            | `/`            |

@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-root     | latest          |
 |--------------|-----------------|-----------------|
-| Default User | `0`             | `65532`         |
+| Default User | `root`          | `nonroot`       |
 | Entrypoint   | `/usr/bin/pwsh` | `/usr/bin/pwsh` |
 | CMD          | not specified   | not specified   |
 | Workdir      | not specified   | not specified   |

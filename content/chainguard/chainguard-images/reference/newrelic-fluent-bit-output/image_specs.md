@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                                                  |
 |--------------|-------------------------------------------------------------------------|
-| Default User | `0`                                                                     |
+| Default User | `root`                                                                  |
 | Entrypoint   | `/usr/bin/fluent-bit`                                                   |
 | CMD          | `-c /fluent-bit/etc/fluent-bit.conf -e /fluent-bit/bin/out_newrelic.so` |
 | Workdir      | not specified                                                           |

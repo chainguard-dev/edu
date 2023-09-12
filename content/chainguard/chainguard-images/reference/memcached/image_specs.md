@@ -22,47 +22,45 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **memcached** Image.
 
 ## Variants Compared
-The **memcached** Chainguard Image currently has 2 public variants: 
+The **memcached** Chainguard Image currently has one public variant: 
 
-- `exporter-latest`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | exporter-latest               | latest        |
-|--------------|-------------------------------|---------------|
-| Default User | `65532`                       | `65532`       |
-| Entrypoint   | `/usr/bin/memcached_exporter` | `memcached`   |
-| CMD          | not specified                 | not specified |
-| Workdir      | not specified                 | not specified |
-| Has apk?     | no                            | no            |
-| Has a shell? | no                            | no            |
+|              | latest        |
+|--------------|---------------|
+| Default User | `memcached`   |
+| Entrypoint   | `memcached`   |
+| CMD          | not specified |
+| Workdir      | not specified |
+| Has apk?     | no            |
+| Has a shell? | no            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/memcached/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | exporter-latest | latest |
-|--------------------------|-----------------|--------|
-| `ca-certificates-bundle` | X               | X      |
-| `glibc`                  | X               | X      |
-| `glibc-locale-posix`     | X               | X      |
-| `ld-linux`               | X               | X      |
-| `memcached-exporter`     | X               |        |
-| `wolfi-baselayout`       | X               | X      |
-| `cyrus-sasl`             |                 | X      |
-| `gdbm`                   |                 | X      |
-| `heimdal`                |                 | X      |
-| `libcrypt1`              |                 | X      |
-| `libcrypto3`             |                 | X      |
-| `libevent`               |                 | X      |
-| `libseccomp`             |                 | X      |
-| `libssl3`                |                 | X      |
-| `memcached`              |                 | X      |
-| `ncurses`                |                 | X      |
-| `ncurses-terminfo-base`  |                 | X      |
-| `openssl-config`         |                 | X      |
-| `readline`               |                 | X      |
-| `sqlite-libs`            |                 | X      |
+|                          | latest |
+|--------------------------|--------|
+| `ca-certificates-bundle` | X      |
+| `cyrus-sasl`             | X      |
+| `gdbm`                   | X      |
+| `glibc`                  | X      |
+| `glibc-locale-posix`     | X      |
+| `heimdal`                | X      |
+| `ld-linux`               | X      |
+| `libcrypt1`              | X      |
+| `libcrypto3`             | X      |
+| `libevent`               | X      |
+| `libseccomp`             | X      |
+| `libssl3`                | X      |
+| `memcached`              | X      |
+| `ncurses`                | X      |
+| `ncurses-terminfo-base`  | X      |
+| `openssl-config`         | X      |
+| `readline`               | X      |
+| `sqlite-libs`            | X      |
+| `wolfi-baselayout`       | X      |
 

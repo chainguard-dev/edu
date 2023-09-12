@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev             | latest                 |
 |--------------|------------------------|------------------------|
-| Default User | `65534`                | `65534`                |
+| Default User | `nonroot`              | `nonroot`              |
 | Entrypoint   | `/usr/bin/pushgateway` | `/usr/bin/pushgateway` |
 | CMD          | not specified          | not specified          |
 | Workdir      | `/pushgateway`         | `/pushgateway`         |

@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                                            | latest                                                                                |
 |--------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
-| Default User | `65532`                                                                               | `65532`                                                                               |
+| Default User | `nonroot`                                                                             | `nonroot`                                                                             |
 | Entrypoint   | `/usr/bin/java -jar /usr/share/java/cloudwatch_exporter/cloudwatch_exporter.jar 9106` | `/usr/bin/java -jar /usr/share/java/cloudwatch_exporter/cloudwatch_exporter.jar 9106` |
 | CMD          | `/config/config.yml`                                                                  | `/config/config.yml`                                                                  |
 | Workdir      | not specified                                                                         | not specified                                                                         |

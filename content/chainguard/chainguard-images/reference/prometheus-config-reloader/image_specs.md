@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                        | latest                            |
 |--------------|-----------------------------------|-----------------------------------|
-| Default User | `65532`                           | `65532`                           |
+| Default User | `prometheus-config-reloader`      | `prometheus-config-reloader`      |
 | Entrypoint   | `/bin/prometheus-config-reloader` | `/bin/prometheus-config-reloader` |
 | CMD          | not specified                     | not specified                     |
 | Workdir      | not specified                     | not specified                     |

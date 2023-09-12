@@ -29,14 +29,14 @@ The **aws-load-balancer-controller** Chainguard Image currently has 2 public var
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev            | latest                |
-|--------------|-----------------------|-----------------------|
-| Default User | `65532`               | `65532`               |
-| Entrypoint   | `/usr/bin/controller` | `/usr/bin/controller` |
-| CMD          | not specified         | not specified         |
-| Workdir      | not specified         | not specified         |
-| Has apk?     | yes                   | no                    |
-| Has a shell? | yes                   | no                    |
+|              | latest-dev                     | latest                         |
+|--------------|--------------------------------|--------------------------------|
+| Default User | `aws-load-balancer-controller` | `aws-load-balancer-controller` |
+| Entrypoint   | `/usr/bin/controller`          | `/usr/bin/controller`          |
+| CMD          | not specified                  | not specified                  |
+| Workdir      | not specified                  | not specified                  |
+| Has apk?     | yes                            | no                             |
+| Has a shell? | yes                            | no                             |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/aws-load-balancer-controller/tags_history/) for the full list of available tags.
 

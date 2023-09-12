@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                 | latest                                     |
 |--------------|--------------------------------------------|--------------------------------------------|
-| Default User | `65532`                                    | `65532`                                    |
+| Default User | `weaviate`                                 | `weaviate`                                 |
 | Entrypoint   | `/bin/weaviate`                            | `/bin/weaviate`                            |
 | CMD          | `--host 0.0.0.0 --port 8080 --scheme http` | `--host 0.0.0.0 --port 8080 --scheme http` |
 | Workdir      | not specified                              | not specified                              |

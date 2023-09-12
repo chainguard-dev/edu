@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                          | latest                              |
 |--------------|-------------------------------------|-------------------------------------|
-| Default User | `999`                               | `999`                               |
+| Default User | `argocd`                            | `argocd`                            |
 | Entrypoint   | `/usr/local/bin/argocd-repo-server` | `/usr/local/bin/argocd-repo-server` |
 | CMD          | not specified                       | not specified                       |
 | Workdir      | `/home/argocd`                      | `/home/argocd`                      |

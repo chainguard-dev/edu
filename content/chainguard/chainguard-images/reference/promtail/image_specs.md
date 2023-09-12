@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                              | latest                                  |
 |--------------|-----------------------------------------|-----------------------------------------|
-| Default User | `65532`                                 | `65532`                                 |
+| Default User | `promtail`                              | `promtail`                              |
 | Entrypoint   | `/usr/bin/promtail`                     | `/usr/bin/promtail`                     |
 | CMD          | `-config.file=/etc/promtail/config.yml` | `-config.file=/etc/promtail/config.yml` |
 | Workdir      | not specified                           | not specified                           |

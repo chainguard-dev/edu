@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                      |
 |--------------|-----------------------------|
-| Default User | `999`                       |
+| Default User | `rabbitmq`                  |
 | Entrypoint   | `/usr/sbin/rabbitmq-server` |
 | CMD          | not specified               |
 | Workdir      | `/var/lib/rabbitmq`         |

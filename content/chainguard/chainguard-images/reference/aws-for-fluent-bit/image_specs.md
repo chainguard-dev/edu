@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                                                                                                 |
 |--------------|------------------------------------------------------------------------------------------------------------------------|
-| Default User | `65532`                                                                                                                |
+| Default User | `nonroot`                                                                                                              |
 | Entrypoint   | `/fluent-bit/bin/fluent-bit`                                                                                           |
 | CMD          | `-e /fluent-bit/firehose.so -e /fluent-bit/cloudwatch.so -e /fluent-bit/kinesis.so -c /fluent-bit/etc/fluent-bit.conf` |
 | Workdir      | not specified                                                                                                          |
