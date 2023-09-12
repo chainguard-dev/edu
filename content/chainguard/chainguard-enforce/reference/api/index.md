@@ -12,7 +12,6 @@ menu:
   docs:
     parent: "chainguard"
 weight: 100
-toc: true
 ---
 
 {{< openapi spec-url="/api.json" >}}
