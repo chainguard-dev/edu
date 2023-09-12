@@ -1,11 +1,33 @@
 ---
-title: "kubernetes-dashboard-metrics-scraper"
-description: "Chainguard Images Reference: kubernetes-dashboard-metrics-scraper"
+title: "Image Overview: kubernetes-dashboard-metrics-scraper"
+linktitle: "kubernetes-dashboard-metrics-scraper"
 type: "article"
-date: 2022-11-28T08:49:15+00:00
-lastmod: 2022-11-28T08:49:15+00:00
+layout: "single"
+description: "Overview: kubernetes-dashboard-metrics-scraper Chainguard Image"
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
+menu:
+  docs:
+    parent: "images-reference"
+weight: 500
+toc: true
 ---
 
-Reference docs for the kubernetes-dashboard-metrics-scraper Chainguard Image
+{{< tabs >}}
+{{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/kubernetes-dashboard-metrics-scraper/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/kubernetes-dashboard-metrics-scraper/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kubernetes-dashboard-metrics-scraper/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubernetes-dashboard-metrics-scraper/provenance_info/" >}}
+{{</ tabs >}}
+
+Minimal **kubernetes-dashboard-metrics-scraper** images with nightly builds.
+
+## Get it!
+
+```
+docker pull cgr.dev/chainguard/kubernetes-dashboard-metrics-scraper:latest
+```
+

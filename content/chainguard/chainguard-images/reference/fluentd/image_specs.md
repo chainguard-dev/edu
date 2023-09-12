@@ -1,18 +1,23 @@
 ---
 title: "fluentd Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public fluentd Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "fluentd"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/fluentd/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/fluentd/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/fluentd/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/fluentd/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **fluentd** Image.
 
@@ -27,7 +32,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev     | latest-splunk  | latest         |
 |--------------|----------------|----------------|----------------|
-| Default User | `fluent`       | `fluent`       | `fluent`       |
+| Default User | `65532`        | `65532`        | `65532`        |
 | Entrypoint   | Service Bundle | Service Bundle | Service Bundle |
 | CMD          | not specified  | not specified  | not specified  |
 | Workdir      | not specified  | not specified  | not specified  |

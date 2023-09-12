@@ -1,18 +1,23 @@
 ---
 title: "nvidia-device-plugin Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the nvidia-device-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/nvidia-device-plugin/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/nvidia-device-plugin/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/nvidia-device-plugin/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/nvidia-device-plugin/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest`     | September 11th | `sha256:d9119dcc8697c5838df42db934b8cb8ec84d639eff33957f317a0d0c183b384f` |
 |  `latest-dev` | September 11th | `sha256:dabaf236743810a3a0f6b8c09230536c3fe7da97e5beaf16fe5b491d6fc33b28` |
+

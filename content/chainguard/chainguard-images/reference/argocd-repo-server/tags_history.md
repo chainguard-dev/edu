@@ -1,18 +1,23 @@
 ---
 title: "argocd-repo-server Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the argocd-repo-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/argocd-repo-server/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/argocd-repo-server/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/argocd-repo-server/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/argocd-repo-server/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest`     | September 11th | `sha256:8379840da97f54adcbf069587ea7a8902a7d24e6236f83a37a627ec3170004ad` |
 |  `latest-dev` | September 11th | `sha256:42f15a515deb6ec6ce0c79dacdd3fd48db6b8fc0d0f7c9804867b584c5c78d11` |
+

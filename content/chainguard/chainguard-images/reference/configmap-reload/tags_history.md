@@ -1,18 +1,23 @@
 ---
 title: "configmap-reload Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the configmap-reload Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/configmap-reload/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/configmap-reload/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/configmap-reload/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/configmap-reload/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest`     | September 11th | `sha256:15b5168af003f06c61abf585214ecc89ddb46ec9e5a42b1b8de5b4894b3dfc5c` |
 |  `latest-dev` | September 11th | `sha256:f17ab1cbc2ea520b5969a6a1edb726b3699f0fcf651ce4aa8b203c77962a2680` |
+

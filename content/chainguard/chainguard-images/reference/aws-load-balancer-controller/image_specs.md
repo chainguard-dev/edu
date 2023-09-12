@@ -1,18 +1,23 @@
 ---
 title: "aws-load-balancer-controller Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public aws-load-balancer-controller Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "aws-load-balancer-controller"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/aws-load-balancer-controller/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/aws-load-balancer-controller/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/aws-load-balancer-controller/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/aws-load-balancer-controller/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **aws-load-balancer-controller** Image.
 
@@ -24,14 +29,14 @@ The **aws-load-balancer-controller** Chainguard Image currently has 2 public var
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev                     | latest                         |
-|--------------|--------------------------------|--------------------------------|
-| Default User | `aws-load-balancer-controller` | `aws-load-balancer-controller` |
-| Entrypoint   | `/usr/bin/controller`          | `/usr/bin/controller`          |
-| CMD          | not specified                  | not specified                  |
-| Workdir      | not specified                  | not specified                  |
-| Has apk?     | yes                            | no                             |
-| Has a shell? | yes                            | no                             |
+|              | latest-dev            | latest                |
+|--------------|-----------------------|-----------------------|
+| Default User | `65532`               | `65532`               |
+| Entrypoint   | `/usr/bin/controller` | `/usr/bin/controller` |
+| CMD          | not specified         | not specified         |
+| Workdir      | not specified         | not specified         |
+| Has apk?     | yes                   | no                    |
+| Has a shell? | yes                   | no                    |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/aws-load-balancer-controller/tags_history/) for the full list of available tags.
 

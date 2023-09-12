@@ -1,18 +1,23 @@
 ---
 title: "guacamole-server Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public guacamole-server Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "guacamole-server"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/guacamole-server/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/guacamole-server/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/guacamole-server/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/guacamole-server/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **guacamole-server** Image.
 

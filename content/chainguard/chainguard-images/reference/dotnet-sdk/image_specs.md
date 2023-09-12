@@ -1,18 +1,23 @@
 ---
 title: "dotnet-sdk Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public dotnet-sdk Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "dotnet-sdk"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/dotnet-sdk/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/dotnet-sdk/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/dotnet-sdk/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/dotnet-sdk/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **dotnet-sdk** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev    | latest        |
 |--------------|---------------|---------------|
-| Default User | `nonroot`     | `nonroot`     |
+| Default User | `65532`       | `65532`       |
 | Entrypoint   | not specified | not specified |
 | CMD          | `/bin/sh -l`  | `/bin/sh -l`  |
 | Workdir      | not specified | not specified |

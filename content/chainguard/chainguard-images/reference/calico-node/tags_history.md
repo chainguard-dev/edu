@@ -1,18 +1,23 @@
 ---
 title: "calico-node Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the calico-node Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/calico-node/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/calico-node/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/calico-node/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/calico-node/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -21,3 +26,4 @@ Please note that digests and timestamps only change when there is a change to th
 | Tag (s)   | Last Changed   | Digest                                                                    |
 |-----------|----------------|---------------------------------------------------------------------------|
 |  `latest` | September 11th | `sha256:cf31c9284b3ffcf8648197dba9ce6ddc093d2681c48aab0544e1ea78d630b436` |
+

@@ -1,18 +1,23 @@
 ---
 title: "influxdb Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public influxdb Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "influxdb"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/influxdb/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/influxdb/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/influxdb/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/influxdb/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **influxdb** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev               | latest                   |
 |--------------|--------------------------|--------------------------|
-| Default User | `influxdb`               | `influxdb`               |
+| Default User | `1000`                   | `1000`                   |
 | Entrypoint   | `/usr/bin/entrypoint.sh` | `/usr/bin/entrypoint.sh` |
 | CMD          | not specified            | not specified            |
 | Workdir      | not specified            | not specified            |

@@ -1,11 +1,37 @@
 ---
-title: "aws-efs-csi-driver"
-description: "Chainguard Images Reference: aws-efs-csi-driver"
+title: "Image Overview: aws-efs-csi-driver"
+linktitle: "aws-efs-csi-driver"
 type: "article"
-date: 2022-11-28T08:49:15+00:00
-lastmod: 2022-11-28T08:49:15+00:00
+layout: "single"
+description: "Overview: aws-efs-csi-driver Chainguard Image"
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
+menu:
+  docs:
+    parent: "images-reference"
+weight: 500
+toc: true
 ---
 
-Reference docs for the aws-efs-csi-driver Chainguard Image
+{{< tabs >}}
+{{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/aws-efs-csi-driver/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/aws-efs-csi-driver/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/aws-efs-csi-driver/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/aws-efs-csi-driver/provenance_info/" >}}
+{{</ tabs >}}
+
+
+
+Minimal images for aws-efs-csi-driver.
+
+## Get It
+
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/aws-efs-csi-driver:latest
+```
+

@@ -1,18 +1,23 @@
 ---
 title: "k3s-embedded Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public k3s-embedded Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "k3s-embedded"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/k3s-embedded/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/k3s-embedded/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/k3s-embedded/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/k3s-embedded/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **k3s-embedded** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-embedded | latest        |
 |--------------|-----------------|---------------|
-| Default User | `root`          | `root`        |
+| Default User | `0`             | `0`           |
 | Entrypoint   | `/bin/k3s`      | `/bin/k3s`    |
 | CMD          | `agent`         | `agent`       |
 | Workdir      | not specified   | not specified |

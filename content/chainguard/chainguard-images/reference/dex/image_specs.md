@@ -1,18 +1,23 @@
 ---
 title: "dex Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public dex Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "dex"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/dex/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/dex/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/dex/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/dex/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **dex** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                              | latest                                  |
 |--------------|-----------------------------------------|-----------------------------------------|
-| Default User | `nonroot`                               | `nonroot`                               |
+| Default User | `1001`                                  | `1001`                                  |
 | Entrypoint   | `/usr/bin/docker-entrypoint`            | `/usr/bin/docker-entrypoint`            |
 | CMD          | `dex serve /etc/dex/config.docker.yaml` | `dex serve /etc/dex/config.docker.yaml` |
 | Workdir      | not specified                           | not specified                           |

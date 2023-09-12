@@ -1,18 +1,23 @@
 ---
 title: "newrelic-infrastructure-bundle Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public newrelic-infrastructure-bundle Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "newrelic-infrastructure-bundle"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/newrelic-infrastructure-bundle/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/newrelic-infrastructure-bundle/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/newrelic-infrastructure-bundle/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/newrelic-infrastructure-bundle/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **newrelic-infrastructure-bundle** Image.
 
@@ -25,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest        |
 |--------------|---------------|
-| Default User | `root`        |
+| Default User | `0`           |
 | Entrypoint   | not specified |
 | CMD          | not specified |
 | Workdir      | not specified |

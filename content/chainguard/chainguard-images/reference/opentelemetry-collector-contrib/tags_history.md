@@ -1,18 +1,23 @@
 ---
 title: "opentelemetry-collector-contrib Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the opentelemetry-collector-contrib Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/opentelemetry-collector-contrib/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/opentelemetry-collector-contrib/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/opentelemetry-collector-contrib/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/opentelemetry-collector-contrib/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest`     | September 11th | `sha256:9a65a8b6b15a689a599b1eb7951ef9e2a76cad739dfb25e315d73ce2625be6d6` |
 |  `latest-dev` | September 11th | `sha256:b6257024094b62b1e828c327998f3f6b6c9d1a3b8eb9e2902376fa3290302caa` |
+

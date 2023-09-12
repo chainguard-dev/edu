@@ -1,18 +1,23 @@
 ---
 title: "aws-efs-csi-driver Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public aws-efs-csi-driver Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "aws-efs-csi-driver"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/aws-efs-csi-driver/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/aws-efs-csi-driver/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/aws-efs-csi-driver/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/aws-efs-csi-driver/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **aws-efs-csi-driver** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev           | latest               |
 |--------------|----------------------|----------------------|
-| Default User | `nonroot`            | `nonroot`            |
+| Default User | `65532`              | `65532`              |
 | Entrypoint   | `aws-efs-csi-driver` | `aws-efs-csi-driver` |
 | CMD          | not specified        | not specified        |
 | Workdir      | not specified        | not specified        |

@@ -1,18 +1,23 @@
 ---
 title: "flux Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public flux Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "flux"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/flux/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/flux/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/flux/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/flux/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **flux** Image.
 
@@ -38,7 +43,7 @@ The table has detailed information about each of these variants.
 
 |              | helm-controller-latest-dev | helm-controller-latest     | image-automation-controller-latest-dev | image-automation-controller-latest     | image-reflector-controller-latest-dev | image-reflector-controller-latest     | kustomize-controller-latest-dev | kustomize-controller-latest     | latest-dev      | latest          | notification-controller-latest-dev | notification-controller-latest     | source-controller-latest-dev | source-controller-latest     |
 |--------------|----------------------------|----------------------------|----------------------------------------|----------------------------------------|---------------------------------------|---------------------------------------|---------------------------------|---------------------------------|-----------------|-----------------|------------------------------------|------------------------------------|------------------------------|------------------------------|
-| Default User | `nonroot`                  | `nonroot`                  | `nonroot`                              | `nonroot`                              | `nonroot`                             | `nonroot`                             | `nonroot`                       | `nonroot`                       | `nonroot`       | `nonroot`       | `nonroot`                          | `nonroot`                          | `nonroot`                    | `nonroot`                    |
+| Default User | `65532`                    | `65532`                    | `65532`                                | `65532`                                | `65532`                               | `65532`                               | `65532`                         | `65532`                         | `65532`         | `65532`         | `65532`                            | `65532`                            | `65532`                      | `65532`                      |
 | Entrypoint   | `/usr/bin/helm-controller` | `/usr/bin/helm-controller` | `/usr/bin/image-automation-controller` | `/usr/bin/image-automation-controller` | `/usr/bin/image-reflector-controller` | `/usr/bin/image-reflector-controller` | `/usr/bin/kustomize-controller` | `/usr/bin/kustomize-controller` | `/usr/bin/flux` | `/usr/bin/flux` | `/usr/bin/notification-controller` | `/usr/bin/notification-controller` | `/usr/bin/source-controller` | `/usr/bin/source-controller` |
 | CMD          | not specified              | not specified              | not specified                          | not specified                          | not specified                         | not specified                         | not specified                   | not specified                   | `help`          | `help`          | not specified                      | not specified                      | not specified                | not specified                |
 | Workdir      | not specified              | not specified              | not specified                          | not specified                          | not specified                         | not specified                         | not specified                   | not specified                   | not specified   | not specified   | not specified                      | not specified                      | not specified                | not specified                |

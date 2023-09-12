@@ -1,11 +1,37 @@
 ---
-title: "k8sgpt-operator"
-description: "Chainguard Images Reference: k8sgpt-operator"
+title: "Image Overview: k8sgpt-operator"
+linktitle: "k8sgpt-operator"
 type: "article"
-date: 2022-11-28T08:49:15+00:00
-lastmod: 2022-11-28T08:49:15+00:00
+layout: "single"
+description: "Overview: k8sgpt-operator Chainguard Image"
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
+menu:
+  docs:
+    parent: "images-reference"
+weight: 500
+toc: true
 ---
 
-Reference docs for the k8sgpt-operator Chainguard Image
+{{< tabs >}}
+{{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/k8sgpt-operator/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/k8sgpt-operator/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/k8sgpt-operator/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/k8sgpt-operator/provenance_info/" >}}
+{{</ tabs >}}
+
+
+
+Minimal k8sgpt-operator container image.
+
+## Get It!
+
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/k8sgpt-operator:latest
+```
+

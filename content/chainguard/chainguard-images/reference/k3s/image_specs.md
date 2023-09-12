@@ -1,18 +1,23 @@
 ---
 title: "k3s Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public k3s Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "k3s"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/k3s/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/k3s/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/k3s/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/k3s/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **k3s** Image.
 
@@ -34,7 +39,7 @@ The table has detailed information about each of these variants.
 
 |              | allinone-latest-dev | allinone-latest | embedded-latest-embedded | embedded-latest | images-latest-dev | images-latest-images-dev | images-latest-images | images-latest | latest-dev    | latest        |
 |--------------|---------------------|-----------------|--------------------------|-----------------|-------------------|--------------------------|----------------------|---------------|---------------|---------------|
-| Default User | `root`              | `root`          | `root`                   | `root`          | `root`            | `root`                   | `root`               | `root`        | `root`        | `root`        |
+| Default User | `0`                 | `0`             | `0`                      | `0`             | `0`               | `0`                      | `0`                  | `0`           | `0`           | `0`           |
 | Entrypoint   | `/bin/k3s`          | `/bin/k3s`      | `/bin/k3s`               | `/bin/k3s`      | `/bin/k3s`        | `/bin/k3s`               | `/bin/k3s`           | `/bin/k3s`    | `/bin/k3s`    | `/bin/k3s`    |
 | CMD          | `agent`             | `agent`         | `agent`                  | `agent`         | `agent`           | `agent`                  | `agent`              | `agent`       | `agent`       | `agent`       |
 | Workdir      | not specified       | not specified   | not specified            | not specified   | not specified     | not specified            | not specified        | not specified | not specified | not specified |

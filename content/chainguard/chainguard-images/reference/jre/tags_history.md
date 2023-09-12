@@ -1,18 +1,23 @@
 ---
 title: "jre Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the jre Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/jre/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/jre/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/jre/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/jre/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -38,3 +43,4 @@ Please note that digests and timestamps only change when there is a change to th
 |  `openjdk-11.0.21.3-r0-dev` `openjdk-11.0.21.3-dev`                                                           | August 23rd    | `sha256:a359b2729b15c025ac8f6810fee1a99d4074033c85150ef3f46e5d228ca1b9f9` |
 |  `openjdk-17.0.9.3`                                                                                           | August 23rd    | `sha256:f11665ae9e35da51903f427c3d34736ea349ab2184df50d6022132b501f10857` |
 |  `openjdk-11.0.21.3`                                                                                          | August 23rd    | `sha256:4621c4b0bbf8b0ad1d54136d72f631bd11729807b2288fd41a69d683b8b02f6d` |
+

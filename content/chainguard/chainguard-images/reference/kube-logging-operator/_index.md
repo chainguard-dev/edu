@@ -1,11 +1,27 @@
 ---
-title: "kube-logging-operator"
-description: "Chainguard Images Reference: kube-logging-operator"
+title: "Image Overview: kube-logging-operator"
+linktitle: "kube-logging-operator"
 type: "article"
-date: 2022-11-28T08:49:15+00:00
-lastmod: 2022-11-28T08:49:15+00:00
+layout: "single"
+description: "Overview: kube-logging-operator Chainguard Image"
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
+menu:
+  docs:
+    parent: "images-reference"
+weight: 500
+toc: true
 ---
 
-Reference docs for the kube-logging-operator Chainguard Image
+{{< tabs >}}
+{{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/kube-logging-operator/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/kube-logging-operator/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kube-logging-operator/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kube-logging-operator/provenance_info/" >}}
+{{</ tabs >}}
+
+
+

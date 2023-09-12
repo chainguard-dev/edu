@@ -1,18 +1,23 @@
 ---
 title: "prometheus Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public prometheus Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "prometheus"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/prometheus/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/prometheus/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/prometheus/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/prometheus/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **prometheus** Image.
 
@@ -46,7 +51,7 @@ The table has detailed information about each of these variants.
 
 |              | alertmanager-latest-dev                                                         | alertmanager-latest                                                             | cloudwatch-exporter-latest-dev                                                        | cloudwatch-exporter-latest                                                            | config-reloader-latest-dev        | config-reloader-latest            | elasticsearch-exporter-latest-dev | elasticsearch-exporter-latest     | latest-dev    | latest        | mysqld-exporter-latest-dev | mysqld-exporter-latest     | node-exporter-latest-dev | node-exporter-latest     | operator-latest-dev | operator-latest     | postgres-exporter-latest-dev | postgres-exporter-latest     | pushgateway-latest-dev | pushgateway-latest     | redis-exporter-latest-dev | redis-exporter-latest     |
 |--------------|---------------------------------------------------------------------------------|---------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|-----------------------------------|-----------------------------------|-----------------------------------|-----------------------------------|---------------|---------------|----------------------------|----------------------------|--------------------------|--------------------------|---------------------|---------------------|------------------------------|------------------------------|------------------------|------------------------|---------------------------|---------------------------|
-| Default User | `alertmanager`                                                                  | `alertmanager`                                                                  | `nonroot`                                                                             | `nonroot`                                                                             | `prometheus-config-reloader`      | `prometheus-config-reloader`      | `elasticsearch_exporter`          | `elasticsearch_exporter`          | `root`        | `root`        | `mysqld_exporter`          | `mysqld_exporter`          | `node_exporter`          | `node_exporter`          | `nonroot`           | `nonroot`           | `nonroot`                    | `nonroot`                    | `nonroot`              | `nonroot`              | `nonroot`                 | `nonroot`                 |
+| Default User | `65532`                                                                         | `65532`                                                                         | `65532`                                                                               | `65532`                                                                               | `65532`                           | `65532`                           | `65532`                           | `65532`                           | `root`        | `root`        | `65532`                    | `65532`                    | `65532`                  | `65532`                  | `65532`             | `65532`             | `65532`                      | `65532`                      | `65534`                | `65534`                | `65532`                   | `65532`                   |
 | Entrypoint   | `/usr/bin/alertmanager`                                                         | `/usr/bin/alertmanager`                                                         | `/usr/bin/java -jar /usr/share/java/cloudwatch_exporter/cloudwatch_exporter.jar 9106` | `/usr/bin/java -jar /usr/share/java/cloudwatch_exporter/cloudwatch_exporter.jar 9106` | `/bin/prometheus-config-reloader` | `/bin/prometheus-config-reloader` | `/usr/bin/elasticsearch_exporter` | `/usr/bin/elasticsearch_exporter` | `prometheus`  | `prometheus`  | `/usr/bin/mysqld_exporter` | `/usr/bin/mysqld_exporter` | `/usr/bin/node_exporter` | `/usr/bin/node_exporter` | `/usr/bin/operator` | `/usr/bin/operator` | `/usr/bin/postgres_exporter` | `/usr/bin/postgres_exporter` | `/usr/bin/pushgateway` | `/usr/bin/pushgateway` | `/usr/bin/redis_exporter` | `/usr/bin/redis_exporter` |
 | CMD          | `--config.file=/etc/alertmanager/alertmanager.yml --storage.path=/alertmanager` | `--config.file=/etc/alertmanager/alertmanager.yml --storage.path=/alertmanager` | `/config/config.yml`                                                                  | `/config/config.yml`                                                                  | not specified                     | not specified                     | not specified                     | not specified                     | not specified | not specified | not specified              | not specified              | not specified            | not specified            | not specified       | not specified       | not specified                | not specified                | not specified          | not specified          | not specified             | not specified             |
 | Workdir      | not specified                                                                   | not specified                                                                   | not specified                                                                         | not specified                                                                         | not specified                     | not specified                     | not specified                     | not specified                     | not specified | not specified | not specified              | not specified              | not specified            | not specified            | not specified       | not specified       | not specified                | not specified                | `/pushgateway`         | `/pushgateway`         | not specified             | not specified             |
