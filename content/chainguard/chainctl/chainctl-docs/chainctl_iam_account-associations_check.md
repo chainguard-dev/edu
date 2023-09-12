@@ -1,5 +1,5 @@
 ---
-date: 2023-09-07T16:25:59Z
+date: 2023-09-12T13:04:57Z
 title: "chainctl iam account-associations check"
 slug: chainctl_iam_account-associations_check
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check/
