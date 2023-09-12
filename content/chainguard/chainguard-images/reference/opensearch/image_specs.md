@@ -1,18 +1,23 @@
 ---
 title: "opensearch Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public opensearch Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "opensearch"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/opensearch/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/opensearch/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/opensearch/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/opensearch/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **opensearch** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                      | latest                          |
 |--------------|---------------------------------|---------------------------------|
-| Default User | `opensearch`                    | `opensearch`                    |
+| Default User | `65532`                         | `65532`                         |
 | Entrypoint   | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` |
 | CMD          | `opensearchwrapper`             | `opensearchwrapper`             |
 | Workdir      | not specified                   | not specified                   |

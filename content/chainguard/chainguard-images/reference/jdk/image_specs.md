@@ -1,18 +1,23 @@
 ---
 title: "jdk Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public jdk Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "jdk"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/jdk/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/jdk/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/jdk/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/jdk/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **jdk** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev    | latest        |
 |--------------|---------------|---------------|
-| Default User | `java`        | `java`        |
+| Default User | `65532`       | `65532`       |
 | Entrypoint   | not specified | not specified |
 | CMD          | not specified | not specified |
 | Workdir      | `/home/build` | `/home/build` |

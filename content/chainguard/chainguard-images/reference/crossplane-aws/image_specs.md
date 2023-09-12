@@ -1,18 +1,23 @@
 ---
 title: "crossplane-aws Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public crossplane-aws Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "crossplane-aws"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/crossplane-aws/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/crossplane-aws/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/crossplane-aws/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/crossplane-aws/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **crossplane-aws** Image.
 
@@ -28,7 +33,7 @@ The table has detailed information about each of these variants.
 
 |              | iam-latest                | latest                    | rds-latest                | s3-latest                 |
 |--------------|---------------------------|---------------------------|---------------------------|---------------------------|
-| Default User | `nonroot`                 | `nonroot`                 | `nonroot`                 | `nonroot`                 |
+| Default User | `65532`                   | `65532`                   | `65532`                   | `65532`                   |
 | Entrypoint   | `/usr/local/bin/provider` | `/usr/local/bin/provider` | `/usr/local/bin/provider` | `/usr/local/bin/provider` |
 | CMD          | not specified             | not specified             | not specified             | not specified             |
 | Workdir      | not specified             | not specified             | not specified             | not specified             |

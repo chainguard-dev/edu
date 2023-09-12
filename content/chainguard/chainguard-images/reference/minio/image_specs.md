@@ -1,18 +1,23 @@
 ---
 title: "minio Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public minio Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "minio"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/minio/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/minio/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/minio/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/minio/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **minio** Image.
 
@@ -28,7 +33,7 @@ The table has detailed information about each of these variants.
 
 |              | client-latest-dev | client-latest | latest-dev       | latest           |
 |--------------|-------------------|---------------|------------------|------------------|
-| Default User | `minio`           | `minio`       | `minio`          | `minio`          |
+| Default User | `65532`           | `65532`       | `65532`          | `65532`          |
 | Entrypoint   | `/usr/bin/mc`     | `/usr/bin/mc` | `/usr/bin/minio` | `/usr/bin/minio` |
 | CMD          | not specified     | not specified | not specified    | not specified    |
 | Workdir      | not specified     | not specified | not specified    | not specified    |

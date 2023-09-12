@@ -1,18 +1,23 @@
 ---
 title: "cert-manager-acmesolver Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the cert-manager-acmesolver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/cert-manager-acmesolver/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/cert-manager-acmesolver/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/cert-manager-acmesolver/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cert-manager-acmesolver/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest`     | September 11th | `sha256:5b3c8c4cf6835168901e6d859245978027b0fe0553930974f574d4e468435725` |
 |  `latest-dev` | September 11th | `sha256:9646b730ed447508a9f2265a16597a96e5d6e72461f0397680e7de0418c5ed9c` |
+

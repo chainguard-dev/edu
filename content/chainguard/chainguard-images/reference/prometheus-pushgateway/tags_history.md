@@ -1,18 +1,23 @@
 ---
 title: "prometheus-pushgateway Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the prometheus-pushgateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/prometheus-pushgateway/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/prometheus-pushgateway/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/prometheus-pushgateway/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/prometheus-pushgateway/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest`     | September 11th | `sha256:e10538510632fa692a336dd93691e657026eae7cd81dd7ffed380baf8f14703c` |
 |  `latest-dev` | September 11th | `sha256:d91678cb15c0162fe8d5b440fc4ac50e3bbad15c9364dc53323e87b4f24eeb77` |
+

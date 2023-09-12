@@ -1,11 +1,33 @@
 ---
-title: "prometheus-elasticsearch-exporter"
-description: "Chainguard Images Reference: prometheus-elasticsearch-exporter"
+title: "Image Overview: prometheus-elasticsearch-exporter"
+linktitle: "prometheus-elasticsearch-exporter"
 type: "article"
-date: 2022-11-28T08:49:15+00:00
-lastmod: 2022-11-28T08:49:15+00:00
+layout: "single"
+description: "Overview: prometheus-elasticsearch-exporter Chainguard Image"
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
+menu:
+  docs:
+    parent: "images-reference"
+weight: 500
+toc: true
 ---
 
-Reference docs for the prometheus-elasticsearch-exporter Chainguard Image
+{{< tabs >}}
+{{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/prometheus-elasticsearch-exporter/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/prometheus-elasticsearch-exporter/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/prometheus-elasticsearch-exporter/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/prometheus-elasticsearch-exporter/provenance_info/" >}}
+{{</ tabs >}}
+
+Minimal **prometheus-elasticsearch-exporter** images with nightly builds.
+
+## Get it!
+
+```
+docker pull cgr.dev/chainguard/prometheus-elasticsearch-exporter:latest
+```
+

@@ -1,18 +1,23 @@
 ---
 title: "calico-pod2daemon Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the calico-pod2daemon Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/calico-pod2daemon/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/calico-pod2daemon/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/calico-pod2daemon/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/calico-pod2daemon/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -21,3 +26,4 @@ Please note that digests and timestamps only change when there is a change to th
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
 |  `latest` | August 31st  | `sha256:64e4edb787269b3a4c8bc51d1490e483e3386b6ab0cbf08c4153a9fa3b77107b` |
+

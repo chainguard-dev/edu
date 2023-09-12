@@ -1,18 +1,23 @@
 ---
 title: "Provenance Information for prometheus-elasticsearch-exporter Images"
 type: "article"
+unlisted: true
 description: "Provenance information for prometheus-elasticsearch-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "prometheus-elasticsearch-exporter"
 weight: 600
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/prometheus-elasticsearch-exporter/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/prometheus-elasticsearch-exporter/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/prometheus-elasticsearch-exporter/tags_history/" >}}
+{{< tab title="Provenance" active=true url="/chainguard/chainguard-images/reference/prometheus-elasticsearch-exporter/provenance_info/" >}}
+{{</ tabs >}}
 
 All Chainguard Images contain verifiable signatures and high-quality SBOMs (software bill of materials), features that enable users to confirm the origin of each image built and have a detailed list of everything that is packed within.
 

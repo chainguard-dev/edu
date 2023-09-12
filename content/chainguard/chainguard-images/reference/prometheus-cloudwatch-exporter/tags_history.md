@@ -1,18 +1,23 @@
 ---
 title: "prometheus-cloudwatch-exporter Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/prometheus-cloudwatch-exporter/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/prometheus-cloudwatch-exporter/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/prometheus-cloudwatch-exporter/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/prometheus-cloudwatch-exporter/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest`     | September 11th | `sha256:69a342dcd8941f7c715bcc3130c7e275ec57abc19aa0e758f532f0dd6550ec48` |
 |  `latest-dev` | September 11th | `sha256:c5ad8aba5426a0f992d8f670873ec3be58b12961f8506a023387b89d536f10af` |
+

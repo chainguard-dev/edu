@@ -1,18 +1,23 @@
 ---
 title: "istio-proxy Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public istio-proxy Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "istio-proxy"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/istio-proxy/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/istio-proxy/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/istio-proxy/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/istio-proxy/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **istio-proxy** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                   | latest                       |
 |--------------|------------------------------|------------------------------|
-| Default User | `nobody`                     | `nobody`                     |
+| Default User | `65532`                      | `65532`                      |
 | Entrypoint   | `/usr/local/bin/pilot-agent` | `/usr/local/bin/pilot-agent` |
 | CMD          | not specified                | not specified                |
 | Workdir      | not specified                | not specified                |

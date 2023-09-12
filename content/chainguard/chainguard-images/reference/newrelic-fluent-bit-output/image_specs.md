@@ -1,18 +1,23 @@
 ---
 title: "newrelic-fluent-bit-output Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public newrelic-fluent-bit-output Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "newrelic-fluent-bit-output"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/newrelic-fluent-bit-output/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/newrelic-fluent-bit-output/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/newrelic-fluent-bit-output/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/newrelic-fluent-bit-output/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **newrelic-fluent-bit-output** Image.
 
@@ -25,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                                                  |
 |--------------|-------------------------------------------------------------------------|
-| Default User | `root`                                                                  |
+| Default User | `0`                                                                     |
 | Entrypoint   | `/usr/bin/fluent-bit`                                                   |
 | CMD          | `-c /fluent-bit/etc/fluent-bit.conf -e /fluent-bit/bin/out_newrelic.so` |
 | Workdir      | not specified                                                           |

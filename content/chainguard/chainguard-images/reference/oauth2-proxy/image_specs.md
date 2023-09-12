@@ -1,18 +1,23 @@
 ---
 title: "oauth2-proxy Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public oauth2-proxy Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "oauth2-proxy"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/oauth2-proxy/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/oauth2-proxy/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/oauth2-proxy/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/oauth2-proxy/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **oauth2-proxy** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev              | latest                  |
 |--------------|-------------------------|-------------------------|
-| Default User | `oauth2-proxy`          | `oauth2-proxy`          |
+| Default User | `65532`                 | `65532`                 |
 | Entrypoint   | `/usr/bin/oauth2-proxy` | `/usr/bin/oauth2-proxy` |
 | CMD          | not specified           | not specified           |
 | Workdir      | not specified           | not specified           |

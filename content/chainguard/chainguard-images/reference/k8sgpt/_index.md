@@ -1,11 +1,36 @@
 ---
-title: "k8sgpt"
-description: "Chainguard Images Reference: k8sgpt"
+title: "Image Overview: k8sgpt"
+linktitle: "k8sgpt"
 type: "article"
-date: 2022-11-28T08:49:15+00:00
-lastmod: 2022-11-28T08:49:15+00:00
+layout: "single"
+description: "Overview: k8sgpt Chainguard Image"
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2022-11-01T11:07:52+02:00
 draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
 images: []
+menu:
+  docs:
+    parent: "images-reference"
+weight: 500
+toc: true
 ---
 
-Reference docs for the k8sgpt Chainguard Image
+{{< tabs >}}
+{{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/k8sgpt/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/k8sgpt/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/k8sgpt/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/k8sgpt/provenance_info/" >}}
+{{</ tabs >}}
+
+
+
+Minimal k8sgpt container image.
+## Get It!
+
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/k8sgpt:latest
+```
+

@@ -1,18 +1,23 @@
 ---
 title: "newrelic-prometheus Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public newrelic-prometheus Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "newrelic-prometheus"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/newrelic-prometheus/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/newrelic-prometheus/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/newrelic-prometheus/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/newrelic-prometheus/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **newrelic-prometheus** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | configurator-latest                | latest                                  |
 |--------------|------------------------------------|-----------------------------------------|
-| Default User | `nonroot`                          | `nonroot`                               |
+| Default User | `65532`                            | `65532`                                 |
 | Entrypoint   | `/usr/bin/prometheus-configurator` | `/sbin/tini -- /usr/bin/nri-prometheus` |
 | CMD          | not specified                      | not specified                           |
 | Workdir      | not specified                      | not specified                           |

@@ -1,18 +1,23 @@
 ---
 title: "r-base Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public r-base Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "r-base"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/r-base/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/r-base/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/r-base/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/r-base/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **r-base** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev    | latest        |
 |--------------|---------------|---------------|
-| Default User | `nonroot`     | `nonroot`     |
+| Default User | `65532`       | `65532`       |
 | Entrypoint   | `/usr/bin/R`  | `/usr/bin/R`  |
 | CMD          | `--help`      | `--help`      |
 | Workdir      | not specified | not specified |

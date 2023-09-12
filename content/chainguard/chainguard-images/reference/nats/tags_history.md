@@ -1,18 +1,23 @@
 ---
 title: "nats Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the nats Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/nats/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/nats/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/nats/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/nats/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest-dev` | September 11th | `sha256:361c2d5016235e455043f9a887c81e0b9ff75664c6cdf4d7aa163d8e37ea25f0` |
 |  `latest`     | September 11th | `sha256:4e4073ac3f4ad454e6b6ff8936c828104d1531654b8e6aa53525ec762d60c5ab` |
+

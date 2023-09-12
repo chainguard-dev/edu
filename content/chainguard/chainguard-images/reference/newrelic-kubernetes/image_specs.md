@@ -1,18 +1,23 @@
 ---
 title: "newrelic-kubernetes Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public newrelic-kubernetes Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "newrelic-kubernetes"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/newrelic-kubernetes/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/newrelic-kubernetes/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/newrelic-kubernetes/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/newrelic-kubernetes/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **newrelic-kubernetes** Image.
 
@@ -25,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                  |
 |--------------|-----------------------------------------|
-| Default User | `nri`                                   |
+| Default User | `1000`                                  |
 | Entrypoint   | `/sbin/tini -- /usr/bin/nri-kubernetes` |
 | CMD          | not specified                           |
 | Workdir      | not specified                           |

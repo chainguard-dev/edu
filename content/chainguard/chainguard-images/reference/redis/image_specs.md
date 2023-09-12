@@ -1,18 +1,23 @@
 ---
 title: "redis Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public redis Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "redis"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/redis/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/redis/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/redis/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/redis/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **redis** Image.
 
@@ -25,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest         |
 |--------------|----------------|
-| Default User | `redis`        |
+| Default User | `65532`        |
 | Entrypoint   | `redis-server` |
 | CMD          | not specified  |
 | Workdir      | `/data`        |

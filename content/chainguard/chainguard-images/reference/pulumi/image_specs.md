@@ -1,18 +1,23 @@
 ---
 title: "pulumi Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public pulumi Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "pulumi"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/pulumi/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/pulumi/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/pulumi/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/pulumi/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **pulumi** Image.
 
@@ -25,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest            |
 |--------------|-------------------|
-| Default User | `root`            |
+| Default User | `0`               |
 | Entrypoint   | `/usr/bin/pulumi` |
 | CMD          | `-h`              |
 | Workdir      | not specified     |

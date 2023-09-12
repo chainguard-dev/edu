@@ -1,18 +1,23 @@
 ---
 title: "helm Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public helm Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "helm"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/helm/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/helm/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/helm/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/helm/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **helm** Image.
 
@@ -30,7 +35,7 @@ The table has detailed information about each of these variants.
 
 |              | chartmuseum-latest-dev | chartmuseum-latest     | controller-latest-dev      | controller-latest          | latest-dev      | latest          |
 |--------------|------------------------|------------------------|----------------------------|----------------------------|-----------------|-----------------|
-| Default User | `nonroot`              | `nonroot`              | `nonroot`                  | `nonroot`                  | `nonroot`       | `nonroot`       |
+| Default User | `65532`                | `65532`                | `65532`                    | `65532`                    | `65532`         | `65532`         |
 | Entrypoint   | `/usr/bin/chartmuseum` | `/usr/bin/chartmuseum` | `/usr/bin/helm-controller` | `/usr/bin/helm-controller` | `/usr/bin/helm` | `/usr/bin/helm` |
 | CMD          | not specified          | not specified          | not specified              | not specified              | `help`          | `help`          |
 | Workdir      | not specified          | not specified          | not specified              | not specified              | not specified   | not specified   |

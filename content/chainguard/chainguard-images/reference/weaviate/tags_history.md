@@ -1,18 +1,23 @@
 ---
 title: "weaviate Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the weaviate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/weaviate/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/weaviate/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/weaviate/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/weaviate/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest-dev` | September 11th | `sha256:d4b3ec4aeb685ba8cd6f992c8139efd06df95f72554ff059e06cb565ce0ec90d` |
 |  `latest`     | September 11th | `sha256:adbd276d0cd1fc779dd289a444f90d3b4aefff1cb36b078455359724246aeb17` |
+

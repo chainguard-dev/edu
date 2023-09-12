@@ -1,18 +1,23 @@
 ---
 title: "flux-notification-controller Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public flux-notification-controller Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "flux-notification-controller"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/flux-notification-controller/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/flux-notification-controller/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/flux-notification-controller/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/flux-notification-controller/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **flux-notification-controller** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                         | latest                             |
 |--------------|------------------------------------|------------------------------------|
-| Default User | `nonroot`                          | `nonroot`                          |
+| Default User | `65532`                            | `65532`                            |
 | Entrypoint   | `/usr/bin/notification-controller` | `/usr/bin/notification-controller` |
 | CMD          | not specified                      | not specified                      |
 | Workdir      | not specified                      | not specified                      |

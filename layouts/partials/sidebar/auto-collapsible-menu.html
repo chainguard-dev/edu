@@ -80,9 +80,11 @@
                                                 <a href="{{if $selected }}#{{ else }}{{ .Permalink }}{{ end }}" class="sidebar-item mx-0 p-0">
                                                   <span>{{ .LinkTitle }}</span>
                                                 </a>
-                                                <div class="chevron-rotator">
-                                                  <i class="bi bi-chevron-right {{if $active }} sidebar-icon-active {{ end }}"></i>
-                                                <div class="chevron-rotator">
+                                                  {{ if len (where .Pages ".Params.unlisted" "!=" "true") }}
+                                                    <div class="chevron-rotator">
+                                                      <i class="bi bi-chevron-right {{if $active }} sidebar-icon-active {{ end }}"></i>
+                                                    <div class="chevron-rotator">
+                                                    {{ end }}
                                               </button>
                                            </div>
                                            <div class="collapse{{ if $active }} show{{ end }}" id="section-{{ md5 .LinkTitle }}">

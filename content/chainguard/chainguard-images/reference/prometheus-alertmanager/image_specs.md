@@ -1,18 +1,23 @@
 ---
 title: "prometheus-alertmanager Image Variants"
 type: "article"
+unlisted: true
 description: "Detailed information about the public prometheus-alertmanager Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "prometheus-alertmanager"
 weight: 550
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/prometheus-alertmanager/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/prometheus-alertmanager/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/prometheus-alertmanager/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/prometheus-alertmanager/provenance_info/" >}}
+{{</ tabs >}}
 
 This page shows detailed information about all public variants of the Chainguard **prometheus-alertmanager** Image.
 
@@ -26,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                                      | latest                                                                          |
 |--------------|---------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Default User | `alertmanager`                                                                  | `alertmanager`                                                                  |
+| Default User | `65532`                                                                         | `65532`                                                                         |
 | Entrypoint   | `/usr/bin/alertmanager`                                                         | `/usr/bin/alertmanager`                                                         |
 | CMD          | `--config.file=/etc/alertmanager/alertmanager.yml --storage.path=/alertmanager` | `--config.file=/etc/alertmanager/alertmanager.yml --storage.path=/alertmanager` |
 | Workdir      | not specified                                                                   | not specified                                                                   |

@@ -1,18 +1,23 @@
 ---
 title: "powershell Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the powershell Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/powershell/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/powershell/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/powershell/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/powershell/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |------------------------------|----------------|---------------------------------------------------------------------------|
 |  `latest-root` `root-latest` | September 11th | `sha256:652e3325f77f2bce8c5f8dce258bbfe5fac9c8fac7131c55a95197daad7de1cd` |
 |  `latest`                    | September 11th | `sha256:1e5f038e90898afd7b637c4f2984a519100dce6859f6fc780c64d9e3aa7d23f6` |
+

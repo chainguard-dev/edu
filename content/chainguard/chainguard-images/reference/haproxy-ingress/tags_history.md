@@ -1,18 +1,23 @@
 ---
 title: "haproxy-ingress Image Tags History"
 type: "article"
+unlisted: true
 description: "Image Tags and History for the haproxy-ingress Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
-    parent: "images-reference"
 weight: 700
 toc: true
 ---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/haproxy-ingress/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/haproxy-ingress/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/haproxy-ingress/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/haproxy-ingress/provenance_info/" >}}
+{{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
@@ -22,3 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest`     | September 11th | `sha256:7c35df5abaa0aad56400f209c679e8ab5f3701b313b4f5b6560e51b34e65862c` |
 |  `latest-dev` | September 11th | `sha256:922e5b6186e83f6fca2f6b61985d7fead5240dc55e4f7643a67ec709ea59fe68` |
+
