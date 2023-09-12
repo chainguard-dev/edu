@@ -1,5 +1,5 @@
 ---
-date: 2023-09-07T16:25:59Z
+date: 2023-09-12T13:04:57Z
 title: "chainctl clusters install"
 slug: chainctl_clusters_install
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_install/
