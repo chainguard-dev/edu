@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                            |
 |--------------|-----------------------------------|
-| Default User | `65532`                           |
+| Default User | `nonroot`                         |
 | Entrypoint   | `/sbin/tini --`                   |
 | CMD          | `/usr/bin/newrelic-infra-service` |
 | Workdir      | not specified                     |

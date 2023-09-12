@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                   | latest                                                       |
 |--------------|--------------------------------------------------------------|--------------------------------------------------------------|
-| Default User | `0`                                                          | `0`                                                          |
+| Default User | `root`                                                       | `root`                                                       |
 | Entrypoint   | `/var/lib/postgres/initdb/postgresql-entrypoint.sh postgres` | `/var/lib/postgres/initdb/postgresql-entrypoint.sh postgres` |
 | CMD          | not specified                                                | not specified                                                |
 | Workdir      | `/home/postgres`                                             | `/home/postgres`                                             |

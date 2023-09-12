@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev          | latest              |
 |--------------|---------------------|---------------------|
-| Default User | `0`                 | `0`                 |
+| Default User | `root`              | `root`              |
 | Entrypoint   | `/usr/bin/cadvisor` | `/usr/bin/cadvisor` |
 | CMD          | `-logtostderr`      | `-logtostderr`      |
 | Workdir      | not specified       | not specified       |

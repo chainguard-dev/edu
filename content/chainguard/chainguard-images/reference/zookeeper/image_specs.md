@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                  | latest                                      |
 |--------------|---------------------------------------------|---------------------------------------------|
-| Default User | `65532`                                     | `65532`                                     |
+| Default User | `zookeeper`                                 | `zookeeper`                                 |
 | Entrypoint   | `/usr/share/java/zookeeper/bin/zkServer.sh` | `/usr/share/java/zookeeper/bin/zkServer.sh` |
 | CMD          | `start-foreground`                          | `start-foreground`                          |
 | Workdir      | not specified                               | not specified                               |

@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev               | latest                   |
 |--------------|--------------------------|--------------------------|
-| Default User | `1000`                   | `1000`                   |
+| Default User | `influxdb`               | `influxdb`               |
 | Entrypoint   | `/usr/bin/entrypoint.sh` | `/usr/bin/entrypoint.sh` |
 | CMD          | not specified            | not specified            |
 | Workdir      | not specified            | not specified            |

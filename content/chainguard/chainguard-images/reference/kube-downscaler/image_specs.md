@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                   | latest                       |
 |--------------|------------------------------|------------------------------|
-| Default User | `65532`                      | `65532`                      |
+| Default User | `nonroot`                    | `nonroot`                    |
 | Entrypoint   | `python3 -m kube_downscaler` | `python3 -m kube_downscaler` |
 | CMD          | not specified                | not specified                |
 | Workdir      | not specified                | not specified                |

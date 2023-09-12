@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                              | latest                                  |
 |--------------|-----------------------------------------|-----------------------------------------|
-| Default User | `1001`                                  | `1001`                                  |
+| Default User | `nonroot`                               | `nonroot`                               |
 | Entrypoint   | `/usr/bin/docker-entrypoint`            | `/usr/bin/docker-entrypoint`            |
 | CMD          | `dex serve /etc/dex/config.docker.yaml` | `dex serve /etc/dex/config.docker.yaml` |
 | Workdir      | not specified                           | not specified                           |

@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                      | latest                          |
 |--------------|---------------------------------|---------------------------------|
-| Default User | `65532`                         | `65532`                         |
+| Default User | `nonroot`                       | `nonroot`                       |
 | Entrypoint   | `/usr/bin/admission-controller` | `/usr/bin/admission-controller` |
 | CMD          | `--v=4 --stderrthreshold=info`  | `--v=4 --stderrthreshold=info`  |
 | Workdir      | not specified                   | not specified                   |

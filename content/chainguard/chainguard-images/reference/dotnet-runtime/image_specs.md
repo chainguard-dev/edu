@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev        | latest            |
 |--------------|-------------------|-------------------|
-| Default User | `65532`           | `65532`           |
+| Default User | `nonroot`         | `nonroot`         |
 | Entrypoint   | `/usr/bin/dotnet` | `/usr/bin/dotnet` |
 | CMD          | `--help`          | `--help`          |
 | Workdir      | not specified     | not specified     |

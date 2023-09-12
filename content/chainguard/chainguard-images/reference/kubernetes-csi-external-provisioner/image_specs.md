@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                 | latest                     |
 |--------------|----------------------------|----------------------------|
-| Default User | `0`                        | `0`                        |
+| Default User | `root`                     | `root`                     |
 | Entrypoint   | `/usr/bin/csi-provisioner` | `/usr/bin/csi-provisioner` |
 | CMD          | not specified              | not specified              |
 | Workdir      | not specified              | not specified              |

@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                    | latest                        |
 |--------------|-------------------------------|-------------------------------|
-| Default User | `65532`                       | `65532`                       |
+| Default User | `kube-state-metrics`          | `kube-state-metrics`          |
 | Entrypoint   | `/usr/bin/kube-state-metrics` | `/usr/bin/kube-state-metrics` |
 | CMD          | not specified                 | not specified                 |
 | Workdir      | not specified                 | not specified                 |

@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                | latest                                                    |
 |--------------|-----------------------------------------------------------|-----------------------------------------------------------|
-| Default User | `0`                                                       | `0`                                                       |
+| Default User | `root`                                                    | `root`                                                    |
 | Entrypoint   | `/usr/bin/node-problem-detector`                          | `/usr/bin/node-problem-detector`                          |
 | CMD          | `--config.system-log-monitor=/config/kernel-monitor.json` | `--config.system-log-monitor=/config/kernel-monitor.json` |
 | Workdir      | not specified                                             | not specified                                             |
