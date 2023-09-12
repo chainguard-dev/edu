@@ -10,9 +10,9 @@
         "operationId": "SecurityAdvisory_ListPackages",
         "parameters": [
           {
-            "description": "package_name is the exact name of a package.",
+            "description": "id is the id of a package.",
             "in": "query",
-            "name": "packageName",
+            "name": "id",
             "required": false,
             "type": "string"
           },
@@ -3639,11 +3639,12 @@
     },
     "advisoryEventType": {
       "default": "EVENT_TYPE_UNSPECIFIED",
-      "description": " - EVENT_TYPE_UNSPECIFIED: The \"unset\" value.\n - TRUE_POSITIVE_DETERMINATION: The vulnerability is a true positive.\n - FALSE_POSITIVE_DETERMINATION: The vulnerability is a false positive.",
+      "description": " - EVENT_TYPE_UNSPECIFIED: The \"unset\" value.\n - TRUE_POSITIVE_DETERMINATION: The vulnerability is a true positive.\n - FALSE_POSITIVE_DETERMINATION: The vulnerability is a false positive.\n - FIXED: The vulnerability has been addressed.",
       "enum": [
         "EVENT_TYPE_UNSPECIFIED",
         "TRUE_POSITIVE_DETERMINATION",
-        "FALSE_POSITIVE_DETERMINATION"
+        "FALSE_POSITIVE_DETERMINATION",
+        "FIXED"
       ],
       "type": "string"
     },
@@ -4499,6 +4500,52 @@
       },
       "type": "object"
     },
+    "tenantAttestation": {
+      "description": "Attestation represents a normalized Attestation that we have ingested into our datastore.\nThey are linked to Signatures via ID, as in they are 'children' of Signatures\nThere can be multiple of these that we keep.",
+      "properties": {
+        "description": {
+          "title": "Short description of the Attesation",
+          "type": "string"
+        },
+        "digest": {
+          "title": "digest of the Attestation when ingested",
+          "type": "string"
+        },
+        "format": {
+          "title": "format holds whether the Document format type",
+          "type": "string"
+        },
+        "generatedAt": {
+          "description": "generated_at holds when the Attestation was generated.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "description": "id, The Attestation UIDP at which this Attestation resides in the hierarchy.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Attestation.",
+          "type": "string"
+        },
+        "rawAttestation": {
+          "format": "byte",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "tenantAttestationList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/tenantAttestation"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "tenantCluster": {
       "properties": {
         "activity": {
@@ -5289,6 +5336,9 @@
     },
     {
       "name": "Registry"
+    },
+    {
+      "name": "Attestations"
     },
     {
       "name": "Clusters"

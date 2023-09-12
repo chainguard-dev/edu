@@ -1,5 +1,5 @@
 ---
-date: 2023-09-07T16:25:59Z
+date: 2023-09-12T13:04:57Z
 title: "chainctl images diff"
 slug: chainctl_images_diff
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_diff/
@@ -21,7 +21,7 @@ chainctl images diff FROM_IMAGE TO_IMAGE [flags]
 
 ```
   -h, --help              help for diff
-      --platform string   Specifies the platform in the form os/arch (e.g. linux/amd64)
+      --platform string   Specifies the platform in the form os/arch (e.g. linux/amd64, linux/arm64) (default "linux/amd64")
 ```
 
 ### Options inherited from parent commands
