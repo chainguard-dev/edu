@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/hugo](https://github.com/chainguard-images/images/tree/main/images/hugo)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 8th | `sha256:c5ce1413e02067a18597e792897e7e79259902cdf859ad22dbe693c83308471d` |
-|  `latest-dev` | September 8th | `sha256:7db3d090a533c6bad9eb9f3966fc0d2470ba7627eea117df766ec9d3aeca3ee0` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:18d20c8eda50961ca784114d2489806b9364013aa47f2840e3135d4b6f8e0992` |
+|  `latest-dev` | September 11th | `sha256:dcb6cbfc3a889c0a21ec8f98081e2b9f9e2d5a70b577d51bf19faeb6df579dc2` |
 
 
 

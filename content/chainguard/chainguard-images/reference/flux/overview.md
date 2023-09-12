@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/flux](https://github.com/chainguard-images/images/tree/main/images/flux)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:47d2a0c0fc37766bf5bb237e4ae15db0a05a9ce32de755e12a8f75cd117a1063` |
-|  `latest`     | September 7th | `sha256:531dee45486c4f587e6309dd1da3a9fd3d21da6d1d48511f9d5f7f5d8007a2ca` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:196d4974904b6a8c1f1fd548f8ab538d3850d386550639c222fa31a6c6b6bcab` |
+|  `latest`     | September 11th | `sha256:73aff875291e18d8c2230bf7eb407fc1c0d9a59c39eb8edd8adaba584fb3683c` |
 
 
 

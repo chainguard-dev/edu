@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/bazel](https://github.com/chainguard-images/images/tree/main/images/bazel)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 9th | `sha256:db8f296b6c7a4624ef9ccad55b074d19fb1376ce6d53cd14f57cfca5f8751938` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:ed332477e5f84c49a9b6c92a9e111321fe7fbfa6b882c074336d8fa115f0d9bd` |
 
 
 

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/prometheus-mysqld-exporter](https://github.com/chainguard-images/images/tree/main/images/prometheus-mysqld-exporter)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 8th | `sha256:fd8b254b94cf9b086cd8d5816046901a4b61b3356a7e1a9fde7bf5d660bb4c66` |
-|  `latest-dev` | September 8th | `sha256:3f30ca36a15e441ec115dbf2f3746d6d92d1b0deffe1253d1febf622ae66a5a2` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:8e638e6639387a752f1ba212c23d8370da6a8d72ad502c8aec8838a752487806` |
+|  `latest-dev` | September 11th | `sha256:7c04b7cd17e06ae3bcf9074266948f479af83b7547931e0db70cd86a63936a83` |
 
 # prometheus-mysqld-exporter
 

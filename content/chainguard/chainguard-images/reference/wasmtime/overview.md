@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/wasmtime](https://github.com/chainguard-images/images/tree/main/images/wasmtime)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:aa9b5a4f22f8b0ceb30503300dff3534e0776d8467e0f9812c32d780c0902b51` |
-|  `latest`     | September 4th | `sha256:758c3f36c4d5f7b2bbb80812bbfe204174139eecea2c6999d9ad83f62bada153` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:3df46f97254ccdce6c35942ae49ba55c83e2dd567e370a69f530901d427bd971` |
+|  `latest-dev` | September 11th | `sha256:3f6548309cc4a53852a5de4d4bbd4c228997b5fb685b510ec43117691d67f029` |
 
 
 

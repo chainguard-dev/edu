@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/node-problem-detector](https://github.com/chainguard-images/images/tree/main/images/node-problem-detector)
 
-| Tag (s)                | Last Changed  | Digest                                                                    |
-|------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest` `latest-dev` | September 8th | `sha256:ad63331fe2cc9dd7538d35515a56c66b95c2a5df1adc41f350b4eada6514e9fc` |
+| Tag (s)                | Last Changed   | Digest                                                                    |
+|------------------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` `latest` | September 11th | `sha256:8676d8e1714bf545bed92dd148b395197be086be45e00c338f3264eac1ca6ddd` |
 
 
 

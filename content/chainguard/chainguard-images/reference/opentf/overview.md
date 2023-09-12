@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/opentf](https://github.com/chainguard-images/images/tree/main/images/opentf)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 8th | `sha256:8437c2482c1fc35677bf1d0227c078f183451c9949b04be80c9653f0ea9d5f8f` |
-|  `latest-dev` | September 8th | `sha256:36139a6cd25ee630ca2492741f95420d27dc7d2dad80874306f075187f222367` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:139d650090b7c7529ebe919ea7d43ae90e80aaf8a52fc5b2f1e8f1443f0928e7` |
+|  `latest-dev` | September 11th | `sha256:abd075d3c26251cbef1c1ef6b934fcf4ef229056e59ec6d7c1b545dca172fe69` |
 
 
 

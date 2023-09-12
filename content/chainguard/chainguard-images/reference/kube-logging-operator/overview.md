@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/kube-logging-operator](https://github.com/chainguard-images/images/tree/main/images/kube-logging-operator)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 8th | `sha256:3b4daf04409580efa70e7ec735a02e4fb23641edb22a9d0d7a5a004c8242c4d3` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:d4c849546778bb12a5f12196e703d9ba7d2a9b42dfe96d973431af29677c57bc` |
 
 
 

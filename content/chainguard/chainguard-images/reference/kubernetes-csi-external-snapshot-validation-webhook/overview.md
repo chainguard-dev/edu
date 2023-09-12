@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/kubernetes-csi-external-snapshot-validation-webhook](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-snapshot-validation-webhook)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 8th | `sha256:9c973f6ceb3b9c213765a62381ed54cf2a1454e34f21c0d2beffcf2f9e902b03` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:4db061abe26cae6d252f1ecee91bb0d491962adb1e07f5a092ea9aab663d466c` |
 
 
 

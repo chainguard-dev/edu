@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kube-downscaler](https://github.com/chainguard-images/images/tree/main/images/kube-downscaler)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:9ab2f24d52ff2f29c5bde7d068e0ede266603eb86ef50b8a13ff141b09da781b` |
-|  `latest-dev` | September 7th | `sha256:6915806a64d6580012758795eece56389c03e00be50a52ae89479da55ecc987c` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:755a1daccf6840b999c58d335362449743c80f8f0c2975d6aa5ba630d8abf234` |
+|  `latest-dev` | September 11th | `sha256:6ec66d51ba697b41fc65e379e8d2dca1030ce63390154c41bcdfda618af09406` |
 
 
 

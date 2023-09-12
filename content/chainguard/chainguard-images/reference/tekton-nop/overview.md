@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/tekton-nop](https://github.com/chainguard-images/images/tree/main/images/tekton-nop)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 8th | `sha256:c2244b9ff6df778d6138d6f441fe6a2a14561650bac8fcc9ffee82eb7f97107e` |
-|  `latest-dev` | September 8th | `sha256:fbed61226ae9416e415bdb9abeff5de2fb0ff14162737b39ddd260d406809588` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:301ca135c7c3452ca9f5c4177652077c71f7513b589bfdce3fcc7ecc41cf1caa` |
+|  `latest-dev` | September 11th | `sha256:1493a5397a8bbb6758d9a6f31309e5f595edfa20f26491b05b7154fddce33b52` |
 
 # tekton-nop
 

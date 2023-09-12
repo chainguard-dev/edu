@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/netcat](https://github.com/chainguard-images/images/tree/main/images/netcat)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:1bb0302242c686c184a938efc4db7a0bc9c785b7e875792b66bbeb4a367746b3` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:daa819597303b35124131725971a29f912ab7e4c28861107d325f714662ddc80` |
 
 
 

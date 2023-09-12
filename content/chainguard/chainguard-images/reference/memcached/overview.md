@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/memcached](https://github.com/chainguard-images/images/tree/main/images/memcached)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:c3eddf8a4661b13867abbb8fa4444b985a2c9229adc99b759f265b76d2f52c37` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:30cb751cea1a626843c72e1f7f6ab1978fc0009c81df1a5e456f60e7b930ed74` |
 
 
 

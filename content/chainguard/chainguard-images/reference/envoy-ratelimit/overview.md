@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/envoy-ratelimit](https://github.com/chainguard-images/images/tree/main/images/envoy-ratelimit)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:af39910d836feb3014965b53a1674366113c342f654b6481969a5bf246e40bce` |
-|  `latest`     | September 7th | `sha256:645866f03fb85cf24d57c29f47f6602e102dd22024ca0a069b802902112ea708` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:f5df19bd30ea6c6a7f396406dc672bb258883df0e9a6a3ecdcd52dbef6da3e0e` |
+|  `latest-dev` | September 11th | `sha256:78e33fadee8582ca16caf6f04343a308d01d35225f95eeff49d500dd0ed2d820` |
 
 
 

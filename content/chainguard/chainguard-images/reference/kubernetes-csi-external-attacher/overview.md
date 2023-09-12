@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/kubernetes-csi-external-attacher](https://github.com/chainguard-images/images/tree/main/images/kubernetes-csi-external-attacher)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:eccdb850230762ce28aec740a3306629623fbf1c7a9c60e16b90920a1cc8606e` |
-|  `latest`     | September 8th | `sha256:b265f387d7cc50504f60aed43212282c38897e435c0e8f7e15e74316813f5999` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:6d7b3a6662e01309aa5f6446d50c6c9066e45d6c2d26b5c31f43bb8c29a3af6f` |
+|  `latest-dev` | September 11th | `sha256:351b9f146c5d48fae9013af7a8f53f601fa657e3560ae512801a231372694c1a` |
 
 
 

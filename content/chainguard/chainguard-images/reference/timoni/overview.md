@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/timoni](https://github.com/chainguard-images/images/tree/main/images/timoni)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 9th | `sha256:74c25a67974e0d7cb16242b69699b3312b8d68caa2ab659ee7e80fabcc53f175` |
-|  `latest`     | September 9th | `sha256:85ce25e5e3b9df3a30e8ae9642f6993198b8362d96227d81e908e5b5849ffe90` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:eb2bda0e5a89f4895878afa103d749d387d0d7cb0cefd23e9bb11d263663a0e4` |
+|  `latest`     | September 11th | `sha256:173cd78eab39f8b0caa08adf07e3e30914b65b4118db50b4cd19f888225b4eaa` |
 
 
 

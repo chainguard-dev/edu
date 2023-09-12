@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/crossplane-aws-iam](https://github.com/chainguard-images/images/tree/main/images/crossplane-aws-iam)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 8th | `sha256:0edec912686a0ffd38018a9dfdda37ba65ad1c2356298574ad3d5395e82e8686` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:387f1b8810a41e5089c7c9fa7ebebe7e0aa9c7d8ae97e4e719f8d7f1ddaa100b` |
 
 # crossplane-aws-iam
 

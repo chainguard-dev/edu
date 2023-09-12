@@ -18,9 +18,9 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                          | Last Changed  | Digest                                                                    |
-|--------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev`                                    | September 8th | `sha256:3f62a0cdf9c4d6b9f53f2b4527ad908a465a3409887b2495c1264c505e86ba1e` |
-|  `latest`                                        | September 8th | `sha256:0936b31abd44e6a8e5fc0a4d333024d92428785966962c15f85ea6cbec14d4ab` |
-|  `7-dev` `7.21.4-dev` `7.21.4-r2-dev` `7.21-dev` | September 7th | `sha256:277ef15f602029cac28062c068f89ecfd38199e5ad9141fc3900569b0baf5763` |
-|  `7` `7.21` `7.21.4`                             | September 7th | `sha256:ce63052a88d2bad2eaf33d5d406d598617f771ddc1c08980a9c9ae579b06abff` |
+| Tag (s)                                          | Last Changed   | Digest                                                                    |
+|--------------------------------------------------|----------------|---------------------------------------------------------------------------|
+|  `latest`                                        | September 11th | `sha256:a469e30f20bdeb01993b630d8b7d716f8cdc3774317d51a931a7655d17fa5447` |
+|  `latest-dev`                                    | September 11th | `sha256:396f35c9325c80a931ef13274016eb2350c3c5c9079a43a796ebd9fc500205f1` |
+|  `7-dev` `7.21.4-dev` `7.21.4-r2-dev` `7.21-dev` | September 7th  | `sha256:277ef15f602029cac28062c068f89ecfd38199e5ad9141fc3900569b0baf5763` |
+|  `7` `7.21` `7.21.4`                             | September 7th  | `sha256:ce63052a88d2bad2eaf33d5d406d598617f771ddc1c08980a9c9ae579b06abff` |

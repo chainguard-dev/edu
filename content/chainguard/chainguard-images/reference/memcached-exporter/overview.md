@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/memcached-exporter](https://github.com/chainguard-images/images/tree/main/images/memcached-exporter)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 8th | `sha256:cb317a2d2f5075174bcd5769f4e5819084df85823836d4c91b3c3b599391f49f` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:c5f0addf180d82a938dd326d515a8ea52ac1e1ec52f64b9134f1633cfd893427` |
 
 
 

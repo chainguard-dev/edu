@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/traefik](https://github.com/chainguard-images/images/tree/main/images/traefik)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 4th | `sha256:d3d582a5e7be0b48020e422b1f035af46407f7eaae00002860465a9201c7d54f` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:f574c2ae7ff469fe6f5a57bcdc681c5b5d6a63226d99a2640f14e52b2e9979e8` |
 
 
 

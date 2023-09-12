@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/flux-notification-controller](https://github.com/chainguard-images/images/tree/main/images/flux-notification-controller)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:4d328be823013330c65939b1f8d383d843b940786fc9bb6cd8faf64a88c21270` |
-|  `latest`     | September 7th | `sha256:1c9d2c137a9a6cbd9081ead7dc8728a7942bae719a3ae28f05d28d9f2915e975` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:c518c9b6cd113835464ca22248e4242ddb03d44a52cb5a39fc1e71935a0035e1` |
+|  `latest`     | September 11th | `sha256:ff819625e75ac6cfa1bc072edffa563bb6cb32b52b786118469031c8746bf091` |
 
 # flux-notification-controller
 

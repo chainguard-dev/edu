@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/jenkins](https://github.com/chainguard-images/images/tree/main/images/jenkins)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 9th | `sha256:26085adf067c63458262fc60568186315a1ca471c9f09005f2b0eeba186db516` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:257bdfbc36fca71aa7424fc057d2956676997ea337e9d15f4d617797984d79d4` |
 
 
 

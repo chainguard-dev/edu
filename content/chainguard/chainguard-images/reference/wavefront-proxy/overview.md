@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/wavefront-proxy](https://github.com/chainguard-images/images/tree/main/images/wavefront-proxy)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 7th | `sha256:50d2df2d73b6fee7cc8a067cf9759848da445d8260986f4c17715209348235f4` |
-|  `latest-dev` | September 7th | `sha256:16c7f99fdf3c26360568cf50cc0c97337749a7584ba05d3205925d39de1eb494` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:b83e1fec4d42a1da735eb0a72b90fc3040afac5f0185d88e57b9a27c13107a6f` |
+|  `latest-dev` | September 11th | `sha256:7ea97e70598b1f3ceb77dc10064b09427c85fdf18f814bf3e2c81001e171d3f4` |
 
 
 
