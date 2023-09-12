@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev     | latest         |
 |--------------|----------------|----------------|
-| Default User | `65532`        | `65532`        |
+| Default User | `maven`        | `maven`        |
 | Entrypoint   | `/usr/bin/mvn` | `/usr/bin/mvn` |
 | CMD          | not specified  | not specified  |
 | Workdir      | `/home/build`  | `/home/build`  |

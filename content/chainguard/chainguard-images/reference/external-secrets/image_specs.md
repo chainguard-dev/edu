@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                  | latest                      |
 |--------------|-----------------------------|-----------------------------|
-| Default User | `65532`                     | `65532`                     |
+| Default User | `external-secrets`          | `external-secrets`          |
 | Entrypoint   | `/usr/bin/external-secrets` | `/usr/bin/external-secrets` |
 | CMD          | not specified               | not specified               |
 | Workdir      | not specified               | not specified               |

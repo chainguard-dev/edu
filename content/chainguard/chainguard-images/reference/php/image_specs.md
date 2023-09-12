@@ -33,7 +33,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev    | latest-fpm-dev | latest-fpm     | latest        |
 |--------------|---------------|----------------|----------------|---------------|
-| Default User | `65532`       | `65532`        | `65532`        | `65532`       |
+| Default User | `php`         | `php`          | `php`          | `php`         |
 | Entrypoint   | `/bin/php`    | Service Bundle | Service Bundle | `/bin/php`    |
 | CMD          | not specified | not specified  | not specified  | not specified |
 | Workdir      | `/app`        | `/app`         | `/app`         | `/app`        |

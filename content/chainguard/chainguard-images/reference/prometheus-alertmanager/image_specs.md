@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                                      | latest                                                                          |
 |--------------|---------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Default User | `65532`                                                                         | `65532`                                                                         |
+| Default User | `alertmanager`                                                                  | `alertmanager`                                                                  |
 | Entrypoint   | `/usr/bin/alertmanager`                                                         | `/usr/bin/alertmanager`                                                         |
 | CMD          | `--config.file=/etc/alertmanager/alertmanager.yml --storage.path=/alertmanager` | `--config.file=/etc/alertmanager/alertmanager.yml --storage.path=/alertmanager` |
 | Workdir      | not specified                                                                   | not specified                                                                   |

@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                         |
 |--------------|------------------------------------------------|
-| Default User | `65532`                                        |
+| Default User | `mysql`                                        |
 | Entrypoint   | `/usr/local/bin/docker-entrypoint.sh mariadbd` |
 | CMD          | not specified                                  |
 | Workdir      | not specified                                  |

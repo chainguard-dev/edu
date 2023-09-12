@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev       | latest           |
 |--------------|------------------|------------------|
-| Default User | `0`              | `0`              |
+| Default User | `root`           | `root`           |
 | Entrypoint   | `/usr/bin/clang` | `/usr/bin/clang` |
 | CMD          | `--help`         | `--help`         |
 | Workdir      | `/work`          | `/work`          |

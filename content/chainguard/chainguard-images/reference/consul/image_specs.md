@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                      | latest                          |
 |--------------|---------------------------------|---------------------------------|
-| Default User | `0`                             | `0`                             |
+| Default User | `root`                          | `root`                          |
 | Entrypoint   | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` |
 | CMD          | `agent -dev -client 0.0.0.0`    | `agent -dev -client 0.0.0.0`    |
 | Workdir      | not specified                   | not specified                   |

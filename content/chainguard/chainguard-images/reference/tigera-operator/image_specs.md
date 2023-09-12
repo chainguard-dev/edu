@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev          | latest              |
 |--------------|---------------------|---------------------|
-| Default User | `65532`             | `65532`             |
+| Default User | `tigera-operator`   | `tigera-operator`   |
 | Entrypoint   | `/usr/bin/operator` | `/usr/bin/operator` |
 | CMD          | `--help`            | `--help`            |
 | Workdir      | not specified       | not specified       |

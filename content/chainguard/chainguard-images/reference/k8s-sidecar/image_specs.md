@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                            | latest                                |
 |--------------|---------------------------------------|---------------------------------------|
-| Default User | `65532`                               | `65532`                               |
+| Default User | `k8s-sidecar`                         | `k8s-sidecar`                         |
 | Entrypoint   | `python -u /usr/share/app/sidecar.py` | `python -u /usr/share/app/sidecar.py` |
 | CMD          | not specified                         | not specified                         |
 | Workdir      | not specified                         | not specified                         |

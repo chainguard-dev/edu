@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                   |
 |--------------|------------------------------------------|
-| Default User | `65532`                                  |
+| Default User | `nri-kube-events`                        |
 | Entrypoint   | `/sbin/tini -- /usr/bin/nri-kube-events` |
 | CMD          | not specified                            |
 | Workdir      | not specified                            |

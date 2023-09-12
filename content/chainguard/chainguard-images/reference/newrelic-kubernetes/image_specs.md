@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest                                  |
 |--------------|-----------------------------------------|
-| Default User | `1000`                                  |
+| Default User | `nri`                                   |
 | Entrypoint   | `/sbin/tini -- /usr/bin/nri-kubernetes` |
 | CMD          | not specified                           |
 | Workdir      | not specified                           |

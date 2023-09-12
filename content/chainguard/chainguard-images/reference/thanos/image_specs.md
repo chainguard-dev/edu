@@ -22,54 +22,50 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **thanos** Image.
 
 ## Variants Compared
-The **thanos** Chainguard Image currently has 4 public variants: 
+The **thanos** Chainguard Image currently has 2 public variants: 
 
 - `latest-dev`
 - `latest`
-- `operator-latest-dev`
-- `operator-latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev    | latest        | operator-latest-dev | operator-latest    |
-|--------------|---------------|---------------|---------------------|--------------------|
-| Default User | `65532`       | `65532`       | `65532`             | `65532`            |
-| Entrypoint   | `thanos`      | `thanos`      | `/usr/bin/manager`  | `/usr/bin/manager` |
-| CMD          | not specified | not specified | not specified       | not specified      |
-| Workdir      | not specified | not specified | not specified       | not specified      |
-| Has apk?     | yes           | no            | yes                 | no                 |
-| Has a shell? | yes           | no            | yes                 | no                 |
+|              | latest-dev    | latest        |
+|--------------|---------------|---------------|
+| Default User | `thanos`      | `thanos`      |
+| Entrypoint   | `thanos`      | `thanos`      |
+| CMD          | not specified | not specified |
+| Workdir      | not specified | not specified |
+| Has apk?     | yes           | no            |
+| Has a shell? | yes           | no            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/thanos/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest-dev | latest | operator-latest-dev | operator-latest |
-|--------------------------|------------|--------|---------------------|-----------------|
-| `apk-tools`              | X          |        | X                   |                 |
-| `bash`                   | X          |        | X                   |                 |
-| `busybox`                | X          |        | X                   |                 |
-| `ca-certificates-bundle` | X          | X      | X                   | X               |
-| `git`                    | X          |        | X                   |                 |
-| `glibc`                  | X          |        | X                   | X               |
-| `glibc-locale-posix`     | X          |        | X                   | X               |
-| `ld-linux`               | X          |        | X                   | X               |
-| `libbrotlicommon1`       | X          |        | X                   |                 |
-| `libbrotlidec1`          | X          |        | X                   |                 |
-| `libcrypt1`              | X          |        | X                   |                 |
-| `libcrypto3`             | X          |        | X                   |                 |
-| `libcurl-openssl4`       | X          |        | X                   |                 |
-| `libexpat1`              | X          |        | X                   |                 |
-| `libnghttp2-14`          | X          |        | X                   |                 |
-| `libpcre2-8-0`           | X          |        | X                   |                 |
-| `libssl3`                | X          |        | X                   |                 |
-| `ncurses`                | X          |        | X                   |                 |
-| `ncurses-terminfo-base`  | X          |        | X                   |                 |
-| `openssl-config`         | X          |        | X                   |                 |
-| `thanos-0.32`            | X          | X      |                     |                 |
-| `wolfi-baselayout`       | X          | X      | X                   | X               |
-| `zlib`                   | X          |        | X                   |                 |
-| `thanos-operator`        |            |        | X                   | X               |
-| `thanos-operator-compat` |            |        | X                   | X               |
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `busybox`                | X          |        |
+| `ca-certificates-bundle` | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          |        |
+| `glibc-locale-posix`     | X          |        |
+| `ld-linux`               | X          |        |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
+| `libcrypt1`              | X          |        |
+| `libcrypto3`             | X          |        |
+| `libcurl-openssl4`       | X          |        |
+| `libexpat1`              | X          |        |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libssl3`                | X          |        |
+| `ncurses`                | X          |        |
+| `ncurses-terminfo-base`  | X          |        |
+| `openssl-config`         | X          |        |
+| `thanos-0.32`            | X          | X      |
+| `wolfi-baselayout`       | X          | X      |
+| `zlib`                   | X          |        |
 

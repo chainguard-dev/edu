@@ -30,7 +30,7 @@ The table has detailed information about each of these variants.
 
 |              | latest            |
 |--------------|-------------------|
-| Default User | `0`               |
+| Default User | `root`            |
 | Entrypoint   | `/usr/bin/pulumi` |
 | CMD          | `-h`              |
 | Workdir      | not specified     |

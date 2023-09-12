@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                                                    | latest                                                                        |
 |--------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| Default User | `65532`                                                                       | `65532`                                                                       |
+| Default User | `nonroot`                                                                     | `nonroot`                                                                     |
 | Entrypoint   | `/usr/bin/keda-admission-webhooks --zap-log-level=info --zap-encoder=console` | `/usr/bin/keda-admission-webhooks --zap-log-level=info --zap-encoder=console` |
 | CMD          | not specified                                                                 | not specified                                                                 |
 | Workdir      | not specified                                                                 | not specified                                                                 |
