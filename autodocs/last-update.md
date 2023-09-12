@@ -1,7 +1,5 @@
-## 2023-09-11
+## 2023-09-12
 
 Updated image reference docs.
 
-New images added:
-
-- pgbouncer
+No new images added.

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/maven](https://github.com/chainguard-images/images/tree/main/images/maven)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:3296a4a33c7fbd32237cbf3b6b5c8dfbb75602bca752b3f734fbb133cf7c742f` |
-|  `latest`     | September 7th | `sha256:4c7d9bf62c4bb78c9f25194f490ad67923f59e44b07b741f5ec5fbc66e4073f9` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:ae953b2df90f39d539e0fefb9e623ec4cc78d1e8a42a7c2246f625fe319b8102` |
+|  `latest`     | September 11th | `sha256:d090c79be27503195a7bcad40486a8e271d9c9149e9d005052e626a82b321a25` |
 
 
 

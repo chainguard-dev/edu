@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/telegraf](https://github.com/chainguard-images/images/tree/main/images/telegraf)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:1975f6cea101830646dc56e3f58dbe141b66e157ec03fdbf8184a71ad40c323d` |
-|  `latest`     | September 7th | `sha256:baa954aa8d4294547e937b1f6d454ce30800f220c2e944f5f2a0bdac5f2b9d1b` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:546bdd3d8798178d024d8de7bdcfecddd4f93cb6d3258a10fea13e380e143199` |
+|  `latest`     | September 11th | `sha256:84d68b0fcaca2bb953531521528f9ea9dcf7c21b456289f0917d332959d9a38b` |
 
 
 

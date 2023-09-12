@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/aws-load-balancer-controller](https://github.com/chainguard-images/images/tree/main/images/aws-load-balancer-controller)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:56c95da3a5ca636db6fefba29b0509b41bbb2ed642b439bf48d8c8364972c9e8` |
-|  `latest`     | September 8th | `sha256:ca4d9f3cfd94556a57929a966df3a66080f8bacf3ca05922e1968d8942ff0bde` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:3e41165227d48d4a6e93887d14e85af7e38c1901a7e141617a76a824db1837a8` |
+|  `latest-dev` | September 11th | `sha256:bd55af8e9fa6903974f3713d8fa4d13d7dc8dfa06d7a09f6e8b46f5ca28b0392` |
 
 
 

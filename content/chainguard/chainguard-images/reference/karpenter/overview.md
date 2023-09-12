@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/karpenter](https://github.com/chainguard-images/images/tree/main/images/karpenter)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:fcbd53681a63ae7e556545fa4dc680119078dae75fe9ced6e54ae24cc6fb8740` |
-|  `latest`     | September 8th | `sha256:8910a2d235cd317fcf5283eb1caa0d9b31398612962136c5a2b92441a0679b76` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:15788beb2a4168d8c75459a8c6a81bc6c1f63df7cfb8fe73ddfb34e7f8242949` |
+|  `latest-dev` | September 11th | `sha256:d97c2b034d36727aa20b28f991d671a0ed178834a041f9019c5a68fe0bdf993f` |
 
 
 

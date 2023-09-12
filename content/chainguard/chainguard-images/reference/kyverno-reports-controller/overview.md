@@ -16,9 +16,9 @@ toc: true
 
 [cgr.dev/chainguard/kyverno-reports-controller](https://github.com/chainguard-images/images/tree/main/images/kyverno-reports-controller)
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | September 8th | `sha256:be68f18693436e80fd6857ea573960d18c90daf9a64e8844bcd64571a13f8859` |
+| Tag (s)   | Last Changed   | Digest                                                                    |
+|-----------|----------------|---------------------------------------------------------------------------|
+|  `latest` | September 11th | `sha256:dbaea28708ce95231a786a09de709a806d9818882feee3fc572cb5082ef4743f` |
 
 # kyverno-reports-controller
 

@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/loki](https://github.com/chainguard-images/images/tree/main/images/loki)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:4b0a355d3f1e37e666f4cd4666ec10fcc63463bb691fdf8b51496d1f5a0bae00` |
-|  `latest`     | September 8th | `sha256:f3523419d3dd04cfe39d10b3e84c32d857b94f3445ae16a7f585967587a94863` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:f46fae9715b70ffa72c050c3b51845302279d56879fdcc952691aeb731ff639f` |
+|  `latest`     | September 11th | `sha256:9774ba3b323e384e79a64572b3cb3d4d4252e71315166237848b5a05ecff19a8` |
 
 
 

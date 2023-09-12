@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/cluster-proportional-autoscaler](https://github.com/chainguard-images/images/tree/main/images/cluster-proportional-autoscaler)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:63322ae5217873e46ac20e033a01093e8e4313a31ce58574634aad283b79067c` |
-|  `latest`     | September 8th | `sha256:145daef2abc48bc7bcc0867a2cea8e0894990d2a3b682cd185ac6ca5ecbe011d` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:78f9351b49dd55c93f23f497d9e578def41f8b2306275909c33d620bcc2bc1c0` |
+|  `latest-dev` | September 11th | `sha256:b7b4005f325c7bf0764911b667444d74484d4bc772af4c0f17c31d36ea684ee4` |
 
 
 

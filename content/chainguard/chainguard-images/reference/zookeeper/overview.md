@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/zookeeper](https://github.com/chainguard-images/images/tree/main/images/zookeeper)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:b07c9ef1118ab20ec63dd00e2a5ca998fb741e5c9dd45f2ceba788f349c02a6e` |
-|  `latest`     | September 7th | `sha256:9c7b69b3e6b45a9659afd915066130113ae6510d878ba491def3b279331bfd14` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:a212f14318b090944926085deff5b636fa925e22fc2040a47dbbb6ea26a38da3` |
+|  `latest-dev` | September 11th | `sha256:d84684d05cb79c878ebe0b55d453471d085dd99a9c3552177d85d937e4ffb909` |
 
 
 

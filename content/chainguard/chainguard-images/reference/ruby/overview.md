@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/ruby](https://github.com/chainguard-images/images/tree/main/images/ruby)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 9th | `sha256:9a888b9b19f5fbf6f6a6e57d1c65883fcadb26c1a51bda4dc93c53332fbbfd23` |
-|  `latest`     | September 7th | `sha256:cc01f48fc3d219ac85ebcff026dcafad55be1261292eab4e905ee97322046645` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:d2a731ccdeeb24f5d3e4991ee0c326f5e70c2e2ea2975da6e0aa038f85755b22` |
+|  `latest`     | September 11th | `sha256:de8ad313fd10c7104d2d4459d950825b534474cad98fc404c6a249d0514bb1ee` |
 
 
 

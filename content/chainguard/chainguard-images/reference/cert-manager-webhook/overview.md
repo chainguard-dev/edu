@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/cert-manager-webhook](https://github.com/chainguard-images/images/tree/main/images/cert-manager-webhook)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 8th | `sha256:ac0a385c9824345c41a7df4bbd3f6dc4229b4dd7c0ab037d1b33278f51ad369b` |
-|  `latest`     | September 8th | `sha256:27568c30d9d09434485c6d5fe5cdc6e0373504443d9deb4a33fb8e8429a47a12` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:1afada34f3a04657dde4817cce4699e661f43ff0d09c52eed92f837d3e065c45` |
+|  `latest`     | September 11th | `sha256:45e1a57ea32093b701b823f278759cff94117f32306be21a5a637dced82b4df4` |
 
 # cert-manager-webhook
 

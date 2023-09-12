@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/dotnet-sdk](https://github.com/chainguard-images/images/tree/main/images/dotnet-sdk)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:714440ee597f91d97ed76f13f86b1f90cf3fe1dd607ab1dac931af5c0a0849eb` |
-|  `latest`     | September 7th | `sha256:a4e2e0ed9edc4c76b510a9648504da96f81c379d30a38de2c70c9eb5ced961cb` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:de529d235da49a04636e5ec69adb521efff4c60b07d36bfbb1cec0aed8457062` |
+|  `latest-dev` | September 11th | `sha256:b55f349ecdca8c92c9f5fc4e9392790fd69a1234d9719a7aa3429e5d7eb5c157` |
 
 # dotnet-sdk
 

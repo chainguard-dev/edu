@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/cc-dynamic](https://github.com/chainguard-images/images/tree/main/images/cc-dynamic)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:98e8f40047cff314eab9c94900d9af7846120cc6ee8ddf595879ee1c0e67be2d` |
-|  `latest`     | September 4th | `sha256:2d626e63bc0c767c02d6dd18a4d90ef13e10841e12d752e0307626cfe7e7c439` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:8cb4022888b7c059fbaa4da8d03e41b9d654d5675a2435e3340fa026dc4fc8ed` |
+|  `latest-dev` | September 11th | `sha256:2010ce632420f0ab161c052a63afe1dd77141471d8ec833f8dc2cfbe0efdb139` |
 
 
 

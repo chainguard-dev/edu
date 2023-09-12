@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/tekton-chains](https://github.com/chainguard-images/images/tree/main/images/tekton-chains)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 8th | `sha256:7388e39ad57e429f8cd6f0b5bfc122abdfa20445d290891e1bf28d5681b7186a` |
-|  `latest-dev` | September 8th | `sha256:d51a2c1b12df9fa04370bbbbb4f64e7766ba371ef8ecfc8eff684d4e3a9a8815` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:dee59475a9445b937db599fe636b419953a0e4bff75753b1b1c41cd2001f01e4` |
+|  `latest-dev` | September 11th | `sha256:9d211ae93f8330e8259566165888de26e26c1e22e827aac046e583d333d6016e` |
 
 # tekton-chains
 

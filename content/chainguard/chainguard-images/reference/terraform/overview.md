@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/terraform](https://github.com/chainguard-images/images/tree/main/images/terraform)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:02b2fdc25746e798b4d9e44a26397feb1a987006d1494e119595db7ac8d0302c` |
-|  `latest`     | September 7th | `sha256:989a9b40b99395994d374a74455b7fa1034f2687cc2707e3907d198472cf4bdf` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest`     | September 11th | `sha256:6cf0790f2bbf41d2d9ac265a5edb0fa23619c214a9b13ce6ca7dd26385638fe0` |
+|  `latest-dev` | September 11th | `sha256:52de06777af940259f658e55a5e940f13802ed11aaf784f89dad90ef1cfb4d29` |
 
 
 

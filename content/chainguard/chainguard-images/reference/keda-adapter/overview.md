@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/keda-adapter](https://github.com/chainguard-images/images/tree/main/images/keda-adapter)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | September 8th | `sha256:2a5fd8db96042dec337ba02a16f961c891077efb1fa6dfe19f7db591e8ecf3ad` |
-|  `latest-dev` | September 8th | `sha256:ad52ff8985a339346d94f2811e687bae8e8df8a645302b9b2de7d068d508df84` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:a21dfac9d6b3a21484199db9df1e7490ed2383556b55eb79c327db70237509c5` |
+|  `latest`     | September 11th | `sha256:ac4357fca2bbe5b461054328829bb89b6c49f10441beafbfddc9f28a17a38082` |
 
 # keda-adapter
 

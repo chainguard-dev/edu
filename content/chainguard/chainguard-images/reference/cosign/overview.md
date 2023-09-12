@@ -16,10 +16,10 @@ toc: true
 
 [cgr.dev/chainguard/cosign](https://github.com/chainguard-images/images/tree/main/images/cosign)
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 7th | `sha256:165ce8744a99fae2355efdab2037ec9197ea8d5ed30489a2524fd205afc2b819` |
-|  `latest`     | September 7th | `sha256:192b6eae82b406fd0fb8b59b537ff593196c0a9e5f2718a97d860ea1fedf9979` |
+| Tag (s)       | Last Changed   | Digest                                                                    |
+|---------------|----------------|---------------------------------------------------------------------------|
+|  `latest-dev` | September 11th | `sha256:cd75b852b8e8a4d2a13551c25f7ccc372bcabb4472f85ac11834742dcbd025b5` |
+|  `latest`     | September 11th | `sha256:262cb7cb6ab61e1df5e24097751b35451323a254c77be817bbf9cd53af9adb47` |
 
 
 
