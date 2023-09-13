@@ -71,4 +71,4 @@ Once you run this command, you'll receive output similar to the following.
 
 This verifies that the Ruby Chainguard Image is built for both AMD64 and ARM64 architectures. 
 
-You can read more about our support of ARM64 in our blog on [Building Wolfi from teh ground up](https://www.chainguard.dev/unchained/building-wolfi-from-the-ground-up-and-announcing-arm64-support).
+You can read more about our support of ARM64 in our blog on [Building Wolfi from the ground up](https://www.chainguard.dev/unchained/building-wolfi-from-the-ground-up-and-announcing-arm64-support).
