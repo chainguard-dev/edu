@@ -72,7 +72,6 @@ The table shows package distribution across variants.
 | `ncurses`                  | X          | X      |
 | `ncurses-terminfo-base`    | X          | X      |
 | `openssl-config`           | X          | X      |
-| `py3-certifi`              | X          | X      |
 | `py3-gunicorn`             | X          | X      |
 | `py3-importlib-metadata`   | X          | X      |
 | `py3-packaging`            | X          | X      |

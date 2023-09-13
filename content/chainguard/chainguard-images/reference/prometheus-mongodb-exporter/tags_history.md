@@ -1,8 +1,8 @@
 ---
-title: "k3s-allinone Image Tags History"
+title: "prometheus-mongodb-exporter Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the k3s-allinone Chainguard Image"
+description: "Image Tags and History for the prometheus-mongodb-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/k3s-allinone/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/k3s-allinone/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/k3s-allinone/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/k3s-allinone/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/prometheus-mongodb-exporter/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/prometheus-mongodb-exporter/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/prometheus-mongodb-exporter/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/prometheus-mongodb-exporter/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed   | Digest                                                                    |
 |---------------|----------------|---------------------------------------------------------------------------|
-|  `latest`     | September 13th | `sha256:6dc30f21e9813c12f3882a02220a99af855ed7eba0bff320af77afb9bfff4392` |
-|  `latest-dev` | September 13th | `sha256:834ef93ce594519405d0252ec921533cf64b09bc036c67824c2c11ebe12b7806` |
+|  `latest-dev` | September 13th | `sha256:d58a479e52eed9d373ec58858e2699e24ac5cf89f4c18f724d54bf76a24f5387` |
+|  `latest`     | September 13th | `sha256:d0e835b87d9eb74a32aa794098f0d77186accf2f6c340a56d3713837dc8c02da` |
 
