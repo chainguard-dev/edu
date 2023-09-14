@@ -42,13 +42,13 @@ Check the [tags history page](/chainguard/chainguard-images/reference/kubernetes
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                               | latest |
-|-----------------------------------------------|--------|
-| `ca-certificates-bundle`                      | X      |
-| `glibc`                                       | X      |
-| `glibc-locale-posix`                          | X      |
-| `kubernetes-csi-node-driver-registrar`        | X      |
-| `kubernetes-csi-node-driver-registrar-compat` | X      |
-| `ld-linux`                                    | X      |
-| `wolfi-baselayout`                            | X      |
+|                                                   | latest |
+|---------------------------------------------------|--------|
+| `ca-certificates-bundle`                          | X      |
+| `glibc`                                           | X      |
+| `glibc-locale-posix`                              | X      |
+| `kubernetes-csi-node-driver-registrar-2.9`        | X      |
+| `kubernetes-csi-node-driver-registrar-2.9-compat` | X      |
+| `ld-linux`                                        | X      |
+| `wolfi-baselayout`                                | X      |
 
