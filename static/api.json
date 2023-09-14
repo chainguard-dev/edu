@@ -5,9 +5,9 @@
     "version": "alpha"
   },
   "paths": {
-    "/advisory/v1/packages": {
+    "/advisory/v1/documents": {
       "get": {
-        "operationId": "SecurityAdvisory_ListPackages",
+        "operationId": "SecurityAdvisory_ListDocuments",
         "parameters": [
           {
             "description": "id is the id of a package.",
@@ -31,7 +31,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/advisoryPackageList"
+              "$ref": "#/definitions/advisoryDocumentList"
             }
           },
           "default": {
@@ -3625,6 +3625,31 @@
       },
       "type": "object"
     },
+    "advisoryDocument": {
+      "properties": {
+        "advisories": {
+          "items": {
+            "$ref": "#/definitions/advisoryAdvisory"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryDocumentList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/advisoryDocument"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "advisoryEvent": {
       "properties": {
         "timestamp": {
@@ -3647,31 +3672,6 @@
         "FIXED"
       ],
       "type": "string"
-    },
-    "advisoryPackage": {
-      "properties": {
-        "advisories": {
-          "items": {
-            "$ref": "#/definitions/advisoryAdvisory"
-          },
-          "type": "array"
-        },
-        "id": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "advisoryPackageList": {
-      "properties": {
-        "items": {
-          "items": {
-            "$ref": "#/definitions/advisoryPackage"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
     },
     "authRegistrationRequest": {
       "properties": {
