@@ -25,8 +25,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                        | Last Changed   | Digest                                                                    |
 |--------------------------------|----------------|---------------------------------------------------------------------------|
-|  `openjdk-17-dev` `latest-dev` | September 11th | `sha256:ae953b2df90f39d539e0fefb9e623ec4cc78d1e8a42a7c2246f625fe319b8102` |
-|  `openjdk-11`                  | September 11th | `sha256:bcc0b6f2483b8becd1e5f67a098b5ea85239deb33e1d6d953b4b675b69f009a3` |
-|  `openjdk-17` `latest`         | September 11th | `sha256:d090c79be27503195a7bcad40486a8e271d9c9149e9d005052e626a82b321a25` |
-|  `openjdk-11-dev`              | September 11th | `sha256:a45046adbedab257136231a335196cea63a9fc7beaf5bd1f036e7e993ad7c8e6` |
+|  `openjdk-11-dev`              | September 14th | `sha256:6562fdc44939535a6462366d74e1335f4c6003dc844f6b49fd15162275058160` |
+|  `openjdk-11`                  | September 14th | `sha256:4a1ff0423502a5d4eb7acdbcb37d3f9b5b04651f7e08218006775a3755718cbe` |
+|  `latest` `openjdk-17`         | September 14th | `sha256:dbd40df81a67066c7d86ba7ba06a1cfd496aeda7bc4e7acbbbebaa3e000881ad` |
+|  `latest-dev` `openjdk-17-dev` | September 14th | `sha256:2164df0e2932c0da4fc6993d5e246d3a18413c1c9b039503ddb40d6483d48336` |
 

@@ -25,8 +25,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                                                         | Last Changed   | Digest                                                                    |
 |-------------------------------------------------------------------------------------------------|----------------|---------------------------------------------------------------------------|
-|  `latest-dev`                                                                                   | September 11th | `sha256:9972eae79df1a1b16075e7e7b2b0fabed1e8aebf89dd57485a0ea6c021655af2` |
-|  `latest`                                                                                       | September 11th | `sha256:f940303eff83d6f956374ff7e108aa8d4f182c20a07467a07f3e247427b77adb` |
+|  `latest-dev`                                                                                   | September 14th | `sha256:4709b4c03054dc152f21d730528db0d9af28027de5b739663240545d6110160b` |
+|  `latest`                                                                                       | September 14th | `sha256:646a54de1cb6fa40ae0b356920779780760a0b30a0f83e96d57be3244adfb7b3` |
 |  `19.9-dev` `19.9.0-dev` `19.9.0-r3-dev` `19-dev`                                               | September 1st  | `sha256:cc1e1944efd51869d0cc2b5f847ddc68ed0fe34be2c349fc24ce81b368b828be` |
 |  `18.16.0` `18.16` `18.17.1` `18.17` `18`                                                       | September 1st  | `sha256:af073516c203b6bd0b55a77a806a0950b486f2e9ea7387a32b0f41ea72f20886` |
 |  `18.16.0-r2-dev` `18.17-dev` `18.17.1-r1-dev` `18.16.0-dev` `18.17.1-dev` `18.16-dev` `18-dev` | September 1st  | `sha256:0b91333f21897380b94c5ec4eef05722db35de37734399c6a454e8ed399330f1` |
