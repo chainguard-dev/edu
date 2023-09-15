@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed   | Digest                                                                    |
 |---------------|----------------|---------------------------------------------------------------------------|
-|  `latest`     | September 11th | `sha256:d2138ee161db969f9ef50bc01c69c9ff16df367c2eafec83bf421469558ee06b` |
-|  `latest-dev` | September 11th | `sha256:e4b980f6641b25f473207f8d89a1935b27b5a7a0679556f99d8da85db29ec712` |
+|  `latest-dev` | September 14th | `sha256:3ab15dd55d773da95ff24638cd2c8c26ad8d469117d0502d374eb2245a24bb59` |
+|  `latest`     | September 14th | `sha256:437c0d64eca6ad8592e04b9a938ca3357a935c82ce64a7d047d77a7a0e96706c` |
 
