@@ -22,55 +22,26 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **k3s-embedded** Image.
 
 ## Variants Compared
-The **k3s-embedded** Chainguard Image currently has one public variant: 
+The **k3s-embedded** Chainguard Image currently has 0 public variants: 
 
-- `latest`
+- ``
 
 The table has detailed information about each of these variants.
 
-|              | latest        |
-|--------------|---------------|
-| Default User | `root`        |
-| Entrypoint   | `/bin/k3s`    |
-| CMD          | `agent`       |
-| Workdir      | not specified |
-| Has apk?     | no            |
-| Has a shell? | yes           |
+|              |
+|--------------|
+| Default User |
+| Entrypoint   |
+| CMD          |
+| Workdir      |
+| Has apk?     |
+| Has a shell? |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/k3s-embedded/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `busybox`                | X      |
-| `ca-certificates-bundle` | X      |
-| `conntrack-tools`        | X      |
-| `glibc`                  | X      |
-| `glibc-locale-posix`     | X      |
-| `ip6tables`              | X      |
-| `iptables`               | X      |
-| `k3s-embedded`           | X      |
-| `kmod`                   | X      |
-| `ld-linux`               | X      |
-| `libblkid`               | X      |
-| `libcrypt1`              | X      |
-| `libcrypto3`             | X      |
-| `libmnl`                 | X      |
-| `libmount`               | X      |
-| `libnetfilter_conntrack` | X      |
-| `libnetfilter_cthelper`  | X      |
-| `libnetfilter_cttimeout` | X      |
-| `libnetfilter_queue`     | X      |
-| `libnfnetlink`           | X      |
-| `libnftnl`               | X      |
-| `libseccomp`             | X      |
-| `libzstd1`               | X      |
-| `mount`                  | X      |
-| `openssl-config`         | X      |
-| `umount`                 | X      |
-| `wolfi-baselayout`       | X      |
-| `xz`                     | X      |
-| `zlib`                   | X      |
+|  |
+|--|
 
