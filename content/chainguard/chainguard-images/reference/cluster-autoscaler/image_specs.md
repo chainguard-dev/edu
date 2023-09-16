@@ -43,30 +43,30 @@ Check the [tags history page](/chainguard/chainguard-images/reference/cluster-au
 ## Packages Included
 The table shows package distribution across variants.
 
-|                             | latest-dev | latest |
-|-----------------------------|------------|--------|
-| `apk-tools`                 | X          |        |
-| `bash`                      | X          |        |
-| `busybox`                   | X          |        |
-| `ca-certificates-bundle`    | X          | X      |
-| `cluster-autoscaler`        | X          | X      |
-| `cluster-autoscaler-compat` | X          | X      |
-| `git`                       | X          |        |
-| `glibc`                     | X          |        |
-| `glibc-locale-posix`        | X          |        |
-| `ld-linux`                  | X          |        |
-| `libbrotlicommon1`          | X          |        |
-| `libbrotlidec1`             | X          |        |
-| `libcrypt1`                 | X          |        |
-| `libcrypto3`                | X          |        |
-| `libcurl-openssl4`          | X          |        |
-| `libexpat1`                 | X          |        |
-| `libnghttp2-14`             | X          |        |
-| `libpcre2-8-0`              | X          |        |
-| `libssl3`                   | X          |        |
-| `ncurses`                   | X          |        |
-| `ncurses-terminfo-base`     | X          |        |
-| `openssl-config`            | X          |        |
-| `wolfi-baselayout`          | X          | X      |
-| `zlib`                      | X          |        |
+|                                  | latest-dev | latest |
+|----------------------------------|------------|--------|
+| `apk-tools`                      | X          |        |
+| `bash`                           | X          |        |
+| `busybox`                        | X          |        |
+| `ca-certificates-bundle`         | X          | X      |
+| `cluster-autoscaler-1.28`        | X          | X      |
+| `cluster-autoscaler-1.28-compat` | X          | X      |
+| `git`                            | X          |        |
+| `glibc`                          | X          |        |
+| `glibc-locale-posix`             | X          |        |
+| `ld-linux`                       | X          |        |
+| `libbrotlicommon1`               | X          |        |
+| `libbrotlidec1`                  | X          |        |
+| `libcrypt1`                      | X          |        |
+| `libcrypto3`                     | X          |        |
+| `libcurl-openssl4`               | X          |        |
+| `libexpat1`                      | X          |        |
+| `libnghttp2-14`                  | X          |        |
+| `libpcre2-8-0`                   | X          |        |
+| `libssl3`                        | X          |        |
+| `ncurses`                        | X          |        |
+| `ncurses-terminfo-base`          | X          |        |
+| `openssl-config`                 | X          |        |
+| `wolfi-baselayout`               | X          | X      |
+| `zlib`                           | X          |        |
 
