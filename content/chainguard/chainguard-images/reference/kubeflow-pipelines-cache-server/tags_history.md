@@ -1,8 +1,8 @@
 ---
-title: "openai Image Tags History"
+title: "kubeflow-pipelines-cache-server Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the openai Chainguard Image"
+description: "Image Tags and History for the kubeflow-pipelines-cache-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/openai/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/openai/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/openai/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/openai/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-cache-server/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-cache-server/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/kubeflow-pipelines-cache-server/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-cache-server/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed   | Digest                                                                    |
 |---------------|----------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 18th | `sha256:94e6f54e616e5c4aa3f14abe22ba3c35b7b999cef39b0b8cdcc7f50d1a512c02` |
-|  `latest`     | September 18th | `sha256:00e5379731e3d72697586d0ecf8d4dba9cf626da9a566daacf511c80c855d944` |
+|  `latest`     | September 18th | `sha256:300976bbf7c1d7f9dedc2b6dc9a4c621c3e008e6476a28f66398450c5bcbdac1` |
+|  `latest-dev` | September 18th | `sha256:e3741ebb479c548e02c72114bb3fc9b159b500b2a48ac18ec35622bdd09520b2` |
 
