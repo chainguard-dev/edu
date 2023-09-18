@@ -1,8 +1,8 @@
 ---
-title: "kubeflow-jupyter-web-app Image Variants"
+title: "kubeflow-volumes-web-app Image Variants"
 type: "article"
 unlisted: true
-description: "Detailed information about the public kubeflow-jupyter-web-app Chainguard Image variants"
+description: "Detailed information about the public kubeflow-volumes-web-app Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -13,16 +13,16 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubeflow-jupyter-web-app/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/kubeflow-jupyter-web-app/image_specs/" >}}
-{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kubeflow-jupyter-web-app/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-jupyter-web-app/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubeflow-volumes-web-app/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/kubeflow-volumes-web-app/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kubeflow-volumes-web-app/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-volumes-web-app/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **kubeflow-jupyter-web-app** Image.
+This page shows detailed information about all public variants of the Chainguard **kubeflow-volumes-web-app** Image.
 
 ## Variants Compared
-The **kubeflow-jupyter-web-app** Chainguard Image currently has 2 public variants: 
+The **kubeflow-volumes-web-app** Chainguard Image currently has 2 public variants: 
 
 - `latest-dev`
 - `latest`
@@ -32,13 +32,13 @@ The table has detailed information about each of these variants.
 |              | latest-dev                                                                                                                       | latest                                                                                                                           |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Default User | `nonroot`                                                                                                                        | `nonroot`                                                                                                                        |
-| Entrypoint   | `/bin/bash -c "gunicorn -w 3 --bind 0.0.0.0:5000 --chdir /usr/share/kubeflow-jupyter-web-app --access-logfile - entrypoint:app"` | `/bin/bash -c "gunicorn -w 3 --bind 0.0.0.0:5000 --chdir /usr/share/kubeflow-jupyter-web-app --access-logfile - entrypoint:app"` |
+| Entrypoint   | `/bin/bash -c "gunicorn -w 3 --bind 0.0.0.0:5000 --chdir /usr/share/kubeflow-volumes-web-app --access-logfile - entrypoint:app"` | `/bin/bash -c "gunicorn -w 3 --bind 0.0.0.0:5000 --chdir /usr/share/kubeflow-volumes-web-app --access-logfile - entrypoint:app"` |
 | CMD          | not specified                                                                                                                    | not specified                                                                                                                    |
 | Workdir      | not specified                                                                                                                    | not specified                                                                                                                    |
 | Has apk?     | yes                                                                                                                              | no                                                                                                                               |
 | Has a shell? | yes                                                                                                                              | yes                                                                                                                              |
 
-Check the [tags history page](/chainguard/chainguard-images/reference/kubeflow-jupyter-web-app/tags_history/) for the full list of available tags.
+Check the [tags history page](/chainguard/chainguard-images/reference/kubeflow-volumes-web-app/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
@@ -53,7 +53,7 @@ The table shows package distribution across variants.
 | `git`                      | X          |        |
 | `glibc`                    | X          | X      |
 | `glibc-locale-posix`       | X          | X      |
-| `kubeflow-jupyter-web-app` | X          | X      |
+| `kubeflow-volumes-web-app` | X          | X      |
 | `ld-linux`                 | X          | X      |
 | `libbrotlicommon1`         | X          |        |
 | `libbrotlidec1`            | X          |        |
