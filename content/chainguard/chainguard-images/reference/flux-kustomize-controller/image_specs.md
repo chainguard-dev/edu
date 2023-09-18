@@ -50,22 +50,41 @@ The table shows package distribution across variants.
 | `busybox`                   | X          |        |
 | `ca-certificates-bundle`    | X          | X      |
 | `flux-kustomize-controller` | X          | X      |
-| `git`                       | X          |        |
-| `glibc`                     | X          |        |
-| `glibc-locale-posix`        | X          |        |
-| `ld-linux`                  | X          |        |
-| `libbrotlicommon1`          | X          |        |
-| `libbrotlidec1`             | X          |        |
+| `git`                       | X          | X      |
+| `glibc`                     | X          | X      |
+| `glibc-locale-posix`        | X          | X      |
+| `gnupg`                     | X          | X      |
+| `gnupg-gpgconf`             | X          | X      |
+| `gnupg-utils`               | X          | X      |
+| `gnupg-wks-client`          | X          | X      |
+| `gpg`                       | X          | X      |
+| `gpg-agent`                 | X          | X      |
+| `gpg-wks-server`            | X          | X      |
+| `gpgsm`                     | X          | X      |
+| `gpgv`                      | X          | X      |
+| `ld-linux`                  | X          | X      |
+| `libassuan`                 | X          | X      |
+| `libbrotlicommon1`          | X          | X      |
+| `libbrotlidec1`             | X          | X      |
+| `libbz2-1`                  | X          | X      |
 | `libcrypt1`                 | X          |        |
-| `libcrypto3`                | X          |        |
-| `libcurl-openssl4`          | X          |        |
-| `libexpat1`                 | X          |        |
-| `libnghttp2-14`             | X          |        |
-| `libpcre2-8-0`              | X          |        |
-| `libssl3`                   | X          |        |
-| `ncurses`                   | X          |        |
-| `ncurses-terminfo-base`     | X          |        |
-| `openssl-config`            | X          |        |
+| `libcrypto3`                | X          | X      |
+| `libcurl-openssl4`          | X          | X      |
+| `libedit`                   | X          | X      |
+| `libexpat1`                 | X          | X      |
+| `libgcrypt`                 | X          | X      |
+| `libgpg-error`              | X          | X      |
+| `libksba`                   | X          | X      |
+| `libnghttp2-14`             | X          | X      |
+| `libpcre2-8-0`              | X          | X      |
+| `libssl3`                   | X          | X      |
+| `ncurses`                   | X          | X      |
+| `ncurses-terminfo-base`     | X          | X      |
+| `npth`                      | X          | X      |
+| `openssh-client`            | X          | X      |
+| `openssl-config`            | X          | X      |
+| `sqlite-libs`               | X          | X      |
+| `tzdata`                    | X          | X      |
 | `wolfi-baselayout`          | X          | X      |
-| `zlib`                      | X          |        |
+| `zlib`                      | X          | X      |
 
