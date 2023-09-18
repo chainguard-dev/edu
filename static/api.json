@@ -1155,6 +1155,10 @@
             "required": true,
             "schema": {
               "properties": {
+                "defaultRole": {
+                  "description": "default_role is the UIDP of an optional default role\nto grant users of this identity provider.",
+                  "type": "string"
+                },
                 "description": {
                   "type": "string"
                 },
@@ -4074,6 +4078,10 @@
     },
     "iamIdentityProvider": {
       "properties": {
+        "defaultRole": {
+          "description": "default_role is the UIDP of an optional default role\nto grant users of this identity provider.",
+          "type": "string"
+        },
         "description": {
           "type": "string"
         },
