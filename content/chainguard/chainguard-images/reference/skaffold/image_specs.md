@@ -75,6 +75,7 @@ The table shows package distribution across variants.
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
 | `openssl-config`         | X          | X      |
+| `py3-crcmod`             | X          | X      |
 | `python-3.11`            | X          | X      |
 | `readline`               | X          | X      |
 | `skaffold`               | X          | X      |
