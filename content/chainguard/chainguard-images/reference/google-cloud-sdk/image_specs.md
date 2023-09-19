@@ -65,6 +65,7 @@ The table shows package distribution across variants.
 | `ncurses`                | X      |
 | `ncurses-terminfo-base`  | X      |
 | `openssl-config`         | X      |
+| `py3-crcmod`             | X      |
 | `python-3.11`            | X      |
 | `readline`               | X      |
 | `sqlite-libs`            | X      |
