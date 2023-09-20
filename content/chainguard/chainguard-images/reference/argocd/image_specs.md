@@ -54,19 +54,26 @@ The table shows package distribution across variants.
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |
+| `gnupg-gpgconf`          | X          | X      |
+| `gpg`                    | X          | X      |
 | `ld-linux`               | X          | X      |
+| `libassuan`              | X          | X      |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
+| `libbz2-1`               | X          | X      |
 | `libcrypt1`              | X          | X      |
 | `libcrypto3`             | X          |        |
 | `libcurl-openssl4`       | X          |        |
 | `libexpat1`              | X          |        |
+| `libgcrypt`              | X          | X      |
+| `libgpg-error`           | X          | X      |
 | `libnghttp2-14`          | X          |        |
 | `libpcre2-8-0`           | X          |        |
 | `libssl3`                | X          |        |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
 | `openssl-config`         | X          |        |
+| `sqlite-libs`            | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
-| `zlib`                   | X          |        |
+| `zlib`                   | X          | X      |
 
