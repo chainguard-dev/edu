@@ -28,14 +28,14 @@ The **redis** Chainguard Image currently has one public variant:
 
 The table has detailed information about each of these variants.
 
-|              | latest         |
-|--------------|----------------|
-| Default User | `redis`        |
-| Entrypoint   | `redis-server` |
-| CMD          | not specified  |
-| Workdir      | `/data`        |
-| Has apk?     | no             |
-| Has a shell? | yes            |
+|              | latest                  |
+|--------------|-------------------------|
+| Default User | `redis`                 |
+| Entrypoint   | `/usr/bin/redis-server` |
+| CMD          | not specified           |
+| Workdir      | `/data`                 |
+| Has apk?     | no                      |
+| Has a shell? | yes                     |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/redis/tags_history/) for the full list of available tags.
 
@@ -44,6 +44,7 @@ The table shows package distribution across variants.
 
 |                          | latest |
 |--------------------------|--------|
+| `bash`                   | X      |
 | `busybox`                | X      |
 | `ca-certificates-bundle` | X      |
 | `glibc`                  | X      |
@@ -52,7 +53,11 @@ The table shows package distribution across variants.
 | `libcrypt1`              | X      |
 | `libcrypto3`             | X      |
 | `libssl3`                | X      |
+| `ncurses`                | X      |
+| `ncurses-terminfo-base`  | X      |
 | `openssl-config`         | X      |
+| `posix-libc-utils`       | X      |
 | `redis`                  | X      |
+| `redis-cli`              | X      |
 | `wolfi-baselayout`       | X      |
 
