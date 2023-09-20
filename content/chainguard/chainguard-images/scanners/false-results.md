@@ -37,7 +37,9 @@ Due to the complexity of cross-referencing image components against databases, s
 
 ### Scanner-level Issues
 
-At the scanner level, vulnerability scanners may be unable to consistently detect container components, causing the results of scans to be incomplete or inaccurate. Scanners often rely on package managers and package metadata to catalog the parts of a container. If a scanner [cannot collect complete information](https://www.chainguard.dev/unchained/software-dark-matter-is-the-enemy-of-software-transparency) about package metadata, the results of the scan may not reflect the true contents of the image. For example, if a package in a container is not tracked by a package manager, it may go undetected, so vulnerabilities contained within are not reported.
+Vulnerability scanners may be unable to consistently detect container components, causing the results of scans to be incomplete or inaccurate. Scanners often rely on package managers and package metadata to catalog the parts of a container. If a scanner cannot collect complete information about package metadata the results of the scan may not reflect the true contents of the image. For example, if a package in a container is not tracked by a package manager, it may go undetected, so vulnerabilities contained within are not reported.
+
+For an in-depth discussion of how scanners fail to collect certain information, we encourage you to check out our [blog post on "Software Dark Matter"](https://www.chainguard.dev/unchained/software-dark-matter-is-the-enemy-of-software-transparency). 
 
 ### Program Scope
 
