@@ -23,7 +23,7 @@ The goal of a vulnerability scanner is to identify the vulnerabilities that impa
 
 The presence of false positive and negative vulnerabilities can add a tricky layer to the vulnerability remediation process. False positive vulnerabilities can be "noisy" and distract you from remediating the vulnerabilities that are actively impacting your containers. Additionally, false negative vulnerabilities can silently affect you, making them a hidden threat to your container image security.
 
-In this article, you will dive into the formation of false positive and false negative vulnerabilities to better understand what they mean, how they impact you, and how you can use tools to fine-tune your scanner to improve the accuracy of your scan results.
+This article aims to explain the formation of false positive and false negative vulnerabilities, allowing you to better understand what they mean, how they impact you, and how you can use tools to fine-tune your scanner to improve the accuracy of your scan results.
 
 ## How False Positives and False Negatives Occur
 
