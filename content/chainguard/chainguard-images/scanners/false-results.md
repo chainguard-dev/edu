@@ -17,7 +17,7 @@ weight: 001
 toc: true
 ---
 
-[Software vulnerability remediation](/software-security/cves/cve-remediation/) is a critical step in reducing your attack surface and securing your container images. Before you can remediate vulnerabilities, you first need to scan your images with a *vulnerability scanner*. A vulnerability scanner is a tool that analyzes your software components and reports any [CVEs](/software-security/cves/cve-intro/) it finds. However, when you begin to triage scanner-reported vulnerabilities, you may find that your scanner is not quite painting an accurate picture of what is in your containers.
+A *vulnerability scanner* is a tool that analyzes your software components and reports any [CVEs](/software-security/cves/cve-intro/) it finds. Using a vulnerability scanner to find CVEs that impact your system is a critical step in [software vulnerability remediation](/software-security/cves/cve-remediation/), but you begin to triage scanner-reported vulnerabilities, you may find that your scanner's results are not perfectly accurate.
 
 The goal of a vulnerability scanner is to identify the vulnerabilities that impact your container images, which can be considered *true positive vulnerabilities*. Sometimes, a scanner surfaces CVEs which are not actually impacting your images, which are called *false positive vulnerabilities*. Your scanner may even miss some vulnerabilities that are impacting you, termed *false negative vulnerabilities*.
 
