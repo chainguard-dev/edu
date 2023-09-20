@@ -86,7 +86,7 @@ One way to leverage VEX documents is through [OpenVEX](https://github.com/openve
 
 A primary source of large vulnerability counts reported in scanners is the dead weight caused by unnecessary dependencies. Many popular container images contain hundreds of packages, each with their own potential to introduce vulnerabilities, both true and false positives. Having so much noise to sift through draws out the vulnerability management process.
 
-[Chainguard Images](https://www.chainguard.dev/chainguard-images), built on the [Wolfi un-distro](/open-source/wolfi/), can help you reduce your CVE count dramatically by keeping things minimal. By bundling only what is necessary to run the image, Chainguard Images are hardened and lightweight in comparison to their popular counterparts. To learn more about how Chainguard Images can help you achieve low (or zero!) CVEs in your containers, check out our [Images documentation](/chainguard/chainguard-images/reference/)
+[Chainguard Images](https://www.chainguard.dev/chainguard-images), built on the [Wolfi un-distro](/open-source/wolfi/), can help you reduce your CVE count dramatically by keeping things minimal. By bundling only what is necessary to run the image, Chainguard Images are hardened and lightweight in comparison to their counterparts. To learn more about how Chainguard Images can help you achieve low (or zero!) CVEs in your containers, check out our [Images documentation](/chainguard/chainguard-images/reference/).
 
 ### Updating and Rebuilding Images
 
