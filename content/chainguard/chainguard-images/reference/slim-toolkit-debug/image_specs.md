@@ -110,6 +110,7 @@ The table shows package distribution across variants.
 | `openssl-config`          | X      |
 | `openssl-provider-legacy` | X      |
 | `oras`                    | X      |
+| `posix-libc-utils`        | X      |
 | `protobuf-c`              | X      |
 | `py3-cli-helpers`         | X      |
 | `py3-click`               | X      |
