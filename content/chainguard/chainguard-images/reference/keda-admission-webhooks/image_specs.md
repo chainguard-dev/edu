@@ -67,6 +67,7 @@ The table shows package distribution across variants.
 | `ncurses`                 | X          |        |
 | `ncurses-terminfo-base`   | X          |        |
 | `openssl-config`          | X          |        |
+| `tzdata`                  | X          | X      |
 | `wolfi-baselayout`        | X          | X      |
 | `zlib`                    | X          |        |
 
