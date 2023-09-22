@@ -25,7 +25,6 @@ toc: true
 
 
 
-
 [prometheus-adapter](https://github.com/kubernetes-sigs/prometheus-adapter) is a Prometheus project used to collect Prometheus metrics in Kubernetes.
 
 

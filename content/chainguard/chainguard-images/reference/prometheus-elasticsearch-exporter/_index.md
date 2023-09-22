@@ -23,11 +23,28 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/prometheus-elasticsearch-exporter/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **prometheus-elasticsearch-exporter** images with nightly builds.
 
-## Get it!
+
+Minimalist Wolfi-based Prometheus Elasticsearch Exporter image for exporting various metrics about Elasticsearch.
+
+## Get It!
+
+The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/prometheus-elasticsearch-exporter:latest
 ```
+
+## Usage
+
+The easiest way to install the Prometheus Elasticsearch Exporter is to use the Helm chart.
+
+```bash
+$ helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+$ helm repo update
+$ helm install prom-elasticsearch-exporter prometheus-community/prometheus-elasticsearch-exporter \
+ --set image.repository=cgr.dev/chainguard/prometheus-elasticsearch-exporter --set image.tag=latest
+```
+
+For more detail, please refer to the [Elasticsearch Exporter documentation](https://github.com/prometheus-community/elasticsearch_exporter).
 
