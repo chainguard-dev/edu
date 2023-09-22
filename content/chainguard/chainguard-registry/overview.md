@@ -3,10 +3,10 @@ title: "Registry Overview"
 type: "article"
 description: "An Overview of the Chainguard Registry"
 date: 2023-03-21T16:36:47+00:00
-lastmod: 2023-03-21T16:36:47+00:00
+lastmod: 2023-09-22T16:36:47+00:00
 draft: false
 images: []
-tags: ["Chainguard Images"]
+tags: ["Chainguard Images", "Registry", "Product"]
 menu:
   docs:
     parent: "registry"

@@ -5,7 +5,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard Enforce identity that can be assumed by a GitLab CI/CD pipeline."
 type: "article"
 date: 2023-06-28T08:48:45+00:00
-lastmod: 2023-06-28T08:48:45+00:00
+lastmod: 2023-09-22T08:48:45+00:00
 draft: false
 tags: ["Enforce", "Product", "Procedural"]
 images: []
@@ -355,7 +355,7 @@ assume-and-explore:
 
 Let's go over what this configuration does. 
 
-First, GitLab requires that pipelines have a shell. To this end, this configuration uses the [`cgr.dev/chainguard/wolfi-base` image](https://edu.chainguard.dev/chainguard/chainguard-images/reference/wolfi-base/overview/) since it includes the `sh` shell.
+First, GitLab requires that pipelines have a shell. To this end, this configuration uses the [`cgr.dev/chainguard/wolfi-base` image](https://edu.chainguard.dev/chainguard/chainguard-images/reference/wolfi-base/) since it includes the `sh` shell.
 
 Next, this configuration creates a JSON Web Token (JWT) with an [`id_tokens`](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) block that will allow the job to be able to fetch an OIDC token and authenticate with Chainguard Enforce. GitLab requires that any JWTs created in this manner must include an `aud` keyword. In this case, it should align with the `audience` associated with the Chainguard identity created in the `gitlab.tf` file: `https://gitlab.com`.
 

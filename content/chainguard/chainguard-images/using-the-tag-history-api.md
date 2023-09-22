@@ -3,7 +3,7 @@ title: "Using the Tag History API"
 type: "article"
 description: "Learn how to use the Chainguard Images Tag History API to fetch the tag history of image variants."
 date: 2023-05-26T08:49:31+00:00
-lastmod: 2023-08-22T08:49:31+00:00
+lastmod: 2023-09-22T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "Product"]
 images: []
@@ -181,7 +181,7 @@ Now that we have the credentials, we can use curl and Bash to access the endpoin
 IMAGE=private-registry.com/apko
 USERNAME="cc..96"
 PASSWORD="eyJ...X34"
-TOKEN=$(echo -n "${USERNAME}:${PASSWORD}" | base64 -w0)
+export TOKEN=$(echo -n "${USERNAME}:${PASSWORD}" | base64 | tr -d '\n\r')
 curl -s -H "Authorization: Bearer \
   $(curl -s -H "Authorization: Basic $TOKEN" \
   "https://cgr.dev/token?scope=repository:${IMAGE}:pull" | jq -r .token)" \

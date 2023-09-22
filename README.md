@@ -137,6 +137,7 @@ Tags are based on:
 * Policy
 * policy-controller
 * Product 
+* Registry
 * Rekor
 * SBOM
 * Sigstore
