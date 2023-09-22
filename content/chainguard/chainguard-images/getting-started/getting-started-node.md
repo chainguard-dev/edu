@@ -4,7 +4,8 @@ type: "article"
 linktitle: "Node"
 description: "Tutorial on how to get started with the Node Chainguard Image"
 date: 2023-02-01T11:07:52+02:00
-lastmod: 2023-02-01T11:07:52+02:00
+lastmod: 2023-09-22T11:07:52+02:00
+tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
 menu:
