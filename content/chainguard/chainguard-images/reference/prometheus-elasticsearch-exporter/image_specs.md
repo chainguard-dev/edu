@@ -35,7 +35,7 @@ The table has detailed information about each of these variants.
 | Entrypoint   | `/usr/bin/elasticsearch_exporter` | `/usr/bin/elasticsearch_exporter` |
 | CMD          | not specified                     | not specified                     |
 | Workdir      | not specified                     | not specified                     |
-| Has apk?     | yes                               | yes                               |
+| Has apk?     | yes                               | no                                |
 | Has a shell? | yes                               | yes                               |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/prometheus-elasticsearch-exporter/tags_history/) for the full list of available tags.
@@ -45,7 +45,7 @@ The table shows package distribution across variants.
 
 |                                     | latest-dev | latest |
 |-------------------------------------|------------|--------|
-| `apk-tools`                         | X          | X      |
+| `apk-tools`                         | X          |        |
 | `bash`                              | X          |        |
 | `busybox`                           | X          | X      |
 | `ca-certificates-bundle`            | X          | X      |
@@ -56,18 +56,16 @@ The table shows package distribution across variants.
 | `libbrotlicommon1`                  | X          |        |
 | `libbrotlidec1`                     | X          |        |
 | `libcrypt1`                         | X          | X      |
-| `libcrypto3`                        | X          | X      |
+| `libcrypto3`                        | X          |        |
 | `libcurl-openssl4`                  | X          |        |
 | `libexpat1`                         | X          |        |
 | `libnghttp2-14`                     | X          |        |
 | `libpcre2-8-0`                      | X          |        |
-| `libssl3`                           | X          | X      |
+| `libssl3`                           | X          |        |
 | `ncurses`                           | X          |        |
 | `ncurses-terminfo-base`             | X          |        |
-| `openssl-config`                    | X          | X      |
+| `openssl-config`                    | X          |        |
 | `prometheus-elasticsearch-exporter` | X          | X      |
-| `wolfi-base`                        | X          | X      |
 | `wolfi-baselayout`                  | X          | X      |
-| `wolfi-keys`                        | X          | X      |
-| `zlib`                              | X          | X      |
+| `zlib`                              | X          |        |
 
