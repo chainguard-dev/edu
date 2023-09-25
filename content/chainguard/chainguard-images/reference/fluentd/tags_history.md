@@ -25,8 +25,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed   | Digest                                                                    |
 |--------------------------|----------------|---------------------------------------------------------------------------|
-|  `latest` `edge`         | September 20th | `sha256:9e4390d67e1ad82919d2e4785eb3c6c201561494c81837a389167c0799139698` |
-|  `edge-dev` `latest-dev` | September 20th | `sha256:b8460dffae795f7c88aa092f604b6a19267c329b8fb93e6a26c7ff5594a9d04f` |
-|  `latest-splunk-dev`     | September 20th | `sha256:d0f478ad8c2e476fdeb47ff9fe51177e6530acfd25f3cc64bc4cba1bb520fb62` |
-|  `latest-splunk`         | September 20th | `sha256:085d645b9aef61b853279af93e9b3ede269f555bc9b417ce67d49d90a59fe197` |
+|  `edge` `latest`         | September 22nd | `sha256:83547667d1766a680cf3c4c5b8465225547c0851297dca487c052ad9b4a23bb5` |
+|  `edge-dev` `latest-dev` | September 22nd | `sha256:7c7d6eb43a389a15d1908aa0bfe259971c22cefe3b294cfb02dce92e00bba642` |
+|  `latest-splunk-dev`     | September 22nd | `sha256:4777a801265c6cc9025a600a1e2e0f229c0b163526b58e8afef46b1ea0849336` |
+|  `latest-splunk`         | September 22nd | `sha256:2c21a441db109387550fc0fddecf83d973495603220432592a57fa6e2f419455` |
 

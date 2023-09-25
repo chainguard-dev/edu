@@ -31,12 +31,12 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev               | latest                   |
 |--------------|--------------------------|--------------------------|
-| Default User | `node_exporter`          | `node_exporter`          |
+| Default User | `nonroot`                | `nonroot`                |
 | Entrypoint   | `/usr/bin/node_exporter` | `/usr/bin/node_exporter` |
 | CMD          | not specified            | not specified            |
 | Workdir      | not specified            | not specified            |
 | Has apk?     | yes                      | no                       |
-| Has a shell? | yes                      | yes                      |
+| Has a shell? | yes                      | no                       |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/prometheus-node-exporter/tags_history/) for the full list of available tags.
 
@@ -47,15 +47,15 @@ The table shows package distribution across variants.
 |----------------------------|------------|--------|
 | `apk-tools`                | X          |        |
 | `bash`                     | X          |        |
-| `busybox`                  | X          | X      |
+| `busybox`                  | X          |        |
 | `ca-certificates-bundle`   | X          | X      |
 | `git`                      | X          |        |
-| `glibc`                    | X          | X      |
-| `glibc-locale-posix`       | X          | X      |
-| `ld-linux`                 | X          | X      |
+| `glibc`                    | X          |        |
+| `glibc-locale-posix`       | X          |        |
+| `ld-linux`                 | X          |        |
 | `libbrotlicommon1`         | X          |        |
 | `libbrotlidec1`            | X          |        |
-| `libcrypt1`                | X          | X      |
+| `libcrypt1`                | X          |        |
 | `libcrypto3`               | X          |        |
 | `libcurl-openssl4`         | X          |        |
 | `libexpat1`                | X          |        |
