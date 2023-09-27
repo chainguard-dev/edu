@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-09-21 17:40:49 +0000 UTC
+date: 2023-09-26 15:02:04 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,21 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.174
+Release date: 2023-09-26
+
+Customer facing changes: N/A
+
+### v0.1.173
+Release date: 2023-09-25
+#### Feature
+- Custom identity providers support default roles to bind to new users on first login. Use the flag `--default-role` with `chainctl iam identity-providers create` and `update` to configure.
+
+### v0.1.172
+Release date: 2023-09-22
+
+Customer facing changes: N/A
 
 ### v0.1.171
 Release date: 2023-09-21
