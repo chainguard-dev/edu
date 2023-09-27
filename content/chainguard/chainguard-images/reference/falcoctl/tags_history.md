@@ -1,8 +1,8 @@
 ---
-title: "influxdb Image Tags History"
+title: "falcoctl Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the influxdb Chainguard Image"
+description: "Image Tags and History for the falcoctl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/influxdb/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/influxdb/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/influxdb/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/influxdb/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/falcoctl/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/falcoctl/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/falcoctl/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/falcoctl/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed   | Digest                                                                    |
 |---------------|----------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 26th | `sha256:f94823e27d3462ed2f2922fca0d5f6da47b43717fe9f2d57cd0f0a23f00e1be8` |
-|  `latest`     | September 26th | `sha256:fac3e1a782b4ad1904306a3abae42b97f99a855b766568cca62ae0bf621d4aa3` |
+|  `latest`     | September 27th | `sha256:fa6b2255b90434ea418e88e9d8458194d30f5dcabb31ac7ecb4c8962e408f823` |
+|  `latest-dev` | September 27th | `sha256:767c7ff580e9d968e116d6403544700dc9bdb6eada06425a3ebe25a2f6711323` |
 

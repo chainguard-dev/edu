@@ -22,51 +22,61 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **dask-gateway-dask-gateway** Image.
 
 ## Variants Compared
-The **dask-gateway-dask-gateway** Chainguard Image currently has one public variant: 
+The **dask-gateway-dask-gateway** Chainguard Image currently has 2 public variants: 
 
+- `latest-dev`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest             |
-|--------------|--------------------|
-| Default User | `nonroot`          |
-| Entrypoint   | `/sbin/tini -g --` |
-| CMD          | not specified      |
-| Workdir      | not specified      |
-| Has apk?     | no                 |
-| Has a shell? | no                 |
+|              | latest-dev         | latest             |
+|--------------|--------------------|--------------------|
+| Default User | `nonroot`          | `nonroot`          |
+| Entrypoint   | `/sbin/tini -g --` | `/sbin/tini -g --` |
+| CMD          | not specified      | not specified      |
+| Workdir      | not specified      | not specified      |
+| Has apk?     | yes                | no                 |
+| Has a shell? | yes                | no                 |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/dask-gateway-dask-gateway/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `ca-certificates-bundle` | X      |
-| `dask-gateway`           | X      |
-| `gdbm`                   | X      |
-| `glibc`                  | X      |
-| `glibc-locale-posix`     | X      |
-| `ld-linux`               | X      |
-| `libbz2-1`               | X      |
-| `libcrypt1`              | X      |
-| `libcrypto3`             | X      |
-| `libexpat1`              | X      |
-| `libffi`                 | X      |
-| `libgcc`                 | X      |
-| `libssl3`                | X      |
-| `libstdc++`              | X      |
-| `mpdecimal`              | X      |
-| `ncurses`                | X      |
-| `ncurses-terminfo-base`  | X      |
-| `openssl-config`         | X      |
-| `python-3.11`            | X      |
-| `readline`               | X      |
-| `sqlite-libs`            | X      |
-| `tini`                   | X      |
-| `wolfi-baselayout`       | X      |
-| `xz`                     | X      |
-| `zlib`                   | X      |
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `busybox`                | X          |        |
+| `ca-certificates-bundle` | X          | X      |
+| `dask-gateway`           | X          | X      |
+| `gdbm`                   | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
+| `libbz2-1`               | X          | X      |
+| `libcrypt1`              | X          | X      |
+| `libcrypto3`             | X          | X      |
+| `libcurl-openssl4`       | X          |        |
+| `libexpat1`              | X          | X      |
+| `libffi`                 | X          | X      |
+| `libgcc`                 | X          | X      |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libssl3`                | X          | X      |
+| `libstdc++`              | X          | X      |
+| `mpdecimal`              | X          | X      |
+| `ncurses`                | X          | X      |
+| `ncurses-terminfo-base`  | X          | X      |
+| `openssl-config`         | X          | X      |
+| `python-3.11`            | X          | X      |
+| `readline`               | X          | X      |
+| `sqlite-libs`            | X          | X      |
+| `tini`                   | X          | X      |
+| `wolfi-baselayout`       | X          | X      |
+| `xz`                     | X          | X      |
+| `zlib`                   | X          | X      |
 
