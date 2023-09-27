@@ -35,7 +35,7 @@ The table has detailed information about each of these variants.
 | Entrypoint   | `/usr/bin/node-problem-detector`                          | `/usr/bin/node-problem-detector`                          |
 | CMD          | `--config.system-log-monitor=/config/kernel-monitor.json` | `--config.system-log-monitor=/config/kernel-monitor.json` |
 | Workdir      | not specified                                             | not specified                                             |
-| Has apk?     | no                                                        | no                                                        |
+| Has apk?     | yes                                                       | no                                                        |
 | Has a shell? | yes                                                       | yes                                                       |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/node-problem-detector/tags_history/) for the full list of available tags.
@@ -45,23 +45,38 @@ The table shows package distribution across variants.
 
 |                                    | latest-dev | latest |
 |------------------------------------|------------|--------|
+| `apk-tools`                        | X          |        |
+| `bash`                             | X          |        |
 | `busybox`                          | X          | X      |
 | `ca-certificates-bundle`           | X          | X      |
+| `git`                              | X          |        |
 | `glibc`                            | X          | X      |
 | `glibc-locale-posix`               | X          | X      |
 | `health-checker-0.8`               | X          | X      |
 | `ld-linux`                         | X          | X      |
 | `libblkid`                         | X          | X      |
+| `libbrotlicommon1`                 | X          |        |
+| `libbrotlidec1`                    | X          |        |
 | `libcap`                           | X          | X      |
 | `libcrypt1`                        | X          | X      |
+| `libcrypto3`                       | X          |        |
+| `libcurl-openssl4`                 | X          |        |
+| `libexpat1`                        | X          |        |
 | `libfdisk`                         | X          | X      |
 | `libmount`                         | X          | X      |
+| `libnghttp2-14`                    | X          |        |
+| `libpcre2-8-0`                     | X          |        |
+| `libssl3`                          | X          |        |
 | `libsystemd`                       | X          | X      |
 | `libuuid`                          | X          | X      |
 | `log-counter-0.8`                  | X          | X      |
+| `ncurses`                          | X          |        |
+| `ncurses-terminfo-base`            | X          |        |
 | `node-problem-detector-0.8`        | X          | X      |
 | `node-problem-detector-0.8-compat` | X          | X      |
+| `openssl-config`                   | X          |        |
 | `systemd`                          | X          | X      |
 | `systemd-dev`                      | X          | X      |
 | `wolfi-baselayout`                 | X          | X      |
+| `zlib`                             | X          |        |
 

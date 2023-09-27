@@ -49,8 +49,8 @@ The table shows package distribution across variants.
 | `bash`                      | X          |        |
 | `busybox`                   | X          |        |
 | `ca-certificates-bundle`    | X          | X      |
-| `cert-manager-1.12-webhook` | X          | X      |
-| `cmctl-1.12`                | X          |        |
+| `cert-manager-1.13-webhook` | X          | X      |
+| `cmctl-1.13`                | X          |        |
 | `git`                       | X          |        |
 | `glibc`                     | X          |        |
 | `glibc-locale-posix`        | X          |        |
