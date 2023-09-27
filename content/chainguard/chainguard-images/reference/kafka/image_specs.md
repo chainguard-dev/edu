@@ -29,14 +29,14 @@ The **kafka** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev                                 | latest                                     |
-|--------------|--------------------------------------------|--------------------------------------------|
-| Default User | `kafka`                                    | `kafka`                                    |
-| Entrypoint   | `/usr/lib/kafka/bin/kafka-server-start.sh` | `/usr/lib/kafka/bin/kafka-server-start.sh` |
-| CMD          | `/usr/lib/kafka/config/server.properties`  | `/usr/lib/kafka/config/server.properties`  |
-| Workdir      | not specified                              | not specified                              |
-| Has apk?     | yes                                        | no                                         |
-| Has a shell? | yes                                        | yes                                        |
+|              | latest-dev                                                                   | latest                                                                       |
+|--------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| Default User | `kafka`                                                                      | `kafka`                                                                      |
+| Entrypoint   | `/opt/bitnami/scripts/kafka/entrypoint.sh /opt/bitnami/scripts/kafka/run.sh` | `/opt/bitnami/scripts/kafka/entrypoint.sh /opt/bitnami/scripts/kafka/run.sh` |
+| CMD          | not specified                                                                | not specified                                                                |
+| Workdir      | not specified                                                                | not specified                                                                |
+| Has apk?     | yes                                                                          | no                                                                           |
+| Has a shell? | yes                                                                          | yes                                                                          |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kafka/tags_history/) for the full list of available tags.
 
@@ -57,6 +57,7 @@ The table shows package distribution across variants.
 | `java-cacerts`           | X          | X      |
 | `java-common`            | X          | X      |
 | `kafka`                  | X          | X      |
+| `kafka-bitnami-compat`   | X          | X      |
 | `ld-linux`               | X          | X      |
 | `libbrotlicommon1`       | X          | X      |
 | `libbrotlidec1`          | X          | X      |
