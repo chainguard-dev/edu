@@ -1,8 +1,8 @@
 ---
-title: "opensearch Image Tags History"
+title: "ingress-nginx-controller Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the opensearch Chainguard Image"
+description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/opensearch/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/opensearch/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/opensearch/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/opensearch/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/ingress-nginx-controller/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/ingress-nginx-controller/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/ingress-nginx-controller/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/ingress-nginx-controller/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed   | Digest                                                                    |
 |---------------|----------------|---------------------------------------------------------------------------|
-|  `latest-dev` | September 27th | `sha256:2044dedb80a31e898bc3e6c4d3ca08c4bfc8ed25909426cfb9e587cc041e3312` |
-|  `latest`     | September 27th | `sha256:511fedf8d0780bc72692ba52e54d115e09b187e0a39d42f11ec7def266cc82fb` |
+|  `latest-dev` | September 27th | `sha256:01a111cadb5a0b738bc69581c0f9d4e09853e8ff4cf6b1d94f962624354c64ae` |
+|  `latest`     | September 27th | `sha256:dc3b9363aa621a7691dc686542ee07166180db0ba79badd5a6e2a03652fc39dc` |
 
