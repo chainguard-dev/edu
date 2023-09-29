@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev           | latest               |
 |--------------|----------------------|----------------------|
-| Default User | `nonroot`            | `nonroot`            |
+| Default User | `root`               | `root`               |
 | Entrypoint   | `aws-efs-csi-driver` | `aws-efs-csi-driver` |
 | CMD          | not specified        | not specified        |
 | Workdir      | not specified        | not specified        |
