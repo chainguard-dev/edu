@@ -29,14 +29,14 @@ The **ingress-nginx-controller** Chainguard Image currently has 2 public variant
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev               | latest                   |
-|--------------|--------------------------|--------------------------|
-| Default User | `root`                   | `root`                   |
-| Entrypoint   | not specified            | not specified            |
-| CMD          | `/usr/bin/dumb-init ---` | `/usr/bin/dumb-init ---` |
-| Workdir      | `/etc/nginx`             | `/etc/nginx`             |
-| Has apk?     | yes                      | no                       |
-| Has a shell? | yes                      | no                       |
+|              | latest-dev                  | latest                      |
+|--------------|-----------------------------|-----------------------------|
+| Default User | `root`                      | `root`                      |
+| Entrypoint   | `/nginx-ingress-controller` | `/nginx-ingress-controller` |
+| CMD          | `/usr/bin/dumb-init ---`    | `/usr/bin/dumb-init ---`    |
+| Workdir      | `/etc/nginx`                | `/etc/nginx`                |
+| Has apk?     | yes                         | no                          |
+| Has a shell? | yes                         | no                          |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/ingress-nginx-controller/tags_history/) for the full list of available tags.
 
