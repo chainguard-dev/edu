@@ -29,14 +29,14 @@ The **kubernetes-csi-external-resizer** Chainguard Image currently has 2 public 
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev    | latest        |
-|--------------|---------------|---------------|
-| Default User | `nonroot`     | `nonroot`     |
-| Entrypoint   | `csi-resizer` | `csi-resizer` |
-| CMD          | not specified | not specified |
-| Workdir      | not specified | not specified |
-| Has apk?     | yes           | no            |
-| Has a shell? | yes           | no            |
+|              | latest-dev             | latest                 |
+|--------------|------------------------|------------------------|
+| Default User | `nonroot`              | `nonroot`              |
+| Entrypoint   | `/usr/bin/csi-resizer` | `/usr/bin/csi-resizer` |
+| CMD          | not specified          | not specified          |
+| Workdir      | not specified          | not specified          |
+| Has apk?     | yes                    | no                     |
+| Has a shell? | yes                    | no                     |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kubernetes-csi-external-resizer/tags_history/) for the full list of available tags.
 

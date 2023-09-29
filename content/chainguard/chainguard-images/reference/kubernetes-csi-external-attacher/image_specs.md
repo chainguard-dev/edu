@@ -29,14 +29,14 @@ The **kubernetes-csi-external-attacher** Chainguard Image currently has 2 public
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev     | latest         |
-|--------------|----------------|----------------|
-| Default User | `root`         | `root`         |
-| Entrypoint   | `csi-attacher` | `csi-attacher` |
-| CMD          | not specified  | not specified  |
-| Workdir      | not specified  | not specified  |
-| Has apk?     | yes            | no             |
-| Has a shell? | yes            | no             |
+|              | latest-dev              | latest                  |
+|--------------|-------------------------|-------------------------|
+| Default User | `root`                  | `root`                  |
+| Entrypoint   | `/usr/bin/csi-attacher` | `/usr/bin/csi-attacher` |
+| CMD          | not specified           | not specified           |
+| Workdir      | not specified           | not specified           |
+| Has apk?     | yes                     | no                      |
+| Has a shell? | yes                     | no                      |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kubernetes-csi-external-attacher/tags_history/) for the full list of available tags.
 
