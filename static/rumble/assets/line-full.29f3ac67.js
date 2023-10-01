@@ -1,0 +1,1 @@
+import{k as r,j as e,_ as m}from"./RumbleLoader.629b51c9.js";import{C as i}from"./Chart.d439597e.js";import"./ClipPath.90e65f7d.js";import"./Grid.91185de4.js";r.createRoot(document.getElementById("root")).render(e(m,{debounceTime:50,children:({width:t,height:o})=>e(i,{width:t,height:o})}));

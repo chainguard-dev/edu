@@ -1,11 +1,16 @@
 // used on an image's vulnerability comparison page
 
 const image = document.location.pathname.replace(/\/$/, "").split("/").pop();
-console.log(image);
 const data = await d3.csv(`https://storage.googleapis.com/chainguard-academy/cve-data/${image}.csv`);
 const displayColumns = ["Package", "Version", "Vulnerability", "Severity"];
 const dataColumns = ["package", "version", "vulnerability", "s"];
 const dataSorted = sortData();
+
+updateRumbleColorScheme();
+
+const advisories = await fetchAdvisories();
+window.document.advisories = advisories;
+window.document.dataSorted = dataSorted;
 
 makeTable("#rumble-images-external", dataSorted.theirs, dataSorted.theirVulns);
 makeTable("#rumble-images-chainguard", dataSorted.ours, dataSorted.ourVulns);
@@ -144,3 +149,10 @@ tds.forEach(function (td) {
   });
 
 })
+
+// this function tells the rumble iframe which colour scheme to use
+function updateRumbleColorScheme() {
+  let theme = localStorage.getItem("theme") || "dark";
+  let rumble = document.querySelector("iframe");
+  rumble.contentWindow.postMessage({"colorscheme":theme});
+}
