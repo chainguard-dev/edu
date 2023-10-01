@@ -1,5 +1,17 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
+// check for local advisory data that is less than 24 hours old
+async function fetchAdvisories() {
+    let res = await fetch("https://storage.googleapis.com/chainguard-academy/vulnerability-info/security.json");
+    if (res.ok) {
+        let advisoryData = await res.json();
+        advisoryData["date"] = new Date().getTime();
+        return advisoryData;
+    } else {
+        return null;
+    }
+};
+
 // colour coding for sevrity on vulnerabilty info pages
 const severityColours = {
     Critical: "#F236F6",
