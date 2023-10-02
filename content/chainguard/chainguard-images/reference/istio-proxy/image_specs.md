@@ -56,7 +56,7 @@ The table shows package distribution across variants.
 | `iptables`                      | X          | X      |
 | `istio-envoy-1.19`              | X          | X      |
 | `istio-envoy-1.19-compat`       | X          | X      |
-| `istio-pilot-agent-1.18`        | X          | X      |
+| `istio-pilot-agent-1.19`        | X          | X      |
 | `istio-pilot-agent-1.19-compat` | X          | X      |
 | `ld-linux`                      | X          | X      |
 | `libbrotlicommon1`              | X          |        |
