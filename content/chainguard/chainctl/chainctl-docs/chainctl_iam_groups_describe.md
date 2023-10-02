@@ -1,5 +1,5 @@
 ---
-date: 2023-09-26T16:39:36Z
+date: 2023-09-29T18:27:52Z
 title: "chainctl iam groups describe"
 slug: chainctl_iam_groups_describe
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_describe/
