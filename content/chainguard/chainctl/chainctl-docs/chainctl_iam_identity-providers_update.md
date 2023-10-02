@@ -1,5 +1,5 @@
 ---
-date: 2023-09-26T16:39:36Z
+date: 2023-09-29T18:27:52Z
 title: "chainctl iam identity-providers update"
 slug: chainctl_iam_identity-providers_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_update/
@@ -14,20 +14,24 @@ toc: true
 Update an identity provider
 
 ```
-chainctl iam identity-providers update IDENTITY_PROVIDER_ID [--name=NAME] [--description=DESCRIPTION] [--configuration-type=TYPE] [--oidc-issuer=ISSUER] [--oidc-client-id=CLIENTID] [--oidc-client-secret=CLIENTSECRET] [--oidc-additional-scopes=SCOPES] [--output table|json|id]
+chainctl iam identity-providers update IDENTITY_PROVIDER_ID [--name=NAME] [--description=DESCRIPTION] [--oidc-issuer=ISSUER] [--oidc-client-id=CLIENTID] [--oidc-client-secret=CLIENTSECRET] [--oidc-additional-scopes=SCOPE,...] [--default-role=ROLE] [--output table|json|id]
 ```
 
 ### Examples
 
 ```
-  # Update name and description of an identity provider
+  # Update name and description of an identity provider by ID
   chainctl iam identity-provider update fb694596eb1678321f94eec283e1e0be690f655c/a2973bac66ebfde3 --name=new-name --description=new-description
+  
+  # Update the default role for an identity provider by name
+  chainctl iam identity-provider update my-idp --default=role=viewer
 ```
 
 ### Options
 
 ```
       --configuration-type string            Type of identity provider. Only OIDC supported currently (default "OIDC")
+      --default-role string                  Optional role to grant users on first login
       --description string                   Description of identity provider
   -h, --help                                 help for update
       --name string                          Name of identity provider

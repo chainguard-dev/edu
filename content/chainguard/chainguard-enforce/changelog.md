@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-09-26 15:02:04 +0000 UTC
+date: 2023-09-29 18:13:18 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,17 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.176
+Release date: 2023-09-29
+#### Bug or Regression
+- Fix a bug with the Chainguard token path naming on Windows that prevented tokens from being saved.
+
+
+### v0.1.175
+Release date: 2023-09-27
+
+Customer facing changes: N/A
 
 ### v0.1.174
 Release date: 2023-09-26
