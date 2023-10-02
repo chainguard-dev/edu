@@ -43,42 +43,42 @@ Check the [tags history page](/chainguard/chainguard-images/reference/wavefront-
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                  | latest-dev | latest |
-|----------------------------------|------------|--------|
-| `apk-tools`                      | X          |        |
-| `bash`                           | X          | X      |
-| `busybox`                        | X          | X      |
-| `ca-certificates-bundle`         | X          | X      |
-| `fontconfig-config`              | X          | X      |
-| `freetype`                       | X          | X      |
-| `git`                            | X          |        |
-| `glibc`                          | X          | X      |
-| `glibc-locale-posix`             | X          | X      |
-| `java-cacerts`                   | X          | X      |
-| `java-common`                    | X          | X      |
-| `ld-linux`                       | X          | X      |
-| `libbrotlicommon1`               | X          | X      |
-| `libbrotlidec1`                  | X          | X      |
-| `libbz2-1`                       | X          | X      |
-| `libcrypt1`                      | X          | X      |
-| `libcrypto3`                     | X          |        |
-| `libcurl-openssl4`               | X          |        |
-| `libexpat1`                      | X          | X      |
-| `libfontconfig1`                 | X          | X      |
-| `libnghttp2-14`                  | X          |        |
-| `libpcre2-8-0`                   | X          |        |
-| `libpng`                         | X          | X      |
-| `libssl3`                        | X          |        |
-| `ncurses`                        | X          | X      |
-| `ncurses-terminfo-base`          | X          | X      |
-| `openjdk-11-default-jvm`         | X          | X      |
-| `openjdk-11-jre`                 | X          | X      |
-| `openjdk-11-jre-base`            | X          | X      |
-| `openssl-config`                 | X          |        |
-| `wavefront-proxy`                | X          | X      |
-| `wavefront-proxy-config`         | X          | X      |
-| `wavefront-proxy-licenses`       | X          | X      |
-| `wavefront-proxy-oci-entrypoint` | X          | X      |
-| `wolfi-baselayout`               | X          | X      |
-| `zlib`                           | X          | X      |
+|                            | latest-dev | latest |
+|----------------------------|------------|--------|
+| `apk-tools`                | X          |        |
+| `bash`                     | X          | X      |
+| `busybox`                  | X          | X      |
+| `ca-certificates-bundle`   | X          | X      |
+| `fontconfig-config`        | X          | X      |
+| `freetype`                 | X          | X      |
+| `git`                      | X          |        |
+| `glibc`                    | X          | X      |
+| `glibc-locale-posix`       | X          | X      |
+| `java-cacerts`             | X          | X      |
+| `java-common`              | X          | X      |
+| `ld-linux`                 | X          | X      |
+| `libbrotlicommon1`         | X          | X      |
+| `libbrotlidec1`            | X          | X      |
+| `libbz2-1`                 | X          | X      |
+| `libcrypt1`                | X          | X      |
+| `libcrypto3`               | X          |        |
+| `libcurl-openssl4`         | X          |        |
+| `libexpat1`                | X          | X      |
+| `libfontconfig1`           | X          | X      |
+| `libnghttp2-14`            | X          |        |
+| `libpcre2-8-0`             | X          |        |
+| `libpng`                   | X          | X      |
+| `libssl3`                  | X          |        |
+| `ncurses`                  | X          | X      |
+| `ncurses-terminfo-base`    | X          | X      |
+| `openjdk-11-default-jvm`   | X          | X      |
+| `openjdk-11-jre`           | X          | X      |
+| `openjdk-11-jre-base`      | X          | X      |
+| `openssl-config`           | X          |        |
+| `wavefront-proxy`          | X          | X      |
+| `wavefront-proxy-compat`   | X          | X      |
+| `wavefront-proxy-config`   | X          | X      |
+| `wavefront-proxy-licenses` | X          | X      |
+| `wolfi-baselayout`         | X          | X      |
+| `zlib`                     | X          | X      |
 
