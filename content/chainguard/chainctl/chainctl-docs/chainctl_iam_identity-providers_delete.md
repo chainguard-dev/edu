@@ -1,5 +1,5 @@
 ---
-date: 2023-09-26T16:39:36Z
+date: 2023-09-29T18:27:52Z
 title: "chainctl iam identity-providers delete"
 slug: chainctl_iam_identity-providers_delete
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_delete/
@@ -14,14 +14,17 @@ toc: true
 Delete an identity provider.
 
 ```
-chainctl iam identity-providers delete IDENTITY_PROVIDER_ID [--yes] [--output id]
+chainctl iam identity-providers delete IDENTITY_PROVIDER_ID|IDENTITY_PROVIDER_NAME [--yes] [--output id]
 ```
 
 ### Examples
 
 ```
-  # Delete an identity provider
+  # Delete an identity provider by ID
   chainctl iam identity-providers delete 9b6da6e64b45129eb4e9f9f3ce9b69ca2a550c6b/034e4afcda8c0b07
+  
+  # Delete an identity provider by name
+  chainctl iam identity-providers delete my-idp
 ```
 
 ### Options
