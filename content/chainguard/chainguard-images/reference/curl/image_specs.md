@@ -22,38 +22,51 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **curl** Image.
 
 ## Variants Compared
-The **curl** Chainguard Image currently has one public variant: 
+The **curl** Chainguard Image currently has 2 public variants: 
 
+- `latest-dev`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest          |
-|--------------|-----------------|
-| Default User | `curl`          |
-| Entrypoint   | `/usr/bin/curl` |
-| CMD          | not specified   |
-| Workdir      | not specified   |
-| Has apk?     | no              |
-| Has a shell? | no              |
+|              | latest-dev      | latest          |
+|--------------|-----------------|-----------------|
+| Default User | `curl`          | `curl`          |
+| Entrypoint   | `/usr/bin/curl` | `/usr/bin/curl` |
+| CMD          | not specified   | not specified   |
+| Workdir      | not specified   | not specified   |
+| Has apk?     | yes             | no              |
+| Has a shell? | yes             | no              |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/curl/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `ca-certificates-bundle` | X      |
-| `curl`                   | X      |
-| `glibc`                  | X      |
-| `glibc-locale-posix`     | X      |
-| `ld-linux`               | X      |
-| `libbrotlicommon1`       | X      |
-| `libbrotlidec1`          | X      |
-| `libcurl-rustls4`        | X      |
-| `libgcc`                 | X      |
-| `libnghttp2-14`          | X      |
-| `wolfi-baselayout`       | X      |
-| `zlib`                   | X      |
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `busybox`                | X          |        |
+| `ca-certificates-bundle` | X          | X      |
+| `curl`                   | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libbrotlicommon1`       | X          | X      |
+| `libbrotlidec1`          | X          | X      |
+| `libcrypt1`              | X          |        |
+| `libcrypto3`             | X          |        |
+| `libcurl-rustls4`        | X          | X      |
+| `libexpat1`              | X          |        |
+| `libgcc`                 | X          | X      |
+| `libnghttp2-14`          | X          | X      |
+| `libpcre2-8-0`           | X          |        |
+| `libssl3`                | X          |        |
+| `ncurses`                | X          |        |
+| `ncurses-terminfo-base`  | X          |        |
+| `openssl-config`         | X          |        |
+| `wolfi-baselayout`       | X          | X      |
+| `zlib`                   | X          | X      |
 

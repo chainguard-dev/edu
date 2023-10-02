@@ -28,14 +28,14 @@ The **crossplane-azure-sql** Chainguard Image currently has one public variant:
 
 The table has detailed information about each of these variants.
 
-|              | latest                    |
-|--------------|---------------------------|
-| Default User | `nonroot`                 |
-| Entrypoint   | `/usr/local/bin/provider` |
-| CMD          | not specified             |
-| Workdir      | not specified             |
-| Has apk?     | no                        |
-| Has a shell? | no                        |
+|              | latest              |
+|--------------|---------------------|
+| Default User | `nonroot`           |
+| Entrypoint   | `/usr/bin/provider` |
+| CMD          | not specified       |
+| Workdir      | not specified       |
+| Has apk?     | no                  |
+| Has a shell? | no                  |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/crossplane-azure-sql/tags_history/) for the full list of available tags.
 
