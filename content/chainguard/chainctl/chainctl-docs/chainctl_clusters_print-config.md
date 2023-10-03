@@ -1,5 +1,5 @@
 ---
-date: 2023-09-29T18:27:52Z
+date: 2023-10-03T20:15:50Z
 title: "chainctl clusters print-config"
 slug: chainctl_clusters_print-config
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_print-config/
