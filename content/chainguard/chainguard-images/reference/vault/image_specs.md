@@ -70,7 +70,7 @@ The table shows package distribution across variants.
 | `openssl-config`         | X          |        |
 | `su-exec`                | X          | X      |
 | `vault-1.14`             | X          | X      |
-| `vault-1.14-entrypoint`  | X          | X      |
+| `vault-1.14-compat`      | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
 
