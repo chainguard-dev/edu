@@ -29,14 +29,14 @@ The **aws-ebs-csi-driver** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev           | latest               |
-|--------------|----------------------|----------------------|
-| Default User | `nonroot`            | `nonroot`            |
-| Entrypoint   | `aws-ebs-csi-driver` | `aws-ebs-csi-driver` |
-| CMD          | not specified        | not specified        |
-| Workdir      | not specified        | not specified        |
-| Has apk?     | yes                  | no                   |
-| Has a shell? | yes                  | no                   |
+|              | latest-dev                    | latest                        |
+|--------------|-------------------------------|-------------------------------|
+| Default User | `nonroot`                     | `nonroot`                     |
+| Entrypoint   | `/usr/bin/aws-ebs-csi-driver` | `/usr/bin/aws-ebs-csi-driver` |
+| CMD          | not specified                 | not specified                 |
+| Workdir      | not specified                 | not specified                 |
+| Has apk?     | yes                           | no                            |
+| Has a shell? | yes                           | no                            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/aws-ebs-csi-driver/tags_history/) for the full list of available tags.
 
