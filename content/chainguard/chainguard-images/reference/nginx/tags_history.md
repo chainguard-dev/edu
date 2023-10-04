@@ -27,5 +27,4 @@ Please note that digests and timestamps only change when there is a change to th
 |---------------|----------------|---------------------------------------------------------------------------|
 |  `latest-dev` | September 29th | `sha256:367e732ba97211462a6dec2b53b1130e5951d1b52cf621d4abc4ac9a261fe3e1` |
 |  `latest`     | September 29th | `sha256:198e86c4b8db159874f9ee2d85ee7172377c42107aa5d546ee3ad016cebd97bb` |
-|  `next`       | September 4th  | `sha256:6fc88127201c4338e2278501a52714abb1dedbb664f936eee0927488df5545b3` |
 

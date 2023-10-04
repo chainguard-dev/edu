@@ -1,8 +1,8 @@
 ---
-title: "aws-ebs-csi-driver Image Tags History"
+title: "sigstore-scaffolding-tuf-server Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the aws-ebs-csi-driver Chainguard Image"
+description: "Image Tags and History for the sigstore-scaffolding-tuf-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/aws-ebs-csi-driver/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/aws-ebs-csi-driver/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/aws-ebs-csi-driver/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/aws-ebs-csi-driver/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/sigstore-scaffolding-tuf-server/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/sigstore-scaffolding-tuf-server/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/sigstore-scaffolding-tuf-server/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/sigstore-scaffolding-tuf-server/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | October 3rd  | `sha256:61b25b17fff03bb873a079c30042114f6771920a87fe94327185040c72a40fae` |
-|  `latest`     | October 3rd  | `sha256:4d59683633e5b1cc48fae837fdbaa978a226e1917d0ad7d42e691e1ec6759fb1` |
+|  `latest-dev` | October 3rd  | `sha256:bea230a63a6da963ee55bb71ced5227a383d5e3c5141cbac88899ebe83281303` |
+|  `latest`     | October 3rd  | `sha256:d560cb46528d4a013175e226f3cb51aca04c1f6f3df5f786f220ebb4be755457` |
 
