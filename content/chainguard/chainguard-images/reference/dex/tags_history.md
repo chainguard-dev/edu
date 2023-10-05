@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                                                                           | Last Changed   | Digest                                                                    |
-|-------------------------------------------------------------------------------------------------------------------|----------------|---------------------------------------------------------------------------|
-|  `v2.37-dev` `latest-dev` `2-dev` `v2.37.0-r3-dev` `v2-dev` `2.37-dev` `v2.37.0-dev` `2.37.0-dev` `2.37.0-r3-dev` | September 29th | `sha256:376b8e3831f084dbc3e319eeee7fefc4e9b501510107f9514a5d31cbe7bd458b` |
-|  `v2.37.0` `latest` `v2` `2.37.0` `v2.37` `2.37` `2`                                                              | September 29th | `sha256:4442ca28fbd574fa0b32890d41c154a9e664a0776bd5b600b76ea6c75a126e1c` |
+| Tag (s)                                                                                                           | Last Changed | Digest                                                                    |
+|-------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `v2.37.0-dev` `2.37-dev` `v2.37-dev` `2.37.0-dev` `2-dev` `2.37.0-r3-dev` `v2-dev` `v2.37.0-r3-dev` | October 4th  | `sha256:9c0889cbcdc6c41c557301826f293d1bea4185067403e2f1bbfd55de263828e2` |
+|  `v2.37.0` `2.37.0` `2.37` `2` `latest` `v2` `v2.37`                                                              | October 4th  | `sha256:b90d6d2d32947f0852d60fb7cd3a07d97ce68a483dbb5b3cbd580fa36b0f68bc` |
 

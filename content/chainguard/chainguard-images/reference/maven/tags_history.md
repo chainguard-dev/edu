@@ -23,10 +23,10 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                        | Last Changed   | Digest                                                                    |
-|--------------------------------|----------------|---------------------------------------------------------------------------|
-|  `latest` `openjdk-17`         | September 29th | `sha256:1a3d4c6bccc9a86374ee138a290896ff3e5f4bd8323884ff54f28a96e12076d7` |
-|  `latest-dev` `openjdk-17-dev` | September 29th | `sha256:1389487a8e3fed9cb172ab47b4ea4369e12121928c88103602ae74cd999dd10b` |
-|  `openjdk-11-dev`              | September 29th | `sha256:5cb051048b10b687826fbf0112a726a30ef4b4d26240844e1cdda8c0dec95b64` |
-|  `openjdk-11`                  | September 29th | `sha256:25b58020f535986c3ea71953a0078044f4606d8c0fbe257e672e6654e32657cc` |
+| Tag (s)                        | Last Changed | Digest                                                                    |
+|--------------------------------|--------------|---------------------------------------------------------------------------|
+|  `openjdk-17` `latest`         | October 4th  | `sha256:59fe1e68f4dace55ddd103390d746959a93c0873b29664a578d896641c2a9b26` |
+|  `openjdk-17-dev` `latest-dev` | October 4th  | `sha256:19369af5f28ee007213825b728b16ed00c1dd8662fde956bb9250ee334276cfd` |
+|  `openjdk-11-dev`              | October 4th  | `sha256:8411275adaef4f313194344ee5840958a96970a01cd71cc675a69691bf6b17e0` |
+|  `openjdk-11`                  | October 4th  | `sha256:0d5abe969cf4a025035ce8a2ad8fd113bdc57d0e5170236507a47874078590b9` |
 
