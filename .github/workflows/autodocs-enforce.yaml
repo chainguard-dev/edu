@@ -103,7 +103,7 @@ jobs:
     - name: Commit to autodocs branch
       run: |
         git config user.name github-actions
-        git config user.email github-actions@github.com
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
         # Check git status and push changes if needed
         GIT_STATUS=$(git status content --porcelain)
