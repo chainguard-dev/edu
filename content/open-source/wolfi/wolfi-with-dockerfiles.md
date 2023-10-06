@@ -210,4 +210,4 @@ And you'll notice that the `:distroless` version is significantly smaller, becau
 
 If your build requires dependencies that are not yet available on Wolfi, you can build your own apks using [melange](/open-source/melange/overview/). Check the [Getting started with melange](/open-source/melange/tutorials/getting-started-with-melange/) guide for more details on how to go about that.
 
-Check also the public catalog of [Chainguard Images](/chainguard/chainguard-images/reference/) for application environments including `-dev` variants that can be used as builders for your specific application runtime.
+Check also our public [Chainguard Images](/chainguard/chainguard-images/reference/) for application environments including `-dev` variants that can be used as builders for your specific application runtime.
