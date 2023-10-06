@@ -44,7 +44,7 @@ tok=$(curl "https://cgr.dev/token?scope=repository:chainguard/python:pull" \
   | jq -r .token)
 ```
 
-For images that are not part of the public catalog, you'll need to exchange your Chainguard token for a registry token. This assumes you've set up auth with [chainctl auth configure-docker](https://edu.chainguard.dev/chainguard/chainguard-images/registry/authenticating/):
+For images that are not public, you'll need to exchange your Chainguard token for a registry token. This assumes you've set up authentication with [chainctl auth configure-docker](https://edu.chainguard.dev/chainguard/chainguard-images/registry/authenticating/):
 
 ```shell
 tok=$(curl -H "Authorization: Bearer \
@@ -115,9 +115,9 @@ FROM cgr.dev/chainguard/python@sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474
 
 And your image will then be locked into that specific build of the `python:latest` image variant.
 
-## Accessing the History API for Standard and Custom Images
+## Accessing the History API for Enterprise Images
 
-If you are a customer who would like to access the history API for the Standard Catalog or a Custom Catalog, you must create credentials to access the API with curl and Bash.
+If you are a customer who would like to access the history API for Enterprise images, you must create credentials to access the API with curl and Bash.
 
 ### Create Credentials
 
@@ -201,8 +201,8 @@ curl -s -H "Authorization: Bearer \
 
 Again, you would replace `private-registry.com/apko` with your relevant Registry and Image information.
 
-## Images Catalogs and Tags
+## Images and Tags
 
-The Public Chainguard Images Catalog is available at no cost to users, and does not require authentication. It gives access to the `latest` and `latest-dev` tags of our public images. Other versions and tags are available through subscription to our paid catalogs, featuring enterprise-grade patching SLAs and customer support.
+Public Chainguard Images are available at no cost to users, and do not require authentication. This gives access to the `latest` and `latest-dev` tags of our public images. Other versions and tags are available through subscription to our paid enterprise images, featuring enterprise-grade patching SLAs and customer support.
 
-To learn more about our image catalogs and the difference between tiers, check our [Images FAQ page](/chainguard/chainguard-images/faq/#what-are-the-different-catalog-tiers-of-chainguard-images) about catalog tiers.
+To learn more about public and enterprise images, check our [Images FAQ page](/chainguard/chainguard-images/faq/#what-options-do-i-have-to-use-chainguard-images) about catalog tiers.
