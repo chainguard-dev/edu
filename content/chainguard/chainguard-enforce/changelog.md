@@ -14,8 +14,10 @@ Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/ch
 
 ### v0.1.179
 Release date: 2023-10-04
-
-Customer facing changes: N/A
+#### Feature
+- `chainctl` will prompt users to set config `default.social-provider` when authenticating without a custom identity provider.
+#### Bug or Regression
+- [Enforce for GitHub] Add support for source.yml (in addition to source.yaml)
 
 ### v0.1.178
 Release date: 2023-10-04
