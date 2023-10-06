@@ -41,7 +41,7 @@ Note that if you have your own registry, you'll need to change the `cgr.dev/chai
 
 ### Pulling by Tag
 
-You can also add a relevant tag that you have access to. In the case of the Git image, you can pull the `:latest-glibc` tag for the Git image. [Note that not all tags are available in the public catalog](/chainguard/chainguard-images/faq/#do-i-need-to-authenticate-into-chainguard-to-use-chainguard-images). 
+You can also add a relevant tag that you have access to. In the case of the Git image, you can pull the `:latest-glibc` tag for the Git image. [Note that not all tags are available for public images](/chainguard/chainguard-images/faq/#do-i-need-to-authenticate-into-chainguard-to-use-chainguard-images). 
 
 ```sh
 docker pull cgr.dev/chainguard/git:latest-glibc
