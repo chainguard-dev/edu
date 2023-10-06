@@ -44,7 +44,7 @@ tok=$(curl "https://cgr.dev/token?scope=repository:chainguard/python:pull" \
   | jq -r .token)
 ```
 
-For images that are not public, you'll need to exchange your Chainguard token for a registry token. This assumes you've set up auth with [chainctl auth configure-docker](https://edu.chainguard.dev/chainguard/chainguard-images/registry/authenticating/):
+For images that are not public, you'll need to exchange your Chainguard token for a registry token. This assumes you've set up authentication with [chainctl auth configure-docker](https://edu.chainguard.dev/chainguard/chainguard-images/registry/authenticating/):
 
 ```shell
 tok=$(curl -H "Authorization: Bearer \
