@@ -31,7 +31,7 @@ Semantic versioning is intended to improve problems associated with having a lar
 When referencing an image, it's important to know exactly what image you are working with. Docker uses the following format for image names.
 
 ```image
-[host[:port_number]]/[repository][image_name]
+[host]/[repository][image_name][:tag]
 ```
 
 For example, the full name for the [Chainguard Go Image](/chainguard/chainguard-images/reference/go/overview/), is `cgr.dev/chainguard/go:latest`. 
@@ -84,11 +84,11 @@ To clarify, using tags to keep your images may work for you and your organizatio
 
 ## Recommendations
 
-As mentioned in the previous section, image digests can guarantee reproducibility. For that reason, it's generally recommended that projects update their container images by digest whenever possible.
+As mentioned in the previous section, image digests guarantee full reproducibility. For that reason, it's generally recommended that projects update their container images by digest whenever possible.
 
 Of course, digests do come with their own drawbacks. Image digests are not human readable; unlike tags, you can't always tell the difference between two image digests with a quick visual scan. Digests also don't make it clear whether a digest represents an older version, or whether one digest is older than another. Combined, these factors mean that digests can make it more difficult to know whether an image is up to date.
 
-[Chainguard Images](/chainguard/chainguard-images/) are rebuilt daily in order to ensure that they're kept up to date and include all the latest available security patches. We recommend adopting a development pattern where digests are used to identify Chainguard Images and are regularly updated by a bot, ensuring that the project and its downstream users benefit from reduced vulnerability counts, bug fixes, and new features. We do this ourselves with our [internal digesta-bot tool](https://github.com/chainguard-dev/actions/tree/main/digesta-bot). 
+[Chainguard Images](/chainguard/chainguard-images/) are rebuilt daily in order to ensure that they're kept up to date and include all the latest available security patches. We recommend adopting a development pattern where digests are used to identify Chainguard Images and are regularly updated by a bot, ensuring that the project and its downstream users benefit from reduced vulnerability counts, bug fixes, and new features. We do this ourselves with our [digesta-bot tool](https://github.com/chainguard-dev/actions/tree/main/digesta-bot). 
 
 As with the recommendation stated previously, Chainguard requires a human to approve the digesta-bot's update before it's deployed. Technically, we could set up an automatic approval for the bot's updates, but requiring a human approval combines the stability and reproducibility of using a digest with the good security hygiene of keeping images regularly updated.
 
@@ -100,5 +100,5 @@ There are many factors to consider when developing a process for keeping your im
 To reiterate, there's no one-size-fits-all approach to keeping one's images up to date. Our goal for this article is to introduce some of the important factors one should consider when developing a container image update plan for their application. If you'd like to learn more about the subjects touched on in this guide, we encourage you to check out the following resources.
 
 * [How to Use Chainguard Images](/chainguard/chainguard-images/how-to-use-chainguard-images/)
-* [How to Use Container Image DIgests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/)
+* [How to Use Container Image Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/)
 * [How To Compare Chainguard Images with chainctl](/chainguard/chainguard-images/comparing-images/)
