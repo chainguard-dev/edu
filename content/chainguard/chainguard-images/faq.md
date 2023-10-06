@@ -39,7 +39,7 @@ Chainguard Images are available through the [Chainguard Registry](/chainguard/ch
 
 ## What options do I have to use Chainguard Images?
 
-You can get free Chainguard Images for your organization. Upgrade for more versions, SLAs, and dedicated support.
+You can get free Chainguard Images for your organization; you can also upgrade for more versions, SLAs, and dedicated support.
 
 Public | Chainguard Enterprise 
 -------|-----------------------
