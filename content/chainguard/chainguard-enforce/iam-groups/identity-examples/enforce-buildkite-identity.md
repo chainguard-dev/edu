@@ -336,7 +336,7 @@ From there, click the **Edit Steps** button to add the following commands to a s
     chainctl policy ls
 ```
 
-These commands will cause your Buildkite pipeline to download `chainctl` and make it executable. It will then sign in to Chainguard Enforce using the Buildkite identity you generated previously. If this workflow can successfully assume the identity, then it will be able to execute the `chainctl policy ls` command and retrieve the list of policies associated with the g
+These commands will cause your Buildkite pipeline to download `chainctl` and make it executable. It will then sign in to Chainguard Enforce using the Buildkite identity you generated previously. If this workflow can successfully assume the identity, then it will be able to execute the `chainctl policy ls` command and retrieve the list of policies associated with the group.
 
 There are a couple ways you can add commands to an existing Buildkite pipeline, so follow whatever procedure works best for you. 
 
