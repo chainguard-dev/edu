@@ -25,3 +25,8 @@ toc: true
 
 
 
+## Sigstore Fulcio
+
+Fulcio is one of the core components of the sigstore stack.  For more information
+on this see [`sigstore-scaffolding`](../sigstore-scaffolding/).
+
