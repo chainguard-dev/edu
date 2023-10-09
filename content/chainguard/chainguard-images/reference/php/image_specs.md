@@ -74,23 +74,23 @@ The table shows package distribution across variants.
 | `oniguruma`              | X          | X              | X          | X      |
 | `openssl-config`         | X          | X              | X          | X      |
 | `php-8.2`                | X          | X              | X          | X      |
-| `php-curl`               | X          | X              | X          | X      |
-| `php-iconv`              | X          | X              | X          | X      |
-| `php-mbstring`           | X          | X              | X          | X      |
-| `php-mysqlnd`            | X          | X              | X          | X      |
-| `php-openssl`            | X          | X              | X          | X      |
-| `php-pdo`                | X          | X              | X          | X      |
-| `php-pdo_mysql`          | X          | X              | X          | X      |
-| `php-pdo_sqlite`         | X          | X              | X          | X      |
-| `php-phar`               | X          | X              | X          | X      |
-| `php-sodium`             | X          | X              | X          | X      |
+| `php-8.2-curl`           | X          | X              | X          | X      |
+| `php-8.2-iconv`          | X          | X              | X          | X      |
+| `php-8.2-mbstring`       | X          | X              | X          | X      |
+| `php-8.2-mysqlnd`        | X          | X              | X          | X      |
+| `php-8.2-openssl`        | X          | X              | X          | X      |
+| `php-8.2-pdo`            | X          | X              | X          | X      |
+| `php-8.2-pdo_mysql`      | X          | X              | X          | X      |
+| `php-8.2-pdo_sqlite`     | X          | X              | X          | X      |
+| `php-8.2-phar`           | X          | X              | X          | X      |
+| `php-8.2-sodium`         | X          | X              | X          | X      |
 | `readline`               | X          | X              | X          | X      |
 | `sqlite-libs`            | X          | X              | X          | X      |
 | `wolfi-baselayout`       | X          | X              | X          | X      |
 | `xz`                     | X          | X              | X          | X      |
 | `zlib`                   | X          | X              | X          | X      |
 | `execline`               |            | X              | X          |        |
-| `php-fpm`                |            | X              | X          |        |
+| `php-8.2-fpm`            |            | X              | X          |        |
 | `s6`                     |            | X              | X          |        |
 | `skalibs`                |            | X              | X          |        |
 
