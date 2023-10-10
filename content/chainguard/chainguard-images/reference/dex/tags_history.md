@@ -25,7 +25,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                                                                           | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.37.0` `latest` `v2.37` `v2` `2` `v2.37.0` `2.37`                                                              | October 7th  | `sha256:66a4e07661c4e5ade404c6284cd5a189a0086863a8f58e73e2978d97f9fee566` |
-|  `2-dev` `latest-dev` `2.37-dev` `v2.37.0-dev` `v2-dev` `v2.37-dev` `2.37.0-r4-dev` `2.37.0-dev` `v2.37.0-r4-dev` | October 7th  | `sha256:dcda7211806808d737174965f3fbf3615dff30ff73d63f9bcd8f139159ea46ac` |
+|  `2.37.0-dev` `v2-dev` `2.37.0-r5-dev` `v2.37.0-r5-dev` `v2.37.0-dev` `v2.37-dev` `2.37-dev` `latest-dev` `2-dev` | October 9th  | `sha256:774262d7dc979db2d9dc9898f8ab1727d306c8e91814569fbdca087395ae26b4` |
+|  `v2` `v2.37.0` `2.37` `v2.37` `2` `2.37.0` `latest`                                                              | October 9th  | `sha256:22694e83695c0b63f9476fecb8aa43d757e540499808491cdbe5b33adac83147` |
+|  `2.37.0-r4-dev` `v2.37.0-r4-dev`                                                                                 | October 7th  | `sha256:dcda7211806808d737174965f3fbf3615dff30ff73d63f9bcd8f139159ea46ac` |
 |  `2.37.0-r3-dev` `v2.37.0-r3-dev`                                                                                 | October 4th  | `sha256:9c0889cbcdc6c41c557301826f293d1bea4185067403e2f1bbfd55de263828e2` |
 
