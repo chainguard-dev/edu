@@ -20,7 +20,7 @@ Thanks to a fine-tuned maintenance process combining top-notch automation and es
 
 That being said, it's important to note that Wolfi is rather new; it just recently crossed the mark of 1,000 packages in the Wolfi OS repository. That means some packages that you would find in a more established distro won't be available yet in Wolfi. In this article, we'll cover the whole process involved in building a new Wolfi package, or how a Wolfi package comes to be.
 
-> Note: Many of the examples shown in this article are based on the [Wolfi PHP package](https://github.com/wolfi-dev/os/blob/main/php.yaml), which is a slightly complex build that generates several subpackages from a single melange YAML file. You can keep that link open in a separate tab to use as reference as you go through this guide.
+> Note: Many of the examples shown in this article are based on the [Wolfi PHP package](https://github.com/wolfi-dev/os/blob/main/php-8.2.yaml), which is a slightly complex build that generates several subpackages from a single melange YAML file. You can keep that link open in a separate tab to use as reference as you go through this guide.
 ## How Does it Compile?
 The first step in building a new Wolfi package is finding official documentation with guidance on how to build the package from source. All Wolfi packages need to be built from source in order to assure provenance and authenticity of package contents.
 
