@@ -1,8 +1,8 @@
 ---
-title: "minio Image Tags History"
+title: "keycloak Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the minio Chainguard Image"
+description: "Image Tags and History for the keycloak Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -13,18 +13,18 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/minio/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/minio/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/minio/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/minio/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/keycloak/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/keycloak/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/keycloak/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/keycloak/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)               | Last Changed | Digest                                                                    |
-|-----------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0`         | October 9th  | `sha256:05e75a8f4f02d3170b529e3993c2cc90b1dc6b93aadd3500f673da4f7b4bdb67` |
-|  `0-dev` `latest-dev` | October 9th  | `sha256:60c013d32653c3c4275f5f5176ab2213ede240c987ae90b7bfdcec3671ecaf0f` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | October 9th  | `sha256:58dc8caa47d452a54c7ce33c5ead166fe5bcdb176181cba9a81a039159dc83d8` |
+|  `latest-dev` | October 9th  | `sha256:9320e1715bd4bcad342e432862a6f127e3b8b718acbf36036aca9ae3e82a484c` |
 
