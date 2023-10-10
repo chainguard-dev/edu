@@ -3077,6 +3077,73 @@
           "Risks"
         ]
       }
+    },
+    "/tenant/v1/vulnreports": {
+      "get": {
+        "operationId": "VulnReports_List",
+        "parameters": [
+          {
+            "description": "id is the exact UID of the record.",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "active_since is the timestamp after which the records should\nhave last been observed in the returned context.",
+            "format": "date-time",
+            "in": "query",
+            "name": "activeSince",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "include_raw_vuln_report is a flag to return a list of reports containing the raw report.",
+            "in": "query",
+            "name": "includeRawVulnReport",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tenantVulnReportList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "VulnReports"
+        ]
+      }
     }
   },
   "definitions": {
