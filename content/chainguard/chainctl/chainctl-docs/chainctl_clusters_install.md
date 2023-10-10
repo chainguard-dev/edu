@@ -1,5 +1,5 @@
 ---
-date: 2023-10-04T23:20:44Z
+date: 2023-10-10T09:30:53Z
 title: "chainctl clusters install"
 slug: chainctl_clusters_install
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_install/
@@ -70,7 +70,7 @@ chainctl clusters install [--name NAME] [--description DESCRIPTION] [--group GRO
       --config string                A specific chainctl config file.
       --console string               The url of the Chainguard platform Console. (default "https://console.enforce.dev")
       --issuer string                The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
-  -o, --output string                Output format. One of: ["", "table", "tree", "json", "id", "wide"]
+  -o, --output string                Output format. One of: ["", "json", "id", "table", "terse", "tree", "wide"]
       --timestamp-authority string   The url of the Chainguard Timestamp Authority endpoint. (default "https://tsa.enforce.dev")
   -v, --v int                        Set the log verbosity level.
 ```
