@@ -1,8 +1,8 @@
 ---
-title: "configmap-reload Image Variants"
+title: "cfssl Image Variants"
 type: "article"
 unlisted: true
-description: "Detailed information about the public configmap-reload Chainguard Image variants"
+description: "Detailed information about the public cfssl Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
@@ -13,32 +13,32 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/configmap-reload/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/configmap-reload/image_specs/" >}}
-{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/configmap-reload/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/configmap-reload/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/cfssl/" >}}
+{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/cfssl/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/cfssl/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cfssl/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **configmap-reload** Image.
+This page shows detailed information about all public variants of the Chainguard **cfssl** Image.
 
 ## Variants Compared
-The **configmap-reload** Chainguard Image currently has 2 public variants: 
+The **cfssl** Chainguard Image currently has 2 public variants: 
 
 - `latest-dev`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev                  | latest                      |
-|--------------|-----------------------------|-----------------------------|
-| Default User | `nonroot`                   | `nonroot`                   |
-| Entrypoint   | `/usr/bin/configmap-reload` | `/usr/bin/configmap-reload` |
-| CMD          | not specified               | not specified               |
-| Workdir      | not specified               | not specified               |
-| Has apk?     | yes                         | no                          |
-| Has a shell? | yes                         | no                          |
+|              | latest-dev       | latest           |
+|--------------|------------------|------------------|
+| Default User | `nonroot`        | `nonroot`        |
+| Entrypoint   | `/usr/bin/cfssl` | `/usr/bin/cfssl` |
+| CMD          | not specified    | not specified    |
+| Workdir      | not specified    | not specified    |
+| Has apk?     | yes              | no               |
+| Has a shell? | yes              | no               |
 
-Check the [tags history page](/chainguard/chainguard-images/reference/configmap-reload/tags_history/) for the full list of available tags.
+Check the [tags history page](/chainguard/chainguard-images/reference/cfssl/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
@@ -49,7 +49,14 @@ The table shows package distribution across variants.
 | `bash`                   | X          |        |
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
-| `configmap-reload`       | X          | X      |
+| `cfssl`                  | X          | X      |
+| `cfssl-bundle`           | X          |        |
+| `cfssl-certinfo`         | X          |        |
+| `cfssl-json`             | X          |        |
+| `cfssl-mkbundle`         | X          |        |
+| `cfssl-multirootca`      | X          |        |
+| `cfssl-newkey`           | X          |        |
+| `cfssl-scan`             | X          |        |
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |

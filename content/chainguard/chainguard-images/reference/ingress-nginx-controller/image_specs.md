@@ -70,7 +70,7 @@ The table shows package distribution across variants.
 | `libbz2-1`                        | X          | X      |
 | `libcrypt1`                       | X          | X      |
 | `libcrypto3`                      | X          | X      |
-| `libcurl-openssl4`                | X          | X      |
+| `libcurl-rustls4`                 | X          | X      |
 | `libdav1d`                        | X          | X      |
 | `libedit`                         | X          | X      |
 | `libexpat1`                       | X          | X      |
