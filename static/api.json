@@ -2238,6 +2238,50 @@
         ]
       }
     },
+    "/registry/v1/repos/{repoId}/diff": {
+      "get": {
+        "operationId": "Registry_DiffImage",
+        "parameters": [
+          {
+            "description": "The UIDP of the image repo to diff against.",
+            "in": "path",
+            "name": "repoId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "fromDigest",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "toDigest",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryImageDiff"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/registry/v1/tags": {
       "get": {
         "operationId": "Registry_ListTags",
@@ -3500,6 +3544,20 @@
       },
       "type": "object"
     },
+    "PackagesDiffChangedPackageReference": {
+      "properties": {
+        "current": {
+          "$ref": "#/definitions/registryVersionReference"
+        },
+        "name": {
+          "type": "string"
+        },
+        "previous": {
+          "$ref": "#/definitions/registryVersionReference"
+        }
+      },
+      "type": "object"
+    },
     "RecommendationReplaceArtifact": {
       "properties": {
         "from": {
@@ -4455,6 +4513,83 @@
       ],
       "type": "string"
     },
+    "registryFileReference": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryFilesDiff": {
+      "properties": {
+        "added": {
+          "items": {
+            "$ref": "#/definitions/registryFileReference"
+          },
+          "type": "array"
+        },
+        "removed": {
+          "items": {
+            "$ref": "#/definitions/registryFileReference"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryImageDiff": {
+      "properties": {
+        "files": {
+          "$ref": "#/definitions/registryFilesDiff"
+        },
+        "packages": {
+          "$ref": "#/definitions/registryPackagesDiff"
+        },
+        "vulnerabilities": {
+          "$ref": "#/definitions/registryVulnerabilitiesDiff"
+        }
+      },
+      "type": "object"
+    },
+    "registryPackageReference": {
+      "description": "PackageReference is a reference to a package, containing minimal information to identify it.",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryPackagesDiff": {
+      "properties": {
+        "added": {
+          "items": {
+            "$ref": "#/definitions/registryPackageReference"
+          },
+          "type": "array"
+        },
+        "changed": {
+          "items": {
+            "$ref": "#/definitions/PackagesDiffChangedPackageReference"
+          },
+          "type": "array"
+        },
+        "removed": {
+          "items": {
+            "$ref": "#/definitions/registryPackageReference"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "registryRepo": {
       "properties": {
         "bundles": {
@@ -4553,6 +4688,49 @@
             "$ref": "#/definitions/registryTag"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryVersionReference": {
+      "properties": {
+        "reference": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryVulnerabilitiesDiff": {
+      "properties": {
+        "added": {
+          "items": {
+            "$ref": "#/definitions/registryVulnerabilityReference"
+          },
+          "type": "array"
+        },
+        "removed": {
+          "items": {
+            "$ref": "#/definitions/registryVulnerabilityReference"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryVulnerabilityReference": {
+      "description": "VulnerabilityReference is a reference to a vulnerability, containing minimal information to identify it.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string"
         }
       },
       "type": "object"
