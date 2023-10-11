@@ -68,13 +68,14 @@ The table shows package distribution across variants.
 | `libbz2-1`                | X          | X      |
 | `libcrypt1`               | X          | X      |
 | `libcrypto3`              | X          | X      |
-| `libcurl-openssl4`        | X          | X      |
+| `libcurl-rustls4`         | X          | X      |
 | `libexpat1`               | X          | X      |
+| `libgcc`                  | X          | X      |
 | `libgcrypt`               | X          | X      |
 | `libgpg-error`            | X          | X      |
 | `libnghttp2-14`           | X          | X      |
 | `libpcre2-8-0`            | X          | X      |
-| `libssl3`                 | X          | X      |
+| `libssl3`                 | X          |        |
 | `ncurses`                 | X          |        |
 | `ncurses-terminfo-base`   | X          |        |
 | `npth`                    | X          | X      |
