@@ -1,8 +1,8 @@
 ---
-title: "kubeflow-pipelines-metadata-writer Image Tags History"
+title: "cfssl Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
+description: "Image Tags and History for the cfssl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-metadata-writer/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-metadata-writer/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/kubeflow-pipelines-metadata-writer/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-metadata-writer/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/cfssl/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/cfssl/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/cfssl/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cfssl/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | October 10th | `sha256:2885f6ca667a07a2c3b0ac55db06cd25f650e43907083df1c44a39aa8c3750fa` |
-|  `latest`     | October 10th | `sha256:151c329cc481c94eb5a5ffb4a0d2b15ac82a3c70a2ac90d880b9d08f35c6c4d9` |
+|  `latest-dev` | October 10th | `sha256:77eed92ce255b6bf1f7931a86c2953598e934d6d740cc18100511d2d39060fdb` |
+|  `latest`     | October 10th | `sha256:6272ed11fa490dbefad2dc1b329302f3e396b2b668f4fece24f9861db865c2ac` |
 
