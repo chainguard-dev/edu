@@ -25,12 +25,12 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-glibc-dev`      | October 10th | `sha256:871daeef27114666c8c3c20d260f9a3513c52c20e7e3eeb6616980c1dcc5434e` |
-|  `latest-glibc-root-dev` | October 10th | `sha256:9e45fee9c1b2b39e7023db4bec6927da4a51d05353f7436d97091657c488e09e` |
-|  `latest-glibc`          | October 10th | `sha256:c96a12fc5854154b4b1b679bb79b9fb9472d8854131761297932e27710b12aa2` |
-|  `latest-glibc-root`     | October 10th | `sha256:c0dfb80cb5cebdb68a5e9ed0249d8cbbb40c834d4ab741b25efbcfb72cca49fd` |
-|  `latest`                | October 9th  | `sha256:5eea35507abd67097b3749cc37b5ab05ba6371de7904ea10dd97497bf2fcb3d4` |
-|  `latest-root`           | October 9th  | `sha256:6ea86419c741f27dc2429dde5880442b36d3077c0730b95ce75351ea673bf8fd` |
-|  `latest-dev`            | October 9th  | `sha256:064bc971a43b9720a10c972349c2100f275a9f2a1b7ee53af6e911ad03e64b76` |
-|  `latest-root-dev`       | October 9th  | `sha256:d0dbb919de29137dd65513e32ed854e9a2b19caf729a4ac77843b33debc7b0e0` |
+|  `latest-glibc-root-dev` | October 11th | `sha256:60f7c514216e290b36f963d38231a59394b1d67bcb7b5c07edb19952d6c761a2` |
+|  `latest-glibc-dev`      | October 11th | `sha256:7406741f762a92c3707520b299f7214eccc2350f481ebee0dccef9d41092456f` |
+|  `latest-glibc`          | October 11th | `sha256:76e2711b9f857fd31b04e834a7c72ab8eecb0a4c361e7ddb3ea123a21a52384f` |
+|  `latest-glibc-root`     | October 11th | `sha256:fa792e6bfbfa1d546d71f02c2717e1fe9d04921b90507a3d8e2f2eab6dd4eb5a` |
+|  `latest`                | October 11th | `sha256:00f21473f337b1eda9b2e7eefce3b70f71d6ec50c4eb9d66f71686751279f8c6` |
+|  `latest-dev`            | October 11th | `sha256:12c692028c087af71ea0758fa741d88c3af7995bc0c3091002c1624c6918f032` |
+|  `latest-root-dev`       | October 11th | `sha256:e0454c9fe42c8d2a46c9c4c55e548ef2512478eb791a136e34e435f35259b674` |
+|  `latest-root`           | October 11th | `sha256:6e3ea19e0b55d6ae6fc9f0f965c6d0b0543cae897f5a88486a3d5198ebc6144c` |
 

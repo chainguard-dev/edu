@@ -74,11 +74,11 @@ The table shows package distribution across variants.
 | `libstdc++`              | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
-| `openjdk-17`             | X          | X      |
-| `openjdk-17-default-jdk` | X          | X      |
-| `openjdk-17-default-jvm` | X          | X      |
-| `openjdk-17-jre`         | X          | X      |
-| `openjdk-17-jre-base`    | X          | X      |
+| `openjdk-21`             | X          | X      |
+| `openjdk-21-default-jdk` | X          | X      |
+| `openjdk-21-default-jvm` | X          | X      |
+| `openjdk-21-jre`         | X          | X      |
+| `openjdk-21-jre-base`    | X          | X      |
 | `openssl-config`         | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |
