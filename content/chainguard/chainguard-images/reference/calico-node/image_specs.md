@@ -44,6 +44,7 @@ The table shows package distribution across variants.
 
 |                          | latest |
 |--------------------------|--------|
+| `bash`                   | X      |
 | `busybox`                | X      |
 | `ca-certificates-bundle` | X      |
 | `calico-node`            | X      |

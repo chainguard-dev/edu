@@ -67,7 +67,7 @@ The table shows package distribution across variants.
 | `libbrotlidec1`                     | X          | X                 |               |        |
 | `libcrypt1`                         | X          | X                 | X             | X      |
 | `libcrypto3`                        | X          | X                 | X             | X      |
-| `libcurl-openssl4`                  | X          | X                 |               |        |
+| `libcurl-rustls4`                   | X          | X                 |               |        |
 | `libexpat1`                         | X          | X                 |               |        |
 | `libffi`                            | X          | X                 | X             | X      |
 | `libgcc`                            | X          | X                 | X             | X      |
