@@ -33,7 +33,7 @@ The table has detailed information about each of these variants.
 | Default User | `root`          |
 | Entrypoint   | `/usr/bin/apko` |
 | CMD          | `--help`        |
-| Workdir      | `/work`         |
+| Workdir      | not specified   |
 | Has apk?     | no              |
 | Has a shell? | no              |
 

@@ -105,7 +105,7 @@ The table shows package distribution across variants.
 | `patch`                  | X      |
 | `pkgconf`                | X      |
 | `posix-cc-wrappers`      | X      |
-| `python-3.11`            | X      |
+| `python-3.12`            | X      |
 | `readline`               | X      |
 | `sqlite-libs`            | X      |
 | `wolfi-baselayout`       | X      |
