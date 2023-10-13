@@ -1,5 +1,5 @@
 ---
-date: 2023-10-11T08:03:45Z
+date: 2023-10-13T09:08:18Z
 title: "chainctl iam identities delete"
 slug: chainctl_iam_identities_delete
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_delete/
@@ -11,17 +11,29 @@ toc: true
 ---
 ## chainctl iam identities delete
 
-Delete an identity.
+Delete one or more identities.
 
 ```
-chainctl iam identities delete {IDENTITY_NAME | IDENTITY_ID} [--yes] [--output ] [flags]
+chainctl iam identities delete {IDENTITY_NAME | IDENTITY_ID | --expired [--group=GROUP]} [--yes] [--output ] [flags]
+```
+
+### Examples
+
+```
+  # Delete an identity by name
+  chainctl iam identities delete my-identity
+  
+  # Delete all expired static identities in a group
+  chainctl iam identities delete --expired --group=my-group
 ```
 
 ### Options
 
 ```
-  -h, --help   help for delete
-  -y, --yes    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --expired        Delete all expired identities.
+      --group string   Name or ID of the parent group to delete expired identities from.
+  -h, --help           help for delete
+  -y, --yes            Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
