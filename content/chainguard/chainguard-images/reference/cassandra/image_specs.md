@@ -97,7 +97,7 @@ The table shows package distribution across variants.
 | `openjdk-8-default-jvm`  | X          | X      |
 | `openjdk-8-jre`          | X          | X      |
 | `openssl-config`         | X          | X      |
-| `python-3.11`            | X          | X      |
+| `python-3.12`            | X          | X      |
 | `readline`               | X          | X      |
 | `sqlite-libs`            | X          | X      |
 | `wolfi-baselayout`       | X          | X      |

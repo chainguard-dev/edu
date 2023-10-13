@@ -89,10 +89,10 @@ The table shows package distribution across variants.
 | `openssl-config`         | X          | X      |
 | `pkgconf`                | X          |        |
 | `posix-cc-wrappers`      | X          |        |
-| `py3.11-pip`             | X          |        |
-| `py3.11-setuptools`      | X          |        |
-| `python-3.11`            | X          | X      |
-| `python-3.11-dev`        | X          |        |
+| `py3.12-pip`             | X          |        |
+| `py3.12-setuptools`      | X          |        |
+| `python-3.12`            | X          | X      |
+| `python-3.12-dev`        | X          |        |
 | `readline`               | X          | X      |
 | `sqlite-libs`            | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
