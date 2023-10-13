@@ -4,14 +4,14 @@ linktitle: "Image Update Considerations"
 type: "article"
 description: "A conceptual article on best practices for keeping images up to date."
 date: 2023-10-05T11:07:52+02:00
-lastmod: 2023-10-05T11:07:52+02:00
+lastmod: 2023-10-11T11:07:52+02:00
 draft: false
-tags: ["Conceptual", "Chainguard Images", ]
+tags: ["Conceptual", "Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "secure-software-development"
-weight: 30
+    parent: "chainguard-images"
+weight: 725
 toc: true
 ---
 
