@@ -1,5 +1,5 @@
 ---
-date: 2023-10-11T08:03:45Z
+date: 2023-10-13T09:08:18Z
 title: "chainctl iam identity-providers create"
 slug: chainctl_iam_identity-providers_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_create/
@@ -14,21 +14,25 @@ toc: true
 Create an identity provider
 
 ```
-chainctl iam identity-providers create --group=GROUP [--name=NAME] [--description=DESCRIPTION] --oidc-issuer=ISSUER --oidc-client-id=CLIENTID --oidc-client-secret=CLIENTSECRET [--oidc-additional-scopes=SCOPE,...] [--default-role=ROLE] [--output table|json|id]
+chainctl iam identity-providers create --group=GROUP [--name=NAME] [--description=DESCRIPTION] --oidc-issuer=ISSUER --oidc-client-id=CLIENTID --oidc-client-secret=CLIENTSECRET [--oidc-additional-scopes=SCOPE,...] --default-role=ROLE [--output table|json|id]
 ```
 
 ### Examples
 
 ```
-  # Bind a user-created identity as viewer to a group
-  chainctl iam identity-provider create --group=example --name=google --oidc-issuer=https://accounts.google.com --oidc-client-id=foo --oidc-client-secret=bar
+  # Setup a custom OIDC provider and bind new users to the viewer role
+  chainctl iam identity-provider create --name=google --group=example \
+  --oidc-issuer=https://accounts.google.com \
+  --oidc-client-id=foo \
+  --oidc-client-secret=bar \
+  --default-role=viewer
 ```
 
 ### Options
 
 ```
       --configuration-type string            Type of identity provider. Only OIDC supported currently (default "OIDC")
-      --default-role string                  Optional role to grant users on first login
+      --default-role string                  Role to grant users on first login
       --description string                   Description of identity provider
       --group string                         The name or ID of the group the identity provider belongs to.
   -h, --help                                 help for create
