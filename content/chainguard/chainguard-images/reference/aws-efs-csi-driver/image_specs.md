@@ -100,7 +100,7 @@ The table shows package distribution across variants.
 | `py3-jmespath`            | X          | X      |
 | `py3-six`                 | X          | X      |
 | `py3-urllib3`             | X          | X      |
-| `python-3.11`             | X          | X      |
+| `python-3.12`             | X          | X      |
 | `readline`                | X          | X      |
 | `sqlite-libs`             | X          | X      |
 | `stunnel`                 | X          | X      |

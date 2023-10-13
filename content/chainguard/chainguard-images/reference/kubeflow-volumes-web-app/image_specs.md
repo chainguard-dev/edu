@@ -78,8 +78,8 @@ The table shows package distribution across variants.
 | `py3-parsing`              | X          | X      |
 | `py3-typing-extensions`    | X          | X      |
 | `py3-zipp`                 | X          | X      |
-| `py3.11-setuptools`        | X          | X      |
-| `python-3.11`              | X          | X      |
+| `py3.12-setuptools`        | X          | X      |
+| `python-3.12`              | X          | X      |
 | `readline`                 | X          | X      |
 | `sqlite-libs`              | X          | X      |
 | `wolfi-baselayout`         | X          | X      |
