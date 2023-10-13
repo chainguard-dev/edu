@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-10-11 07:51:24 +0000 UTC
+date: 2023-10-13 08:32:46 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,15 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.182
+Release date: 2023-10-13
+#### Feature
+- Improve the performance of fetching and analyzing records for large clusters.
+- Improvements to many `chainctl iam identities` commands: more verbose output for `describe`, including all identity types; `list` no longer includes expired identities by default, use `list --expired` to see them; remove all expired identities at once with `delete --expired`, with optional `--group` flag to restrict removal to a group and its descendants.
+#### Uncategorized
+- Setting a default role is now required when configuring new custom identity providers. Existing custom identity providers can be updated with `chainctl iam identity-provider update my-idp --default-role=ROLE`
+
 
 ### v0.1.181
 Release date: 2023-10-11
