@@ -67,8 +67,8 @@ The table shows package distribution across variants.
 | `libbrotlidec1`          | X          | X      |
 | `libclang-cpp-15`        | X          | X      |
 | `libcrypt1`              | X          | X      |
-| `libcrypto3`             | X          |        |
-| `libcurl-rustls4`        | X          | X      |
+| `libcrypto3`             | X          | X      |
+| `libcurl-openssl4`       | X          | X      |
 | `libexpat1`              | X          | X      |
 | `libffi`                 | X          | X      |
 | `libgcc`                 | X          | X      |
@@ -76,7 +76,7 @@ The table shows package distribution across variants.
 | `libgomp`                | X          | X      |
 | `libnghttp2-14`          | X          | X      |
 | `libpcre2-8-0`           | X          | X      |
-| `libssl3`                | X          |        |
+| `libssl3`                | X          | X      |
 | `libstdc++`              | X          | X      |
 | `libstdc++-dev`          | X          | X      |
 | `libxml2`                | X          | X      |
@@ -89,7 +89,7 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`  | X          | X      |
 | `nss-db`                 | X          | X      |
 | `nss-hesiod`             | X          | X      |
-| `openssl-config`         | X          |        |
+| `openssl-config`         | X          | X      |
 | `pkgconf`                | X          | X      |
 | `posix-cc-wrappers`      | X          | X      |
 | `wolfi-baselayout`       | X          | X      |

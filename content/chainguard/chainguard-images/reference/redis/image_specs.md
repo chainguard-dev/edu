@@ -57,9 +57,8 @@ The table shows package distribution across variants.
 | `libbrotlidec1`          | X          |        |
 | `libcrypt1`              | X          | X      |
 | `libcrypto3`             | X          | X      |
-| `libcurl-rustls4`        | X          |        |
+| `libcurl-openssl4`       | X          |        |
 | `libexpat1`              | X          |        |
-| `libgcc`                 | X          |        |
 | `libnghttp2-14`          | X          |        |
 | `libpcre2-8-0`           | X          |        |
 | `libssl3`                | X          | X      |
@@ -67,8 +66,8 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`  | X          | X      |
 | `openssl-config`         | X          | X      |
 | `posix-libc-utils`       | X          | X      |
-| `redis`                  | X          | X      |
-| `redis-cli`              | X          | X      |
+| `redis-7.2`              | X          | X      |
+| `redis-cli-7.2`          | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
 

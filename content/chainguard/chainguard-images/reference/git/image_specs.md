@@ -70,7 +70,7 @@ The table shows package distribution across variants.
 | `libexpat`               | X          |                  |                       |                   |              | X               | X           | X      |
 | `libidn2`                | X          |                  |                       |                   |              | X               | X           | X      |
 | `libncursesw`            | X          |                  |                       |                   |              | X               | X           | X      |
-| `libssl3`                | X          | X                | X                     |                   |              | X               | X           | X      |
+| `libssl3`                | X          | X                | X                     | X                 | X            | X               | X           | X      |
 | `libunistring`           | X          |                  |                       |                   |              | X               | X           | X      |
 | `musl`                   | X          |                  |                       |                   |              | X               | X           | X      |
 | `ncurses-terminfo-base`  | X          | X                | X                     | X                 | X            | X               | X           | X      |
@@ -88,9 +88,8 @@ The table shows package distribution across variants.
 | `libbrotlicommon1`       |            | X                | X                     | X                 | X            |                 |             |        |
 | `libbrotlidec1`          |            | X                | X                     | X                 | X            |                 |             |        |
 | `libcrypt1`              |            | X                | X                     |                   |              |                 |             |        |
-| `libcurl-rustls4`        |            | X                | X                     | X                 | X            |                 |             |        |
+| `libcurl-openssl4`       |            | X                | X                     | X                 | X            |                 |             |        |
 | `libexpat1`              |            | X                | X                     | X                 | X            |                 |             |        |
-| `libgcc`                 |            | X                | X                     | X                 | X            |                 |             |        |
 | `libnghttp2-14`          |            | X                | X                     | X                 | X            |                 |             |        |
 | `libpcre2-8-0`           |            | X                | X                     | X                 | X            |                 |             |        |
 | `ncurses`                |            | X                | X                     | X                 | X            |                 |             |        |

@@ -58,16 +58,15 @@ The table shows package distribution across variants.
 | `libbrotlicommon1`       | X          | X      |
 | `libbrotlidec1`          | X          | X      |
 | `libcrypt1`              | X          |        |
-| `libcrypto3`             | X          |        |
-| `libcurl-rustls4`        | X          | X      |
+| `libcrypto3`             | X          | X      |
+| `libcurl-openssl4`       | X          | X      |
 | `libexpat1`              | X          | X      |
-| `libgcc`                 | X          | X      |
 | `libnghttp2-14`          | X          | X      |
 | `libpcre2-8-0`           | X          | X      |
-| `libssl3`                | X          |        |
+| `libssl3`                | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
-| `openssl-config`         | X          |        |
+| `openssl-config`         | X          | X      |
 | `timoni`                 | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |

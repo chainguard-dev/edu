@@ -57,7 +57,7 @@ The table shows package distribution across variants.
 | `libbrotlidec1`                 | X          |        |
 | `libcrypt1`                     | X          | X      |
 | `libcrypto3`                    | X          | X      |
-| `libcurl-rustls4`               | X          |        |
+| `libcurl-openssl4`              | X          |        |
 | `libexpat1`                     | X          |        |
 | `libgcc`                        | X          | X      |
 | `libnghttp2-14`                 | X          |        |
@@ -67,6 +67,7 @@ The table shows package distribution across variants.
 | `ncurses`                       | X          |        |
 | `ncurses-terminfo-base`         | X          |        |
 | `nginx-mainline`                | X          | X      |
+| `nginx-mainline-config`         | X          | X      |
 | `nginx-mainline-package-config` | X          | X      |
 | `openssl-config`                | X          | X      |
 | `pcre`                          | X          | X      |

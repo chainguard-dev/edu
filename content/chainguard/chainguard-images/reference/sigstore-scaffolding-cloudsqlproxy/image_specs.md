@@ -49,6 +49,8 @@ The table shows package distribution across variants.
 | `bash`                               | X          |        |
 | `busybox`                            | X          |        |
 | `ca-certificates-bundle`             | X          | X      |
+| `cloud-sql-proxy`                    | X          | X      |
+| `cloud-sql-proxy-compat`             | X          | X      |
 | `git`                                | X          |        |
 | `glibc`                              | X          |        |
 | `glibc-locale-posix`                 | X          |        |
@@ -57,9 +59,8 @@ The table shows package distribution across variants.
 | `libbrotlidec1`                      | X          |        |
 | `libcrypt1`                          | X          |        |
 | `libcrypto3`                         | X          |        |
-| `libcurl-rustls4`                    | X          |        |
+| `libcurl-openssl4`                   | X          |        |
 | `libexpat1`                          | X          |        |
-| `libgcc`                             | X          |        |
 | `libnghttp2-14`                      | X          |        |
 | `libpcre2-8-0`                       | X          |        |
 | `libssl3`                            | X          |        |

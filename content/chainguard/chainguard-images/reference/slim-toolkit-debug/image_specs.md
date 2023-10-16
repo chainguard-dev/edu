@@ -134,9 +134,9 @@ The table shows package distribution across variants.
 | `py3-tzdata`              | X      |
 | `py3-wcwidth`             | X      |
 | `py3-zipp`                | X      |
-| `python-3.11`             | X      |
+| `python-3.12`             | X      |
 | `readline`                | X      |
-| `redis`                   | X      |
+| `redis-7.2`               | X      |
 | `socat`                   | X      |
 | `sqlite-libs`             | X      |
 | `strace`                  | X      |
