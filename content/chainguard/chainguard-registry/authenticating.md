@@ -42,7 +42,7 @@ Pulls authenticated in this way are associated with your user.
 
 ## Authenticating with a Pull Token
 
-You can also create a "pull token" using `chainctl`. This generates a longer-lived token that can be used to pull images from other environments that's don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Artifactory.
+You can also create a "pull token" using `chainctl`. This generates a longer-lived token that can be used to pull images from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Artifactory.
 
 First [install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/), then log in and configure a pull token:
 
@@ -119,7 +119,7 @@ jobs:
 
 Pulls authenticated in this way are associated with the Chainguard identity you created, which is associated with the group selected when the identity was created.
 
-If the identity is configured to only work with GitHub Actions workflow runs from a given repo and branch, that identity will not be able to pull from other repos or branches, including pull requests targetting the specified branch.
+If the identity is configured to only work with GitHub Actions workflow runs from a given repo and branch, that identity will not be able to pull from other repos or branches, including pull requests targeting the specified branch.
 
 ## Authenticating with Kubernetes
 
