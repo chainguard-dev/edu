@@ -59,7 +59,7 @@ The table shows package distribution across variants.
 | `libclang-cpp-16`        | X          | X      |
 | `libcrypt1`              | X          | X      |
 | `libcrypto3`             | X          |        |
-| `libcurl-rustls4`        | X          |        |
+| `libcurl-openssl4`       | X          |        |
 | `libexpat1`              | X          |        |
 | `libffi`                 | X          | X      |
 | `libgcc`                 | X          | X      |

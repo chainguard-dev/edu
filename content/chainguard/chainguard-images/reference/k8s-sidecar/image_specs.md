@@ -60,7 +60,7 @@ The table shows package distribution across variants.
 | `libbz2-1`               | X          | X      |
 | `libcrypt1`              | X          | X      |
 | `libcrypto3`             | X          | X      |
-| `libcurl-rustls4`        | X          |        |
+| `libcurl-openssl4`       | X          |        |
 | `libexpat1`              | X          | X      |
 | `libffi`                 | X          | X      |
 | `libgcc`                 | X          | X      |
@@ -72,7 +72,7 @@ The table shows package distribution across variants.
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
 | `openssl-config`         | X          | X      |
-| `python-3.11`            | X          | X      |
+| `python-3.12`            | X          | X      |
 | `readline`               | X          | X      |
 | `sqlite-libs`            | X          | X      |
 | `wolfi-baselayout`       | X          | X      |

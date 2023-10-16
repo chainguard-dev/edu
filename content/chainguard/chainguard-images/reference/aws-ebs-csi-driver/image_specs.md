@@ -66,7 +66,7 @@ The table shows package distribution across variants.
 | `libcom_err`             | X          | X      |
 | `libcrypt1`              | X          |        |
 | `libcrypto3`             | X          |        |
-| `libcurl-rustls4`        | X          |        |
+| `libcurl-openssl4`       | X          |        |
 | `libexpat1`              | X          |        |
 | `libgcc`                 | X          | X      |
 | `libmount`               | X          | X      |
