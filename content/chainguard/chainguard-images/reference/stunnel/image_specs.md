@@ -49,6 +49,7 @@ The table shows package distribution across variants.
 | `bash`                   | X          |        |
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
+| `curl`                   | X          |        |
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |
@@ -57,7 +58,7 @@ The table shows package distribution across variants.
 | `libbrotlidec1`          | X          |        |
 | `libcrypt1`              | X          |        |
 | `libcrypto3`             | X          | X      |
-| `libcurl-rustls4`        | X          |        |
+| `libcurl-openssl4`       | X          |        |
 | `libexpat1`              | X          |        |
 | `libgcc`                 | X          | X      |
 | `libnghttp2-14`          | X          |        |

@@ -59,8 +59,8 @@ The table shows package distribution across variants.
 | `libbrotlidec1`          | X          | X      |
 | `libbz2-1`               | X          | X      |
 | `libcrypt1`              | X          | X      |
-| `libcrypto3`             | X          |        |
-| `libcurl-rustls4`        | X          | X      |
+| `libcrypto3`             | X          | X      |
+| `libcurl-openssl4`       | X          | X      |
 | `libexpat1`              | X          |        |
 | `libgcc`                 | X          | X      |
 | `libgfortran`            | X          | X      |
@@ -71,7 +71,7 @@ The table shows package distribution across variants.
 | `libpcre2-8-0`           | X          | X      |
 | `libpng`                 | X          | X      |
 | `libsm`                  | X          | X      |
-| `libssl3`                | X          |        |
+| `libssl3`                | X          | X      |
 | `libstdc++`              | X          | X      |
 | `libuuid`                | X          | X      |
 | `libwebp`                | X          | X      |
@@ -86,7 +86,7 @@ The table shows package distribution across variants.
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
 | `openblas`               | X          | X      |
-| `openssl-config`         | X          |        |
+| `openssl-config`         | X          | X      |
 | `readline`               | X          | X      |
 | `tiff`                   | X          | X      |
 | `wolfi-baselayout`       | X          | X      |

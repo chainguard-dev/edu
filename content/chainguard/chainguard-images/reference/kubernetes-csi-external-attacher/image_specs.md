@@ -58,9 +58,8 @@ The table shows package distribution across variants.
 | `libbrotlidec1`                        | X          |        |
 | `libcrypt1`                            | X          |        |
 | `libcrypto3`                           | X          |        |
-| `libcurl-rustls4`                      | X          |        |
+| `libcurl-openssl4`                     | X          |        |
 | `libexpat1`                            | X          |        |
-| `libgcc`                               | X          |        |
 | `libnghttp2-14`                        | X          |        |
 | `libpcre2-8-0`                         | X          |        |
 | `libssl3`                              | X          |        |
