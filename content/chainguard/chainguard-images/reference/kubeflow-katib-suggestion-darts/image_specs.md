@@ -66,7 +66,7 @@ The table shows package distribution across variants.
 | `libbz2-1`                     | X          | X      |
 | `libcrypt1`                    | X          | X      |
 | `libcrypto3`                   | X          | X      |
-| `libcurl-rustls4`              | X          |        |
+| `libcurl-openssl4`             | X          |        |
 | `libexpat1`                    | X          | X      |
 | `libffi`                       | X          | X      |
 | `libgcc`                       | X          | X      |
@@ -85,7 +85,7 @@ The table shows package distribution across variants.
 | `py3-grpcio`                   | X          | X      |
 | `py3-protobuf`                 | X          | X      |
 | `py3-six`                      | X          | X      |
-| `python-3.11`                  | X          | X      |
+| `python-3.12`                  | X          | X      |
 | `re2`                          | X          | X      |
 | `readline`                     | X          | X      |
 | `sqlite-libs`                  | X          | X      |

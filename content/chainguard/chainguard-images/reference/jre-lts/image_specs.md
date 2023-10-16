@@ -63,7 +63,7 @@ The table shows package distribution across variants.
 | `libbz2-1`               | X          | X      |
 | `libcrypt1`              | X          |        |
 | `libcrypto3`             | X          |        |
-| `libcurl-rustls4`        | X          |        |
+| `libcurl-openssl4`       | X          |        |
 | `libexpat1`              | X          | X      |
 | `libfontconfig1`         | X          | X      |
 | `libgcc`                 | X          | X      |

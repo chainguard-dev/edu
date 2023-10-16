@@ -70,7 +70,7 @@ The table shows package distribution across variants.
 | `libcom_err`              | X          | X      |
 | `libcrypt1`               | X          | X      |
 | `libcrypto3`              | X          | X      |
-| `libcurl-rustls4`         | X          |        |
+| `libcurl-openssl4`        | X          |        |
 | `libevent`                | X          | X      |
 | `libexpat1`               | X          | X      |
 | `libfdisk`                | X          | X      |
