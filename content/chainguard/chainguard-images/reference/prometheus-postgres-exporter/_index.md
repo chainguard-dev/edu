@@ -23,11 +23,28 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/prometheus-postgres-exporter/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **prometheus-postgres-exporter** images with nightly builds.
 
-## Get it!
+
+Minimalist Wolfi-based Prometheus Postgres Exporter image for exporting various metrics about Postgres.
+
+## Get It!
+
+The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/prometheus-postgres-exporter:latest
 ```
+
+## Usage
+
+The easiest way to install the Prometheus Prometheus Exporter is to use the Helm chart.
+
+```bash
+$ helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+$ helm repo update
+$ helm install prom-postgres-exporter prometheus-community/prometheus-postgres-exporter \
+ --set image.repository=cgr.dev/chainguard/prometheus-postgres-exporter --set image.tag=latest
+```
+
+For more detail, please refer to the [Postgres Exporter documentation](https://github.com/prometheus-community/postgres_exporter).
 
