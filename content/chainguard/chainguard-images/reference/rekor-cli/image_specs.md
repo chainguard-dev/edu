@@ -50,9 +50,9 @@ The table shows package distribution across variants.
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
 | `git`                    | X          |        |
-| `glibc`                  | X          |        |
-| `glibc-locale-posix`     | X          |        |
-| `ld-linux`               | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `ld-linux`               | X          | X      |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
 | `libcrypt1`              | X          |        |
