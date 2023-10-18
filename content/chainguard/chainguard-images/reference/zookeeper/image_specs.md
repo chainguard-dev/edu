@@ -78,5 +78,5 @@ The table shows package distribution across variants.
 | `openssl-config`         | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |
-| `zookeeper`              | X          | X      |
+| `zookeeper-3.9`          | X          | X      |
 

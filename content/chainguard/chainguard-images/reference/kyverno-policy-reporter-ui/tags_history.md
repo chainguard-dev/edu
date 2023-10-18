@@ -1,8 +1,8 @@
 ---
-title: "k3s-allinone Image Tags History"
+title: "kyverno-policy-reporter-ui Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the k3s-allinone Chainguard Image"
+description: "Image Tags and History for the kyverno-policy-reporter-ui Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/k3s-allinone/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/k3s-allinone/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/k3s-allinone/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/k3s-allinone/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kyverno-policy-reporter-ui/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/kyverno-policy-reporter-ui/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/kyverno-policy-reporter-ui/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kyverno-policy-reporter-ui/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | October 18th | `sha256:a4372205a18c9a3bae31b7711861ef32330e71a75337ce350c8f1d7dd7342b09` |
-|  `latest`     | October 18th | `sha256:f6bfcc32291813dab68e290575690c20740fa32751df840d168829bf13164883` |
+|  `latest`     | October 18th | `sha256:14996fbcfda51bceab5dabc89d6173f443305c175a5b345a8ed0581c35ca4a65` |
+|  `latest-dev` | October 18th | `sha256:ce9eec1bfa43b70a3a345ac0b884f1472dbffafa309201768b5d8dbd04985126` |
 

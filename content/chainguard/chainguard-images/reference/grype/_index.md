@@ -68,3 +68,4 @@ You can also pipe in Syft JSON directly:
 Usage:
   grype [command]
 ```
+
