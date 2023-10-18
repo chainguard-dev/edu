@@ -1,5 +1,5 @@
 ---
-date: 2023-10-16T09:37:03Z
+date: 2023-10-18T20:04:31Z
 title: "chainctl clusters uninstall"
 slug: chainctl_clusters_uninstall
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_uninstall/

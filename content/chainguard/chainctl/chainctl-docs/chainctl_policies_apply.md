@@ -1,5 +1,5 @@
 ---
-date: 2023-10-16T09:37:03Z
+date: 2023-10-18T20:04:31Z
 title: "chainctl policies apply"
 slug: chainctl_policies_apply
 url: /chainguard/chainctl/chainctl-docs/chainctl_policies_apply/
