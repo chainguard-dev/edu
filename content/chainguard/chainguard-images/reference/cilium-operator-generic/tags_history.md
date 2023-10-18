@@ -1,8 +1,8 @@
 ---
-title: "haproxy-ingress Image Tags History"
+title: "cilium-operator-generic Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the haproxy-ingress Chainguard Image"
+description: "Image Tags and History for the cilium-operator-generic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/haproxy-ingress/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/haproxy-ingress/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/haproxy-ingress/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/haproxy-ingress/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/cilium-operator-generic/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/cilium-operator-generic/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/cilium-operator-generic/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cilium-operator-generic/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | October 17th | `sha256:df9eabf7f659b90b24e2e88b6090fd9ad61c47acee85b48f44866d57d0414aaa` |
-|  `latest`     | October 17th | `sha256:638895922dac875f97ffc051574a77b32181598c5f5ac3d631bc82c709919e8a` |
+|  `latest`     | October 17th | `sha256:adef83349219d3b5083cd196358602bdd2c730898b6c7e7c6436791ac7f8f8b2` |
+|  `latest-dev` | October 17th | `sha256:ae3d4fbab506173efbe39de6a29803afff36fefe050e1da920877f650a17a1b8` |
 

@@ -69,18 +69,22 @@ The table shows package distribution across variants.
 | `libcrypt1`               | X          | X      |
 | `libcrypto3`              | X          | X      |
 | `libcurl-openssl4`        | X          | X      |
+| `libedit`                 | X          | X      |
 | `libexpat1`               | X          | X      |
 | `libgcrypt`               | X          | X      |
 | `libgpg-error`            | X          | X      |
 | `libnghttp2-14`           | X          | X      |
 | `libpcre2-8-0`            | X          | X      |
 | `libssl3`                 | X          | X      |
-| `ncurses`                 | X          |        |
-| `ncurses-terminfo-base`   | X          |        |
+| `ncurses`                 | X          | X      |
+| `ncurses-terminfo-base`   | X          | X      |
 | `npth`                    | X          | X      |
+| `openssh`                 | X          | X      |
+| `openssh-client`          | X          | X      |
 | `openssh-keygen`          | X          | X      |
 | `openssh-server`          | X          | X      |
 | `openssh-server-config`   | X          | X      |
+| `openssh-sftp-server`     | X          | X      |
 | `openssl-config`          | X          | X      |
 | `sqlite-libs`             | X          | X      |
 | `tzdata`                  | X          | X      |

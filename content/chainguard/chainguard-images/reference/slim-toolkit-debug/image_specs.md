@@ -134,6 +134,7 @@ The table shows package distribution across variants.
 | `py3-tzdata`              | X      |
 | `py3-wcwidth`             | X      |
 | `py3-zipp`                | X      |
+| `py3.12-installer`        | X      |
 | `python-3.12`             | X      |
 | `readline`                | X      |
 | `redis-7.2`               | X      |
