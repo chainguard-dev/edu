@@ -5,7 +5,8 @@
 <div id="rumble">
   <h2>Comparison chart for {{ $i.image }} images</h2>
   <p>The following chart shows the past 30 days of Grype scans against the <code>{{ $i.left}}</code> image, and the
-    <code>{{$i.right}}</code> Chainguard Image.</code>
+    <code>{{$i.right}}</code> Chainguard Image.</code> Note that all scanners may find false positives or
+    miss false negative vulnerabilities. For more information about false results, visit our <a href="/chainguard/chainguard-images/scanners/false-results">False Positives and False Negatives with Images Scanners page</a>.
   </p>
   <div>
     <iframe scrolling="no" style="width:100%; min-height:400px; border: none; overflow: hidden"
