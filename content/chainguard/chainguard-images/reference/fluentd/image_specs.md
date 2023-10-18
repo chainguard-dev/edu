@@ -31,14 +31,14 @@ The **fluentd** Chainguard Image currently has 4 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev     | latest-splunk-dev | latest-splunk  | latest         |
-|--------------|----------------|-------------------|----------------|----------------|
-| Default User | `fluent`       | `fluent`          | `fluent`       | `fluent`       |
-| Entrypoint   | Service Bundle | Service Bundle    | Service Bundle | Service Bundle |
-| CMD          | not specified  | not specified     | not specified  | not specified  |
-| Workdir      | not specified  | not specified     | not specified  | not specified  |
-| Has apk?     | yes            | yes               | no             | no             |
-| Has a shell? | yes            | yes               | no             | no             |
+|              | latest-dev         | latest-splunk-dev  | latest-splunk      | latest             |
+|--------------|--------------------|--------------------|--------------------|--------------------|
+| Default User | `fluent`           | `fluent`           | `fluent`           | `fluent`           |
+| Entrypoint   | `/usr/bin/fluentd` | `/usr/bin/fluentd` | `/usr/bin/fluentd` | `/usr/bin/fluentd` |
+| CMD          | not specified      | not specified      | not specified      | not specified      |
+| Workdir      | not specified      | not specified      | not specified      | not specified      |
+| Has apk?     | yes                | yes                | no                 | no                 |
+| Has a shell? | yes                | yes                | no                 | no                 |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/fluentd/tags_history/) for the full list of available tags.
 
@@ -53,7 +53,6 @@ The table shows package distribution across variants.
 | `build-base`                        | X          | X                 |               |        |
 | `busybox`                           | X          | X                 |               |        |
 | `ca-certificates-bundle`            | X          | X                 | X             | X      |
-| `execline`                          | X          | X                 | X             | X      |
 | `gcc`                               | X          | X                 |               |        |
 | `git`                               | X          | X                 |               |        |
 | `glibc`                             | X          | X                 | X             | X      |
@@ -106,8 +105,6 @@ The table shows package distribution across variants.
 | `ruby3.2-tzinfo-data`               | X          | X                 | X             | X      |
 | `ruby3.2-webrick`                   | X          | X                 | X             | X      |
 | `ruby3.2-yajl-ruby`                 | X          | X                 | X             | X      |
-| `s6`                                | X          | X                 | X             | X      |
-| `skalibs`                           | X          | X                 | X             | X      |
 | `wolfi-baselayout`                  | X          | X                 | X             | X      |
 | `yaml`                              | X          | X                 | X             | X      |
 | `zlib`                              | X          | X                 | X             | X      |
