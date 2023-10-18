@@ -29,14 +29,14 @@ The **aws-efs-csi-driver** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev           | latest               |
-|--------------|----------------------|----------------------|
-| Default User | `root`               | `root`               |
-| Entrypoint   | `aws-efs-csi-driver` | `aws-efs-csi-driver` |
-| CMD          | not specified        | not specified        |
-| Workdir      | not specified        | not specified        |
-| Has apk?     | yes                  | no                   |
-| Has a shell? | yes                  | yes                  |
+|              | latest-dev                    | latest                        |
+|--------------|-------------------------------|-------------------------------|
+| Default User | `root`                        | `root`                        |
+| Entrypoint   | `/usr/bin/aws-efs-csi-driver` | `/usr/bin/aws-efs-csi-driver` |
+| CMD          | not specified                 | not specified                 |
+| Workdir      | not specified                 | not specified                 |
+| Has apk?     | yes                           | no                            |
+| Has a shell? | yes                           | yes                           |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/aws-efs-csi-driver/tags_history/) for the full list of available tags.
 
