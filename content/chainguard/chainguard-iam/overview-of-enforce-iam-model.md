@@ -1,5 +1,5 @@
 ---
-title: "Overview of the Enforce IAM Model"
+title: "Overview of the Chainguard IAM Model"
 linktitle: "IAM Overview"
 aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/overview-of-enforce-iam-model/
@@ -17,6 +17,12 @@ menu:
 weight: 005
 toc: true
 ---
+
+* This article is thankfully short but i think it will need to be tweaked and expanded to fit a useful overview of all of Chainguard's IAM features
+    * ex: highlight some more how we want users to think about groups
+        * "## Organizations, groups, and users"
+        * that is if we actually have users
+    * ex: get rid of agentless role info (agentless doesn't show up in the `iam role list` command output anymore anyway)
 
 > _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
