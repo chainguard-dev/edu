@@ -12,6 +12,8 @@ images: []
 weight: 015
 ---
 
+* This one is almost not tied to Enforce at all
+
 Resources on the Chainguard platform are organized in a hierarchical structure called [IAM Groups](/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/). A root-level IAM Group is called an _Organization_. Single customers or organizations typically use a single root-level _Organization_ to manage their
 Chainguard resources.
 

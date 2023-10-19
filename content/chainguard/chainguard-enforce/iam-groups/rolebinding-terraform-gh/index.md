@@ -11,6 +11,10 @@ images: []
 weight: 050
 ---
 
+* This doc seems a bit on the fence. 
+* is it superceded by user management at scale work?
+
+
 There may be cases where an organization will want multiple users to have access to the same Chainguard organization. Chainguard allows you to grant other users access to Enforce by [generating an invite link or code](/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/#inviting-others-to-a-group).
 
 In addition, you can now grant access to users using Terraform and identity providers like GitHub, GitLab, and Google. You can also manage access through these providers' existing group structures, like GitHub Teams or GitLab Groups. Granting access through Terraform helps to reduce the risk of unwanted users gaining access to Enforce.

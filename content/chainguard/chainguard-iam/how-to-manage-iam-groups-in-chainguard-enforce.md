@@ -1,5 +1,5 @@
 ---
-title: "How to Manage IAM Groups in Chainguard Enforce"
+title: "How to Manage Chainguard IAM Groups"
 linktitle: "Manage IAM Groups"
 aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-manage-iam-groups-in-chainguard-enforce/
@@ -16,6 +16,8 @@ menu:
 weight: 010
 toc: true
 ---
+
+* this doc will require some minor changes to not be focused on Enforce
 
 > _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
