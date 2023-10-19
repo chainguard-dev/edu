@@ -50,6 +50,7 @@ cosign verify-attestation \
   --type https://spdx.dev/Document \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
   --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
+  --platform=linux/amd64 \
   cgr.dev/chainguard/tekton-cli
 ```
 
