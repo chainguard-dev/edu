@@ -36,37 +36,36 @@ The table has detailed information about each of these variants.
 | CMD          | not specified               | not specified               |
 | Workdir      | not specified               | not specified               |
 | Has apk?     | yes                         | no                          |
-| Has a shell? | yes                         | yes                         |
+| Has a shell? | yes                         | no                          |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/prometheus-mongodb-exporter/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                              | latest-dev | latest |
-|----------------------------------------------|------------|--------|
-| `apk-tools`                                  | X          |        |
-| `bash`                                       | X          | X      |
-| `busybox`                                    | X          | X      |
-| `ca-certificates-bundle`                     | X          | X      |
-| `git`                                        | X          |        |
-| `glibc`                                      | X          | X      |
-| `glibc-locale-posix`                         | X          | X      |
-| `ld-linux`                                   | X          | X      |
-| `libbrotlicommon1`                           | X          |        |
-| `libbrotlidec1`                              | X          |        |
-| `libcrypt1`                                  | X          | X      |
-| `libcrypto3`                                 | X          |        |
-| `libcurl-openssl4`                           | X          |        |
-| `libexpat1`                                  | X          |        |
-| `libnghttp2-14`                              | X          |        |
-| `libpcre2-8-0`                               | X          |        |
-| `libssl3`                                    | X          |        |
-| `ncurses`                                    | X          | X      |
-| `ncurses-terminfo-base`                      | X          | X      |
-| `openssl-config`                             | X          |        |
-| `prometheus-mongodb-exporter`                | X          | X      |
-| `prometheus-mongodb-exporter-bitnami-compat` | X          | X      |
-| `wolfi-baselayout`                           | X          | X      |
-| `zlib`                                       | X          |        |
+|                               | latest-dev | latest |
+|-------------------------------|------------|--------|
+| `apk-tools`                   | X          |        |
+| `bash`                        | X          |        |
+| `busybox`                     | X          |        |
+| `ca-certificates-bundle`      | X          | X      |
+| `git`                         | X          |        |
+| `glibc`                       | X          | X      |
+| `glibc-locale-posix`          | X          | X      |
+| `ld-linux`                    | X          | X      |
+| `libbrotlicommon1`            | X          |        |
+| `libbrotlidec1`               | X          |        |
+| `libcrypt1`                   | X          |        |
+| `libcrypto3`                  | X          |        |
+| `libcurl-openssl4`            | X          |        |
+| `libexpat1`                   | X          |        |
+| `libnghttp2-14`               | X          |        |
+| `libpcre2-8-0`                | X          |        |
+| `libssl3`                     | X          |        |
+| `ncurses`                     | X          |        |
+| `ncurses-terminfo-base`       | X          |        |
+| `openssl-config`              | X          |        |
+| `prometheus-mongodb-exporter` | X          | X      |
+| `wolfi-baselayout`            | X          | X      |
+| `zlib`                        | X          |        |
 
