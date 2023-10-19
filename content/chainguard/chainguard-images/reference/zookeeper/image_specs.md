@@ -29,54 +29,63 @@ The **zookeeper** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev                                  | latest                                      |
-|--------------|---------------------------------------------|---------------------------------------------|
-| Default User | `zookeeper`                                 | `zookeeper`                                 |
-| Entrypoint   | `/usr/share/java/zookeeper/bin/zkServer.sh` | `/usr/share/java/zookeeper/bin/zkServer.sh` |
-| CMD          | `start-foreground`                          | `start-foreground`                          |
-| Workdir      | not specified                               | not specified                               |
-| Has apk?     | yes                                         | no                                          |
-| Has a shell? | yes                                         | yes                                         |
+|              | latest-dev                                     | latest                                         |
+|--------------|------------------------------------------------|------------------------------------------------|
+| Default User | `zookeeper`                                    | `zookeeper`                                    |
+| Entrypoint   | `/opt/bitnami/scripts/zookeeper/entrypoint.sh` | `/opt/bitnami/scripts/zookeeper/entrypoint.sh` |
+| CMD          | `/opt/bitnami/scripts/zookeeper/run.sh`        | `/opt/bitnami/scripts/zookeeper/run.sh`        |
+| Workdir      | not specified                                  | not specified                                  |
+| Has apk?     | yes                                            | no                                             |
+| Has a shell? | yes                                            | yes                                            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/zookeeper/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest-dev | latest |
-|--------------------------|------------|--------|
-| `apk-tools`              | X          |        |
-| `bash`                   | X          | X      |
-| `busybox`                | X          | X      |
-| `ca-certificates-bundle` | X          | X      |
-| `fontconfig-config`      | X          | X      |
-| `freetype`               | X          | X      |
-| `git`                    | X          |        |
-| `glibc`                  | X          | X      |
-| `glibc-locale-en`        | X          | X      |
-| `glibc-locale-posix`     | X          | X      |
-| `java-cacerts`           | X          | X      |
-| `java-common`            | X          | X      |
-| `ld-linux`               | X          | X      |
-| `libbrotlicommon1`       | X          | X      |
-| `libbrotlidec1`          | X          | X      |
-| `libbz2-1`               | X          | X      |
-| `libcrypt1`              | X          | X      |
-| `libcrypto3`             | X          |        |
-| `libcurl-openssl4`       | X          |        |
-| `libexpat1`              | X          | X      |
-| `libfontconfig1`         | X          | X      |
-| `libnghttp2-14`          | X          |        |
-| `libpcre2-8-0`           | X          |        |
-| `libpng`                 | X          | X      |
-| `libssl3`                | X          |        |
-| `ncurses`                | X          | X      |
-| `ncurses-terminfo-base`  | X          | X      |
-| `openjdk-17-default-jvm` | X          | X      |
-| `openjdk-17-jre`         | X          | X      |
-| `openjdk-17-jre-base`    | X          | X      |
-| `openssl-config`         | X          |        |
-| `wolfi-baselayout`       | X          | X      |
-| `zlib`                   | X          | X      |
-| `zookeeper`              | X          | X      |
+|                                | latest-dev | latest |
+|--------------------------------|------------|--------|
+| `apk-tools`                    | X          |        |
+| `bash`                         | X          | X      |
+| `busybox`                      | X          | X      |
+| `ca-certificates-bundle`       | X          | X      |
+| `fontconfig-config`            | X          | X      |
+| `freetype`                     | X          | X      |
+| `git`                          | X          |        |
+| `glibc`                        | X          | X      |
+| `glibc-locale-en`              | X          | X      |
+| `glibc-locale-posix`           | X          | X      |
+| `java-cacerts`                 | X          | X      |
+| `java-common`                  | X          | X      |
+| `ld-linux`                     | X          | X      |
+| `libbrotlicommon1`             | X          | X      |
+| `libbrotlidec1`                | X          | X      |
+| `libbz2-1`                     | X          | X      |
+| `libcrypt1`                    | X          | X      |
+| `libcrypto3`                   | X          |        |
+| `libcurl-openssl4`             | X          |        |
+| `libexpat1`                    | X          | X      |
+| `libfontconfig1`               | X          | X      |
+| `libgcrypt`                    | X          | X      |
+| `libgpg-error`                 | X          | X      |
+| `libnghttp2-14`                | X          |        |
+| `libpcre2-8-0`                 | X          |        |
+| `libpng`                       | X          | X      |
+| `libssl3`                      | X          |        |
+| `libxml2`                      | X          | X      |
+| `libxslt`                      | X          | X      |
+| `ncurses`                      | X          | X      |
+| `ncurses-terminfo-base`        | X          | X      |
+| `openjdk-17-default-jvm`       | X          | X      |
+| `openjdk-17-jre`               | X          | X      |
+| `openjdk-17-jre-base`          | X          | X      |
+| `openssl-config`               | X          |        |
+| `wolfi-baselayout`             | X          | X      |
+| `xmlstarlet`                   | X          | X      |
+| `xz`                           | X          | X      |
+| `zlib`                         | X          | X      |
+| `zookeeper-3.9`                | X          |        |
+| `zookeeper-bitnami-3.9-compat` | X          |        |
+| `zookeeper-3.8`                |            | X      |
+| `zookeeper-bitnami-3.8-compat` |            | X      |
 
