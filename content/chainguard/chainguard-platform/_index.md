@@ -1,13 +1,13 @@
 ---
-title: "Chainguard IAM and Groups"
+title: "Platform"
 lead: ""
-description: "Chainguard Enforce Documentation"
+description: "Documentation relating to the broader Chainguard Platform"
 type: "article"
 date: 2020-10-06T08:48:45+00:00
 lastmod: 2020-10-06T08:48:45+00:00
 draft: false
 images: []
-weight: 050
+weight: 075
 topic: true
 banner: {
     image: "/icon-article.svg",
