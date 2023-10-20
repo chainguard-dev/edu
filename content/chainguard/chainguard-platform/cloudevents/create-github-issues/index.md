@@ -14,6 +14,10 @@ weight: 10
 toc: true
 ---
 
+* Could these CloudEvent docs be edited to make them more generic?
+    * Might make more sense to just create a doc to go under Images on using chainctl for image pull notifications?
+
+
 > _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 Chainguard Enforce for Kubernetes can send CloudEvents as webhook requests that you can subscribe to and use to do things like generate alerts, create GitHub issues, post messages to Slack channels, and more. This tutorial is meant to serve as a companion to the [Enforce Events github-issue-opener](https://github.com/chainguard-dev/enforce-events/tree/main/github-issue-opener) example application. It will guide you through creating and deploying a Google Cloud Run service that will open new GitHub issues for any Enforce policy violation event.
