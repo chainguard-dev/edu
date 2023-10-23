@@ -47,7 +47,7 @@ The table shows package distribution across variants.
 |-------------------------------|------------|--------|
 | `apk-tools`                   | X          |        |
 | `bash`                        | X          | X      |
-| `busybox`                     | X          |        |
+| `busybox`                     | X          | X      |
 | `ca-certificates-bundle`      | X          | X      |
 | `dynamic-localpv-provisioner` | X          | X      |
 | `git`                         | X          |        |
@@ -59,7 +59,7 @@ The table shows package distribution across variants.
 | `libbrotlicommon1`            | X          |        |
 | `libbrotlidec1`               | X          |        |
 | `libbz2-1`                    | X          | X      |
-| `libcrypt1`                   | X          |        |
+| `libcrypt1`                   | X          | X      |
 | `libcrypto3`                  | X          |        |
 | `libcurl-openssl4`            | X          |        |
 | `libelf`                      | X          | X      |

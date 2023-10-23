@@ -44,6 +44,7 @@ The table shows package distribution across variants.
 
 |                          | latest |
 |--------------------------|--------|
+| `bash`                   | X      |
 | `busybox`                | X      |
 | `ca-certificates-bundle` | X      |
 | `dataplaneapi`           | X      |
@@ -58,6 +59,9 @@ The table shows package distribution across variants.
 | `libpcre2-8-0`           | X      |
 | `libpcre2-posix-3`       | X      |
 | `libssl3`                | X      |
+| `ncurses`                | X      |
+| `ncurses-terminfo-base`  | X      |
 | `openssl-config`         | X      |
+| `posix-libc-utils`       | X      |
 | `wolfi-baselayout`       | X      |
 
