@@ -84,8 +84,6 @@ The table shows package distribution across variants.
 | `xmlstarlet`                   | X          | X      |
 | `xz`                           | X          | X      |
 | `zlib`                         | X          | X      |
-| `zookeeper-3.9`                | X          |        |
-| `zookeeper-bitnami-3.9-compat` | X          |        |
-| `zookeeper-3.8`                |            | X      |
-| `zookeeper-bitnami-3.8-compat` |            | X      |
+| `zookeeper-3.9`                | X          | X      |
+| `zookeeper-bitnami-3.9-compat` | X          | X      |
 
