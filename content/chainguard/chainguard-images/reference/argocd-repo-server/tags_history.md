@@ -23,8 +23,7 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | October 18th | `sha256:6e009987f0e39de74e33cb1510df4fc34b8498f628d8551603562d01e22466f8` |
-|  `latest`     | October 18th | `sha256:daf18ca4ed4fc403b01118920eeca896fa3d50a8bb75d09b20bae0023e536f8f` |
+| Tag (s)                | Last Changed | Digest                                                                    |
+|------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `latest-dev` | October 22nd | `sha256:aa638966adb94a171c5f1fb711e6919e16689f2c630b87559af3590f45e4870c` |
 
