@@ -49,10 +49,13 @@ The table shows package distribution across variants.
 | `bash`                              | X          | X      |
 | `busybox`                           | X          | X      |
 | `ca-certificates-bundle`            | X          | X      |
+| `coreutils`                         | X          | X      |
 | `git`                               | X          |        |
 | `glibc`                             | X          | X      |
 | `glibc-locale-posix`                | X          | X      |
 | `ld-linux`                          | X          | X      |
+| `libacl1`                           | X          | X      |
+| `libattr1`                          | X          | X      |
 | `libbrotlicommon1`                  | X          |        |
 | `libbrotlidec1`                     | X          |        |
 | `libcrypt1`                         | X          | X      |
@@ -72,6 +75,7 @@ The table shows package distribution across variants.
 | `redis-7.2`                         | X          | X      |
 | `redis-cli-7.2`                     | X          | X      |
 | `redis-sentinel-7.2-bitnami-compat` | X          | X      |
+| `wait-for-port`                     | X          | X      |
 | `wolfi-baselayout`                  | X          | X      |
 | `zlib`                              | X          |        |
 
