@@ -1,5 +1,5 @@
 ---
-date: 2023-10-18T20:04:31Z
+date: 2023-10-21T00:08:01Z
 title: "chainctl clusters discover"
 slug: chainctl_clusters_discover
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_discover/
