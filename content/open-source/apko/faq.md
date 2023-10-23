@@ -4,14 +4,14 @@ type: "article"
 lead: "Frequently asked questions about apko"
 description: "Frequently asked questions about apko"
 date: 2022-10-10T11:07:52+02:00
-lastmod: 2022-10-10T11:07:52+02:00
+lastmod: 2023-10-23T11:07:52+02:00
 draft: false
 tags: ["apko", "FAQ",]
 images: []
 menu:
   docs:
     parent: "apko"
-weight: 900
+weight: 50
 toc: true
 ---
 
