@@ -1,5 +1,5 @@
 ---
-date: 2023-10-18T20:04:31Z
+date: 2023-10-21T00:08:01Z
 title: "chainctl iam identities create"
 slug: chainctl_iam_identities_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/
@@ -14,7 +14,7 @@ toc: true
 Create a new identity.
 
 ```
-chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | --identity-issuer-pattern=PAT} {--subject=SUB | --subject-pattern=PAT} [--audience=AUD | --audience-pattern=PAT] | --identity-issuer=ISS --issuer-keys=KEYS --subject=SUB [--expiration=yyyy-mm-dd]} [--group=GROUP] [--description=DESC] [--role=ROLE] [--output id|table|json]
+chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | --identity-issuer-pattern=PAT} {--subject=SUB | --subject-pattern=PAT} [--audience=AUD | --audience-pattern=PAT] [--claim-pattern=claim:pattern,claim:pattern...] | --identity-issuer=ISS --issuer-keys=KEYS --subject=SUB [--expiration=yyyy-mm-dd]} [--group=GROUP] [--description=DESC] [--role=ROLE] [--output id|table|json]
 ```
 
 ### Examples
@@ -38,7 +38,7 @@ chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | 
 ```
       --audience string                  The audience of the identity (optional).
       --audience-pattern string          A pattern to match the audience of the identity (optional).
-      --claim_pattern stringArray        A comma-separated list of claim:pattern pairs of custom claims to match for this identity (optional).
+      --claim-pattern stringArray        A comma-separated list of claim:pattern pairs of custom claims to match for this identity (optional).
   -d, --description string               The description of the resource.
       --expiration string                The time when the issuer_keys will expire. Defaults to / Maximum of 30 days after creation time (yyyy-mm-dd).
   -f, --filename string                  A file that contains the identity definition, in either YAML or JSON.
