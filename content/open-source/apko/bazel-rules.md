@@ -62,7 +62,7 @@ To install v1.0.0, you can follow one of the options below. For other releases, 
 bazel_dep(name = "rules_apko", version = "1.0.0-rc1")
 ```
 
-## Using WORKSPACE
+### Using WORKSPACE
 
 Paste this snippet into your file:
 
