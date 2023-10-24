@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev          | latest              |
 |--------------|---------------------|---------------------|
-| Default User | `telegraf`          | `telegraf`          |
+| Default User | `nonroot`           | `nonroot`           |
 | Entrypoint   | `/usr/bin/telegraf` | `/usr/bin/telegraf` |
 | CMD          | not specified       | not specified       |
 | Workdir      | not specified       | not specified       |

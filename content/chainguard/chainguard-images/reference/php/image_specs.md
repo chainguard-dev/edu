@@ -45,52 +45,64 @@ Check the [tags history page](/chainguard/chainguard-images/reference/php/tags_h
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest-dev | latest-fpm-dev | latest-fpm | latest |
-|--------------------------|------------|----------------|------------|--------|
-| `apk-tools`              | X          | X              |            |        |
-| `bash`                   | X          | X              |            |        |
-| `busybox`                | X          | X              |            |        |
-| `ca-certificates`        | X          | X              | X          | X      |
-| `ca-certificates-bundle` | X          | X              | X          | X      |
-| `composer`               | X          | X              |            |        |
-| `curl`                   | X          | X              | X          | X      |
-| `git`                    | X          | X              |            |        |
-| `glibc`                  | X          | X              | X          | X      |
-| `glibc-locale-posix`     | X          | X              | X          | X      |
-| `ld-linux`               | X          | X              | X          | X      |
-| `libbrotlicommon1`       | X          | X              | X          | X      |
-| `libbrotlidec1`          | X          | X              | X          | X      |
-| `libcrypt1`              | X          | X              |            |        |
-| `libcrypto3`             | X          | X              | X          | X      |
-| `libcurl-openssl4`       | X          | X              | X          | X      |
-| `libexpat1`              | X          | X              |            |        |
-| `libnghttp2-14`          | X          | X              | X          | X      |
-| `libpcre2-8-0`           | X          | X              |            |        |
-| `libsodium`              | X          | X              | X          | X      |
-| `libssl3`                | X          | X              | X          | X      |
-| `libxml2`                | X          | X              | X          | X      |
-| `ncurses`                | X          | X              | X          | X      |
-| `ncurses-terminfo-base`  | X          | X              | X          | X      |
-| `oniguruma`              | X          | X              | X          | X      |
-| `openssl-config`         | X          | X              | X          | X      |
-| `php-8.2`                | X          | X              | X          | X      |
-| `php-8.2-curl`           | X          | X              | X          | X      |
-| `php-8.2-iconv`          | X          | X              | X          | X      |
-| `php-8.2-mbstring`       | X          | X              | X          | X      |
-| `php-8.2-mysqlnd`        | X          | X              | X          | X      |
-| `php-8.2-openssl`        | X          | X              | X          | X      |
-| `php-8.2-pdo`            | X          | X              | X          | X      |
-| `php-8.2-pdo_mysql`      | X          | X              | X          | X      |
-| `php-8.2-pdo_sqlite`     | X          | X              | X          | X      |
-| `php-8.2-phar`           | X          | X              | X          | X      |
-| `php-8.2-sodium`         | X          | X              | X          | X      |
-| `readline`               | X          | X              | X          | X      |
-| `sqlite-libs`            | X          | X              | X          | X      |
-| `wolfi-baselayout`       | X          | X              | X          | X      |
-| `xz`                     | X          | X              | X          | X      |
-| `zlib`                   | X          | X              | X          | X      |
-| `execline`               |            | X              | X          |        |
-| `php-8.2-fpm`            |            | X              | X          |        |
-| `s6`                     |            | X              | X          |        |
-| `skalibs`                |            | X              | X          |        |
+|                             | latest-dev | latest-fpm-dev | latest-fpm | latest |
+|-----------------------------|------------|----------------|------------|--------|
+| `apk-tools`                 | X          | X              |            |        |
+| `bash`                      | X          | X              |            |        |
+| `busybox`                   | X          | X              |            |        |
+| `ca-certificates`           | X          | X              | X          | X      |
+| `ca-certificates-bundle`    | X          | X              | X          | X      |
+| `composer`                  | X          | X              |            |        |
+| `curl`                      | X          | X              | X          | X      |
+| `git`                       | X          | X              |            |        |
+| `glibc`                     | X          | X              | X          | X      |
+| `glibc-locale-posix`        | X          | X              | X          | X      |
+| `ld-linux`                  | X          | X              | X          | X      |
+| `libbrotlicommon1`          | X          | X              | X          | X      |
+| `libbrotlidec1`             | X          | X              | X          | X      |
+| `libcrypt1`                 | X          | X              |            |        |
+| `libcrypto3`                | X          | X              | X          | X      |
+| `libcurl-openssl4`          | X          | X              | X          | X      |
+| `libexpat1`                 | X          | X              |            |        |
+| `libnghttp2-14`             | X          | X              | X          | X      |
+| `libpcre2-8-0`              | X          | X              |            |        |
+| `libsodium`                 | X          | X              | X          | X      |
+| `libssl3`                   | X          | X              | X          | X      |
+| `libxml2`                   | X          | X              | X          | X      |
+| `ncurses`                   | X          | X              | X          | X      |
+| `ncurses-terminfo-base`     | X          | X              | X          | X      |
+| `oniguruma`                 | X          | X              | X          | X      |
+| `openssl-config`            | X          | X              | X          | X      |
+| `php-8.2`                   | X          | X              | X          | X      |
+| `php-8.2-config`            | X          | X              | X          | X      |
+| `php-8.2-curl`              | X          | X              | X          | X      |
+| `php-8.2-curl-config`       | X          | X              | X          | X      |
+| `php-8.2-iconv`             | X          | X              | X          | X      |
+| `php-8.2-iconv-config`      | X          | X              | X          | X      |
+| `php-8.2-mbstring`          | X          | X              | X          | X      |
+| `php-8.2-mbstring-config`   | X          | X              | X          | X      |
+| `php-8.2-mysqlnd`           | X          | X              | X          | X      |
+| `php-8.2-mysqlnd-config`    | X          | X              | X          | X      |
+| `php-8.2-openssl`           | X          | X              | X          | X      |
+| `php-8.2-openssl-config`    | X          | X              | X          | X      |
+| `php-8.2-pdo`               | X          | X              | X          | X      |
+| `php-8.2-pdo-config`        | X          | X              | X          | X      |
+| `php-8.2-pdo_mysql`         | X          | X              | X          | X      |
+| `php-8.2-pdo_mysql-config`  | X          | X              | X          | X      |
+| `php-8.2-pdo_sqlite`        | X          | X              | X          | X      |
+| `php-8.2-pdo_sqlite-config` | X          | X              | X          | X      |
+| `php-8.2-phar`              | X          | X              | X          | X      |
+| `php-8.2-phar-config`       | X          | X              | X          | X      |
+| `php-8.2-sodium`            | X          | X              | X          | X      |
+| `php-8.2-sodium-config`     | X          | X              | X          | X      |
+| `readline`                  | X          | X              | X          | X      |
+| `sqlite-libs`               | X          | X              | X          | X      |
+| `wolfi-baselayout`          | X          | X              | X          | X      |
+| `xz`                        | X          | X              | X          | X      |
+| `zlib`                      | X          | X              | X          | X      |
+| `execline`                  |            | X              | X          |        |
+| `php-8.2-fpm`               |            | X              | X          |        |
+| `php-8.2-fpm-config`        |            | X              | X          |        |
+| `s6`                        |            | X              | X          |        |
+| `skalibs`                   |            | X              | X          |        |
 
