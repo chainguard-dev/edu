@@ -22,41 +22,55 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **fluent-bit** Image.
 
 ## Variants Compared
-The **fluent-bit** Chainguard Image currently has one public variant: 
+The **fluent-bit** Chainguard Image currently has 2 public variants: 
 
+- `latest-dev`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest                               |
-|--------------|--------------------------------------|
-| Default User | `nonroot`                            |
-| Entrypoint   | `/usr/bin/fluent-bit`                |
-| CMD          | `-c /fluent-bit/etc/fluent-bit.conf` |
-| Workdir      | not specified                        |
-| Has apk?     | no                                   |
-| Has a shell? | no                                   |
+|              | latest-dev                                 | latest                                     |
+|--------------|--------------------------------------------|--------------------------------------------|
+| Default User | `root`                                     | `root`                                     |
+| Entrypoint   | `/usr/bin/fluent-bit`                      | `/usr/bin/fluent-bit`                      |
+| CMD          | `--config=/fluent-bit/etc/fluent-bit.conf` | `--config=/fluent-bit/etc/fluent-bit.conf` |
+| Workdir      | not specified                              | not specified                              |
+| Has apk?     | yes                                        | no                                         |
+| Has a shell? | yes                                        | no                                         |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/fluent-bit/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `ca-certificates-bundle` | X      |
-| `fluent-bit`             | X      |
-| `glibc`                  | X      |
-| `glibc-locale-posix`     | X      |
-| `ld-linux`               | X      |
-| `libcap`                 | X      |
-| `libcrypto3`             | X      |
-| `libgcc`                 | X      |
-| `libpq-11`               | X      |
-| `libssl3`                | X      |
-| `libsystemd`             | X      |
-| `openssl-config`         | X      |
-| `wolfi-baselayout`       | X      |
-| `yaml`                   | X      |
-| `zlib`                   | X      |
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `busybox`                | X          |        |
+| `ca-certificates-bundle` | X          | X      |
+| `fluent-bit`             | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
+| `libcap`                 | X          | X      |
+| `libcrypt1`              | X          |        |
+| `libcrypto3`             | X          | X      |
+| `libcurl-openssl4`       | X          |        |
+| `libexpat1`              | X          |        |
+| `libgcc`                 | X          | X      |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libpq-11`               | X          | X      |
+| `libssl3`                | X          | X      |
+| `libsystemd`             | X          | X      |
+| `ncurses`                | X          |        |
+| `ncurses-terminfo-base`  | X          |        |
+| `openssl-config`         | X          | X      |
+| `wolfi-baselayout`       | X          | X      |
+| `yaml`                   | X          | X      |
+| `zlib`                   | X          | X      |
 

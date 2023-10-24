@@ -28,14 +28,14 @@ The **haproxy** Chainguard Image currently has one public variant:
 
 The table has detailed information about each of these variants.
 
-|              | latest                                |
-|--------------|---------------------------------------|
-| Default User | `haproxy`                             |
-| Entrypoint   | `/usr/local/bin/docker-entrypoint.sh` |
-| CMD          | not specified                         |
-| Workdir      | not specified                         |
-| Has apk?     | no                                    |
-| Has a shell? | yes                                   |
+|              | latest                                          |
+|--------------|-------------------------------------------------|
+| Default User | `haproxy`                                       |
+| Entrypoint   | `/usr/local/bin/docker-entrypoint.sh`           |
+| CMD          | `haproxy -f /usr/local/etc/haproxy/haproxy.cfg` |
+| Workdir      | not specified                                   |
+| Has apk?     | no                                              |
+| Has a shell? | yes                                             |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/haproxy/tags_history/) for the full list of available tags.
 

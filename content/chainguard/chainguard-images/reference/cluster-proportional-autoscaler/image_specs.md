@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev                                 | latest                                     |
 |--------------|--------------------------------------------|--------------------------------------------|
-| Default User | `cluster-proportional-autoscaler`          | `cluster-proportional-autoscaler`          |
+| Default User | `nonroot`                                  | `nonroot`                                  |
 | Entrypoint   | `/usr/bin/cluster-proportional-autoscaler` | `/usr/bin/cluster-proportional-autoscaler` |
 | CMD          | not specified                              | not specified                              |
 | Workdir      | not specified                              | not specified                              |
