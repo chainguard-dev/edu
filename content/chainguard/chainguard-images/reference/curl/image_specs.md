@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev      | latest          |
 |--------------|-----------------|-----------------|
-| Default User | `curl`          | `curl`          |
+| Default User | `nonroot`       | `nonroot`       |
 | Entrypoint   | `/usr/bin/curl` | `/usr/bin/curl` |
 | CMD          | not specified   | not specified   |
 | Workdir      | not specified   | not specified   |
