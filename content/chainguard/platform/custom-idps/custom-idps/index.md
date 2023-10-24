@@ -9,12 +9,12 @@ lastmod: 2023-08-15T08:48:45+00:00
 draft: false
 tags: ["Enforce", "Chainguard Images", "Overview"]
 images: []
-weight: 010
+weight: 030
 ---
 
 > _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
-The Chainguard Enforce platform supports Single Sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication. This is helpful when your organization mandates using a corporate identity provider — like Okta or Azure Active Directory — to authenticate to SaaS products.
+The Chainguard platform supports Single Sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication. This is helpful when your organization mandates using a corporate identity provider — like Okta or Azure Active Directory — to authenticate to SaaS products.
 
 ## Usage
 
@@ -73,9 +73,9 @@ defaults:
 
 To learn more about working with your `chainctl` config, you can read our doc on  [How to Manage chainctl Configuration](/chainguard/chainguard-enforce/manage-chainctl-config/).
 
-### Authenticate with the Chainguard Enforce Console
+### Authenticate with the Chainguard Console
 
-To authenticate with the Chainguard Enforce Consle using SSO, click the **Use your identity provider** link on the login page.
+To authenticate with the Chainguard Consle using SSO, click the **Use your identity provider** link on the login page.
 
 ![Screenshot showing an example Chainguard login page, with a yellow ellipse around the "Use your identity provider" link.](chainguard-sign-in.gif)
 
@@ -109,7 +109,7 @@ If your identity provider is Okta, Ping Identity or Azure Active Directory, we�
 * [Ping Identity](/chainguard/chainguard-enforce/authentication/example-idps/ping-id/)
 * [Azure Active Directory](/chainguard/chainguard-enforce/authentication/example-idps/azure-ad/)
 
-If you aren't using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard Enforce. However, be aware that Chainguard does not actively support identity providers other than the ones listed previously. If you are using an alternate identity provider, we encourage you to [contact us](https://www.chainguard.dev/contact?utm_source=docs) to learn more.
+If you aren't using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard. However, be aware that Chainguard does not actively support identity providers other than the ones listed previously. If you are using an alternate identity provider, we encourage you to [contact us](https://www.chainguard.dev/contact?utm_source=docs) to learn more.
 
 
 ### Generic Integration Guide
@@ -120,7 +120,7 @@ For a generic OIDC-compatible identity provider, start by creating an OIDC appli
 * Our terms of service can be found at [chainguard.dev/terms-of-service](https://www.chainguard.dev/terms-of-service)
 * Our terms of use can be found at [chainguard.dev/terms-of-use](https://www.chainguard.dev/terms-of-use)
 * Our privacy policy is located at [chainguard.dev/privacy-notice](https://www.chainguard.dev/privacy-notice)
-* You can also add a Chainguard logo icon here to help your users visually identify this integration. The icon from the [Chainguard Enforce Console](https://console.enforce.dev/logo512.png) will be suitable for most platforms.
+* You can also add a Chainguard logo icon here to help your users visually identify this integration. The icon from the [Chainguard Console](https://console.enforce.dev/logo512.png) will be suitable for most platforms.
 
 Next, configure your OIDC application as follows:
 
