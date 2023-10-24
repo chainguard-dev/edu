@@ -3,7 +3,7 @@ title: "Bazel Rules for apko"
 linktitle: "Bazel Rules"
 type: "article"
 lead: "Build secure, minimal Wolfi-based container images using Bazel"
-description: "Quickstart to get apko up and running"
+description: "Build secure, minimal Wolfi-based container images using Bazel"
 date: 2023-10-23T08:49:31+00:00
 lastmod: 2023-10-23T16:49:31+00:00
 draft: false
