@@ -25,10 +25,10 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)              | Last Changed   | Digest                                                                    |
 |----------------------|----------------|---------------------------------------------------------------------------|
-|  `latest`            | October 22nd   | `sha256:b6eb2f1c9b003ee669503c96d6da5abd29b2d4a731e532b34d63fb0dd05f7a59` |
-|  `latest-dev`        | October 22nd   | `sha256:58db4c3c67a6bdcc5ccd6b0d478fe0c0a33e0aca498b2988dfe5df3866f79148` |
-|  `latest-splunk-dev` | October 22nd   | `sha256:48f290477d4241da030bda01604ff49f810ea3884eb6d9414bfa2c26a90a82b9` |
-|  `latest-splunk`     | October 22nd   | `sha256:9dfeb284b5942b3f56e630ccec99c809a0dbbd56e312443baaeef7211442cd07` |
+|  `latest`            | October 24th   | `sha256:d42bed1ae0b7f95a44a14d036889f5a3055fbe853ab9941d3a2783c5678da18e` |
+|  `latest-dev`        | October 24th   | `sha256:3e6f6c6c36525880b8798d9c9638982978dac68c92e3bd8683ffb10446ad294c` |
+|  `latest-splunk-dev` | October 24th   | `sha256:2374951c1730610e6225dbe5b10de51299d0c1b0fc9c58d607c281b6cdce31ba` |
+|  `latest-splunk`     | October 24th   | `sha256:f4c5a844dedc39e5ff8c4b025d4ac59a7dc32fbe9e0614a46d643745bc36431b` |
 |  `edge-dev`          | September 29th | `sha256:092dc09a5f24342d65171d4cfd3c473030ffdb9257f991a23c56cc0bd3591e60` |
 |  `edge`              | September 29th | `sha256:3e90a70f5e3ae94e0ad95c5702218e88eb6a2e89f3a68eaced442c0300da42f8` |
 
