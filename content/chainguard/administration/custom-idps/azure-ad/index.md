@@ -1,5 +1,5 @@
 ---
-title : "How To Integrate Azure Active Directory SSO with Chainguard Enforce"
+title : "How To Integrate Azure Active Directory SSO with Chainguard"
 linktitle: "Azure Active Directory"
 lead: ""
 description: "Procedural tutorial on how to register an Azure Active Directory Application"
@@ -12,11 +12,9 @@ images: []
 weight: 015
 ---
 
-> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
-
 The Chainguard platform supports Single sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication. 
 
-This guide outlines how to create an Azure Active Directory (AD) Application and integrate it with Chainguard Enforce. After completing this guide, you'll be able to log in to Chainguard Enforce using Azure AD and will no longer be limited to the default SSO options.
+This guide outlines how to create an Azure Active Directory (AD) Application and integrate it with Chainguard. After completing this guide, you'll be able to log in to Chainguard using Azure AD and will no longer be limited to the default SSO options.
 
 
 ## Prerequisites
@@ -49,7 +47,7 @@ Save your configuration by clicking the **Register** button.
 
 Next, you can optionally set additional branding for the application by selecting the **Branding and properties** tab.
 
-There, you can set additional metadata for the application, including a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Enforce Console](https://console.enforce.dev/logo512.png). The console homepage is [console.enforce.dev](https://console.enforce.dev), and our terms of service and private statements can be found at [chainguard.dev/terms-of-service](https://www.chainguard.dev/terms-of-service) and [chainguard.dev/privacy-notice](https://www.chainguard.dev/privacy-notice), respectively. 
+There, you can set additional metadata for the application, including a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Console](https://console.enforce.dev/logo512.png). The console homepage is [console.enforce.dev](https://console.enforce.dev), and our terms of service and private statements can be found at [chainguard.dev/terms-of-service](https://www.chainguard.dev/terms-of-service) and [chainguard.dev/privacy-notice](https://www.chainguard.dev/privacy-notice), respectively. 
 
 ![Screenshot of the Branding & properties screen with the following settings: Name is set to "Chainguard"; Logo shows the sample Inky logo uploaded; Home page URL is set to "https://console.enforce.dev"; Terms of service URL is set to "https://www.chainguard.dev/terms-of-service"; and the Privacy statement URL is set to "https://www.chainguard.dev/privacy-notice".](aad-branding.png)
 

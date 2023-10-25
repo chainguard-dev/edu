@@ -4,8 +4,8 @@ linktitle: "IAM Overview"
 aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/overview-of-enforce-iam-model/
 type: "article"
-description: "Chainguard Enforce Identity and Access Management"
-lead: "Chainguard Enforce Identity and Access Management"
+description: "Chainguard Identity and Access Management"
+lead: "Chainguard Identity and Access Management"
 date: 2022-15-07T15:22:20+01:00
 lastmod: 2022-15-07T15:22:20+01:00
 draft: false
@@ -13,16 +13,10 @@ tags: ["Enforce", "Product", "Reference"]
 images: []
 menu:
   docs:
-    parent: "platform"
+    parent: "iam-groups"
 weight: 005
 toc: true
 ---
-
-* This article is thankfully short but i think it will need to be tweaked and expanded to fit a useful overview of all of Chainguard's IAM features
-    * ex: highlight some more how we want users to think about groups
-        * "## Organizations, groups, and users"
-        * that is if we actually have users
-    * ex: get rid of agentless role info (agentless doesn't show up in the `iam role list` command output)
 
 Chainguard provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. Once authenticated, you can set up a desired structure for managing and delegating policies.
 

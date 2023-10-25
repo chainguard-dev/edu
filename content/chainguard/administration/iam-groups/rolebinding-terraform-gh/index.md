@@ -15,11 +15,11 @@ weight: 050
 * is it superceded by user management at scale work?
 
 
-There may be cases where an organization will want multiple users to have access to the same Chainguard organization. Chainguard allows you to grant other users access to Enforce by [generating an invite link or code](/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/#inviting-others-to-a-group).
+There may be cases where an organization will want multiple users to have access to the same Chainguard organization. Chainguard allows you to grant other users access to Chainguard by [generating an invite link or code](/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/#inviting-others-to-a-group).
 
-In addition, you can now grant access to users using Terraform and identity providers like GitHub, GitLab, and Google. You can also manage access through these providers' existing group structures, like GitHub Teams or GitLab Groups. Granting access through Terraform helps to reduce the risk of unwanted users gaining access to Enforce.
+In addition, you can now grant access to users using Terraform and identity providers like GitHub, GitLab, and Google. You can also manage access through these providers' existing group structures, like GitHub Teams or GitLab Groups. Granting access through Terraform helps to reduce the risk of unwanted users gaining access to Chainguard.
 
-This guide outlines one method of using Terraform to grant members of a GitHub team access to the resources managed by a Chainguard Enforce group. It also highlights a few other Terraform configurations you can use to manage rolebindings in the Chainguard platform. Although this guide is specific to GitHub, the same approach can be used for other systems.
+This guide outlines one method of using Terraform to grant members of a GitHub team access to the resources managed by a Chainguard group. It also highlights a few other Terraform configurations you can use to manage rolebindings in the Chainguard platform. Although this guide is specific to GitHub, the same approach can be used for other systems.
 
 
 ## Prerequisites
@@ -27,7 +27,7 @@ This guide outlines one method of using Terraform to grant members of a GitHub t
 To complete this guide, you will need the following.
 
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
-* `chainctl` — the Chainguard Enforce command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
+* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
 * Access to a GitHub team. If you'd like, you can create a new GitHub organization and team for testing purposes. Check out [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/creating-a-team) for details on how to do this.
 * A GitHub Personal Access Token, with a minimum of **read.org** access. Follow [GitHub's documentation on the subject](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) to learn how to set one up. Additionally, you will need to [configure SSO for your personal access token](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) if required by your organization.
 
@@ -87,10 +87,10 @@ Following that, you will need to provide Terraform with your GitHub personal acc
 export GITHUB_TOKEN=<your GitHub token>
 ```
 
-Lastly, the Chainguard rolebindings that this guide's Terraform configuration will create must all be tied to a group. Create another variable named `CHAINGUARD_GROUP` with the following command, replacing `<UIDP of target Enforce IAM group>` with the UIDP of the Chainguard IAM group you want to tie the rolebindings to. You can find the UIDPs for all your Chainguard IAM groups by running `chainctl iam groups ls -o table`.
+Lastly, the Chainguard rolebindings that this guide's Terraform configuration will create must all be tied to a group. Create another variable named `CHAINGUARD_GROUP` with the following command, replacing `<UIDP of target Chainguard IAM group>` with the UIDP of the Chainguard IAM group you want to tie the rolebindings to. You can find the UIDPs for all your Chainguard IAM groups by running `chainctl iam groups ls -o table`.
 
 ```sh
-export CHAINGUARD_GROUP="<UIDP of target Enforce IAM group>"
+export CHAINGUARD_GROUP="<UIDP of target Chainguard IAM group>"
 ```
 
 Following that, you will have everything you need in place to set up the Terraform configuration.
@@ -330,7 +330,7 @@ There, they must click the **Continue with GitHub** button to continue logging i
 
 The Terraform configuration used in this guide is meant to serve as a starting point, and we encourage you to tweak and expand on it to suit your organization's needs. This section contains a few alternative configurations that you may find useful.
 
-For example, rather than applying the `viewer` role to your team's rolebindings, you can apply one of the other built-in roles, or any custom roles created in your Enforce installation. The following `data` and `resource` block examples could be used in place of the ones used in this guide's `rolebindings.tf` file. Instead of granting the identities the `viewer` role, this grants them the `editor` role.
+For example, rather than applying the `viewer` role to your team's rolebindings, you can apply one of the other built-in roles, or any custom roles created within your Chainguard organization. The following `data` and `resource` block examples could be used in place of the ones used in this guide's `rolebindings.tf` file. Instead of granting the identities the `viewer` role, this grants them the `editor` role.
 
 ```
 data "chainguard_roles" "editor" {

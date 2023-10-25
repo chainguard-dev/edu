@@ -4,7 +4,7 @@ linktitle: "Manage IAM Groups"
 aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-manage-iam-groups-in-chainguard-enforce/
 type: "article"
-description: "Understanding Identity and Access Management in Chainguard Enforce"
+description: "Understanding Identity and Access Management in Chainguard"
 date: 2022-07-15T15:22:20+01:00
 lastmod: 2023-08-09T15:22:20+01:00
 draft: false
@@ -17,18 +17,14 @@ weight: 010
 toc: true
 ---
 
-* this doc will require some minor changes to not be focused on Enforce
+Chainguard provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. Once authenticated, you can set up a desired structure for managing and delegating policies.
 
-> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
-
-Chainguard Enforce provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. Once authenticated, you can set up a desired structure for managing and delegating policies.
-
-Each Chainguard Policy needs to be associated with a **group**, and will be effective for that Group as well as all the groups descending from it. Each Cluster needs to be associated with a Group and will be enforced based on that group’s policies.
+Each Chainguard policy needs to be associated with a **group**, and will be effective for that group as well as all the groups descending from it. Each cluster needs to be associated with a group and will be enforced based on that group’s policies.
 
 
 ## Logging in
 
-To authenticate into the Chainguard Enforce platform, use the following login command.
+To authenticate into the Chainguard platform, use the following login command.
 
 ```sh
 chainctl auth login
@@ -38,7 +34,7 @@ A web browser window will open to prompt you to login via Google’s OIDC flow (
 
 ## Creating a Group
 
-Begin by creating an organization tied to the account you just used to authenticate to Chainguard Enforce.
+Begin by creating an organization tied to the account you just used to authenticate to Chainguard.
 
 ```sh
 chainctl iam groups create $NAME --no-parent
@@ -118,4 +114,4 @@ To invite team members, auditors, or others to your desired groups, securely dis
 chainctl auth login --invite-code $INVITE_CODE
 ```
 
-Chainguard Enforce’s IAM ensures that you can set up policies specific to certain groups, and also allows you to manage your users and what access they have.
+Chainguard’s IAM ensures that you can set up policies specific to certain groups, and also allows you to manage your users and what access they have.
