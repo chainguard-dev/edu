@@ -89,7 +89,7 @@ The table shows package distribution across variants.
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
 | `nghttp2`                | X          | X      |
-| `nodejs-18`              | X          | X      |
+| `nodejs-20`              | X          | X      |
 | `npm`                    | X          | X      |
 | `nss-db`                 | X          |        |
 | `nss-hesiod`             | X          |        |
