@@ -328,7 +328,18 @@ make[1]: Leaving directory '/home/erika/Projects/os'
 When the build is finished, you can find the newly built apk(s) in a `./packages` directory, in the root of your cloned Wolfi repository.
 
 ### When the build fails
-It is likely that your build won't work on the first run, and that is completely normal because there are many moving parts and hidden dependencies when building packages from source. Check the errors and iterate until you have a successful build. Use `set -x` before commands in your pipeline to get extended debug information:
+It is likely that your build won't work on the first run, and that is completely normal because there are many moving parts and hidden dependencies when building packages from source.
+
+In this scenario, it is often useful to check the build environment, which is preserved for debugging. The build output will inform you where to find these files in your development environment.
+
+```
+2023/10/25 15:37:27 ERROR: failed to build package. the build environment has been preserved:
+ℹ️  x86_64    |   workspace dir: /tmp/melange-workspace-4269468499
+ℹ️  x86_64    |   guest dir: /tmp/melange-guest-3734950176
+```
+The **workspace dir** is where you will find the `melange_out` directory, which contains the output of your package. The **guest dir** directory contains the filesystem of your build environment.
+
+Another useful strategy is to include `set -x` before commands in your pipeline, in order to get extended debug information.
 
 ```yaml
   - name: Install Composer
