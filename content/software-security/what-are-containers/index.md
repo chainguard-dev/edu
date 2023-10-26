@@ -43,7 +43,7 @@ Once you have selected or assembled a container image for your application, you 
 
 A container engine communicates with the kernel of the operating system it is being run on. Within a container engine, multiple containers run independently of each other. These containers are composed of the code, dependencies, and configurations of their parent images. The following graphic depicts this hierarchical relationship between containers and the container engine.
 
-<img src="container_image_model.png" alt="Containers run independently of each other on a container engine, the software that communicates with a host operating system kernel. Each container contains the application and dependencies it needs to run." width="400" />
+<img src="container_structure.png" alt="Containers run independently of each other on a container engine, the software that communicates with a host operating system kernel. Each container contains the application and dependencies it needs to run." width="400" class="center" />
 
 <!-- ![Containers run independently of each other on a container engine, the software that communicates with a host operating system kernel. Each container contains the application and dependencies it needs to run.](container_structure.png) -->
 <!-- Replace with a different, colored graphic later -->
