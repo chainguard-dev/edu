@@ -3405,6 +3405,20 @@
       },
       "type": "object"
     },
+    "DetectionDetectionTypeManual": {
+      "type": "object"
+    },
+    "DetectionDetectionTypeNVDAPI": {
+      "properties": {
+        "cpeFound": {
+          "type": "string"
+        },
+        "cpeSearched": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "FixState": {
       "default": "UNKNOWN",
       "enum": [
@@ -3741,6 +3755,12 @@
     },
     "advisoryAdvisory": {
       "properties": {
+        "aliases": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "events": {
           "items": {
             "$ref": "#/definitions/advisoryEvent"
@@ -3750,6 +3770,25 @@
         "id": {
           "description": "id is the identifier of this specific advisory.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryAnalysisNotPlanned": {
+      "properties": {
+        "note": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryDetection": {
+      "properties": {
+        "manual": {
+          "$ref": "#/definitions/DetectionDetectionTypeManual"
+        },
+        "nvdapi": {
+          "$ref": "#/definitions/DetectionDetectionTypeNVDAPI"
         }
       },
       "type": "object"
@@ -3781,26 +3820,80 @@
     },
     "advisoryEvent": {
       "properties": {
+        "analysisNotPlanned": {
+          "$ref": "#/definitions/advisoryAnalysisNotPlanned"
+        },
+        "detection": {
+          "$ref": "#/definitions/advisoryDetection"
+        },
+        "falsePositiveDetermination": {
+          "$ref": "#/definitions/advisoryFalsePositiveDetermination"
+        },
+        "fixNotPlanned": {
+          "$ref": "#/definitions/advisoryFixNotPlanned"
+        },
+        "fixed": {
+          "$ref": "#/definitions/advisoryFixed"
+        },
         "timestamp": {
           "format": "date-time",
           "type": "string"
         },
-        "type": {
-          "$ref": "#/definitions/advisoryEventType"
+        "truePositiveDetermination": {
+          "$ref": "#/definitions/advisoryTruePositiveDetermination"
         }
       },
       "type": "object"
     },
-    "advisoryEventType": {
-      "default": "EVENT_TYPE_UNSPECIFIED",
-      "description": " - EVENT_TYPE_UNSPECIFIED: The \"unset\" value.\n - TRUE_POSITIVE_DETERMINATION: The vulnerability is a true positive.\n - FALSE_POSITIVE_DETERMINATION: The vulnerability is a false positive.\n - FIXED: The vulnerability has been addressed.",
+    "advisoryFalsePositiveDetermination": {
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/advisoryFalsePositiveDeterminationType"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryFalsePositiveDeterminationType": {
+      "default": "FPT_TYPE_UNSPECIFIED",
+      "description": " - FPT_TYPE_UNSPECIFIED: The \"unset\" value.\n - FPT_TYPE_VULNERABILITY_RECORD_ANALYSIS_CONTESTED: VEX: vulnerable_code_not_present.\n - FPT_TYPE_COMPONENT_VULNERABILITY_MISMATCH: VEX: component_not_present.\n - FPT_TYPE_VULNERABLE_CODE_VERSION_NOT_USED: VEX: vulnerable_code_not_present.\n - FPT_TYPE_VULNERABLE_CODE_NOT_INCLUDED_IN_PACKAGE: VEX: vulnerable_code_not_present.\n - FPT_TYPE_VULNERABLE_CODE_NOT_IN_EXECUTION_PATH: VEX: vulnerable_code_not_in_execute_path.\n - FPT_TYPE_VULNERABLE_CODE_CANNOT_BE_CONTROLLED_BY_ADVERSARY: VEX: vulnerable_code_cannot_be_controlled_by_adversary.\n - FPT_TYPE_INLINE_MITIGATIONS_EXIST: VEX: inline_mitigations_already_exist.",
       "enum": [
-        "EVENT_TYPE_UNSPECIFIED",
-        "TRUE_POSITIVE_DETERMINATION",
-        "FALSE_POSITIVE_DETERMINATION",
-        "FIXED"
+        "FPT_TYPE_UNSPECIFIED",
+        "FPT_TYPE_VULNERABILITY_RECORD_ANALYSIS_CONTESTED",
+        "FPT_TYPE_COMPONENT_VULNERABILITY_MISMATCH",
+        "FPT_TYPE_VULNERABLE_CODE_VERSION_NOT_USED",
+        "FPT_TYPE_VULNERABLE_CODE_NOT_INCLUDED_IN_PACKAGE",
+        "FPT_TYPE_VULNERABLE_CODE_NOT_IN_EXECUTION_PATH",
+        "FPT_TYPE_VULNERABLE_CODE_CANNOT_BE_CONTROLLED_BY_ADVERSARY",
+        "FPT_TYPE_INLINE_MITIGATIONS_EXIST"
       ],
       "type": "string"
+    },
+    "advisoryFixNotPlanned": {
+      "properties": {
+        "note": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryFixed": {
+      "properties": {
+        "fixedVersion": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryTruePositiveDetermination": {
+      "properties": {
+        "note": {
+          "type": "string"
+        }
+      },
+      "type": "object"
     },
     "authRegistrationRequest": {
       "properties": {
