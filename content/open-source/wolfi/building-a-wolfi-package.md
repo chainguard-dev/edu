@@ -192,7 +192,7 @@ For example, this is how a step in the subpackages section would be written, usi
       - uses: split/dev
 ```
 
-**Looping with Ranges**
+### Looping with Ranges
 In some cases, you may find yourself repeating the same task over and over with just a couple different values (such as package names). In such scenarios, you can define a range of data that you can "loop" through in a step. For example, let's have a look at how the PHP package uses this feature to create its subpackages.
 
 First, we define an `extensions` range. This should go on a `data` node at the same level as the `pipelines` section of your YAML:
@@ -260,43 +260,86 @@ update:
     strip-prefix: v
     tag-filter: v
 ```
-Again, this section is only required when submitting the package to Wolfi.
+Again, this section is only required when submitting the package to Wolfi. For more details about Wolfi's automated package updates, check [the official docs](https://github.com/wolfi-dev/os/blob/main/docs/UPDATES.md) on the subject.
 
-## Building the Packages
-When you feel your YAML is good to run, it's time to build the packages with melange. In this guide we'll use Docker to execute melange in a local environment. The procedure is explained in more detail in our [Getting Started with melange](https://edu.chainguard.dev/open-source/melange/tutorials/getting-started-with-melange/) tutorial.
+## Building Packages
+When you feel your YAML is good for a first run, it's time to build the package with melange. In this guide we'll use Docker to execute melange in a local environment, using [Wolfi's SDK](https://github.com/wolfi-dev/tools/pkgs/container/sdk) image. This image contains everything you need to build Wolfi packages with melange and Wolfi-based images with apko.
 
-First, you'll need to generate a melange key. This is required to sign the apks, and the same key will need to be used when installing these packages in an image with apko.
+The procedure to build apk packages with melange is explained in more detail in our [Getting Started with melange](https://edu.chainguard.dev/open-source/melange/tutorials/getting-started-with-melange/) tutorial.
 
-Make sure you have an updated version of the melange image:
+### Setting Up a Local Development Environment
 
-```shell
-docker pull cgr.dev/chainguard/melange
-```
-
-Then, run the following command to generate the key:
+Start by cloning the [Wolfi-os](https://github.com/wolfi-dev/os) repository to your local machine. If you plan on sending a pull request to Wolfi later, you may want to create a fork now and clone your fork instead.
 
 ```shell
-docker run --rm -v "${PWD}":/work cgr.dev/chainguard/melange keygen
+git clone https://github.com/wolfi-dev/os.git
 ```
 
-Once you have the key, you can run the `build` command. A few explanations before you hit the keyboard:
-
-- **Building as root:** building packages require you to run melange as root, meaning you must include the `--privileged` parameter.
-- **Volumes:** here we set up **two** volumes: the current folder is shared with the /work location in the container, so that the packages generated will be available in your local system at the ./packages location. The second volume shares the `/tmp/melange_out` location in the container with your `/tmp` folder, so that you can have access to melange's working files even when the build fails. This helps a lot with debugging.
-- **Architecture:** limit the build to your own system's architecture while you are developing the package, this will make the build faster and avoid issues.
-- **Signing key:** remember this key will be required later as well, when you install the package in a container image using apko.
-
-Here is the full command:
+From the root of the project, run the following command to build your Docker-based development environment:
 
 ```shell
-docker run --privileged --rm -v "${PWD}":/work -v /tmp/melange_out:/tmp \
-  cgr.dev/chainguard/melange build my-package.yaml \
-  --arch x86_64 \
-  --signing-key melange.rsa
+make dev-container
 ```
+
+This will create an ephemeral container based on the Wolfi SDK image, with a few predefined settings. We'll call this your **Wolfi development environment**.
+
+```
+❯ make dev-container
+docker run --privileged --rm -it \
+    -v "/home/erika/Projects/os:/home/erika/Projects/os" \
+    -w "/home/erika/Projects/os" \
+    -e SOURCE_DATE_EPOCH=0 \
+    ghcr.io/wolfi-dev/sdk:latest@sha256:99babbe4897d68ec1a342bd958fda7274a072bf112670fa691f64753b04774a9
+
+Welcome to the development environment!
+
+
+[sdk] ❯
+```
+
+You are now ready to build your Wolfi package.
+
+### Building a Package
+
+To build a package, run the following command from your Wolfi SDK environment:
+
+```shell
+make package/<your-package-name>
+```
+
+For instance, to build PHP 8.3, which is defined in a file named `php-8.3.yaml`, you would run `make package/php-8.3`:
+
+```
+[sdk] ❯ make package/php-8.3
+make yamlfile=php-8.3.yaml pkgname=php-8.3 packages/x86_64/php-8.3-8.3_rc3-r1.apk
+make[1]: Entering directory '/home/erika/Projects/os'
+##############################################################
+#          build output - removed for readability            #
+##############################################################
+ℹ️            | signing apk index at packages/x86_64/APKINDEX.tar.gz
+ℹ️            | signing index packages/x86_64/APKINDEX.tar.gz with key local-melange.rsa
+ℹ️            | appending signature to index packages/x86_64/APKINDEX.tar.gz
+ℹ️            | writing signed index to packages/x86_64/APKINDEX.tar.gz
+ℹ️            | signed index packages/x86_64/APKINDEX.tar.gz with key local-melange.rsa
+make[1]: Leaving directory '/home/erika/Projects/os'
+[sdk] ❯
+```
+
+When the build is finished, you can find the newly built apk(s) in a `./packages` directory, in the root of your cloned Wolfi repository.
 
 ### When the build fails
-It is likely that your build won't work on the first run, and that is completely normal because there are many moving parts and hidden dependencies when building packages from source. Check the errors and iterate until you have a successful build. Use `set -x` before commands in your pipeline to get extended debug information:
+It is likely that your build won't work on the first run, and that is completely normal because there are many moving parts and hidden dependencies when building packages from source.
+
+In this scenario, it is often useful to check the build environment, which is preserved for debugging. The build output will inform you where to find these files in your development environment.
+
+```
+2023/10/25 15:37:27 ERROR: failed to build package. the build environment has been preserved:
+ℹ️  x86_64    |   workspace dir: /tmp/melange-workspace-4269468499
+ℹ️  x86_64    |   guest dir: /tmp/melange-guest-3734950176
+```
+The **workspace dir** is where you will find the `melange_out` directory, which contains the output of your package. The **guest dir** directory contains the filesystem of your build environment.
+
+Another useful strategy is to include `set -x` before commands in your pipeline, in order to get extended debug information.
 
 ```yaml
   - name: Install Composer
@@ -352,72 +395,50 @@ Check the packages folder, you should find a directory for each built architectu
 …
 ```
 
-In the next section, we'll demonstrate how you can compose a test image with these packages using a tool called **apko**, which is the same tool we use to build [Chainguard Images](https://edu.chainguard.dev/chainguard/chainguard-images/overview/).
+In the next section, we'll demonstrate how you can use the Wolfi SDK for running these checks.
 
-## Does it Work? Try with apko
-Once you have packages ready to be installed, you may try them with an apko build. The syntax used by apko YAML files is very similar to what we've seen with melange. There are just a few minor differences in structure. Here is an example apko file to build a PHP image using some of the subpackages created with my previous build commands:
+## Testing your Packages
+With a successful build, it's time to test the packages to make sure they are installable and functional, and also to verify they are free of CVEs.
 
-```yaml
-contents:
-  keyring:
-    - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
-    - /work/melange.rsa.pub
-  repositories:
-    - https://packages.wolfi.dev/os
-    - '@local /work/packages'
-  packages:
-    - ca-certificates
-    - curl
-    - php@local
-    - php-curl@local
-    - php-openssl@local
-    - php-iconv@local
-    - php-mbstring@local
-
-entrypoint:
-  command: /bin/php
-
-environment:
-  PATH: /usr/sbin:/sbin:/usr/bin:/bin
-
-paths:
-  - path: /app
-    type: directory
-    permissions: 0o777
-    uid: 65532
-    gid: 65532
-
-work-dir: /app
-
-accounts:
-  groups:
-    - groupname: php
-      gid: 65532
-  users:
-    - username: php
-      uid: 65532
-      gid: 65532
-  run-as: 65532
-
-```
-
-Notice that we have added the "local" repository pointing to our local packages folder, and we also added the `melange.rsa.pub` key to the keyring section.
-
-To build this image, run:
+### Local Installation
+The first test you'll want to run with your package is to check if you can use `apk` to install it without errors. For that, we'll use the `local-wolfi` environment, which brings up a new container environment using the Wolfi-base image, with additional settings to make your new package available in the test environment alongside the melange keys that were created to sign your package at build time. We'll call this your **Wolfi Test Environment**.
 
 ```shell
-docker run --rm -v ${PWD}:/work cgr.dev/chainguard/apko build --debug php.apko.yaml php:test php-test.zip -k melange.rsa.pub --arch=amd64
+make local-wolfi
+```
+```
+❯ make local-wolfi
+docker run --rm -it \
+	--mount type=bind,source="/home/erika/Projects/os/packages",destination="/work/packages",readonly \
+	--mount type=bind,source="/home/erika/Projects/os/local-melange.rsa.pub",destination="/etc/apk/keys/local-melange.rsa.pub",readonly \
+	--mount type=bind,source="/tmp/tmp.LXnQu0hkFn/repositories",destination="/etc/apk/repositories",readonly \
+	-w "/work/packages" \
+	cgr.dev/chainguard/wolfi-base:latest
+d2df519c59df:/work/packages#
 ```
 
-Then, you can load the generated tarball to Docker with:
+Your newly built packages should now be available for installation from this environment via `apk add`. You should use the full path to the `.apk` file, for instance:
 
 ```shell
-docker load < php-test.zip
+apk add ./x86_64/composer-2.6.5-r0.apk
 ```
 
-Then run the image to see if the package works as expected.
+Make sure the package can be installed without errors, including dependencies.
 
-More info about building container images with apko can be found in our guide on [Getting Started with apko](https://edu.chainguard.dev/open-source/apko/getting-started-with-apko/).
+### Checking for CVEs
+
+Checking the package for CVEs is a good practice to avoid submitting unpatched packages into Wolfi. If CVEs are found, you may want to apply a security patch before submitting your package, if that is available.
+
+From your **Wolfi development environment**, run the following command, providing the full path to your `.apk` file:
+
+```shell
+[sdk] ❯ wolfictl scan ./packages/x86_64/composer-2.6.5-r0.apk
+🔎 Scanning "./packages/x86_64/composer-2.6.5-r0.apk"
+✅ No vulnerabilities found
+[sdk] ❯
+```
+
+For more information about patching CVEs in Wolfi, check [the official docs on this subject](https://github.com/wolfi-dev/os/blob/main/HOW_TO_PATCH_CVES.md).
 
 ## Submitting the Package to Wolfi OS
 
@@ -429,14 +450,15 @@ From this point, the process is essentially the following:
 - Create a branch with the name of your package, for instance: add-php-package
 - Remove the `repositories` and `keyring` sections of the YAML file
 - Add the `release-monitor` info to the YAML file
-- Add the package to the bottom of the `packages.txt` file in the root of the Wolfi OS repository
+- Run [`yam`](https://github.com/wolfi-dev/os/blob/main/docs/UPDATES.md) to fix any YAML formatting issues
 - Create a signed commit
 - Open a pull request following the instructions from the PR template.
 
-
-If you haven't yet, check the [Wolfi PHP package source file](https://github.com/wolfi-dev/os/blob/main/php.yaml) for a more comprehensive view of the melange YAML structure and how that looks in a more complex build.
+The [Wolfi Contributing Guide](https://github.com/wolfi-dev/os/blob/main/CONTRIBUTING.md) on GitHub has more details about this process.
 
 ## Resources to Learn More
+
+If you haven't yet, check the [Wolfi PHP package source file](https://github.com/wolfi-dev/os/blob/main/php-8.2.yaml) for a more comprehensive view of the melange YAML structure and how that looks in a more complex build.
 
 If you'd like to learn more about Wolfi, check the [documentation](https://edu.chainguard.dev/open-source/wolfi/overview/) and [FAQ](https://edu.chainguard.dev/open-source/wolfi/faq/) for more details about the ecosystem surrounding it. You can also join our monthly Wolfi community calls to connect with Wolfi users and developers. The meetings happen on the first Wednesday of each month, and typically showcase talks and interesting use cases related to Wolfi and container security in general. You can add [Wolfi's public](https://calendar.google.com/calendar/u/0/embed?src=c_7ec60f485931f9056040a3e24273400de41a143ec60703b411d77b1f534ec15f@group.calendar.google.com) calendar to your agenda to be notified about upcoming events.
 
