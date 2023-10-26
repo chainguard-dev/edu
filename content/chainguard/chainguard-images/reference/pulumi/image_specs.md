@@ -80,7 +80,7 @@ The table shows package distribution across variants.
 | `libbz2-1`                | X      |
 | `libcrypt1`               | X      |
 | `libcrypto3`              | X      |
-| `libcurl-rustls4`         | X      |
+| `libcurl-openssl4`        | X      |
 | `libedit`                 | X      |
 | `libev`                   | X      |
 | `libexpat1`               | X      |
@@ -119,6 +119,7 @@ The table shows package distribution across variants.
 | `openssh-keygen`          | X      |
 | `openssh-keyscan`         | X      |
 | `openssh-server`          | X      |
+| `openssh-server-config`   | X      |
 | `openssh-sftp-server`     | X      |
 | `openssl-config`          | X      |
 | `pkgconf`                 | X      |
@@ -131,10 +132,10 @@ The table shows package distribution across variants.
 | `pulumi-language-python`  | X      |
 | `pulumi-language-yaml`    | X      |
 | `pulumi-watch`            | X      |
-| `py3.11-pip`              | X      |
-| `py3.11-setuptools`       | X      |
-| `python-3.11`             | X      |
-| `python-3.11-dev`         | X      |
+| `py3.12-pip`              | X      |
+| `py3.12-setuptools`       | X      |
+| `python-3.12`             | X      |
+| `python-3.12-dev`         | X      |
 | `readline`                | X      |
 | `sqlite-libs`             | X      |
 | `wolfi-baselayout`        | X      |
