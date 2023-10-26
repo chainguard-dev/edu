@@ -28,6 +28,7 @@ In this article, you will explore the structure of *container images*, the found
 
 In order to build a container for your application, you will need to start with a *container image*. A container image is a static, immutable filesystem bundle that serves as a blueprint you can use to build containers. Inside every container image is a curated collection of the files, dependencies and code needed to run an application. At runtime, when a container is built from an image, the resultant container inherits all characteristics of the container image it is instantiated from.
 <!-- Place a graphic here showing the result of instantiating a container -->
+![A container built from an image inherits all characterisitcs of the image it is built from.](image_to_container.png)
 
 To start creating a container image, first, a *base image* must be selected. A base image is a foundational image that can be built upon through the addition of image *layers*. Typically, base images come pre-bundled with a specific Linux distribution. Every distribution differs in its size, dependencies, and functionality, making certain distributions better suited for certain images over others.
 
@@ -42,7 +43,8 @@ Once you have selected or assembled a container image for your application, you 
 
 A container engine communicates with the kernel of the operating system it is being run on. Within a container engine, multiple containers run independently of each other. These containers are composed of the code, dependencies, and configurations of their parent images. The following graphic depicts this hierarchical relationship between containers and the container engine.
 
-<img src="container_structure.png" alt="Containers run independently of each other on a container engine, the software that communicates with a host operating system kernel. Each container contains the application and dependencies it needs to run." width="400" />
+<img src="container_image_model.png" alt="Containers run independently of each other on a container engine, the software that communicates with a host operating system kernel. Each container contains the application and dependencies it needs to run." width="400" />
+
 <!-- ![Containers run independently of each other on a container engine, the software that communicates with a host operating system kernel. Each container contains the application and dependencies it needs to run.](container_structure.png) -->
 <!-- Replace with a different, colored graphic later -->
 
@@ -61,4 +63,3 @@ To learn more about choosing a container image that is right for your applicatio
 As container technology grew in popularity, developers sought a way to standardize the format of images within the container industry. Thus, in 2015, the [Open Container Initiative (OCI)](https://opencontainers.org/) was founded to address these growing concerns by setting forth adoptable standards for image formats, runtimes, and distributions. Choosing OCI compliant images for your workloads can ensure the portability of your containers where OCI images are supported. To learn more about the OCI and their various image specifications, check out our article titled ["What is the Open Container Initiative?"](/open-source/oci/what-is-the-oci/).
 
 In this article, you learned about the basics of container technology, including the processes behind building container images tailored to your specific needs. You learned about how you can deploy containers from images using a container engine. To get started with using containers for the first time, check out our documentation on [Chainguard Images](/chainguard/chainguard-images/), our hardened, minimal images ideal for deploying secure containerized applications. If you want to build your own images, check out [Wolfi](/open-source/wolfi/), the Linux undistro ideal as a base of lightweight containers.
-
