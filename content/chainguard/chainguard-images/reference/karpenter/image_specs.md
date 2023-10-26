@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev            | latest                |
 |--------------|-----------------------|-----------------------|
-| Default User | `karpenter`           | `karpenter`           |
+| Default User | `nonroot`             | `nonroot`             |
 | Entrypoint   | `/usr/bin/controller` | `/usr/bin/controller` |
 | CMD          | not specified         | not specified         |
 | Workdir      | not specified         | not specified         |
