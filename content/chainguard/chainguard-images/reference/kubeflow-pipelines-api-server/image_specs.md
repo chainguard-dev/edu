@@ -64,7 +64,6 @@ The table shows package distribution across variants.
 | `libnghttp2-14`                | X          |        |
 | `libpcre2-8-0`                 | X          |        |
 | `libssl3`                      | X          | X      |
-| `libstdc++`                    | X          | X      |
 | `ncurses`                      | X          |        |
 | `ncurses-terminfo-base`        | X          |        |
 | `openssl-config`               | X          | X      |
