@@ -6,8 +6,8 @@ aliases:
 type: "article"
 description: "Chainguard Identity and Access Management"
 lead: "Chainguard Identity and Access Management"
-date: 2022-15-07T15:22:20+01:00
-lastmod: 2022-15-07T15:22:20+01:00
+date: 2022-07-15T15:22:20+01:00
+lastmod: 2023-10-26T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Product", "Reference"]
 images: []

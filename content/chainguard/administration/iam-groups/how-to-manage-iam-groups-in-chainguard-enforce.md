@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "Understanding Identity and Access Management in Chainguard"
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2023-08-09T15:22:20+01:00
+lastmod: 2023-10-26T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Product", "Procedural"]
 images: []

@@ -5,7 +5,7 @@ lead: "Using Chainguard Images and Enforce with firewalls, access control lists,
 type: "article"
 description: "Using Chainguard Images and Enforce with firewalls, access control lists, and proxies"
 date: 2023-09-08T08:49:31+00:00
-lastmod: 2023-09-08T08:49:31+00:00
+lastmod: 2023-10-26T15:22:20+01:00
 draft: false
 aliases:
 - /chainguard/chainguard-images/reference/network-requirements/
