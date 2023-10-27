@@ -4,16 +4,12 @@ linktitle: "GitHub Team Role Binding"
 description: "Procedural tutorial outlining how to use Terraform to create Chainguard rolebindings for members of a GitHub team."
 type: "article"
 date: 2023-06-10T08:48:45+00:00
-lastmod: 2023-06-10T08:48:45+00:00
+lastmod: 2023-10-26T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Product", "Procedural"]
 images: []
 weight: 050
 ---
-
-* This doc seems a bit on the fence. 
-* is it superceded by user management at scale work?
-
 
 There may be cases where an organization will want multiple users to have access to the same Chainguard organization. Chainguard allows you to grant other users access to Chainguard by [generating an invite link or code](/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/#inviting-others-to-a-group).
 

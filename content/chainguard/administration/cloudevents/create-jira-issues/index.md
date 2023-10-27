@@ -1,9 +1,9 @@
 ---
-title: "Create Jira Issues from Enforce CloudEvents"
+title: "Create Jira Issues from Chainguard CloudEvents"
 type: "article"
-description: "Creating Jira Issues from Enforce CloudEvents"
+description: "Creating Jira Issues from Chainguard CloudEvents"
 date: 2023-04-21T15:22:20+01:00
-lastmod: 2023-04-21T15:22:20+01:00
+lastmod: 2023-10-26T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Product", "CloudEvents"]
 images: []
@@ -13,8 +13,6 @@ menu:
 weight: 10
 toc: true
 ---
-
-> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 Chainguard Enforce for Kubernetes can send CloudEvents as webhook requests that you can subscribe to and use to do things like generate alerts, create Jira issues, post messages to Slack channels, and more. This tutorial is meant to serve as a companion to the [Enforce Events jira-issue-opener](https://github.com/chainguard-dev/enforce-events/tree/main/jira-issue-opener) example application. It will guide you through creating and deploying a Google Cloud Run service that will open new Jira issues for Enforce policy change events.
 

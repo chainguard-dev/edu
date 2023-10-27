@@ -1,9 +1,9 @@
 ---
-title: "Create GitHub Issues from Enforce CloudEvents"
+title: "Create GitHub Issues from Chainguard CloudEvents"
 type: "article"
-description: "Creating GitHub Issues from Enforce CloudEvents"
+description: "Creating GitHub Issues from Chainguard CloudEvents"
 date: 2023-04-11T15:22:20+01:00
-lastmod: 2023-04-11T15:22:20+01:00
+lastmod: 2023-10-26T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Product", "CloudEvents"]
 images: []
@@ -14,15 +14,9 @@ weight: 10
 toc: true
 ---
 
-* Could these CloudEvent docs be edited to make them more generic?
-    * Might make more sense to just create a doc to go under Images on using chainctl for image pull notifications?
+Chainguard can send CloudEvents as webhook requests that you can subscribe to and use to do things like generate alerts, create GitHub issues, post messages to Slack channels, and more. This tutorial is meant to serve as a companion to the [Chainguard Events github-issue-opener](https://github.com/chainguard-dev/enforce-events/tree/main/github-issue-opener) example application. It will guide you through creating and deploying a Google Cloud Run service that will open new GitHub issues for any Chainguard Enforce policy violation event.
 
-
-> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
-
-Chainguard Enforce for Kubernetes can send CloudEvents as webhook requests that you can subscribe to and use to do things like generate alerts, create GitHub issues, post messages to Slack channels, and more. This tutorial is meant to serve as a companion to the [Enforce Events github-issue-opener](https://github.com/chainguard-dev/enforce-events/tree/main/github-issue-opener) example application. It will guide you through creating and deploying a Google Cloud Run service that will open new GitHub issues for any Enforce policy violation event.
-
-You can also opt to run the example application elsewhere. As long as it is publicly accessible to the [Enforce CIDR network ranges](/chainguard/chainguard-enforce/reference/network-requirements/#cidr-ranges), you will be able to receive CloudEvents and create GitHub issues with the example application. If you opt to deploy the demo outside of Cloud Run, you can skip to the [Subscribing to Chainguard Enforce CloudEvents](#subscribing-to-chainguard-enforce-cloudevents) section, provided you know the publicly accessible URL to your deployed instance of the demo.
+You can also opt to run the example application elsewhere. As long as it is publicly accessible to the [Chainguard's CIDR network ranges](/chainguard/chainguard-enforce/reference/network-requirements/#cidr-ranges), you will be able to receive CloudEvents and create GitHub issues with the example application. If you opt to deploy the demo outside of Cloud Run, you can skip to the [Subscribing to Chainguard CloudEvents](#subscribing-to-chainguard-enforce-cloudevents) section, provided you know the publicly accessible URL to your deployed instance of the demo.
 
 ## Prerequisites
 

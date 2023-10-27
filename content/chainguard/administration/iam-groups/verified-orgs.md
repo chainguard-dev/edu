@@ -4,7 +4,7 @@ lead: ""
 description: "An overview of how to verify your organization and the implications"
 type: "article"
 date: 2023-08-15T14:22:23-07:00
-lastmod: 2023-08-15T14:22:23-07:00
+lastmod: 2023-10-26T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Product", "Conceptual"]
 images: []

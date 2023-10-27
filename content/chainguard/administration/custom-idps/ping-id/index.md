@@ -5,11 +5,11 @@ lead: ""
 description: "Procedural tutorial on how to create a Ping Identity Application"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2023-04-17T08:48:45+00:00
+lastmod: 2023-10-26T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Chainguard Images", "Procedural"]
 images: []
-weight: 010
+weight: 015
 ---
 
 The Chainguard platform supports Single sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication. 
