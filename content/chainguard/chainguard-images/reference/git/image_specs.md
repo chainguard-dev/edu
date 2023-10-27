@@ -81,7 +81,7 @@ The table shows package distribution across variants.
 | `pcre2`                  | X          |                  |                       |                   |              | X               | X           | X      |
 | `readline`               | X          |                  |                       |                   |              | X               |             |        |
 | `ssl_client`             | X          |                  |                       |                   |              | X               | X           | X      |
-| `zlib`                   | X          | X                | X                     | X                 | X            | X               | X           | X      |
+| `zlib`                   | X          | X                | X                     | X                 | X            |                 |             | X      |
 | `glibc`                  |            | X                | X                     | X                 | X            |                 |             |        |
 | `glibc-locale-posix`     |            | X                | X                     | X                 | X            |                 |             |        |
 | `ld-linux`               |            | X                | X                     | X                 | X            |                 |             |        |
