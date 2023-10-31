@@ -5,7 +5,7 @@ description: "An overview of the structure, contents, and applications of contai
 lead: "An overview of the structure, contents, and applications of container technology"
 type: "article"
 date: 2023-10-17T20:02:23+00:00
-lastmod: 2023-10-24T18:38:29+00:00
+lastmod: 2023-10-31T15:02:56+00:00
 contributors: ["Michelle McAveety"]
 draft: false
 tags: ["Conceptual", "Overview"]
@@ -17,7 +17,7 @@ weight: 10
 toc: true
 ---
 
-For decades, developers have sought out ways to maximize the utilization of their hardware. Dating back to the 1960s, virtual machines (VMs) were an early answer to this challenge, allowing a single computer to host multiple, isolated operating systems. VMs enable different guest users or processes to share physical infrastructure while keeping their concurrent operations separated. However, as VMs are both slow to initialize and resource-intensive, a modern solution arrived in the early 2000s: containers.
+Maximizing the performance of computer hardware has been a critical undertaking for software engineers for decades. First developed in the 1960s, virtual machines (VMs) were an early answer to this challenge, allowing a single computer to host multiple, isolated operating systems. VMs enable different guest users or processes to share physical infrastructure while keeping their concurrent operations separated. However, as VMs are both slow to initialize and resource-intensive, a modern solution arrived in the early 2000s: containers.
 
 *Containers* share a common *kernel* with each other, whereas multiple VMs each require their own virtual kernel. The kernel resides at the core of an operating system and facilitates activities between hardware and software. By sharing a kernel, containers run concurrently using the same infrastructure, providing the isolation benefits of VMs without added resource taxation. Containers have become increasingly popular for their relative ease of use, reproducibility, and portability in deploying applications across systems for a low resource cost.
 
@@ -49,7 +49,7 @@ A container engine communicates with the kernel of the operating system of the h
 
 ## Getting Started with Containers
 
-Depending on your applications, you may not need to build your own container images from scratch. Instead, you can pull a container image from a *container registry*. Container registries are centralized repositories with images available to be pulled. A popular container registry, [Docker Hub](https://hub.docker.com/), hosts hundreds of thousands of open source container images that can be pulled and used. Other container registries include the [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry), the [Google Container Registry](https://console.cloud.google.com/marketplace/product/google-cloud-platform/container-registry), and the [Chainguard Registry](https://console.enforce.dev/auth/login). Our [Chainguard Registry](/chainguard/chainguard-registry/overview/) offers a free public catalog of secure, minimal base images that provide a foundation for containerizing your applications.
+Depending on your application, you may not need to build your own container images from scratch. Instead, you can pull a container image from a *container registry*. Container registries are centralized repositories with images available to be pulled. A popular container registry, [Docker Hub](https://hub.docker.com/), hosts hundreds of thousands of open source container images that can be pulled and used. Other container registries include the [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) and the [Google Container Registry](https://console.cloud.google.com/marketplace/product/google-cloud-platform/container-registry). Additionally, the [Chainguard Registry](/chainguard/chainguard-registry/overview/) offers a free public catalog of secure, minimal base images that provide a strong foundation for containerizing your applications.
 
 There are many factors to consider when choosing a container image for your application. At minimum, your container image will need to have the core packages and components required to support your programs. However, with thousands of options to choose from, some images will be better for your use case than others. Choosing a container image that offers security and reliability in addition to core functionality is important. Some images may contain multitudes of unneeded components and packages, thus unnecessarily contributing to your data egress and vulnerability counts.
 
@@ -58,8 +58,6 @@ To learn more about choosing a container image that is right for your applicatio
 
 ## Learn More
 
-As container technology grew in popularity, developers sought a way to standardize the format of images within the container industry. Thus, in 2015, the [Open Container Initiative (OCI)](https://opencontainers.org/) was founded to address these concerns by setting forth adoptable standards for image formats, runtimes, and distributions. Choosing OCI compliant images for your workloads can ensure the portability of your containers where OCI images are supported. To learn more about the OCI and their various image specifications, check out our article titled ["What is the Open Container Initiative?"](/open-source/oci/what-is-the-oci/).
+This article covered the fundamentals of container technology, including the processes behind building container images tailored to your specific needs. You learned how you can deploy containers from images for your applications using a container engine. Additionally, you explored various container registries that you can pull images from for your next project.
 
-In this article, you learned about the fundamentals of container technology, including the processes behind building container images tailored to your specific needs. You also learned about how you can deploy containers from images using a container engine.
-
-To get started with using containers for the first time, check out our documentation on [Chainguard Images](/chainguard/chainguard-images/), our hardened, minimal images ideal for deploying secure containerized applications. If you want to build your own images, check out [Wolfi](/open-source/wolfi/), the Linux undistro ideal as a base of lightweight containers. Lastly, you may also be interested in learning about the Open Container Initiative which sets standards for image formats, runtimes, and distributions. We encourage you to check out our article titled ["What is the Open Container Initiative?"](/open-source/oci/what-is-the-oci/).
+To get started with using containers for the first time, check out our documentation on [Chainguard Images](/chainguard/chainguard-images/), our hardened, minimal images ideal for deploying secure containerized applications. If you want to build your own images, check out [Wolfi](/open-source/wolfi/), the Linux undistro ideal as a base of lightweight containers. Lastly, you may also be interested in learning about the Open Container Initiative, which sets standards for image formats, runtimes, and distributions. We encourage you to check out our article titled ["What is the Open Container Initiative?"](/open-source/oci/what-is-the-oci/).
