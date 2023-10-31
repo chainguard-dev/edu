@@ -3835,6 +3835,9 @@
         "fixed": {
           "$ref": "#/definitions/advisoryFixed"
         },
+        "pendingUpstreamFix": {
+          "$ref": "#/definitions/advisoryPendingUpstreamFix"
+        },
         "timestamp": {
           "format": "date-time",
           "type": "string"
@@ -3882,6 +3885,14 @@
     "advisoryFixed": {
       "properties": {
         "fixedVersion": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryPendingUpstreamFix": {
+      "properties": {
+        "note": {
           "type": "string"
         }
       },
