@@ -1,5 +1,5 @@
 ---
-date: 2023-10-27T15:29:27Z
+date: 2023-10-30T22:49:10Z
 title: "chainctl auth status"
 slug: chainctl_auth_status
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_status/
