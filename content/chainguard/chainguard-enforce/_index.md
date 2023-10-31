@@ -1,5 +1,5 @@
 ---
-title: "Chainguard Enforce"
+title: "Enforce"
 lead: ""
 description: "Chainguard Enforce Documentation"
 type: "article"

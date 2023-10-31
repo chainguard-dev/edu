@@ -1,5 +1,5 @@
 ---
-title: "Chainguard Images"
+title: "Images"
 description: "Suite of minimalist images powered by Wolfi"
 type: "article"
 date: 2022-09-05T08:49:15+00:00
