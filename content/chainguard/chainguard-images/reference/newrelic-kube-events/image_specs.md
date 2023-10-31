@@ -22,35 +22,51 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **newrelic-kube-events** Image.
 
 ## Variants Compared
-The **newrelic-kube-events** Chainguard Image currently has one public variant: 
+The **newrelic-kube-events** Chainguard Image currently has 2 public variants: 
 
+- `latest-dev`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest                                   |
-|--------------|------------------------------------------|
-| Default User | `nri-kube-events`                        |
-| Entrypoint   | `/sbin/tini -- /usr/bin/nri-kube-events` |
-| CMD          | not specified                            |
-| Workdir      | not specified                            |
-| Has apk?     | no                                       |
-| Has a shell? | yes                                      |
+|              | latest-dev                               | latest                                   |
+|--------------|------------------------------------------|------------------------------------------|
+| Default User | `nri-kube-events`                        | `nri-kube-events`                        |
+| Entrypoint   | `/sbin/tini -- /usr/bin/nri-kube-events` | `/sbin/tini -- /usr/bin/nri-kube-events` |
+| CMD          | not specified                            | not specified                            |
+| Workdir      | not specified                            | not specified                            |
+| Has apk?     | yes                                      | no                                       |
+| Has a shell? | yes                                      | yes                                      |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/newrelic-kube-events/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                            | latest |
-|----------------------------|--------|
-| `busybox`                  | X      |
-| `ca-certificates-bundle`   | X      |
-| `glibc`                    | X      |
-| `glibc-locale-posix`       | X      |
-| `ld-linux`                 | X      |
-| `libcrypt1`                | X      |
-| `newrelic-nri-kube-events` | X      |
-| `tini`                     | X      |
-| `wolfi-baselayout`         | X      |
+|                            | latest-dev | latest |
+|----------------------------|------------|--------|
+| `apk-tools`                | X          |        |
+| `bash`                     | X          |        |
+| `busybox`                  | X          | X      |
+| `ca-certificates-bundle`   | X          | X      |
+| `git`                      | X          |        |
+| `glibc`                    | X          | X      |
+| `glibc-locale-posix`       | X          | X      |
+| `ld-linux`                 | X          | X      |
+| `libbrotlicommon1`         | X          |        |
+| `libbrotlidec1`            | X          |        |
+| `libcrypt1`                | X          | X      |
+| `libcrypto3`               | X          |        |
+| `libcurl-openssl4`         | X          |        |
+| `libexpat1`                | X          |        |
+| `libnghttp2-14`            | X          |        |
+| `libpcre2-8-0`             | X          |        |
+| `libssl3`                  | X          |        |
+| `ncurses`                  | X          |        |
+| `ncurses-terminfo-base`    | X          |        |
+| `newrelic-nri-kube-events` | X          | X      |
+| `openssl-config`           | X          |        |
+| `tini`                     | X          | X      |
+| `wolfi-baselayout`         | X          | X      |
+| `zlib`                     | X          |        |
 
