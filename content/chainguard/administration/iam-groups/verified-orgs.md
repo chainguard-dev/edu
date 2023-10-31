@@ -1,15 +1,18 @@
 ---
-title : "Verified Organizations in Chainguard Enforce"
-linktitle: "Verified Organizations"
+title : "Verified Organizations"
 lead: ""
 description: "An overview of how to verify your organization and the implications"
 type: "article"
 date: 2023-08-15T14:22:23-07:00
-lastmod: 2023-08-15T14:22:23-07:00
+lastmod: 2023-10-26T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Product", "Conceptual"]
 images: []
+menu:
+  docs:
+    parent: "iam-groups"
 weight: 015
+toc: true
 ---
 
 Resources on the Chainguard platform are organized in a hierarchical structure called [IAM Groups](/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/). A root-level IAM Group is called an _Organization_. Single customers or organizations typically use a single root-level _Organization_ to manage their

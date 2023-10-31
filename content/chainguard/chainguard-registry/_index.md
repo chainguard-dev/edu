@@ -1,5 +1,5 @@
 ---
-title: "Chainguard Registry"
+title: "Registry"
 lead: ""
 description: "Chainguard Registry Documentation"
 type: "article"

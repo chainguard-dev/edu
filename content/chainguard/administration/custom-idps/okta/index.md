@@ -1,22 +1,20 @@
 ---
-title : "How To Integrate Okta SSO with Chainguard Enforce"
+title : "How To Integrate Okta SSO with Chainguard"
 linktitle: "Okta"
 lead: ""
 description: "Procedural tutorial on how to create an Okta App Integration"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2023-04-17T08:48:45+00:00
+lastmod: 2023-10-26T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Chainguard Images", "Procedural"]
 images: []
-weight: 005
+weight: 010
 ---
-
-> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 The Chainguard platform supports Single sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication.
 
-This guide outlines how to create an Okta application and integrate it with Chainguard Enforce. After completing this guide, you'll be able to log in to Chainguard Enforce using Okta and will no longer be limited to the default SSO options.
+This guide outlines how to create an Okta application and integrate it with Chainguard. After completing this guide, you'll be able to log in to Chainguard using Okta and will no longer be limited to the default SSO options.
 
 
 ## Prerequisites
@@ -40,7 +38,7 @@ Select **OIDC - OpenID Connect** as the sign-in method and **Web Application** a
 Next, in the **General Settings** window, configure the application as follows.
 
 * **App integration name**: Enter a descriptive name (like "Chainguard") here.
-* **Logo**: You can optionally add a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Enforce Console](https://console.enforce.dev/logo512.png).
+* **Logo**: You can optionally add a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Console](https://console.enforce.dev/logo512.png).
 * **Grant type**: Ensure that the grant type is set to **Authorization Code** only.
 
 > **Warning**: DO NOT select other grant types as this may compromise your security.

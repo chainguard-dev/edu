@@ -1,22 +1,20 @@
 ---
-title : "How To Integrate Ping Identity SSO with Chainguard Enforce"
+title : "How To Integrate Ping Identity SSO with Chainguard"
 linktitle: "Ping Identity"
 lead: ""
 description: "Procedural tutorial on how to create a Ping Identity Application"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2023-04-17T08:48:45+00:00
+lastmod: 2023-10-26T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Chainguard Images", "Procedural"]
 images: []
-weight: 010
+weight: 015
 ---
-
-> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
 
 The Chainguard platform supports Single sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication. 
 
-This guide outlines how to create a Ping Identity Application and integrate it with Chainguard Enforce. After completing this guide, you'll be able to log in to Chainguard Enforce using Ping and will no longer be limited to the default SSO options.
+This guide outlines how to create a Ping Identity Application and integrate it with Chainguard. After completing this guide, you'll be able to log in to Chainguard using Ping and will no longer be limited to the default SSO options.
 
 
 ## Prerequisites
@@ -36,7 +34,7 @@ To integrate the Ping identity provider with the Chainguard platform, [sign on t
 Configure the application as follows:
 
 * **Application Name**: Set a name and option description (such as "Chainguard") to ensure users recognize this application is for authentication to the Chainguard platform.
-* **Icon**: You can optionally add a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Enforce Console](https://console.enforce.dev/logo512.png).
+* **Icon**: You can optionally add a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Console](https://console.enforce.dev/logo512.png).
 * **Application Type**: Select **OIDC Web App**.
 
 ![Screenshot showing the Add Application modal window with the following settings in place: Application Name is set to "Chainguard"; Description reads "Build it right, Build it safe, Build it fast, https://console.enforce.dev"; the example Inky icon has been uploaded to the Icon field; and the Application Type is set to "OIDC Web App."](ping-2-add-app.png)
