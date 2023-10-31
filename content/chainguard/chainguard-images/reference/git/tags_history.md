@@ -25,12 +25,12 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-glibc-root`     | October 29th | `sha256:3fa015f2cec0b859b58c01b20776fef51e46616523168b54fbc6d260e47c61fd` |
-|  `latest-glibc-root-dev` | October 29th | `sha256:8c643ef1cd88a8f1040a607b500d536513bf8a78171127b10ef1f28f4bff37f6` |
-|  `latest-glibc-dev`      | October 29th | `sha256:a6fa9c51ef67897f5a1b8cb8c4b12acaf150e01c8d3b31309654908292a2e40e` |
-|  `latest-glibc`          | October 29th | `sha256:c948772cfa4fde61c0370bb439c4de56003ca72c0cba3e59dbd5691bc4c088f2` |
-|  `latest`                | October 27th | `sha256:dc1a8069ac648b695ffbe1413f6cdffe2f212e22888eb1c7c9b8b6b525296981` |
-|  `latest-root`           | October 27th | `sha256:77446c25bc36ba56a584962caf7957e8c6e2a620e268e8bd4c12425e2a312e74` |
-|  `latest-dev`            | October 27th | `sha256:2d4405d558a682989dd2ded15027c8d54f72d571aeee048b02f6b9434eb82d53` |
-|  `latest-root-dev`       | October 27th | `sha256:bc0abb044f1ec758eec2aef3e31e1f66afe268b4a431fc0911d9259c75a4f50d` |
+|  `latest-root-dev`       | October 30th | `sha256:34afc69292844054fb35d03634d0110f0a909b4c11baa610a7cb273e876392ba` |
+|  `latest-root`           | October 30th | `sha256:7df28e074b5390a511849285ccdbf3d679a6ec2a52f1d320adf4b96ff584c362` |
+|  `latest-dev`            | October 30th | `sha256:a2d2da14133632f5c26435bbd3987adc70abb47ab4cfa077d4cc3dc18c4659af` |
+|  `latest`                | October 30th | `sha256:145e198f2abd7b94614c219e45418a077fd4de655388b4d1ae2d1e8625147150` |
+|  `latest-glibc-dev`      | October 30th | `sha256:0fc0257691a3e41a6a37724b74060ab518f1f12c12f48d11e11804c42b4c1d21` |
+|  `latest-glibc`          | October 30th | `sha256:f33bf05165db149346aa8ed32c16d49b1c9346dae12a4188f62c29901463e4ac` |
+|  `latest-glibc-root`     | October 30th | `sha256:4be8a6d19758a4f7e69eefc7313e0ff2c181b554a90ca64d103d8d2edeeccf5c` |
+|  `latest-glibc-root-dev` | October 30th | `sha256:7352ecffd9310a1fe09b9a17834282b3d1a68faa11207b353e411d89f562abd3` |
 

@@ -22,70 +22,82 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **newrelic-infrastructure-bundle** Image.
 
 ## Variants Compared
-The **newrelic-infrastructure-bundle** Chainguard Image currently has one public variant: 
+The **newrelic-infrastructure-bundle** Chainguard Image currently has 2 public variants: 
 
+- `latest-dev`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest        |
-|--------------|---------------|
-| Default User | `root`        |
-| Entrypoint   | not specified |
-| CMD          | not specified |
-| Workdir      | not specified |
-| Has apk?     | no            |
-| Has a shell? | no            |
+|              | latest-dev    | latest        |
+|--------------|---------------|---------------|
+| Default User | `root`        | `root`        |
+| Entrypoint   | not specified | not specified |
+| CMD          | not specified | not specified |
+| Workdir      | not specified | not specified |
+| Has apk?     | yes           | no            |
+| Has a shell? | yes           | no            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/newrelic-infrastructure-bundle/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                  | latest |
-|----------------------------------|--------|
-| `alsa-lib`                       | X      |
-| `ca-certificates-bundle`         | X      |
-| `freetype`                       | X      |
-| `giflib`                         | X      |
-| `glibc`                          | X      |
-| `glibc-locale-posix`             | X      |
-| `java-cacerts`                   | X      |
-| `java-common`                    | X      |
-| `keyutils-libs`                  | X      |
-| `kmod`                           | X      |
-| `krb5-conf`                      | X      |
-| `krb5-libs`                      | X      |
-| `lcms2`                          | X      |
-| `ld-linux`                       | X      |
-| `libbrotlicommon1`               | X      |
-| `libbrotlidec1`                  | X      |
-| `libbz2-1`                       | X      |
-| `libcom_err`                     | X      |
-| `libcrypto3`                     | X      |
-| `libgcc`                         | X      |
-| `libjpeg-turbo`                  | X      |
-| `libpng`                         | X      |
-| `libssl3`                        | X      |
-| `libstdc++`                      | X      |
-| `libverto`                       | X      |
-| `libx11`                         | X      |
-| `libxau`                         | X      |
-| `libxcb`                         | X      |
-| `libxcomposite`                  | X      |
-| `libxdmcp`                       | X      |
-| `libxext`                        | X      |
-| `libxi`                          | X      |
-| `libxrender`                     | X      |
-| `libxtst`                        | X      |
-| `libzstd1`                       | X      |
-| `newrelic-infrastructure-agent`  | X      |
-| `newrelic-infrastructure-bundle` | X      |
-| `openjdk-8`                      | X      |
-| `openjdk-8-default-jvm`          | X      |
-| `openjdk-8-jre`                  | X      |
-| `openssl-config`                 | X      |
-| `wolfi-baselayout`               | X      |
-| `xz`                             | X      |
-| `zlib`                           | X      |
+|                                  | latest-dev | latest |
+|----------------------------------|------------|--------|
+| `alsa-lib`                       | X          | X      |
+| `apk-tools`                      | X          |        |
+| `bash`                           | X          |        |
+| `busybox`                        | X          |        |
+| `ca-certificates-bundle`         | X          | X      |
+| `freetype`                       | X          | X      |
+| `giflib`                         | X          | X      |
+| `git`                            | X          |        |
+| `glibc`                          | X          | X      |
+| `glibc-locale-posix`             | X          | X      |
+| `java-cacerts`                   | X          | X      |
+| `java-common`                    | X          | X      |
+| `keyutils-libs`                  | X          | X      |
+| `kmod`                           | X          | X      |
+| `krb5-conf`                      | X          | X      |
+| `krb5-libs`                      | X          | X      |
+| `lcms2`                          | X          | X      |
+| `ld-linux`                       | X          | X      |
+| `libbrotlicommon1`               | X          | X      |
+| `libbrotlidec1`                  | X          | X      |
+| `libbz2-1`                       | X          | X      |
+| `libcom_err`                     | X          | X      |
+| `libcrypt1`                      | X          |        |
+| `libcrypto3`                     | X          | X      |
+| `libcurl-openssl4`               | X          |        |
+| `libexpat1`                      | X          |        |
+| `libgcc`                         | X          | X      |
+| `libjpeg-turbo`                  | X          | X      |
+| `libnghttp2-14`                  | X          |        |
+| `libpcre2-8-0`                   | X          |        |
+| `libpng`                         | X          | X      |
+| `libssl3`                        | X          | X      |
+| `libstdc++`                      | X          | X      |
+| `libverto`                       | X          | X      |
+| `libx11`                         | X          | X      |
+| `libxau`                         | X          | X      |
+| `libxcb`                         | X          | X      |
+| `libxcomposite`                  | X          | X      |
+| `libxdmcp`                       | X          | X      |
+| `libxext`                        | X          | X      |
+| `libxi`                          | X          | X      |
+| `libxrender`                     | X          | X      |
+| `libxtst`                        | X          | X      |
+| `libzstd1`                       | X          | X      |
+| `ncurses`                        | X          |        |
+| `ncurses-terminfo-base`          | X          |        |
+| `newrelic-infrastructure-agent`  | X          | X      |
+| `newrelic-infrastructure-bundle` | X          | X      |
+| `openjdk-8`                      | X          | X      |
+| `openjdk-8-default-jvm`          | X          | X      |
+| `openjdk-8-jre`                  | X          | X      |
+| `openssl-config`                 | X          | X      |
+| `wolfi-baselayout`               | X          | X      |
+| `xz`                             | X          | X      |
+| `zlib`                           | X          | X      |
 
