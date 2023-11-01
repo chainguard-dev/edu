@@ -23,11 +23,25 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/crossplane-aws-s3/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **crossplane-aws-s3** images with nightly builds.
 
-## Get it!
 
-```
-docker pull cgr.dev/chainguard/crossplane-aws-s3:latest
+These images provide Crossplane providers for AWS.
+
+| Upstream Image | Chainguard Image |
+| -------------- | ---------------- |
+| `xpkg.upbound.io/upbound/provider-aws` | `cgr.dev/chainguard/crossplane-aws` |
+| `xpkg.upbound.io/upbound/provider-aws-iam` | `cgr.dev/chainguard/crossplane-aws-iam` |
+| `xpkg.upbound.io/upbound/provider-aws-rds` | `cgr.dev/chainguard/crossplane-aws-rds` |
+| `xpkg.upbound.io/upbound/provider-aws-s3` | `cgr.dev/chainguard/crossplane-aws-s3` |
+
+You can use them by following the [AWS Quickstart](https://docs.crossplane.io/latest/getting-started/provider-aws/) and using the Chainguard image instead of the upstream image:
+
+```yaml
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-aws-s3
+spec:
+  package: cgr.dev/chainguard/crossplane-aws-s3:latest
 ```
 

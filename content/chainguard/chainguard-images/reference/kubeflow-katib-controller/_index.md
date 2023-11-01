@@ -23,11 +23,7 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-katib-controller/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **kubeflow-katib-controller** images with nightly builds.
 
-## Get it!
 
-```
-docker pull cgr.dev/chainguard/kubeflow-katib-controller:latest
-```
+Minimalist Kubeflow Katib Images
 

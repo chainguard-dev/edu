@@ -23,11 +23,20 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/spire-server/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **spire-server** images with nightly builds.
 
-## Get it!
+
+Minimalist Wolfi-based `spire` images.
+
+**Note**: Unlike most other Chainguard images, the `spire-agent` image must run as root.
+This is due to a constraint in the way it is typically deployed into Kubernetes clusters.
+See https://github.com/spiffe/spire/issues/1862 for more context.
+
+## Get It!
+
+The image is available on `cgr.dev`:
 
 ```
+docker pull cgr.dev/chainguard/spire-agent:latest
 docker pull cgr.dev/chainguard/spire-server:latest
 ```
 

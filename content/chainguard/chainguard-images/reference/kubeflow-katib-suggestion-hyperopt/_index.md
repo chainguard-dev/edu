@@ -23,11 +23,7 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-katib-suggestion-hyperopt/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **kubeflow-katib-suggestion-hyperopt** images with nightly builds.
 
-## Get it!
 
-```
-docker pull cgr.dev/chainguard/kubeflow-katib-suggestion-hyperopt:latest
-```
+Minimalist Kubeflow Katib Images
 
