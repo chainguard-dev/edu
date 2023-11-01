@@ -23,11 +23,7 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-metadata-writer/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **kubeflow-pipelines-metadata-writer** images with nightly builds.
 
-## Get it!
 
-```
-docker pull cgr.dev/chainguard/kubeflow-pipelines-metadata-writer:latest
-```
+Minimalist Kubeflow Pipelines Images
 

@@ -23,11 +23,21 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/trillian-logsigner/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **trillian-logsigner** images with nightly builds.
 
-## Get it!
+
+[Trillian](https://github.com/google/trillian) is a Merkle tree implementation that is used as the backing for various functionalities including Certificate Transparency and the Sigstore Rekor transparency log.
+
+## Get It
+
+The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/trillian-logsigner:latest
+docker pull cgr.dev/chainguard/trillian-logserver
+docker pull cgr.dev/chainguard/trillian-logsigner
 ```
+
+## Sigstore
+
+Trillian is also deployed as part of the sigstore stack.  For more information
+on this see [`sigstore-scaffolding`](../sigstore-scaffolding/).
 

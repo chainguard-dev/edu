@@ -23,11 +23,25 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/dask-gateway-server/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **dask-gateway-server** images with nightly builds.
 
-## Get it!
+
+## Get It!
+
+The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/dask-gateway-server:latest
 ```
+
+<!-- ## Use It!
+
+With helm:
+
+```
+git clone git@github.com:vmware/kube-fluentd-operator.git
+helm install --create-namespace kfo ./kube-fluentd-operator/charts/log-router \
+  --set rbac.create=true \
+  --set image.tag=latest \
+  --set image.repository=cgr.dev/chainguard/kube-fluentd-operator
+``` -->
 

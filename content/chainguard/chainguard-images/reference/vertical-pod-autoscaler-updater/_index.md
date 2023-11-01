@@ -23,11 +23,5 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/vertical-pod-autoscaler-updater/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **vertical-pod-autoscaler-updater** images with nightly builds.
 
-## Get it!
-
-```
-docker pull cgr.dev/chainguard/vertical-pod-autoscaler-updater:latest
-```
 
