@@ -1,3 +1,24 @@
+# 2023-11-01
+
+
+Updated Docs:
+
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- consul/tags_history.md
+- crossplane-xfn/tags_history.md
+- fluentd/tags_history.md
+- karpenter/tags_history.md
+- kube-logging-operator-fluentd/tags_history.md
+- kubeflow-katib-earlystopping-medianstop/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- newrelic-infrastructure-bundle/image_specs.md
+- newrelic-infrastructure-bundle/tags_history.md
+- node/tags_history.md
+- node-lts/tags_history.md
+- pulumi/tags_history.md
+- rabbitmq/tags_history.md
+
 ## 2023-06-18
 
 Updated image reference docs.
