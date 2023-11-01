@@ -23,11 +23,51 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-volumes-web-app/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **kubeflow-volumes-web-app** images with nightly builds.
 
-## Get it!
 
+Minimalist Kubeflow Images
+
+## Usage
+
+There are kustomize files exist for deploying this image to a Kubernetes cluster in kubeflow official GitHub [repository](github.com/kubeflow/kubeflow/).
+
+All you need to do is issuing the following commands:
+
+* For [jupyter-web-app](https://github.com/kubeflow/kubeflow/tree/master/components/crud-web-apps/jupyter/manifests)
+
+```shell
+$ cat <<EOF > kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - https://github.com/kubeflow/kubeflow/components/crud-web-apps/jupyter/manifests/overlays/istio?ref=master
+images:
+  - name: docker.io/kubeflownotebookswg/kubeflow-jupyter-web-app
+    newName: cgr.dev/chainguard/kubeflow-jupyter-web-app
+    newTag: latest
+namespace: jupyter-web-app
+EOF
 ```
-docker pull cgr.dev/chainguard/kubeflow-volumes-web-app:latest
+
+* For [volumes-web-app](https://github.com/kubeflow/kubeflow/tree/master/components/crud-web-apps/volumes/manifests)
+
+```shell
+$ cat <<EOF > kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - https://github.com/kubeflow/kubeflow/components/crud-web-apps/volumes/manifests/overlays/istio?ref=master
+images:
+  - name: docker.io/kubeflownotebookswg/kubeflow-volumes-web-app
+    newName: cgr.dev/chainguard/kubeflow-volumes-web-app
+    newTag: latest
+namespace: volumes-web-app
+EOF
 ```
+
+Finally, apply the kustomize files:
+
+```shell
+$ kubectl apply -k .
+````
 

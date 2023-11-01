@@ -23,11 +23,5 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kyverno-policy-reporter-reporter/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **kyverno-policy-reporter-reporter** images with nightly builds.
 
-## Get it!
-
-```
-docker pull cgr.dev/chainguard/kyverno-policy-reporter-reporter:latest
-```
 

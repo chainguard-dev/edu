@@ -23,11 +23,7 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-katib-suggestion-goptuna/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **kubeflow-katib-suggestion-goptuna** images with nightly builds.
 
-## Get it!
 
-```
-docker pull cgr.dev/chainguard/kubeflow-katib-suggestion-goptuna:latest
-```
+Minimalist Kubeflow Katib Images
 

@@ -23,11 +23,7 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-cache-deployer/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **kubeflow-pipelines-cache-deployer** images with nightly builds.
 
-## Get it!
 
-```
-docker pull cgr.dev/chainguard/kubeflow-pipelines-cache-deployer:latest
-```
+Minimalist Kubeflow Pipelines Images
 

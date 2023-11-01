@@ -23,11 +23,10 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cilium-agent/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **cilium-agent** images with nightly builds.
 
-## Get it!
 
-```
-docker pull cgr.dev/chainguard/cilium-agent:latest
-```
+# Cilium images:
+
+## operator 
+The Cilium Operator uses Kubernetes leader election library in conjunction with lease locks to provide HA functionality. 
 

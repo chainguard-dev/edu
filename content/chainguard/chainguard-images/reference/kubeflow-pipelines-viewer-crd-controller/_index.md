@@ -23,11 +23,7 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-viewer-crd-controller/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **kubeflow-pipelines-viewer-crd-controller** images with nightly builds.
 
-## Get it!
 
-```
-docker pull cgr.dev/chainguard/kubeflow-pipelines-viewer-crd-controller:latest
-```
+Minimalist Kubeflow Pipelines Images
 

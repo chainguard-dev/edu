@@ -23,11 +23,5 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/crossplane-xfn/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **crossplane-xfn** images with nightly builds.
 
-## Get it!
-
-```
-docker pull cgr.dev/chainguard/crossplane-xfn:latest
-```
 

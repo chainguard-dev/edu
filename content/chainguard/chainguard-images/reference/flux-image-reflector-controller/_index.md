@@ -23,11 +23,24 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/flux-image-reflector-controller/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **flux-image-reflector-controller** images with nightly builds.
 
-## Get it!
+
+## Get It
+
+The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/flux-image-reflector-controller:latest
+docker pull cgr.dev/chainguard/flux
+```
+
+## Using `flux`
+
+The `flux` cli contains various functionality to interact with the flux gitops toolkit components in a running cluster.
+
+> NOTE: Many `flux` commands assume a properly connected `kubectl` context, which isn't usually the case when running through docker.
+
+```bash
+# Install the flux gitops toolkit using chainguard images
+docker run cgr.dev/chainguard/flux export --registry cgr.dev/chainguard | kubectl apply -f -
 ```
 

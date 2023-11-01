@@ -23,11 +23,24 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubernetes-dashboard-metrics-scraper/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **kubernetes-dashboard-metrics-scraper** images with nightly builds.
 
-## Get it!
+
+Minimal image that acts as a drop-in replacement for the `kubernetesui/dashboard` image.
+
+The dashboard listens on port `8443` by default.
+
+## Get It!
+
+The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/kubernetes-dashboard-metrics-scraper:latest
+docker pull cgr.dev/chainguard/kubernetes-dashboard:latest
+```
+
+You can run it with the standard deployment with something like:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+kubectl set image -n kubernetes-dashboard deployment/kubernetes-dashboard kubernetes-dashboard="cgr.dev/chainguard/kubernetes-dashboard:latest"
 ```
 

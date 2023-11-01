@@ -23,11 +23,10 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/rekor-cli/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **rekor-cli** images with nightly builds.
 
-## Get it!
 
-```
-docker pull cgr.dev/chainguard/rekor-cli:latest
-```
+## Sigstore Rekor
+
+Rekor is one of the core components of the sigstore stack.  For more information
+on this see [`sigstore-scaffolding`](../sigstore-scaffolding/).
 
