@@ -23,11 +23,17 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/keda-adapter/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **keda-adapter** images with nightly builds.
 
-## Get it!
+
+Minimal image with the Keda binary. **EXPERIMENTAL**
+
+## Get It!
+
+The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/keda-adapter:latest
+docker pull cgr.dev/chainguard/keda:latest
 ```
+
+This image is a drop-in replacement for the KEDA manager available upstream at `ghcr.io/kedacore/keda`.
 

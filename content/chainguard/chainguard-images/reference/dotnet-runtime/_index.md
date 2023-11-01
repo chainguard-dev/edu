@@ -23,11 +23,5 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/dotnet-runtime/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **dotnet-runtime** images with nightly builds.
 
-## Get it!
-
-```
-docker pull cgr.dev/chainguard/dotnet-runtime:latest
-```
 

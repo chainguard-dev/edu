@@ -23,11 +23,10 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/ctlog-trillian-ctserver/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **ctlog-trillian-ctserver** images with nightly builds.
 
-## Get it!
 
-```
-docker pull cgr.dev/chainguard/ctlog-trillian-ctserver:latest
-```
+## Certificate Transparency Logging
+
+The ctlog is deployed as part of the sigstore stack.  For more information
+on this see [`sigstore-scaffolding`](../sigstore-scaffolding/).
 

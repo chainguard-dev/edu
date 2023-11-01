@@ -23,11 +23,7 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-katib-earlystopping-medianstop/provenance_info/" >}}
 {{</ tabs >}}
 
-Minimal **kubeflow-katib-earlystopping-medianstop** images with nightly builds.
 
-## Get it!
 
-```
-docker pull cgr.dev/chainguard/kubeflow-katib-earlystopping-medianstop:latest
-```
+Minimalist Kubeflow Katib Images
 
