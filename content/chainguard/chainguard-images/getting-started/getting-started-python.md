@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Python"
 description: "Tutorial on the distroless Python Chainguard Image"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2023-09-22T11:07:52+02:00
+lastmod: 2023-11-02T13:46:53+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -160,9 +160,15 @@ To begin, create a directory for your app. You can use any meaningful name and p
 mkdir ~/inky/ && cd $_
 ```
 
-We'll first write out the requirements for our app in the `requirements.txt` file. We'll download the most recent version of Python [setuptools](https://pypi.org/project/setuptools/) at the time of writing, and also install [climage](https://pypi.org/project/climage/).
+We'll first write out the requirements for our app in a new file, for example we named our file `requirements.txt`. You can edit this file in your preferred code editor, in our case we will use Nano.
 
+```shell
+nano requirements.txt
 ```
+
+We'll download the most recent version of Python [setuptools](https://pypi.org/project/setuptools/) at the time of writing, and also install [climage](https://pypi.org/project/climage/).
+
+```shell
 setuptools==67.4.0
 climage==0.1.3
 ```
@@ -173,7 +179,7 @@ With requirements declared, create a new file to serve as the application entry 
 nano inky.py
 ```
 
-The following Python script defines a  CLI app that takes in an image file, `chainguard.png`, and prints a representation of that file on the command line.
+The following Python script defines a  CLI app that takes in an image file, `inky.png`, and prints a representation of that file on the command line.
 
 ```python
 '''import climage module to display images on terminal'''
@@ -182,12 +188,18 @@ import climage
 
 def main():
     '''Take in PNG and output as ANSI to terminal'''
-    output = climage.convert('chainguard.png', is_unicode=True)
+    output = climage.convert('inky.png', is_unicode=True)
     print(output)
 
 if __name__ == "__main__":
     main()
 
+```
+
+Next, pull down the `inky.png` image file with `curl`. [Inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/inky/inky.png) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `inky.py` script is.
+
+```shell
+curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/inky/inky.png
 ```
 
 You can now install the dependencies with `pip` and run the above program. It is recommended that you use a Python programming environment, ensure whether you are using the `pip` or `pip3` command.
