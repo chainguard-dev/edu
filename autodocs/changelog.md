@@ -1,3 +1,75 @@
+# 2023-11-02
+
+
+Updated Docs:
+
+- aspnet-runtime/tags_history.md
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- bazel/tags_history.md
+- buck2/tags_history.md
+- calico-node/tags_history.md
+- cassandra/tags_history.md
+- cilium-agent/tags_history.md
+- clang/tags_history.md
+- conda/tags_history.md
+- dask-gateway/tags_history.md
+- dask-gateway-server/tags_history.md
+- dotnet-runtime/tags_history.md
+- dotnet-sdk/tags_history.md
+- dynamic-localpv-provisioner/tags_history.md
+- git/tags_history.md
+- google-cloud-sdk/tags_history.md
+- gradle/tags_history.md
+- haproxy/_index.md
+- ingress-nginx-controller/tags_history.md
+- jenkins/tags_history.md
+- k8s-sidecar/tags_history.md
+- kafka/tags_history.md
+- keycloak/tags_history.md
+- kube-downscaler/tags_history.md
+- kubeflow-jupyter-web-app/tags_history.md
+- kubeflow-katib-earlystopping-medianstop/tags_history.md
+- kubeflow-katib-suggestion-darts/tags_history.md
+- kubeflow-katib-suggestion-hyperband/tags_history.md
+- kubeflow-katib-suggestion-hyperopt/tags_history.md
+- kubeflow-katib-suggestion-optuna/tags_history.md
+- kubeflow-katib-suggestion-pbt/tags_history.md
+- kubeflow-katib-suggestion-skopt/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- kubeflow-volumes-web-app/tags_history.md
+- mariadb/tags_history.md
+- maven/tags_history.md
+- newrelic-infrastructure-bundle/tags_history.md
+- newrelic-kubernetes/tags_history.md
+- nfs-subdir-external-provisioner/tags_history.md
+- node/tags_history.md
+- node-lts/tags_history.md
+- openai/tags_history.md
+- opensearch/tags_history.md
+- php/tags_history.md
+- powershell/tags_history.md
+- prometheus-cloudwatch-exporter/tags_history.md
+- pulumi/tags_history.md
+- python/tags_history.md
+- r-base/tags_history.md
+- redis/tags_history.md
+- redis-cluster-bitnami/tags_history.md
+- redis-sentinel-bitnami/tags_history.md
+- redis-server-bitnami/tags_history.md
+- rust/tags_history.md
+- semgrep/tags_history.md
+- skaffold/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- tomcat/tags_history.md
+- trillian-logserver/tags_history.md
+- trillian-logsigner/tags_history.md
+- trino/tags_history.md
+- wavefront-proxy/tags_history.md
+- weaviate/tags_history.md
+- zig/tags_history.md
+- zookeeper/tags_history.md
+
 # 2023-11-01
 
 
