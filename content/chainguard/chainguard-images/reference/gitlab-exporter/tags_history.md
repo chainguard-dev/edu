@@ -1,8 +1,8 @@
 ---
-title: "wasmtime Image Tags History"
+title: "gitlab-exporter Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the wasmtime Chainguard Image"
+description: "Image Tags and History for the gitlab-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/wasmtime/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/wasmtime/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/wasmtime/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/wasmtime/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/gitlab-exporter/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/gitlab-exporter/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/gitlab-exporter/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/gitlab-exporter/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | November 2nd | `sha256:77732ff6c60d4efa3b8ad3989051b48399091de68d8fe5874430ba2117cb4467` |
-|  `latest-dev` | November 2nd | `sha256:843cd23c6a7b02f94e5b3ef22c335478df2bf2dd59b9e32413515db37446f836` |
+|  `latest`     | November 2nd | `sha256:95152c2a749eafb2e5eed96699fe23213375611cf7f66d0c5c3fbbaa1c4761d5` |
+|  `latest-dev` | November 2nd | `sha256:cdc4c0dd14747e4811acbf55ad20174f6e04fcd1fa9b86ce68ec497fd9bc4d15` |
 
