@@ -2,7 +2,7 @@
 title: "APK Version Selection"
 linktitle: "APK Version Selection"
 type: "article"
-description: "In this article, we'll explain how to specify version constraints for packages installed with the `apk` tool, as well as `apko` and `melange`."
+description: "In this article, we'll explain how to specify version constraints for packages installed with the apk tool, as well as apko and melange."
 draft: false
 tags: ["Chainguard Images", "Product"]
 images: []
