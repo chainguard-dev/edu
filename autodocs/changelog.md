@@ -1,3 +1,26 @@
+# 2023-11-03
+New images added:
+
+- gitlab-exporter
+
+Updated Docs:
+
+- argocd/tags_history.md
+- argocd-repo-server/tags_history.md
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- cilium-agent/tags_history.md
+- conda/tags_history.md
+- ctlog-trillian-ctserver/tags_history.md
+- gatekeeper/tags_history.md
+- helm/_index.md
+- k3s/tags_history.md
+- k3s-allinone/tags_history.md
+- powershell/tags_history.md
+- semgrep/tags_history.md
+- wasmtime/tags_history.md
+- wavefront-proxy/tags_history.md
+
 # 2023-11-02
 
 
