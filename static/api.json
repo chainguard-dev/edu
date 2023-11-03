@@ -3670,6 +3670,14 @@
     },
     "RoleBindingListBinding": {
       "properties": {
+        "claimMatchIssuer": {
+          "description": "ClaimMatch issuer of the bound identity.",
+          "type": "string"
+        },
+        "claimMatchSubject": {
+          "description": "ClaimMatch subject of the bound identity.",
+          "type": "string"
+        },
         "email": {
           "description": "email of the bound identity.",
           "type": "string"
