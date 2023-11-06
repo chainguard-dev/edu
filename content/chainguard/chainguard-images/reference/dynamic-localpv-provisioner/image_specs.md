@@ -70,6 +70,7 @@ The table shows package distribution across variants.
 | `libpcre2-8-0`                | X          |        |
 | `libproc-2-0`                 | X          | X      |
 | `libssl3`                     | X          |        |
+| `libzstd1`                    | X          | X      |
 | `mii-tool`                    | X          | X      |
 | `ncurses`                     | X          | X      |
 | `ncurses-terminfo-base`       | X          | X      |

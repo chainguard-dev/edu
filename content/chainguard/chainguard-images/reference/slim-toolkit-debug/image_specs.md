@@ -95,6 +95,7 @@ The table shows package distribution across variants.
 | `libuv`                   | X      |
 | `libverto`                | X      |
 | `libxml2`                 | X      |
+| `libzstd1`                | X      |
 | `ltrace`                  | X      |
 | `mpdecimal`               | X      |
 | `mycli`                   | X      |

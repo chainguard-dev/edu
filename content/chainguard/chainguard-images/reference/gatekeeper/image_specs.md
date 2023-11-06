@@ -49,8 +49,8 @@ The table shows package distribution across variants.
 | `bash`                   | X          |        |
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
-| `gatekeeper-3.13`        | X          | X      |
-| `gatekeeper-3.13-compat` | X          | X      |
+| `gatekeeper-3.14`        | X          | X      |
+| `gatekeeper-3.14-compat` | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          |        |
 | `glibc-locale-posix`     | X          |        |
