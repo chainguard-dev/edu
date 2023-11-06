@@ -69,6 +69,7 @@ The table shows package distribution across variants.
 | `libnftnl`               | X      |
 | `libpcap`                | X      |
 | `libproc-2-0`            | X      |
+| `libzstd1`               | X      |
 | `ncurses`                | X      |
 | `ncurses-terminfo-base`  | X      |
 | `procps`                 | X      |
