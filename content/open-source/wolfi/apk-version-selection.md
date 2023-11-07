@@ -1,12 +1,15 @@
 ---
-title: "APK Version Selection"
+title: "Package Version Selection"
 type: "article"
 draft: false
-tags: ["Chainguard Images", "Product"]
+date: 2023-11-06T08:49:31+00:00
+lastmod: 2023-11-06T08:49:31+00:00
+draft: false
+tags: ["Chainguard Images", "Wolfi", "apk", "melange"]
 images: []
 menu:
   docs:
-    parent: "chainguard-images"
+    parent: "wolfi"
 weight: 750
 toc: true
 ---
