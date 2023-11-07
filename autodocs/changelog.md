@@ -1,3 +1,17 @@
+# 2023-11-07
+
+
+Updated Docs:
+
+- argo-cli/tags_history.md
+- argo-exec/tags_history.md
+- argo-workflowcontroller/tags_history.md
+- cilium-agent/_index.md
+- cilium-hubble-relay/_index.md
+- cilium-hubble-ui/_index.md
+- cilium-hubble-ui-backend/_index.md
+- cilium-operator-generic/_index.md
+
 # 2023-11-06
 
 
