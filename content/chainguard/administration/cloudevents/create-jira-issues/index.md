@@ -10,7 +10,7 @@ images: []
 menu:
   docs:
     parent: "cloudevents"
-weight: 15
+weight: 10
 toc: true
 ---
 
