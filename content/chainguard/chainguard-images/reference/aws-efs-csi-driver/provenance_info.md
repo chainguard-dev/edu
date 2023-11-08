@@ -21,7 +21,7 @@ toc: true
 
 All Chainguard Images contain verifiable signatures and high-quality SBOMs (software bill of materials), features that enable users to confirm the origin of each image built and have a detailed list of everything that is packed within.
 
-## Verifying Image Signatures
+## Verifying aws-efs-csi-driver Image Signatures
 The **aws-efs-csi-driver** Chainguard Images are signed using Sigstore, and you can check the included signatures using `cosign`.
 
 The following command requires [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https://stedolan.github.io/jq/) to be installed on your machine. It will pull detailed information about all signatures found for the provided image.
@@ -32,29 +32,41 @@ cosign verify --certificate-oidc-issuer=https://token.actions.githubusercontent.
 
 By default, this command will fetch signatures for the `latest` tag. You can also specify the tag you want to fetch signatures for.
 
-## Downloading and Verifying SBOMs
+## Downloading aws-efs-csi-driver Image Attestations
 
-All Chainguard Images come with a high-quality Software Bill Of Materials (SBOM) attested at build-time. The SBOM can be downloaded using the cosign tool:
+The following [attestations](https://slsa.dev/attestation-model) for the aws-efs-csi-driver image can be obtained and verified via cosign:
+
+| Attestation Type | Description |
+|----------------|-------------|
+| `https://slsa.dev/provenance/v1` | The [SLSA 1.0](https://slsa.dev/spec/v1.0/provenance) provenance attestation contains information about the image build environment. |
+| `https://apko.dev/image-configuration` | Contains the configuration used by that particular image build, including direct dependencies, user accounts, and entry point. |
+| `https://spdx.dev/Document` | Contains the image SBOM (Software Bill of Materials) in SPDX format. |
+
+
+To download an attestation, use the `cosign download attestation` command and provide both the predicate type and the build platform. For example, the following command will obtain the SBOM for the aws-efs-csi-driver image on `unix/amd64`:
 
 ```shell
 cosign download attestation \
+  --platform=unix/amd64 \
   --predicate-type=https://spdx.dev/Document \
-  cgr.dev/chainguard/aws-efs-csi-driver | jq -r .payload | base64 -d | jq
+  cgr.dev/chainguard/aws-efs-csi-driver | jq -r .payload | base64 -d | jq .predicate
 ```
-By default, this command will fetch the SBOM assigned to the `latest` tag. You can also specify the tag you want to fetch the SBOM from.
+By default, this command will fetch the SBOM assigned to the `latest` tag. You can also specify the tag you want to fetch the attestation from.
 
-With cosign 2.0+, you can use the `cosign verify-attestation` command to check the signature of an SBOM:
+To download a different attestation, replace the `--predicate-type` parameter value with the desired attestation URL identifier.
+
+## Verifying aws-efs-csi-driver Image Attestations
+You can use the `cosign verify-attestation` command to check the signatures of the aws-efs-csi-driver image attestations:
 
 ```shell
 cosign verify-attestation \
-  --type https://spdx.dev/Document \
-  --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
-  --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
-  --platform=linux/amd64 \
-  cgr.dev/chainguard/aws-efs-csi-driver
+--type https://spdx.dev/Document \
+--certificate-oidc-issuer=https://token.actions.githubusercontent.com \
+--certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
+cgr.dev/chainguard/aws-efs-csi-driver
 ```
 
-And you should get output that verifies the SBOM signature in cosign's transparency log:
+This will pull in the signature for the attestation specified by the `--type` parameter, which in this case is the SPDX attestation. You should get output that verifies the SBOM attestation signature in cosign's transparency log:
 
 ```
 Verification for cgr.dev/chainguard/aws-efs-csi-driver --
