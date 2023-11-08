@@ -25,8 +25,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)              | Last Changed | Digest                                                                    |
 |----------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-splunk-dev` | November 8th | `sha256:1767ade6b9ab48aee4bfd55179debe6c171270d9487b3665555e4d53255611fd` |
+|  `latest-splunk`     | November 8th | `sha256:eb02e4092b7dbb428f861936fa76f61bdb7dd8e816b1eb8648989c0eba3a95d8` |
 |  `latest`            | November 7th | `sha256:139e8a2cb19b155f4a8788ff27f27b26fdfeb8a3d86554d98b11dd75ccf62c3f` |
 |  `latest-dev`        | November 7th | `sha256:74e76cdb69f68052689e5c8f974effa28e45d6b5d0bc95fd174504716f64c91a` |
-|  `latest-splunk-dev` | November 7th | `sha256:1af123e251b09d53d6dd09cd5dcd18f8d818e761dd7633e537e8969184228b0e` |
-|  `latest-splunk`     | November 7th | `sha256:bbe9534c8a5a6a48fff9fce5dbe94b44c8aeb50db98dcac5bc4f3b2c6c26ab90` |
 
