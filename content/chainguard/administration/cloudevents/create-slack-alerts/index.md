@@ -5,7 +5,7 @@ description: "Creating Slack Alerts from Enforce Cloud Events"
 date: 2023-04-11T15:22:20+01:00
 lastmod: 2023-10-26T15:22:20+01:00
 draft: false
-tags: ["Enforce", "Product", "CloudEvents"]
+tags: ["Enforce", "Product", "Cloudevents"]
 images: []
 menu:
   docs:
