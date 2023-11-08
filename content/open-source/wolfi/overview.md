@@ -32,7 +32,7 @@ Wolfi, whose name was inspired by the [world's smallest octopus](https://en.wiki
 - Packages are designed to be granular and independent, to support minimal images
 - Uses the proven and reliable apk package format
 - Fully declarative and reproducible build system
-- Designed to support glibc and musl
+- Designed to support glibc
 
 Wolfi enables Chainguard to solve the software supply chain security problem from the outside in. It gives developers the secure-by-default base they need to build software, it scales to support organizations running massive environments and provides the control needed to fix most modern supply chain threats. Wolfi builds all packages directly from source, allowing us to fix vulnerabilities or apply customizations that improve the supply chain security posture of everything from compilers to language package managers.
 
