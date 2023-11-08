@@ -49,6 +49,7 @@ The table shows package distribution across variants.
 | `bash`                         | X          |        |
 | `busybox`                      | X          |        |
 | `ca-certificates-bundle`       | X          | X      |
+| `gdbm`                         | X          | X      |
 | `git`                          | X          |        |
 | `glibc`                        | X          | X      |
 | `glibc-locale-posix`           | X          | X      |
@@ -56,18 +57,26 @@ The table shows package distribution across variants.
 | `ld-linux`                     | X          | X      |
 | `libbrotlicommon1`             | X          |        |
 | `libbrotlidec1`                | X          |        |
-| `libcrypt1`                    | X          |        |
+| `libbz2-1`                     | X          | X      |
+| `libcrypt1`                    | X          | X      |
 | `libcrypto3`                   | X          | X      |
 | `libcurl-openssl4`             | X          |        |
-| `libexpat1`                    | X          |        |
+| `libexpat1`                    | X          | X      |
+| `libffi`                       | X          | X      |
 | `libgcc`                       | X          | X      |
 | `libnghttp2-14`                | X          |        |
 | `libpcre2-8-0`                 | X          |        |
 | `libssl3`                      | X          | X      |
-| `ncurses`                      | X          |        |
-| `ncurses-terminfo-base`        | X          |        |
+| `libstdc++`                    | X          | X      |
+| `mpdecimal`                    | X          | X      |
+| `ncurses`                      | X          | X      |
+| `ncurses-terminfo-base`        | X          | X      |
 | `openssl-config`               | X          | X      |
+| `python-3.12`                  | X          | X      |
+| `readline`                     | X          | X      |
+| `sqlite-libs`                  | X          | X      |
 | `wget`                         | X          | X      |
 | `wolfi-baselayout`             | X          | X      |
-| `zlib`                         | X          |        |
+| `xz`                           | X          | X      |
+| `zlib`                         | X          | X      |
 
