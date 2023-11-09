@@ -48,6 +48,7 @@ The table shows package distribution across variants.
 | `apk-tools`                    | X          |        |
 | `bash`                         | X          | X      |
 | `busybox`                      | X          | X      |
+| `ca-certificates`              | X          | X      |
 | `ca-certificates-bundle`       | X          | X      |
 | `fontconfig-config`            | X          | X      |
 | `freetype`                     | X          | X      |
@@ -60,26 +61,33 @@ The table shows package distribution across variants.
 | `ld-linux`                     | X          | X      |
 | `libbrotlicommon1`             | X          | X      |
 | `libbrotlidec1`                | X          | X      |
+| `libbsd`                       | X          | X      |
 | `libbz2-1`                     | X          | X      |
 | `libcrypt1`                    | X          | X      |
-| `libcrypto3`                   | X          |        |
+| `libcrypto3`                   | X          | X      |
 | `libcurl-openssl4`             | X          |        |
 | `libexpat1`                    | X          | X      |
+| `libffi`                       | X          | X      |
 | `libfontconfig1`               | X          | X      |
 | `libgcrypt`                    | X          | X      |
 | `libgpg-error`                 | X          | X      |
+| `libmd`                        | X          | X      |
 | `libnghttp2-14`                | X          |        |
 | `libpcre2-8-0`                 | X          |        |
 | `libpng`                       | X          | X      |
 | `libssl3`                      | X          |        |
+| `libtasn1`                     | X          | X      |
 | `libxml2`                      | X          | X      |
 | `libxslt`                      | X          | X      |
 | `ncurses`                      | X          | X      |
 | `ncurses-terminfo-base`        | X          | X      |
+| `netcat-openbsd`               | X          | X      |
 | `openjdk-17-default-jvm`       | X          | X      |
 | `openjdk-17-jre`               | X          | X      |
 | `openjdk-17-jre-base`          | X          | X      |
-| `openssl-config`               | X          |        |
+| `openssl-config`               | X          | X      |
+| `p11-kit`                      | X          | X      |
+| `p11-kit-trust`                | X          | X      |
 | `wolfi-baselayout`             | X          | X      |
 | `xmlstarlet`                   | X          | X      |
 | `xz`                           | X          | X      |

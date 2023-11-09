@@ -48,6 +48,7 @@ The table shows package distribution across variants.
 | `apk-tools`              | X          |        |
 | `bash`                   | X          |        |
 | `busybox`                | X          |        |
+| `ca-certificates`        | X          | X      |
 | `ca-certificates-bundle` | X          | X      |
 | `fontconfig-config`      | X          | X      |
 | `freetype`               | X          | X      |
@@ -62,9 +63,10 @@ The table shows package distribution across variants.
 | `libbrotlidec1`          | X          | X      |
 | `libbz2-1`               | X          | X      |
 | `libcrypt1`              | X          |        |
-| `libcrypto3`             | X          |        |
+| `libcrypto3`             | X          | X      |
 | `libcurl-openssl4`       | X          |        |
 | `libexpat1`              | X          | X      |
+| `libffi`                 | X          | X      |
 | `libfontconfig1`         | X          | X      |
 | `libgcc`                 | X          | X      |
 | `libnghttp2-14`          | X          |        |
@@ -72,12 +74,15 @@ The table shows package distribution across variants.
 | `libpng`                 | X          | X      |
 | `libssl3`                | X          |        |
 | `libstdc++`              | X          | X      |
+| `libtasn1`               | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
 | `openjdk-21-default-jvm` | X          | X      |
 | `openjdk-21-jre`         | X          | X      |
 | `openjdk-21-jre-base`    | X          | X      |
-| `openssl-config`         | X          |        |
+| `openssl-config`         | X          | X      |
+| `p11-kit`                | X          | X      |
+| `p11-kit-trust`          | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |
 

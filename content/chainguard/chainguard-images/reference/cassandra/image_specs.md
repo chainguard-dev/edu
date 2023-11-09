@@ -49,6 +49,7 @@ The table shows package distribution across variants.
 | `apk-tools`              | X          |        |
 | `bash`                   | X          | X      |
 | `busybox`                | X          | X      |
+| `ca-certificates`        | X          | X      |
 | `ca-certificates-bundle` | X          | X      |
 | `cassandra`              | X          | X      |
 | `cassandra-compat`       | X          | X      |
@@ -81,6 +82,7 @@ The table shows package distribution across variants.
 | `libpng`                 | X          | X      |
 | `libssl3`                | X          | X      |
 | `libstdc++`              | X          | X      |
+| `libtasn1`               | X          | X      |
 | `libverto`               | X          | X      |
 | `libx11`                 | X          | X      |
 | `libxau`                 | X          | X      |
@@ -97,6 +99,8 @@ The table shows package distribution across variants.
 | `openjdk-8-default-jvm`  | X          | X      |
 | `openjdk-8-jre`          | X          | X      |
 | `openssl-config`         | X          | X      |
+| `p11-kit`                | X          | X      |
+| `p11-kit-trust`          | X          | X      |
 | `python-3.12`            | X          | X      |
 | `readline`               | X          | X      |
 | `sqlite-libs`            | X          | X      |
