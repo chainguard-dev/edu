@@ -45,6 +45,7 @@ The table shows package distribution across variants.
 |                          | latest |
 |--------------------------|--------|
 | `busybox`                | X      |
+| `ca-certificates`        | X      |
 | `ca-certificates-bundle` | X      |
 | `fontconfig-config`      | X      |
 | `freetype`               | X      |
@@ -59,13 +60,19 @@ The table shows package distribution across variants.
 | `libbrotlidec1`          | X      |
 | `libbz2-1`               | X      |
 | `libcrypt1`              | X      |
+| `libcrypto3`             | X      |
 | `libexpat1`              | X      |
+| `libffi`                 | X      |
 | `libfontconfig1`         | X      |
 | `libpng`                 | X      |
+| `libtasn1`               | X      |
 | `openjdk-17`             | X      |
 | `openjdk-17-default-jvm` | X      |
 | `openjdk-17-jre`         | X      |
 | `openjdk-17-jre-base`    | X      |
+| `openssl-config`         | X      |
+| `p11-kit`                | X      |
+| `p11-kit-trust`          | X      |
 | `wolfi-baselayout`       | X      |
 | `zlib`                   | X      |
 
