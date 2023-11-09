@@ -20,4 +20,4 @@ dev-container:
 	-v $$PWD:/home/inky/ \
 	-p 8080:8080 -p 1313:1313 \
 	-it --user root \
-	apko.local:latest-$(arch)
+	academy.local:latest-$(arch)
