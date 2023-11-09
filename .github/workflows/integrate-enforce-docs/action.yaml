@@ -36,7 +36,7 @@ runs:
       shell: bash
       run: |
         gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
-          "${{ inputs.storage_bucket }}/enforce-events/events.md" content/chainguard/chainguard-enforce/reference/events.md
+          "${{ inputs.storage_bucket }}/enforce-events/events.md" content/chainguard/administration/cloudevents/events-reference.md
 
     - name: download chainctl docs from cloud storage
       shell: bash

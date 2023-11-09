@@ -13,7 +13,7 @@ tags: ["Enforce", "Product", "Procedural"]
 images: []
 menu:
   docs:
-    parent: "administration"
+    parent: "authentication"
 weight: 020
 toc: true
 ---
