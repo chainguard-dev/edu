@@ -49,6 +49,7 @@ The table shows package distribution across variants.
 | `binutils`               | X      |
 | `build-base`             | X      |
 | `busybox`                | X      |
+| `ca-certificates`        | X      |
 | `ca-certificates-bundle` | X      |
 | `file`                   | X      |
 | `fontconfig-config`      | X      |
@@ -86,6 +87,7 @@ The table shows package distribution across variants.
 | `libssl3`                | X      |
 | `libstdc++`              | X      |
 | `libstdc++-dev`          | X      |
+| `libtasn1`               | X      |
 | `linux-headers`          | X      |
 | `make`                   | X      |
 | `mpc`                    | X      |
@@ -102,6 +104,8 @@ The table shows package distribution across variants.
 | `openjdk-17-jre-base`    | X      |
 | `openssh-client`         | X      |
 | `openssl-config`         | X      |
+| `p11-kit`                | X      |
+| `p11-kit-trust`          | X      |
 | `patch`                  | X      |
 | `pkgconf`                | X      |
 | `posix-cc-wrappers`      | X      |

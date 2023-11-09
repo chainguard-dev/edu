@@ -47,7 +47,7 @@ To download an attestation, use the `cosign download attestation` command and pr
 
 ```shell
 cosign download attestation \
-  --platform=unix/amd64 \
+  --platform=linux/amd64 \
   --predicate-type=https://spdx.dev/Document \
   cgr.dev/chainguard/crossplane-aws-cloudwatchlogs | jq -r .payload | base64 -d | jq .predicate
 ```
