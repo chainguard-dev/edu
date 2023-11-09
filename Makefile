@@ -10,6 +10,7 @@ apko-build:
 	rm academy.tar
 
 dev-container:
+ifeq ("$(arch)","x86_64")
 	docker run --rm \
 	-v $$PWD/config/entrypoint.sh:/entrypoint.sh \
 	-v $$PWD/public:/usr/share/nginx/html \
@@ -17,4 +18,14 @@ dev-container:
 	-v $$PWD:/home/inky/ \
 	-p 8080:8080 -p 1313:1313 \
 	-it --user root \
-	academy.local:latest-$(arch)
+	academy.local:latest-amd64
+else
+	docker run --rm \
+	-v $$PWD/config/entrypoint.sh:/entrypoint.sh \
+	-v $$PWD/public:/usr/share/nginx/html \
+	-v $$PWD/nginx.conf:/etc/nginx/nginx.conf \
+	-v $$PWD:/home/inky/ \
+	-p 8080:8080 -p 1313:1313 \
+	-it --user root \
+	academy.local:latest-$arch
+endif
