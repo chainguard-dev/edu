@@ -48,6 +48,7 @@ The table shows package distribution across variants.
 | `apk-tools`                        | X          |        |
 | `bash`                             | X          | X      |
 | `busybox`                          | X          | X      |
+| `ca-certificates`                  | X          | X      |
 | `ca-certificates-bundle`           | X          | X      |
 | `curl`                             | X          | X      |
 | `fontconfig-config`                | X          | X      |
@@ -74,6 +75,7 @@ The table shows package distribution across variants.
 | `libpng`                           | X          | X      |
 | `libssl3`                          | X          | X      |
 | `libstdc++`                        | X          | X      |
+| `libtasn1`                         | X          | X      |
 | `mpdecimal`                        | X          | X      |
 | `ncurses`                          | X          | X      |
 | `ncurses-terminfo-base`            | X          | X      |
@@ -81,6 +83,8 @@ The table shows package distribution across variants.
 | `openjdk-17-jre`                   | X          | X      |
 | `openjdk-17-jre-base`              | X          | X      |
 | `openssl-config`                   | X          | X      |
+| `p11-kit`                          | X          | X      |
+| `p11-kit-trust`                    | X          | X      |
 | `python-3.12`                      | X          | X      |
 | `readline`                         | X          | X      |
 | `sqlite-libs`                      | X          | X      |

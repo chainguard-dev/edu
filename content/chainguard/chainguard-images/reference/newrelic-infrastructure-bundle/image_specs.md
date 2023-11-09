@@ -49,6 +49,7 @@ The table shows package distribution across variants.
 | `apk-tools`                       | X          |        |
 | `bash`                            | X          |        |
 | `busybox`                         | X          |        |
+| `ca-certificates`                 | X          | X      |
 | `ca-certificates-bundle`          | X          | X      |
 | `fontconfig-config`               | X          | X      |
 | `freetype`                        | X          | X      |
@@ -72,6 +73,7 @@ The table shows package distribution across variants.
 | `libcrypto3`                      | X          | X      |
 | `libcurl-openssl4`                | X          |        |
 | `libexpat1`                       | X          | X      |
+| `libffi`                          | X          | X      |
 | `libfontconfig1`                  | X          | X      |
 | `libgcc`                          | X          | X      |
 | `libjpeg-turbo`                   | X          | X      |
@@ -80,6 +82,7 @@ The table shows package distribution across variants.
 | `libpng`                          | X          | X      |
 | `libssl3`                         | X          | X      |
 | `libstdc++`                       | X          | X      |
+| `libtasn1`                        | X          | X      |
 | `libverto`                        | X          | X      |
 | `libx11`                          | X          | X      |
 | `libxau`                          | X          | X      |
@@ -121,6 +124,8 @@ The table shows package distribution across variants.
 | `openjdk-8-default-jvm`           | X          | X      |
 | `openjdk-8-jre`                   | X          | X      |
 | `openssl-config`                  | X          | X      |
+| `p11-kit`                         | X          | X      |
+| `p11-kit-trust`                   | X          | X      |
 | `wolfi-baselayout`                | X          | X      |
 | `xz`                              | X          | X      |
 | `zlib`                            | X          | X      |

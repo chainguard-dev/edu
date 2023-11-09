@@ -46,6 +46,7 @@ The table shows package distribution across variants.
 |--------------------------|--------|
 | `bash`                   | X      |
 | `busybox`                | X      |
+| `ca-certificates`        | X      |
 | `ca-certificates-bundle` | X      |
 | `coreutils`              | X      |
 | `fontconfig-config`      | X      |
@@ -63,14 +64,20 @@ The table shows package distribution across variants.
 | `libbrotlidec1`          | X      |
 | `libbz2-1`               | X      |
 | `libcrypt1`              | X      |
+| `libcrypto3`             | X      |
 | `libexpat1`              | X      |
+| `libffi`                 | X      |
 | `libfontconfig1`         | X      |
 | `libpng`                 | X      |
+| `libtasn1`               | X      |
 | `ncurses`                | X      |
 | `ncurses-terminfo-base`  | X      |
 | `openjdk-17-default-jvm` | X      |
 | `openjdk-17-jre`         | X      |
 | `openjdk-17-jre-base`    | X      |
+| `openssl-config`         | X      |
+| `p11-kit`                | X      |
+| `p11-kit-trust`          | X      |
 | `ttf-dejavu`             | X      |
 | `tzdata`                 | X      |
 | `wolfi-baselayout`       | X      |

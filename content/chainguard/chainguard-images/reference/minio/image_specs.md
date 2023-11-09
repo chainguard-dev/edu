@@ -31,7 +31,7 @@ The table has detailed information about each of these variants.
 
 |              | latest-dev       | latest           |
 |--------------|------------------|------------------|
-| Default User | `minio`          | `minio`          |
+| Default User | `nonroot`        | `nonroot`        |
 | Entrypoint   | `/usr/bin/minio` | `/usr/bin/minio` |
 | CMD          | not specified    | not specified    |
 | Workdir      | not specified    | not specified    |
