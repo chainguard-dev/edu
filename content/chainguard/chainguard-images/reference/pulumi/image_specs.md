@@ -52,6 +52,7 @@ The table shows package distribution across variants.
 | `build-base`              | X      |
 | `busybox`                 | X      |
 | `c-ares`                  | X      |
+| `ca-certificates`         | X      |
 | `ca-certificates-bundle`  | X      |
 | `dotnet-7`                | X      |
 | `dotnet-7-runtime`        | X      |
@@ -95,6 +96,7 @@ The table shows package distribution across variants.
 | `libssl3`                 | X      |
 | `libstdc++`               | X      |
 | `libstdc++-dev`           | X      |
+| `libtasn1`                | X      |
 | `libunwind`               | X      |
 | `linux-headers`           | X      |
 | `lttng-ust`               | X      |
@@ -122,6 +124,8 @@ The table shows package distribution across variants.
 | `openssh-server-config`   | X      |
 | `openssh-sftp-server`     | X      |
 | `openssl-config`          | X      |
+| `p11-kit`                 | X      |
+| `p11-kit-trust`           | X      |
 | `pkgconf`                 | X      |
 | `posix-cc-wrappers`       | X      |
 | `pulumi`                  | X      |
