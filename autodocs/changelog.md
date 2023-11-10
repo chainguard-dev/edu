@@ -1,3 +1,41 @@
+# 2023-11-10
+New images added:
+
+- timestamp-authority-cli
+- timestamp-authority-server
+
+Updated Docs:
+
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- aws-for-fluent-bit/tags_history.md
+- aws-load-balancer-controller/tags_history.md
+- buck2/image_specs.md
+- buck2/tags_history.md
+- calico-node-driver-registrar/tags_history.md
+- dex/tags_history.md
+- external-dns/tags_history.md
+- fluent-bit/tags_history.md
+- fluentd/tags_history.md
+- gitlab-exporter/tags_history.md
+- grype/tags_history.md
+- haproxy/tags_history.md
+- kube-logging-operator-fluentd/tags_history.md
+- kubernetes-csi-external-attacher/tags_history.md
+- kubernetes-csi-external-provisioner/tags_history.md
+- kubernetes-csi-external-resizer/tags_history.md
+- kubernetes-csi-external-snapshot-controller/tags_history.md
+- kubernetes-csi-external-snapshot-validation-webhook/tags_history.md
+- kubernetes-csi-external-snapshotter/tags_history.md
+- kubernetes-csi-node-driver-registrar/tags_history.md
+- melange/tags_history.md
+- newrelic-fluent-bit-output/tags_history.md
+- postgres/tags_history.md
+- prometheus-pushgateway-bitnami/tags_history.md
+- pulumi/image_specs.md
+- pulumi/tags_history.md
+- slim-toolkit-debug/tags_history.md
+
 # 2023-11-09
 
 
