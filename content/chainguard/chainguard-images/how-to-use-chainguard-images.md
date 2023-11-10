@@ -159,11 +159,11 @@ We will create the program on top of the `cgr.dev/chainguard/static:latest` base
 
 ```dockerfile
 # syntax=docker/dockerfile:1.4
-FROM cgr.dev/chainguard/gcc-musl:latest as build
+FROM cgr.dev/chainguard/gcc-glibc:latest as build
 
 COPY <<EOF /hello.c
 #include <stdio.h>
-int main() { printf("Hello Distroless!"); }
+int main() { printf("Hello Distroless!%c",0x0A); }
 EOF
 RUN cc -static /hello.c -o /hello
 
@@ -179,7 +179,7 @@ Run the following command to build the demo image and tag it as `c-distroless`:
 DOCKER_BUILDKIT=1 docker build -t c-distroless  .
 ```
 
-Now you can run the image with:
+If you receive an error, you may try removing the top line of the Dockerfile. Now you can run the image with:
 
 ```shell
 docker run c-distroless
@@ -191,7 +191,7 @@ You should get output like this:
 Hello Distroless!
 ```
 
-It’s worth noting how small the resulting image is:
+You can note the size of the resulting image.
 
 ```shell
 docker images c-distroless
@@ -199,7 +199,7 @@ docker images c-distroless
 
 ```
 REPOSITORY     TAG       IMAGE ID       CREATED              SIZE
-c-distroless   latest    de04a116ff9d   18 seconds ago   1.57MB
+c-distroless   latest    d3b1c78f4ed2   8 seconds ago   3.31MB
 ```
 
 ### Extending Chainguard Base Images
