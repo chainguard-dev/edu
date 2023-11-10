@@ -1,0 +1,54 @@
+contents:
+  repositories:
+    - https://packages.wolfi.dev/os
+  keyring:
+    - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+  packages:
+    - bash
+    - ca-certificates-bundle
+    - coreutils
+    - hugo-extended
+    - nano
+    - nginx
+    - nodejs
+    - npm
+    - tmux
+    - vim
+    - wolfi-base
+
+accounts:
+  groups:
+    - groupname: inky
+      gid: 2000
+  users:
+    - username: inky
+      uid: 2000
+  run-as: inky
+
+work-dir: /home/inky
+
+paths:
+  - path: /var/lib/nginx
+    type: directory
+    uid: 2000
+    gid: 2000
+    permissions: 0o755
+    recursive: true
+  - path: /var/lib/nginx/tmp
+    uid: 2000
+    gid: 2000
+    type: directory
+    # Wide permissions required for running with tmpfs. Seems to be related to Docker bug https://github.com/moby/moby/issues/40881
+    permissions: 0o777
+    recursive: true
+  - path: /var/run
+    uid: 2000
+    gid: 2000
+    type: directory
+    # Wide permissions required for running with tmpfs. Seems to be related to Docker bug https://github.com/moby/moby/issues/40881
+    permissions: 0o777
+    recursive: false
+
+entrypoint:
+  command: /bin/bash /entrypoint.sh
+

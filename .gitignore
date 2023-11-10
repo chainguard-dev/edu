@@ -4,6 +4,7 @@ resources
 .netlify
 .hugo_build.lock
 .DS_Store
+.bash_history
 
 # Editor / IDE config
 .idea
