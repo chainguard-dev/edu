@@ -1,8 +1,8 @@
 ---
-title: "kubernetes-csi-external-snapshot-controller Image Tags History"
+title: "timestamp-authority-server Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
+description: "Image Tags and History for the timestamp-authority-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-controller/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-controller/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-controller/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-controller/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/timestamp-authority-server/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/timestamp-authority-server/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/timestamp-authority-server/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/timestamp-authority-server/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 9th | `sha256:5f9ca3c1d4041bea0fe4216e671e82e315fc953211a2cfa84d2e8b50acfb3acd` |
-|  `latest`     | November 9th | `sha256:5a085b3d1e74d8525f0c758bb666c6efa00bd05ac99ae8439dd3b67d94d7402d` |
+|  `latest-dev` | November 9th | `sha256:aa4f8fad329c4b1549ecbff5d4c066bd813dcbcc9bcb3bd717b1fbd5502aa500` |
+|  `latest`     | November 9th | `sha256:d0e70b771b6f6ee72c215dec8aa6e1aa979643893e4f22264a1910e96d77c352` |
 

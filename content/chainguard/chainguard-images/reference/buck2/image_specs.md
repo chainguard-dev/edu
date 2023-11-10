@@ -81,7 +81,7 @@ The table shows package distribution across variants.
 | `libstdc++-dev`          | X          | X      |
 | `libxml2`                | X          | X      |
 | `linux-headers`          | X          | X      |
-| `llvm-lld-16`            | X          | X      |
+| `llvm-lld-17`            | X          | X      |
 | `make`                   | X          | X      |
 | `mpc`                    | X          | X      |
 | `mpfr`                   | X          | X      |
