@@ -1,3 +1,44 @@
+# 2023-11-11
+
+
+Updated Docs:
+
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- fluentd/tags_history.md
+- gitlab-exporter/tags_history.md
+- gitlab-shell/tags_history.md
+- google-cloud-sdk/tags_history.md
+- ingress-nginx-controller/tags_history.md
+- kube-logging-operator-fluentd/tags_history.md
+- kube-state-metrics/tags_history.md
+- kubeflow-katib-suggestion-hyperband/tags_history.md
+- kubeflow-katib-suggestion-hyperopt/tags_history.md
+- kubeflow-katib-suggestion-skopt/tags_history.md
+- kyverno/tags_history.md
+- kyverno-background-controller/tags_history.md
+- kyverno-cleanup-controller/tags_history.md
+- kyverno-cli/tags_history.md
+- kyverno-reports-controller/tags_history.md
+- kyvernopre/tags_history.md
+- metrics-server/tags_history.md
+- nats/tags_history.md
+- newrelic-infrastructure-bundle/tags_history.md
+- newrelic-k8s-events-forwarder/tags_history.md
+- postgres/tags_history.md
+- prometheus-config-reloader/tags_history.md
+- prometheus-operator/tags_history.md
+- ruby/tags_history.md
+- semgrep/tags_history.md
+- skaffold/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- spire-agent/tags_history.md
+- spire-oidc-discovery-provider/tags_history.md
+- spire-server/tags_history.md
+- tekton-cli/tags_history.md
+- timestamp-authority-cli/tags_history.md
+- timestamp-authority-server/tags_history.md
+
 # 2023-11-10
 New images added:
 
