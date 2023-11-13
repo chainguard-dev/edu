@@ -23,9 +23,9 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                               | Last Changed | Digest                                                                    |
-|-------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest`                                             | November 8th | `sha256:c8cfa476e08837f87fc53959debb6127878feebd4f6d5f93b70017520ad36954` |
-|  `1.36` `1` `1.36.1`                                  | November 3rd | `sha256:d6a7ed7843540fc638e70069e3b75f8422ac3d871162518abb5cbd0ee4bd1d38` |
-|  `glibc-1` `latest-glibc` `glibc-1.36.1` `glibc-1.36` | October 30th | `sha256:8e3662a12cc913bc5d2aec46333589f4823910ef9560d8763f1fb04b2923aff1` |
+| Tag (s)                                               | Last Changed  | Digest                                                                    |
+|-------------------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `latest`                                             | November 12th | `sha256:0b4a9d13098b4546a52f3e173527ced1dbc85bff4bac73e526782649276beed7` |
+|  `1.36` `1` `1.36.1`                                  | November 3rd  | `sha256:d6a7ed7843540fc638e70069e3b75f8422ac3d871162518abb5cbd0ee4bd1d38` |
+|  `glibc-1` `latest-glibc` `glibc-1.36.1` `glibc-1.36` | October 30th  | `sha256:8e3662a12cc913bc5d2aec46333589f4823910ef9560d8763f1fb04b2923aff1` |
 
