@@ -47,7 +47,7 @@ func NewBqClient() (bqClient, error) {
 	var b bqClient
 	var err error
 	b.Ctx = context.Background()
-	if b.Client, err = bigquery.NewClient(b.Ctx, "base-image-rumble"); err != nil {
+	if b.Client, err = bigquery.NewClient(b.Ctx, "prod-images-c6e5"); err != nil {
 		return b, err
 	}
 	return b, nil
@@ -55,14 +55,14 @@ func NewBqClient() (bqClient, error) {
 
 const allVulnsQuery = `
 SELECT DISTINCT vulnerability
-FROM base-image-rumble.rumble.scheduled_vulns
+FROM prod-images-c6e5.insights_ds.vulnerabilities
 `
 
 const affectedImagesQuery = `
 SELECT s1.image, s1.time as time,
-FROM base-image-rumble.rumble.scheduled_vulns
+FROM prod-images-c6e5.insights_ds.vulnerabilities
 AS s2
-INNER JOIN base-image-rumble.rumble.scheduled
+INNER JOIN prod-images-c6e5.insights_ds.image-scan-summary
 AS s1
 ON s1.id = s2.scan_id
 WHERE s2.vulnerability = ?
