@@ -1,3 +1,59 @@
+# 2023-11-14
+New images added:
+
+- kubeflow-pipelines-frontend
+- kyverno-policy-reporter
+
+Updated Docs:
+
+- aws-cli/tags_history.md
+- aws-ebs-csi-driver/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- aws-for-fluent-bit/tags_history.md
+- conda/tags_history.md
+- crane/tags_history.md
+- dask-gateway-server/tags_history.md
+- dex/tags_history.md
+- external-secrets/tags_history.md
+- ffmpeg/tags_history.md
+- fluent-bit/tags_history.md
+- fluentd/tags_history.md
+- gitlab-exporter/tags_history.md
+- guacamole-server/tags_history.md
+- k8sgpt/tags_history.md
+- k8sgpt-operator/tags_history.md
+- kube-downscaler/tags_history.md
+- kube-fluentd-operator/tags_history.md
+- kube-logging-operator-fluentd/tags_history.md
+- kubeflow-jupyter-web-app/tags_history.md
+- kubeflow-katib-earlystopping-medianstop/tags_history.md
+- kubeflow-katib-suggestion-hyperband/tags_history.md
+- kubeflow-katib-suggestion-hyperopt/tags_history.md
+- kubeflow-katib-suggestion-optuna/tags_history.md
+- kubeflow-katib-suggestion-pbt/tags_history.md
+- kubeflow-katib-suggestion-skopt/tags_history.md
+- kubeflow-pipelines-api-server/tags_history.md
+- kubeflow-pipelines-cache-deployer/tags_history.md
+- kubeflow-pipelines-cache-server/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- kubeflow-pipelines-persistenceagent/tags_history.md
+- kubeflow-pipelines-scheduledworkflow/tags_history.md
+- kubeflow-pipelines-viewer-crd-controller/tags_history.md
+- nats/tags_history.md
+- newrelic-fluent-bit-output/tags_history.md
+- newrelic-infrastructure-bundle/tags_history.md
+- newrelic-kubernetes/tags_history.md
+- newrelic-prometheus-configurator/tags_history.md
+- openai/tags_history.md
+- postgres/tags_history.md
+- prometheus-node-exporter/tags_history.md
+- semgrep/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- spire-agent/tags_history.md
+- spire-oidc-discovery-provider/tags_history.md
+- spire-server/tags_history.md
+- timoni/tags_history.md
+
 # 2023-11-13
 
 
