@@ -12,11 +12,6 @@ weight: 799
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
 
-### v0.1.193
-Release date: 2023-11-03
-
-Customer facing changes: N/A
-
 ### v0.1.192
 Release date: 2023-11-01
 
