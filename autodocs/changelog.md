@@ -1,3 +1,19 @@
+# 2023-11-15
+New images added:
+
+- temporal-ui-server
+
+Updated Docs:
+
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- crane/tags_history.md
+- istio-install-cni/tags_history.md
+- istio-operator/tags_history.md
+- istio-pilot/tags_history.md
+- istio-proxy/tags_history.md
+- slim-toolkit-debug/tags_history.md
+
 # 2023-11-14
 New images added:
 

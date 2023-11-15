@@ -1,8 +1,8 @@
 ---
-title: "crane Image Tags History"
+title: "temporal-ui-server Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the crane Chainguard Image"
+description: "Image Tags and History for the temporal-ui-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/crane/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/crane/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/crane/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/crane/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/temporal-ui-server/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/temporal-ui-server/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/temporal-ui-server/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/temporal-ui-server/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 14th | `sha256:5f70c073cdec827c3274099b3f0be57bbc23605b6aa5e7913d551e4e50dddd72` |
-|  `latest`     | November 14th | `sha256:d88feb459a2b98f5895e89ee54290192736e0ba63d29240e4bddd05319fa9d26` |
+|  `latest-dev` | November 14th | `sha256:dc5042be5c0efe39fdb7cc2a35d2a2f57a7f498905ef87ceb2949a650ef6c06f` |
+|  `latest`     | November 14th | `sha256:1240a90adf0f99ba8658be9c82e8cde423c4698a6d800e8b9a0cd646bfed958d` |
 
