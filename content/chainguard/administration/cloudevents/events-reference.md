@@ -12,11 +12,7 @@ weight: 780
 
 Chainguard generates and emits [CloudEvents](https://cloudevents.io/) based on actions that occur within a Chainguard account, such as registering a Kubernetes cluster or creating an IAM invitation. Chainguard also emits events when workloads or policies are changed in a cluster.
 
-<<<<<<< HEAD
-Check out the [chainguard-dev/enforce-events](https://github.com/chainguard-dev/enforce-events) GitHub repository for two sample applications that demonstrate how to use Chainguard Enforce create Slack notifications, as well as how to open a GitHub issue from received events.
-=======
 Check out [this GitHub repository](https://github.com/chainguard-dev/enforce-events) for some sample applications that demonstrate how to use events to create Slack notifications, open GitHub issues, and mirror images.
->>>>>>> 6357dc581cefe4d1297b3d5c0e512c8c5e97342d
 
 To subscribe to Chainguard events for your account, use the `chainctl` command like this:
 
