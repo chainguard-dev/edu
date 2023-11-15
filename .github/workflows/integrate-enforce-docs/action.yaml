@@ -66,7 +66,7 @@ runs:
       shell: bash
       run: |
         sed '/draft: false/a tags: ["Enforce", "Reference", "Product"]' \
-          -i content/chainguard/chainguard-enforce/reference/events.md
+          -i content/chainguard/administration/cloudevents/events-reference.md
 
     - name: download domains.md from cloud storage
       shell: bash
