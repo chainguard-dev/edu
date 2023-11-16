@@ -49,7 +49,7 @@ docker pull cgr.dev/chainguard/git:latest-glibc
 
 You may use tags to pull a specific version of a software like Git, or programming language version in a catalog you have access to. Chainguard Academy has tag history pages for each image, which you can find in our reference docs. For example, the [Git Image Tags History](/chainguard/chainguard-images/reference/git/tags_history/), [PHP Image Tags History](/chainguard/chainguard-images/reference/php/tags_history/), and [JDK Image Tags History](/chainguard/chainguard-images/reference/jdk/tags_history/).
 
-You can learn about the Chainguard Images tags history in our guide about [Using the Tag History API](chainguard/chainguard-images/using-the-tag-history-api/). 
+You can learn about the Chainguard Images tags history in our guide about [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/). 
 
 ### Pulling by Digest
 
