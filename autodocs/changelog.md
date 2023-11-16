@@ -1,3 +1,60 @@
+# 2023-11-16
+
+
+Updated Docs:
+
+- argocd/image_specs.md
+- argocd-repo-server/tags_history.md
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- buck2/tags_history.md
+- cert-manager-acmesolver/tags_history.md
+- cert-manager-cainjector/tags_history.md
+- cert-manager-controller/tags_history.md
+- cert-manager-webhook/tags_history.md
+- cilium-agent/tags_history.md
+- cilium-hubble-relay/tags_history.md
+- cilium-operator-generic/tags_history.md
+- fluentd/tags_history.md
+- flux-kustomize-controller/tags_history.md
+- gitlab-shell/tags_history.md
+- guacamole-server/tags_history.md
+- hugo/_index.md
+- hugo/tags_history.md
+- ingress-nginx-controller/tags_history.md
+- istio-install-cni/tags_history.md
+- istio-operator/tags_history.md
+- istio-pilot/tags_history.md
+- istio-proxy/tags_history.md
+- jenkins/tags_history.md
+- kube-logging-operator/tags_history.md
+- kube-logging-operator-fluentd/tags_history.md
+- kubeflow-pipelines-frontend/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- memcached-exporter/tags_history.md
+- newrelic-kube-events/tags_history.md
+- newrelic-kubernetes/tags_history.md
+- node/tags_history.md
+- node-lts/tags_history.md
+- openai/tags_history.md
+- pgbouncer/tags_history.md
+- php/tags_history.md
+- pulumi/tags_history.md
+- redis-cluster-bitnami/tags_history.md
+- redis-sentinel/tags_history.md
+- redis-sentinel-bitnami/tags_history.md
+- redis-server-bitnami/tags_history.md
+- semgrep/tags_history.md
+- sigstore-scaffolding-cloudsqlproxy/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- spark-operator/tags_history.md
+- spire-agent/tags_history.md
+- spire-oidc-discovery-provider/tags_history.md
+- spire-server/tags_history.md
+- temporal-ui-server/tags_history.md
+- wait-for-it/tags_history.md
+- zookeeper/tags_history.md
+
 # 2023-11-15
 New images added:
 
