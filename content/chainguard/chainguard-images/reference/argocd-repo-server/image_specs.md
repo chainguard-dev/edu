@@ -46,8 +46,8 @@ The table shows package distribution across variants.
 |                           | latest-dev | latest |
 |---------------------------|------------|--------|
 | `apk-tools`               | X          |        |
-| `argo-cd-2.8-compat`      | X          | X      |
-| `argo-cd-2.8-repo-server` | X          | X      |
+| `argo-cd-2.9-compat`      | X          | X      |
+| `argo-cd-2.9-repo-server` | X          | X      |
 | `bash`                    | X          |        |
 | `busybox`                 | X          | X      |
 | `ca-certificates-bundle`  | X          | X      |
