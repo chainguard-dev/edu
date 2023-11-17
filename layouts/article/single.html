@@ -88,11 +88,13 @@
       <div class="mb-5"></div>
       {{ .Content }}
 
+      {{ if not .Params.hide_lastmod -}}
         {{ if .Params.lastmod }}
         <div class="d-block border-top mt-5 pt-2">
             <p class="text-muted fst-italic fs-6">Last updated: {{ time.Format "2006-01-02 15:04" .Params.lastmod }}</p>
         </div>
         {{ end }}
+      {{ end -}}
 
       <div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
         <!-- {{ if .Site.Params.lastMod -}}
