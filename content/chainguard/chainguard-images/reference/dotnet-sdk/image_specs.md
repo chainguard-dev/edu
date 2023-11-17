@@ -49,11 +49,11 @@ The table shows package distribution across variants.
 | `bash`                    | X          |        |
 | `busybox`                 | X          | X      |
 | `ca-certificates-bundle`  | X          | X      |
-| `dotnet-7`                | X          | X      |
-| `dotnet-7-runtime`        | X          | X      |
-| `dotnet-7-sdk`            | X          | X      |
-| `dotnet-7-sdk-default`    | X          | X      |
-| `dotnet-7-targeting-pack` | X          | X      |
+| `dotnet-8`                | X          | X      |
+| `dotnet-8-runtime`        | X          | X      |
+| `dotnet-8-sdk`            | X          | X      |
+| `dotnet-8-sdk-default`    | X          | X      |
+| `dotnet-8-targeting-pack` | X          | X      |
 | `git`                     | X          |        |
 | `glibc`                   | X          | X      |
 | `glibc-locale-posix`      | X          | X      |
@@ -70,12 +70,10 @@ The table shows package distribution across variants.
 | `libpcre2-8-0`            | X          |        |
 | `libssl3`                 | X          | X      |
 | `libstdc++`               | X          | X      |
-| `libunwind`               | X          | X      |
 | `lttng-ust`               | X          | X      |
 | `ncurses`                 | X          |        |
 | `ncurses-terminfo-base`   | X          |        |
 | `openssl-config`          | X          | X      |
 | `wolfi-baselayout`        | X          | X      |
-| `xz`                      | X          | X      |
 | `zlib`                    | X          | X      |
 
