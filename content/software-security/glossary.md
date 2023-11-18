@@ -89,6 +89,13 @@ Provenance is the verifiable information about software artifacts describing _wh
 
 ---
 
+### Zero-day
+
+The origin and exact meaning of this term varies among sources, but a zero-day is a recently discovered vulnerability. One explanation for the term is that a zero-day vulnerability is a very new vulnerability for which there isn't a fix, and developers have "zero days" to find a solution. Others define it as an unknown vulnerability or exploit already affecting your system. "Zero-day" refers to the age of the vulnerability, as derived from when you or your security org first becomes aware of it; because the vulnerability is "zero days" old, no one is yet aware of it and there isn't a known fix for it. The derivative terms **zero-day attack** or **zero-day exploit** refer to an attack taking advantage of such a previously unknown vulnerability.
+
+---
+
+
 ## Security tools and frameworks
 
 ### Certificate authority
