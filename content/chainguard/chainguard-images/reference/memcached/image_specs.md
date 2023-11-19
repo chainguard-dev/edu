@@ -22,45 +22,57 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **memcached** Image.
 
 ## Variants Compared
-The **memcached** Chainguard Image currently has one public variant: 
+The **memcached** Chainguard Image currently has 2 public variants: 
 
+- `latest-dev`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest        |
-|--------------|---------------|
-| Default User | `memcached`   |
-| Entrypoint   | `memcached`   |
-| CMD          | not specified |
-| Workdir      | not specified |
-| Has apk?     | no            |
-| Has a shell? | no            |
+|              | latest-dev           | latest               |
+|--------------|----------------------|----------------------|
+| Default User | `nonroot`            | `nonroot`            |
+| Entrypoint   | `/usr/bin/memcached` | `/usr/bin/memcached` |
+| CMD          | not specified        | not specified        |
+| Workdir      | not specified        | not specified        |
+| Has apk?     | yes                  | no                   |
+| Has a shell? | yes                  | no                   |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/memcached/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `ca-certificates-bundle` | X      |
-| `cyrus-sasl`             | X      |
-| `gdbm`                   | X      |
-| `glibc`                  | X      |
-| `glibc-locale-posix`     | X      |
-| `heimdal`                | X      |
-| `ld-linux`               | X      |
-| `libcrypt1`              | X      |
-| `libcrypto3`             | X      |
-| `libevent`               | X      |
-| `libseccomp`             | X      |
-| `libssl3`                | X      |
-| `memcached`              | X      |
-| `ncurses`                | X      |
-| `ncurses-terminfo-base`  | X      |
-| `openssl-config`         | X      |
-| `readline`               | X      |
-| `sqlite-libs`            | X      |
-| `wolfi-baselayout`       | X      |
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `busybox`                | X          |        |
+| `ca-certificates-bundle` | X          | X      |
+| `cyrus-sasl`             | X          | X      |
+| `gdbm`                   | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `heimdal`                | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
+| `libcrypt1`              | X          | X      |
+| `libcrypto3`             | X          | X      |
+| `libcurl-openssl4`       | X          |        |
+| `libevent`               | X          | X      |
+| `libexpat1`              | X          |        |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libseccomp`             | X          | X      |
+| `libssl3`                | X          | X      |
+| `memcached`              | X          | X      |
+| `ncurses`                | X          | X      |
+| `ncurses-terminfo-base`  | X          | X      |
+| `openssl-config`         | X          | X      |
+| `readline`               | X          | X      |
+| `sqlite-libs`            | X          | X      |
+| `wolfi-baselayout`       | X          | X      |
+| `zlib`                   | X          |        |
 
