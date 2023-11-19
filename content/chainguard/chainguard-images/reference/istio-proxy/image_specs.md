@@ -54,10 +54,10 @@ The table shows package distribution across variants.
 | `glibc-locale-posix`            | X          | X      |
 | `ip6tables`                     | X          | X      |
 | `iptables`                      | X          | X      |
-| `istio-envoy-1.19`              | X          | X      |
-| `istio-envoy-1.19-compat`       | X          | X      |
-| `istio-pilot-agent-1.19`        | X          | X      |
-| `istio-pilot-agent-1.19-compat` | X          | X      |
+| `istio-envoy-1.20`              | X          | X      |
+| `istio-envoy-1.20-compat`       | X          | X      |
+| `istio-pilot-agent-1.20`        | X          | X      |
+| `istio-pilot-agent-1.20-compat` | X          | X      |
 | `ld-linux`                      | X          | X      |
 | `libbrotlicommon1`              | X          |        |
 | `libbrotlidec1`                 | X          |        |

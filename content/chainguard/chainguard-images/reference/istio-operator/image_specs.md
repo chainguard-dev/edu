@@ -52,7 +52,7 @@ The table shows package distribution across variants.
 | `git`                    | X          |        |
 | `glibc`                  | X          |        |
 | `glibc-locale-posix`     | X          |        |
-| `istio-operator-1.19`    | X          | X      |
+| `istio-operator-1.20`    | X          | X      |
 | `ld-linux`               | X          |        |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |

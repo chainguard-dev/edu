@@ -53,7 +53,7 @@ The table shows package distribution across variants.
 | `glibc`                             | X          |        |
 | `glibc-locale-posix`                | X          |        |
 | `istio-pilot-discovery-1.18-compat` | X          | X      |
-| `istio-pilot-discovery-1.19`        | X          | X      |
+| `istio-pilot-discovery-1.20`        | X          | X      |
 | `ld-linux`                          | X          |        |
 | `libbrotlicommon1`                  | X          |        |
 | `libbrotlidec1`                     | X          |        |
