@@ -52,10 +52,10 @@ The table shows package distribution across variants.
 | `git`                           | X          |        |
 | `glibc`                         | X          |        |
 | `glibc-locale-posix`            | X          |        |
-| `istio-cni-1.19`                | X          | X      |
-| `istio-cni-1.19-compat`         | X          | X      |
-| `istio-install-cni-1.19`        | X          | X      |
-| `istio-install-cni-1.19-compat` | X          | X      |
+| `istio-cni-1.20`                | X          | X      |
+| `istio-cni-1.20-compat`         | X          | X      |
+| `istio-install-cni-1.20`        | X          | X      |
+| `istio-install-cni-1.20-compat` | X          | X      |
 | `ld-linux`                      | X          |        |
 | `libbrotlicommon1`              | X          |        |
 | `libbrotlidec1`                 | X          |        |
