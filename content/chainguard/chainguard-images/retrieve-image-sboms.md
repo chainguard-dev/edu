@@ -33,7 +33,7 @@ In order to follow this guide, you'll need the following installed on your local
 
 ## Using Cosign to retrieve an Image's SBOM
 
-Cosign includes a `download` command that allows you to retrieve a Chainguard Image's SBOM over the command line. To do so, you would use this command with syntax like the following.
+Cosign includes a `download` command that allows you to retrieve a Chainguard Image's attestation over the command line. To do so, you would use this command with syntax like the following.
 
 ```shell
 cosign download attestation \ 
