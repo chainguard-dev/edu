@@ -25,10 +25,10 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed  | Digest                                                                    |
 |--------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-glibc-root-dev` | November 16th | `sha256:89a24aacb1609d2c9f183ff220d88b89a642f386bd923c15070077974a705701` |
-|  `latest-glibc-root`     | November 16th | `sha256:5a3afe92735f579690b1ea9c533a3ff0bf5a39fd94e88866b0793ee82b52cfc9` |
-|  `latest-glibc-dev`      | November 16th | `sha256:9c9acbff4786da39bff59a2d9a02d6632fd068354c07300962cd0ca0b7e8576c` |
-|  `latest-glibc`          | November 16th | `sha256:fde2c91e322017248995c175a6305d392658735c9d35aab0f358370743e436b3` |
+|  `latest-glibc-root-dev` | November 19th | `sha256:f54c3a0526d0b11dc03b4cbaf575c5f987f18bf5c6f4b15085ff11dd225d042a` |
+|  `latest-glibc-root`     | November 19th | `sha256:986a44bb776f6db4c431934b6f252fdaff300d81923b86c017a5341aef9314dd` |
+|  `latest-glibc-dev`      | November 19th | `sha256:9654e3b997dbb37f5137569ad5caa62acf7e4de0e9a0c8d449cc213e8557aed7` |
+|  `latest-glibc`          | November 19th | `sha256:d87bf143438889af11f91e9f0b33e92a4b5a52a486fb8698a3550d6e27fb3b47` |
 |  `latest-dev`            | November 12th | `sha256:31281e045e8ee5ce38b7f45865508ab41cd34d36565be217ec1ae4904491b604` |
 |  `latest-root`           | November 12th | `sha256:5ce1c0cca3014e1a06cad83a506a457adb886f34fd5da59b05ce33f52ebfc36b` |
 |  `latest`                | November 12th | `sha256:c81fb057d751ae1e1baa95ea058ca66213a394215f9fec964c541de92d73f506` |
