@@ -18,9 +18,9 @@ toc: true
 
 Chainguard Images contain only the minimum number of packages needed to use the software they contain. The purpose of this is to reduce the image's attack surface and minimize the risk that CVEs will impact software that depends on these container images. 
 
-Even though they contain the minimum number of packages, there may come a time when you want to know exactly what's running inside of a certain Chainguard Image. For this reason, we include a signed SBOM (also known as an *attestation*) with each image.
+Even though they contain the minimum number of packages, there may come a time when you want to know exactly what's running inside of a certain Chainguard Image. For this reason, we include a signed SBOM with each image in the form of a [software attestation](https://slsa.dev/attestation-model).
 
-[Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/) — a part of the Sigstore project — supports software artifact signing, verification, and storage in an [OCI (Open Container Initiative)](/open-source/oci/what-is-the-oci/) registry, as well as the retrieval of said artifacts. This tutorial outlines how you can use the `cosign` command to retrieve a Chainguard Image's SBOM using Cosign. 
+[Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/) — a part of the Sigstore project — supports software artifact signing, verification, and storage in an [OCI (Open Container Initiative)](/open-source/oci/what-is-the-oci/) registry, as well as the retrieval of said artifacts. This tutorial outlines how you can use the `cosign` command to retrieve a Chainguard Image's SBOM. 
 
 
 ## Prerequisites
@@ -40,14 +40,11 @@ cosign download attestation \
 cgr.dev/chainguard/$IMAGE | jq -r .payload | base64 -d | jq .predicate
 ```
 
-Notice that this example syntax includes `download attestation` rather than `download sbom`. While there are a few [differences between SBOMs and attestations](/open-source/sbom/sboms-and-attestations/), you can generally think of an attestation as a more accurate representation of the contents of the container image than an SBOM. This is because attestations must be signed by the software producer, thereby ensuring the accuracy of the SBOM and the quality of the software. 
+Notice that this example syntax includes `download attestation` rather than `download sbom`. You can generally think of an attestation as a an authenticated statement about a software artifact. There are different types of attestations [as defined by the SLSA 1.0 specification](https://slsa.dev/attestation-model), and they are typically referenced by their **predicate type**. One of the available predicate types is SPDX, an open standard for SBOM files. Because attestations must be signed, this is a way to verify the authenticity of the software producer, thereby ensuring the accuracy of the SBOM and the quality of the software.
 
-This attestation data is encoded in base64, making it unreadable without further processing. 
-This is why the output from the first part of the command is piped into `jq` in order to filter out the payload section of the output containing the SBOM.
+This attestation data is encoded in base64, making it unreadable without further processing. This is why the output from the first part of the command is piped into `jq` in order to filter out the payload section of the output containing the SBOM. This filtered output is then passed into the `base64` command to be decoded before that output is piped into another `jq` command. The final `jq` command extracts the attestation predicate from the `base64` output and returns it to your terminal.
 
-This filtered output is then passed into the `base64` command to be decoded before that output is piped into another `jq` command. This final `jq` command extracts the attestation predicate from the `base64` output and returns it to your terminal.
-
-As an example, to retrieve the `argocd` image's attestation you would run a command like the following.
+As an example, to retrieve the `argocd` image's attestation you would run a command like this.
 
 ```shell
 cosign download attestation \
@@ -56,11 +53,11 @@ cosign download attestation \
   cgr.dev/chainguard/argocd | jq -r .payload | base64 -d | jq .predicate
 ```
 
-This example includes two extra arguments not included in the example syntax outlined previously. First, it includes the `--platform` flag which allows you to download the attestation for a specific platform image. This example specifies the `linux/amd64` platform, but you could enter alternatives such as `linux/arm64` or `darwin/amd64`. Be aware, though, that in order to use the `--platform` option you'll need to have Cosign version 2.2.1 or newer installed.
+This example includes two extra arguments not included in the example syntax outlined previously. First, it includes the `--platform` flag which allows you to download the attestation for a specific platform image. This example specifies the `linux/amd64` platform, but you could also use `linux/arm64`. Be aware, though, that in order to use the `--platform` option you'll need to have Cosign version 2.2.1 or newer installed.
 
-The other extra argument is the `--predicate-type` flag. This allows you to specify which format you'd like the SBOM you're downloading to follow. This example retrieves the SBOM in the SPDX format, but to download a CycloneDX SBOM you could instead have the `--predicate-type` option point to `https://cyclonedx.org/Document`.
+The other extra argument is the `--predicate-type` flag, required to specify which type of predicate you want to download from the registry. In order to download Chainguard Images SBOM attestations, you should use the `https://spdx.dev/Document` predicate type.
 
 
 ## Learn more
 
-We provide provenance information for every Chainguard Image in their respective [Reference docs](/chainguard/chainguard-images/reference/). After reaching the **Overview** for the image of your choice, navigate to the **Provenance** tab for information on how to retrieve the image's attestation, as well as how to verify the image's attestation and signatures. 
+We provide provenance information for every Chainguard Image in their respective [Reference docs](/chainguard/chainguard-images/reference/). After reaching the **Overview** for the image of your choice, navigate to the **Provenance** tab for information on how to retrieve the image's attestations, as well as how to verify the image's attestations and signatures. 
