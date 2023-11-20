@@ -30,7 +30,7 @@
           </div>
           <span class="pills-text">{{ $parentTitle }}</span>
         </a>
-      </div> 
+      </div>
 
       {{ if not .Params.hide_title -}}
         <h1>{{ .Title }}</h1>
@@ -68,7 +68,7 @@
         {{end}}
         </div>
       {{end}}
-      
+
       {{ if .Params.images }}
         <div class="mt-4">
           {{range .Params.images}}
@@ -76,7 +76,7 @@
           {{end}}
         </div>
       {{ end }}
-          
+
       <!-- {{ if ne .Params.toc false -}}
       <nav class="d-xl-none" aria-label="Quaternary navigation">
         {{ partial "sidebar/docs-toc.html" . }}
@@ -87,14 +87,25 @@
       {{ partial "rumble-vuln.html" . }}
       <div class="mb-5"></div>
       {{ .Content }}
-      
+
+      {{ if not .Params.hide_lastmod -}}
+        {{ if .Params.lastmod }}
+        <div class="d-block border-top mt-5 pt-2">
+            <p class="text-muted fst-italic fs-6">Last updated: {{ time.Format "2006-01-02 15:04" .Params.lastmod }}</p>
+        </div>
+        {{ end }}
+      {{ end -}}
+
       <div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
-        {{ if .Site.Params.lastMod -}}
+        <!-- {{ if .Site.Params.lastMod -}}
           {{ partial "main/last-modified.html" . }}
         {{ end -}}
         {{ if .Site.Params.editPage -}}
           {{ partial "main/edit-page.html" . }}
         {{ end -}}
+          {{ if .Params.lastmod }}
+          <p>Last updated: {{ time.Format "January 2, 2006" .Params.lastmod }}</p>
+          {{ end }}-->
       </div>
 
       <!-- <a class="btn cta-button" href="https://www.chainguard.dev/contact?utm_source=docs">Contact Us</a> -->
