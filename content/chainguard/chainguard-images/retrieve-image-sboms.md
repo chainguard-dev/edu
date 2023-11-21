@@ -36,11 +36,12 @@ In order to follow this guide, you'll need the following installed on your local
 Cosign includes a `download` command that allows you to retrieve a Chainguard Image's attestation over the command line. To do so, you would use this command with syntax like the following.
 
 ```shell
-cosign download attestation \ 
-cgr.dev/chainguard/$IMAGE | jq -r .payload | base64 -d | jq .predicate
+cosign download attestation cgr.dev/chainguard/php | jq -r .payload | base64 -d | jq .predicate
 ```
 
-Notice that this example syntax includes `download attestation` rather than `download sbom`. You can generally think of an attestation as a an authenticated statement about a software artifact. There are different types of attestations [as defined by the SLSA 1.0 specification](https://slsa.dev/attestation-model), and they are typically referenced by their **predicate type**. One of the available predicate types is SPDX, an open standard for SBOM files. Because attestations must be signed, this is a way to verify the authenticity of the software producer, thereby ensuring the accuracy of the SBOM and the quality of the software.
+This example command downloads the attestation of our [php image](/chainguard/chainguard-images/reference/php/). 
+
+Notice that this example syntax includes `download attestation` rather than `download sbom`. You can generally think of an attestation as an authenticated statement about a software artifact. There are different types of attestations [as defined by the SLSA 1.0 specification](https://slsa.dev/attestation-model), and they are typically referenced by their **predicate type**. One of the available predicate types is SPDX, an open standard for SBOM files. Because attestations must be signed, this is a way to verify the authenticity of the software producer, thereby ensuring the accuracy of the SBOM and the quality of the software.
 
 This attestation data is encoded in base64, making it unreadable without further processing. This is why the output from the first part of the command is piped into `jq` in order to filter out the payload section of the output containing the SBOM. This filtered output is then passed into the `base64` command to be decoded before that output is piped into another `jq` command. The final `jq` command extracts the attestation predicate from the `base64` output and returns it to your terminal.
 
@@ -60,4 +61,6 @@ The other extra argument is the `--predicate-type` flag, required to specify whi
 
 ## Learn more
 
-We provide provenance information for every Chainguard Image in their respective [Reference docs](/chainguard/chainguard-images/reference/). After reaching the **Overview** for the image of your choice, navigate to the **Provenance** tab for information on how to retrieve the image's attestations, as well as how to verify the image's attestations and signatures. 
+We provide provenance information for every Chainguard Image in their respective [Reference docs](/chainguard/chainguard-images/reference/). After reaching the **Overview** for the image of your choice, navigate to the **Provenance** tab for information on how to retrieve the image's attestations, as well as how to verify the image's attestations and signatures.
+
+For example, if you're looking for the provenance information of the Python image, you can navigate to the [Python overview page](/chainguard/chainguard-images/reference/python/) and then click through to **Provenance** which will bring you to the following URL: [https://edu.chainguard.dev/chainguard/chainguard-images/reference/python/provenance_info/](/chainguard/chainguard-images/reference/python/provenance_info/).
