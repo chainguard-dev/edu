@@ -23,11 +23,10 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                                                              | Last Changed  | Digest                                                                    |
-|------------------------------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev`                                                                                        | November 19th | `sha256:fa26fd236d92d5eefe81e7aefe2bd12e4f33c61ffe6a0a4162bb31878509b740` |
-|  `latest`                                                                                            | November 18th | `sha256:20be4dbf49918a9f309875bb60d7ec8ec0a1448b9dbe6fca6d541792823aa9e9` |
-|  `v2.37.0-dev` `2.37.0-r8-dev` `2-dev` `2.37-dev` `2.37.0-dev` `v2.37-dev` `v2-dev` `v2.37.0-r8-dev` | November 3rd  | `sha256:a26d010dbcba8d421b8d87336c9d9cafc9d35a8e60ff9097f1b065aba8e761fd` |
-|  `2.37.0` `v2.37.0` `2` `v2` `v2.37` `2.37`                                                          | October 30th  | `sha256:66c186956513b3fe3fa72ed717148c3c0a71eb346a34567e5329e33a3384b315` |
-|  `v2.37.0-r7-dev` `2.37.0-r7-dev`                                                                    | October 29th  | `sha256:974083a8f09478d67ce41a64c46c6a68dbf6ac80de6372ce4f979bed6690e0a3` |
+| Tag (s)                                                             | Last Changed  | Digest                                                                    |
+|---------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev`                                                       | November 19th | `sha256:fa26fd236d92d5eefe81e7aefe2bd12e4f33c61ffe6a0a4162bb31878509b740` |
+|  `latest`                                                           | November 18th | `sha256:20be4dbf49918a9f309875bb60d7ec8ec0a1448b9dbe6fca6d541792823aa9e9` |
+|  `v2.37.0-dev` `2-dev` `2.37-dev` `2.37.0-dev` `v2.37-dev` `v2-dev` | November 3rd  | `sha256:a26d010dbcba8d421b8d87336c9d9cafc9d35a8e60ff9097f1b065aba8e761fd` |
+|  `2.37.0` `v2.37.0` `2` `v2` `v2.37` `2.37`                         | October 30th  | `sha256:66c186956513b3fe3fa72ed717148c3c0a71eb346a34567e5329e33a3384b315` |
 
