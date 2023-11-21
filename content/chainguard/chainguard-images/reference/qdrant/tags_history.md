@@ -1,8 +1,8 @@
 ---
-title: "pgbouncer Image Tags History"
+title: "qdrant Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the pgbouncer Chainguard Image"
+description: "Image Tags and History for the qdrant Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/pgbouncer/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/pgbouncer/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/pgbouncer/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/pgbouncer/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/qdrant/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/qdrant/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/qdrant/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/qdrant/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | November 20th | `sha256:b2e3df2bf74dd345bf16c6c20532c555fe946784f33feac9e9c3de7ad1715572` |
-|  `latest-dev` | November 20th | `sha256:8a9774a9c341b50a57c8c2bb9ec0cd499c110b04a1600043e324ffaa6881129c` |
+|  `latest`     | November 20th | `sha256:f9126669b66b8f388ff10ebead67cd25df20603a2f73088aea3e16d772878fae` |
+|  `latest-dev` | November 20th | `sha256:3337213faaca402e35f547cd801245469d6f049b4af532d8b56e83b75cbffd48` |
 
