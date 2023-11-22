@@ -1,0 +1,65 @@
+{{ define "main" }}
+<div class="row flex-md-nowrap">
+    <div class="leftnav-container">
+        <div class="board-background leftnav">
+            <nav id="sidebar-default" aria-label="Main navigation">
+                {{ partial "sidebar/docs-menu.html" . }}
+            </nav>
+            {{ partial "sidebar/nav-bottom.html" }}
+        </div>
+    </div>
+    <div class="row justify-content-center topic-container flex-shrink-1">
+        <div class="col-md-12 col-lg-10 col-xl-8">
+            <article>
+                <h1 class="text-center mb-5">{{ if eq .CurrentSection .FirstSection }}{{ .Section | humanize }}{{ else }}{{ .Title }}{{ end }}</h1>
+                    {{ if eq .Params.type "article" }}
+                        <div class="container">
+                        <div class="row">
+                        {{ $currentSection := .CurrentSection }}
+                            {{ $i := 0 }}
+                            {{ $itemsPerRow := 4 }}
+                        {{ range and
+                            (where .Site.RegularPages.ByTitle "Section" .Section)
+                            (where .Pages ".Params.unlisted" "!=" "true")}}
+                            {{ if in (.RelPermalink | string) $currentSection.RelPermalink }}
+                                    <div class="col mb-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><a href="{{ .RelPermalink }}">{{ .Params.linktitle }}</a></h5>
+                                                <p class="card-text">{{ .Params.description }}</p>
+                                                <a href="{{ .RelPermalink }}image_specs/" class="card-link text-primary">Variants</a>
+                                                <a href="{{ .RelPermalink }}tags_history/" class="card-link text-primary">Tags</a>
+                                                <a href="{{ .RelPermalink }}tags_history/" class="card-link text-primary">Provenance</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {{ $i = add $i 1 }}
+                                {{ if eq (mod $i $itemsPerRow) (sub 1 1) }}
+                                     <div class="w-100"></div>
+                                {{ end }}
+                            {{ end }}
+                        {{ end }}
+                        </div>
+                        </div>
+                    {{ else }}
+                        {{ range .Paginator.Pages }}
+                            <a class="docs-navigation-button docs-navigation-button-next" href="{{ .RelPermalink }}">
+                                <span class="next-title">{{ .Title }}</span>
+                                <div class="chevron-rotator">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 6" fill="none">
+                                        <path d="M1.06199 5.729L0.291992 4.938L4.99999 0.229004L9.70799 4.938L8.93799 5.729L4.99999 1.792L1.06199 5.729Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </a>
+                            {{ if .Description }}
+                                <div class="button-description">{{ .Description }}</div>
+                            {{ end }}
+                        {{ end }}
+                        {{ template "_internal/pagination.html" . }}
+                    {{ end }}
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+{{ end }}
