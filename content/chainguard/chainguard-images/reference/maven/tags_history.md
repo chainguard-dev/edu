@@ -25,8 +25,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                        | Last Changed  | Digest                                                                    |
 |--------------------------------|---------------|---------------------------------------------------------------------------|
-|  `openjdk-17-dev` `latest-dev` | November 19th | `sha256:52135f923108b03c2b1e660132910e5d5c6bda01c876c5f0af97281246d95035` |
+|  `openjdk-17-dev` `latest-dev` | November 21st | `sha256:19e8683a8468210abc8d3d197963e74295ebc4d32a9f0a01ac86d53c172ed9d9` |
+|  `openjdk-11-dev`              | November 21st | `sha256:39904a3879404492963ab91025c5a76d963e7bb2a10dfde90060091691e6b381` |
 |  `latest` `openjdk-17`         | November 19th | `sha256:ec7f262f4ba4fb2f357a478b45a177b1cb9f6858b4329f4015714a24f146d1c8` |
-|  `openjdk-11-dev`              | November 19th | `sha256:a244b05123ee88c1f12c65e81174e966da1aa91cee425425b23d481a62dd7a59` |
 |  `openjdk-11`                  | November 19th | `sha256:656a77ea2e3ec73fc45c8ec9adad8d68add209f2c4c4ef14a7d1c185427138c6` |
 
