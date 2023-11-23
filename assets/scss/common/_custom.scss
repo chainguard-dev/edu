@@ -1133,3 +1133,9 @@ code {
     max-width: 100%;
   }
 }
+
+// Beat <a> reset
+.docs-content.docs-content a:not(.tag),
+.card-link.card-link.card-link.card-link {
+  color: var(--article-link-color);
+}
