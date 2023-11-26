@@ -1,8 +1,8 @@
 ---
-title: "kubeflow-volumes-web-app Image Tags History"
+title: "solr Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the kubeflow-volumes-web-app Chainguard Image"
+description: "Image Tags and History for the solr Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
 lastmod: 2023-06-22T11:07:52+02:00
 draft: false
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubeflow-volumes-web-app/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/kubeflow-volumes-web-app/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/kubeflow-volumes-web-app/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-volumes-web-app/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/solr/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/solr/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/solr/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/solr/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | November 23rd | `sha256:15b78bbac97430c48d4c1a5f5e4a97fa4da709d7dc2473a95a82d30337bb9b8a` |
-|  `latest-dev` | November 23rd | `sha256:662d7a0d545bec697ae68d2871b3463edf46cf34cc14589fb78750c2e4914b78` |
+|  `latest-dev` | November 23rd | `sha256:5773ad872dc5c7e151ae3cfe2fa2fb55e0c92b1fda50c7284f11893cffcb9927` |
+|  `latest`     | November 23rd | `sha256:8ba98abced2be2bd5b6a4eb4212cacf7f95f490d215cd28fc53acfef87af80e0` |
 
