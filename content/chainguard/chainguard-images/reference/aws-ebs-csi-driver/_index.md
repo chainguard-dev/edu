@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: aws-ebs-csi-driver Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
-Minimal images for aws-ebs-csi-driver.
+<!--overview:start-->
+Minimal images for [aws-ebs-csi-driver](https://aws.amazon.com/ebs/).
+<!--overview:end-->
 
-## Get It
-
+<!--getting:start-->
+## Get It!
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/aws-ebs-csi-driver:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Testing
 
 Since this application requires AWS credentials to be set up, we should create the required permissions before deploying it.
@@ -74,4 +78,5 @@ Once the driver has been deployed, verify the pods are running:
 ```shell
 kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-ebs-csi-driver
 ```
+<!--body:end-->
 

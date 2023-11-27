@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: trino Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,14 +25,20 @@ toc: true
 
 
 
-## Get It!
+<!--overview:start-->
+Fast distributed SQL query engine for big data analytics that helps you explore your data universe.
+<!--overview:end-->
 
+<!--getting:start-->
+## Get It!
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/trino
+docker pull cgr.dev/chainguard/trino:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 There is a TrinoDB Helm Chart exists, [here](https://github.com/trinodb/charts), which makes it easy to deploy TrinoDB on Kubernetes.
@@ -47,5 +53,5 @@ helm install trino trino/trino \
 ```
 
 That's it, now, you have TrinoDB running on Kubernetes.
-
+<!--body:end-->
 

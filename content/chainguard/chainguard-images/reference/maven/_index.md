@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: maven Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,20 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal image with Maven build system.
+<!--overview:end-->
 
-- [Documentation](https://edu.chainguard.dev/chainguard/chainguard-images/reference/maven)
-- [Getting Started Guide](https://edu.chainguard.dev/chainguard/chainguard-images/reference/maven/overview/#use-maven)
-- [Provenance Information](https://edu.chainguard.dev/chainguard/chainguard-images/reference/maven/provenance_info/)
-
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/maven:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using Maven
 
 Chainguard Maven images come with different versions of OpenJDK, ensure you choose the correct image tag for your application needs.  In these examples we will use a Chainguard Maven image based on OpenJDK 17.
@@ -115,7 +115,7 @@ The steps above are useful to test Chainguard images however, we can now create 
 First create a `.dockerignore` file so we don't copy the generated maven `./target` folder from the steps above into the multistage docker build.  This helps avoid any permission errors during the build.
 
 ```sh
-cat <<EOF >>.dockerignore 
+cat <<EOF >>.dockerignore
 target/
 EOF
 ```
@@ -166,4 +166,5 @@ docker images | grep my-chainguard-springboot-app
 ```
 
 You can also check for vulnerabilities using your favorite scanner.
+<!--body:end-->
 

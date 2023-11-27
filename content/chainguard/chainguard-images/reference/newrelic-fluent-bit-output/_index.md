@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: newrelic-fluent-bit-output Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal [newrelic-infrastructure-bundle](https://github.com/newrelic/infrastructure-bundle) container image.
+<!--overview:end-->
 
-## Get It
-
+<!--getting:start-->
+## Get It!
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/newrelic-infrastructure-bundle
+docker pull cgr.dev/chainguard/newrelic:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 These images are a drop-in replacement for the `newrelic` project. The images are tested against the upstream recommended [`nri-bundle`](https://github.com/newrelic/helm-charts/tree/master/charts/nri-bundle). chart.
@@ -97,4 +101,5 @@ newrelic-prometheus-agent:
       repository: chainguard/prometheus
       tag: latest
 ```
+<!--body:end-->
 

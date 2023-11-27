@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: nvidia-device-plugin Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal [nvidia-device-plugin](https://github.com/NVIDIA/k8s-device-plugin) container image.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/nvidia-device-plugin
+docker pull cgr.dev/chainguard/nvidia-device-plugin:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 Ensure your environment satisfies the [prerequisites](https://github.com/NVIDIA/k8s-device-plugin#prerequisites).
@@ -95,7 +99,7 @@ For this you should use the `latest-dev` variant.
 helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
 helm repo update
 
-helm install --wait gpu  -n gpu-operator --create-namespace nvidia/gpu-operator 
+helm install --wait gpu  -n gpu-operator --create-namespace nvidia/gpu-operator
 ```
 Values:
 ```yaml
@@ -106,3 +110,5 @@ devicePlugin:
   image: nvidia-device-plugin
   tag: latest-dev
 ```
+<!--body:end-->
+

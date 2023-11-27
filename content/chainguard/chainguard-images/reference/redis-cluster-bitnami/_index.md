@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: redis-cluster-bitnami Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,7 +25,21 @@ toc: true
 
 
 
-Minimalist Wolfi-based [Redis-Bitnami]() image. This is intended to be a drop in replacement for deployments that require Bitnami compatibility. The most common case is the Bitnami Helm chart, which can be deployed as follows:
+<!--overview:start-->
+Minimalist Wolfi-based [Redis-Bitnami](https://github.com/redis/redis) image.
+<!--overview:end-->
+
+<!--getting:start-->
+## Get It!
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/redis-bitnami:latest
+```
+<!--getting:end-->
+
+<!--body:start-->
+This image is intended to be a drop in replacement for deployments that require Bitnami compatibility. The most common case is the Bitnami Helm chart, which can be deployed as follows:
 
 ```bash
 cat <<EOF > values.yaml
@@ -42,4 +56,5 @@ sentinel:
     tag: latest
 EOF
 ```
+<!--body:end-->
 

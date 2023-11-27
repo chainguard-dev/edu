@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: bazel Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,15 +25,20 @@ toc: true
 
 
 
-[Bazel](https://github.com/bazelbuild/bazel) - A fast, scalable, multi-language and extensible build system.
+<!--overview:start-->
+[Bazel](https://bazel.build) - A fast, scalable, multi-language and extensible build system.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/bazel
+docker pull cgr.dev/chainguard/bazel:latest
 ```
+<!--getting:end-->
+
+<!--body:start-->
 
 ## Using Bazel
 
@@ -74,4 +79,5 @@ and see the message from the example application
 ```sh
 Hi
 ```
+<!--body:end-->
 

@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: smarter-device-manager Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,20 +25,25 @@ toc: true
 
 
 
+<!--overview:start-->
+Minimalist Wolfi-based image for smarter device manager.
+<!--overview:end-->
+
+<!--getting:start-->
+## Get It!
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/smarter-device-manager:latest
+```
+<!--getting:end-->
+
+<!--body:start-->
+
 Smarter-device-manager is a Kubernetes tool designed for IoT applications,
 enabling containers to securely access host devices like sensors, actuators,
 and various hardware interfaces.
 
-This repository produces a Minimalist Wolfi-based image for smarter device manager.
-
-## Get It!
-
-The image is available on `cgr.dev`:
-
-bash
-```
-docker pull cgr.dev/chainguard/smarter-device-manager:latest
-```
 
 ## Usage
 
@@ -62,4 +67,5 @@ helm repo update
 helm install smart-device-manager gabe565/smarter-device-manager \
  --set image.repository=cgr.dev/chainguard/smarter-device-manager --set image.tag=latest
 ```
+<!--body:end-->
 

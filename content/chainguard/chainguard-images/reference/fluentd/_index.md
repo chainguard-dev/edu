@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: fluentd Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
-Fluentd: Unified Logging Layer (project under CNCF)
+<!--overview:start-->
+[Fluentd](https://www.fluentd.org/): Unified Logging Layer (project under CNCF)
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/fluentd
+docker pull cgr.dev/chainguard/fluentd:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using fluentd
 
 Run a Fluentd instance that will receive messages over TCP port 24224 through the Forward protocol, and send the messages to the STDOUT interface in JSON format
@@ -77,4 +81,5 @@ The `-dev` variant contains a shell and tools like `apk` to allow users to easil
 ```sh
 docker run --rm --entrypoint 'sh' cgr.dev/chainguard/fluentd
 ```
+<!--body:end-->
 

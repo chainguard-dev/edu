@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: haproxy-ingress Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,6 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
+Kubernetes ingress controller implementation for HAProxy
+<!--overview:end-->
+
+<!--getting:start-->
+## Get It!
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/haproxy-ingress:latest
+```
+<!--getting:end-->
+
+<!--body:start-->
 # Usage
 
 You can use this image with the [Helm Chart](https://artifacthub.io/packages/helm/haproxy-ingress/haproxy-ingress) of the project:
@@ -40,4 +54,5 @@ helm install ingress haproxy-ingress/haproxy-ingress \
 
 kubectl wait --for=condition=ready pod --selector "app.kubernetes.io/name=haproxy-ingress" --timeout=120s
 ```
+<!--body:end-->
 

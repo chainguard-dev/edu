@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: zookeeper Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal image with Apache Zookeeper. **EXPERIMENTAL**
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/zookeeper:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using Zookeeper
 
 To run Zookeeper image with the sample configuration, use:
@@ -76,4 +80,5 @@ Using config: /usr/share/java/zookeeper/bin/../conf/zoo_sample.cfg
 2023-03-12 20:38:22,357 [myid:] - INFO  [main:o.a.z.Environment@98] - Server environment:zookeeper.version=3.8.1-74db005175a4ec545697012f9069cb9dcc8cdda7, built on 2023-03-12 20:32 UTC
 2023-03-12 20:38:22,357 [myid:] - INFO  [main:o.a.z.Environment@98] - Server environment:host.name=f0739f928721
 ```
+<!--body:end-->
 

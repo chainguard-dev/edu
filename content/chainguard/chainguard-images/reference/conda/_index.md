@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: conda Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,20 +25,24 @@ toc: true
 
 
 
+<!--overview:start-->
 This image contains the CLI for the [Conda](https://docs.conda.io/en/latest/) programming environment.
+<!--overview:end-->
 
-This image contains the `conda` command, which can be used to create and manage conda environments, as well
-as other assorted conda utilities.
-
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/conda:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Use It!
+
+This image contains the `conda` command, which can be used to create and manage conda environments, as well
+as other assorted conda utilities.
 
 The image can be run directly and sets the conda binary as the entrypoint:
 
@@ -79,4 +83,5 @@ conda commands available from other packages (legacy):
 ```
 
 The `conda` binary and tools are in the `/opt/conda/bin` directory.
+<!--body:end-->
 

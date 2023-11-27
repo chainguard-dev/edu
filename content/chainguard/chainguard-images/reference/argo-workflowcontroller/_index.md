@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: argo-workflowcontroller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,12 +25,21 @@ toc: true
 
 
 
-[argo](https://argoproj.github.io/argo-workflows/) Workflow Engine for Kubernetes
+<!--overview:start-->
+Images for working with [Argo workflows](https://argoproj.github.io/argo-workflows/)
+<!--overview:end-->
 
-
+<!--getting:start-->
 ## Get It!
+The image is available on `cgr.dev`:
 
-The images available on `cgr.dev`:
+```
+docker pull cgr.dev/chainguard/argo:latest
+```
+<!--getting:end-->
+
+<!--body:start-->
+## Versions
 
 ```
 docker pull cgr.dev/chainguard/argo-exec
@@ -89,7 +98,5 @@ helm install argo-workflows argo/argo-workflows \
 
 
 > NOTE: Setting the tag to "latest" is not recommended, and only shown for illustrative purposes.
-
-
- 
+<!--body:end-->
 

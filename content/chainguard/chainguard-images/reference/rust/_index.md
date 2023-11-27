@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: rust Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,7 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal Wolfi-based Rust image for building Rust applications. **EXPERIMENTAL**.
+<!--overview:end-->
+
+<!--getting:start-->
+## Get It!
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/rust:latest
+```
+<!--getting:end-->
+
+<!--body:start-->
 
 - [Documentation](https://edu.chainguard.dev/chainguard/chainguard-images/reference/rust)
 - [Provenance Information](https://edu.chainguard.dev/chainguard/chainguard-images/reference/rust/provenance_info/)
@@ -121,4 +134,5 @@ dlorenc@DANIELs-MacBook-Air rust-web-app % docker run foo /usr/local/bin/shop
 ```
 
 If you're interested in enterprise support, SLAs, and access to older tags, [get in touch](https://www.chainguard.dev/chainguard-images).
+<!--body:end-->
 

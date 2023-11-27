@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: promtail Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,18 +25,20 @@ toc: true
 
 
 
-This image contains the `promtail` application for log aggregation.
-`promtail` is the log aggregator that ships logs to Loki and/or Prometheus.
-It runs as an agent and scrapes logs from files, containers, and hosts and ships them to a logging backend.
+<!--overview:start-->
+This image contains the `promtail` application for log aggregation. `promtail` is the log aggregator that ships logs to Loki and/or Prometheus. It runs as an agent and scrapes logs from files, containers, and hosts and ships them to a logging backend.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/promtail:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Use It!
 
 The image can be run directly and sets the promtail binary as the entrypoint with a default configuration:
@@ -51,4 +53,5 @@ level=warn ts=2023-09-02T14:01:20.497754387Z caller=promtail.go:265 msg="enable 
 
 This image is a drop-in replacement for official image at grafana/promtail.
 See documentation [there](https://github.com/grafana/loki/blob/main/cmd/promtail/Dockerfile#L9) for how to configure it.
+<!--body:end-->
 
