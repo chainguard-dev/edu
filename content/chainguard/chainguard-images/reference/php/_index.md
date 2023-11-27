@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: php Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,7 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimalist Wolfi-based PHP images for building and running PHP applications. Includes both `dev` and `fpm` variants.
+<!--overview:end-->
+
+<!--getting:start-->
+## Get It!
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/php:latest
+```
+<!--getting:end-->
+
+<!--body:start-->
 
 - [Documentation](https://edu.chainguard.dev/chainguard/chainguard-images/reference/php)
 - [Getting Started Guide](https://edu.chainguard.dev/chainguard/chainguard-images/reference/php/getting-started-php/)
@@ -145,4 +158,5 @@ For instance, to check for `curl` settings, you can run:
 ```shell
 docker run --rm cgr.dev/chainguard/php:latest --info | grep curl
 ```
+<!--body:end-->
 

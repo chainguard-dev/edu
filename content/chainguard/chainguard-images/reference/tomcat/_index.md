@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: tomcat Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,15 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
+[Tomcat](https://tomcat.apache.org/) is a free and open-source implementation of the Jakarta Servlet, Jakarta Expression Language, and WebSocket technologies.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/tomcat:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 To run the `tomcat` program:
@@ -71,4 +76,5 @@ To run the `tomcat` program:
 02-Oct-2023 19:08:45.496 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.13]
 02-Oct-2023 19:08:45.501 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
 02-Oct-2023 19:08:45.508 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [35] milliseconds
+<!--body:end-->
 

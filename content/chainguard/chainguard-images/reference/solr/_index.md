@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: solr Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 [solr](https://github.com/apache/solr) Solr is the popular, blazing fast open source search platform for all your enterprise, e-commerce, and analytics needs, built on Apache Lucene.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/solr
+docker pull cgr.dev/chainguard/solr:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using Solr
 
 This image should be a drop-in replacement for the `slim` variant of the upstream image.
@@ -75,3 +79,5 @@ WARNING: The Security Manager is deprecated and will be removed in a future rele
 ```
 
 The admin console should then be available in your browser at [http://localhost:8983](http://localhost:8983).
+<!--body:end-->
+

@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: thanos Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
-Minimal Thanos Image
+<!--overview:start-->
+Minimal Thanos Image, a highly available Prometheus setup with long term storage
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/thanos:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 THe default entrypoint for this image is the `thanos` binary.
@@ -78,4 +82,5 @@ Commands:
     Query node exposing PromQL enabled Query API with data retrieved from
     multiple store nodes.
 ```
+<!--body:end-->
 

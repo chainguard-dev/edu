@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector-contrib Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-06-22T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 21st | `sha256:d1fda848e2e473f3efe905af3e9ee03259037ecb66c9b1feddcbb54936114771` |
+|  `latest-dev` | November 27th | `sha256:53604e496423ba12bd43b143bccaacb1bfa84e8c1e562f89f21918bfb1dd15f3` |
 |  `latest`     | November 16th | `sha256:3f1db75acf50d9c2bdbf18873f3690201bd6d7e816b8fc8a68dfdfbb5bbe16f5` |
 

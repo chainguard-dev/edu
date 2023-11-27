@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: envoy Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
-[Envoy](https://github.com/envoyproxy/envoy) Cloud-native high-performance edge/middle/service proxy
+<!--overview:start-->
+[Envoy](https://www.envoyproxy.io/) Cloud-native high-performance edge/middle/service proxy
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/envoy
+docker pull cgr.dev/chainguard/envoy:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using Envoy
 
 To run with Docker using default configuration
@@ -48,4 +52,5 @@ Or to use a customised envoy configuratiom see https://www.envoyproxy.io/docs/en
 ```sh
 docker run --platform=linux/amd64 -p10000:10000 -p 9901:9901 --rm -v $PWD/config:/etc/envoy cgr.dev/chainguard/envoy envoy --config-path /etc/envoy/envoy.yaml
 ```
+<!--body:end-->
 

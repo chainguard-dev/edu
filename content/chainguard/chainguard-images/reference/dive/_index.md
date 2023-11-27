@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: dive Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal [dive](https://github.com/wagoodman/dive) container image.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/dive:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 ```
@@ -65,4 +69,5 @@ Flags:
 
 Use "dive [command] --help" for more information about a command.
 ```
+<!--body:end-->
 

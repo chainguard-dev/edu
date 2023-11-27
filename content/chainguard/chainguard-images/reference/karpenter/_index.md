@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: karpenter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal image with Karpenter. **EXPERIMENTAL**
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/karpenter:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using Karpenter
 
 The Chainguard Karpenter image contains the `karpenter` controller and is a drop-in replacement for the upstream image.
@@ -63,4 +67,5 @@ Finally, edit the `helm upgrade` command to include the following lines:
 --set controller.image.repository=cgr.dev/chainguard/karpenter \
 --set controller.image.digest=$DIGEST \
 ```
+<!--body:end-->
 

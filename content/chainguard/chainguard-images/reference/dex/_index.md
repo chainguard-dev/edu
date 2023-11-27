@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: dex Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 [dex](https://dexidp.io) is a federated OpenID Connect provider.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/dex
+docker pull cgr.dev/chainguard/dex:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using dex
 
 `dex` has several operating modes, the most common being kubernetes, installed via `helm` using the upstream source shown below:
@@ -94,4 +98,5 @@ image:
   repository: cgr.dev/chainguard/dex
   tag: latest
 ```
+<!--body:end-->
 

@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: sigstore-scaffolding-trillian-updatetree Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,7 +25,21 @@ toc: true
 
 
 
-## Minimal Wolfi-based [Sigstore](https://sigstore.dev) images.
+<!--overview:start-->
+Minimal Wolfi-based [Sigstore](https://sigstore.dev) images.
+<!--overview:end-->
+
+<!--getting:start-->
+## Get It!
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/sigstore-scaffolding:latest
+```
+<!--getting:end-->
+
+<!--body:start-->
+
 
 The images in this directory are just the "glue" for bootstrapping the stack,
 but Chainguard offers minimal images for each of the elements needed by the
@@ -48,4 +62,5 @@ The stack also pulls in several support images:
 
 To see an example of how we substitute images into the `scaffold` Helm chart's
 `values.yaml` see our [`values.tf`](./tests/values.tf) example.
+<!--body:end-->
 

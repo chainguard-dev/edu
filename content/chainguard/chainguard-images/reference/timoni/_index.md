@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: timoni Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,17 +25,20 @@ toc: true
 
 
 
-Minimal image with `timoni` binary.
-`timoni` is a package manager for Kubernetes, powered by `cue` and inspired by `helm`.
+<!--overview:start-->
+Minimal image with `timoni` binary. `timoni` is a package manager for Kubernetes, powered by `cue` and inspired by `helm`.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/timoni:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 The image contains the `timoni`  binary and a few assorted runtime dependencies.
 
 ```
@@ -83,4 +86,5 @@ Flags:
   -v, --version                        version for timoni
 
 ```
+<!--body:end-->
 

@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: kubernetes-csi-livenessprobe Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,14 +25,20 @@ toc: true
 
 
 
-## Get It
+<!--overview:start-->
+ A sidecar container that can be included in a CSI plugin pod to enable integration with Kubernetes Liveness Probe.
+<!--overview:end-->
 
+<!--getting:start-->
+## Get It!
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/kubernetes-csi-livenessprobe
+docker pull cgr.dev/chainguard/kubernetes-csi-livenessprobe:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Run it
 
 Generally speaking, the `kubernetes-csi-livenessprobe` is a low level Kubernetes component not meant to be managed directly. However, all the steps outlined in the [upstream repo](https://github.com/kubernetes-csi/livenessprobe) apply just as well to the Chainguard Image version.
@@ -84,4 +90,5 @@ fi
 
 exit 0
 ```
+<!--body:end-->
 

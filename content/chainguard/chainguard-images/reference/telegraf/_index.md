@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: telegraf Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
-Minimal image with Telegraf.
+<!--overview:start-->
+Minimal image with Telegraf agent for collecting, processing, aggregating, and writing metrics.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/telegraf:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using Telegraf
 
 The Chainguard Telegraf image contains the `telegraf` binary.
@@ -50,4 +54,5 @@ This location can be overridden with the `---config` or `--config-directory` fla
 2023-03-28T14:07:48Z I! Loading config file: /etc/telegraf/telegraf.conf
 2023-03-28T14:07:48Z E! [telegraf] Error running agent: no outputs found, did you provide a valid config file?
 ```
+<!--body:end-->
 

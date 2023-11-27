@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the maven Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-06-22T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,8 +25,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                        | Last Changed  | Digest                                                                    |
 |--------------------------------|---------------|---------------------------------------------------------------------------|
-|  `openjdk-17-dev` `latest-dev` | November 21st | `sha256:19e8683a8468210abc8d3d197963e74295ebc4d32a9f0a01ac86d53c172ed9d9` |
-|  `openjdk-11-dev`              | November 21st | `sha256:39904a3879404492963ab91025c5a76d963e7bb2a10dfde90060091691e6b381` |
-|  `latest` `openjdk-17`         | November 19th | `sha256:ec7f262f4ba4fb2f357a478b45a177b1cb9f6858b4329f4015714a24f146d1c8` |
-|  `openjdk-11`                  | November 19th | `sha256:656a77ea2e3ec73fc45c8ec9adad8d68add209f2c4c4ef14a7d1c185427138c6` |
+|  `openjdk-17-dev` `latest-dev` | November 27th | `sha256:6fa0566813e67560dd0517b56204131e0f4fc5e20d8f6c787e1d338622fe2066` |
+|  `openjdk-11-dev`              | November 27th | `sha256:5794f269e74493d684e5a46db493ee08c47fc7044d4c86467e86971a46aaebd2` |
+|  `latest` `openjdk-17`         | November 27th | `sha256:81559ae722736e071752658a0b27a99f12f867101d174792aa688bd5a159e474` |
+|  `openjdk-11`                  | November 27th | `sha256:5a33c89ffc62c98b1b0f0a832b2b812ff45c35ac7db5d68b4b66993dd081d557` |
 

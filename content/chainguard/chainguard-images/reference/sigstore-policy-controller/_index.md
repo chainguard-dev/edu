@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: sigstore-policy-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,6 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
+Policy Controller image that is part of the Sigstore stack
+<!--overview:end-->
+
+<!--getting:start-->
+## Get It!
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/sigstore-policy-controller:latest
+```
+<!--getting:end-->
+
+<!--body:start-->
 # Minimal `sigstore/policy-controller` image
 
 This image can be used with the upstream helm chart with the following
@@ -41,4 +55,5 @@ helm install policy-controller sigstore/policy-controller \
 	--set webhook.image.repository="${IMAGE}" \
 	--set webhook.image.version="$(crane digest ${IMAGE})"
 ```
+<!--body:end-->
 
