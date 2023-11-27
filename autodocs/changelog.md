@@ -1,3 +1,15 @@
+# 2023-11-27
+
+
+Updated Docs:
+
+- aws-for-fluent-bit/tags_history.md
+- fluent-bit/tags_history.md
+- fluentd/tags_history.md
+- kube-logging-operator-fluentd/tags_history.md
+- newrelic-fluent-bit-output/tags_history.md
+- ntia-conformance-checker/tags_history.md
+
 # 2023-11-26
 New images added:
 
