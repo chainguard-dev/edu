@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: git Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,23 +25,27 @@ toc: true
 
 
 
-This is a minimal Git image based. The image contains `git`, `git-lfs`, and supporting libraries such as `openssh` (for `ssh`-based auth), and `ca-certs` (for `https`-based cloning). Both Wolfi (glibc) and Alpine (musl) versions are available.
+<!--overview:start-->
+A minimal Git image.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/git:latest
 ```
+<!--getting:end-->
 
-Or for the glibc version:
+<!--body:start-->
+## Usage
+
+Note that this image also has a glibc version:
 
 ```
 docker pull cgr.dev/chainguard/git:latest-glibc
 ```
-
-## Usage
 
 The Git image allows you to run ordinary Git commands in CI/CD pipelines and also locally via Docker.
 
@@ -94,4 +98,5 @@ Resolving deltas: 100% (70/70), done.
 ```
 
 You can now check the contents of your `workspace` directory, where you should find the cloned repo.
+<!--body:end-->
 

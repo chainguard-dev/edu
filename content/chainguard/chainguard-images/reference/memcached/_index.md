@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: memcached Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 [Memcached](https://memcached.org/) is an in-memory key-value store for small chunks of arbitrary data (strings, objects) from results of database calls, API calls, or page rendering.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/memcached
+docker pull cgr.dev/chainguard/memcached:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using Memcached
 
 The default memcached port is 11211.
@@ -51,10 +55,10 @@ $ telnet localhost 11211
 Trying ::1...
 Connected to localhost.
 Escape character is '^]'.
-set foo 0 100 3  
+set foo 0 100 3
 bar
 STORED
-get foo 
+get foo
 VALUE foo 0 3
 bar
 END
@@ -65,4 +69,5 @@ Connection closed by foreign host.
 ## Users and Directories
 
 By default this image runs as a non-root user named `memcached` with a uid of 65532.
+<!--body:end-->
 

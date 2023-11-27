@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: argocd Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,17 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 [argocd](https://argo-cd.readthedocs.io/en/stable/) Declarative continuous deployment for Kubernetes.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
-The images available on `cgr.dev`:
+The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/argocd
-docker pull cgr.dev/chainguard/argocd-repo-server
+docker pull cgr.dev/chainguard/argocd:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using argocd
 
 ArgoCD provides two upstream methods for installing, helm, and raw manifests.
@@ -85,4 +88,5 @@ dex:
 ArgoCD is comprised of multiple [components](https://argo-cd.readthedocs.io/en/stable/operator-manual/architecture/#components) that all share the same image.
 
 Keeping in line with the philosophy of minimal components in Chainguard images, we chose to split this up to keep the number of packages in the components to a minimum. This means the overall number of images increases, but the size and complexity of each image is reduced to (almost) the bare minimum needed to function.
+<!--body:end-->
 

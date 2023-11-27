@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: kube-downscaler Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,13 +25,19 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal image with [kube-downscaler](https://codeberg.org/hjacobs/kube-downscaler), scale down Kubernetes deployments after work hours.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/kube-downscaler:latest
 ```
+<!--getting:end-->
+
+<!--body:start-->
+<!--body:end-->
 

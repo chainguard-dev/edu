@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: aws-for-fluent-bit Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal [aws-for-fluent-bit](https://github.com/aws/aws-for-fluent-bit) Image
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/aws-for-fluent-bit
+docker pull cgr.dev/chainguard/aws-for-fluent-bit:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 See the [official usage documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/firelens-using-fluentbit.html) on AWS.
@@ -44,4 +48,5 @@ Run:
 ```sh
 docker run --rm cgr.dev/chainguard/aws-for-fluent-bit
 ```
+<!--body:end-->
 

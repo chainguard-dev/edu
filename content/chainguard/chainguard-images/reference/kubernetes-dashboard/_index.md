@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: kubernetes-dashboard Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,22 +25,28 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal image that acts as a drop-in replacement for the `kubernetesui/dashboard` image.
+<!--overview:end-->
 
-The dashboard listens on port `8443` by default.
-
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/kubernetes-dashboard:latest
 ```
+<!--getting:end-->
 
+<!--compatibility:start-->
+## Compatibility NotesThe dashboard listens on port `8443` by default.<!--compatibility:end-->
+
+<!--body:start-->
 You can run it with the standard deployment with something like:
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
 kubectl set image -n kubernetes-dashboard deployment/kubernetes-dashboard kubernetes-dashboard="cgr.dev/chainguard/kubernetes-dashboard:latest"
 ```
+<!--body:end-->
 

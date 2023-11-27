@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: glibc-dynamic Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,17 +25,22 @@ toc: true
 
 
 
+<!--overview:start-->
 Base image with just enough to run arbitrary glibc binaries.
+<!--overview:end-->
 
-This image is meant to be used as just a base image only. It does not contain any programs that can be run, other than `/sbin/ldconfig`.
-
-You must bring your own artifacts to use this image, e.g. with a Docker multi-stage build. If you want locale support other than `C.UTF-8`, you must bring your own locale data as well. This may change in the future based on user feedback.
-
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/glibc-dynamic:latest
 ```
+<!--getting:end-->
+
+<!--body:start-->
+This image is meant to be used as just a base image only. It does not contain any programs that can be run, other than `/sbin/ldconfig`.
+
+You must bring your own artifacts to use this image, e.g. with a Docker multi-stage build. If you want locale support other than `C.UTF-8`, you must bring your own locale data as well. This may change in the future based on user feedback.
+<!--body:end-->
 

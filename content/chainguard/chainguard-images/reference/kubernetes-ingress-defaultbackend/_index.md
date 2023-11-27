@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,17 +25,24 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal image that acts as a drop-in replacement for the `registry.k8s.io/defaultbackend` image. Used in some ingresses like https://github.com/kubernetes/ingress-gce and https://github.com/kubernetes/ingress-nginx
+<!--overview:end-->
 
-The image runs as `non-root`.
-
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/kubernetes-ingress-defaultbackend:latest
 ```
+<!--getting:end-->
+
+<!--compatibility:start-->
+## Compatibility NotesThe image runs as `non-root`.<!--compatibility:end-->
+
+<!--body:start-->
+
 
 You can run it with the standard deployment using nginx-ingress with something like:
 
@@ -45,4 +52,5 @@ helm install <RELEASE_NAME> ingress-nginx/ingress-nginx \
   --set defaultBackend.image.image=kubernetes-ingress-defaultbackend \
   --set defaultBackend.image.tag=latest
 ```
+<!--body:end-->
 

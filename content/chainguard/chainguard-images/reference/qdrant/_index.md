@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: qdrant Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 [qdrant](https://github.com/qdrant/qdrant) Qdrant is a high-performance, massive-scale Vector Database for the next generation of AI.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/qdrant
+docker pull cgr.dev/chainguard/qdrant:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using Qdrant
 
 This image should be a drop-in replacement for the upstream image, and works by default in the helm charts.
@@ -52,4 +56,5 @@ The only notable difference is that this image contains both a root and a non-ro
 
 Because the helm chart uses the same image for intializing file system permissions and running the final app, we have to run as a root user by default.
 The image can still be run as a non-root user (in this case `qdrant`), and the helm chart properly sets that up by default.
+<!--body:end-->
 

@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: influxdb Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal image with influxdb. **EXPERIMENTAL**
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/influxdb:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using Influxdb
 
 The Chainguard Influxdb image contains the `influxd` server binary, the `influx` client, and the docker `entrypoint.sh` script.
@@ -91,4 +95,5 @@ To retrieve the password for the 'admin' user:
 
 Note: with enabled persistence, admin password is only set once during the initial deployment. The password is not changed when InfluxDB 2 is re-deployed with different password.
 ```
+<!--body:end-->
 

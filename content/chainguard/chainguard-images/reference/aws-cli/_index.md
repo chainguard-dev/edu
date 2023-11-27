@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: aws-cli Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal [aws-cli](https://github.com/aws/aws-cli) container image.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/aws-cli
+docker pull cgr.dev/chainguard/aws-cli:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 Before using aws-cli, you need to tell it about your [AWS credentials](https://github.com/aws/aws-cli/tree/v2#getting-started).
@@ -57,4 +61,5 @@ For example, the following command displays help for the general AWS CLI options
 ```shell
 aws help
 ```
+<!--body:end-->
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the proxysql Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-06-22T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 21st | `sha256:0edd41cf78d38c76c992da146c4219ce458f10bdd62657878917513c546f0f5a` |
+|  `latest-dev` | November 27th | `sha256:d032c0570bdd2ffb57e8f48dd0c7d10ba8ae8fbeb30fd5eb3fab80c5ba19be12` |
 |  `latest`     | November 19th | `sha256:16cda2dc49757f64086868358ec60f52b44a33a53579f0647275a3035e80d24d` |
 

@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: nfs-subdir-external-provisioner Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,19 +25,23 @@ toc: true
 
 
 
-Minimal images for nfs-subdir-external-provisioner.
+<!--overview:start-->
+Dynamic sub-dir volume provisioner on a remote NFS server.
+<!--overview:end-->
 
-## Get It
-
+<!--getting:start-->
+## Get It!
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/nfs-subdir-external-provisioner:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Testing
 
-The NFS subdir external provisioner is an automatic provisioner for Kubernetes that uses your already configured NFS server, automatically creating Persistent Volumes. 
+The NFS subdir external provisioner is an automatic provisioner for Kubernetes that uses your already configured NFS server, automatically creating Persistent Volumes.
 
 To get more information about the nfs-subdir-external-provisioner, visit the [GitHub repository](https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner).
 
@@ -52,4 +56,5 @@ $ helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/n
     --set nfs.server=x.x.x.x \
     --set nfs.path=/exported/path
 ```
+<!--body:end-->
 

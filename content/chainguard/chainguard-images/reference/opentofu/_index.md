@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: opentofu Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,17 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 [opentofu](https://github.com/opentofufoundation/opentofu) lets you declaratively manage your cloud infrastructure.
+<!--overview:end-->
 
-
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/opentofu
+docker pull cgr.dev/chainguard/opentofu:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 The image sets `opentofu` as the entrypoint. To run it:
 
 ```
@@ -60,4 +63,5 @@ All other commands:
   graph         Generate a Graphviz graph of the steps in an operation
   ...
 ```
+<!--body:end-->
 

@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: minio-client Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal image with Minio. **EXPERIMENTAL**
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/minio:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using Minio
 
 The Chainguard Minio image contains the `minio` server binary.
@@ -83,4 +87,5 @@ Console: http://172.17.0.5:46387 http://127.0.0.1:46387
 Documentation: https://min.io/docs/minio/linux/index.html
 Warning: The standard parity is set to 0. This can lead to data loss.
 ```
+<!--body:end-->
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-06-22T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | November 27th | `sha256:70d0b666a4f0de65cde6657f4dc4d57e715497a10f3df200e274814d0aa3011a` |
 |  `latest`     | November 23rd | `sha256:8b12e38fe1760163f7727189ca546f7abd908728955f55f56f752ff4550b281d` |
-|  `latest-dev` | November 23rd | `sha256:c0b27bd33257682522e82b92c04b2bfa7094a688af175348c281f16eb5b514d3` |
 

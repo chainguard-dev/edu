@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: wolfi-base Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,8 +25,21 @@ toc: true
 
 
 
-This is the base image for the [Wolfi Linux Distribution](wolfi.dev). It includes a shell and package manager,
-allowing further packages to be installed such as in a Dockerfile. 
+<!--overview:start-->
+Base image for the [Wolfi Linux Distribution](https://wolfi.dev).
+<!--overview:end-->
+
+<!--getting:start-->
+## Get It!
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/wolfi-base:latest
+```
+<!--getting:end-->
+
+<!--body:start-->
+This is the base image for the [Wolfi Linux Distribution](wolfi.dev). It includes a shell and package manager, allowing further packages to be installed such as in a Dockerfile.
 
 This image is a great place to start when exploring Wolfi.
 
@@ -121,4 +134,5 @@ $ docker run myredis
 ## Further Reading
 
 The [edu.chainguard.dev](https://edu.chainguard.dev) site contains extensive documentation on [getting started with Wolfi](https://edu.chainguard.dev/open-source/wolfi/overview/).
+<!--body:end-->
 

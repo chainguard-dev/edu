@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: secrets-store-csi-driver Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,19 +25,24 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal image with Kubernetes Secrets Store CSI Driver. **EXPERIMENTAL**
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/secrets-store-csi-driver:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using Kubernetes Secrets Store CSI Driver
 
 The Chainguard Secrets Store CSI DRiver image contains the `secrets-store-csi-driver` binary and required utilities.
 
 The driver typically requires a plugin to be installed and configured separately to run.
+<!--body:end-->
 
