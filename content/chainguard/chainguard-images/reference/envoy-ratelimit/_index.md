@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: envoy-ratelimit Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,22 +25,27 @@ toc: true
 
 
 
-[etcd](https://github.com/etcd-io/etcd) Distributed reliable key-value store for the most critical data of a distributed system
+<!--overview:start-->
+ Go/gRPC service designed to enable generic rate limit scenarios from different types of applications.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/envoy-ratelimit:latest
 ```
+<!--getting:end-->
 
-This image includes `ratelimit`.
-
+<!--body:start-->
 ## Usage
 
 This image should be a drop-in replacement for the upstream `envoyproxy/ratelimit` image.
 See the [full documentation](https://gateway.envoyproxy.io/latest/user/rate-limit.html) for installation and usage.
 
 See for the [examples](https://github.com/envoyproxy/ratelimit#examples).
+
+This image includes `ratelimit`.
+<!--body:end-->
 

@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: buck2 Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
-Minimal image with buck2 binary and toolchain.
+<!--overview:start-->
+Minimal image with [buck2](https://buck2.build) build system binaries and toolchain.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/buck2:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 The default entrypoint is set to the `buck` binary, and a default C/C++ toolchain is installed in the image.
@@ -126,4 +130,5 @@ SUBCOMMANDS:
     uquery
             Perform queries on the unconfigured target graph
 ```
+<!--body:end-->
 

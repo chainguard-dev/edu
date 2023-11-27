@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: jre Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,19 +25,20 @@ toc: true
 
 
 
-Minimalist Wolfi-based Java JRE image using OpenJDK.  Used for running Java applications.
+<!--overview:start-->
+Minimalist Wolfi-based Java JRE image using [OpenJDK](https://openjdk.org/projects/jdk/). Used for running Java applications.
+<!--overview:end-->
 
-- [Documentation](https://edu.chainguard.dev/chainguard/chainguard-images/reference/jre)
-- [Getting Started Guide](https://edu.chainguard.dev/chainguard/chainguard-images/reference/jre/overview/#use-it)
-- [Provenance Information](https://edu.chainguard.dev/chainguard/chainguard-images/reference/jre/provenance_info/)
-
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/jre:latest
 ```
+<!--getting:end-->
+
+<!--body:start-->
 ## Use it
 
 Create a simple Java class
@@ -80,4 +81,5 @@ Run the image
 ```sh
 docker run my-simple-java-app
 ```
+<!--body:end-->
 

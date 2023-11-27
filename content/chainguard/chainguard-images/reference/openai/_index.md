@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: openai Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal image with the OpenAI CLI.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/openai:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 This image requires the `OPENAI_API_KEY` environment variable to be set to work correctly.
 You can obtain this directly from openai.com, and set it with the `-e` flag to `docker run`, or the `--env-file` flag to specify it as a file.
 
@@ -51,4 +55,5 @@ positional arguments:
 options:
   -h, --help            show this help message and exit
 ```
+<!--body:end-->
 

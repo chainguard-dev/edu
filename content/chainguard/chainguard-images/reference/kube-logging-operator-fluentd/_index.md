@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: kube-logging-operator-fluentd Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,18 +25,23 @@ toc: true
 
 
 
-Kubernetes Logging Operator Fluentd Image!
+<!--overview:start-->
+Kubernetes Logging Operator Fluentd Image
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/kube-logging-operator-fluentd
+docker pull cgr.dev/chainguard/kube-logging-operator-fluentd:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Use It!
 
 This image comes with no preinstalled plugins. It does contain the `fluent-gem` command so any necessary plugins can
 be installed, keeping the image as minimal as possible.
+<!--body:end-->
 

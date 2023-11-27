@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-06-22T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 25th | `sha256:5a1ecd3c3cc7f3d384fc5859b35793086d0bad2bb5317350d3239bb2efbb840d` |
+|  `latest-dev` | November 27th | `sha256:6e603ab23870dad557d64d8d3c833c1cd2973260d40148de8f13150be546053a` |
 |  `latest`     | November 25th | `sha256:0d408785e753cf45866a00617530c484ebecbe952cd48ba76228364cf7ac1560` |
 

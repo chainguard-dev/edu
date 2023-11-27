@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: proxysql Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal image with [proxysql](https://github.com/sysown/proxysql).
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/proxysql:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 With `Helm`:
@@ -110,4 +114,5 @@ Standard MySQL Monitor (StdMyMon) rev. 2.0.1226 -- MySQL_Monitor.cpp -- Thu Jun 
 2023-06-28 13:27:29 [INFO] For consultancy visit: https://proxysql.com/services/consulting/
 2023-06-28 13:27:29 [INFO] Latest ProxySQL version available: 2.5.3-89-g86ce115
 ```
+<!--body:end-->
 

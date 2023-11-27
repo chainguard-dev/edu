@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: ko Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,19 +25,24 @@ toc: true
 
 
 
-This is an image that contains ko, go, and build-base.
+<!--overview:start-->
+Minimal image to build and deploy Go applications using [ko](https://ko.build/)
+<!--overview:end-->
 
-This image is designed for use in situations where you would like to use `ko` with codebases that have C dependencies where `cgo` must be used. In these cases, staticly linking against musl instead of glibc results in smaller binaries.
-
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/ko:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 # Usage
+This is an image that contains ko, go, and build-base.
+
+This image is designed for use in situations where you would like to use `ko` with codebases that have C dependencies where `cgo` must be used. In these cases, staticly linking against musl instead of glibc results in smaller binaries.
 
 ### Using with CGO
 
@@ -70,4 +75,5 @@ To push, you will need to mount in your Docker config to provide auth by adding:
 ```
 
 If you're using Docker credential helpers, those will need to be made available in the container as well so that `ko` can invoke them.
+<!--body:end-->
 

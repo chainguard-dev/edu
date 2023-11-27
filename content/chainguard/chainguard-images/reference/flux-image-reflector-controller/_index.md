@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: flux-image-reflector-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,17 +25,21 @@ toc: true
 
 
 
-## Get It
+<!--overview:start-->
+`flux` cli to interact with the [Flux](https://fluxcd.io/) gitops toolkit components in a running cluster.
+<!--overview:end-->
 
+<!--getting:start-->
+## Get It!
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/flux
+docker pull cgr.dev/chainguard/flux:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using `flux`
-
-The `flux` cli contains various functionality to interact with the flux gitops toolkit components in a running cluster.
 
 > NOTE: Many `flux` commands assume a properly connected `kubectl` context, which isn't usually the case when running through docker.
 
@@ -43,4 +47,5 @@ The `flux` cli contains various functionality to interact with the flux gitops t
 # Install the flux gitops toolkit using chainguard images
 docker run cgr.dev/chainguard/flux export --registry cgr.dev/chainguard | kubectl apply -f -
 ```
+<!--body:end-->
 

@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: rabbitmq-cluster-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
-Minimal Project RabbitMQ Cluster Kubernetes Operator
+<!--overview:start-->
+RabbitMQ Cluster Kubernetes Operator
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/rabbitmq-cluster-operator:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 This image is a drop-in replacement for the upstream image.
@@ -62,4 +66,5 @@ EOF
 
 kubectl apply -f .
 ```
+<!--body:end-->
 

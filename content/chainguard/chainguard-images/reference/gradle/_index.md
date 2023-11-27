@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: gradle Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
-Minimal image with gradle build system. **EXPERIMENTAL**
+<!--overview:start-->
+Minimal image with [Gradle](https://gradle.org/) build system. **EXPERIMENTAL**
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/gradle:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using gradle
 
 Chainguard gradle images come with different versions of OpenJDK, ensure you choose the correct image tag for your application needs.  In these examples we will use a Chainguard gradle image based on OpenJDK 11.
@@ -66,4 +70,5 @@ Ant:          Apache Ant(TM) version 1.10.11 compiled on July 10 2021
 JVM:          11.0.18-internal (wolfi 11.0.18-internal+0-wolfi-r1)
 OS:           Linux 5.15.49-linuxkit aarch64
 ```
+<!--body:end-->
 

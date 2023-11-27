@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: pulumi Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal Pulumi Image
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/pulumi:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 ### Kubernetes Pod Example
@@ -154,4 +158,5 @@ Now check for pods, there should not be any:
 $ kubectl get pods
 No resources found in default namespace.
 ```
+<!--body:end-->
 

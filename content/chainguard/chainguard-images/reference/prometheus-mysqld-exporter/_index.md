@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: prometheus-mysqld-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal Prometheus Image
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/prometheus:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 This requires a prometheus configuration file to run.
@@ -70,4 +74,5 @@ ts=2022-12-27T02:32:45.188Z caller=main.go:1234 level=info msg="Completed loadin
 ts=2022-12-27T02:32:45.188Z caller=main.go:978 level=info msg="Server is ready to receive web requests."
 ts=2022-12-27T02:32:45.188Z caller=manager.go:953 level=info component="rule manager" msg="Starting rule manager..."
 ```
+<!--body:end-->
 

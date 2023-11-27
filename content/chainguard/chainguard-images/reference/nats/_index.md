@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: nats Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Minimal image with NATS. **EXPERIMENTAL**
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/nats:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using NATS
 
 The default Chainguard NATS images includes only the `nats-server` binary.
@@ -60,4 +64,5 @@ $ docker run cgr.dev/chainguard/nats
 [1] 2023/03/13 19:37:46.087610 [WRN] Cluster name was dynamically generated, consider setting one
 [1] 2023/03/13 19:37:46.087671 [INF] Listening for route connections on 0.0.0.0:6222
 ```
+<!--body:end-->
 

@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: go Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,22 +25,23 @@ toc: true
 
 
 
+<!--overview:start-->
 Container image for building Go applications.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/go:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
-**NOTE**: As of 12/30/2022, the default go image uses Wolfi, which is glibc based.
 
-If you were using this image before and are now running into trouble, the musl/Alpine based image is
-still available at `cgr.dev/chainguard/go:latest-musl`.
 
 ## Host architecture example
 
@@ -125,4 +126,5 @@ docker images go-hello-world
 REPOSITORY       TAG       IMAGE ID       CREATED       SIZE
 go-hello-world   latest    859fedabd532   5 hours ago   3.21MB
 ```
+<!--body:end-->
 

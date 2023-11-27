@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: consul Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
-Minimal image with Consul. **EXPERIMENTAL**
+<!--overview:start-->
+Minimal image with [Consul](https://www.consul.io/). **EXPERIMENTAL**
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/consul:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Using Consul
 
 The Chainguard Consul image contains the `consul` binary and a `docker-entrypoint.sh` script.
@@ -62,4 +66,5 @@ $ docker run cgr.dev/chainguard/consul
 
 ==> Log data will now stream in as it occurs:
 ```
+<!--body:end-->
 

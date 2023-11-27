@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-06-22T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 21st | `sha256:a731a168ecb3f41bfa7e489faf00d28c474739df31f45585975828105456b2e1` |
+|  `latest-dev` | November 27th | `sha256:009bad4a018e2447b849bbacac59bdf8afcba7f6836a457de3c8e55cd6adda64` |
 |  `latest`     | November 17th | `sha256:db68f3eb343ab66104eb0d537a4bae455564336da9d482a874a8a55b318a5100` |
 

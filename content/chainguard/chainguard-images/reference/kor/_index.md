@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: kor Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-11-27 16:34:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,6 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
+A Golang Tool to discover unused Kubernetes Resources
+<!--overview:end-->
+
+<!--getting:start-->
+## Get It!
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/kor:latest
+```
+<!--getting:end-->
+
+<!--body:start-->
 # Kor - Kubernetes Orphaned Resources Finder
 
 Kor is a tool to discover unused Kubernetes resources. Currently, Kor can identify and list unused:
@@ -76,3 +90,5 @@ helm upgrade --install kor \
     --timeout=300s \
     ./kor/charts/kor
 ```
+<!--body:end-->
+
