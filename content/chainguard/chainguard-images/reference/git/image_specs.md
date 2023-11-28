@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public git Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-11-28 00:31:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -64,13 +64,11 @@ The table shows package distribution across variants.
 | `ca-certificates-bundle` | X          | X                | X                     | X                 | X            | X               | X           | X      |
 | `git`                    | X          | X                | X                     | X                 | X            | X               | X           | X      |
 | `git-lfs`                | X          | X                | X                     | X                 | X            | X               | X           | X      |
-| `libcrypto3`             | X          | X                | X                     | X                 | X            | X               | X           | X      |
 | `libcurl`                | X          |                  |                       |                   |              | X               | X           | X      |
 | `libedit`                | X          | X                | X                     | X                 | X            | X               | X           | X      |
 | `libexpat`               | X          |                  |                       |                   |              | X               | X           | X      |
 | `libidn2`                | X          |                  |                       |                   |              | X               | X           | X      |
 | `libncursesw`            | X          |                  |                       |                   |              | X               | X           | X      |
-| `libssl3`                | X          | X                | X                     | X                 | X            | X               | X           | X      |
 | `libunistring`           | X          |                  |                       |                   |              | X               | X           | X      |
 | `musl`                   | X          |                  |                       |                   |              | X               | X           | X      |
 | `ncurses-terminfo-base`  | X          | X                | X                     | X                 | X            | X               | X           | X      |
@@ -88,10 +86,12 @@ The table shows package distribution across variants.
 | `libbrotlicommon1`       |            | X                | X                     | X                 | X            |                 |             |        |
 | `libbrotlidec1`          |            | X                | X                     | X                 | X            |                 |             |        |
 | `libcrypt1`              |            | X                | X                     |                   |              |                 |             |        |
+| `libcrypto3`             |            | X                | X                     | X                 | X            |                 |             |        |
 | `libcurl-openssl4`       |            | X                | X                     | X                 | X            |                 |             |        |
 | `libexpat1`              |            | X                | X                     | X                 | X            |                 |             |        |
 | `libnghttp2-14`          |            | X                | X                     | X                 | X            |                 |             |        |
 | `libpcre2-8-0`           |            | X                | X                     | X                 | X            |                 |             |        |
+| `libssl3`                |            | X                | X                     | X                 | X            |                 |             |        |
 | `ncurses`                |            | X                | X                     | X                 | X            |                 |             |        |
 | `openssh-client`         |            | X                | X                     | X                 | X            |                 |             |        |
 | `openssl-config`         |            | X                | X                     | X                 | X            |                 |             |        |

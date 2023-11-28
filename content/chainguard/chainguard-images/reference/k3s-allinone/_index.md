@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: k3s-allinone Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2023-11-27 16:34:14
+lastmod: 2023-11-28 00:31:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
