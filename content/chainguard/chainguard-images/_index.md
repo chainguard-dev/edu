@@ -9,7 +9,7 @@ images: []
 weight: 001
 topic: true
 banner: {
-    image: "/icon-education.svg",
+    image: "/icon-box-fill.svg",
     title: "Migrate to Chainguard Images",
     subtitle: "Learn how to reduce your CVE attack surface by using Chainguard Images",
     cta: "Read more",
