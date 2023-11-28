@@ -295,11 +295,11 @@ func handler() {
 	...
 	cfg, err := config.LoadDefaultConfig(ctx)
 	if err != nil {
-		return "", fmt.Errorf("failed to load configuration, %w", err)
+		log.Fatalf("failed to load configuration, %w", err)
 	}
   creds, err := cfg.Credentials.Retrieve(ctx)
 	if err != nil {
-		return nil, fmt.Errorf("failed to retrieve credentials, %w", err)
+		log.Fatalf("failed to retrieve credentials, %w", err)
 	}
 	...
 }
@@ -307,7 +307,7 @@ func handler() {
 
 These credentials represent the AWS role assumed by the Lambda function.
 
-You can use the Chainguard SDK for Go to generate a token that Chainguard understands to authenticate the Lambda function as the Chainguard identity you created earlier:
+You can use the Chainguard SDK for Go to generate a token that Chainguard understands to authenticate the Lambda function as the Chainguard identity you created earlier, by its UIDP:
 
 ```go
 import (
@@ -317,21 +317,21 @@ import (
 
 func handler() {
 	...
-	awsTok, err := aws.GenerateToken(ctx, creds, k.issuer, k.identity)
+  const identity = "[IDENTITY UIDP FROM TERRAFORM OUTPUT]"
+	awsTok, err := aws.GenerateToken(ctx, creds, "https://issuer.enforce.dev", identity)
 	if err != nil {
-		return nil, fmt.Errorf("generating AWS token: %w", err)
+		log.Fatalf("generating AWS token: %w", err)
 	}
-	exch := sts.New(k.issuer, res.RegistryStr(), sts.WithIdentity(k.identity))
+	exch := sts.New(k.issuer, res.RegistryStr(), sts.WithIdentity(identity))
 	cgtok, err := exch.Exchange(ctx, awsTok)
 	if err != nil {
-		return nil, fmt.Errorf("exchanging token: %w", err)
+		log.Fatalf("exchanging token: %w", err)
 	}
   ...
 }
 ```
 
 The resulting token, `cgtok`, can be used to authenticate requests to Chainguard API calls.
-
 
 
 ## Removing Sample Resources
