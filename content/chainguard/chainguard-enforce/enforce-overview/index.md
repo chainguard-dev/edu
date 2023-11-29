@@ -68,10 +68,6 @@ In the context of computing, a software agent is a program that performs certain
 
 You can use `chainctl` to install the Chainguard Enforce Agent as outlined in the [Chainguard Enforce User Onboarding](/chainguard/chainguard-enforce/chainguard-enforce-user-onboarding/). Alternatively, you can also install the Agent declaratively, either with a [helm chart](/chainguard/chainguard-enforce/installation/alternative-installation-methods/#helm-chart) or by using [raw YAML](/chainguard/chainguard-enforce/installation/alternative-installation-methods/#raw-yaml).
 
-Instead of installing the Agent directly on your cluster, you can [set up a Cloud Account Association](/chainguard/chainguard-enforce/cloud-account-associations/) to allow a remote Agent — managed by Chainguard — to access your cloud account resources on your behalf. Known as "Agentless connections" these can be useful since they don't consume any cluster resources and, because they're managed by Chainguard, issues can often be addressed more quickly than clusters using agentful connections. Additionally, Agentless connections allow for read-only access to your clusters, which some users may find desirable.
-
-Currently, Agentless connections are limited to GKE and EKS clusters with a public API endpoint.
-
 
 ## The Chainguard Enforce Console
 
