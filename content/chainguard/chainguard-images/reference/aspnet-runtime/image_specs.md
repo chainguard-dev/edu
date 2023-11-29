@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public aspnet-runtime Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-11-29 00:31:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -44,10 +44,10 @@ The table shows package distribution across variants.
 
 |                          | latest |
 |--------------------------|--------|
-| `aspnet-7-runtime`       | X      |
+| `aspnet-8-runtime`       | X      |
 | `ca-certificates-bundle` | X      |
-| `dotnet-7`               | X      |
-| `dotnet-7-runtime`       | X      |
+| `dotnet-8`               | X      |
+| `dotnet-8-runtime`       | X      |
 | `glibc`                  | X      |
 | `glibc-locale-posix`     | X      |
 | `icu`                    | X      |
@@ -56,10 +56,8 @@ The table shows package distribution across variants.
 | `libgcc`                 | X      |
 | `libssl3`                | X      |
 | `libstdc++`              | X      |
-| `libunwind`              | X      |
 | `lttng-ust`              | X      |
 | `openssl-config`         | X      |
 | `wolfi-baselayout`       | X      |
-| `xz`                     | X      |
 | `zlib`                   | X      |
 
