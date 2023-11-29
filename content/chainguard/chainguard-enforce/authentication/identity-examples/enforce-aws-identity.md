@@ -4,8 +4,8 @@ linktitle: "AWS Assumable Identity"
 lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard Enforce identity that can be assumed by an AWS role."
 type: "article"
-date: 2023-06-28T08:48:45+00:00
-lastmod: 2023-09-22T08:48:45+00:00
+date: 2023-11-28T08:48:45+00:00
+lastmod: 2023-11-28T08:48:45+00:00
 draft: false
 tags: ["Enforce", "Product", "Procedural"]
 images: []
@@ -14,9 +14,7 @@ weight: 010
 
 In Chainguard Enforce, [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
 
-This procedural tutorial outlines how to create an identity using Terraform, and then create an AWS role that will assume the identity to interact with Chainguard resources.
-
-This can be used to authorize requests from AWS Lambda, ECS, EKS, or any other AWS service that supports [IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
+This procedural tutorial outlines how to create an identity using Terraform, and then create an AWS role that will assume the identity to interact with Chainguard resources. This can be used to authorize requests from AWS Lambda, ECS, EKS, or any other AWS service that supports [IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
 
 
 ## Prerequisites
@@ -26,10 +24,11 @@ To complete this guide, you will need the following.
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard Enforce command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
 * An AWS account with the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) installed and configured. The [Terraform provider for AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) uses credentials configured via the AWS CLI.
+* A recent version of [Go](https://go.dev/dl/) to test the identity with AWS Lambda.
 
 ## Creating Terraform Files
 
-We will be using Terraform to create an identity for an AWS role to assume. This step outlines how to create three Terraform configuration files that, together, will produce such an identity.
+We will be using Terraform to create an identity for an AWS role to assume. This step outlines how to create four Terraform configuration files that, together, will produce such an identity.
 
 To help explain each configuration file's purpose, we will go over what they do and how to create each file one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
 
@@ -74,8 +73,8 @@ Next, you can create the `sample.tf` file.
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
 ```
-resource "chainguard_group" "example-group" {
-  name   	 = "example-group"
+resource "chainguard_group" "user-group" {
+  name   	 = "user-group"
   description = <<EOF
     This group simulates an end-user group, which the AWS role identity
     can interact with via the identity in aws.tf.
@@ -122,7 +121,7 @@ The first section creates the identity itself.
 
 ```
 resource "chainguard_identity" "aws" {
-  parent_id   = var.group
+  parent_id   = chainguard_group.user-group.id
   name        = "aws-identity"
   description = "Identity for AWS role to assume"
 
@@ -130,7 +129,6 @@ resource "chainguard_identity" "aws" {
     aws_account         = "[AWS-ACCOUNT-ID]"
     aws_user_id_pattern = "^AROA(.*):[AWS-ROLE-SESSION-NAME]$"
 
-    // NB: This role will be assumed so can't use the role ARN directly. We must used the ARN of the assumed role
     aws_arn = "arn:aws:sts::[AWS-ACCOUNT-ID]:assumed-role/[AWS-ROLE-NAME]/[AWS-ROLE-SESSION-NAME]"
   }
 }
@@ -138,7 +136,9 @@ resource "chainguard_identity" "aws" {
 
 First this section creates a Chainguard Identity tied to the `chainguard_group` created by the `sample.tf` file; namely, the `example-group` group. The identity is named `aws-identity` and has a brief description.
 
-The most important part of this section is the `aws_identity`. When the AWS role tries to assume this identity later on, it must present a token matching the `aws_account`, `aws_user_id_pattern`, and `aws_arn` specified here in order to do so.
+The most important part of this section is the `aws_identity` block. When the AWS role tries to assume this identity later on, it must present a token matching the `aws_account`, `aws_user_id_pattern`, and `aws_arn` specified here in order to do so.
+
+The `aws_user_id_pattern` field configures the identity to be assumable only by the AWS role with the specified name, which is itself assumed by another execution role, which we'll configure below. This role will be assumed so can't use the role ARN directly in `aws_arn`; We must used the ARN of the assumed role.
 
 The next section will output the new identity's `id` value. This is a unique value that represents the identity itself.
 
@@ -168,9 +168,9 @@ resource "chainguard_rolebinding" "view-stuff" {
 
 After defining these resources, your Terraform configuration will be ready. Now you can run a few `terraform` commands to create the resources defined in your `.tf` files.
 
-## Using the identity with AWS Lambda
+### `lambda.tf`
 
-In this section, you'll create an AWS Lambda function that will assume the identity you created in the previous section. This function will then use the identity to interact with Chainguard resources.
+The file file, `lambda.tf`, will create an AWS Lambda function that will assume the identity you created in the previous section. This function will then use the identity to interact with Chainguard resources.
 
 First, define the following resources in a `lambda.tf` file. The file will consist of three sections, which we'll go over one by one.
 
@@ -200,18 +200,18 @@ resource "aws_iam_role" "iam_for_lambda" {
 }
 ```
 
-This section defines a AWS lambda function implemented in Node.js that will assume the identity you created in the previous section:
+The final section defines a AWS lambda function implemented in Go that will assume the identity you created in the previous section:
 
 ```hcl
 resource "aws_lambda_function" "test_lambda" {
   filename      = "lambda_function_payload.zip"
   function_name = "lambda_function_name"
   role          = aws_iam_role.iam_for_lambda.arn
-  handler       = "index.test"
+  handler       = "bootstra"
 
   source_code_hash = data.archive_file.lambda.output_base64sha256
 
-  runtime = "nodejs18.x"
+  runtime = "go1.x"
 
   environment {
     variables = {
@@ -221,7 +221,9 @@ resource "aws_lambda_function" "test_lambda" {
 }
 ```
 
-When this function is invoked, it will assume the AWS role you created in the previous section, and be able to present credentials as that AWS role that will allow it to assume the Chainguard identity you created in the previous section, to view and manage Chainguard resources.
+See [this basic example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function#basic-example) for configuring AWS Lambda using Terraform, and the docs for [deploying Go Lambda functions with .zip file archives](https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html) for more information on how to configure the `filename` and `source_code_hash` fields.
+
+After it's deployed, when this function is invoked, it will assume the AWS role you created in the previous section. It will then be able to present credentials as that AWS role that will allow it to assume the Chainguard identity you created in the previous section, to view and manage Chainguard resources.
 
 ## Creating Your Resources
 
