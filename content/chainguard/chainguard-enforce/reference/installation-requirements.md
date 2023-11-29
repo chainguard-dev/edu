@@ -13,7 +13,6 @@ tags: ["Enforce", "Product", "Reference"]
 
 The Chainguard Enforce Agent is installed into each of your Kubernetes clusters as a `StatefulSet` consisting of 2 pod relicas in their own namespace called `gulfstream`. The Enforce Agent is a statically compiled binary, requires minimal system resources, and can be installed using a variety of tools. It supports a number of different Certified Kubernetes distributions and versions.
 
-If you are using a managed GKE or EKS cluster, consider installing Enforce in agentless (also referred to as SaaS) mode by following this guide: [Set Up Chainguard Enforce Cloud Account Associations](/chainguard/chainguard-enforce/cloud-account-associations/). This installation method also supports additional workload discovery like Google Cloud Run, AWS ECS, and AWS AppRunner, and does not consume any resources in your Kubernetes clusters.
 
 ## Supported Kubernetes Versions
 

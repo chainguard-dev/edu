@@ -52,10 +52,6 @@ Note: you can use either the single `9236a389bd48b984df91adc1bc924620.r2.cloudfl
 
 Whether you are working with public or private registries, ensure that outbound connections from the Enforce agent (running in the `gulfstream` namespace) are permitted. Also be sure to allow the corresponding return traffic if you are using symmetric firewall rules.
 
-### Enforce SaaS Access
-
-If you are using Enforce in agentless mode, you will need to ensure that your registry is publicly accessible to the agent. Refer to the [CIDR Ranges](#cidr-ranges) section of this page for a list of ranges to add to your firewall rules or access control lists.
-
 ### Enforce Image Registry Access
 
 Enforce needs access to any registry or registries that are configured for your cluster or containers so that it can validate images and policies. Depending on your environment, you will need to configure your firewalls and access control lists to allow Enforce access.
