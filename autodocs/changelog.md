@@ -1,4 +1,26 @@
 # 2023-11-30
+
+
+Updated Docs:
+
+- aws-cli/tags_history.md
+- crane/tags_history.md
+- karpenter/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- terraform/tags_history.md
+- trino/tags_history.md
+- trust-manager/tags_history.md
+- vault/tags_history.md
+- vault-k8s/tags_history.md
+- vector/tags_history.md
+- wait-for-it/tags_history.md
+- wasmtime/tags_history.md
+- wazero/tags_history.md
+- weaviate/tags_history.md
+- wolfi-base/tags_history.md
+- zig/tags_history.md
+
+# 2023-11-30
 New images added:
 
 - vector
