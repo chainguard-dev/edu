@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the zookeeper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-27 16:34:14
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 27th | `sha256:4b95c09c83ab0992a903bafa0fdc9d4802cbbf8b0ae99114ce9fe793b8b828eb` |
-|  `latest`     | November 27th | `sha256:e52f329cfb114decb3111839586fc0a12b69cee5f20bc8333eebd315fc2d605e` |
+|  `latest-dev` | November 29th | `sha256:c975cf9a360e946e93adcdf7d417168f88f057729593050e579bcedc1cb96b64` |
+|  `latest`     | November 29th | `sha256:f02cbbcf954a5b08ed6f461c54b239641736f8b410ee7e4cc9e6699b2e151842` |
 

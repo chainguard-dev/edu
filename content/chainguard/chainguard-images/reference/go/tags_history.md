@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the go Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-27 16:34:14
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | November 27th | `sha256:6154bf5b0df0ff2b4291463694a9809ec14542e3228d0942eb463991ac8df018` |
-|  `latest-dev` | November 27th | `sha256:95d75514d8cabc14fa7bf4c4ea68fd59708ecacf31e5f702b3f6ffbbd6691ddd` |
+|  `latest`     | November 29th | `sha256:c894bc454800817b1747c8a1a640ae6d86004b06190f94e791098e7e78dbbc00` |
+|  `latest-dev` | November 29th | `sha256:ed3b0a343642563acb88583c497c531b9272d2a6e048c589e2e1e9533e2b8f73` |
 

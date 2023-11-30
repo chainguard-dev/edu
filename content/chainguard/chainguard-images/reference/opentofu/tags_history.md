@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentofu Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-27 16:34:14
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 27th | `sha256:43aedcb4d9412e317d8a0e0de3f7ea04a4784e58ce94497bac4ceae03bb71020` |
-|  `latest`     | November 21st | `sha256:763cf65cc0d1af2dbb1cca789294dba32052998e1ec163fc582affd39544d1d1` |
+|  `latest`     | November 29th | `sha256:61c303d0bd3d7896b40e8de30dd832da1487f869575b91b6929a2e4d04e257cf` |
+|  `latest-dev` | November 29th | `sha256:e1414cf27feda7726d2963c7163339ae17e7c528d2dd075f6e4d3fba847149a2` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gatekeeper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-27 16:34:14
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 27th | `sha256:2326872a6cba59664c1c85a0e6466cb8b2571d98fa268ab0310766a3ccfed9e4` |
-|  `latest`     | November 7th  | `sha256:a00d54302f25e9feace5003a022c296f70de70096a4b582ec8eb06abe34bba02` |
+|  `latest`     | November 29th | `sha256:2dc415b0f1a1b551c98a077538d5e13d5d3a0402e796ec84bc7cf853ece67edc` |
+|  `latest-dev` | November 29th | `sha256:3da5e1c343abf7f10a0c817d43eb80cf03c21cc8e4a0ab06bfe7488ef9db50b5` |
 

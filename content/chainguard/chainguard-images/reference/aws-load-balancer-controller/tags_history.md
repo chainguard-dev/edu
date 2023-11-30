@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-load-balancer-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-27 16:34:14
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 27th | `sha256:d1868ff20a3e19ac7457ad1c6ff9cf7e2361bd2f681e197e8a72ef98c7a5a54d` |
-|  `latest`     | November 9th  | `sha256:f87b9993a8a8afa97a59c138dddc68782e7b840e4cc50b0d9ee7e4550a08374f` |
+|  `latest-dev` | November 29th | `sha256:b403d0ce840b032111d013c53ccee27bbe34af450e4f01eff18ca102cfa151bb` |
+|  `latest`     | November 29th | `sha256:980a6bc5805604cb5b2ac80a5d14d5f199ba52c75556e078c1a9f6da3dfc24aa` |
 

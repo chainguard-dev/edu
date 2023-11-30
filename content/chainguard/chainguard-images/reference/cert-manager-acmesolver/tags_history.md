@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-acmesolver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-27 16:34:14
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 27th | `sha256:81f6895b1ebba556bc42c41a1281eaedf88c2040a37ec4dc269f40e5f10b81ce` |
-|  `latest`     | November 24th | `sha256:dfc0964fb015148b6396e095877e1e36ae638fc8bfffe3773d7565261a33a04f` |
+|  `latest`     | November 29th | `sha256:b85c08a8a87523ac5a7f4a24792c3a35b2fc6433a99af09d6e314006f0fa8c9d` |
+|  `latest-dev` | November 29th | `sha256:55aad63709a185ef84faec2c1f9b36b996c1e25acc4482d07214913b797c5338` |
 
