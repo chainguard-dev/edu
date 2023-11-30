@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mdbook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-06-22T11:07:52+02:00
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | November 16th | `sha256:b749b7fd870fde68ff692929a957180e8d936414785e64e73f2bf58c11414607` |
+|  `latest` | November 29th | `sha256:77dd3a19bc59f9db9d81ed7b25bfaedd75d9dd987c0db59fb74b32b0cf1c851e` |
 

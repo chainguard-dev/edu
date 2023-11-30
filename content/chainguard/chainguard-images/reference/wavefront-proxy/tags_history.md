@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wavefront-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-27 16:34:14
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 27th | `sha256:71847d50e1fdefddd9c04a18fdccecc6a7cfc6efe48d50fa7bba76c6b6775598` |
-|  `latest`     | November 27th | `sha256:f566ec70ddf788ab583fe55fca3a9426ba51b4815bf8c8cd9878be5f47a5783b` |
+|  `latest`     | November 29th | `sha256:da29ff140c9fb31e48803bfc2b5b59a290efe78b70483ae374a47fb09a163149` |
+|  `latest-dev` | November 29th | `sha256:afa6ce1132cbe4154ce95469762bb3a2ad02a86f7c9066b37cc3fc92d48b742f` |
 

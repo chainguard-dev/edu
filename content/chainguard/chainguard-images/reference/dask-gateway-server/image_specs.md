@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public dask-gateway-server Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -84,7 +84,6 @@ The table shows package distribution across variants.
 | `py3-colorama`           | X          | X      |
 | `py3-colorlog`           | X          | X      |
 | `py3-cryptography`       | X          | X      |
-| `py3-dateutil`           | X          | X      |
 | `py3-frozenlist`         | X          | X      |
 | `py3-idna`               | X          | X      |
 | `py3-idna-ssl`           | X          | X      |
@@ -92,6 +91,7 @@ The table shows package distribution across variants.
 | `py3-kubernetes-asyncio` | X          | X      |
 | `py3-multidict`          | X          | X      |
 | `py3-pycparser`          | X          | X      |
+| `py3-python-dateutil`    | X          | X      |
 | `py3-pyyaml`             | X          | X      |
 | `py3-six`                | X          | X      |
 | `py3-sqlalchemy`         | X          | X      |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-27 16:34:14
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 27th | `sha256:d8a0e333f69d61a34ca3d5bff7e50f7dc2b007908bd26e7c436a521d0c6f0d2d` |
-|  `latest`     | November 24th | `sha256:7b015600e1973903bdf1e1302fe154afa69bc8971ff9772891ef9d7685a21447` |
+|  `latest-dev` | November 29th | `sha256:9db84e4f4dba624bad56a123191b2fd4df61ca93deb58a5913340e2c6aa4e890` |
+|  `latest`     | November 29th | `sha256:710e733f46ec482d9c7fbd29879966b34d3469c21e5f19b00d1d3792c20acf85` |
 

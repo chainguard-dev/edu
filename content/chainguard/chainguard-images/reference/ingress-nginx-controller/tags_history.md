@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-27 16:34:14
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | November 27th | `sha256:fbfa5afb14e70c279134bcae66251bce53f53c93066dad6737ae9ae4e74aefb2` |
-|  `latest-dev` | November 27th | `sha256:74da3082b24eb8e73e298b0a25182a0e38b49c8dbdb89d388d514619b53207e8` |
+|  `latest`     | November 29th | `sha256:48f4cef800d2332c9655e37b9402a72f589b42a1c8bc4e9b534810016b7353e2` |
+|  `latest-dev` | November 29th | `sha256:8d45f23280dd63baded72980d602ea7d218e424b5db05b8d8399b36eb2bc9642` |
 

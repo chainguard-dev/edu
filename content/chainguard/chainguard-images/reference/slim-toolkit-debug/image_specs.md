@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public slim-toolkit-debug Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -117,7 +117,6 @@ The table shows package distribution across variants.
 | `py3-click`               | X      |
 | `py3-colorama`            | X      |
 | `py3-configobj`           | X      |
-| `py3-dateutil`            | X      |
 | `py3-importlib-metadata`  | X      |
 | `py3-pendulum`            | X      |
 | `py3-pgcli`               | X      |
@@ -125,6 +124,7 @@ The table shows package distribution across variants.
 | `py3-prompt-toolkit`      | X      |
 | `py3-psycopg`             | X      |
 | `py3-pygments`            | X      |
+| `py3-python-dateutil`     | X      |
 | `py3-pytzdata`            | X      |
 | `py3-setproctitle`        | X      |
 | `py3-six`                 | X      |
