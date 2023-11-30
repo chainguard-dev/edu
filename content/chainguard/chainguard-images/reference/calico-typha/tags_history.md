@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-typha Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-06-22T11:07:52+02:00
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | November 22nd | `sha256:ef10bb9e28d31a8ccc51a2bc8a923a5df58740e88b2c83fdba65b66c6dc50c61` |
+|  `latest` | November 29th | `sha256:78c222d8f7d456739d2e2dfd4c901ff5434ab4172ffff508306c6fa375b00b14` |
 

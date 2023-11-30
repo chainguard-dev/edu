@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-node-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-27 16:34:14
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 27th | `sha256:4fc373e8ecba9130ad4d955e3519f6aff300762eeec6e5921c1265e6ba6cfe6f` |
-|  `latest`     | November 13th | `sha256:72150195352e7d059dc4fa09b3f76be0fbc0984ac83ea1d120abc7a6c46a3db1` |
+|  `latest`     | November 29th | `sha256:644123ba8682d174b80374411afe874169c61e36a967da97c20ad1e25aed7c1b` |
+|  `latest-dev` | November 29th | `sha256:0d841db4f0a24b7b7b456ce0137800ec740787ad4c8bf6000c3ae79eaa6c6b6a` |
 

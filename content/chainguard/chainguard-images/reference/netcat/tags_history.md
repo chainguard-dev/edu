@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the netcat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-06-22T11:07:52+02:00
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | November 16th | `sha256:4d984764156beb567f622af66e573b869cda0d50da98c05020b949fd421e28c5` |
+|  `latest` | November 29th | `sha256:e3fe9ae9da4d4a6a4b43e9c6f4812d66df6d780f19d5507d26a6be52651b672a` |
 

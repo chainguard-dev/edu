@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-pilot Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-27 16:34:14
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 27th | `sha256:e08459b35a31252cf33eec4a88d360d635fd46a33ac6205d237a3634f318dbf3` |
-|  `latest`     | November 17th | `sha256:ee88f1d7e0e2d52ed5933ffdfecbe6c5b7b964d5d84cb37d7fc9a6beaaf85857` |
+|  `latest`     | November 29th | `sha256:9fef180c54b616bfaf5d3bb93e05b99ef6479ffd81f2f2e5cc68731cb048dc1b` |
+|  `latest-dev` | November 29th | `sha256:efa288b816f4909cefc5e10cef01b89ca1386dd421243cf7617cd6c7919f8824` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-operator-generic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-27 16:34:14
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 27th | `sha256:f551c2da218b51b6f23b466d303f0a493a5a5c51705ff2e9a09ca557745d0023` |
-|  `latest`     | November 24th | `sha256:e28423998c888d02129ca6bdb9e109447a72e5a9b90b1ac34d8d4b1b1ea631f1` |
+|  `latest`     | November 29th | `sha256:d0f63a3bd8a26f7a5f10334b4cef5bf9c3abc27b3bc372c27e147de86c08d202` |
+|  `latest-dev` | November 29th | `sha256:21fb25fbdea65539c8e3641f94ad5e3e0c4cb19779b031a3152e8e56f5d6f0cd` |
 

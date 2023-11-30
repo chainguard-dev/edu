@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public aws-efs-csi-driver Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -95,9 +95,9 @@ The table shows package distribution across variants.
 | `openssl-config`          | X          | X      |
 | `openssl-provider-legacy` | X          | X      |
 | `py3-botocore`            | X          | X      |
-| `py3-dateutil`            | X          | X      |
 | `py3-docutils`            | X          | X      |
 | `py3-jmespath`            | X          | X      |
+| `py3-python-dateutil`     | X          | X      |
 | `py3-six`                 | X          | X      |
 | `py3-urllib3`             | X          | X      |
 | `python-3.12`             | X          | X      |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubeflow-katib-suggestion-optuna Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -87,7 +87,6 @@ The table shows package distribution across variants.
 | `py3-cmaes`                    | X          | X      |
 | `py3-colorama`                 | X          | X      |
 | `py3-colorlog`                 | X          | X      |
-| `py3-dateutil`                 | X          | X      |
 | `py3-googleapis-common-protos` | X          | X      |
 | `py3-grpcio`                   | X          | X      |
 | `py3-mako`                     | X          | X      |
@@ -95,6 +94,7 @@ The table shows package distribution across variants.
 | `py3-packaging`                | X          | X      |
 | `py3-parsing`                  | X          | X      |
 | `py3-protobuf`                 | X          | X      |
+| `py3-python-dateutil`          | X          | X      |
 | `py3-python-editor`            | X          | X      |
 | `py3-pyyaml`                   | X          | X      |
 | `py3-scipy`                    | X          | X      |

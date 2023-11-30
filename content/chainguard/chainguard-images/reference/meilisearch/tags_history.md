@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the meilisearch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-06-22T11:07:52+02:00
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | November 21st | `sha256:179d51756a32ed19f3e29b0480502d6935d8d693596de88b46913adac483c50d` |
+|  `latest` | November 29th | `sha256:17f6ef814a617120d8e02dc8c9620a4c74f81af91a9006eb34641bc5159ad36c` |
 
