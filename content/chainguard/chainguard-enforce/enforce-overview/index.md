@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "A conceptual overview of Chainguard Enforce and its components"
 date: 2022-12-15T16:36:47+00:00
-lastmod: 2022-12-15T16:36:47+00:00
+lastmod: 2023-11-29T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Product", "Overview", "Conceptual"]
 images: []

@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "An overview of Chainguard Enforce's observer and enforcer profiles"
 date: 2023-03-24T15:56:52-07:00
-lastmod: 2023-03-24T15:56:52-07:00
+lastmod: 2023-11-29T15:22:20+01:00
 draft: false
 tags: ["ENFORCE", "CHAINCTL", "PRODUCT", "OVERVIEW"]
 images: []

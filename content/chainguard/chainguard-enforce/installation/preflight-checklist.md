@@ -3,7 +3,7 @@ title: "Preflight Checklist for Chainguard Enforce"
 linktitle: "Preflight Checklist"
 type: "article"
 date: 2023-07-07T05:56:52-07:00
-lastmod: 2023-07-07T05:56:52-07:00
+lastmod: 2023-11-29T15:22:20+01:00
 draft: false
 tags: ["Enforce", "chainctl", "Product"]
 images: []
