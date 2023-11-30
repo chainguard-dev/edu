@@ -5,6 +5,7 @@ aliases:
 description: "Chainguard Enforce Agent Requirements"
 type: "article"
 date: 2023-03-22 13:21:51 +0000 UTC
+lastmod: 2023-11-29T15:22:20+01:00
 draft: false
 images: []
 weight: 010

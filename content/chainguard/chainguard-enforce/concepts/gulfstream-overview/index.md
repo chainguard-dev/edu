@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "An overview of Gulfstream, a controller infrastructure built by Chainguard and an important component of Enforce."
 date: 2023-04-03T15:56:52-07:00
-lastmod: 2023-04-03T15:56:52-07:00
+lastmod: 2023-11-29T15:22:20+01:00
 draft: false
 tags: ["ENFORCE", "PRODUCT", "CONCEPTUAL"]
 images: []

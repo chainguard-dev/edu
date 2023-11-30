@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "How to bind Chainguard Enforce to your cloud provider"
 date: 2022-09-02T15:56:52-07:00
-lastmod: 2023-04-05T15:56:52-07:00
+lastmod: 2023-11-29T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Product", "Procedural"]
 images: []
