@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubeflow-pipelines-metadata-writer Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -85,7 +85,6 @@ The table shows package distribution across variants.
 | `py3-cachetools`                            | X          | X      |
 | `py3-certifi`                               | X          | X      |
 | `py3-charset-normalizer`                    | X          | X      |
-| `py3-dateutil`                              | X          | X      |
 | `py3-google-auth`                           | X          | X      |
 | `py3-grpcio`                                | X          | X      |
 | `py3-idna`                                  | X          | X      |
@@ -96,6 +95,7 @@ The table shows package distribution across variants.
 | `py3-ml-metadata`                           | X          | X      |
 | `py3-oauthlib`                              | X          | X      |
 | `py3-protobuf`                              | X          | X      |
+| `py3-python-dateutil`                       | X          | X      |
 | `py3-requests`                              | X          | X      |
 | `py3-requests-oauthlib`                     | X          | X      |
 | `py3-rsa`                                   | X          | X      |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kor Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-06-22T11:07:52+02:00
+lastmod: 2023-11-30 00:18:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | November 21st | `sha256:4d9fbd786978967bac378067eea9087e64cefb69fa9bc08c537f51fcfdb1c6e0` |
+|  `latest` | November 29th | `sha256:f85fe808307588be64f4d96fb7cddac927a5c68fb8e29b584dbd88070f1a70fb` |
 
