@@ -1,5 +1,5 @@
 ---
-date: 2023-11-21T23:15:25Z
+date: 2023-11-30T14:25:57Z
 title: "chainctl iam groups list"
 slug: chainctl_iam_groups_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_list/
@@ -14,21 +14,24 @@ toc: true
 List groups.
 
 ```
-chainctl iam groups list [--output tree|table|json|id] [flags]
+chainctl iam groups list [--group=GROUP_NAME|GROUP_ID] [--output tree|table|json|id] [flags]
 ```
 
 ### Examples
 
 ```
-
-chainctl iam group list
-
+  # List all groups user is authorized to view.
+  chainctl iam group list
+  
+  # Restrict group list to my-group and its descendants
+  chainctl iam group list --group=my-group
 ```
 
 ### Options
 
 ```
-  -h, --help   help for list
+      --group string   Group to list descendants from (inclusive).
+  -h, --help           help for list
 ```
 
 ### Options inherited from parent commands

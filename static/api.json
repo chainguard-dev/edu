@@ -967,6 +967,11 @@
                   "$ref": "#/definitions/IdentityClaimMatch",
                   "description": "claim_match checks the third party IdP token's claims against one\nor more configured patterns."
                 },
+                "createdAt": {
+                  "description": "created_at is the timestamp for when the identity was created.",
+                  "format": "date-time",
+                  "type": "string"
+                },
                 "description": {
                   "description": "description, human readable of identity.",
                   "type": "string"
@@ -982,6 +987,11 @@
                 "static": {
                   "$ref": "#/definitions/IdentityStaticKeys",
                   "description": "static is equivalent to literal, but instead of discovering the\nIdP's verification keys we verify the identity using pre-registered\nverification keys.  This is intended for use with identities from\nproviders without an \"online\" issuer (network accessible to our IdP),\nsuch as a KinD/minikube cluster.\nNOTE: because this path does not have a mechanism for key rotation\nthe identity will expire, with a maximum lifetime of 30d."
+                },
+                "updatedAt": {
+                  "description": "updated_at is the timestamp for when the identity was last updated.",
+                  "format": "date-time",
+                  "type": "string"
                 }
               },
               "type": "object"
@@ -2050,6 +2060,28 @@
         },
         "tags": [
           "SigstoreService"
+        ]
+      }
+    },
+    "/ping/v1/ping": {
+      "get": {
+        "operationId": "PingService_Ping",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "PingService"
         ]
       }
     },
@@ -3265,6 +3297,110 @@
       ],
       "type": "string"
     },
+    "ChangedImageConfigChangedStopSignal": {
+      "properties": {
+        "current": {
+          "type": "string"
+        },
+        "previous": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ChangedImageConfigChangedUser": {
+      "properties": {
+        "current": {
+          "type": "string"
+        },
+        "previous": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ChangedImageConfigChangedWorkingDir": {
+      "properties": {
+        "current": {
+          "type": "string"
+        },
+        "previous": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ChangedImageConfigCmdDiff": {
+      "properties": {
+        "added": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "removed": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ChangedImageConfigEntrypointDiff": {
+      "properties": {
+        "added": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "removed": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ChangedImageConfigEnvDiff": {
+      "properties": {
+        "added": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "removed": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ChangedImageConfigVolume": {
+      "type": "object"
+    },
+    "ChangedImageConfigVolumeDiff": {
+      "properties": {
+        "added": {
+          "additionalProperties": {
+            "$ref": "#/definitions/ChangedImageConfigVolume"
+          },
+          "type": "object"
+        },
+        "removed": {
+          "additionalProperties": {
+            "$ref": "#/definitions/ChangedImageConfigVolume"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
     "ClusterAuthInfo": {
       "description": "This is based off of k8s.io/client-go/tools/clientcmd/api/v1.AuthInfo\nThis should only ever be used with KinD clusters during testing, it WILL\nNOT be stored securely.",
       "properties": {
@@ -4279,6 +4415,11 @@
           "$ref": "#/definitions/IdentityClaimMatch",
           "description": "claim_match checks the third party IdP token's claims against one\nor more configured patterns."
         },
+        "createdAt": {
+          "description": "created_at is the timestamp for when the identity was created.",
+          "format": "date-time",
+          "type": "string"
+        },
         "description": {
           "description": "description, human readable of identity.",
           "type": "string"
@@ -4298,6 +4439,11 @@
         "static": {
           "$ref": "#/definitions/IdentityStaticKeys",
           "description": "static is equivalent to literal, but instead of discovering the\nIdP's verification keys we verify the identity using pre-registered\nverification keys.  This is intended for use with identities from\nproviders without an \"online\" issuer (network accessible to our IdP),\nsuch as a KinD/minikube cluster.\nNOTE: because this path does not have a mechanism for key rotation\nthe identity will expire, with a maximum lifetime of 30d."
+        },
+        "updatedAt": {
+          "description": "updated_at is the timestamp for when the identity was last updated.",
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"
@@ -4606,6 +4752,14 @@
       },
       "type": "object"
     },
+    "pingResponse": {
+      "properties": {
+        "response": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "protobufAny": {
       "additionalProperties": {},
       "properties": {
@@ -4624,6 +4778,32 @@
         "PREMIUM"
       ],
       "type": "string"
+    },
+    "registryChangedImageConfig": {
+      "properties": {
+        "changedStopSignal": {
+          "$ref": "#/definitions/ChangedImageConfigChangedStopSignal"
+        },
+        "changedUser": {
+          "$ref": "#/definitions/ChangedImageConfigChangedUser"
+        },
+        "changedWorkingDir": {
+          "$ref": "#/definitions/ChangedImageConfigChangedWorkingDir"
+        },
+        "cmds": {
+          "$ref": "#/definitions/ChangedImageConfigCmdDiff"
+        },
+        "entrypoints": {
+          "$ref": "#/definitions/ChangedImageConfigEntrypointDiff"
+        },
+        "envs": {
+          "$ref": "#/definitions/ChangedImageConfigEnvDiff"
+        },
+        "volumes": {
+          "$ref": "#/definitions/ChangedImageConfigVolumeDiff"
+        }
+      },
+      "type": "object"
     },
     "registryFileReference": {
       "properties": {
@@ -4650,8 +4830,19 @@
       },
       "type": "object"
     },
+    "registryImageConfigDiff": {
+      "properties": {
+        "changed": {
+          "$ref": "#/definitions/registryChangedImageConfig"
+        }
+      },
+      "type": "object"
+    },
     "registryImageDiff": {
       "properties": {
+        "config": {
+          "$ref": "#/definitions/registryImageConfigDiff"
+        },
         "files": {
           "$ref": "#/definitions/registryFilesDiff"
         },
@@ -4660,6 +4851,13 @@
         },
         "vulnerabilities": {
           "$ref": "#/definitions/registryVulnerabilitiesDiff"
+        },
+        "warnings": {
+          "description": "warnings is a list of warning messages to return to the requesting client.\nWarning messages describe a problem the client making the DiffImageRequest should correct or be aware of.\nWarnings over 256 characters and large numbers of warnings may be truncated.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -4869,7 +5067,7 @@
       "description": "Attestation represents a normalized Attestation that we have ingested into our datastore.\nThey are linked to Signatures via ID, as in they are 'children' of Signatures\nThere can be multiple of these that we keep.",
       "properties": {
         "description": {
-          "title": "Short description of the Attesation",
+          "title": "Short description of the Attestation",
           "type": "string"
         },
         "digest": {
@@ -4877,7 +5075,7 @@
           "type": "string"
         },
         "format": {
-          "title": "format holds whether the Document format type",
+          "title": "format holds the Document format type",
           "type": "string"
         },
         "generatedAt": {
@@ -4895,6 +5093,7 @@
         },
         "rawAttestation": {
           "format": "byte",
+          "title": "raw_attestation is a free form type to stub in any attestations so we don't end up a\nadding new tables for all the new type of attestations, initial goal is to add image configs\nand anything which comes up after that",
           "type": "string"
         }
       },
@@ -5698,6 +5897,9 @@
     },
     {
       "name": "SecurityTokenService"
+    },
+    {
+      "name": "PingService"
     },
     {
       "name": "Registry"
