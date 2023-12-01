@@ -3,7 +3,7 @@ title: "Preflight Checklist for Chainguard Enforce"
 linktitle: "Preflight Checklist"
 type: "article"
 date: 2023-07-07T05:56:52-07:00
-lastmod: 2023-07-07T05:56:52-07:00
+lastmod: 2023-11-29T15:22:20+01:00
 draft: false
 tags: ["Enforce", "chainctl", "Product"]
 images: []
@@ -37,29 +37,6 @@ The following is a list of prerequisites required across all the different insta
 
 Not every installation method requires each prerequisite in this list. The reason for this is that we provide two different connection methods for Chainguard Enforce. The method each cluster uses to connect to Enforce is determined at installation, and there are multiple installation procedures for both connection methods which likewise have their own unique prerequisites.
 
-We currently provide two ways to connect your clusters to Chainguard Enforce: with the [Chainguard Enforce Agent](/chainguard/chainguard-enforce/enforce-overview/#the-chainguard-enforce-agent) and through [Agentless connections](/chainguard/chainguard-enforce/how-to-connect-kubernetes-clusters/#agentless-connections).
-
-
-## Agent or Agentless?
-
-An important decision you need to make before installation is whether you want your resources to connect to Chainguard Enforce using the Chainguard Agent or Agentless connections.
-
-A software agent is a program that performs certain actions on behalf of a user. A software agent has the authority to make decisions on its own and doesn’t necessarily require user input. Accordingly, the Chainguard Enforce Agent is able to analyze a given cluster and enforce any policies you’ve applied to the cluster without manual human oversight.
-
-Instead of installing the Agent directly on your cluster, you can allow a remote Agent — managed by Chainguard — to access your cloud account resources on your behalf. A SaaS offering of Enforce, Agentless connections can be useful since they don’t consume any cluster resources. Because they’re managed by Chainguard, issues can often be addressed more quickly than clusters using agentful connections. Additionally, Agentless connections allow for read-only access to your clusters, which some users may find desirable. Be aware that Agentless connections are limited to public GKE and EKS clusters and Google Cloud Run, AWS ECS, and AWS AppRunner projects.
-
-The following table outlines some of the key differences between the Agent and Agentless connections.
-
-|   | Chainguard Agent | Agentless Connections |
-|:--- | ---: | ---:|
-| **Managed by...** | User-managed | SaaS managed by Chainguard  |
-| **Consumes cluster resources?** | Yes | No  |
-| **Compatible with both `chainctl` and the Chainguard Console?** | Yes | Yes  |
-| **Compatible with private resources?** | Yes | No |
-| **Compatible with public resources?** | Yes | Yes <br> (limited to certain GCP and AWS resources) |
-
-The remainder of this document will walk through the various installation methods available for the Chainguard Enforce Agent and Agentless connections. It will highlight each method's prerequisites and include links to appropriate documentation along the way.
-
 
 ## Installing the Chainguard Enforce Agent
 
@@ -84,31 +61,6 @@ To install Chainguard Enforce declaratively [with YAML](/chainguard/chainguard-e
 - [ ] &nbsp;&nbsp;[`chainctl` installed on your local machine](https://edu.chainguard.dev/chainguard/chainguard-enforce/how-to-install-chainctl/).
 - [ ] &nbsp;&nbsp;You should also know whether the resources you're installing it onto are public or private.
 - [ ] &nbsp;&nbsp;**For Helm installations**, you will need to have [the Helm CLI installed](https://helm.sh/docs/intro/install/).
-
-
-## Installing Chainguard Enforce in Agentless mode
-
-Instead of installing the Chainguard Enforce Agent directly on your cluster, you can allow a remote Agent — managed by Chainguard — to access your cloud account resources on your behalf. Known as “Agentless connections” these can be useful since they don’t consume any cluster resources and, because they’re managed by Chainguard, issues can often be addressed more quickly than clusters using agentful connections.
-
-There are two main approaches you can take to install Agentless Chainguard Enforce. You can use [Chainguard Enforce's Discovery feature](/chainguard/chainguard-enforce/chainguard-enforce-discovery-onboarding/) (either through the Console, with `chainctl`, or with Terraform) to discover your cloud resources and install Chainguard Enforce in Agentless mode onto them. You can alternatively set up a cloud account association between Chainguard Enforce and your GCP or AWS account and then install Enforce in Agentless mode manually.
-
-### Installing Agentless with Discovery using the Console
-
-You can use the Discovery feature in the Chainguard Enforce Console to find resources in your associated GCP and AWS cloud accounts. You'll then have the option to enroll any available resources into Agentless Chainguard Enforce.
-
-Aside from needing a web browser to access the Console, there's only one prerequisite to [installing Agentless using Discovery in the Console](/chainguard/chainguard-enforce/chainguard-enforce-discovery-onboarding/#option-1--chainguard-enforce-console).
-- [ ] &nbsp;&nbsp;[Access to Chainguard Enforce](https://www.chainguard.dev/contact?utm_source=docs).
-
-### Installing Agentless using `chainctl` or Terraform
-
-Instead of using Enforce's Discovery feature in the Chainguard Console, you can use it over the command line to find your cloud resources and install Chainguard Enforce in Agentless mode. Alternatively, if you know which of your GCP or AWS resources you want to install Agentless Chainguard Enforce onto, you can skip using the Discovery feature and install it directly with `chainctl`.
-
-The procedures for installing Agentless Chainguard Enforce with Discovery using [`chainctl`](/chainguard/chainguard-enforce/chainguard-enforce-discovery-onboarding/#option-2--chainctl-cluster-discover) and [Terraform](/chainguard/chainguard-enforce/chainguard-enforce-discovery-onboarding/#option-3--chainguard-terraform-provider), as well as [using `chainctl` to install it manually](/chainguard/chainguard-enforce/how-to-connect-kubernetes-clusters/#agentless-connections), all have the same prerequisites.
-
-- [ ] &nbsp;&nbsp;[Access to Chainguard Enforce](https://www.chainguard.dev/contact?utm_source=docs).
-- [ ] &nbsp;&nbsp;[`chainctl` installed on your local machine](https://edu.chainguard.dev/chainguard/chainguard-enforce/how-to-install-chainctl/).
-- [ ] &nbsp;&nbsp;[Terraform installed on your local machine](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli#install-terraform).
-- [ ] &nbsp;&nbsp;A [cloud account associations](/chainguard/chainguard-enforce/cloud-account-associations/) configured between Chainguard Enforce and your GCP or AWS account.
 
 
 ## Learn more

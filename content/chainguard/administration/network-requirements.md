@@ -5,7 +5,7 @@ lead: "Using Chainguard Images and Enforce with firewalls, access control lists,
 type: "article"
 description: "Using Chainguard Images and Enforce with firewalls, access control lists, and proxies"
 date: 2023-09-08T08:49:31+00:00
-lastmod: 2023-10-26T15:22:20+01:00
+lastmod: 2023-11-29T15:22:20+01:00
 draft: false
 aliases:
 - /chainguard/chainguard-images/reference/network-requirements/
@@ -51,10 +51,6 @@ Note: you can use either the single `9236a389bd48b984df91adc1bc924620.r2.cloudfl
 ### Enforce Agent Access
 
 Whether you are working with public or private registries, ensure that outbound connections from the Enforce agent (running in the `gulfstream` namespace) are permitted. Also be sure to allow the corresponding return traffic if you are using symmetric firewall rules.
-
-### Enforce SaaS Access
-
-If you are using Enforce in agentless mode, you will need to ensure that your registry is publicly accessible to the agent. Refer to the [CIDR Ranges](#cidr-ranges) section of this page for a list of ranges to add to your firewall rules or access control lists.
 
 ### Enforce Image Registry Access
 
