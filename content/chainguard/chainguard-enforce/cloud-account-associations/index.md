@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "How to bind Chainguard Enforce to your cloud provider"
 date: 2022-09-02T15:56:52-07:00
-lastmod: 2023-04-05T15:56:52-07:00
+lastmod: 2023-11-29T15:22:20+01:00
 draft: false
 tags: ["Enforce", "Product", "Procedural"]
 images: []
@@ -24,7 +24,6 @@ Chainguard Enforce for Kubernetes allows you to associate a cloud provider accou
 
 - Verifying policies against containers hosted in private cloud container registries
 - Verifying signatures created by cloud key management systems (KMS)
-- Connecting cloud managed Kubernetes clusters without the need to run the Enforce agent (agentless)
 
 Support for cloud account associations is currently limited to Google Cloud Platform (GCP) and Amazon Web Services (AWS), but support for more platforms is planned.
 
@@ -38,7 +37,6 @@ When you set up a cloud account association with Chainguard Enforce, it creates 
 Although the exact permissions between these profiles differ slightly between both cloud providers, they perform generally the same functions on GCP and AWS.
 
 * `chainguard-canary` — used to test whether the cloud account association is working correctly. This profile has no permissions, as it only functions as an endpoint for testing
-* `chainguard-agentless` — has access to the Kubernetes API, allowing Chainguard Enforce to create and manage resources within your cloud account
 * `chainguard-discovery` — allows Enforce to find and list resources running within your cloud account, thereby enabling [Chainguard Enforce's Discovery feature](/chainguard/chainguard-enforce/chainguard-enforce-discovery-onboarding/)
 * `chainguard-ingester` — has read-only access to SBOMs, allowing Enforce to download and ingest them as necessary
 * `chainguard-enforce-signer` — allows Chainguard to perform [Enforce Signing](/chainguard/chainguard-enforce/chainguard-enforce-signing/chainguard-enforce-signing-faqs/)
@@ -269,7 +267,7 @@ After running either of these examples, `chainctl` will prompt you to select the
 
 ## Learn More
 
-After setting up a cloud account association, you can use Chainguard Enforce's [Discovery feature](/chainguard/chainguard-enforce/chainguard-enforce-discovery-onboarding/) to discover various containerized workloads within your project. You can also set up an [Agentless Connection](/chainguard/chainguard-enforce/how-to-connect-kubernetes-clusters/#agentless-connections).
+After setting up a cloud account association, you can use Chainguard Enforce's [Discovery feature](/chainguard/chainguard-enforce/chainguard-enforce-discovery-onboarding/) to discover various containerized workloads within your project.
 
 ## Additional IAM Resources
 
@@ -356,7 +354,6 @@ gcloud iam service-accounts list --project <your project name>
 ```
 DISPLAY NAME  EMAIL                                                                     DISABLED
 . . .
-              chainguard-agentless@<your project name>.iam.gserviceaccount.com       False
               chainguard-canary@<your project name>.iam.gserviceaccount.com          False
               chainguard-ingester@<your project name>.iam.gserviceaccount.com        False
               chainguard-cosigned@<your project name>.iam.gserviceaccount.com        False
@@ -364,35 +361,6 @@ DISPLAY NAME  EMAIL                                                             
               chainguard-enforce-signer@<your project name>.iam.gserviceaccount.com  False
 . . .
 ```
-
-### AWS OIDC Provider
-
-Agentless Enforce with AWS creates an OIDC identity provider. You can examine the created identity provider with the following `aws` command:
-
-```
-aws iam get-open-id-connect-provider \
-  --open-id-connect-provider-arn \
-  arn:aws:iam::<your account id>:oidc-provider/issuer.enforce.dev
-```
-
-You'll receive a result like the following that shows the provider's configuration:
-
-```
-{
-    "Url": "issuer.enforce.dev",
-    "ClientIDList": [
-        "amazon"
-    ],
-    "ThumbprintList": [
-        "933c6ddee95c9c41a40f9f50493d82be03ad87bf",
-        "08745487e891c19e3078c1f2a07e452950ef36f6"
-    ],
-    "CreateDate": "2023-04-10T13:57:47.799000+00:00",
-    "Tags": []
-}
-```
-
-The `ThumbprintList` contains the SHA-1 fingerprints for certificate authorities that are used to sign certificates that are issued by an identity provider. To learn more about how these fingerprints are used, consult the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html) page about thumbprints.
 
 ### AWS IAM Roles
 
@@ -406,7 +374,6 @@ aws iam list-roles | \
 You will receive output like the following:
 
 ```
-chainguard-agentless
 chainguard-canary
 chainguard-cosigned
 chainguard-discovery
