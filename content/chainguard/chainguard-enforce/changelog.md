@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-11-29 19:46:55 +0000 UTC
+date: 2023-12-04 17:52:58 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,12 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.200
+Release date: 2023-12-04
+#### Feature
+- Our webhook authorization tokens now contain a custom webhook.digest claim with the {algorithm}:{hex} for the digest of the authenticated message body.
+
 
 ### v0.1.199
 Release date: 2023-11-29
