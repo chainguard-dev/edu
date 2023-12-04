@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the terraform Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-06-22T11:07:52+02:00
+lastmod: 2023-12-04 00:17:31
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 27th | `sha256:16b3e523c70051ba4f5be60d3934549166e69ba692238e3b24bd6729a6babeb9` |
-|  `latest`     | October 30th  | `sha256:84cd1c8e60d1d05abc2887936fc7d405abe875ef1cafe9d6bd4ee589e7cc0802` |
+|  `latest-dev` | November 30th | `sha256:5901d7a5d6235a734205657a70ef72b5c57b5fcc1fc9224ab10033fc64060bd5` |
+|  `latest`     | November 30th | `sha256:92fa41bca2ce455169d9ba876e846976bc5de92a5e3b4df0678315fecee18bb6` |
 

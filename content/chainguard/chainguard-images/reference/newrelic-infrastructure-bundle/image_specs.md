@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public newrelic-infrastructure-bundle Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-12-04 00:17:31
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ The **newrelic-infrastructure-bundle** Chainguard Image currently has 2 public v
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev    | latest        |
-|--------------|---------------|---------------|
-| Default User | `root`        | `root`        |
-| Entrypoint   | not specified | not specified |
-| CMD          | not specified | not specified |
-| Workdir      | not specified | not specified |
-| Has apk?     | yes           | no            |
-| Has a shell? | yes           | no            |
+|              | latest-dev                        | latest                            |
+|--------------|-----------------------------------|-----------------------------------|
+| Default User | `root`                            | `root`                            |
+| Entrypoint   | `/sbin/tini --`                   | `/sbin/tini --`                   |
+| CMD          | `/usr/bin/newrelic-infra-service` | `/usr/bin/newrelic-infra-service` |
+| Workdir      | not specified                     | not specified                     |
+| Has apk?     | yes                               | no                                |
+| Has a shell? | yes                               | no                                |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/newrelic-infrastructure-bundle/tags_history/) for the full list of available tags.
 
@@ -126,6 +126,7 @@ The table shows package distribution across variants.
 | `openssl-config`                  | X          | X      |
 | `p11-kit`                         | X          | X      |
 | `p11-kit-trust`                   | X          | X      |
+| `tini`                            | X          | X      |
 | `wolfi-baselayout`                | X          | X      |
 | `xz`                              | X          | X      |
 | `zlib`                            | X          | X      |

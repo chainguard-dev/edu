@@ -3,7 +3,7 @@ title: "vector Image Variants"
 type: "article"
 unlisted: true
 description: "Detailed information about the public vector Chainguard Image variants"
-date: 2023-11-30 00:18:09
+date: 2023-03-07T11:07:52+02:00
 lastmod: 2023-03-07T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]

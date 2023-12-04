@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the busybox Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2023-12-04 00:17:31
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,10 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                | Last Changed  | Digest                                                                    |
-|----------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest`                              | November 29th | `sha256:2aede1e8f505b647c7b88a71da7e264127190b31404ea3556d3c46f5abbba5fd` |
-|  `latest-glibc`                        | November 29th | `sha256:f5f11a14dda5355dff116219302d45f1a4fd018285c8922cf848a9b24cae1f3d` |
-|  `1.36` `1` `1.36.1`                   | November 3rd  | `sha256:d6a7ed7843540fc638e70069e3b75f8422ac3d871162518abb5cbd0ee4bd1d38` |
-|  `glibc-1` `glibc-1.36.1` `glibc-1.36` | October 30th  | `sha256:8e3662a12cc913bc5d2aec46333589f4823910ef9560d8763f1fb04b2923aff1` |
+| Tag (s)         | Last Changed  | Digest                                                                    |
+|-----------------|---------------|---------------------------------------------------------------------------|
+|  `latest`       | December 2nd  | `sha256:f9b269c58258a40098c3d75520cc339de1568863d79722cf3e4c7d740b089db7` |
+|  `latest-glibc` | November 29th | `sha256:f5f11a14dda5355dff116219302d45f1a4fd018285c8922cf848a9b24cae1f3d` |
 

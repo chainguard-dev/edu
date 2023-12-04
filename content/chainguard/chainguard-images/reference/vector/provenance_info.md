@@ -3,7 +3,7 @@ title: "Provenance Information for vector Images"
 type: "article"
 unlisted: true
 description: "Provenance information for vector Chainguard Image"
-date: 2023-11-30 00:18:09
+date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]

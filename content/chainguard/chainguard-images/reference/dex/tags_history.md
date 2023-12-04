@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dex Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2023-12-04 00:17:31
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,10 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                             | Last Changed  | Digest                                                                    |
-|---------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev`                                                       | November 29th | `sha256:3635db8a6891ed0db5059fccc147201bd234acb2dff3b546ca53a1c161f26dde` |
-|  `latest`                                                           | November 29th | `sha256:4865c7d4d861d16cc28d9bdc49aa9f9f4d1a2d9eb0a0697c25e037a57a6d2a6f` |
-|  `v2.37.0-dev` `2-dev` `2.37-dev` `2.37.0-dev` `v2.37-dev` `v2-dev` | November 3rd  | `sha256:a26d010dbcba8d421b8d87336c9d9cafc9d35a8e60ff9097f1b065aba8e761fd` |
-|  `2.37.0` `v2.37.0` `2` `v2` `v2.37` `2.37`                         | October 30th  | `sha256:66c186956513b3fe3fa72ed717148c3c0a71eb346a34567e5329e33a3384b315` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | November 29th | `sha256:3635db8a6891ed0db5059fccc147201bd234acb2dff3b546ca53a1c161f26dde` |
+|  `latest`     | November 29th | `sha256:4865c7d4d861d16cc28d9bdc49aa9f9f4d1a2d9eb0a0697c25e037a57a6d2a6f` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crane Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2023-12-04 00:17:31
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:84f8e70ef0595b636e77740328da6831493b414c8275811377e8671a11508f41` |
-|  `latest`     | November 29th | `sha256:a66db2a6b1ba1994c01aeab5fa86cc7e6cdd99e55db06ae101db1e12f0f8f13e` |
+|  `latest`     | November 30th | `sha256:86917ec092066df4741657b0131d76fd085183c49cf2f042e8342f28f97b63f2` |
+|  `latest-dev` | November 30th | `sha256:5b5147ce2b188fc669524310cd68d0f483f81d7400dc10dc74ec992bc7bfa01f` |
 
