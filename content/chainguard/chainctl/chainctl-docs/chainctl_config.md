@@ -1,5 +1,5 @@
 ---
-date: 2023-11-30T14:25:57Z
+date: 2023-12-04T18:58:53Z
 title: "chainctl config"
 slug: chainctl_config
 url: /chainguard/chainctl/chainctl-docs/chainctl_config/
@@ -40,5 +40,6 @@ Local config file commands for chainctl.
 * [chainctl config save](/chainguard/chainctl/chainctl-docs/chainctl_config_save/)	 - Save the current chainctl config to a config file.
 * [chainctl config set](/chainguard/chainctl/chainctl-docs/chainctl_config_set/)	 - Set an individual configuration value property.
 * [chainctl config unset](/chainguard/chainctl/chainctl-docs/chainctl_config_unset/)	 - Unset a configuration property and return it to default.
+* [chainctl config validate](/chainguard/chainctl/chainctl-docs/chainctl_config_validate/)	 - Run diagnostics on local config.
 * [chainctl config view](/chainguard/chainctl/chainctl-docs/chainctl_config_view/)	 - View the current chainctl config.
 

@@ -2299,7 +2299,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/registryImageDiff"
+              "$ref": "#/definitions/registryDiffImageResponse"
             }
           },
           "default": {
@@ -4805,46 +4805,10 @@
       },
       "type": "object"
     },
-    "registryFileReference": {
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "registryFilesDiff": {
-      "properties": {
-        "added": {
-          "items": {
-            "$ref": "#/definitions/registryFileReference"
-          },
-          "type": "array"
-        },
-        "removed": {
-          "items": {
-            "$ref": "#/definitions/registryFileReference"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "registryImageConfigDiff": {
-      "properties": {
-        "changed": {
-          "$ref": "#/definitions/registryChangedImageConfig"
-        }
-      },
-      "type": "object"
-    },
-    "registryImageDiff": {
+    "registryDiffImageResponse": {
       "properties": {
         "config": {
           "$ref": "#/definitions/registryImageConfigDiff"
-        },
-        "files": {
-          "$ref": "#/definitions/registryFilesDiff"
         },
         "packages": {
           "$ref": "#/definitions/registryPackagesDiff"
@@ -4858,6 +4822,14 @@
             "type": "string"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryImageConfigDiff": {
+      "properties": {
+        "changed": {
+          "$ref": "#/definitions/registryChangedImageConfig"
         }
       },
       "type": "object"
