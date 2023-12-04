@@ -1,42 +1,26 @@
 ---
 date: 2023-12-04T18:58:53Z
-title: "chainctl clusters list"
-slug: chainctl_clusters_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_list/
+title: "chainctl config validate"
+slug: chainctl_config_validate
+url: /chainguard/chainctl/chainctl-docs/chainctl_config_validate/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl clusters list
+## chainctl config validate
 
-List clusters.
-
-```
-chainctl clusters list [--name=NAME] [--active-within=DURATION] [--group=GROUP_NAME|GROUP_ID] [--output table|json]
-```
-
-### Examples
+Run diagnostics on local config.
 
 ```
-  # List all clusters visible to the current user.
-  chainctl cluster list
-  
-  # List all clusters in the group "my-group"
-  chainctl cluster list --group my-group
-  
-  # List all clusters that have some recorded activity within the last 6 hours
-  chainctl cluster list --active-within 6h
+chainctl config validate [--output table|json] [flags]
 ```
 
 ### Options
 
 ```
-      --active-within duration   How recently a cluster must have been active to be listed. Zero will return all clusters. (default 24h0m0s)
-      --group string             The name or id of the parent group to list clusters for.
-  -h, --help                     help for list
-  -n, --name string              The given name of the resource.
+  -h, --help   help for validate
 ```
 
 ### Options inherited from parent commands
@@ -54,5 +38,5 @@ chainctl clusters list [--name=NAME] [--active-within=DURATION] [--group=GROUP_N
 
 ### SEE ALSO
 
-* [chainctl clusters](/chainguard/chainctl/chainctl-docs/chainctl_clusters/)	 - Cluster related commands for the Chainguard platform.
+* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
 
