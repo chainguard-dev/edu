@@ -1,5 +1,5 @@
 ---
-date: 2023-11-30T14:25:57Z
+date: 2023-12-04T18:58:53Z
 title: "chainctl iam groups delete"
 slug: chainctl_iam_groups_delete
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_delete/
