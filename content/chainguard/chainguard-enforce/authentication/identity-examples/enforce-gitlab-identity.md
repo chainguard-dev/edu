@@ -45,38 +45,19 @@ The first file, which we will call `main.tf`, will serve as the scaffolding for 
 
 The file will consist of the following content.
 
-```
+```hcl
 terraform {
   required_providers {
     chainguard = {
-      source = "chainguard/chainguard"
+      source = "chainguard-dev/chainguard"
     }
   }
 }
-
-provider "chainguard" {}
 ```
 
 This is a fairly barebones Terraform configuration file, but we will define the rest of the resources in the other two files. In `main.tf`, we declare and initialize the Chainguard Terraform provider.
 
-To create the `main.tf` file, run the following command.
-
-```sh
-cat > main.tf <<EOF
-terraform {
-  required_providers {
-    chainguard = {
-      source = "chainguard/chainguard"
-    }
-  }
-}
-
-provider "chainguard" {}
-EOF
-```
-
 Next, you can create the `sample.tf` file.
-
 
 ### `sample.tf`
 
@@ -84,8 +65,8 @@ Next, you can create the `sample.tf` file.
 
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
-```
-resource "chainguard_group" "user-group" {
+```hcl
+resource "chainguard_group" "example-group" {
   name   	 = "example-group"
   description = <<EOF
     This group simulates an end-user group, which the GitLab
@@ -97,71 +78,7 @@ resource "chainguard_group" "user-group" {
 
 This section creates a Chainguard Enforce IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — which will be created by the `gitlab.tf` file — to access when we test it out later on.
 
-The next section contains these lines, which create a sample policy and apply it to the `example-group` group created in the previous section.
-
-```
-resource "chainguard_policy" "cgr-trusted" {
-  parent_id   = chainguard_group.user-group.id
-  document = jsonencode({
-    apiVersion = "policy.sigstore.dev/v1beta1"
-    kind  	 = "ClusterImagePolicy"
-    metadata = {
-      name = "trust-any-cgr"
-    }
-    spec = {
-      images = [{
-   	 glob = "cgr.dev/**"
-      }]
-      authorities = [{
-   	 static = {
- 		 action = "pass"
-   	 }
-      }]
-    }
-  })
-}
-```
-
-This policy trusts everything coming from the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/). Because this policy is broadly permissive, it wouldn't be practical or secure to use in a real-world scenario. Like the example group, this policy serves as some data for the GitLab pipeline to inspect after it assumes the Chainguard identity.
-
-Create the `sample.tf` file with the following command.
-
-```sh
-cat > sample.tf <<EOF
-resource "chainguard_group" "user-group" {
-  name   	 = "example-group"
-  description = <<EOF
-    This group simulates an end-user group, which the GitLab
-    CI pipeline identity can interact with via the identity in
-    gitlab.tf.
-  EOF
-}
-
-resource "chainguard_policy" "cgr-trusted" {
-  parent_id   = chainguard_group.user-group.id
-  document = jsonencode({
-    apiVersion = "policy.sigstore.dev/v1beta1"
-    kind  	 = "ClusterImagePolicy"
-    metadata = {
-      name = "trust-any-cgr"
-    }
-    spec = {
-      images = [{
-   	 glob = "cgr.dev/**"
-      }]
-      authorities = [{
-   	 static = {
- 		 action = "pass"
-   	 }
-      }]
-    }
-  })
-}
-EOF
-```
-
 Now you can move on to creating the last of our Terraform configuration files, `gitlab.tf`.
-
 
 ### `gitlab.tf`
 
@@ -171,7 +88,7 @@ The first section creates the identity itself.
 
 ```
 resource "chainguard_identity" "gitlab" {
-  parent_id   = chainguard_group.user-group.id
+  parent_id   = chainguard_group.example-group.id
   name    	= "gitlab-ci"
   description = <<EOF
 	This is an identity that authorizes Gitlab CI in this
@@ -179,16 +96,16 @@ resource "chainguard_identity" "gitlab" {
   EOF
 
   claim_match {
-	issuer   = "https://gitlab.com"
-	subject  = "project_path:<group_name>/<project_name>:ref_type:branch:ref:main"
-	audience = "https://gitlab.com"
+    issuer   = "https://gitlab.com"
+    subject  = "project_path:<group_name>/<project_name>:ref_type:branch:ref:main"
+    audience = "https://gitlab.com"
   }
 }
 ```
 
 First this section creates a Chainguard Identity tied to the `chainguard_group` created by the `sample.tf` file; namely, the `example-group` group. The identity is named `gitlab-ci` and has a brief description.
 
-The most important part of this section is the `claim_match`. When the GitLab pipeline tries to assume this identity later on, it must present a token matching the `issuer`, `subject`, and `audience` specified here in order to do so. The `issuer` is the entity that creates the token, the `subject` is the entity that the token represents (here, the GitLab pipeline), and the `audience` is the intended recipient of the token. 
+The most important part of this section is the `claim_match`. When the GitLab pipeline tries to assume this identity later on, it must present a token matching the `issuer`, `subject`, and `audience` specified here in order to do so. The `issuer` is the entity that creates the token, the `subject` is the entity that the token represents (here, the GitLab pipeline), and the `audience` is the intended recipient of the token.
 
 In this case, the `issuer` field points to `https://gitlab.com`, the issuer of JWT tokens for GitLab pipelines. Likewise, the `audience` field also points to `https://gitlab.com`. This will work for demonstration purposes, but if you're taking advantage of GitLab's support for custom audiences then be sure to change this to the appropriate audience.
 
@@ -215,48 +132,12 @@ The final section grants this role to the identity on the `example-group`.
 ```
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.gitlab.id
-  group	= chainguard_group.user-group.id
+  group	= chainguard_group.example-group.id
   role 	= data.chainguard_roles.viewer.items[0].id
 }
-```
-
-Run the following command to create this file with each of these sections. Be sure to change the `subject` value to align with your own GitLab project. For example, if your GitLab repository is located at `gitlab.com/OrgName/repo-name.git` you would set the `subject` value to `"project_path:OrgName/repo-name:ref_type:branch:ref:main`.
-
-```sh
-cat > gitlab.tf <<EOF
-resource "chainguard_identity" "gitlab" {
-  parent_id   = chainguard_group.user-group.id
-  name    	= "gitlab-ci"
-  description = <<EOF
-	This is an identity that authorizes GitLab CI in this
-	repository to assume to interact with chainctl.
-  EOF
-
-  claim_match {
-	issuer   = "https://gitlab.com"
-	subject  = "project_path:<group_name>/<project_name>:ref_type:branch:ref:main"
-	audience = "https://gitlab.com"
-  }
-}
-
-output "gitlab-identity" {
-  value = chainguard_identity.gitlab.id
-}
-
-data "chainguard_roles" "viewer" {
-  name = "viewer"
-}
-
-resource "chainguard_rolebinding" "view-stuff" {
-  identity = chainguard_identity.gitlab.id
-  group	= chainguard_group.user-group.id
-  role 	= data.chainguard_roles.viewer.items[0].id
-}
-EOF
 ```
 
 Following that, your Terraform configuration will be ready. Now you can run a few `terraform` commands to create the resources defined in your `.tf` files.
-
 
 ## Creating Your Resources
 
@@ -281,7 +162,7 @@ terraform apply
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
 ```
-. . .
+...
 
 Plan: 4 to add, 0 to change, 0 to destroy.
 
@@ -295,12 +176,12 @@ Do you want to perform these actions?
   Enter a value:
 ```
 
-After pressing `ENTER`, the command will complete and will output an `gitlab-ci` value.
+After typing `yes` and pressing `ENTER`, the command will complete and will output a `gitlab-ci` value.
 
 ```
-. . .
+...
 
-pply complete! Resources: 4 added, 0 changed, 0 destroyed.
+Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
 
 Outputs:
 
@@ -317,12 +198,11 @@ Note that you may receive a `PermissionDenied` error part way through the apply 
 
 You're now ready to create a GitLab CI pipeline which you'll use to test out this identity.
 
-
 ## Testing the identity with a GitLab CI/CD Pipeline
 
-From the GitLab Dashboard, select **Projects** in the left-hand sidebar menu. From there, click on the project you specified in the `subject` claim to be taken to the project overview. There, in the list of the repository's contents, there will be a file named `.gitlab-ci.yml`. This is a special file that's required when using GitLab CI/CD, as it contains the CI/CD configuration. 
+From the GitLab Dashboard, select **Projects** in the left-hand sidebar menu. From there, click on the project you specified in the `subject` claim to be taken to the project overview. There, in the list of the repository's contents, there will be a file named `.gitlab-ci.yml`. This is a special file that's required when using GitLab CI/CD, as it contains the CI/CD configuration.
 
-Click on the `.gitlab-ci.yml` file, then click the **Edit** button and select an option for editing the file. For the purpose of this guide, delete whatever content is in this file to start and replace it with the following. 
+Click on the `.gitlab-ci.yml` file, then click the **Edit** button and select an option for editing the file. For the purpose of this guide, delete whatever content is in this file to start and replace it with the following.
 
 ```
 image: cgr.dev/chainguard/wolfi-base
@@ -339,21 +219,21 @@ assume-and-explore:
 
   script:
   - |
-    # Install chainctl
+    # Install chainctl.
     wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_$(uname -m)"
     chmod +x chainctl
     mv chainctl /usr/bin
 
-    # Assume
+    # Assume the identity.
     chainctl auth login \
       --identity-token $ID_TOKEN_1 \
       --identity <your gitlab identity>
 
-    # Explore
-    chainctl policy ls
+    # Explore available images.
+    chainctl images repos list
 ```
 
-Let's go over what this configuration does. 
+Let's go over what this configuration does.
 
 First, GitLab requires that pipelines have a shell. To this end, this configuration uses the [`cgr.dev/chainguard/wolfi-base` image](https://edu.chainguard.dev/chainguard/chainguard-images/reference/wolfi-base/) since it includes the `sh` shell.
 
@@ -361,21 +241,13 @@ Next, this configuration creates a JSON Web Token (JWT) with an [`id_tokens`](ht
 
 Following that, the job runs a few commands to download and install `chainctl`. It then uses `chainctl`, the JWT, and the Chainguard identity's `id` value to log in to Chainguard Enforce under the assumed identity. Be sure to replace `<your gitlab identity>` with the identity UIDP you noted down in the previous section.
 
-After logging in, the pipeline is able to run any `chainctl` command under the assumed identity. To test out this ability, this configuration runs the `chainctl policies ls` command to list all the policies associated with the `example-group` group. 
+After logging in, the pipeline is able to run any `chainctl` command under the assumed identity. To test out this ability, this configuration runs the `chainctl images repos list` command to list all available image repos associated associated with the `example-group` group.
 
 After updating the configuration, commit the changes and the pipeline will run automatically. A status box in the dashboard will let you know whether the pipeline runs successfully.
 
-Click the **View Pipeline** button, and then click the **assume-and-explore** job button to open the job's output from the last run. The following lines should appear near the bottom of this output.
+Click the **View Pipeline** button, and then click the **assume-and-explore** job button to open the job's output from the last run. There you should see a list of repos accessible to your group.
 
-```
-. . .
-                            	ID                         	| 	NAME  	| DESCRIPTION |   MODE    
-------------------------------------------------------------+---------------+-------------+-----------
-  4094ca0d1d52b57c89a8eee9f9c3631db0575b3b/aa02f5371fc4075c | trust-any-cgr |         	| ENFORCED 
-. . .
-```
-
-This indicates that the GitLab CI/CD pipeline did indeed assume the identity and run the `chainctl policy ls` command, returning the policy you created in the `sample.tf` file. 
+This indicates that the GitLab CI/CD pipeline did indeed assume the identity and run the `chainctl images repos list` command.
 
 If you'd like to experiment further with this identity and what the workflow can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
 
@@ -385,13 +257,13 @@ data "chainguard_roles" "editor" {
 }
 ```
 
-To retrieve a list of all the roles available to your Chainguard Enforce installation — including any custom roles — you can run the following command.
+To retrieve a list of all the available roles — including any custom roles — you can run the following command.
 
 ```sh
 chainctl iam roles list
 ```
 
-You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the policies the identity has access to, you could have the workflow inspect the groups like in the following exmaple.
+You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the image repos the identity has access to, you could have the workflow inspect the groups like in the following exmaple.
 
 ```
     # Explore
@@ -409,7 +281,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy the sample policy, the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`.
+This will destroy identity and the role-binding created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`.
 
 ```sh
 chainctl iam groups rm example-group
@@ -418,7 +290,7 @@ chainctl iam groups rm example-group
 You can then remove the working directory to clean up your system.
 
 ```sh
-rm -r ~/enforce-glitlab/
+rm -r ~/enforce-gitlab/
 ```
 
 Following that, all of the example resources created in this guide will be removed from your system.
