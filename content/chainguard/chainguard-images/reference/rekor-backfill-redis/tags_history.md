@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rekor-backfill-redis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2023-12-05 00:31:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | November 29th | `sha256:e6ff58468a300e32484b7b308f14d5cb3be7c9a2ef577b3d4cbad2b4552877a3` |
-|  `latest-dev` | November 29th | `sha256:c6a16ae9c9e7aafd459d814d7fe4cc6485115610d6428288710ff8ee3e87c28a` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 4th | `sha256:e8d16c1fa771dc2d36259241c700a21fd8eb2c452b5e4fbf51cc4edf546985cb` |
+|  `latest`     | December 4th | `sha256:cab300bbee4b235a7197842e0096e7fdb7b4b328209d345cdcdb155cff8f6a4e` |
 

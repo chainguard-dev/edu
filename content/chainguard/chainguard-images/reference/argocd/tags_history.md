@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2023-12-05 00:31:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:a3835c297d61e698bc18da734f60ff61aa9f378162640b006288d8d3351b9f78` |
-|  `latest`     | November 29th | `sha256:0b14a3f26100365fa569c1f366fec66279351a84ae06b0796f922e44ff45037e` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | December 4th | `sha256:6b639562c6848d6055dd6cf9ad8a92d82e44a8fb4b929d7f18476f898c3451ac` |
+|  `latest-dev` | December 4th | `sha256:0fb4e0fa5a6f902ebc639cf46f9022c59211126e29a2d24a9838dafa8d4efe85` |
 
