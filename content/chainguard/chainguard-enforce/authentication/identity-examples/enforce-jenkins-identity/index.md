@@ -64,13 +64,11 @@ To create the `main.tf` file, run the following command.
 cat > main.tf <<EOF
 terraform {
   required_providers {
-	chainguard = {
-  	source = "chainguard/chainguard"
-	}
+    chainguard = {
+      source = "chainguard-dev/chainguard"
+    }
   }
 }
-
-provider "chainguard" {}
 EOF
 ```
 
@@ -84,80 +82,17 @@ Next, you can create the `sample.tf` file.
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
 ```
-resource "chainguard_group" "user-group" {
+resource "chainguard_group" "example-group" {
   name        = "example-group"
   description = <<EOF
-	This group simulates an end-user group, which the Jenkins
-	pipeline identity can interact with via the identity in
-	jenkins.tf.
+    This group simulates an end-user group, which the Jenkins
+    pipeline identity can interact with via the identity in
+    jenkins.tf.
   EOF
 }
 ```
 
 This section creates a Chainguard Enforce IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — which will be created by the `jenkins.tf` file — to access when we test it out later on.
-
-The next section contains these lines, which create a sample policy and apply it to the `example-group` group created in the previous section.
-
-```
-resource "chainguard_policy" "cgr-trusted" {
-  parent_id = chainguard_group.user-group.id
-  document = jsonencode({
-    apiVersion = "policy.sigstore.dev/v1beta1"
-    kind       = "ClusterImagePolicy"
-    metadata = {
-      name = "trust-any-cgr"
-    }
-    spec = {
-      images = [{
-        glob = "cgr.dev/**"
-      }]
-      authorities = [{
-        static = {
-          action = "pass"
-        }
-      }]
-    }
-  })
-}
-```
-
-This policy trusts everything coming from the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/). Because this policy is broadly permissive, it wouldn't be practical or secure to use in a real-world scenario. Like the example group, this policy serves as some data for the Jenkins pipeline to inspect after it assumes the Chainguard identity.
-
-Create the `sample.tf` file with the following command.
-
-```sh
-cat > sample.tf <<EOF
-resource "chainguard_group" "user-group" {
-  name        = "example-group"
-  description = <<EOF
-	This group simulates an end-user group, which the Jenkins
-	pipeline identity can interact with via the identity in
-	jenkins.tf.
-  EOF
-}
-
-resource "chainguard_policy" "cgr-trusted" {
-  parent_id = chainguard_group.user-group.id
-  document = jsonencode({
-    apiVersion = "policy.sigstore.dev/v1beta1"
-    kind       = "ClusterImagePolicy"
-    metadata = {
-      name = "trust-any-cgr"
-    }
-    spec = {
-      images = [{
-        glob = "cgr.dev/**"
-      }]
-      authorities = [{
-        static = {
-          action = "pass"
-        }
-      }]
-    }
-  })
-}
-EOF
-```
 
 Now you can move on to creating the last of our Terraform configuration files, `jenkins.tf`.
 
@@ -169,14 +104,14 @@ The first section creates the identity itself.
 
 ```
 resource "chainguard_identity" "jenkins" {
-  parent_id   = chainguard_group.user-group.id
+  parent_id   = chainguard_group.example-group.id
   name        = "jenkins"
   description = <<EOF
-        This is an identity that authorizes Jenkins workflows
-        for this repository to assume to interact with chainctl.
+    This is an identity that authorizes Jenkins workflows
+    for this repository to assume to interact with chainctl.
   EOF
 
-    claim_match {
+  claim_match {
     audience = "%your-audience%"
     issuer   = "https://%your-domain%/oidc"
     subject  = "%your-subject%"
@@ -209,7 +144,7 @@ output "jenkins-identity" {
 The section after that looks up the `viewer` role.
 
 ```
-data "chainguard_roles" "viewer" {
+data "chainguard_role" "viewer" {
   name = "viewer"
 }
 ```
@@ -219,44 +154,9 @@ The final section grants this role to the identity on the `example-group`.
 ```
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.jenkins.id
-  group    = chainguard_group.user-group.id
-  role     = data.chainguard_roles.viewer.items[0].id
+  group    = chainguard_group.example-group.id
+  role     = data.chainguard_role.viewer.items[0].id
 }
-```
-
-Run the following command to create this file with each of these sections. Be sure to change the `audience`, `subject`, and `subject` values to align with your own Jenkins pipeline.
-
-```sh
-cat > jenkins.tf <<EOF
-resource "chainguard_identity" "jenkins" {
-  parent_id   = chainguard_group.user-group.id
-  name        = "jenkins"
-  description = <<EOF
-        This is an identity that authorizes Jenkins workflows
-        for this repository to assume to interact with chainctl.
-  EOF
-
-    claim_match {
-    audience = "%your-audience%"
-    issuer   = "https://%your-domain%/oidc"
-    subject  = "%your-subject%"
-  }
-}
-
-output "jenkins-identity" {
-  value = chainguard_identity.jenkins.id
-}
-
-data "chainguard_roles" "viewer" {
-  name = "viewer"
-}
-
-resource "chainguard_rolebinding" "view-stuff" {
-  identity = chainguard_identity.jenkins.id
-  group    = chainguard_group.user-group.id
-  role     = data.chainguard_roles.viewer.items[0].id
-}
-EOF
 ```
 
 Following that, your Terraform configuration will be ready. Now you can run a few `terraform` commands to create the resources defined in your `.tf` files.
@@ -349,20 +249,20 @@ pipeline {
 
 The important line is `withCredentials` option, which maps the generated OIDC token from the `oidc-token` credential parameter to `token` variable in the pipeline step.
 
-Now you can add the commands for testing the identity like `chainctl policy ls` in the following example:
+Now you can add the commands for testing the identity like `chainctl images repos list` in the following example:
 
 ```
 sh '''
     wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_\$(uname -m)"
     chmod +x chainctl
     ./chainctl auth login --identity-token $token --identity <your jenkins identity>
-    ./chainctl policy ls
+    ./chainctl images repos list
 '''
 ```
 
 Save the job, and then build it using the `Build with Parameters` option.
 
-Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl policy ls` command, returning the policy you created with the `sample.tf` file.
+Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, listing repositories available to the group.
 
 ```
 . . .
@@ -372,15 +272,13 @@ chainctl        	100%[===================>]  54.34M  6.78MB/s	in 13s
 
 Successfully exchanged token.
 Valid! Id: 3f4ad8a9d5e63be71d631a359ba0a91dcade94ab/d3ed9c70b538a796
-                         	ID                         	| 	NAME  	| DESCRIPTION |   MODE
-------------------------------------------------------------+---------------+-------------+-----------
-  618071b7840fc90ecfc8e87b4bfd734730fd75a3/639b95d07829e2ad | trust-any-cgr |             | ENFORCED
+<list of repos>
 ```
 
 If you'd like to experiment further with this identity and what the pipeline can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
 
 ```
-data "chainguard_roles" "editor" {
+data "chainguard_role" "editor" {
   name = "editor"
 }
 ```
@@ -402,7 +300,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy the sample policy, the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`.
+This will destroy the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`.
 
 ```sh
 chainctl iam groups rm example-group
