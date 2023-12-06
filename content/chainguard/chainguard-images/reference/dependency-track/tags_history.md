@@ -3,8 +3,8 @@ title: "dependency-track Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the dependency-track Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-06-22T11:07:52+02:00
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

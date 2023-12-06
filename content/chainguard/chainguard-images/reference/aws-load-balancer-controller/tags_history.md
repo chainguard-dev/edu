@@ -3,8 +3,8 @@ title: "aws-load-balancer-controller Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-load-balancer-controller Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:b403d0ce840b032111d013c53ccee27bbe34af450e4f01eff18ca102cfa151bb` |
-|  `latest`     | November 29th | `sha256:980a6bc5805604cb5b2ac80a5d14d5f199ba52c75556e078c1a9f6da3dfc24aa` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | December 6th | `sha256:6f8d47513d4646cb2e22d3dac63d1f34072a8f1a983e894283a9331d99b4d9e0` |
+|  `latest-dev` | December 6th | `sha256:f649e596f87299559b1960ff217e2c24ca77415c381852130d9088390a920d15` |
 

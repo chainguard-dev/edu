@@ -3,8 +3,8 @@ title: "zookeeper Image Variants"
 type: "article"
 unlisted: true
 description: "Detailed information about the public zookeeper Chainguard Image variants"
-date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -50,6 +50,7 @@ The table shows package distribution across variants.
 | `busybox`                      | X          | X      |
 | `ca-certificates`              | X          | X      |
 | `ca-certificates-bundle`       | X          | X      |
+| `coreutils`                    | X          | X      |
 | `fontconfig-config`            | X          | X      |
 | `freetype`                     | X          | X      |
 | `git`                          | X          |        |
@@ -59,6 +60,8 @@ The table shows package distribution across variants.
 | `java-cacerts`                 | X          | X      |
 | `java-common`                  | X          | X      |
 | `ld-linux`                     | X          | X      |
+| `libacl1`                      | X          | X      |
+| `libattr1`                     | X          | X      |
 | `libbrotlicommon1`             | X          | X      |
 | `libbrotlidec1`                | X          | X      |
 | `libbsd`                       | X          | X      |

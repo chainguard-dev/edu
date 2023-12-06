@@ -3,8 +3,8 @@ title: "jdk-lts Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the jdk-lts Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | November 29th | `sha256:0d55c5e79b51110eb8d6087240196d73d0e1db567f4ff37e1b8536d9c5b7c642` |
-|  `latest-dev` | November 29th | `sha256:607ba0c8fd1c6b73b23c999e82e27e442df2daab2875fe965491a3e62f0834af` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 6th | `sha256:9e6777c135b11b320e314584e06631f0f0cf65e679e4d060ca0afab4dfac5d14` |
+|  `latest`     | December 6th | `sha256:64b455743ef79024ad92257221e7b4408f92159d2ddf0a28a9882fa9ff517dbe` |
 

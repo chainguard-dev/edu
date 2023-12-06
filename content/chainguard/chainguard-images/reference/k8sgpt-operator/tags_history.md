@@ -3,8 +3,8 @@ title: "k8sgpt-operator Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the k8sgpt-operator Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:e1dcf2400e1078f61a4362282d62f39411cff7162a91992ac078fc530acd672e` |
-|  `latest`     | November 29th | `sha256:ba4ba74409fc53a94a36c09f5aa09e518e987e560e469b7393b8cdc13767e1f5` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | December 6th | `sha256:8e091c7b3b5dd7838d9069414f3c0e127b1d1825ed133a5526c24beba775f929` |
+|  `latest-dev` | December 6th | `sha256:9bf39d852da96a4fb0c83a243f283e619de6be269194fd716355d9931fc3bf70` |
 

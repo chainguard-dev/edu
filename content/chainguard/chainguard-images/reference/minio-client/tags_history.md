@@ -3,8 +3,8 @@ title: "minio-client Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the minio-client Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,10 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:3a081a0794b5378c66791d26c4b3617b92dce916b18ad9cef784224e7e198c78` |
-|  `latest`     | November 29th | `sha256:d93b4806fd6474fa2119c1ad3e518bf1f0bf668aa7b596fc050bb6cbff7c8cb4` |
-|  `0-dev`      | November 3rd  | `sha256:ad1e3773cda32e9b1dd451192c5913718c37cc73d967582a6113348fd84a8af0` |
-|  `0`          | October 30th  | `sha256:49ec491a13fe044c77457058b6c1fe8cc38e35f018520cf273d366c01be8de12` |
+| Tag (s)               | Last Changed | Digest                                                                    |
+|-----------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `0-dev` | December 6th | `sha256:26f3bf194ca6dfa251457e35b377bdb76a460eee3bdf1787941ed517914c88d0` |
+|  `0` `latest`         | December 6th | `sha256:c15173f50ac0fd48f4071964495265513053f9aba967e4dce4160a60f5934f33` |
 

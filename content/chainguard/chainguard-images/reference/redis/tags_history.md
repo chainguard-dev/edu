@@ -3,8 +3,8 @@ title: "redis Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the redis Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:559e3fc2c1a403d3434cb45f8001368cc08ea767c94ec936f5fd50655ea9e07f` |
-|  `latest`     | November 29th | `sha256:5e036c79c5c64508501a43a9f0915d0dacb4b7018655f89359e3d426bcf64613` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | December 6th | `sha256:072fdee367b1dfe2d90e9aa07bcf84bc67e0a2473488b5e3973ad2f2ba825499` |
+|  `latest-dev` | December 6th | `sha256:2d94600a1d9753835c098e66b2692fb603a0a8c783d6a5aeda659fe8f75b018b` |
 

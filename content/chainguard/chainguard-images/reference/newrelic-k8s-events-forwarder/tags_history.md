@@ -3,8 +3,8 @@ title: "newrelic-k8s-events-forwarder Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-k8s-events-forwarder Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | November 29th | `sha256:74cd531a2925234c78978ad2572c3e6f585dcdc345b5dc599bdd514eb34bfa83` |
-|  `latest-dev` | November 29th | `sha256:21a8cd748027a6d163898f94646685b0b56ab47d043e027966c1f25c1210dba9` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 6th | `sha256:5ad6c5a411449b819492af473adade4141caa453894b5f82246a0b9a20d00ac4` |
+|  `latest`     | December 6th | `sha256:517ac9ca2e55c7941d20f8bd3b95347f909e060d670a93966da427d71fc36364` |
 

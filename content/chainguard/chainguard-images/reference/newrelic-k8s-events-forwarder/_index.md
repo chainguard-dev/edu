@@ -4,13 +4,13 @@ linktitle: "newrelic-k8s-events-forwarder"
 type: "article"
 layout: "single"
 description: "Overview: newrelic-k8s-events-forwarder Chainguard Image"
-date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -26,7 +26,7 @@ toc: true
 
 
 <!--overview:start-->
-Minimal [newrelic-infrastructure-bundle](https://github.com/newrelic/infrastructure-bundle) container image.
+Minimal [newrelic-k8s-events-forwarder](https://github.com/newrelic/nri-kubernetes) container image.
 <!--overview:end-->
 
 <!--getting:start-->
@@ -34,7 +34,7 @@ Minimal [newrelic-infrastructure-bundle](https://github.com/newrelic/infrastruct
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/newrelic:latest
+docker pull cgr.dev/chainguard/newrelic-k8s-events-forwarder:latest
 ```
 <!--getting:end-->
 

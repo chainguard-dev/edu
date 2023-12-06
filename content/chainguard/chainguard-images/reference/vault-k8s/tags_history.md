@@ -3,8 +3,8 @@ title: "vault-k8s Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the vault-k8s Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-06-22T11:07:52+02:00
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 27th | `sha256:670f3b0989428b397735e3021e91f8df4af5b0a16e0cb5a523e708ac386dbd9a` |
-|  `latest`     | November 16th | `sha256:7b5fa21aa3a13a93faae0934b568de3c938847ffc0e9afca04e064540953f8b8` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 6th | `sha256:308a82dbcc995ad11af8cc5b0c4e2c1321a72ffcb8b432fc4a98c8720d73f2c1` |
+|  `latest`     | December 6th | `sha256:b05abe781daad26de48dcc4a8bfb9966bdd86d32f7c91021a4a39cec0f0dcc31` |
 

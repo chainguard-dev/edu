@@ -3,8 +3,8 @@ title: "spark-operator Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the spark-operator Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:b0cee3d094328ae380ec6080bf5c22c7fc8fc7e4077bbd3ed74bfd3ee62396ac` |
-|  `latest`     | November 29th | `sha256:eee0155d51ac2ed8a59e7bd0bf020a47a3afe989f9cc2ea4c7c137f916ad0b70` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | December 6th | `sha256:c21517ceeb0f45cc8bf93fc68edbddd35302311565372cc24ac257a4439e572f` |
+|  `latest-dev` | December 6th | `sha256:cf6fe33b7ee6a68e245db6a351ddef0b40d1cb3ba3d10718eeb4b6237c0b1542` |
 

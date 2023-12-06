@@ -3,8 +3,8 @@ title: "newrelic-prometheus Image Variants"
 type: "article"
 unlisted: true
 description: "Detailed information about the public newrelic-prometheus Chainguard Image variants"
-date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

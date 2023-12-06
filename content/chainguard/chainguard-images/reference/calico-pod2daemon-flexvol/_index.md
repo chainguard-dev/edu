@@ -4,13 +4,13 @@ linktitle: "calico-pod2daemon-flexvol"
 type: "article"
 layout: "single"
 description: "Overview: calico-pod2daemon-flexvol Chainguard Image"
-date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -30,20 +30,20 @@ toc: true
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
-The image is available on `cgr.dev`:
-
-```
-docker pull cgr.dev/chainguard/calico:latest
-```
 <!--getting:end-->
 
 <!--body:start-->
 ## Installation
 
-There are several ways to install Calico. This document follows the upstream recommended way with the `tigera-operator` ([ref](https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart#install-calico)).
+There are several ways you can install Calico onto a Kubernetes cluster. This document follows method recommended in the [official Calico documentation](https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart#install-calico) which involves using the Tigera Calico operator. 
 
-There are two CRDs involved that work together to use the correct Chainguard Images:
+After setting up and connecting to the Kubernetes cluster where you want to install Calico, install the Tigera Calico operator and custom resource definitions (CRDs).
+
+```shell
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.4/manifests/tigera-operator.yaml
+```
+
+Then apply the following YAML manifest to create two CRDs.
 
 ```yaml
 ---
@@ -85,6 +85,12 @@ spec:
   imagePrefix: calico-
 ```
 
-The above combination of `ImageSet` and `Installation` can be used as a drop in replacement for the [upstream documentation](https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart#install-calico) step 2 (`custom-resources.yaml`) to correctly rename the Calico images to their `cgr.dev` variants.
+The combination of these `ImageSet` and `Installation` CRDs serve as a drop in replacement for [Step 2 of the upstream documentation](https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart#install-calico). Together, these correctly rename the Calico images to their `cgr.dev` variants.
+
+After creating the CRDs, you can ensure that the pods are running with a command like the following.
+
+```shell
+kubectl get pods -n calico-system
+```
 <!--body:end-->
 

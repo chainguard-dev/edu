@@ -3,8 +3,8 @@ title: "git Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,14 +23,14 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                  | Last Changed  | Digest                                                                    |
-|--------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev`            | November 29th | `sha256:9a75679eaef0483ad7ba3130a756e1467f86acffcd2f8bcb9ea864f41ca0cd5f` |
-|  `latest-root`           | November 29th | `sha256:df4cba36768febd84aa9ee39c8bc6fe7b6751688f398811202fd0c6fccabc8c9` |
-|  `latest-root-dev`       | November 29th | `sha256:b424b0018aaf748afea687e3af2e997cff35682c43a281fcfb2f5f3896c559ed` |
-|  `latest`                | November 29th | `sha256:b9a286ed3630fc32d292af234bfa12941b8a360b1efdecd4f78981edf9eba1e4` |
-|  `latest-glibc-root-dev` | November 29th | `sha256:c7000f4d4de09943a9011be4fa1e2682e973b3a260a4a4c04f9b35490ae16d91` |
-|  `latest-glibc-dev`      | November 29th | `sha256:12d1cc09262033f92b12a1a747941e8eca3af12235773f04529b78ef3b1ff54c` |
-|  `latest-glibc-root`     | November 29th | `sha256:a295bf091da648413500f84de61da6e60bc43ebf86793306696f99b1d22a8889` |
-|  `latest-glibc`          | November 29th | `sha256:70e10a39ec522f9321b60cff79f65dc281255c48cf23b35e1570e0ab96ae2e07` |
+| Tag (s)                  | Last Changed | Digest                                                                    |
+|--------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-root-dev`       | December 6th | `sha256:e0de33ea8c5994fcc31fe40967a3fc63233594328e01bdc62b64564891b96238` |
+|  `latest-root`           | December 6th | `sha256:5e082c2e005abeee66ad72576c51f0e050e299e1feec9fd72a94ccf4214e7158` |
+|  `latest`                | December 6th | `sha256:73c2b94038670304376db6edee0a5b0b339cc0e1f6562ab222764604e1beebed` |
+|  `latest-dev`            | December 6th | `sha256:3940b11e55a89c1fcf6cea756b5abefa7b0f55b18556939f0795fb26bc618ea5` |
+|  `latest-glibc`          | December 6th | `sha256:546ee334f05f7dd4c917f6cbaa2e88df3ca66758a31c2b35a608e09279cf844b` |
+|  `latest-glibc-root`     | December 6th | `sha256:bce7d74aad7103ade728bed27ce838c23d25a7f60d9469de1dc32e9901384d19` |
+|  `latest-glibc-dev`      | December 6th | `sha256:a2ea551c8e4c5416c4d3773d917938b04b9330c69704378eea0b48cf22a45899` |
+|  `latest-glibc-root-dev` | December 6th | `sha256:8101f7c8f01429f36999dff74621b9c01c23a1e8f151255fd96933ed85e05175` |
 

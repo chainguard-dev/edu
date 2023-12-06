@@ -3,8 +3,8 @@ title: "argo-workflowcontroller Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the argo-workflowcontroller Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:4cadfd9e6bc96f239f351c549c7fa3d45a18a0445eee1c34dc55ecdb79ade0e4` |
-|  `latest`     | November 29th | `sha256:8fbad2d58cd6ff221ad4b89e58f65606aa2d488a910d06ca4a48140a79fd3bfb` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | December 6th | `sha256:21e819e007fed87b2503e727cc3d2113400d70f7fe23370e470850bde9753365` |
+|  `latest-dev` | December 6th | `sha256:d2e683c38a268e8e07a17de0eab5bfbf2762b46b45015544ad7094a3c97cb55e` |
 

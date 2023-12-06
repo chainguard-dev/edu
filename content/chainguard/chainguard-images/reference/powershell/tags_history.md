@@ -3,8 +3,8 @@ title: "powershell Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the powershell Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                      | Last Changed  | Digest                                                                    |
-|------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest`                    | November 29th | `sha256:abd2935897b3b48f22e34747b822c4e8f97d0ea0054476ab0fa11786347cefac` |
-|  `latest-root` `root-latest` | November 29th | `sha256:8193cdf01fddc643b9ab4e83433893cb1e68427f0d53b30fa05a8cd98779ed77` |
+| Tag (s)                      | Last Changed | Digest                                                                    |
+|------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-root` `root-latest` | December 6th | `sha256:de38fe4054640f0814911b5665ce5a2d542e1c625014ec49d60294694f1c30bd` |
+|  `latest`                    | December 6th | `sha256:23b354697cb0e58fc27ec8d3051c4ff436ef1ac814330d175dd2ebaeeed1bceb` |
 

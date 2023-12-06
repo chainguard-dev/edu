@@ -3,8 +3,8 @@ title: "spire-oidc-discovery-provider Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-oidc-discovery-provider Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:063d84595086e404ed6386b5cfad9854e3158a01322de7e2a6b51891799805c1` |
-|  `latest`     | November 29th | `sha256:66b33e635c7f9af0ccec9a9b125664f09d40d1bb40c0b905e5755612b6dd050f` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | December 6th | `sha256:9377806d0e20d7809853119bc75790b0752b446792515d3b63e1d16a4a9b494f` |
+|  `latest-dev` | December 6th | `sha256:f30caf895f8cf75e8e783d4d3503250a9ac3bb27d332fd487deb64415fa0e5d7` |
 

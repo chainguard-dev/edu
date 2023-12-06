@@ -3,8 +3,8 @@ title: "gatekeeper Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the gatekeeper Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | November 29th | `sha256:2dc415b0f1a1b551c98a077538d5e13d5d3a0402e796ec84bc7cf853ece67edc` |
-|  `latest-dev` | November 29th | `sha256:3da5e1c343abf7f10a0c817d43eb80cf03c21cc8e4a0ab06bfe7488ef9db50b5` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | December 6th | `sha256:f0e746bc493df4e9d8e45ed16b480cb10909bbdb80b2a84c0b246197537feb00` |
+|  `latest-dev` | December 6th | `sha256:4f03fa594899a9a1caa97e2e894f10110389f1f5bf02cfaab431edc213c6d55b` |
 

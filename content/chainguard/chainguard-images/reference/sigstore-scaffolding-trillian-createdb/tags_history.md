@@ -3,8 +3,8 @@ title: "sigstore-scaffolding-trillian-createdb Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createdb Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | November 29th | `sha256:9edcaae285dbc933c763eed8272fa7d5c77f0fe309ba77758fe689e1bc124283` |
-|  `latest-dev` | November 29th | `sha256:738db1528cafd3b1d75f0fc0d5c1bb818f0c4ebc4d42188faa5ffb5a9585e9ac` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 6th | `sha256:72f1aa795c1a413900675d87759e78e093f1f57bff44a66315a08b45a3ca4cc7` |
+|  `latest`     | December 6th | `sha256:db2e842df699fdfcd668b6b6b2aa1826aea84c667fca9691a9af7993c037a058` |
 

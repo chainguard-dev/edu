@@ -3,8 +3,8 @@ title: "ntia-conformance-checker Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the ntia-conformance-checker Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | November 29th | `sha256:bddfc944250079581eb46c19b7a41e025fde0febc228b91b4670401d70962417` |
-|  `latest-dev` | November 29th | `sha256:a19aec68fe9d158b8d2d002bafdf26e45c97bc599500ce18c5fd160efa3983a9` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 6th | `sha256:c073240e6a0d2dc498ef5523392c7966df6e43274a7ec2c42ec26915f6976d46` |
+|  `latest`     | December 6th | `sha256:534c3b499efbcc4a8662ab39889ad8fe40d4fc1a4feef4f01d24bfce610eec23` |
 

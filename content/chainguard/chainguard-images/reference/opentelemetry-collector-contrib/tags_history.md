@@ -3,8 +3,8 @@ title: "opentelemetry-collector-contrib Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector-contrib Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:bc5fc2ade606f4a907b5895b8b921bbf26b7dd1d7472d52c2fc39455810cd797` |
-|  `latest`     | November 29th | `sha256:3787404209eb54420298d9f4c7050dbfd05706889d4353a5bb8de9c5329da0d0` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 6th | `sha256:ff0143af5332aba8bb046421346f3ada5ed5a9a75aad5b6d89ba6fdb1545a57a` |
+|  `latest`     | December 6th | `sha256:68668fa254e5cdd4399c7a9180b74687716bbf15b144f1b258e8a97c13e56c1f` |
 

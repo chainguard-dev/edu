@@ -3,8 +3,8 @@ title: "external-dns Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the external-dns Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:cfd4c64c85900216f6e3f53005eedfd5aef10cc4f31323b1ae0007c51b823d55` |
-|  `latest`     | November 29th | `sha256:34dbfd88d40e9d644246cff0b9fc1ba599247de1916ed184f9a3dd0748543507` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 6th | `sha256:2fc196e4f33da0606b8ffa11b3e2180f261531272735b300e0c87b2f37d93cd0` |
+|  `latest`     | December 6th | `sha256:4c32906312690b4cc52bdeb72aea71cafc043e03d5e5e88b94e91825c3def546` |
 

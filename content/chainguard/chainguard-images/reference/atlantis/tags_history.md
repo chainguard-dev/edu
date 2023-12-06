@@ -3,8 +3,8 @@ title: "atlantis Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the atlantis Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:aeb23793ef57c94e0aee9e0d0655e99557ccc16924567192af8ba0a48be40358` |
-|  `latest`     | November 29th | `sha256:4d5aa0d3fcbcca1c7853d0d7b9be11ce29d43fc6bb42c87e72f7f8a58486da99` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | December 6th | `sha256:93f7c3dc17aae7e31fbf89945c3ba7500a9ffcc6d06fe4587fbe2c7752736ac3` |
+|  `latest-dev` | December 6th | `sha256:e94bca2fd4f95d1d1ce7cff3e8311f0b6e3818afc8820fb0dd99a4dfb6778517` |
 

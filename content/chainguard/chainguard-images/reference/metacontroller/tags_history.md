@@ -3,8 +3,8 @@ title: "metacontroller Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:8f62f565236c6123a1759fad4c34bfc924652bf044fdf535da44fbc33ffaa7da` |
-|  `latest`     | November 29th | `sha256:d0eb793c6109a5781075d72fa8b211517e354f1c4bef6c9bf064eb101823e1da` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | December 6th | `sha256:9c092405f616db30d6620e978fa77f10e36409492e1149b220a6ce11e5961b8e` |
+|  `latest-dev` | December 6th | `sha256:26ac84198d14fe757b8baf016644db1c46fef275294e764723b99a42321f483a` |
 

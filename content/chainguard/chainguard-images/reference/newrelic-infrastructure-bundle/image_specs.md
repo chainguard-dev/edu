@@ -3,8 +3,8 @@ title: "newrelic-infrastructure-bundle Image Variants"
 type: "article"
 unlisted: true
 description: "Detailed information about the public newrelic-infrastructure-bundle Chainguard Image variants"
-date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ The **newrelic-infrastructure-bundle** Chainguard Image currently has 2 public v
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev    | latest        |
-|--------------|---------------|---------------|
-| Default User | `root`        | `root`        |
-| Entrypoint   | not specified | not specified |
-| CMD          | not specified | not specified |
-| Workdir      | not specified | not specified |
-| Has apk?     | yes           | no            |
-| Has a shell? | yes           | no            |
+|              | latest-dev                        | latest                            |
+|--------------|-----------------------------------|-----------------------------------|
+| Default User | `root`                            | `root`                            |
+| Entrypoint   | `/sbin/tini --`                   | `/sbin/tini --`                   |
+| CMD          | `/usr/bin/newrelic-infra-service` | `/usr/bin/newrelic-infra-service` |
+| Workdir      | not specified                     | not specified                     |
+| Has apk?     | yes                               | no                                |
+| Has a shell? | yes                               | no                                |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/newrelic-infrastructure-bundle/tags_history/) for the full list of available tags.
 
@@ -98,24 +98,43 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`           | X          |        |
 | `newrelic-infrastructure-agent`   | X          | X      |
 | `newrelic-infrastructure-bundle`  | X          | X      |
+| `nri-apache`                      | X          | X      |
 | `nri-apache-compat`               | X          | X      |
+| `nri-cassandra`                   | X          | X      |
 | `nri-cassandra-compat`            | X          | X      |
+| `nri-consul`                      | X          | X      |
 | `nri-consul-compat`               | X          | X      |
+| `nri-couchbase`                   | X          | X      |
 | `nri-couchbase-compat`            | X          | X      |
+| `nri-discovery-kubernetes`        | X          | X      |
 | `nri-discovery-kubernetes-compat` | X          | X      |
+| `nri-elasticsearch`               | X          | X      |
 | `nri-elasticsearch-compat`        | X          | X      |
+| `nri-f5`                          | X          | X      |
 | `nri-f5-compat`                   | X          | X      |
+| `nri-haproxy`                     | X          | X      |
 | `nri-haproxy-compat`              | X          | X      |
+| `nri-jmx`                         | X          | X      |
 | `nri-jmx-compat`                  | X          | X      |
+| `nri-kafka`                       | X          | X      |
 | `nri-kafka-compat`                | X          | X      |
+| `nri-memcached`                   | X          | X      |
 | `nri-memcached-compat`            | X          | X      |
+| `nri-mongodb`                     | X          | X      |
 | `nri-mongodb-compat`              | X          | X      |
+| `nri-mssql`                       | X          | X      |
 | `nri-mssql-compat`                | X          | X      |
+| `nri-mysql`                       | X          | X      |
 | `nri-mysql-compat`                | X          | X      |
+| `nri-nagios`                      | X          | X      |
 | `nri-nagios-compat`               | X          | X      |
+| `nri-nginx`                       | X          | X      |
 | `nri-nginx-compat`                | X          | X      |
+| `nri-postgresql`                  | X          | X      |
 | `nri-postgresql-compat`           | X          | X      |
+| `nri-rabbitmq`                    | X          | X      |
 | `nri-rabbitmq-compat`             | X          | X      |
+| `nri-redis`                       | X          | X      |
 | `nri-redis-compat`                | X          | X      |
 | `nrjmx`                           | X          | X      |
 | `openjdk-17-jre`                  | X          | X      |
@@ -126,6 +145,7 @@ The table shows package distribution across variants.
 | `openssl-config`                  | X          | X      |
 | `p11-kit`                         | X          | X      |
 | `p11-kit-trust`                   | X          | X      |
+| `tini`                            | X          | X      |
 | `wolfi-baselayout`                | X          | X      |
 | `xz`                              | X          | X      |
 | `zlib`                            | X          | X      |

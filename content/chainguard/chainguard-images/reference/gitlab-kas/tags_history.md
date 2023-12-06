@@ -3,8 +3,8 @@ title: "gitlab-kas Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the gitlab-kas Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+date: 2023-12-06 17:47:48
+lastmod: 2023-12-06 17:47:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:0ba9adea70008228edb47a97cc40a28af11e6fa9a2c415e5efcc723c2009ec67` |
-|  `latest`     | November 29th | `sha256:ab6b80f0d9d30647fd4a9a29aa8590d46599dacdcfdadadc89b19848270a168d` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 6th | `sha256:6c25987d3986b328c660598bef8f98cf1f45d2a42a13b1b989e7551ce596dba0` |
+|  `latest`     | December 6th | `sha256:61c3f8aa394ab65d175fb96ba2a4652a37d74e70c612c085b93bf0e20f39f4be` |
 
