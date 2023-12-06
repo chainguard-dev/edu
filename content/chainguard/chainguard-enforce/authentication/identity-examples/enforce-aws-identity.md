@@ -28,9 +28,11 @@ To complete this guide, you will need the following.
 
 ## Creating Terraform Files
 
-We will be using Terraform to create an identity for an AWS role to assume. This step outlines how to create four Terraform configuration files that, together, will produce such an identity.
+We will be using Terraform to create an identity for an AWS role to assume. This step outlines how to create the Terraform configuration files that, together, will produce such an identity.
 
-To help explain each configuration file's purpose, we will go over what they do and how to create each file one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
+These files are available here: https://github.com/chainguard-dev/platform-examples/tree/main/aws-auth
+
+To help explain each configuration file's purpose, we will go over what they do one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
 
 ```sh
 mkdir ~/enforce-aws && cd $_
@@ -47,28 +49,20 @@ The file will consist of the following content.
 ```
 terraform {
   required_providers {
-    chainguard = {
-      source = "chainguard/chainguard"
-    }
-    aws = {
-      source = "hashicorp/aws"
-    }
+    aws        = { source = "hashicorp/aws" }
+    chainguard = { source = "chainguard-dev/chainguard" }
+    ko         = { source = "ko-build/ko" }
   }
 }
-
-provider "chainguard" {}
-
-provider "aws" {}
 ```
 
 This is a fairly barebones Terraform configuration file, but we will define the rest of the resources in the other two files. In `main.tf`, we declare and initialize the Chainguard Terraform provider.
 
-Next, you can create the `sample.tf` file.
+Next, you can look at the `chainguard.tf` file.
 
+### `chainguard.tf`
 
-### `sample.tf`
-
-`sample.tf` will create a couple of structures that will help us test out the identity in a workflow.
+`chainguard.tf` will create a couple of structures that will help us test out the identity in a workflow.
 
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
@@ -82,71 +76,60 @@ resource "chainguard_group" "user-group" {
 }
 ```
 
-This section creates a Chainguard Enforce IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — which will be created by the `aws.tf` file — to access when we test it out later on.
-
-The next section contains these lines, which create a sample policy and apply it to the `example-group` group created in the previous section.
-
-```
-resource "chainguard_policy" "cgr-trusted" {
-  parent_id   = chainguard_group.user-group.id
-  document = jsonencode({
-    apiVersion = "policy.sigstore.dev/v1beta1"
-    kind  	 = "ClusterImagePolicy"
-    metadata = {
-      name = "trust-any-cgr"
-    }
-    spec = {
-      images = [{
-        glob = "cgr.dev/**"
-      }]
-      authorities = [{
-        static = {
-          action = "pass"
-        }
-      }]
-    }
-  })
-}
-```
-
-This policy trusts everything coming from the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/). Because this policy is broadly permissive, it wouldn't be practical or secure to use in a real-world scenario. Like the example group, this policy serves as some data for the AWS role to inspect after it assumes the Chainguard identity.
+This section creates a Chainguard IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — which will be created by the `lambda.tf` file — to access when we test it out later on.
 
 Now you can move on to creating the last of our Terraform configuration files, `aws.tf`.
 
-### `aws.tf`
+### `lambda.tf`
 
-The `aws.tf` file is what will actually create the identity for your AWS role to assume. The file will consist of four sections, which we'll go over one by one.
+The `lambda.tf` describes the AWS role that a Lambda function will run as.
 
-The first section creates the identity itself.
+```hcl
+data "aws_iam_policy_document" "lambda" {
+  statement {
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
+    principals {
+      type        = "Service"
+      identifiers = ["lambda.amazonaws.com"]
+    }
+  }
+}
 
+data "aws_iam_policy" "lambda" {
+  name = "AWSLambdaBasicExecutionRole"
+}
+
+resource "aws_iam_role" "lambda" {
+  name                = "aws-auth"
+  assume_role_policy  = data.aws_iam_policy_document.lambda.json
+  managed_policy_arns = [data.aws_iam_policy.lambda.arn]
+}
 ```
+
+This describes an AWS role that a Lambda function will run as. The Lambda function will assume this role, and then use the Chainguard identity to interact with Chainguard resources.
+
+In `chainguard.tf`, we define a Chainguard identity that can be assumed by the AWS role:
+
+```hcl
 resource "chainguard_identity" "aws" {
   parent_id   = chainguard_group.user-group.id
-  name        = "aws-identity"
-  description = "Identity for AWS role to assume"
+  name        = "aws-auth-identity"
+  description = "Identity for AWS Lambda"
 
   aws_identity {
-    aws_account         = "[AWS-ACCOUNT-ID]"
-    aws_user_id_pattern = "^AROA(.*):[AWS-ROLE-SESSION-NAME]$"
+    aws_account         = data.aws_caller_identity.current.account_id
+    aws_user_id_pattern = "^AROA(.*):${local.lambda_name}$"
 
-    aws_arn = "arn:aws:sts::[AWS-ACCOUNT-ID]:assumed-role/[AWS-ROLE-NAME]/[AWS-ROLE-SESSION-NAME]"
+    // NB: This role will be assumed so can't use the role ARN directly. We must use the ARN of the assumed role
+    aws_arn = "arn:aws:sts::${data.aws_caller_identity.current.account_id}:assumed-role/${aws_iam_role.lambda.name}/${local.lambda_name}"
   }
 }
 ```
 
-First this section creates a Chainguard Identity tied to the `chainguard_group` created by the `sample.tf` file; namely, the `example-group` group. The identity is named `aws-identity` and has a brief description.
-
 The most important part of this section is the `aws_identity` block. When the AWS role tries to assume this identity later on, it must present a token matching the `aws_account`, `aws_user_id_pattern`, and `aws_arn` specified here in order to do so.
 
 The `aws_user_id_pattern` field configures the identity to be assumable only by the AWS role with the specified name, which is itself assumed by another execution role, which we'll configure below. This role will be assumed so can't use the role ARN directly in `aws_arn`; We must used the ARN of the assumed role.
-
-The next section will output the new identity's `id` value. This is a unique value that represents the identity itself.
-
-```
-output "aws-identity" {
-  value = chainguard_identity.aws.id
-}
-```
 
 The section after that looks up the `viewer` role.
 
@@ -161,10 +144,12 @@ The final section grants this role to the identity on the `example-group`.
 ```
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.aws.id
-  group	= chainguard_group.user-group.id
+  group	= chainguard_group.example-group.id
   role 	= data.chainguard_roles.viewer.items[0].id
 }
 ```
+
+After defining these resources, there are some other resources in the example directory that build and deploy a Lambda function that assumes the identity. We'll describe that code in the next section.
 
 After defining these resources, your Terraform configuration will be ready. Now you can run a few `terraform` commands to create the resources defined in your `.tf` files.
 
@@ -284,24 +269,17 @@ chainctl iam identities ls
 
 When the AWS Lambda function is invoked, first it needs to get its credentials, which assert that it is the AWS IAM role defined earlier.
 
-In Go, you can do this with `aws-sdk-go-v2`:
+The example code in Go does this with `aws-sdk-go-v2`:
 
 ```go
-import (
-	"github.com/aws/aws-sdk-go-v2/config"
-)
-
-func handler() {
-	...
-	cfg, err := config.LoadDefaultConfig(ctx)
-	if err != nil {
-		log.Fatalf("failed to load configuration, %w", err)
-	}
-  creds, err := cfg.Credentials.Retrieve(ctx)
-	if err != nil {
-		log.Fatalf("failed to retrieve credentials, %w", err)
-	}
-	...
+// Get AWS credentials.
+cfg, err := config.LoadDefaultConfig(ctx)
+if err != nil {
+  return "", fmt.Errorf("failed to load configuration, %w", err)
+}
+creds, err := cfg.Credentials.Retrieve(ctx)
+if err != nil {
+  return "", fmt.Errorf("failed to retrieve credentials, %w", err)
 }
 ```
 
@@ -310,29 +288,32 @@ These credentials represent the AWS role assumed by the Lambda function.
 You can use the Chainguard SDK for Go to generate a token that Chainguard understands to authenticate the Lambda function as the Chainguard identity you created earlier, by its UIDP:
 
 ```go
-import (
-  "chainguard.dev/sdk/auth/aws"
-  "chainguard.dev/sdk/sts"
-)
-
-func handler() {
-	...
-  const identity = "[IDENTITY UIDP FROM TERRAFORM OUTPUT]"
-	awsTok, err := aws.GenerateToken(ctx, creds, "https://issuer.enforce.dev", identity)
-	if err != nil {
-		log.Fatalf("generating AWS token: %w", err)
-	}
-	exch := sts.New(k.issuer, res.RegistryStr(), sts.WithIdentity(identity))
-	cgtok, err := exch.Exchange(ctx, awsTok)
-	if err != nil {
-		log.Fatalf("exchanging token: %w", err)
-	}
-  ...
+// Generate a token and exchange it for a Chainguard token.
+awsTok, err := aws.GenerateToken(ctx, creds, env.Issuer, env.Identity)
+if err != nil {
+  return "", fmt.Errorf("generating AWS token: %w", err)
+}
+exch := sts.New(env.Issuer, env.APIEndpoint, sts.WithIdentity(env.Identity))
+cgtok, err := exch.Exchange(ctx, awsTok)
+if err != nil {
+  return "", fmt.Errorf("exchanging token: %w", err)
 }
 ```
 
-The resulting token, `cgtok`, can be used to authenticate requests to Chainguard API calls.
+The resulting token, `cgtok`, can be used to authenticate requests to Chainguard API calls:
 
+```go
+// Use the token to list repos in the group.
+clients, err := registry.NewClients(ctx, env.APIEndpoint, cgtok)
+if err != nil {
+  return "", fmt.Errorf("creating clients: %w", err)
+}
+ls, err := clients.Registry().ListRepos(ctx, &registry.RepoFilter{
+  Uidp: &common.UIDPFilter{
+    ChildrenOf: env.Group,
+  },
+})
+```
 
 ## Removing Sample Resources
 
@@ -342,7 +323,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy the sample policy, the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`. It will also delete all the AWS resources defined earlier in `aws.tf` and `lambda.tf`.
+This will destroy the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`. It will also delete all the AWS resources defined earlier in `chainguard.tf` and `lambda.tf`.
 
 ```sh
 chainctl iam groups rm example-group
