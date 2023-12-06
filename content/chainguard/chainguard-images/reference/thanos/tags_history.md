@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the thanos Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2023-12-06 18:44:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:1c5b270b50c0d3ef8ad8e556baa66f72ba35aa25371db1f324ac0d1ab7451c45` |
-|  `latest`     | November 29th | `sha256:1787d8cf554d26d6365a8cd2f30733a81b308a9b240c6907170d62dd851ba0b8` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | December 6th | `sha256:dede4199d6a228d90afc80447d04a666ddb81733d2cc5b795872e596daffd844` |
+|  `latest-dev` | December 6th | `sha256:5be8d65c85d1e7ee627aea444d1056f338761e4eb7cd389c06108af97acc4441` |
 

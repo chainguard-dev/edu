@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2023-12-06 18:44:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:7954149764d6bbf9135af8e400182fdfee9f098730ab063548dc7f5bb35ca848` |
-|  `latest`     | November 29th | `sha256:9de8dbec27441afea43a84bc991f40ed9d8e68521bde052ed407d1d2eb7cafed` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 6th | `sha256:75cdd855aff8472110752f423f7b66088fdce032a1cd980314726ea42c16df51` |
+|  `latest`     | December 6th | `sha256:c36612963ad1e7166ca41a0b7ceaa4766d4fdd80a86ea0c940b4c2e95f3126df` |
 

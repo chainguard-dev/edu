@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the solr Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2023-12-06 18:44:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:ace3303693c4c779348ec7adb3df146da8f5afb5ce8e6da1441307d131cf0111` |
-|  `latest`     | November 29th | `sha256:8fef6a74926b305a9de6a2be993cd2406355b83c312010be72db2ad049427333` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | December 6th | `sha256:7a5fca067f74dd56ee903034ec1dee5d90d7826721685388afef234fabbb4608` |
+|  `latest-dev` | December 6th | `sha256:6da2e2d2368e9a2aa7368c8e50159345b55302ac82175293cb73b8b7937edfdb` |
 
