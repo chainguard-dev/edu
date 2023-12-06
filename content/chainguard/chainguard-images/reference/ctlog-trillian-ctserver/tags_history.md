@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ctlog-trillian-ctserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2023-12-06 18:44:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:82c8601deeb01c1ba0e6b6419c6b09f4fc209ac0716d9c832df2c56093be4aae` |
-|  `latest`     | November 29th | `sha256:0f4e69ff896520ac5f8db65a2435435a8e9cdf85d2d0e075e45dea996b5a0951` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 6th | `sha256:6c0bbcabff3e4c63c64305912165d7fe5214bb57e871b8fd450417070c29232a` |
+|  `latest`     | December 6th | `sha256:305075fa8e78e14e72872e4813dfc2e5cbd49dad7a00e7cefa3ef57849f20682` |
 

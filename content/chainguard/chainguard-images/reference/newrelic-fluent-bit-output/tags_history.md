@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2023-12-06 18:44:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:40c38d0fdcd7e8d25dceee8ee538c633d026e3b23f8ce5f7cfa025554a89de81` |
-|  `latest`     | November 29th | `sha256:6de2431c80b5efb4b54765bef21e336e93afb58ce0b8c1a04dabb263571d0a26` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 6th | `sha256:673a4776f3adc21214a1398aeedc070d53d3ffa7113ebd027d5fe2def9b15f05` |
+|  `latest`     | December 6th | `sha256:32ff997e744326b9d4b179f6e2dad6bf2eed7af8af31203f6100cc9275b2268d` |
 
