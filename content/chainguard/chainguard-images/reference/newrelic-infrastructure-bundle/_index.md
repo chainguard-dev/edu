@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: newrelic-infrastructure-bundle Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-06 18:44:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -34,7 +34,7 @@ Minimal [newrelic-infrastructure-bundle](https://github.com/newrelic/infrastruct
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/newrelic:latest
+docker pull cgr.dev/chainguard/newrelic-infrastructure-bundle:latest
 ```
 <!--getting:end-->
 
