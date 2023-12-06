@@ -35,13 +35,6 @@
   color: var(--article-link-color);
 }
 
-// OpenAPI spec page is squished without this
-.docs-content > elements-api {
-  display: block;
-  margin: 0 -144px 0 -144px;
-  padding: 0
-}
-
 .button-description {
   margin-bottom: 12px;
 }
