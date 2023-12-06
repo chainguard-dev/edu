@@ -14,7 +14,7 @@ weight: 015
 
 In Chainguard Enforce, [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
 
-This procedural tutorial outlines how to create an identity using Terraform, and then how to update a Buildkite pipeline so that it can assume the identity and interact with Chainguard resources. 
+This procedural tutorial outlines how to create an identity using Terraform, and then how to update a Buildkite pipeline so that it can assume the identity and interact with Chainguard resources.
 
 
 ## Prerequisites
@@ -49,43 +49,24 @@ The file will consist of the following content.
 terraform {
   required_providers {
 	chainguard = {
-  	source = "chainguard/chainguard"
+  	source = "chainguard-dev/chainguard"
 	}
   }
 }
-
-provider "chainguard" {}
 ```
 
-This is a fairly barebones Terraform configuration file, but we will define the rest of the resources in the other two files. In `main.tf`, we declare and initialize the Chainguard Terraform provider. 
-
-To create the `main.tf` file, run the following command.
-
-```sh
-cat > main.tf <<EOF
-terraform {
-  required_providers {
-	chainguard = {
-  	source = "chainguard/chainguard"
-	}
-  }
-}
-
-provider "chainguard" {}
-EOF
-```
+This is a fairly barebones Terraform configuration file, but we will define the rest of the resources in the other two files. In `main.tf`, we declare and initialize the Chainguard Terraform provider.
 
 Next, you can create the `sample.tf` file.
 
-
 ### `sample.tf`
 
-`sample.tf` will create a couple of structures that will help us test out the identity in a workflow. 
+`sample.tf` will create a couple of structures that will help us test out the identity in a workflow.
 
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
 ```
-resource "chainguard_group" "user-group" {
+resource "chainguard_group" "example-group" {
   name    	= "example-group"
   description = <<EOF
 	This group simulates an end-user group, which the buildkite
@@ -96,69 +77,6 @@ resource "chainguard_group" "user-group" {
 ```
 
 This section creates a Chainguard Enforce IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — which will be created by the `buildkite.tf` file — to access when we test it out later on.
-
-The next section contains these lines, which create a sample policy and apply it to the `example-group` group created in the previous section.
-
-```
-resource "chainguard_policy" "cgr-trusted" {
-  parent_id   = chainguard_group.user-group.id
-  document = jsonencode({
-	apiVersion = "policy.sigstore.dev/v1beta1"
-	kind   	= "ClusterImagePolicy"
-	metadata = {
-  	name = "trust-any-cgr"
-	}
-	spec = {
-  	images = [{
-    	glob = "cgr.dev/**"
-  	}]
-  	authorities = [{
-    	static = {
-      	action = "pass"
-    	}
-  	}]
-	}
-  })
-}
-```
-
-This policy trusts everything coming from the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/). Because this policy is broadly permissive, it wouldn't be practical or secure to use in a real-world scenario. Like the example group, this policy serves as some data for the Buildkite pipeline to inspect after it assumes the Chainguard identity.
-
-Create the `sample.tf` file with the following command.
-
-```sh
-cat > sample.tf <<EOF
-resource "chainguard_group" "user-group" {
-  name    	= "example-group"
-  description = <<EOF
-	This group simulates an end-user group, which the buildkite
-	pipeline identity can interact with via the identity in
-	buildkite.tf.
-  EOF
-}
-
-resource "chainguard_policy" "cgr-trusted" {
-  parent_id   = chainguard_group.user-group.id
-  document = jsonencode({
-	apiVersion = "policy.sigstore.dev/v1beta1"
-	kind   	= "ClusterImagePolicy"
-	metadata = {
-  	name = "trust-any-cgr"
-	}
-	spec = {
-  	images = [{
-    	glob = "cgr.dev/**"
-  	}]
-  	authorities = [{
-    	static = {
-      	action = "pass"
-    	}
-  	}]
-	}
-  })
-}
-EOF
-```
 
 Now you can move on to creating the last of our Terraform configuration files, `buildkite.tf`.
 
@@ -171,7 +89,7 @@ The first section creates the identity itself.
 
 ```
 resource "chainguard_identity" "buildkite" {
-  parent_id   = chainguard_group.user-group.id
+  parent_id   = chainguard_group.example-group.id
   name   	 = "buildkite"
   description = <<EOF
     This is an identity that authorizes Buildkite workflows
@@ -189,7 +107,7 @@ First, this section creates a Chainguard Identity tied to the `chainguard_group`
 
 The most important part of this section is the `claim_match`. When the Buildkite workflow tries to assume this identity later on, it must present a token matching the `issuer` and `subject` specified here in order to do so. The `issuer` is the entity that creates the token, while the `subject` is the entity (here, the Buildkite pipeline build) that the token represents.
 
-In this case, the `issuer` field points to `https://agent.buildkite.com`, the issuer of JWT tokens for Buildkite pipelines. 
+In this case, the `issuer` field points to `https://agent.buildkite.com`, the issuer of JWT tokens for Buildkite pipelines.
 
 Instead of pointing to a literal value with a `subject` field, though, this file points to a regular expression using the `subject_pattern` field. When you run a Buildkite pipeline, it generates a unique commit for each build. Passing the regular expression `[0-9a-f]+` allows you to generate an identity that will work for every build from this pipeline.
 
@@ -203,10 +121,10 @@ output "buildkite-identity" {
 }
 ```
 
-The section after that looks up the `viewer` role. 
+The section after that looks up the `viewer` role.
 
 ```
-data "chainguard_roles" "viewer" {
+data "chainguard_role" "viewer" {
   name = "viewer"
 }
 ```
@@ -216,7 +134,7 @@ The final section grants this role to the identity on the `example-group`.
 ```
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.buildkite.id
-  group	= chainguard_group.user-group.id
+  group	= chainguard_group.example-group.id
   role 	= data.chainguard_roles.viewer.items[0].id
 }
 ```
@@ -226,7 +144,7 @@ Run the following command to create this file with each of these sections. Be su
 ```sh
 cat > buildkite.tf <<EOF
 resource "chainguard_identity" "buildkite" {
-  parent_id   = chainguard_group.user-group.id
+  parent_id   = chainguard_group.example-group.id
   name    	= "buildkite"
   description = <<EOF
 	This is an identity that authorizes Buildkite workflows
@@ -249,7 +167,7 @@ data "chainguard_roles" "viewer" {
 
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.buildkite.id
-  group	= chainguard_group.user-group.id
+  group	= chainguard_group.example-group.id
   role 	= data.chainguard_roles.viewer.items[0].id
 }
 EOF
@@ -324,7 +242,7 @@ You're now ready to edit a Buildkite pipeline in order to test out this identity
 
 ## Testing the identity with a Buildkite pipeline
 
-To test the identity you created with Terraform in the previous section, navigate to your Buildkite pipeline. From the Buildkite Dashboard, click **Pipelines** in the top navigation bar and then click on the pipeline you specified in the `buildkite.tf` file. 
+To test the identity you created with Terraform in the previous section, navigate to your Buildkite pipeline. From the Buildkite Dashboard, click **Pipelines** in the top navigation bar and then click on the pipeline you specified in the `buildkite.tf` file.
 
 From there, click the **Edit Steps** button to add the following commands to a step in your pipeline. Be sure to replace `<your buildkite identity>` with the identity UIDP you noted down in the previous section.
 
@@ -333,12 +251,12 @@ From there, click the **Edit Steps** button to add the following commands to a s
 	curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
 	chmod +x chainctl
 	./chainctl auth login --identity-token $(buildkite-agent oidc request-token --audience issuer.enforce.dev) --identity <your buildkite identity>
-    chainctl policy ls
+    chainctl images repos list
 ```
 
-These commands will cause your Buildkite pipeline to download `chainctl` and make it executable. It will then sign in to Chainguard Enforce using the Buildkite identity you generated previously. If this workflow can successfully assume the identity, then it will be able to execute the `chainctl policy ls` command and retrieve the list of policies associated with the group.
+These commands will cause your Buildkite pipeline to download `chainctl` and make it executable. It will then sign in to Chainguard Enforce using the Buildkite identity you generated previously. If this workflow can successfully assume the identity, then it will be able to execute the `chainctl images repos list` command and retrieve the list of repos available to the group.
 
-There are a couple ways you can add commands to an existing Buildkite pipeline, so follow whatever procedure works best for you. 
+There are a couple ways you can add commands to an existing Buildkite pipeline, so follow whatever procedure works best for you.
 
 If you followed the [**Getting Started** guide linked in the prerequisites](https://buildkite.com/docs/tutorials/getting-started), your pipeline will have a structure like this.
 
@@ -358,20 +276,20 @@ steps:
     - 'curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"'
 	- 'chmod +x chainctl'
 	- './chainctl auth login --identity-token $(buildkite-agent oidc request-token --audience issuer.enforce.dev) --identity <your buildkite identity>'
-    - 'chainctl policy ls'
+    - 'chainctl images repos list'
 ```
 
 Click the **Save and Build** button. Ensure that your Buildkite agent is running, and then wait a few moments for the pipeline to finish building.
 
-Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl policy ls` command, returning the policy you created with the `sample.tf` file.
+Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, returning the images available to the group.
 
 ```
 . . .
 
 chainctl        	100%[===================>]  54.34M  6.78MB/s	in 13s
- 
+
 2023-05-17 13:19:45 (4.28 MB/s) - ‘chainctl’ saved [56983552/56983552]
- 
+
 Successfully exchanged token.
 Valid! Id: 3f4ad8a9d5e63be71d631a359ba0a91dcade94ab/d3ed9c70b538a796
                          	ID                         	| 	NAME  	| DESCRIPTION |   MODE
@@ -406,7 +324,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy the sample policy, the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`.
+This will destroy the role-binding and the identity created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`.
 
 ```sh
 chainctl iam groups rm example-group
