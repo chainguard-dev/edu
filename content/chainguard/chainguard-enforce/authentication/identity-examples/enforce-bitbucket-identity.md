@@ -47,32 +47,14 @@ The file will consist of the following content.
 ```
 terraform {
   required_providers {
-	chainguard = {
-  	source = "chainguard/chainguard"
-	}
+    chainguard = {
+      source = "chainguard-dev/chainguard"
+    }
   }
 }
-
-provider "chainguard" {}
 ```
 
 This is a fairly barebones Terraform configuration file, but we will define the rest of the resources in the other two files. In `main.tf`, we declare and initialize the Chainguard Terraform provider.
-
-To create the `main.tf` file, run the following command.
-
-```sh
-cat > main.tf <<EOF
-terraform {
-  required_providers {
-	chainguard = {
-  	source = "chainguard/chainguard"
-	}
-  }
-}
-
-provider "chainguard" {}
-EOF
-```
 
 Next, you can create the `sample.tf` file.
 
@@ -84,80 +66,17 @@ Next, you can create the `sample.tf` file.
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
 ```
-resource "chainguard_group" "user-group" {
+resource "chainguard_group" "example-group" {
   name        = "example-group"
   description = <<EOF
-	This group simulates an end-user group, which the bitbucket
-	pipeline identity can interact with via the identity in
-	bitbucket.tf.
+    This group simulates an end-user group, which the bitbucket
+    pipeline identity can interact with via the identity in
+    bitbucket.tf.
   EOF
 }
 ```
 
 This section creates a Chainguard Enforce IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — which will be created by the `bitbucket.tf` file — to access when we test it out later on.
-
-The next section contains these lines, which create a sample policy and apply it to the `example-group` group created in the previous section.
-
-```
-resource "chainguard_policy" "cgr-trusted" {
-  parent_id = chainguard_group.user-group.id
-  document = jsonencode({
-    apiVersion = "policy.sigstore.dev/v1beta1"
-    kind       = "ClusterImagePolicy"
-    metadata = {
-      name = "trust-any-cgr"
-    }
-    spec = {
-      images = [{
-        glob = "cgr.dev/**"
-      }]
-      authorities = [{
-        static = {
-          action = "pass"
-        }
-      }]
-    }
-  })
-}
-```
-
-This policy trusts everything coming from the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/). Because this policy is broadly permissive, it wouldn't be practical or secure to use in a real-world scenario. Like the example group, this policy serves as some data for the Bitbucket pipeline to inspect after it assumes the Chainguard identity.
-
-Create the `sample.tf` file with the following command.
-
-```sh
-cat > sample.tf <<EOF
-resource "chainguard_group" "user-group" {
-  name        = "example-group"
-  description = <<EOF
-	This group simulates an end-user group, which the bitbucket
-	pipeline identity can interact with via the identity in
-	bitbucket.tf.
-  EOF
-}
-
-resource "chainguard_policy" "cgr-trusted" {
-  parent_id = chainguard_group.user-group.id
-  document = jsonencode({
-    apiVersion = "policy.sigstore.dev/v1beta1"
-    kind       = "ClusterImagePolicy"
-    metadata = {
-      name = "trust-any-cgr"
-    }
-    spec = {
-      images = [{
-        glob = "cgr.dev/**"
-      }]
-      authorities = [{
-        static = {
-          action = "pass"
-        }
-      }]
-    }
-  })
-}
-EOF
-```
 
 Now you can move on to creating the last of our Terraform configuration files, `bitbucket.tf`.
 
@@ -169,11 +88,11 @@ The first section creates the identity itself.
 
 ```
 resource "chainguard_identity" "bitbucket" {
-  parent_id   = chainguard_group.user-group.id
+  parent_id   = chainguard_group.example-group.id
   name        = "bitbucket"
   description = <<EOF
-        This is an identity that authorizes Bitbucket workflows
-        for this repository to assume to interact with chainctl.
+    This is an identity that authorizes Bitbucket workflows
+    for this repository to assume to interact with chainctl.
   EOF
 
     claim_match {
@@ -207,7 +126,7 @@ output "bitbucket-identity" {
 The section after that looks up the `viewer` role.
 
 ```
-data "chainguard_roles" "viewer" {
+data "chainguard_role" "viewer" {
   name = "viewer"
 }
 ```
@@ -217,48 +136,14 @@ The final section grants this role to the identity on the `example-group`.
 ```
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.bitbucket.id
-  group    = chainguard_group.user-group.id
+  group    = chainguard_group.example-group.id
   role     = data.chainguard_roles.viewer.items[0].id
 }
 ```
 
 Run the following command to create this file with each of these sections. Be sure to change the `subject_pattern` value to align with your own Bitbucket pipeline OIDC variables. For example, if your repository UUID were `C668DE74-6D94-4924-90B1-8B9AB7EE9089`, you would set the `subject_pattern` value to `"{C668DE74-6D94-4924-90B1-8B9AB7EE9089}:.+"`, ensuring that the curly braces are included.
 
-```sh
-cat > bitbucket.tf <<EOF
-resource "chainguard_identity" "bitbucket" {
-  parent_id   = chainguard_group.user-group.id
-  name        = "bitbucket"
-  description = <<EOF
-        This is an identity that authorizes Bitbucket workflows
-        for this repository to assume to interact with chainctl.
-  EOF
-
-  claim_match {
-    audience        = "ari:cloud:bitbucket::workspace/%workspace-uuid%"
-    issuer          = "https://api.bitbucket.org/2.0/workspaces/%workspace-name%/pipelines-config/identity/oidc"
-    subject_pattern = "{%repository-uuid%}:.+"
-  }
-}
-
-output "bitbucket-identity" {
-  value = chainguard_identity.bitbucket.id
-}
-
-data "chainguard_roles" "viewer" {
-  name = "viewer"
-}
-
-resource "chainguard_rolebinding" "view-stuff" {
-  identity = chainguard_identity.bitbucket.id
-  group    = chainguard_group.user-group.id
-  role     = data.chainguard_roles.viewer.items[0].id
-}
-EOF
-```
-
 Following that, your Terraform configuration will be ready. Now you can run a few `terraform` commands to create the resources defined in your `.tf` files.
-
 
 ## Creating Your Resources
 
@@ -342,18 +227,18 @@ pipelines:
 
 The important line is the `oidc: true` option, which enables OIDC for the individual step in the pipeline. This configuration is why the `subject_pattern` with a regular expression is used in the Terraform configuration, since each step gets its own UUID identifier, which is added to the `sub` field in the generated OIDC token. Since the step UUID is known known before the build, the subject match needs to use a regular expression.
 
-Now you can add the commands for testing the identity like `chainctl policy ls` in the following example:
+Now you can add the commands for testing the identity like `chainctl images repos list` in the following example:
 
 ```
 . . .
           # Assume the bitbucket pipeline identity
           - ./chainctl auth login --identity-token $BITBUCKET_STEP_OIDC_TOKEN --identity %bitbucket-identity%
-          - ./chainctl policy ls
+          - ./chainctl images repos list
 ```
 
 Once you commit the `bitbucket-pipelines.yml` file the pipeline will run.
 
-Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl policy ls` command, returning the policy you created with the `sample.tf` file.
+Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, listing repos available to the group.
 
 ```
 . . .
@@ -376,11 +261,11 @@ data "chainguard_roles" "editor" {
 }
 ```
 
-You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the policies the identity has access to, you could have the workflow inspect the groups.
+You can also edit the pipeline itself to change its behavior. For example, instead of listing the repos the identity has access to, you could have the workflow inspect the groups.
 
 ```
 	. . .
-          - ./chainctl policy ls
+          - ./chainctl images repos list
 ```
 
 Of course, the Bitbucket pipeline will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.
@@ -394,7 +279,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy the sample policy, the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`.
+This will destroy the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`.
 
 ```sh
 chainctl iam groups rm example-group
