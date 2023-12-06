@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trino Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2023-12-06 18:44:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 28th | `sha256:069fcc02cf0d67f8b0c5d17eabc00fe94ef299b10364a206a81ab56d633b9b4e` |
-|  `latest`     | November 28th | `sha256:7a2be851e835c041d850f8563d32c7aaebde07e1eaf68b89061cbd80543d1456` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | December 6th | `sha256:caaca31067c79c9db300daae896794a428d984723586319610eb9b9bdb2000ac` |
+|  `latest-dev` | December 6th | `sha256:b96998ccfef0b81f26b712cdf73d86ddeb8f1a9a3c0d338e41a93fbc2cb89668` |
 

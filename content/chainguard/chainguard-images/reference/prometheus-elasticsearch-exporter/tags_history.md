@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2023-12-06 18:44:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | November 29th | `sha256:54f9ad2e543d45b2553accd5947603e94c33a6af78e2ad2450711f3e174fb388` |
-|  `latest-dev` | November 29th | `sha256:cbda46d69cb6b2834f7de73a2dc86f3d3df6d963eb841a7a54e018c1674e3a41` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | December 6th | `sha256:7186b8728fc1d55c65f06bf6d2a4e7da8ff496302519715c356e81657c539869` |
+|  `latest-dev` | December 6th | `sha256:ae42f692aa370f63f01e4c4810918b174343dd3cff458aaf61d564de3050d7f0` |
 

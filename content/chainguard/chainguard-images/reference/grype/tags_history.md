@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grype Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2023-12-06 18:44:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | November 29th | `sha256:051d1560b444f7e935d81daecd68ff99b4d916543fa1e37fa0b16fc100b23acb` |
-|  `latest`     | November 29th | `sha256:ea7284bffb5d4c56d1d23745f6ee234b114df60698108b9618b87b36974cef47` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 6th | `sha256:e997bf4482433431a18e4bc973cd20197ffa15ce733e6f3e542563396eeec37b` |
+|  `latest`     | December 6th | `sha256:24adad7f48e77ef408457849c1498599c97be95d4dd098fdca797315fdb8a0af` |
 
