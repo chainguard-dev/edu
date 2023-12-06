@@ -16,7 +16,7 @@ weight: 005
 
 In Chainguard Enforce, [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
 
-This procedural tutorial outlines how to create an identity using Terraform, and then create a GitHub Actions workflow that will assume the identity to interact with Chainguard resources. 
+This procedural tutorial outlines how to create an identity using Terraform, and then create a GitHub Actions workflow that will assume the identity to interact with Chainguard resources.
 
 
 ## Prerequisites
@@ -25,7 +25,7 @@ To complete this guide, you will need the following.
 
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard Enforce command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
-* A GitHub repository you can use for testing out GitHub identity federation. To complete this guide, you must have permissions to create GitHub Actions on this testing repo. 
+* A GitHub repository you can use for testing out GitHub identity federation. To complete this guide, you must have permissions to create GitHub Actions on this testing repo.
 
 
 ## Creating Terraform Files
@@ -50,120 +50,37 @@ The file will consist of the following content.
 ```
 terraform {
   required_providers {
-	chainguard = {
-  	source = "chainguard/chainguard"
-	}
+    chainguard = {
+      source = "chainguard-dev/chainguard"
+    }
   }
 }
-
-provider "chainguard" {}
 ```
 
-This is a fairly barebones Terraform configuration file, but we will define the rest of the resources in the other two files. In `main.tf`, we declare and initialize the Chainguard Terraform provider. 
-
-To create the `main.tf` file, run the following command.
-
-```sh
-cat > main.tf <<EOF
-terraform {
-  required_providers {
-	chainguard = {
-  	source = "chainguard/chainguard"
-	}
-  }
-}
-
-provider "chainguard" {}
-EOF
-```
+This is a fairly barebones Terraform configuration file, but we will define the rest of the resources in the other two files. In `main.tf`, we declare and initialize the Chainguard Terraform provider.
 
 Next, you can create the `sample.tf` file.
 
-
 ### `sample.tf`
 
-`sample.tf` will create a couple of structures that will help us test out the identity in a workflow. 
+`sample.tf` will create a couple of structures that will help us test out the identity in a workflow.
 
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
 ```
-resource "chainguard_group" "user-group" {
+resource "chainguard_group" "example-group" {
   name    	= "example-group"
   description = <<EOF
-	This group simulates an end-user group, which the github
-	actions identity can interact with via the identity in
-	actions.tf.
+    This group simulates an end-user group, which the github
+    actions identity can interact with via the identity in
+    actions.tf.
   EOF
 }
 ```
 
 This section creates a Chainguard Enforce IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — which will be created by the `actions.tf` file — to access when we test it out later on.
 
-The next section contains these lines, which create a sample policy and apply it to the `example-group` group created in the previous section.
-
-```
-resource "chainguard_policy" "cgr-trusted" {
-  parent_id   = chainguard_group.user-group.id
-  document = jsonencode({
-	apiVersion = "policy.sigstore.dev/v1beta1"
-	kind   	= "ClusterImagePolicy"
-	metadata = {
-  	name = "trust-any-cgr"
-	}
-	spec = {
-  	images = [{
-    	glob = "cgr.dev/**"
-  	}]
-  	authorities = [{
-    	static = {
-      	action = "pass"
-    	}
-  	}]
-	}
-  })
-}
-```
-
-This policy trusts everything coming from the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/). Because this policy is broadly permissive, it wouldn't be practical or secure to use in a real-world scenario. Like the example group, this policy serves as some data for the Buildkite pipeline to inspect after it assumes the Chainguard identity.
-
-Create the `sample.tf` file with the following command.
-
-```sh
-cat > sample.tf <<EOF
-resource "chainguard_group" "user-group" {
-  name    	= "example-group"
-  description = <<EOF
-	This group simulates an end-user group, which the github
-	actions identity can interact with via the identity in
-	actions.tf.
-  EOF
-}
-
-resource "chainguard_policy" "cgr-trusted" {
-  parent_id   = chainguard_group.user-group.id
-  document = jsonencode({
-	apiVersion = "policy.sigstore.dev/v1beta1"
-	kind   	= "ClusterImagePolicy"
-	metadata = {
-  	name = "trust-any-cgr"
-	}
-	spec = {
-  	images = [{
-    	glob = "cgr.dev/**"
-  	}]
-  	authorities = [{
-    	static = {
-      	action = "pass"
-    	}
-  	}]
-	}
-  })
-}
-EOF
-```
-
 Now you can move on to creating the last of our Terraform configuration files, `actions.tf`.
-
 
 ### `actions.tf`
 
@@ -173,16 +90,16 @@ The first section creates the identity itself.
 
 ```
 resource "chainguard_identity" "actions" {
-  parent_id   = chainguard_group.user-group.id
+  parent_id   = chainguard_group.example-group.id
   name    	= "github-actions"
   description = <<EOF
-	This is an identity that authorizes the actions in this
-	repository to assume to interact with chainctl.
+    This is an identity that authorizes the actions in this
+    repository to assume to interact with chainctl.
   EOF
 
   claim_match {
-	issuer  = "https://token.actions.githubusercontent.com"
-	subject = "repo:<github_orgName>/<github_repoName>:ref:refs/heads/main"
+    issuer  = "https://token.actions.githubusercontent.com"
+    subject = "repo:<github_orgName>/<github_repoName>:ref:refs/heads/main"
   }
 }
 ```
@@ -201,10 +118,10 @@ output "actions-identity" {
 }
 ```
 
-The section after that looks up the `viewer` role. 
+The section after that looks up the `viewer` role.
 
 ```
-data "chainguard_roles" "viewer" {
+data "chainguard_role" "viewer" {
   name = "viewer"
 }
 ```
@@ -214,47 +131,12 @@ The final section grants this role to the identity on the `example-group`.
 ```
 resource "chainguard_role-binding" "view-stuff" {
   identity = chainguard_identity.actions.id
-  group	= chainguard_group.user-group.id
-  role 	= data.chainguard_roles.viewer.items[0].id
+  group	= chainguard_group.example-group.id
+  role 	= data.chainguard_role.viewer.items[0].id
 }
-```
-
-Run the following command to create this file with each of these sections. Be sure to change the `subject` value to align with your own GitHub repository. For example, if your GitHub repository is located at `github.com/UserName/repo-name.git` you would set the `subject` value to `"repo:UserName/repo-name:ref:refs/heads/main"`.
-
-```sh
-cat > actions.tf <<EOF
-resource "chainguard_identity" "actions" {
-  parent_id   = chainguard_group.user-group.id
-  name    	= "github-actions"
-  description = <<EOF
-	This is an identity that authorizes the actions in this
-	repository to assume to interact with chainctl.
-  EOF
-
-  claim_match {
-	issuer  = "https://token.actions.githubusercontent.com"
-	subject = "repo:<github_orgName>/<github_repoName>:ref:refs/heads/main"
-  }
-}
-
-output "actions-identity" {
-  value = chainguard_identity.actions.id
-}
-
-data "chainguard_roles" "viewer" {
-  name = "viewer"
-}
-
-resource "chainguard_rolebinding" "view-stuff" {
-  identity = chainguard_identity.actions.id
-  group	= chainguard_group.user-group.id
-  role 	= data.chainguard_roles.viewer.items[0].id
-}
-EOF
 ```
 
 Following that, your Terraform configuration will be ready. Now you can run a few `terraform` commands to create the resources defined in your `.tf` files.
-
 
 ## Creating Your Resources
 
@@ -290,7 +172,7 @@ Do you want to perform these actions?
   Terraform will perform the actions described above.
   Only 'yes' will be accepted to approve.
 
-  Enter a value: 
+  Enter a value:
 ```
 
 After pressing `ENTER`, the command will complete and will output an `actions-identity` value.
@@ -314,7 +196,6 @@ chainctl iam identities ls
 Note that you may receive a `PermissionDenied` error part way through the apply step. If so, run `chainctl auth login` once more, and then `terraform apply` again to resume creating the identity and resources.
 
 You're now ready to create a GitHub Actions workflow which you'll use to test out this identity.
-
 
 ## Creating and Testing a GitHub Actions Workflow
 
@@ -348,15 +229,15 @@ jobs:
       with:
         identity: <your actions identity>
 
-    - run: chainctl iam groups ls
+    - run: docker pull cgr.dev/<your group>/example-image:latest
 ```
 
-This workflow is named `actions assume example`. The `permissions` block grants `write` permissions to the workflow for the `id-token` scope. [Per the GitHub Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#adding-permissions-settings), you **must** grant this permission in order for the workflow to be able to fetch an OIDC token. 
+This workflow is named `actions assume example`. The `permissions` block grants `write` permissions to the workflow for the `id-token` scope. [Per the GitHub Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#adding-permissions-settings), you **must** grant this permission in order for the workflow to be able to fetch an OIDC token.
 
 This workflow performs two actions:
 
 * First, it assumes the identity you just created with Terraform.
-* Second, the workflow runs the `chainctl iam groups ls` command to list the groups that the identity has access to.
+* Second, the workflow runs the `docker pull` command to pull an image from the group's Chainguard registry.
 
 Commit the workflow to your repository, then navigate back to the **Actions** tab. The **Assume and Explore** workflow will appear in the left-hand sidebar menu. Click on this, and then click the **Run workflow** button on the resulting page to execute the workflow.
 
@@ -369,19 +250,18 @@ This indicates that the workflow can indeed assume the identity and interact wit
 If you'd like to experiment further with this identity and what the workflow can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
 
 ```
-data "chainguard_roles" "editor" {
+data "chainguard_role" "editor" {
   name = "editor"
 }
 ```
 
-You can also edit the workflow itself to change its behavior. For example, instead of inspecting the groups the identity has access to, you could have the workflow inspect the policies.
+You can also edit the workflow itself to change its behavior. For example, instead of pulling an image, you could have the workflow list available repos:
 
 ```
-	- run: chainctl policies ls
+	- run: chainctl images repos list
 ```
 
 Of course, the GitHub Actions workflow will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.
-
 
 ## Removing Sample Resources
 
@@ -391,7 +271,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy the sample policy, the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`.
+This will destroy the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`.
 
 ```sh
 chainctl iam groups rm example-group
@@ -404,7 +284,6 @@ rm -r ~/enforce-actions/
 ```
 
 Following that, all of the example resources created in this guide will be removed from your system.
-
 
 ## Learn more
 
