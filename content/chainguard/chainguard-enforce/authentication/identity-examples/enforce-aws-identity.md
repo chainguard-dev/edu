@@ -78,7 +78,7 @@ resource "chainguard_group" "user-group" {
 
 This section creates a Chainguard IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — which will be created by the `lambda.tf` file — to access when we test it out later on.
 
-Now you can move on to creating the last of our Terraform configuration files, `aws.tf`.
+Now you can move on to creating the last of our Terraform configuration files, `lambda.tf`.
 
 ### `lambda.tf`
 
