@@ -30,7 +30,7 @@ To complete this guide, you will need the following.
 
 We will be using Terraform to create an identity for an AWS role to assume. This step outlines how to create the Terraform configuration files that, together, will produce such an identity.
 
-These files are available here: https://github.com/chainguard-dev/platform-examples/tree/main/aws-auth
+These files are available in [Chainguard's GitHub Repository of Platform Examples](https://github.com/chainguard-dev/platform-examples/tree/main/aws-auth).
 
 To help explain each configuration file's purpose, we will go over what they do one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
 
