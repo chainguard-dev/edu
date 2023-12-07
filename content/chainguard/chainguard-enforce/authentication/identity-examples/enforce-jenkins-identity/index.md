@@ -239,6 +239,7 @@ pipeline {
                         wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_\$(uname -m)"
                         chmod +x chainctl
                         ./chainctl auth login --identity-token $token --identity <your jenkins identity>
+                        ./chainctl auth configure-docker --identity-token $token --identity <your jenkins identity>
                     '''
                 }
             }
@@ -249,14 +250,16 @@ pipeline {
 
 The important line is `withCredentials` option, which maps the generated OIDC token from the `oidc-token` credential parameter to `token` variable in the pipeline step.
 
-Now you can add the commands for testing the identity like `chainctl images repos list` in the following example:
+Now you can add the commands for testing the identity using `chainctl images repos list` in the following example:
 
 ```
 sh '''
     wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_\$(uname -m)"
     chmod +x chainctl
     ./chainctl auth login --identity-token $token --identity <your jenkins identity>
+    ./chainctl auth configure-docker --identity-token $token --identity <your jenkins identity>
     ./chainctl images repos list
+    docker pull cgr.dev/<group>/<repo>:<tag>
 '''
 ```
 
