@@ -1,23 +1,23 @@
 ---
 title: "How to Install chainctl"
 linktitle: "Install chainctl"
+aliases: 
+- /chainguard/chainguard-enforce/how-to-install-chainctl
 type: "article"
 description: "Install the chainctl command line tool to work with Chainguard Enforce and Images"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2023-03-22T15:56:52-07:00
+lastmod: 2023-12-07T15:56:52-07:00
 draft: false
-tags: ["Enforce", "chainctl", "Product"]
+tags: ["chainctl", "Product"]
 images: []
 menu:
   docs:
-    parent: "chainguard-enforce"
+    parent: "administration"
 toc: true
-weight: 998
+weight: 005
 ---
 
-> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
-
-The Chainguard Enforce command line interface (CLI) tool, `chainctl`, will help you interact with the account model that Chainguard Enforce provides, and enable you to make queries into the state of your clusters and policies registered with the platform.
+The Chainguard command line interface (CLI) tool, `chainctl`, will help you interact with the account model that Chainguard provides, and enable you to make queries into the state of your Chainguard resources.
 
 The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. For example, to list groups within the context of Chainguard Identity and Access Management (IAM), you can run `chainctl iam groups list` to receive relevant output.
 
@@ -120,6 +120,28 @@ Verified OK
 ```
 
 If you do not see the line `Verified OK` then there is a problem with your `chainctl` binary and you should reinstall it using the instructions at the beginning of this page.
+
+## Authenticating
+
+With chainctl installed, you can authenticate into Chainguard with the following command:
+
+```sh
+chainctl auth login
+```
+
+This will open your browser window and take you through a workflow to login with your OIDC provider. 
+
+## Configure a Docker credential helper
+
+You can configure a Docker credential helper with chainctl by running:
+
+```sh
+chainctl auth configure-docker
+```
+
+This will update your Docker config file to call chainctl when an auth token is needed. A browser window will open when the token needs to be refreshed.
+
+For guidance on pull tokens, please review [authenticating with a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token).
 
 ## Updating `chainctl`
 

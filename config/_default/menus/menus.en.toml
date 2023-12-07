@@ -149,12 +149,6 @@
   parent = "products"
 
 [[footer]]
-  name = "Chainguard Enforce"
-  url = "https://www.chainguard.dev/chainguard-enforce"
-  parent = "products"
-  weight = 2
-
-[[footer]]
   name = "Chainguard Services"
   url = "https://www.chainguard.dev/services"
   weight = 3

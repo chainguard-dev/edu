@@ -17,8 +17,6 @@ weight: 001
 toc: true
 ---
 
-> _This document relates to Chainguard Enforce. You can request access to Chainguard Enforce through selecting **Chainguard Enforce** on our [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
-
 An organization's software supply chain can contain many possible points of entry for malicious actors and lots of potential for unintended vulnerabilities. Indeed, with recent high-profile security incidents like the SolarWinds breach and the discovery of the Log4Shell vulnerability, [software supply chain security](/software-security/what-is-software-supply-chain-security/) has become a top priority for many organizations.
 
 **Chainguard Enforce** offers a supply chain security solution for containerized workloads, which can help keep organizations' software supply chains secure by default. Enabling engineering and security teams to ensure continuous compliance, Chainguard Enforce protects organizations from supply chain threats through policy enforcement. Using open source projects and standards that are trusted by the community — like Cosign and Fulcio from the Sigstore project — Chainguard Enforce offers a robust approach to securing your workloads, allowing you to do the following:
