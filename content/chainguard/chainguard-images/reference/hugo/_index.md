@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: hugo Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-07 00:19:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -39,7 +39,10 @@ docker pull cgr.dev/chainguard/hugo:latest
 <!--getting:end-->
 
 <!--compatibility:start-->
-## Compatibility NotesThis image only contains `hugo` and supporting libraries.  The Hugo process starts in `/hugo` by default so this directory may be initialized with the Hugo site to serve.<!--compatibility:end-->
+## Compatibility Notes
+
+This image only contains `hugo` and supporting libraries.  The Hugo process starts in `/hugo` by default so this directory may be initialized with the Hugo site to serve.
+<!--compatibility:end-->
 
 <!--body:start-->
 ## Application Setup for End Users

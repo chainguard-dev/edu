@@ -4,8 +4,8 @@ linktitle: "erlang"
 type: "article"
 layout: "single"
 description: "Overview: erlang Chainguard Image"
-date: 2023-12-06 18:44:36
-lastmod: 2023-12-06 18:44:36
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-07 00:19:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 Container image for building Erlang applications.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/erlang:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 The image can be used to run the `erl` tool, or to compile and run Erlang scripts.
@@ -59,4 +63,5 @@ CMD [ "-noshell", "-eval", "hello:hello_world().", "-s", "init", "stop" ]
 ```
 
 Running this image should output `hello, world`.
+<!--body:end-->
 

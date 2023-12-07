@@ -1,3 +1,58 @@
+# 2023-12-07
+
+
+Updated Docs:
+
+- buildkit/_index.md
+- buildkit/tags_history.md
+- calico-cni/_index.md
+- calico-cni/tags_history.md
+- calico-csi/_index.md
+- calico-csi/tags_history.md
+- calico-kube-controllers/_index.md
+- calico-kube-controllers/tags_history.md
+- calico-node/_index.md
+- calico-node/tags_history.md
+- calico-node-driver-registrar/_index.md
+- calico-node-driver-registrar/tags_history.md
+- calico-pod2daemon-flexvol/_index.md
+- calico-pod2daemon-flexvol/tags_history.md
+- calico-typha/_index.md
+- calico-typha/tags_history.md
+- calicoctl/_index.md
+- calicoctl/tags_history.md
+- clang/_index.md
+- clang/tags_history.md
+- dependency-track/_index.md
+- erlang/_index.md
+- erlang/tags_history.md
+- haproxy-ingress/_index.md
+- haproxy-ingress/tags_history.md
+- helm/_index.md
+- helm/tags_history.md
+- hugo/_index.md
+- hugo/tags_history.md
+- jdk/tags_history.md
+- kubernetes-csi-external-provisioner/_index.md
+- kubernetes-csi-external-provisioner/tags_history.md
+- kubernetes-dashboard/_index.md
+- kubernetes-dashboard/tags_history.md
+- kubernetes-ingress-defaultbackend/_index.md
+- kubernetes-ingress-defaultbackend/tags_history.md
+- meilisearch/_index.md
+- node/_index.md
+- node/tags_history.md
+- skaffold/_index.md
+- skaffold/tags_history.md
+- spire-agent/_index.md
+- spire-agent/tags_history.md
+- spire-oidc-discovery-provider/_index.md
+- spire-oidc-discovery-provider/tags_history.md
+- spire-server/_index.md
+- spire-server/tags_history.md
+- vector/_index.md
+- vector/tags_history.md
+
 # 2023-12-06
 New images added:
 
