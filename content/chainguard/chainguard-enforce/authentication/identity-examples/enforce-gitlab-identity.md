@@ -66,17 +66,12 @@ Next, you can create the `sample.tf` file.
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
 ```hcl
-resource "chainguard_group" "example-group" {
-  name   	 = "example-group"
-  description = <<EOF
-    This group simulates an end-user group, which the GitLab
-    CI pipeline identity can interact with via the identity in
-    gitlab.tf.
-  EOF
+data "chainguard_group" "group" {
+  name   	 = "my-customer.biz"
 }
 ```
 
-This section creates a Chainguard Enforce IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — which will be created by the `gitlab.tf` file — to access when we test it out later on.
+This section looks up a Chainguard IAM group named `my-customer.biz`. This will contain the identity — which will be created by the `gitlab.tf` file — to access when we test it out later on.
 
 Now you can move on to creating the last of our Terraform configuration files, `gitlab.tf`.
 
@@ -88,7 +83,7 @@ The first section creates the identity itself.
 
 ```
 resource "chainguard_identity" "gitlab" {
-  parent_id   = chainguard_group.example-group.id
+  parent_id   = chainguard_group.group.id
   name    	= "gitlab-ci"
   description = <<EOF
 	This is an identity that authorizes Gitlab CI in this
@@ -103,7 +98,7 @@ resource "chainguard_identity" "gitlab" {
 }
 ```
 
-First this section creates a Chainguard Identity tied to the `chainguard_group` created by the `sample.tf` file; namely, the `example-group` group. The identity is named `gitlab-ci` and has a brief description.
+First this section creates a Chainguard Identity tied to the `chainguard_group` looked up in the `sample.tf` file. The identity is named `gitlab-ci` and has a brief description.
 
 The most important part of this section is the `claim_match`. When the GitLab pipeline tries to assume this identity later on, it must present a token matching the `issuer`, `subject`, and `audience` specified here in order to do so. The `issuer` is the entity that creates the token, the `subject` is the entity that the token represents (here, the GitLab pipeline), and the `audience` is the intended recipient of the token.
 
@@ -127,12 +122,12 @@ data "chainguard_roles" "viewer" {
 }
 ```
 
-The final section grants this role to the identity on the `example-group`.
+The final section grants this role to the identity on the group.
 
 ```
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.gitlab.id
-  group	= chainguard_group.example-group.id
+  group	= chainguard_group.group.id
   role 	= data.chainguard_roles.viewer.items[0].id
 }
 ```
@@ -247,7 +242,7 @@ Next, this configuration creates a JSON Web Token (JWT) with an [`id_tokens`](ht
 
 Following that, the job runs a few commands to download and install `chainctl`. It then uses `chainctl`, the JWT, and the Chainguard identity's `id` value to log in to Chainguard Enforce under the assumed identity. Be sure to replace `<your gitlab identity>` with the identity UIDP you noted down in the previous section.
 
-After logging in, the pipeline is able to run any `chainctl` command under the assumed identity. To test out this ability, this configuration runs the `chainctl images repos list` command to list all available image repos associated associated with the `example-group` group, then pulls an image from the group's repository.
+After logging in, the pipeline is able to run any `chainctl` command under the assumed identity. To test out this ability, this configuration runs the `chainctl images repos list` command to list all available image repos associated associated with the group.
 
 After updating the configuration, commit the changes and the pipeline will run automatically. A status box in the dashboard will let you know whether the pipeline runs successfully.
 
@@ -286,11 +281,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy identity and the role-binding created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`.
-
-```sh
-chainctl iam groups rm example-group
-```
+This will destroy identity and the role-binding created in this guide. It will not delete the group.
 
 You can then remove the working directory to clean up your system.
 
