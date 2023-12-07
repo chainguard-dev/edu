@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: dependency-track Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-07 00:19:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -25,16 +25,20 @@ toc: true
 
 
 
-
+<!--overview:start-->
 [Dependency Track](https://github.com/DependencyTrack/dependency-track) Dependency-Track is an intelligent Component Analysis platform that allows organizations to identify and reduce risk in the software supply chain.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/dependency-track
+docker pull cgr.dev/chainguard/dependency-track:latest
 ```
+<!--getting:end-->
+
+<!--body:start-->
 
 ## Using Dependency Track
 
@@ -141,4 +145,6 @@ $ docker run -p 8080:8080 cgr.dev/chainguard/dependency-track
 ```
 
 The admin console should then be available in your browser at [http://localhost:8080](http://localhost:8080).
+
+<!--body:end-->
 

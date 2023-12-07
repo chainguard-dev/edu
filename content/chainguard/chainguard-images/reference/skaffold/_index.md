@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: skaffold Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-07 00:19:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -39,7 +39,10 @@ docker pull cgr.dev/chainguard/skaffold:latest
 <!--getting:end-->
 
 <!--compatibility:start-->
-## Compatibility NotesThe image specifies a default non-root `skaffold` user (UID 65532), and a working directory at `/app`, owned by that `skaffold` user, and accessible to all users.<!--compatibility:end-->
+## Compatibility Notes
+
+The image specifies a default non-root `skaffold` user (UID 65532), and a working directory at `/app`, owned by that `skaffold` user, and accessible to all users.
+<!--compatibility:end-->
 
 <!--body:start-->
 

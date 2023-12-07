@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: clang Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-07 00:19:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,7 +26,7 @@ toc: true
 
 
 <!--overview:start-->
-[Clang](https://clang.llvm.org) is a compiler front end for the C, C++, Objective-C, and Objective-C++ programming languages, as well as the OpenMP, OpenCL, RenderScript, CUDA, SYCL, and HIP frameworks.
+[Clang](https://clang.llvm.org) is a compiler front end for the C, C++, Objective-C, and Objective-C++ programming languages, as well as the OpenMP, OpenCL, RenderScript, CUDA, SYCL, and HIP frameworks
 <!--overview:end-->
 
 <!--getting:start-->
@@ -87,3 +87,4 @@ docker run --rm -v /tmp:/work cgr.dev/chainguard/bash /work/hello
 Hello World!
 ```
 <!--body:end-->
+
