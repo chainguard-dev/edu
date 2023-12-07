@@ -4,8 +4,8 @@ linktitle: "buildkit"
 type: "article"
 layout: "single"
 description: "Overview: buildkit Chainguard Image"
-date: 2023-12-06 18:44:36
-lastmod: 2023-12-06 18:44:36
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-07 00:19:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -24,4 +24,19 @@ toc: true
 {{</ tabs >}}
 
 
+
+<!--overview:start-->
+Buildkit is a concurrent, cache-efficient, and Dockerfile-agnostic builder toolkit.
+<!--overview:end-->
+
+<!--getting:start-->
+## Get It!
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/buildkit:latest
+```
+<!--getting:end-->
+
+<!--body:start--><!--body:end-->
 

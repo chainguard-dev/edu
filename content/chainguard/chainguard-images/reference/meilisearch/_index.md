@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: meilisearch Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-07 00:19:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -39,7 +39,10 @@ docker pull cgr.dev/chainguard/meilisearch:latest
 <!--getting:end-->
 
 <!--compatibility:start-->
-## Compatibility NotesThe image specifies a default non-root `meilisearch` user (UID 999), and a data and dump directory at `/var/data.ms`, owned by that `meilisearch` user, accessible to all users.<!--compatibility:end-->
+## Compatibility Notes
+
+The image specifies a default non-root `meilisearch` user (UID 999), and a data and dump directory at `/var/data.ms`, owned by that `meilisearch` user, accessible to all users.
+<!--compatibility:end-->
 
 <!--body:start-->
 ## Usage Example

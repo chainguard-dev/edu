@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calicoctl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-07 00:19:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | December 6th | `sha256:491c39011ae3c2878ff227702f49c5165985b99e8b7f29339232b35f71b39e58` |
+|  `latest` | December 6th | `sha256:7b0ec387bcef1cb49841e609ff0e5a822e2d57bdeb3fc42bd155cd8f1c5da1bf` |
 
