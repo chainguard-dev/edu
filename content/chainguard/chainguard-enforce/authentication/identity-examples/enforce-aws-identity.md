@@ -76,9 +76,9 @@ resource "chainguard_group" "user-group" {
 }
 ```
 
-This section creates a Chainguard IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — which will be created by the `lambda.tf` file — to access when we test it out later on.
+This section creates a Chainguard IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — we'll discuss later — to access when we test it out later on.
 
-Now you can move on to creating the last of our Terraform configuration files, `lambda.tf`.
+Next we'll go through `lambda.tf`, which will use this new identity resource.
 
 ### `lambda.tf`
 
@@ -109,7 +109,9 @@ resource "aws_iam_role" "lambda" {
 
 This describes an AWS role that a Lambda function will run as. The Lambda function will assume this role, and then use the Chainguard identity to interact with Chainguard resources.
 
-In `chainguard.tf`, we define a Chainguard identity that can be assumed by the AWS role:
+### `chainguard.tf`
+
+Back in `chainguard.tf`, we define a Chainguard identity that can be assumed by the AWS role created above:
 
 ```hcl
 resource "chainguard_identity" "aws" {
@@ -155,35 +157,7 @@ After defining these resources, your Terraform configuration will be ready. Now 
 
 ### `lambda.tf`
 
-The `lambda.tf` file will create an AWS Lambda function that will assume the identity you created in the previous section. This function will then use the identity to interact with Chainguard resources.
-
-First, define the following resources in a `lambda.tf` file. The file will consist of three sections, which we'll go over one by one.
-
-This section defines an IAM policy document that will allow the AWS Lambda service to assume the role you'll create in the next section:
-
-```hcl
-data "aws_iam_policy_document" "assume_role" {
-  statement {
-    effect = "Allow"
-
-    principals {
-      type        = "Service"
-      identifiers = ["lambda.amazonaws.com"]
-    }
-
-    actions = ["sts:AssumeRole"]
-  }
-}
-```
-
-This section defines the role that the AWS Lambda service will assume:
-
-```hcl
-resource "aws_iam_role" "iam_for_lambda" {
-  name               = "iam_for_lambda"
-  assume_role_policy = data.aws_iam_policy_document.assume_role.json
-}
-```
+The `lambda.tf` file also creates an AWS Lambda function that will assume the identity you created in the previous section. This function will then use the identity to interact with Chainguard resources.
 
 The final section defines a AWS lambda function implemented in Go that will assume the identity you created in the previous section:
 
@@ -192,23 +166,20 @@ resource "aws_lambda_function" "test_lambda" {
   filename      = "lambda_function_payload.zip"
   function_name = "lambda_function_name"
   role          = aws_iam_role.iam_for_lambda.arn
-  handler       = "bootstra"
+  handler       = "bootstrap"
 
   source_code_hash = data.archive_file.lambda.output_base64sha256
 
   runtime = "go1.x"
-
-  environment {
-    variables = {
-      foo = "bar"
-    }
-  }
 }
 ```
 
 Check out [this basic example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function#basic-example) for configuring AWS Lambda using Terraform, and the docs for [deploying Go Lambda functions with .zip file archives](https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html) for more information on how to configure the `filename` and `source_code_hash` fields.
 
+Below we'll go over some of the specific details from the [example Go application](https://github.com/chainguard-dev/platform-examples/blob/main/aws-auth/main.go).
+
 After it's deployed, when this function is invoked, it will assume the AWS role you created in the previous section. It will then be able to present credentials as that AWS role that will allow it to assume the Chainguard identity you created in the previous section, to view and manage Chainguard resources.
+
 
 ## Creating Your Resources
 
@@ -283,9 +254,9 @@ if err != nil {
 }
 ```
 
-These credentials represent the AWS role assumed by the Lambda function.
+These credentials represent the AWS role assumed by the Lambda function (`"aws-auth"` defined above in `lambda.tf`).
 
-You can use the Chainguard SDK for Go to generate a token that Chainguard understands to authenticate the Lambda function as the Chainguard identity you created earlier, by its UIDP:
+You can use the [Chainguard SDK for Go](https://chainguard.dev/sdk) to generate a token that Chainguard understands, to authenticate the Lambda function as the Chainguard identity you created earlier, by its UIDP:
 
 ```go
 // Generate a token and exchange it for a Chainguard token.
