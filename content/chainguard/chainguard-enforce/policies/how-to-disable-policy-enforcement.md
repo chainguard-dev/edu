@@ -16,8 +16,6 @@ weight: 040
 toc: true
 ---
 
-> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access through selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
-
 In the event of an incident response or another situation where you may need to modify Chainguard Enforce to _warn_ about instead of _fail_ a given policy, you can modify the policy configuration.
 
 In an Enforce policy, images that fail to meet requirements will cause the image not to be admitted by default. To instead allow these through and warn the user that this operation did not meet the criteria, you can use the `mode` configuration option under `ClusterImagePolicy`. When set to `warn`, the policy will not block the admission, but instead will allow it through and emit a warning.

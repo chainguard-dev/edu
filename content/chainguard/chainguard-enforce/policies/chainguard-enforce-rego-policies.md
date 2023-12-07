@@ -15,8 +15,6 @@ weight: 010
 toc: true
 ---
 
-> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
-
 Chainguard Enforce supports the [Rego Policy Language](https://www.openpolicyagent.org/docs/latest/policy-language/), which is a declarative policy language that is used to evaluate structured input data such as Kubernetes manifests and JSON documents. This feature enables users to apply policies that can evaluate Kubernetes admission requests and object metadata to make comprehensive decisions about the workloads that are admitted to their clusters. Rego support also enables users to enhance existing cloud-native policies by adding additional software supply chain security checks all within Chainguard Enforce.
 
 There are several Rego policy templates that you can customize within the [Chainguard Enforce Policy Catalog](https://console.enforce.dev/policies/catalog). If you would like to write one from scratch, or learn more about how to use this format, you can follow this guide. 

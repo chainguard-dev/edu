@@ -17,9 +17,6 @@ weight: 030
 toc: true
 ---
 
-> _This documentation is related to Chainguard Enforce. You can request access to the product by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
-
-
 Chainguard Enforce for Kubernetes allows you to associate a cloud provider account with an Enforce IAM group. Cloud account association allows the Chainguard Enforce platform to access cloud resources on your behalf to enable several features, including:
 
 - Verifying policies against containers hosted in private cloud container registries
