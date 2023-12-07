@@ -82,17 +82,12 @@ Next, you can create the `sample.tf` file.
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
 ```
-resource "chainguard_group" "example-group" {
-  name        = "example-group"
-  description = <<EOF
-    This group simulates an end-user group, which the Jenkins
-    pipeline identity can interact with via the identity in
-    jenkins.tf.
-  EOF
+data "chainguard_group" "group" {
+  name        = "my-customer.biz"
 }
 ```
 
-This section creates a Chainguard Enforce IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — which will be created by the `jenkins.tf` file — to access when we test it out later on.
+This section looks up a Chainguard IAM group named `my-customer.biz`. This will contain the identity — which will be created by the `jenkins.tf` file — to access when we test it out later on.
 
 Now you can move on to creating the last of our Terraform configuration files, `jenkins.tf`.
 
@@ -104,7 +99,7 @@ The first section creates the identity itself.
 
 ```
 resource "chainguard_identity" "jenkins" {
-  parent_id   = chainguard_group.example-group.id
+  parent_id   = chainguard_group.group.id
   name        = "jenkins"
   description = <<EOF
     This is an identity that authorizes Jenkins workflows
@@ -119,7 +114,7 @@ resource "chainguard_identity" "jenkins" {
 }
 ```
 
-First, this section creates a Chainguard Identity tied to the `chainguard_group` created by the `sample.tf` file; namely, the `example-group` group. The identity is named `jenkins` and has a brief description.
+First, this section creates a Chainguard Identity tied to the `chainguard_group` looked up in the `sample.tf` file. The identity is named `jenkins` and has a brief description.
 
 The most important part of this section is the `claim_match`. When the Jenkins workflow tries to assume this identity later on, it must present a token matching the `audience`, `issuer` and `subject` specified here in order to do so. The `audience` is the intended recipient of the issued token, while the `issuer` is the entity that creates the token. Finally, the `subject` is the entity (here, the Jenkins pipeline build) that the token represents.
 
@@ -149,12 +144,12 @@ data "chainguard_role" "viewer" {
 }
 ```
 
-The final section grants this role to the identity on the `example-group`.
+The final section grants this role to the identity on the group.
 
 ```
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.jenkins.id
-  group    = chainguard_group.example-group.id
+  group    = chainguard_group.group.id
   role     = data.chainguard_role.viewer.items[0].id
 }
 ```
@@ -303,11 +298,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy the role-binding, and the identity created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`.
-
-```sh
-chainctl iam groups rm example-group
-```
+This will destroy the role-binding, and the identity created in this guide. It will not delete the group.
 
 You can then remove the working directory to clean up your system.
 
