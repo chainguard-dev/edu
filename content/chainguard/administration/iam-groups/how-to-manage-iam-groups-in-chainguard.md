@@ -28,7 +28,7 @@ To authenticate into the Chainguard platform, use the following login command.
 chainctl auth login
 ```
 
-A web browser window will open to prompt you to login via your chosen OIDC flow. Select an account with which you wish to register. Once authenticated, you can set up a desired group structure for managing and delegating.
+A web browser window will open to prompt you to log in via your chosen OIDC flow. Select an account with which you wish to register. Once authenticated, you can set up a desired group structure for managing and delegating.
 
 ## Creating a Group
 
