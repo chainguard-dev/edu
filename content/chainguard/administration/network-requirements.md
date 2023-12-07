@@ -13,6 +13,7 @@ aliases:
 tags: ["Chainguard Images", "Chainguard Enforce", "Product", "Reference"]
 images: []
 toc: true
+weight: 001
 ---
 
 This document provides an overview of network requirements for using [Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs) and [Chainguard Enforce](https://www.chainguard.dev/chainguard-enforce?utm_source=docs). To use Chainguard products in environments with firewalls, VPNs, and IDS/IPS systems, you will need to add some rules to allow traffic into and out of your networks.
