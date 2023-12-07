@@ -45,12 +45,12 @@ The first file, which we will call `main.tf`, will serve as the scaffolding for 
 
 The file will consist of the following content.
 
-```
+```hcl
 terraform {
   required_providers {
-	chainguard = {
-  	source = "chainguard-dev/chainguard"
-	}
+    chainguard = {
+      source = "chainguard-dev/chainguard"
+    }
   }
 }
 ```
@@ -66,20 +66,14 @@ Next, you can create the `sample.tf` file.
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
 ```
-resource "chainguard_group" "example-group" {
-  name    	= "example-group"
-  description = <<EOF
-	This group simulates an end-user group, which the buildkite
-	pipeline identity can interact with via the identity in
-	buildkite.tf.
-  EOF
+data "chainguard_dev" "root_group" {
+  name = "my-customer.biz"
 }
 ```
 
-This section creates a Chainguard Enforce IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — which will be created by the `buildkite.tf` file — to access when we test it out later on.
+This section looks up a Chainguard IAM group named `my-customer.biz`. This will contain the identity — which will be created by the `buildkite.tf` file — to access when we test it out later on.
 
 Now you can move on to creating the last of our Terraform configuration files, `buildkite.tf`.
-
 
 ### `buildkite.tf`
 
@@ -89,7 +83,7 @@ The first section creates the identity itself.
 
 ```
 resource "chainguard_identity" "buildkite" {
-  parent_id   = chainguard_group.example-group.id
+  parent_id   = chainguard_group.group.id
   name   	 = "buildkite"
   description = <<EOF
     This is an identity that authorizes Buildkite workflows
@@ -103,7 +97,7 @@ resource "chainguard_identity" "buildkite" {
 }
 ```
 
-First, this section creates a Chainguard Identity tied to the `chainguard_group` created by the `sample.tf` file; namely, the `example-group` group. The identity is named `buildkite` and has a brief description.
+First, this section creates a Chainguard Identity tied to the `chainguard_group` looked up in the `sample.tf` file. The identity is named `buildkite` and has a brief description.
 
 The most important part of this section is the `claim_match`. When the Buildkite workflow tries to assume this identity later on, it must present a token matching the `issuer` and `subject` specified here in order to do so. The `issuer` is the entity that creates the token, while the `subject` is the entity (here, the Buildkite pipeline build) that the token represents.
 
@@ -129,12 +123,12 @@ data "chainguard_role" "viewer" {
 }
 ```
 
-The final section grants this role to the identity on the `example-group`.
+The final section grants this role to the identity on the group.
 
 ```
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.buildkite.id
-  group	= chainguard_group.example-group.id
+  group	= chainguard_group.group.id
   role 	= data.chainguard_roles.viewer.items[0].id
 }
 ```
@@ -144,7 +138,7 @@ Run the following command to create this file with each of these sections. Be su
 ```sh
 cat > buildkite.tf <<EOF
 resource "chainguard_identity" "buildkite" {
-  parent_id   = chainguard_group.example-group.id
+  parent_id   = chainguard_group.group.id
   name    	= "buildkite"
   description = <<EOF
 	This is an identity that authorizes Buildkite workflows
@@ -167,7 +161,7 @@ data "chainguard_roles" "viewer" {
 
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.buildkite.id
-  group	= chainguard_group.example-group.id
+  group	= chainguard_group.group.id
   role 	= data.chainguard_roles.viewer.items[0].id
 }
 EOF
@@ -322,11 +316,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy the role-binding and the identity created in this guide. However, you'll need to destroy the `example-group` group yourself with `chainctl`.
-
-```sh
-chainctl iam groups rm example-group
-```
+This will destroy the role-binding and the identity created in this guide. It will not delete the group.
 
 You can then remove the working directory to clean up your system.
 
