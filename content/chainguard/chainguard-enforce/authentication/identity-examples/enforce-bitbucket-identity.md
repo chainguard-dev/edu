@@ -223,6 +223,7 @@ pipelines:
 
           # Assume the bitbucket pipeline identity
           - ./chainctl auth login --identity-token $BITBUCKET_STEP_OIDC_TOKEN --identity %bitbucket-identity%
+          - ./chainctl auth configure-docker --identity-token $BITBUCKET_STEP_OIDC_TOKEN --identity %bitbucket-identity%
 ```
 
 The important line is the `oidc: true` option, which enables OIDC for the individual step in the pipeline. This configuration is why the `subject_pattern` with a regular expression is used in the Terraform configuration, since each step gets its own UUID identifier, which is added to the `sub` field in the generated OIDC token. Since the step UUID is known known before the build, the subject match needs to use a regular expression.
@@ -230,10 +231,11 @@ The important line is the `oidc: true` option, which enables OIDC for the indivi
 Now you can add the commands for testing the identity like `chainctl images repos list` in the following example:
 
 ```
-. . .
+...
           # Assume the bitbucket pipeline identity
           - ./chainctl auth login --identity-token $BITBUCKET_STEP_OIDC_TOKEN --identity %bitbucket-identity%
           - ./chainctl images repos list
+          - docker pull cgr.dev/<group>/<repo>:<tag>
 ```
 
 Once you commit the `bitbucket-pipelines.yml` file the pipeline will run.
@@ -248,9 +250,6 @@ chainctl        	100%[===================>]  54.34M  6.78MB/s	in 13s
 
 Successfully exchanged token.
 Valid! Id: 3f4ad8a9d5e63be71d631a359ba0a91dcade94ab/d3ed9c70b538a796
-                         	ID                         	| 	NAME  	| DESCRIPTION |   MODE
-------------------------------------------------------------+---------------+-------------+-----------
-  3f4ad8a9d5e63be71d631a359ba0a91dcade94ab/42b8649dc3a3ea66 | trust-any-cgr |         	| ENFORCED
 ```
 
 If you'd like to experiment further with this identity and what the pipeline can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
@@ -264,7 +263,6 @@ data "chainguard_roles" "editor" {
 You can also edit the pipeline itself to change its behavior. For example, instead of listing the repos the identity has access to, you could have the workflow inspect the groups.
 
 ```
-	. . .
           - ./chainctl images repos list
 ```
 
