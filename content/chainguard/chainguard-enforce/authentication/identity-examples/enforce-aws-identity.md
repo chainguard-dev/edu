@@ -58,7 +58,7 @@ terraform {
 
 This is a fairly barebones Terraform configuration file, but we will define the rest of the resources in the other two files. In `main.tf`, we declare and initialize the Chainguard Terraform provider.
 
-Next, you can look at the `chainguard.tf` file.
+Next, you can create the `chainguard.tf` file.
 
 ### `chainguard.tf`
 
