@@ -7,7 +7,7 @@ type: "article"
 date: 2023-04-17T08:48:45+00:00
 lastmod: 2023-10-26T15:22:20+01:00
 draft: false
-tags: ["Enforce", "Chainguard Images", "Overview"]
+tags: ["Chainguard Images", "Overview"]
 images: []
 weight: 005
 ---

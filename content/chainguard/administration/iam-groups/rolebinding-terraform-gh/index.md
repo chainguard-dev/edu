@@ -6,7 +6,7 @@ type: "article"
 date: 2023-06-10T08:48:45+00:00
 lastmod: 2023-10-26T15:22:20+01:00
 draft: false
-tags: ["Enforce", "Product", "Procedural"]
+tags: ["Product", "Procedural"]
 images: []
 weight: 050
 ---

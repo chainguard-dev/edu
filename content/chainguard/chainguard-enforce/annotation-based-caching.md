@@ -17,8 +17,6 @@ weight: 050
 toc: true
 ---
 
-> _This document relates to Chainguard Enforce. In order to follow along, you will need access to Chainguard Enforce. You can request access by selecting **Chainguard Enforce** on the [inquiry form](https://www.chainguard.dev/contact?utm_source=docs)._
-
 Chainguard Enforce for Kubernetes can leverage annotations on Kubernetes objects to cache verification results to reduce the amount of traffic made to container registries in order to improve latency and scalability of the admission webhook.
 
 This feature will soon be the default for all users. In the meantime, in order to try out this feature on your Kubernetes cluster, you can use a feature flag setting in the ConfigMap `config-policy-controller` within the `cosign-system` namespace.

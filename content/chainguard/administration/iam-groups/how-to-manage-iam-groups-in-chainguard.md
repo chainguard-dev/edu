@@ -3,12 +3,13 @@ title: "How to Manage Chainguard IAM Groups"
 linktitle: "Manage IAM Groups"
 aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-manage-iam-groups-in-chainguard-enforce/
+- /chainguard/administration/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/
 type: "article"
 description: "Understanding Identity and Access Management in Chainguard"
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2023-10-26T15:22:20+01:00
+lastmod: 2023-12-07T15:22:20+01:00
 draft: false
-tags: ["Enforce", "Product", "Procedural"]
+tags: ["Product", "Procedural"]
 images: []
 menu:
   docs:
@@ -17,10 +18,7 @@ weight: 010
 toc: true
 ---
 
-Chainguard provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. Once authenticated, you can set up a desired structure for managing and delegating policies.
-
-Each Chainguard policy needs to be associated with a **group**, and will be effective for that group as well as all the groups descending from it. Each cluster needs to be associated with a group and will be enforced based on that group’s policies.
-
+Chainguard provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. Once authenticated, you can set up a desired group management structure.
 
 ## Logging in
 
@@ -30,7 +28,7 @@ To authenticate into the Chainguard platform, use the following login command.
 chainctl auth login
 ```
 
-A web browser window will open to prompt you to login via Google’s OIDC flow (more methods to authenticate are coming soon). Select an account with which you wish to register. Once authenticated, you can set up a desired group structure for managing and delegating policies.
+A web browser window will open to prompt you to log in via your chosen OIDC flow. Select an account with which you wish to register. Once authenticated, you can set up a desired group structure for managing and delegating.
 
 ## Creating a Group
 
@@ -40,13 +38,13 @@ Begin by creating an organization tied to the account you just used to authentic
 chainctl iam groups create $NAME --no-parent
 ```
 
-After creating the organization, you can create your desired group hierarchy. Keep in mind that policies roll down, meaning that any policy created at the root level will be inherited by its children.
+After creating the organization, you can create your desired group hierarchy. Keep in mind that access will roll down, meaning that any assets available at the root level will be inherited by its children.
 
 ```sh
 chainctl iam group create $CHILD_NAME --parent $ROOT_ID
 ```
 
-We recommend creating a group structure that outlines how your team organizes and delegates permissions.  A sample starting point can include dev, staging, and prod.
+We recommend creating a group structure that outlines how your team organizes and delegates permissions. A sample starting point can include dev, staging, and prod.
 
 ```sh
 |- root
@@ -114,4 +112,4 @@ To invite team members, auditors, or others to your desired groups, securely dis
 chainctl auth login --invite-code $INVITE_CODE
 ```
 
-Chainguard’s IAM ensures that you can set up policies specific to certain groups, and also allows you to manage your users and what access they have.
+Chainguard’s IAM ensures that you can have a specific desired set up for certain groups, and also allows you to manage your users and what access they have.
