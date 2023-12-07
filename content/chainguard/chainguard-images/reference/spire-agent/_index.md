@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: spire-agent Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-07 00:19:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -39,9 +39,12 @@ docker pull cgr.dev/chainguard/spire:latest
 <!--getting:end-->
 
 <!--compatibility:start-->
-## Compatibility Notes**Note**: Unlike most other Chainguard images, the `spire-agent` image must run as root.
+## Compatibility Notes
+
+**Note**: Unlike most other Chainguard images, the `spire-agent` image must run as root.
 This is due to a constraint in the way it is typically deployed into Kubernetes clusters.
 See https://github.com/spiffe/spire/issues/1862 for more context.
+
 <!--compatibility:end-->
 
 <!--body:start-->

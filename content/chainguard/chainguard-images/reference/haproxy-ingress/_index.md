@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: haproxy-ingress Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-07 00:19:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,14 +26,14 @@ toc: true
 
 
 <!--overview:start-->
-[HAProxy Ingress](https://haproxy-ingress.github.io/) is a Kubernetes ingress controller implementation for HAProxy.
+Kubernetes ingress controller implementation for HAProxy
 <!--overview:end-->
 
 <!--getting:start-->
 ## Get It!
-The image is available on `cgr.dev`.
+The image is available on `cgr.dev`:
 
-```shell
+```
 docker pull cgr.dev/chainguard/haproxy-ingress:latest
 ```
 <!--getting:end-->

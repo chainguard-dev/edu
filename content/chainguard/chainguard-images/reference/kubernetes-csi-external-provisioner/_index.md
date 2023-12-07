@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: kubernetes-csi-external-provisioner Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-07 00:19:49
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -39,7 +39,10 @@ docker pull cgr.dev/chainguard/kubernetes-csi-external-provisioner:latest
 <!--getting:end-->
 
 <!--compatibility:start-->
-## Compatibility NotesThe image runs as `root` so that it can mount a `CSI_ENDPOINT` socket.<!--compatibility:end-->
+## Compatibility Notes
+
+The image runs as `root` so that it can mount a `CSI_ENDPOINT` socket.
+<!--compatibility:end-->
 
 <!--body:start-->
 You can run it with the standard deployment with something like:
