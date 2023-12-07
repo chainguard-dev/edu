@@ -205,8 +205,7 @@ terraform apply
 Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
 ```
-. . .
-
+...
 Plan: 4 to add, 0 to change, 0 to destroy.
 
 Changes to Outputs:
@@ -222,7 +221,7 @@ Do you want to perform these actions?
 After pressing `ENTER`, the command will complete and will output an `buildkite-identity` value.
 
 ```
-. . .
+...
 
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 
@@ -250,8 +249,11 @@ From there, click the **Edit Steps** button to add the following commands to a s
 - command: |
 	curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
 	chmod +x chainctl
-	./chainctl auth login --identity-token $(buildkite-agent oidc request-token --audience issuer.enforce.dev) --identity <your buildkite identity>
-    chainctl images repos list
+  token=$(buildkite-agent oidc request-token --audience issuer.enforce.dev)
+	./chainctl auth login --identity-token $token --identity <your buildkite identity>
+  ./chainctl auth configure-docker --identity-token $token --identity <your buildkite identity>
+  ./chainctl images repos list
+  docker pull cgr.dev/<group>/<repo>:<tag>
 ```
 
 These commands will cause your Buildkite pipeline to download `chainctl` and make it executable. It will then sign in to Chainguard Enforce using the Buildkite identity you generated previously. If this workflow can successfully assume the identity, then it will be able to execute the `chainctl images repos list` command and retrieve the list of repos available to the group.
@@ -271,30 +273,28 @@ You could add the commands for testing the identity like this.
 ```
 steps:
   - label: "Buildkite test"
-	command:
-	- 'buildkite-agent pipeline upload'
-    - 'curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"'
-	- 'chmod +x chainctl'
-	- './chainctl auth login --identity-token $(buildkite-agent oidc request-token --audience issuer.enforce.dev) --identity <your buildkite identity>'
-    - 'chainctl images repos list'
+	command: |
+	  buildkite-agent pipeline upload
+    curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
+	  chmod +x chainctl
+    token=$(buildkite-agent oidc request-token --audience issuer.enforce.dev)
+	  ./chainctl auth login --identity-token $token --identity <your buildkite identity>
+    ./chainctl auth configure-docker --identity-token $token --identity <your buildkite identity>
+    chainctl images repos list
 ```
 
 Click the **Save and Build** button. Ensure that your Buildkite agent is running, and then wait a few moments for the pipeline to finish building.
 
-Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, returning the images available to the group.
+Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, returning the images available to the group. Then it will pull an image from the group's repository.
 
 ```
-. . .
-
+...
 chainctl        	100%[===================>]  54.34M  6.78MB/s	in 13s
 
 2023-05-17 13:19:45 (4.28 MB/s) - ‘chainctl’ saved [56983552/56983552]
 
 Successfully exchanged token.
 Valid! Id: 3f4ad8a9d5e63be71d631a359ba0a91dcade94ab/d3ed9c70b538a796
-                         	ID                         	| 	NAME  	| DESCRIPTION |   MODE
-------------------------------------------------------------+---------------+-------------+-----------
-  3f4ad8a9d5e63be71d631a359ba0a91dcade94ab/42b8649dc3a3ea66 | trust-any-cgr |         	| ENFORCED
 ```
 
 If you'd like to experiment further with this identity and what the pipeline can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
@@ -305,12 +305,10 @@ data "chainguard_roles" "editor" {
 }
 ```
 
-You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the policies the identity has access to, you could have the workflow inspect the groups.
+You can also edit the pipeline itself to change its behavior. For example, instead of listing repos, you could have the workflow inspect the groups.
 
 ```
-	. . .
-
-	- 'chainctl iam groups ls'
+chainctl iam groups ls
 ```
 
 Of course, the Buildkite pipeline will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.

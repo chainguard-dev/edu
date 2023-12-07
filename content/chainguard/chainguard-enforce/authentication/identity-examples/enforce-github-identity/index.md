@@ -229,7 +229,8 @@ jobs:
       with:
         identity: <your actions identity>
 
-    - run: docker pull cgr.dev/<your group>/example-image:latest
+    - run: |
+      docker pull cgr.dev/<your group>/example-image:latest
 ```
 
 This workflow is named `actions assume example`. The `permissions` block grants `write` permissions to the workflow for the `id-token` scope. [Per the GitHub Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#adding-permissions-settings), you **must** grant this permission in order for the workflow to be able to fetch an OIDC token.
