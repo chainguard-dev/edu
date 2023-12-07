@@ -58,27 +58,7 @@ terraform {
 
 This is a fairly barebones Terraform configuration file, but we will define the rest of the resources in the other two files. In `main.tf`, we declare and initialize the Chainguard Terraform provider.
 
-Next, you can create the `chainguard.tf` file.
-
-### `chainguard.tf`
-
-`chainguard.tf` will create a couple of structures that will help us test out the identity in a workflow.
-
-This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
-
-```
-resource "chainguard_group" "user-group" {
-  name   	 = "user-group"
-  description = <<EOF
-    This group simulates an end-user group, which the AWS role identity
-    can interact with via the identity in aws.tf.
-  EOF
-}
-```
-
-This section creates a Chainguard IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity — we'll discuss later — to access when we test it out later on.
-
-Next we'll go through `lambda.tf`, which will use this new identity resource.
+Next we'll create `lambda.tf` to define the AWS resources to run the Lambda function, and `chainguard.tf` to define the Chainguard resources that the Lambda function will interact with.
 
 ### `lambda.tf`
 
@@ -109,13 +89,52 @@ resource "aws_iam_role" "lambda" {
 
 This describes an AWS role that a Lambda function will run as. The Lambda function will assume this role, and then use the Chainguard identity to interact with Chainguard resources.
 
+The `lambda.tf` file also creates an AWS Lambda function that will assume the identity you created in the previous section. This function will then use the identity to interact with Chainguard resources.
+
+The final section defines a AWS lambda function implemented in Go that will assume the identity you created in the previous section:
+
+```hcl
+resource "aws_lambda_function" "test_lambda" {
+  filename      = "lambda_function_payload.zip"
+  function_name = "lambda_function_name"
+  role          = aws_iam_role.iam_for_lambda.arn
+  handler       = "bootstrap"
+
+  source_code_hash = data.archive_file.lambda.output_base64sha256
+
+  runtime = "go1.x"
+}
+```
+
+Check out [this basic example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function#basic-example) for configuring AWS Lambda using Terraform, and the docs for [deploying Go Lambda functions with .zip file archives](https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html) for more information on how to configure the `filename` and `source_code_hash` fields.
+
+Below we'll go over some of the specific details from the [example Go application](https://github.com/chainguard-dev/platform-examples/blob/main/aws-auth/main.go).
+
+After it's deployed, when this function is invoked, it will assume the AWS role you created in the previous section. It will then be able to present credentials as that AWS role that will allow it to assume the Chainguard identity you created in the previous section, to view and manage Chainguard resources.
+
+Next, you can create the `chainguard.tf` file.
+
 ### `chainguard.tf`
 
-Back in `chainguard.tf`, we define a Chainguard identity that can be assumed by the AWS role created above:
+`chainguard.tf` will create a few resources that will help us test out the identity.
+
+```
+resource "chainguard_group" "example-group" {
+  name   	 = "example-group"
+  description = <<EOF
+    This group simulates an end-user group, which the AWS role identity
+    can interact with via the identity in aws.tf.
+  EOF
+}
+```
+
+This section creates a Chainguard IAM group named `example-group`, as well as a description of the group. This will serve as some data for the identity to access when we test it out later on.
+
+Then we'll define a Chainguard identity that can be assumed by the AWS role created in `lambda.tf` above:
 
 ```hcl
 resource "chainguard_identity" "aws" {
-  parent_id   = chainguard_group.user-group.id
+  parent_id   = chainguard_group.example-group.id
   name        = "aws-auth-identity"
   description = "Identity for AWS Lambda"
 
@@ -154,32 +173,6 @@ resource "chainguard_rolebinding" "view-stuff" {
 After defining these resources, there are some other resources in the example directory that build and deploy a Lambda function that assumes the identity. We'll describe that code in the next section.
 
 After defining these resources, your Terraform configuration will be ready. Now you can run a few `terraform` commands to create the resources defined in your `.tf` files.
-
-### `lambda.tf`
-
-The `lambda.tf` file also creates an AWS Lambda function that will assume the identity you created in the previous section. This function will then use the identity to interact with Chainguard resources.
-
-The final section defines a AWS lambda function implemented in Go that will assume the identity you created in the previous section:
-
-```hcl
-resource "aws_lambda_function" "test_lambda" {
-  filename      = "lambda_function_payload.zip"
-  function_name = "lambda_function_name"
-  role          = aws_iam_role.iam_for_lambda.arn
-  handler       = "bootstrap"
-
-  source_code_hash = data.archive_file.lambda.output_base64sha256
-
-  runtime = "go1.x"
-}
-```
-
-Check out [this basic example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function#basic-example) for configuring AWS Lambda using Terraform, and the docs for [deploying Go Lambda functions with .zip file archives](https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html) for more information on how to configure the `filename` and `source_code_hash` fields.
-
-Below we'll go over some of the specific details from the [example Go application](https://github.com/chainguard-dev/platform-examples/blob/main/aws-auth/main.go).
-
-After it's deployed, when this function is invoked, it will assume the AWS role you created in the previous section. It will then be able to present credentials as that AWS role that will allow it to assume the Chainguard identity you created in the previous section, to view and manage Chainguard resources.
-
 
 ## Creating Your Resources
 
