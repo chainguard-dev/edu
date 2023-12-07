@@ -206,7 +206,7 @@ resource "aws_lambda_function" "test_lambda" {
 }
 ```
 
-See [this basic example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function#basic-example) for configuring AWS Lambda using Terraform, and the docs for [deploying Go Lambda functions with .zip file archives](https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html) for more information on how to configure the `filename` and `source_code_hash` fields.
+Check out [this basic example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function#basic-example) for configuring AWS Lambda using Terraform, and the docs for [deploying Go Lambda functions with .zip file archives](https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html) for more information on how to configure the `filename` and `source_code_hash` fields.
 
 After it's deployed, when this function is invoked, it will assume the AWS role you created in the previous section. It will then be able to present credentials as that AWS role that will allow it to assume the Chainguard identity you created in the previous section, to view and manage Chainguard resources.
 
