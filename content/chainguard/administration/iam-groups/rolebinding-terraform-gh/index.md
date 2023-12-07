@@ -105,11 +105,11 @@ First, we will create a `main.tf` file which will set up the necessary Terraform
 
 This file will consist of the following lines.
 
-```
+```hcl
 terraform {
   required_providers {
     chainguard = {
-  	source = "chainguard/chainguard"
+      source = "chainguard-dev/chainguard"
     }
     github = {
       source = "integrations/github"
@@ -120,17 +120,11 @@ terraform {
 provider "github" {
   owner = "$GITHUB_ORG"
 }
-
-provider "chainguard" {
-  console_api = "https://console-api.enforce.dev"
-}
 ```
 
 The `terraform` block defines the sources for the `chainguard` and `github` providers.
 
-The first `provider` block sets up the `github` provider with one argument — `owner` — that points to the `GITHUB_ORG` variable you set previously.
-
-The second `provider` block sets up the Chainguard provider, passing the `console_api` argument in the body.
+The `provider` block sets up the `github` provider with one argument — `owner` — that points to the `GITHUB_ORG` variable you set previously.
 
 Create the `main.tf` file with the following command.
 
@@ -139,7 +133,7 @@ cat  <<EOF > main.tf
 terraform {
   required_providers {
     chainguard = {
-  	source = "chainguard/chainguard"
+      source = "chainguard-dev/chainguard"
     }
     github = {
       source = "integrations/github"
@@ -149,10 +143,6 @@ terraform {
 
 provider "github" {
   owner = "$GITHUB_ORG"
-}
-
-provider "chainguard" {
-  console_api = "https://console-api.enforce.dev"
 }
 EOF
 ```

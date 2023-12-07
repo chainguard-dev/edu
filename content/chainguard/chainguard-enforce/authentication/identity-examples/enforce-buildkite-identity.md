@@ -45,7 +45,7 @@ The first file, which we will call `main.tf`, will serve as the scaffolding for 
 
 The file will consist of the following content.
 
-```
+```hcl
 terraform {
   required_providers {
     chainguard = {
