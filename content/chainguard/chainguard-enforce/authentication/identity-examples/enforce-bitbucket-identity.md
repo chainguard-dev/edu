@@ -58,7 +58,6 @@ This is a fairly barebones Terraform configuration file, but we will define the 
 
 Next, you can create the `sample.tf` file.
 
-
 ### `sample.tf`
 
 `sample.tf` will create a couple of structures that will help us test out the identity with a Bitbucket a workflow.

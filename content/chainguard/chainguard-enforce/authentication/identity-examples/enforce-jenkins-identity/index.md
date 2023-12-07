@@ -47,13 +47,11 @@ The file will consist of the following content.
 ```
 terraform {
   required_providers {
-	chainguard = {
-  	source = "chainguard/chainguard"
-	}
+    chainguard = {
+      source = "chainguard-dev/chainguard"
+    }
   }
 }
-
-provider "chainguard" {}
 ```
 
 This is a fairly barebones Terraform configuration file, but we will define the rest of the resources in the other two files. In `main.tf`, we declare and initialize the Chainguard Terraform provider.
