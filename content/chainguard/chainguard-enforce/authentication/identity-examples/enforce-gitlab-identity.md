@@ -228,9 +228,15 @@ assume-and-explore:
     chainctl auth login \
       --identity-token $ID_TOKEN_1 \
       --identity <your gitlab identity>
+    chainctl auth configure-docker \
+      --identity-token $ID_TOKEN_1 \
+      --identity <your gitlab identity>
 
     # Explore available images.
     chainctl images repos list
+
+    # Pull an image.
+    docker pull cgr.dev/<group>/<repo>:<tag>
 ```
 
 Let's go over what this configuration does.
@@ -241,7 +247,7 @@ Next, this configuration creates a JSON Web Token (JWT) with an [`id_tokens`](ht
 
 Following that, the job runs a few commands to download and install `chainctl`. It then uses `chainctl`, the JWT, and the Chainguard identity's `id` value to log in to Chainguard Enforce under the assumed identity. Be sure to replace `<your gitlab identity>` with the identity UIDP you noted down in the previous section.
 
-After logging in, the pipeline is able to run any `chainctl` command under the assumed identity. To test out this ability, this configuration runs the `chainctl images repos list` command to list all available image repos associated associated with the `example-group` group.
+After logging in, the pipeline is able to run any `chainctl` command under the assumed identity. To test out this ability, this configuration runs the `chainctl images repos list` command to list all available image repos associated associated with the `example-group` group, then pulls an image from the group's repository.
 
 After updating the configuration, commit the changes and the pipeline will run automatically. A status box in the dashboard will let you know whether the pipeline runs successfully.
 
@@ -266,8 +272,7 @@ chainctl iam roles list
 You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the image repos the identity has access to, you could have the workflow inspect the groups like in the following exmaple.
 
 ```
-    # Explore
-    chainctl iam groups ls
+chainctl iam groups ls
 ```
 
 Of course, the GitLab pipeline will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.
