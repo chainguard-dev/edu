@@ -155,7 +155,7 @@ After defining these resources, your Terraform configuration will be ready. Now 
 
 ### `lambda.tf`
 
-The file file, `lambda.tf`, will create an AWS Lambda function that will assume the identity you created in the previous section. This function will then use the identity to interact with Chainguard resources.
+The `lambda.tf` file will create an AWS Lambda function that will assume the identity you created in the previous section. This function will then use the identity to interact with Chainguard resources.
 
 First, define the following resources in a `lambda.tf` file. The file will consist of three sections, which we'll go over one by one.
 
