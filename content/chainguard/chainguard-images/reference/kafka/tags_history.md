@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 6th | `sha256:42216801100b9180b4b9688a91f1a214268f90d75b5089472adf41fe40454a60` |
+|  `latest-dev` | December 7th | `sha256:c9427babe09a002cff83a4b0ba09ff79e93164885f7437efe0580abc760c14ee` |
 |  `latest`     | December 6th | `sha256:2b2cbdaa8d856d8c40c74dfe2a2009dc0c900df615b54c33d696deea52cbf9d8` |
 

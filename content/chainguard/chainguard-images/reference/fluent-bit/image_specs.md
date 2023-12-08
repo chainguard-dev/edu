@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public fluent-bit Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -50,6 +50,7 @@ The table shows package distribution across variants.
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
 | `fluent-bit`             | X          | X      |
+| `fluent-bit-compat`      | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |
