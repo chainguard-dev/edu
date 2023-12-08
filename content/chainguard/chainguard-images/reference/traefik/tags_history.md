@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the traefik Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | December 6th | `sha256:45649588a30190750e81d6751d5b3ecf0aa4c764591e35eaaeb74ea528d3a5dc` |
+|  `latest` | December 7th | `sha256:e2e25c4d83cda66f8d43d95ca79e288ecdae4097dab2e1b5311070bd8f3938c6` |
 

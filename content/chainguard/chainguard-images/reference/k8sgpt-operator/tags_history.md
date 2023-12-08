@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8sgpt-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | December 6th | `sha256:8e091c7b3b5dd7838d9069414f3c0e127b1d1825ed133a5526c24beba775f929` |
-|  `latest-dev` | December 6th | `sha256:9bf39d852da96a4fb0c83a243f283e619de6be269194fd716355d9931fc3bf70` |
+|  `latest-dev` | December 7th | `sha256:3dbb49382ef46a80f9dea63c7bd19374488b0b605edf44cc6fb6a145cfb201c0` |
+|  `latest`     | December 7th | `sha256:4cf91e0793d7e3476f3da66e52f55de994c0ce0338f2add9914868e574484600` |
 

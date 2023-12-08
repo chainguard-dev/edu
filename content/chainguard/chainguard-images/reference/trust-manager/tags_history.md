@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trust-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 6th | `sha256:512ed8a4ea5b3973f0423807bca575dba76daf0b1771e13e4488bc656eff32b0` |
-|  `latest`     | December 6th | `sha256:c62844240669f622a02e23e70239def80d75c29602aabe9c6e3716554f03ec75` |
+|  `latest`     | December 7th | `sha256:886f5cd2196e06acb3e9733c50485078ff132355ff3a77c8c8f1664dc607a7bf` |
+|  `latest-dev` | December 7th | `sha256:63eb152787906d08d43d1ec9ce8e0947412f6673ff73d5747e96808b5d4b4bad` |
 

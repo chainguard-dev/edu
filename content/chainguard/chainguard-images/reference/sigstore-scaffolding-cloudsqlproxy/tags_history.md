@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | December 6th | `sha256:d9c68690b4cd73627f4add15c6d59580f373f6c0b78bc6e51b6f9a5aecbb0cd9` |
-|  `latest-dev` | December 6th | `sha256:ef1e1929955e38d7ab0a32a2afd0e9d8d8d9f1d87098b01732bac90ac99c104e` |
+|  `latest`     | December 7th | `sha256:b613a91e39f60c89ba3bf197291dcde6c1353b1ceeb90c56a38b51e411cbca36` |
+|  `latest-dev` | December 7th | `sha256:52a88289c4653221b0081228e06355999998aa62162d3d60f50d4ad631610565` |
 
