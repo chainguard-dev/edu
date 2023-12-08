@@ -4,7 +4,7 @@ lead: ""
 description: "An overview of how to verify your organization and the implications"
 type: "article"
 date: 2023-08-15T14:22:23-07:00
-lastmod: 2023-10-26T15:22:20+01:00
+lastmod: 2023-12-08T15:22:20+01:00
 draft: false
 tags: ["Product", "Conceptual"]
 images: []
@@ -65,6 +65,12 @@ This will open a text editor (nano, by default) where you can edit the local `ch
 ```yaml
 default:
   org-name: example.com
+```
+
+You can also set this with a single command using the `chainctl config set` subcommand, as in this example.
+
+```sh
+chainctl config set default.org-name example.com
 ```
 
 Once set, the configured identity provider will be used automatically any time you run `chainctl auth login`.

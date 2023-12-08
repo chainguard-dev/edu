@@ -2,7 +2,7 @@
 title: "Getting Started with the PostgreSQL Chainguard Image"
 type: "article"
 linktitle: "PostgreSQL"
-lead: "Tutorial on how to get started with the PostgreSQL Chainguard Image"
+description: "Tutorial on how to get started with the PostgreSQL Chainguard Image"
 date: 2023-08-10T11:07:52+02:00
 lastmod: 2023-09-22T11:07:52+02:00
 tags: ["Chainguard Images", "Products"]

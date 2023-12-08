@@ -5,7 +5,7 @@ lead: ""
 description: "An introduction to and overview of Chainguard's custom IDP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2023-10-26T15:22:20+01:00
+lastmod: 2023-12-08T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Overview"]
 images: []
@@ -75,15 +75,15 @@ To learn more about working with your `chainctl` config, you can read our doc on
 
 To authenticate with the Chainguard Consle using SSO, click the **Use your identity provider** link on the login page.
 
-![Screenshot showing an example Chainguard login page, with a yellow ellipse around the "Use your identity provider" link.](chainguard-sign-in.gif)
+<center><img src="chainguard-sign-in.gif" alt="Screenshot showing an example Chainguard login page, with a yellow ellipse around the `Use your identity provider` link." style="width:600px;"></center>
 
 On the next page, you can choose to sign in with your organization email. When authenticating to a [Verified Organization](/chainguard/chainguard-enforce/iam-groups/verified-orgs/) via the Chainguard Console, your organization name will be detected from your email address and you do not need to supply the identity provider ID.
 
-![Screenshot showing an example Chainguard login page with a field reading "Enter your organization's email address"](chainguard-email-sign-in.png)
+<center><img src="chainguard-email-sign-in.png" alt"Screenshot showing an example Chainguard login page with a field reading `Enter your organization's email address`" style="width:600px;"></center>
 
 If your organization name does not match your email domain, you can input it specifically to authenticate with your organization's custom identity provider. Click on the link below the field to navigate between the options, or alternatively return to the screen with the social providers login option.
 
-![Screenshot showing an example Chainguard login page with a field reading "Enter your organization's name"](chainguard-org-sign-in.png)
+<center><img src="chainguard-org-sign-in.png" alt"Screenshot showing an example Chainguard login page with a field reading `Enter your organization's name`" style="width:600px;"></center>
 
 After adding your ID, click the **Login with provider** button. You'll then be redirected to your identity provider to authenticate, after which you'll be redirected back to the Console.
 
@@ -143,6 +143,8 @@ Next, use `chainctl` to log in to Chainguard with an OIDC provider (such as Goog
 chainctl auth login
 ```
 
+This bootstrap account can be used as a [backup account](/chainguard/chainguard-enforce/authentication/custom-idps/#backup-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, if you prefer to remove this rolebinding after configuring the custom IDP, you may also do so.
+
 Create a new identity provider using the details you noted from your OIDC application. Be sure to update the details in the following example `export` commands to align with your own application/client ID, client secret, and issuer URL.
 
 ```sh
@@ -150,6 +152,7 @@ export NAME=my-sso-identity-provider
 export CLIENT_ID=<your application/client id here>
 export CLIENT_SECRET=<your client secret here>
 export ISSUER=<your issuer url here>
+export GROUP=<your group UIDP here>
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
   --oidc-client-id=${CLIENT_ID} \
@@ -157,10 +160,30 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
+  --group=${GROUP}
+  --default-role=viewer
   --name=${NAME}
 ```
 
-This command will prompt you to select a Chainguard IAM group under which to install your identity provider. Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
+The `oidc-issuer`, `oidc-client-id`, and `oidc-issuer-secret` values are required when setting up an OIDC configuration with `chainctl`. You must also include a unique name for each custom IDP account. 
+
+Be aware that if you don't include the `--group` or `--default-role` options in the command, you will be prompted to select these values interactively. 
+
+The `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. For more information, refer to the [IAM and Security section](/#iam-and-security). 
+
+The `--group` option specifies which Chainguard IAM group your identity provider will be installed under. You can retrieve a list of all your Chainguard groups — along with their UIDPs — with the following command.
+
+```shell
+chainctl iam groups ls -o table
+```
+```output
+                             ID                             |      NAME       |    DESCRIPTION      
+------------------------------------------------------------+-----------------+---------------------
+  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43                  | sample_group    |                     
+  . . .                                                     | . . .           |
+```
+
+Your group selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
 
 
 ## Managing Existing Identity Providers
