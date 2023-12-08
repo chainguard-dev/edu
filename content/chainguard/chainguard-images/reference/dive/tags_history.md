@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dive Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | December 6th | `sha256:27117676366c5b885fbff715204c6c01de5b0e006053a8e4724d10a4b831ead3` |
+|  `latest` | December 7th | `sha256:2e32b52bcba79574c1215eb00527e65cc5a7d9b5db88558e3a806690babbec8e` |
 

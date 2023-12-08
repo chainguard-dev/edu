@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the r-base Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 6th | `sha256:698a195c34d0232a3a87ca4a04fe269689a9ada07e98fbdbf85858e24a1478a1` |
-|  `latest`     | December 6th | `sha256:d3dfeb5effc71b444351b2f783d06128351c19f2d1ae4c9ed4cf674914744d09` |
+|  `latest-dev` | December 7th | `sha256:4c66f06cd03d3a79d99362c664f811714a26fc31daf4a58709994473f085ef98` |
+|  `latest`     | December 7th | `sha256:42b182d2f9d998237f44dc3c31ad91675be315b30013a3b63471cb73d2136d06` |
 

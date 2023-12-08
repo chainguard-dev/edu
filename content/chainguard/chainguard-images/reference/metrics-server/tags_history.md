@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metrics-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | December 6th | `sha256:50fc62506195b32bbcfde8a098f3e436a6889fad5f40c08770cb378016cc7fa7` |
-|  `latest-dev` | December 6th | `sha256:8c20d1064646f7cf87e760a1ab0fd150ddb411d708c21b885e30af3382d1c322` |
+|  `latest`     | December 7th | `sha256:c5aad5b6c6dfbd4e746c92cd8d40f640bf86258d54144fc09c6ff00c95613fb5` |
+|  `latest-dev` | December 7th | `sha256:d494432ba0995a949d77f2191761b2dc764cf9736fab29d6243a74fda9812970` |
 

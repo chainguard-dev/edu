@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: kyverno-reports-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -26,7 +26,7 @@ toc: true
 
 
 <!--overview:start-->
-Kyverno is a policy engine that allows you to write policies as Kubernetes resources and manage them with familiar tools
+[Kyverno](https://kyverno.io/) is a policy engine that allows you to write policies as Kubernetes resources and manage them with familiar tools
 <!--overview:end-->
 
 <!--getting:start-->
@@ -39,5 +39,9 @@ docker pull cgr.dev/chainguard/kyverno:latest
 <!--getting:end-->
 
 <!--body:start-->
+## Use It!
+
+Please refer to the [official Kyverno documentation](https://kyverno.io/docs/) for instructions on how to work with the `kyverno` Chainguard Image. 
+
 <!--body:end-->
 

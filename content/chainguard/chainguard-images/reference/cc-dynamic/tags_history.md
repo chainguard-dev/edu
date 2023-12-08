@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cc-dynamic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 7th | `sha256:3026da29baefca339e5ca1511730a014afabcf3e848e8ed446fdf26e8a70a7dd` |
 |  `latest`     | December 6th | `sha256:1eaa105b7e040f1e4306bf5a2b651fffb0eb3f0087697081d530eec98211ecdd` |
-|  `latest-dev` | December 6th | `sha256:153372d5be4a5a11ce030eb6734515c90fba75106ddb71efd0c5d95cc8cb17c0` |
 
