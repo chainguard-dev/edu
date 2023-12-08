@@ -31,12 +31,12 @@ Assumable identities essentially reverse the lookup process of literal identitie
 
 This enables you to create identities that can only be assumed by specific automated workflows, providing greater security for your build and deployment processes. We have a number of examples of how to create assumable identities for specific providers.
 
-* [GitHub]()
-* [GitLab]()
-* [AWS Lambda]()
-* [Jenkins]()
-* [Buildkite]()
-* [Bitbucket]()
+* [GitHub](/chainguard/administration/iam-groups/identity-examples/github-identity/)
+* [GitLab](/chainguard/administration/iam-groups/identity-examples/gitlab-identity/)
+* [AWS Lambda](/chainguard/administration/iam-groups/identity-examples/aws-identity/)
+* [Jenkins](/chainguard/administration/iam-groups/identity-examples/jenkins-identity/)
+* [Buildkite](/chainguard/administration/iam-groups/identity-examples/buildkite-identity/)
+* [Bitbucket](/chainguard/administration/iam-groups/identity-examples/bitbucket-identity/)
 
 A notable difference between registered users and identities in Chainguard's IAM model is that identities are tied to a specific [IAM group](/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/). When you create an identity, you must specify a Chainguard group under which the identity will be created.
 
