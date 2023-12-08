@@ -5,7 +5,7 @@ lead: ""
 description: "Procedural tutorial on how to create a Ping Identity Application"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2023-10-26T15:22:20+01:00
+lastmod: 2023-12-08T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Procedural"]
 images: []
@@ -73,13 +73,9 @@ This completes configuration of the Ping application. You're now ready to config
 
 ## Configuring Chainguard to use Ping SSO
 
-To configure Chainguard make a note of the following settings from your Ping application. These can be found in the Ping console under the **Configuration** tab of the **Application** page.
+Now that your Okta application is ready, you can create the custom identity provider.
 
-* Client ID 
-* Client Secret
-* Issuer URL
-
-Next, log in to Chaingaurd with `chainctl`, using an OIDC provider like Google, Github, or GitLab to bootstrap your account.
+First, log in to Chainguard with `chainctl`, using an OIDC provider like Google, Github, or GitLab to bootstrap your account.
 
 ```sh
 chainctl auth login
@@ -87,13 +83,36 @@ chainctl auth login
 
 Note that this bootstrap account can be used as a [backup account](/chainguard/chainguard-enforce/authentication/custom-idps/#backup-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, if you prefer to remove this rolebinding after configuring the custom IDP, you may also do so.
 
-Lastly, create a new identity provider using the Ping application details you noted previously.
+To configure Chainguard make a note of the following settings from your Ping application. These can be found in the Ping console under the **Configuration** tab of the **Application** page.
+
+* Client ID 
+* Client Secret
+* Issuer URL
+
+You will also need the UIDP for the Chainguard group under which you want to install the identity provider.  Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
+
+You can retrieve a list of all your Chainguard groups — along with their UIDPs — with the following command.
+
+```shell
+chainctl iam groups ls -o table
+```
+```output
+                             ID                             |      NAME       |    DESCRIPTION      
+------------------------------------------------------------+-----------------+---------------------
+  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43                  | sample_group    |                     
+  . . .                                                     | . . .           |
+```
+
+Note down the `ID` value for your chosen group. 
+
+With this information in hand, create a new identity provider with the following commands.
 
 ```sh
 export NAME=ping-id
 export CLIENT_ID=<your client id here>
 export CLIENT_SECRET=<your client secret here>
 export ISSUER=<your issuer url here>
+export GROUP=<your group UIDP here>
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
   --oidc-client-id=${CLIENT_ID} \
@@ -101,7 +120,12 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
+  --group=${GROUP}
+  --default-role=viewer
   --name=${NAME}
 ```
 
-You’ll be prompted to select a Chainguard IAM group under which to install your identity provider. Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration. For more information, check out the [IAM and Security section](/chainguard/chainguard-enforce/authentication/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard. 
+Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and Security section](/chainguard/chainguard-enforce/authentication/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard. 
+
+
+You can refer to our [Generic Integration Guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers for more information about the `chainctl iam identity-provider create` command and its required options.
