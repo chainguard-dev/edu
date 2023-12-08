@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kubernetes Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | December 6th | `sha256:174f6bf557c797a2b4a20a6c629685992c2e7c4729c53b63280ba5de48a747c4` |
-|  `latest-dev` | December 6th | `sha256:c430ea447fcf77175b35fdc0d5bf1af70a501385672f0759105d5d6a591a82e1` |
+|  `latest`     | December 7th | `sha256:66ef945a792bd876e1bcbbd00710f7255bc7d53e78ddaa79906cf8012f811a93` |
+|  `latest-dev` | December 7th | `sha256:78607dd83c7ae67586319793709ee6f314cb06fa156ad54934711bc1bb3463cd` |
 

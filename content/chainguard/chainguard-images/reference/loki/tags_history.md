@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the loki Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | December 6th | `sha256:f32a3613596385a110a34a7e9af3f9079aecb4fd27965027ffb1a360bcb39036` |
-|  `latest-dev` | December 6th | `sha256:b9fa567817d963503ee2caa4a5276290a4210d6751e7ab150b8614ab7f2661f7` |
+|  `latest`     | December 7th | `sha256:ec02dc93a942a17be8c8c383c3ceb0e48e3a7c1b5f01ec76a4e3d20f0a3fb415` |
+|  `latest-dev` | December 7th | `sha256:b95d1a1be66c8a720eb0981dca11d4a3cd2cd4b2677015f80423a2aabd468427` |
 

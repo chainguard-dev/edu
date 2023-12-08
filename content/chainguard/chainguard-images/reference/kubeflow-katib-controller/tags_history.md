@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 6th | `sha256:02fbc03287ec0aba4bbd787e850426cfc0d87211517c2e12487749f20cb723a6` |
-|  `latest`     | December 6th | `sha256:72db0cb62c064fca678eee67d78eb0ded261ee487fda069ffc7b294c2f375354` |
+|  `latest`     | December 7th | `sha256:2907087fa6ed5adf6dfeabd084a47271683c201df821ba64ecf75207bda12eed` |
+|  `latest-dev` | December 7th | `sha256:ce024ae50e8ae6e04aaec4ce0c98c4288d5ebeafe8fdbe9dcbea788d96f12e4d` |
 

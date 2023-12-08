@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-entrypoint Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-08 00:32:20
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | December 6th | `sha256:1beb9ec2b2581508dbe68d3dad260943b8b21cf503de910c5f63eaeab1a9ec17` |
-|  `latest-dev` | December 6th | `sha256:fc25aad91ae61c6339bf3f6e5c218193c3ea9e833be040c82bd7dac68644537a` |
+|  `latest`     | December 7th | `sha256:e4a37de814a9b26050292a8c82119a2e01052f5b4f41458efa2358929247bdcb` |
+|  `latest-dev` | December 7th | `sha256:16dbf055f9396fb3ba453b4ae55602801069f30e631b3c4205c6af29f42a34d3` |
 
