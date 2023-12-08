@@ -1,18 +1,20 @@
 ---
 title : "Create an Assumable Identity for a Buildkite Pipeline"
 linktitle: "Buildkite Assumable Identity"
+aliases:
+- /chainguard/chainguard-enforce/authentication/identity-examples/enforce-buildkite-identity/
 lead: ""
-description: "Procedural tutorial outlining how to create a Chainguard Enforce identity that can be assumed by a Buildkite workflow."
+description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Buildkite workflow."
 type: "article"
 date: 2023-05-17T08:48:45+00:00
-lastmod: 2023-05-17T08:48:45+00:00
+lastmod: 2023-12-07T08:48:45+00:00
 draft: false
-tags: ["Enforce", "Product", "Procedural"]
+tags: ["Chainguard Images", "Product", "Procedural"]
 images: []
 weight: 015
 ---
 
-In Chainguard Enforce, [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
+Chainguard's [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
 
 This procedural tutorial outlines how to create an identity using Terraform, and then how to update a Buildkite pipeline so that it can assume the identity and interact with Chainguard resources.
 
@@ -22,7 +24,7 @@ This procedural tutorial outlines how to create an identity using Terraform, and
 To complete this guide, you will need the following.
 
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
-* `chainctl` — the Chainguard Enforce command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
+* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
 * A Buildkite agent and pipeline you can use to test out the identity you'll create. We recommend following Buildkite's [Getting Started guide](https://buildkite.com/docs/tutorials/getting-started) to set these up.
 
 
@@ -33,7 +35,7 @@ We will be using Terraform to create an identity for a Buildkite pipeline to ass
 To help explain each configuration file's purpose, we will go over what they do and how to create each file one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
 
 ```sh
-mkdir ~/enforce-buildkite && cd $_
+mkdir ~/buildkite-id && cd $_
 ```
 
 This will help make it easier to clean up your system at the end of this guide.
@@ -250,7 +252,7 @@ From there, click the **Edit Steps** button to add the following commands to a s
   docker pull cgr.dev/<group>/<repo>:<tag>
 ```
 
-These commands will cause your Buildkite pipeline to download `chainctl` and make it executable. It will then sign in to Chainguard Enforce using the Buildkite identity you generated previously. If this workflow can successfully assume the identity, then it will be able to execute the `chainctl images repos list` command and retrieve the list of repos available to the group.
+These commands will cause your Buildkite pipeline to download `chainctl` and make it executable. It will then sign in to Chainguard using the Buildkite identity you generated previously. If this workflow can successfully assume the identity, then it will be able to execute the `chainctl images repos list` command and retrieve the list of repos available to the group.
 
 There are a couple ways you can add commands to an existing Buildkite pipeline, so follow whatever procedure works best for you.
 
@@ -321,7 +323,7 @@ This will destroy the role-binding and the identity created in this guide. It wi
 You can then remove the working directory to clean up your system.
 
 ```sh
-rm -r ~/enforce-buildkite/
+rm -r ~/buildkite-id/
 ```
 
 Following that, all of the example resources created in this guide will be removed from your system.
@@ -329,4 +331,4 @@ Following that, all of the example resources created in this guide will be remov
 
 ## Learn more
 
-For more information about how assumable identities work in Chainguard Enforce, check out our [conceptual overview of assumable identities](/chainguard/chainguard-enforce/iam-groups/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment. Likewise, for more information on using Buildkite, we encourage you to check out the [official project documentation](https://buildkite.com/docs), particularly their [documentation on Buildkite OIDC](https://buildkite.com/docs/agent/v3/cli-oidc).
+For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/chainguard-enforce/iam-groups/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment. Likewise, for more information on using Buildkite, we encourage you to check out the [official project documentation](https://buildkite.com/docs), particularly their [documentation on Buildkite OIDC](https://buildkite.com/docs/agent/v3/cli-oidc).
