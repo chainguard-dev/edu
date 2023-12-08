@@ -148,7 +148,9 @@ You have successfully completed the single-stage Python Chainguard Image. At thi
 
 ## Example 2 — Multi-Stage Build for Python Chainguard Image
 
-In this example, we'll build and run a multi-stage Python Chainguard Image to demonstrate the process that includes a build image with pip and a shell, and a final distroless image.
+In this example, we'll build and run a multi-stage Python Chainguard Image. We'll have a build image
+that includes pip and a shell before creating a final distroless image without these development
+tools for production.
 
 ### Step 1: Setting up a Demo Application
 
@@ -166,34 +168,34 @@ We'll first write out the requirements for our app in a new file, for example we
 nano requirements.txt
 ```
 
-We'll download the most recent version of Python [setuptools](https://pypi.org/project/setuptools/) at the time of writing, and also install [climage](https://pypi.org/project/climage/).
+We'll use version 68.2.2 of Python [setuptools](https://pypi.org/project/setuptools/) and also install [climage](https://pypi.org/project/climage/). We need to use a slightly older version of setuptools for compatability with climage. Add the following text to the file:
 
 ```shell
-setuptools==67.4.0
-climage==0.1.3
+setuptools==68.2.2
+climage==0.2.0
 ```
 
-With requirements declared, create a new file to serve as the application entry point. We’ll use `inky.py`. You can edit this file in whatever code editor you would like. We’ll use Nano as an example.
+Save the file and we will next create a new file with our python code called `inky.py`. You can edit this file in whatever code editor you would like. We’ll use Nano as an example.
 
 ```shell
 nano inky.py
 ```
 
-The following Python script defines a  CLI app that takes in an image file, `inky.png`, and prints a representation of that file on the command line.
+Add the following Python code which defines a CLI app that takes in an image file, `inky.png`, and
+prints a representation of that file to the terminal:
 
 ```python
 '''import climage module to display images on terminal'''
-import climage
+from climage import convert, color_to_flags, color_types
 
 
 def main():
     '''Take in PNG and output as ANSI to terminal'''
-    output = climage.convert('inky.png', is_unicode=True)
+    output = convert('inky.png', is_unicode=True, **color_to_flags(color_types.truecolor))
     print(output)
 
 if __name__ == "__main__":
     main()
-
 ```
 
 Next, pull down the `inky.png` image file with `curl`. [Inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/inky/inky.png) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `inky.py` script is.
@@ -202,15 +204,10 @@ Next, pull down the `inky.png` image file with `curl`. [Inspect the URL](https:/
 curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/inky/inky.png
 ```
 
-You can now install the dependencies with `pip` and run the above program. It is recommended that you use a Python programming environment, ensure whether you are using the `pip` or `pip3` command.
+If you have python and pip installed in your local environment, you can now install the dependencies with `pip` and run our program. Don't worry if you don't have python installed, you can simply skip this step and move onto the Dockerfile.
 
 ```shell
 pip install -r requirements.txt
-```
-
-Now you can run the program. Ensure whether you're using the `python` or `python3` command.
-
-```shell
 python inky.py
 ```
 
@@ -218,7 +215,11 @@ You'll receive a representation of the Chainguard Inky logo on the command line.
 
 ### Step 2: Creating the Dockerfile
 
-To make sure our final image is distroless while still being able to install dependencies with pip, our build will consist of two stages: first, we’ll build the application using the dev image variant, a Wolfi-based image that includes pip and other useful tools for development. Then, we’ll create a separate stage for the final image. The resulting image will be based on the distroless Python Wolfi image, which means it doesn’t come with pip or even a shell.
+To make sure our final image is distroless while still being able to install dependencies with pip,
+our build will consist of two stages: first, we’ll build the application using the
+`python:latest-dev` image variant, a Wolfi-based image that includes pip and other useful tools for
+development. Then, we’ll create a separate stage for the final image. The resulting image will be
+based on the distroless Python Wolfi image, which means it doesn’t come with pip or even a shell.
 
 Begin by editing a Dockerfile, with Nano for instance.
 
@@ -229,31 +230,40 @@ nano Dockerfile
 The following Dockerfile will:
 
 1. Start a new build stage based on the `python:latest-dev` image and call it `builder`;
-2. Copy files from the current directory to the `/inky` location in the container;
-3. Enter the `/inky` directory and run `pip install -r requirements.txt` to install dependencies;
+2. Create a new virtual environment to cleanly hold the applications dependencies
+2. Copy `requirements.txt` from the current directory to the `/inky` location in the container;
+3. Run `pip install --no-cache-dir -r requirements.txt` to install dependencies;
 4. Start a new build stage based on the `python:latest` image;
-5. Copy the application and dependencies from the builder stage as well as any other files; ensure you're targeting the relevant version of Python;
-6. Set up the application as entry point for this image.
+5. Copy the dependencies in the virtual environment from the builder stage and the source code from
+   the current directory
+6. Set up the application as the entry point for this image.
 
 Copy this configuration to your own Dockerfile:
 
 ```Dockerfile
 FROM cgr.dev/chainguard/python:latest-dev as builder
 
+ENV LANG=C.UTF-8
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV PATH="/inky/venv/bin:$PATH"
+
 WORKDIR /inky
 
+RUN python -m venv /inky/venv
 COPY requirements.txt .
 
-RUN pip install -r requirements.txt --user
+RUN pip install --no-cache-dir -r requirements.txt
 
 FROM cgr.dev/chainguard/python:latest
 
 WORKDIR /inky
 
-# Make sure you update Python version in path
-COPY --from=builder /home/nonroot/.local/lib/python3.11/site-packages /home/nonroot/.local/lib/python3.11/site-packages
+ENV PYTHONUNBUFFERED=1
+ENV PATH="/venv/bin:$PATH"
 
 COPY inky.py inky.png ./
+COPY --from=builder /inky/venv /venv
 
 ENTRYPOINT [ "python", "/inky/inky.py" ]
 ```
@@ -263,7 +273,7 @@ Save the file when you’re finished.
 You can now build the image. If you receive a permission error, try running under `sudo`.
 
 ```shell
-docker build . -t inky
+docker build -t inky .
 ```
 
 Once the build is finished, run the image with:
