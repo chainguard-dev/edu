@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the caddy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-08 00:32:20
+lastmod: 2023-12-10 00:31:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | December 7th | `sha256:a25a06a9c0676e66da764a286c368e42c1d8d4b33b8963a5a7e70c1fc4b25091` |
-|  `latest-dev` | December 7th | `sha256:c2ee5660120c3b56b391037cff9af1e5db0119cda52f18d520115e075a1417c9` |
+|  `latest`     | December 9th | `sha256:6aeb0d479eb38c2a19beb74c853ec41bf4bbf66002cf949730811c2408032bc5` |
+|  `latest-dev` | December 9th | `sha256:b880ca4693a95ea242bd9a335648f05db3e20d2d0d2b8a86d05ceb714392fafe` |
 
