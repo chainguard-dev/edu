@@ -230,12 +230,12 @@ nano Dockerfile
 The following Dockerfile will:
 
 1. Start a new build stage based on the `python:latest-dev` image and call it `builder`;
-2. Create a new virtual environment to cleanly hold the applications dependencies
+2. Create a new virtual environment to cleanly hold the application's dependencies;
 2. Copy `requirements.txt` from the current directory to the `/inky` location in the container;
 3. Run `pip install --no-cache-dir -r requirements.txt` to install dependencies;
 4. Start a new build stage based on the `python:latest` image;
-5. Copy the dependencies in the virtual environment from the builder stage and the source code from
-   the current directory
+5. Copy the dependencies in the virtual environment from the builder stage, and the source code from
+   the current directory;
 6. Set up the application as the entry point for this image.
 
 Copy this configuration to your own Dockerfile:
