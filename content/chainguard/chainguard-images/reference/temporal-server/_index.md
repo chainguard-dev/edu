@@ -1,0 +1,85 @@
+---
+title: "Image Overview: temporal-server"
+linktitle: "temporal-server"
+type: "article"
+layout: "single"
+description: "Overview: temporal-server Chainguard Image"
+date: 2023-12-10 00:31:12
+lastmod: 2023-12-10 00:31:12
+draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
+images: []
+menu: 
+  docs: 
+    parent: "images-reference"
+weight: 500
+toc: true
+---
+
+{{< tabs >}}
+{{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/temporal-server/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/temporal-server/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/temporal-server/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/temporal-server/provenance_info/" >}}
+{{</ tabs >}}
+
+
+
+Minimal Temporal-Server Image
+
+## Get It!
+
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/temporal-server:latest
+```
+
+## Usage
+
+The default entrypoint for this image is `/etc/temporal/entrypoint.sh`
+
+To test:
+
+```shell
+$ docker run cgr.dev/chainguard/temporal-server:latest start --config <config dir path relative to root (default: "config")>
+
+USAGE:
+   temporal-server [global options] command [command options]  
+
+VERSION:
+   1.22.0
+
+COMMANDS:
+   start    Start Temporal server
+   help, h  Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --root value, -r value    root directory of execution environment (default: ".") [$TEMPORAL_ROOT]
+   --config value, -c value  config dir path relative to root (default: "config") [$TEMPORAL_CONFIG_DIR]
+   --env value, -e value     runtime environment (default: "development") [$TEMPORAL_ENVIRONMENT]
+   --zone value, --az value  availability zone [$TEMPORAL_AVAILABILITY_ZONE, $TEMPORAL_AVAILABILTY_ZONE]
+   --allow-no-auth           allow no authorizer (default: false) [$TEMPORAL_ALLOW_NO_AUTH]
+   --help, -h                show help (default: false)
+   --version, -v             print the version (default: false)
+```
+
+Notes: 
+
+* Here's the docker compose repo link for further reference on how this image can run https://github.com/temporalio/docker-compose
+* For Helm Chart working, here's the reference: https://github.com/temporalio/helm-charts/tree/master#install-temporal-with-helm-chart 
+TLDR, for a miminal helm installation:
+
+```
+helm -n temporaltest install \
+    --set server.replicaCount=1 \
+    --namespace temporaltest \
+    --create-namespace \
+    --set cassandra.config.cluster_size=1 \
+    --set prometheus.enabled=false \
+    --set grafana.enabled=false \
+    --set elasticsearch.enabled=false \
+    --set server.image.repository=cgr.dev/chainguard/temporal-server \
+    --set server.image.tag=latest \
+    temporaltest . --timeout 15m
+```
