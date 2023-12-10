@@ -216,7 +216,7 @@ inky-demo    distroless   619ef9b6c52d   6 seconds ago   90.3MB
 inky-demo    latest       4832e9093348   4 minutes ago   110MB
 ```
 
-And you'll notice that the `:distroless` version is significantly smaller, because it doesn't carry along all the software necessary to build the application. More important than size, however, is the smaller attack surface that results in less CVEs.
+And you'll notice that the `:distroless` version is significantly smaller, because it doesn't carry along all the software necessary to build the application. More important than size, however, is the smaller attack surface that results in fewer CVEs.
 
 ## Final Considerations
 
