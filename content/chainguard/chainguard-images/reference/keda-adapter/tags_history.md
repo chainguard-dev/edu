@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-08 00:32:20
+lastmod: 2023-12-11 00:29:37
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 7th | `sha256:aae1c34c84bdb1a8adf699668bd2338dacf7f1e2145d2e991367e50ec80306ca` |
-|  `latest`     | December 7th | `sha256:0b7ccf87c787f996072b87cdb42c4125d26eb6c9393ca8ef02fed4abafd0a8eb` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | December 10th | `sha256:3e59eaad912a5e69d6f8b93dfee3be581f0481f18f099884a21c9e78e71b6e7c` |
+|  `latest-dev` | December 10th | `sha256:6be273ed2adf58e4bd87bd7c4659935eb1d8d7f3e0af2c15578a223592827785` |
 
