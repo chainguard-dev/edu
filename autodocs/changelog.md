@@ -1,3 +1,21 @@
+# 2023-12-11
+
+
+Updated Docs:
+
+- gatekeeper/tags_history.md
+- keda/tags_history.md
+- keda-adapter/tags_history.md
+- keda-admission-webhooks/tags_history.md
+- kyverno-policy-reporter-reporter/tags_history.md
+- metacontroller/tags_history.md
+- newrelic-kube-events/tags_history.md
+- newrelic-kubernetes/tags_history.md
+- nodetaint/tags_history.md
+- semgrep/tags_history.md
+- thanos-operator/tags_history.md
+- trino/tags_history.md
+
 # 2023-12-10
 New images added:
 
