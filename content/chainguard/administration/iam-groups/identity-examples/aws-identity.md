@@ -1,18 +1,20 @@
 ---
 title : "Create an Assumable Identity for an AWS role"
 linktitle: "AWS Assumable Identity"
+aliases: 
+- /chainguard/chainguard-enforce/authentication/identity-examples/enforce-aws-identity/
 lead: ""
-description: "Procedural tutorial outlining how to create a Chainguard Enforce identity that can be assumed by an AWS role."
+description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by an AWS role."
 type: "article"
 date: 2023-11-28T08:48:45+00:00
-lastmod: 2023-11-28T08:48:45+00:00
+lastmod: 2023-12-07T08:48:45+00:00
 draft: false
-tags: ["Enforce", "Product", "Procedural"]
+tags: ["Chainguard Images", "Product", "Procedural"]
 images: []
-weight: 010
+weight: 012
 ---
 
-In Chainguard Enforce, [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
+Chainguard's [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
 
 This procedural tutorial outlines how to create an identity using Terraform, and then create an AWS role that will assume the identity to interact with Chainguard resources. This can be used to authorize requests from AWS Lambda, ECS, EKS, or any other AWS service that supports [IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
 
@@ -22,7 +24,7 @@ This procedural tutorial outlines how to create an identity using Terraform, and
 To complete this guide, you will need the following.
 
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
-* `chainctl` — the Chainguard Enforce command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
+* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
 * An AWS account with the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) installed and configured. The [Terraform provider for AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) uses credentials configured via the AWS CLI.
 * A recent version of [Go](https://go.dev/dl/) to test the identity with AWS Lambda.
 
@@ -35,7 +37,7 @@ These files are available in [Chainguard's GitHub Repository of Platform Example
 To help explain each configuration file's purpose, we will go over what they do one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
 
 ```sh
-mkdir ~/enforce-aws && cd $_
+mkdir ~/aws-id && cd $_
 ```
 
 This will help make it easier to clean up your system at the end of this guide.
@@ -296,11 +298,11 @@ chainctl iam groups rm example-group
 You can then remove the working directory to clean up your system.
 
 ```sh
-rm -r ~/enforce-aws/
+rm -r ~/aws-id/
 ```
 
 Following that, all of the example resources created in this guide will be removed from your system.
 
 ## Learn more
 
-For more information about how assumable identities work in Chainguard Enforce, check out our [conceptual overview of assumable identities](/chainguard/chainguard-enforce/iam-groups/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment.
+For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/chainguard-enforce/iam-groups/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment.

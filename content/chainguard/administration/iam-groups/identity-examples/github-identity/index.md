@@ -3,18 +3,19 @@ title : "Create an Assumable Identity for a GitHub Actions Workflow"
 linktitle: "GitHub Actions Assumable Identity"
 aliases:
 - /chainguard/chainguard-enforce/iam-groups/enforce-github-identity/
+- /chainguard/chainguard-enforce/authentication/identity-examples/enforce-github-identity/
 lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard Enforce identity that can be assumed by a GitHub Actions workflow."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2023-05-04T08:48:45+00:00
+lastmod: 2023-12-07T08:48:45+00:00
 draft: false
-tags: ["Enforce", "Product", "Procedural"]
+tags: ["Chainguard Images", "Product", "Procedural"]
 images: []
 weight: 005
 ---
 
-In Chainguard Enforce, [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
+Chainguard's [*assumable identities*](/chainguard/chainguard-enforce/iam-groups/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
 
 This procedural tutorial outlines how to create an identity using Terraform, and then create a GitHub Actions workflow that will assume the identity to interact with Chainguard resources.
 
@@ -24,7 +25,7 @@ This procedural tutorial outlines how to create an identity using Terraform, and
 To complete this guide, you will need the following.
 
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
-* `chainctl` — the Chainguard Enforce command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
+* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) to set this up.
 * A GitHub repository you can use for testing out GitHub identity federation. To complete this guide, you must have permissions to create GitHub Actions on this testing repo.
 
 
@@ -35,7 +36,7 @@ We will be using Terraform to create an identity for a GitHub Actions workflow t
 To help explain each configuration file's purpose, we will go over what they do and how to create each file one by one. First, though, create a directory to hold the Terraform configuration and navigate into it.
 
 ```sh
-mkdir ~/enforce-actions && cd $_
+mkdir ~/github-id && cd $_
 ```
 
 This will help make it easier to clean up your system at the end of this guide.
@@ -272,11 +273,11 @@ This will destroy the role-binding, and the identity created in this guide. It w
 You can then remove the working directory to clean up your system.
 
 ```sh
-rm -r ~/enforce-actions/
+rm -r ~/github-id/
 ```
 
 Following that, all of the example resources created in this guide will be removed from your system.
 
 ## Learn more
 
-For more information about how assumable identities work in Chainguard Enforce, check out our [conceptual overview of assumable identities](/chainguard/chainguard-enforce/iam-groups/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment. Likewise, for more information on using GitHub Actions, we encourage you to check out the [official documentation on the subject](https://docs.github.com/en/actions).
+For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/chainguard-enforce/iam-groups/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment. Likewise, for more information on using GitHub Actions, we encourage you to check out the [official documentation on the subject](https://docs.github.com/en/actions).
