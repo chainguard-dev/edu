@@ -1,5 +1,5 @@
 ---
-date: 2023-12-04T18:58:53Z
+date: 2023-12-11T21:29:01Z
 title: "chainctl iam role-bindings delete"
 slug: chainctl_iam_role-bindings_delete
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_delete/
