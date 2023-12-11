@@ -5,7 +5,7 @@ lead: ""
 description: "Procedural tutorial on how to register an Azure Active Directory Application"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2023-10-26T15:22:20+01:00
+lastmod: 2023-12-08T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Procedural"]
 images: []
@@ -63,15 +63,9 @@ Finally, take note of the client secret “Value” that is created. You'll need
 
 ## Configuring Chainguard to use Azure Active Directory
 
-To configure Chainguard, make a note of the following details from your Azure Active Directory application:
+Now that your Azure Active Directory application is ready, you can create the custom identity provider.
 
-* **Application (client) Id**: This can be found on the **Overview** tab of the Chainguard AD application.
-* **Client Secret**: You noted this down when you set up the  clientsecret in the previous step.
-* **Directory (tenant) Id**: This can also be found on the **Overview** tab of the Chainguard AD application.
-
-![Screenshot of the Azure AD Overview tab showing the Essentials information. THe Application (client) ID and the Directory (tenant) ID are both highlighted in red circles.](aad-8.png)
-
-Next, log in to Chaingaurd with `chainctl`, using an OIDC provider like Google, Github, or GitLab to bootstrap your account.
+First, log in to Chainguard with `chainctl`, using an OIDC provider like Google, GitHub, or GitLab to bootstrap your account.
 
 ```sh
 chainctl auth login
@@ -79,7 +73,32 @@ chainctl auth login
 
 Note that this bootstrap account can be used as a [backup account](/chainguard/chainguard-enforce/authentication/custom-idps/#backup-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, if you prefer to remove this rolebinding after configuring the custom IDP, you may also do so.
 
-Create a new identity provider using the details you noted from your Azure Active Directory application. 
+To configure Chainguard, make a note of the following details from your Azure Active Directory application:
+
+* **Application (client) Id**: This can be found on the **Overview** tab of the Chainguard AD application.
+* **Client Secret**: You noted this down when you set up the  clientsecret in the previous step.
+* **Directory (tenant) Id**: This can also be found on the **Overview** tab of the Chainguard AD application.
+
+![Screenshot of the Azure AD Overview tab showing the Essentials information. Th
+He Application (client) ID and the Directory (tenant) ID are both highlighted in red circles.](aad-8.png)
+
+You will also need the UIDP for the Chainguard group under which you want to install the identity provider.  Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
+
+You can retrieve a list of all your Chainguard groups — along with their UIDPs — with the following command.
+
+```shell
+chainctl iam groups ls -o table
+```
+```output
+                             ID                             |      NAME       |    DESCRIPTION      
+------------------------------------------------------------+-----------------+---------------------
+  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43                  | sample_group    |                     
+  . . .                                                     | . . .           |
+```
+
+Note down the `ID` value for your chosen group. 
+
+With this information in hand, create a new identity provider with the following commands.
 
 ```sh
 export NAME=azure-ad
@@ -94,7 +113,12 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
+  --group=${GROUP}
+  --default-role=viewer
   --name=${NAME}
 ```
 
-You’ll be prompted to select a Chainguard IAM group under which to install your identity provider. Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration. For more information, check out the [IAM and Security section](/chainguard/chainguard-enforce/authentication/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard. 
+Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and Security section](/chainguard/chainguard-enforce/authentication/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial. 
+
+
+You can refer to our [Generic Integration Guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers doc for more information about the `chainctl iam identity-provider create` command and its required options.
