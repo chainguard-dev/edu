@@ -59,13 +59,12 @@ jobs:
                 digest
             FROM ${{ env.BIGQUERY_TABLE }}
             WHERE DATE(time) BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY) AND CURRENT_DATE()
-            AND scanner = "grype";' 2> errs.txt 1> data.csv
+            AND scanner = "grype";' 2> /dev/null 1> data.csv
 
       - name: upload csv
         shell: bash
         run: |
-          # gcloud storage cp data.csv gs://chainguard-academy/cve-data/data-testing.csv
-          cat errs.txt
+          gcloud storage cp data.csv gs://chainguard-academy/cve-data/data-testing.csv
 
       #- name: update permissions
       #  shell: bash
