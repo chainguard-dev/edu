@@ -1,3 +1,19 @@
+# 2023-12-12
+
+
+Updated Docs:
+
+- dask-gateway-server/tags_history.md
+- kubeflow-jupyter-web-app/tags_history.md
+- kubeflow-katib-suggestion-optuna/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- kubeflow-volumes-web-app/tags_history.md
+- ntia-conformance-checker/tags_history.md
+- openai/tags_history.md
+- rqlite/tags_history.md
+- semgrep/tags_history.md
+- slim-toolkit-debug/tags_history.md
+
 # 2023-12-11
 
 
