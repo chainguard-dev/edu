@@ -1,9 +1,9 @@
 ---
-title: "kubeflow-pipelines-cache-server Image Tags History"
+title: "sqlpad Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the kubeflow-pipelines-cache-server Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
+description: "Image Tags and History for the sqlpad Chainguard Image"
+date: 2023-12-13 00:32:10
 lastmod: 2023-12-13 00:32:10
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-cache-server/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-cache-server/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/kubeflow-pipelines-cache-server/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-cache-server/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/sqlpad/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/sqlpad/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/sqlpad/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/sqlpad/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 12th | `sha256:b85ec1b9efda9c1ad6c19ad0b23a08872021f54d2ec07ce78603743024e9e6bd` |
-|  `latest-dev` | December 12th | `sha256:217c1828da57e02d9debe50e9124bb488c78f2f83f34f00f207975a916d3fb8c` |
+|  `latest-dev` | December 12th | `sha256:3bc2d541d18fa619f3c4939e4df54eba5de4a43f86c78d234364961fd641b42d` |
+|  `latest`     | December 12th | `sha256:f10fc5503e4bdcb9294b7f91edd66cf41bdd06b069f43e85c524843c1057e8ca` |
 

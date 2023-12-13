@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-notification-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-10 00:31:12
+lastmod: 2023-12-13 00:32:10
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 9th | `sha256:95e9e7a2310d4add28556af7cbaafe3d9f59602d36d9032521f9940ca068eafb` |
-|  `latest`     | December 9th | `sha256:3411158d40b1b75e42a73d7307439d885c0f85b1f2d8a982f92ff8f7fca4f667` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | December 12th | `sha256:0a5ee98c828e609aae51b5cbf5f4a8590d7833f25c857c33f68d7de36c701d69` |
+|  `latest-dev` | December 12th | `sha256:19cbf8204ca8bcb93ebc55ea662d0fb61cedba12630af731ab2df277a3f270c5` |
 

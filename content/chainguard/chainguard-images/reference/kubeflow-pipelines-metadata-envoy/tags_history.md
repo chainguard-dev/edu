@@ -3,8 +3,8 @@ title: "kubeflow-pipelines-metadata-envoy Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
-date: 2023-12-10 00:31:12
-lastmod: 2023-12-10 00:31:12
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2023-12-13 00:32:10
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | December 8th | `sha256:e67683d62461ea039c1af0e3deb1c202dbcd8018f7bc5d224e8768bb26405e63` |
-|  `latest-dev` | December 8th | `sha256:c0a258a79c550141a91bc5094cf8d90c2b9f5b41ccfd6cb7948017bff720db10` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | December 12th | `sha256:5e38b885891c8823498eb208d6a853445ad5d86865ec4456e0b140f0bd9dd63e` |
+|  `latest-dev` | December 12th | `sha256:16242f2409e933963fc4a987564417b08196266c8ef2193ad36915194ede8f84` |
 

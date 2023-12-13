@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-frontend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-10 00:31:12
+lastmod: 2023-12-13 00:32:10
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 8th | `sha256:5d512e79faa813a636f5c4a23344b0f40fce4a0ea8b6c8c5877075812a5bafdc` |
-|  `latest`     | December 8th | `sha256:8e9a5babab1f014c760924598170c7b552ed361fb1a4bc4b59df6c9fde64b49f` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | December 12th | `sha256:9aac4c6f46839158891bf7243b5d2a9f64914e68228308b375c79597c43d9977` |
+|  `latest-dev` | December 12th | `sha256:5883d460504ea59ddf0f667bf33ad098e702ae8bd1e5b1c960ea3ca1e1d74646` |
 
