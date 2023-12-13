@@ -186,12 +186,12 @@ prints a representation of that file to the terminal:
 
 ```python
 '''import climage module to display images on terminal'''
-from climage import convert, color_to_flags, color_types
+from climage import convert
 
 
 def main():
     '''Take in PNG and output as ANSI to terminal'''
-    output = convert('inky.png', is_unicode=True, **color_to_flags(color_types.truecolor))
+    output = convert('inky.png', is_unicode=True)
     print(output)
 
 if __name__ == "__main__":
