@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-fluentd-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-10 00:31:12
+lastmod: 2023-12-13 00:32:10
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,7 +23,7 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)   | Last Changed | Digest                                                                    |
-|-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | December 9th | `sha256:ccd5c58149734807f47b353be279126a2d699814ea036053d54acad31d83cf9e` |
+| Tag (s)   | Last Changed  | Digest                                                                    |
+|-----------|---------------|---------------------------------------------------------------------------|
+|  `latest` | December 12th | `sha256:f35dfe22beaaed77798ffa6f730a03cd0689d0cd9340c11c9aa4b30738012d66` |
 
