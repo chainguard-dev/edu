@@ -4,8 +4,8 @@ linktitle: "temporal-server"
 type: "article"
 layout: "single"
 description: "Overview: temporal-server Chainguard Image"
-date: 2023-12-10 00:31:12
-lastmod: 2023-12-10 00:31:12
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-13 00:32:10
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -83,3 +83,4 @@ helm -n temporaltest install \
     --set server.image.tag=latest \
     temporaltest . --timeout 15m
 ```
+

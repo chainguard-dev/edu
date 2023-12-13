@@ -1,3 +1,51 @@
+# 2023-12-13
+New images added:
+
+- cass-operator
+- ml-metadata-store-server
+- postgres-helm-compat
+- sqlpad
+
+Updated Docs:
+
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- aws-for-fluent-bit/tags_history.md
+- cert-manager-acmesolver/tags_history.md
+- cert-manager-cainjector/tags_history.md
+- cert-manager-controller/tags_history.md
+- cert-manager-webhook/tags_history.md
+- fluent-bit/tags_history.md
+- flux-image-reflector-controller/tags_history.md
+- flux-kustomize-controller/tags_history.md
+- flux-notification-controller/tags_history.md
+- flux-source-controller/tags_history.md
+- gitlab-exporter/tags_history.md
+- kor/tags_history.md
+- kube-fluentd-operator/tags_history.md
+- kubeflow-katib-suggestion-optuna/tags_history.md
+- kubeflow-pipelines-api-server/tags_history.md
+- kubeflow-pipelines-cache-deployer/tags_history.md
+- kubeflow-pipelines-cache-server/tags_history.md
+- kubeflow-pipelines-frontend/tags_history.md
+- kubeflow-pipelines-metadata-envoy/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- kubeflow-pipelines-persistenceagent/tags_history.md
+- kubeflow-pipelines-scheduledworkflow/tags_history.md
+- kubeflow-pipelines-viewer-crd-controller/tags_history.md
+- newrelic-fluent-bit-output/tags_history.md
+- newrelic-prometheus-configurator/tags_history.md
+- node-problem-detector/tags_history.md
+- postgres/tags_history.md
+- promtail/tags_history.md
+- rabbitmq-messaging-topology-operator/tags_history.md
+- rqlite/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- temporal-admin-tools/tags_history.md
+- temporal-server/_index.md
+- temporal-server/image_specs.md
+- temporal-server/tags_history.md
+
 # 2023-12-12
 
 
