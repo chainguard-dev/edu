@@ -3,8 +3,8 @@ title: "k8ssandra-operator Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-operator Chainguard Image"
-date: 2023-12-10 00:31:12
-lastmod: 2023-12-10 00:31:12
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2023-12-14 00:19:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 9th | `sha256:f067c797af953651a1e10a95d2c3cb2b00d300402bed6c06f39a9151a2b8d152` |
-|  `latest`     | December 9th | `sha256:33ac5efedf368115c526a30235e37ebbfb009a1ba099ee350baf872977cf216d` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 13th | `sha256:e80cc856602acdee49f4b27f1ff15b439b8f4477b76068634fe9c2296afc4526` |
+|  `latest`     | December 13th | `sha256:b0bfeaa2eba77298d0e628ceb34f950b65f560cef730e171a6a65cbf1accaca5` |
 

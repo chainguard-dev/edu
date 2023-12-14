@@ -4,8 +4,8 @@ linktitle: "kubeflow-centraldashboard"
 type: "article"
 layout: "single"
 description: "Overview: kubeflow-centraldashboard Chainguard Image"
-date: 2023-12-08 00:32:20
-lastmod: 2023-12-08 00:32:20
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-14 00:19:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,6 +29,7 @@ toc: true
 This project serves as the landing page and central dashboard for Kubeflow deployments. It provides a jump-off point to all other facets of the platform.
 
 For more information, see the [Kubeflow Central Dashboard](https://www.kubeflow.org/docs/components/central-dash/) documentation.
+
 <!--overview:end-->
 
 <!--getting:start-->
