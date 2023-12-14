@@ -4,8 +4,8 @@ linktitle: "ml-metadata-store-server"
 type: "article"
 layout: "single"
 description: "Overview: ml-metadata-store-server Chainguard Image"
-date: 2023-12-13 00:32:10
-lastmod: 2023-12-13 00:32:10
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-14 00:19:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,7 +26,7 @@ toc: true
 
 
 <!--overview:start-->
-Remote gRPC server for ML Metadata
+[ML Metadata (MLMD)](https://www.tensorflow.org/tfx/guide/mlmd) remote gRPC server
 <!--overview:end-->
 
 <!--getting:start-->

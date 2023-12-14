@@ -4,8 +4,8 @@ linktitle: "sqlpad"
 type: "article"
 layout: "single"
 description: "Overview: sqlpad Chainguard Image"
-date: 2023-12-13 00:32:10
-lastmod: 2023-12-13 00:32:10
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-14 00:19:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,16 +25,20 @@ toc: true
 
 
 
+<!--overview:start-->
 A minimal Wolfi-based image for sqlpad, which is a web application for generating and running SQL queries and visualizing the results. For more information, please refer to the [applications documentation](https://github.com/sqlpad/sqlpad) on github.
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/sqlpad:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Important note about data and docker
 
 Unless data volumes are mapped outside the containers, you will lose data inside SQLPad and various database when the containers are shutdown and removed.
@@ -71,3 +75,5 @@ helm -n sqlpad install sqlpad  \
     --set image.tag=latest \
     ./
 ```
+<!--body:end-->
+

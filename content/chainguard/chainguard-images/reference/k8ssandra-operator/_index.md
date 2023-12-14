@@ -4,8 +4,8 @@ linktitle: "k8ssandra-operator"
 type: "article"
 layout: "single"
 description: "Overview: k8ssandra-operator Chainguard Image"
-date: 2023-12-10 00:31:12
-lastmod: 2023-12-10 00:31:12
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-14 00:19:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,19 @@ toc: true
 
 
 
-k8ssandra-operator is the Kubernetes operator for
-[K8ssandra](https://docs.k8ssandra.io/).
+<!--overview:start-->
+The Kubernetes operator for K8ssandra
+<!--overview:end-->
+
+<!--getting:start-->
+## Get It!
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/k8ssandra-operator:latest
+```
+<!--getting:end-->
+
+<!--body:start-->
+<!--body:end-->
 
