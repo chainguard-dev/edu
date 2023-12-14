@@ -4,8 +4,8 @@ linktitle: "temporal-admin-tools"
 type: "article"
 layout: "single"
 description: "Overview: temporal-admin-tools Chainguard Image"
-date: 2023-12-06 18:44:36
-lastmod: 2023-12-06 18:44:36
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-14 00:19:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,7 +26,7 @@ toc: true
 
 
 <!--overview:start-->
-Golang Server for https://github.com/temporalio/ui
+Golang Server for [https://github.com/temporalio/ui](https://github.com/temporalio/ui)
 <!--overview:end-->
 
 <!--getting:start-->

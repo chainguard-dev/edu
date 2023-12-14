@@ -4,8 +4,8 @@ linktitle: "cass-operator"
 type: "article"
 layout: "single"
 description: "Overview: cass-operator Chainguard Image"
-date: 2023-12-13 00:32:10
-lastmod: 2023-12-13 00:32:10
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2023-12-14 00:19:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,8 +26,6 @@ toc: true
 
 
 <!--overview:start-->
-A minimal, wolfi-based image for [cass-operator](https://github.com/k8ssandra/cass-operator).
-
 [cass-operator](https://github.com/k8ssandra/cass-operator), is a Kubernetes operator for managing Apache Cassandra. It automates tasks like deployment, scaling, and configuration management, facilitating the integration of Cassandra clusters with Kubernetes environments.
 <!--overview:end-->
 
@@ -41,8 +39,10 @@ docker pull cgr.dev/chainguard/cass-operator:latest
 <!--getting:end-->
 
 <!--body:start-->
+
 ## Usage
-cass-operator is a Kubernetes operator, which can be deployed using helm. Refer to the [upstream repositories documentation](https://github.com/k8ssandra/cass-operator) for how to get started with cass-operator. 
+
+cass-operator is a Kubernetes operator, which can be deployed using helm. Refer to the [upstream repositories documentation](https://github.com/k8ssandra/cass-operator) for how to get started with cass-operator.
 
 To use our minimal, wolfi-based image with this Helm chart you'll need to override the image used by the official helm chart and specify the chainguard image as per below example:
 
