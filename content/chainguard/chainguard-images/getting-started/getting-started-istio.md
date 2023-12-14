@@ -67,6 +67,15 @@ Thanks for using kind! 😊
 
 ## Install Istio using Chainguard Images
 
+We will be using the `istioctl` command to install Istio. In order to use the
+Chainguard images, we will need to set these following values:
+- `hub = cgr.dev/chainguard`
+- `tag = latest`
+- `values.pilot.image = istio-pilot`
+- `values.global.proxy.image = istio-proxy`
+- `values.global.proxy_init.image = istio-proxy`
+
+Those translate to the following `istioctl` command:
 ```
 istioctl install --set tag=latest --set hub=cgr.dev/chainguard \
   --set values.pilot.image=istio-pilot \
@@ -76,7 +85,12 @@ istioctl install --set tag=latest --set hub=cgr.dev/chainguard \
 
 ## Stand up a Gateway and a VirtualService 
 
-First, create a YAML file containing a Gateway and VirtualService to test the installation:
+To see the Istio installation in action, we will create two Istio resources:
+* An Istio gateway serving the "http://hello.example.com" domain
+* A VirtualService to always reply with "Hello, world!" to requests to the
+  "http://hello.example.com" domain 
+
+Create a YAML file with the following contents to define the Istio resources: 
 ```
 cat > example.yaml <<EOF
 apiVersion: networking.istio.io/v1alpha3
@@ -121,7 +135,7 @@ kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
 
 In another terminal, send a request to the Istio Ingress Gateway:
 ```
-curl -H "Host: ingress.test.foo" localhost:8080
+curl -H "Host: hello.example.com" localhost:8080
 ```
 You should see `Hello, world!` output to the terminal.
 
