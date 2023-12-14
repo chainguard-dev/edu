@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: temporal-server Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2023-12-13 00:32:10
+lastmod: 2023-12-14 00:19:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,16 +25,20 @@ toc: true
 
 
 
-Minimal Temporal-Server Image
+<!--overview:start-->
+Minimal image for [Temporal](https://docs.temporal.io/), a durable execution platform that handles intermittent failures and retries failed operations
+<!--overview:end-->
 
+<!--getting:start-->
 ## Get It!
-
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/temporal-server:latest
 ```
+<!--getting:end-->
 
+<!--body:start-->
 ## Usage
 
 The default entrypoint for this image is `/etc/temporal/entrypoint.sh`
@@ -83,4 +87,5 @@ helm -n temporaltest install \
     --set server.image.tag=latest \
     temporaltest . --timeout 15m
 ```
+<!--body:end-->
 

@@ -1,3 +1,38 @@
+# 2023-12-14
+
+
+Updated Docs:
+
+- cass-operator/_index.md
+- cass-operator/tags_history.md
+- crossplane/tags_history.md
+- git/tags_history.md
+- influxdb/tags_history.md
+- k8ssandra-operator/_index.md
+- k8ssandra-operator/tags_history.md
+- keycloak/tags_history.md
+- kubeflow-centraldashboard/_index.md
+- kubeflow-centraldashboard/tags_history.md
+- loki/tags_history.md
+- ml-metadata-store-server/_index.md
+- ml-metadata-store-server/tags_history.md
+- newrelic-infrastructure-bundle/tags_history.md
+- oauth2-proxy/tags_history.md
+- opentelemetry-collector-contrib/tags_history.md
+- postgres-helm-compat/tags_history.md
+- prometheus-mysqld-exporter/tags_history.md
+- promtail/tags_history.md
+- qdrant/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- sqlpad/_index.md
+- sqlpad/tags_history.md
+- temporal-admin-tools/_index.md
+- temporal-admin-tools/image_specs.md
+- temporal-admin-tools/tags_history.md
+- temporal-server/_index.md
+- temporal-server/tags_history.md
+- tomcat/tags_history.md
+
 # 2023-12-13
 New images added:
 
