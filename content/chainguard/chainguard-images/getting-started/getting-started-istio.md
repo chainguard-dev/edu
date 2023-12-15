@@ -90,7 +90,7 @@ To see the Istio installation in action, we will create two Istio resources:
   "http://hello.example.com" domain 
 
 Create a YAML file with the following contents to define the Istio resources: 
-```
+```sh
 cat > example.yaml <<EOF
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
