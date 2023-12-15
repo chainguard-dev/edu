@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Istio"
 description: "Tutorial on how to get started with the Chainguard Istio Images"
 date: 2023-12-14T00:00:00+00:00
-lastmod: 2023-09-22T11:07:52+02:00
+lastmod: 2023-12-14T11:07:52+02:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -23,11 +23,11 @@ offers a set of minimal, security-hardened Istio images, built on top the Wolfi
 OS.
 
 We will demonstrate how to get started with the Chainguard Istio images on an
-example KinD cluster. To get started, you'll need Docker, KinD, `kubectl`, and `istioctl`
-installed.
+example kind cluster. To get started, you'll need Docker, kind, `kubectl`, and `istioctl`
+installed. If you are missing any, you can follow the relevant link to get started.
 
 * [Docker](https://docs.docker.com/get-docker/)
-* [KinD](https://kind.sigs.k8s.io/docs/user/quick-start/)
+* [kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * [istioctl](https://istio.io/latest/docs/setup/getting-started/#download)
 
@@ -40,14 +40,16 @@ installed.
 {{< blurb/images >}}
 {{< /details >}}
 
-## Start up a KinD cluster
+## Start up a kind cluster
 
-First, we'll start up a KinD cluster to install Istio
+First, we'll start up a kind cluster to install Istio.
+
 ```sh
 kind create cluster
 ```
 
 This will return output similar to the following:
+
 ```
 Creating cluster "kind" ...
  ✓ Ensuring node image (kindest/node:v1.27.3) 🖼 
@@ -69,22 +71,26 @@ Following that, you can install the Istio Chainguard Image with `istioctl`.
 ## Install Istio using Chainguard Images
 
 We will be using the `istioctl` command to install Istio. In order to use the
-Chainguard images, we will need to set these following values:
+Chainguard Images, we will need to set these following values:
 - `hub = cgr.dev/chainguard`
 - `tag = latest`
 - `values.pilot.image = istio-pilot`
 - `values.global.proxy.image = istio-proxy`
 - `values.global.proxy_init.image = istio-proxy`
 
-Those translate to the following `istioctl` command:
-```
+We can set these values with the following `istioctl` command:
+
+```sh
 istioctl install --set tag=latest --set hub=cgr.dev/chainguard \
   --set values.pilot.image=istio-pilot \
   --set values.global.proxy.image=istio-proxy \
   --set values.global.proxy_init.image=istio-proxy
 ```
 
-The Istio Chainguard Image is now running on the KinD cluster you created previously. In the next section, you'll set up an Istio gateway and a VirtualService to test out this Image.
+The Istio Chainguard Image is now running on the kind cluster you created previously. 
+In the next section, you'll set up an Istio gateway and a VirtualService to test out 
+this image.
+
 ## Stand up a Gateway and a VirtualService 
 
 To see the Istio installation in action, we will create two Istio resources:
@@ -126,21 +132,33 @@ EOF
 ```
 
 Apply the YAML file to the cluster:
+
 ```sh
 kubectl apply -f example.yaml
 ```
 
 Now, in one terminal, start a port-forward to the Istio Ingress Gateway:
-```
+
+```sh
 kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
 ```
 
 In another terminal, send a request to the Istio Ingress Gateway:
-```
+
+```sh
 curl -H "Host: hello.example.com" localhost:8080
 ```
-You should see `Hello, world!` output to the terminal.
+This will return `Hello, world!` to the terminal output.
 
-## Clean up your KinD cluster 
+## Clean up your kind cluster 
 
-Once you are done, you can delete your KinD cluster with `kind delete cluster`.
+Once you are done, you can delete your kind cluster:
+
+```sh
+kind delete cluster
+```
+
+This will delete the default cluster context, `kind`.
+
+## Advanced Usage
+{{< blurb/images-advanced image="Istio" >}}
