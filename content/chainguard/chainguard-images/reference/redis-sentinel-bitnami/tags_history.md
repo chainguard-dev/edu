@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-sentinel-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-08 00:32:20
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 7th | `sha256:8da5f5dfe756179aaad26ed0413a37e41c5458cad61ee6ef98c8fd83cbf81aaa` |
-|  `latest`     | December 7th | `sha256:0c69bfe64a7d3efbbdd8d1f125282a9334f100d00702172b1c46f174f25d7d18` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest`     | December 14th | `sha256:ccceb01e8533fe07520b295abcbb4b1faf34c9aa962a5e2e372ebd9dc66891a9` |
+|  `latest-dev` | December 14th | `sha256:a75b72841a2b60f8785f8297e5946a50c37235bed63b27879e7d76fcdb59badb` |
 

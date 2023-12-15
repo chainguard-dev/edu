@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the thanos-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-11 00:29:37
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 10th | `sha256:4c738f70ada5085bd7712e5a37deb4d3dc1e6d58cb529554881c34c622e0843b` |
-|  `latest-dev` | December 10th | `sha256:56c02ad3009cfc8bb4e1db3fd3de1abc1c5606c9c4744b6afd68daf3fc7214c5` |
+|  `latest-dev` | December 14th | `sha256:b0783f2871ba926bf214f8c0533674e4fadb7a5ec05bdaf7245580653171790f` |
+|  `latest`     | December 14th | `sha256:4c18a8a487603f04dcba6a2fc84f3122038f4f951a507e1e47a88ebca87275c0` |
 

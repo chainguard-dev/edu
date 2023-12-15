@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentofu Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-08 00:32:20
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | December 7th | `sha256:55adc3f5bbaee50f536dcbd67c6eb1acf5e477f76822ea2b86c8ba4c087d2dbe` |
-|  `latest-dev` | December 7th | `sha256:4d8f828d64421a660e1c6c90b736e52e1f1a0afd2388bcf8eee98d93f9c633db` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 14th | `sha256:9c153163ce1c4982fbd53375f98a3f6ef6c4fe9b27de15872761270724c71cb7` |
+|  `latest`     | December 7th  | `sha256:55adc3f5bbaee50f536dcbd67c6eb1acf5e477f76822ea2b86c8ba4c087d2dbe` |
 

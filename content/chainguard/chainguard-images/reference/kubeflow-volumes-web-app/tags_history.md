@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-volumes-web-app Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-12 00:17:08
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 11th | `sha256:43c5481eeb9fbdf4947655ef0e0adfc7ba9f1ca1c99617a479847c17bb4351a4` |
-|  `latest-dev` | December 11th | `sha256:10e297c5923af97b0f41682604ddce90ff99175a64da9ea1a7b8273ea5eabcb3` |
+|  `latest`     | December 14th | `sha256:783d9e69978961f9510f8e2d677307ac826fdefdf6f2fffbf3970b1bc770cee2` |
+|  `latest-dev` | December 14th | `sha256:77a8d347c2f01e4c4dcb9c23e16adaacb2f76eb6b6d6606f67beb4d40b46c9b2` |
 
