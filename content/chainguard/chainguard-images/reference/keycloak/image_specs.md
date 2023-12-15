@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public keycloak Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -75,7 +75,6 @@ The table shows package distribution across variants.
 | `libtasn1`               | X          | X      |
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
-| `openjdk-17`             | X          | X      |
 | `openjdk-17-default-jvm` | X          | X      |
 | `openjdk-17-jre`         | X          | X      |
 | `openjdk-17-jre-base`    | X          | X      |

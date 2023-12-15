@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the karpenter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-08 00:32:20
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 7th | `sha256:3a261064a608e103398150ca7b31ddcb3baf976e69495574dcf6daa9f0dbe388` |
-|  `latest`     | December 7th | `sha256:2dde9dc04b7f633d953c8903f981dae53051cc151f4d56298da3b08b5904cc0b` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 14th | `sha256:234e44801ad4a44da8c7e8624d16e6783a6bb412b2adc89bba01558ecae76bb4` |
+|  `latest`     | December 14th | `sha256:44f363f6610df98602d42182fbc8a0ede6bd72724e17b8da73b1ff270a0fe8ea` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the maven Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-08 00:32:20
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,10 +23,10 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                        | Last Changed | Digest                                                                    |
-|--------------------------------|--------------|---------------------------------------------------------------------------|
-|  `openjdk-17-dev` `latest-dev` | December 7th | `sha256:122565ad0a35d429a6805e2aa1f0b11fc1590c9d8ebc9137406a0b019dd888c0` |
-|  `openjdk-11-dev`              | December 7th | `sha256:9e5051d86456bdbedc45c791e8cb692319e8804dee34124ad5205de220333a2e` |
-|  `openjdk-17` `latest`         | December 6th | `sha256:31c0b9d0083c72b770a6098c5ff91c89d5809c28bd7981503927f588b5dab733` |
-|  `openjdk-11`                  | December 6th | `sha256:fe4cbb2eb82ab5468fb5d81e7b21267df7d9dcb6f502508a71e2735b447a7265` |
+| Tag (s)                        | Last Changed  | Digest                                                                    |
+|--------------------------------|---------------|---------------------------------------------------------------------------|
+|  `openjdk-17` `latest`         | December 14th | `sha256:5ccb70edf5a49e89ff5a32285251f460e455d88814401c6288b2820fc21ce337` |
+|  `latest-dev` `openjdk-17-dev` | December 14th | `sha256:adf705a2e05d9f7f65192509a724da05280676ba03f2343e25cb71c26b07b0ba` |
+|  `openjdk-11-dev`              | December 14th | `sha256:f40351d3bd0385447238861a7bf47c7ec7a77b0abf0f18b0f942ffebcf7af704` |
+|  `openjdk-11`                  | December 14th | `sha256:25a8aa1350f72df282d4633dc14e717975b9fe3ca073e0eeb156823964149dbc` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-14 00:19:07
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 13th | `sha256:b1d4e6e11dc19b140e5e21a07fb50006fa513d153b8fc35257410db5d283310a` |
-|  `latest-dev` | December 13th | `sha256:fd1840d96920e620faa8b6c3a9566814b8f75928fbce9ac17f84f61dda74531e` |
+|  `latest`     | December 14th | `sha256:8f3851a7fcc332fdc8e076274fba32d684d23155de690f19d118262f0bd72b06` |
+|  `latest-dev` | December 14th | `sha256:5431b089e6cb4e4524d9e008c2048923d5f36f8a4e7a681aee25ea5011e3dd8d` |
 

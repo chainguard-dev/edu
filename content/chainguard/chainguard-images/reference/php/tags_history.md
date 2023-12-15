@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the php Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-10 00:31:12
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,10 +23,10 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)           | Last Changed | Digest                                                                    |
-|-------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-fpm-dev` | December 9th | `sha256:4b95c49de47225298875513c3409cdebc61e2f7b500ebc4ef523864e29ac9abf` |
-|  `latest-dev`     | December 9th | `sha256:562dd57300c57d2221f42e8b3739f0da276a6b553ba7212c4edbfc1c3520e5a8` |
-|  `latest`         | December 7th | `sha256:966fd754d28b55e63f8b68dca022251ba370c640b9b758dad99e5088aa0ff9fe` |
-|  `latest-fpm`     | December 7th | `sha256:f1f817dc27d2d9f3f002c42d1ff3b853dd3a1cd3e723322dfc25b0e1ac170b67` |
+| Tag (s)           | Last Changed  | Digest                                                                    |
+|-------------------|---------------|---------------------------------------------------------------------------|
+|  `latest-fpm-dev` | December 14th | `sha256:90c34e1311359f12a5440e8bf8fd5ba7ba7173a544690b3762e20aedc7235d7a` |
+|  `latest-fpm`     | December 14th | `sha256:5b42d7615ff85eb3541a9947ffd9b790367d6bd89cecc9f89a6bc5d59adc52bc` |
+|  `latest`         | December 14th | `sha256:95451939be618eb2f9395f15258bf8d644d73def21b90e2a5176d0c5d48cea25` |
+|  `latest-dev`     | December 14th | `sha256:693816966e2cf5a546153399102b485d98fdc4e6aac271b662b117cfad891128` |
 

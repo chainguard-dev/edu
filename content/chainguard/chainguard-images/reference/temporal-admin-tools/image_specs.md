@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public temporal-admin-tools Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-12-14 00:19:07
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,40 +43,42 @@ Check the [tags history page](/chainguard/chainguard-images/reference/temporal-a
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                  | latest-dev | latest |
-|----------------------------------|------------|--------|
-| `apk-tools`                      | X          |        |
-| `bash`                           | X          | X      |
-| `busybox`                        | X          | X      |
-| `ca-certificates-bundle`         | X          | X      |
-| `git`                            | X          |        |
-| `glibc`                          | X          | X      |
-| `glibc-locale-posix`             | X          | X      |
-| `ld-linux`                       | X          | X      |
-| `libbrotlicommon1`               | X          |        |
-| `libbrotlidec1`                  | X          |        |
-| `libcrypt1`                      | X          | X      |
-| `libcrypto3`                     | X          |        |
-| `libcurl-openssl4`               | X          |        |
-| `libexpat1`                      | X          |        |
-| `libnghttp2-14`                  | X          |        |
-| `libpcre2-8-0`                   | X          |        |
-| `libssl3`                        | X          |        |
-| `ncurses`                        | X          | X      |
-| `ncurses-terminfo-base`          | X          | X      |
-| `openssl-config`                 | X          |        |
-| `tctl`                           | X          | X      |
-| `tctl-compat`                    | X          | X      |
-| `tdbg`                           | X          | X      |
-| `tdbg-compat`                    | X          | X      |
-| `temporal`                       | X          | X      |
-| `temporal-cassandra-tool`        | X          | X      |
-| `temporal-cassandra-tool-compat` | X          | X      |
-| `temporal-compat`                | X          | X      |
-| `temporal-server-schema`         | X          | X      |
-| `temporal-sql-tool`              | X          | X      |
-| `temporal-sql-tool-compat`       | X          | X      |
-| `tini`                           | X          | X      |
-| `wolfi-baselayout`               | X          | X      |
-| `zlib`                           | X          |        |
+|                                    | latest-dev | latest |
+|------------------------------------|------------|--------|
+| `apk-tools`                        | X          |        |
+| `bash`                             | X          | X      |
+| `busybox`                          | X          | X      |
+| `ca-certificates-bundle`           | X          | X      |
+| `git`                              | X          |        |
+| `glibc`                            | X          | X      |
+| `glibc-locale-posix`               | X          | X      |
+| `ld-linux`                         | X          | X      |
+| `libbrotlicommon1`                 | X          |        |
+| `libbrotlidec1`                    | X          |        |
+| `libcrypt1`                        | X          | X      |
+| `libcrypto3`                       | X          |        |
+| `libcurl-openssl4`                 | X          |        |
+| `libexpat1`                        | X          |        |
+| `libnghttp2-14`                    | X          |        |
+| `libpcre2-8-0`                     | X          |        |
+| `libssl3`                          | X          |        |
+| `ncurses`                          | X          | X      |
+| `ncurses-terminfo-base`            | X          | X      |
+| `openssl-config`                   | X          |        |
+| `tctl`                             | X          | X      |
+| `tctl-authorization-plugin`        | X          | X      |
+| `tctl-authorization-plugin-compat` | X          | X      |
+| `tctl-compat`                      | X          | X      |
+| `tdbg`                             | X          | X      |
+| `tdbg-compat`                      | X          | X      |
+| `temporal`                         | X          | X      |
+| `temporal-cassandra-tool`          | X          | X      |
+| `temporal-cassandra-tool-compat`   | X          | X      |
+| `temporal-compat`                  | X          | X      |
+| `temporal-server-schema`           | X          | X      |
+| `temporal-sql-tool`                | X          | X      |
+| `temporal-sql-tool-compat`         | X          | X      |
+| `tini`                             | X          | X      |
+| `wolfi-baselayout`                 | X          | X      |
+| `zlib`                             | X          |        |
 

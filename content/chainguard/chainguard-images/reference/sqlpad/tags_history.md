@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sqlpad Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-14 00:19:07
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 13th | `sha256:cf07cd4ce1d65e7480d7cc4e46f79450cbd6e83dbd994a420113f3a231498b8c` |
-|  `latest-dev` | December 13th | `sha256:2b052d6a72214492bb3016bba88daea26a3475f154c57a2f710a587c20e985fe` |
+|  `latest`     | December 14th | `sha256:54077c3543bd7ca08759946ed63bbb8351ff272d9f372c033f58f160430c9e48` |
+|  `latest-dev` | December 14th | `sha256:04d14e4113ab60b2f1842adac0af23fab7692785336b4dc36b144bf205a13aca` |
 
