@@ -123,7 +123,7 @@ EOF
 ```
 
 Apply the YAML file to the cluster:
-```
+```sh
 kubectl apply -f example.yaml
 ```
 
