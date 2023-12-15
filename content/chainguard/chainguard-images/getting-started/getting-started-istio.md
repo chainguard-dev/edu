@@ -43,7 +43,7 @@ installed.
 ## Start up a KinD cluster
 
 First, we'll start up a KinD cluster to install Istio
-```
+```sh
 kind create cluster
 ```
 
