@@ -23,7 +23,7 @@ offers a set of minimal, security-hardened Istio images, built on top the Wolfi
 OS.
 
 We will demonstrate how to get started with the Chainguard Istio images on an
-example KinD cluster. To get started, you'll need docker, KinD, kubectl, and istioctl
+example KinD cluster. To get started, you'll need Docker, KinD, `kubectl`, and `istioctl`
 installed.
 
 * [Docker](https://docs.docker.com/get-docker/)
