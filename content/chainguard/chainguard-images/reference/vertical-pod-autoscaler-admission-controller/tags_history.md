@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-admission-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-08 00:32:20
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | December 7th | `sha256:d9bfe58edb17ff2ab618bfa6441a93bd17517a522ca473a034023b0152d6b0e5` |
-|  `latest-dev` | December 7th | `sha256:3ff8bc0e09404f2026de1a6e5c6a2e8f903273d08b40f3863d8887c6c5d49dc6` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 14th | `sha256:73e9347ed2be524374d8bb3f3d54887dae7f457ebe7e6a37529b69ac5f8811d0` |
+|  `latest`     | December 14th | `sha256:65fb47a8a36841f6d2cd931c4073b52a7b370e026a4df28930f902871a214505` |
 

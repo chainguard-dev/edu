@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-attacher Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-08 00:32:20
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | December 7th | `sha256:279951f1c0039826784ae471d17502a5cf8ba41a1a51d1f06b27b043765369fe` |
-|  `latest-dev` | December 7th | `sha256:2bab39a54c083adbacc42f5e84f9a5cbbb59d929a807ce1e17f599ee0865643f` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 14th | `sha256:bbbcb0814ed438862a070b64710a28929543b84aa36caec5666e112fb1e3fba7` |
+|  `latest`     | December 7th  | `sha256:279951f1c0039826784ae471d17502a5cf8ba41a1a51d1f06b27b043765369fe` |
 

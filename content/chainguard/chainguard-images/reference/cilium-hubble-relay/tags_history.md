@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-relay Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-08 00:32:20
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | December 7th | `sha256:2b19901716f05a5316ff9247e547fe59b9c05e27eedad0fa89b6493dbc87824e` |
-|  `latest-dev` | December 7th | `sha256:a8c9d52b92eed4aae37af8aacc1987c065d55944499a670f74026c37a7875156` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 14th | `sha256:8401ac747c6fc1400f62970a33d28da8bbb35d73badb22bd5000117ac5350579` |
+|  `latest`     | December 14th | `sha256:869305fc8c5fbbb95db807e7822fe37596350229e3ef7b42a5034d5b927ec84b` |
 

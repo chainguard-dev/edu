@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-08 00:32:20
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 7th | `sha256:68c2ce0c1db74e3e48cbc5334f0c47dc5c27f4e55a6923ee1d71a2b1b62c9407` |
-|  `latest`     | December 7th | `sha256:0a19c9c0284b1efafabede8fad04a2ac7cfc9d5e5b984feae0ae7c52dea1de0e` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 14th | `sha256:d0ff98f1b8a0115f18b6491c6593ac98d1aadfd0663da0969e30dcb6f09b0cfe` |
+|  `latest`     | December 7th  | `sha256:0a19c9c0284b1efafabede8fad04a2ac7cfc9d5e5b984feae0ae7c52dea1de0e` |
 

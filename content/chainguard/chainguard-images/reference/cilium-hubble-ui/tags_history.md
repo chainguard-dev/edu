@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-08 00:32:20
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 7th | `sha256:f1cf51f518da0a43a26a6cc2bf572eafc9d4c4e55eff475be87178480cfd862a` |
-|  `latest`     | December 7th | `sha256:e5400ba8035d61ed11ce24fbfeaf95b541f746d223c6542b293d9dad8b4d5d45` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 14th | `sha256:307526b403d3b29b9c0078b2dcdd8399035e270c1036ff86ea8a9175815cb6f0` |
+|  `latest`     | December 14th | `sha256:31869b3152ace1c7177640a05f50ec72c3670ded92523727159b5699472056e9` |
 

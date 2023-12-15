@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public powershell Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,10 +45,11 @@ The table shows package distribution across variants.
 
 |                          | latest-root | latest |
 |--------------------------|-------------|--------|
+| `aspnet-8-runtime`       | X           | X      |
 | `busybox`                | X           | X      |
 | `ca-certificates-bundle` | X           | X      |
-| `dotnet-7`               | X           | X      |
-| `dotnet-7-runtime`       | X           | X      |
+| `dotnet-8`               | X           | X      |
+| `dotnet-8-runtime`       | X           | X      |
 | `glibc`                  | X           | X      |
 | `glibc-locale-posix`     | X           | X      |
 | `icu`                    | X           | X      |
@@ -59,12 +60,10 @@ The table shows package distribution across variants.
 | `libpsl-native`          | X           | X      |
 | `libssl3`                | X           | X      |
 | `libstdc++`              | X           | X      |
-| `libunwind`              | X           | X      |
 | `lttng-ust`              | X           | X      |
 | `ncurses-terminfo-base`  | X           | X      |
 | `openssl-config`         | X           | X      |
 | `powershell`             | X           | X      |
 | `wolfi-baselayout`       | X           | X      |
-| `xz`                     | X           | X      |
 | `zlib`                   | X           | X      |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stakater-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-10 00:31:12
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 9th | `sha256:a80fa6d2b793cef7a4b585f73b5cac82f0038d00c14c7ce05c11f28b188e7341` |
-|  `latest`     | December 9th | `sha256:42f30629a6c88424f82410fe17efb9818a086680f8405395e191c745aaa68e23` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 14th | `sha256:456dfc43dbb4919bf96565737e6e9fa963e8aa91cc6447de7f5b0144ff319d2d` |
+|  `latest`     | December 14th | `sha256:ec44546e31fdc13bd1d8e5fa0d5ce96fd7ee54e845e753bd743d2dbfd2de1764` |
 
