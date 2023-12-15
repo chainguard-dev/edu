@@ -47,7 +47,7 @@ First, we'll start up a KinD cluster to install Istio
 kind create cluster
 ```
 
-You should see output similar to the following:
+This will return output similar to the following:
 ```
 Creating cluster "kind" ...
  ✓ Ensuring node image (kindest/node:v1.27.3) 🖼 
