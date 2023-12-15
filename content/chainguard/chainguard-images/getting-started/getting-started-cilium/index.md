@@ -2,7 +2,7 @@
 title: "Getting Started with the Cilium Chainguard Images"
 type: "article"
 linktitle: "Cilium"
-description: "Tutorial on the distroless Cilium Chainguard Images"
+description: "Tutorial on the Cilium Chainguard Images"
 date: 2023-12-14T00:00:00+00:00
 lastmod: 2023-12-14T00:00:00+00:00 
 tags: ["Chainguard Images", "Products"]
