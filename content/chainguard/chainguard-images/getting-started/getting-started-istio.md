@@ -64,6 +64,8 @@ kubectl cluster-info --context kind-kind
 Thanks for using kind! 😊
 ```
 
+Following that, you can install the Istio Chainguard Image with `istioctl`.
+
 ## Install Istio using Chainguard Images
 
 We will be using the `istioctl` command to install Istio. In order to use the
