@@ -89,7 +89,7 @@ To see the Istio installation in action, we will create two Istio resources:
 * A VirtualService to always reply with "Hello, world!" to requests to the
   "http://hello.example.com" domain 
 
-Create a YAML file with the following contents to define the Istio resources: 
+Create a YAML manifest file with the following contents to define the Istio resources: 
 ```sh
 cat > example.yaml <<EOF
 apiVersion: networking.istio.io/v1alpha3
