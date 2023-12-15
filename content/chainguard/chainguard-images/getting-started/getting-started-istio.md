@@ -84,6 +84,7 @@ istioctl install --set tag=latest --set hub=cgr.dev/chainguard \
   --set values.global.proxy_init.image=istio-proxy
 ```
 
+The Istio Chainguard Image is now running on the KinD cluster you created previously. In the next section, you'll set up an Istio gateway and a VirtualService to test out this Image.
 ## Stand up a Gateway and a VirtualService 
 
 To see the Istio installation in action, we will create two Istio resources:
