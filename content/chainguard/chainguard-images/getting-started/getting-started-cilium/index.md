@@ -20,7 +20,7 @@ Cilium is open source software for transparently securing the network connectivi
 Chainguard offers a set of minimal, security-hardened Cilium images, built on top the Wolfi OS.
 
 We will demonstrate how to get started with the Chainguard Cilium images on an
-example K3s cluster. To get started, you'll need docker, k3d, kubectl, and Cilium CLI installed.
+example K3s cluster. To get started, you'll need Docker, `k3d` (a CLI tool to install `k3s`), `kubectl`, and the `cilium` CLI installed.
 
 * [Docker](https://docs.docker.com/get-docker/)
 * [k3d](https://k3d.io/#installation)
@@ -63,8 +63,9 @@ Then, we'll start up the cluster:
 k3d cluster create --config k3d.yaml
 ```
 
-Also, since Cilium needs some BPF related mounts on the nodes, we'll need to add them to the nodes, based on 
-the settings suggested in https://docs.cilium.io/en/latest/installation/rancher-desktop/#configure-rancher-desktop
+Also, Cilium requires some system mounts the nodes (see 
+the settings suggested in https://docs.cilium.io/en/latest/installation/rancher-desktop/#configure-rancher-desktop).
+Run the following command to configure the mounts:
 ```
 for node in $(kubectl get nodes -o jsonpath='{.items[*].metadata.name}'); do
     echo "Configuring mounts for $node"
