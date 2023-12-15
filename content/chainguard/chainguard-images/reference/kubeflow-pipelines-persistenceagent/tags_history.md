@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-13 00:32:10
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 12th | `sha256:633ce7b4169124840b90032da3d7f037efb78c67f212a59822f3734f7ada053c` |
-|  `latest`     | December 12th | `sha256:a826d97ad02e4cf71375bee37d74882c3681fc8e02b60fe0a0dea0d28c0a7a48` |
+|  `latest-dev` | December 14th | `sha256:1bcc1c68a2957643c0647a6f2b054736973e501c7c26e031650c94529ac35dd0` |
+|  `latest`     | December 14th | `sha256:6f3d55b69662e61c9738ed72c15c6349efcfb86a9eb51d9746b858d96fd5b62d` |
 

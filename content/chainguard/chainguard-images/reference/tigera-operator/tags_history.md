@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tigera-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-10 00:31:12
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | December 8th | `sha256:050e2953bc49c01767a73578be50020a4e843da0f6b41d4aed32b74bbbf83be0` |
-|  `latest-dev` | December 8th | `sha256:c289aa2a9f5ee02635f8104401e2b2a4ad8f00b0d53e31b815aec19e6d84d491` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 14th | `sha256:644b6d77766491ccfcf5d5f8abb8108435b42d5bfd8194fb8d77722d5d8999f3` |
+|  `latest`     | December 14th | `sha256:34670d52341c9fd5adba3b5f71e6a21759e88707f92a196b41dbf9dacd926459` |
 

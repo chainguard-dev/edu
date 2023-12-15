@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-14 00:19:07
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | December 14th | `sha256:da35bb04bd3e0dff15702cc833371982c3c0951fb699119d15d584874698e78e` |
 |  `latest`     | December 13th | `sha256:ab5e81ac404fd7bd10f80acfb28ccfd5ef05e9c89c861af2968fcf2440e4290e` |
-|  `latest-dev` | December 13th | `sha256:6adf1064677078194bc76409974aefed79b2ec8b3ab9fa930e3733c6f0ed6e0e` |
 

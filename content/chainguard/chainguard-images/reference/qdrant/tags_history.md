@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the qdrant Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-14 00:19:07
+lastmod: 2023-12-15 00:37:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 13th | `sha256:a11939a8f2e67c02b2535591cc20ded70bbd48adcea6e6dcc34cacb88aeeab10` |
-|  `latest-dev` | December 13th | `sha256:cd0613497faf8ca6a15f7a862454ee495cabac050105e8ac60fbe659aee12172` |
+|  `latest-dev` | December 14th | `sha256:b5d778da1709b282cef9474681a68c887f14b292b3f0668388a0fa6a5f7610ba` |
+|  `latest`     | December 14th | `sha256:2a158d9186c85b1d1b66593d7ee55f42b3d5e3e4600ad4c997c117052f6d01f8` |
 
