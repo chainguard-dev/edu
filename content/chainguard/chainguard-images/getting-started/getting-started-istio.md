@@ -49,7 +49,6 @@ kind create cluster
 
 You should see output similar to the following:
 ```
-❯ kind create cluster
 Creating cluster "kind" ...
  ✓ Ensuring node image (kindest/node:v1.27.3) 🖼 
  ✓ Preparing nodes 📦  
