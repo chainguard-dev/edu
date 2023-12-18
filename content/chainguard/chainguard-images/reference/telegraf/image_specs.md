@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public telegraf Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-12-18 00:20:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -65,7 +65,7 @@ The table shows package distribution across variants.
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
 | `openssl-config`         | X          |        |
-| `telegraf-1.27`          | X          | X      |
+| `telegraf-1.29`          | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
 

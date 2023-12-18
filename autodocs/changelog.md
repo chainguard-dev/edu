@@ -1,3 +1,65 @@
+# 2023-12-18
+
+
+Updated Docs:
+
+- aws-cli/tags_history.md
+- aws-ebs-csi-driver/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- busybox/tags_history.md
+- cedar/tags_history.md
+- consul/tags_history.md
+- crossplane-aws/tags_history.md
+- crossplane-aws-cloudfront/tags_history.md
+- crossplane-aws-cloudwatchlogs/tags_history.md
+- crossplane-aws-dynamodb/tags_history.md
+- crossplane-aws-ec2/tags_history.md
+- crossplane-aws-eks/tags_history.md
+- crossplane-aws-firehose/tags_history.md
+- crossplane-aws-iam/tags_history.md
+- crossplane-aws-kms/tags_history.md
+- crossplane-aws-lambda/tags_history.md
+- crossplane-aws-rds/tags_history.md
+- crossplane-aws-s3/tags_history.md
+- crossplane-aws-sns/tags_history.md
+- crossplane-aws-sqs/tags_history.md
+- crossplane-azure/tags_history.md
+- crossplane-azure-authorization/tags_history.md
+- crossplane-azure-managedidentity/tags_history.md
+- crossplane-azure-sql/tags_history.md
+- crossplane-azure-storage/tags_history.md
+- dask-gateway-server/tags_history.md
+- dependency-track/image_specs.md
+- dependency-track/tags_history.md
+- envoy-ratelimit/tags_history.md
+- external-secrets/tags_history.md
+- fluentd/tags_history.md
+- flux/tags_history.md
+- flux-helm-controller/tags_history.md
+- flux-kustomize-controller/tags_history.md
+- flux-notification-controller/tags_history.md
+- flux-source-controller/tags_history.md
+- git/tags_history.md
+- gitlab-exporter/tags_history.md
+- gitlab-kas/tags_history.md
+- haproxy/tags_history.md
+- haproxy-ingress/tags_history.md
+- istio-proxy/tags_history.md
+- k8sgpt-operator/tags_history.md
+- keycloak/tags_history.md
+- kube-logging-operator-fluentd/tags_history.md
+- newrelic-infrastructure-bundle/tags_history.md
+- ntpd-rs/tags_history.md
+- openai/tags_history.md
+- pulumi/tags_history.md
+- ruby/tags_history.md
+- semgrep/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- static/tags_history.md
+- tekton-cli/tags_history.md
+- telegraf/image_specs.md
+- telegraf/tags_history.md
+
 # 2023-12-15
 New images added:
 
