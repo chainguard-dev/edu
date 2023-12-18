@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2023-12-18 00:20:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,12 +25,12 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed  | Digest                                                                    |
 |--------------------------|---------------|---------------------------------------------------------------------------|
+|  `latest-root-dev`       | December 16th | `sha256:ab2528e959c6170cb985e331b0aeb2347b19e588bd5729ec95d0c8f7414e5300` |
+|  `latest-root`           | December 16th | `sha256:90a906be36db26a149cf6cbe1e9b1395d245353a5d60b5496053802669d4995f` |
+|  `latest`                | December 16th | `sha256:4da792d160a10c669da4bc4d8d6852f47e8f6dd840011cd3c4f7dfc45c9c50ff` |
+|  `latest-dev`            | December 16th | `sha256:367d7ae314ae0ca1cd259e0613e6baaa087ed7e1661d40c5aef9cc9233252028` |
 |  `latest-glibc-dev`      | December 14th | `sha256:47d88e494a2a9d8df6e466bd91cb0114b82a93ab74785bd7f7b9d98226b2e8fc` |
 |  `latest-glibc`          | December 14th | `sha256:29ea156d37a3eb7f2e8b7ecbfb45d1789a3a5c31319c1a5e53e058a98c8c2b66` |
 |  `latest-glibc-root-dev` | December 14th | `sha256:aa5ed53efc306a66172a9e5b4852eaab58b5f9e9db3a0110b41f3f2b459dcdec` |
 |  `latest-glibc-root`     | December 14th | `sha256:d33212bfa6ac2fb4f04a3ef349759870f6d8439dcf368a6e73fc98940f36712f` |
-|  `latest`                | December 13th | `sha256:c8765ac8100114c37dbe8a26f71b9daa11bf4ef28117f9e7f694b1aa75df8ef6` |
-|  `latest-dev`            | December 13th | `sha256:fb71620cef5b3ff8c7130266108d2b425fb70050b34d064f33fc86e84d921161` |
-|  `latest-root`           | December 13th | `sha256:bad0ab47b85664c4719b13230cc3112500833a691f5decb25a267aabc61050bc` |
-|  `latest-root-dev`       | December 13th | `sha256:21ce56e355c6e0d6145f0f3c29242d8ad11ebd4c65cd5e784846cfc045dd9bd5` |
 
