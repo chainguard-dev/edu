@@ -21,11 +21,15 @@
                             {{ if in (.RelPermalink | string) $currentSection.RelPermalink }}
                                     <div class="col d-flex">
                                         <div class="card flex-fill">
-                                            <div class="card-body d-flex flex-column">
+                                                <div class="card-body d-flex flex-column text-center">
+                                                    <div class="d-block text-center mb-3">
+                                                        <a href="{{ .RelPermalink }}"><img src="https://storage.googleapis.com/chainguard-academy/logos/{{ .Params.linktitle }}/logo.svg" height="32" alt="{{ .Params.linktitle}}"></a>
+                                                    </div>
+
                                                 <h5 class="card-title mt-0">
                                                     <a href="{{ .RelPermalink }}">{{ .Params.linktitle }}</a>
                                                 </h5>
-                                                <p class="card-text">{{ .Params.description }}</p>
+                                                    <p class="card-text"><a href="{{ .RelPermalink }}">{{ .Params.description }}</a></p>
                                                 <div class="d-flex flex-fill align-items-end justify-content-between">
                                                     <a href="{{ .RelPermalink }}image_specs/" class="card-link">Variants</a>
                                                     <a href="{{ .RelPermalink }}tags_history/" class="card-link">Tags</a>
