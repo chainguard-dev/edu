@@ -27,7 +27,7 @@ HUGO_VERSION = "0.104.3"
        font-src 'self' edu.chainguard.dev https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net;
        script-src 'self' edu.chainguard.dev 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net *.netlify.app *.googletagmanager.com;
        connect-src 'self' edu.google-analytics.com; *.google-analytics.com *.googleapis.com;
-       img-src 'self' edu.chainguard.dev data:;
+       img-src 'self' *.chainguard.dev storage.googleapis.com data:;
        base-uri 'self';
     '''
 
