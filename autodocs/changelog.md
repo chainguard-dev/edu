@@ -1,3 +1,36 @@
+# 2023-12-19
+
+
+Updated Docs:
+
+- boring-registry/tags_history.md
+- busybox/tags_history.md
+- git/tags_history.md
+- gitlab-exporter/tags_history.md
+- kubeflow-centraldashboard/tags_history.md
+- kubeflow-katib-earlystopping-medianstop/tags_history.md
+- kubeflow-katib-suggestion-darts/tags_history.md
+- kubeflow-katib-suggestion-hyperband/tags_history.md
+- kubeflow-katib-suggestion-hyperopt/tags_history.md
+- kubeflow-katib-suggestion-optuna/tags_history.md
+- kubeflow-katib-suggestion-pbt/tags_history.md
+- kubeflow-katib-suggestion-skopt/tags_history.md
+- kubeflow-pipelines-frontend/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- newrelic-kubernetes/tags_history.md
+- node/tags_history.md
+- node-lts/tags_history.md
+- openai/tags_history.md
+- pgbouncer/tags_history.md
+- postgres-helm-compat/tags_history.md
+- pulumi/tags_history.md
+- python/tags_history.md
+- rqlite/tags_history.md
+- semgrep/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- sqlpad/tags_history.md
+- static/tags_history.md
+
 # 2023-12-18
 
 
