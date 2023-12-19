@@ -129,10 +129,12 @@ When all the Pods have have a status of `Running` or `Completed`, press `Ctrl+C`
 Cilium comes with the `connectivity test` command, which is useful for verifying whether the Cilium installation was successful. Run the following command to run the connectivity test:
 
 ```sh
+# We skip one of the test because it needs `jq` util on the agent image, which we don't bundle.
 cilium connectivity test \
     --external-cidr 8.0.0.0/8 \
     --external-ip 8.8.8.8 \
-    --external-other-ip 8.8.4.4
+    --external-other-ip 8.8.4.4 \
+    --test \!no-unexpected-packet-drops
 ```
 
 This should takes about 5 minutes to complete. It will return output similar to the following:
