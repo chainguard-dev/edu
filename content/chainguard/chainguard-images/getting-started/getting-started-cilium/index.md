@@ -25,6 +25,8 @@ We will demonstrate how to get started with the Chainguard Cilium images on an e
 * [k3d](https://k3d.io/#installation)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * [cilium CLI](https://docs.cilium.io/en/stable/gettingstarted/k8s-install-default/#install-the-cilium-cli)
+> Note: Please use a Cilium CLI version <= v0.15.17, as the connectivity tests in version v0.15.18 or later make
+> of `jq`, which we do not bundle in the Chainguage Images for cilium.
 
 {{< details "What is Wolfi" >}}
 {{< blurb/wolfi >}}
