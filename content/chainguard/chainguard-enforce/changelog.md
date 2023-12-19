@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-12-12 01:49:41 +0000 UTC
+date: 2023-12-19 18:20:18 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,28 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.206
+Release date: 2023-12-19
+
+Customer facing changes: N/A
+
+### v0.1.205
+Release date: 2023-12-18
+#### Feature
+- Use the environment variable `CHAINCTL_CONFIG` to specify the path to a chainctl config file. Explicitly passing a file with `--config` will take precedence over the environment variable value.
+
+
+### v0.1.204
+Release date: 2023-12-14
+#### Bug or Regression
+- [iam] Fixes iam.Lookup API to not return assumable identities for (issuer, subject) lookups.
+
+
+### v0.1.203
+Release date: 2023-12-12
+
+Customer facing changes: N/A
 
 ### v0.1.202
 Release date: 2023-12-12

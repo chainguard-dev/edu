@@ -2314,6 +2314,86 @@
         ]
       }
     },
+    "/registry/v1/repos/{repoId}/digests/{digest}/sbom": {
+      "get": {
+        "operationId": "Registry_GetSbom",
+        "parameters": [
+          {
+            "description": "The UIDP of the image repo to get an SBOM for.",
+            "in": "path",
+            "name": "repoId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The digest of the image to get an SBOM for.",
+            "in": "path",
+            "name": "digest",
+            "pattern": "[^/]+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tenantSbom2"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/repos/{repoId}/digests/{digest}/vulnreport": {
+      "get": {
+        "operationId": "Registry_GetVulnReport",
+        "parameters": [
+          {
+            "description": "The UIDP of the image repo to get a VulnReport for.",
+            "in": "path",
+            "name": "repoId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The digest of the image to get a VulnReport for.",
+            "in": "path",
+            "name": "digest",
+            "pattern": "[^/]+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tenantVulnReport"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/registry/v1/tags": {
       "get": {
         "operationId": "Registry_ListTags",
@@ -2706,6 +2786,57 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/oidcRawToken"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "SecurityTokenService"
+        ]
+      }
+    },
+    "/sts/exchange_refresh_token": {
+      "post": {
+        "operationId": "SecurityTokenService_ExchangeRefreshToken",
+        "parameters": [
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "aud",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "List of capabilities to request for the token.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "cap",
+            "required": false,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oidcTokenPair"
             }
           },
           "default": {
@@ -4748,6 +4879,18 @@
       "properties": {
         "token": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "oidcTokenPair": {
+      "description": "ExchangeRefreshToken returns a pair of token, in order to allow\nrefresh token to also be rotated.",
+      "properties": {
+        "refreshToken": {
+          "$ref": "#/definitions/oidcRawToken"
+        },
+        "token": {
+          "$ref": "#/definitions/oidcRawToken"
         }
       },
       "type": "object"

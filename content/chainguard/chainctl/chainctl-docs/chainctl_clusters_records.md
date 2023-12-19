@@ -1,5 +1,5 @@
 ---
-date: 2023-12-12T01:57:05Z
+date: 2023-12-19T19:01:04Z
 title: "chainctl clusters records"
 slug: chainctl_clusters_records
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_records/
@@ -24,7 +24,7 @@ Interact with cluster records.
 ```
       --api string                   The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
       --audience string              The Chainguard token audience to request. (default "https://console-api.enforce.dev")
-      --config string                A specific chainctl config file.
+      --config string                A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
       --console string               The url of the Chainguard platform Console. (default "https://console.enforce.dev")
       --issuer string                The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
   -o, --output string                Output format. One of: ["", "json", "id", "table", "terse", "tree", "wide"]
