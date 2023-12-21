@@ -1,5 +1,5 @@
 ---
-date: 2023-12-19T19:01:04Z
+date: 2023-12-20T19:55:18Z
 title: "chainctl policies versions"
 slug: chainctl_policies_versions
 url: /chainguard/chainctl/chainctl-docs/chainctl_policies_versions/
