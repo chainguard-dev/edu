@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2023-12-21 00:35:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 14th | `sha256:d29a3776f17dd46e514b4acd75b9aee301b266f20ca994772244cb2f98103ba1` |
-|  `latest`     | December 14th | `sha256:2b9c0d786f8b81843a6b6fc4b8b4cd370a4008132497de1b8712ba161ff6d0d2` |
+|  `latest-dev` | December 20th | `sha256:8fcaeb2c2f7c92eea2b264877b557f3cb41a686bc021d777ecd7f5ffa581da47` |
+|  `latest`     | December 20th | `sha256:b334d7dffa4c5e6f4c85c683a3ba595ad5c2edd405c859973744277e3a26aa70` |
 

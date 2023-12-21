@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-fulcio-createcerts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2023-12-21 00:35:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 14th | `sha256:67d7e57ed7a459bc2dd9fd66b1e08a19aae5e2a38528cd211a9cad32586ca9dc` |
-|  `latest`     | December 14th | `sha256:ef50768b7a4a2ca0b88bbe120e27af824933f01db01e00c6f1b65072d773243b` |
+|  `latest`     | December 19th | `sha256:ee4c2e2856cafcd0da7a2b99baa8ed26a2ce154ade37f9ee8cd55a1618bbc3db` |
+|  `latest-dev` | December 19th | `sha256:64984461038ccef9b3e4caedf249484c08a167e95be3d37de927de60f6b11fb4` |
 

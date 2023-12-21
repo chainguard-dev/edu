@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-image-automation-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2023-12-21 00:35:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 14th | `sha256:ffc9316bdf2d1bdcf132339b56514c88300e148e09ced9d3515b0a66e98ec57f` |
-|  `latest`     | December 14th | `sha256:a143bba86f60daca08f668573b6a568d38211685c3aa39824a967cb2d6b0591a` |
+|  `latest`     | December 20th | `sha256:937c02e723625f466c00534de96e11424e2896619cbbbaa67908938991253b98` |
+|  `latest-dev` | December 20th | `sha256:c421f6c74abed51ca9c9744431518a4e213a9b76b40433959fe1f7b607fdf043` |
 
