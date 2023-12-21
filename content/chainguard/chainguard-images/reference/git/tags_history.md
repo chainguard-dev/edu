@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-19 00:17:23
+lastmod: 2023-12-21 00:35:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,12 +25,12 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed  | Digest                                                                    |
 |--------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest`                | December 18th | `sha256:1131e763eea2454c403c5a73460de72f55709030884b490af4e588af973b9d94` |
-|  `latest-root`           | December 18th | `sha256:6e127873855ceeed61659bac08019a4df509b852b9a45d084dd57b32bede337a` |
-|  `latest-dev`            | December 18th | `sha256:db323722bc5d9b283d543bab31c1312174766543d20738dd8aa4bdc421391c58` |
-|  `latest-root-dev`       | December 18th | `sha256:6cb62c706649d3cf926954beba81a0f693496ebbbf4cba8c4d46194578920554` |
-|  `latest-glibc-dev`      | December 14th | `sha256:47d88e494a2a9d8df6e466bd91cb0114b82a93ab74785bd7f7b9d98226b2e8fc` |
-|  `latest-glibc`          | December 14th | `sha256:29ea156d37a3eb7f2e8b7ecbfb45d1789a3a5c31319c1a5e53e058a98c8c2b66` |
-|  `latest-glibc-root-dev` | December 14th | `sha256:aa5ed53efc306a66172a9e5b4852eaab58b5f9e9db3a0110b41f3f2b459dcdec` |
-|  `latest-glibc-root`     | December 14th | `sha256:d33212bfa6ac2fb4f04a3ef349759870f6d8439dcf368a6e73fc98940f36712f` |
+|  `latest-root-dev`       | December 20th | `sha256:7c71de91b98e1b8c5464cb739108488c55de28a7334e555899e276ef1726773d` |
+|  `latest-dev`            | December 20th | `sha256:49e4ca24207301c35f43950d8f90f45d1c60d0d30467e1feec6f932bf6d9f8fc` |
+|  `latest`                | December 20th | `sha256:c44e380e57d3737a5516d93b884f41ecf8fb9dd7756449db759f222a842faea1` |
+|  `latest-root`           | December 20th | `sha256:67bb34f602b33b7ff765b0122ecdbdcdc19a0b119a46460fd56c46a7e2d40478` |
+|  `latest-glibc-root-dev` | December 20th | `sha256:c452f718a85c5c7e4643f7947477946167b17887f877648b67b7a851a6495b2b` |
+|  `latest-glibc-root`     | December 20th | `sha256:cd9e8aa4245b4f76fd5ad7c3bad30686f60103cbe90bc413243234ed7c850a90` |
+|  `latest-glibc-dev`      | December 20th | `sha256:7eaf02c5b3aae86e4f6c7e18a4fa9439974d61eb551055c48cb9cc7f3909c1f3` |
+|  `latest-glibc`          | December 20th | `sha256:cba4d4b6b1abaa545a679b86036ecf40e355c701fe4c99ed1068bc3816e78e2f` |
 

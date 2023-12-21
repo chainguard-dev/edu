@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres-helm-compat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-19 00:17:23
+lastmod: 2023-12-21 00:35:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 18th | `sha256:b228710af6ee3b628e8ada7a676da9ca8b479d43f0d8229a65f3df6b61cd7d3f` |
-|  `latest`     | December 18th | `sha256:e4262c0fb1add7b4168acc9352f5584baf72a34da72838448c9d5b1344da6f3d` |
+|  `latest-dev` | December 19th | `sha256:c57b0d45125683288206162e0fa5d0a4362c17c8dd5889d47e7b503ba7190213` |
+|  `latest`     | December 19th | `sha256:586ce5477a4394bbeae2da91d912f15da907e2b401477d2c941877ade360ed4a` |
 

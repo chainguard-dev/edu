@@ -1,9 +1,9 @@
 ---
-title: "zot Image Tags History"
+title: "php-fpm_exporter Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the zot Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
+description: "Image Tags and History for the php-fpm_exporter Chainguard Image"
+date: 2023-12-21 00:35:14
 lastmod: 2023-12-21 00:35:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/zot/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/zot/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/zot/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/zot/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/php-fpm_exporter/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/php-fpm_exporter/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/php-fpm_exporter/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/php-fpm_exporter/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 19th | `sha256:bc0ca7b1839cdd2bce5c0c64e4bac516b2d72b5512726d22a5c6b14d48bb0346` |
-|  `latest`     | December 19th | `sha256:9274c0ae14af13cdcb00942deac048df9cc967bc032ecd9f451381370956b0e7` |
+|  `latest`     | December 20th | `sha256:159b58d5e5fd3ce263c81aa42181063584965ed8ee57fa4d0ceb7e07b4665bb0` |
+|  `latest-dev` | December 20th | `sha256:569fac7c81d13f9a717c4f4bfcef1300e9df962ce002d88ca0c2afe206368f87` |
 
