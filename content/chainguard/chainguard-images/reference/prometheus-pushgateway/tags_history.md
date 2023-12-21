@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-pushgateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2023-12-21 00:35:14
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 14th | `sha256:075a736fe57cd4ef217500dd8d0c847729e23e830b86046f22b6067315475750` |
-|  `latest`     | December 7th  | `sha256:1a1335b98004053b03deb5f2f826e5158e3f7066e7d2a8038ea7be0ea286b51e` |
+|  `latest-dev` | December 20th | `sha256:ecda5e6b59a1ce4dd096a08cc4bf952e59a4eb586192809296bbfce8d20ea2d7` |
+|  `latest`     | December 20th | `sha256:e87dd2b20a476a9ce057927f62583aa19d079670e255917cf450b80acca3184d` |
 
