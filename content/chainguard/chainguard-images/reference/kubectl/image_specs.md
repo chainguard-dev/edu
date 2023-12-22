@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubectl Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2023-12-22 00:18:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -52,8 +52,8 @@ The table shows package distribution across variants.
 | `git`                    | X          |        |
 | `glibc`                  | X          |        |
 | `glibc-locale-posix`     | X          |        |
-| `kubectl-1.28`           | X          | X      |
-| `kubectl-1.28-default`   | X          | X      |
+| `kubectl-1.29`           | X          | X      |
+| `kubectl-1.29-default`   | X          | X      |
 | `kustomize`              | X          |        |
 | `ld-linux`               | X          |        |
 | `libbrotlicommon1`       | X          |        |
