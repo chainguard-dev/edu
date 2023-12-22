@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2023-12-22 00:18:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 14th | `sha256:41b332fd3cd5be913b217e8333eef6f2c91dbee013d6e3fd5677506d6d704401` |
-|  `latest`     | December 14th | `sha256:ad08914b8d6dd919f400e4e6bd54eb45325e9543f6c21a747653e4dd30d1ba1e` |
+|  `latest-dev` | December 21st | `sha256:157ab34b1541fe1b465f01a96d0cfeb6219df0ef627227d7ace493fe8b644d75` |
+|  `latest`     | December 21st | `sha256:c29be5c93f3184551d80a286fe9fc30476635288ae29d7dfc4f0ca0612be9f59` |
 

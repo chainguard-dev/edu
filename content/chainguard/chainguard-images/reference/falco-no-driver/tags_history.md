@@ -1,9 +1,9 @@
 ---
-title: "newrelic-kubernetes Image Tags History"
+title: "falco-no-driver Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the newrelic-kubernetes Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
+description: "Image Tags and History for the falco-no-driver Chainguard Image"
+date: 2023-12-22 00:18:53
 lastmod: 2023-12-22 00:18:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/newrelic-kubernetes/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/newrelic-kubernetes/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/newrelic-kubernetes/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/newrelic-kubernetes/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/falco-no-driver/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/falco-no-driver/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/falco-no-driver/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/falco-no-driver/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 21st | `sha256:8cc6e479e9ac32a2f9081c2cf3e5ffbec3fb9b97592d4fcc5f4e10c6d106f755` |
-|  `latest`     | December 21st | `sha256:2c1871e34a9f1dd8eabae22fec369420133a5bb55aee1cdb5050fba3d3614d05` |
+|  `latest`     | December 21st | `sha256:c7d3fdc8c761f15639dab4d626ebb5116321fac4b5320e405b0866c2f22ffffe` |
+|  `latest-dev` | December 21st | `sha256:0fc948700d7749b7ee27bf0a7cda21218aedabba9606df563a54f213dbf025a7` |
 
