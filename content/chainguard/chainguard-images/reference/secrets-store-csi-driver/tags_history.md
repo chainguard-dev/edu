@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2023-12-22 00:18:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 14th | `sha256:b96384b7c3955d6821d54a21b440c4f5b8d8df984441f31a4f61e1d0ddb99eba` |
-|  `latest`     | December 14th | `sha256:70a8c87ac02c33bad9d6431b280488e46445f25a37efe6c86276b8468acf2830` |
+|  `latest`     | December 21st | `sha256:2d7e78489ee32585d53f794794054d7e60d697452a9beadf8fcc04f496556876` |
+|  `latest-dev` | December 21st | `sha256:5b5d087cfc546555d5ba7f2813f48aabb59f481b4b3a4143a0c30c12825e2804` |
 
