@@ -160,16 +160,16 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
-  --group=${GROUP}
-  --default-role=viewer
+  --group=${GROUP} \
+  --default-role=viewer \
   --name=${NAME}
 ```
 
-The `oidc-issuer`, `oidc-client-id`, and `oidc-issuer-secret` values are required when setting up an OIDC configuration with `chainctl`. You must also include a unique name for each custom IDP account. 
+The `oidc-issuer`, `oidc-client-id`, and `oidc-issuer-secret` values are required when setting up an OIDC configuration with `chainctl`. You must also include a unique name for each custom IDP account.
 
-Be aware that if you don't include the `--group` or `--default-role` options in the command, you will be prompted to select these values interactively. 
+Be aware that if you don't include the `--group` or `--default-role` options in the command, you will be prompted to select these values interactively.
 
-The `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. For more information, refer to the [IAM and Security section](/#iam-and-security). 
+The `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. For more information, refer to the [IAM and Security section](/#iam-and-security).
 
 The `--group` option specifies which Chainguard IAM group your identity provider will be installed under. You can retrieve a list of all your Chainguard groups — along with their UIDPs — with the following command.
 
@@ -177,9 +177,9 @@ The `--group` option specifies which Chainguard IAM group your identity provider
 chainctl iam groups ls -o table
 ```
 ```output
-                             ID                             |      NAME       |    DESCRIPTION      
+                             ID                             |      NAME       |    DESCRIPTION
 ------------------------------------------------------------+-----------------+---------------------
-  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43                  | sample_group    |                     
+  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43                  | sample_group    |
   . . .                                                     | . . .           |
 ```
 

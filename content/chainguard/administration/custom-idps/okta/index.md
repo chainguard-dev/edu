@@ -85,13 +85,13 @@ You can retrieve a list of all your Chainguard groups — along with their UIDPs
 chainctl iam groups ls -o table
 ```
 ```output
-                             ID                             |      NAME       |    DESCRIPTION      
+                             ID                             |      NAME       |    DESCRIPTION
 ------------------------------------------------------------+-----------------+---------------------
-  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43                  | sample_group    |                     
+  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43                  | sample_group    |
   . . .                                                     | . . .           |
 ```
 
-Note down the `ID` value for your chosen group. 
+Note down the `ID` value for your chosen group.
 
 With this information in hand, create a new identity provider with the following commands.
 
@@ -108,11 +108,11 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
-  --group=${GROUP}
-  --default-role=viewer
+  --group=${GROUP} \
+  --default-role=viewer \
   --name=${NAME}
 ```
 
-Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and Security section](/chainguard/chainguard-enforce/authentication/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial. 
+Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and Security section](/chainguard/chainguard-enforce/authentication/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
 
 You can refer to our [Generic Integration Guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers article for more information about the `chainctl iam identity-provider create` command and its required options.
