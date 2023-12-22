@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public postgres Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-12-22 00:18:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ The **postgres** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev                                                   | latest                                                       |
-|--------------|--------------------------------------------------------------|--------------------------------------------------------------|
-| Default User | `root`                                                       | `root`                                                       |
-| Entrypoint   | `/var/lib/postgres/initdb/postgresql-entrypoint.sh postgres` | `/var/lib/postgres/initdb/postgresql-entrypoint.sh postgres` |
-| CMD          | not specified                                                | not specified                                                |
-| Workdir      | `/home/postgres`                                             | `/home/postgres`                                             |
-| Has apk?     | yes                                                          | no                                                           |
-| Has a shell? | yes                                                          | yes                                                          |
+|              | latest-dev                                   | latest                                       |
+|--------------|----------------------------------------------|----------------------------------------------|
+| Default User | `root`                                       | `root`                                       |
+| Entrypoint   | `/usr/bin/postgresql-entrypoint.sh postgres` | `/usr/bin/postgresql-entrypoint.sh postgres` |
+| CMD          | not specified                                | not specified                                |
+| Workdir      | `/home/postgres`                             | `/home/postgres`                             |
+| Has apk?     | yes                                          | no                                           |
+| Has a shell? | yes                                          | yes                                          |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/postgres/tags_history/) for the full list of available tags.
 

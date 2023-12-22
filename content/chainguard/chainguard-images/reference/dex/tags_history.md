@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dex Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-21 00:35:14
+lastmod: 2023-12-22 00:18:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 20th | `sha256:0bddb5df6014e6c14dd66212a832085439bb0aa935c9b1713e2b507cececf2f2` |
-|  `latest-dev` | December 20th | `sha256:6ba4952d86c54c16a267a27fbe98d0600b01562dbc708db3912ff8f0ebde3eeb` |
+|  `latest-dev` | December 21st | `sha256:b8c9c40c4e43a1b9ecd99628f5a2800dfdca1a8b181a975768d7e08e1e400c55` |
+|  `latest`     | December 21st | `sha256:7da52f8b4ce15c31f759a81ab9424134a080785e423d1f14ffe9eda8f660a10c` |
 
