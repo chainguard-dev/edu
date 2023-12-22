@@ -12,7 +12,7 @@ images: []
 weight: 020
 ---
 
-The Chainguard platform supports Single sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication. 
+The Chainguard platform supports Single sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab and Google, but SSO support allows users to bring their own identity provider for authentication.
 
 This guide outlines how to create an Azure Active Directory (AD) Application and integrate it with Chainguard. After completing this guide, you'll be able to log in to Chainguard using Azure AD and will no longer be limited to the default SSO options.
 
@@ -22,12 +22,12 @@ This guide outlines how to create an Azure Active Directory (AD) Application and
 To complete this guide, you will need the following.
 
 * `chainctl` installed on your system. Follow our guide on [How To Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) if you don't already have this installed.
-* An Azure account you can use to set up an Active Directory Application. 
+* An Azure account you can use to set up an Active Directory Application.
 
 
 ## Create an Azure Active Directory Application
 
-To integrate the Azure AD identity provider with the Chainguard platform, log in to [Azure](https://azure.microsoft.com) and navigate to the Azure Active Directory console in the Azure portal. 
+To integrate the Azure AD identity provider with the Chainguard platform, log in to [Azure](https://azure.microsoft.com) and navigate to the Azure Active Directory console in the Azure portal.
 
 ![Screenshot of the Azure portal's sidebar menu, with Azure Active Directory highlighted in a red circle.](aad-1.png)
 
@@ -47,7 +47,7 @@ Save your configuration by clicking the **Register** button.
 
 Next, you can optionally set additional branding for the application by selecting the **Branding and properties** tab.
 
-There, you can set additional metadata for the application, including a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Console](https://console.enforce.dev/logo512.png). The console homepage is [console.enforce.dev](https://console.enforce.dev), and our terms of service and private statements can be found at [chainguard.dev/terms-of-service](https://www.chainguard.dev/terms-of-service) and [chainguard.dev/privacy-notice](https://www.chainguard.dev/privacy-notice), respectively. 
+There, you can set additional metadata for the application, including a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Console](https://console.enforce.dev/logo512.png). The console homepage is [console.enforce.dev](https://console.enforce.dev), and our terms of service and private statements can be found at [chainguard.dev/terms-of-service](https://www.chainguard.dev/terms-of-service) and [chainguard.dev/privacy-notice](https://www.chainguard.dev/privacy-notice), respectively.
 
 ![Screenshot of the Branding & properties screen with the following settings: Name is set to "Chainguard"; Logo shows the sample Inky logo uploaded; Home page URL is set to "https://console.enforce.dev"; Terms of service URL is set to "https://www.chainguard.dev/terms-of-service"; and the Privacy statement URL is set to "https://www.chainguard.dev/privacy-notice".](aad-branding.png)
 
@@ -90,13 +90,13 @@ You can retrieve a list of all your Chainguard groups — along with their UIDPs
 chainctl iam groups ls -o table
 ```
 ```output
-                             ID                             |      NAME       |    DESCRIPTION      
+                             ID                             |      NAME       |    DESCRIPTION
 ------------------------------------------------------------+-----------------+---------------------
-  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43                  | sample_group    |                     
+  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43                  | sample_group    |
   . . .                                                     | . . .           |
 ```
 
-Note down the `ID` value for your chosen group. 
+Note down the `ID` value for your chosen group.
 
 With this information in hand, create a new identity provider with the following commands.
 
@@ -113,12 +113,12 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
-  --group=${GROUP}
-  --default-role=viewer
+  --group=${GROUP} \
+  --default-role=viewer \
   --name=${NAME}
 ```
 
-Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and Security section](/chainguard/chainguard-enforce/authentication/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial. 
+Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and Security section](/chainguard/chainguard-enforce/authentication/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
 
 
 You can refer to our [Generic Integration Guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers doc for more information about the `chainctl iam identity-provider create` command and its required options.
