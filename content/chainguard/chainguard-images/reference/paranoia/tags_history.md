@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the paranoia Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2023-12-29 00:16:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 14th | `sha256:9a2c38f33e2e9d59654fb1c0de5f68c790e0bed61fcaa2a27cf6238d859917bc` |
-|  `latest`     | December 7th  | `sha256:044c8dc1d44924efe50ef612e90d81a4f3298afa0512312bbcd835392085280c` |
+|  `latest`     | December 23rd | `sha256:e2294035264b8b44bbaa14331808ae70fe7755ed09dbea147d23d845cd7677c9` |
+|  `latest-dev` | December 23rd | `sha256:7d68877a80cee02470341b183c9645e2e89d4e910daeda915566eb69902e6678` |
 

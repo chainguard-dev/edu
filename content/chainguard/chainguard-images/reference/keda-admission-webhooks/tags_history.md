@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda-admission-webhooks Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-21 00:35:14
+lastmod: 2023-12-29 00:16:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 20th | `sha256:0087272c1a8f299fe2fd0312482fa0ff9b697bd1d835df0ac735a7e80277cda4` |
-|  `latest`     | December 20th | `sha256:752bf1dca098e21ed4ad00e6e85ad933459ed0e4f0dc940e7e000f1525f5e76e` |
+|  `latest`     | December 23rd | `sha256:f198361824d21082d80af20e2f8a22501bf968b05d64a6b992aab2d49ecd533f` |
+|  `latest-dev` | December 23rd | `sha256:8b6170c2cca00633efb06bdb834c7521683d5362784ba6830859dbed9b47ce98` |
 

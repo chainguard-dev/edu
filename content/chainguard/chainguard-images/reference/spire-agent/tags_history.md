@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2023-12-29 00:16:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 14th | `sha256:a9bd8eea316838c80aeee3c13a20bc553859517d4d352de56d168b9d49947551` |
-|  `latest`     | December 14th | `sha256:fbac6383506f369217a6b6cc4d58dc48edbcf78836ea6e091566d6816d1ea509` |
+|  `latest`     | December 23rd | `sha256:06d93c28d820a5e5345581053983b01739480295d73b636cc887fea2df87fa9a` |
+|  `latest-dev` | December 23rd | `sha256:7d2c43dcfd7bbe9728a528681c0f6fe2c9482dff391169ac4ecf2fc32189843c` |
 

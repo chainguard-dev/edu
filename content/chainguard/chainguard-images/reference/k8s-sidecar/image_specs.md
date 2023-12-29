@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public k8s-sidecar Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-12-29 00:16:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,7 +36,7 @@ The table has detailed information about each of these variants.
 | CMD          | not specified                         | not specified                         |
 | Workdir      | not specified                         | not specified                         |
 | Has apk?     | yes                                   | no                                    |
-| Has a shell? | yes                                   | yes                                   |
+| Has a shell? | yes                                   | no                                    |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/k8s-sidecar/tags_history/) for the full list of available tags.
 
@@ -47,7 +47,7 @@ The table shows package distribution across variants.
 |--------------------------|------------|--------|
 | `apk-tools`              | X          |        |
 | `bash`                   | X          |        |
-| `busybox`                | X          | X      |
+| `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
 | `gdbm`                   | X          | X      |
 | `git`                    | X          |        |
