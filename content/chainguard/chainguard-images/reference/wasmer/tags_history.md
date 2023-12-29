@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2023-12-29 00:16:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 14th | `sha256:884403619db5420e1ede10b4883eb28b0f28cadfd501bd70a5049a1a49a6a563` |
-|  `latest`     | December 14th | `sha256:d825c42ad626fa9bac92bfdd15f3780f0beae1344631cdfa321fc747c6826951` |
+|  `latest`     | December 24th | `sha256:1bfe149529dc9a45cd48527bcd5716eb014d61e0718117390343bfddb86ae44c` |
+|  `latest-dev` | December 24th | `sha256:5261fdcb15765437c6ac212f6385771c32a1bf3d1641217e24fb97e572944982` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rqlite Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-22 00:18:53
+lastmod: 2023-12-29 00:16:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 21st | `sha256:b200a9f82a2dadb8be71f1e10741bcffc97a1e7131daa6cff6b6d81ae9c9170b` |
-|  `latest-dev` | December 21st | `sha256:626cd33f5dd0635b66f27168732b6f388e519d0d386f0141fcb3030474d0fc68` |
+|  `latest-dev` | December 27th | `sha256:aac89472bed3c88f1ead10c935b6f946369564dc7c9279ef6a7b9c15d4542650` |
+|  `latest`     | December 27th | `sha256:6deb730cae8859ba95f8e02735aaf42d11600edb672709aa45bdd9ec10045d2c` |
 

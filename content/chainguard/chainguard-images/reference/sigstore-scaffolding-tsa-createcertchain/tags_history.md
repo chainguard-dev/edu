@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tsa-createcertchain Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-21 00:35:14
+lastmod: 2023-12-29 00:16:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 19th | `sha256:6abcfd68efa74c32844042677d0b6fe894264309a088ac31b94350624f120dd6` |
-|  `latest`     | December 19th | `sha256:ee9b3bf840d3dce88daa3e18b18f8eba2a1df71206cc2510ec2584308995ba91` |
+|  `latest`     | December 22nd | `sha256:9a8f3af94961836476eaed7a533ba21fd8f48793e58dbc02afd81f20a4db33a3` |
+|  `latest-dev` | December 22nd | `sha256:0926c5dde7a9154f8496faf8e6e655045b4092ec502063cb3eace722a9784d98` |
 
