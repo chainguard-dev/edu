@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-file-metrics-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2023-12-29 00:16:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 14th | `sha256:ebf864c6d166538fae411508ebd1e8105f68cbae86c7b306106d53b7c35b1524` |
-|  `latest`     | December 14th | `sha256:e54680798a7f092d504e4966da0571d160d59c69038716dc4224758a05e1f069` |
+|  `latest`     | December 22nd | `sha256:377fb7e92bdb4ee6dabe9e6b9beae816bacc1ae0b24ae7a75d0f73d17b7c7ad7` |
+|  `latest-dev` | December 22nd | `sha256:8380116728f15a7b7c7dfed5bfe8c29d6c996ab71628c0e105516339fd08a5d3` |
 

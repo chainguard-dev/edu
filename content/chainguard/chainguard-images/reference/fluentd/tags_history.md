@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-22 00:18:53
+lastmod: 2023-12-29 00:16:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,8 +25,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)              | Last Changed  | Digest                                                                    |
 |----------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-splunk`     | December 21st | `sha256:97fcf488496ec2b8f800537891d7061a8836ef80250d01356ca7e46f93331ed4` |
-|  `latest-splunk-dev` | December 21st | `sha256:0030d4e1f9a7e509950fe05255b0465251d2a7d6547db1124f6a285a7caa043f` |
-|  `latest-dev`        | December 16th | `sha256:dac1c778e2e0c5852344013969af60c15be9e86aaa6ea29c74ccfd47a1b1ec7d` |
-|  `latest`            | December 16th | `sha256:91cb0ec8bdf090a1b5f4a0e45a6456b463544631e79709964e3d7d33874ba772` |
+|  `latest-splunk-dev` | December 27th | `sha256:95d54373b0d459e6fb2a233a68f95ea75dea7ba9d1c8a40aab0c74223b9d88e5` |
+|  `latest-splunk`     | December 27th | `sha256:7ceb16d05dd41fe2854dab72edcd3100aa8cdaaf98cb76ce5ff3221c666b0c04` |
+|  `latest-dev`        | December 23rd | `sha256:fc657d111f874c724d60f30b4956cfe68797cbcfcc5ea3041c1b0d8aa600f879` |
+|  `latest`            | December 23rd | `sha256:0ccc1d5333356cd6cb4502ccfee80f048f8bbecaebf264619378506c8213a2ed` |
 
