@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cassandra Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2023-12-29 00:16:28
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ The **cassandra** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev     | latest         |
-|--------------|----------------|----------------|
-| Default User | `cassandra`    | `cassandra`    |
-| Entrypoint   | `cassandra -f` | `cassandra -f` |
-| CMD          | not specified  | not specified  |
-| Workdir      | `/`            | `/`            |
-| Has apk?     | yes            | no             |
-| Has a shell? | yes            | yes            |
+|              | latest-dev                        | latest                            |
+|--------------|-----------------------------------|-----------------------------------|
+| Default User | `cassandra`                       | `cassandra`                       |
+| Entrypoint   | `/opt/cassandra/bin/cassandra -f` | `/opt/cassandra/bin/cassandra -f` |
+| CMD          | not specified                     | not specified                     |
+| Workdir      | `/`                               | `/`                               |
+| Has apk?     | yes                               | no                                |
+| Has a shell? | yes                               | yes                               |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/cassandra/tags_history/) for the full list of available tags.
 
