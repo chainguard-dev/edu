@@ -1,5 +1,5 @@
 ---
-date: 2023-12-21T20:37:17Z
+date: 2024-01-02T20:38:26Z
 title: "chainctl iam identities create gitlab"
 slug: chainctl_iam_identities_create_gitlab
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_gitlab/
@@ -14,7 +14,7 @@ toc: true
 
 
 ```
-chainctl iam identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-PROJECT [--ref-type=REF-TYPE] [--ref=REF] [--group=GROUP] [--description=DESC] [--role=ROLE] [--output id|table|json]
+chainctl iam identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-PROJECT [--ref-type=REF-TYPE] [--ref=REF] [--group=GROUP] [--description=DESC] [--role=ROLE,ROLE,...] [--output id|table|json]
 ```
 
 ### Examples
@@ -37,7 +37,7 @@ chainctl iam identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-PR
       --project-path string   The name of a Gitlab project where the action executes.
       --ref string            The reference for the executing action. (default "*")
       --ref-type string       The type of reference for the executing action (optional).
-      --role string           The name or ID of a role to bind this identity to (optional).
+      --role strings          A comma separated list of names or IDs of roles to bind this identity to (optional).
   -y, --yes                   Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
