@@ -15,11 +15,11 @@ weight: 740
 toc: true
 ---
 
-Say you use an image scanning tool like Grype or Docker Scout to determine what, if any, vulnerabilities are present within a given Chainguard Image. Chainguard Images typically report few or zero CVEs, but some Images — typically our Production Images, which consist of older versions of a given software and are therefore prone to vulnerabilities — may report more.
+When you're checking to determine what vulnerabilities, if any, are present in a Chainguard Image, you may be using an image scanning tool like Grype or Docker Scout. Chainguard Images typically report few or zero CVEs, but when older versions of software are included in a given Image, a scanner may report more. Not all vulnerabilities are equal, and it may not be immediately clear whether a CVE found within a given Chainguard Image is likely to cause security issues in your software. Scanners can also misreport vulnerabilities found in Chainguard Images; they may return false positives that have, in reality, been fixed. 
 
-It may not be immediately clear to users whether a CVE found within a given Chainguard Image is likely to cause security issues in their software. After all, scan results can include [false positives](/chainguard/chainguard-images/scanners/false-results/), or true positives may be removed from later versions of the Image. To help demystify the nature of CVEs within Chainguard Images, we've created a self-service [Security Advisories page](https://images.chainguard.dev/security) that lists every security advisory published for Chainguard Images. Having this information available allows you to view whether Chainguard is aware of a specific vulnerability reported to exist within a Chainguard Image and whether we've mitigated or are planning to mitigate the CVE.
+To help demystify the nature of CVEs within Chainguard Images, we've created a self-service [Security Advisories page](https://images.chainguard.dev/security) that lists every security advisory published for Chainguard Images. Having this information available allows you to view whether Chainguard is aware of a specific vulnerability reported to exist within a Chainguard Image and whether we've mitigated or are planning to mitigate the CVE.
 
-This guide outlines how you can use Chainguard's Security Advisories to learn more about the status of a CVE within a given package. It will walk through  practical example of discovering a vulnerability in a Production Chainguard Image, searching for Security Advisories associated with this vulnerability, and then comparing the original Image with a later version.
+This guide outlines how you can use Chainguard's Security Advisories to learn more about the status of a CVE within a given package. It will walk through a practical example of discovering a vulnerability in a Chainguard Image, searching for Security Advisories associated with this vulnerability, and then comparing the original Image with a later version.
 
 
 ## Prerequisites
@@ -56,7 +56,7 @@ Because this is the digest for an older version of Chainguard's Go Image, this c
 
 This output shows that this particular image has 20 vulnerabilities. The Docker Scout output also lists each of the packages affected by CVEs as well as the specific vulnerabilities it found for each.
 
-Scrolling to the listing immediately before the final vulnerability count, we'll find that in the case of this example it references the package `nghttp2`. 
+Scrolling to the listing immediately before the final vulnerability count, we'll find that in the case of this example, the package `nghttp2` is referenced. 
 
 ```
    0C 	1H 	0M 	0L 	1?  nghttp2 1.56.0-r0
@@ -93,7 +93,7 @@ If you click on any row in the filtered list, it will take you to the CVE's spec
 
 ![Screenshot showing the Security Advisory page for CVE-2023-44487 and a partial list of its affected packages.](sec-advisories-2.png)
 
-As with the Security Advisories Landing page, you can filter by package name here on the CVE's landing page as well. Enter the name of the package we highlighted previously (`nghttp2`) and the index will immediately filter out any packages that do not mention the string in their metadata.
+As with the Security Advisories landing page, you can filter by package name here on the CVE's landing page as well. Enter the name of the package we highlighted previously (`nghttp2`) and the index will immediately filter out any packages that do not mention that string in their metadata.
 
 ![Screenshot showing a filtered list of packages affected by CVE-2023-44487, this time only showing packages that reference "nghttp2". The row for the nghttp2 package itself shows a "Status" of "Fixed", and a "Fixed Version" of "1.57.0-r0".](sec-advisories-3.png)
 
@@ -158,4 +158,4 @@ As this output indicates, `CVE0223-44487` is no longer present in later versions
 
 The Security Advisories page serves as a helpful resource for anyone who wants to learn more about CVEs reported within Chainguard Images. You can search the database of advisories to learn more about any CVEs you encounter as you work with Chainguard Images.
 
-Additionally, we encourage you to explore the [Chainguard Images Directory](https://images.chainguard.dev/), the parent site of the Security Advisories page. The Directory allows users to explore the complete inventory of Chainguard Images. You may also be interested in our guide on [How To Compare Chainguard Images with `chainctl`](/chainguard/chainguard-images/comparing-images/) to learn more about how you can use the Diff API to compare Chainguard Images.
+Additionally, we encourage you to explore the [Chainguard Images Directory](https://images.chainguard.dev/), the parent site of the Security Advisories page. The Directory allows users to explore the complete inventory of Chainguard Images. You may also be interested in our guide on [How To Compare Chainguard Images with `chainctl`](/chainguard/chainguard-images/comparing-images/) to learn more about how you can use the Diff API to compare Chainguard Images. Finally, we encourage you to learn more about [noisy scan results](/chainguard/chainguard-images/scanners/false-results/) when scanning Chainguard Images. 
