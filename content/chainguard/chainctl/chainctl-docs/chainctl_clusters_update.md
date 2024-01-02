@@ -1,5 +1,5 @@
 ---
-date: 2023-12-21T20:37:17Z
+date: 2024-01-02T20:38:26Z
 title: "chainctl clusters update"
 slug: chainctl_clusters_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_update/

@@ -1,5 +1,5 @@
 ---
-date: 2023-12-21T20:37:17Z
+date: 2024-01-02T20:38:26Z
 title: "chainctl iam identities create github"
 slug: chainctl_iam_identities_create_github
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_github/
@@ -14,7 +14,7 @@ toc: true
 
 
 ```
-chainctl iam identities create github NAME --github-repo=REPO [--github-ref=REF] [--github-audience=AUD] [--group=GROUP] [--description=DESC] [--role=ROLE] [--output id|table|json]
+chainctl iam identities create github NAME --github-repo=REPO [--github-ref=REF] [--github-audience=AUD] [--group=GROUP] [--description=DESC] [--role=ROLE,ROLE,...] [--output id|table|json]
 ```
 
 ### Examples
@@ -37,7 +37,7 @@ chainctl iam identities create github NAME --github-repo=REPO [--github-ref=REF]
       --group string             The name or id of the parent group to create this identity under.
   -h, --help                     help for github
   -n, --name string              Given name of the resource.
-      --role string              The name or ID of a role to bind this identity to (optional).
+      --role strings             A comma separated list of names or IDs of roles to bind this identity to (optional).
   -y, --yes                      Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
