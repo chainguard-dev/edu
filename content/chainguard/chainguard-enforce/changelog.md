@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2023-12-21 19:18:20 +0000 UTC
+date: 2024-01-02 19:37:41 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,14 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.209
+Release date: 2024-01-02
+#### Feature
+- `chainctl iam identities create` accepts multiple roles to bind on creation.
+#### Bug or Regression
+- fix: Users are not allowed to remove themselves as `owner` of a root group if they are they are the sole `owner`.
+
 
 ### v0.1.208
 Release date: 2023-12-21
