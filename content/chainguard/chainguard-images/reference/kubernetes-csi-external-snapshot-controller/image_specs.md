@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubernetes-csi-external-snapshot-controller Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-03 00:37:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ The **kubernetes-csi-external-snapshot-controller** Chainguard Image currently h
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev            | latest                |
-|--------------|-----------------------|-----------------------|
-| Default User | `nonroot`             | `nonroot`             |
-| Entrypoint   | `snapshot-controller` | `snapshot-controller` |
-| CMD          | not specified         | not specified         |
-| Workdir      | not specified         | not specified         |
-| Has apk?     | yes                   | no                    |
-| Has a shell? | yes                   | no                    |
+|              | latest-dev                     | latest                         |
+|--------------|--------------------------------|--------------------------------|
+| Default User | `nonroot`                      | `nonroot`                      |
+| Entrypoint   | `/usr/bin/snapshot-controller` | `/usr/bin/snapshot-controller` |
+| CMD          | not specified                  | not specified                  |
+| Workdir      | not specified                  | not specified                  |
+| Has apk?     | yes                            | no                             |
+| Has a shell? | yes                            | no                             |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-controller/tags_history/) for the full list of available tags.
 

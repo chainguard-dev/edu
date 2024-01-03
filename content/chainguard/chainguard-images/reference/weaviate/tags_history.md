@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the weaviate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-21 00:35:14
+lastmod: 2024-01-03 00:37:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 19th | `sha256:3ab51911fe3ce84f081c1d14d071bf4e102a166ef2b638d7716202606c356f15` |
-|  `latest-dev` | December 19th | `sha256:251bed4749f26bd3f0be12e2cca0c96861edcb9ef4b6f38ce118640007afad03` |
+|  `latest-dev` | December 30th | `sha256:a452b9cb06cee47095f1f8c8f1db48f5ac2d12019cdceff2f9d010e8885a7cd0` |
+|  `latest`     | December 30th | `sha256:205de846df2b74fa0bf57dbe7de1c8112845110d1c78c67673fed5570db09842` |
 

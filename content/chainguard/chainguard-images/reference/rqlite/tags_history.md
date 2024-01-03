@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rqlite Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-29 00:16:28
+lastmod: 2024-01-03 00:37:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 27th | `sha256:aac89472bed3c88f1ead10c935b6f946369564dc7c9279ef6a7b9c15d4542650` |
-|  `latest`     | December 27th | `sha256:6deb730cae8859ba95f8e02735aaf42d11600edb672709aa45bdd9ec10045d2c` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 1st  | `sha256:3fde580972aea30c39a5a40a209a7bf5bc445a72c44c2a739a36d9529dee471c` |
+|  `latest`     | January 1st  | `sha256:df807bb48caf1e46f5e90807483b806e17569e3f0add5d8e6d7c1ed5fb2d8c47` |
 

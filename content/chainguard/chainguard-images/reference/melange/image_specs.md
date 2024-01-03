@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public melange Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-03 00:37:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -22,38 +22,54 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **melange** Image.
 
 ## Variants Compared
-The **melange** Chainguard Image currently has one public variant: 
+The **melange** Chainguard Image currently has 2 public variants: 
 
+- `latest-dev`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest             |
-|--------------|--------------------|
-| Default User | `root`             |
-| Entrypoint   | `/usr/bin/melange` |
-| CMD          | `--help`           |
-| Workdir      | `/work`            |
-| Has apk?     | no                 |
-| Has a shell? | yes                |
+|              | latest-dev         | latest             |
+|--------------|--------------------|--------------------|
+| Default User | `root`             | `root`             |
+| Entrypoint   | `/usr/bin/melange` | `/usr/bin/melange` |
+| CMD          | `--help`           | `--help`           |
+| Workdir      | `/work`            | `/work`            |
+| Has apk?     | yes                | no                 |
+| Has a shell? | yes                | yes                |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/melange/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `alpine-keys`            | X      |
-| `bubblewrap`             | X      |
-| `busybox`                | X      |
-| `ca-certificates-bundle` | X      |
-| `glibc`                  | X      |
-| `glibc-locale-posix`     | X      |
-| `ld-linux`               | X      |
-| `libcap`                 | X      |
-| `libcrypt1`              | X      |
-| `melange`                | X      |
-| `wolfi-baselayout`       | X      |
-| `wolfi-keys`             | X      |
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `alpine-keys`            | X          | X      |
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `bubblewrap`             | X          | X      |
+| `busybox`                | X          | X      |
+| `ca-certificates-bundle` | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
+| `libcap`                 | X          | X      |
+| `libcrypt1`              | X          | X      |
+| `libcrypto3`             | X          |        |
+| `libcurl-openssl4`       | X          |        |
+| `libexpat1`              | X          |        |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libssl3`                | X          |        |
+| `melange`                | X          | X      |
+| `ncurses`                | X          |        |
+| `ncurses-terminfo-base`  | X          |        |
+| `openssl-config`         | X          |        |
+| `wolfi-baselayout`       | X          | X      |
+| `wolfi-keys`             | X          | X      |
+| `zlib`                   | X          |        |
 
