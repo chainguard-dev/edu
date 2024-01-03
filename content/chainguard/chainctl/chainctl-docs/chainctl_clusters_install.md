@@ -1,5 +1,5 @@
 ---
-date: 2024-01-02T20:38:26Z
+date: 2024-01-03T17:42:41Z
 title: "chainctl clusters install"
 slug: chainctl_clusters_install
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_install/
@@ -14,16 +14,12 @@ toc: true
 Install Chainguard into the current kubernetes context.
 
 ```
-chainctl clusters install [--name NAME] [--description DESCRIPTION] [--group GROUP_NAME|GROUP_ID | --invite-code INVITE_CODE | --skip-invite | --managed={eks,gke} --cluster=CLUSTER_NAME | --private]
+chainctl clusters install [--name NAME] [--description DESCRIPTION] [--group GROUP_NAME|GROUP_ID | --invite-code INVITE_CODE | --skip-invite | --cluster=CLUSTER_NAME | --private]
 ```
 
 ### Examples
 
 ```
-  # Install Chainguard on a GKE cluster using a managed agent, and linking it
-  # under GROUP_ID in the Chainguard resource hierarchy.
-  chainctl cluster install --group=GROUP_ID --managed=gke --cluster=gke_project-id_us-central1_cluster-name
-  
   # Install or Update the chainguard agent on a cluster.
   chainctl cluster install --skip-invite
   
@@ -54,10 +50,9 @@ chainctl clusters install [--name NAME] [--description DESCRIPTION] [--group GRO
       --group string                     The group under which to create a temporary invite code and install the cluster.
   -h, --help                             help for install
       --invite-code string               An invite code to use for joining this cluster into the IAM hierarchy.
-      --managed string                   Indicates the cluster's agent should be managed by Chainguard.  The value indicates the provider of the cluster, e.g. gke
   -n, --name string                      Given name of the resource.
       --opt strings                      extra key=value pairs to define enforcer profile options
-      --private                          Kubernetes API endpoint isn't publicly accessible. Cannot be used with managed clusters.
+      --private                          Kubernetes API endpoint isn't publicly accessible.
       --profiles stringArray             The names of Chainguard profiles to install into the cluster.
       --skip-invite                      When specified we perform installation without an invite code.
 ```

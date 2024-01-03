@@ -1,5 +1,5 @@
 ---
-date: 2024-01-02T20:38:26Z
+date: 2024-01-03T17:42:41Z
 title: "chainctl clusters"
 slug: chainctl_clusters
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters/
@@ -37,7 +37,6 @@ Cluster related commands for the Chainguard platform.
 * [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
 * [chainctl clusters cidrs](/chainguard/chainctl/chainctl-docs/chainctl_clusters_cidrs/)	 - Enforce Egress CIDR related commands.
 * [chainctl clusters describe](/chainguard/chainctl/chainctl-docs/chainctl_clusters_describe/)	 - Describe a cluster.
-* [chainctl clusters discover](/chainguard/chainctl/chainctl-docs/chainctl_clusters_discover/)	 - Discover eligible clusters.
 * [chainctl clusters install](/chainguard/chainctl/chainctl-docs/chainctl_clusters_install/)	 - Install Chainguard into the current kubernetes context.
 * [chainctl clusters list](/chainguard/chainctl/chainctl-docs/chainctl_clusters_list/)	 - List clusters.
 * [chainctl clusters open](/chainguard/chainctl/chainctl-docs/chainctl_clusters_open/)	 - Open the console for a cluster.
