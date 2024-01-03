@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the apko Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-29 00:16:28
+lastmod: 2024-01-03 00:37:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | December 22nd | `sha256:c5049d36af1d1b822af7bff1c2b409aef018369e603aa2b598e8c7dea6805938` |
+|  `latest` | December 30th | `sha256:3fc4014f4be258907e7203ae75a54a9b1eab66113ed92e01b42be5df2873feb9` |
 

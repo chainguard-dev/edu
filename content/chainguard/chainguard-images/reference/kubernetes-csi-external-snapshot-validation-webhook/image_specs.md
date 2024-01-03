@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubernetes-csi-external-snapshot-validation-webhook Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-03 00:37:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,14 +28,14 @@ The **kubernetes-csi-external-snapshot-validation-webhook** Chainguard Image cur
 
 The table has detailed information about each of these variants.
 
-|              | latest                        |
-|--------------|-------------------------------|
-| Default User | `nonroot`                     |
-| Entrypoint   | `snapshot-validation-webhook` |
-| CMD          | not specified                 |
-| Workdir      | not specified                 |
-| Has apk?     | no                            |
-| Has a shell? | no                            |
+|              | latest                                 |
+|--------------|----------------------------------------|
+| Default User | `nonroot`                              |
+| Entrypoint   | `/usr/bin/snapshot-validation-webhook` |
+| CMD          | not specified                          |
+| Workdir      | not specified                          |
+| Has apk?     | no                                     |
+| Has a shell? | no                                     |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-validation-webhook/tags_history/) for the full list of available tags.
 
