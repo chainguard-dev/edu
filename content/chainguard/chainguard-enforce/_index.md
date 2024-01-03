@@ -24,11 +24,6 @@ tutorials: [
     url: "/chainguard/chainguard-enforce/enforce-overview/"
   },
   {
-    title: "Enforce Signing",
-    description: "Generate digital signatures for software inside your organization",
-    url: "/chainguard/chainguard-enforce/chainguard-enforce-signing/chainguard-enforce-signing-faqs/"
-  },
-  {
     title: "Connect to Enforce",
     description: "Connect Kubernetes clusters to Chainguard Enforce",
     url: "/chainguard/chainguard-enforce/how-to-connect-kubernetes-clusters/"
