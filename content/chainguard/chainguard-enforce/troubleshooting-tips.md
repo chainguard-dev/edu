@@ -249,12 +249,6 @@ For CycloneDX, Chainguard Enforce currently only supports version 1.4.
 
 We are in the process of updating Chainguard Enforce so it can readily parse SBOM attestations out of the box. In the meantime, you can parse SBOMs through implementing specific policies that cover this use case.
 
-### I don't have any SBOMs
-
-We recently updated Chainguard Enforce so it will generate SBOMs for any container images it finds that don't already have one. It can now also ingest SBOMs automatically out of the box.
-
-Check out our guide on [Generating and Filtering SBOMs with Chainguard Enforce](/chainguard/chainguard-enforce/sboms/sboms-in-enforce/) to learn more about these features.
-
 ## Enforce does not block Pod creation as expected
 
 The first thing to check is whether you labeled your namespace with `policy.sigstore.dev/include=true`. You can double check whether the `default` namespace is correctly labeled with the following command.
