@@ -28,14 +28,16 @@ You don't need any special access or software to explore Chainguard's Security A
 
 To follow along with these examples, you'll need the following tools installed.
 
-* [Docker Scout](https://docs.docker.com/scout/) — A component of the Docker container platform, Docker Scout allows you to scan container images to identify potential vulnerabilities. To use Docker Scout, you will need to [install Docker](https://docs.docker.com/get-docker/) on your chosen platform.
+* A security scanner like [Trivy](https://aquasecurity.github.io/trivy/v0.18.3/installation/), [Grype](https://github.com/anchore/grype#installation), or [Docker Scout](https://docs.docker.com/get-docker/) — This guide's examples use Docker Scout, a component of the Docker container platform, to scan container images and identify vulnerabilities. However, you should be able to follow along with any container vulnerability scanning tool.
 * [`chainctl`](/chainguard/chainctl/) — Chainguard's command-line interface tool. To install `chainctl`, follow our [installation guide](/chainguard/administration/how-to-install-chainctl/). 
 * [`jq`](https://jqlang.github.io/jq/) — `jq` is a command-line JSON processor that allows you to filter and manipulate streaming JSON data. Although it isn’t strictly necessary for the purposes of this guide, this tutorial includes commands that use `jq` to filter command output that would otherwise be difficult to read. You can install `jq` by following the instructions on [the project’s Download jq page](https://jqlang.github.io/jq/download/).
 
 
 ## So you've encountered a CVE in a Chainguard Image
 
-Say you use a vulnerability scanner like Grype or Docker Scout to inspect a certain Chainguard Image. This example uses Docker Scout to scan a Chainguard Production Image, specifically `go:1.21.2`.
+Say you use a vulnerability scanner like Grype or Docker Scout to inspect a certain Chainguard Image. This example uses Docker Scout to scan a Chainguard Production Image, specifically one tagged with `1.21.2`.
+
+As of this writing, the `go:1.21.2` image points to the image digest `sha256:04ab6905552b54a6977bed40a4105e9c95f78033e1cde67806259efc4beb959d`. Be aware that this tag will be withdrawn in the future, but the digest will remain available.
 
 ```sh
 docker scout cves cgr.dev/chainguard-private/go:1.21.2
@@ -55,6 +57,8 @@ Because this is the digest for an older version of Chainguard's Go Image, this c
 ```
 
 This output shows that this particular image has 20 vulnerabilities. The Docker Scout output also lists each of the packages affected by CVEs as well as the specific vulnerabilities it found for each.
+
+> Note: All of these vulnerabilities have been addressed in newer versions of the Chainguard Go Image.
 
 Scrolling to the listing immediately before the final vulnerability count, we'll find that in the case of this example, the package `nghttp2` is referenced. 
 
@@ -127,6 +131,8 @@ docker scout cves cgr.dev/chainguard-private/go:1.21.5
   No vulnerable packages detected
 ```
 
+> Note: Version `1.21.5` was the current version of the Node Image at the time of this writing. It may have accumulated CVEs since this guide was published.
+
 You can go a step further by comparing these two images directly with the `chainctl images diff` command, as in this example.
 
 ```sh
@@ -151,7 +157,7 @@ This example will return a lot of output, as there are significant differences f
 	. . .
 ```
 
-As this output indicates, `CVE0223-44487` is no longer present in later versions of the Go Chainguard Image. If you were using version `1.21.2`, you might seriously consider upgrading to a later version.
+As this output indicates, `CVE0223-44487` is no longer present in later versions of the Go Chainguard Image. If you were using version `1.21.2`, you should seriously consider upgrading to a later version.
 
 
 ## Learn More
