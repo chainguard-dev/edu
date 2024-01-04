@@ -91,15 +91,15 @@ The Security Advisories page is self-service, allowing you to check whether Chai
 
 Enter the CVE identifier you copied previously into the search box at the top of the page. This will immediately filter the list of security advisories to only show packages where that CVE has been reported. It will also show the **Status** of each.
 
-![Screenshot showing the Chainguard Security Advisories page. The list of advisories has been filtered to only include those with a CVE ID of "CVE-2023-44487".](sec-advisories-1.png)
+![Screenshot showing the Chainguard Security Advisories page. The list of advisories has been filtered to only include those with a CVE ID of "CVE-2023-44487".](sec-adv-A.png)
 
 If you click on any row in the filtered list, it will take you to the CVE's specific page. There, you'll find a list of every package where this CVE has been reported.
 
-![Screenshot showing the Security Advisory page for CVE-2023-44487 and a partial list of its affected packages.](sec-advisories-2.png)
+![Screenshot showing the Security Advisory page for CVE-2023-44487 and a partial list of its affected packages.](sec-adv-B.png)
 
 As with the Security Advisories landing page, you can filter by package name here on the CVE's landing page as well. Enter the name of the package we highlighted previously (`nghttp2`) and the index will immediately filter out any packages that do not mention that string in their metadata.
 
-![Screenshot showing a filtered list of packages affected by CVE-2023-44487, this time only showing packages that reference "nghttp2". The row for the nghttp2 package itself shows a "Status" of "Fixed", and a "Fixed Version" of "1.57.0-r0".](sec-advisories-3.png)
+![Screenshot showing a filtered list of packages affected by CVE-2023-44487, this time only showing packages that reference "nghttp2". The row for the nghttp2 package itself shows a "Status" of "Fixed", and a "Fixed Version" of "1.57.0-r0".](sec-adv-C.png)
 
 As the previous screenshot highlights, for CVE-2023-44487, the `nghttp2` package's **Status** is marked as **Fixed** in version `1.57.0-r0` as of October 11, 2023.
 
