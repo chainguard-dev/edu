@@ -1,5 +1,5 @@
 ---
-date: 2024-01-04T20:21:32Z
+date: 2024-01-05T19:14:17Z
 title: "chainctl events subscriptions create"
 slug: chainctl_events_subscriptions_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_create/
@@ -28,14 +28,13 @@ chainctl events subscriptions create SINK_URL [--group GROUP_NAME | GROUP_ID] [-
 ### Options inherited from parent commands
 
 ```
-      --api string                   The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
-      --audience string              The Chainguard token audience to request. (default "https://console-api.enforce.dev")
-      --config string                A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
-      --console string               The url of the Chainguard platform Console. (default "https://console.enforce.dev")
-      --issuer string                The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
-  -o, --output string                Output format. One of: ["", "json", "id", "table", "terse", "tree", "wide"]
-      --timestamp-authority string   The url of the Chainguard Timestamp Authority endpoint. (default "https://tsa.enforce.dev")
-  -v, --v int                        Set the log verbosity level.
+      --api string        The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string   The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string     A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string    The url of the Chainguard platform Console. (default "https://console.enforce.dev")
+      --issuer string     The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+  -o, --output string     Output format. One of: ["", "json", "id", "table", "terse", "tree", "wide"]
+  -v, --v int             Set the log verbosity level.
 ```
 
 ### SEE ALSO
