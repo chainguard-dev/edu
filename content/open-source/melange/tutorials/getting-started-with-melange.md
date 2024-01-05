@@ -359,7 +359,7 @@ Save and close the file when you're done. You are now ready to build your contai
 The following command will set up a volume sharing your current folder with the location `/work` in the apko container, running the `apko build` command to generate an image based on your `apko.yaml` definition file.
 
 ```shell
-docker run --rm -v ${PWD}:/work cgr.dev/chainguard/apko \
+docker run --rm --workdir /work -v ${PWD}:/work cgr.dev/chainguard/apko \
   build apko.yaml hello-minicli:test hello-minicli.tar \
   --arch host \
   -k melange.rsa.pub
