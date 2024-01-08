@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-03 00:37:41
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 30th | `sha256:c80e1e05016a97b40468a906acb34e314181fffcc49079904c2ead06bd5ce7b9` |
-|  `latest-dev` | December 30th | `sha256:39aaa70c14bdd727c1e6c6d0cf38707d271a9b90fdb1fcb2c297380b440e0796` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 3rd  | `sha256:3e428aa733e261b3d0c2d1729ad8ac254f18dffea4b53ca67517608efa3044f0` |
+|  `latest`     | January 3rd  | `sha256:d82cb50699652896c64b1385467a44f4e9618d7461fedfbfeb9f9a94600c3797` |
 

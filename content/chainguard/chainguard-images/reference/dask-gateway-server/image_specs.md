@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public dask-gateway-server Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ The **dask-gateway-server** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev                                                                       | latest                                                                           |
-|--------------|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| Default User | `nonroot`                                                                        | `nonroot`                                                                        |
-| Entrypoint   | `/sbin/tini -g --`                                                               | `/sbin/tini -g --`                                                               |
-| CMD          | `/usr/bin/dask-gateway-server --config /etc/dask-gateway/dask_gateway_config.py` | `/usr/bin/dask-gateway-server --config /etc/dask-gateway/dask_gateway_config.py` |
-| Workdir      | not specified                                                                    | not specified                                                                    |
-| Has apk?     | yes                                                                              | no                                                                               |
-| Has a shell? | yes                                                                              | no                                                                               |
+|              | latest-dev         | latest             |
+|--------------|--------------------|--------------------|
+| Default User | `nonroot`          | `nonroot`          |
+| Entrypoint   | `/sbin/tini -g --` | `/sbin/tini -g --` |
+| CMD          | not specified      | not specified      |
+| Workdir      | not specified      | not specified      |
+| Has apk?     | yes                | no                 |
+| Has a shell? | yes                | no                 |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/dask-gateway-server/tags_history/) for the full list of available tags.
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 14th | `sha256:da35bb04bd3e0dff15702cc833371982c3c0951fb699119d15d584874698e78e` |
-|  `latest`     | December 13th | `sha256:ab5e81ac404fd7bd10f80acfb28ccfd5ef05e9c89c861af2968fcf2440e4290e` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 3rd  | `sha256:4019897e8dc21bfd9b44c9a0cb143f01d97f432cb6ce734b50a7a11775e2c0b2` |
+|  `latest`     | January 3rd  | `sha256:9e316dac2cd162146f761650d8c2aa7e8ebc2e962269234025e448ba087aabe1` |
 

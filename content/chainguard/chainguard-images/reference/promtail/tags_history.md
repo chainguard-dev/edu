@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the promtail Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-29 00:16:28
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 23rd | `sha256:d42a9a34b62a09657b659391623676e4c58dcab15b8f50d7a71497066a823cf6` |
-|  `latest`     | December 23rd | `sha256:84e75dc71e5297525ef550b4653607752f7542141bb3c05d62591fdd2e46ac53` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | January 3rd  | `sha256:9f3eca1daf73d87efdef6942e56d0dac3c31337e65e6f3ff8855b5974ab5427d` |
+|  `latest-dev` | January 3rd  | `sha256:7fa56f1c9722418fcbaa82e7f6810ed204c9e5740765afbf99792fb565c4d67b` |
 

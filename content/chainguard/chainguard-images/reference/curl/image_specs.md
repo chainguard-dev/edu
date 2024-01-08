@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public curl Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -53,6 +53,7 @@ The table shows package distribution across variants.
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |
+| `jq`                     | X          |        |
 | `ld-linux`               | X          | X      |
 | `libbrotlicommon1`       | X          | X      |
 | `libbrotlidec1`          | X          | X      |
@@ -66,6 +67,7 @@ The table shows package distribution across variants.
 | `libssl3`                | X          |        |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
+| `oniguruma`              | X          |        |
 | `openssl-config`         | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |

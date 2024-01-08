@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the zot Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-03 00:37:41
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 30th | `sha256:e05e49e851cd99b53398d235986bc30fec1cdf44510144f912ad6c8e1cc661bf` |
-|  `latest`     | December 30th | `sha256:cea65db0d3f6a0a166be1a7797004d9ca67b3ce4dd2b14c30cf267f0cf53c4d8` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 3rd  | `sha256:0486e25e1284438f6c4b2d2270e0da945adf2978dcfea8d34d19f8023e8a03f4` |
+|  `latest`     | January 3rd  | `sha256:9ee5eee538442915433a919d962f131048f836c254374b13d143544065b7d1d7` |
 

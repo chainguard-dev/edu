@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-file-metrics-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-29 00:16:28
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 22nd | `sha256:377fb7e92bdb4ee6dabe9e6b9beae816bacc1ae0b24ae7a75d0f73d17b7c7ad7` |
-|  `latest-dev` | December 22nd | `sha256:8380116728f15a7b7c7dfed5bfe8c29d6c996ab71628c0e105516339fd08a5d3` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0` `0.16` `0.16.0` `latest`                 | January 4th  | `sha256:286f400913157c497658be0763be17700acc5d63309a85983eb553d5bbdf86b9` |
+|  `0.16-dev` `0-dev` `0.16.0-dev` `latest-dev` | January 4th  | `sha256:97a2a9160fb63e1c0eae8547523c078ca00bdcd74b19663fcd46e02ceefc654a` |
 
