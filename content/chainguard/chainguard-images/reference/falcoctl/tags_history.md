@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falcoctl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-03 00:37:41
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 30th | `sha256:133d7da6a6e90e6600b55018f6cf10c750072fa9270cb8d059a6090237d840b2` |
-|  `latest-dev` | December 30th | `sha256:696f23d2996d7b1cfaf95798004dd1d9fab87982b8cb328f86413823e76fb54e` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 3rd  | `sha256:36390bd9781228033394332dacdea59685a383090e0ccda726abaf52de94e683` |
+|  `latest`     | January 3rd  | `sha256:67744a2a3574db32f54e851bb0694b1584ed50bee1b23132e34a1bc932e48f70` |
 

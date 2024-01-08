@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-optuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-29 00:16:28
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 22nd | `sha256:feca3cfac3e9195524f1bee371c0a47eca9e16a62c1f725416b535b709daaba5` |
-|  `latest`     | December 22nd | `sha256:c967542d0943ea149b2264abe819203bfa2b93c65c48c8bd9dac6a2048fc774e` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0` `0.16.0` `latest` `0.16`                 | January 4th  | `sha256:6f2aeeb24ab6ae81f7a0214b087ba2be50993af6879fd4158aa8e4592c798f2f` |
+|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | January 4th  | `sha256:64a62c7dc7851869cd4fc652c215f66fb978a99e32a90d098f798c9d19ca6a2d` |
 

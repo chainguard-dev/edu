@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-state-metrics Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-29 00:16:28
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 22nd | `sha256:0970983939e4d793b5bfdecdc639a196e9f05533498eb5f369747be3be2a1c0b` |
+|  `latest-dev` | January 3rd   | `sha256:8c0691babf5282cb0c7cd38939893d9330b362dc10ef5862721b4a418dfe6665` |
 |  `latest`     | December 22nd | `sha256:25d28018f608b4ca05bd8ebf8eaed1f411a63ba314a6855b34c5e601ae230a42` |
 

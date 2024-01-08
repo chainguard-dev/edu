@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-sdk Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 14th | `sha256:a738b9981e5ce6065a6509e7eaa1159cc46c214a3370a0f06a06d932b8555c88` |
-|  `latest-dev` | December 14th | `sha256:acfab0d8a74c8935eb7b5800433b50c075f665654dc8bfc2c1710cb1d367133a` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 4th  | `sha256:6f7388e3d5a37438f17d4949cf83b93fa812ec29c0af0a5cebe95e28e90daf55` |
+|  `latest`     | January 4th  | `sha256:bc07b21d6a4c057a0e8130164f60bc8df7e639b507842ba875e5b8105710b829` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the proxysql Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 14th | `sha256:1c359466bb659ca011db1ea995875b268299f81be3fd04f65ac4ebc858587dc9` |
-|  `latest-dev` | December 14th | `sha256:33b4b77866d4b62f3f3cd625f3a17d67481764c9043c6d633e82008c743ce779` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | January 4th  | `sha256:2db918b2169201997bd45b9efacf08f362bc56f16a2295c5656584f6b0ba9677` |
+|  `latest-dev` | January 4th  | `sha256:bd34d23beda6696ea798c9df80164c69bf9a119e6b46471fb749d27fdf552eae` |
 

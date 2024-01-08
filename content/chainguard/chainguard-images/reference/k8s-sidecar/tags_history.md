@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8s-sidecar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-29 00:16:28
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 28th | `sha256:ddcaedcf146a2497cccabec2119bfaee531b214f182e6b424af579cf7b9499e8` |
-|  `latest-dev` | December 14th | `sha256:52dc8f725b46275504f40659a916a0193b184e9a2f945f3022e0c6563cd66c36` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 4th  | `sha256:85481fecc109e78618791d83bd1d3455e6312bd16bbd990092d9cc745610967a` |
+|  `latest`     | January 4th  | `sha256:550fe1c94244be3ed7a1814057ca9a7badeb6b2eba9e582db84034394d6968fd` |
 

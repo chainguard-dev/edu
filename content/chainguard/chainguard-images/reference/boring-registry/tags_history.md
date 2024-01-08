@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the boring-registry Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-03 00:37:41
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 29th | `sha256:75857fa08510f81466b44f2c1d7839697200d3f0bb3a04ed71e57d703bd56e78` |
-|  `latest-dev` | December 29th | `sha256:40041b66674017f94c7261b24ef995f0875d958a87aae71c7835fa66ea7d25eb` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 3rd  | `sha256:dbf97993af99e66027b7d613b0c4ab40104784897c90be9fe588e068914b6ab7` |
+|  `latest`     | January 3rd  | `sha256:7ddbbefce042fe305e5d12de273262bb4ad8bfc8e1f8f091864c868c31c3ea6e` |
 

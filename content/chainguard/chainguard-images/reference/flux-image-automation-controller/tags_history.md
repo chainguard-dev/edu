@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-image-automation-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-21 00:35:14
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 20th | `sha256:937c02e723625f466c00534de96e11424e2896619cbbbaa67908938991253b98` |
-|  `latest-dev` | December 20th | `sha256:c421f6c74abed51ca9c9744431518a4e213a9b76b40433959fe1f7b607fdf043` |
+| Tag (s)                                                                          | Last Changed | Digest                                                                    |
+|----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `v0.37.0` `0` `v0` `0.37.0` `v0.37` `0.37` `latest`                             | January 4th  | `sha256:937c02e723625f466c00534de96e11424e2896619cbbbaa67908938991253b98` |
+|  `0-dev` `v0.37.0-dev` `0.37-dev` `v0.37-dev` `v0-dev` `0.37.0-dev` `latest-dev` | January 4th  | `sha256:9ceccf662fb21756a0ff00e8494fd96465a737eca537bf26542fb79870aa53af` |
 

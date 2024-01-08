@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: jdk Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -39,9 +39,11 @@ docker pull cgr.dev/chainguard/jdk:latest
 <!--getting:end-->
 
 <!--body:start-->
-## Use it
+## Java Application Example
 
-Create a simple Java class
+This section outlines how you can build a Java application with the Chainguard JDK Image.
+
+Start by creating a sample Java class named `HelloWolfi.java`:
 
 ```sh
 cat >HelloWolfi.java <<EOL
@@ -55,7 +57,7 @@ class HelloWolfi
 EOL
 ```
 
-Next create a multistage Dockerfile and add the Java class
+Then create a multistage Dockerfile, adding the Java class you just created:
 
 ```sh
 cat >Dockerfile <<EOL
@@ -71,15 +73,19 @@ CMD ["HelloWolfi"]
 EOL
 ```
 
-Build the image
+Following that, you can build the image:
 
 ```sh
-docker build -t my-simple-java-app .
+docker build -t my-java-app .
 ```
 
-Run the image
+Note that this example tags the image with `my-java-app`. You can now run the image by referencing this tag, as in the following command:
+
 ```sh
-docker run my-simple-java-app
+docker run my-java-app
+```
+```
+Hello Wolfi users!
 ```
 <!--body:end-->
 

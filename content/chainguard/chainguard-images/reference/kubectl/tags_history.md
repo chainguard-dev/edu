@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubectl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-22 00:18:53
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 21st | `sha256:8aaeedff008904b6abb0eaea2ea12504370edc6766b5d25822f8a38e9ddc7d22` |
+|  `latest-dev` | January 3rd   | `sha256:a151556ec58246ef117755ab31fd4758a6df4b34753c30ab46062528c6035a11` |
 |  `latest`     | December 21st | `sha256:95f5f80fc6ab00f04bae2f7e2b3f880cb134003abafb61c4eb330c193526c8c1` |
 

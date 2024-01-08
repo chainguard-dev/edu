@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 14th | `sha256:6b44d6ec7034702cee049379fcf1800158e0ef92f60f8ee6b92d97753ba5a6e8` |
-|  `latest`     | December 14th | `sha256:967a83aad3796057c62d7bdd6eb59088460ce068c7a87821227e99d0237b7210` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 3rd  | `sha256:c6de4fd799ec75e1e014aaacff78cc05bfa019af02ec5538fbb290196ea7a254` |
+|  `latest`     | January 3rd  | `sha256:c911b1ea2040b7a68418121fa5ab07fc0872cee15222abd46229c116c18fa54d` |
 
