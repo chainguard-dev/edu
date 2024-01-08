@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the guacamole-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-03 00:37:41
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 30th | `sha256:0c23275de60d29e6abeadc6ef7cf6451b30fedd447c7604787ed996b256b5ab3` |
-|  `latest-dev` | December 30th | `sha256:8083651c21dadaadb287220670b74e6dbcd2050e29b09fd2253b10ed062fa768` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | January 4th  | `sha256:0d949da072ef6e24a8c47e061e0ec4f9d4c645578c3555097041b04f19bb06fd` |
+|  `latest-dev` | January 4th  | `sha256:509915199db541c0039db0016cb8db92027d808b35c0c77f9279499e58214bbe` |
 

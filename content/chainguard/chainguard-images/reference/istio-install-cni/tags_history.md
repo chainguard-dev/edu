@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-install-cni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-22 00:18:53
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 21st | `sha256:6a9eee7254920477fffacd31e31387a9d2fe7b34e40c4af0c061603fa72dca6a` |
+|  `latest-dev` | January 3rd   | `sha256:c3e0d785d4f7e38f121e8e0db33b6854a021eacd1a2aaf6da448493f2071db46` |
 |  `latest`     | December 21st | `sha256:cea92e23533a0825c343ddf9d74e1e0fdeb620a8ce5d8fee863ecca0aece8bfe` |
 

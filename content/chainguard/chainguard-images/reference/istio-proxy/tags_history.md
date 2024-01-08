@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-22 00:18:53
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 21st | `sha256:4686773730964708c0a09e1c2bcf790872513c32aba1ef2e1fc43dcaab6dbb86` |
-|  `latest`     | December 21st | `sha256:130966ce9594d6b3e255ebd68159245e66f1a830f6542293c7f0952b2f52f258` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | January 3rd  | `sha256:16d2cbf66df357f9feaedcf090a78cb58711e921c0cc61bf35923f0ca7fa4bae` |
+|  `latest-dev` | January 3rd  | `sha256:bac561287fdf7c78199b4bcd0209dbd89ec205947641b579b19825bdbff9e4bb` |
 

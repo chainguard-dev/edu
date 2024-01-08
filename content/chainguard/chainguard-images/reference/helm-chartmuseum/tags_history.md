@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm-chartmuseum Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-29 00:16:28
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 27th | `sha256:48463160f2e9810408c35b3ec79c8cbfb95304da2641f9a04470043fcc2d0a33` |
-|  `latest-dev` | December 27th | `sha256:2cbda80e62735ef146e5d6dc4281ae28e3caabc64575cee1339201e61e9dec9c` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | January 5th  | `sha256:4680cdcd50b42e779c17f17a34d473ca0aae94ef40e071b82b2416f4586505eb` |
+|  `latest-dev` | January 5th  | `sha256:f826df59ebdadc9d83a18df137571943b91560d4009a13eedcdba7f939762527` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-21 00:35:14
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 20th | `sha256:8ab20790c6b56e9e4647e809a47c641da729284d30d00ed16d96c826288b5eac` |
-|  `latest`     | December 20th | `sha256:f19d8008efeaebdb6d01b4f0bac115976d1f229b53757ceef6a67c51553c65ba` |
+| Tag (s)                                                                      | Last Changed | Digest                                                                    |
+|------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `v2.2-dev` `2.2-dev` `v2.2.2-dev` `2-dev` `2.2.2-dev` `v2-dev` `latest-dev` | January 4th  | `sha256:1f1fb8a6daaaeef8a1f2ea342bd2fa5052256615b37857af581be6026d16470b` |
+|  `v2` `2.2` `v2.2.2` `v2.2` `2.2.2` `2` `latest`                             | January 4th  | `sha256:746c040586eac8cc367459948499b249cafa8efba29b1806fd1b78bcc2c921f2` |
 

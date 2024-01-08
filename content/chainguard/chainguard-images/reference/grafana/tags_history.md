@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-22 00:18:53
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 21st | `sha256:ba69191f2e218f2ed01dc3423c23988bea6f1895b364ecb6ee83cb13ec09656f` |
-|  `latest`     | December 21st | `sha256:636279be2494b5d852b518dd416f26a58354e2845474e162340f964bb03a05b2` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 3rd  | `sha256:68174a7c87b120f65acc3ca8e8aa5367803a3139093b629d4c7d8fe4d08483e7` |
+|  `latest`     | January 3rd  | `sha256:cf55588c46d683e17bb193eaea064c5a7b3d79478d465feb543d6253952fc369` |
 
