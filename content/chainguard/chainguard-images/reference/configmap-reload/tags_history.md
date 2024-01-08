@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the configmap-reload Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-15 00:37:05
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 14th | `sha256:512786ebfd84d76f312dd9269c8bd930dd34b0b7e565e92ba8c0674591c07053` |
-|  `latest`     | December 14th | `sha256:232377b5958bb28027f4baa1e25c9154c63ccd4ee5f0f24a2508937d5101a55a` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | January 3rd  | `sha256:d36dff01de8293db398bd389350705c882272331cb6274363466bd320653fc26` |
+|  `latest-dev` | January 3rd  | `sha256:7346292f2ba3233bb7c3671e87f0b0c250b99e4e566e743a3954ce606399d141` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-workingdirinit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-03 00:37:41
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 3rd   | `sha256:406453f48f194c551bbc587465388109f7fdadc6c86f6c3bd11b8ce18e6761e5` |
 |  `latest`     | December 29th | `sha256:48f460921e005c61fd3f4d3b389a10e05cbfad21258933cf4df118f7e5e8b47e` |
-|  `latest-dev` | December 29th | `sha256:730cc33edf5ac425718739ea4438aaa8a1eb9af061b8ecce0075a5ef5fbb45b7` |
 

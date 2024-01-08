@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kyverno-cli Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -32,7 +32,7 @@ The table has detailed information about each of these variants.
 |--------------|----------------------------|
 | Default User | `nonroot`                  |
 | Entrypoint   | `/usr/bin/kubectl-kyverno` |
-| CMD          | `help`                     |
+| CMD          | not specified              |
 | Workdir      | not specified              |
 | Has apk?     | no                         |
 | Has a shell? | no                         |

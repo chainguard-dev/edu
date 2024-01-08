@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sqlpad Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-29 00:16:28
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 27th | `sha256:925dae3d15cb8cf5f67e4a09069ba8a83ce3690aef2c4e226ec00ee412d264f4` |
-|  `latest`     | December 27th | `sha256:3d1ea63f40d326675d75583e5aad836388644e7513f2adb57f360209683a2d1a` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | January 4th  | `sha256:fafd0177b5a2b94e16c517fda1a4f0479dde679b2e1abf9c9e30c845b09eb157` |
+|  `latest-dev` | January 4th  | `sha256:c3d452bbd20ca40b283e88d1dec7e4f3ab1fa59cf1035fded445d0a0af3ee6e7` |
 

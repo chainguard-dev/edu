@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-29 00:16:28
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | December 22nd | `sha256:1f58023e2d7fa4dd7871556dae7cdd4881872cba31d7a5332d03a0421ecdff0a` |
-|  `latest`     | December 22nd | `sha256:7026b338ac003881620531aa903f2052190e1f34631724746ecbfff1db88d465` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | January 3rd  | `sha256:b7f957821a19257fb61fe2abd6c9b961a213d755d4b68d60106ab43456f103c7` |
+|  `latest-dev` | January 3rd  | `sha256:566893d38c1fc57661195d55db1c6a112b96516c9aad231bf116f1edfc5b6a2d` |
 

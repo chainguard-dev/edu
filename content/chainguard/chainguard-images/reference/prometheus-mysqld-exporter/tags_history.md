@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2023-12-29 00:16:28
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 22nd | `sha256:5fe63dc6fbacde6c761561688a21073281d1f1d8dcf349874e63a8376f475846` |
-|  `latest-dev` | December 22nd | `sha256:4abeae0176465c918d40d5b3bda1203e6754a7a9604af0536ea878792562e641` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.15` `0.15.1` `0` `latest`                 | January 4th  | `sha256:804eed17d19d96931740cc1a4cbdebb81d0d6b3afb740da5c457049ab81fa3e3` |
+|  `0.15.1-dev` `0.15-dev` `0-dev` `latest-dev` | January 4th  | `sha256:5c6ba46d719590ec6ed922b701ad89ec30a2be9b76c88163fe608494a7b9715a` |
 

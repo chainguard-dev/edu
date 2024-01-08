@@ -3,8 +3,8 @@ title: "falco-no-driver Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the falco-no-driver Chainguard Image"
-date: 2023-12-22 00:18:53
-lastmod: 2023-12-22 00:18:53
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-01-08 00:20:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | December 21st | `sha256:c7d3fdc8c761f15639dab4d626ebb5116321fac4b5320e405b0866c2f22ffffe` |
-|  `latest-dev` | December 21st | `sha256:0fc948700d7749b7ee27bf0a7cda21218aedabba9606df563a54f213dbf025a7` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | January 4th  | `sha256:5b4d9551c6eb64a50c73b9da8199a41975235dcd465467929723c77b0f330354` |
+|  `latest-dev` | January 4th  | `sha256:3d7f1f59be28ef8b82cc7593be127ca8ee300e418849a5829072fbac4df4b584` |
 
