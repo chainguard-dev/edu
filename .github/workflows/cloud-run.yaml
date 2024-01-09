@@ -2,7 +2,7 @@ name: Deploy to Cloud Run
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "tf-cloud-run" ]
   workflow_dispatch:
 
 env:
@@ -74,6 +74,6 @@ jobs:
         TF_VAR_image: '${{ env.REGISTRY_URL }}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}'
         TF_VAR_project_id: ${{ env.PROJECT_ID }}
       run: |
+        cd iac
         terraform plan
-
         terraform apply -auto-approve
