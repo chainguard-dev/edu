@@ -73,7 +73,8 @@ jobs:
     - env:
         TF_VAR_image: '${{ env.REGISTRY_URL }}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}'
         TF_VAR_project_id: ${{ env.PROJECT_ID }}
+      working-directory: ./iac
       run: |
-        terraform plan -o chainguard-academy.plan
+        terraform plan
 
-        terraform apply chainguard-academy.plan -auto-approve
+        terraform apply -auto-approve
