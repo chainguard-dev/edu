@@ -1,3 +1,33 @@
+# 2024-01-09
+
+
+Updated Docs:
+
+- aws-efs-csi-driver/tags_history.md
+- conda/tags_history.md
+- dask-gateway-server/tags_history.md
+- git/tags_history.md
+- gitness/tags_history.md
+- guacamole-server/tags_history.md
+- kube-downscaler/tags_history.md
+- kubeflow-katib-earlystopping-medianstop/tags_history.md
+- kubeflow-pipelines-api-server/tags_history.md
+- kubeflow-pipelines-cache-deployer/tags_history.md
+- kubeflow-pipelines-cache-server/tags_history.md
+- kubeflow-pipelines-frontend/tags_history.md
+- kubeflow-pipelines-metadata-envoy/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- kubeflow-pipelines-persistenceagent/tags_history.md
+- kubeflow-pipelines-scheduledworkflow/tags_history.md
+- kubeflow-pipelines-viewer-crd-controller/tags_history.md
+- nfs-subdir-external-provisioner/tags_history.md
+- node-problem-detector/tags_history.md
+- openai/tags_history.md
+- prometheus-alertmanager/image_specs.md
+- prometheus-alertmanager/tags_history.md
+- semgrep/tags_history.md
+- slim-toolkit-debug/tags_history.md
+
 # 2024-01-08
 
 
