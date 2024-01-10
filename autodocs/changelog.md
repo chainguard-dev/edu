@@ -1,3 +1,40 @@
+# 2024-01-10
+
+
+Updated Docs:
+
+- aws-ebs-csi-driver/tags_history.md
+- bazel/tags_history.md
+- cilium-agent/tags_history.md
+- deno/tags_history.md
+- dynamic-localpv-provisioner/tags_history.md
+- falco-no-driver/tags_history.md
+- grype/tags_history.md
+- guacamole-server/tags_history.md
+- ingress-nginx-controller/image_specs.md
+- ingress-nginx-controller/tags_history.md
+- keda/tags_history.md
+- keda-adapter/tags_history.md
+- keda-admission-webhooks/tags_history.md
+- keycloak/tags_history.md
+- kubeflow-katib-earlystopping-medianstop/tags_history.md
+- kubeflow-katib-suggestion-darts/tags_history.md
+- kubeflow-katib-suggestion-hyperband/tags_history.md
+- kubeflow-katib-suggestion-hyperopt/tags_history.md
+- kubeflow-katib-suggestion-optuna/tags_history.md
+- kubeflow-katib-suggestion-pbt/tags_history.md
+- kubeflow-katib-suggestion-skopt/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- netcat/tags_history.md
+- newrelic-kubernetes/tags_history.md
+- prometheus-alertmanager/tags_history.md
+- qdrant/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- telegraf/tags_history.md
+- vector/tags_history.md
+- weaviate/tags_history.md
+- zookeeper/tags_history.md
+
 # 2024-01-09
 
 
