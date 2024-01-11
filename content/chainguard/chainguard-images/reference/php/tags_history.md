@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the php Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-11 00:18:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,8 +25,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)           | Last Changed | Digest                                                                    |
 |-------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-fpm`     | January 3rd  | `sha256:8791d331f721ac710ac58cbac31ec4149e60bf55562be62afdbbbdd54be07388` |
-|  `latest-fpm-dev` | January 3rd  | `sha256:10287919393351313e1d03995adbc038cf1b3e8e822daaa5d8ad8d72f99c3378` |
-|  `latest-dev`     | January 3rd  | `sha256:4984e3a199eb6d7fba2fe4f860491865c3411989feada2a230174f4e622a1859` |
-|  `latest`         | January 3rd  | `sha256:7626c1d66197a4e972391d8ad69195c2a906536e1d8a9f2f274ab3fdd75a4ae5` |
+|  `latest-fpm-dev` | January 10th | `sha256:9af13f017e432dfa867967e13294730fc9844e7b8ff50ec68fb0d67deba2c101` |
+|  `latest-fpm`     | January 10th | `sha256:fc093c577fe998a9711a8571ab17535e60cb33eb211afb6c117a2b4d26459260` |
+|  `latest-dev`     | January 10th | `sha256:9233d0e565e5f95ee81abb114cecc05dcc0c5773a1e741caa4e79aa3f570657f` |
+|  `latest`         | January 10th | `sha256:0db01c532efe49934192d192ebcfef7a47c41b4c517a47d295473c9877d5d769` |
 
