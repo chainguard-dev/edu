@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public jenkins Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-11 00:18:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -22,64 +22,65 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **jenkins** Image.
 
 ## Variants Compared
-The **jenkins** Chainguard Image currently has one public variant: 
+The **jenkins** Chainguard Image currently has 2 public variants: 
 
+- `latest-dev`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest                                                                                 |
-|--------------|----------------------------------------------------------------------------------------|
-| Default User | `jenkins`                                                                              |
-| Entrypoint   | `/usr/bin/java -Duser.home=/var/jenkins_home -jar /usr/share/java/jenkins/jenkins.war` |
-| CMD          | not specified                                                                          |
-| Workdir      | `/app`                                                                                 |
-| Has apk?     | no                                                                                     |
-| Has a shell? | yes                                                                                    |
+|              | latest-dev                                                                             | latest                                                                                 |
+|--------------|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| Default User | `jenkins`                                                                              | `jenkins`                                                                              |
+| Entrypoint   | `/usr/bin/java -Duser.home=/var/jenkins_home -jar /usr/share/java/jenkins/jenkins.war` | `/usr/bin/java -Duser.home=/var/jenkins_home -jar /usr/share/java/jenkins/jenkins.war` |
+| CMD          | not specified                                                                          | not specified                                                                          |
+| Workdir      | `/app`                                                                                 | `/app`                                                                                 |
+| Has apk?     | no                                                                                     | no                                                                                     |
+| Has a shell? | yes                                                                                    | yes                                                                                    |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/jenkins/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `bash`                   | X      |
-| `busybox`                | X      |
-| `ca-certificates`        | X      |
-| `ca-certificates-bundle` | X      |
-| `coreutils`              | X      |
-| `fontconfig-config`      | X      |
-| `freetype`               | X      |
-| `glibc`                  | X      |
-| `glibc-locale-en`        | X      |
-| `glibc-locale-posix`     | X      |
-| `java-cacerts`           | X      |
-| `java-common`            | X      |
-| `jenkins`                | X      |
-| `ld-linux`               | X      |
-| `libacl1`                | X      |
-| `libattr1`               | X      |
-| `libbrotlicommon1`       | X      |
-| `libbrotlidec1`          | X      |
-| `libbz2-1`               | X      |
-| `libcrypt1`              | X      |
-| `libcrypto3`             | X      |
-| `libexpat1`              | X      |
-| `libffi`                 | X      |
-| `libfontconfig1`         | X      |
-| `libpng`                 | X      |
-| `libtasn1`               | X      |
-| `ncurses`                | X      |
-| `ncurses-terminfo-base`  | X      |
-| `openjdk-17-default-jvm` | X      |
-| `openjdk-17-jre`         | X      |
-| `openjdk-17-jre-base`    | X      |
-| `openssl-config`         | X      |
-| `p11-kit`                | X      |
-| `p11-kit-trust`          | X      |
-| `ttf-dejavu`             | X      |
-| `tzdata`                 | X      |
-| `wolfi-baselayout`       | X      |
-| `zlib`                   | X      |
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `bash`                   | X          | X      |
+| `busybox`                | X          | X      |
+| `ca-certificates`        | X          | X      |
+| `ca-certificates-bundle` | X          | X      |
+| `coreutils`              | X          | X      |
+| `fontconfig-config`      | X          | X      |
+| `freetype`               | X          | X      |
+| `glibc`                  | X          | X      |
+| `glibc-locale-en`        | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `java-cacerts`           | X          | X      |
+| `java-common`            | X          | X      |
+| `jenkins`                | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libacl1`                | X          | X      |
+| `libattr1`               | X          | X      |
+| `libbrotlicommon1`       | X          | X      |
+| `libbrotlidec1`          | X          | X      |
+| `libbz2-1`               | X          | X      |
+| `libcrypt1`              | X          | X      |
+| `libcrypto3`             | X          | X      |
+| `libexpat1`              | X          | X      |
+| `libffi`                 | X          | X      |
+| `libfontconfig1`         | X          | X      |
+| `libpng`                 | X          | X      |
+| `libtasn1`               | X          | X      |
+| `ncurses`                | X          | X      |
+| `ncurses-terminfo-base`  | X          | X      |
+| `openjdk-17-default-jvm` | X          | X      |
+| `openjdk-17-jre`         | X          | X      |
+| `openjdk-17-jre-base`    | X          | X      |
+| `openssl-config`         | X          | X      |
+| `p11-kit`                | X          | X      |
+| `p11-kit-trust`          | X          | X      |
+| `ttf-dejavu`             | X          | X      |
+| `tzdata`                 | X          | X      |
+| `wolfi-baselayout`       | X          | X      |
+| `zlib`                   | X          | X      |
 

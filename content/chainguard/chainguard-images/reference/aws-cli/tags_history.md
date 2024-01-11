@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-11 00:18:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 6th  | `sha256:a00545cb3cc3844dd223ba56b283be6323b849ecf7fa6d8670588b4009a8c28f` |
-|  `latest`     | January 6th  | `sha256:367e79bf8724b8d6f3948007df3af07389799ffb66435f63139ef54ad870da10` |
+|  `latest`     | January 10th | `sha256:6f66422cd859bebe966ca0e24050383063441d431fa4b5e33dd68234968ef879` |
+|  `latest-dev` | January 10th | `sha256:2f20b9979bba8ae624de4da3e18ca0005f0421c96957a29157002b1d87ac1fbd` |
 

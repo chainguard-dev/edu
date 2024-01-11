@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-11 00:18:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 3rd  | `sha256:3985448c1963da50c9b66b5e2881155526d4ff1c6ed3e58ca6160931daf9eff4` |
-|  `latest`     | January 3rd  | `sha256:75261e7099f65de39acabd5c51e24cd8ccd805eaa0f6041a235205506958176f` |
+|  `latest-dev` | January 10th | `sha256:ac5ee071c2aed36c860f29ab8e91bb511ccebb14cd7a0e7b0b043b795717a853` |
+|  `latest`     | January 10th | `sha256:f00f74b6fb49e1f32432f568b83fcf7c627983b98d094ccc8c538de652663db7` |
 

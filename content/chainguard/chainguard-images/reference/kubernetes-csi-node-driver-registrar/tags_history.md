@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-11 00:18:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | January 3rd  | `sha256:224ee8354c38e928568a89cb9ded4deda1a4dcc4ad0f85c5a32881faa0706d96` |
+|  `latest` | January 10th | `sha256:2801539ef6b947ed0380943f03b4826423bd69f3bbab927f0ceee9980d3b3d33` |
 

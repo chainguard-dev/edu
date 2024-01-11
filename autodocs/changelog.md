@@ -1,3 +1,73 @@
+# 2024-01-11
+
+
+Updated Docs:
+
+- aspnet-runtime/tags_history.md
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- az/tags_history.md
+- buck2/tags_history.md
+- bun/tags_history.md
+- busybox/tags_history.md
+- dotnet-runtime/tags_history.md
+- dotnet-sdk/tags_history.md
+- external-dns/tags_history.md
+- fluentd/tags_history.md
+- flux-notification-controller/tags_history.md
+- git/image_specs.md
+- git/tags_history.md
+- gitlab-exporter/tags_history.md
+- gitlab-kas/tags_history.md
+- go/tags_history.md
+- guacamole-server/tags_history.md
+- helm-chartmuseum/tags_history.md
+- ingress-nginx-controller/tags_history.md
+- istio-install-cni/tags_history.md
+- istio-operator/tags_history.md
+- istio-pilot/tags_history.md
+- istio-proxy/tags_history.md
+- jenkins/image_specs.md
+- jenkins/tags_history.md
+- ko/tags_history.md
+- kor/tags_history.md
+- kubeflow-centraldashboard/tags_history.md
+- kubeflow-katib-earlystopping-medianstop/tags_history.md
+- kubeflow-katib-suggestion-darts/tags_history.md
+- kubeflow-katib-suggestion-hyperband/tags_history.md
+- kubeflow-katib-suggestion-hyperopt/tags_history.md
+- kubeflow-katib-suggestion-optuna/tags_history.md
+- kubeflow-katib-suggestion-pbt/tags_history.md
+- kubeflow-katib-suggestion-skopt/tags_history.md
+- kubernetes-csi-livenessprobe/tags_history.md
+- kubernetes-csi-node-driver-registrar/tags_history.md
+- memcached/tags_history.md
+- metacontroller/tags_history.md
+- newrelic-kube-events/tags_history.md
+- newrelic-kubernetes/tags_history.md
+- newrelic-prometheus-configurator/tags_history.md
+- node/tags_history.md
+- node-lts/tags_history.md
+- nodetaint/tags_history.md
+- nvidia-device-plugin/tags_history.md
+- openai/tags_history.md
+- opentelemetry-collector-contrib/tags_history.md
+- opentofu/tags_history.md
+- php/tags_history.md
+- powershell/tags_history.md
+- prometheus-alertmanager/tags_history.md
+- r-base/tags_history.md
+- redis/tags_history.md
+- redis-cluster-bitnami/tags_history.md
+- redis-sentinel-bitnami/tags_history.md
+- redis-server-bitnami/tags_history.md
+- rqlite/tags_history.md
+- skaffold/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- sqlpad/tags_history.md
+- stakater-reloader/tags_history.md
+- static/tags_history.md
+
 # 2024-01-10
 
 

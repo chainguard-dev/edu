@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the az Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-11 00:18:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 4th  | `sha256:f6faa80fdb5eb9ef30f26d64f28429f8e626afc3022b7517de601d37a8eb52f7` |
-|  `latest`     | January 4th  | `sha256:2cc5db019cf3ede2c7ff9bf477a5f7dc57cebb7bc3b765feff04021df917a1a9` |
+|  `latest`     | January 10th | `sha256:5f3a67f638eb71fdb9918d03cdbf8404226afec519df6b60c8d95bf524129e29` |
+|  `latest-dev` | January 10th | `sha256:a9d1830c29b084d9646e26acf8d8e07146c211c9d8f515d7cdd749231562a4c3` |
 

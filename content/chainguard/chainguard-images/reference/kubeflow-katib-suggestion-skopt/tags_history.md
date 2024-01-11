@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-10 00:20:19
+lastmod: 2024-01-11 00:18:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16-dev` `0.16.0-dev` `latest-dev` | January 9th  | `sha256:5b0a33dc481cd4f9a4640a4ca5c6fa0f1709795c82d414351b443606b47fbde1` |
-|  `0.16.0` `0.16` `0` `latest`                 | January 9th  | `sha256:6a0e7d38f132ed145b876fe1e3add75d06cad710a5f34b6ddaab2cbcb8e03538` |
+|  `latest` `0.16` `0.16.0` `0`                 | January 10th | `sha256:27310f8586860f0c70081249dadb7e1244f529cc10fa4de6cf93518c56b48077` |
+|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | January 10th | `sha256:315b2ef70f603244b508d013f631fd8c9b2b65f33f89957d77b1252304b76bd1` |
 
