@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-install-cni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-11 00:18:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 3rd   | `sha256:c3e0d785d4f7e38f121e8e0db33b6854a021eacd1a2aaf6da448493f2071db46` |
-|  `latest`     | December 21st | `sha256:cea92e23533a0825c343ddf9d74e1e0fdeb620a8ce5d8fee863ecca0aece8bfe` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | January 10th | `sha256:058d01608c2c33bef83f26ee1c48c8a91a029a91f9aa78d24edbdd2cb7d15014` |
+|  `latest-dev` | January 10th | `sha256:9a3600361d3721fe645ff1a9f8afe249583969933ab5b3033380d8141576e898` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public git Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-11 00:18:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -70,6 +70,7 @@ The table shows package distribution across variants.
 | `libexpat`               | X          |                  |                       |                   |              | X               | X           | X      |
 | `libidn2`                | X          |                  |                       |                   |              | X               | X           | X      |
 | `libncursesw`            | X          |                  |                       |                   |              | X               | X           | X      |
+| `libpsl`                 | X          |                  |                       |                   |              | X               | X           | X      |
 | `libssl3`                | X          | X                | X                     | X                 | X            | X               | X           | X      |
 | `libunistring`           | X          |                  |                       |                   |              | X               | X           | X      |
 | `musl`                   | X          |                  |                       |                   |              | X               | X           | X      |
