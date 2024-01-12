@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public python Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-12 00:39:30
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -72,11 +72,14 @@ The table shows package distribution across variants.
 | `libgcc`                 | X          | X      |
 | `libgo`                  | X          |        |
 | `libgomp`                | X          |        |
+| `libidn2`                | X          |        |
 | `libnghttp2-14`          | X          |        |
 | `libpcre2-8-0`           | X          |        |
+| `libpsl`                 | X          |        |
 | `libssl3`                | X          | X      |
 | `libstdc++`              | X          | X      |
 | `libstdc++-dev`          | X          |        |
+| `libunistring`           | X          |        |
 | `linux-headers`          | X          |        |
 | `make`                   | X          |        |
 | `mpc`                    | X          |        |

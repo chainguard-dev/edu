@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public ingress-nginx-controller Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-10 00:20:19
+lastmod: 2024-01-12 00:39:30
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -79,14 +79,17 @@ The table shows package distribution across variants.
 | `libgcrypt`                       | X          | X      |
 | `libgd`                           | X          | X      |
 | `libgpg-error`                    | X          | X      |
+| `libidn2`                         | X          | X      |
 | `libjpeg-turbo`                   | X          | X      |
 | `libmaxminddb`                    | X          | X      |
 | `libmaxminddb-libs`               | X          | X      |
 | `libnghttp2-14`                   | X          | X      |
 | `libpcre2-8-0`                    | X          |        |
 | `libpng`                          | X          | X      |
+| `libpsl`                          | X          | X      |
 | `libssl3`                         | X          | X      |
 | `libstdc++`                       | X          | X      |
+| `libunistring`                    | X          | X      |
 | `libwebp`                         | X          | X      |
 | `libx11`                          | X          | X      |
 | `libxau`                          | X          | X      |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public timoni Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-12 00:39:30
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -52,7 +52,7 @@ The table shows package distribution across variants.
 | `git`                    | X          | X      |
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |
-| `kubectl-1.28`           | X          | X      |
+| `kubectl-1.29`           | X          | X      |
 | `kubectl-latest`         | X          | X      |
 | `ld-linux`               | X          | X      |
 | `libbrotlicommon1`       | X          | X      |
@@ -61,9 +61,12 @@ The table shows package distribution across variants.
 | `libcrypto3`             | X          | X      |
 | `libcurl-openssl4`       | X          | X      |
 | `libexpat1`              | X          | X      |
+| `libidn2`                | X          | X      |
 | `libnghttp2-14`          | X          | X      |
 | `libpcre2-8-0`           | X          | X      |
+| `libpsl`                 | X          | X      |
 | `libssl3`                | X          | X      |
+| `libunistring`           | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
 | `openssl-config`         | X          | X      |
