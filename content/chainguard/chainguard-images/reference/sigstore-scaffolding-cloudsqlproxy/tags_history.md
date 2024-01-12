@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-12 00:39:30
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 3rd   | `sha256:81f6396ce63a37ca1a36670f8335469780c57bcc11bf1a922aa2bd19db1f350b` |
-|  `latest`     | December 22nd | `sha256:0f3bb32e1caa3a2d0f6369da435046ea538322e21ac83fb298910f824acb1f2d` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 11th | `sha256:382cab935dedf1fa771274f27fab8d70e4a24163a909f2e6f4af7953e2ab88b9` |
+|  `latest`     | January 11th | `sha256:715ed7e8615f9c3cc81e0ccc6fce4cd39684c8a3f0d27b207a883c4450f3974e` |
 
