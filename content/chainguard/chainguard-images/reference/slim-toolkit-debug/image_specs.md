@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public slim-toolkit-debug Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2024-01-12 00:39:30
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -83,6 +83,7 @@ The table shows package distribution across variants.
 | `libexpat1`               | X      |
 | `libffi`                  | X      |
 | `libgcc`                  | X      |
+| `libidn2`                 | X      |
 | `libmnl`                  | X      |
 | `libnet`                  | X      |
 | `libnftnl`                | X      |
@@ -90,8 +91,10 @@ The table shows package distribution across variants.
 | `libpcap`                 | X      |
 | `libpcre2-8-0`            | X      |
 | `libpq-15`                | X      |
+| `libpsl`                  | X      |
 | `libssl3`                 | X      |
 | `libstdc++`               | X      |
+| `libunistring`            | X      |
 | `libuv`                   | X      |
 | `libverto`                | X      |
 | `libxml2`                 | X      |

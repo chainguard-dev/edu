@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public dynamic-localpv-provisioner Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-12 00:39:30
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -64,12 +64,15 @@ The table shows package distribution across variants.
 | `libcurl-openssl4`            | X          |        |
 | `libelf`                      | X          | X      |
 | `libexpat1`                   | X          |        |
+| `libidn2`                     | X          |        |
 | `libmnl`                      | X          | X      |
 | `libnftnl`                    | X          | X      |
 | `libnghttp2-14`               | X          |        |
 | `libpcre2-8-0`                | X          |        |
 | `libproc-2-0`                 | X          | X      |
+| `libpsl`                      | X          |        |
 | `libssl3`                     | X          |        |
+| `libunistring`                | X          |        |
 | `libzstd1`                    | X          | X      |
 | `mii-tool`                    | X          | X      |
 | `ncurses`                     | X          | X      |
