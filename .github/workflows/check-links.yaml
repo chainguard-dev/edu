@@ -7,9 +7,6 @@ on:
     branches:
       - "jamon-chainlink"
 
-env:
-  GH_TOKEN: ${{ github.token }}
-
 defaults:
   run:
     shell: bash
@@ -20,9 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
-      id-token: write
-      issues: write
+      issues: write # opens issues when bad links are found
 
     steps:
       - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
@@ -32,7 +27,7 @@ jobs:
         run: |
          sudo apt update
          sudo apt install -y jq
-         
+
       - name: Install yq
         run: |
           sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
@@ -67,8 +62,10 @@ jobs:
             printf '```\n\n' >> issue-body.txt
             printf '## Notes\nAdd any of the unchecked or 404 URLs to `ignore.json` as required' >> issue-body.txt
 
-      - name: Create/updated GitHub Issue
-        run: |          
+      - name: Create/Update GitHub Issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
           existing=$(gh issue list --json number,title |\
             jq -r '.[] | select(.title == "[chainlink] check links on edu.chainguard.dev") | .number')
           if [ -z "${existing}" ]; then

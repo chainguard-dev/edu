@@ -20,9 +20,10 @@ env:
 jobs:
   main:
     permissions:
-      id-token: write # Enable OIDC
-      pull-requests: write
-      contents: write
+      contents: write # writes to a branch on the repo
+      id-token: write # federates with Chainguard and Sigstore
+      pull-requests: write # creates PRs with the GH CLI
+
     runs-on: ubuntu-latest
     steps:
       - name: Check out Destination Repo

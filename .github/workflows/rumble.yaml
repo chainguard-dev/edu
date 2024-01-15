@@ -6,36 +6,27 @@ on:
   push:
     branches: [auto-rumble]
 
-env:
-  PROJECT_ID: "${{ secrets.PROJECT_ID }}"
-  STORAGE_BUCKET: "${{ secrets.STORAGE_BUCKET }}"
-  WORKLOAD_IDENTITY_PROVIDER: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
-  SERVICE_ACCOUNT: "${{ secrets.GH_ACTION_SERVICE_ACCOUNT }}"
-  BIGQUERY_TABLE: "${{ secrets.BIGQUERY_TABLE }}"
-  GH_TOKEN: ${{ github.token }}
-
 jobs:
   generate-csv:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
-      id-token: write
-      
+      id-token: write # federate with GCP
+
     steps:
       - name: Authenticate to Google Cloud
         id: auth
         uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
         with:
           token_format: 'access_token'
-          project_id: "${{ env.PROJECT_ID }}"
-          workload_identity_provider: "${{ env.WORKLOAD_IDENTITY_PROVIDER }}"
-          service_account: "${{ env.SERVICE_ACCOUNT }}"
+          project_id: "${{ secrets.PROJECT_ID }}"
+          workload_identity_provider: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
+          service_account: "${{ secrets.GH_ACTION_SERVICE_ACCOUNT }}"
 
       - name: set up bigqueryrc
         shell: bash
         run: |
-          gcloud config set auth/impersonate_service_account "${{ env.SERVICE_ACCOUNT }}"
+          gcloud config set auth/impersonate_service_account "${{ secrets.GH_ACTION_SERVICE_ACCOUNT }}"
           # the following is just used to quiet the bigqueryrc init message, the query result is unused
           bq query --use_legacy_sql=false --format=csv --max_rows=1 'SELECT COUNT(*) FROM base-image-rumble.rumble.scheduled;' 2>&1 > /dev/null
 
@@ -57,7 +48,7 @@ jobs:
                 unknown_cve_count as unknown_cve_cnt,
                 low_cve_count + med_cve_count + high_cve_count + crit_cve_count + unknown_cve_count AS tot_cve_cnt,
                 digest
-            FROM ${{ env.BIGQUERY_TABLE }}
+            FROM ${{ secrets.BIGQUERY_TABLE }}
             WHERE DATE(time) BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY) AND CURRENT_DATE()
             AND scanner = "grype";' > data.csv
 
