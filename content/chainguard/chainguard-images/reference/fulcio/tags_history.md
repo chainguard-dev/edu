@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fulcio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-15 00:20:04
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 3rd   | `sha256:6ca45050d68857c54e3512141394b19d6bfae7950ce2db5e682b18df7b9d0b8f` |
+|  `latest-dev` | January 13th  | `sha256:5c1cae85cb1cd737d81bf9dcf4050da15fecbe944400dc964ecbfdb714322de5` |
 |  `latest`     | December 21st | `sha256:456dead742acd998fac9d9907538018cdab6f222c826f29207596b36e3df31de` |
 
