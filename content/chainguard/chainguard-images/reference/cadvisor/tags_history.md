@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cadvisor Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-15 00:20:04
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 3rd  | `sha256:9a8582c8b06fbf9d011edc1b133a1e6049d7efb5bc33673820389c18e8c8a2b8` |
-|  `latest`     | January 3rd  | `sha256:e95a3bc543f535aca133ed0833d7a5e92ead4d4d5997d3f57fab182f7319b809` |
+|  `latest`     | January 14th | `sha256:4c98777a05d15ef644c2fb4edb0b452a2e055ddef3ff65709a9cbec67cdf70d1` |
+|  `latest-dev` | January 14th | `sha256:f2f12f5b90989d493e2c8f43d42e03a0c037e44e0809372a262adfcffde0879b` |
 

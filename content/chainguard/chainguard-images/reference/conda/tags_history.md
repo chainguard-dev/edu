@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the conda Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-09 00:33:48
+lastmod: 2024-01-15 00:20:04
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 8th  | `sha256:4aadfbf85a1ced17aa6d4a0248ba3799685569e6d121c1315236deb2b4056640` |
-|  `latest`     | January 8th  | `sha256:2e2de74b84b813845f01a8d94fce839546e518fb47c891cd0a17f8b53add9296` |
+|  `latest-dev` | January 13th | `sha256:f38823760a1ee4124bf59a52af4f48b3fa0eb89704393a161933c40178238a27` |
+|  `latest`     | January 13th | `sha256:9cb471e4bf1b4f5c1472ed859108d881ed0352a7e60a199c77f1c88ebda5984d` |
 

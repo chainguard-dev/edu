@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rekor-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-15 00:20:04
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 3rd  | `sha256:2ba5a2e0ceddd7f83c0d8025e2a5c88661937f282ec7cb2a4eef4b789ce2b561` |
-|  `latest`     | January 3rd  | `sha256:f370946741bb4d161c350f898bb6bb6fbcd665def6e2310e7850566314db362b` |
+|  `latest-dev` | January 13th | `sha256:22dc9d19a847befab5ed3dab1e40d62a5cef4a7271673287e68c3b56b4929b1e` |
+|  `latest`     | January 13th | `sha256:884de3aaf6ed8aa654b749f62bef5fc1a6266d32dc4ae799bf0fcc2c4791c56d` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-15 00:20:04
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 3rd   | `sha256:23b72170479ae4987041c3c6a3a9faca8429f48b99deb28587c4d17aa30e3282` |
+|  `latest-dev` | January 13th  | `sha256:0cf4a20984a10cbfb0ce25c94ed019a2ddb26562e5a58395d0953166914facf9` |
 |  `latest`     | December 30th | `sha256:929c5f2232c6c7afe0eb68001121834afd067b2635c11a48048f920bbe96bcce` |
 

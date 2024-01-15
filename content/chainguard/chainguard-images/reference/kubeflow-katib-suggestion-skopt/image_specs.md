@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubeflow-katib-suggestion-skopt Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-15 00:20:04
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -74,14 +74,17 @@ The table shows package distribution across variants.
 | `libgcc`                       | X          | X      |
 | `libgfortran`                  | X          | X      |
 | `libgomp`                      | X          | X      |
+| `libidn2`                      | X          |        |
 | `libjpeg-turbo`                | X          | X      |
 | `libnghttp2-14`                | X          |        |
 | `libpcre2-8-0`                 | X          |        |
 | `libpng`                       | X          | X      |
 | `libprotobuf`                  | X          | X      |
 | `libprotoc`                    | X          | X      |
+| `libpsl`                       | X          |        |
 | `libssl3`                      | X          | X      |
 | `libstdc++`                    | X          | X      |
+| `libunistring`                 | X          |        |
 | `libwebp`                      | X          | X      |
 | `libxau`                       | X          | X      |
 | `libxcb`                       | X          | X      |

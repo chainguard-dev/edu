@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public newrelic-k8s-events-forwarder Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-15 00:20:04
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -60,9 +60,12 @@ The table shows package distribution across variants.
 | `libcrypto3`                    | X          | X      |
 | `libcurl-openssl4`              | X          | X      |
 | `libexpat1`                     | X          |        |
+| `libidn2`                       | X          | X      |
 | `libnghttp2-14`                 | X          | X      |
 | `libpcre2-8-0`                  | X          |        |
+| `libpsl`                        | X          | X      |
 | `libssl3`                       | X          | X      |
+| `libunistring`                  | X          | X      |
 | `ncurses`                       | X          |        |
 | `ncurses-terminfo-base`         | X          |        |
 | `newrelic-infrastructure-agent` | X          | X      |
