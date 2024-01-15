@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the loki Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-15 00:20:04
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 3rd   | `sha256:0046bd22ec1cf6902e9301f1b397865eeaf6587a14c4046a9452c8b87eef9b78` |
-|  `latest`     | December 23rd | `sha256:e52978ecaa49c11d3e8fd1ae9e2f498ffc7585e5587add1924b8c13fa1ba854c` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | January 13th | `sha256:9c3a597dafb13ab96ee2b52c7a96382596bca7a8d2c6034891278a1d2f8bae1c` |
+|  `latest-dev` | January 13th | `sha256:25e97a6b26c3c3535ac819f233aeb601b28ed1b6d1c46ffb67114ad4630fef64` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bank-vaults Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-15 00:20:04
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | January 3rd  | `sha256:871e7bd9dd8db64a02ba6cf4dac8fcf7dd163170d0b14c48d09ff64daba40a1d` |
-|  `latest-dev` | January 3rd  | `sha256:9dba22503711217c87b647e9e845018ca477a4d3fc9e8c76b72882ad8ca39e3c` |
+|  `latest-dev` | January 13th | `sha256:4a9da0ef63de7d9abb40b122a8e65317885c3d6d12ae954ba7b9fd54356cdd38` |
+|  `latest`     | January 13th | `sha256:ef6053b602bb60caf91411892c0c6db496524bc568742e1ab808812364105be3` |
 

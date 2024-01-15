@@ -3,8 +3,8 @@ title: "az Image Variants"
 type: "article"
 unlisted: true
 description: "Detailed information about the public az Chainguard Image variants"
-date: 2024-01-03 00:37:41
-lastmod: 2024-01-03 00:37:41
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-15 00:20:04
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -64,10 +64,13 @@ The table shows package distribution across variants.
 | `libexpat1`              | X          | X      |
 | `libffi`                 | X          | X      |
 | `libgcc`                 | X          | X      |
+| `libidn2`                | X          |        |
 | `libnghttp2-14`          | X          |        |
 | `libpcre2-8-0`           | X          |        |
+| `libpsl`                 | X          |        |
 | `libssl3`                | X          | X      |
 | `libstdc++`              | X          | X      |
+| `libunistring`           | X          |        |
 | `mpdecimal`              | X          | X      |
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
