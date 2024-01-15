@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-12 00:39:30
+lastmod: 2024-01-15 00:20:04
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,10 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                       | Last Changed | Digest                                                                    |
-|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.26.0-dev` `0.26-dev` `0-dev` | January 11th | `sha256:1c9ff9e34bd3b389eb4e69ff01378a2ff7cdf6fb8cde03b85bdb396c9b8038a2` |
-|  `latest` `0` `0.26.0` `0.26`                 | January 11th | `sha256:1079156af8a029b90c7f3accd0cdac6581cc0600ea37c33e3dad98c361b3862e` |
+| Tag (s)                          | Last Changed | Digest                                                                    |
+|----------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest`                        | January 14th | `sha256:727d8f53ac6607e6c525bfab114f1b84ea874eb4846df557b28738ecc614e3b3` |
+|  `latest-dev`                    | January 14th | `sha256:ccdbc4f351f0733a5af63aa3f0c6bfdbba95aa0c791c53283367cb17ec44ba9f` |
+|  `0.26` `0.26.0` `0`             | January 13th | `sha256:d531f882d0a1b0b2ce9bfe540a503ccf6fc985aa720e89cb0b145dbff41b9308` |
+|  `0.26-dev` `0-dev` `0.26.0-dev` | January 13th | `sha256:3064cba2cd0dd1cb1c8c8179ac98fe751940fcfd9d67b37445df4a9a6c92610f` |
 

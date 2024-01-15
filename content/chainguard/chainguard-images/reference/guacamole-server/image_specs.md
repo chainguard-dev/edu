@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public guacamole-server Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-15 00:20:04
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -91,6 +91,7 @@ The table shows package distribution across variants.
 | `libguac-client-ssh`      | X          | X      |
 | `libguac-client-telnet`   | X          | X      |
 | `libguac-client-vnc`      | X          | X      |
+| `libidn2`                 | X          |        |
 | `libjpeg-turbo`           | X          | X      |
 | `libltdl`                 | X          | X      |
 | `libmd`                   | X          | X      |
@@ -99,6 +100,7 @@ The table shows package distribution across variants.
 | `libogg`                  | X          | X      |
 | `libpcre2-8-0`            | X          | X      |
 | `libpng`                  | X          | X      |
+| `libpsl`                  | X          |        |
 | `libpulse`                | X          | X      |
 | `libsndfile`              | X          | X      |
 | `libssh2`                 | X          | X      |
@@ -107,6 +109,7 @@ The table shows package distribution across variants.
 | `libswscale7`             | X          | X      |
 | `libtelnet`               | X          | X      |
 | `libtheora`               | X          | X      |
+| `libunistring`            | X          |        |
 | `libusb`                  | X          | X      |
 | `libuuid`                 | X          | X      |
 | `libvncserver`            | X          | X      |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-for-fluent-bit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-15 00:20:04
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | January 4th  | `sha256:a96c2693a4fb469c1776bfd6a10b4b16a84b01605e41ce71c2fdd5ea4ecb6a0a` |
+|  `latest` | January 13th | `sha256:d112324064dfb149f5e926faaa8cba0d5dc5ff42735c350dc3d9595db12ebc47` |
 
