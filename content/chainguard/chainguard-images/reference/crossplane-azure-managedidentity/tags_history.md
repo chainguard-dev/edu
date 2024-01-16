@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-azure-managedidentity Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-08 00:20:41
+lastmod: 2024-01-16 00:27:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.41.0` `0.41` | January 5th  | `sha256:8d11bda8e4533e21e77a4644016149914eb26fa498a92a9811ceab47086284d9` |
+|  `0` `latest` `0.41` `0.41.0` | January 15th | `sha256:7d6c622ead21269b5262308e8b20bf119bb6e454a400fc1f7157bf1a814a0832` |
 

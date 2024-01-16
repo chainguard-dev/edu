@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus-configurator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-16 00:27:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 13th | `sha256:f72ecf8279f2db80c09989062aa2f86f7cb9064c5c047a93e87685d200ea5b0d` |
-|  `latest`     | January 10th | `sha256:42314115b4d9f296cbcd7dc0f90fdefdbc7e3824263e839794466fe98e2f2449` |
+|  `latest-dev` | January 15th | `sha256:47954dd12074028dde415198c633a31118f13a5f6722e0faa069f0c6072605fb` |
+|  `latest`     | January 15th | `sha256:963c7544eb9289aa6cc82f82ec38452445879a59a4c4da881f7e4192e3e25d05` |
 
