@@ -2206,6 +2206,10 @@
                 "name": {
                   "description": "name is the human-readable name of the repository.",
                   "type": "string"
+                },
+                "readme": {
+                  "description": "readme is raw Markdown file contents describing the repo.",
+                  "type": "string"
                 }
               },
               "type": "object"
@@ -5034,6 +5038,10 @@
         },
         "name": {
           "description": "name is the human-readable name of the repository.",
+          "type": "string"
+        },
+        "readme": {
+          "description": "readme is raw Markdown file contents describing the repo.",
           "type": "string"
         }
       },
