@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the buildkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-16 00:27:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)            | Last Changed | Digest                                                                    |
 |--------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-root-dev` | January 13th | `sha256:b580479ed66164d34e6b4e13637b4b9f21dd8dd544ee754ab667164c5c2da667` |
+|  `latest-root-dev` | January 15th | `sha256:705a3ba102c766f3371f0f2563b94f59376c963e28360094fea5bc79e6609911` |
 |  `latest-root`     | January 13th | `sha256:545fdec7da9952e86f945f4b654f706ccfa403e23cc7f0fc7cb3e12844a39ea5` |
 
