@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cosign Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-16 00:27:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 13th | `sha256:c0fe30f68a386b2a9d7a3367a2da877f7de7851f52e564481d203270cc85662b` |
+|  `latest-dev` | January 15th | `sha256:9aa48acd1b9d15a739973e92fb141929a38d071d6c2db33159595d3e706286e8` |
 |  `latest`     | January 13th | `sha256:34f7c15cca7f391b395d9190688da83d29c261b856ac07bde80e934a24ef9ac0` |
 

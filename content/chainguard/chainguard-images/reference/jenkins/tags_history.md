@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jenkins Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-16 00:27:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 15th | `sha256:71dc0dba559b9ea7985410a2ad3f822350f309cfc5cba279e6c29c1b9eac615b` |
 |  `latest`     | January 13th | `sha256:17181e077612ce6d11b91265c1811ae63229cfbb4fff9bac102a822f534ed0e5` |
-|  `latest-dev` | January 13th | `sha256:53130564210a9400fd6f8e682ac75d0d16cb4ab2d3d0726ba5fbdef6e2f471fe` |
 

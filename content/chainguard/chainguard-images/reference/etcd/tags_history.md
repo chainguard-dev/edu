@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the etcd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-16 00:27:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 15th | `sha256:1fedf13d393e668cfe05a569dbe071d90746c1ca3f7b19f5ab256f1f79ad4670` |
 |  `latest`     | January 13th | `sha256:db040b0cf73f5b0467375fe989a405bc0f75c331ed6ea9cad3b18dcb00d97b08` |
-|  `latest-dev` | January 13th | `sha256:88735f1ca7008cbca80744de2456f6915e0059bba9ff569915b24522603cc358` |
 

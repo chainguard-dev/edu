@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-16 00:27:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                                      | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.2-dev` `v2-dev` `2.2-dev` `latest-dev` `v2.2-dev` `2-dev` `v2.2.2-dev` | January 13th | `sha256:50d7223320cb2deda0d2d47f3ec83ed566ace3c244aa288f5aef358788d91d77` |
+|  `v2.2.2-dev` `v2-dev` `latest-dev` `2.2-dev` `2.2.2-dev` `v2.2-dev` `2-dev` | January 15th | `sha256:d6e9db68249a9493522cfe9912ccb6ad12ec6dc31bfd7bb994300b87bcba9529` |
 |  `v2` `v2.2.2` `latest` `v2.2` `2` `2.2` `2.2.2`                             | January 13th | `sha256:bd0f82155083448e9a695a2b5489116607023f4cf43ec1838f5c527154a1b7bd` |
 

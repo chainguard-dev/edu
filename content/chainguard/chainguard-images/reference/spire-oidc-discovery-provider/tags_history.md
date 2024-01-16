@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-oidc-discovery-provider Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-16 00:27:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 13th | `sha256:e7cccb534147b90b2048a5983627a963db1ba8a899ac066610d1a4339360c4df` |
+|  `latest-dev` | January 15th | `sha256:47d115557d77bd4627bb5c1cdad60c24b6913080a1b04d99b06bc53f3a4cc704` |
 |  `latest`     | January 13th | `sha256:18992e50eefda5f390004b158c8733ed84022e4a9ffdca9a82856dae7fbfa635` |
 
