@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the telegraf Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-16 00:27:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 13th | `sha256:ea2768a5bec8ae6594498093d4fc699fb64c22cd8f17bd11bb6789d90c0431b2` |
+|  `latest-dev` | January 15th | `sha256:1e631eebb6b994731d5a08ca7a918f848177508cca1204068133527eef757de2` |
 |  `latest`     | January 9th  | `sha256:8b5397a7cd328b46df5737a8262cc2991384e22a9b305b7b17c108426de0b9df` |
 

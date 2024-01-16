@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dynamic-localpv-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-16 00:27:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 13th | `sha256:62c689387c1d4c438bde02d2a05e7bc0ca5b54fc8b7738cf73abdddc73429d61` |
+|  `latest-dev` | January 15th | `sha256:ea772c832e83065609498ed9223c246b457e2a2c65dee40108ad519ed9a218d7` |
 |  `latest`     | January 13th | `sha256:482af1297ea536b67541615df04ee91e51d0e9c65def57888570e875fd4e4740` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmtime Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-16 00:27:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 15th | `sha256:2cd742cba9bff486f1671e3650ae9d5897a615842e4fd514af7aab63fa84a5ed` |
 |  `latest`     | January 13th | `sha256:025f619e71bb7eafcec3bd53516a4008f363469f48eafb0f39d7f1eb8a42430c` |
-|  `latest-dev` | January 13th | `sha256:0b5d113e5e8e5cbac04668d14c990c88aa3d66d0e14c413408258ecf7fa68386` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-16 00:27:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 15th | `sha256:62c6f94df3fdcba8803696ecec49bfaf4be6cabe9233ab56c506c88a092cde42` |
 |  `latest`     | January 13th | `sha256:d9a383354065b0e4da9fe1861a9df590ccf1c240760d8c740485ff1a49296835` |
-|  `latest-dev` | January 13th | `sha256:430b45e742e3daec18c77e7ce19f7e7b01c5103e0222497a2b962a5b97c7d41d` |
 
