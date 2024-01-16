@@ -1,4 +1,3 @@
-- agentless-lifecycle.enforce.dev
 - console-api.enforce.dev
 - canary.enforce.dev
 - console.enforce.dev
@@ -16,4 +15,3 @@
 - cgr.dev
 - trustroot-compiler.enforce.dev
 - tsa.enforce.dev
-- webhook.enforce.dev
