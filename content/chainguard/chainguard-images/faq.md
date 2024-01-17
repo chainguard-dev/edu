@@ -29,9 +29,9 @@ We call Wolfi an undistro because unlike a typical Linux distribution, Wolfi is 
 
 ## Which images are available?
 
-There are currently over 100 Chainguard Images available, which are segmented as **Developer** or **Production**. You can read more about this in the [next question](#what-options-do-i-have-to-use-chainguard-images).
+There are currently over ~400 Chainguard Images available, which are segmented as **Developer** or **Production**. You can read more about this in the [next question](#what-options-do-i-have-to-use-chainguard-images).
 
-To review all available Chainguard Images, you can check out the Chainguard Console at [https://console.enforce.dev/images/catalog](https://console.enforce.dev/images/catalog) (you will need to be logged in).
+To review all available Chainguard Images, you can check out the Chainguard Console at [https://images.chainguard.dev](https://images.chainguard.dev).
 
 To review Chainguard's Developer Images, you can check out either the [Chainguard Images Reference Docs](https://edu.chainguard.dev/chainguard/chainguard-images/reference/) or the  [GitHub Repository](https://github.com/chainguard-images).
 
@@ -41,7 +41,7 @@ Chainguard Images are available through the [Chainguard Registry](/chainguard/ch
 
 You can get free Chainguard Images for your organization; you can also upgrade for more versions, SLAs, and dedicated support.
 
-Developer | Production 
+Developer | Production
 -------|-----------------------
 Free for everyone, anywhere. | [Contact us](https://www.chainguard.dev/contact?utm_source=docs) for pricing.
 Latest versions | Major and minor versions
@@ -66,7 +66,7 @@ Chainguard Images are rebuilt every night to ensure that new package versions an
 Chainguard investigates the CVE and marks relevant images as affected or not. If Chainguard can identify a patch that's unreleased, Chainguard may apply a patch before it lands upstream. In either case, when the patch lands upstream, Chainguard picks it up and rolls it out.
 
 ## I added software on top of one of Chainguard's base images, why are there CVEs?
-Chainguard is not responsible for CVEs in software you add on top of base images. 
+Chainguard is not responsible for CVEs in software you add on top of base images.
 
 ## Do I need to authenticate into Chainguard to use Chainguard Images?
 Logging in is optional if you are only using `:latest` and `:latest-dev` tags or image digests.
