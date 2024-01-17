@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wait-for-it Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-17 00:18:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | January 13th | `sha256:9500241a8a6a5912ded07445991b9d3a0834beef810b10c302af593aee1b33dc` |
+|  `latest` | January 16th | `sha256:84be7f9205d88f368097c3712a867c5d35d1d024633de4b5675b3f17f63f27cf` |
 
