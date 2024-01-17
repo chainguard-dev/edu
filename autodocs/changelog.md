@@ -1,3 +1,63 @@
+# 2024-01-17
+
+
+Updated Docs:
+
+- argo-cli/tags_history.md
+- argo-exec/tags_history.md
+- argo-workflowcontroller/tags_history.md
+- argocd/_index.md
+- argocd-repo-server/_index.md
+- bash/_index.md
+- buck2/tags_history.md
+- bun/tags_history.md
+- busybox/_index.md
+- busybox/tags_history.md
+- cassandra/tags_history.md
+- cert-manager-acmesolver/tags_history.md
+- cert-manager-cainjector/tags_history.md
+- cert-manager-controller/tags_history.md
+- cert-manager-webhook/tags_history.md
+- cilium-agent/tags_history.md
+- clang/tags_history.md
+- dask-gateway/tags_history.md
+- dask-gateway-server/tags_history.md
+- fluentd/tags_history.md
+- git/tags_history.md
+- guacamole-server/tags_history.md
+- ingress-nginx-controller/tags_history.md
+- istio-pilot/tags_history.md
+- istio-proxy/tags_history.md
+- jenkins/tags_history.md
+- k3s/tags_history.md
+- k3s-allinone/tags_history.md
+- k8ssandra-operator/tags_history.md
+- kube-logging-operator-fluentd/tags_history.md
+- kubeflow-jupyter-web-app/tags_history.md
+- kubeflow-pipelines-metadata-envoy/tags_history.md
+- kubeflow-volumes-web-app/tags_history.md
+- kubernetes-event-exporter/tags_history.md
+- kyverno-policy-reporter-ui/tags_history.md
+- newrelic-infrastructure-bundle/tags_history.md
+- newrelic-k8s-events-forwarder/tags_history.md
+- newrelic-kubernetes/tags_history.md
+- php/tags_history.md
+- postgres/_index.md
+- prometheus/tags_history.md
+- prometheus-alertmanager/tags_history.md
+- proxysql/tags_history.md
+- redis-sentinel/tags_history.md
+- rqlite/tags_history.md
+- rust/tags_history.md
+- semgrep/tags_history.md
+- skaffold/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- spark-operator/tags_history.md
+- sqlpad/tags_history.md
+- temporal-ui-server/tags_history.md
+- wait-for-it/tags_history.md
+- zig/tags_history.md
+
 # 2024-01-16
 
 

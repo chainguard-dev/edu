@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-17 00:18:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 14th  | `sha256:f00e27414743420b20e8360cbbdd8b68faf039531183b87c400a8f74a6bce840` |
+|  `latest-dev` | January 16th  | `sha256:93db6ad905d9270be709ea7572408542212de83311a969597594e7ec58fb9f5b` |
 |  `latest`     | December 20th | `sha256:f964422653472008bcc633cb3d1aea01309eb31fa86e3edf2ef9d6a45c884fa6` |
 
