@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public trino Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-18 00:19:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -82,9 +82,9 @@ The table shows package distribution across variants.
 | `mpdecimal`                        | X          | X      |
 | `ncurses`                          | X          | X      |
 | `ncurses-terminfo-base`            | X          | X      |
-| `openjdk-17-default-jvm`           | X          | X      |
-| `openjdk-17-jre`                   | X          | X      |
-| `openjdk-17-jre-base`              | X          | X      |
+| `openjdk-21-default-jvm`           | X          | X      |
+| `openjdk-21-jre`                   | X          | X      |
+| `openjdk-21-jre-base`              | X          | X      |
 | `openssl-config`                   | X          | X      |
 | `p11-kit`                          | X          | X      |
 | `p11-kit-trust`                    | X          | X      |
