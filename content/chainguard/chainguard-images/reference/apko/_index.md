@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: apko Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2024-01-18 00:19:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -39,5 +39,8 @@ docker pull cgr.dev/chainguard/apko:latest
 <!--getting:end-->
 
 <!--body:start-->
+## Usage
+
+The [apko documentation](https://edu.chainguard.dev/open-source/apko/) can be found on Chainguard Academy. We encourage you to check out our guide on [getting started with apko](https://edu.chainguard.dev/open-source/apko/getting-started-with-apko/) which demonstrates how you can use Chainguard's apko image to build a base Wolfi image. 
 <!--body:end-->
 

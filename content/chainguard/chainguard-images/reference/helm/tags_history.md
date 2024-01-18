@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-16 00:27:48
+lastmod: 2024-01-18 00:19:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 15th | `sha256:6bb9ffac38851b74cfe02d4acf7a73dee95395062e9b997dc6c96514c2e522f8` |
-|  `latest`     | January 12th | `sha256:fffcb9b26d64d7cd6c82d2a4559428644fe69f98bdd3e8c501ee713a02e9d473` |
+|  `latest-dev` | January 17th | `sha256:6d6b548d9d1a485ee981b79561df9996a2c899e5327f37b24702003f36748ea7` |
+|  `latest`     | January 17th | `sha256:fdb16aaef85ba1f14f283bc89e57065f77c799058fef4a3671406770971c3e88` |
 

@@ -1,3 +1,76 @@
+# 2024-01-18
+New images added:
+
+- cass-config-builder
+
+Updated Docs:
+
+- apko/_index.md
+- argo-cli/tags_history.md
+- argo-exec/tags_history.md
+- argo-workflowcontroller/tags_history.md
+- argocd-repo-server/tags_history.md
+- atlantis/tags_history.md
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- aws-for-fluent-bit/tags_history.md
+- cert-manager-acmesolver/tags_history.md
+- cert-manager-cainjector/tags_history.md
+- cert-manager-controller/tags_history.md
+- cert-manager-webhook/tags_history.md
+- cilium-agent/image_specs.md
+- cilium-agent/tags_history.md
+- cilium-hubble-relay/tags_history.md
+- cilium-operator-generic/tags_history.md
+- consul/tags_history.md
+- crane/tags_history.md
+- crossplane/tags_history.md
+- fluent-bit/tags_history.md
+- fluentd/tags_history.md
+- grype/tags_history.md
+- helm/tags_history.md
+- jdk/tags_history.md
+- jdk-lts/tags_history.md
+- jre/tags_history.md
+- jre-lts/tags_history.md
+- kube-bench/tags_history.md
+- kube-fluentd-operator/tags_history.md
+- kubectl/tags_history.md
+- kubeflow-pipelines-cache-deployer/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- kubernetes-ingress-defaultbackend/tags_history.md
+- maven/tags_history.md
+- melange/tags_history.md
+- newrelic-fluent-bit-output/tags_history.md
+- nfs-subdir-external-provisioner/tags_history.md
+- node-problem-detector/tags_history.md
+- openai/tags_history.md
+- prometheus-alertmanager/tags_history.md
+- prometheus-pushgateway/tags_history.md
+- prometheus-pushgateway-bitnami/tags_history.md
+- promtail/tags_history.md
+- secrets-store-csi-driver/tags_history.md
+- skaffold/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- spire-agent/tags_history.md
+- spire-oidc-discovery-provider/tags_history.md
+- spire-server/tags_history.md
+- stakater-reloader/tags_history.md
+- tekton-controller/tags_history.md
+- tekton-entrypoint/tags_history.md
+- tekton-events/tags_history.md
+- tekton-nop/tags_history.md
+- tekton-resolvers/tags_history.md
+- tekton-sidecarlogresults/tags_history.md
+- tekton-webhook/tags_history.md
+- tekton-workingdirinit/tags_history.md
+- timoni/tags_history.md
+- trino/image_specs.md
+- trino/tags_history.md
+- vault/tags_history.md
+- vault-k8s/tags_history.md
+- wolfi-base/_index.md
+
 # 2024-01-17
 
 
