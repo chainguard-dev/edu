@@ -18,7 +18,6 @@ toc: true
 
 {{< youtube ExZxIWmnm1s >}}
 
-
 ## Tools used in this video
 
 * [Chainguard Security Advisories](https://images.chainguard.dev/security)
@@ -34,8 +33,11 @@ content to this video.
 ## Transcript
 
 <a href="https://youtu.be/ExZxIWmnm1s?t=5" target="_blank">0:05</a> So a question we sometimes get asked is how to investigate vulnerabilities found in Chainguard images and how you can figure out if there's a fix
+
 <a href="https://youtu.be/ExZxIWmnm1s?t=15" target="_blank">0:15</a> so thanks to a new website and some new tooling this is pretty
+
 <a href="https://youtu.be/ExZxIWmnm1s?t=19" target="_blank">0:19</a> straightforward so in this example we're
+
 <a href="https://youtu.be/ExZxIWmnm1s?t=21" target="_blank">0:21</a> going to look at a slightly old golang
 <a href="https://youtu.be/ExZxIWmnm1s?t=23" target="_blank">0:23</a> image and if we run Docker Scout or a
 <a href="https://youtu.be/ExZxIWmnm1s?t=26" target="_blank">0:26</a> similar scanner we do get some results
