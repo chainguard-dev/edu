@@ -1,6 +1,6 @@
 ---
 title: "How to use Chainguard Security Advisories and the Diff API"
-linktitle: "Minimal Runtime Images"
+linktitle: "Chainguard Security Advisories & Diff API"
 lead: ""
 description: "How to use security advisories and the diff API to investigate vulnerabilities
 affecting Chainguard images"
