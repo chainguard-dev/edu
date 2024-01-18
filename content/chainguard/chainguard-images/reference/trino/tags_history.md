@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trino Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-18 00:19:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | January 12th | `sha256:283a8ea44d0661fb32cba0713b44a921ab96e25c62095feba8b2d62be14b6113` |
-|  `latest-dev` | January 12th | `sha256:9f047918cf1c96bd557e50b3a9370757c021a5782daa1f7d788283c6b3d4dce7` |
+|  `latest`     | January 17th | `sha256:51810f845147732d1c10ee0adae1382f2de576d2228dc2bbdf6398a6d5e547b8` |
+|  `latest-dev` | January 17th | `sha256:acf2c8f939ad19c0e3120c2d07c2f3019e24b15b9e87b8a4d20bbe42a70e4635` |
 
