@@ -44,7 +44,7 @@ content to this video.
 
 <a href="https://youtu.be/ExZxIWmnm1s?t=26" target="_blank">0:26</a> similar scanner we do get some results
 
-<a href="https://youtu.be/ExZxIWmnm1s?t=31" target="_blank">0:31</a> so you can see in this image we found
+<a href="https://youtu.be/ExZxIWmnm1s?t=31" target="_blank">0:31</a> so you can see in this image we found 11
 
 <a href="https://youtu.be/ExZxIWmnm1s?t=34" target="_blank">0:34</a> 11
 
