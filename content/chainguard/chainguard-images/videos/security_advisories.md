@@ -117,7 +117,6 @@ content to this video.
 
 <a href="https://youtu.be/ExZxIWmnm1s?t=140" target="_blank">2:20</a> indeed it's here we're saying this cve was
 
-<a href="https://youtu.be/ExZxIWmnm1s?t=143" target="_blank">2:23</a> was
 
 <a href="https://youtu.be/ExZxIWmnm1s?t=144" target="_blank">2:24</a> addressed and also if we search for NG
 
