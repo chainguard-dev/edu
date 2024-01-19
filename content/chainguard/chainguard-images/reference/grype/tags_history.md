@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grype Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-18 00:19:12
+lastmod: 2024-01-19 00:16:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 17th | `sha256:a812229ea0b7cf71e025c0b397200ad18e11d51f137065c08791542a9889aa67` |
-|  `latest`     | January 17th | `sha256:33a73211735654e33528fde22dffded7d4f0e326bed64917e3d5e8137a85c2c4` |
+|  `latest`     | January 18th | `sha256:41101396af3e3baf5b3570b27394ab7456f3cfb1259ca966b3fae6367a6231a8` |
+|  `latest-dev` | January 18th | `sha256:af19e6f6554c2cd0368bbc77385dd0dca8cbe3ca6db784aea8098bc857a3dad5` |
 
