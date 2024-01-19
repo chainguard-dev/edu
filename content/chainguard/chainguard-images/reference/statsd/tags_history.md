@@ -1,9 +1,9 @@
 ---
-title: "haproxy-ingress Image Tags History"
+title: "statsd Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the haproxy-ingress Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
+description: "Image Tags and History for the statsd Chainguard Image"
+date: 2024-01-19 00:16:42
 lastmod: 2024-01-19 00:16:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/haproxy-ingress/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/haproxy-ingress/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/haproxy-ingress/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/haproxy-ingress/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/statsd/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/statsd/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/statsd/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/statsd/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | January 18th | `sha256:17dd3c8e6ccadbe6e1c72785d81b0cee72da091e43debf5af8fa02487ad23d1b` |
-|  `latest-dev` | January 18th | `sha256:e29c41784ea48e1d3ae31433b81e8822dc027990fe3cc13aefe6ee7d4e1bd2f4` |
+|  `latest-dev` | January 18th | `sha256:a7fc67feed21ba2a0dfa10df0e2db188a1f7a6ffbc34fc3052ffcff48958cd73` |
+|  `latest`     | January 18th | `sha256:074f55d0a94e5e00c1235e706b315d627b6be364ac27819460cf89f916e88dd9` |
 
