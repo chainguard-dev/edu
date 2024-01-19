@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the zot Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-16 00:27:48
+lastmod: 2024-01-19 00:16:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 15th | `sha256:41ac859e3f94e95655abb0d17f32b2556f1377928e4420c8cf48c65c4c2c0321` |
-|  `latest`     | January 13th | `sha256:e906ec03fc0e42640d4b061c7b2930c6421d5d1864dfbe2d5e06268c41dff39f` |
+|  `latest-dev` | January 18th | `sha256:49d01e78154f61dc0e8b133991e51a32d1db49d89e9091819e83e18feeebab5b` |
+|  `latest`     | January 18th | `sha256:efd545a8c094964e98fde3013d9605a63fd615b2c2e416fbbdf1d19c2875deea` |
 

@@ -1,3 +1,39 @@
+# 2024-01-19
+New images added:
+
+- statsd
+
+Updated Docs:
+
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- cilium-agent/image_specs.md
+- cilium-agent/tags_history.md
+- cilium-hubble-relay/tags_history.md
+- cilium-operator-generic/tags_history.md
+- fluentd/tags_history.md
+- flux-image-automation-controller/tags_history.md
+- grype/tags_history.md
+- haproxy/tags_history.md
+- haproxy-ingress/tags_history.md
+- kube-fluentd-operator/tags_history.md
+- kubeflow-jupyter-web-app/tags_history.md
+- kubeflow-volumes-web-app/tags_history.md
+- kyverno/tags_history.md
+- kyverno-background-controller/tags_history.md
+- kyverno-cleanup-controller/tags_history.md
+- kyverno-cli/tags_history.md
+- kyverno-reports-controller/tags_history.md
+- newrelic-infrastructure-bundle/tags_history.md
+- newrelic-prometheus/tags_history.md
+- openai/tags_history.md
+- prometheus-alertmanager/tags_history.md
+- rqlite/tags_history.md
+- sigstore-scaffolding-cloudsqlproxy/tags_history.md
+- solr/tags_history.md
+- temporal-ui-server/tags_history.md
+- zot/tags_history.md
+
 # 2024-01-18
 New images added:
 
