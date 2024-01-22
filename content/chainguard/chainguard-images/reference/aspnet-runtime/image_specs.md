@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public aspnet-runtime Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-11-30 00:18:09
+lastmod: 2024-01-22 00:18:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -22,42 +22,59 @@ toc: true
 This page shows detailed information about all public variants of the Chainguard **aspnet-runtime** Image.
 
 ## Variants Compared
-The **aspnet-runtime** Chainguard Image currently has one public variant: 
+The **aspnet-runtime** Chainguard Image currently has 2 public variants: 
 
+- `latest-dev`
 - `latest`
 
 The table has detailed information about each of these variants.
 
-|              | latest            |
-|--------------|-------------------|
-| Default User | `nonroot`         |
-| Entrypoint   | `/usr/bin/dotnet` |
-| CMD          | `--help`          |
-| Workdir      | not specified     |
-| Has apk?     | no                |
-| Has a shell? | no                |
+|              | latest-dev        | latest            |
+|--------------|-------------------|-------------------|
+| Default User | `nonroot`         | `nonroot`         |
+| Entrypoint   | `/usr/bin/dotnet` | `/usr/bin/dotnet` |
+| CMD          | `--help`          | `--help`          |
+| Workdir      | not specified     | not specified     |
+| Has apk?     | yes               | no                |
+| Has a shell? | yes               | no                |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/aspnet-runtime/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `aspnet-8-runtime`       | X      |
-| `ca-certificates-bundle` | X      |
-| `dotnet-8`               | X      |
-| `dotnet-8-runtime`       | X      |
-| `glibc`                  | X      |
-| `glibc-locale-posix`     | X      |
-| `icu`                    | X      |
-| `ld-linux`               | X      |
-| `libcrypto3`             | X      |
-| `libgcc`                 | X      |
-| `libssl3`                | X      |
-| `libstdc++`              | X      |
-| `lttng-ust`              | X      |
-| `openssl-config`         | X      |
-| `wolfi-baselayout`       | X      |
-| `zlib`                   | X      |
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `aspnet-8-runtime`       | X          | X      |
+| `bash`                   | X          |        |
+| `busybox`                | X          |        |
+| `ca-certificates-bundle` | X          | X      |
+| `dotnet-8`               | X          | X      |
+| `dotnet-8-runtime`       | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `icu`                    | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
+| `libcrypt1`              | X          |        |
+| `libcrypto3`             | X          | X      |
+| `libcurl-openssl4`       | X          |        |
+| `libexpat1`              | X          |        |
+| `libgcc`                 | X          | X      |
+| `libidn2`                | X          |        |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libpsl`                 | X          |        |
+| `libssl3`                | X          | X      |
+| `libstdc++`              | X          | X      |
+| `libunistring`           | X          |        |
+| `lttng-ust`              | X          | X      |
+| `ncurses`                | X          |        |
+| `ncurses-terminfo-base`  | X          |        |
+| `openssl-config`         | X          | X      |
+| `wolfi-baselayout`       | X          | X      |
+| `zlib`                   | X          | X      |
 
