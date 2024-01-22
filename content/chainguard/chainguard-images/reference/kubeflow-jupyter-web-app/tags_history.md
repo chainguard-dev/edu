@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-jupyter-web-app Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-19 00:16:42
+lastmod: 2024-01-22 00:18:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.8.0-dev` `1.8-dev` | January 18th | `sha256:70ecb76bc60598613b50e6dc80cbfd5e74223f976cbb9043a97050124e78c588` |
-|  `1.8` `latest` `1` `1.8.0`                 | January 18th | `sha256:ed54a1ce8db478ebb5ee0164decba03d76c4dbf48cb09e962aa5a31f8cc7625e` |
+|  `1.8` `1.8.0` `1` `latest`                 | January 20th | `sha256:2d71c64cf1d319cd641e89bfb99afe402aed7717b0f42473d6a633b10ea8397e` |
+|  `1-dev` `latest-dev` `1.8-dev` `1.8.0-dev` | January 20th | `sha256:45d32a6ee26f5ba9cceed335abc64eb33a8abc055f08b184c48e783da652a7f2` |
 

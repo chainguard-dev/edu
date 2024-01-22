@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-17 00:18:58
+lastmod: 2024-01-22 00:18:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 16th | `sha256:875b4a5592b66ef45c877151d6ee53fe192c38d0daecf993fc6bf6ff29a4cfbd` |
-|  `latest`     | January 16th | `sha256:e9c4a51bfaf70ecb91c6b305dc7a9dbbbc109808ee85637ef33d3ab76c448146` |
+|  `latest-dev` | January 19th | `sha256:ee732d386a180c410283c0cea3908039d1504c91a862dbd4ce90535fd67a67c0` |
+|  `latest`     | January 19th | `sha256:03720b7b1788642a51f5bfdd5df3ce709d42a143f87a8745874c13e0d9d0ec69` |
 

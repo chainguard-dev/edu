@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public ko Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-22 00:18:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -51,6 +51,7 @@ The table shows package distribution across variants.
 | `busybox`                | X      |
 | `ca-certificates-bundle` | X      |
 | `gcc`                    | X      |
+| `git`                    | X      |
 | `glibc`                  | X      |
 | `glibc-dev`              | X      |
 | `glibc-locale-posix`     | X      |
@@ -60,12 +61,23 @@ The table shows package distribution across variants.
 | `ko`                     | X      |
 | `ld-linux`               | X      |
 | `libatomic`              | X      |
+| `libbrotlicommon1`       | X      |
+| `libbrotlidec1`          | X      |
 | `libcrypt1`              | X      |
+| `libcrypto3`             | X      |
+| `libcurl-openssl4`       | X      |
+| `libexpat1`              | X      |
 | `libgcc`                 | X      |
 | `libgo`                  | X      |
 | `libgomp`                | X      |
+| `libidn2`                | X      |
+| `libnghttp2-14`          | X      |
+| `libpcre2-8-0`           | X      |
+| `libpsl`                 | X      |
+| `libssl3`                | X      |
 | `libstdc++`              | X      |
 | `libstdc++-dev`          | X      |
+| `libunistring`           | X      |
 | `linux-headers`          | X      |
 | `make`                   | X      |
 | `mpc`                    | X      |
@@ -74,6 +86,7 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`  | X      |
 | `nss-db`                 | X      |
 | `nss-hesiod`             | X      |
+| `openssl-config`         | X      |
 | `pkgconf`                | X      |
 | `posix-cc-wrappers`      | X      |
 | `wolfi-baselayout`       | X      |
