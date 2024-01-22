@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public google-cloud-sdk Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-22 00:18:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -66,7 +66,7 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`  | X      |
 | `openssl-config`         | X      |
 | `py3-crcmod`             | X      |
-| `python-3.11`            | X      |
+| `python-3.12`            | X      |
 | `readline`               | X      |
 | `sqlite-libs`            | X      |
 | `wolfi-baselayout`       | X      |
