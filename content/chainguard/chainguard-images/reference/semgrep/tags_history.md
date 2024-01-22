@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the semgrep Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-17 00:18:58
+lastmod: 2024-01-22 00:18:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | January 16th | `sha256:6c088d588c4208353b6d85bd75ae3c590f683e5850987246bd442ea1f17f7056` |
-|  `latest-dev` | January 16th | `sha256:f0903782174ad85c2f391825c922cb6ede26c304f8ceb4c1f594cc34ae0aed04` |
+|  `latest-dev` | January 20th | `sha256:88095efb8d7eb9c272238a7499906867c711134b311585f509def21760545c66` |
+|  `latest`     | January 20th | `sha256:f3fce40d1a0674bfc5fc16ded8e2c410bdb12366e2b7eaecd654ee9040fc471c` |
 

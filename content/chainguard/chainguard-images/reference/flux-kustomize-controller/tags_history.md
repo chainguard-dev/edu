@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-kustomize-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-16 00:27:48
+lastmod: 2024-01-22 00:18:06
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                                      | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.2.1` `v1.2` `v1` `1` `1.2` `v1.2.1` `latest`                             | January 15th | `sha256:48c1f4126351d5219cb0ac750758065ff12c93018237bf0d29f3e081f256bfd9` |
-|  `v1-dev` `1.2.1-dev` `v1.2-dev` `v1.2.1-dev` `1.2-dev` `1-dev` `latest-dev` | January 15th | `sha256:c4f815649759db03b94ca9cfc2421d607f8ca7b59cead63326c08f2b09a48892` |
+|  `v1.2.1` `1.2.1` `v1.2` `v1` `1` `latest` `1.2`                             | January 19th | `sha256:fe056c5cf273c59604adec63e0558788fc6d07d31ccca2b5f9abd3856abe9dde` |
+|  `v1.2-dev` `v1.2.1-dev` `1-dev` `1.2.1-dev` `v1-dev` `1.2-dev` `latest-dev` | January 19th | `sha256:528aaddf7d0b4c644161d58781d91f4140bac0704cf971b509051a6b6453b827` |
 
