@@ -51,7 +51,7 @@ If you are using macOS, run the following:
 TOKEN=$(cat ~/Library/Caches/chainguard/https:--console-api.enforce.dev/oidc-token)
 ```
 
-Note: if at any point in this tutorial you receive an error like the following, your token has expired. Login and set your `$TOKEN` shell variable again:
+Note that if at any point in this tutorial you receive an error like the following, your token has expired. Log in and set your `$TOKEN` shell variable again:
 
 ```
 {"code":16, "message":"failed to verify token", "details":[]}
