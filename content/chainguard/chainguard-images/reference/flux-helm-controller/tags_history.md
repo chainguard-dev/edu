@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-helm-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-16 00:27:48
+lastmod: 2024-01-23 00:21:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.37-dev` `v0.37.2-dev` `0-dev` `v0-dev` `0.37.2-dev` `v0.37-dev` `latest-dev` | January 15th | `sha256:8d1d6cc4bd5968787204ba159c13662fa49ffe39f424fa7ba5149380789f64fa` |
+|  `v0.37.2-dev` `0.37.2-dev` `0-dev` `v0-dev` `0.37-dev` `v0.37-dev` `latest-dev` | January 22nd | `sha256:ec6b912e319ae8f01b228784153434ee3426d56d3ecfedf692d75e9c3c57c241` |
 |  `v0.37.2` `0.37.2` `v0.37` `0` `v0` `0.37` `latest`                             | January 4th  | `sha256:8f6b1af0dda1f1d5d4a362a8ed750a132ba25262c7e56066abbc6e4aae127326` |
 
