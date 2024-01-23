@@ -1,9 +1,9 @@
 ---
-title: "bun Image Tags History"
+title: "cert-manager-cmctl Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the bun Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
+description: "Image Tags and History for the cert-manager-cmctl Chainguard Image"
+date: 2024-01-23 00:21:44
 lastmod: 2024-01-23 00:21:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,18 +13,16 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/bun/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/bun/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/bun/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/bun/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/cert-manager-cmctl/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/cert-manager-cmctl/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/cert-manager-cmctl/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cert-manager-cmctl/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 22nd | `sha256:a893ca21f9f9a248e90bcd013cf70616e17690e051bedb8aae398d95fa280c16` |
-|  `latest`     | January 22nd | `sha256:20dfc90524738526b92e142c884184eefa97c8a447f55f12382598875ae17196` |
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 

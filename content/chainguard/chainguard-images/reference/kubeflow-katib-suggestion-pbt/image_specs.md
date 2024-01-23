@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubeflow-katib-suggestion-pbt Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-12 00:39:30
+lastmod: 2024-01-23 00:21:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -73,8 +73,6 @@ The table shows package distribution across variants.
 | `libidn2`                      | X          |        |
 | `libnghttp2-14`                | X          |        |
 | `libpcre2-8-0`                 | X          |        |
-| `libprotobuf`                  | X          | X      |
-| `libprotoc`                    | X          | X      |
 | `libpsl`                       | X          |        |
 | `libssl3`                      | X          | X      |
 | `libstdc++`                    | X          | X      |

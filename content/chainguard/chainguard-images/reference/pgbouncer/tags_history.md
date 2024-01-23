@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the pgbouncer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-16 00:27:48
+lastmod: 2024-01-23 00:21:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 15th | `sha256:07edfb9f5cf529db967d5224d18c764c2e19ae9f765874ed90ecdbbe77d8c653` |
+|  `latest-dev` | January 22nd | `sha256:446cab10343a432814564c9f533d5be9ed4f6b546283e68d3d180a4d422a9253` |
 |  `latest`     | January 13th | `sha256:ca263a6cbe432354c243b5a84a35785e79ca47f2b7147992a0aa81a63091edc2` |
 
