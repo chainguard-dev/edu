@@ -15,12 +15,12 @@ toc: true
 ---
 
 
-The Chainguard Images Diff API generates a JSON-formatted list of package additions, removals, and detected CVEs in Chainguard Images. It is intended to provide an authenticated, machine readable, formatted list of changes between two image builds. Combined with the [Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/), you can use the Diff API to compare arbitrary builds of an Image over time and programmatically detect changes that might require gating a release or modifying your application code.
+The Chainguard Images Diff API generates a JSON-formatted list of package additions, removals, and detected CVEs in Chainguard Images. It is intended to provide an authenticated, machine readable, formatted list of changes between two Chainguard Image builds. Combined with the [Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/), you can use the Diff API to compare arbitrary builds of an Image over time and programmatically detect changes that might require gating a release or modifying your application code.
 
 This guide will cover:
 
 1. How to get an authentication token to query the Diff API
-2. Identifying image digests in a repository for comparison
+2. Identifying Image digests in a repository for comparison
 3. Making authenticated API calls using `curl` and programmatically using Go
 4. Parsing the results of an API call
 
@@ -67,9 +67,9 @@ If you are using a private registry, be sure to substitute your IAM group name i
 
 ## Getting Image Digests to Compare
 
-Now you will need to find image digests to compare. You can compare any two arbitrary digests using the API. In this example we will use the public `cgr.dev/chainguard/nginx` repository and find digests for the `latest` and `latest-dev` tags. You can also compare image digests for the same tag by combining data from the [Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/).
+Now you will need to find Image digests to compare. You can compare any two arbitrary digests using the API. In this example we will use the public `cgr.dev/chainguard/nginx` repository and find digests for the `latest` and `latest-dev` tags. You can also compare Image digests for the same tag by combining data from the [Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/).
 
-The first digest in this example will be referred to as the `FROM_DIGEST`, and the second comparison image as `TO_DIGEST`.
+The first digest in this example will be referred to as the `FROM_DIGEST`, and the second comparison Image as `TO_DIGEST`.
 
 Begin by creating a shell variable to hold the repository URL:
 
@@ -93,7 +93,7 @@ latest-dev
 next
 ```
 
-Since we will compare the `latest` and `latest-dev` images in this guide, run the following to record their `digest` values as shell variables for reuse:
+Since we will compare the `latest` and `latest-dev` Images in this guide, run the following to record their `digest` values as shell variables for reuse:
 
 ```sh
 FROM_DIGEST=$(crane digest --platform "linux/amd64" "${REPO_URL}:latest")
@@ -106,7 +106,7 @@ Now you can make a request to the Diff API using `curl` or programmatically with
 
 ## Making a Request to the Diff API Using curl
 
-To make API requests to the Diff API using `curl`, set a shell variable to the name of the image repository:
+To make API requests to the Diff API using `curl`, set a shell variable to the name of the Image repository:
 
 ```sh
 REPO_NAME=$(echo $REPO_URL | cut -d'/' -f3)
@@ -158,13 +158,13 @@ You will receive output like the following:
 }
 ```
 
-In this example output, the list of `added` packages include things like `bash` and other helpful utilities that are packaged in the nginx development image. If there are any vulnerabilities detected in an image they will be listed in that section of the output.
+In this example output, the list of `added` packages include things like `bash` and other helpful utilities that are packaged in the nginx development Image. If there are any vulnerabilities detected in an Image they will be listed in that section of the output.
 
 ## Making a Request Programmatically to the Diff API Using Go
 
 If you would like to query the Diff API programmatically, there is an example Go application hosted in our [platform-examples](https://github.com/chainguard-dev/platform-examples/tree/main/image-diff) GitHub repository. The example uses the [Chainguard SDK](https://pkg.go.dev/chainguard.dev/sdk) and is a good way to learn how to interact with the API through a declarative approach.
 
-Clone the repository, or copy the code manually. Again we're using the `cgr.dev/chainguard/nginx` image as an example:
+Clone the repository, or copy the code manually. Again we're using the `cgr.dev/chainguard/nginx` Image as an example:
 
 ```sh
 git clone https://github.com/chainguard-dev/platform-examples
@@ -218,4 +218,4 @@ You will receive output like the following:
 }
 ```
 
-Again, replace `chainguard/nginx` with your relevant private registry and image name as required. As with the `curl` example, you can also compare image digests for the same tag by combining data from the [Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/).
+Again, replace `chainguard/nginx` with your relevant private registry and Image name as required. As with the `curl` example, you can also compare Image digests for the same tag by combining data from the [Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/).
