@@ -1,5 +1,5 @@
 ---
-date: 2024-01-22T23:11:01Z
+date: 2024-01-23T09:30:47Z
 title: "chainctl update"
 slug: chainctl_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_update/
