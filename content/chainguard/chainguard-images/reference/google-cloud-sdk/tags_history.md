@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the google-cloud-sdk Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-22 00:18:06
+lastmod: 2024-01-23 00:21:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | January 20th | `sha256:007f01373a14024a92ad60ceea7825e2e05f2c6224b703fd0c361f264f045033` |
+|  `latest` | January 22nd | `sha256:d47cdd3c0bc7286fd88bc26183f502c68b2b2ded0905a859e8453a6771fdf54d` |
 
