@@ -14,9 +14,8 @@ weight: 450
 toc: true
 ---
 
-## Introduction to the Chainguard Images Diff API
 
-The Chainguard Images Diff API generates a JSON formatted list of package additions, removals, and detected CVEs in Chainguard Images. It is intended to provide an authenticated, machine readable, formatted list of changes between two image builds. Combined with the [Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/), you can use the Diff API to compare arbitrary builds of an image over time and programmatically detect changes that might require gating a release or modifying your application code.
+The Chainguard Images Diff API generates a JSON-formatted list of package additions, removals, and detected CVEs in Chainguard Images. It is intended to provide an authenticated, machine readable, formatted list of changes between two image builds. Combined with the [Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/), you can use the Diff API to compare arbitrary builds of an Image over time and programmatically detect changes that might require gating a release or modifying your application code.
 
 This guide will cover:
 
@@ -64,7 +63,7 @@ For the purposes of this guide, we will use the `public-images` Chainguard IAM g
 GROUP_UIDP=$(chainctl iam group describe public-images -ojson |jq -r '.id')
 ```
 
-If you are using a private registry, be sure to substitute in your IAM group name in place of `public-images` to use your specific private group UIDP identifier in your subsequent commands.
+If you are using a private registry, be sure to substitute your IAM group name in place of `public-images` to use your specific private group UIDP identifier in your subsequent commands.
 
 ## Getting Image Digests to Compare
 
@@ -78,7 +77,7 @@ Begin by creating a shell variable to hold the repository URL:
 REPO_URL="cgr.dev/chainguard/nginx"
 ```
 
-Note: if you are using a private registry, replace `cgr.dev/chainguard/nginx` with your relevant private Chainguard Registry and repository name as required.
+If you are using a private registry, be sure to replace `cgr.dev/chainguard/nginx` with your relevant private Chainguard Registry and repository name as required.
 
 Now run the following `crane` command to get a list of tags contained in the public `cgr.dev/chainguard/nginx` repository:
 
@@ -121,7 +120,7 @@ REPO_UIDP=$(curl -s -X GET -H "Authorization: Bearer $TOKEN" \
   jq -r ".items[] | select(.id | startswith(\"${GROUP_UIDP}\")) | .id")
 ```
 
-Now with all of these variables set, you can call the Diff API with the following command:
+With all of these variables set, you can call the Diff API with the following command:
 
 ```sh
 curl -s -X GET -H \
@@ -159,18 +158,20 @@ You will receive output like the following:
 }
 ```
 
-In this example output, the list of `added` packages include things like `bash` and other helpful utilities that are package in the nginx development image. If there are any vulnerabilities detected in an image they will be listed in that section of the output.
+In this example output, the list of `added` packages include things like `bash` and other helpful utilities that are packaged in the nginx development image. If there are any vulnerabilities detected in an image they will be listed in that section of the output.
 
 ## Making a Request Programmatically to the Diff API Using Go
 
-If you would like to query the Diff API programmatically, there is an example Go application hosted in our [platform-examples](https://github.com/chainguard-dev/platform-examples/tree/main/image-diff) GitHub repository. The example uses the [Chainguard SDK](https://pkg.go.dev/chainguard.dev/sdk) and is a good way to learn how to interact with the API programmatically.
+If you would like to query the Diff API programmatically, there is an example Go application hosted in our [platform-examples](https://github.com/chainguard-dev/platform-examples/tree/main/image-diff) GitHub repository. The example uses the [Chainguard SDK](https://pkg.go.dev/chainguard.dev/sdk) and is a good way to learn how to interact with the API through a declarative approach.
 
-Clone the repository, or copy the code manually and set some shell variables. Again we're using the `cgr.dev/chainguard/nginx` image as an example:
+Clone the repository, or copy the code manually. Again we're using the `cgr.dev/chainguard/nginx` image as an example:
 
 ```sh
 git clone https://github.com/chainguard-dev/platform-examples
 cd platform-examples/image-diff
 ```
+
+Following that, set some shell variables:
 
 ```sh
 REPO_NAME=nginx
