@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gcc-glibc Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-23 00:21:44
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | January 22nd | `sha256:7163c464515c1b3ea9918610b61784c067b1e9db17d03ab44492fc0f9b129409` |
+|  `latest` | January 23rd | `sha256:d1acae77bc3053d33409131fc75c32835c9abde140767a239d10c3bde0b0dddf` |
 

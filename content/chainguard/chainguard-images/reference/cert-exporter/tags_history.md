@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-23 00:21:44
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 22nd | `sha256:e8d43c35a3afc2af86ef5adece8084ab1adcbb643fc5a719ca95d875d8c708a7` |
+|  `latest-dev` | January 23rd | `sha256:94e1cde784796c901ec458508915940820324651807c29a17947285d809a2424` |
 |  `latest`     | January 3rd  | `sha256:3c76b5718fb1c506221393a2b29c08f1801b2b3df9469bb58869e2a67f9fc5a9` |
 

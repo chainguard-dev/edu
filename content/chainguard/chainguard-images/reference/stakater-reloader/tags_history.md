@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stakater-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-23 00:21:44
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 22nd | `sha256:8df5997263cf7be56e9a55b4217a49bcd363ac12e5e4055f25938423f49a66f0` |
+|  `latest-dev` | January 23rd | `sha256:03afbe5ed7f63e9d9037a149b6c5bb120f9ffedc69d5d463e3fdd9995644dbb9` |
 |  `latest`     | January 17th | `sha256:6d81332f75f70a62a73e856b24cbcdb7b2bad6df02d3494f38d7c6769d0a9975` |
 
