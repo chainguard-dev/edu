@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public git Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-12 00:39:30
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -59,7 +59,6 @@ The table shows package distribution across variants.
 | `brotli-libs`            | X          |                  |                       |                   |              | X               | X           | X      |
 | `busybox`                | X          | X                | X                     |                   |              | X               | X           | X      |
 | `busybox-binsh`          | X          |                  |                       |                   |              | X               | X           | X      |
-| `c-ares`                 | X          |                  |                       |                   |              | X               | X           | X      |
 | `ca-certificates`        | X          |                  |                       |                   |              | X               | X           | X      |
 | `ca-certificates-bundle` | X          | X                | X                     | X                 | X            | X               | X           | X      |
 | `git`                    | X          | X                | X                     | X                 | X            | X               | X           | X      |

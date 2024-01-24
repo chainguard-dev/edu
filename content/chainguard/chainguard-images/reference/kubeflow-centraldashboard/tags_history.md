@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-centraldashboard Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-16 00:27:48
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 15th | `sha256:064d610e6cb7c271463612fd80df89977284685cde73a2a4d35a81378f72d8e8` |
-|  `latest`     | January 13th | `sha256:494ffd7726e1e79420d30b80761642facb261922f2cd859d22670f1923c9609a` |
+|  `latest-dev` | January 23rd | `sha256:907c07b900ddca0e431fa6eef7af1ea44ec968b1bb46bf17a2b45a4c41a44723` |
+|  `latest`     | January 23rd | `sha256:1affbb78680e85d84a5d7e06bf854ae668537516e2fd0d7de33e7f2dd61903f1` |
 

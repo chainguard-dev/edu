@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the karpenter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-16 00:27:48
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 15th | `sha256:1e1a5835162b1ba46a2bcf62ce58bd01209163cbaed3ae07465b7ba64043c21f` |
+|  `latest-dev` | January 23rd | `sha256:70c83d2075235115aff3b3c29843f5cfa197e01927ad59b1b9e4ba40e581ec49` |
 |  `latest`     | January 13th | `sha256:f6d2e964f672dfea2846c3a28262a3b70227e4319287f12213e749e4a7f3a186` |
 

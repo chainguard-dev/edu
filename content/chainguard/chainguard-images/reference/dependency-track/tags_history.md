@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dependency-track Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-16 00:27:48
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 15th | `sha256:245836e4faeaf49c5fd27779af2d82560e8b4b186c14e26daad0495d933ea620` |
-|  `latest`     | January 13th | `sha256:fa49e3271e47f38d0343c5d6f7e9252f96368ac30508592b2ff5c3dd1482b85c` |
+|  `latest`     | January 23rd | `sha256:e322fcf90df7460935bec388ea63add841f0a3582f4c13662632f89d84235c91` |
+|  `latest-dev` | January 23rd | `sha256:d874b5e79418512566589b4a3c3333c7f88b5f64d4bab26de3657d2ad3667e6a` |
 

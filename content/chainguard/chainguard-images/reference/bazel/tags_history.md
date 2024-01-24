@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bazel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-23 00:21:44
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | January 22nd | `sha256:b90f9f1d3751a5cf975c6384502876785f8ab8bc757ab12218a79756feba25ed` |
+|  `latest` | January 23rd | `sha256:5f60b8cb375c9be2edb87138f5be07a8868f9a0c89ec0c77a8bc78ddf93decd8` |
 

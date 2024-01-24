@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-nop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-22 00:18:06
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 23rd | `sha256:23a3859113e780aad251f3e27eb100e950282d01eeaa50c2129eeb52383fcf11` |
 |  `latest`     | January 20th | `sha256:0d03872d4affb07eb09af676bcf1ce723cbcc05b743d49ab0365aa76da8f35f4` |
-|  `latest-dev` | January 20th | `sha256:efbe6d38bee30222b20978e01647870ed174c52f86eabfbd3e00160f74994f91` |
 
