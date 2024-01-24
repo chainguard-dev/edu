@@ -4,7 +4,7 @@ linktitle: "FAQs"
 type: "article"
 description: "Frequently asked questions about Chainguard Images"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2023-12-07T08:49:31+00:00
+lastmod: 2024-01-24T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "FAQ", "Product"]
 images: []
@@ -29,7 +29,7 @@ We call Wolfi an undistro because unlike a typical Linux distribution, Wolfi is 
 
 ## Which images are available?
 
-There are currently over ~400 Chainguard Images available, which are segmented as **Developer** or **Production**. You can read more about this in the [next question](#what-options-do-i-have-to-use-chainguard-images).
+There are currently hundreds of Chainguard Images available, which are segmented as **Developer** or **Production**. You can read more about this in the [next question](#what-options-do-i-have-to-use-chainguard-images).
 
 To review all available Chainguard Images, you can check out the Chainguard Console at [https://images.chainguard.dev](https://images.chainguard.dev).
 
