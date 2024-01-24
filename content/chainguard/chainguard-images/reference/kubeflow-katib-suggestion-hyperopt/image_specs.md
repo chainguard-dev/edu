@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubeflow-katib-suggestion-hyperopt Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-23 00:21:44
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,6 +45,7 @@ The table shows package distribution across variants.
 
 |                                | latest-dev | latest |
 |--------------------------------|------------|--------|
+| `abseil-cpp`                   | X          | X      |
 | `abseillib`                    | X          | X      |
 | `apk-tools`                    | X          |        |
 | `bash`                         | X          |        |

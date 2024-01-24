@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the external-dns Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-23 00:21:44
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 22nd | `sha256:e199604ce6c1aefc1187a20dfed8ce075b40851de1b3cd93d1536914ad4f84fb` |
+|  `latest-dev` | January 23rd | `sha256:7db909fc412810b67fec1e22d56a22a047891b2070d47c8ddcbf20006dd50156` |
 |  `latest`     | January 10th | `sha256:c1781aa23c0406c644d349a274e8ce8bfab966ce9ca75525398cf96f3b0f640f` |
 

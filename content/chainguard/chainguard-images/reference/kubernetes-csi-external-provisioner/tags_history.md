@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-16 00:27:48
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 15th | `sha256:ccaa20ac5016ca609d012d95afb4eefe81525448e531b390a0fe5e9c629858fd` |
+|  `latest-dev` | January 23rd | `sha256:f5feec04820305b69f3f295a93eb10df5e2fa326226f60727e1533ac5bf76631` |
 |  `latest`     | January 13th | `sha256:3a1e06c4609d7d3549832d70dfcd98c131f179449c9deb13c69fe5d346342af7` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dashboard Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-22 00:18:06
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 15th | `sha256:ffd076aaf147fa74098e8d181283df76937cf2b71f7a0331907a8bc9f6ef5ced` |
+|  `latest-dev` | January 23rd | `sha256:c77e5a7f657d62fbd31506f42e5e676ac2aa5456aeecae30a2ff1c4e57acbea8` |
 
