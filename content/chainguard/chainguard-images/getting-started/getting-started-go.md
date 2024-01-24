@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Go"
 description: "Tutorial on the distroless Go Chainguard Image"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2023-09-22T11:07:52+02:00
+lastmod: 2024-01-24T11:07:52+02:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
