@@ -170,7 +170,7 @@ The following Dockerfile will:
 
 ```Dockerfile
 FROM cgr.dev/chainguard/go AS builder
-COPY ../reference/go /app
+COPY . /app
 RUN cd /app && go build -o go-digester .
 
 FROM cgr.dev/chainguard/glibc-dynamic
