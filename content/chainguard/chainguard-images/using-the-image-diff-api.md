@@ -3,7 +3,7 @@ title: "Using the Image Diff API"
 type: "article"
 description: "Learn how to use the Chainguard Images Diff API to compare changes between image versions."
 date: 2023-12-10T08:49:31+00:00
-lastmod: 2023-12-10T08:49:31+00:00
+lastmod: 2024-01-22T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "Product", "API"]
 images: []
