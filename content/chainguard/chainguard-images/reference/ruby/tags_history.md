@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ruby Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-22 00:18:06
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 19th | `sha256:fc8ab03d51c0f7d0b1c2d2676d87ca1dfe51fe7262958dc05f69af77794c66a9` |
-|  `latest`     | January 13th | `sha256:6aa489fa8c43349788e05f7198084a10c8fd0d1c07185279c4a0129fba5e0095` |
+|  `latest`     | January 23rd | `sha256:1d71bdbe5335079427cfb98325d09aed88c25ef08b6a39be75024175de4c6556` |
+|  `latest-dev` | January 23rd | `sha256:650073783ac17d4373715a5abdef1cefcdc788600bde59a4a9ccbd4d1ead63e0` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the glibc-dynamic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-16 00:27:48
+lastmod: 2024-01-24 00:37:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 15th | `sha256:b506573b812ae9e2039755a40550740ab99fb83f930f6c2e20dc8706429a38bb` |
+|  `latest-dev` | January 23rd | `sha256:1a0fdd4e15d393b8553f5d58c8240127037159f964099a5e7fb94fec8eec5aa9` |
 |  `latest`     | January 13th | `sha256:6895a08124484dcab1daa40861ebe814290e0a48aab71cdd3eccc75de0c045ce` |
 
