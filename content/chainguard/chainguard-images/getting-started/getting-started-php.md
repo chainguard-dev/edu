@@ -165,7 +165,7 @@ Copy this content to your own `Dockerfile`:
 ```Dockerfile
 FROM cgr.dev/chainguard/php:latest-dev AS builder
 USER root
-COPY ../reference/php /app
+COPY . /app
 RUN chown -R php /app
 USER php
 RUN cd /app && \
