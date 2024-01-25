@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public gitlab-exporter Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-16 00:27:48
+lastmod: 2024-01-25 00:19:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -86,6 +86,7 @@ The table shows package distribution across variants.
 | `ruby3.2-bundler`             | X          | X      |
 | `ruby3.2-concurrent-ruby`     | X          | X      |
 | `ruby3.2-connection_pool`     | X          | X      |
+| `ruby3.2-deep_merge`          | X          | X      |
 | `ruby3.2-excon`               | X          | X      |
 | `ruby3.2-faraday`             | X          | X      |
 | `ruby3.2-faraday-excon`       | X          | X      |
