@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-cleanup-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-24 00:37:09
+lastmod: 2024-01-25 00:19:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | January 23rd | `sha256:56923c2217ded6a60b0dbcccfbe92d6b7241365bc16a52d7658d67acf78bfc2f` |
+|  `latest` | January 24th | `sha256:33c5b11e5a8c41c083440626da87236b148bb264189b036666f28ffba36e44f5` |
 

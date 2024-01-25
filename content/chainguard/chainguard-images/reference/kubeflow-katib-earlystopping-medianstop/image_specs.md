@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubeflow-katib-earlystopping-medianstop Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-23 00:21:44
+lastmod: 2024-01-25 00:19:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,6 +45,7 @@ The table shows package distribution across variants.
 
 |                                | latest-dev | latest |
 |--------------------------------|------------|--------|
+| `abseil-cpp`                   | X          | X      |
 | `abseillib`                    | X          | X      |
 | `apk-tools`                    | X          |        |
 | `bash`                         | X          |        |

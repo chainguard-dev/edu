@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: aspnet-runtime Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2024-01-25 00:19:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -39,5 +39,8 @@ docker pull cgr.dev/chainguard/aspnet-runtime:latest
 <!--getting:end-->
 
 <!--body:start-->
+## Usage
+
+The `aspnet-runtime` Chainguard Image contains both the ASP.NET runtime and the .NET core runtime, allowing you to run ASP.NET applications. For more information, please refer to the official [ASP.NET documentation](https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-8.0).
 <!--body:end-->
 
