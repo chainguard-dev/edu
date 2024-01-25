@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argo-workflowcontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-23 00:21:44
+lastmod: 2024-01-25 00:19:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 22nd | `sha256:f52ab14d3b995cf325a1b51010c2944867675a21759b179a124c3a35a8d4a5bf` |
+|  `latest-dev` | January 24th | `sha256:6ed68b036ac2e5ce831439c97fcc004de311df3a7ff4eddb77d483b87c5da654` |
 |  `latest`     | January 17th | `sha256:6b89b0285fdaa3a8fa577dbeab6c0fc5646c6a73b99f243accde771a24b63d63` |
 
