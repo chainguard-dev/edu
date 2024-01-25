@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: ruby Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2024-01-25 00:19:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -26,7 +26,7 @@ toc: true
 
 
 <!--overview:start-->
-Minimal ruby base image.
+Minimal Ruby base image.
 <!--overview:end-->
 
 <!--getting:start-->
@@ -39,5 +39,10 @@ docker pull cgr.dev/chainguard/ruby:latest
 <!--getting:end-->
 
 <!--body:start-->
+## Usage
+
+Ruby applications typically require the installation of third-party dependencies through [Rubygems](https://rubygems.org/). This means that using a fully distroless image for building your application would not work, as these do not include a package manager. In cases like this, you’ll need to implement a multi-stage Docker build that uses one of Chainguard's `-dev` Image variants to set up the application.
+
+We encourage you to check out our guide on [getting started with Ruby](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/getting-started-ruby/) which demonstrates how you can use Chainguard's Ruby Image in both single- and multi-stage builds.
 <!--body:end-->
 

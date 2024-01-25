@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-24 00:37:09
+lastmod: 2024-01-25 00:19:46
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 23rd | `sha256:9dd3ff2d021e274b255ac45a9979eded5d293284ad845051a46532d8b72b45af` |
-|  `latest`     | January 17th | `sha256:0a89e1975ae58ce2b971a36995b2e9e535ac0b098bc9ba097ece939942baee72` |
+|  `latest`     | January 24th | `sha256:63924e3cf25d4a8272d96077366043b227fe20cfbba551c4cc780d69828896cd` |
+|  `latest-dev` | January 24th | `sha256:d932939c6cbf5f503272bd007df45d8f258b030a55ece2efaf70cf9d2e57bdf7` |
 
