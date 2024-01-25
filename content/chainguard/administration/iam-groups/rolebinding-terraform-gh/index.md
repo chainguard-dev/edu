@@ -195,7 +195,7 @@ If there are members of the GitHub team who have not yet registered with Chaingu
 The next block retrieves the predefined `viewer` role from Chainguard.
 
 ```
-data "chainguard_roles" "viewer" {
+data "chainguard_role" "viewer" {
   name = "viewer"
 }
 ```
@@ -204,10 +204,10 @@ The final block puts all this information together to create the rolebindings fo
 
 ```
 resource "chainguard_rolebinding" "cg-binding" {
-  for_each = toset(data.chainguard_identity.team_ids)
+  for_each = data.chainguard_identity.team_ids
   identity = each.value.id
   group    = "$CHAINGUARD_GROUP"
-  role     = data.chainguard_roles.viewer.items[0].id
+  role     = data.chainguard_role.viewer.items[0].id
 }
 ```
 
@@ -233,15 +233,15 @@ data "chainguard_identity" "team_ids" {
   subject = "github|\${each.key}"
 }
 
-data "chainguard_roles" "viewer" {
+data "chainguard_role" "viewer" {
   name = "viewer"
 }
 
 resource "chainguard_rolebinding" "cg-binding" {
-  for_each = toset(data.chainguard_identity.team_ids)
+  for_each = data.chainguard_identity.team_ids
   identity = each.value.id
   group    = "$CHAINGUARD_GROUP"
-  role     = data.chainguard_roles.viewer.items[0].id
+  role     = data.chainguard_role.viewer.items[0].id
 }
 EOF
 ```
