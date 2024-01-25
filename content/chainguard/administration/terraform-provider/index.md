@@ -36,7 +36,7 @@ To use the Chainguard Terraform provider, add it to the block of required provid
 ```
 terraform {
   required_providers {
-	chainguard = {source = "chainguard-dev/chainguard"}
+	chainguard = { source = "chainguard-dev/chainguard" }
   }
 }
 ```
