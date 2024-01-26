@@ -1,3 +1,69 @@
+# 2024-01-26
+New images added:
+
+- cassandra-medusa
+
+Updated Docs:
+
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- aws-for-fluent-bit/tags_history.md
+- bazel/tags_history.md
+- buck2/tags_history.md
+- calico-node/tags_history.md
+- cass-config-builder/tags_history.md
+- cassandra/tags_history.md
+- cilium-agent/tags_history.md
+- clang/tags_history.md
+- dask-gateway-server/tags_history.md
+- dependency-track/tags_history.md
+- dynamic-localpv-provisioner/tags_history.md
+- fluent-bit/tags_history.md
+- fluentd/tags_history.md
+- git/tags_history.md
+- gitlab-exporter/tags_history.md
+- gitlab-pages/tags_history.md
+- gitlab-shell/tags_history.md
+- gradle/tags_history.md
+- guacamole-server/tags_history.md
+- ingress-nginx-controller/tags_history.md
+- jdk/tags_history.md
+- jdk-lts/tags_history.md
+- jenkins/tags_history.md
+- jre/tags_history.md
+- jre-lts/tags_history.md
+- kafka/tags_history.md
+- keycloak/tags_history.md
+- kube-bench/tags_history.md
+- kube-fluentd-operator/tags_history.md
+- kube-logging-operator-fluentd/tags_history.md
+- kubeflow-centraldashboard/tags_history.md
+- kubeflow-katib-earlystopping-medianstop/tags_history.md
+- kubeflow-katib-suggestion-skopt/tags_history.md
+- kubeflow-pipelines-frontend/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- maven/tags_history.md
+- newrelic-fluent-bit-output/tags_history.md
+- newrelic-infrastructure-bundle/tags_history.md
+- node/tags_history.md
+- node-lts/tags_history.md
+- opensearch/tags_history.md
+- opentelemetry-collector-contrib/tags_history.md
+- prometheus-alertmanager/tags_history.md
+- prometheus-cloudwatch-exporter/tags_history.md
+- prometheus-mysqld-exporter/tags_history.md
+- r-base/tags_history.md
+- ruby/tags_history.md
+- solr/tags_history.md
+- sqlpad/tags_history.md
+- statsd/tags_history.md
+- tomcat/tags_history.md
+- trino/tags_history.md
+- wavefront-proxy/tags_history.md
+- wolfi-base/tags_history.md
+- zig/tags_history.md
+- zookeeper/tags_history.md
+
 # 2024-01-25
 
 
