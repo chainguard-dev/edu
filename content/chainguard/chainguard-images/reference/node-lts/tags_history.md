@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-25 00:19:46
+lastmod: 2024-01-26 00:21:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | January 24th | `sha256:8b2662b1eb5a2024529ac2e684a6f8c113dca0b1ea47761628abc24b546a96e3` |
-|  `latest-dev` | January 24th | `sha256:6f9dc7a2352bb9a0618cb81516a3ea38e96db623a0825b914db1657b98043a60` |
+|  `latest`     | January 25th | `sha256:0a70f3d61566f7d42a9ea12461c065bda41fc72933498ce7fc960695546d17d8` |
+|  `latest-dev` | January 25th | `sha256:d00fd2ca45da42637ffc0d63be3c09eda54c6e7f79c9f849827cf02d02b2b3f7` |
 
