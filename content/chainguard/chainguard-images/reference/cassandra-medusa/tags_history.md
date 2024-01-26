@@ -1,9 +1,9 @@
 ---
-title: "jdk Image Tags History"
+title: "cassandra-medusa Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the jdk Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
+description: "Image Tags and History for the cassandra-medusa Chainguard Image"
+date: 2024-01-26 00:21:35
 lastmod: 2024-01-26 00:21:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/jdk/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/jdk/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/jdk/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/jdk/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/cassandra-medusa/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/cassandra-medusa/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/cassandra-medusa/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cassandra-medusa/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 25th | `sha256:e0595bfab7781d2a4ac13743bd3a4235bb0c5c0030c6007f1bbda6083946d32a` |
-|  `latest`     | January 25th | `sha256:fbc931d2c6033d87307f397b7e148237b5991cc3054a1851e977fca906575c46` |
+|  `latest`     | January 25th | `sha256:09d6ee6e7cdfde990b13e314bd4b32feef7e1b72a7c83759951a2c20272fb742` |
+|  `latest-dev` | January 25th | `sha256:d5bbc9b11462eadebe53d199b35c032cd27b3ead5d67f1d5667be9352322a7ab` |
 
