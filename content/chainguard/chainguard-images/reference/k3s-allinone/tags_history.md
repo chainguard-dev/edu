@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k3s-allinone Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-24 00:37:09
+lastmod: 2024-01-27 00:18:33
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.29.0-dev` `1.29-dev` `1-dev` | January 23rd | `sha256:e4a080cc5e9f48ec69a91e87aefa04492e360da746bd0b93642f1ebddc15fff9` |
-|  `1.29` `1.29.0` `1` `latest`                 | January 23rd | `sha256:d09e43b89c6621a9b6fe47de6edd870f1813ffe139567f229bc1e1c7607997b4` |
+|  `1.29.0-dev` `latest-dev` `1.29-dev` `1-dev` | January 26th | `sha256:8ddbc6069f4354b0597c408d7efebda210c7debae30d6bdcefbb3c23f77116bd` |
+|  `1.29.0` `latest` `1` `1.29`                 | January 26th | `sha256:503fe0bc53c167e18d0cb2590b2f9e9b6199f5f5b7c179dec930b4230e18af29` |
 
