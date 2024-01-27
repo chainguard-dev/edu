@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-24 00:37:09
+lastmod: 2024-01-27 00:18:33
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 23rd | `sha256:0bca81d2abf744d9afc81879d8de7b46591a8f398209d4b060b4d7cbf1ffa7b3` |
-|  `latest`     | January 13th | `sha256:7422c85b990a7866cf4bb45030c0f9f46845246a6f3dc98bdd4de76f0e5055e7` |
+|  `latest`     | January 26th | `sha256:c6714c2435b31da3dbaa3daff01977c1ce005034473a31b8698ad1bc2e0249cd` |
+|  `latest-dev` | January 26th | `sha256:02e1f3d32b0f7737da9a135c20ea1ca12e4472d19583d727c46c736f49fd1dbc` |
 

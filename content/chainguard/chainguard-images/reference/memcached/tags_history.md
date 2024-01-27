@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the memcached Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-24 00:37:09
+lastmod: 2024-01-27 00:18:33
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 23rd | `sha256:c3bd108c73ccab9a20fed61ee13bb8001e041c84cf2cfa6396b94b6fbab7bc05` |
-|  `latest`     | January 22nd | `sha256:719bf54434911955b2604472cc0ca6d71c8c858ae61726eaf682bc817a420c6c` |
+|  `latest`     | January 26th | `sha256:e641a4e942dba5f67f7ef6752509725dcc8283cdf5539f2d1d6a27d2f743be0e` |
+|  `latest-dev` | January 26th | `sha256:5eaf76467ebcac7b140313a3ace18c3d2cc318d527dcccb3c3b79e8b5a081c88` |
 

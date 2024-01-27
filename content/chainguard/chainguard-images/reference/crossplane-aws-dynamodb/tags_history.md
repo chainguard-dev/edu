@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-dynamodb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-22 00:18:06
+lastmod: 2024-01-27 00:18:33
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.47` `0.47.1` `0` `latest` | January 19th | `sha256:f6620df9c75ef6683ee5d3bb9d199632e61b62651bdf74281f57d5eae6d853e9` |
+|  `latest` `0.47` `0.47.1` `0` | January 26th | `sha256:1e045d360007c82afc70ad322cfdf0cb336d2d971be54a0ab4680e90a5a47219` |
 
