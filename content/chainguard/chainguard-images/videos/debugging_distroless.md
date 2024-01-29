@@ -49,7 +49,7 @@ Because this is a distroless container, there's no shell available to me.
 
 There are also very few utils.
 
-So I can't even run ping for example.
+So I can't even run `ping` for example.
 
 So the only way to debug this container at the minute is from the outside, if you like.
 
