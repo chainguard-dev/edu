@@ -57,7 +57,7 @@ Or is it?
 
 Because with Docker 4.27, I now have this `debug` command.
 
-So if I run Docker debug debug test, this is what happens.
+So if I run `docker debug debug test`, this is what happens.
 
 And suddenly I have a shell into the container.
 
