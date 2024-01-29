@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the buck2 Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-26 00:21:35
+lastmod: 2024-01-29 00:20:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | January 25th | `sha256:3ed4c56416b4de836aee29a857d9dc20db29323d123ceb39348f29b56e849e7b` |
-|  `latest-dev` | January 25th | `sha256:12cbf29c630c21dd5e9887ef1e8d7825f112282be8021f5a0c50a4cf204a139b` |
+|  `latest-dev` | January 28th | `sha256:63895bd61800454f9d84b42007a2fbb2df993cebe691e117069fc8ef3cd6fbe9` |
+|  `latest`     | January 28th | `sha256:79e86ad7bd92d33e3261fe0086e561e64608a90c2a640688ce9cb13f86a671ad` |
 

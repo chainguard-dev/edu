@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rekor-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-24 00:37:09
+lastmod: 2024-01-29 00:20:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 23rd | `sha256:db84ab6dcd0732ae9472763c866a5c7cde2b750e93cdc6ebaa32d64334f1c328` |
+|  `latest-dev` | January 28th | `sha256:32010d1c0178c709baab0dbd543d0e1329a58433b3a2ea2bbc2b8b59697f1ce7` |
 |  `latest`     | January 13th | `sha256:17c81d054edd5473e00b0e9804ba61f6c01b303a14cc6793ca8cc7b84e513a92` |
 
