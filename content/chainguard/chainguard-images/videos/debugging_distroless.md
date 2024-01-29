@@ -47,7 +47,7 @@ And even if I get the full path, it doesn't work.
 
 Because this is a distroless container, there's no shell available to me.
 
-There's also very few utils.
+There are also very few utils.
 
 So I can't even run ping for example.
 
