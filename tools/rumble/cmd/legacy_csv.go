@@ -132,6 +132,5 @@ func (l *legacyCsv) generateCsv() error {
 		}
 	}
 	w.Flush()
-
-	return nil
+	return w.Error()
 }
