@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-27 00:18:33
+lastmod: 2024-01-29 00:20:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 26th | `sha256:813544a5a869b449e8857120974a0bc8fd05368cb187e509de3bfeebcb59187c` |
-|  `latest`     | January 26th | `sha256:ebc6d1b20e3f4ae3cc441bbeb2c7ec2f9dbea5fed1f494292a946c26090fbbd3` |
+|  `latest-dev` | January 28th | `sha256:2b2509e5ab241cf2f4f06d7bfe118c71d9233ce2fd2a5e4a2399022a26b90316` |
+|  `latest`     | January 28th | `sha256:4413a3a69d0ad46331a8e8cd0fe72fa2f925757d88995e33bc0589fa07871e73` |
 

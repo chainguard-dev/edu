@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-24 00:37:09
+lastmod: 2024-01-29 00:20:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 28th | `sha256:ce4815bd4e6f899f27e8cd1134dca33a4843345b0cf434ca3ce365f051c495a3` |
 |  `latest`     | January 23rd | `sha256:6a667601fdfd1ff2626b9b7043ae6d8beef042f87826cffe146fa1d3f09718d5` |
-|  `latest-dev` | January 23rd | `sha256:70645e9c209d4ac08f69cc4d22585e74913a4694d15851f55631342abf9ce096` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-27 00:18:33
+lastmod: 2024-01-29 00:20:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 26th | `sha256:3cd01688f8cd20d5e8966d639dc8647fcf6aa402b3caa8d8d67638ed887d78e8` |
-|  `latest`     | January 26th | `sha256:8ed7bb2eadde49ea8b58a05e88b4815cdbe78827ba401d6c3980dc6d14a586b4` |
+|  `latest`     | January 28th | `sha256:6d3f3e08b50aaf4e3335dd8f5f4e1e6fb12683fe1c4c17d65aea724af3e3cb5d` |
+|  `latest-dev` | January 28th | `sha256:515f8c4fd99f0bcce953a50ec1fad309c04c7fd9372f9036d3db1f100229d57e` |
 
