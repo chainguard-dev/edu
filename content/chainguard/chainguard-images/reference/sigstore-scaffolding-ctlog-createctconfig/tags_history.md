@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-createctconfig Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-24 00:37:09
+lastmod: 2024-01-29 00:20:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 23rd | `sha256:95710d7c52b99e4e47025e39974c03f6e657b57fb4b9f409c71bee3ae50f5c2f` |
+|  `latest-dev` | January 28th | `sha256:9d220e9e721b257d1251016b5a898e39fc989f3e266717028b5289184d4f685e` |
 |  `latest`     | January 13th | `sha256:84b07aafbbe5c3eee8645c79b634eb90144c0eeef9e45f7c1a2f6208c75b4586` |
 

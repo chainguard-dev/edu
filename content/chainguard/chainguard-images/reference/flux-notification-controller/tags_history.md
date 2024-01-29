@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-notification-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-24 00:37:09
+lastmod: 2024-01-29 00:20:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                                      | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.2.3-dev` `v1.2.3-dev` `v1.2-dev` `1-dev` `v1-dev` `1.2-dev` | January 23rd | `sha256:5e7dd03c6d0bedfae973b8438274e58a61844abb238ed8ecd1d25f41c42500ab` |
+|  `v1-dev` `1-dev` `v1.2.3-dev` `latest-dev` `v1.2-dev` `1.2-dev` `1.2.3-dev` | January 28th | `sha256:28428216cb467f5a8a0958e0c39e76dc2d80dfa25eb6f5bf57784cd64e7673ae` |
 |  `v1.2` `1.2.3` `1` `v1.2.3` `1.2` `v1` `latest`                             | January 10th | `sha256:26ff50ab7a3f345f5e07a5fd888e1d83998e86e5f398b12fcdd295643d94b8a1` |
 

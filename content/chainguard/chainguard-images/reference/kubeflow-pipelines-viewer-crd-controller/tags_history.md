@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-viewer-crd-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-24 00:37:09
+lastmod: 2024-01-29 00:20:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 23rd | `sha256:f26ad09a2e96e9047fd8a28c10b4af05d3b3ea9b7abf35a178f7733917cb7893` |
+|  `latest-dev` | January 28th | `sha256:1a6fc50182154b46ba5546d380b3add7542d97fc90bc55ff05fd79b2dfb1fcc6` |
 |  `latest`     | January 15th | `sha256:1980f36e21848a39392bb959b884e5f051c67d1895b44c9a35c0e99dfd5bf0f2` |
 
