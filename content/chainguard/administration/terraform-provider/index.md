@@ -3,8 +3,8 @@ title: "Introduction to the Chainguard Terraform Provider"
 linktitle: "Terraform Provider"
 type: "article"
 description: "An introduction to working with the Chainguard Terraform provider"
-date: 2024-01-24T15:56:52-07:00
-lastmod: 2024-01-24T15:56:52-07:00
+date: 2024-01-28T15:56:52-07:00
+lastmod: 2024-01-28T15:56:52-07:00
 draft: false
 tags: ["Product", "Overview"]
 images: []
@@ -41,9 +41,9 @@ terraform {
 }
 ```
 
-If you don't have an active Chainguard token when you apply the configuration, the provider will automatically launch a browser to complete the Oauth2 flow with one of the default identity providers: GitHub, GitLab, or Google. This means the Terraform provider does not require `chainctl` to be installed to manage authentication with Chainguard.
+If you don't have an active Chainguard token when you apply the configuration, the provider will automatically launch a browser to complete the Oauth 2 flow with one of the default identity providers: GitHub, GitLab, or Google. This means the Terraform provider does not require `chainctl` to be installed to manage authentication with Chainguard.
 
-You can customize the behavior of the authentication flow in a number of ways. For example, you can specify an identity to assume or a [verified organization](/chainguard/administration/iam-groups/verified-orgs/) name in order to use a previously-configured custom identity provider:
+You can customize the behavior of the authentication flow in a number of ways. For example, you can specify an identity to assume, or a [verified organization](/chainguard/administration/iam-groups/verified-orgs/) name in order to use a previously-configured custom identity provider:
 
 ```
 provider "chainguard" {
@@ -56,7 +56,7 @@ provider "chainguard" {
 }
 ```
 
-You can also configure the provider to use an OIDC token, either directly supplied or from a file, with the automatic browser flow disabled. This is useful when setting up CI workflows:
+You can also configure the provider to use an OIDC token, either by supplying it directly or pulling it from a file, with the automatic browser flow disabled. This is useful when setting up CI workflows:
 
 ```
 provider "chainguard" {
@@ -80,6 +80,8 @@ Resources on the Chainguard platform are organized in a hierarchical structure o
 
 All user-managed resources are defined in relation to some parent group. This means developers need to be able to reference their organization's group throughout their configuration. We'll outline two ways to define this kind of reference: using local values and data sources.
 
+> **Note:** This section specifically outlines how to define organization group references. There may be times when you need to reference a group other than your organization in your Terraform code. Refer to the [`chainguard_group` resource documentation](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/group) for more information.
+
 ### Defining local values
 
 The Terraform configuration language allows you to define *local values* which assign a name to a given expression. This allows you to reference the name of a local value multiple times throughout a Terraform configuration rather than repeating the expression each time. As an example, this section will outline how to define a local variable representing the ID of a Chainguard organization.
@@ -102,7 +104,7 @@ Throughout your Terraform code, you can refer to this value as `local.org_id`. I
 
 ### Using data sources
 
-*Data sources* allow Terraform to access and use information that was defined outside of a Terraform configuration. The available data sources for Chainguard resources are [groups](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/group), [identities](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/identity), and [roles](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/role).
+*Data sources* allow Terraform to access and use information that was defined outside ofWe'll outline two ways to define this kind of reference: using local values and data sources. a Terraform configuration. The available data sources for Chainguard resources are [groups](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/group), [identities](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/identity), and [roles](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/role).
 
 If you know the exact name of your organization's group, you can use a data resource to query the API for it:
 
@@ -114,7 +116,7 @@ data "chainguard_group" "org" {
 }
 ```
 
-To refer to the organization's ID in other parts of your Terraform configuration, you would use the reference `data.chainguard_group.org.id`. The rest of the examples in this post will use this for referring to the organization's ID.
+To refer to the organization's ID in other parts of your Terraform configuration, you would use the reference `data.chainguard_group.org.id`. The rest of the examples in this document will use this for referring to the organization's ID.
 
 
 ## Managing users
