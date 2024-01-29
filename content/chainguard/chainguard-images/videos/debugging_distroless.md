@@ -65,7 +65,7 @@ Basically what's happened is it's side loaded a Nix environment into the contain
 
 And from here I can install tools to debug things.
 
-It also has a linten tool to check the entry point.
+It also has a linting tool to check the entry point.
 
 So you can see the entry point here is fine.
 
