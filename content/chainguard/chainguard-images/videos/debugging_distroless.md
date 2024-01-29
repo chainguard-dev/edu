@@ -71,7 +71,7 @@ So you can see the entry point here is fine.
 
 It does have editors, et cetera.
 
-I believe ping is here.
+I believe `ping` is here.
 
 Yep.
 
