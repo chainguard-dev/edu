@@ -55,7 +55,7 @@ So the only way to debug this container at the minute is from the outside, if yo
 
 Or is it?
 
-Because with Docker 4.27, I now have this debug command.
+Because with Docker 4.27, I now have this `debug` command.
 
 So if I run Docker debug debug test, this is what happens.
 
