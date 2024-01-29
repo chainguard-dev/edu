@@ -79,7 +79,7 @@ So what can we do?
 
 We can also look at the container file system and edit it live.
 
-So for example, if I do /etc/nginx, and autocomplete works, and here's the default conf, and there's the location of the nginx files.
+So for example, if I do `/etc/nginx`, and autocomplete works, and here's the default conf, and there's the location of the nginx files.
 
 So let's take a look at these nginx files.
 
