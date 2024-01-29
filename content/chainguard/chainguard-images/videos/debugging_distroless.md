@@ -19,7 +19,7 @@ toc: true
 
 ## Tools used in this video
 
-* [Docker Desktop](https://docker.com) Note a paid subscription is required)
+* [Docker Desktop](https://docker.com) (Note a paid subscription is required.)
 
 ## Transcript
 
