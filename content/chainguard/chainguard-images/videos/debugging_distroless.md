@@ -39,7 +39,7 @@ Now that should be running in the background, so if I switch to my browser and w
 
 So say I want to debug this nginx container, say it's not displaying the right content or it can't reach another container, something like that.
 
-So typically what you might want to do is use docker exec to get a shell into the container.
+So typically what you might want to do is use `docker exec` to get a shell into the container.
 
 But if I try to run bash, I get told there is no bash, and I get told there is no sh.
 
