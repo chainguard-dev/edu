@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the external-secrets Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-27 00:18:33
+lastmod: 2024-01-29 00:20:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 26th | `sha256:08855b84ee91b1088875481430e3a63e4cee4b80a2fa9300408888671aa0e174` |
+|  `latest-dev` | January 28th | `sha256:8fa879d2ff9cb379f6db8f6c7ed6c6e7b8066e08765752b144c39732f1e8bf05` |
 |  `latest`     | January 26th | `sha256:e714d72c91a24b15890dfb3b1c7564cd176311b68df6b72cc0726e4cc3d8eea1` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the consul Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-27 00:18:33
+lastmod: 2024-01-29 00:20:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | January 26th | `sha256:d7180b99df9f5bca165ddaf1ca8c90e61a8ba729bb2be160817f952ca77813dc` |
-|  `latest-dev` | January 26th | `sha256:d1c8183c9ae1048f84ae05b128b42e12b1fb9a9a9faef9fff4b45361204acdcf` |
+|  `latest-dev` | January 28th | `sha256:6b12e79188b0f1ee2d1094f206768fcd03a53e8b68067aa6d4c6135cbee1882b` |
+|  `latest`     | January 28th | `sha256:5f096e836fce4f37f897c5d78426870919349f40249d71357e45e48ca66c61f1` |
 

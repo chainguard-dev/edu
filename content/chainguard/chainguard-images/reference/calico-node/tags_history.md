@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-node Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-27 00:18:33
+lastmod: 2024-01-29 00:20:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | January 26th | `sha256:ba226265022af4947d59beddae0f2db1b8ba73401f17d8186e62d51121e6e389` |
+|  `latest` | January 28th | `sha256:b1e16ea3ea96b68d2a78b09db2cdc445240678d8be336773f58b4950b4ec8b12` |
 

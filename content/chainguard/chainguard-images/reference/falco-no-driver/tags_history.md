@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falco-no-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-24 00:37:09
+lastmod: 2024-01-29 00:20:11
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 23rd | `sha256:8ae821e09b650ef170f6fa33dccc78fa51db2a77a5162dc27618dcd60ad1ed79` |
-|  `latest`     | January 14th | `sha256:5d08d35e893491d9b155e8868267c30877d218ac4dec6de095e761a743e37245` |
+|  `latest-dev` | January 28th | `sha256:b4d89e5df85cd26e93e2d4c37ff796135de17db7195c425fd930102fc06382a2` |
+|  `latest`     | January 28th | `sha256:004ebea19fb650087d3ca09245a433dcd039300af4a1ebbea7f3a5604c12abe6` |
 
