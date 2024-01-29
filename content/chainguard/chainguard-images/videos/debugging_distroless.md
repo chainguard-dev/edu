@@ -5,7 +5,7 @@ lead: ""
 description: "How to use the Docker Debug feature to debug Distroless and minimal containers"
 type: "article"
 date: 2024-01-26T01:21:01+00:00
-lastmod: 2024-01-26T15:21:01+00:00
+lastmod: 2024-01-29T15:21:01+00:00
 draft: false
 images: []
 menu:
@@ -23,7 +23,7 @@ toc: true
 
 ## Transcript
 
-Hey folks, I wanted to record a short video explaining how you can debug container images, even distreless ones.
+Hey folks, I wanted to record a short video explaining how you can debug container images, even distroless ones.
 
 One of the problems with distroless images is that they can be difficult to debug.
 
