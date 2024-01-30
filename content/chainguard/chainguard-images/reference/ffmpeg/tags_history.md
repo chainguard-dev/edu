@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ffmpeg Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-29 00:20:11
+lastmod: 2024-01-30 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 28th | `sha256:a65fcc82e8f6c413b1837a110d67de6790358ac21d7875a642b16d8cb8aef24f` |
-|  `latest`     | January 28th | `sha256:b7f3ec07f759a3ab2c9c89e1ff3d764d52fe7c051cfd8182b7a1daca53cd4029` |
+|  `latest`     | January 29th | `sha256:6f53a4e94cd1a6f058267407e221e8c0ad8e2f381afbd90fcaa1d14a1446ff66` |
+|  `latest-dev` | January 29th | `sha256:3accbcd7c8305333a45785c7cb87cfdac060449dbfcfebb34be0bf8c83cf26ab` |
 

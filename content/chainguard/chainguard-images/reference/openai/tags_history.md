@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the openai Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-29 00:20:11
+lastmod: 2024-01-30 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | January 28th | `sha256:9120ca0d75902ff860cf398276fd9c047795cec8723d8e9c1213ce5936ddaf7f` |
-|  `latest-dev` | January 28th | `sha256:306cb382becfafdf958827af9b32b494859d8783cf4f1459c69f69335b24ebe9` |
+|  `latest`     | January 29th | `sha256:f2c45f49db5dce49f4f1161c67682ca7b587019ab71cc493de669808477240c0` |
+|  `latest-dev` | January 29th | `sha256:31ad4e9e70675656b2b01623c83ddd2290f24886160af17bfd33ab0a4102b498` |
 
