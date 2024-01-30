@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ntia-conformance-checker Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-29 00:20:11
+lastmod: 2024-01-30 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 28th | `sha256:ac6b1264131f7d808cb5eaff530b484d56563fa43713f7db4ad64cf2ca0afc78` |
-|  `latest`     | January 28th | `sha256:262b7d9b52eeaf6f7d07e9a71726fbc19c886c5011c0b60cb6a43dca61bf444f` |
+|  `latest`     | January 29th | `sha256:84120f8968d0e4940a513844730d4806591f4ee157ffa0e0f5eddf430e3145e1` |
+|  `latest-dev` | January 29th | `sha256:5c298fc65dcfc2e5a0a7d39bdba2fbed680a322d54c5f416de82ae681f541fe8` |
 
