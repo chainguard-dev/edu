@@ -1,3 +1,55 @@
+# 2024-01-30
+
+
+Updated Docs:
+
+- cassandra-reaper/image_specs.md
+- cassandra-reaper/tags_history.md
+- cert-manager-acmesolver/tags_history.md
+- cert-manager-cainjector/tags_history.md
+- cert-manager-cmctl/tags_history.md
+- cert-manager-controller/tags_history.md
+- cert-manager-webhook/tags_history.md
+- conda/tags_history.md
+- dask-gateway-server/tags_history.md
+- ffmpeg/tags_history.md
+- git/tags_history.md
+- google-cloud-sdk/tags_history.md
+- guacamole-server/tags_history.md
+- haproxy-ingress/tags_history.md
+- ingress-nginx-controller/tags_history.md
+- kube-logging-operator-fluentd/tags_history.md
+- kubeflow-jupyter-web-app/tags_history.md
+- kubeflow-katib-earlystopping-medianstop/tags_history.md
+- kubeflow-katib-suggestion-darts/tags_history.md
+- kubeflow-katib-suggestion-hyperband/tags_history.md
+- kubeflow-katib-suggestion-hyperopt/tags_history.md
+- kubeflow-katib-suggestion-optuna/tags_history.md
+- kubeflow-katib-suggestion-pbt/tags_history.md
+- kubeflow-katib-suggestion-skopt/tags_history.md
+- kubeflow-pipelines-api-server/tags_history.md
+- kubeflow-pipelines-frontend/tags_history.md
+- kubeflow-pipelines-metadata-envoy/image_specs.md
+- kubeflow-pipelines-metadata-envoy/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- kubeflow-volumes-web-app/tags_history.md
+- kubernetes-event-exporter/tags_history.md
+- management-api-for-apache-cassandra/tags_history.md
+- newrelic-infrastructure-bundle/tags_history.md
+- newrelic-kubernetes/tags_history.md
+- ntia-conformance-checker/tags_history.md
+- openai/tags_history.md
+- pgbouncer/tags_history.md
+- prometheus-alertmanager/tags_history.md
+- proxysql/tags_history.md
+- r-base/tags_history.md
+- redis-sentinel/tags_history.md
+- semgrep/tags_history.md
+- skaffold/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- tomcat/tags_history.md
+- wavefront-proxy/tags_history.md
+
 # 2024-01-29
 New images added:
 

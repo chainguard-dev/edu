@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-29 00:20:11
+lastmod: 2024-01-30 00:32:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16` `0` `latest` `0.16.0`                 | January 28th | `sha256:5bb5279257354d5c963cee53091d7e100ac58e0ed6c9fee9b8b59edd46442d96` |
-|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | January 28th | `sha256:3757da19d2871a1f5b499922e70967737d7d0547dcb5bb7c62b5ca7e22d8c9b0` |
+|  `0` `latest` `0.16.0` `0.16`                 | January 29th | `sha256:2cdf7673333ff9975399e7ef88445a1bf72fbb6495013dd2623a157841a2721f` |
+|  `0-dev` `0.16.0-dev` `latest-dev` `0.16-dev` | January 29th | `sha256:4117241184b78d171b8be23728db6d2724a8dea1a29d698ef98712b0ecb6f69a` |
 
