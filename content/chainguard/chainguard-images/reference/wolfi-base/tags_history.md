@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wolfi-base Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-26 00:21:35
+lastmod: 2024-01-31 00:17:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | January 25th | `sha256:af8a06428ec2679884374891296754df12d5247ccaf95d2cc5d844d915a2218f` |
+|  `latest` | January 30th | `sha256:170743b2ef944a17b8002e03aac32019aae6b370401b38e99288cfaac6d1ef70` |
 

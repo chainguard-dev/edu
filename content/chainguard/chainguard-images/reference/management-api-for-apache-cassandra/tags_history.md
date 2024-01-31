@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-30 00:32:13
+lastmod: 2024-01-31 00:17:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 29th | `sha256:866fd449bd518b09145bdaebb408cdedb71fd900ff725db7cd491c8d305f6cd4` |
-|  `latest`     | January 29th | `sha256:ce45f4fa166c81eec95521ed623d50f5d1a44d2e23b6df459953e4b634906163` |
+|  `latest`     | January 30th | `sha256:8759f8f851a26bd4456014cb7e4b4c7476cfb0f6a1e71b1754a24930a732c4e9` |
+|  `latest-dev` | January 30th | `sha256:fe99275b84c479084cb44287d581bda65140add99b39e9da7478bc6019e15a34` |
 
