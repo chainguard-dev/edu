@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the melange Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-29 00:20:11
+lastmod: 2024-01-31 00:17:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | January 30th | `sha256:a979e043ddcc579acfb566c215f6a1bcae13c593f0ec3b454b0d581dfedc9989` |
 |  `latest`     | January 28th | `sha256:4b16b9bfad5b68b765e5247bc8890ac9792b2f57880442f4927661f7f39e45c0` |
-|  `latest-dev` | January 28th | `sha256:84bd30df373314d5bed85d3adb3093636db3a630b9c61c4f8abf04f2d81083d6` |
 

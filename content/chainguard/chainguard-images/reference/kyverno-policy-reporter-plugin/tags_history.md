@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-policy-reporter-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-29 00:20:11
+lastmod: 2024-01-31 00:17:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 28th | `sha256:55337c71b99cd33e8e4c88d19722fa5a2eaecced3267d04ca5a0ed1245fd5a51` |
+|  `latest-dev` | January 30th | `sha256:e8f805a07159792379b385d19a19811f8daf0c3ed5a6e8acbca15f606a367485` |
 |  `latest`     | January 19th | `sha256:40ab9df5155544a0cd42d1056838fcf0483b80af7694ea7900b400c63e3470ba` |
 
