@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public fluentd Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-01-31 00:17:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -75,7 +75,6 @@ The table shows package distribution across variants.
 | `libidn2`                           | X          | X                 |               |        |
 | `libnghttp2-14`                     | X          | X                 |               |        |
 | `libpcre2-8-0`                      | X          | X                 |               |        |
-| `libpq-11`                          | X          | X                 | X             | X      |
 | `libpsl`                            | X          | X                 |               |        |
 | `libssl3`                           | X          | X                 | X             | X      |
 | `libstdc++`                         | X          | X                 |               |        |

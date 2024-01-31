@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-29 00:20:11
+lastmod: 2024-01-31 00:17:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 28th | `sha256:61686fed43c9f4f21be5bb14e7f0366b5d864cdfec7c577782d9124ae54bcbc0` |
+|  `latest-dev` | January 30th | `sha256:bc10a95da2381f98f380b0c25c6bbf0ff96541a77bca1a58a4e4090bb9442d34` |
 |  `latest`     | January 14th | `sha256:4a882dc413b700eed8b64d898d10a16b1c6f7a0029186b94250eba8e09da8897` |
 

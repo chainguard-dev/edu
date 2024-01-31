@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jdk Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-29 00:20:11
+lastmod: 2024-01-31 00:17:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 28th | `sha256:6722e229d1449059c52acfaa1149387cad5cd21161307109705c251134060f6f` |
-|  `latest`     | January 25th | `sha256:fbc931d2c6033d87307f397b7e148237b5991cc3054a1851e977fca906575c46` |
+|  `latest-dev` | January 30th | `sha256:81d096deada6e8d0e654a581c34a1d5e47e905da35b6c0e0f7e624b3076c3e78` |
+|  `latest`     | January 30th | `sha256:4e077b9079e56f041feb21940a9003f04c79808b23a9160866dd6ff08325443d` |
 
