@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the maven Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-29 00:20:11
+lastmod: 2024-01-31 00:17:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,10 +25,10 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                        | Last Changed | Digest                                                                    |
 |--------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `openjdk-17-dev` | January 28th | `sha256:cc264b5d1494cb7f5dd574c9b4509d47c7d989a39f258f01c4a75bf9175069bb` |
-|  `openjdk-11-dev`              | January 28th | `sha256:8c9345cb870c01953161f1bf5a96afffe1f7af8eab0bc8fea718f8225e634a31` |
-|  `openjdk-21-dev`              | January 28th | `sha256:8d98723755762283cb7e9295f9c9414b1f6d8ce4f0ffe5fb7bb1d6f36e0f8a44` |
-|  `openjdk-17` `latest`         | January 25th | `sha256:b530d13de88837043447a54cfebe509f1f773054bad4173cc16cbbf4cf12e4f5` |
-|  `openjdk-11`                  | January 25th | `sha256:d714dffdcfb598567daffbb29e417eb429a11df44f8cbed9e694e0e08f0b36d1` |
-|  `openjdk-21`                  | January 25th | `sha256:a4c5e183845c104d3a229451b6149a303b87114a3aa7b1794ceae284f8dbfd9e` |
+|  `openjdk-17-dev` `latest-dev` | January 30th | `sha256:7c450d9c5a122bea4415d4f7c7bafaf7622ab9dbdbd9fc3833ed3c5bd42cd7de` |
+|  `latest` `openjdk-17`         | January 30th | `sha256:07f443e6891ba8168dbf7aa51aed16f29efab11b90674d0962c5f6deba2d5095` |
+|  `openjdk-11`                  | January 30th | `sha256:5a677d2afce1752d8342fa95145c8562e4dbcbf9e7d9972b0ff1ac8288ed12ac` |
+|  `openjdk-11-dev`              | January 30th | `sha256:3e4cbca0d5e9135e6258a2f2df57e1ac5de8456c2843c111ee117f5faaedac32` |
+|  `openjdk-21-dev`              | January 30th | `sha256:4c639c324af5a76bf736bbcf4f482e3e760aede7d25ee032f279480f8c204ac4` |
+|  `openjdk-21`                  | January 30th | `sha256:4742b1645d0da14c664af1a8481ab53e26c059098b6437879f705f3a0742fec5` |
 

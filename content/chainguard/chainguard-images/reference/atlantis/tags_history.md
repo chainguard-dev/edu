@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the atlantis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-29 00:20:11
+lastmod: 2024-01-31 00:17:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 28th | `sha256:97363b8bd71604d4b5b5fe005421dcb2d1a5bb27fe60ca8578445e3ae5a3c110` |
-|  `latest`     | January 28th | `sha256:2cfbb1e3c14b0ffec8651c2c619c7f73a80706006b6a6d2ed9baafa81d2aaadf` |
+|  `latest`     | January 30th | `sha256:0c4e2f583836434413e2a0066dd6759eb09d958471325ccfe49edc3527ce8bae` |
+|  `latest-dev` | January 30th | `sha256:8edf1d7aa6573e67773fc8d4a1fa6becf96c2b569f2f0546b64a7cc0cd36792b` |
 

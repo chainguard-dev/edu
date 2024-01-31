@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault-k8s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-29 00:20:11
+lastmod: 2024-01-31 00:17:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 28th | `sha256:230505bb7461cbc9e79f074ca5ab879cca9bf5d7ded3e096b0f903a2c148bd9b` |
+|  `latest-dev` | January 30th | `sha256:0b8c6d1c2c717bbc7c9f6313423bb82a6a8306cfdac6bb3179eb81fa39a9f9a7` |
 |  `latest`     | January 28th | `sha256:2c52ca71cf0348bc91666d285ef2df0b6193dcc9a05c3a9442c39939725345e0` |
 

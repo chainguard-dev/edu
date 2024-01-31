@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public aws-for-fluent-bit Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-01-31 00:17:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -60,7 +60,7 @@ The table shows package distribution across variants.
 | `libcap`                    | X      |
 | `libcrypto3`                | X      |
 | `libgcc`                    | X      |
-| `libpq-11`                  | X      |
+| `libpq-16`                  | X      |
 | `libssl3`                   | X      |
 | `libsystemd`                | X      |
 | `openssl-config`            | X      |

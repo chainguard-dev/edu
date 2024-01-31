@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-30 00:32:13
+lastmod: 2024-01-31 00:17:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,12 +25,12 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-glibc-dev`      | January 30th | `sha256:7879e6b31d890c7b863bdb5e5ff28afcc03918150daac032bc386289bf9748c3` |
+|  `latest-glibc`          | January 30th | `sha256:a284b7e52c43ee0280518382d35925bb46fc7686d6d8fcc4034a9537f58adac9` |
+|  `latest-glibc-root`     | January 30th | `sha256:f951fa5278332bd70ec73626c783204690bb3d1a219e317d09e63d725cc42b4a` |
+|  `latest-glibc-root-dev` | January 30th | `sha256:b69d54de1c394412351124eae430488d35896071d1ba5975edef68b9a3e5ff56` |
 |  `latest-root`           | January 29th | `sha256:0d917ad2b1e2eedcdf25e095a8541b5028b5637b4ec49cad71e2fc367902e4ea` |
 |  `latest-root-dev`       | January 29th | `sha256:13f72a7c0a438cf3ceb3465ad04a3c00b82af8e4b24aefc7bcab81bb83bc2a82` |
 |  `latest-dev`            | January 29th | `sha256:6289141e25c230cd0254c63775a356aa9681b1707dac11663578feaa980ef6f8` |
 |  `latest`                | January 29th | `sha256:90309c42b743e04661564d088a3303cc909d2461837ed6b03fb3c102a8487e05` |
-|  `latest-glibc-root-dev` | January 28th | `sha256:9323621c55aaa0941dc74396f8ef0217dc677a20d946fc68f297acbb75b565d9` |
-|  `latest-glibc`          | January 28th | `sha256:70cdc89ed56c37ae98b248167395a7a7683ebe17a216acdfef598556a0744252` |
-|  `latest-glibc-dev`      | January 28th | `sha256:c77107f4149f06d84d6633b404596ace00fb0021032d203402bf94593d9f9cda` |
-|  `latest-glibc-root`     | January 28th | `sha256:d55730d5372791244d3bbd345a8c32cf8ec53f7024deac9207409b27fc10e760` |
 

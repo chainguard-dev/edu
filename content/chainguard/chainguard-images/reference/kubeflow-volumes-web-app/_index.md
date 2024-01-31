@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: kubeflow-volumes-web-app Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2024-01-31 00:17:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -42,7 +42,7 @@ docker pull cgr.dev/chainguard/kubeflow:latest
 
 ## Usage
 
-There are kustomize files exist for deploying this image to a Kubernetes cluster in kubeflow official GitHub [repository](github.com/kubeflow/kubeflow/).
+There are kustomize files exist for deploying this image to a Kubernetes cluster in kubeflow official GitHub [repository](https://github.com/kubeflow/kubeflow/).
 
 All you need to do is issuing the following commands:
 
