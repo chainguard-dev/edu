@@ -1,35 +1,46 @@
 /*
-Copyright 2023 Chainguard, Inc.
+Copyright 2024 Chainguard, Inc.
 SPDX-License-Identifier: Apache-2.0
 */
 
-package main
+package cmd
 
 import (
 	"context"
-	"encoding/csv"
 	"encoding/json"
 	"fmt"
-	"os"
 
 	"cloud.google.com/go/storage"
+	"github.com/chainguard-dev/edu/tools/rumble/pkg/grype"
+	"golang.org/x/oauth2/google"
 	"golang.org/x/sync/errgroup"
+	"google.golang.org/api/option"
 )
 
-type gcsClient struct {
+type GcsClient struct {
 	Client *storage.Client
 	Ctx    context.Context
+	Bucket string
 }
 
-func NewGcsClient() (g gcsClient, err error) {
-	g.Ctx = context.Background()
-	if g.Client, err = storage.NewClient(g.Ctx); err != nil {
+func NewGcsClient(project, bucket string) (g GcsClient, err error) {
+	ctx := context.Background()
+	creds, err := google.FindDefaultCredentials(ctx)
+	if err != nil {
 		return g, err
 	}
+	creds.ProjectID = project
+
+	g.Ctx = context.Background()
+	if g.Client, err = storage.NewClient(g.Ctx, option.WithCredentials(creds)); err != nil {
+		return g, err
+	}
+	g.Bucket = bucket
 	return g, nil
 }
 
-func (g *gcsClient) saveJSON(vulns []vuln) error {
+// this should live over in vulns.go and be a vulnsJson method
+func (g *GcsClient) SaveVulnJSON(vulns []grype.Vuln) error {
 	eg := new(errgroup.Group)
 	fmt.Printf("Found %d vulnerabilities\n", len(vulns))
 	eg.SetLimit(50)
@@ -42,7 +53,7 @@ func (g *gcsClient) saveJSON(vulns []vuln) error {
 			}
 
 			fName := fmt.Sprintf("vulnerability-info/%s.json", vulnerability.Id)
-			bkt := g.Client.Bucket("chainguard-academy")
+			bkt := g.Client.Bucket(g.Bucket)
 			obj := bkt.Object(fName)
 
 			w := obj.NewWriter(g.Ctx)
@@ -73,29 +84,18 @@ func (g *gcsClient) saveJSON(vulns []vuln) error {
 	return nil
 }
 
-// unused, but can print a csv to stdout if needed
-func printRecords(records []interface{}, queryType string) error {
-	w := csv.NewWriter(os.Stdout)
+func (g *GcsClient) GetCsvWriter(fName string) (*storage.Writer, error) {
+	bkt := g.Client.Bucket(g.Bucket)
+	obj := bkt.Object(fName)
 
-	for _, r := range records {
-		var s []string
-		switch queryType {
-		case scanQueryType:
-			s = append(s, r.(*scan).Image, r.(*scan).Scanner)
-		case cveQueryType:
-			s = append(s, r.(*cve).Vulnerability)
-		}
-		if err := w.Write(s); err != nil {
-			return fmt.Errorf("error writing record to csv: %v", err)
-		}
+	w := obj.NewWriter(g.Ctx)
+	w.ContentType = "text/csv"
+	w.CacheControl = "public, max-age=60"
+	w.ACL = []storage.ACLRule{
+		{
+			Entity: storage.AllUsers,
+			Role:   storage.RoleReader,
+		},
 	}
-
-	// Write any buffered data to the underlying writer (standard output).
-	w.Flush()
-
-	if err := w.Error(); err != nil {
-		return fmt.Errorf("%v", err)
-	}
-
-	return nil
+	return w, nil
 }
