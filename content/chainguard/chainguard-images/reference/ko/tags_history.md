@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ko Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-31 00:17:29
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | January 30th | `sha256:21c43dd51bb5a54c62fa616f77bde59a6db8c4c3e738308cac342562e2c70c97` |
+|  `latest` | January 31st | `sha256:960a1cfe076db5ecb92b176c2e44dbc2441cc7a6ce49980085e71f7062364ab6` |
 

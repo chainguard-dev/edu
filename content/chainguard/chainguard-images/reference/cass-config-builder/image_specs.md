@@ -3,8 +3,8 @@ title: "cass-config-builder Image Variants"
 type: "article"
 unlisted: true
 description: "Detailed information about the public cass-config-builder Chainguard Image variants"
-date: 2024-01-18 00:19:12
-lastmod: 2024-01-18 00:19:12
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,62 +45,30 @@ The table shows package distribution across variants.
 
 |                          | latest-dev | latest |
 |--------------------------|------------|--------|
-| `alsa-lib`               | X          | X      |
 | `apk-tools`              | X          |        |
 | `bash`                   | X          | X      |
 | `busybox`                | X          | X      |
-| `ca-certificates`        | X          | X      |
 | `ca-certificates-bundle` | X          | X      |
 | `cass-config-builder`    | X          | X      |
-| `freetype`               | X          | X      |
-| `giflib`                 | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |
-| `java-cacerts`           | X          | X      |
-| `java-common`            | X          | X      |
-| `keyutils-libs`          | X          | X      |
-| `krb5-conf`              | X          | X      |
-| `krb5-libs`              | X          | X      |
-| `lcms2`                  | X          | X      |
 | `ld-linux`               | X          | X      |
-| `libbrotlicommon1`       | X          | X      |
-| `libbrotlidec1`          | X          | X      |
-| `libbz2-1`               | X          | X      |
-| `libcom_err`             | X          | X      |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
 | `libcrypt1`              | X          | X      |
-| `libcrypto3`             | X          | X      |
+| `libcrypto3`             | X          |        |
 | `libcurl-openssl4`       | X          |        |
 | `libexpat1`              | X          |        |
-| `libffi`                 | X          | X      |
-| `libgcc`                 | X          | X      |
 | `libidn2`                | X          |        |
-| `libjpeg-turbo`          | X          | X      |
 | `libnghttp2-14`          | X          |        |
 | `libpcre2-8-0`           | X          |        |
-| `libpng`                 | X          | X      |
 | `libpsl`                 | X          |        |
-| `libssl3`                | X          | X      |
-| `libstdc++`              | X          | X      |
-| `libtasn1`               | X          | X      |
+| `libssl3`                | X          |        |
 | `libunistring`           | X          |        |
-| `libverto`               | X          | X      |
-| `libx11`                 | X          | X      |
-| `libxau`                 | X          | X      |
-| `libxcb`                 | X          | X      |
-| `libxcomposite`          | X          | X      |
-| `libxdmcp`               | X          | X      |
-| `libxext`                | X          | X      |
-| `libxi`                  | X          | X      |
-| `libxrender`             | X          | X      |
-| `libxtst`                | X          | X      |
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
-| `openjdk-8-default-jvm`  | X          | X      |
-| `openjdk-8-jre`          | X          | X      |
-| `openssl-config`         | X          | X      |
-| `p11-kit`                | X          | X      |
-| `p11-kit-trust`          | X          | X      |
+| `openssl-config`         | X          |        |
 | `wolfi-baselayout`       | X          | X      |
-| `zlib`                   | X          | X      |
+| `zlib`                   | X          |        |
 
