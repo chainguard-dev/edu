@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-messaging-topology-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-29 00:20:11
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 28th  | `sha256:66b57406ebd3e98b95fa30da609d0eba946379aecc0790728361f6766f50e938` |
-|  `latest`     | December 31st | `sha256:963b68b949e58d5ffd3c576089590d11ad9ed8d00df8f838167ec07712b5ca81` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | January 31st | `sha256:7ed4850d3f9a1dcc77d0a0878282d79f16c5e6ed22d2af10c77ac7489732d68d` |
+|  `latest-dev` | January 31st | `sha256:4c534a583d15f98a5ef807ef434b03d8021e74268c10b3aa0720863baf512749` |
 

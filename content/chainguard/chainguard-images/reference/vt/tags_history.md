@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-31 00:17:29
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 30th | `sha256:0875eda96a990291e78e72e32878385e45b919e939a14fb90913ad21d826b5c3` |
-|  `latest`     | January 13th | `sha256:08795039285e06dfae6dc8af3606bc0940d20a2969e609d9733de3b94aa08e80` |
+|  `latest-dev` | January 31st | `sha256:e619a8d109214cce39e45c9a5efa5852dbe1fe19f7dba1d110c1c42d8c998b57` |
+|  `latest`     | January 31st | `sha256:b6f355d2686e571da116d7ff04f999b6311d45048615ae8d1eb15f547d3f95bf` |
 

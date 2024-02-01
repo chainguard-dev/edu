@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public http-echo Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ The **http-echo** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev    | latest        |
-|--------------|---------------|---------------|
-| Default User | `nonroot`     | `nonroot`     |
-| Entrypoint   | `/http-echo`  | `/http-echo`  |
-| CMD          | not specified | not specified |
-| Workdir      | not specified | not specified |
-| Has apk?     | yes           | no            |
-| Has a shell? | yes           | no            |
+|              | latest-dev           | latest               |
+|--------------|----------------------|----------------------|
+| Default User | `nonroot`            | `nonroot`            |
+| Entrypoint   | `/usr/bin/http-echo` | `/usr/bin/http-echo` |
+| CMD          | not specified        | not specified        |
+| Workdir      | not specified        | not specified        |
+| Has apk?     | yes                  | no                   |
+| Has a shell? | yes                  | no                   |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/http-echo/tags_history/) for the full list of available tags.
 

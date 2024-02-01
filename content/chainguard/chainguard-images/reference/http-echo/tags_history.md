@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the http-echo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-29 00:20:11
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | January 28th | `sha256:f0eb72681df2ebb478476b16b13010ce59cf5ccfc98b4d516cef28a8d50bd3ac` |
-|  `latest-dev` | January 28th | `sha256:ed7cd182703fa7d65c1a41e8d2854c4d1f5a425d394d65cc17c62bf4d002db8d` |
+|  `latest-dev` | January 31st | `sha256:a1ffbab1793d9007ae506870a123aaf59315c7ac82be2be2cc797bdd5d48f2b3` |
+|  `latest`     | January 31st | `sha256:4805d5a81368775b0db12dac883ce4d0b4cc042c4269b3c87eb819c838fafdc4` |
 

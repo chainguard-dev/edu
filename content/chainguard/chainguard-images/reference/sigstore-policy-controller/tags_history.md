@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-policy-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-31 00:17:29
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 30th | `sha256:2d8d32a9ebb3b68cc7eb61d3dbccd35fd054b0d0256c9679efa7c1cc65bcb694` |
+|  `latest-dev` | January 31st | `sha256:361b1f0fa3d504b7d519a9e34db9a8162a5c7f8f908c783c7d872c435ab18353` |
 |  `latest`     | January 24th | `sha256:0ee10c91b16d5243f951659472f201a32bf6572b19a356772f843155778a5b45` |
 
