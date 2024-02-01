@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the clang Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-31 00:17:29
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 30th | `sha256:55246fa78df43742b455385ab5827292f6576c555422d016bbe6c1c1c8e10db6` |
-|  `latest`     | January 30th | `sha256:e4dd9caec2a5e4415713ce356d593be5d7292a5921281fa9034a4a685a8e7977` |
+|  `latest`     | January 31st | `sha256:ac08d5dcc4d87019845c9a69f63b6754d94ca45bcb9e9a3e64030072f78fcff3` |
+|  `latest-dev` | January 31st | `sha256:98c1595b8023846567bc00db83c2f369b83b5fb53cd66ad713a2085c52afae1d` |
 

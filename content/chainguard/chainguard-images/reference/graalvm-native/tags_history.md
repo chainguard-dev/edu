@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the graalvm-native Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-24 00:37:09
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | January 23rd | `sha256:1d1eb2c943ce77d1ecfbdd898da7d4ec0ca603ffdf0c9d957f483347100e6c3d` |
+|  `latest` | January 31st | `sha256:0ff6bd270d76906def4b960d9083450886d8977c19cf79cb6c5d0c5590ff887e` |
 

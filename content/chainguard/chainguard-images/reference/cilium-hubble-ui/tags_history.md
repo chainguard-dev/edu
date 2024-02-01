@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-31 00:17:29
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 30th | `sha256:a19a44b0a9b7595b1506284ecfcb3758de19362432dbe9d7b5823fe6eb9c1fbb` |
-|  `latest`     | January 30th | `sha256:1f457aa8b6094eb661e9ce20f6c7d328c5bdc0897008a379a5f31a92bb0323a8` |
+|  `latest-dev` | January 31st | `sha256:1684622f05b2bdecd886f8fa6fa9f320b9d31f8eeee5f9f4c4ec58651aa850eb` |
+|  `latest`     | January 31st | `sha256:33c0f77ed63b994a613e2d7da3565062d6b2a6261b39fbea05a610f5dcedd863` |
 
