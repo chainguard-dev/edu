@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the boring-registry Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-31 00:17:29
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 30th | `sha256:06d938913957732de250f9f5e88f3f4bbc9b8464fdfad544968bca5e4371543a` |
-|  `latest`     | January 13th | `sha256:0bd8acbdd83300f02af40b04836e15b825e5620c098586b04b06403ed499f5b3` |
+|  `latest`     | January 31st | `sha256:4bd2d7767f47487b553198cfd2d3384a53e09569a72aa2d8319618fbc597ba0b` |
+|  `latest-dev` | January 31st | `sha256:a90741977be2f87ad3384b555175bd7b6d637a67475a7447c17598dea050cdd5` |
 

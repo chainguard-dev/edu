@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubewatch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-31 00:17:29
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 30th | `sha256:1199c4607347e64f34d692350399d796c30fabb5e71b009894482c2e2267e163` |
-|  `latest`     | January 13th | `sha256:9a78547bfd55abc2c07bb686ef25453d3a4b3d79b4ce21ff8f03f176c8b37245` |
+|  `latest`     | January 31st | `sha256:406a7239cc74c50bebf3304ad541c9b7a37ae4a2cb9708f34a95f03cfcd8bd77` |
+|  `latest-dev` | January 31st | `sha256:fe83d6ad65fc6385413fb229822ca030a121dc1ac53e8c4c8cc06611bdd6718a` |
 

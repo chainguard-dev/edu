@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bun Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-31 00:17:29
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 30th | `sha256:837fa106403425e7b7d4bcd2c19bcd6913f6627ce66ccedb1cfeca4cd0991409` |
-|  `latest`     | January 22nd | `sha256:20dfc90524738526b92e142c884184eefa97c8a447f55f12382598875ae17196` |
+|  `latest`     | January 31st | `sha256:cc270f495f69af1820309dd709a091b60f631549eb5571c35767a72a9820eb76` |
+|  `latest-dev` | January 31st | `sha256:d62420e4fa66643b6ffd064f521488289eb39ad6c371fe6bebea523a7a38c5d1` |
 

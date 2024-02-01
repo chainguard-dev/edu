@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the minio-client Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-31 00:17:29
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)               | Last Changed | Digest                                                                    |
 |-----------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` | January 30th | `sha256:38d32ccd9e17d7b74e5e9740ddad19d2f6d08cdf31c7215b4e0652a6a7701127` |
-|  `0` `latest`         | January 26th | `sha256:d46364960f69277d21b1762ddd12d0273408260db1445102c4b35a8e26bdfa1d` |
+|  `latest-dev` `0-dev` | January 31st | `sha256:6871c846823f1f78ced802af634b08387668fd2f98f7430a13ed682b8ee71b1f` |
+|  `0` `latest`         | January 31st | `sha256:6751b17797456eedd7bd04376d04727564f03ff5fc97766d9f4a3d4422b3e86b` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-31 00:17:29
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 30th | `sha256:4602c33d6d2c21f20add7782fb7ef7c5171cccbcf2c4343e1595e47862db33bc` |
-|  `latest`     | January 30th | `sha256:ebc04f7e8b5199f713b5870b3876c08855bc00fb06945fb6ea5c171c34dd2ea9` |
+|  `latest`     | January 31st | `sha256:366f315c805dd46efacbadb3ba39290185d80ddb7b4aaab0fdfd1fe8ba084568` |
+|  `latest-dev` | January 31st | `sha256:7effbe08eefed4aa708a5bd09e7731435e7c7b97e94c59e06f8f8d7803871fb7` |
 

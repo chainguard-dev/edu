@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-k8s-events-forwarder Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-31 00:17:29
+lastmod: 2024-02-01 00:31:15
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | January 30th | `sha256:7cf6fc4396a0efc099a04694ad2593f3599352a09abea9cf3ee1fbb10309499d` |
-|  `latest-dev` | January 30th | `sha256:f3bd176cafde0de0d8da2fd449a5b8dd72946876855dd94008988d0efb8eea2b` |
+|  `latest-dev` | January 31st | `sha256:86e175f3dadd3f4614b03db6bea4ed927b4dcd77d94dc92e37af80abe824ba0c` |
+|  `latest`     | January 31st | `sha256:8aa2fd3f78f0712d918f45920039959c296ecb0b013f3dd40de732a637e37cf2` |
 
