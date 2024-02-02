@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-sentinel-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-01 00:31:15
+lastmod: 2024-02-02 00:19:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | January 31st | `sha256:a593f3288ee5632170ff21d5d41b0b88b46c83415b3687ef54996d19639c7bc4` |
-|  `latest-dev` | January 31st | `sha256:1d5b1ac91161fdc4f03e52fdb547c67fbe5a0835c44545d18146891d8c597d40` |
+|  `latest`     | February 1st | `sha256:5a53d4150c6a242b91b0075d963e4c4f416fc3e1ba5bb48968bf5a544b7cb4e0` |
+|  `latest-dev` | February 1st | `sha256:c79da87f58e22d0761e69106565f700b300f9c7e245f8548112a06dc4f28559a` |
 

@@ -1,3 +1,67 @@
+# 2024-02-02
+
+
+Updated Docs:
+
+- argocd-repo-server/tags_history.md
+- atlantis/tags_history.md
+- aws-load-balancer-controller/tags_history.md
+- busybox/tags_history.md
+- cadvisor/tags_history.md
+- cass-config-builder/image_specs.md
+- cass-config-builder/tags_history.md
+- cassandra/image_specs.md
+- cassandra/tags_history.md
+- cassandra-reaper/tags_history.md
+- deno/tags_history.md
+- etcd/tags_history.md
+- flux-helm-controller/tags_history.md
+- flux-image-automation-controller/tags_history.md
+- flux-image-reflector-controller/tags_history.md
+- flux-kustomize-controller/tags_history.md
+- flux-notification-controller/tags_history.md
+- flux-source-controller/tags_history.md
+- git/tags_history.md
+- graalvm-native/tags_history.md
+- grype/tags_history.md
+- guacamole-server/image_specs.md
+- guacamole-server/tags_history.md
+- jenkins/tags_history.md
+- k3s/tags_history.md
+- k3s-allinone/tags_history.md
+- keda/tags_history.md
+- keda-adapter/tags_history.md
+- keda-admission-webhooks/tags_history.md
+- kubeflow-katib-earlystopping-medianstop/tags_history.md
+- kubeflow-katib-suggestion-darts/tags_history.md
+- kubeflow-katib-suggestion-hyperband/tags_history.md
+- kubeflow-katib-suggestion-hyperopt/tags_history.md
+- kubeflow-katib-suggestion-optuna/tags_history.md
+- kubeflow-katib-suggestion-pbt/tags_history.md
+- kubeflow-katib-suggestion-skopt/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- kubernetes-event-exporter/tags_history.md
+- management-api-for-apache-cassandra/image_specs.md
+- management-api-for-apache-cassandra/tags_history.md
+- mariadb/tags_history.md
+- minio/tags_history.md
+- minio-client/tags_history.md
+- newrelic-infrastructure-bundle/tags_history.md
+- ntpd-rs/tags_history.md
+- prometheus-alertmanager/image_specs.md
+- prometheus-alertmanager/tags_history.md
+- rabbitmq/tags_history.md
+- redis-cluster-bitnami/image_specs.md
+- redis-cluster-bitnami/tags_history.md
+- redis-sentinel-bitnami/image_specs.md
+- redis-sentinel-bitnami/tags_history.md
+- redis-server-bitnami/image_specs.md
+- redis-server-bitnami/tags_history.md
+- rqlite/tags_history.md
+- tekton-chains/tags_history.md
+- temporal-admin-tools/tags_history.md
+- temporal-server/tags_history.md
+
 # 2024-02-01
 
 
