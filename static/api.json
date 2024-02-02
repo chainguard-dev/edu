@@ -3982,19 +3982,6 @@
       "title": "Type",
       "type": "string"
     },
-    "VulnReportScanner": {
-      "properties": {
-        "name": {
-          "description": "name contains the vendor name of the scanner.",
-          "type": "string"
-        },
-        "version": {
-          "description": "version holds the version of the used scanner to generate the report.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "VulnerabilityRecordCvss": {
       "properties": {
         "score": {
@@ -5058,6 +5045,21 @@
       },
       "type": "object"
     },
+    "registryScannerMetadata": {
+      "properties": {
+        "digest": {
+          "type": "string"
+        },
+        "scanner": {
+          "$ref": "#/definitions/tenantScanner"
+        },
+        "vulnerabilityDbLastBuildTime": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "registryTag": {
       "properties": {
         "bundles": {
@@ -5141,6 +5143,12 @@
         "added": {
           "items": {
             "$ref": "#/definitions/registryVulnerabilityReference"
+          },
+          "type": "array"
+        },
+        "metadata": {
+          "items": {
+            "$ref": "#/definitions/registryScannerMetadata"
           },
           "type": "array"
         },
@@ -5847,6 +5855,19 @@
       },
       "type": "object"
     },
+    "tenantScanner": {
+      "properties": {
+        "name": {
+          "description": "name contains the vendor name of the scanner.",
+          "type": "string"
+        },
+        "version": {
+          "description": "version holds the version of the used scanner to generate the report.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "tenantVulnReport": {
       "properties": {
         "id": {
@@ -5869,7 +5890,7 @@
           "type": "string"
         },
         "scanner": {
-          "$ref": "#/definitions/VulnReportScanner",
+          "$ref": "#/definitions/tenantScanner",
           "description": "scanner contains some information about the scanner used to generate the report."
         },
         "vulnerabilityDbLastBuildTime": {

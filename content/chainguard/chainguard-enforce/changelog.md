@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2024-01-30 18:01:43 +0000 UTC
+date: 2024-02-02 18:05:09 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,12 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.221
+Release date: 2024-02-02
+#### Feature
+- Filter `chainctl image list` results using the `--repo=REPO_NAME` flag.
+
 
 ### v0.1.220
 Release date: 2024-01-30
