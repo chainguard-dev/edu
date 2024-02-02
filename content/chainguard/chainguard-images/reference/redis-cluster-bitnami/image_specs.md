@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public redis-cluster-bitnami Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-12 00:39:30
+lastmod: 2024-02-02 00:19:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -58,7 +58,6 @@ The table shows package distribution across variants.
 | `libattr1`                         | X          | X      |
 | `libbrotlicommon1`                 | X          |        |
 | `libbrotlidec1`                    | X          |        |
-| `libcrypt1`                        | X          | X      |
 | `libcrypto3`                       | X          | X      |
 | `libcurl-openssl4`                 | X          |        |
 | `libexpat1`                        | X          |        |

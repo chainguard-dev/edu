@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cassandra Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-02-02 00:19:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,7 +45,6 @@ The table shows package distribution across variants.
 
 |                          | latest-dev | latest |
 |--------------------------|------------|--------|
-| `alsa-lib`               | X          | X      |
 | `apk-tools`              | X          |        |
 | `bash`                   | X          | X      |
 | `busybox`                | X          | X      |
@@ -53,31 +52,26 @@ The table shows package distribution across variants.
 | `ca-certificates-bundle` | X          | X      |
 | `cassandra`              | X          | X      |
 | `cassandra-compat`       | X          | X      |
+| `fontconfig-config`      | X          | X      |
 | `freetype`               | X          | X      |
 | `gdbm`                   | X          | X      |
-| `giflib`                 | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |
 | `java-cacerts`           | X          | X      |
 | `java-common`            | X          | X      |
-| `keyutils-libs`          | X          | X      |
-| `krb5-conf`              | X          | X      |
-| `krb5-libs`              | X          | X      |
-| `lcms2`                  | X          | X      |
 | `ld-linux`               | X          | X      |
 | `libbrotlicommon1`       | X          | X      |
 | `libbrotlidec1`          | X          | X      |
 | `libbz2-1`               | X          | X      |
-| `libcom_err`             | X          | X      |
 | `libcrypt1`              | X          | X      |
 | `libcrypto3`             | X          | X      |
 | `libcurl-openssl4`       | X          |        |
 | `libexpat1`              | X          | X      |
 | `libffi`                 | X          | X      |
+| `libfontconfig1`         | X          | X      |
 | `libgcc`                 | X          | X      |
 | `libidn2`                | X          |        |
-| `libjpeg-turbo`          | X          | X      |
 | `libnghttp2-14`          | X          |        |
 | `libpcre2-8-0`           | X          |        |
 | `libpng`                 | X          | X      |
@@ -86,21 +80,12 @@ The table shows package distribution across variants.
 | `libstdc++`              | X          | X      |
 | `libtasn1`               | X          | X      |
 | `libunistring`           | X          |        |
-| `libverto`               | X          | X      |
-| `libx11`                 | X          | X      |
-| `libxau`                 | X          | X      |
-| `libxcb`                 | X          | X      |
-| `libxcomposite`          | X          | X      |
-| `libxdmcp`               | X          | X      |
-| `libxext`                | X          | X      |
-| `libxi`                  | X          | X      |
-| `libxrender`             | X          | X      |
-| `libxtst`                | X          | X      |
 | `mpdecimal`              | X          | X      |
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
-| `openjdk-8-default-jvm`  | X          | X      |
-| `openjdk-8-jre`          | X          | X      |
+| `openjdk-11-default-jvm` | X          | X      |
+| `openjdk-11-jre`         | X          | X      |
+| `openjdk-11-jre-base`    | X          | X      |
 | `openssl-config`         | X          | X      |
 | `p11-kit`                | X          | X      |
 | `p11-kit-trust`          | X          | X      |

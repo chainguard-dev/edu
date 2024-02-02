@@ -3,8 +3,8 @@ title: "management-api-for-apache-cassandra Image Variants"
 type: "article"
 unlisted: true
 description: "Detailed information about the public management-api-for-apache-cassandra Chainguard Image variants"
-date: 2024-01-29 00:20:11
-lastmod: 2024-01-29 00:20:11
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-02-02 00:19:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,14 +45,12 @@ The table shows package distribution across variants.
 
 |                                              | latest-dev | latest |
 |----------------------------------------------|------------|--------|
-| `alsa-lib`                                   | X          | X      |
 | `apk-tools`                                  | X          |        |
 | `bash`                                       | X          | X      |
 | `boost-atomic`                               | X          | X      |
 | `boost-filesystem`                           | X          | X      |
 | `busybox`                                    | X          | X      |
 | `c-ares`                                     | X          | X      |
-| `ca-certificates`                            | X          | X      |
 | `ca-certificates-bundle`                     | X          | X      |
 | `cairo`                                      | X          | X      |
 | `cassandra`                                  | X          | X      |
@@ -64,7 +62,6 @@ The table shows package distribution across variants.
 | `fribidi`                                    | X          | X      |
 | `gdbm`                                       | X          | X      |
 | `gdk-pixbuf`                                 | X          | X      |
-| `giflib`                                     | X          | X      |
 | `git`                                        | X          |        |
 | `glib`                                       | X          | X      |
 | `glibc`                                      | X          | X      |
@@ -76,12 +73,6 @@ The table shows package distribution across variants.
 | `hiredis`                                    | X          | X      |
 | `iproute2`                                   | X          | X      |
 | `iptables`                                   | X          | X      |
-| `java-cacerts`                               | X          | X      |
-| `java-common`                                | X          | X      |
-| `keyutils-libs`                              | X          | X      |
-| `krb5-conf`                                  | X          | X      |
-| `krb5-libs`                                  | X          | X      |
-| `lcms2`                                      | X          | X      |
 | `ld-linux`                                   | X          | X      |
 | `libatasmart`                                | X          | X      |
 | `libblkid`                                   | X          | X      |
@@ -89,7 +80,6 @@ The table shows package distribution across variants.
 | `libbrotlidec1`                              | X          | X      |
 | `libbz2-1`                                   | X          | X      |
 | `libcap`                                     | X          | X      |
-| `libcom_err`                                 | X          | X      |
 | `libcrypt1`                                  | X          | X      |
 | `libcrypto3`                                 | X          | X      |
 | `libcurl-openssl4`                           | X          | X      |
@@ -123,23 +113,18 @@ The table shows package distribution across variants.
 | `librdkafka`                                 | X          | X      |
 | `libssl3`                                    | X          | X      |
 | `libstdc++`                                  | X          | X      |
-| `libtasn1`                                   | X          | X      |
 | `libunistring`                               | X          | X      |
 | `libunwind`                                  | X          | X      |
 | `libuuid`                                    | X          | X      |
-| `libverto`                                   | X          | X      |
 | `libwebp`                                    | X          | X      |
 | `libx11`                                     | X          | X      |
 | `libxau`                                     | X          | X      |
 | `libxcb`                                     | X          | X      |
-| `libxcomposite`                              | X          | X      |
 | `libxdmcp`                                   | X          | X      |
 | `libxext`                                    | X          | X      |
 | `libxft`                                     | X          | X      |
-| `libxi`                                      | X          | X      |
 | `libxml2`                                    | X          | X      |
 | `libxrender`                                 | X          | X      |
-| `libxtst`                                    | X          | X      |
 | `libzstd1`                                   | X          | X      |
 | `lm-sensors`                                 | X          | X      |
 | `management-api-for-apache-cassandra`        | X          | X      |
@@ -153,14 +138,10 @@ The table shows package distribution across variants.
 | `net-snmp-agent-libs`                        | X          | X      |
 | `net-snmp-libs`                              | X          | X      |
 | `openipmi`                                   | X          | X      |
-| `openjdk-8-default-jvm`                      | X          | X      |
-| `openjdk-8-jre`                              | X          | X      |
 | `openssl`                                    | X          | X      |
 | `openssl-config`                             | X          | X      |
 | `openssl-provider-legacy`                    | X          | X      |
 | `owfs`                                       | X          | X      |
-| `p11-kit`                                    | X          | X      |
-| `p11-kit-trust`                              | X          | X      |
 | `pango`                                      | X          | X      |
 | `pixman`                                     | X          | X      |
 | `python-3.12`                                | X          | X      |
