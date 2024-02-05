@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-01 00:31:15
+lastmod: 2024-02-05 00:18:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 31st | `sha256:cd909f4654118c69fe2ae81f5814d6d1b6f51b1be9f2cc2655339819c35d2a07` |
-|  `latest`     | January 31st | `sha256:973c2545745abedbb9325fc67aeb792815e151a7e28eb521e644f3cb74fe2d57` |
+|  `latest`     | February 3rd | `sha256:e96d46d4f3b283d4350c4bcf1ea99e2165aa39dad94c7e343fc7494bbe19e707` |
+|  `latest-dev` | February 3rd | `sha256:beeb70fc20d02ff941285adfa2d878827fe64e8f27e348ac247c86ddb0056195` |
 
