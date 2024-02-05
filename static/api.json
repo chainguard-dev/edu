@@ -46,6 +46,37 @@
         ]
       }
     },
+    "/advisory/v1/metadata": {
+      "get": {
+        "operationId": "SecurityAdvisory_ListVulnerabilityMetadata",
+        "parameters": [
+          {
+            "description": "id is the id of a vuln.",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/advisoryVulnerabilityMetadataList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "SecurityAdvisory"
+        ]
+      }
+    },
     "/auth/v1/ok": {
       "get": {
         "operationId": "Auth_Validate",
@@ -4164,10 +4195,72 @@
       },
       "type": "object"
     },
+    "advisoryReference": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "advisorySeverity": {
+      "properties": {
+        "score": {
+          "description": "Vector string representing CVSS score based on type.",
+          "type": "string"
+        },
+        "type": {
+          "description": "CVSS version standard.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "advisoryTruePositiveDetermination": {
       "properties": {
         "note": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryVulnerabilityMetadata": {
+      "properties": {
+        "details": {
+          "type": "string"
+        },
+        "id": {
+          "description": "id is the identifier of this specific vuln.",
+          "type": "string"
+        },
+        "references": {
+          "items": {
+            "$ref": "#/definitions/advisoryReference"
+          },
+          "type": "array"
+        },
+        "severity": {
+          "items": {
+            "$ref": "#/definitions/advisorySeverity"
+          },
+          "type": "array"
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "advisoryVulnerabilityMetadataList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/advisoryVulnerabilityMetadata"
+          },
+          "type": "array"
         }
       },
       "type": "object"
