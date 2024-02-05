@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-azure-storage Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-01-29 00:20:11
+lastmod: 2024-02-05 00:18:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.42.0` `0.42` `0` `latest` | January 28th | `sha256:87c20e83ab8b7191a64d692b10a6cb7666928fbb87b7441eb5c5cd7382d7b4c2` |
+|  `0.42.0` `0.42` `0` `latest` | February 2nd | `sha256:17701b1755c0a883578a3cba81d4ec504e68d60a289e180da8c27deaf8280b3b` |
 |  `0.41.0` `0.41`              | January 19th | `sha256:8f2509354d5adb7192990dc9e112c343ffd6481ea04396939ba570c3e12f9224` |
 

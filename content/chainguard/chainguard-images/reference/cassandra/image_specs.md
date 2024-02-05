@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cassandra Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-02 00:19:02
+lastmod: 2024-02-05 00:18:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -89,7 +89,7 @@ The table shows package distribution across variants.
 | `openssl-config`         | X          | X      |
 | `p11-kit`                | X          | X      |
 | `p11-kit-trust`          | X          | X      |
-| `python-3.12`            | X          | X      |
+| `python-3.11`            | X          | X      |
 | `readline`               | X          | X      |
 | `sqlite-libs`            | X          | X      |
 | `wolfi-baselayout`       | X          | X      |
