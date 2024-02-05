@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-sidecarlogresults Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-01 00:31:15
+lastmod: 2024-02-05 00:18:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 31st | `sha256:eaa482522d8742fda41083bd3963a8ff01535cb651f58bb9fe8856dfd3302fcf` |
-|  `latest`     | January 20th | `sha256:3df959bf6ff7cf11b55530e6a2dbc627378ca427c81a789bc845745d3001ea02` |
+|  `latest-dev` | February 2nd | `sha256:4ee7d13913b1a88da0a506bac91e8d0290e53d61d25c0845e59edf7633ca76ff` |
+|  `latest`     | February 2nd | `sha256:0b88219b97609a8208ca73f00667a989b07e92bd776719c3c89af2877f68fb44` |
 

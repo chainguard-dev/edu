@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-cmctl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-01 00:31:15
+lastmod: 2024-02-05 00:18:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 31st | `sha256:a0b4adcb891558518cce774db686831c6613372ee7b18f6ca0409935a92fcb46` |
-|  `latest`     | January 23rd | `sha256:53adc4141306a3381524691dd5811405251c4ea66c694768138a6a324d848806` |
+|  `latest`     | February 3rd | `sha256:72889e4c2952257571158bb7b26120ab3dc2d266a1081da8af32889a71f6f791` |
+|  `latest-dev` | February 3rd | `sha256:70317f665ffeffe8474806d6630c6dd7ece7d41ebec848ad046561300c3e15c8` |
 

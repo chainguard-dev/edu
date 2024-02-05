@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public management-api-for-apache-cassandra Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-02 00:19:02
+lastmod: 2024-02-05 00:18:41
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -51,6 +51,7 @@ The table shows package distribution across variants.
 | `boost-filesystem`                           | X          | X      |
 | `busybox`                                    | X          | X      |
 | `c-ares`                                     | X          | X      |
+| `ca-certificates`                            | X          | X      |
 | `ca-certificates-bundle`                     | X          | X      |
 | `cairo`                                      | X          | X      |
 | `cassandra`                                  | X          | X      |
@@ -73,6 +74,8 @@ The table shows package distribution across variants.
 | `hiredis`                                    | X          | X      |
 | `iproute2`                                   | X          | X      |
 | `iptables`                                   | X          | X      |
+| `java-cacerts`                               | X          | X      |
+| `java-common`                                | X          | X      |
 | `ld-linux`                                   | X          | X      |
 | `libatasmart`                                | X          | X      |
 | `libblkid`                                   | X          | X      |
@@ -113,6 +116,7 @@ The table shows package distribution across variants.
 | `librdkafka`                                 | X          | X      |
 | `libssl3`                                    | X          | X      |
 | `libstdc++`                                  | X          | X      |
+| `libtasn1`                                   | X          | X      |
 | `libunistring`                               | X          | X      |
 | `libunwind`                                  | X          | X      |
 | `libuuid`                                    | X          | X      |
@@ -138,10 +142,15 @@ The table shows package distribution across variants.
 | `net-snmp-agent-libs`                        | X          | X      |
 | `net-snmp-libs`                              | X          | X      |
 | `openipmi`                                   | X          | X      |
+| `openjdk-11-default-jvm`                     | X          | X      |
+| `openjdk-11-jre`                             | X          | X      |
+| `openjdk-11-jre-base`                        | X          | X      |
 | `openssl`                                    | X          | X      |
 | `openssl-config`                             | X          | X      |
 | `openssl-provider-legacy`                    | X          | X      |
 | `owfs`                                       | X          | X      |
+| `p11-kit`                                    | X          | X      |
+| `p11-kit-trust`                              | X          | X      |
 | `pango`                                      | X          | X      |
 | `pixman`                                     | X          | X      |
 | `python-3.12`                                | X          | X      |
