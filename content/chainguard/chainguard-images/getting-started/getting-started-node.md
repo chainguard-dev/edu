@@ -49,6 +49,14 @@ Run the following command to create a new `package.json` file.
 npm init -y
 ```
 
+Exit the `init` process.  You do not need to fill out the metadata as this is a demo.
+
+Install `npm`:
+
+```shell
+npm install
+```
+
 Next, install the application dependencies. We'll need `ronin-server` and `ronin-mocks`, which are used together to create a "mock" server that saves JSON data in memory and returns it in subsequent GET requests to the same endpoint.
 
 ```shell
