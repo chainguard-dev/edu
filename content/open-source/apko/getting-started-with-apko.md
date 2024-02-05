@@ -105,7 +105,7 @@ archs:
 
 The `contents` node is used to define allowed package sources and which packages should be included in the image. Here we'll be using only packages from the main Wolfi APK repository. In the `packages` section, we require the [wolfi-base](https://github.com/wolfi-dev/os/blob/main/wolfi-base.yaml) package, which is a meta-package to set up a bare minimum Wolfi system.
 
-The `cmd` node defines the image entry point command `/bin/sh -l`, which will land you in a shell prompt whenever the image is executed. Finally, the `environment` node sets up the $PATH variable that defines binary directories within the guest system, allowing for simpler command execution paths.
+The `command` field within the `entrypoint` node defines the image entry point command `/bin/sh -l`, which will land you in a shell prompt whenever the image is executed. Finally, the `archs` node specifies that this image will be built for the `x86-64` architecture.
 
 Save and close the file after you're done including these contents. With `nano`, you can do that by pressing `CTRL+X`, then confirming with `Y` and `ENTER`.
 
