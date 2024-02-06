@@ -1,3 +1,64 @@
+# 2024-02-06
+
+
+Updated Docs:
+
+- aws-efs-csi-driver/tags_history.md
+- bazel/tags_history.md
+- buck2/tags_history.md
+- busybox/tags_history.md
+- cassandra/tags_history.md
+- cassandra-reaper/tags_history.md
+- clang/tags_history.md
+- dependency-track/tags_history.md
+- fluentd/tags_history.md
+- flux/tags_history.md
+- flux-helm-controller/tags_history.md
+- gcc-glibc/tags_history.md
+- gitlab-exporter/tags_history.md
+- go/tags_history.md
+- guacamole-server/tags_history.md
+- ingress-nginx-controller/tags_history.md
+- jdk/tags_history.md
+- jdk-lts/tags_history.md
+- jenkins/tags_history.md
+- jre/tags_history.md
+- jre-lts/tags_history.md
+- keycloak/tags_history.md
+- ko/tags_history.md
+- kube-logging-operator-fluentd/tags_history.md
+- kubeflow-katib-earlystopping-medianstop/tags_history.md
+- kubeflow-katib-suggestion-darts/tags_history.md
+- kubeflow-katib-suggestion-hyperband/tags_history.md
+- kubeflow-katib-suggestion-hyperopt/tags_history.md
+- kubeflow-katib-suggestion-optuna/tags_history.md
+- kubeflow-katib-suggestion-pbt/tags_history.md
+- kubeflow-katib-suggestion-skopt/tags_history.md
+- kubeflow-pipelines-metadata-envoy/tags_history.md
+- kubeflow-volumes-web-app/tags_history.md
+- kyverno-policy-reporter/tags_history.md
+- maven/tags_history.md
+- newrelic-kube-events/tags_history.md
+- newrelic-kubernetes/tags_history.md
+- newrelic-prometheus-configurator/tags_history.md
+- node/tags_history.md
+- node-lts/tags_history.md
+- openai/tags_history.md
+- opensearch/tags_history.md
+- php/tags_history.md
+- prometheus-alertmanager/tags_history.md
+- python/tags_history.md
+- rqlite/tags_history.md
+- ruby/tags_history.md
+- rust/tags_history.md
+- semgrep/tags_history.md
+- solr/tags_history.md
+- stunnel/tags_history.md
+- tomcat/tags_history.md
+- trino/tags_history.md
+- zig/tags_history.md
+- zookeeper/tags_history.md
+
 # 2024-02-05
 
 
