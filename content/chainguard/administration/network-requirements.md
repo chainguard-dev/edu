@@ -46,6 +46,7 @@ This table lists the third-party DNS hostnames, associated ports, and protocols 
 | \*.r2.cloudflarestorage.com                               | 443  | HTTPS    | Blob storage for cgr.dev     |
 | 9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com | 443  | HTTPS    | Blob storage for cgr.dev     |
 | chainguardhelp.zendesk.com                                | 443  | HTTPS    | Support access for customers |
+| storage.googleapis.com                                    | 443  | HTTPS    | `chainctl` downloads         |
 
 You can use either the single `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host or the wildcard `*.rc.cloudflarestorage.com` hostname in your firewall and proxy configurations. However, the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` hostname may change at some point in the future.
 
