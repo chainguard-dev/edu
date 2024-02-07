@@ -2,7 +2,7 @@
 title: "Migrating a Dockerfile for a Go application to use Chainguard Images"
 linktitle: "Migrating Go Applications to Chainguard"
 lead: ""
-description: "How to migrate an existing Dockerfile to Chainguard Images in order toimprove security and reduce file size."
+description: "How to migrate an existing Dockerfile for an application that can be statically compiled to Chainguard Images in order to improve security and reduce file size."
 type: "article"
 date: 2024-02-07T01:21:01+00:00
 lastmod: 2024-02-07T15:21:01+00:00
