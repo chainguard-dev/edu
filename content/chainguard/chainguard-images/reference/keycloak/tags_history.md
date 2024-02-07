@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keycloak Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-06 00:18:29
+lastmod: 2024-02-07 00:17:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 5th | `sha256:17dea81a3040231fdf8add026d9a88dceba7b89eee2239cee3079206a547ab08` |
-|  `latest`     | February 5th | `sha256:6c35d047681c68c6462d60e9aa0bcece38a2838ba8e70abf73ee295a0f706164` |
+|  `latest`     | February 6th | `sha256:c939267aac82556f12fb92486b66953dc02b35ad55fedb5e0c91d8f977a5936f` |
+|  `latest-dev` | February 6th | `sha256:059edb0e0bb9500706a5433dc03fce0fa1d338966aa3454cbfaf5ff56e1b1958` |
 

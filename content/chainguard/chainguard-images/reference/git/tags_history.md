@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-02 00:19:02
+lastmod: 2024-02-07 00:17:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,12 +25,12 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-root-dev`       | February 1st | `sha256:4291b365854d9797b4f9d11fe67a720041d52dc24a98f5cc0a039ca22776898e` |
-|  `latest-root`           | February 1st | `sha256:9f6336908fb5e149bbd1f1117228af86b6a947adf09c95fc152301f1b493c9ad` |
-|  `latest`                | February 1st | `sha256:b751bb842bf75a89ae2092c0bab5dc54b3a686e1e844cce443754fa62b024ba2` |
-|  `latest-dev`            | February 1st | `sha256:9f39b9d38f7fda1fe3d0b344c5fe188ab2a5c464d8f1ba5f7156c96e399d2afd` |
-|  `latest-glibc-dev`      | January 31st | `sha256:26adbc4c06a56d729e31c8ef146066a133e2691c2eb43ca3f4c742884c555eda` |
-|  `latest-glibc`          | January 31st | `sha256:9c7692f06ba53ac87ad6d17996e1112a69ce5ab15e9fc54f6cb883747eae9961` |
-|  `latest-glibc-root-dev` | January 31st | `sha256:abc6da7d62540fbbe05011560f8ea46507bd50c57649222cfafbc3071f22217d` |
-|  `latest-glibc-root`     | January 31st | `sha256:0a43373776a1ca98865f583a5668e6c80244e200cdd54a104019f04d2c6a0616` |
+|  `latest-glibc-dev`      | February 6th | `sha256:0b2a9e77b0ea19edcc08d9611eb8e04db441be69ba2b952cd20ccfb69a4f51fa` |
+|  `latest-glibc-root-dev` | February 6th | `sha256:9071e33651ed3b7af25aea98dfe52a022e37b75991a6cf28ecffef8e07842369` |
+|  `latest-glibc`          | February 6th | `sha256:7c1792e3a802e485e7c5f63a78846f4b6fe9345b256a39bf46ea8ca3d40db00a` |
+|  `latest-glibc-root`     | February 6th | `sha256:4c85e653df4504fa7e425c6aef23d493348084857a6823f16283a9e36d70a18c` |
+|  `latest-root`           | February 6th | `sha256:0609165437d89bc7913f0a3ae5d38c928827fb7a34f5a239686cd00d79525640` |
+|  `latest`                | February 6th | `sha256:ecd23d5c6d0298cd7a9e401893ecb1a2e6fec4d1ebdb95a717b95838f964a47f` |
+|  `latest-root-dev`       | February 6th | `sha256:88a35a3dc3aa0554a1d26aa6a03ad556b9ebdc5bff55260f80765eb2c2ee1ac0` |
+|  `latest-dev`            | February 6th | `sha256:55de7b7f13dbf101c208bb94741e4e2804351b6f6124153dbb78d01b04716518` |
 
