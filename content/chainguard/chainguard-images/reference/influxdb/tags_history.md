@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the influxdb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-01 00:31:15
+lastmod: 2024-02-07 00:17:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | January 31st | `sha256:f37825e5cc7a6ee7c0ab7719a5b554b5c67d7ad92b68c4ab8d7c915d6d6432ea` |
-|  `latest-dev` | January 31st | `sha256:af8b029cf26cd79c69a1f608c9dfc945ca7a0f2b99b7f91e1fb6d1df03f37e33` |
+|  `latest`     | February 6th | `sha256:67687a3bd8c12c6f79a54a2be758ba99762730b4bc371a7a0185f5efb141b058` |
+|  `latest-dev` | February 6th | `sha256:549be35183a9f033a2f8c5d8ef79ddde95e5451ab24de2d193c220aa8e7593c6` |
 

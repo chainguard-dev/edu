@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spark-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-05 00:18:41
+lastmod: 2024-02-07 00:17:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 3rd | `sha256:c8d5ecda08fba41733d5aba2e29dfe9839cb13c8e2dca4c23df365e24a3d6f37` |
-|  `latest`     | February 3rd | `sha256:14537e944a613865c2a20cefe5f97ffa12158f0fc18c183545fe91776bc8cb07` |
+|  `latest-dev` | February 6th | `sha256:1038911f8d040b21beadc6fe40f84698d8ccf3ae2832e6aee42e55c42cc0a3da` |
+|  `latest`     | February 6th | `sha256:ce52162e451f4f9540e0674733e5f9fcb92c2ae8f85f1dd8d741555134e8d7a6` |
 

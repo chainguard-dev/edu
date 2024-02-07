@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the static Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-05 00:18:41
+lastmod: 2024-02-07 00:17:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)         | Last Changed | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-|  `latest`       | February 2nd | `sha256:afaa9c3ad3772105e115fe7fff5e8ef9909e7592777822930121df68c57d08cb` |
+|  `latest`       | February 6th | `sha256:fce1fdce595332afe7f339303ae288c349c4e4139d926f8c7ccf4b7ca2911553` |
 |  `latest-glibc` | February 2nd | `sha256:4ea423ac2f92d8006f4953ea6f8bb7cac235ab59e3f0408f6bed49cc39979f84` |
 
