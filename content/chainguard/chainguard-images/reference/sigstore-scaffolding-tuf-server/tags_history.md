@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-01 00:31:15
+lastmod: 2024-02-07 00:17:48
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 6th | `sha256:bbe9ab223463ddf743107edd56daff30bed0673a9ec499305d5825bb0428030b` |
 |  `latest`     | January 31st | `sha256:ece2442644d620bc00cd9177a1ee6992ea1a7cbb4b1d581863e9e92236b68c8a` |
-|  `latest-dev` | January 31st | `sha256:af7e81f57552d58ce90a207adcc0dc398d7d7af17356eb635b0e3d719da46792` |
 
