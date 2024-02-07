@@ -1,5 +1,5 @@
 ---
-date: 2024-02-07T18:15:42Z
+date: 2024-02-07T21:30:23Z
 title: "chainctl clusters profiles"
 slug: chainctl_clusters_profiles
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_profiles/
