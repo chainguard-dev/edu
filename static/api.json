@@ -5149,6 +5149,9 @@
         "vulnerabilityDbLastBuildTime": {
           "format": "date-time",
           "type": "string"
+        },
+        "vulnerabilityDbSchemaVersion": {
+          "type": "string"
         }
       },
       "type": "object"
