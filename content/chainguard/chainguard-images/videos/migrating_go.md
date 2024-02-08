@@ -133,7 +133,7 @@ It's only a few megabytes in size, but contains a few more things than say scrat
 
 OK, what we're going to do here is I'm going to copy from the previous build to the Dockerfile up here.
 
-I'm going to copy the hello executable, which is at /work hello to /hello.
+I'm going to copy the `hello` executable, which is at `/work/hello` to `/hello`.
 
 Now it said copy from builder, so I'll need to name this first step builder.
 
