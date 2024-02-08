@@ -3,8 +3,8 @@ title: "datadog-agent Image Variants"
 type: "article"
 unlisted: true
 description: "Detailed information about the public datadog-agent Chainguard Image variants"
-date: 2024-01-22 00:18:06
-lastmod: 2024-01-22 00:18:06
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -78,6 +78,7 @@ The table shows package distribution across variants.
 | `python-3.12`            | X          | X      |
 | `readline`               | X          | X      |
 | `sqlite-libs`            | X          | X      |
+| `wget`                   | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `xz`                     | X          | X      |
 | `zlib`                   | X          | X      |

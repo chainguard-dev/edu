@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public git Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-25 00:19:46
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -82,6 +82,7 @@ The table shows package distribution across variants.
 | `pcre2`                  | X          |                  |                       |                   |              | X               | X           | X      |
 | `readline`               | X          |                  |                       |                   |              | X               |             |        |
 | `ssl_client`             | X          |                  |                       |                   |              | X               | X           | X      |
+| `wget`                   | X          | X                | X                     |                   |              | X               |             |        |
 | `zlib`                   | X          | X                | X                     | X                 | X            | X               | X           | X      |
 | `glibc`                  |            | X                | X                     | X                 | X            |                 |             |        |
 | `glibc-locale-posix`     |            | X                | X                     | X                 | X            |                 |             |        |

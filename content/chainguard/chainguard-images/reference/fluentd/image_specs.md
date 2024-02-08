@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public fluentd Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-31 00:17:29
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -107,6 +107,7 @@ The table shows package distribution across variants.
 | `ruby3.2-tzinfo-data`               | X          | X                 | X             | X      |
 | `ruby3.2-webrick`                   | X          | X                 | X             | X      |
 | `ruby3.2-yajl-ruby`                 | X          | X                 | X             | X      |
+| `wget`                              | X          | X                 |               |        |
 | `wolfi-baselayout`                  | X          | X                 | X             | X      |
 | `yaml`                              | X          | X                 | X             | X      |
 | `zlib`                              | X          | X                 | X             | X      |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public pulumi Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -68,7 +68,7 @@ The table shows package distribution across variants.
 | `glibc-locale-en`         | X      |
 | `glibc-locale-posix`      | X      |
 | `gmp`                     | X      |
-| `go-1.21`                 | X      |
+| `go-1.22`                 | X      |
 | `icu`                     | X      |
 | `isl`                     | X      |
 | `java-cacerts`            | X      |
@@ -90,13 +90,16 @@ The table shows package distribution across variants.
 | `libgcc`                  | X      |
 | `libgo`                   | X      |
 | `libgomp`                 | X      |
+| `libidn2`                 | X      |
 | `libnghttp2-14`           | X      |
 | `libpcre2-8-0`            | X      |
 | `libpng`                  | X      |
+| `libpsl`                  | X      |
 | `libssl3`                 | X      |
 | `libstdc++`               | X      |
 | `libstdc++-dev`           | X      |
 | `libtasn1`                | X      |
+| `libunistring`            | X      |
 | `libunwind`               | X      |
 | `linux-headers`           | X      |
 | `lttng-ust`               | X      |

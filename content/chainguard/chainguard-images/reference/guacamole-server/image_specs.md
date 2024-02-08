@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public guacamole-server Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-02 00:19:02
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -138,6 +138,7 @@ The table shows package distribution across variants.
 | `speexdsp`                | X          | X      |
 | `tdb`                     | X          | X      |
 | `ttf-dejavu`              | X          | X      |
+| `wget`                    | X          |        |
 | `wolfi-baselayout`        | X          | X      |
 | `x264`                    | X          | X      |
 | `zlib`                    | X          | X      |

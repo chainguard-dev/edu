@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-event-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-02 00:19:02
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 7th | `sha256:888cc0ae1b5c467c98dead7477c00145e6ab5ea38435ec3a9ae447f202a9cd43` |
 |  `latest`     | February 1st | `sha256:406217bed9942160c83e457aa727ab23948b4b6c91f0de46decb9bc5e6788b64` |
-|  `latest-dev` | February 1st | `sha256:3d0bcec22a464b2167dc90b46eb7d5af880de8b87b267ff1f7670dddbc6ea0dc` |
 
