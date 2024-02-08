@@ -1,5 +1,5 @@
 ---
-date: 2024-02-08T16:54:31Z
+date: 2024-02-08T18:29:07Z
 title: "chainctl iam roles create"
 slug: chainctl_iam_roles_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_create/
