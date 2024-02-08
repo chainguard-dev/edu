@@ -127,7 +127,7 @@ It has very little in it, just sort of the minimum you need to run a typical Lin
 
 So it has TLS certificates so you can talk to web applications over TLS.
 
-It has Unix directories like /tmp and /home, and it doesn't have a lot else.
+It has Unix directories like `/tmp` and `/home`, and it doesn't have a lot else.
 
 It's only a few megabytes in size, but contains a few more things than say scratch that you need for typical applications.
 
