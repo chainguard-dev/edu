@@ -1,37 +1,42 @@
 ---
 date: 2024-02-08T16:54:31Z
-title: "chainctl policies update"
-slug: chainctl_policies_update
-url: /chainguard/chainctl/chainctl-docs/chainctl_policies_update/
+title: "chainctl iam organizations update"
+slug: chainctl_iam_organizations_update
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies update
+## chainctl iam organizations update
 
-Update the description of a policy.
+Update an organization.
 
 ```
-chainctl policies update POLICY_NAME | POLICY_ID [--description=DESCRIPTION] [--output table|json|id] [flags]
+chainctl iam organizations update ORGANIZATION_NAME | ORGANIZATION_ID [--name ORGANIZATION_NAME] [--description ORGANIZATION_DESCRIPTION]
 ```
 
 ### Examples
 
 ```
-  # Update a policy description by name.
-  chainctl policy update my-policy --description="A description of my policy."
-  
-  # Remove a policy description by ID.
-  chainctl policy update 617ec5ae5775e22fb52ec2d62398de1e7def7986/e74e9050df769110 --description=""
+
+# Update an organization's name
+chainctl iam organizations update my-org --name new-org-name
+
+# Update an organization's description
+chainctl iam organizations update 19d3a64f20c64ba3ccf1bc86ce59d03e705959ad --description "A description of the organization."
+
+# Remove an organizations's description
+chainctl iam organizations update my-org --description ""
 ```
 
 ### Options
 
 ```
-  -d, --description string   New description for this policy.
+  -d, --description string   The updated description for the organization.
   -h, --help                 help for update
+  -n, --name string          The updated name for the organization.
 ```
 
 ### Options inherited from parent commands
@@ -48,5 +53,5 @@ chainctl policies update POLICY_NAME | POLICY_ID [--description=DESCRIPTION] [--
 
 ### SEE ALSO
 
-* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Policy related commands for the Chainguard platform.
+* [chainctl iam organizations](/chainguard/chainctl/chainctl-docs/chainctl_iam_organizations/)	 - IAM organization interactions.
 
