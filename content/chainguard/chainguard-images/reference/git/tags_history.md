@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-07 00:17:48
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,12 +25,12 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-glibc-dev`      | February 6th | `sha256:0b2a9e77b0ea19edcc08d9611eb8e04db441be69ba2b952cd20ccfb69a4f51fa` |
-|  `latest-glibc-root-dev` | February 6th | `sha256:9071e33651ed3b7af25aea98dfe52a022e37b75991a6cf28ecffef8e07842369` |
+|  `latest-dev`            | February 7th | `sha256:42cc0d285e37ffd6351a3759d00aaf5b90c1414424173165d86c110b3e61e131` |
+|  `latest-root-dev`       | February 7th | `sha256:3e48b49160d2f1aece4b14f5362e0b1e86b63d705c225622445cec3993d904c4` |
+|  `latest-glibc-dev`      | February 7th | `sha256:60afd1c99438eea00a5ef3d48be0034721ac7a766d5542673c078f4d6dac2da8` |
+|  `latest-glibc-root-dev` | February 7th | `sha256:f9fe0872059df69abccc15659805b7d3dad68ba2c203fcc8e180db834f2add90` |
 |  `latest-glibc`          | February 6th | `sha256:7c1792e3a802e485e7c5f63a78846f4b6fe9345b256a39bf46ea8ca3d40db00a` |
 |  `latest-glibc-root`     | February 6th | `sha256:4c85e653df4504fa7e425c6aef23d493348084857a6823f16283a9e36d70a18c` |
 |  `latest-root`           | February 6th | `sha256:0609165437d89bc7913f0a3ae5d38c928827fb7a34f5a239686cd00d79525640` |
 |  `latest`                | February 6th | `sha256:ecd23d5c6d0298cd7a9e401893ecb1a2e6fec4d1ebdb95a717b95838f964a47f` |
-|  `latest-root-dev`       | February 6th | `sha256:88a35a3dc3aa0554a1d26aa6a03ad556b9ebdc5bff55260f80765eb2c2ee1ac0` |
-|  `latest-dev`            | February 6th | `sha256:55de7b7f13dbf101c208bb94741e4e2804351b6f6124153dbb78d01b04716518` |
 

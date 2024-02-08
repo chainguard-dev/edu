@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-runtime Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-01 00:31:15
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 31st | `sha256:016960df0a617800e074f221bb1cba28502a3f185cd3aeece3c62e0dcc2c874d` |
+|  `latest-dev` | February 7th | `sha256:497bfe8975138a5e429384e036d93f57b47217dd7894a578462b3790cbea0b68` |
 |  `latest`     | January 31st | `sha256:63e3ae2ac7810c509bc218aafd6618f3da3204bdbf6789288af6f8b6ba77c969` |
 

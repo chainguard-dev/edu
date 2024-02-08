@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the erlang Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-01 00:31:15
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | January 31st | `sha256:c77965f03f08308d6c61cad95fb8110c26caecd5ad95e644c4bb6bb19485e2b4` |
-|  `latest-dev` | January 31st | `sha256:ccb12d46eedce5e3d042417276d8597098a9874df1a559f9072de60a2d912ca2` |
+|  `latest-dev` | February 7th | `sha256:0c6c6330ff17d5bce68ed92a5308e8fc1c827227d80cd0a6493314ca4158891d` |
+|  `latest`     | February 7th | `sha256:a0e075abea6d3033de99440e44f7638426c59419137c6f13eff603c5a112a1b3` |
 

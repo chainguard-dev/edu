@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public zookeeper Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-22 00:18:06
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -94,6 +94,7 @@ The table shows package distribution across variants.
 | `openssl-config`               | X          | X      |
 | `p11-kit`                      | X          | X      |
 | `p11-kit-trust`                | X          | X      |
+| `wget`                         | X          |        |
 | `wolfi-baselayout`             | X          | X      |
 | `xmlstarlet`                   | X          | X      |
 | `xz`                           | X          | X      |

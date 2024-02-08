@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cert-manager-controller Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-05 00:18:41
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -70,6 +70,7 @@ The table shows package distribution across variants.
 | `ncurses`                      | X          |        |
 | `ncurses-terminfo-base`        | X          |        |
 | `openssl-config`               | X          |        |
+| `wget`                         | X          |        |
 | `wolfi-baselayout`             | X          | X      |
 | `zlib`                         | X          |        |
 
