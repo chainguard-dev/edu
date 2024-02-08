@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-cainjector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-05 00:18:41
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 3rd | `sha256:66f7e886ac454aeffa45a033a1eb1fbd3bba071ce8cb02aad404f62caa6595f4` |
+|  `latest-dev` | February 7th | `sha256:2bcce48c1eb72e0fa44060a935cc402aa54a9f376d9952600a8994e3e55ef46c` |
 |  `latest`     | February 3rd | `sha256:f016faac86bd9bca811094a9d1992bd613323a245ed068013b36ae487a9c3a24` |
 

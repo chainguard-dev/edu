@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: zig Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -161,7 +161,7 @@ These wasm binaries can also be run in other WASM runtimes outside of Docker.
 
 Wolfi currently packages [wazero](https://edu.chainguard.dev/chainguard/chainguard-images/reference/wazero/), [wasmtime](https://edu.chainguard.dev/chainguard/chainguard-images/reference/wasmtime/), and [wasmer](https://edu.chainguard.dev/chainguard/chainguard-images/reference/wasmer/).
 
-These can be used together. Here's an example using Zig with [Wasmer](wasmer.io):
+These can be used together. Here's an example using Zig with [Wasmer](https://wasmer.io):
 
 ```shell
 $ docker run -it cgr.dev/chainguard/wolfi-base sh

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k3s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-07 00:17:48
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.29-dev` `latest-dev` `1.29.0-dev` `1-dev` | February 6th | `sha256:5c9c80b26b0070248cc1be4d8bdc1812947b99b24fecc26280bb52aea6a04b1e` |
-|  `latest` `1.29.0` `1` `1.29`                 | February 6th | `sha256:182f79e55183a59421e0289df40a05ed32015eeae897357dbd8fbf5bdd4afe14` |
+|  `1.29-dev` `1.29.0-dev` `latest-dev` `1-dev` | February 7th | `sha256:e6f1579338d3917a12bd14d735e2b2389ec22d29c56d3afb1e73898b209357fc` |
+|  `1.29.0` `1.29` `1` `latest`                 | February 7th | `sha256:ad0dcd2b10b3df60d9e6094cfefc6617d05a04125217f2087700072146804796` |
 

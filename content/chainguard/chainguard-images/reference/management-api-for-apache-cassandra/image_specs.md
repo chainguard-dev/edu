@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public management-api-for-apache-cassandra Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-05 00:18:41
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -153,7 +153,7 @@ The table shows package distribution across variants.
 | `p11-kit-trust`                              | X          | X      |
 | `pango`                                      | X          | X      |
 | `pixman`                                     | X          | X      |
-| `python-3.12`                                | X          | X      |
+| `python-3.11`                                | X          | X      |
 | `rabbitmq-c`                                 | X          | X      |
 | `readline`                                   | X          | X      |
 | `rrdtool`                                    | X          | X      |
@@ -163,6 +163,7 @@ The table shows package distribution across variants.
 | `tiff`                                       | X          | X      |
 | `tini`                                       | X          | X      |
 | `varnish`                                    | X          | X      |
+| `wget`                                       | X          |        |
 | `wolfi-baselayout`                           | X          | X      |
 | `xz`                                         | X          | X      |
 | `yajl`                                       | X          | X      |
