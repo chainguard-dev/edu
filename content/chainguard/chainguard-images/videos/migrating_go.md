@@ -143,9 +143,9 @@ And then my entry point is now `/hello`.
 
 So there is one more thing we need to do.
 
-The static image does not include any libraries like glibc or anything.
+The static image does not include any libraries like Glibc or anything.
 
-It just has it's just for running statically compiled binaries.
+It just has enough for running statically compiled binaries.
 
 So we need to tell Go to produce a statically compiled binary that contains everything it needs to run and doesn't rely on system libraries.
 
