@@ -1,43 +1,27 @@
 ---
-date: 2024-02-07T21:30:23Z
-title: "chainctl iam groups delete"
-slug: chainctl_iam_groups_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_delete/
+date: 2024-02-08T16:54:31Z
+title: "chainctl iam organizations describe"
+slug: chainctl_iam_organizations_describe
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_describe/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam groups delete
+## chainctl iam organizations describe
 
-Delete group
-
-```
-chainctl iam groups delete [GROUP_NAME | GROUP_ID] [--yes] [--skip-refresh] [flags]
-```
-
-### Examples
+Describe an organization or folder.
 
 ```
-
-# Delete a group by ID
-chainctl iam group delete e533448ca9770c46f99f2d86d60fc7101494e4a3
-
-# Delete a group by name
-chainctl iam group delete my-group
-
-# Delete a group to be selected interactively
-chainctl iam group delete
-
+chainctl iam organizations describe [--active-within=DURATION] [--output json]
 ```
 
 ### Options
 
 ```
-  -h, --help           help for delete
-      --skip-refresh   Skips attempting to reauthenticate and refresh the Chainguard auth token if it becomes out of date.
-  -y, --yes            Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --active-within duration   How recently a record must have been active to be listed. Zero will return all records. (default 24h0m0s)
+  -h, --help                     help for describe
 ```
 
 ### Options inherited from parent commands
@@ -54,5 +38,5 @@ chainctl iam group delete
 
 ### SEE ALSO
 
-* [chainctl iam groups](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
+* [chainctl iam organizations](/chainguard/chainctl/chainctl-docs/chainctl_iam_organizations/)	 - IAM organization interactions.
 

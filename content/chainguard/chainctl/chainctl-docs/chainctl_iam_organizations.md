@@ -1,22 +1,22 @@
 ---
-date: 2024-02-07T21:30:23Z
-title: "chainctl iam groups"
-slug: chainctl_iam_groups
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups/
+date: 2024-02-08T16:54:31Z
+title: "chainctl iam organizations"
+slug: chainctl_iam_organizations
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam groups
+## chainctl iam organizations
 
-IAM Group resource interactions.
+IAM organization interactions.
 
 ### Options
 
 ```
-  -h, --help   help for groups
+  -h, --help   help for organizations
 ```
 
 ### Options inherited from parent commands
@@ -34,9 +34,8 @@ IAM Group resource interactions.
 ### SEE ALSO
 
 * [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam groups create](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups_create/)	 - Create a new group or add a group under an existing group.
-* [chainctl iam groups delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups_delete/)	 - Delete group
-* [chainctl iam groups describe](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups_describe/)	 - Describe a group.
-* [chainctl iam groups list](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups_list/)	 - List groups.
-* [chainctl iam groups update](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups_update/)	 - Update a group.
+* [chainctl iam organizations delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_delete/)	 - Delete an organization or folder.
+* [chainctl iam organizations describe](/chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_describe/)	 - Describe an organization or folder.
+* [chainctl iam organizations list](/chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_list/)	 - List organizations and folders.
+* [chainctl iam organizations update](/chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_update/)	 - Update an organization.
 
