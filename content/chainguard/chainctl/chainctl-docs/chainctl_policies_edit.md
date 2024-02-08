@@ -1,5 +1,5 @@
 ---
-date: 2024-02-08T18:29:07Z
+date: 2024-02-08T19:39:21Z
 title: "chainctl policies edit"
 slug: chainctl_policies_edit
 url: /chainguard/chainctl/chainctl-docs/chainctl_policies_edit/
