@@ -89,7 +89,7 @@ A one-line change, and we've made no difference to the actual running applicatio
 
 But let's investigate this a little bit more.
 
-So if I do 'docker images' on go-web-app, well this is a pretty large image at 892 megabytes.
+So if I do `docker images` on `go-web-app`, well this is a pretty large image at 892 megabytes.
 
 If I run it on our new image, it's 775 megabytes.
 
