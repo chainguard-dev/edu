@@ -199,7 +199,7 @@ So this application still works exactly the same as it did at the start of this 
 
 But if I take a look at the web app distroless, the big difference is that now it's only 8.5 megabytes in size.
 
-So we went from the original Golang image, which is eight hundred and ninety two megabytes, to a Chainguard Image, which was seven hundred seventy five megabytes, down to eight point five one megabytes.
+So we went from the original Golang image, which is 892 megabytes, to a Chainguard Image, which was 775 megabytes, down to 8.51 megabytes.
 
 And it still all works the same.
 
