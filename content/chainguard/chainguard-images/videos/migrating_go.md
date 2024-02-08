@@ -139,7 +139,7 @@ Now it said copy from builder, so I'll need to name this first step builder.
 
 And that will build this hello executable and copy it into my production image.
 
-And then my entry point is now /hello.
+And then my entry point is now `/hello`.
 
 So there is one more thing we need to do.
 
