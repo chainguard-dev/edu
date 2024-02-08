@@ -155,7 +155,7 @@ In some cases, you might find you need to pass a few more flags, depending on wh
 
 And I'll link a blog in the notes that explains when you need to do this and what you need to do.
 
-But in this case, cgo enabled equals zero will allow us to build our static binary.
+But in this case, `CGO_enabled=0` will allow us to build our static binary.
 
 So I think that's all I need to do.
 
