@@ -1,27 +1,37 @@
 ---
-date: 2024-02-07T21:30:23Z
-title: "chainctl iam groups describe"
-slug: chainctl_iam_groups_describe
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_groups_describe/
+date: 2024-02-08T16:54:31Z
+title: "chainctl iam organizations list"
+slug: chainctl_iam_organizations_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam groups describe
+## chainctl iam organizations list
 
-Describe a group.
+List organizations and folders.
 
 ```
-chainctl iam groups describe [--active-within DURATION] [--output json] [flags]
+chainctl iam organizations list [--organization=ORGANIZATION_NAME|ORGANIZATION_NAME] [--output tree|table|json|id]
+```
+
+### Examples
+
+```
+  # List all organizations and folders user is authorized to view.
+  chainctl iam organizations list
+  
+  # Restrict list to my-org and its folders
+  chainctl iam organizations list --organization=my-org
 ```
 
 ### Options
 
 ```
-      --active-within duration   How recently a record must have been active to be listed. Zero will return all records. (default 24h0m0s)
-  -h, --help                     help for describe
+  -h, --help                  help for list
+      --organization string   Organization to list folders from.
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +48,5 @@ chainctl iam groups describe [--active-within DURATION] [--output json] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam groups](/chainguard/chainctl/chainctl-docs/chainctl_iam_groups/)	 - IAM Group resource interactions.
+* [chainctl iam organizations](/chainguard/chainctl/chainctl-docs/chainctl_iam_organizations/)	 - IAM organization interactions.
 

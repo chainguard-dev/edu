@@ -1,38 +1,42 @@
 ---
-date: 2024-02-08T16:54:30Z
-title: "chainctl iam identities delete"
-slug: chainctl_iam_identities_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_delete/
+date: 2024-02-08T16:54:31Z
+title: "chainctl iam organizations delete"
+slug: chainctl_iam_organizations_delete
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam identities delete
+## chainctl iam organizations delete
 
-Delete one or more identities.
+Delete an organization or folder.
 
 ```
-chainctl iam identities delete {IDENTITY_NAME | IDENTITY_ID | --expired [--group=GROUP]} [--yes] [--output ] [flags]
+chainctl iam organizations delete [ORGANIZATION_NAME | ORGANIZATION_ID] [--skip-refresh] [--yes]
 ```
 
 ### Examples
 
 ```
-  # Delete an identity by name
-  chainctl iam identities delete my-identity
-  
-  # Delete all expired static identities in a group
-  chainctl iam identities delete --expired --group=my-group
+
+# Delete an organization by ID
+chainctl iam organizations delete e533448ca9770c46f99f2d86d60fc7101494e4a3
+
+# Delete an organization by name
+chainctl iam organizations delete my-org
+
+# Delete an organization or folder to be selected interactively
+chainctl iam organizations delete
+
 ```
 
 ### Options
 
 ```
-      --expired        Delete all expired identities.
-      --group string   Name or ID of the parent group to delete expired identities from.
   -h, --help           help for delete
+      --skip-refresh   Skips attempting to reauthenticate and refresh the Chainguard auth token if it becomes out of date.
   -y, --yes            Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
@@ -50,5 +54,5 @@ chainctl iam identities delete {IDENTITY_NAME | IDENTITY_ID | --expired [--group
 
 ### SEE ALSO
 
-* [chainctl iam identities](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.
+* [chainctl iam organizations](/chainguard/chainctl/chainctl-docs/chainctl_iam_organizations/)	 - IAM organization interactions.
 
