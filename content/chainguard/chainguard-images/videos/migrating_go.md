@@ -185,7 +185,7 @@ No, I always get that wrong.
 
 OK, and let's run this one.
 
-I call it web-app-distroless.
+I call it `web-app-distroless`.
 
 I hope so.
 
