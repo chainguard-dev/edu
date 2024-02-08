@@ -3,7 +3,7 @@ title: "Authenticating to Chainguard Registry"
 type: "article"
 description: "A guide on authenticating to the Chainguard Registry to get images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2023-09-22T15:10:16+00:00
+lastmod: 2024-02-08T15:10:16+00:00
 tags: ["Chainguard Images", "Product", "Registry"]
 draft: false
 images: []
