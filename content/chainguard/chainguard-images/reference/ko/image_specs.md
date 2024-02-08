@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public ko Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-22 00:18:06
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -56,7 +56,7 @@ The table shows package distribution across variants.
 | `glibc-dev`              | X      |
 | `glibc-locale-posix`     | X      |
 | `gmp`                    | X      |
-| `go-1.21`                | X      |
+| `go-1.22`                | X      |
 | `isl`                    | X      |
 | `ko`                     | X      |
 | `ld-linux`               | X      |

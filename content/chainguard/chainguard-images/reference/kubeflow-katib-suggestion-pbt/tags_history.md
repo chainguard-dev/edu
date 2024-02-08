@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-07 00:17:48
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `latest-dev` `0.16.0-dev` `0-dev` | February 6th | `sha256:e0410fff97c09fd1229878deadae99a6da38093a628161386a8d52adccb5ec51` |
-|  `0` `latest` `0.16` `0.16.0`                 | February 6th | `sha256:157e38cfc0d158ce5f934bbddfb8fa4dc78dd1e6727ce3371ee0e6e6a216d3b6` |
+|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | February 7th | `sha256:7f3b60e32b9c2f5e935b3581d0915d6911f90824f19f0e3c0453a8622e778fd4` |
+|  `latest` `0.16` `0.16.0` `0`                 | February 7th | `sha256:3b4ba88d171d963a98d8cc5ac8ec4df40167bf395e52fcd3915d9f3d423652ed` |
 

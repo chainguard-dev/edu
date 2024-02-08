@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public redis-sentinel-bitnami Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-02 00:19:02
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -78,6 +78,7 @@ The table shows package distribution across variants.
 | `redis-cli-7.2`                     | X          | X      |
 | `redis-sentinel-7.2-bitnami-compat` | X          | X      |
 | `wait-for-port`                     | X          | X      |
+| `wget`                              | X          |        |
 | `wolfi-baselayout`                  | X          | X      |
 | `zlib`                              | X          |        |
 

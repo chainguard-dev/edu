@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ml-metadata-store-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-01 00:31:15
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 31st | `sha256:852b5a319e1ddffbd26819ed2d00d1d742d10f26dc181427be4f32e97e45331d` |
+|  `latest-dev` | February 7th | `sha256:2c6a7d28ad682a13d08ff854c9d5b93c30c0adeb8c7f69b0bcfbd1a4a7b45795` |
 |  `latest`     | January 31st | `sha256:1834cafb3c97fd3470411d760d47956226f10dd8d5fbb3e9bf0a97a061602b52` |
 

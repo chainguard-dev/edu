@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-02 00:19:02
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 1st | `sha256:427bb6e7647528c5f91ab0c0ba8061e8447386ae21f5e025af82976ac574341a` |
-|  `latest`     | February 1st | `sha256:2dd4ec5d67a2a4eda032341a6e514314495d5170a8903e11db89bd1b2338d9ad` |
+|  `latest`     | February 7th | `sha256:8a237129d6396f6b2152a08435abfbf2081aa43c4a0c24502a09ccc04dd05a8e` |
+|  `latest-dev` | February 7th | `sha256:9ce38a5ff4557c4c0cd26811689a7f74e958a30247b2ec2efb27bca2eb00cc09` |
 

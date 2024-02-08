@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the powershell Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-01 00:31:15
+lastmod: 2024-02-08 00:18:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 31st | `sha256:976c5a2afa3b2e63da78f12f672141da5000fbf1d64ba8778caae443288fab92` |
-|  `latest`     | January 31st | `sha256:8c0997a88c1387b27dcf4a31c2291b0ff36f3067359ecfae555bc722ab37b9e4` |
+|  `latest-dev` | February 7th | `sha256:c3c90016c2bfd92a47ae46140bed125f4ac84a3f939a4537186730f1530d17dd` |
+|  `latest`     | February 7th | `sha256:144fcc945dc5d74ef44696a37179d3e53f42bc0fefd327812f13ea84782b6671` |
 
