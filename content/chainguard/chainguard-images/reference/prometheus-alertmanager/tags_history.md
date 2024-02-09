@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-09 16:09:07
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,10 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                          | Last Changed | Digest                                                                    |
-|----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest`                        | February 8th | `sha256:727d8f53ac6607e6c525bfab114f1b84ea874eb4846df557b28738ecc614e3b3` |
-|  `latest-dev`                    | February 8th | `sha256:83644c34fc4ce71f7c18d3a3d4efec90b13fc27959972c1dbcb1903c8a246329` |
-|  `0.26` `0` `0.26.0`             | February 8th | `sha256:7193a40485dd6e9dba0dc8b4325723e26d735366c21caef3138a662abf72475d` |
-|  `0.26.0-dev` `0.26-dev` `0-dev` | February 8th | `sha256:4268fea189faa0b9aa37d2ec3319df930ff8072465f72e1a424ded9470f2bdb5` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `0.26.0-dev` `0.26-dev` `0-dev` | February 9th | `sha256:4268fea189faa0b9aa37d2ec3319df930ff8072465f72e1a424ded9470f2bdb5` |
+|  `latest` `0.26` `0` `0.26.0`                 | February 9th | `sha256:7193a40485dd6e9dba0dc8b4325723e26d735366c21caef3138a662abf72475d` |
 
