@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kube-events Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 7th | `sha256:50e8e0cafa6b790b6b841c1ceaa246afcfc9b173b88ab7d1fe1563c2c2d58aee` |
-|  `latest`     | February 7th | `sha256:f8b11afb8e484fcd7cb171dd45095c084000790f9b44955cefef3debb54c5f66` |
+|  `latest`     | February 8th | `sha256:e8ab949bf67cef3f8fa1a067b15e38c143dfaccbd4d8b45657ebbf9ee6df4b8b` |
+|  `latest-dev` | February 8th | `sha256:0db2b0dd79c7f4f2a3614e7671eefbd3d29f67d60d2d0379fc2486ebaecfea80` |
 

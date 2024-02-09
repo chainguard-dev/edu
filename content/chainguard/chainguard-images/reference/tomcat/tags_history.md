@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tomcat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | February 7th | `sha256:bed00e8f99154dc26ac0b5b2dbf094d6948edc552f9e16ba20cc8a8850d0b3b2` |
+|  `latest` | February 8th | `sha256:6fb006a3344fab040099154f106e0c517baf1805e19aab5dd86c90ad63b5d70d` |
 
