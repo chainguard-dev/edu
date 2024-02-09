@@ -11,6 +11,7 @@
        base-uri 'self';
      ">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<script id="6senseWebTag" src="https://j.6sc.co/j/edd32455-d420-405e-a9ba-ca4b02be04d3.js"></script>
 {{ if .Site.Params.options.darkMode -}}
   {{ $darkModeInit := resources.Get "js/darkmode-init.js" | js.Build | minify | fingerprint "sha512" -}}
   <script src="{{ $darkModeInit.RelPermalink }}" integrity="{{ $darkModeInit.Data.Integrity }}" crossorigin="anonymous" defer></script>
