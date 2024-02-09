@@ -1,5 +1,5 @@
 ---
-date: 2024-02-09T17:01:15Z
+date: 2024-02-09T18:24:22Z
 title: "chainctl clusters records vulns describe"
 slug: chainctl_clusters_records_vulns_describe
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_records_vulns_describe/
