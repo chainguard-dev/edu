@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 7th | `sha256:039fe57e1a9dbdc0b83c031d1bb6c100b8321d793f8bbe8ba840408055b27734` |
+|  `latest-dev` | February 8th | `sha256:15bdae5555776d61efd53a7828bb1be88825e6cc7541c49b60a102bbaaed0c7e` |
 

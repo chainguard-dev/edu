@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the busybox Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)         | Last Changed | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
+|  `latest-glibc` | February 8th | `sha256:a6c0f5aed8f29580ea3c5e72b2b7ca0a075ce937fddc2923c3ca7e852a315242` |
 |  `latest`       | February 7th | `sha256:dbcc447ecdbf3f0dd69a598ec6571b321735a796aa412029ec000ef0eb3df580` |
-|  `latest-glibc` | February 7th | `sha256:18ce66864ef5cbcdb139a28f5f6709815fada6aa4a579437754f7a3b302b3a78` |
 
