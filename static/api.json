@@ -162,6 +162,13 @@
             "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -661,6 +668,13 @@
             "type": "string"
           },
           {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "description": "name is the exact name of the record.",
             "in": "query",
             "name": "name",
@@ -844,6 +858,13 @@
             "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
           },
           {
             "description": "id is unique identifier to look up.",
@@ -1127,6 +1148,13 @@
             "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1304,6 +1332,13 @@
             "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
           },
           {
             "description": "name is the exact name of the record.",
@@ -1566,6 +1601,13 @@
             "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1757,6 +1799,13 @@
             "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1937,6 +1986,13 @@
             "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
           },
           {
             "description": "name is the exact name of the record.",
@@ -2140,6 +2196,13 @@
             "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
           },
           {
             "description": "name is the exact name of the record.",
@@ -2453,6 +2516,13 @@
             "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
           },
           {
             "description": "The unique name of the Tag to list.",
@@ -2927,6 +2997,13 @@
             "type": "string"
           },
           {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "description": "remote_id is the remote ID of this cluster.",
             "in": "query",
             "name": "remoteId",
@@ -3028,6 +3105,13 @@
             "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
           },
           {
             "description": "image is specified if a specific Record is desired.",
@@ -3299,6 +3383,13 @@
             "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -3351,6 +3442,13 @@
             "name": "uidp.childrenOf",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "required": false,
+            "type": "boolean"
           },
           {
             "description": "active_since is the timestamp after which the records should\nhave last been observed in the returned context.",
@@ -4375,6 +4473,10 @@
         "descendantsOf": {
           "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
           "type": "string"
+        },
+        "inRoot": {
+          "title": "in_root resticts responses to root level resources (organizations, user identities)",
+          "type": "boolean"
         }
       },
       "type": "object"
