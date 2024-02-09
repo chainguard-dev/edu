@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the php-fpm_exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 7th | `sha256:675da9a97584774390894b03e0e98860cd42ed735d5257b7527773396ea0e886` |
+|  `latest-dev` | February 8th | `sha256:83a3b8db4e1954423085bc550b8f879c3b730f9efc97f6d900bdb72383eecb3f` |
 

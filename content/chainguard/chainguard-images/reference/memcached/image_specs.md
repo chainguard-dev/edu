@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public memcached Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-12 00:39:30
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -76,6 +76,7 @@ The table shows package distribution across variants.
 | `openssl-config`         | X          | X      |
 | `readline`               | X          | X      |
 | `sqlite-libs`            | X          | X      |
+| `wget`                   | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          |        |
 

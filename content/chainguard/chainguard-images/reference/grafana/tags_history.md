@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 7th | `sha256:54e18e34584cc2d9464dde7d519940e1f52afa96ea8dbb4be42095c1f5120e5e` |
-|  `latest`     | February 6th | `sha256:746f6f292162f329b91d4308f8dd85aad9db63bbbf41a4308b2bb63946e51501` |
+|  `latest-dev` | February 8th | `sha256:9d496ecf47afe75bde045b5196f079e58f4d2c17ab4cddc1dc103c33725a75d5` |
+|  `latest`     | February 8th | `sha256:bb2657b421c1d386f9c6a77d6e59b7f2382e6ba88f23e8550d0ae0298c65cc9c` |
 

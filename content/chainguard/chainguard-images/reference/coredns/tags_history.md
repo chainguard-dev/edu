@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the coredns Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-01 00:31:15
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 31st | `sha256:f04ae58c1f34ec51e26cf34d7e4e68de29f8f4ac5d53fd2faff8887c0de017df` |
+|  `latest-dev` | February 8th | `sha256:dbc50e5ad4ff6ec690e3c5b6bee91c2e21a3bce3acf25575e7b601cb914a5cac` |
 |  `latest`     | January 12th | `sha256:238f7d4cff40ffa7262ae5508481722fe3213e4aae1e61a1425f07f4ae2e4d71` |
 

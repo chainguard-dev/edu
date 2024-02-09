@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the maven Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,10 +25,10 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                        | Last Changed | Digest                                                                    |
 |--------------------------------|--------------|---------------------------------------------------------------------------|
-|  `openjdk-11-dev`              | February 7th | `sha256:c459081434afb11ffabc6ff3f2bd90568032e34a529e5f39cb48232ad8f8b59d` |
-|  `latest-dev` `openjdk-17-dev` | February 7th | `sha256:ae8c991f764ce5ce06ebc57a4e9671fb6d74762d0f8a2c8dad6f077f59b26666` |
-|  `openjdk-21-dev`              | February 7th | `sha256:baf5922dfb38097ffa8b489da9851bea0f6ddfe32e0666d17ebdefc15428d506` |
-|  `latest` `openjdk-17`         | February 7th | `sha256:0145ec131bb37b0b843e1cb246a80c992399dd21b47dacd203cbc65c38e755c9` |
-|  `openjdk-11`                  | February 7th | `sha256:218b72bb51f799044abddf38eb256309828d64c8da7c5309fb37f24b4785759e` |
-|  `openjdk-21`                  | February 7th | `sha256:a112b9069fc9c106d76f7916c26609b3b9396c475080da359c4847127908d09d` |
+|  `latest` `openjdk-17`         | February 8th | `sha256:0ccac174d23e0c75ac2c4aafe3e54133e43ee47313b3d3ada5cbb9eec42c3120` |
+|  `openjdk-21-dev`              | February 8th | `sha256:c517d57ba08595ca19db6cd671a592e9908fa871e91c07f62e1ddce94faf5d8e` |
+|  `openjdk-11`                  | February 8th | `sha256:8e6f9be588992c52bfd64a5e3ede34ef2901169ac474d9bd57e5b40e11a5fe5b` |
+|  `openjdk-21`                  | February 8th | `sha256:72d654f3a704150fec650260b70d7c10854c03d6efff284146efe27327232dee` |
+|  `openjdk-17-dev` `latest-dev` | February 8th | `sha256:99ca50e4b688f003cec5f44a6ca55caf3f10eeaef23db2cc3797b32a9aa00fc8` |
+|  `openjdk-11-dev`              | February 8th | `sha256:f0895ce6d26f56524e54494f124286688c51dfa7cac147d27b0d81af604ec96a` |
 
