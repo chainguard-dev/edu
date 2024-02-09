@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,8 +25,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.13-dev` `2.13.0-dev` `latest-dev` `2-dev` | February 7th | `sha256:525bbdba91fe9230336caa655c7b791a69c169b0952c4a4968c88202af89e783` |
-|  `2.13` `latest` `2.13.0` `2`                 | February 6th | `sha256:57331d986d242e6feb019c20b1dfca55b80125030b8a72ed7dca633eb679fd74` |
+|  `latest-dev` `2.13-dev` `2-dev` `2.13.0-dev` | February 8th | `sha256:7e4b53267ac9a2fff5c674840cecbcdea73fdcb84c8ea614c39b63f491934d92` |
+|  `2` `latest` `2.13` `2.13.0`                 | February 8th | `sha256:6b9f4c0d234e59cd77266ce563948655140ea64cdfe0f499ae3f3bd317c56fbc` |
 |  `2.12.1-dev` `2.12-dev`                      | January 15th | `sha256:4b637da1fa948fa1f572b95daf176810e4e9857a521511c7da99a4627ef625b1` |
 |  `2.12.1` `2.12`                              | January 13th | `sha256:a1c78614d6a09e666c44832caaa2b4cfae22215d711425ff4efce7553211d1ef` |
 

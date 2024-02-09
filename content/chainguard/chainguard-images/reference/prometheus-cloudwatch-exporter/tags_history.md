@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 7th | `sha256:d1f70012b720fc305738aa71850cb7bfd850fc87ddcb904ec73af5785df4158c` |
-|  `latest`     | February 7th | `sha256:4650ef13d57cd9a4268e57a5e5dcbe566ef0af0e03fc772de94f498239b53039` |
+|  `latest`     | February 8th | `sha256:e931f0842d7bd2e91e55585309079e8afbfe741f9903d19065930dd78c7aadb9` |
+|  `latest-dev` | February 8th | `sha256:b87c16a372facb919846b0ede8f7b2eabf2fc256e921693a751b6dacb9a24db5` |
 

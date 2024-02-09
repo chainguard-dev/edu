@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cedar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 7th | `sha256:06218ed6e654b34497b4f474185ff7fe3767bb34d1cd63f1d67040e00efdc89e` |
+|  `latest-dev` | February 8th | `sha256:b615a7e6161308cd7729cba8f176a22b7ad087b614d3f1286eb1b151459fa1fc` |
 |  `latest`     | January 31st | `sha256:32ffed05bf2a4db20a1b8ce8cf4e005529af8f1ec279e5ff4ffec939e70aac14` |
 

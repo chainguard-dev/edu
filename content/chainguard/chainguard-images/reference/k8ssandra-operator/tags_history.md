@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 7th | `sha256:ccb66cfcd0ff356fb698a7c0a0194dfde4f8e97f6d7405e779e4aded23c3f751` |
+|  `latest-dev` | February 8th | `sha256:804f683c2f4957861a69bc180a5c1ae5ccb16c56c227f8c35fc366bae6eb922a` |
 |  `latest`     | February 2nd | `sha256:63341c21624100f673ac90168a4b7063f9f3a6dab7b98f387d07b22b9bd42f18` |
 

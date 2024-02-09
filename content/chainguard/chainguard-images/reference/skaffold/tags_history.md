@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the skaffold Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 7th | `sha256:9607cb3921f1c1cfecc13d6e6641318fdc0cbb86b7050dd3b3b562da32c6e1d5` |
+|  `latest-dev` | February 8th | `sha256:fac135ba98fb2544fba3436e67173e98886a37f0a9cfd1805c4bf05a3ee33171` |
 |  `latest`     | February 7th | `sha256:2175bf66b793a11cd96037ec0a0bc847d10dcbb58014b76dd97697edcafdfc2f` |
 

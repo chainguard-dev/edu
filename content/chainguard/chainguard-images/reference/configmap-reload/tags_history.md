@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the configmap-reload Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 7th | `sha256:2f4b62c9b2f873c90b44f86261747d20c50a9313d70c12f2a8d65a9d7e3b5ffc` |
+|  `latest-dev` | February 8th | `sha256:c9880e50db84c92fc29741c4e22393d0a69d41478e4e8f063b611dba7cf9b8c3` |
 |  `latest`     | January 31st | `sha256:b34b2743b76fb5fc8d1529a4baedabc47112a5ec96cd0cefd74377f9fe81ed3d` |
 

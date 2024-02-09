@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jre-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-09 00:19:29
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 7th | `sha256:a3565c26261fa428e438d60014d71d40e700233e6e50adcd2597f3fdc33a5254` |
+|  `latest-dev` | February 8th | `sha256:164b3a3185b8ae69dfbdcb632306e950fb94c3239b7de169c1b4c19fc624f06f` |
 |  `latest`     | February 6th | `sha256:fa22dd5a86bfbde2ee7091beec2721547a729953140f55580b9e49c527033154` |
 
