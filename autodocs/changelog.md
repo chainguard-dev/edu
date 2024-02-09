@@ -1,4 +1,15 @@
 # 2024-02-09
+
+
+Updated Docs:
+
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- filebeat/tags_history.md
+- prometheus-alertmanager/image_specs.md
+- prometheus-alertmanager/tags_history.md
+
+# 2024-02-09
 New images added:
 
 - filebeat
