@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | February 8th | `sha256:390eb4d685253faf4875d640ff6a5fee7b79b9006d27839a2bc1565cbac7b36e` |
-|  `latest-dev` | February 8th | `sha256:38e6eb1212015dae387cd01644f7462937beb069d4146eeb63b0009dab5fdab1` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:79f65d77ee6610e09efe7f66ac300ddb0b475f8ce1a9190fed9874637004409a` |
+|  `latest`     | February 8th  | `sha256:390eb4d685253faf4875d640ff6a5fee7b79b9006d27839a2bc1565cbac7b36e` |
 

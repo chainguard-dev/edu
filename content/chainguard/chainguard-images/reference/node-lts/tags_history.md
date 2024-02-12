@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 8th | `sha256:5bbc210bc087bd598383056de2bb0aeb1b21129a799381781d695df37f1ceff3` |
-|  `latest`     | February 8th | `sha256:4319dda8d2964e94f9f3f09371454c9a144d862469ec4d7041424ad699205d9d` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:f904f72d6f51f653dd8e1895cc06205e2c033fcfefb0e2c081c80e5e7ae71a8d` |
+|  `latest`     | February 8th  | `sha256:4319dda8d2964e94f9f3f09371454c9a144d862469ec4d7041424ad699205d9d` |
 

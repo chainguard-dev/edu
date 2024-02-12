@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-medusa Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-01 00:31:15
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | January 31st | `sha256:976c3f7c99ec9a3f0a77a47e562484bd4f74739e31b1c53c6ed7e4d3cc1a1d7d` |
-|  `latest`     | January 31st | `sha256:338f2a15e877e1fa3d6a1421306ffd871f7dd190685046096c6532a70ad1ab6f` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:801f9d3ac6c491076b6805cc8fc9443a1d47eab082c3dbf189f6c69d6d894413` |
+|  `latest`     | February 10th | `sha256:dfacf4ac93b90993fb288d96e16678e116a7c9bee6fa0fbe0fe9ec45743d07ec` |
 
