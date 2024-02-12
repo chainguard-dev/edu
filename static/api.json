@@ -4296,13 +4296,31 @@
     "advisoryReference": {
       "properties": {
         "type": {
-          "type": "string"
+          "$ref": "#/definitions/advisoryReferenceType"
         },
         "url": {
           "type": "string"
         }
       },
       "type": "object"
+    },
+    "advisoryReferenceType": {
+      "default": "UNSPECIFIED",
+      "description": " - UNSPECIFIED: The \"unset\" value.\n - ADVISORY: Published security advisory for the vulnerability.\n - ARTICLE: Article or blog post describing the vulnerability.\n - DETECTION: Scanner or tool that allows detection in prod environments.\n - DISCUSSION: Social media discussion about vuln.\n - REPORT: Report on vuln.\n - FIX: Source code browser link to fix.\n - INTRODUCED: Source code browser link to introduction of vuln.\n - PACKAGE: Home web page for package.\n - EVIDENCE: Demonstration of validity of vuln claim.\n - WEB: Web page of unspecified kind.",
+      "enum": [
+        "UNSPECIFIED",
+        "ADVISORY",
+        "ARTICLE",
+        "DETECTION",
+        "DISCUSSION",
+        "REPORT",
+        "FIX",
+        "INTRODUCED",
+        "PACKAGE",
+        "EVIDENCE",
+        "WEB"
+      ],
+      "type": "string"
     },
     "advisorySeverity": {
       "properties": {
@@ -4311,11 +4329,22 @@
           "type": "string"
         },
         "type": {
-          "description": "CVSS version standard.",
-          "type": "string"
+          "$ref": "#/definitions/advisorySeverityType",
+          "description": "CVSS version standard."
         }
       },
       "type": "object"
+    },
+    "advisorySeverityType": {
+      "default": "UNSPECIFIED",
+      "enum": [
+        "UNSPECIFIED",
+        "CVSS_V2",
+        "CVSS_V3",
+        "CVSS_V4"
+      ],
+      "title": "- UNSPECIFIED: The \"unset\" value.\n - CVSS_V2: CVSS v2\n - CVSS_V3: CVSS \u003e= 3.0 and \u003c 4.0\n - CVSS_V4: CVSS \u003e= 4.0 and \u003c 5.0",
+      "type": "string"
     },
     "advisoryTruePositiveDetermination": {
       "properties": {
