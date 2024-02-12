@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dask-gateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 8th | `sha256:976795acba749f41485ce4e39f934afcbae1ba0adbe612f4b47af02b47f7f106` |
-|  `latest`     | February 7th | `sha256:585b109d71a08db9b97c419d052c1b1112a14756d95e9f298c13bfb9ef5d4b0d` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:22e2c7a24c17037fb1d82a034b15737f168ace109b5eb9bc54c2c4fe741ec273` |
+|  `latest`     | February 7th  | `sha256:585b109d71a08db9b97c419d052c1b1112a14756d95e9f298c13bfb9ef5d4b0d` |
 

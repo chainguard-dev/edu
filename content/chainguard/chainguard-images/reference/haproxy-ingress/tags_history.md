@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the haproxy-ingress Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 8th | `sha256:7c3e4999a7e0f93caff811adeabd7cd2a0fe55da9788c20c47b75227f0177046` |
-|  `latest`     | February 8th | `sha256:c67dda9ae45194c20f7b4e4041a8d967a191c44a6421c23b3ae41da83428fb64` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:4f1d5ec8cbba1f31fba0c741234f078f394e2c3b7e36104c2d72c309741ab0b1` |
+|  `latest`     | February 8th  | `sha256:c67dda9ae45194c20f7b4e4041a8d967a191c44a6421c23b3ae41da83428fb64` |
 

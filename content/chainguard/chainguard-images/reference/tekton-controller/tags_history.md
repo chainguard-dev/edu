@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 8th | `sha256:8a96d4f8e081691a3ef05da3ffdf70c328cfcc0ee103c9e7598900f258a167db` |
-|  `latest`     | February 2nd | `sha256:e4689c715194edaf80e5acf899076a03c4f3d98e67d6c3c765a3d4d0c3f8c734` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:2b1aee389f548bd0eb8f1ba037eacc363665ddfe2c33cdfc401975d1a4dab5b6` |
+|  `latest`     | February 2nd  | `sha256:e4689c715194edaf80e5acf899076a03c4f3d98e67d6c3c765a3d4d0c3f8c734` |
 

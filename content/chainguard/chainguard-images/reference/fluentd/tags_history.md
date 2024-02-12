@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,10 +23,10 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)              | Last Changed | Digest                                                                    |
-|----------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev`        | February 8th | `sha256:5038f5bbb638a17ff00f83aafd2eee4ea5c134a14c39d3b2d7339eaf19c4f8b9` |
-|  `latest-splunk-dev` | February 8th | `sha256:ae57f603a5e120f347e0f59cb090c9c019426176e14414c92f0089d9be17f4c6` |
-|  `latest`            | February 6th | `sha256:e832274537bc8853ef8fcac1588682aecce4c6778e9311a877db2251478c04d2` |
-|  `latest-splunk`     | February 6th | `sha256:cf5a41aebac0b1595ba88f2d2a66c2f733b106db598c574670b2153eebba51f6` |
+| Tag (s)              | Last Changed  | Digest                                                                    |
+|----------------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev`        | February 10th | `sha256:906a2e682ad36df76c526bedf51585a159ec50752d5f8359d477cabacaf756a2` |
+|  `latest-splunk-dev` | February 10th | `sha256:28848f5d149b091880934a1c7137e9f56b198f6397c396fd426f4f2cf094b720` |
+|  `latest`            | February 6th  | `sha256:e832274537bc8853ef8fcac1588682aecce4c6778e9311a877db2251478c04d2` |
+|  `latest-splunk`     | February 6th  | `sha256:cf5a41aebac0b1595ba88f2d2a66c2f733b106db598c574670b2153eebba51f6` |
 
