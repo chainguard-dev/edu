@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the timoni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 8th | `sha256:6134a69502e25600c4a59b8c6a40712faa8be344f81ca73a218d0884b8108d00` |
-|  `latest`     | February 6th | `sha256:5550724e6beaa0d015594d4c9f405a409c2123bb626ac4f9a0d3aab976773e98` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:ba9e92e4e3c8de40ae9561593ec51fbd8aa4ae12c97caaf77ac4a33221115330` |
+|  `latest`     | February 10th | `sha256:89a2a040b24c21e08d972ead3a5750eabe58181ba4398b9e9bdb055a8b77ca66` |
 

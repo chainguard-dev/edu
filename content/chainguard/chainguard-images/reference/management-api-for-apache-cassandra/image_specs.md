@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public management-api-for-apache-cassandra Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -133,7 +133,6 @@ The table shows package distribution across variants.
 | `lm-sensors`                                 | X          | X      |
 | `management-api-for-apache-cassandra`        | X          | X      |
 | `management-api-for-apache-cassandra-compat` | X          | X      |
-| `mariadb`                                    | X          | X      |
 | `metric-collector-for-apache-cassandra`      | X          | X      |
 | `mosquitto-libs`                             | X          | X      |
 | `mpdecimal`                                  | X          | X      |

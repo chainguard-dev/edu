@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubectl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 8th | `sha256:34ac40101796ede23f87e364e15f1e2f5c1b2fe35647bd0cec2ebfa204748552` |
-|  `latest`     | January 23rd | `sha256:f179449dc6eeef7c1e5bb75b9a59d98f0fef2e6996cf84a4416d5f51aa0f7c31` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:ab52b2afae7ee33a43b0066b311d7d68b986fe2b791378c494f4efa3e37bff7b` |
+|  `latest`     | January 23rd  | `sha256:f179449dc6eeef7c1e5bb75b9a59d98f0fef2e6996cf84a4416d5f51aa0f7c31` |
 

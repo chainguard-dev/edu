@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the datadog-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 8th | `sha256:5aa90a28cd2069f6f55ad11aa4c0a648b851b666444148d9c723380199a59e2a` |
-|  `latest`     | February 7th | `sha256:2fa9355495c402e35035a8c02f7d71e55a006e836571e31fd29cf9f1d8767958` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:f769eeb9792b75bd684b6803325b8b105cedafdf16290b0b8908030d7f624cd7` |
+|  `latest`     | February 7th  | `sha256:2fa9355495c402e35035a8c02f7d71e55a006e836571e31fd29cf9f1d8767958` |
 

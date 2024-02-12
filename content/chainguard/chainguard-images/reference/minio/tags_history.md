@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the minio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)               | Last Changed | Digest                                                                    |
-|-----------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` | February 8th | `sha256:ef052475477f8e2b78c45ae7c539eda7679c74df4c2cbfa260b9daddb0162702` |
-|  `0` `latest`         | February 1st | `sha256:5b9e99d664c750d69209012c3b038520e802ae8d6170566c684e2482508d81bd` |
+| Tag (s)               | Last Changed  | Digest                                                                    |
+|-----------------------|---------------|---------------------------------------------------------------------------|
+|  `0-dev` `latest-dev` | February 10th | `sha256:970e4be2e04c83f42dd6c8ad5527a314e68d4e766d9175d0fc124987f6c0868d` |
+|  `0` `latest`         | February 1st  | `sha256:5b9e99d664c750d69209012c3b038520e802ae8d6170566c684e2482508d81bd` |
 

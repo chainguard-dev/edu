@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,10 +23,10 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                                      | Last Changed | Digest                                                                    |
-|------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.3-dev` `2.2-dev` `v2.2.3-dev` `2-dev` `latest-dev` `v2.2-dev` `v2-dev` | February 8th | `sha256:aa5d26e3aca1ca564153c739116cdb9b88809baa9cd5723f4fb611fd1abf7b59` |
-|  `v2.2.3` `2.2` `v2.2` `v2` `2.2.3` `latest` `2`                             | February 8th | `sha256:f56a86b7940e688ac87183a98f7d11913911453c25bbf27da06e6bd45c18bffa` |
-|  `2.2.2` `v2.2.2`                                                            | January 31st | `sha256:d49263efebf826acdf937db5bcd6dc2dc35a41aa7c7d882fb0451865a14ee479` |
-|  `2.2.2-dev` `v2.2.2-dev`                                                    | January 31st | `sha256:abcfee6348d7658c1e989f99c6d402cd800b4b062b190a31da79b41628f28ec1` |
+| Tag (s)                                                                      | Last Changed  | Digest                                                                    |
+|------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `2.2.3-dev` `v2-dev` `2.2-dev` `v2.2-dev` `latest-dev` `v2.2.3-dev` `2-dev` | February 10th | `sha256:65c2671efbd2bc1c1e8bae366493bcc2c2ed198bc3edf6123aba8d4fc21b9d80` |
+|  `v2.2.3` `2.2` `v2.2` `v2` `2.2.3` `latest` `2`                             | February 8th  | `sha256:f56a86b7940e688ac87183a98f7d11913911453c25bbf27da06e6bd45c18bffa` |
+|  `2.2.2` `v2.2.2`                                                            | January 31st  | `sha256:d49263efebf826acdf937db5bcd6dc2dc35a41aa7c7d882fb0451865a14ee479` |
+|  `2.2.2-dev` `v2.2.2-dev`                                                    | January 31st  | `sha256:abcfee6348d7658c1e989f99c6d402cd800b4b062b190a31da79b41628f28ec1` |
 
