@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the timestamp-authority-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,7 +23,7 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 8th | `sha256:cf38b57954b3f1301e63c7a9713a087bfe269d2bda29cd9f84698c3eb13d0d9a` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:02615f7fd0ab53a396a7880bd4f6304da10b98d0b6f68109b15ba9ef96b05dd7` |
 

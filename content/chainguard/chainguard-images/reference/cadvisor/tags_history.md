@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cadvisor Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 8th | `sha256:0ce87a7307187e054c8bc9bffafd242c678b34fe0ee37434bcf5cb1463b68dfb` |
-|  `latest`     | February 1st | `sha256:f45833686a42972c5a0768943c4bd70373aa037cec3b8573213dafde234b7b48` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:62889a0def8122703d836c53226ee8f8d451055c49e7d2b9ae66954f2c294bda` |
+|  `latest`     | February 1st  | `sha256:f45833686a42972c5a0768943c4bd70373aa037cec3b8573213dafde234b7b48` |
 

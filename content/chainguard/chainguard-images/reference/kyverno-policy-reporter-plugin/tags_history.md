@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-policy-reporter-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 8th | `sha256:a2d6c1997011493a8cb49f9c25df0caf169a55e1018d929eb1f944c0e2f64bc5` |
-|  `latest`     | January 31st | `sha256:d6fd9f7e4ea8101c245b6d0e19f225de64c62b5cf89bc46fbbbed79edd6dc4bd` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:6f7b47889d1f8e093376a63608c73e98e98b5a82966daf680faa80d8955d9623` |
+|  `latest`     | January 31st  | `sha256:d6fd9f7e4ea8101c245b6d0e19f225de64c62b5cf89bc46fbbbed79edd6dc4bd` |
 

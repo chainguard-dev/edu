@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wavefront-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 8th | `sha256:38c942ae22153f06d6bc4668e4a8a8ab75747f76ed8599aeb4d0c2caf2bd90ce` |
-|  `latest`     | February 8th | `sha256:3fe9218bd82f3aac0f6fc838eed43c8f1331527abe7a4c24cabb22de56638754` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:28918d97577eb4e48de7a80c7ce0f6c3b243f255a372e6f2faca51cd3f8fd44c` |
+|  `latest`     | February 8th  | `sha256:3fe9218bd82f3aac0f6fc838eed43c8f1331527abe7a4c24cabb22de56638754` |
 

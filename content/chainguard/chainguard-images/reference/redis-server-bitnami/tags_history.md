@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-server-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 8th | `sha256:1830b0f01c8424378c2fd2ef2161641168f50e4eed984bee0b0fe393c97ff1f1` |
-|  `latest`     | February 8th | `sha256:cf8bec49d6a091741f7d17c4cdfb361810d1777a9c1da25e07eb3a9bf17b0349` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:3c3b52603b8cc4f0a4fbedcac5f250ae92a9d1cbaa0a86df39314affa8c698b5` |
+|  `latest`     | February 8th  | `sha256:cf8bec49d6a091741f7d17c4cdfb361810d1777a9c1da25e07eb3a9bf17b0349` |
 

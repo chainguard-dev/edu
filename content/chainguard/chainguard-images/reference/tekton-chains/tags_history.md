@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-chains Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-12 00:21:23
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 8th | `sha256:44ca5d50a551a01bf82880326f1114a395facbdd0b7d3328b7d815b76b2b28e6` |
-|  `latest`     | February 2nd | `sha256:5f156da57d3d30235bb14a1c0678d6cbd16b5446a4a54758541b99ad5a870814` |
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 10th | `sha256:883bea4b17d953d089b4e16c8a85802e4ee58c5b19beb2ea94d0d4f6a9b32a11` |
+|  `latest`     | February 2nd  | `sha256:5f156da57d3d30235bb14a1c0678d6cbd16b5446a4a54758541b99ad5a870814` |
 
