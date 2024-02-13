@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public statsd Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-13 00:34:25
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -71,6 +71,7 @@ The table shows package distribution across variants.
 | `libssl3`                | X          | X      |
 | `libstdc++`              | X          | X      |
 | `libunistring`           | X          |        |
+| `libuv`                  | X          | X      |
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
 | `nodejs-18`              | X          | X      |

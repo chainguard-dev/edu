@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-infrastructure-bundle Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+lastmod: 2024-02-13 00:34:25
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 10th | `sha256:f736d38acfcde8250d40f0a591fe062dded929047b0bacb00a4870466e25bbff` |
-|  `latest`     | February 8th  | `sha256:f5b0ef1ed3fa5814592095f6325020027ab0da39de647ccfd222867ed974e0be` |
+|  `latest`     | February 12th | `sha256:e765d040bc22c39f877ae05aaea5ef6142f192b9ea3f590b557e56c7a8252d73` |
+|  `latest-dev` | February 12th | `sha256:2575f6fcf1e4ce71164c2bb70860ec89289bd7e42ff159e27ad8b0b6bbd1795e` |
 

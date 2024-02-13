@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falcoctl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+lastmod: 2024-02-13 00:34:25
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 10th | `sha256:102595da921341fc0409aec7addcc1bbff6e872ea69b864491662bf73205c109` |
-|  `latest`     | January 31st  | `sha256:d20f7bef53ca03877072000a97b3633036020fce84544a3ea39e5a594a6c443d` |
+|  `latest-dev` | February 12th | `sha256:e1294b35d52041031924e1a258a3452fe7d6a9f624493392143dac19c332a0d1` |
+|  `latest`     | February 12th | `sha256:b2eed346041501d6d24eafc218d88b488b218f84756f53631dba51244bbcf103` |
 

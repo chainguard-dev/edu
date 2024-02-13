@@ -1,3 +1,75 @@
+# 2024-02-13
+
+
+Updated Docs:
+
+- atlantis/tags_history.md
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- caddy/tags_history.md
+- coredns/tags_history.md
+- dask-gateway-server/tags_history.md
+- falcoctl/tags_history.md
+- flux-source-controller/tags_history.md
+- gitlab-exporter/tags_history.md
+- gitlab-kas/tags_history.md
+- gitlab-pages/tags_history.md
+- gitlab-shell/tags_history.md
+- guacamole-server/tags_history.md
+- keda/tags_history.md
+- keda-adapter/tags_history.md
+- keda-admission-webhooks/tags_history.md
+- kubeflow-centraldashboard/image_specs.md
+- kubeflow-centraldashboard/tags_history.md
+- kubeflow-katib-earlystopping-medianstop/tags_history.md
+- kubeflow-katib-suggestion-darts/tags_history.md
+- kubeflow-katib-suggestion-hyperband/tags_history.md
+- kubeflow-katib-suggestion-hyperopt/tags_history.md
+- kubeflow-katib-suggestion-optuna/tags_history.md
+- kubeflow-katib-suggestion-pbt/tags_history.md
+- kubeflow-katib-suggestion-skopt/tags_history.md
+- kubeflow-pipelines-api-server/tags_history.md
+- kubeflow-pipelines-cache-deployer/image_specs.md
+- kubeflow-pipelines-cache-deployer/tags_history.md
+- kubeflow-pipelines-cache-server/image_specs.md
+- kubeflow-pipelines-cache-server/tags_history.md
+- kubeflow-pipelines-frontend/image_specs.md
+- kubeflow-pipelines-frontend/tags_history.md
+- kubeflow-pipelines-metadata-envoy/image_specs.md
+- kubeflow-pipelines-metadata-envoy/tags_history.md
+- kubeflow-pipelines-metadata-writer/image_specs.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- kubeflow-pipelines-persistenceagent/image_specs.md
+- kubeflow-pipelines-persistenceagent/tags_history.md
+- kubeflow-pipelines-scheduledworkflow/image_specs.md
+- kubeflow-pipelines-scheduledworkflow/tags_history.md
+- kubeflow-pipelines-viewer-crd-controller/image_specs.md
+- kubeflow-pipelines-viewer-crd-controller/tags_history.md
+- management-api-for-apache-cassandra/tags_history.md
+- newrelic-infrastructure-bundle/tags_history.md
+- newrelic-k8s-events-forwarder/tags_history.md
+- newrelic-kube-events/tags_history.md
+- newrelic-kubernetes/tags_history.md
+- nfs-subdir-external-provisioner/tags_history.md
+- node-lts/image_specs.md
+- node-lts/tags_history.md
+- opentelemetry-collector-contrib/tags_history.md
+- prometheus/tags_history.md
+- prometheus-alertmanager/_index.md
+- prometheus-alertmanager/image_specs.md
+- prometheus-alertmanager/tags_history.md
+- pulumi/image_specs.md
+- pulumi/tags_history.md
+- python/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- solr/tags_history.md
+- sqlpad/image_specs.md
+- sqlpad/tags_history.md
+- statsd/image_specs.md
+- statsd/tags_history.md
+- traefik/tags_history.md
+- vector/tags_history.md
+
 # 2024-02-12
 
 
