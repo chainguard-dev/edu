@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the pulumi Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+lastmod: 2024-02-13 00:34:25
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 10th | `sha256:d63a02a3c7afc417a5d49f17e85d1f504bed6d9e96c7043819d32c29d7d476e6` |
+|  `latest` | February 12th | `sha256:d93a6c023da20d5d461158771d91e994be209ce6ffc3d267a7afe8b2b3e046ac` |
 

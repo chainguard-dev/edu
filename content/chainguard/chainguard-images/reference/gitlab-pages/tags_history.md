@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitlab-pages Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+lastmod: 2024-02-13 00:34:25
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 10th | `sha256:aa37a06216fac6f8055eefc9132b67a55005198c1233aa7050a683708d8d6952` |
-|  `latest`     | February 8th  | `sha256:fcbbcb095c2e268a5ffaf170259038cdd4cdc22961154ce7b5c9db26a509f027` |
+|  `latest`     | February 12th | `sha256:572672256df2c75b576e7cdf4ca54e498a81b107f66a9b56a213ab53a659080d` |
+|  `latest-dev` | February 12th | `sha256:317488a9542e6943f14381df0ac8b59b625ca2d283ea53033ba0c81474b1a01a` |
 
