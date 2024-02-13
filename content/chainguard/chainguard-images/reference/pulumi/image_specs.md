@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public pulumi Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-13 00:34:25
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -101,6 +101,7 @@ The table shows package distribution across variants.
 | `libtasn1`                | X      |
 | `libunistring`            | X      |
 | `libunwind`               | X      |
+| `libuv`                   | X      |
 | `linux-headers`           | X      |
 | `lttng-ust`               | X      |
 | `make`                    | X      |

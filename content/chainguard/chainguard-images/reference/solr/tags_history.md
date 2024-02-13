@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the solr Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+lastmod: 2024-02-13 00:34:25
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 10th | `sha256:69cdf9e722a9fc77e4012dc8498cacdd9d8754b1e47fb79699941c1974303286` |
-|  `latest`     | February 8th  | `sha256:72eb0bb8ae5b3ac4507509b701ed62db4afe2a103434b6be4593fabfe8dfd09b` |
+|  `latest`     | February 12th | `sha256:3fc5b43193cf4d3df8b06c87bbb71e7fe954f7c0d500a606322cf6634b7db8de` |
+|  `latest-dev` | February 12th | `sha256:3b4a17b7fcb4fee0ed88b7bd13496cb2a7ee3e69a64a349e97b25f7b93128f39` |
 
