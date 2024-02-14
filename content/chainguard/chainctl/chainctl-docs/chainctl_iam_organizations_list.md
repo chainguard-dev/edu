@@ -1,5 +1,5 @@
 ---
-date: 2024-02-12T18:05:50Z
+date: 2024-02-14T17:03:45Z
 title: "chainctl iam organizations list"
 slug: chainctl_iam_organizations_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_list/
@@ -11,27 +11,16 @@ toc: true
 ---
 ## chainctl iam organizations list
 
-List organizations and folders.
+List organizations.
 
 ```
-chainctl iam organizations list [--organization=ORGANIZATION_NAME|ORGANIZATION_NAME] [--output tree|table|json|id]
-```
-
-### Examples
-
-```
-  # List all organizations and folders user is authorized to view.
-  chainctl iam organizations list
-  
-  # Restrict list to my-org and its folders
-  chainctl iam organizations list --organization=my-org
+chainctl iam organizations list [--output tree|table|json|id]
 ```
 
 ### Options
 
 ```
-  -h, --help                  help for list
-      --organization string   Organization to list folders from.
+  -h, --help   help for list
 ```
 
 ### Options inherited from parent commands
