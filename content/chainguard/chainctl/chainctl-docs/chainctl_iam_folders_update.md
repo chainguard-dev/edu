@@ -1,28 +1,42 @@
 ---
 date: 2024-02-14T17:03:45Z
-title: "chainctl auth status"
-slug: chainctl_auth_status
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth_status/
+title: "chainctl iam folders update"
+slug: chainctl_iam_folders_update
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_folders_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth status
+## chainctl iam folders update
 
-Inspect the local Chainguard Token.
+Update a folder.
 
 ```
-chainctl auth status [--output table|json|terse] [flags]
+chainctl iam folders update FOLDER_NAME | FOLDER_ID [--name FOLDER_NAME] [--description FOLDER_DESCRIPTION]
+```
+
+### Examples
+
+```
+
+# Update a folder's name
+chainctl iam folders update my-folder --name new-folder-name
+
+# Update a folder's description
+chainctl iam folders update 19d3a64f20c64ba3ccf1bc86ce59d03e705959ad/efb53f2857d567f2 --description "A description of the folder."
+
+# Remove a folder's description
+chainctl iam folders update my-folder --description ""
 ```
 
 ### Options
 
 ```
-  -h, --help                    help for status
-      --identity-token string   Use an explicit passed identity token or token path.
-      --quick                   Whether to perform quick offline token checks (vs. calling the Validate API).
+  -d, --description string   The updated description for the folder.
+  -h, --help                 help for update
+  -n, --name string          The updated name for the folder.
 ```
 
 ### Options inherited from parent commands
@@ -39,5 +53,5 @@ chainctl auth status [--output table|json|terse] [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl iam folders](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders/)	 - IAM folders interactions.
 

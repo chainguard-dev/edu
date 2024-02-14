@@ -1,28 +1,22 @@
 ---
 date: 2024-02-14T17:03:45Z
-title: "chainctl auth status"
-slug: chainctl_auth_status
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth_status/
+title: "chainctl iam folders"
+slug: chainctl_iam_folders
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_folders/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth status
+## chainctl iam folders
 
-Inspect the local Chainguard Token.
-
-```
-chainctl auth status [--output table|json|terse] [flags]
-```
+IAM folders interactions.
 
 ### Options
 
 ```
-  -h, --help                    help for status
-      --identity-token string   Use an explicit passed identity token or token path.
-      --quick                   Whether to perform quick offline token checks (vs. calling the Validate API).
+  -h, --help   help for folders
 ```
 
 ### Options inherited from parent commands
@@ -39,5 +33,9 @@ chainctl auth status [--output table|json|terse] [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
+* [chainctl iam folders delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_delete/)	 - Delete a folder.
+* [chainctl iam folders describe](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_describe/)	 - Describe a folder.
+* [chainctl iam folders list](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_list/)	 - List folders under an organization.
+* [chainctl iam folders update](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_update/)	 - Update a folder.
 
