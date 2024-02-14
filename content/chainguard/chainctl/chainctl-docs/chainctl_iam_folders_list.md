@@ -1,28 +1,26 @@
 ---
 date: 2024-02-14T17:03:45Z
-title: "chainctl auth status"
-slug: chainctl_auth_status
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth_status/
+title: "chainctl iam folders list"
+slug: chainctl_iam_folders_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_folders_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth status
+## chainctl iam folders list
 
-Inspect the local Chainguard Token.
+List folders under an organization.
 
 ```
-chainctl auth status [--output table|json|terse] [flags]
+chainctl iam folders list ORGANIZATION_NAME | ORGANIZATION_ID [--output tree|table|json|id]
 ```
 
 ### Options
 
 ```
-  -h, --help                    help for status
-      --identity-token string   Use an explicit passed identity token or token path.
-      --quick                   Whether to perform quick offline token checks (vs. calling the Validate API).
+  -h, --help   help for list
 ```
 
 ### Options inherited from parent commands
@@ -39,5 +37,5 @@ chainctl auth status [--output table|json|terse] [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl iam folders](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders/)	 - IAM folders interactions.
 
