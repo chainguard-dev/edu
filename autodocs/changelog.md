@@ -1,3 +1,39 @@
+# 2024-02-14
+
+
+Updated Docs:
+
+- aws-cli/tags_history.md
+- aws-ebs-csi-driver/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- calico-node/tags_history.md
+- guacamole-server/tags_history.md
+- istio-proxy/tags_history.md
+- k3s/tags_history.md
+- k3s-allinone/tags_history.md
+- kubeflow-jupyter-web-app/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- kubeflow-volumes-web-app/tags_history.md
+- kubernetes-csi-external-snapshot-controller/tags_history.md
+- kubernetes-csi-external-snapshot-validation-webhook/tags_history.md
+- kubernetes-csi-external-snapshotter/tags_history.md
+- management-api-for-apache-cassandra/tags_history.md
+- mariadb/tags_history.md
+- newrelic-infrastructure-bundle/tags_history.md
+- nfs-subdir-external-provisioner/tags_history.md
+- node-problem-detector/tags_history.md
+- postgres/tags_history.md
+- postgres-helm-compat/tags_history.md
+- prometheus-alertmanager/image_specs.md
+- prometheus-alertmanager/tags_history.md
+- proxysql/tags_history.md
+- r-base/tags_history.md
+- rqlite/tags_history.md
+- secrets-store-csi-driver/tags_history.md
+- temporal-server/image_specs.md
+- temporal-server/tags_history.md
+- zookeeper/tags_history.md
+
 # 2024-02-13
 
 
