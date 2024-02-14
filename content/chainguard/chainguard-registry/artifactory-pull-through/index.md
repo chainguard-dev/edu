@@ -22,7 +22,7 @@ This tutorial outlines how to set up remote repositories with [JFrog Artifactory
 
 ## Prerequisites
 
-In order complete this tutorial, you will need the following:
+In order to complete this tutorial, you will need the following:
 
 * Administrative privileges over an Artifactory instance. If you're interested in testing out this configuration, you can set up a trial instance on the [JFrog Artifactory landing page](https://jfrog.com/artifactory/). 
 * Administrative privileges over a Chainguard Registry. 
