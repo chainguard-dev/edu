@@ -1,5 +1,5 @@
 ---
-date: 2024-02-12T18:05:50Z
+date: 2024-02-14T17:03:45Z
 title: "chainctl iam organizations describe"
 slug: chainctl_iam_organizations_describe
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_describe/
@@ -11,10 +11,10 @@ toc: true
 ---
 ## chainctl iam organizations describe
 
-Describe an organization or folder.
+Describe an organization.
 
 ```
-chainctl iam organizations describe [--active-within=DURATION] [--output json]
+chainctl iam organizations describe [ORGANIZATION_NAME | ORGANIZATION_ID] [--active-within=DURATION] [--output json]
 ```
 
 ### Options

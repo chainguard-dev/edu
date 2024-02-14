@@ -1,34 +1,34 @@
 ---
-date: 2024-02-12T18:05:50Z
-title: "chainctl iam organizations delete"
-slug: chainctl_iam_organizations_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_delete/
+date: 2024-02-14T17:03:45Z
+title: "chainctl iam folders delete"
+slug: chainctl_iam_folders_delete
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_folders_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam organizations delete
+## chainctl iam folders delete
 
-Delete an organization or folder.
+Delete a folder.
 
 ```
-chainctl iam organizations delete [ORGANIZATION_NAME | ORGANIZATION_ID] [--skip-refresh] [--yes]
+chainctl iam folders delete [FOLDER_NAME | FOLDER_ID] [--skip-refresh] [--yes]
 ```
 
 ### Examples
 
 ```
 
-# Delete an organization by ID
-chainctl iam organizations delete e533448ca9770c46f99f2d86d60fc7101494e4a3
+# Delete a folder by ID
+chainctl iam folders delete 19d3a64f20c64ba3ccf1bc86ce59d03e705959ad/efb53f2857d567f2
 
-# Delete an organization by name
-chainctl iam organizations delete my-org
+# Delete a folder by name
+chainctl iam folders delete my-folder
 
-# Delete an organization or folder to be selected interactively
-chainctl iam organizations delete
+# Delete a folder to be selected interactively
+chainctl iam folders delete
 
 ```
 
@@ -54,5 +54,5 @@ chainctl iam organizations delete
 
 ### SEE ALSO
 
-* [chainctl iam organizations](/chainguard/chainctl/chainctl-docs/chainctl_iam_organizations/)	 - IAM organization interactions.
+* [chainctl iam folders](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders/)	 - IAM folders interactions.
 
