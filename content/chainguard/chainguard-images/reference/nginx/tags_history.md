@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nginx Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+lastmod: 2024-02-15 00:37:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 10th | `sha256:76327ca1dfe367b2a153a0d85cf4d85ef569296a982684bb7f861166089243fd` |
-|  `latest`     | January 31st  | `sha256:5b3a76533b2a6bac1b836fb72c39de1673b03c65043d8b1cfbf9c3b0e8266b67` |
+|  `latest-dev` | February 14th | `sha256:24248183d81c4f493184da980bbe770eaec1868c6655eea8fa9728f75dd1813a` |
+|  `latest`     | February 14th | `sha256:002acdffdf7c308aafd2482533f23ce5c0fb4a6c44abefdddc43cda9dee7f7e6` |
 

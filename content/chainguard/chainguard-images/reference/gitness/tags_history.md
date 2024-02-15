@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+lastmod: 2024-02-15 00:37:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 10th | `sha256:315ca75789d91e4046a726674733e5b6a588de71b0867a41a075eaad4b57b40a` |
-|  `latest`     | February 10th | `sha256:6d2fff05d536f40ed9f99bf0e86d0bfe24b2ae4e2b21fb29bea34f8b179a2d55` |
+|  `latest`     | February 14th | `sha256:867b7d2022416e1d8b7aa79d5f4dd496622a0845b22069ff78a594c9ad9bc1dc` |
+|  `latest-dev` | February 14th | `sha256:68bdfac2dd4f4c0dbc70f8438d2bf2dfbd1bdd00c4b11b8505f7f27f11829548` |
 

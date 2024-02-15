@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+lastmod: 2024-02-15 00:37:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 10th | `sha256:6c18e40b15e28edb8f6b5cc2927546ae11e91bf86b02017df1d7e1bee6034fd2` |
+|  `latest-dev` | February 14th | `sha256:805abc078be646e3f115afe79e6917f50545c4f2dbcf85e636d0b0c96c058ae9` |
 |  `latest`     | January 26th  | `sha256:d545b9bc105713f002304b2e0d19650eb144089d0d3f220afe3b2534a7b4e76a` |
 

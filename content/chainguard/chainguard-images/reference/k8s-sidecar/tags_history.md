@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8s-sidecar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+lastmod: 2024-02-15 00:37:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 10th | `sha256:b9713a0e5904ad8993e1bac625bb1b5124f25c417d383955e2793455561331c3` |
+|  `latest-dev` | February 14th | `sha256:e8c7068fc49121a9bed8025c149506ef842c24112178b1b43e97d3202dec65e6` |
 |  `latest`     | February 8th  | `sha256:9e543b9c7fb25f6fb2d07d461bd58ea3f362a4ecfa1e1e4a3327e954f7161c62` |
 

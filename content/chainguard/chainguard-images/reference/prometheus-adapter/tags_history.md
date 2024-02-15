@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+lastmod: 2024-02-15 00:37:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 10th | `sha256:b9d82d8009849b1e61fb9ffea79060f7e4c3d1d39409d0e7c18479c4fb386571` |
+|  `latest-dev` | February 14th | `sha256:4f6ea4c707b25f9e291e4472dbbeb5d47184b74efb62c7ede81a00b688d2a4fb` |
 
