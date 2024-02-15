@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-events Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+lastmod: 2024-02-15 00:37:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 10th | `sha256:7d60e3a7311641382f7b5156cf509571a56900c2a38328ec4d939772c6aad598` |
+|  `latest-dev` | February 14th | `sha256:569f6a356cce68c6fe89113bdddeff1cb5e28af4f5d5cc5359896c809452a61f` |
 |  `latest`     | February 2nd  | `sha256:0493101ec034da391c24c1ceb347dbd402d6339664d626673cf5b045e40f2f30` |
 

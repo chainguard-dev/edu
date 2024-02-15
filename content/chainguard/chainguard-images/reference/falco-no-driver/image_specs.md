@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public falco-no-driver Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-15 00:37:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -57,9 +57,11 @@ The table shows package distribution across variants.
 | `ld-linux`               | X          | X      |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
+| `libbz2-1`               | X          | X      |
 | `libcrypt1`              | X          |        |
 | `libcrypto3`             | X          |        |
 | `libcurl-openssl4`       | X          |        |
+| `libelf`                 | X          | X      |
 | `libexpat1`              | X          |        |
 | `libgcc`                 | X          | X      |
 | `libidn2`                | X          |        |
@@ -68,10 +70,12 @@ The table shows package distribution across variants.
 | `libpsl`                 | X          |        |
 | `libssl3`                | X          |        |
 | `libunistring`           | X          |        |
+| `libzstd1`               | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
 | `openssl-config`         | X          |        |
 | `wget`                   | X          |        |
 | `wolfi-baselayout`       | X          | X      |
-| `zlib`                   | X          |        |
+| `xz`                     | X          | X      |
+| `zlib`                   | X          | X      |
 
