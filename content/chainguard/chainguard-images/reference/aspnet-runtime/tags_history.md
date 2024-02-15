@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aspnet-runtime Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+lastmod: 2024-02-15 00:37:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 10th | `sha256:1593380f0e490162547bffa4920690ecab6ab5baa65e2fd81bda666f7cd63818` |
-|  `latest`     | January 31st  | `sha256:e025b20cf30a819c15d46c407c4097071a8e2994086b1e2533cd3c19e4034cc5` |
+|  `latest-dev` | February 14th | `sha256:7efd6606ef4b4f65aeeb9ba43d4ce87bce2c057c0d96217d350a3783fb67f86a` |
+|  `latest`     | February 14th | `sha256:ac042d9ef4154cdbcb7e14cc9798157ac35acb0e4e59a37b193e5659ee653aa8` |
 
