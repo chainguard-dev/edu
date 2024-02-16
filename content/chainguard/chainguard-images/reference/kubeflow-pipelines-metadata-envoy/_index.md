@@ -4,8 +4,8 @@ linktitle: "kubeflow-pipelines-metadata-envoy"
 type: "article"
 layout: "single"
 description: "Overview: kubeflow-pipelines-metadata-envoy Chainguard Image"
-date: 2023-12-10 00:31:12
-lastmod: 2023-12-10 00:31:12
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,7 +30,7 @@ Minimalist Kubeflow Pipelines Images
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
+## Download this Image
 The image is available on `cgr.dev`:
 
 ```

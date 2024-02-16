@@ -4,8 +4,8 @@ linktitle: "filebeat"
 type: "article"
 layout: "single"
 description: "Overview: filebeat Chainguard Image"
-date: 2024-02-09 00:19:29
-lastmod: 2024-02-09 00:19:29
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,7 +30,7 @@ toc: true
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
+## Download this Image
 The image is available on `cgr.dev`:
 
 ```

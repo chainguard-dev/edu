@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: temporal-server Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2023-12-14 00:19:07
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,7 +30,7 @@ Minimal image for [Temporal](https://docs.temporal.io/), a durable execution pla
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
+## Download this Image
 The image is available on `cgr.dev`:
 
 ```

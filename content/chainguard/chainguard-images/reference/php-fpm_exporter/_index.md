@@ -4,8 +4,8 @@ linktitle: "php-fpm_exporter"
 type: "article"
 layout: "single"
 description: "Overview: php-fpm_exporter Chainguard Image"
-date: 2023-12-21 00:35:14
-lastmod: 2023-12-21 00:35:14
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,7 +30,7 @@ Minimal php-fpm_exporter Image
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
+## Download this Image
 The image is available on `cgr.dev`:
 
 ```

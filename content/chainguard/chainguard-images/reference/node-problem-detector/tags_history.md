@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-problem-detector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-15 00:37:56
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 14th | `sha256:3ccde714fdfcc3467923eab2349c8d8f54c163255cc4c0cc39b36a4f7a0b5f98` |
+|  `latest-dev` | February 15th | `sha256:49aa686a7e130f227efb7fdf168800985858004ba7ad641a5e25e71d03dc19ef` |
 |  `latest`     | February 13th | `sha256:17553b637e79485be8430b3833129887eb01be69a6e37ef01eccfedf45c3c633` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nodetaint Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-15 00:37:56
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 14th | `sha256:39117c4b1ef5c7ad7f49ce1b1d24be77aa5cf95c299e878c1ea65871eecb7a46` |
+|  `latest-dev` | February 15th | `sha256:8f4d45f34876024fc52a7a4d9f1614d9d3d310ec3ce323547a2cbd1d242012b9` |
 

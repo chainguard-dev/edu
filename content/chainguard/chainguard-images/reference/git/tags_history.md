@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-15 00:37:56
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,10 +25,10 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed  | Digest                                                                    |
 |--------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-glibc-root-dev` | February 14th | `sha256:15e030aa1d3031ede9b1dc8cb54b7a6c2dae540f2d8a2a0b891aa0c53cdd5394` |
-|  `latest-glibc-root`     | February 14th | `sha256:1ab8d0ea6d6a08aa4f872b06d3aa6e3b74eef9a536f03a84b73b826d5fecda23` |
-|  `latest-glibc-dev`      | February 14th | `sha256:000aa8aaa7589f1e9f7f0c58887cb102c24d539f44d9a466d6972c3601480a7a` |
-|  `latest-glibc`          | February 14th | `sha256:297535d3b3c2f976b252162ca1e029bb27768456edb777a83289f1acdcd58139` |
+|  `latest-glibc`          | February 15th | `sha256:cf9fcee9a2bd637e2522c1b2382e90fe8e298977f0b743a41940a08d8896b3ff` |
+|  `latest-glibc-root`     | February 15th | `sha256:fbd7887282f0c2e480fd4c2eaed1e7774b7273611a64aaa55c36d7ab50e32634` |
+|  `latest-glibc-root-dev` | February 15th | `sha256:5f9a02d6fe80b0247ab67dfaab8529d3ca5c1c1eb2f4b61494c0bd5357ed13de` |
+|  `latest-glibc-dev`      | February 15th | `sha256:c000457a6e5a54ecb9d3ec4ebd4d7e3316edfc6e618c66d372db4188f827abdc` |
 |  `latest-root`           | February 10th | `sha256:9903bfe9fd2ca4a263c321184c9120e4d524f0c9cfc76ab37fafc4f444ebbf6b` |
 |  `latest`                | February 10th | `sha256:fccc781c14433640703748db6655f440587dc4a72dcdc2ae5084879c6e7f2692` |
 |  `latest-dev`            | February 10th | `sha256:0003913f40bcaf0e049ab42bfb631caffd2fb9c0dab4f9dfb87635aa8c903dce` |

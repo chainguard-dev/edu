@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: kubeflow-jupyter-web-app Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-01-31 00:17:29
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,7 +30,7 @@ Minimalist Kubeflow Machine Learning Toolkit for Kubernetes Images
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
+## Download this Image
 The image is available on `cgr.dev`:
 
 ```
