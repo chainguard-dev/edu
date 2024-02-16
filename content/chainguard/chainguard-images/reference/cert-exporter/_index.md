@@ -4,8 +4,8 @@ linktitle: "cert-exporter"
 type: "article"
 layout: "single"
 description: "Overview: cert-exporter Chainguard Image"
-date: 2024-01-03 00:37:41
-lastmod: 2024-01-03 00:37:41
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,7 +30,7 @@ A minimal, wolfi-based image for cert-exporter: an application that exports cert
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
+## Download this Image
 The image is available on `cgr.dev`:
 
 ```

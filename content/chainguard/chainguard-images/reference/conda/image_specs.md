@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public conda Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -75,6 +75,7 @@ The table shows package distribution across variants.
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
 | `openssl-config`         | X          | X      |
+| `py3-archspec`           | X          | X      |
 | `py3-certifi`            | X          | X      |
 | `py3-charset-normalizer` | X          | X      |
 | `py3-colorama`           | X          | X      |

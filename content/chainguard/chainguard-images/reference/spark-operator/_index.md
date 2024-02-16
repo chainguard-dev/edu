@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: spark-operator Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-02-07 00:17:48
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,7 +30,7 @@ A minimal, Wolfi-based image for Spark Operator. Facilitates the deployment and 
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
+## Download this Image
 The image is available on `cgr.dev`:
 
 ```

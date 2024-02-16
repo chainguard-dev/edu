@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-15 00:37:56
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2.13.0-dev` `2.13-dev` `latest-dev` `2-dev` | February 14th | `sha256:ca2c470d551094f36675d17b1a6f42247d1f11a94025b0e0947fb12e42efd15b` |
+|  `2.13-dev` `latest-dev` `2.13.0-dev` `2-dev` | February 15th | `sha256:91c87db8ca50628c09c02cff79fdd9ece3dcf8c2354ddd6004b0870835cc8bd4` |
 |  `2` `2.13` `latest` `2.13.0`                 | February 8th  | `sha256:dc0e0023029ea203ad26b12e782d14b1e6373a395d2c06ee84035a7dddf3fcff` |
 

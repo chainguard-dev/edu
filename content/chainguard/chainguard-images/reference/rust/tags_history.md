@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rust Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-15 00:37:56
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 14th | `sha256:c43049100d64f979c7a96c0a3733c422e2617014cc3f71aeefab938b1213a1c7` |
+|  `latest-dev` | February 15th | `sha256:d73cc404b305bd11f69a6eafcc0872241cb800994027b3d9a0af585ac7f1cef3` |
 |  `latest`     | February 14th | `sha256:90c37f6c4f9f4b4aa79e3fb14d1afeadadd7e6c3998ebb9704fa83aafe278076` |
 

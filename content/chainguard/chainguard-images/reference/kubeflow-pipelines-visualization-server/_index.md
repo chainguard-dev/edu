@@ -4,8 +4,8 @@ linktitle: "kubeflow-pipelines-visualization-server"
 type: "article"
 layout: "single"
 description: "Overview: kubeflow-pipelines-visualization-server Chainguard Image"
-date: 2024-01-24 00:37:09
-lastmod: 2024-01-24 00:37:09
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,7 +30,7 @@ Minimal image with [ml-pipeline/visualization-server](https://github.com/kubeflo
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
+## Download this Image
 The image is available on `cgr.dev`:
 
 ```

@@ -4,8 +4,8 @@ linktitle: "falco-no-driver"
 type: "article"
 layout: "single"
 description: "Overview: falco-no-driver Chainguard Image"
-date: 2023-12-22 00:18:53
-lastmod: 2023-12-22 00:18:53
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,7 +30,7 @@ A minimal, [wolfi](https://github.com/wolfi-dev)-based image for falco-no-driver
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
+## Download this Image
 The image is available on `cgr.dev`:
 
 ```
