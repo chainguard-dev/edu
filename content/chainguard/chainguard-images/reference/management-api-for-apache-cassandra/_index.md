@@ -4,8 +4,8 @@ linktitle: "management-api-for-apache-cassandra"
 type: "article"
 layout: "single"
 description: "Overview: management-api-for-apache-cassandra Chainguard Image"
-date: 2024-01-29 00:20:11
-lastmod: 2024-01-29 00:20:11
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,7 +30,7 @@ RESTful / Secure Management Sidecar for Apache Cassandra
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
+## Download this Image
 The image is available on `cgr.dev`:
 
 ```

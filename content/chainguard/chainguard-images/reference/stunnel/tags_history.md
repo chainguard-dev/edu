@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stunnel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-15 00:37:56
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 14th | `sha256:8fce46d7a1a3cc3b8905d23170d7387dfea19e9d8e61c34dfc5068c558f1d71c` |
+|  `latest-dev` | February 15th | `sha256:8532029dfb16677e0e9b8b67bcedd6a7ef907e3a594e9f847f974be5b7d8451c` |
 |  `latest`     | February 5th  | `sha256:a55d83192d72f0eb9daef007345a4886f9829dd9dc7a4dd58d97d2fcee3670af` |
 

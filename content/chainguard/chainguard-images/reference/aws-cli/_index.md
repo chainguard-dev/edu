@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: aws-cli Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-01-25 00:19:46
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,7 +30,7 @@ Minimal [aws-cli](https://github.com/aws/aws-cli) container image.
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
+## Download this Image
 The image is available on `cgr.dev`:
 
 ```

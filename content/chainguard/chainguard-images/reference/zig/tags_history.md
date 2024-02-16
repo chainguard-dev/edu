@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the zig Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-15 00:37:56
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 14th | `sha256:e5db61b69e39bf11495e8722629074aec36780222f989a392d3bb5d7df1da4e8` |
+|  `latest-dev` | February 15th | `sha256:c529a9a896534e4734c8d939bfb116567c40566692aef28301a8075becea5681` |
 |  `latest`     | February 8th  | `sha256:9897d532132b9aaff4eb65196224c625def8059ceb12ccc16617a844b5525f0e` |
 

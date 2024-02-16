@@ -4,8 +4,8 @@ linktitle: "datadog-agent"
 type: "article"
 layout: "single"
 description: "Overview: datadog-agent Chainguard Image"
-date: 2024-01-22 00:18:06
-lastmod: 2024-01-22 00:18:06
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,7 +30,7 @@ Minimalist Wolfi-based Datadog Agent to collect events and metrics from hosts an
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
+## Download this Image
 The image is available on `cgr.dev`:
 
 ```

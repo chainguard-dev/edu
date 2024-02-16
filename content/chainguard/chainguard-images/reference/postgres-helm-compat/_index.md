@@ -4,8 +4,8 @@ linktitle: "postgres-helm-compat"
 type: "article"
 layout: "single"
 description: "Overview: postgres-helm-compat Chainguard Image"
-date: 2023-12-13 00:32:10
-lastmod: 2023-12-13 00:32:10
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,7 +30,7 @@ PostgreSQL image compatible with helm charts.
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
+## Download this Image
 The image is available on `cgr.dev`:
 
 ```

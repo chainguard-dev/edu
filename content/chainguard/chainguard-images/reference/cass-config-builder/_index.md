@@ -4,8 +4,8 @@ linktitle: "cass-config-builder"
 type: "article"
 layout: "single"
 description: "Overview: cass-config-builder Chainguard Image"
-date: 2024-01-18 00:19:12
-lastmod: 2024-01-18 00:19:12
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,7 +30,7 @@ Minimal [cass-config-builder](https://github.com/datastax/cass-config-builder) c
 <!--overview:end-->
 
 <!--getting:start-->
-## Get It!
+## Download this Image
 The image is available on `cgr.dev`:
 
 ```
