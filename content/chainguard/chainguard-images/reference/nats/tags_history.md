@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nats Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-15 00:37:56
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 14th | `sha256:fce7da1774c1927ba6652958533f32857f1846ee6d9afd3a13cbc4270a89c738` |
+|  `latest-dev` | February 15th | `sha256:c3a33cb77d250c71e89d5f6996a83c8b27d7689c79f9b3fc43a785d2dc832015` |
 |  `latest`     | February 3rd  | `sha256:6bc7f0d587d777b8e6543cc3084befc4284f8245a7aabe14b216974335fdd4f0` |
 

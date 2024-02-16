@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the filebeat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-15 00:37:56
+lastmod: 2024-02-16 00:30:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 15th | `sha256:24e0cda273179bf93ee7785a48f2bfa8014327f1bdd55b60251fb5d492aa3658` |
 |  `latest`     | February 14th | `sha256:7f2fe54efe5c27149aeb80aec1ebf367812a5cde5bb7909e1411b9bac47b59b1` |
-|  `latest-dev` | February 14th | `sha256:246612480cd1b67bbd570e4f7395869ad2d25a3b86eab61bd5243b8273974604` |
 
