@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-16 00:30:51
+lastmod: 2024-02-18 00:27:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,12 +25,12 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed  | Digest                                                                    |
 |--------------------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev`            | February 16th | `sha256:7db31ca9a0deecf257e9061cffe3a15100d9eda8be692cab5dc2762f7970d698` |
+|  `latest`                | February 16th | `sha256:63978b46a78aa966a4e9c2133070fd802ff312a1ccb326df606f764759a6a2b5` |
+|  `latest-root`           | February 16th | `sha256:876ec642551401bec21ab4f26092a854076c0ab375aa66f769e6900aa6fca761` |
+|  `latest-root-dev`       | February 16th | `sha256:8c2ade0ea2e83688fa305d21e3896c348eb9060e56ce00c98aea5fccb34293a2` |
 |  `latest-glibc`          | February 15th | `sha256:cf9fcee9a2bd637e2522c1b2382e90fe8e298977f0b743a41940a08d8896b3ff` |
 |  `latest-glibc-root`     | February 15th | `sha256:fbd7887282f0c2e480fd4c2eaed1e7774b7273611a64aaa55c36d7ab50e32634` |
 |  `latest-glibc-root-dev` | February 15th | `sha256:5f9a02d6fe80b0247ab67dfaab8529d3ca5c1c1eb2f4b61494c0bd5357ed13de` |
 |  `latest-glibc-dev`      | February 15th | `sha256:c000457a6e5a54ecb9d3ec4ebd4d7e3316edfc6e618c66d372db4188f827abdc` |
-|  `latest-root`           | February 10th | `sha256:9903bfe9fd2ca4a263c321184c9120e4d524f0c9cfc76ab37fafc4f444ebbf6b` |
-|  `latest`                | February 10th | `sha256:fccc781c14433640703748db6655f440587dc4a72dcdc2ae5084879c6e7f2692` |
-|  `latest-dev`            | February 10th | `sha256:0003913f40bcaf0e049ab42bfb631caffd2fb9c0dab4f9dfb87635aa8c903dce` |
-|  `latest-root-dev`       | February 10th | `sha256:6d1f62e9c2ddc6c2755c6f8a04a6a9027995c500d9e9746c9b9b03e7c18cd04a` |
 
