@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-azure-sql Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+lastmod: 2024-02-18 00:27:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                       | Last Changed | Digest                                                                    |
-|-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.42.0` `latest` `0` `0.42` | February 9th | `sha256:cacfb70a4261c720087b4e82db68a5176101ca33655bfb0ddb3da315b350b199` |
-|  `0.41.0` `0.41`              | January 19th | `sha256:35e29905d48a59e04646633e1c89b2e1860b800cca72d878db7895d9339bcb9c` |
+| Tag (s)                       | Last Changed  | Digest                                                                    |
+|-------------------------------|---------------|---------------------------------------------------------------------------|
+|  `0.42` `0.42.0` `0` `latest` | February 16th | `sha256:a044a7c30925c0e1a19052f247f31f6d642f92734774f57c8a218554a745f12e` |
+|  `0.41.0` `0.41`              | January 19th  | `sha256:35e29905d48a59e04646633e1c89b2e1860b800cca72d878db7895d9339bcb9c` |
 
