@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the datadog-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-16 00:30:51
+lastmod: 2024-02-18 00:27:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 15th | `sha256:fe063f088ce844c3837a75b026ee7ef886d97edb9bb0c22ccd25753ac6906687` |
-|  `latest`     | February 7th  | `sha256:2fa9355495c402e35035a8c02f7d71e55a006e836571e31fd29cf9f1d8767958` |
+|  `latest`     | February 16th | `sha256:ec57b8e4acf78b0ea7a04e4532a4dc85c824b050d5e21ea2b6eb782cd6b541be` |
+|  `latest-dev` | February 16th | `sha256:3c0834c4430190f944b0b03e3308cdb03737bdbcb844c8f93c12e4937754bdb5` |
 

@@ -1,9 +1,9 @@
 ---
-title: "proxysql Image Tags History"
+title: "falcosidekick Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the proxysql Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
+description: "Image Tags and History for the falcosidekick Chainguard Image"
+date: 2024-02-18 00:27:40
 lastmod: 2024-02-18 00:27:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/proxysql/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/proxysql/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/proxysql/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/proxysql/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/falcosidekick/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/falcosidekick/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/falcosidekick/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/falcosidekick/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 16th | `sha256:59d43bfd695306a2b29464e1df6eaa0305380137776da41da78aa15fd042d1c2` |
-|  `latest`     | February 16th | `sha256:39e77d818e063c1448f1987a6c966ae67928660acd9a1079a112cc98511f3cc1` |
+|  `latest-dev` | February 16th | `sha256:f7014830f44bcb943115a83790b5dbfa417ceed7bf921c845fd44b0cad7d9e00` |
+|  `latest`     | February 16th | `sha256:281486dd8578ae3ed6ad7385d7be1519392119d842708c04e02537092b2eff53` |
 
