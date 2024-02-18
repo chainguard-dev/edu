@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the busybox Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-18 00:27:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,8 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)         | Last Changed | Digest                                                                    |
-|-----------------|--------------|---------------------------------------------------------------------------|
-|  `latest-glibc` | February 8th | `sha256:a6c0f5aed8f29580ea3c5e72b2b7ca0a075ce937fddc2923c3ca7e852a315242` |
-|  `latest`       | February 7th | `sha256:dbcc447ecdbf3f0dd69a598ec6571b321735a796aa412029ec000ef0eb3df580` |
+| Tag (s)         | Last Changed  | Digest                                                                    |
+|-----------------|---------------|---------------------------------------------------------------------------|
+|  `latest`       | February 16th | `sha256:6799955dbd3396e9670859a42c16e6d17f963aacb264b25b6e99930590c09208` |
+|  `latest-glibc` | February 8th  | `sha256:a6c0f5aed8f29580ea3c5e72b2b7ca0a075ce937fddc2923c3ca7e852a315242` |
 
