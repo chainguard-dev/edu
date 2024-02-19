@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the logstash-oss-with-opensearch-output-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-18 00:27:40
+lastmod: 2024-02-19 00:28:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 16th | `sha256:6ba57981a6493d5a88f7b71506c4ad838978c85e42bed234e9082b3d20640710` |
+|  `latest-dev` | February 18th | `sha256:c10992021b3ac949f7d0b880eb679ae0bc30ada0b16de9997ebdea78720b059c` |
 |  `latest`     | February 16th | `sha256:08893b39e5eff0a16a0730d990d9622885f1bc70f463c9a6bb4fd620e05103fa` |
 

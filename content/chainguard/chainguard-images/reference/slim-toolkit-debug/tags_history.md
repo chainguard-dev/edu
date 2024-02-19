@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the slim-toolkit-debug Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-18 00:27:40
+lastmod: 2024-02-19 00:28:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 16th | `sha256:7b8c4766430f6c74338c12174f38fe7ac5341b6e33e014d40b11ad0560a15198` |
+|  `latest` | February 18th | `sha256:eb020fbc10a8deeb8d82f96679b97b70b82aa2112cd43879573779f56b733ae7` |
 

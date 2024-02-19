@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the oauth2-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-16 00:30:51
+lastmod: 2024-02-19 00:28:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 15th | `sha256:c992064de6d483fcdca069d8c59d865c1f49204c3ec8dfb9fe58143dbfb7443c` |
+|  `latest-dev` | February 18th | `sha256:d5b829c2f8b6c5c5c18457281b2b0c70bfebc990c22855e628178474ce48b728` |
 |  `latest`     | February 14th | `sha256:465283a1b628252daad3459442471e675627ef415b8b8f5b81ac9da5fb518d2d` |
 
