@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the timestamp-authority-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-16 00:30:51
+lastmod: 2024-02-19 00:28:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | February 18th | `sha256:a94735458de2a09c744c706e40bc165cc5ee299e7ca233f861c1c6f0a7ff2798` |
 |  `latest`     | February 15th | `sha256:15c2013d5e7bc76b46bddf2c5a25f2fa4ed7ce42ed90a6a3e1347ed5b848f2f2` |
-|  `latest-dev` | February 15th | `sha256:066db2dfd18fd5207601267e2427f70054029cf6b91eb12c26b78b385729c73e` |
 

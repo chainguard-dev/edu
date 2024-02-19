@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-source-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-16 00:30:51
+lastmod: 2024-02-19 00:28:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,7 +25,7 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                                                      | Last Changed  | Digest                                                                    |
 |------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1-dev` `v1.2.4-dev` `latest-dev` `v1-dev` `v1.2-dev` `1.2.4-dev` `1.2-dev` | February 15th | `sha256:01ed411810965ef592c79a5674dd31826cda9d48e652582e314dcdab844bb51b` |
-|  `latest` `v1.2` `1.2` `1.2.4` `v1` `1` `v1.2.4`                             | February 1st  | `sha256:f2e7628451262b8e190b31477abd494d01555274b54242e46d4370609bf2dfc8` |
+|  `v1.2-dev` `1.2-dev` `latest-dev` `v1-dev` `1.2.4-dev` `v1.2.4-dev` `1-dev` | February 18th | `sha256:dc79ebe8931460dbe1c4802a45660fc757081cf243822acfe1ac4cf25e91a306` |
+|  `v1.2` `latest` `1.2` `1.2.4` `v1` `1` `v1.2.4`                             | February 1st  | `sha256:f2e7628451262b8e190b31477abd494d01555274b54242e46d4370609bf2dfc8` |
 |  `v1.2.3-dev` `1.2.3-dev`                                                    | January 31st  | `sha256:c07944d19115ac40a748e51bc1370c0180e25b31c72257e748c87f8467972965` |
 
