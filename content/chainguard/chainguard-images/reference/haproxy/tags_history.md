@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the haproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-16 00:30:51
+lastmod: 2024-02-19 00:28:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 15th | `sha256:aa8339807740acecc89745d0278e8d4d9d2e00b82f84d7a4c2583ab5f666ef85` |
+|  `latest` | February 18th | `sha256:0babf3ef465c0f8aa77e56174f67a2fafe2b1cb0b69c056e65d074aac4f0283b` |
 

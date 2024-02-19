@@ -3,8 +3,8 @@ title: "falcosidekick Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the falcosidekick Chainguard Image"
-date: 2024-02-18 00:27:40
-lastmod: 2024-02-18 00:27:40
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-02-19 00:28:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 16th | `sha256:f7014830f44bcb943115a83790b5dbfa417ceed7bf921c845fd44b0cad7d9e00` |
+|  `latest-dev` | February 18th | `sha256:a826253c3a1aa694b6f01fbba51208078c96d189c89eb42fa5ab4c576a2fea1f` |
 |  `latest`     | February 16th | `sha256:281486dd8578ae3ed6ad7385d7be1519392119d842708c04e02537092b2eff53` |
 
