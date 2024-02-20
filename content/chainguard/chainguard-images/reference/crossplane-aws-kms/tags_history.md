@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-kms Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-18 00:27:40
+lastmod: 2024-02-20 00:19:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,7 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                       | Last Changed  | Digest                                                                    |
-|-------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest` `0.47` `0.47.1` `0` | February 16th | `sha256:ad2c6d6b0dd054fca0e9b7f303a901598f8dbc0e216d7e228caa46b36d7ba4b1` |
+| Tag (s)                     | Last Changed  | Digest                                                                    |
+|-----------------------------|---------------|---------------------------------------------------------------------------|
+|  `1.1` `1.1.0` `latest` `1` | February 19th | `sha256:478fdd97633973fdc604f2b85175a362e4870f21cf9eee2436c95994845acd2e` |
+|  `0.47` `0.47.1` `0`        | February 16th | `sha256:ad2c6d6b0dd054fca0e9b7f303a901598f8dbc0e216d7e228caa46b36d7ba4b1` |
 
