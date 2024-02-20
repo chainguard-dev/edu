@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-16 00:30:51
+lastmod: 2024-02-20 00:19:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 15th | `sha256:ccbe3b6b5f30905ef0b066d17905f5854a1b6150ec44d6e563a3f46ebb15dfb1` |
-|  `latest`     | January 31st  | `sha256:6288de729b69adb335a7eb42547569aaf060dc628fde19499b2ff8468d1e33d0` |
+|  `latest`     | February 19th | `sha256:d7c88544f98e14dd8e57edaf4271bbb0ef091ea6304e02ad3dca1516f1770a0d` |
+|  `latest-dev` | February 19th | `sha256:c54f3c84cd653facc467bbce915b8a4a2a41ee2eee68a7ab3256410a632ceff7` |
 

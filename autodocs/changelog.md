@@ -1,3 +1,62 @@
+# 2024-02-20
+
+
+Updated Docs:
+
+- aws-cli/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- cassandra-reaper/tags_history.md
+- conda/tags_history.md
+- crossplane-aws/tags_history.md
+- crossplane-aws-cloudfront/tags_history.md
+- crossplane-aws-cloudwatchlogs/tags_history.md
+- crossplane-aws-dynamodb/tags_history.md
+- crossplane-aws-ec2/tags_history.md
+- crossplane-aws-eks/tags_history.md
+- crossplane-aws-firehose/tags_history.md
+- crossplane-aws-iam/tags_history.md
+- crossplane-aws-kms/tags_history.md
+- crossplane-aws-lambda/tags_history.md
+- crossplane-aws-rds/tags_history.md
+- crossplane-aws-s3/tags_history.md
+- crossplane-aws-sns/tags_history.md
+- crossplane-aws-sqs/tags_history.md
+- crossplane-azure/tags_history.md
+- crossplane-azure-authorization/tags_history.md
+- crossplane-azure-managedidentity/tags_history.md
+- crossplane-azure-sql/tags_history.md
+- crossplane-azure-storage/tags_history.md
+- dask-gateway-server/tags_history.md
+- flux-helm-controller/tags_history.md
+- flux-source-controller/tags_history.md
+- gitlab-kas/tags_history.md
+- istio-operator/tags_history.md
+- kube-downscaler/tags_history.md
+- kubeflow-centraldashboard/tags_history.md
+- kubeflow-jupyter-web-app/tags_history.md
+- kubeflow-pipelines-frontend/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- kubeflow-volumes-web-app/tags_history.md
+- newrelic-kubernetes/tags_history.md
+- node/tags_history.md
+- node-lts/tags_history.md
+- ntia-conformance-checker/tags_history.md
+- openai/tags_history.md
+- opensearch/image_specs.md
+- opensearch/tags_history.md
+- prometheus-alertmanager/_index.md
+- prometheus-alertmanager/tags_history.md
+- prometheus-pushgateway/tags_history.md
+- prometheus-redis-exporter/tags_history.md
+- pulumi/tags_history.md
+- python/tags_history.md
+- semgrep/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- spark-operator/tags_history.md
+- sqlpad/tags_history.md
+- statsd/tags_history.md
+- trust-manager/tags_history.md
+
 # 2024-02-19
 
 
