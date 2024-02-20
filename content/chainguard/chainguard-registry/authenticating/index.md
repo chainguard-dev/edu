@@ -86,7 +86,7 @@ After navigating to the Console, click on **Settings** in the left-hand navigati
 
 ![Screenshot showing the Pull tokens page within the Settings pane. This example shows two pull tokens in the table.](pull-tokens-console-1.png)
 
-This table shows the name of each pull token, their descriptions, the date they were created, and the number of days until they expire.  
+This table shows the name of each pull token, their descriptions, the date they were created, and the number of days until they expire.
 
 You can create a new pull token by clicking the **Create pull token** button at the top of the page. A new pane will appear where you can enter a name for the new pull token, add an optional description, and select when the pull token will expire. The **Expiration** drop-down menu has options for 30, 60, and 90 days, as well as a **Custom** expiration option. This will cause a **Custom Expiration** window to appear, allowing you to select the date when you'd like the token to expire.
 
@@ -107,6 +107,8 @@ chainctl iam identity create github [GITHUB-IDENTITY] \
   --github-ref=refs/heads/main \
   --role=registry.pull
 ```
+
+**Note**: The value passed to `--github-repo` should be equal to the repository name you expect to be returned in the `subject` field of the token from GitHub. If you need to further scope or change the subject you can find a number of useful examples in the ["Example subject claims"](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) section of GitHub's OIDC documentation and then you may update the identity with [chainctl iam identities update](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_update/).
 
 This creates a Chainguard identity that can be assumed by a GitHub Actions workflow only for the specified GitHub repository, triggered on pushes to the specified branch (such as `refs/heads/main`), with permissions only to pull from the Chainguard Registry.
 
