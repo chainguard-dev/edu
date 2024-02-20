@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public opensearch Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-20 00:19:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,62 +29,83 @@ The **opensearch** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev                      | latest                          |
-|--------------|---------------------------------|---------------------------------|
-| Default User | `opensearch`                    | `opensearch`                    |
-| Entrypoint   | `/usr/bin/docker-entrypoint.sh` | `/usr/bin/docker-entrypoint.sh` |
-| CMD          | `opensearchwrapper`             | `opensearchwrapper`             |
-| Workdir      | not specified                   | not specified                   |
-| Has apk?     | yes                             | no                              |
-| Has a shell? | yes                             | yes                             |
+|              | latest-dev                                 | latest                                     |
+|--------------|--------------------------------------------|--------------------------------------------|
+| Default User | `nonroot`                                  | `nonroot`                                  |
+| Entrypoint   | `/usr/bin/opensearch-docker-entrypoint.sh` | `/usr/bin/opensearch-docker-entrypoint.sh` |
+| CMD          | not specified                              | not specified                              |
+| Workdir      | `/usr/share/opensearch`                    | `/usr/share/opensearch`                    |
+| Has apk?     | yes                                        | no                                         |
+| Has a shell? | yes                                        | yes                                        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/opensearch/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest-dev | latest |
-|--------------------------|------------|--------|
-| `apk-tools`              | X          |        |
-| `bash`                   | X          | X      |
-| `busybox`                | X          | X      |
-| `ca-certificates`        | X          | X      |
-| `ca-certificates-bundle` | X          | X      |
-| `fontconfig-config`      | X          | X      |
-| `freetype`               | X          | X      |
-| `git`                    | X          |        |
-| `glibc`                  | X          | X      |
-| `glibc-locale-posix`     | X          | X      |
-| `java-cacerts`           | X          | X      |
-| `java-common`            | X          | X      |
-| `ld-linux`               | X          | X      |
-| `libbrotlicommon1`       | X          | X      |
-| `libbrotlidec1`          | X          | X      |
-| `libbz2-1`               | X          | X      |
-| `libcrypt1`              | X          | X      |
-| `libcrypto3`             | X          | X      |
-| `libcurl-openssl4`       | X          |        |
-| `libexpat1`              | X          | X      |
-| `libffi`                 | X          | X      |
-| `libfontconfig1`         | X          | X      |
-| `libidn2`                | X          |        |
-| `libnghttp2-14`          | X          |        |
-| `libpcre2-8-0`           | X          |        |
-| `libpng`                 | X          | X      |
-| `libpsl`                 | X          |        |
-| `libssl3`                | X          |        |
-| `libtasn1`               | X          | X      |
-| `libunistring`           | X          |        |
-| `ncurses`                | X          | X      |
-| `ncurses-terminfo-base`  | X          | X      |
-| `openjdk-11-default-jvm` | X          | X      |
-| `openjdk-11-jre`         | X          | X      |
-| `openjdk-11-jre-base`    | X          | X      |
-| `opensearch-2`           | X          | X      |
-| `openssl-config`         | X          | X      |
-| `p11-kit`                | X          | X      |
-| `p11-kit-trust`          | X          | X      |
-| `wget`                   | X          |        |
-| `wolfi-baselayout`       | X          | X      |
-| `zlib`                   | X          | X      |
+|                                          | latest-dev | latest |
+|------------------------------------------|------------|--------|
+| `apk-tools`                              | X          |        |
+| `bash`                                   | X          | X      |
+| `busybox`                                | X          | X      |
+| `ca-certificates`                        | X          | X      |
+| `ca-certificates-bundle`                 | X          | X      |
+| `fontconfig-config`                      | X          | X      |
+| `freetype`                               | X          | X      |
+| `git`                                    | X          |        |
+| `glibc`                                  | X          | X      |
+| `glibc-locale-posix`                     | X          | X      |
+| `grep`                                   | X          | X      |
+| `java-cacerts`                           | X          | X      |
+| `java-common`                            | X          | X      |
+| `ld-linux`                               | X          | X      |
+| `libbrotlicommon1`                       | X          | X      |
+| `libbrotlidec1`                          | X          | X      |
+| `libbz2-1`                               | X          | X      |
+| `libcrypt1`                              | X          | X      |
+| `libcrypto3`                             | X          | X      |
+| `libcurl-openssl4`                       | X          |        |
+| `libexpat1`                              | X          | X      |
+| `libffi`                                 | X          | X      |
+| `libfontconfig1`                         | X          | X      |
+| `libidn2`                                | X          |        |
+| `libnghttp2-14`                          | X          |        |
+| `libpcre2-8-0`                           | X          | X      |
+| `libpng`                                 | X          | X      |
+| `libpsl`                                 | X          |        |
+| `libssl3`                                | X          | X      |
+| `libtasn1`                               | X          | X      |
+| `libunistring`                           | X          |        |
+| `ncurses`                                | X          | X      |
+| `ncurses-terminfo-base`                  | X          | X      |
+| `openjdk-17-default-jvm`                 | X          | X      |
+| `openjdk-17-jre`                         | X          | X      |
+| `openjdk-17-jre-base`                    | X          | X      |
+| `opensearch-2`                           | X          | X      |
+| `opensearch-2-alerting`                  | X          | X      |
+| `opensearch-2-anomaly-detection`         | X          | X      |
+| `opensearch-2-asynchronous-search`       | X          | X      |
+| `opensearch-2-cross-cluster-replication` | X          | X      |
+| `opensearch-2-custom-codecs`             | X          | X      |
+| `opensearch-2-geospatial`                | X          | X      |
+| `opensearch-2-index-management`          | X          | X      |
+| `opensearch-2-job-scheduler`             | X          | X      |
+| `opensearch-2-k-nn`                      | X          | X      |
+| `opensearch-2-ml-commons`                | X          | X      |
+| `opensearch-2-neural-search`             | X          | X      |
+| `opensearch-2-notifications`             | X          | X      |
+| `opensearch-2-observability`             | X          | X      |
+| `opensearch-2-performance-analyzer`      | X          | X      |
+| `opensearch-2-reporting`                 | X          | X      |
+| `opensearch-2-security`                  | X          | X      |
+| `opensearch-2-security-analytics`        | X          | X      |
+| `opensearch-2-sql`                       | X          | X      |
+| `openssl`                                | X          | X      |
+| `openssl-config`                         | X          | X      |
+| `openssl-provider-legacy`                | X          | X      |
+| `p11-kit`                                | X          | X      |
+| `p11-kit-trust`                          | X          | X      |
+| `wget`                                   | X          |        |
+| `wolfi-baselayout`                       | X          | X      |
+| `zlib`                                   | X          | X      |
 

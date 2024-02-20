@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-dynamodb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-18 00:27:40
+lastmod: 2024-02-20 00:19:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,7 +23,8 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                       | Last Changed  | Digest                                                                    |
-|-------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.47.1` `0.47` | February 16th | `sha256:dda62c2dd117c6705496609308035625903d5ae03e8ac9d7a723a62a7db986e1` |
+| Tag (s)                     | Last Changed  | Digest                                                                    |
+|-----------------------------|---------------|---------------------------------------------------------------------------|
+|  `1.1.0` `latest` `1` `1.1` | February 19th | `sha256:c2ff06dcee2cebd948e5df4af18b684a9afd15ffa77f8ed2b0784ebca80f8c5b` |
+|  `0` `0.47.1` `0.47`        | February 16th | `sha256:dda62c2dd117c6705496609308035625903d5ae03e8ac9d7a723a62a7db986e1` |
 
