@@ -26,7 +26,7 @@ Generally, if a tool exists in `busybox` but does not have a `coreutils` counter
 You can use the `apk search` command in Wolfi, and the `apt-cache search` command in Debian to find out which package includes a tool.
 
 | Utility                      | Wolfi busybox | Debian busybox | Wolfi coreutils | Debian coreutils |
-| ---------------------------- | ------------- | -------------- | --------------- | ---------------- |
+| ---------------------------- | :-----------: | :-----------: | :-----------: | :-----------: |
 | `[`                          | ✅            | ✅             | ✅              | ✅               |
 | `[[`                         | ✅            | ✅             |                 |                  |
 | `acpid`                      |               | ✅             |                 |                  |
