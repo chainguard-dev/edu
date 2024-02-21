@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the guacamole-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-19 00:28:58
+lastmod: 2024-02-21 00:39:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 18th | `sha256:4d4d94ebab1c9450f70605be5c2ec5509464142404881cdae3665d565306bd1c` |
-|  `latest-dev` | February 18th | `sha256:2c1b790d41622f53a9f771ba27a8479294c21a64dd4407281c845d5d39d9081d` |
+|  `latest`     | February 20th | `sha256:31343972bf41f860bdea0c7171bffacbf719428c97bfdea3787ac3519bb9ff68` |
+|  `latest-dev` | February 20th | `sha256:cf8388cf76126748dece4499b95ae208e69af3995ea73f473bedbc0caf47fa80` |
 
