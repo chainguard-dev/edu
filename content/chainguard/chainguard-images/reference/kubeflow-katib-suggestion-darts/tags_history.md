@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-darts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-19 00:28:58
+lastmod: 2024-02-21 00:39:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `latest-dev` `0-dev` `0.16-dev` | February 18th | `sha256:e45498ccadab227387764a138d69067a22cc242d733b2a70748af71c622b472d` |
-|  `latest` `0` `0.16` `0.16.0`                 | February 16th | `sha256:3ca4c2e05c918a94d150684a667d4405cc450413140b8e9e8a653f013d0b6238` |
+|  `latest` `0.16.0` `0` `0.16`                 | February 20th | `sha256:050b378793670e2af1ffcedd762ef70b81374ab960ac5c10f5661576587775a9` |
+|  `latest-dev` `0.16-dev` `0.16.0-dev` `0-dev` | February 20th | `sha256:323a0375e8fa6572f41af775c1d2cf708f404a8278cd15ac8e26ace2408f18b9` |
 
