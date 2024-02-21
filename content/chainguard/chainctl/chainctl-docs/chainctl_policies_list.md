@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl policies list"
 slug: chainctl_policies_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_policies_list/
@@ -14,14 +14,14 @@ toc: true
 List policies.
 
 ```
-chainctl policies list [--group=GROUP_NAME | GROUP_ID] [--image=IMAGE] [--output table|json|id] [flags]
+chainctl policies list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--image=IMAGE] [--output table|json|id]
 ```
 
 ### Examples
 
 ```
-  # List all policies in the "eng" group
-  chainctl policy list --group=eng
+  # List all policies in the "eng" organization
+  chainctl policy list --parent=eng
   
   # List all policies the user has permission to view
   chainctl policy list
@@ -30,10 +30,10 @@ chainctl policies list [--group=GROUP_NAME | GROUP_ID] [--image=IMAGE] [--output
 ### Options
 
 ```
-      --group string   The name or id of the parent group to list policies from.
-  -h, --help           help for list
-      --image string   The name of an image to filter the results.
-  -y, --yes            Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -h, --help            help for list
+      --image string    The name of an image to filter the results.
+      --parent string   The name or id of the parent location to list policies from.
+  -y, --yes             Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands

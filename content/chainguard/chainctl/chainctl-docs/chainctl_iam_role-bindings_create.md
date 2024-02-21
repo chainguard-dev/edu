@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl iam role-bindings create"
 slug: chainctl_iam_role-bindings_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_create/
@@ -14,25 +14,25 @@ toc: true
 Create a role-binding
 
 ```
-chainctl iam role-bindings create [--identity=IDENTITY] [--role=ROLE] [--group=GROUP] [--output table|json|id]
+chainctl iam role-bindings create [--identity=IDENTITY] [--role=ROLE] [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--output table|json|id]
 ```
 
 ### Examples
 
 ```
-  # Bind a user-created identity as viewer to a group
-  chainctl iam role-bindings create --identity=guest-identity --role=viewer --group=engineering
+  # Bind a user-created identity as viewer to a location
+  chainctl iam role-bindings create --identity=guest-identity --role=viewer --parent=engineering
   
-  # Create a new role-binding using interactive selection for identity, role, and group
+  # Create a new role-binding using interactive selection for identity, role, and location
   chainctl iam role-bindings create
 ```
 
 ### Options
 
 ```
-      --group string      The name or ID of the group the role-binding belongs to.
   -h, --help              help for create
       --identity string   The name or ID of the identity to bind.
+      --parent string     The name or ID of the location the role-binding belongs to.
       --role string       The name or ID of the role to bind to the identity.
   -y, --yes               Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```

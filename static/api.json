@@ -2304,6 +2304,10 @@
                 "readme": {
                   "description": "readme is raw Markdown file contents describing the repo.",
                   "type": "string"
+                },
+                "syncConfig": {
+                  "$ref": "#/definitions/registrySyncConfig",
+                  "description": "(optional) Repository sync configuration. If enabled, images are synced from the source to this repo.\nNOTE: This property can only be set by Chainguard."
                 }
               },
               "type": "object"
@@ -5254,6 +5258,10 @@
         "readme": {
           "description": "readme is raw Markdown file contents describing the repo.",
           "type": "string"
+        },
+        "syncConfig": {
+          "$ref": "#/definitions/registrySyncConfig",
+          "description": "(optional) Repository sync configuration. If enabled, images are synced from the source to this repo.\nNOTE: This property can only be set by Chainguard."
         }
       },
       "type": "object"
@@ -5283,6 +5291,19 @@
         },
         "vulnerabilityDbSchemaVersion": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registrySyncConfig": {
+      "properties": {
+        "source": {
+          "description": "Repo ID to sync from.",
+          "type": "string"
+        },
+        "uniqueTags": {
+          "description": "Controls whether exported tags will be uniquely labeled.",
+          "type": "boolean"
         }
       },
       "type": "object"

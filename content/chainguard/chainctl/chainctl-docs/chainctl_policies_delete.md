@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl policies delete"
 slug: chainctl_policies_delete
 url: /chainguard/chainctl/chainctl-docs/chainctl_policies_delete/
@@ -14,7 +14,7 @@ toc: true
 Delete a policy.
 
 ```
-chainctl policies delete [POLICY,... | --group=GROUP [--recursive]] [--yes] [--output id] [flags]
+chainctl policies delete [POLICY,... | --parent=PARENT [--recursive]] [--yes] [--output id]
 ```
 
 ### Examples
@@ -29,20 +29,20 @@ chainctl policies delete [POLICY,... | --group=GROUP [--recursive]] [--yes] [--o
   # Delete multiple policies by name
   chainctl policy delete my-policy,other-policy
   
-  # Delete all policies in a group
-  chainctl policy delete --group=my-group
+  # Delete all policies in an organization
+  chainctl policy delete --parent=my-org
   
-  # Delete all policies in a group and its descendants
-  chainctl policy delete --group=my-group --recursive
+  # Delete all policies in an organization and its descendants
+  chainctl policy delete --parent=my-org --recursive
 ```
 
 ### Options
 
 ```
-      --group string   Delete all policies from this group.
-  -h, --help           help for delete
-  -R, --recursive      Delete policies from all descendants of --group.
-  -y, --yes            Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -h, --help            help for delete
+      --parent string   Delete all policies from this location.
+  -R, --recursive       Delete policies from all descendants of --parent.
+  -y, --yes             Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands

@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl images repos list"
 slug: chainctl_images_repos_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_list/
@@ -14,14 +14,14 @@ toc: true
 List image repositories.
 
 ```
-chainctl images repos list [--group GROUP_NAME | GROUP_ID] [flags]
+chainctl images repos list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID]
 ```
 
 ### Options
 
 ```
-      --group string     The name or id of the parent group to list image repos.
   -h, --help             help for list
+      --parent string    The name or id of the parent location to list image repos.
       --repo string      Search for a specific repo by name.
       --show-dates       Whether to show date tags of the form latest-{date}.
       --show-epochs      Whether to show epoch tags of the form 1.2.3-r4.

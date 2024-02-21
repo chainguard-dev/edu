@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl iam invites list"
 slug: chainctl_iam_invites_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites_list/
@@ -11,27 +11,27 @@ toc: true
 ---
 ## chainctl iam invites list
 
-List group invites.
+List organization and folder invites.
 
 ```
-chainctl iam invites list --group=GROUP_NAME|GROUP_ID [--output table|json|id]
+chainctl iam invites list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--output table|json|id]
 ```
 
 ### Examples
 
 ```
-  # List all accessible group invites
+  # List all accessible invites
   chainctl iam invites list
   
-  # Filter invites by group
-  chainctl iam invites list --group=my-group
+  # Filter invites by location
+  chainctl iam invites list --parent=my-org
 ```
 
 ### Options
 
 ```
-      --group string   List invites from this group.
-  -h, --help           help for list
+  -h, --help            help for list
+      --parent string   List invites from this location.
 ```
 
 ### Options inherited from parent commands

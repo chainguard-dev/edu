@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl events subscriptions create"
 slug: chainctl_events_subscriptions_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_create/
@@ -11,18 +11,18 @@ toc: true
 ---
 ## chainctl events subscriptions create
 
-Subscribe to events under a group.
+Subscribe to events under an organization or folder.
 
 ```
-chainctl events subscriptions create SINK_URL [--group GROUP_NAME | GROUP_ID] [--yes] [--output table|json|id] [flags]
+chainctl events subscriptions create SINK_URL [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--yes] [--output table|json|id]
 ```
 
 ### Options
 
 ```
-      --group string   The parent group name or id of the subscription.
-  -h, --help           help for create
-  -y, --yes            Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+  -h, --help            help for create
+      --parent string   The parent location name or id of the subscription.
+  -y, --yes             Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
