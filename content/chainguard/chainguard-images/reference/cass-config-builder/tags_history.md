@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-config-builder Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-19 00:28:58
+lastmod: 2024-02-21 00:39:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 18th | `sha256:bfdf0e5e970c6a3cc3ea18cde06f4f0202b2f75eae2112cea212959f4fd98771` |
-|  `latest`     | February 16th | `sha256:d9dc3dd5ed5b6fa6eae1bde5dca0c8e6f053cf52b95a324c0d7dd4db427a71e0` |
+|  `latest-dev` | February 20th | `sha256:854b41c80cfcf4a1a2bc8a5a8dff63a44aff065d88237d5c59bf5e9f03343223` |
+|  `latest`     | February 20th | `sha256:1916425c495a60273b46a761284dd78dae048735743595d33f81c8563647c64d` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the deno Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-16 00:30:51
+lastmod: 2024-02-21 00:39:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 15th | `sha256:70acf3d545c25464c099fb7a952dbd0e16b88590e6ceda1414cb8baafb72853b` |
+|  `latest` | February 20th | `sha256:c9b6a3153b03684de8f8fffe19b41200532f8e3c3ff54eda1d844e5ecd81fc23` |
 

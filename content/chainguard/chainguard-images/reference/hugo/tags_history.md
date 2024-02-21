@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hugo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-19 00:28:58
+lastmod: 2024-02-21 00:39:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 18th | `sha256:8e299eb9ea4d48f02bdc62a576fae08d50b727195522d81a48ceb7f2298e5526` |
-|  `latest`     | January 31st  | `sha256:cdeca39d6377ef71908b061505eb78f6750dd4b9b0617f4471bca4ba7b4764c1` |
+|  `latest`     | February 20th | `sha256:af6f877ab6570743e704aeb8b37ff8aa616d56bee25fd337345359af7fed2882` |
+|  `latest-dev` | February 20th | `sha256:c76d13709132001212b5c1f45e1c7740de2fa56cec628794d85506a347429eb9` |
 

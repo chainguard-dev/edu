@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the timoni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-19 00:28:58
+lastmod: 2024-02-21 00:39:53
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 18th | `sha256:78243d627fe04d3bbee6bc2f30c90f7458683c82fa8c11596e7de64b4a778ba7` |
-|  `latest-dev` | February 18th | `sha256:d364dd8b47dec8e3fdfc9e4df8af8eeea0c3b154f4c38ad9883ee53f8249b3f9` |
+|  `latest`     | February 20th | `sha256:530fdbaa2701c5e0ea5f8071857bc9560562b86922b3db3c35a96a9996b2418a` |
+|  `latest-dev` | February 20th | `sha256:efd33ee40d5634f797f2d899c4f7335e0105f1eac144d14bb7d0bddc7a2696ec` |
 
