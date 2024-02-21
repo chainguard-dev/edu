@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl iam roles create"
 slug: chainctl_iam_roles_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_create/
@@ -14,14 +14,14 @@ toc: true
 Create an IAM role.
 
 ```
-chainctl iam roles create ROLE_NAME --group=GROUP_NAME|GROUP_ID --capabilities=CAPABILITY,... [--description=DESCRIPTION] [--yes] [--output table|json|id]
+chainctl iam roles create ROLE_NAME --parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID --capabilities=CAPABILITY,... [--description=DESCRIPTION] [--yes] [--output table|json|id]
 ```
 
 ### Examples
 
 ```
   # Create a role
-  chainctl iam roles create my-role --group=engineering --capabilities=policy.list,groups.list
+  chainctl iam roles create my-role --parent=engineering --capabilities=policy.list,groups.list
   
   # Create a role and choose parameters interactively
   chainctl iam roles create my-role
@@ -32,8 +32,8 @@ chainctl iam roles create ROLE_NAME --group=GROUP_NAME|GROUP_ID --capabilities=C
 ```
       --capabilities strings   A comma separated list of capabilities to grant this role.
       --description string     A description of the role.
-      --group string           Group to create this role under.
   -h, --help                   help for create
+      --parent string          Location to create this role under.
   -y, --yes                    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 

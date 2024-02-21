@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl clusters install"
 slug: chainctl_clusters_install
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_install/
@@ -14,7 +14,7 @@ toc: true
 Install Chainguard into the current kubernetes context.
 
 ```
-chainctl clusters install [--name NAME] [--description DESCRIPTION] [--group GROUP_NAME|GROUP_ID | --invite-code INVITE_CODE | --skip-invite | --cluster=CLUSTER_NAME | --private]
+chainctl clusters install [--name NAME] [--description DESCRIPTION] [--parent ORGANIZATION_NAME|ORGANIZATION_NAME_ID|FOLDER_NAME|FOLDER_ID | --invite-code INVITE_CODE | --skip-invite | --cluster=CLUSTER_NAME | --private]
 ```
 
 ### Examples
@@ -29,14 +29,14 @@ chainctl clusters install [--name NAME] [--description DESCRIPTION] [--group GRO
   # Install the Chainguard agent with an explicit invite code.
   chainctl cluster install --invite-code=INVITE_CODE
   
-  # Install the Chainguard agent using a temporary invite code under the group
-  # with ID "GROUP_ID".
-  chainctl cluster install --group=GROUP_ID
+  # Install the Chainguard agent using a temporary invite code under the organization
+  # with ID "ORG_ID".
+  chainctl cluster install --parent=ORG_ID
   
   # Install the Chainguard agent enabling a fail open policy mode.
   chainctl cluster install --opt=webhook_fail_open=true
   
-  # Install the Chainguard agent using a temporary invite code under a group
+  # Install the Chainguard agent using a temporary invite code under a location
   # determined via an interactive prompt.
   chainctl cluster install
 ```
@@ -47,11 +47,11 @@ chainctl clusters install [--name NAME] [--description DESCRIPTION] [--group GRO
       --context string                   Indicates the name of the context (in kubectl) to be connect to Chainguard.
   -d, --description string               The description of the resource.
       --gcp-serviceaccount-file string   The path to a GCP service account JSON key file.
-      --group string                     The group under which to create a temporary invite code and install the cluster.
   -h, --help                             help for install
       --invite-code string               An invite code to use for joining this cluster into the IAM hierarchy.
   -n, --name string                      Given name of the resource.
       --opt strings                      extra key=value pairs to define enforcer profile options
+      --parent string                    The location under which to create a temporary invite code and install the cluster.
       --private                          Kubernetes API endpoint isn't publicly accessible.
       --profiles stringArray             The names of Chainguard profiles to install into the cluster.
       --skip-invite                      When specified we perform installation without an invite code.

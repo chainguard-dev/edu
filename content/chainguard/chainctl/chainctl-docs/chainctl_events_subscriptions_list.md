@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl events subscriptions list"
 slug: chainctl_events_subscriptions_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_list/
@@ -14,14 +14,14 @@ toc: true
 List subscriptions.
 
 ```
-chainctl events subscriptions list [--group GROUP_NAME | GROUP_ID] [--output table|json|id] [flags]
+chainctl events subscriptions list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--output table|json|id]
 ```
 
 ### Options
 
 ```
-      --group string   The parent group name or id of the subscription.
-  -h, --help           help for list
+  -h, --help            help for list
+      --parent string   The parent location name or id of the subscription.
 ```
 
 ### Options inherited from parent commands

@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl iam role-bindings list"
 slug: chainctl_iam_role-bindings_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_list/
@@ -14,7 +14,7 @@ toc: true
 List role-bindings.
 
 ```
-chainctl iam role-bindings list --group=GROUP_NAME|GROUP_ID [--output table|tree|json]
+chainctl iam role-bindings list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--output table|tree|json]
 ```
 
 ### Examples
@@ -23,15 +23,15 @@ chainctl iam role-bindings list --group=GROUP_NAME|GROUP_ID [--output table|tree
   # List role-bindings
   chainctl iam role-bindings list
   
-  # Filter role-bindings by group
-  chainctl iam role-bindings list --group=my-group
+  # Filter role-bindings by organization
+  chainctl iam role-bindings list --parent=my-org
 ```
 
 ### Options
 
 ```
-      --group string   List role-bindings from this group. (optional)
-  -h, --help           help for list
+  -h, --help            help for list
+      --parent string   List role-bindings from this location.
 ```
 
 ### Options inherited from parent commands

@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl iam identity-providers create"
 slug: chainctl_iam_identity-providers_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_create/
@@ -14,14 +14,14 @@ toc: true
 Create an identity provider
 
 ```
-chainctl iam identity-providers create --group=GROUP [--name=NAME] [--description=DESCRIPTION] --oidc-issuer=ISSUER --oidc-client-id=CLIENTID --oidc-client-secret=CLIENTSECRET [--oidc-additional-scopes=SCOPE,...] --default-role=ROLE [--output table|json|id]
+chainctl iam identity-providers create --parent ORGANIZATION_NAME | ORGANIZATION_ID [--name=NAME] [--description=DESCRIPTION] --oidc-issuer=ISSUER --oidc-client-id=CLIENTID --oidc-client-secret=CLIENTSECRET [--oidc-additional-scopes=SCOPE,...] --default-role=ROLE [--output table|json|id]
 ```
 
 ### Examples
 
 ```
   # Setup a custom OIDC provider and bind new users to the viewer role
-  chainctl iam identity-provider create --name=google --group=example \
+  chainctl iam identity-provider create --name=google --parent=example \
   --oidc-issuer=https://accounts.google.com \
   --oidc-client-id=foo \
   --oidc-client-secret=bar \
@@ -34,13 +34,13 @@ chainctl iam identity-providers create --group=GROUP [--name=NAME] [--descriptio
       --configuration-type string            Type of identity provider. Only OIDC supported currently (default "OIDC")
       --default-role string                  Role to grant users on first login
       --description string                   Description of identity provider
-      --group string                         The name or ID of the group the identity provider belongs to.
   -h, --help                                 help for create
       --name string                          Name of identity provider
       --oidc-additional-scopes stringArray   additional scopes to request for OIDC type identity provider
       --oidc-client-id string                client id for OIDC type identity provider
       --oidc-client-secret string            client secret for OIDC type identity provider
       --oidc-issuer string                   Issuer URL for OIDC type identity provider
+      --parent string                        The name or ID of the location the identity provider belongs to.
   -y, --yes                                  Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
