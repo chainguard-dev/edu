@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl iam identities create github"
 slug: chainctl_iam_identities_create_github
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_github/
@@ -14,14 +14,14 @@ toc: true
 
 
 ```
-chainctl iam identities create github NAME --github-repo=REPO [--github-ref=REF] [--github-audience=AUD] [--group=GROUP] [--description=DESC] [--role=ROLE,ROLE,...] [--output id|table|json]
+chainctl iam identities create github NAME --github-repo=REPO [--github-ref=REF] [--github-audience=AUD] [--parent=PARENT] [--description=DESC] [--role=ROLE,ROLE,...] [--output id|table|json]
 ```
 
 ### Examples
 
 ```
   # Create a GitHub Actions identity for any branch in a repo
-  chainctl iam identities create github my-gha-identity --github-repo=my-org/repo-name --group=eng-group
+  chainctl iam identities create github my-gha-identity --github-repo=my-org/repo-name --parent=eng-org
   
   # Create a GitHub Actions identity for a given branch in a repo and bind to a role
   chainctl iam identities create github my-gha-identity --github-repo=my-org/repo-name --github-ref=refs/heads/test-branch --role=owner
@@ -34,9 +34,9 @@ chainctl iam identities create github NAME --github-repo=REPO [--github-ref=REF]
       --github-audience string   The audience for the GitHub OIDC token
       --github-ref string        The branch reference for the executing action (optional).
       --github-repo string       The name of a GitHub repo where the action executes.
-      --group string             The name or id of the parent group to create this identity under.
   -h, --help                     help for github
   -n, --name string              Given name of the resource.
+      --parent string            The name or id of the parent location to create this identity under.
       --role strings             A comma separated list of names or IDs of roles to bind this identity to (optional).
   -y, --yes                      Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```

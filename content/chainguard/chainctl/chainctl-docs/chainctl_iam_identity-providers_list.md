@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl iam identity-providers list"
 slug: chainctl_iam_identity-providers_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_list/
@@ -14,7 +14,7 @@ toc: true
 List identity providers.
 
 ```
-chainctl iam identity-providers list --group=GROUP_NAME|GROUP_ID [--output table|tree|json]
+chainctl iam identity-providers list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--output table|tree|json]
 ```
 
 ### Examples
@@ -23,15 +23,15 @@ chainctl iam identity-providers list --group=GROUP_NAME|GROUP_ID [--output table
   # List identity providers
   chainctl iam identity-providers list
   
-  # Filter list by group
-  chainctl iam identity-providers list --group=my-group
+  # Filter list by location
+  chainctl iam identity-providers list --parent=my-org
 ```
 
 ### Options
 
 ```
-      --group string   List identity providers in this group and its descendents. (optional)
-  -h, --help           help for list
+  -h, --help            help for list
+      --parent string   List identity providers in this location and its descendants.
 ```
 
 ### Options inherited from parent commands

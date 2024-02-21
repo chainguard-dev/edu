@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl clusters list"
 slug: chainctl_clusters_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_list/
@@ -14,7 +14,7 @@ toc: true
 List clusters.
 
 ```
-chainctl clusters list [--name=NAME] [--active-within=DURATION] [--group=GROUP_NAME|GROUP_ID] [--output table|json]
+chainctl clusters list [--name=NAME] [--active-within=DURATION] [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--output table|json]
 ```
 
 ### Examples
@@ -23,8 +23,8 @@ chainctl clusters list [--name=NAME] [--active-within=DURATION] [--group=GROUP_N
   # List all clusters visible to the current user.
   chainctl cluster list
   
-  # List all clusters in the group "my-group"
-  chainctl cluster list --group my-group
+  # List all clusters in the organization "my-org"
+  chainctl cluster list --parent my-org
   
   # List all clusters that have some recorded activity within the last 6 hours
   chainctl cluster list --active-within 6h
@@ -34,9 +34,9 @@ chainctl clusters list [--name=NAME] [--active-within=DURATION] [--group=GROUP_N
 
 ```
       --active-within duration   How recently a cluster must have been active to be listed. Zero will return all clusters. (default 24h0m0s)
-      --group string             The name or id of the parent group to list clusters for.
   -h, --help                     help for list
   -n, --name string              The given name of the resource.
+      --parent string            The name or id of the parent location to list clusters for.
 ```
 
 ### Options inherited from parent commands

@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl iam identities create gitlab"
 slug: chainctl_iam_identities_create_gitlab
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_gitlab/
@@ -14,14 +14,14 @@ toc: true
 
 
 ```
-chainctl iam identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-PROJECT [--ref-type=REF-TYPE] [--ref=REF] [--group=GROUP] [--description=DESC] [--role=ROLE,ROLE,...] [--output id|table|json]
+chainctl iam identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-PROJECT [--ref-type=REF-TYPE] [--ref=REF] [--parent=PARENT] [--description=DESC] [--role=ROLE,ROLE,...] [--output id|table|json]
 ```
 
 ### Examples
 
 ```
   # Create a Gitlab CI identity for any branch in a given Gitlab project
-  chainctl iam identities create gitlab my-gitlab-identity --project-path=my-group/my-project --ref-type=branch --ref='*' --group=eng-group
+  chainctl iam identities create gitlab my-gitlab-identity --project-path=my-group/my-project --ref-type=branch --ref='*' --parent=eng-org
   
   # Create a Gitlab CI identity for a given branch in a Gitlab project and bind to a role
   chainctl iam identities create gitlab my-gitlab-identity --project-path=my-group/my-project --ref-type=branch --ref=main --role=owner
@@ -31,9 +31,9 @@ chainctl iam identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-PR
 
 ```
   -d, --description string    The description of the resource.
-      --group string          The name or id of the parent group to create this identity under.
   -h, --help                  help for gitlab
   -n, --name string           Given name of the resource.
+      --parent string         The name or id of the parent location to create this identity under.
       --project-path string   The name of a Gitlab project where the action executes.
       --ref string            The reference for the executing action. (default "*")
       --ref-type string       The type of reference for the executing action (optional).
