@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl clusters search"
 slug: chainctl_clusters_search
 url: /chainguard/chainctl/chainctl-docs/chainctl_clusters_search/
@@ -14,7 +14,7 @@ toc: true
 Search a cluster or group of clusters.
 
 ```
-chainctl clusters search [CLUSTER_NAME | CLUSTER_ID | GROUP_NAME | GROUP_ID ] [--packages=PACKAGE_LIST] [--active-within DURATION] [--output tree|table|json|wide]
+chainctl clusters search [CLUSTER_NAME | CLUSTER_ID | ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID ] [--packages=PACKAGE_LIST] [--active-within DURATION] [--output tree|table|json|wide]
 ```
 
 ### Examples
@@ -26,8 +26,8 @@ chainctl clusters search [CLUSTER_NAME | CLUSTER_ID | GROUP_NAME | GROUP_ID ] [-
   # Search a cluster by ID for both versions of klog
   chainctl cluster search ef127a7c0909329f04b43d845cf80eea4247a07b/a99cd6e82bca5146/9a778e6db762b750 --packages=k8s.io/klog/v2,k8s.io/klog
   
-  # Search all clusters within a group that were active within the past 6 hours for zap
-  chainctl cluster search my_group --packages=go.uber.org/zap --active-within=6h
+  # Search all clusters within an organization that were active within the past 6 hours for zap
+  chainctl cluster search my_org --packages=go.uber.org/zap --active-within=6h
 ```
 
 ### Options

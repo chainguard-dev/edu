@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl iam identities list"
 slug: chainctl_iam_identities_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_list/
@@ -14,7 +14,7 @@ toc: true
 List identities.
 
 ```
-chainctl iam identities list [--group=GROUP_NAME|GROUP_ID] [--name=NAME] [--relationship={aws|claim_match|pull_token|service_principal|static}] [--expired] [--output id|table|json]
+chainctl iam identities list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--name=NAME] [--relationship={aws|claim_match|pull_token|service_principal|static}] [--expired] [--output id|table|json]
 ```
 
 ### Examples
@@ -37,9 +37,9 @@ chainctl iam identities list [--group=GROUP_NAME|GROUP_ID] [--name=NAME] [--rela
 
 ```
       --expired               Return only expired static identities.
-      --group string          The name or id of the parent group to list identities from.
   -h, --help                  help for list
       --name string           Filter identities by name.
+      --parent string         The name or id of the parent location to list identities from.
       --relationship string   Filter identities by relationship type (aws, claim_match, pull_token, service_principal, static).
 ```
 

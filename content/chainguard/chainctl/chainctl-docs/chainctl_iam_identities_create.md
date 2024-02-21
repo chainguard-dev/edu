@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14T17:03:45Z
+date: 2024-02-20T22:23:18Z
 title: "chainctl iam identities create"
 slug: chainctl_iam_identities_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/
@@ -14,7 +14,7 @@ toc: true
 Create a new identity.
 
 ```
-chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | --identity-issuer-pattern=PAT} {--subject=SUB | --subject-pattern=PAT} [--audience=AUD | --audience-pattern=PAT] [--claim-pattern=claim:pattern,claim:pattern...] | --identity-issuer=ISS --issuer-keys=KEYS --subject=SUB [--expiration=yyyy-mm-dd]} [--group=GROUP] [--description=DESC] [--role=ROLE,ROLE,...] [--output id|table|json]
+chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | --identity-issuer-pattern=PAT} {--subject=SUB | --subject-pattern=PAT} [--audience=AUD | --audience-pattern=PAT] [--claim-pattern=claim:pattern,claim:pattern...] | --identity-issuer=ISS --issuer-keys=KEYS --subject=SUB [--expiration=yyyy-mm-dd]} [--parent=PARENT] [--description=DESC] [--role=ROLE,ROLE,...] [--output id|table|json]
 ```
 
 ### Examples
@@ -42,12 +42,12 @@ chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | 
   -d, --description string               The description of the resource.
       --expiration string                The time when the issuer_keys will expire. Defaults to / Maximum of 30 days after creation time (yyyy-mm-dd).
   -f, --filename string                  A file that contains the identity definition, in either YAML or JSON.
-      --group string                     The name or id of the parent group to create this identity under.
   -h, --help                             help for create
       --identity-issuer string           The issuer of the identity.
       --identity-issuer-pattern string   A pattern to match the issuer of the identity.
       --issuer-keys string               JWKS-formatted public keys for the issuer.
   -n, --name string                      Given name of the resource.
+      --parent string                    The name or id of the parent location to create this identity under.
       --role strings                     A comma separated list of names or IDs of roles to bind this identity to (optional).
       --service-principal string         The service principal that is allowed to assume this identity.
       --subject string                   The subject of the identity.
