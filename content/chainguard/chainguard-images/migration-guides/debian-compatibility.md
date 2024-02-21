@@ -15,13 +15,17 @@ weight: 600
 toc: true
 ---
 
-Chainguard Images and Debian base images have different binaries and scripts included in their respective busybox and coreutils packages.
+Chainguard Images and Debian base images have different binaries and scripts included in their respective `busybox` and `coreutils` packages.
 
 The following table lists common tools and their corresponding package(s) in both Wolfi and Debian distributions.
 
-Note that `$PATH` locations like `/usr/bin` or `/sbin` are not included here. If you have compatibiltiy issues with tools that are included in both `busybox` and `coreutils`, be sure to check `$PATH` order and confirm which version of a tool is being run (`ls` and `nohup` are good examples).
+Note that `$PATH` locations like `/usr/bin` or `/sbin` are not included here. If you have compatibiltiy issues with tools that are included in both `busybox` and `coreutils`, be sure to check `$PATH` order and confirm which version of a tool is being run.
 
-| Filename                     | Wolfi busybox | Debian busybox | Wolfi coreutils | Debian coreutils |
+Generally, if a tool exists in `busybox` but does not have a `coreutils` counterpart, there will be a specific package that includes it. For example the `zcat` utility is included in the `gzip` package in both Wolfi and Debian.
+
+You can use the `apk search` command in Wolfi, and the `apt-cache search` command in Debian to find out which package includes a tool.
+
+| Utility                      | Wolfi busybox | Debian busybox | Wolfi coreutils | Debian coreutils |
 | ---------------------------- | ------------- | -------------- | --------------- | ---------------- |
 | `[`                          | ✅            | ✅             | ✅              | ✅               |
 | `[[`                         | ✅            | ✅             |                 |                  |
