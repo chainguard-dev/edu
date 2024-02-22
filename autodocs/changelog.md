@@ -1,3 +1,44 @@
+# 2024-02-22
+New images added:
+
+- clickhouse
+
+Updated Docs:
+
+- dask-gateway-server/tags_history.md
+- datadog-agent/tags_history.md
+- envoy-ratelimit/tags_history.md
+- gitlab-exporter/tags_history.md
+- gitlab-pages/tags_history.md
+- gitlab-shell/tags_history.md
+- hugo/tags_history.md
+- kubeflow-katib-earlystopping-medianstop/tags_history.md
+- kubeflow-katib-suggestion-darts/tags_history.md
+- kubeflow-katib-suggestion-hyperband/tags_history.md
+- kubeflow-katib-suggestion-hyperopt/tags_history.md
+- kubeflow-katib-suggestion-optuna/tags_history.md
+- kubeflow-katib-suggestion-pbt/tags_history.md
+- kubeflow-katib-suggestion-skopt/tags_history.md
+- kubeflow-pipelines-visualization-server/tags_history.md
+- kyverno/tags_history.md
+- kyverno-background-controller/tags_history.md
+- kyverno-cleanup-controller/tags_history.md
+- kyverno-cli/tags_history.md
+- kyverno-policy-reporter/tags_history.md
+- kyverno-reports-controller/tags_history.md
+- openai/tags_history.md
+- opentelemetry-collector-contrib/tags_history.md
+- prometheus-alertmanager/_index.md
+- prometheus-alertmanager/image_specs.md
+- prometheus-alertmanager/tags_history.md
+- rqlite/tags_history.md
+- skaffold/tags_history.md
+- stakater-reloader/tags_history.md
+- thanos/tags_history.md
+- trino/tags_history.md
+- wasmtime/tags_history.md
+- zot/tags_history.md
+
 # 2024-02-21
 New images added:
 
