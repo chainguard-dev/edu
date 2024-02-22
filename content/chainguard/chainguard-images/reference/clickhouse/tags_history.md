@@ -1,9 +1,9 @@
 ---
-title: "zot Image Tags History"
+title: "clickhouse Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the zot Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
+description: "Image Tags and History for the clickhouse Chainguard Image"
+date: 2024-02-22 00:36:42
 lastmod: 2024-02-22 00:36:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/zot/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/zot/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/zot/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/zot/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/clickhouse/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/clickhouse/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/clickhouse/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/clickhouse/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 21st | `sha256:4c5911acdcb3d04d46e02163bfbcce8d8295dc4b58dae910599f11777f3b54d7` |
-|  `latest`     | February 21st | `sha256:ffa13d5c0ca5da8f05545a8dd8e807c328d2069540a944d511172d0ee5148b8d` |
+|  `latest-dev` | February 21st | `sha256:9048f9dec4121df0870691b08a32425219fd56ef37f2a93d7d45760dc5f66c7a` |
+|  `latest`     | February 21st | `sha256:358baeb3984f91f8d31f8127923c0fbf57ee55f2050682eba7f7c04e5fb12ff7` |
 
