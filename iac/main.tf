@@ -10,11 +10,12 @@ provider "google-beta" { project = var.project_id }
 
 module "networking" {
   source  = "chainguard-dev/common/infra//modules/networking"
-  version = "0.4.6"
+  version = "0.5.3"
 
-  name       = var.name
-  project_id = var.project_id
-  regions    = [var.primary-region]
+  name          = var.name
+  project_id    = var.project_id
+  netnum_offset = 1 # Avoids replacement
+  regions       = [var.primary-region]
 }
 
 resource "google_service_account" "chainguard-academy" {
@@ -79,7 +80,7 @@ resource "google_dns_managed_zone" "edu-zone" {
 // Put the above domain in front of our regional services.
 module "serverless-gclb" {
   source  = "chainguard-dev/common/infra//modules/serverless-gclb"
-  version = "0.4.6"
+  version = "0.5.3"
 
   name       = var.name
   project_id = var.project_id
