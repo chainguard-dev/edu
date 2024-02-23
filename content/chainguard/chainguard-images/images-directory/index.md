@@ -3,7 +3,7 @@ title: "Using the Chainguard Images Directory"
 linktitle: "Images Directory"
 type: "article"
 description: "A walkthrough of the Chainguard Images directory."
-date: 2024-02-16T11:07:52+02:00
+date: 2024-02-23T11:07:52+02:00
 lastmod: 2024-02-23T11:07:52+02:00
 draft: false
 tags: ["Conceptual", "Chainguard Images", "Product"]
