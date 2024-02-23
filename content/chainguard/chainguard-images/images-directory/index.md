@@ -85,7 +85,7 @@ All Chainguard Images contain verifiable signatures and high-quality [software b
 
 The **Provenance** tab outlines how you can verify Image Signatures and download and verify Image Attestations, all with examples using [`cosign`](/open-source/sigstore/cosign/an-introduction-to-cosign/).
 
-### SBOMs Tab
+### SBOM Tab
 
 The **SBOM** tab contains a list of packages in the Image. Chainguard Images are built so that everything contained in the Image is a package, meaning that this package list gives a complete view of what's in the Image. You won't find anything hidden in the Image that isn't listed in its SBOM tab.
 
@@ -101,6 +101,8 @@ The table listing an Image's packages has four columns.
 Above the table is a search box you can use to find and filter the packages listed. To the left of this search box is a drop-down menu you can use to select which version of the Image you want to find the SBOM for. By default, this will show the `:latest` tag.
 
 Finally, to the right of the search box is a button labeled with the Image's name, the tag selected with the drop-down menu, followed by **spdx.json**. You can click this button to download the SBOM (in the SPDX format) to your machine.
+
+Note that Chainguard began generating SBOMs for its Images on November 15, 2023. For this reason, any versions of a given Image that were released before that date will not have any SBOM data to show. 
 
 ### Vulnerabilities Tab
 
@@ -126,6 +128,8 @@ To the left of each row in the table is down-pointing chevron (**˅**). If you c
 ![Screenshot showing the expanded view of the "CVE-20234-52071" vulnerability. This expanded view includes a brief description of the CVE as well as some reference links.](imgs-dir-7.png)
 
 Specifically, this will highlight the **Package** name and **Version** number of the package associated with the Vulnerability. It also shows the **Fixed version** of the package, a brief **Description** of the vulnerability, and one or more **References** you can review to learn more about the vulnerability.
+
+Please be aware that, as with SBOM data, Chainguard began generating vulnerability information for its Images on November 15, 2023. For this reason, any versions of a given Image that were released before that date will not have any vulnerability data to show. 
 
 
 ## Learn More
