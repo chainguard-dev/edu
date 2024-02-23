@@ -59,8 +59,21 @@ This example includes two extra arguments not included in the example syntax out
 The other extra argument is the `--predicate-type` flag, required to specify which type of predicate you want to download from the registry. In order to download Chainguard Images SBOM attestations, you should use the `https://spdx.dev/Document` predicate type.
 
 
+## Image SBOMs in the Chainguard Console
+
+You can also find Image SBOMs in the [Chainguard Console](https://console.enforce.dev). After signing in to the Console and clicking either the **Public images** or, if available, **Organization images** you'll be presented with a list of images. Clicking on any of these will take you to the image's landing page. There, you can click on the [**SBOM** tab](/chainguard/chainguard-images/images-directory/#sboms-tab) to find and download the SBOM for the given Image. 
+
+The following example shows the **SBOM** tab for the `postgres` Image.
+
+![Screenshot of the postgres Image's "SBOM" tab, showing the first five rows of the latest version's SBOM.](imgs-dir-5.png)
+
+You can use the drop-down menu above the table to select which version of the image you want to view. You can also use the search box to find specific packages in the SBOM or use the button to the right of the search box to download the SBOM to your machine.
+
+Check out our guide on [using the Chainguard Images Directory](/chainguard/chainguard-images/images-directory/) for more details.
+
+
 ## Learn more
 
 We provide provenance information for every Chainguard Image in their respective [Reference docs](/chainguard/chainguard-images/reference/). After reaching the **Overview** for the image of your choice, navigate to the **Provenance** tab for information on how to retrieve the image's attestations, as well as how to verify the image's attestations and signatures.
 
-For example, if you're looking for the provenance information of the Python image, you can navigate to the [Python overview page](/chainguard/chainguard-images/reference/python/) and then click through to **Provenance** which will bring you to the following URL: [https://edu.chainguard.dev/chainguard/chainguard-images/reference/python/provenance_info/](/chainguard/chainguard-images/reference/python/provenance_info/).
+For example, if you're looking for the provenance information of the Python image, you can navigate to the [Python overview page](/chainguard/chainguard-images/reference/python/) and then click through to [the **Provenance** tab](https://edu.chainguard.dev/chainguard/chainguard-images/reference/python/provenance_info/).
