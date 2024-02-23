@@ -4,7 +4,7 @@ linktitle: "Images Directory"
 type: "article"
 description: "A walkthrough of the Chainguard Images directory."
 date: 2024-02-16T11:07:52+02:00
-lastmod: 2024-02-16T11:07:52+02:00
+lastmod: 2024-02-23T11:07:52+02:00
 draft: false
 tags: ["Conceptual", "Chainguard Images", "Product"]
 images: []
@@ -39,7 +39,7 @@ Click **Public Images** in the left-hand navigation to be taken to the Public Im
 
 You can toggle between a table view and a card-based view by clicking to the upper right of the Images directory.
 
-![Screenshot of the public Images directory in the Console showing the card view. The toggle buttons that switch between the card view and the table view are highlighted in a red box.](imgs-dir-3.png)
+![Screenshot of the public Images directory in the Console showing the card view. The toggle buttons that switch between the card view and the table view are highlighted in a yellow box.](imgs-dir-3.png)
 
 Let's continue using the tabular view for now, as this contains some more information than the card view.
 
