@@ -1,3 +1,10 @@
+# 2024-02-23
+
+
+Updated Docs:
+
+- rabbitmq-cluster-operator/tags_history.md
+
 # 2024-02-22
 New images added:
 
