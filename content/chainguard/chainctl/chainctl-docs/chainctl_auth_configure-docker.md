@@ -1,5 +1,5 @@
 ---
-date: 2024-02-21T20:43:07Z
+date: 2024-02-26T20:38:15Z
 title: "chainctl auth configure-docker"
 slug: chainctl_auth_configure-docker
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_configure-docker/
@@ -20,13 +20,13 @@ chainctl auth configure-docker [flags]
 ### Options
 
 ```
-      --group string               The IAM group with which the pull-token identity is associated.
       --headless                   Skip browser authentication and use device flow.
   -h, --help                       help for configure-docker
       --identity string            The unique ID of the identity to assume when logging in.
       --identity-provider string   The unique ID of the customer managed identity provider to authenticate with
       --identity-token string      Use an explicit passed identity token or token path.
       --org-name string            Organization to use for authentication. If configured the organization's custom identity provider will be used
+      --parent string              The IAM organization or folder with which the pull-token identity is associated.
       --pull-token                 Whether to register a pull token that can pull images
       --save                       If true with --pull-token, save the pull token to the Docker config
       --ttl duration               For how long a generated pull-token will be valid. (default 720h0m0s)
