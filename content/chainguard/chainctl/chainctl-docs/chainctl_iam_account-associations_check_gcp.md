@@ -1,5 +1,5 @@
 ---
-date: 2024-02-21T20:43:07Z
+date: 2024-02-26T20:38:15Z
 title: "chainctl iam account-associations check gcp"
 slug: chainctl_iam_account-associations_check_gcp
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check_gcp/
@@ -11,10 +11,10 @@ toc: true
 ---
 ## chainctl iam account-associations check gcp
 
-Checks that the given group has been properly configured for OIDC federation with GCP
+Checks that the given location has been properly configured for OIDC federation with GCP
 
 ```
-chainctl iam account-associations check gcp GROUP_NAME|GROUP_ID [flags]
+chainctl iam account-associations check gcp ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [flags]
 ```
 
 ### Options

@@ -1,5 +1,5 @@
 ---
-date: 2024-02-21T20:43:07Z
+date: 2024-02-26T20:38:15Z
 title: "chainctl iam account-associations set"
 slug: chainctl_iam_account-associations_set
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set/
@@ -11,7 +11,7 @@ toc: true
 ---
 ## chainctl iam account-associations set
 
-Set cloud provider account associations for a group.
+Set cloud provider account associations for a location.
 
 ### Options
 
@@ -34,6 +34,6 @@ Set cloud provider account associations for a group.
 ### SEE ALSO
 
 * [chainctl iam account-associations](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
-* [chainctl iam account-associations set aws](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_aws/)	 - Set AWS account association for a group.
-* [chainctl iam account-associations set gcp](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_gcp/)	 - Set GCP account association for a group.
+* [chainctl iam account-associations set aws](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_aws/)	 - Set AWS account association for a location.
+* [chainctl iam account-associations set gcp](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_gcp/)	 - Set GCP account association for a location.
 

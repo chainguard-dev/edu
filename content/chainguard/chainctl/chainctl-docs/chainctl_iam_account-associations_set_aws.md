@@ -1,5 +1,5 @@
 ---
-date: 2024-02-21T20:43:07Z
+date: 2024-02-26T20:38:15Z
 title: "chainctl iam account-associations set aws"
 slug: chainctl_iam_account-associations_set_aws
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_aws/
@@ -11,10 +11,10 @@ toc: true
 ---
 ## chainctl iam account-associations set aws
 
-Set AWS account association for a group.
+Set AWS account association for a location.
 
 ```
-chainctl iam account-associations set aws GROUP_NAME|GROUP_ID --account=ACCOUNT [--name=NAME] [--description=DESCRIPTION] [--yes] [--output table|json|id] [flags]
+chainctl iam account-associations set aws ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID --account=ACCOUNT [--name=NAME] [--description=DESCRIPTION] [--yes] [--output table|json|id] [flags]
 ```
 
 ### Options
@@ -41,5 +41,5 @@ chainctl iam account-associations set aws GROUP_NAME|GROUP_ID --account=ACCOUNT 
 
 ### SEE ALSO
 
-* [chainctl iam account-associations set](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set/)	 - Set cloud provider account associations for a group.
+* [chainctl iam account-associations set](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set/)	 - Set cloud provider account associations for a location.
 
