@@ -42,7 +42,7 @@ Wolfi busybox | \
 {self.distro.name.capitalize()} busybox | \
 Wolfi coreutils | \
 {self.distro.name.capitalize()} coreutils |\
-\n|:-:|:-:|:-:|:-:|:-:|\
+\n|-|:-:|:-:|:-:|:-:|\
 '''
         print(header)
         for util in sorted(self.utils):
@@ -51,11 +51,11 @@ Wolfi coreutils | \
             in_set2 = util in self.distro.busybox
             in_set3 = util in self.wolfi.coreutils
             in_set4 = util in self.distro.coreutils
-            row = f'''| `{util}` | \
-{'✅' if in_set1 else ''} | \
-{'✅' if in_set2 else ''} | \
-{'✅' if in_set3 else ''} | \
-{'✅' if in_set4 else '' } |\
+            row = f'''| `{util}` |\
+{'✅' if in_set1 else ''}|\
+{'✅' if in_set2 else ''}|\
+{'✅' if in_set3 else ''}|\
+{'✅' if in_set4 else ''}|\
 '''
             print(row)
 
