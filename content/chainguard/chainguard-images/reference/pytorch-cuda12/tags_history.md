@@ -3,8 +3,8 @@ title: "pytorch-cuda12 Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the pytorch-cuda12 Chainguard Image"
-date: 2024-02-27 17:07:32
-lastmod: 2024-02-27 17:07:32
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-02-27 22:56:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 27th | `sha256:1e9a2675c438e6ab16b37a408a0db59839410856af9080f8b149b69fcd02d5cc` |
-|  `latest-dev` | February 27th | `sha256:4b247789b8631d9dc6f94918a8b8e2c8929020bf7a70658225b36bb7ba3d2844` |
+|  `latest`     | February 27th | `sha256:71d7cb412826a88457f23eed817b137e7acb4117aca8cfacd2b8963739472c62` |
+|  `latest-dev` | February 27th | `sha256:217f87c4c6a2553cd8f13695c96ebaee9287568e2f9bd95b8e24d3670b9beafe` |
 
