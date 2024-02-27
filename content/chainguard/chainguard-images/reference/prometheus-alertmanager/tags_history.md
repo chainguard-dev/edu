@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-22 00:36:42
+lastmod: 2024-02-27 17:07:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,8 +25,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                          | Last Changed  | Digest                                                                    |
 |----------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev`                    | February 21st | `sha256:bc020392b648637ef163a13798f510a63c2623ea8a2be17448598622ac4dde0e` |
-|  `latest`                        | February 21st | `sha256:727d8f53ac6607e6c525bfab114f1b84ea874eb4846df557b28738ecc614e3b3` |
-|  `0-dev` `0.26-dev` `0.26.0-dev` | February 18th | `sha256:8e9240ffb864f06774c03a6148d64536a61694499ff9acbb359e16f74e7c1d9d` |
-|  `0.26` `0` `0.26.0`             | February 8th  | `sha256:7193a40485dd6e9dba0dc8b4325723e26d735366c21caef3138a662abf72475d` |
+|  `latest`                        | February 27th | `sha256:030a67b4399c02f1a640ae3177ce8d919b1d318ad1df3eb9bddf2ab097387c47` |
+|  `latest-dev`                    | February 27th | `sha256:bfda50612569c002b57b46e672c31310558520cc30bead44edfad3626306f0bd` |
+|  `0.26.0` `0` `0.26`             | February 27th | `sha256:22637feebebf96d09ec2a3c21ddc1a676a06095c0ad0b7fc8d7f5bb81b55cbe5` |
+|  `0.26.0-dev` `0.26-dev` `0-dev` | February 27th | `sha256:871424853c31f22f0f266510ee84c9a5b79a915bc5726b2ed30f9eeeadaac571` |
 

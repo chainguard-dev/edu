@@ -3,8 +3,8 @@ title: "clickhouse Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the clickhouse Chainguard Image"
-date: 2024-02-22 00:36:42
-lastmod: 2024-02-22 00:36:42
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-02-27 17:07:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 21st | `sha256:9048f9dec4121df0870691b08a32425219fd56ef37f2a93d7d45760dc5f66c7a` |
-|  `latest`     | February 21st | `sha256:358baeb3984f91f8d31f8127923c0fbf57ee55f2050682eba7f7c04e5fb12ff7` |
+|  `latest`     | February 27th | `sha256:cf4c92b79ad6470113a42a46cdadaaffd148b6be1b001e06c29a96419b13a6b7` |
+|  `latest-dev` | February 27th | `sha256:a5c48fc6b1f916cb4f75f9e07e48413225de3516804d500c018840957ff1b9d5` |
 

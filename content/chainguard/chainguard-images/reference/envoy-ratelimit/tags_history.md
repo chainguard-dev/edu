@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the envoy-ratelimit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-22 00:36:42
+lastmod: 2024-02-27 17:07:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 21st | `sha256:3767ba0137d5e4322aa046f22dae00e3f13699824716691d37ffd219afff0fda` |
-|  `latest-dev` | February 21st | `sha256:8828e55e50f62776f34090ce68b8da00539004bae6b3bfb0f82ec80297cef41d` |
+|  `latest`     | February 27th | `sha256:4668d57e8a761f3cd50cfcc9311a992fc71ee3fe9b2f1e002b7a52b50f8a6b3d` |
+|  `latest-dev` | February 27th | `sha256:b1cda3bb1513acddf5fa7a8fae5873c2ad882cfa698eb8d75dc1cce4c339240b` |
 
