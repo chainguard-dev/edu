@@ -3,8 +3,8 @@ title: "pytorch-cuda12 Image Variants"
 type: "article"
 unlisted: true
 description: "Detailed information about the public pytorch-cuda12 Chainguard Image variants"
-date: 2024-02-27 17:07:32
-lastmod: 2024-02-27 17:07:32
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-02-27 22:56:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ The **pytorch-cuda12** Chainguard Image currently has 2 public variants:
 
 The table has detailed information about each of these variants.
 
-|              | latest-dev     | latest         |
-|--------------|----------------|----------------|
-| Default User | `nonroot`      | `nonroot`      |
-| Entrypoint   | `/bin/bash -c` | `/bin/bash -c` |
-| CMD          | not specified  | not specified  |
-| Workdir      | not specified  | not specified  |
-| Has apk?     | yes            | no             |
-| Has a shell? | yes            | yes            |
+|              | latest-dev    | latest        |
+|--------------|---------------|---------------|
+| Default User | `nonroot`     | `nonroot`     |
+| Entrypoint   | `/bin/bash`   | `/bin/bash`   |
+| CMD          | not specified | not specified |
+| Workdir      | not specified | not specified |
+| Has apk?     | yes           | no            |
+| Has a shell? | yes           | yes           |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/pytorch-cuda12/tags_history/) for the full list of available tags.
 
@@ -65,6 +65,7 @@ The table shows package distribution across variants.
 | `libgcc`                 | X          | X      |
 | `libgomp`                | X          | X      |
 | `libidn2`                | X          |        |
+| `libjpeg-turbo`          | X          | X      |
 | `libnghttp2-14`          | X          |        |
 | `libpcre2-8-0`           | X          |        |
 | `libpsl`                 | X          |        |
@@ -78,9 +79,9 @@ The table shows package distribution across variants.
 | `openmp-17-dev`          | X          | X      |
 | `openssl-config`         | X          | X      |
 | `python-3.11`            | X          | X      |
-| `pytorch-cuda12`         | X          | X      |
 | `readline`               | X          | X      |
 | `sqlite-libs`            | X          | X      |
+| `torchvision-cuda12`     | X          | X      |
 | `wget`                   | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `xz`                     | X          | X      |

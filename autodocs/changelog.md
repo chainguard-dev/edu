@@ -1,4 +1,24 @@
 # 2024-02-27
+
+
+Updated Docs:
+
+- management-api-for-apache-cassandra/image_specs.md
+- management-api-for-apache-cassandra/tags_history.md
+- newrelic-fluent-bit-output/tags_history.md
+- newrelic-infrastructure-bundle/tags_history.md
+- openai/tags_history.md
+- prometheus-alertmanager/_index.md
+- prometheus-alertmanager/image_specs.md
+- prometheus-alertmanager/tags_history.md
+- prometheus-logstash-exporter/tags_history.md
+- pytorch-cuda12/_index.md
+- pytorch-cuda12/image_specs.md
+- pytorch-cuda12/tags_history.md
+- skaffold/tags_history.md
+- vault/tags_history.md
+
+# 2024-02-27
 New images added:
 
 - kuberay-operator

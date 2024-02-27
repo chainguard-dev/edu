@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public management-api-for-apache-cassandra Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+lastmod: 2024-02-27 22:56:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -54,8 +54,8 @@ The table shows package distribution across variants.
 | `ca-certificates`                            | X          | X      |
 | `ca-certificates-bundle`                     | X          | X      |
 | `cairo`                                      | X          | X      |
-| `cassandra`                                  | X          | X      |
-| `cassandra-compat`                           | X          | X      |
+| `cassandra-4.1`                              | X          | X      |
+| `cassandra-4.1-compat`                       | X          | X      |
 | `collectd`                                   | X          | X      |
 | `cyrus-sasl`                                 | X          | X      |
 | `fontconfig-config`                          | X          | X      |

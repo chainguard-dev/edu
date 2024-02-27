@@ -4,8 +4,8 @@ linktitle: "pytorch-cuda12"
 type: "article"
 layout: "single"
 description: "Overview: pytorch-cuda12 Chainguard Image"
-date: 2024-02-27 17:07:32
-lastmod: 2024-02-27 17:07:32
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-02-27 22:56:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -73,8 +73,9 @@ As a quick intro, we will use pytorch to create a very simple deep learning mode
 
 To run this script, 
 ```bash
-docker run --rm -it -v /home/srishihegde/quick.py:/tmp/model_builder.py --gpus all cgr.dev/chainguard/pytorch-cuda12:latest python /tmp/model_builder.py
+docker run --rm -it -v /home/srishihegde/quick.py:/tmp/model_builder.py --gpus all cgr.dev/chainguard/pytorch-cuda12:latest -c "python /tmp/model_builder.py"
 ```
+A quickstart tutorial as outlined [here](https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html) can also be run using the tests/quickstart.py script similar to the above run 
 
 ### Using Helm charts
 
