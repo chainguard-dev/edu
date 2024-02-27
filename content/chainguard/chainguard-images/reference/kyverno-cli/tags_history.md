@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-22 00:36:42
+lastmod: 2024-02-27 17:07:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 21st | `sha256:76b26786cd60627bd9bdf37f2f7cc3e1b6d86c4807cbc5b7f2aac49afd9a77c0` |
+|  `latest` | February 27th | `sha256:314f1d0a61faebe627cf9c3ca36e2ba5fdded4c093f16ebdc173ebae3baa501c` |
 

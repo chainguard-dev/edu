@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-19 00:28:58
+lastmod: 2024-02-27 17:07:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 18th | `sha256:9dc6d141a5655151bd168731f8ff1555960ab09f84f9d265b12f0a23575dbaf5` |
-|  `latest`     | February 8th  | `sha256:40131025501456d20e6d3dfc22226fdc7d23bc334a798a6185a74c13138fba31` |
+|  `latest`     | February 27th | `sha256:a2355143ac758b4150b97b9dea4085a0c5deeb52beeff3f04aa838f346ee338c` |
+|  `latest-dev` | February 27th | `sha256:095a168aa5275237598acbdbe03f15f75d58620291b8765dcace98df30b562b0` |
 

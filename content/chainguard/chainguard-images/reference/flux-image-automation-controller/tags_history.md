@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-image-automation-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-19 00:28:58
+lastmod: 2024-02-27 17:07:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,9 +23,11 @@ The following table contains the most recent tags and digests that can be used t
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
 
-| Tag (s)                                                                          | Last Changed  | Digest                                                                    |
-|----------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `v0.37-dev` `0-dev` `v0.37.1-dev` `0.37-dev` `latest-dev` `v0-dev` `0.37.1-dev` | February 18th | `sha256:98282224d4076eb6c4b7cf4e2960c1766b127c1f657a7d75d40ea39994bd8536` |
-|  `v0.37.1` `latest` `0.37` `0` `v0.37` `0.37.1` `v0`                             | February 1st  | `sha256:237cce25e7be9dd1ee954200ec5778eca44b69c5b43612d834f5016f9598cd54` |
-|  `v0.37.0-dev` `0.37.0-dev`                                                      | January 31st  | `sha256:f638906087f6bd94fcbb0cbd13819758c0a44b6f3381fedd9b87d5b620697703` |
+| Tag (s)                                                             | Last Changed  | Digest                                                                    |
+|---------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev`                                                       | February 27th | `sha256:b085d7f37fabd6a19bc539cdb37c3d7492051029bcfd2bf57e510b4cb268b8a5` |
+|  `latest`                                                           | February 27th | `sha256:52f4dcdb41e1a0930cb4a22b262d01c9bd83d731478e8ad96055307e3c0b81b2` |
+|  `v0.37.1-dev` `v0.37-dev` `0.37-dev` `0.37.1-dev` `v0-dev` `0-dev` | February 23rd | `sha256:87547a108455bacc49d07398d02bf2de70f4cca990a955c5b592b3a3623ae97e` |
+|  `v0.37.1` `0.37` `0` `v0.37` `0.37.1` `v0`                         | February 1st  | `sha256:237cce25e7be9dd1ee954200ec5778eca44b69c5b43612d834f5016f9598cd54` |
+|  `v0.37.0-dev` `0.37.0-dev`                                         | January 31st  | `sha256:f638906087f6bd94fcbb0cbd13819758c0a44b6f3381fedd9b87d5b620697703` |
 

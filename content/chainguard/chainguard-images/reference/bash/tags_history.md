@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bash Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-15 00:37:56
+lastmod: 2024-02-27 17:07:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 14th | `sha256:f3e038a2aa6e99902949a129a97ec379ccdac87c34f9368a1a4efde8f37555cc` |
+|  `latest` | February 27th | `sha256:e8be549335f5409bca8cc55abe59ab0c6adafd6faa50a2d3a0bce75c94949639` |
 
