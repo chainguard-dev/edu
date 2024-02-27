@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the terraform Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-19 00:28:58
+lastmod: 2024-02-27 17:07:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,8 +25,8 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                                 | Last Changed  | Digest                                                                    |
 |-----------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev`                           | February 18th | `sha256:a4bad6d4a6506b648facc676cfb21e7bc3aa2eb32ef6ec8efe5c1ae61b648558` |
-|  `latest-mpl-dev` `1.5.7-dev` `1.5-dev` | February 18th | `sha256:89a46f6e110823b7946d39ae4a827ba444ae6404bf6e179d805b6ca0532cf6c0` |
-|  `latest`                               | February 16th | `sha256:bad557ef3879b19092ce46f2c0944b79ab2d48a9e8614559667bd34732852b34` |
-|  `latest-mpl` `1.5.7` `1.5`             | February 16th | `sha256:2964ce66f290c759abda053b343d297df39555bfc6fcf8cc09de32d2e5c03acb` |
+|  `latest`                               | February 27th | `sha256:424585d08f10fd158e6c601ff7d6e91892ef3d76b474548b44faa83996772926` |
+|  `latest-dev`                           | February 27th | `sha256:7c5b3d177cd42d9bb5f7f7b6d6ee876f1feca5f8b4525af931ff5572a6d664e4` |
+|  `latest-mpl-dev` `1.5.7-dev` `1.5-dev` | February 27th | `sha256:098fab6269a63d53ec6dfae9956046d8c939fe94d54be70f70c3794b0b399ba0` |
+|  `1.5.7` `1.5` `latest-mpl`             | February 27th | `sha256:49e836dd130b840c90335676a67939b9d142065e600165bbfbfd9c24df5d41b0` |
 

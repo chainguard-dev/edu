@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cfssl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-19 00:28:58
+lastmod: 2024-02-27 17:07:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 18th | `sha256:9bba3d5df88567c3107ffb087af01cbfb8afd6772261292968f5626158acb348` |
-|  `latest`     | January 31st  | `sha256:39e86cf778ff427312b9888d8c9035a727b9a6026737080c45c78bb0c35a7eb1` |
+|  `latest`     | February 27th | `sha256:f42eee235b234c7fbc89d9f1d640f76de2069cfdad7f99e347be46932fc0b409` |
+|  `latest-dev` | February 27th | `sha256:ace4f3015963b54942b62a6c91d894dda7261f597faa936f8a97b88fb6fefda5` |
 

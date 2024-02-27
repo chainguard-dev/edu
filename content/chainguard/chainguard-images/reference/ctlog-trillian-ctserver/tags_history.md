@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ctlog-trillian-ctserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-19 00:28:58
+lastmod: 2024-02-27 17:07:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 18th | `sha256:ce2fce7e6eeecd6e675737a07313133960713bda17bdcde3648d361b9f6c1293` |
-|  `latest`     | February 7th  | `sha256:b79f177fc4da476d83865b30410614256e7d65b5e0a35de0e5cf497d3e127b58` |
+|  `latest`     | February 27th | `sha256:0f78a538015579dbe7472d2723cb8fd6e16030484baaf312bcc845c104dd60b5` |
+|  `latest-dev` | February 27th | `sha256:d0221ee2dda18b1037b6b758e819616355e2a59ab4f0609f8b3bcf6dd8f9e6fd` |
 
