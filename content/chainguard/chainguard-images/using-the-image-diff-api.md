@@ -219,3 +219,34 @@ You will receive output like the following:
 ```
 
 Again, replace `chainguard/nginx` with your relevant private registry and Image name as required. As with the `curl` example, you can also compare Image digests for the same tag by combining data from the [Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/).
+
+### Grype Information
+
+The output from either the `curl` or programmatic requests to the Diff API will include a `vulnerabilities` section that shows the versions of Grype that were used to scan for vulnerabilities in each image.
+
+The `metadata` array in the vulnerability result section will resemble the following, where each digest corresponds to the `FROM_DIGEST` and `TO_DIGEST` respectively:
+
+```
+[
+  {
+    "digest": "sha256:f91e3713d0349fe145262ae00b2de79cf315e49e73b7bfc28a10ba1545578230",
+    "scanner": {
+      "name": "grype",
+      "version": "v0.74.1"
+    },
+    "vulnerabilityDbLastBuildTime": "2024-02-27T01:23:18Z",
+    "vulnerabilityDbSchemaVersion": "5"
+  },
+  {
+    "digest": "sha256:077db361ef9ab680350915c90799fd19bda550dfbb17756636dfa4bba9b24c4a",
+    "scanner": {
+      "name": "grype",
+      "version": "v0.74.1"
+    },
+    "vulnerabilityDbLastBuildTime": "2024-02-27T01:23:18Z",
+    "vulnerabilityDbSchemaVersion": "5"
+  }
+]
+```
+
+You can use this information to indepdendently verify scan results using a local copy of Grype.
