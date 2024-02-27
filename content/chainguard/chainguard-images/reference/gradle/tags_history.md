@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gradle Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-21 00:39:53
+lastmod: 2024-02-27 17:07:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,5 +25,5 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 20th | `sha256:b96abcc961e1c883a87eb33e067692e7409fc392f140f55de450fdee5907ceab` |
+|  `latest` | February 27th | `sha256:648383dac6bb641510a5b9fd672e4f869d78287d09aad57c65a9c7547064142f` |
 

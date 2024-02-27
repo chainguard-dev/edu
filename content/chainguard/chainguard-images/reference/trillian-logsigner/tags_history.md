@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trillian-logsigner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-19 00:28:58
+lastmod: 2024-02-27 17:07:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 18th | `sha256:c05083e20c77d4054f15989caa045758399022f6578084fd861e9e15dad004f9` |
-|  `latest`     | January 31st  | `sha256:ac56ba880a47a4079e8a2109afdc6a4a331611511b79ca29604e54a06dc98f45` |
+|  `latest`     | February 27th | `sha256:de6c5f9cf3bce91ea236444002209292d1012d660854c04b50bca54edbd0494d` |
+|  `latest-dev` | February 27th | `sha256:1dd07c867cbef8e9ef9b34ab9cc6f91895400f07a64842d41baa71d0d7689827` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-19 00:28:58
+lastmod: 2024-02-27 17:07:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,12 +25,12 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed  | Digest                                                                    |
 |--------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-root`           | February 18th | `sha256:8bcdb14d03c55953193d295f78fbbd3e7545e4209cffa4904bd2daad92eab4f7` |
-|  `latest-dev`            | February 18th | `sha256:fe96075b7168369580f8038c3acb212a27a413e49b90e0af6cb58bf47b953854` |
-|  `latest`                | February 18th | `sha256:275596183c85d273ee130cfb81f5c999465602d4ffabf08083a3306db2979685` |
-|  `latest-root-dev`       | February 18th | `sha256:b4c335763f93194ff8507ace47a16c83c817e1226efebc48f5f8112ff4ec34d3` |
-|  `latest-glibc-root-dev` | February 18th | `sha256:4c1fa78acfade2afc4513b76cc604b12fb861306ffa03cc24ec1efff8ec6532a` |
-|  `latest-glibc-root`     | February 18th | `sha256:ae337f71d6183f9acb257fd4694abe4e670fa688922fe57dad229dbb6e94ccc1` |
-|  `latest-glibc`          | February 18th | `sha256:6c4f884a215f86b5d099cfcb3f675fa90fddc07266763f8b88b980f9b74eb7ad` |
-|  `latest-glibc-dev`      | February 18th | `sha256:513f88cc980a820ddd699df2ca6fb26c0835d2d2a3d1d5f5cd8871300025e551` |
+|  `latest-root`           | February 27th | `sha256:42ee5f8fd3689e6061b7bc13cb7491da8a5bf1a68f554710890b71e6ff700440` |
+|  `latest`                | February 27th | `sha256:66f24e75ecdcf96fcb2582ccbc27799626347c6c817e7291373745c1d75c827b` |
+|  `latest-root-dev`       | February 27th | `sha256:9e0deaa87e663373bd00a0d0c84cb24526db700d7433d47ae3eeba9b397c2f4d` |
+|  `latest-glibc`          | February 27th | `sha256:c173f9f30d438440580adc0738bb5f373b8574218a967796ca609cdbfca12776` |
+|  `latest-glibc-root`     | February 27th | `sha256:d3acc4c1ced3ed548ebb9ae38fd83cc279e039a33d695acae272d3ad52823540` |
+|  `latest-glibc-dev`      | February 27th | `sha256:0f85990394831b356cb311cc9cbc2f9769be4f191733d5cd3b1e74021a5e3b44` |
+|  `latest-glibc-root-dev` | February 27th | `sha256:f24f454d96a2e02acf57cefba020ef6881c3090e2fd650c14bd28e3259b22eda` |
+|  `latest-dev`            | February 27th | `sha256:5e36c89abedb1e3f937d63814423219aca1b2b086c12adcf413759df85a0bd3e` |
 
