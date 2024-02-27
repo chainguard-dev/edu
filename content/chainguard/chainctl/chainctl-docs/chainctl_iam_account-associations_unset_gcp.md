@@ -1,5 +1,5 @@
 ---
-date: 2024-02-21T20:43:07Z
+date: 2024-02-26T20:38:15Z
 title: "chainctl iam account-associations unset gcp"
 slug: chainctl_iam_account-associations_unset_gcp
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_gcp/
@@ -11,10 +11,10 @@ toc: true
 ---
 ## chainctl iam account-associations unset gcp
 
-Remove GCP account configuration for a group.
+Remove GCP account configuration for a location.
 
 ```
-chainctl iam account-associations unset gcp GROUP_NAME|GROUP_ID [--yes] [--output ] [flags]
+chainctl iam account-associations unset gcp ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [--yes] [--output ] [flags]
 ```
 
 ### Options
@@ -38,5 +38,5 @@ chainctl iam account-associations unset gcp GROUP_NAME|GROUP_ID [--yes] [--outpu
 
 ### SEE ALSO
 
-* [chainctl iam account-associations unset](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset/)	 - Remove cloud provider account associations from a group.
+* [chainctl iam account-associations unset](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset/)	 - Remove cloud provider account associations from a location.
 
