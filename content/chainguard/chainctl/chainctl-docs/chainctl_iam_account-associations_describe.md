@@ -1,5 +1,5 @@
 ---
-date: 2024-02-21T20:43:07Z
+date: 2024-02-26T20:38:15Z
 title: "chainctl iam account-associations describe"
 slug: chainctl_iam_account-associations_describe
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_describe/
@@ -11,10 +11,10 @@ toc: true
 ---
 ## chainctl iam account-associations describe
 
-Describe cloud provider account associations for a group.
+Describe cloud provider account associations for a location.
 
 ```
-chainctl iam account-associations describe GROUP_NAME|GROUP_ID [--aws] [--gcp] [--chainguard] [--output table|id|json] [flags]
+chainctl iam account-associations describe ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [--aws] [--gcp] [--chainguard] [--output table|id|json] [flags]
 ```
 
 ### Options

@@ -1,5 +1,5 @@
 ---
-date: 2024-02-21T20:43:07Z
+date: 2024-02-26T20:38:15Z
 title: "chainctl iam account-associations set gcp"
 slug: chainctl_iam_account-associations_set_gcp
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_gcp/
@@ -11,10 +11,10 @@ toc: true
 ---
 ## chainctl iam account-associations set gcp
 
-Set GCP account association for a group.
+Set GCP account association for a location.
 
 ```
-chainctl iam account-associations set gcp GROUP_NAME|GROUP_ID --project-id=PROJECT_ID --project-number=PROJECT_NUMBER [--name=NAME] [--description=DESCRIPTION] [--yes] [--output table|json|id] [flags]
+chainctl iam account-associations set gcp ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID --project-id=PROJECT_ID --project-number=PROJECT_NUMBER [--name=NAME] [--description=DESCRIPTION] [--yes] [--output table|json|id] [flags]
 ```
 
 ### Options
@@ -42,5 +42,5 @@ chainctl iam account-associations set gcp GROUP_NAME|GROUP_ID --project-id=PROJE
 
 ### SEE ALSO
 
-* [chainctl iam account-associations set](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set/)	 - Set cloud provider account associations for a group.
+* [chainctl iam account-associations set](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set/)	 - Set cloud provider account associations for a location.
 

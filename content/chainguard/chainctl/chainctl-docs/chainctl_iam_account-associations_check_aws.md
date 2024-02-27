@@ -1,5 +1,5 @@
 ---
-date: 2024-02-21T20:43:07Z
+date: 2024-02-26T20:38:15Z
 title: "chainctl iam account-associations check aws"
 slug: chainctl_iam_account-associations_check_aws
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check_aws/
@@ -11,10 +11,10 @@ toc: true
 ---
 ## chainctl iam account-associations check aws
 
-Checks that the given group has been properly configured for OIDC federation with AWS
+Checks that the given location has been properly configured for OIDC federation with AWS
 
 ```
-chainctl iam account-associations check aws GROUP_NAME|GROUP_ID [flags]
+chainctl iam account-associations check aws ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [flags]
 ```
 
 ### Options
