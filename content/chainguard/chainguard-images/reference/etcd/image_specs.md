@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public etcd Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-28 20:17:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -49,7 +49,7 @@ The table shows package distribution across variants.
 | `bash`                   | X          |        |
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
-| `etcd`                   | X          | X      |
+| `etcd-3.5`               | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |
