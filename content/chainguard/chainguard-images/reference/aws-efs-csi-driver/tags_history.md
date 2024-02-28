@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-efs-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-27 17:07:32
+lastmod: 2024-02-28 20:17:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 27th | `sha256:2cd14e5e5c50e99f5c550757f5871683b55ad2e1870db7b33ba8b5057f4fba20` |
-|  `latest-dev` | February 27th | `sha256:51b49e3b600ff0d444bb71aec7de076a7429c16eea4d6f98695d53216789c9bb` |
+|  `latest`     | February 28th | `sha256:4cbd0662c62df39dde78a581851fda66411f5cf2cddd7c3df8f4a5634630f158` |
+|  `latest-dev` | February 28th | `sha256:6d5f3280b7ddc689d821256cfa05660e9a1d6095efb8c2143ba3c3082c8a9f3b` |
 

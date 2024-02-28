@@ -1,9 +1,9 @@
 ---
-title: "envoy Image Tags History"
+title: "docker-selenium Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the envoy Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
+description: "Image Tags and History for the docker-selenium Chainguard Image"
+date: 2024-02-28 20:17:58
 lastmod: 2024-02-28 20:17:58
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/envoy/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/envoy/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/envoy/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/envoy/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/docker-selenium/" >}}
+{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/docker-selenium/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/docker-selenium/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/docker-selenium/provenance_info/" >}}
 {{</ tabs >}}
 
 The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 28th | `sha256:7ddda880c180939f10f63aacdd899d3014c50fc17e5124084b3a2ee7d41ebd7c` |
-|  `latest`     | February 28th | `sha256:53fc0536fba17f9d574a032bee8a616f158eeaa8a1e3797a1c1f633e83d0317d` |
+|  `latest`     | February 28th | `sha256:619612f0bcd404e0c0bfb2b6736154b148b7be80a3adc7d3568596665569cdac` |
+|  `latest-dev` | February 28th | `sha256:da048f5fb7b904fb7fd91a6ec74c72046bf46891039add1f6fdfe1147260554d` |
 
