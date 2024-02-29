@@ -1,3 +1,30 @@
+# 2024-02-29
+
+
+Updated Docs:
+
+- docker-selenium/tags_history.md
+- gitlab-exporter/tags_history.md
+- guacamole-server/tags_history.md
+- hugo/tags_history.md
+- influxdb/tags_history.md
+- k8s-sidecar/tags_history.md
+- kubeflow-centraldashboard/tags_history.md
+- kubeflow-pipelines-frontend/tags_history.md
+- netcat/tags_history.md
+- node/tags_history.md
+- node-lts/tags_history.md
+- node-problem-detector/tags_history.md
+- opensearch-dashboards/tags_history.md
+- prometheus-alertmanager/image_specs.md
+- prometheus-alertmanager/tags_history.md
+- pulumi/tags_history.md
+- rqlite/tags_history.md
+- semgrep/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- sqlpad/tags_history.md
+- statsd/tags_history.md
+
 # 2024-02-28
 New images added:
 
