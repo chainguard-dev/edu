@@ -1,10 +1,10 @@
 ---
-title: "mariadb Image Variants"
+title: "mariadb Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public mariadb Chainguard Image variants"
+description: "Detailed information about the public mariadb Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-28 20:17:58
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/mariadb/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/mariadb/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/mariadb/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/mariadb/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/mariadb/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **mariadb** Image.
-
-## Variants Compared
-The **mariadb** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **mariadb** Image.
 
 |              | latest-dev                                     | latest                                         |
 |--------------|------------------------------------------------|------------------------------------------------|
@@ -49,6 +41,7 @@ The table shows package distribution across variants.
 | `bash`                        | X          | X      |
 | `busybox`                     | X          | X      |
 | `ca-certificates-bundle`      | X          | X      |
+| `chainguard-baselayout`       | X          | X      |
 | `git`                         | X          |        |
 | `glibc`                       | X          | X      |
 | `glibc-locale-posix`          | X          | X      |
@@ -64,13 +57,12 @@ The table shows package distribution across variants.
 | `libidn2`                     | X          |        |
 | `libnghttp2-14`               | X          |        |
 | `libpcre2-8-0`                | X          | X      |
-| `libpcre2-posix-3`            | X          | X      |
 | `libpsl`                      | X          |        |
 | `libssl3`                     | X          | X      |
 | `libstdc++`                   | X          | X      |
 | `libunistring`                | X          |        |
 | `linux-pam`                   | X          | X      |
-| `mariadb-11.2`                | X          | X      |
+| `mariadb-10.11`               | X          | X      |
 | `mariadb-11.2-oci-entrypoint` | X          | X      |
 | `ncurses`                     | X          | X      |
 | `ncurses-terminfo-base`       | X          | X      |

@@ -1,10 +1,10 @@
 ---
-title: "logstash-oss-with-opensearch-output-plugin Image Variants"
+title: "logstash-oss-with-opensearch-output-plugin Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public logstash-oss-with-opensearch-output-plugin Chainguard Image variants"
-date: 2024-02-15 00:37:56
-lastmod: 2024-02-15 00:37:56
+description: "Detailed information about the public logstash-oss-with-opensearch-output-plugin Chainguard Image."
+date: 2024-02-29 16:25:55
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/logstash-oss-with-opensearch-output-plugin/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/logstash-oss-with-opensearch-output-plugin/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/logstash-oss-with-opensearch-output-plugin/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/logstash-oss-with-opensearch-output-plugin/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/logstash-oss-with-opensearch-output-plugin/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **logstash-oss-with-opensearch-output-plugin** Image.
-
-## Variants Compared
-The **logstash-oss-with-opensearch-output-plugin** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **logstash-oss-with-opensearch-output-plugin** Image.
 
 |              | latest-dev                   | latest                       |
 |--------------|------------------------------|------------------------------|
@@ -50,6 +42,7 @@ The table shows package distribution across variants.
 | `busybox`                         | X          | X      |
 | `ca-certificates`                 | X          | X      |
 | `ca-certificates-bundle`          | X          | X      |
+| `chainguard-baselayout`           | X          | X      |
 | `fontconfig-config`               | X          | X      |
 | `freetype`                        | X          | X      |
 | `git`                             | X          |        |

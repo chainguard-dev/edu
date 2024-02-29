@@ -1,10 +1,10 @@
 ---
-title: "static Image Variants"
+title: "static Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public static Chainguard Image variants"
+description: "Detailed information about the public static Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/static/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/static/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/static/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/static/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/static/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **static** Image.
-
-## Variants Compared
-The **static** Chainguard Image currently has 2 public variants: 
-
-- `latest-glibc`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **static** Image.
 
 |              | latest-glibc  | latest        |
 |--------------|---------------|---------------|
@@ -46,6 +38,8 @@ The table shows package distribution across variants.
 |                          | latest-glibc | latest |
 |--------------------------|--------------|--------|
 | `ca-certificates-bundle` | X            | X      |
+| `chainguard-baselayout`  | X            |        |
+| `glibc-locale-posix`     | X            |        |
 | `tzdata`                 | X            | X      |
 | `wolfi-baselayout`       | X            |        |
 | `alpine-baselayout-data` |              | X      |

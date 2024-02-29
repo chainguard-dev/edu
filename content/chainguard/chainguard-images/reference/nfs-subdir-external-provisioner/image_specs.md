@@ -1,10 +1,10 @@
 ---
-title: "nfs-subdir-external-provisioner Image Variants"
+title: "nfs-subdir-external-provisioner Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public nfs-subdir-external-provisioner Chainguard Image variants"
+description: "Detailed information about the public nfs-subdir-external-provisioner Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/nfs-subdir-external-provisioner/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/nfs-subdir-external-provisioner/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/nfs-subdir-external-provisioner/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/nfs-subdir-external-provisioner/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/nfs-subdir-external-provisioner/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **nfs-subdir-external-provisioner** Image.
-
-## Variants Compared
-The **nfs-subdir-external-provisioner** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **nfs-subdir-external-provisioner** Image.
 
 |              | latest-dev                                 | latest                                     |
 |--------------|--------------------------------------------|--------------------------------------------|
@@ -49,6 +41,7 @@ The table shows package distribution across variants.
 | `bash`                            | X          |        |
 | `busybox`                         | X          | X      |
 | `ca-certificates-bundle`          | X          | X      |
+| `chainguard-baselayout`           | X          | X      |
 | `cyrus-sasl`                      | X          | X      |
 | `device-mapper-libs`              | X          | X      |
 | `gdbm`                            | X          | X      |

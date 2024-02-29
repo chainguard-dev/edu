@@ -1,10 +1,10 @@
 ---
-title: "kubernetes-csi-external-snapshot-validation-webhook Image Variants"
+title: "kubernetes-csi-external-snapshot-validation-webhook Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public kubernetes-csi-external-snapshot-validation-webhook Chainguard Image variants"
+description: "Detailed information about the public kubernetes-csi-external-snapshot-validation-webhook Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-03 00:37:41
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,37 +14,55 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-validation-webhook/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-validation-webhook/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-validation-webhook/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-validation-webhook/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-validation-webhook/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **kubernetes-csi-external-snapshot-validation-webhook** Image.
+This page shows detailed information about the Chainguard **kubernetes-csi-external-snapshot-validation-webhook** Image.
 
-## Variants Compared
-The **kubernetes-csi-external-snapshot-validation-webhook** Chainguard Image currently has one public variant: 
-
-- `latest`
-
-The table has detailed information about each of these variants.
-
-|              | latest                                 |
-|--------------|----------------------------------------|
-| Default User | `nonroot`                              |
-| Entrypoint   | `/usr/bin/snapshot-validation-webhook` |
-| CMD          | not specified                          |
-| Workdir      | not specified                          |
-| Has apk?     | no                                     |
-| Has a shell? | no                                     |
+|              | latest-dev                             | latest                                 |
+|--------------|----------------------------------------|----------------------------------------|
+| Default User | `nonroot`                              | `nonroot`                              |
+| Entrypoint   | `/usr/bin/snapshot-validation-webhook` | `/usr/bin/snapshot-validation-webhook` |
+| CMD          | not specified                          | not specified                          |
+| Workdir      | not specified                          | not specified                          |
+| Has apk?     | yes                                    | no                                     |
+| Has a shell? | yes                                    | no                                     |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kubernetes-csi-external-snapshot-validation-webhook/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                                       | latest |
-|-------------------------------------------------------|--------|
-| `ca-certificates-bundle`                              | X      |
-| `kubernetes-csi-external-snapshot-validation-webhook` | X      |
-| `wolfi-baselayout`                                    | X      |
+|                                                       | latest-dev | latest |
+|-------------------------------------------------------|------------|--------|
+| `apk-tools`                                           | X          |        |
+| `bash`                                                | X          |        |
+| `busybox`                                             | X          |        |
+| `ca-certificates-bundle`                              | X          | X      |
+| `chainguard-baselayout`                               | X          | X      |
+| `git`                                                 | X          |        |
+| `glibc`                                               | X          |        |
+| `glibc-locale-posix`                                  | X          | X      |
+| `kubernetes-csi-external-snapshot-validation-webhook` | X          | X      |
+| `ld-linux`                                            | X          |        |
+| `libbrotlicommon1`                                    | X          |        |
+| `libbrotlidec1`                                       | X          |        |
+| `libcrypt1`                                           | X          |        |
+| `libcrypto3`                                          | X          |        |
+| `libcurl-openssl4`                                    | X          |        |
+| `libexpat1`                                           | X          |        |
+| `libidn2`                                             | X          |        |
+| `libnghttp2-14`                                       | X          |        |
+| `libpcre2-8-0`                                        | X          |        |
+| `libpsl`                                              | X          |        |
+| `libssl3`                                             | X          |        |
+| `libunistring`                                        | X          |        |
+| `ncurses`                                             | X          |        |
+| `ncurses-terminfo-base`                               | X          |        |
+| `openssl-config`                                      | X          |        |
+| `wget`                                                | X          |        |
+| `wolfi-baselayout`                                    | X          | X      |
+| `zlib`                                                | X          |        |
 

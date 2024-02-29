@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kubeflow-jupyter-web-app Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,17 +14,35 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubeflow-jupyter-web-app/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/kubeflow-jupyter-web-app/image_specs/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/kubeflow-jupyter-web-app/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kubeflow-jupyter-web-app/tags_history/" >}}
 {{< tab title="Provenance" active=true url="/chainguard/chainguard-images/reference/kubeflow-jupyter-web-app/provenance_info/" >}}
 {{</ tabs >}}
 
-All Chainguard Images contain verifiable signatures and high-quality SBOMs (software bill of materials), features that enable users to confirm the origin of each image built and have a detailed list of everything that is packed within.
+All Chainguard Images contain verifiable signatures and high-quality SBOMs (software bill of materials), features that enable users to confirm the origin of each image build and have a detailed list of everything that is packed within.
+
+You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https://stedolan.github.io/jq/) in order to download and verify image attestations.
+
+### Registry and Tags for kubeflow-jupyter-web-app Image
+Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
+
+| Registry                     | Tags                                                                                         |
+|------------------------------|----------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | 1, 1-dev, 1.8, 1.8-dev, 1.8.0, 1.8.0-dev, latest, latest-dev                                 |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.7, 1.7-dev, 1.7.0, 1.7.0-dev, 1.8, 1.8-dev, 1.8.0, 1.8.0-dev, latest, latest-dev |
+
+
+- `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
+- `cgr.dev/chainguard-private` - the Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+
+The commands listed on this page will default to the `latest` tag, but you can specify a different tag to fetch attestations for.
 
 ## Verifying kubeflow-jupyter-web-app Image Signatures
 The **kubeflow-jupyter-web-app** Chainguard Images are signed using Sigstore, and you can check the included signatures using `cosign`.
 
-The following command requires [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https://stedolan.github.io/jq/) to be installed on your machine. It will pull detailed information about all signatures found for the provided image.
+The `cosign verify` command will pull detailed information about all signatures found for the provided image.
+
+### Public Registry
 
 ```shell
 cosign verify \
@@ -33,7 +51,14 @@ cosign verify \
   cgr.dev/chainguard/kubeflow-jupyter-web-app | jq
 ```
 
-By default, this command will fetch signatures for the `latest` tag. You can also specify the tag you want to fetch signatures for.
+### Private/Dedicated Registry
+
+```shell
+cosign verify \
+--certificate-oidc-issuer=https://token.actions.githubusercontent.com \
+--certificate-identity=https://github.com/chainguard-images/images-private/.github/workflows/release.yaml@refs/heads/main \
+cgr.dev/chainguard-private/kubeflow-jupyter-web-app | jq
+```
 
 ## Downloading kubeflow-jupyter-web-app Image Attestations
 
@@ -48,12 +73,24 @@ The following [attestations](https://slsa.dev/attestation-model) for the kubeflo
 
 To download an attestation, use the `cosign download attestation` command and provide both the predicate type and the build platform. For example, the following command will obtain the SBOM for the kubeflow-jupyter-web-app image on `linux/amd64`:
 
+### Public Registry
+
 ```shell
 cosign download attestation \
   --platform=linux/amd64 \
   --predicate-type=https://spdx.dev/Document \
   cgr.dev/chainguard/kubeflow-jupyter-web-app | jq -r .payload | base64 -d | jq .predicate
 ```
+
+### Private/Dedicated Registry
+
+```shell
+cosign download attestation \
+--platform=linux/amd64 \
+--predicate-type=https://spdx.dev/Document \
+cgr.dev/chainguard-private/kubeflow-jupyter-web-app | jq -r .payload | base64 -d | jq .predicate
+```
+
 By default, this command will fetch the SBOM assigned to the `latest` tag. You can also specify the tag you want to fetch the attestation from.
 
 To download a different attestation, replace the `--predicate-type` parameter value with the desired attestation URL identifier.
@@ -61,12 +98,24 @@ To download a different attestation, replace the `--predicate-type` parameter va
 ## Verifying kubeflow-jupyter-web-app Image Attestations
 You can use the `cosign verify-attestation` command to check the signatures of the kubeflow-jupyter-web-app image attestations:
 
+### Public Registry
+
 ```shell
 cosign verify-attestation \
   --type https://spdx.dev/Document \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
   --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
   cgr.dev/chainguard/kubeflow-jupyter-web-app
+```
+
+### Private/Dedicated Registry
+
+```shell
+cosign verify-attestation \
+--type https://spdx.dev/Document \
+--certificate-oidc-issuer=https://token.actions.githubusercontent.com \
+--certificate-identity=https://github.com/chainguard-images/images-private/.github/workflows/release.yaml@refs/heads/main \
+cgr.dev/chainguard-private/kubeflow-jupyter-web-app
 ```
 
 This will pull in the signature for the attestation specified by the `--type` parameter, which in this case is the SPDX attestation. You should get output that verifies the SBOM attestation signature in cosign's transparency log:

@@ -1,10 +1,10 @@
 ---
-title: "bash Image Variants"
+title: "bash Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public bash Chainguard Image variants"
+description: "Detailed information about the public bash Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,56 +14,55 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/bash/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/bash/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/bash/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/bash/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/bash/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **bash** Image.
+This page shows detailed information about the Chainguard **bash** Image.
 
-## Variants Compared
-The **bash** Chainguard Image currently has one public variant: 
-
-- `latest`
-
-The table has detailed information about each of these variants.
-
-|              | latest         |
-|--------------|----------------|
-| Default User | `root`         |
-| Entrypoint   | `/bin/bash -c` |
-| CMD          | not specified  |
-| Workdir      | not specified  |
-| Has apk?     | no             |
-| Has a shell? | yes            |
+|              | latest-dev     | latest         |
+|--------------|----------------|----------------|
+| Default User | `root`         | `root`         |
+| Entrypoint   | `/bin/bash -c` | `/bin/bash -c` |
+| CMD          | not specified  | not specified  |
+| Workdir      | not specified  | not specified  |
+| Has apk?     | yes            | no             |
+| Has a shell? | yes            | yes            |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/bash/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `bash`                   | X      |
-| `busybox`                | X      |
-| `ca-certificates-bundle` | X      |
-| `curl`                   | X      |
-| `glibc`                  | X      |
-| `glibc-locale-posix`     | X      |
-| `ld-linux`               | X      |
-| `libbrotlicommon1`       | X      |
-| `libbrotlidec1`          | X      |
-| `libcrypt1`              | X      |
-| `libcrypto3`             | X      |
-| `libcurl-openssl4`       | X      |
-| `libidn2`                | X      |
-| `libnghttp2-14`          | X      |
-| `libpsl`                 | X      |
-| `libssl3`                | X      |
-| `libunistring`           | X      |
-| `ncurses`                | X      |
-| `ncurses-terminfo-base`  | X      |
-| `openssl-config`         | X      |
-| `wolfi-baselayout`       | X      |
-| `zlib`                   | X      |
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          | X      |
+| `busybox`                | X          | X      |
+| `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
+| `curl`                   | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libbrotlicommon1`       | X          | X      |
+| `libbrotlidec1`          | X          | X      |
+| `libcrypt1`              | X          | X      |
+| `libcrypto3`             | X          | X      |
+| `libcurl-openssl4`       | X          | X      |
+| `libexpat1`              | X          |        |
+| `libidn2`                | X          | X      |
+| `libnghttp2-14`          | X          | X      |
+| `libpcre2-8-0`           | X          |        |
+| `libpsl`                 | X          | X      |
+| `libssl3`                | X          | X      |
+| `libunistring`           | X          | X      |
+| `ncurses`                | X          | X      |
+| `ncurses-terminfo-base`  | X          | X      |
+| `openssl-config`         | X          | X      |
+| `wget`                   | X          |        |
+| `wolfi-baselayout`       | X          | X      |
+| `zlib`                   | X          | X      |
 

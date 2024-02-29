@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: k8sgpt Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-02-16 00:30:51
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -18,7 +18,7 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/k8sgpt/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/k8sgpt/image_specs/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/k8sgpt/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/k8sgpt/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/k8sgpt/provenance_info/" >}}
 {{</ tabs >}}

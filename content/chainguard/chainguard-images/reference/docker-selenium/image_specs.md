@@ -1,10 +1,10 @@
 ---
-title: "docker-selenium Image Variants"
+title: "docker-selenium Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public docker-selenium Chainguard Image variants"
-date: 2024-02-28 20:17:58
-lastmod: 2024-02-28 20:17:58
+description: "Detailed information about the public docker-selenium Chainguard Image."
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-02-29 16:20:04
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/docker-selenium/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/docker-selenium/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/docker-selenium/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/docker-selenium/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/docker-selenium/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **docker-selenium** Image.
-
-## Variants Compared
-The **docker-selenium** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **docker-selenium** Image.
 
 |              | latest-dev                | latest                    |
 |--------------|---------------------------|---------------------------|
@@ -55,7 +47,9 @@ The table shows package distribution across variants.
 | `ca-certificates`                   | X          | X      |
 | `ca-certificates-bundle`            | X          | X      |
 | `cairo`                             | X          | X      |
+| `chainguard-baselayout`             | X          | X      |
 | `chromium`                          | X          | X      |
+| `chromium-docker-selenium-compat`   | X          | X      |
 | `coreutils`                         | X          | X      |
 | `cups-libs`                         | X          | X      |
 | `dbus-libs`                         | X          | X      |

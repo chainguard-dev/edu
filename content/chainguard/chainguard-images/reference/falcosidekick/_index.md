@@ -4,8 +4,8 @@ linktitle: "falcosidekick"
 type: "article"
 layout: "single"
 description: "Overview: falcosidekick Chainguard Image"
-date: 2024-02-18 00:27:40
-lastmod: 2024-02-18 00:27:40
+date: 2024-02-29 16:25:55
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -18,7 +18,7 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/falcosidekick/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/falcosidekick/image_specs/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/falcosidekick/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/falcosidekick/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/falcosidekick/provenance_info/" >}}
 {{</ tabs >}}

@@ -1,10 +1,10 @@
 ---
-title: "gitlab-exporter Image Variants"
+title: "gitlab-exporter Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public gitlab-exporter Chainguard Image variants"
+description: "Detailed information about the public gitlab-exporter Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/gitlab-exporter/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/gitlab-exporter/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/gitlab-exporter/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/gitlab-exporter/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/gitlab-exporter/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **gitlab-exporter** Image.
-
-## Variants Compared
-The **gitlab-exporter** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **gitlab-exporter** Image.
 
 |              | latest-dev                                        | latest                                            |
 |--------------|---------------------------------------------------|---------------------------------------------------|
@@ -49,6 +41,7 @@ The table shows package distribution across variants.
 | `bash`                        | X          | X      |
 | `busybox`                     | X          | X      |
 | `ca-certificates-bundle`      | X          | X      |
+| `chainguard-baselayout`       | X          | X      |
 | `curl`                        | X          | X      |
 | `git`                         | X          |        |
 | `gitlab-cng-base`             | X          | X      |

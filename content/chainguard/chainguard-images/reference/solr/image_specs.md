@@ -1,10 +1,10 @@
 ---
-title: "solr Image Variants"
+title: "solr Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public solr Chainguard Image variants"
+description: "Detailed information about the public solr Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/solr/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/solr/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/solr/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/solr/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/solr/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **solr** Image.
-
-## Variants Compared
-The **solr** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **solr** Image.
 
 |              | latest-dev                                                 | latest                                                     |
 |--------------|------------------------------------------------------------|------------------------------------------------------------|
@@ -50,6 +42,7 @@ The table shows package distribution across variants.
 | `busybox`                | X          | X      |
 | `ca-certificates`        | X          | X      |
 | `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
 | `fontconfig-config`      | X          | X      |
 | `freetype`               | X          | X      |
 | `git`                    | X          |        |

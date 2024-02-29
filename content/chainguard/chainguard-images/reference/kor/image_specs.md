@@ -1,10 +1,10 @@
 ---
-title: "kor Image Variants"
+title: "kor Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public kor Chainguard Image variants"
+description: "Detailed information about the public kor Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,19 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kor/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/kor/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/kor/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kor/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kor/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **kor** Image.
-
-## Variants Compared
-The **kor** Chainguard Image currently has one public variant: 
-
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **kor** Image.
 
 |              | latest         |
 |--------------|----------------|
@@ -46,6 +39,7 @@ The table shows package distribution across variants.
 |--------------------------|--------|
 | `busybox`                | X      |
 | `ca-certificates-bundle` | X      |
+| `chainguard-baselayout`  | X      |
 | `glibc`                  | X      |
 | `glibc-locale-posix`     | X      |
 | `kor`                    | X      |

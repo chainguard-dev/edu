@@ -1,10 +1,10 @@
 ---
-title: "crossplane-azure-storage Image Variants"
+title: "crossplane-azure-storage Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public crossplane-azure-storage Chainguard Image variants"
+description: "Detailed information about the public crossplane-azure-storage Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,19 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/crossplane-azure-storage/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/crossplane-azure-storage/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/crossplane-azure-storage/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/crossplane-azure-storage/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/crossplane-azure-storage/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **crossplane-azure-storage** Image.
-
-## Variants Compared
-The **crossplane-azure-storage** Chainguard Image currently has one public variant: 
-
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **crossplane-azure-storage** Image.
 
 |              | latest              |
 |--------------|---------------------|
@@ -45,9 +38,12 @@ The table shows package distribution across variants.
 |                                     | latest |
 |-------------------------------------|--------|
 | `ca-certificates-bundle`            | X      |
+| `chainguard-baselayout`             | X      |
 | `crossplane-provider-azure`         | X      |
 | `crossplane-provider-azure-storage` | X      |
-| `terraform`                         | X      |
+| `glibc-locale-posix`                | X      |
+| `ld-linux`                          | X      |
+| `terraform-1.7`                     | X      |
 | `terraform-compat`                  | X      |
 | `terraform-local-provider-config`   | X      |
 | `terraform-provider-azurerm`        | X      |
