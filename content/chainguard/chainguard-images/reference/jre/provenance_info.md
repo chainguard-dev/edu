@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for jre Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,17 +14,35 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/jre/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/jre/image_specs/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/jre/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/jre/tags_history/" >}}
 {{< tab title="Provenance" active=true url="/chainguard/chainguard-images/reference/jre/provenance_info/" >}}
 {{</ tabs >}}
 
-All Chainguard Images contain verifiable signatures and high-quality SBOMs (software bill of materials), features that enable users to confirm the origin of each image built and have a detailed list of everything that is packed within.
+All Chainguard Images contain verifiable signatures and high-quality SBOMs (software bill of materials), features that enable users to confirm the origin of each image build and have a detailed list of everything that is packed within.
+
+You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https://stedolan.github.io/jq/) in order to download and verify image attestations.
+
+### Registry and Tags for jre Image
+Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
+
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev, openjdk-11, openjdk-11-dev, openjdk-11.0, openjdk-11.0-dev, openjdk-11.0.20, openjdk-11.0.20.4, openjdk-11.0.21, openjdk-11.0.21-dev, openjdk-11.0.21.3, openjdk-11.0.21.3-dev, openjdk-11.0.21.4, openjdk-11.0.21.4-dev, openjdk-11.0.21.5, openjdk-11.0.21.5-dev, openjdk-17, openjdk-17-dev, openjdk-17.0, openjdk-17.0-dev, openjdk-17.0.8, openjdk-17.0.8.2, openjdk-17.0.9, openjdk-17.0.9-dev, openjdk-17.0.9.3, openjdk-17.0.9.3-dev, openjdk-17.0.9.4, openjdk-17.0.9.4-dev, openjdk-17.0.9.5, openjdk-17.0.9.5-dev                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `cgr.dev/chainguard-private` | latest, latest-dev, openjdk-11, openjdk-11-dev, openjdk-11.0, openjdk-11.0-dev, openjdk-11.0.20, openjdk-11.0.20-dev, openjdk-11.0.20.4, openjdk-11.0.20.4-dev, openjdk-11.0.20.8, openjdk-11.0.20.8-dev, openjdk-11.0.21, openjdk-11.0.21-dev, openjdk-11.0.21.2, openjdk-11.0.21.2-dev, openjdk-11.0.21.3, openjdk-11.0.21.3-dev, openjdk-11.0.21.4, openjdk-11.0.21.4-dev, openjdk-11.0.21.5, openjdk-11.0.21.5-dev, openjdk-11.0.21.6, openjdk-11.0.21.6-dev, openjdk-11.0.21.7, openjdk-11.0.21.7-dev, openjdk-11.0.21.8, openjdk-11.0.21.8-dev, openjdk-11.0.21.9, openjdk-11.0.21.9-dev, openjdk-11.0.22, openjdk-11.0.22-dev, openjdk-11.0.22.1, openjdk-11.0.22.1-dev, openjdk-14, openjdk-14-dev, openjdk-14.0, openjdk-14.0-dev, openjdk-14.0.2, openjdk-14.0.2-dev, openjdk-14.0.2.12, openjdk-14.0.2.12-dev, openjdk-15, openjdk-15-dev, openjdk-15.0, openjdk-15.0-dev, openjdk-15.0.10, openjdk-15.0.10-dev, openjdk-15.0.10.5, openjdk-15.0.10.5-dev, openjdk-15.0.2, openjdk-15.0.2-dev, openjdk-16, openjdk-16-dev, openjdk-16.0, openjdk-16.0-dev, openjdk-16.0.2, openjdk-16.0.2-dev, openjdk-16.0.2.7, openjdk-16.0.2.7-dev, openjdk-17, openjdk-17-dev, openjdk-17.0, openjdk-17.0-dev, openjdk-17.0.10, openjdk-17.0.10-dev, openjdk-17.0.10.1, openjdk-17.0.10.1-dev, openjdk-17.0.8, openjdk-17.0.8-dev, openjdk-17.0.8.2, openjdk-17.0.8.2-dev, openjdk-17.0.8.7, openjdk-17.0.8.7-dev, openjdk-17.0.9, openjdk-17.0.9-dev, openjdk-17.0.9.2, openjdk-17.0.9.2-dev, openjdk-17.0.9.3, openjdk-17.0.9.3-dev, openjdk-17.0.9.4, openjdk-17.0.9.4-dev, openjdk-17.0.9.5, openjdk-17.0.9.5-dev, openjdk-17.0.9.6, openjdk-17.0.9.6-dev, openjdk-17.0.9.7, openjdk-17.0.9.7-dev, openjdk-17.0.9.9, openjdk-17.0.9.9-dev, openjdk-21, openjdk-21-dev, openjdk-21.0, openjdk-21.0-dev, openjdk-21.0.2, openjdk-21.0.2-dev, openjdk-21.35, openjdk-21.35-dev, openjdk-8, openjdk-8-dev, openjdk-8.372, openjdk-8.372-dev, openjdk-8.372.07, openjdk-8.372.07-dev, openjdk-8.382, openjdk-8.382-dev, openjdk-8.382.05, openjdk-8.382.05-dev, openjdk-8.392, openjdk-8.392-dev, openjdk-8.392.08, openjdk-8.392.08-dev, openjdk11, openjdk11-dev, openjdk11.0, openjdk11.0-dev, openjdk11.0.18, openjdk11.0.18-dev, openjdk11.0.19, openjdk11.0.19-dev, openjdk11.0.19.5, openjdk11.0.19.5-dev, openjdk11.0.20, openjdk11.0.20-dev, openjdk11.0.20.2, openjdk11.0.20.2-dev, openjdk11.0.20.3, openjdk11.0.20.3-dev, openjdk11.0.20.4, openjdk11.0.20.4-dev, openjdk17, openjdk17-dev, openjdk17.0, openjdk17.0-dev, openjdk17.0.7, openjdk17.0.7-dev, openjdk17.0.7.5, openjdk17.0.7.5-dev, openjdk17.0.7.7, openjdk17.0.7.7-dev, openjdk17.0.8, openjdk17.0.8-dev, openjdk17.0.8.2, openjdk17.0.8.2-dev |
+
+
+- `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
+- `cgr.dev/chainguard-private` - the Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+
+The commands listed on this page will default to the `latest` tag, but you can specify a different tag to fetch attestations for.
 
 ## Verifying jre Image Signatures
 The **jre** Chainguard Images are signed using Sigstore, and you can check the included signatures using `cosign`.
 
-The following command requires [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https://stedolan.github.io/jq/) to be installed on your machine. It will pull detailed information about all signatures found for the provided image.
+The `cosign verify` command will pull detailed information about all signatures found for the provided image.
+
+### Public Registry
 
 ```shell
 cosign verify \
@@ -33,7 +51,14 @@ cosign verify \
   cgr.dev/chainguard/jre | jq
 ```
 
-By default, this command will fetch signatures for the `latest` tag. You can also specify the tag you want to fetch signatures for.
+### Private/Dedicated Registry
+
+```shell
+cosign verify \
+--certificate-oidc-issuer=https://token.actions.githubusercontent.com \
+--certificate-identity=https://github.com/chainguard-images/images-private/.github/workflows/release.yaml@refs/heads/main \
+cgr.dev/chainguard-private/jre | jq
+```
 
 ## Downloading jre Image Attestations
 
@@ -48,12 +73,24 @@ The following [attestations](https://slsa.dev/attestation-model) for the jre ima
 
 To download an attestation, use the `cosign download attestation` command and provide both the predicate type and the build platform. For example, the following command will obtain the SBOM for the jre image on `linux/amd64`:
 
+### Public Registry
+
 ```shell
 cosign download attestation \
   --platform=linux/amd64 \
   --predicate-type=https://spdx.dev/Document \
   cgr.dev/chainguard/jre | jq -r .payload | base64 -d | jq .predicate
 ```
+
+### Private/Dedicated Registry
+
+```shell
+cosign download attestation \
+--platform=linux/amd64 \
+--predicate-type=https://spdx.dev/Document \
+cgr.dev/chainguard-private/jre | jq -r .payload | base64 -d | jq .predicate
+```
+
 By default, this command will fetch the SBOM assigned to the `latest` tag. You can also specify the tag you want to fetch the attestation from.
 
 To download a different attestation, replace the `--predicate-type` parameter value with the desired attestation URL identifier.
@@ -61,12 +98,24 @@ To download a different attestation, replace the `--predicate-type` parameter va
 ## Verifying jre Image Attestations
 You can use the `cosign verify-attestation` command to check the signatures of the jre image attestations:
 
+### Public Registry
+
 ```shell
 cosign verify-attestation \
   --type https://spdx.dev/Document \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
   --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
   cgr.dev/chainguard/jre
+```
+
+### Private/Dedicated Registry
+
+```shell
+cosign verify-attestation \
+--type https://spdx.dev/Document \
+--certificate-oidc-issuer=https://token.actions.githubusercontent.com \
+--certificate-identity=https://github.com/chainguard-images/images-private/.github/workflows/release.yaml@refs/heads/main \
+cgr.dev/chainguard-private/jre
 ```
 
 This will pull in the signature for the attestation specified by the `--type` parameter, which in this case is the SPDX attestation. You should get output that verifies the SBOM attestation signature in cosign's transparency log:

@@ -5,12 +5,12 @@ type: "article"
 layout: "single"
 description: "Overview: crossplane-xfn Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2022-11-01T11:07:52+02:00
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
-menu:
-  docs:
+menu: 
+  docs: 
     parent: "images-reference"
 weight: 500
 toc: true
@@ -18,26 +18,16 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/crossplane-xfn/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/crossplane-xfn/image_specs/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/crossplane-xfn/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/crossplane-xfn/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/crossplane-xfn/provenance_info/" >}}
 {{</ tabs >}}
 
+Minimal **crossplane-xfn** images with nightly builds.
 
-
-<!--overview:start-->
-[Crossplane](https://www.crossplane.io/) lets you build a control plane with Kubernetes-style declarative and API-driven configuration and management for anything.
-<!--overview:end-->
-
-<!--getting:start-->
-## Get It!
-The image is available on `cgr.dev`:
+## Download this Image
 
 ```
-docker pull cgr.dev/chainguard/crossplane:latest
+docker pull cgr.dev/chainguard/crossplane-xfn:latest
 ```
-<!--getting:end-->
-
-<!--body:start-->
-<!--body:end-->
 

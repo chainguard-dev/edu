@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the haproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-27 17:07:32
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,16 +14,36 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/haproxy/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/haproxy/image_specs/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/haproxy/image_specs/" >}}
 {{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/haproxy/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/haproxy/provenance_info/" >}}
 {{</ tabs >}}
 
-The following table contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
+The following tables contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
 
 Please note that digests and timestamps only change when there is a change to the image, even though images are rebuilt every night. The "Last Changed" column indicates when the image was last modified, and doesn't always reflect the latest build timestamp. For more information about how our reproducible builds work, please refer to [this blog post](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds).
+
+### Public Registry
+The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
 |  `latest` | February 27th | `sha256:d8671d93c2794fab91dd7ebba7d6585f3c0fd5ed239361ed189ff007a65e1d01` |
+
+
+### Private/Dedicated Registry
+The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+
+| Tag (s)                                     | Last Changed  | Digest                                                                    |
+|---------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `latest` `2.9.6` `2.9` `2`                 | February 26th | `sha256:1f482d3d9f9164f88fffe290cd4c8e266533e40d1906c1a2e348b2be1b0afce9` |
+|  `2.0.31` `2.0`                             | February 26th | `sha256:bcc59c11dfa52efe559bc42306de01f530341e986c8d8583170433ac5499df15` |
+|  `2.0.31-dev` `2.0-dev`                     | February 26th | `sha256:e79b6bf4475b5b8463904434f8a1245a4eb2645f8253443867f1ede2063988d8` |
+|  `2.9-dev` `2-dev` `latest-dev` `2.9.6-dev` | February 26th | `sha256:86c14ced40b3846f94f5242b80ed94a4bb8bfe74f7c6ec374d4aeb63b7a5759d` |
+|  `2.9.5-dev`                                | February 24th | `sha256:6b7e33149b985845516e27cb99819f5187cbf52dd733dce6390c5aaa12024c12` |
+|  `2.9.5`                                    | February 22nd | `sha256:7861a36eb0703726ff0fa2b7e9c0fb84ece4685fcdac29ee387e6c3e4a7d45a9` |
+|  `2.9.4`                                    | February 15th | `sha256:68fafec2945ed7df1c25d9b61569c446977852e5524525d100a486206d5c04ab` |
+|  `2.9.4-dev`                                | February 15th | `sha256:8c463565ed47f36d1d2140110bc2aa6bfe01f7c33875e38c15554d2edf6660e4` |
+|  `2.9.3`                                    | January 30th  | `sha256:861d228606760e8c825c6496d41451b69ad30e211ce44d15468355f96bccc0c2` |
+|  `2.9.3-dev`                                | January 30th  | `sha256:da8b4347e2ecc8af75f584ce25f0591a4f4a09d8d870a36b6c81e1b0fd2677e7` |
 

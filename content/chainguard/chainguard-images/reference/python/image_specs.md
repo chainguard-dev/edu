@@ -1,10 +1,10 @@
 ---
-title: "python Image Variants"
+title: "python Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public python Chainguard Image variants"
+description: "Detailed information about the public python Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,92 +14,91 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/python/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/python/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/python/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/python/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/python/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **python** Image.
+This page shows detailed information about the Chainguard **python** Image.
 
-## Variants Compared
-The **python** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
-
-|              | latest-dev        | latest            |
-|--------------|-------------------|-------------------|
-| Default User | `nonroot`         | `nonroot`         |
-| Entrypoint   | `/usr/bin/python` | `/usr/bin/python` |
-| CMD          | not specified     | not specified     |
-| Workdir      | not specified     | not specified     |
-| Has apk?     | yes               | no                |
-| Has a shell? | yes               | no                |
+|              | latest-dev        | latest-fips-dev   | latest-fips       | latest            |
+|--------------|-------------------|-------------------|-------------------|-------------------|
+| Default User | `nonroot`         | `nonroot`         | `nonroot`         | `nonroot`         |
+| Entrypoint   | `/usr/bin/python` | `/usr/bin/python` | `/usr/bin/python` | `/usr/bin/python` |
+| CMD          | not specified     | not specified     | not specified     | not specified     |
+| Workdir      | not specified     | not specified     | not specified     | not specified     |
+| Has apk?     | yes               | yes               | no                | no                |
+| Has a shell? | yes               | yes               | no                | no                |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/python/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest-dev | latest |
-|--------------------------|------------|--------|
-| `apk-tools`              | X          |        |
-| `bash`                   | X          |        |
-| `binutils`               | X          |        |
-| `build-base`             | X          |        |
-| `busybox`                | X          |        |
-| `ca-certificates-bundle` | X          | X      |
-| `gcc`                    | X          |        |
-| `gdbm`                   | X          | X      |
-| `git`                    | X          |        |
-| `glibc`                  | X          | X      |
-| `glibc-dev`              | X          |        |
-| `glibc-locale-posix`     | X          | X      |
-| `gmp`                    | X          |        |
-| `isl`                    | X          |        |
-| `ld-linux`               | X          | X      |
-| `libatomic`              | X          |        |
-| `libbrotlicommon1`       | X          |        |
-| `libbrotlidec1`          | X          |        |
-| `libbz2-1`               | X          | X      |
-| `libcrypt1`              | X          | X      |
-| `libcrypto3`             | X          | X      |
-| `libcurl-openssl4`       | X          |        |
-| `libexpat1`              | X          | X      |
-| `libffi`                 | X          | X      |
-| `libgcc`                 | X          | X      |
-| `libgo`                  | X          |        |
-| `libgomp`                | X          |        |
-| `libidn2`                | X          |        |
-| `libnghttp2-14`          | X          |        |
-| `libpcre2-8-0`           | X          |        |
-| `libpsl`                 | X          |        |
-| `libssl3`                | X          | X      |
-| `libstdc++`              | X          | X      |
-| `libstdc++-dev`          | X          |        |
-| `libunistring`           | X          |        |
-| `linux-headers`          | X          |        |
-| `make`                   | X          |        |
-| `mpc`                    | X          |        |
-| `mpdecimal`              | X          | X      |
-| `mpfr`                   | X          |        |
-| `ncurses`                | X          | X      |
-| `ncurses-terminfo-base`  | X          | X      |
-| `nss-db`                 | X          |        |
-| `nss-hesiod`             | X          |        |
-| `openssl-config`         | X          | X      |
-| `pkgconf`                | X          |        |
-| `posix-cc-wrappers`      | X          |        |
-| `py3.12-pip`             | X          |        |
-| `py3.12-setuptools`      | X          |        |
-| `python-3.12`            | X          | X      |
-| `python-3.12-dev`        | X          |        |
-| `readline`               | X          | X      |
-| `sqlite-libs`            | X          | X      |
-| `wget`                   | X          |        |
-| `wolfi-baselayout`       | X          | X      |
-| `xz`                     | X          | X      |
-| `zlib`                   | X          | X      |
+|                               | latest-dev | latest-fips-dev | latest-fips | latest |
+|-------------------------------|------------|-----------------|-------------|--------|
+| `apk-tools`                   | X          | X               |             |        |
+| `bash`                        | X          | X               |             |        |
+| `binutils`                    | X          | X               |             |        |
+| `build-base`                  | X          | X               |             |        |
+| `busybox`                     | X          | X               |             |        |
+| `ca-certificates-bundle`      | X          | X               | X           | X      |
+| `chainguard-baselayout`       | X          | X               | X           | X      |
+| `gcc`                         | X          | X               |             |        |
+| `gdbm`                        | X          | X               | X           | X      |
+| `git`                         | X          | X               |             |        |
+| `glibc`                       | X          | X               | X           | X      |
+| `glibc-dev`                   | X          | X               |             |        |
+| `glibc-locale-posix`          | X          | X               | X           | X      |
+| `gmp`                         | X          | X               |             |        |
+| `isl`                         | X          | X               |             |        |
+| `ld-linux`                    | X          | X               | X           | X      |
+| `libatomic`                   | X          | X               |             |        |
+| `libbrotlicommon1`            | X          | X               |             |        |
+| `libbrotlidec1`               | X          | X               |             |        |
+| `libbz2-1`                    | X          | X               | X           | X      |
+| `libcrypt1`                   | X          | X               | X           | X      |
+| `libcrypto3`                  | X          | X               | X           | X      |
+| `libcurl-openssl4`            | X          | X               |             |        |
+| `libexpat1`                   | X          | X               | X           | X      |
+| `libffi`                      | X          | X               | X           | X      |
+| `libgcc`                      | X          | X               | X           | X      |
+| `libgo`                       | X          | X               |             |        |
+| `libgomp`                     | X          | X               |             |        |
+| `libidn2`                     | X          |                 |             |        |
+| `libnghttp2-14`               | X          | X               |             |        |
+| `libpcre2-8-0`                | X          | X               |             |        |
+| `libpsl`                      | X          |                 |             |        |
+| `libssl3`                     | X          | X               | X           | X      |
+| `libstdc++`                   | X          | X               | X           | X      |
+| `libstdc++-dev`               | X          | X               |             |        |
+| `libunistring`                | X          |                 |             |        |
+| `linux-headers`               | X          | X               |             |        |
+| `make`                        | X          | X               |             |        |
+| `mpc`                         | X          | X               |             |        |
+| `mpdecimal`                   | X          | X               | X           | X      |
+| `mpfr`                        | X          | X               |             |        |
+| `ncurses`                     | X          | X               | X           | X      |
+| `ncurses-terminfo-base`       | X          | X               | X           | X      |
+| `nss-db`                      | X          | X               |             |        |
+| `nss-hesiod`                  | X          | X               |             |        |
+| `openssl-config`              | X          |                 |             | X      |
+| `pkgconf`                     | X          | X               |             |        |
+| `posix-cc-wrappers`           | X          | X               |             |        |
+| `py3.12-pip`                  | X          |                 |             |        |
+| `py3.12-setuptools`           | X          |                 |             |        |
+| `python-3.12`                 | X          |                 |             | X      |
+| `python-3.12-dev`             | X          |                 |             |        |
+| `readline`                    | X          | X               | X           | X      |
+| `sqlite-libs`                 | X          | X               | X           | X      |
+| `wget`                        | X          |                 |             |        |
+| `wolfi-baselayout`            | X          | X               | X           | X      |
+| `xz`                          | X          | X               | X           | X      |
+| `zlib`                        | X          | X               | X           | X      |
+| `openssl-config-fipshardened` |            | X               | X           |        |
+| `openssl-provider-fips`       |            | X               | X           |        |
+| `py3.11-pip`                  |            | X               |             |        |
+| `py3.11-setuptools`           |            | X               |             |        |
+| `python-3.11`                 |            | X               | X           |        |
+| `python-3.11-dev`             |            | X               |             |        |
 

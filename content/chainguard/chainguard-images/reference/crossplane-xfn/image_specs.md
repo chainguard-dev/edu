@@ -1,10 +1,10 @@
 ---
-title: "crossplane-xfn Image Variants"
+title: "crossplane-xfn Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public crossplane-xfn Chainguard Image variants"
+description: "Detailed information about the public crossplane-xfn Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/crossplane-xfn/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/crossplane-xfn/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/crossplane-xfn/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/crossplane-xfn/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/crossplane-xfn/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **crossplane-xfn** Image.
-
-## Variants Compared
-The **crossplane-xfn** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **crossplane-xfn** Image.
 
 |              | latest-dev     | latest         |
 |--------------|----------------|----------------|
@@ -49,6 +41,7 @@ The table shows package distribution across variants.
 | `bash`                   | X          |        |
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
 | `crossplane-xfn`         | X          | X      |
 | `crun`                   | X          | X      |
 | `git`                    | X          |        |

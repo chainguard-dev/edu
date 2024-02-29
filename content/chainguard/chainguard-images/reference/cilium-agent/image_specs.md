@@ -1,10 +1,10 @@
 ---
-title: "cilium-agent Image Variants"
+title: "cilium-agent Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public cilium-agent Chainguard Image variants"
+description: "Detailed information about the public cilium-agent Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-19 00:16:42
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/cilium-agent/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/cilium-agent/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/cilium-agent/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/cilium-agent/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cilium-agent/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **cilium-agent** Image.
-
-## Variants Compared
-The **cilium-agent** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **cilium-agent** Image.
 
 |              | latest-dev              | latest                  |
 |--------------|-------------------------|-------------------------|
@@ -50,6 +42,7 @@ The table shows package distribution across variants.
 | `bpftool`                      | X          | X      |
 | `busybox`                      | X          | X      |
 | `ca-certificates-bundle`       | X          | X      |
+| `chainguard-baselayout`        | X          | X      |
 | `cilium`                       | X          | X      |
 | `cilium-container-init`        | X          | X      |
 | `cilium-container-init-compat` | X          | X      |
@@ -57,7 +50,6 @@ The table shows package distribution across variants.
 | `clang-15`                     | X          | X      |
 | `clang-15-default`             | X          | X      |
 | `cni-plugins-loopback`         | X          | X      |
-| `cni-plugins-main`             | X          | X      |
 | `git`                          | X          |        |
 | `glibc`                        | X          | X      |
 | `glibc-locale-posix`           | X          | X      |
@@ -102,6 +94,7 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`        | X          | X      |
 | `openssl-config`               | X          | X      |
 | `util-linux-misc`              | X          | X      |
+| `wget`                         | X          |        |
 | `wolfi-baselayout`             | X          | X      |
 | `xz`                           | X          | X      |
 | `zlib`                         | X          | X      |

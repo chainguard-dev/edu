@@ -1,0 +1,71 @@
+---
+title: "Image Overview: smarter-device-manager-fips"
+linktitle: "smarter-device-manager-fips"
+type: "article"
+layout: "single"
+description: "Overview: smarter-device-manager-fips Chainguard Image"
+date: 2024-02-29 16:25:55
+lastmod: 2024-02-29 16:25:55
+draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
+images: []
+menu: 
+  docs: 
+    parent: "images-reference"
+weight: 500
+toc: true
+---
+
+{{< tabs >}}
+{{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/smarter-device-manager-fips/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/smarter-device-manager-fips/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/smarter-device-manager-fips/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/smarter-device-manager-fips/provenance_info/" >}}
+{{</ tabs >}}
+
+
+
+<!--overview:start-->
+Minimalist Wolfi-based image for smarter device manager.
+<!--overview:end-->
+
+<!--getting:start-->
+## Download this Image
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/smarter-device-manager:latest
+```
+<!--getting:end-->
+
+<!--body:start-->
+
+Smarter-device-manager is a Kubernetes tool designed for IoT applications,
+enabling containers to securely access host devices like sensors, actuators,
+and various hardware interfaces.
+
+
+## Usage
+
+### Manifests
+Deploy using one of the example manifests provided in the upstream projects
+Gitlab repository: [Smart Device Manager](https://gitlab.com/arm-research/smarter/smarter-device-manager).
+
+> If using one of the manifests from the upstream repository, you'll need to
+change the `config` mountPath to `/etc/smarter-device-manager`(in place of /root/config).
+
+### Helm chart
+
+The following helm chart can be used:
+[helm chart](https://github.com/gabe565/charts/tree/main/charts/smarter-device-manager).
+
+You'll need to override the image and tag:
+
+```bash
+helm repo add gabe565 https://charts.gabe565.com
+helm repo update
+helm install smart-device-manager gabe565/smarter-device-manager \
+ --set image.repository=cgr.dev/chainguard/smarter-device-manager --set image.tag=latest
+```
+<!--body:end-->
+

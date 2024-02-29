@@ -1,10 +1,10 @@
 ---
-title: "bazel Image Variants"
+title: "bazel Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public bazel Chainguard Image variants"
+description: "Detailed information about the public bazel Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,109 +14,105 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/bazel/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/bazel/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/bazel/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/bazel/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/bazel/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **bazel** Image.
+This page shows detailed information about the Chainguard **bazel** Image.
 
-## Variants Compared
-The **bazel** Chainguard Image currently has one public variant: 
-
-- `latest`
-
-The table has detailed information about each of these variants.
-
-|              | latest           |
-|--------------|------------------|
-| Default User | `bazel`          |
-| Entrypoint   | `/usr/bin/bazel` |
-| CMD          | not specified    |
-| Workdir      | `/home/bazel`    |
-| Has apk?     | no               |
-| Has a shell? | yes              |
+|              | latest-dev       | latest           |
+|--------------|------------------|------------------|
+| Default User | `bazel`          | `bazel`          |
+| Entrypoint   | `/usr/bin/bazel` | `/usr/bin/bazel` |
+| CMD          | not specified    | not specified    |
+| Workdir      | `/home/bazel`    | `/home/bazel`    |
+| Has apk?     | yes              | no               |
+| Has a shell? | yes              | yes              |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/bazel/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `bash`                   | X      |
-| `bazel-6`                | X      |
-| `binutils`               | X      |
-| `build-base`             | X      |
-| `busybox`                | X      |
-| `ca-certificates`        | X      |
-| `ca-certificates-bundle` | X      |
-| `file`                   | X      |
-| `fontconfig-config`      | X      |
-| `freetype`               | X      |
-| `gcc`                    | X      |
-| `gdbm`                   | X      |
-| `git`                    | X      |
-| `glibc`                  | X      |
-| `glibc-dev`              | X      |
-| `glibc-locale-posix`     | X      |
-| `gmp`                    | X      |
-| `isl`                    | X      |
-| `java-cacerts`           | X      |
-| `java-common`            | X      |
-| `jq`                     | X      |
-| `ld-linux`               | X      |
-| `libatomic`              | X      |
-| `libbrotlicommon1`       | X      |
-| `libbrotlidec1`          | X      |
-| `libbz2-1`               | X      |
-| `libcrypt1`              | X      |
-| `libcrypto3`             | X      |
-| `libcurl-openssl4`       | X      |
-| `libedit`                | X      |
-| `libexpat1`              | X      |
-| `libffi`                 | X      |
-| `libfontconfig1`         | X      |
-| `libgcc`                 | X      |
-| `libgo`                  | X      |
-| `libgomp`                | X      |
-| `libidn2`                | X      |
-| `libmagic`               | X      |
-| `libnghttp2-14`          | X      |
-| `libpcre2-8-0`           | X      |
-| `libpng`                 | X      |
-| `libpsl`                 | X      |
-| `libssl3`                | X      |
-| `libstdc++`              | X      |
-| `libstdc++-dev`          | X      |
-| `libtasn1`               | X      |
-| `libunistring`           | X      |
-| `linux-headers`          | X      |
-| `make`                   | X      |
-| `mpc`                    | X      |
-| `mpdecimal`              | X      |
-| `mpfr`                   | X      |
-| `ncurses`                | X      |
-| `ncurses-terminfo-base`  | X      |
-| `nss-db`                 | X      |
-| `nss-hesiod`             | X      |
-| `oniguruma`              | X      |
-| `openjdk-17`             | X      |
-| `openjdk-17-default-jvm` | X      |
-| `openjdk-17-jre`         | X      |
-| `openjdk-17-jre-base`    | X      |
-| `openssh-client`         | X      |
-| `openssl-config`         | X      |
-| `p11-kit`                | X      |
-| `p11-kit-trust`          | X      |
-| `patch`                  | X      |
-| `pkgconf`                | X      |
-| `posix-cc-wrappers`      | X      |
-| `python-3.12`            | X      |
-| `readline`               | X      |
-| `sqlite-libs`            | X      |
-| `wolfi-baselayout`       | X      |
-| `xz`                     | X      |
-| `zip`                    | X      |
-| `zlib`                   | X      |
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          | X      |
+| `bazel-6`                | X          | X      |
+| `binutils`               | X          | X      |
+| `build-base`             | X          | X      |
+| `busybox`                | X          | X      |
+| `ca-certificates`        | X          | X      |
+| `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
+| `file`                   | X          | X      |
+| `fontconfig-config`      | X          | X      |
+| `freetype`               | X          | X      |
+| `gcc`                    | X          | X      |
+| `gdbm`                   | X          | X      |
+| `git`                    | X          | X      |
+| `glibc`                  | X          | X      |
+| `glibc-dev`              | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `gmp`                    | X          | X      |
+| `isl`                    | X          | X      |
+| `java-cacerts`           | X          | X      |
+| `java-common`            | X          | X      |
+| `jq`                     | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libatomic`              | X          | X      |
+| `libbrotlicommon1`       | X          | X      |
+| `libbrotlidec1`          | X          | X      |
+| `libbz2-1`               | X          | X      |
+| `libcrypt1`              | X          | X      |
+| `libcrypto3`             | X          | X      |
+| `libcurl-openssl4`       | X          | X      |
+| `libedit`                | X          | X      |
+| `libexpat1`              | X          | X      |
+| `libffi`                 | X          | X      |
+| `libfontconfig1`         | X          | X      |
+| `libgcc`                 | X          | X      |
+| `libgo`                  | X          | X      |
+| `libgomp`                | X          | X      |
+| `libidn2`                | X          | X      |
+| `libmagic`               | X          | X      |
+| `libnghttp2-14`          | X          | X      |
+| `libpcre2-8-0`           | X          | X      |
+| `libpng`                 | X          | X      |
+| `libpsl`                 | X          | X      |
+| `libssl3`                | X          | X      |
+| `libstdc++`              | X          | X      |
+| `libstdc++-dev`          | X          | X      |
+| `libtasn1`               | X          | X      |
+| `libunistring`           | X          | X      |
+| `linux-headers`          | X          | X      |
+| `make`                   | X          | X      |
+| `mpc`                    | X          | X      |
+| `mpdecimal`              | X          | X      |
+| `mpfr`                   | X          | X      |
+| `ncurses`                | X          | X      |
+| `ncurses-terminfo-base`  | X          | X      |
+| `nss-db`                 | X          | X      |
+| `nss-hesiod`             | X          | X      |
+| `oniguruma`              | X          | X      |
+| `openjdk-17`             | X          | X      |
+| `openjdk-17-default-jvm` | X          | X      |
+| `openjdk-17-jre`         | X          | X      |
+| `openjdk-17-jre-base`    | X          | X      |
+| `openssh-client`         | X          | X      |
+| `openssl-config`         | X          | X      |
+| `p11-kit`                | X          | X      |
+| `p11-kit-trust`          | X          | X      |
+| `patch`                  | X          | X      |
+| `pkgconf`                | X          | X      |
+| `posix-cc-wrappers`      | X          | X      |
+| `python-3.12`            | X          | X      |
+| `readline`               | X          | X      |
+| `sqlite-libs`            | X          | X      |
+| `wget`                   | X          |        |
+| `wolfi-baselayout`       | X          | X      |
+| `xz`                     | X          | X      |
+| `zip`                    | X          | X      |
+| `zlib`                   | X          | X      |
 

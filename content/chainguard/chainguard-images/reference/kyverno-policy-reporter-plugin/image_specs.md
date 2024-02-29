@@ -1,10 +1,10 @@
 ---
-title: "kyverno-policy-reporter-plugin Image Variants"
+title: "kyverno-policy-reporter-plugin Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public kyverno-policy-reporter-plugin Chainguard Image variants"
+description: "Detailed information about the public kyverno-policy-reporter-plugin Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-09 00:19:29
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kyverno-policy-reporter-plugin/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/kyverno-policy-reporter-plugin/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/kyverno-policy-reporter-plugin/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kyverno-policy-reporter-plugin/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kyverno-policy-reporter-plugin/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **kyverno-policy-reporter-plugin** Image.
-
-## Variants Compared
-The **kyverno-policy-reporter-plugin** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **kyverno-policy-reporter-plugin** Image.
 
 |              | latest-dev                    | latest                        |
 |--------------|-------------------------------|-------------------------------|
@@ -49,6 +41,7 @@ The table shows package distribution across variants.
 | `bash`                                          | X          |        |
 | `busybox`                                       | X          |        |
 | `ca-certificates-bundle`                        | X          | X      |
+| `chainguard-baselayout`                         | X          | X      |
 | `git`                                           | X          |        |
 | `glibc`                                         | X          | X      |
 | `glibc-locale-posix`                            | X          | X      |

@@ -1,10 +1,10 @@
 ---
-title: "clickhouse Image Variants"
+title: "clickhouse Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public clickhouse Chainguard Image variants"
-date: 2024-02-22 00:36:42
-lastmod: 2024-02-22 00:36:42
+description: "Detailed information about the public clickhouse Chainguard Image."
+date: 2024-02-29 16:25:55
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/clickhouse/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/clickhouse/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/clickhouse/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/clickhouse/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/clickhouse/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **clickhouse** Image.
-
-## Variants Compared
-The **clickhouse** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **clickhouse** Image.
 
 |              | latest-dev            | latest                |
 |--------------|-----------------------|-----------------------|
@@ -49,6 +41,7 @@ The table shows package distribution across variants.
 | `bash`                   | X          |        |
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
 | `clickhouse`             | X          | X      |
 | `clickhouse-compat`      | X          | X      |
 | `git`                    | X          |        |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for cert-manager-webhook Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2023-12-06 18:44:36
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,17 +14,35 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/cert-manager-webhook/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/cert-manager-webhook/image_specs/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/cert-manager-webhook/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/cert-manager-webhook/tags_history/" >}}
 {{< tab title="Provenance" active=true url="/chainguard/chainguard-images/reference/cert-manager-webhook/provenance_info/" >}}
 {{</ tabs >}}
 
-All Chainguard Images contain verifiable signatures and high-quality SBOMs (software bill of materials), features that enable users to confirm the origin of each image built and have a detailed list of everything that is packed within.
+All Chainguard Images contain verifiable signatures and high-quality SBOMs (software bill of materials), features that enable users to confirm the origin of each image build and have a detailed list of everything that is packed within.
+
+You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https://stedolan.github.io/jq/) in order to download and verify image attestations.
+
+### Registry and Tags for cert-manager-webhook Image
+Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
+
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.11, 1.11-dev, 1.11.1, 1.11.1-dev, 1.11.2, 1.11.2-dev, 1.11.4, 1.11.4-dev, 1.11.5, 1.11.5-dev, 1.12, 1.12-dev, 1.12.0, 1.12.0-dev, 1.12.1, 1.12.1-dev, 1.12.2, 1.12.2-dev, 1.12.3, 1.12.3-dev, 1.12.4, 1.12.4-dev, 1.12.5, 1.12.5-dev, 1.12.6, 1.12.6-dev, 1.12.7, 1.12.7-dev, 1.13, 1.13-dev, 1.13.1, 1.13.1-dev, 1.13.2, 1.13.2-dev, 1.13.3, 1.13.3-dev, 1.13.4, 1.13.4-dev, 1.14, 1.14-dev, 1.14.2, 1.14.2-dev, latest, latest-dev |
+
+
+- `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
+- `cgr.dev/chainguard-private` - the Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+
+The commands listed on this page will default to the `latest` tag, but you can specify a different tag to fetch attestations for.
 
 ## Verifying cert-manager-webhook Image Signatures
 The **cert-manager-webhook** Chainguard Images are signed using Sigstore, and you can check the included signatures using `cosign`.
 
-The following command requires [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https://stedolan.github.io/jq/) to be installed on your machine. It will pull detailed information about all signatures found for the provided image.
+The `cosign verify` command will pull detailed information about all signatures found for the provided image.
+
+### Public Registry
 
 ```shell
 cosign verify \
@@ -33,7 +51,14 @@ cosign verify \
   cgr.dev/chainguard/cert-manager-webhook | jq
 ```
 
-By default, this command will fetch signatures for the `latest` tag. You can also specify the tag you want to fetch signatures for.
+### Private/Dedicated Registry
+
+```shell
+cosign verify \
+--certificate-oidc-issuer=https://token.actions.githubusercontent.com \
+--certificate-identity=https://github.com/chainguard-images/images-private/.github/workflows/release.yaml@refs/heads/main \
+cgr.dev/chainguard-private/cert-manager-webhook | jq
+```
 
 ## Downloading cert-manager-webhook Image Attestations
 
@@ -48,12 +73,24 @@ The following [attestations](https://slsa.dev/attestation-model) for the cert-ma
 
 To download an attestation, use the `cosign download attestation` command and provide both the predicate type and the build platform. For example, the following command will obtain the SBOM for the cert-manager-webhook image on `linux/amd64`:
 
+### Public Registry
+
 ```shell
 cosign download attestation \
   --platform=linux/amd64 \
   --predicate-type=https://spdx.dev/Document \
   cgr.dev/chainguard/cert-manager-webhook | jq -r .payload | base64 -d | jq .predicate
 ```
+
+### Private/Dedicated Registry
+
+```shell
+cosign download attestation \
+--platform=linux/amd64 \
+--predicate-type=https://spdx.dev/Document \
+cgr.dev/chainguard-private/cert-manager-webhook | jq -r .payload | base64 -d | jq .predicate
+```
+
 By default, this command will fetch the SBOM assigned to the `latest` tag. You can also specify the tag you want to fetch the attestation from.
 
 To download a different attestation, replace the `--predicate-type` parameter value with the desired attestation URL identifier.
@@ -61,12 +98,24 @@ To download a different attestation, replace the `--predicate-type` parameter va
 ## Verifying cert-manager-webhook Image Attestations
 You can use the `cosign verify-attestation` command to check the signatures of the cert-manager-webhook image attestations:
 
+### Public Registry
+
 ```shell
 cosign verify-attestation \
   --type https://spdx.dev/Document \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
   --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
   cgr.dev/chainguard/cert-manager-webhook
+```
+
+### Private/Dedicated Registry
+
+```shell
+cosign verify-attestation \
+--type https://spdx.dev/Document \
+--certificate-oidc-issuer=https://token.actions.githubusercontent.com \
+--certificate-identity=https://github.com/chainguard-images/images-private/.github/workflows/release.yaml@refs/heads/main \
+cgr.dev/chainguard-private/cert-manager-webhook
 ```
 
 This will pull in the signature for the attestation specified by the `--type` parameter, which in this case is the SPDX attestation. You should get output that verifies the SBOM attestation signature in cosign's transparency log:

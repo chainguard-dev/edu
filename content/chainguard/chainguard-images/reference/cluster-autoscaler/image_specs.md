@@ -1,10 +1,10 @@
 ---
-title: "cluster-autoscaler Image Variants"
+title: "cluster-autoscaler Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public cluster-autoscaler Chainguard Image variants"
+description: "Detailed information about the public cluster-autoscaler Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/cluster-autoscaler/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/cluster-autoscaler/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/cluster-autoscaler/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/cluster-autoscaler/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cluster-autoscaler/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **cluster-autoscaler** Image.
-
-## Variants Compared
-The **cluster-autoscaler** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **cluster-autoscaler** Image.
 
 |              | latest-dev                    | latest                        |
 |--------------|-------------------------------|-------------------------------|
@@ -49,11 +41,12 @@ The table shows package distribution across variants.
 | `bash`                           | X          |        |
 | `busybox`                        | X          |        |
 | `ca-certificates-bundle`         | X          | X      |
-| `cluster-autoscaler-1.29`        | X          | X      |
-| `cluster-autoscaler-1.29-compat` | X          | X      |
+| `chainguard-baselayout`          | X          | X      |
+| `cluster-autoscaler-1.28`        | X          | X      |
+| `cluster-autoscaler-1.28-compat` | X          | X      |
 | `git`                            | X          |        |
 | `glibc`                          | X          |        |
-| `glibc-locale-posix`             | X          |        |
+| `glibc-locale-posix`             | X          | X      |
 | `ld-linux`                       | X          |        |
 | `libbrotlicommon1`               | X          |        |
 | `libbrotlidec1`                  | X          |        |

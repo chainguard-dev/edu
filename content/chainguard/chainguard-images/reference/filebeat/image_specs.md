@@ -1,10 +1,10 @@
 ---
-title: "filebeat Image Variants"
+title: "filebeat Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public filebeat Chainguard Image variants"
-date: 2024-02-09 00:19:29
-lastmod: 2024-02-09 00:19:29
+description: "Detailed information about the public filebeat Chainguard Image."
+date: 2024-02-29 16:25:55
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/filebeat/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/filebeat/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/filebeat/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/filebeat/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/filebeat/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **filebeat** Image.
-
-## Variants Compared
-The **filebeat** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **filebeat** Image.
 
 |              | latest-dev                                       | latest                                           |
 |--------------|--------------------------------------------------|--------------------------------------------------|
@@ -49,6 +41,7 @@ The table shows package distribution across variants.
 | `bash`                   | X          | X      |
 | `busybox`                | X          | X      |
 | `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
 | `curl`                   | X          | X      |
 | `filebeat`               | X          | X      |
 | `git`                    | X          |        |

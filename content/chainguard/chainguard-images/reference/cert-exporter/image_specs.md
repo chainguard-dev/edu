@@ -1,10 +1,10 @@
 ---
-title: "cert-exporter Image Variants"
+title: "cert-exporter Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public cert-exporter Chainguard Image variants"
-date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+description: "Detailed information about the public cert-exporter Chainguard Image."
+date: 2024-02-29 16:25:55
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/cert-exporter/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/cert-exporter/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/cert-exporter/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/cert-exporter/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cert-exporter/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **cert-exporter** Image.
-
-## Variants Compared
-The **cert-exporter** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **cert-exporter** Image.
 
 |              | latest-dev               | latest                   |
 |--------------|--------------------------|--------------------------|
@@ -50,9 +42,10 @@ The table shows package distribution across variants.
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
 | `cert-exporter`          | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          |        |
-| `glibc-locale-posix`     | X          |        |
+| `glibc-locale-posix`     | X          | X      |
 | `ld-linux`               | X          |        |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
