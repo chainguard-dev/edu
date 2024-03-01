@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createdb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,11 +33,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                      | Last Changed  | Digest                                                                    |
 |----------------------------------------------|---------------|---------------------------------------------------------------------------|
 |  `0.6` `latest` `0.6.16` `0`                 | February 26th | `sha256:f299f234e631f5d747ee3315c5f1a086724702008d0678144a0263190ce9dc03` |
 |  `0.6-dev` `latest-dev` `0-dev` `0.6.16-dev` | February 26th | `sha256:d97b95ed7865da0fcd3a3f26428e82bdbfa5cea1fafff298da8543737a364635` |
-|  `0.6.14-dev`                                | January 30th  | `sha256:9387fde33757af5f5fa94127bb899fd6d6cd0804e2a9fc69a762fb045fb580f8` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -32,12 +32,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 |  `latest`                                                       | February 27th | `sha256:ee0abe724bf438be91a3bd03ae668d1461668f0a5c718b3978104f0ddf6d64cb` |
 |  `2.2.3-dev` `2.2-dev` `v2-dev` `v2.2.3-dev` `v2.2-dev` `2-dev` | February 23rd | `sha256:fe83cb8a0d0af3c632aadf875f33ad50d8ca4aa160babd2dab13389b3fcf5ad1` |
 |  `v2.2.3` `2.2` `v2.2` `v2` `2.2.3` `2`                         | February 8th  | `sha256:f56a86b7940e688ac87183a98f7d11913911453c25bbf27da06e6bd45c18bffa` |
-|  `2.2.2` `v2.2.2`                                               | January 31st  | `sha256:d49263efebf826acdf937db5bcd6dc2dc35a41aa7c7d882fb0451865a14ee479` |
-|  `2.2.2-dev` `v2.2.2-dev`                                       | January 31st  | `sha256:abcfee6348d7658c1e989f99c6d402cd800b4b062b190a31da79b41628f28ec1` |
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                                 | Last Changed  | Digest                                                                    |
 |---------------------------------------------------------|---------------|---------------------------------------------------------------------------|
@@ -49,6 +47,4 @@ The Private/Dedicated Registry contains our **[Production Images](https://www.ch
 |  `0.41.2` `0.41` `0`                                    | February 26th | `sha256:96449707720c1f6eee4fba7165ba1bea554e932787a9e655e1ed5336b053fcf4` |
 |  `2.2.3-dev` `v2.2-dev` `v2.2.3-dev` `v2-dev` `2.2-dev` | February 21st | `sha256:15b6255bb9ae22020804ed5b170fc917fe098da5c788faf0b6ffdf79297c0e0d` |
 |  `v2.2.3` `2.2` `v2` `v2.2` `2.2.3`                     | February 8th  | `sha256:9d1dce127b4b5f231b18868f51d6058c1cd1a754dd92060506f13761d4b026b2` |
-|  `2.2.2-dev` `v2.2.2-dev`                               | January 31st  | `sha256:1c1cc9c39eaf4fda8e8a9382bd4a45a144ca751be0b3150e6c88a6e7b02ac4b1` |
-|  `2.2.2` `v2.2.2`                                       | January 31st  | `sha256:82fc110162c480f0f2471f3b5a21f38678309967f26b73ea75cc141ae88d2eda` |
 

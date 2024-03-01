@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the renovate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-This image doesn't have Developer versions currently available.
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                            | Last Changed  | Digest                                                                    |
 |----------------------------------------------------|---------------|---------------------------------------------------------------------------|
@@ -92,10 +92,4 @@ The Private/Dedicated Registry contains our **[Production Images](https://www.ch
 |  `37.165.5` `37.165.5-dev`                         | February 2nd  | `sha256:7e23450aec2b23a7c33a038174ca5e50ae6bb061c3fea89d103176131acaf3bd` |
 |  `37.165.3-dev` `37.165.3`                         | February 2nd  | `sha256:c1d7a33690a0cacf0dc80a697256b5de29e19c42f1fb357a703984ea49a624ce` |
 |  `37.165.0-dev` `37.165.0`                         | February 1st  | `sha256:33ef8d78fdebdf382b45bec058513b83439ecb2b4d7270119c7ccc710b1d2b29` |
-|  `37.164-dev` `37.164` `37.164.0-dev` `37.164.0`   | February 1st  | `sha256:9f4b0656ed5f03a2c2e2ba022f6dcb28931ac16ae10388161dc1abbe61777161` |
-|  `37.163` `37.163.0` `37.163.0-dev` `37.163-dev`   | January 31st  | `sha256:99e477e288aacd1972b6880d20b81cf4f21611f5c5faa8fa72c5de2231eb56b0` |
-|  `37.162` `37.162-dev` `37.162.2` `37.162.2-dev`   | January 31st  | `sha256:db63998156e39c1ed7797d3f690a1a89d6ea9e06a80a3efdf34c124c80c03f9e` |
-|  `37.162.1-dev` `37.162.1`                         | January 31st  | `sha256:303852144b514e5024452d778953709dafd3a924f7a31c380e5cb35ea41e1758` |
-|  `37.162.0` `37.162.0-dev`                         | January 30th  | `sha256:f7cb587521c3b84e17ee8a345586e0853760862cb17378c86d9fc861f214f6c7` |
-|  `37.152` `37.152.1-dev` `37.152.1` `37.152-dev`   | January 30th  | `sha256:e9c6095ace376f5b54cefc31420703908ed42117514d7c555e19d9538d84bd4b` |
 

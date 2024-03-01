@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kots Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-This image doesn't have Developer versions currently available.
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                         | Last Changed  | Digest                                                                    |
 |---------------------------------|---------------|---------------------------------------------------------------------------|
@@ -42,5 +42,4 @@ The Private/Dedicated Registry contains our **[Production Images](https://www.ch
 |  `1.107.2`                      | February 10th | `sha256:2a97c00f4c25bf2d81e400c4b44601d48f2c7c75273e24757af9b6b87d807ee7` |
 |  `1.107.1`                      | February 1st  | `sha256:a0b9d6af368dc8564ac0a7cd8f2524630269a7335fe190a549f36bdaeaf1a353` |
 |  `1.107.0`                      | February 1st  | `sha256:c79f95495edde23bcac08060f1d4a4441fc552845df6aae48ef40e9a719adce5` |
-|  `1.106.0` `1.106`              | January 30th  | `sha256:7096cb1b38978c8508fdff3e88982561cdb6d511e01d03d91e078b0a206da3fd` |
 

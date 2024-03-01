@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keycloak Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                        | Last Changed  | Digest                                                                    |
 |------------------------------------------------|---------------|---------------------------------------------------------------------------|
@@ -41,6 +41,4 @@ The Private/Dedicated Registry contains our **[Production Images](https://www.ch
 |  `23` `23.0` `latest` `23.0.7`                 | February 26th | `sha256:1f48a83b2688245a32d0f19714dfa213f33da359a2d7985ef53f03a9e7c76632` |
 |  `23.0.6`                                      | February 22nd | `sha256:5d02667f2a6c10f5b2e8bc123e6e09f2e64755e739944d4d43c7a7e59e0291f0` |
 |  `23.0.6-dev`                                  | February 22nd | `sha256:6d9a112fad0d6bde25ff439e7618aaa0fdbe183b483055e99a348db4875627f0` |
-|  `23.0.5-dev`                                  | January 31st  | `sha256:32a4f60234754abf84d845f1407d1ce28b9190cf828ebaa0890d0a997ae4aaff` |
-|  `23.0.5`                                      | January 31st  | `sha256:855f36ad6a2bd3ad1756b80391650e6a2830511ba436a7ce8a596ab09f4f2fe5` |
 

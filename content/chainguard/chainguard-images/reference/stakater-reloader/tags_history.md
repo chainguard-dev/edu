@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stakater-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                      | Last Changed  | Digest                                                                    |
 |----------------------------------------------|---------------|---------------------------------------------------------------------------|
@@ -45,8 +45,4 @@ The Private/Dedicated Registry contains our **[Production Images](https://www.ch
 |  `1.0.67`                                    | February 8th  | `sha256:c8f72e2a2bd699166c0bcc316c840ede01c0c7f294117128aab5ad951ce92b01` |
 |  `1.0.65-dev`                                | February 6th  | `sha256:5f5c823dc0e86d44ef3f94a5537233879f0ce8a5af482fef6ae4f70649813530` |
 |  `1.0.65`                                    | February 6th  | `sha256:75c1ffbece7a08aea7c67d9444766883ed08a309761beb2ba68235ca754af3be` |
-|  `1.0.64`                                    | January 31st  | `sha256:9998e4d5cab7e7d0371deb7049b280890df0c04660c81322a922bffd9f5fc4c5` |
-|  `1.0.64-dev`                                | January 31st  | `sha256:2f23b5921418dd82a363af8f1c9b5b3aa643f1bba42c19c4ba111faed84f2224` |
-|  `1.0.63-dev`                                | January 31st  | `sha256:53970b4bbd396807a3c07127a8304ad0ec2c5b09b8ed677d29c6ba7d154c6b03` |
-|  `1.0.63`                                    | January 31st  | `sha256:806062e2a48daec8a1390aca0ab3d86cd400496df6640200c7d902a657b4ec7f` |
 

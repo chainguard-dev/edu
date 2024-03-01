@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-notification-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -32,11 +32,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 |  `latest-dev`                                                   | February 27th | `sha256:911b186a6f29432ab19869fad4098978eca8a50e088bd7fee926153b1ecf679b` |
 |  `1-dev` `v1-dev` `1.2-dev` `v1.2-dev` `1.2.4-dev` `v1.2.4-dev` | February 23rd | `sha256:77ca5e812784d3a42a0dc527bd249d35de4ca812c4cd70766215ad277be6fefe` |
 |  `1.2` `1` `v1.2.4` `1.2.4` `v1.2` `v1`                         | February 1st  | `sha256:4078211cc8ccad5b1178517fcf16ec5401d4b7b61891178e0325c84069856bd7` |
-|  `v1.2.3-dev` `1.2.3-dev`                                       | January 31st  | `sha256:562b91eb047976a282ac57157a3c21da8bd65178b54c4dada4b85a36d78d421b` |
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                                 | Last Changed  | Digest                                                                    |
 |---------------------------------------------------------|---------------|---------------------------------------------------------------------------|
@@ -48,6 +47,4 @@ The Private/Dedicated Registry contains our **[Production Images](https://www.ch
 |  `0.29.0` `0.29`                                        | February 26th | `sha256:73b9c1994a7c2f259bbd9a49fc1bcffb9f5350b970eefd9bbe8e82b0107cd7cc` |
 |  `v1.2.4-dev` `1.2-dev` `v1.2-dev` `v1-dev` `1.2.4-dev` | February 21st | `sha256:9967ba1f14d2fa00deebf5d03304e91c1c35b69bef94777f72597ca9ee8a8588` |
 |  `1.2` `1.2.4` `v1.2.4` `v1.2` `v1`                     | February 1st  | `sha256:6585bf85182f1382f527b8cb3c6c98d90a60d96fa6aa930c3576b2a190a3d910` |
-|  `v1.2.3` `1.2.3`                                       | January 31st  | `sha256:1d9c4cd20b798c3dbbaa61fb6cd3d51846f70a0efb1dcc2e8fdaf42030b7d3e6` |
-|  `1.2.3-dev` `v1.2.3-dev`                               | January 31st  | `sha256:d774eb4e6f8f557a4fcdc7ce4c44541977761fe6f6e4b7ee2938a9610cfacc40` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
@@ -41,6 +41,4 @@ The Private/Dedicated Registry contains our **[Production Images](https://www.ch
 |  `7.0` `7` `7.0.1` `latest`                 | February 26th | `sha256:8e61b146462be1586f0c4228b3e7c669dd928f2852953f0acebb8b54b33c3bb3` |
 |  `7.0.0-dev`                                | February 10th | `sha256:6189b9dbd42a466f3a4f9daf730f73b6fc80a9a876e6bd1a8ade62622f3243a1` |
 |  `7.0.0`                                    | February 5th  | `sha256:6a51253f866de28fbcbec23b8613c138a3095d02074972542d7d9883f77f1871` |
-|  `6.3-dev` `6-dev` `6.3.3-dev`              | January 31st  | `sha256:e616dfd483e7d2e9824ee5f575ec84082b2f99fec9268ea2a6820b62ed1d2038` |
-|  `6` `6.3.3` `6.3`                          | January 31st  | `sha256:c0a4f4a0b5460b137bd35c2b2f1d47ca28f3afb89580771725384957afe559ef` |
 

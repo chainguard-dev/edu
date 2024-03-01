@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-config-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,11 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                          | Last Changed  | Digest                                                                    |
 |----------------------------------|---------------|---------------------------------------------------------------------------|
 |  `0.65` `0` `0.65.2`             | February 26th | `sha256:7b8e0c82463d868119212286e202c4935fa562d68b28e888b42ff156622d9de9` |
 |  `0-dev` `0.65.2-dev` `0.65-dev` | February 26th | `sha256:c9eeb54c342f1f4c0fd7c1fee0466445f2e7500cf1727f307d9adaf98882a159` |
 |  `latest-dev`                    | February 21st | `sha256:98086de6291c0c207cee6e0b94beb259f928c1e73c09375918769807a3609719` |
-|  `latest`                        | January 31st  | `sha256:d3ef7d9ce91b98a5f880541fd20c4042935458d34edcf4e5bc374f3172ea8756` |
 

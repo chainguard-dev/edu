@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public vector Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-operator-generic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,14 +26,12 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | January 31st | `sha256:59412891b885c41f6398b2dcc433b4147d81af310dac043d40f0f75705a2c59a` |
-|  `latest-dev` | January 31st | `sha256:a6de5b5b3d7efb84938a9a91bf142b2443d878b193222fce338a644b163e2e36` |
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
@@ -41,6 +39,4 @@ The Private/Dedicated Registry contains our **[Production Images](https://www.ch
 |  `1.15.1` `1.15` `latest` `1`                 | February 26th | `sha256:6b54945b9a62637a487d7e2a9c79e9b44fbf4acbb9397c4cdfead2ec9830f31d` |
 |  `1.15.0-dev`                                 | February 13th | `sha256:1aaa42c99cf5b0b7f7f60446b4a97ed11db8c1dd792a902e31a99c81ebd07bd0` |
 |  `1.15.0`                                     | February 5th  | `sha256:ac444051adc63b1f8d84af7b4e43095bfc5b24f2548cd6b37ca2ee003b4fa233` |
-|  `1.14` `1.14.6`                              | January 31st  | `sha256:7171b476833ead229d493feccadad0feff1fbbf928815428d6af7722d6710a70` |
-|  `1.14.6-dev` `1.14-dev`                      | January 31st  | `sha256:32c37f46ee108edffcb420326e5799a3490333b6c623c9ba63338801471853c8` |
 

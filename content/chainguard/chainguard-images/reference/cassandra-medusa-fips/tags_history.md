@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-medusa-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-This image doesn't have Developer versions currently available.
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
@@ -39,6 +39,4 @@ The Private/Dedicated Registry contains our **[Production Images](https://www.ch
 |  `0.19.0`                                     | February 22nd | `sha256:68b1981390c3922ec949ae482134ffe358721b35abca0ba901aa16fc5116216a` |
 |  `0.17.2` `0.17`                              | February 22nd | `sha256:accf57e66669b49609f105be8838f939dbd141ea5fe175c8e0f649e31bcae58e` |
 |  `0.17.2-dev` `0.17-dev`                      | February 22nd | `sha256:5b3dbb1569b77077195a23bb7a4359ccdf7d081453e6b06eee223a392eccddbf` |
-|  `0.17.1`                                     | January 29th  | `sha256:bc06e2b688109897fd0f4a720782d9982d91abc2145e96a0b90255a8d92adf19` |
-|  `0.17.1-dev`                                 | January 29th  | `sha256:f7d6654798e577182bf85f1ef2073a19eac2ac5947916e216525681c2e4a381e` |
 

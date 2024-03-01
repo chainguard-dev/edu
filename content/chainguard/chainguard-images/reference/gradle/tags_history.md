@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gradle Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -32,12 +32,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
 |  `8.6` `latest` `8` `8.6.0`                 | February 26th | `sha256:55f3102ded324c52a61d29ac3b86f025ec2dd8360029ab021bdb8707d9cb6d01` |
 |  `latest-dev` `8-dev` `8.6.0-dev` `8.6-dev` | February 26th | `sha256:5f0494919bd8c526e13f2a98686964522bb86e011fa87a9777074a5232c9a47f` |
-|  `8.5.0-dev` `8.5-dev`                      | January 31st  | `sha256:ec7abef00f8188b9ebd5fcac3bff911a8b5ceb74cae1a03df2e6ccf116089afb` |
-|  `8.5.0` `8.5`                              | January 31st  | `sha256:e7f4031eeb9fb6c34e8e647244a362b15d7158b49e621cb83eb21b834673512f` |
 

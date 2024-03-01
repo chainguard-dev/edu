@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rekor-backfill-redis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
 |  `1.3` `latest` `1` `1.3.5`                 | February 26th | `sha256:83c7479a4f6c357f9de25ae771e43b2bb14b60e0b8dd29c73e41b55a6d54f0fb` |
 |  `1-dev` `1.3.5-dev` `1.3-dev` `latest-dev` | February 26th | `sha256:f85839b8f08fee95255df47e673230f0fbc58a36fa7aeac9b4ea711a8c344ddc` |
-|  `1.3.4-dev`                                | January 31st  | `sha256:914785b104fc9b28914fd3a6e6281f40b8aa8c22d1fc6d3f084c5d5469a707af` |
-|  `1.3.4`                                    | January 31st  | `sha256:421f837d02532b2d13f1927c8dfb2faa72b5913cb7c6027b97aa7c4d74966d87` |
 

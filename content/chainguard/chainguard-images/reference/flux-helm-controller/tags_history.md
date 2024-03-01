@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-helm-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,11 +34,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 |  `v0` `0.37.4` `0` `v0.37` `0.37` `v0.37.4`                         | February 19th | `sha256:4ab76c5c1e11bb1ecbacb339560dc12b4d56119283aa082ed70d74baec14afc3` |
 |  `0.37.3-dev` `v0.37.3-dev`                                         | February 1st  | `sha256:546215b2d2d2de3fc471bd9abfdf25d7371b813c32c55bb5948d9cfdc09ac858` |
 |  `0.37.3` `v0.37.3`                                                 | February 1st  | `sha256:83b6e5de267c34880aa6134fb9eb15cd9343b5fd76ee503074ce6e88b6683597` |
-|  `v0.37.2-dev` `0.37.2-dev`                                         | January 31st  | `sha256:c7a87dd98110f536b8b80a22d8c306dfd9839b07faf7420712337dde064597e5` |
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                                     | Last Changed  | Digest                                                                    |
 |-------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
@@ -52,6 +51,4 @@ The Private/Dedicated Registry contains our **[Production Images](https://www.ch
 |  `v0.37.4` `0.37` `v0` `v0.37` `0.37.4`                     | February 19th | `sha256:361d594017a17421f9e01cacbe6ba5765c397c5c59402c31aaf817c1428445d0` |
 |  `0.37.3-dev` `v0.37.3-dev`                                 | February 1st  | `sha256:ccd1b3543df3dbfbf647c9691e8a99e2b5af07bd3b77eacae0502c2f0f504996` |
 |  `v0.37.3` `0.37.3`                                         | February 1st  | `sha256:5819d050591619258686e333d47152acd8505400b94d233b8a3afd6edff481ec` |
-|  `0.37.2-dev` `v0.37.2-dev`                                 | January 31st  | `sha256:cc0fb15b3357f63812a8f8b256ae8d456e11379f0bcd6c38291437aa122ca3d7` |
-|  `0.37.2` `v0.37.2`                                         | January 31st  | `sha256:f2aabb8a63d970cbb7dc238f35a17a435d7cec867adcc49cd6d5f676d31e7856` |
 
