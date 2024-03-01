@@ -1,10 +1,10 @@
 ---
-title: "ingress-nginx-controller Image Variants"
+title: "ingress-nginx-controller Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public ingress-nginx-controller Chainguard Image variants"
+description: "Detailed information about the public ingress-nginx-controller Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,123 +14,110 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/ingress-nginx-controller/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/ingress-nginx-controller/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/ingress-nginx-controller/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/ingress-nginx-controller/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/ingress-nginx-controller/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **ingress-nginx-controller** Image.
+This page shows detailed information about the Chainguard **ingress-nginx-controller** Image.
 
-## Variants Compared
-The **ingress-nginx-controller** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
-
-|              | latest-dev                  | latest                      |
-|--------------|-----------------------------|-----------------------------|
-| Default User | `root`                      | `root`                      |
-| Entrypoint   | `/nginx-ingress-controller` | `/nginx-ingress-controller` |
-| CMD          | `/usr/bin/dumb-init ---`    | `/usr/bin/dumb-init ---`    |
-| Workdir      | `/etc/nginx`                | `/etc/nginx`                |
-| Has apk?     | yes                         | no                          |
-| Has a shell? | yes                         | no                          |
+|              | latest                      |
+|--------------|-----------------------------|
+| Default User | `root`                      |
+| Entrypoint   | `/nginx-ingress-controller` |
+| CMD          | `/usr/bin/dumb-init ---`    |
+| Workdir      | `/etc/nginx`                |
+| Has apk?     | no                          |
+| Has a shell? | no                          |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/ingress-nginx-controller/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                   | latest-dev | latest |
-|-----------------------------------|------------|--------|
-| `aom-libs`                        | X          | X      |
-| `apk-tools`                       | X          |        |
-| `bash`                            | X          |        |
-| `brotli`                          | X          | X      |
-| `busybox`                         | X          |        |
-| `ca-certificates`                 | X          | X      |
-| `ca-certificates-bundle`          | X          | X      |
-| `curl`                            | X          | X      |
-| `fontconfig-config`               | X          | X      |
-| `freetype`                        | X          | X      |
-| `gd`                              | X          | X      |
-| `geoip`                           | X          | X      |
-| `git`                             | X          |        |
-| `glibc`                           | X          | X      |
-| `glibc-locale-posix`              | X          | X      |
-| `ingress-nginx-controller`        | X          | X      |
-| `ingress-nginx-controller-compat` | X          | X      |
-| `ld-linux`                        | X          | X      |
-| `libavif`                         | X          | X      |
-| `libbrotlicommon1`                | X          | X      |
-| `libbrotlidec1`                   | X          | X      |
-| `libbrotlienc1`                   | X          | X      |
-| `libbz2-1`                        | X          | X      |
-| `libcrypt1`                       | X          | X      |
-| `libcrypto3`                      | X          | X      |
-| `libcurl-openssl4`                | X          | X      |
-| `libdav1d`                        | X          | X      |
-| `libedit`                         | X          | X      |
-| `libexpat1`                       | X          | X      |
-| `libfontconfig1`                  | X          | X      |
-| `libgcc`                          | X          | X      |
-| `libgcrypt`                       | X          | X      |
-| `libgd`                           | X          | X      |
-| `libgpg-error`                    | X          | X      |
-| `libidn2`                         | X          | X      |
-| `libjpeg-turbo`                   | X          | X      |
-| `libmaxminddb`                    | X          | X      |
-| `libmaxminddb-libs`               | X          | X      |
-| `libnghttp2-14`                   | X          | X      |
-| `libpcre2-8-0`                    | X          |        |
-| `libpng`                          | X          | X      |
-| `libpsl`                          | X          | X      |
-| `libssl3`                         | X          | X      |
-| `libstdc++`                       | X          | X      |
-| `libunistring`                    | X          | X      |
-| `libwebp`                         | X          | X      |
-| `libx11`                          | X          | X      |
-| `libxau`                          | X          | X      |
-| `libxcb`                          | X          | X      |
-| `libxdmcp`                        | X          | X      |
-| `libxml2`                         | X          | X      |
-| `libxpm`                          | X          | X      |
-| `libxslt`                         | X          | X      |
-| `libzstd1`                        | X          | X      |
-| `lua-cjson`                       | X          | X      |
-| `lua-resty-balancer`              | X          | X      |
-| `lua-resty-cache`                 | X          | X      |
-| `lua-resty-cookie`                | X          | X      |
-| `lua-resty-core`                  | X          | X      |
-| `lua-resty-dns`                   | X          | X      |
-| `lua-resty-global-throttle`       | X          | X      |
-| `lua-resty-http`                  | X          | X      |
-| `lua-resty-ipmatcher`             | X          | X      |
-| `lua-resty-lock`                  | X          | X      |
-| `lua-resty-memcached`             | X          | X      |
-| `lua-resty-redis`                 | X          | X      |
-| `lua-resty-string`                | X          | X      |
-| `lua-resty-upload`                | X          | X      |
-| `luajit`                          | X          | X      |
-| `mimalloc`                        | X          | X      |
-| `modsecurity`                     | X          | X      |
-| `modsecurity-config`              | X          | X      |
-| `msgpack-cxx`                     | X          | X      |
-| `ncurses`                         | X          | X      |
-| `ncurses-terminfo-base`           | X          | X      |
-| `openssh-client`                  | X          | X      |
-| `openssl`                         | X          | X      |
-| `openssl-config`                  | X          | X      |
-| `openssl-dev`                     | X          | X      |
-| `openssl-provider-legacy`         | X          | X      |
-| `pcre`                            | X          | X      |
-| `ssdeep`                          | X          | X      |
-| `tiff`                            | X          | X      |
-| `wget`                            | X          |        |
-| `wolfi-baselayout`                | X          | X      |
-| `xz`                              | X          | X      |
-| `yaml-cpp`                        | X          | X      |
-| `zlib`                            | X          | X      |
+|                                   | latest |
+|-----------------------------------|--------|
+| `aom-libs`                        | X      |
+| `brotli`                          | X      |
+| `ca-certificates`                 | X      |
+| `ca-certificates-bundle`          | X      |
+| `chainguard-baselayout`           | X      |
+| `curl`                            | X      |
+| `fontconfig-config`               | X      |
+| `freetype`                        | X      |
+| `gd`                              | X      |
+| `geoip`                           | X      |
+| `glibc`                           | X      |
+| `glibc-locale-posix`              | X      |
+| `ingress-nginx-controller`        | X      |
+| `ingress-nginx-controller-compat` | X      |
+| `ld-linux`                        | X      |
+| `libavif`                         | X      |
+| `libbrotlicommon1`                | X      |
+| `libbrotlidec1`                   | X      |
+| `libbrotlienc1`                   | X      |
+| `libbz2-1`                        | X      |
+| `libcrypt1`                       | X      |
+| `libcrypto3`                      | X      |
+| `libcurl-openssl4`                | X      |
+| `libdav1d`                        | X      |
+| `libedit`                         | X      |
+| `libexpat1`                       | X      |
+| `libfontconfig1`                  | X      |
+| `libgcc`                          | X      |
+| `libgcrypt`                       | X      |
+| `libgd`                           | X      |
+| `libgpg-error`                    | X      |
+| `libidn2`                         | X      |
+| `libjpeg-turbo`                   | X      |
+| `libmaxminddb`                    | X      |
+| `libmaxminddb-libs`               | X      |
+| `libnghttp2-14`                   | X      |
+| `libpng`                          | X      |
+| `libpsl`                          | X      |
+| `libssl3`                         | X      |
+| `libstdc++`                       | X      |
+| `libunistring`                    | X      |
+| `libwebp`                         | X      |
+| `libx11`                          | X      |
+| `libxau`                          | X      |
+| `libxcb`                          | X      |
+| `libxdmcp`                        | X      |
+| `libxml2`                         | X      |
+| `libxpm`                          | X      |
+| `libxslt`                         | X      |
+| `libzstd1`                        | X      |
+| `lua-cjson`                       | X      |
+| `lua-resty-balancer`              | X      |
+| `lua-resty-cache`                 | X      |
+| `lua-resty-cookie`                | X      |
+| `lua-resty-core`                  | X      |
+| `lua-resty-dns`                   | X      |
+| `lua-resty-global-throttle`       | X      |
+| `lua-resty-http`                  | X      |
+| `lua-resty-ipmatcher`             | X      |
+| `lua-resty-lock`                  | X      |
+| `lua-resty-memcached`             | X      |
+| `lua-resty-redis`                 | X      |
+| `lua-resty-string`                | X      |
+| `lua-resty-upload`                | X      |
+| `luajit`                          | X      |
+| `mimalloc`                        | X      |
+| `modsecurity`                     | X      |
+| `modsecurity-config`              | X      |
+| `msgpack-cxx`                     | X      |
+| `ncurses`                         | X      |
+| `ncurses-terminfo-base`           | X      |
+| `openssh-client`                  | X      |
+| `openssl`                         | X      |
+| `openssl-config`                  | X      |
+| `openssl-dev`                     | X      |
+| `openssl-provider-legacy`         | X      |
+| `pcre`                            | X      |
+| `ssdeep`                          | X      |
+| `tiff`                            | X      |
+| `wolfi-baselayout`                | X      |
+| `xz`                              | X      |
+| `yaml-cpp`                        | X      |
+| `zlib`                            | X      |
 

@@ -1,10 +1,10 @@
 ---
-title: "kube-bench Image Variants"
+title: "kube-bench Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public kube-bench Chainguard Image variants"
+description: "Detailed information about the public kube-bench Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-24 00:37:09
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,47 +14,60 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kube-bench/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/kube-bench/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/kube-bench/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kube-bench/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kube-bench/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **kube-bench** Image.
+This page shows detailed information about the Chainguard **kube-bench** Image.
 
-## Variants Compared
-The **kube-bench** Chainguard Image currently has one public variant: 
-
-- `latest`
-
-The table has detailed information about each of these variants.
-
-|              | latest                |
-|--------------|-----------------------|
-| Default User | `root`                |
-| Entrypoint   | `/usr/bin/kube-bench` |
-| CMD          | `help`                |
-| Workdir      | `/etc/kube-bench`     |
-| Has apk?     | no                    |
-| Has a shell? | no                    |
+|              | latest-dev            | latest                |
+|--------------|-----------------------|-----------------------|
+| Default User | `root`                | `root`                |
+| Entrypoint   | `/usr/bin/kube-bench` | `/usr/bin/kube-bench` |
+| CMD          | `help`                | `help`                |
+| Workdir      | `/etc/kube-bench`     | `/etc/kube-bench`     |
+| Has apk?     | yes                   | no                    |
+| Has a shell? | yes                   | no                    |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/kube-bench/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest |
-|--------------------------|--------|
-| `ca-certificates-bundle` | X      |
-| `glibc`                  | X      |
-| `glibc-locale-posix`     | X      |
-| `kube-bench`             | X      |
-| `kube-bench-configs`     | X      |
-| `kubectl-1.29`           | X      |
-| `kubectl-1.29-default`   | X      |
-| `ld-linux`               | X      |
-| `libproc-2-0`            | X      |
-| `ncurses`                | X      |
-| `ncurses-terminfo-base`  | X      |
-| `procps`                 | X      |
-| `wolfi-baselayout`       | X      |
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          |        |
+| `bash`                   | X          |        |
+| `busybox`                | X          |        |
+| `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `kube-bench`             | X          | X      |
+| `kube-bench-configs`     | X          | X      |
+| `kubectl-1.29`           | X          | X      |
+| `kubectl-1.29-default`   | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
+| `libcrypt1`              | X          |        |
+| `libcrypto3`             | X          |        |
+| `libcurl-openssl4`       | X          |        |
+| `libexpat1`              | X          |        |
+| `libidn2`                | X          |        |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libproc-2-0`            | X          | X      |
+| `libpsl`                 | X          |        |
+| `libssl3`                | X          |        |
+| `libunistring`           | X          |        |
+| `ncurses`                | X          | X      |
+| `ncurses-terminfo-base`  | X          | X      |
+| `openssl-config`         | X          |        |
+| `procps`                 | X          | X      |
+| `wget`                   | X          |        |
+| `wolfi-baselayout`       | X          | X      |
+| `zlib`                   | X          |        |
 

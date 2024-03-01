@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: fluent-bit Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-02-16 00:30:51
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -18,7 +18,7 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=true url="/chainguard/chainguard-images/reference/fluent-bit/" >}}
-{{< tab title="Variants" active=false url="/chainguard/chainguard-images/reference/fluent-bit/image_specs/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/fluent-bit/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/fluent-bit/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/fluent-bit/provenance_info/" >}}
 {{</ tabs >}}

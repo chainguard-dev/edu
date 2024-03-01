@@ -1,10 +1,10 @@
 ---
-title: "gitlab-pages Image Variants"
+title: "gitlab-pages Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public gitlab-pages Chainguard Image variants"
+description: "Detailed information about the public gitlab-pages Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/gitlab-pages/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/gitlab-pages/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/gitlab-pages/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/gitlab-pages/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/gitlab-pages/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **gitlab-pages** Image.
-
-## Variants Compared
-The **gitlab-pages** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **gitlab-pages** Image.
 
 |              | latest-dev                                    | latest                                        |
 |--------------|-----------------------------------------------|-----------------------------------------------|
@@ -49,6 +41,7 @@ The table shows package distribution across variants.
 | `bash`                     | X          | X      |
 | `busybox`                  | X          | X      |
 | `ca-certificates-bundle`   | X          | X      |
+| `chainguard-baselayout`    | X          | X      |
 | `curl`                     | X          | X      |
 | `git`                      | X          |        |
 | `gitlab-cng-base`          | X          | X      |

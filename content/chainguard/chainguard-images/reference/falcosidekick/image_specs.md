@@ -1,10 +1,10 @@
 ---
-title: "falcosidekick Image Variants"
+title: "falcosidekick Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public falcosidekick Chainguard Image variants"
-date: 2024-02-18 00:27:40
-lastmod: 2024-02-18 00:27:40
+description: "Detailed information about the public falcosidekick Chainguard Image."
+date: 2024-02-29 16:25:55
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/falcosidekick/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/falcosidekick/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/falcosidekick/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/falcosidekick/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/falcosidekick/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **falcosidekick** Image.
-
-## Variants Compared
-The **falcosidekick** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **falcosidekick** Image.
 
 |              | latest-dev               | latest                   |
 |--------------|--------------------------|--------------------------|
@@ -49,6 +41,7 @@ The table shows package distribution across variants.
 | `bash`                   | X          |        |
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
 | `falcosidekick`          | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |

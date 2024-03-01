@@ -1,10 +1,10 @@
 ---
-title: "falco-no-driver Image Variants"
+title: "falco-no-driver Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public falco-no-driver Chainguard Image variants"
-date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-15 00:37:56
+description: "Detailed information about the public falco-no-driver Chainguard Image."
+date: 2024-02-29 16:25:55
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/falco-no-driver/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/falco-no-driver/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/falco-no-driver/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/falco-no-driver/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/falco-no-driver/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **falco-no-driver** Image.
-
-## Variants Compared
-The **falco-no-driver** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **falco-no-driver** Image.
 
 |              | latest-dev       | latest           |
 |--------------|------------------|------------------|
@@ -49,6 +41,7 @@ The table shows package distribution across variants.
 | `bash`                   | X          |        |
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
 | `falco-no-driver`        | X          | X      |
 | `falco-rules`            | X          | X      |
 | `git`                    | X          |        |

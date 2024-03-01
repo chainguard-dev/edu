@@ -1,10 +1,10 @@
 ---
-title: "dive Image Variants"
+title: "dive Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public dive Chainguard Image variants"
+description: "Detailed information about the public dive Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,19 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/dive/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/dive/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/dive/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/dive/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/dive/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **dive** Image.
-
-## Variants Compared
-The **dive** Chainguard Image currently has one public variant: 
-
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **dive** Image.
 
 |              | latest        |
 |--------------|---------------|
@@ -45,6 +38,8 @@ The table shows package distribution across variants.
 |                          | latest |
 |--------------------------|--------|
 | `ca-certificates-bundle` | X      |
+| `chainguard-baselayout`  | X      |
 | `dive`                   | X      |
+| `glibc-locale-posix`     | X      |
 | `wolfi-baselayout`       | X      |
 
