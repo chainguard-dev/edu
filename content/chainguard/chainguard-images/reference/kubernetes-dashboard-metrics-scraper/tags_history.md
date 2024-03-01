@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dashboard-metrics-scraper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,9 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
 |  `latest-dev` | February 10th | `sha256:87f9fb4316be1f0900d830a66248cd7297379ba6ed9a4a62ba53e1685febeaff` |
-|  `latest`     | January 31st  | `sha256:909d6ccf3e208eda10c44b0e237b1263722207e1c322d9cfae969f9da9dbeb98` |
 

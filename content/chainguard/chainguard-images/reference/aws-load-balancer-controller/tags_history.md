@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-load-balancer-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
@@ -41,6 +41,4 @@ The Private/Dedicated Registry contains our **[Production Images](https://www.ch
 |  `latest-dev` `2.7-dev` `2.7.1-dev` `2-dev` | February 26th | `sha256:3ac705a44f5a4c3a447dd0233e6c74cb6b4996de18e98f12b8f17c9b55492782` |
 |  `2.7.0-dev`                                | February 8th  | `sha256:2eaee3762ebceb0573e069e94532ed6295c49abfade16f9a30c6a3d935d858a0` |
 |  `2.7.0`                                    | February 5th  | `sha256:ca1963c7956b34a2ff3daf8fb8b0f279252cb3f0dfe090bdab99e093f0cb7cef` |
-|  `2.6.2-dev` `2.6-dev`                      | January 31st  | `sha256:95b9e7921a9650f11435ea9302d274cba612214df5563c7461df9bdf91c68e34` |
-|  `2.6.2` `2.6`                              | January 31st  | `sha256:c756f8c1e2503ec85e208862bc8a4b7f7f0258058634322edee16e759cde2447` |
 

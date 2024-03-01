@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
@@ -45,10 +45,4 @@ The Private/Dedicated Registry contains our **[Production Images](https://www.ch
 |  `2.7.17-dev` `2.7-dev`                       | February 27th | `sha256:048b9b4643feafa979d296320bbc762cbb5cb4355732466c42b4c25e5027c2f1` |
 |  `2.7.17` `2.7`                               | February 27th | `sha256:3e3040319148ba05b76d3be869d6174b267ad4c3a878364742b35d5931dcf780` |
 |  `2.8-dev` `2.8.10-dev`                       | February 27th | `sha256:9d6edb695de398bd7958b6ca70130a28376fba82abca37968903d7d029e47ca1` |
-|  `2.7.16-dev`                                 | January 31st  | `sha256:28633a0d2a2ccb32484cab86c46feef1b3c84816ff17c4e8bf679045c7544eb4` |
-|  `2.9.5`                                      | January 31st  | `sha256:a59f37977e53492e444967df1aec633aad2a526b5c547baa33876128b0d64100` |
-|  `2.8.9`                                      | January 31st  | `sha256:2951091871da90c2aa314cc881358973e9432b444ecad0c631bab07cd0639177` |
-|  `2.7.16`                                     | January 31st  | `sha256:f151afcf4ab059a1760ee19594e71a68ee0a2a8b39b84a51d557e0be61b1506f` |
-|  `2.8.9-dev`                                  | January 31st  | `sha256:60ed1a2c3a520ed50f5c1c8477c665f82a268fb37d6ce951eaeed0ce45c0a2bb` |
-|  `2.9.5-dev`                                  | January 31st  | `sha256:5ecbb6b4b2a9eda8e3a894e62cfdc861fd4b455ce0706babf9f03a660ccc1a26` |
 

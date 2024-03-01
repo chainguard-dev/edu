@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the apko Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -32,11 +32,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
 |  `latest` `0.14.0` `0.14` `0`                 | February 26th | `sha256:ebedc55830f48c1edbd9ce45ce0a48f351aa527706fdffca0119b066555fa660` |
 |  `0.14-dev` `0-dev` `0.14.0-dev` `latest-dev` | February 26th | `sha256:e13000dc90f822047b92eb6506935d1ed5a3e03973416d32dbc5d25fbc0f75a8` |
-|  `0.13.3-dev` `0.13-dev`                      | January 30th  | `sha256:26e44954a259b9b06e49ce606a0c1ef5268ba4d34783034289556282f957d7b3` |
 

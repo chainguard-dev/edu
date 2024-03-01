@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-medusa Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
@@ -43,6 +43,4 @@ The Private/Dedicated Registry contains our **[Production Images](https://www.ch
 |  `0.19.0`                                     | February 22nd | `sha256:9b2ec70b8b8f98dc699e0407d1dc49019984dab722e27a426fa8021cf4849618` |
 |  `0.17` `0.17.2`                              | February 22nd | `sha256:40ece9a8f0280e05c2e09f1b35cbf6b92ba71f66811fdf7a889b0a58535cdf98` |
 |  `0.17.2-dev` `0.17-dev`                      | February 22nd | `sha256:01984358d772081d43b5e180efb92d6be47912f1f72c907bffd9afe8673fc428` |
-|  `0.17.1`                                     | January 29th  | `sha256:0ed1ea57ed22839696edbbfce3d9ffc4214712bd1fd24032b17b6ce0d738e7ad` |
-|  `0.17.1-dev`                                 | January 29th  | `sha256:2e2315c13d966f39e4c44d2e0f94d33f4a17ee2cd1e04a0ca58c7c93ec044f03` |
 

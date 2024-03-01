@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kubernetes-csi-external-provisioner Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
-- `cgr.dev/chainguard-private` - the Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+- `cgr.dev/chainguard-private` - the Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 The commands listed on this page will default to the `latest` tag, but you can specify a different tag to fetch attestations for.
 
@@ -118,7 +118,7 @@ cosign verify-attestation \
 cgr.dev/chainguard-private/kubernetes-csi-external-provisioner
 ```
 
-This will pull in the signature for the attestation specified by the `--type` parameter, which in this case is the SPDX attestation. You should get output that verifies the SBOM attestation signature in cosign's transparency log:
+This will pull in the signature for the attestation specified by the `--type` parameter, which in this case is the SPDX attestation. You will receive output that verifies the SBOM attestation signature in cosign's transparency log:
 
 ```
 Verification for cgr.dev/chainguard/kubernetes-csi-external-provisioner --

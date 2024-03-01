@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -32,7 +32,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
@@ -40,6 +40,4 @@ The Private/Dedicated Registry contains our **[Production Images](https://www.ch
 |  `7.0.1-dev` `latest-dev` `7.0-dev` `7-dev` | February 26th | `sha256:36b51d6deee66f39621dfea51b76e9dfdb2916b54897b0dd4427ac707e61a049` |
 |  `7.0.0-dev`                                | February 10th | `sha256:686b463e38add246d796a9ddd516a92474a12924dac7a34437c2ab29b94f6315` |
 |  `7.0.0`                                    | February 5th  | `sha256:e24436a927a7672122467d60889567031344aab24349055319c9366d7f26b947` |
-|  `6.3.3-dev` `6-dev` `6.3-dev`              | January 31st  | `sha256:944d3656dba674363cecd673de8f21a0402dbe7f77b471eb19ffdfa103c00e28` |
-|  `6.3` `6` `6.3.3`                          | January 31st  | `sha256:e33986b4515b7daf0bf996122a928599c15499b664763c0e4671ab96216c7004` |
 

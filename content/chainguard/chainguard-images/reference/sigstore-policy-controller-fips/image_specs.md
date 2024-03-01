@@ -3,8 +3,8 @@ title: "sigstore-policy-controller-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public sigstore-policy-controller-fips Chainguard Image."
-date: 2024-02-29 16:20:04
-lastmod: 2024-02-29 16:20:04
+date: 2024-03-01 12:14:22
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []

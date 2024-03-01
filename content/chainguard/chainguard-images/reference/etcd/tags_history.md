@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the etcd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                      | Last Changed  | Digest                                                                    |
 |----------------------------------------------|---------------|---------------------------------------------------------------------------|
 |  `3.5-dev` `3-dev` `latest-dev` `3.5.12-dev` | February 28th | `sha256:1b05ea182c0ed134391e6a0095614cc1842936408b52779f0c3f5c0cd441f715` |
 |  `3` `latest` `3.5` `3.5.12`                 | February 28th | `sha256:830537522569f35af2141e7a5a3fb6f32855af4887bc5cd682447aa79e226e34` |
-|  `3.5.11`                                    | January 31st  | `sha256:49382eb765dee50374f24c906cc13ef529659a7c9f88d58193b8b2784f7946c5` |
-|  `3.5.11-dev`                                | January 31st  | `sha256:84b11743835abbdef1f9d0611614ce44fe53c1469756dff19ba83755b2240171` |
 

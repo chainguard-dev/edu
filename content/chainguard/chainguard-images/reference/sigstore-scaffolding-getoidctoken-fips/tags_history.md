@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-getoidctoken-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 16:25:55
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,14 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-This image doesn't have Developer versions currently available.
+Currently, there are no Developer versions of this image available.
 
 ### Private/Dedicated Registry
-The Private/Dedicated Registry contains our **[Production Images](https://www.chainguard.dev/chainguard-images)**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
+The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                      | Last Changed  | Digest                                                                    |
 |----------------------------------------------|---------------|---------------------------------------------------------------------------|
 |  `0.6-dev` `0-dev` `0.6.16-dev` `latest-dev` | February 26th | `sha256:49afc420e24cfb1d0f0d55e777ce52a49e89c3c6c392e3da539c9f1fd15d29eb` |
 |  `0.6` `0` `latest` `0.6.16`                 | February 26th | `sha256:29d8c5eea38331c98766fe4c6f794b0b3b783ea8910f21a2ce4d9e6770923df6` |
-|  `0.6.14-dev`                                | January 30th  | `sha256:bf91f54e7f81b1a4b29e86fe6a49f963ee62d9510ea93ca67e9acc9d856cae95` |
 
