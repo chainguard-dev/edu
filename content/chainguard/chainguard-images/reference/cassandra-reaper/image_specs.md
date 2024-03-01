@@ -1,10 +1,10 @@
 ---
-title: "cassandra-reaper Image Variants"
+title: "cassandra-reaper Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public cassandra-reaper Chainguard Image variants"
-date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-15 00:37:56
+description: "Detailed information about the public cassandra-reaper Chainguard Image."
+date: 2024-02-29 16:25:55
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/cassandra-reaper/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/cassandra-reaper/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/cassandra-reaper/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/cassandra-reaper/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cassandra-reaper/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **cassandra-reaper** Image.
-
-## Variants Compared
-The **cassandra-reaper** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **cassandra-reaper** Image.
 
 |              | latest-dev                     | latest                         |
 |--------------|--------------------------------|--------------------------------|
@@ -51,6 +43,7 @@ The table shows package distribution across variants.
 | `ca-certificates`        | X          | X      |
 | `ca-certificates-bundle` | X          | X      |
 | `cassandra-reaper`       | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
 | `fontconfig-config`      | X          | X      |
 | `freetype`               | X          | X      |
 | `gdbm`                   | X          | X      |

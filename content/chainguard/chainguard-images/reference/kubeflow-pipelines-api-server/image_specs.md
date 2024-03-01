@@ -1,10 +1,10 @@
 ---
-title: "kubeflow-pipelines-api-server Image Variants"
+title: "kubeflow-pipelines-api-server Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public kubeflow-pipelines-api-server Chainguard Image variants"
+description: "Detailed information about the public kubeflow-pipelines-api-server Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-12 00:39:30
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-api-server/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/kubeflow-pipelines-api-server/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/kubeflow-pipelines-api-server/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-api-server/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubeflow-pipelines-api-server/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **kubeflow-pipelines-api-server** Image.
-
-## Variants Compared
-The **kubeflow-pipelines-api-server** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **kubeflow-pipelines-api-server** Image.
 
 |              | latest-dev                                                                                        | latest                                                                                            |
 |--------------|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
@@ -49,6 +41,7 @@ The table shows package distribution across variants.
 | `bash`                         | X          |        |
 | `busybox`                      | X          |        |
 | `ca-certificates-bundle`       | X          | X      |
+| `chainguard-baselayout`        | X          | X      |
 | `gdbm`                         | X          | X      |
 | `git`                          | X          |        |
 | `glibc`                        | X          | X      |

@@ -1,10 +1,10 @@
 ---
-title: "prometheus-cloudwatch-exporter Image Variants"
+title: "prometheus-cloudwatch-exporter Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public prometheus-cloudwatch-exporter Chainguard Image variants"
+description: "Detailed information about the public prometheus-cloudwatch-exporter Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/prometheus-cloudwatch-exporter/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/prometheus-cloudwatch-exporter/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/prometheus-cloudwatch-exporter/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/prometheus-cloudwatch-exporter/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/prometheus-cloudwatch-exporter/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **prometheus-cloudwatch-exporter** Image.
-
-## Variants Compared
-The **prometheus-cloudwatch-exporter** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **prometheus-cloudwatch-exporter** Image.
 
 |              | latest-dev                                                                            | latest                                                                                |
 |--------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
@@ -50,6 +42,7 @@ The table shows package distribution across variants.
 | `busybox`                | X          | X      |
 | `ca-certificates`        | X          | X      |
 | `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
 | `cloudwatch-exporter`    | X          | X      |
 | `fontconfig-config`      | X          | X      |
 | `freetype`               | X          | X      |

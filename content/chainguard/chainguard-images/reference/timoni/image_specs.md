@@ -1,10 +1,10 @@
 ---
-title: "timoni Image Variants"
+title: "timoni Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public timoni Chainguard Image variants"
+description: "Detailed information about the public timoni Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/timoni/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/timoni/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/timoni/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/timoni/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/timoni/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **timoni** Image.
-
-## Variants Compared
-The **timoni** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **timoni** Image.
 
 |              | latest-dev        | latest            |
 |--------------|-------------------|-------------------|
@@ -49,6 +41,7 @@ The table shows package distribution across variants.
 | `bash`                   | X          |        |
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
 | `git`                    | X          | X      |
 | `glibc`                  | X          | X      |
 | `glibc-locale-posix`     | X          | X      |

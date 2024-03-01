@@ -1,10 +1,10 @@
 ---
-title: "cassandra-medusa Image Variants"
+title: "cassandra-medusa Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public cassandra-medusa Chainguard Image variants"
-date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-12 00:21:23
+description: "Detailed information about the public cassandra-medusa Chainguard Image."
+date: 2024-02-29 16:25:55
+lastmod: 2024-02-29 16:25:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/cassandra-medusa/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/cassandra-medusa/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/cassandra-medusa/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/cassandra-medusa/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cassandra-medusa/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **cassandra-medusa** Image.
-
-## Variants Compared
-The **cassandra-medusa** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **cassandra-medusa** Image.
 
 |              | latest-dev                             | latest                                 |
 |--------------|----------------------------------------|----------------------------------------|
@@ -49,6 +41,7 @@ The table shows package distribution across variants.
 | `bash`                        | X          | X      |
 | `busybox`                     | X          | X      |
 | `ca-certificates-bundle`      | X          | X      |
+| `chainguard-baselayout`       | X          | X      |
 | `git`                         | X          |        |
 | `glibc`                       | X          | X      |
 | `glibc-locale-posix`          | X          | X      |

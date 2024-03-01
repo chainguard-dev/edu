@@ -1,10 +1,10 @@
 ---
-title: "git Image Variants"
+title: "git Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public git Chainguard Image variants"
+description: "Detailed information about the public git Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,26 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/git/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/git/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/git/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/git/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/git/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **git** Image.
-
-## Variants Compared
-The **git** Chainguard Image currently has 8 public variants: 
-
-- `latest-dev`
-- `latest-glibc-dev`
-- `latest-glibc-root-dev`
-- `latest-glibc-root`
-- `latest-glibc`
-- `latest-root-dev`
-- `latest-root`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **git** Image.
 
 |              | latest-dev     | latest-glibc-dev | latest-glibc-root-dev | latest-glibc-root | latest-glibc   | latest-root-dev | latest-root    | latest         |
 |--------------|----------------|------------------|-----------------------|-------------------|----------------|-----------------|----------------|----------------|
@@ -84,6 +70,7 @@ The table shows package distribution across variants.
 | `ssl_client`             | X          |                  |                       |                   |              | X               | X           | X      |
 | `wget`                   | X          | X                | X                     |                   |              | X               |             |        |
 | `zlib`                   | X          | X                | X                     | X                 | X            | X               | X           | X      |
+| `chainguard-baselayout`  |            | X                | X                     | X                 | X            |                 |             |        |
 | `glibc`                  |            | X                | X                     | X                 | X            |                 |             |        |
 | `glibc-locale-posix`     |            | X                | X                     | X                 | X            |                 |             |        |
 | `ld-linux`               |            | X                | X                     | X                 | X            |                 |             |        |

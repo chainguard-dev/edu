@@ -1,10 +1,10 @@
 ---
-title: "crossplane-aws-lambda Image Variants"
+title: "crossplane-aws-lambda Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public crossplane-aws-lambda Chainguard Image variants"
+description: "Detailed information about the public crossplane-aws-lambda Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,19 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/crossplane-aws-lambda/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/crossplane-aws-lambda/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/crossplane-aws-lambda/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/crossplane-aws-lambda/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/crossplane-aws-lambda/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **crossplane-aws-lambda** Image.
-
-## Variants Compared
-The **crossplane-aws-lambda** Chainguard Image currently has one public variant: 
-
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **crossplane-aws-lambda** Image.
 
 |              | latest              |
 |--------------|---------------------|
@@ -45,9 +38,12 @@ The table shows package distribution across variants.
 |                                   | latest |
 |-----------------------------------|--------|
 | `ca-certificates-bundle`          | X      |
+| `chainguard-baselayout`           | X      |
 | `crossplane-provider-aws`         | X      |
 | `crossplane-provider-aws-lambda`  | X      |
-| `terraform`                       | X      |
+| `glibc-locale-posix`              | X      |
+| `ld-linux`                        | X      |
+| `terraform-1.7`                   | X      |
 | `terraform-compat`                | X      |
 | `terraform-local-provider-config` | X      |
 | `terraform-provider-aws`          | X      |

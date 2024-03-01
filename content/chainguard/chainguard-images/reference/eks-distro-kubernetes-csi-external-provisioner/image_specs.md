@@ -1,0 +1,68 @@
+---
+title: "eks-distro-kubernetes-csi-external-provisioner Image Details"
+type: "article"
+unlisted: true
+description: "Detailed information about the public eks-distro-kubernetes-csi-external-provisioner Chainguard Image."
+date: 2024-03-01 12:14:22
+lastmod: 2024-03-01 12:14:22
+draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
+images: []
+weight: 550
+toc: true
+---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/eks-distro-kubernetes-csi-external-provisioner/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/eks-distro-kubernetes-csi-external-provisioner/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/eks-distro-kubernetes-csi-external-provisioner/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/eks-distro-kubernetes-csi-external-provisioner/provenance_info/" >}}
+{{</ tabs >}}
+
+This page shows detailed information about the Chainguard **eks-distro-kubernetes-csi-external-provisioner** Image.
+
+|              | latest-dev                 | latest                     |
+|--------------|----------------------------|----------------------------|
+| Default User | `root`                     | `root`                     |
+| Entrypoint   | `/usr/bin/csi-provisioner` | `/usr/bin/csi-provisioner` |
+| CMD          | not specified              | not specified              |
+| Workdir      | not specified              | not specified              |
+| Has apk?     | yes                        | no                         |
+| Has a shell? | yes                        | no                         |
+
+Check the [tags history page](/chainguard/chainguard-images/reference/eks-distro-kubernetes-csi-external-provisioner/tags_history/) for the full list of available tags.
+
+## Packages Included
+The table shows package distribution across variants.
+
+|                                                      | latest-dev | latest |
+|------------------------------------------------------|------------|--------|
+| `apk-tools`                                          | X          |        |
+| `bash`                                               | X          |        |
+| `busybox`                                            | X          |        |
+| `ca-certificates-bundle`                             | X          | X      |
+| `chainguard-baselayout`                              | X          | X      |
+| `eks-distro-kubernetes-csi-external-provisioner-4.0` | X          | X      |
+| `git`                                                | X          |        |
+| `glibc`                                              | X          |        |
+| `glibc-locale-posix`                                 | X          | X      |
+| `ld-linux`                                           | X          | X      |
+| `libbrotlicommon1`                                   | X          |        |
+| `libbrotlidec1`                                      | X          |        |
+| `libcrypt1`                                          | X          |        |
+| `libcrypto3`                                         | X          |        |
+| `libcurl-openssl4`                                   | X          |        |
+| `libexpat1`                                          | X          |        |
+| `libidn2`                                            | X          |        |
+| `libnghttp2-14`                                      | X          |        |
+| `libpcre2-8-0`                                       | X          |        |
+| `libpsl`                                             | X          |        |
+| `libssl3`                                            | X          |        |
+| `libunistring`                                       | X          |        |
+| `ncurses`                                            | X          |        |
+| `ncurses-terminfo-base`                              | X          |        |
+| `openssl-config`                                     | X          |        |
+| `wget`                                               | X          |        |
+| `wolfi-baselayout`                                   | X          | X      |
+| `zlib`                                               | X          |        |
+

@@ -1,10 +1,10 @@
 ---
-title: "crossplane-aws-iam Image Variants"
+title: "crossplane-aws-iam Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public crossplane-aws-iam Chainguard Image variants"
+description: "Detailed information about the public crossplane-aws-iam Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,19 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/crossplane-aws-iam/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/crossplane-aws-iam/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/crossplane-aws-iam/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/crossplane-aws-iam/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/crossplane-aws-iam/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **crossplane-aws-iam** Image.
-
-## Variants Compared
-The **crossplane-aws-iam** Chainguard Image currently has one public variant: 
-
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **crossplane-aws-iam** Image.
 
 |              | latest              |
 |--------------|---------------------|
@@ -45,9 +38,12 @@ The table shows package distribution across variants.
 |                                   | latest |
 |-----------------------------------|--------|
 | `ca-certificates-bundle`          | X      |
+| `chainguard-baselayout`           | X      |
 | `crossplane-provider-aws`         | X      |
 | `crossplane-provider-aws-iam`     | X      |
-| `terraform`                       | X      |
+| `glibc-locale-posix`              | X      |
+| `ld-linux`                        | X      |
+| `terraform-1.7`                   | X      |
 | `terraform-compat`                | X      |
 | `terraform-local-provider-config` | X      |
 | `terraform-provider-aws`          | X      |

@@ -1,10 +1,10 @@
 ---
-title: "cilium-hubble-ui Image Variants"
+title: "cilium-hubble-ui Image Details"
 type: "article"
 unlisted: true
-description: "Detailed information about the public cilium-hubble-ui Chainguard Image variants"
+description: "Detailed information about the public cilium-hubble-ui Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-15 00:20:04
+lastmod: 2024-03-01 12:14:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -14,20 +14,12 @@ toc: true
 
 {{< tabs >}}
 {{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/cilium-hubble-ui/" >}}
-{{< tab title="Variants" active=true url="/chainguard/chainguard-images/reference/cilium-hubble-ui/image_specs/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/cilium-hubble-ui/image_specs/" >}}
 {{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/cilium-hubble-ui/tags_history/" >}}
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cilium-hubble-ui/provenance_info/" >}}
 {{</ tabs >}}
 
-This page shows detailed information about all public variants of the Chainguard **cilium-hubble-ui** Image.
-
-## Variants Compared
-The **cilium-hubble-ui** Chainguard Image currently has 2 public variants: 
-
-- `latest-dev`
-- `latest`
-
-The table has detailed information about each of these variants.
+This page shows detailed information about the Chainguard **cilium-hubble-ui** Image.
 
 |              | latest-dev     | latest         |
 |--------------|----------------|----------------|
@@ -49,6 +41,7 @@ The table shows package distribution across variants.
 | `bash`                   | X          |        |
 | `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
 | `execline`               | X          | X      |
 | `git`                    | X          |        |
 | `glibc`                  | X          | X      |
@@ -77,6 +70,7 @@ The table shows package distribution across variants.
 | `pcre`                   | X          | X      |
 | `s6`                     | X          | X      |
 | `skalibs`                | X          | X      |
+| `wget`                   | X          |        |
 | `wolfi-baselayout`       | X          | X      |
 | `zlib`                   | X          | X      |
 
