@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cilium-hubble-relay Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-01-12 00:39:30
+lastmod: 2024-03-01 00:39:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,33 +43,34 @@ Check the [tags history page](/chainguard/chainguard-images/reference/cilium-hub
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest-dev | latest |
-|--------------------------|------------|--------|
-| `apk-tools`              | X          |        |
-| `bash`                   | X          |        |
-| `busybox`                | X          |        |
-| `ca-certificates-bundle` | X          | X      |
-| `git`                    | X          |        |
-| `glibc`                  | X          | X      |
-| `glibc-locale-posix`     | X          | X      |
-| `gops`                   | X          | X      |
-| `hubble-relay`           | X          | X      |
-| `ld-linux`               | X          | X      |
-| `libbrotlicommon1`       | X          |        |
-| `libbrotlidec1`          | X          |        |
-| `libcrypt1`              | X          |        |
-| `libcrypto3`             | X          |        |
-| `libcurl-openssl4`       | X          |        |
-| `libexpat1`              | X          |        |
-| `libidn2`                | X          |        |
-| `libnghttp2-14`          | X          |        |
-| `libpcre2-8-0`           | X          |        |
-| `libpsl`                 | X          |        |
-| `libssl3`                | X          |        |
-| `libunistring`           | X          |        |
-| `ncurses`                | X          |        |
-| `ncurses-terminfo-base`  | X          |        |
-| `openssl-config`         | X          |        |
-| `wolfi-baselayout`       | X          | X      |
-| `zlib`                   | X          |        |
+|                            | latest-dev | latest |
+|----------------------------|------------|--------|
+| `apk-tools`                | X          |        |
+| `bash`                     | X          |        |
+| `busybox`                  | X          |        |
+| `ca-certificates-bundle`   | X          | X      |
+| `cilium-1.14-hubble-relay` | X          | X      |
+| `git`                      | X          |        |
+| `glibc`                    | X          | X      |
+| `glibc-locale-posix`       | X          | X      |
+| `gops`                     | X          | X      |
+| `ld-linux`                 | X          | X      |
+| `libbrotlicommon1`         | X          |        |
+| `libbrotlidec1`            | X          |        |
+| `libcrypt1`                | X          |        |
+| `libcrypto3`               | X          |        |
+| `libcurl-openssl4`         | X          |        |
+| `libexpat1`                | X          |        |
+| `libidn2`                  | X          |        |
+| `libnghttp2-14`            | X          |        |
+| `libpcre2-8-0`             | X          |        |
+| `libpsl`                   | X          |        |
+| `libssl3`                  | X          |        |
+| `libunistring`             | X          |        |
+| `ncurses`                  | X          |        |
+| `ncurses-terminfo-base`    | X          |        |
+| `openssl-config`           | X          |        |
+| `wget`                     | X          |        |
+| `wolfi-baselayout`         | X          | X      |
+| `zlib`                     | X          |        |
 

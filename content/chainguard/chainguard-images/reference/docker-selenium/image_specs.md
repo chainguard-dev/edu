@@ -3,8 +3,8 @@ title: "docker-selenium Image Variants"
 type: "article"
 unlisted: true
 description: "Detailed information about the public docker-selenium Chainguard Image variants"
-date: 2024-02-28 20:17:58
-lastmod: 2024-02-28 20:17:58
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-01 00:39:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -56,6 +56,7 @@ The table shows package distribution across variants.
 | `ca-certificates-bundle`            | X          | X      |
 | `cairo`                             | X          | X      |
 | `chromium`                          | X          | X      |
+| `chromium-docker-selenium-compat`   | X          | X      |
 | `coreutils`                         | X          | X      |
 | `cups-libs`                         | X          | X      |
 | `dbus-libs`                         | X          | X      |

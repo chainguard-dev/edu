@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public dask-gateway-server Chainguard Image variants"
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-02-08 00:18:32
+lastmod: 2024-03-01 00:39:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -71,39 +71,10 @@ The table shows package distribution across variants.
 | `libssl3`                | X          | X      |
 | `libstdc++`              | X          | X      |
 | `libunistring`           | X          |        |
-| `llhttp`                 | X          | X      |
 | `mpdecimal`              | X          | X      |
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
 | `openssl-config`         | X          | X      |
-| `py3-aiohttp`            | X          | X      |
-| `py3-aiosignal`          | X          | X      |
-| `py3-async-timeout`      | X          | X      |
-| `py3-asynctest`          | X          | X      |
-| `py3-attrs`              | X          | X      |
-| `py3-certifi`            | X          | X      |
-| `py3-cffi`               | X          | X      |
-| `py3-charset-normalizer` | X          | X      |
-| `py3-colorama`           | X          | X      |
-| `py3-colorlog`           | X          | X      |
-| `py3-cryptography`       | X          | X      |
-| `py3-frozenlist`         | X          | X      |
-| `py3-idna`               | X          | X      |
-| `py3-idna-ssl`           | X          | X      |
-| `py3-importlib-metadata` | X          | X      |
-| `py3-kubernetes-asyncio` | X          | X      |
-| `py3-multidict`          | X          | X      |
-| `py3-pycparser`          | X          | X      |
-| `py3-python-dateutil`    | X          | X      |
-| `py3-pyyaml`             | X          | X      |
-| `py3-six`                | X          | X      |
-| `py3-sqlalchemy`         | X          | X      |
-| `py3-traitlets`          | X          | X      |
-| `py3-typing-extensions`  | X          | X      |
-| `py3-urllib3`            | X          | X      |
-| `py3-yarl`               | X          | X      |
-| `py3-zipp`               | X          | X      |
-| `py3.12-setuptools`      | X          | X      |
 | `python-3.12`            | X          | X      |
 | `readline`               | X          | X      |
 | `sqlite-libs`            | X          | X      |

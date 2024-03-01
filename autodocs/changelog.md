@@ -1,3 +1,73 @@
+# 2024-03-01
+
+
+Updated Docs:
+
+- aws-cli/tags_history.md
+- aws-ebs-csi-driver/tags_history.md
+- aws-efs-csi-driver/tags_history.md
+- az/tags_history.md
+- bazel/tags_history.md
+- cassandra/tags_history.md
+- cilium-agent/image_specs.md
+- cilium-agent/tags_history.md
+- cilium-hubble-relay/image_specs.md
+- cilium-hubble-relay/tags_history.md
+- cilium-hubble-ui/image_specs.md
+- cilium-hubble-ui/tags_history.md
+- cilium-hubble-ui-backend/image_specs.md
+- cilium-hubble-ui-backend/tags_history.md
+- cilium-operator-generic/image_specs.md
+- cilium-operator-generic/tags_history.md
+- conda/tags_history.md
+- dask-gateway/tags_history.md
+- dask-gateway-server/image_specs.md
+- dask-gateway-server/tags_history.md
+- datadog-agent/tags_history.md
+- docker-selenium/image_specs.md
+- docker-selenium/tags_history.md
+- flux/tags_history.md
+- flux-helm-controller/tags_history.md
+- flux-image-automation-controller/tags_history.md
+- flux-image-reflector-controller/tags_history.md
+- flux-notification-controller/tags_history.md
+- flux-source-controller/tags_history.md
+- fulcio/tags_history.md
+- git/tags_history.md
+- google-cloud-sdk/tags_history.md
+- guacamole-server/tags_history.md
+- ingress-nginx-controller/tags_history.md
+- k8s-sidecar/tags_history.md
+- keda/tags_history.md
+- keda-adapter/tags_history.md
+- keda-admission-webhooks/tags_history.md
+- kube-bench/tags_history.md
+- kube-downscaler/tags_history.md
+- kubeflow-jupyter-web-app/tags_history.md
+- kubeflow-pipelines-api-server/tags_history.md
+- kubeflow-pipelines-metadata-writer/tags_history.md
+- kubeflow-volumes-web-app/tags_history.md
+- loki/tags_history.md
+- management-api-for-apache-cassandra/tags_history.md
+- newrelic-infrastructure-bundle/tags_history.md
+- nfs-subdir-external-provisioner/tags_history.md
+- node/tags_history.md
+- node-lts/tags_history.md
+- ntia-conformance-checker/tags_history.md
+- openai/tags_history.md
+- prometheus/tags_history.md
+- prometheus-alertmanager/image_specs.md
+- prometheus-alertmanager/tags_history.md
+- promtail/tags_history.md
+- pulumi/tags_history.md
+- python/tags_history.md
+- pytorch-cuda12/tags_history.md
+- semgrep/tags_history.md
+- skaffold/tags_history.md
+- slim-toolkit-debug/tags_history.md
+- trino/tags_history.md
+- wasmtime/tags_history.md
+
 # 2024-02-29
 
 

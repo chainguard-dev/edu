@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dask-gateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-27 17:07:32
+lastmod: 2024-03-01 00:39:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 27th | `sha256:f53c7103b9d41ff104140d859b05b343653c73610b0aa13eaf69ed299e2b0456` |
-|  `latest-dev` | February 27th | `sha256:2972a371a83bcf73f1638c833fda9b78f1a611b8effb4ddded89c382a298c095` |
+|  `latest-dev` | February 29th | `sha256:17734c6f78a93948c11cf2b7f7aa2795e4b89b4ddd4e07e203789d75009de7de` |
+|  `latest`     | February 29th | `sha256:f1646ca775708ca0982024b5f4f49bdc3ef80db4ba641886db87406eac0994e4` |
 

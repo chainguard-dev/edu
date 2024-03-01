@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-27 17:07:32
+lastmod: 2024-03-01 00:39:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,12 +25,12 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)                  | Last Changed  | Digest                                                                    |
 |--------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-root`           | February 27th | `sha256:42ee5f8fd3689e6061b7bc13cb7491da8a5bf1a68f554710890b71e6ff700440` |
-|  `latest`                | February 27th | `sha256:66f24e75ecdcf96fcb2582ccbc27799626347c6c817e7291373745c1d75c827b` |
-|  `latest-root-dev`       | February 27th | `sha256:9e0deaa87e663373bd00a0d0c84cb24526db700d7433d47ae3eeba9b397c2f4d` |
+|  `latest-root-dev`       | February 29th | `sha256:c0f23726131a7e69f39f70d307069cdf3d79f2ac57e4f9fa73104f99b3addf82` |
+|  `latest-root`           | February 29th | `sha256:253affc3f641f1625ddad879fc8b1396f2eac21c5e62b224672badc06b5ee65d` |
+|  `latest`                | February 29th | `sha256:564821dcf485613b5f96c38b8a78b9d2a5dd48e02548a49720592a69ccebc8c6` |
+|  `latest-dev`            | February 29th | `sha256:9fd6e73f263f70ed6c01fc2bb2b1288ae8588f8069391c9d5be9b9088af9a666` |
 |  `latest-glibc`          | February 27th | `sha256:c173f9f30d438440580adc0738bb5f373b8574218a967796ca609cdbfca12776` |
 |  `latest-glibc-root`     | February 27th | `sha256:d3acc4c1ced3ed548ebb9ae38fd83cc279e039a33d695acae272d3ad52823540` |
 |  `latest-glibc-dev`      | February 27th | `sha256:0f85990394831b356cb311cc9cbc2f9769be4f191733d5cd3b1e74021a5e3b44` |
 |  `latest-glibc-root-dev` | February 27th | `sha256:f24f454d96a2e02acf57cefba020ef6881c3090e2fd650c14bd28e3259b22eda` |
-|  `latest-dev`            | February 27th | `sha256:5e36c89abedb1e3f937d63814423219aca1b2b086c12adcf413759df85a0bd3e` |
 

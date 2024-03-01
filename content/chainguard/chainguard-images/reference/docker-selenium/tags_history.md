@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the docker-selenium Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-02-29 00:38:19
+lastmod: 2024-03-01 00:39:34
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -25,6 +25,6 @@ Please note that digests and timestamps only change when there is a change to th
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 28th | `sha256:11114fd9066f982c9f10084ef43681f986702eda06ed63c4a848240794179d24` |
-|  `latest-dev` | February 28th | `sha256:be93582eea5a98933966cf09611b7d36ae6a3eba8276abdf6b3526630e489b95` |
+|  `latest-dev` | February 29th | `sha256:ec4c7204c17f49bacb27d9eac44e4dd3f67d0f0d385b6bb3515cbc1e9dd9b419` |
+|  `latest`     | February 29th | `sha256:1499bee8d184e202a4938b67e1dcb70d787f9d9d45b506873816f4adbf61aae8` |
 
