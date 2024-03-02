@@ -26,7 +26,7 @@ This guide provides an overview of what these Unique Tags are, the kinds of prob
 
 Unique Tags are only available for private registries, as the public Chainguard Registry only has the `:latest` or, in some cases, the `:latest-dev` tags available. Unique Tags feature an opt-in feature, which allows customers the flexibility to enable it based on their specific operational and security requirements.
 
-Chainguard's Unique Tags end in a timestamp, such as `20240229`, which indicates the date when the Image was built. Because Chainguard Images are rebuilt daily, this ensures that the specific tag will always represent that specific Image build and not another.
+Chainguard's Unique Tags end in a timestamp, such as `20240229`, which indicates the date when the Image was built. Because Chainguard Images are rebuilt whenever there is a change to an included package, the timestamp ensures that the specific tag will always represent that specific Image build and not another.
 
 One benefit of using this timestamp scheme with Unique Tags is that it can help users to quickly identify when a given version of an Image was built. It also helps to make them human-readable, as opposed to the long, unpronounceable strings that make up Image digests.
 
@@ -34,7 +34,7 @@ Unique Tags also allow for individual image repositories within a registry to be
 
 This granular level of control ensures that organizations can implement unique tagging in a way that best suits their organization's specific needs. It offers a tailored approach to image management, allowing for precise and efficient tracking of image versions and builds across different environments.
 
-Additionally, be aware that the Unique Tags feature is integrated with Chainguard's [Tag History](/chainguard/chainguard-images/using-the-tag-history-api/) and [Diff APIs](/chainguard/chainguard-images/using-the-image-diff-api/), as well as the [`chainctl diff` command](/chainguard/chainguard-images/comparing-images/) and [event notifications](/chainguard/administration/cloudevents/events-reference/). These integrations allow you to track changes, compare different image versions, and understand the differences between various builds. It empowers organizations to maintain a detailed and accessible record of their container images, facilitating easier analysis and decision-making.
+Additionally, the Unique Tags feature is integrated with Chainguard's [Tag History](/chainguard/chainguard-images/using-the-tag-history-api/) and [Diff APIs](/chainguard/chainguard-images/using-the-image-diff-api/), as well as the [`chainctl diff` command](/chainguard/chainguard-images/comparing-images/) and [event notifications](/chainguard/administration/cloudevents/events-reference/). These integrations allow you to track changes, compare different image versions, and understand the differences between various builds. It empowers organizations to maintain a detailed and accessible record of their container images, facilitating easier analysis and decision-making.
 
 
 ## How do I find Unique Tags?
@@ -61,7 +61,7 @@ As mentioned previously, Unique Tags are an opt-in feature that is only availabl
 
 ## Learn More
 
-It should be noted that by their design, container image tags are mutable, meaning that they can change over time. Although Unique Tags are meant to serve as a secure solution for teams whose internal workflows assume tag immutability, we still recommend that users pull Images by their digests whenever possible. Check out our video on [How to Use Container Image Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/) for more information.
+It should be noted that by their design, container image tags are mutable, meaning that they can change over time. Although Unique Tags are meant to serve as a secure solution for teams whose internal workflows assume tag immutability, we still recommend that users pull Images by their digests whenever possible. Check out the ["Pulling by Digest" section](/chainguard/chainguard-images/how-to-use-chainguard-images/#pulling-by-digest) of our guide on How to Use Chainguard Images for more information. You may also find our video on [How to Use Container Image Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/) to be useful.
 
 Additionally, you may find our three-part blog series on Chainguard's image tagging philosophy to be of interest. 
 
