@@ -25,11 +25,6 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - name: 'Github Actions Runner'
-        uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
-          with:
-            egress-policy: audit
-
       - name: Check out Destination Repo
         uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
         with:
