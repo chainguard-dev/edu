@@ -27,8 +27,8 @@ jobs:
         with:
           egress-policy: audit
 
-      - uses: sigstore/cosign-installer@c3667d99424e7e6047999fb6246c0da843953c65 # v3.0.1
-
+      - uses: sigstore/cosign-installer@11086d25041f77fe8fe7b9ea4e48e3b9192b8f19 # v3.1.2
+      
       - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
 
@@ -76,18 +76,18 @@ jobs:
             -k melange.rsa.pub \
             --sbom-path .
 
-      - name: cosign login
-        shell: bash
-        run: |
-          cosign login \
-            -p ${{ steps.auth.outputs.access_token }} \
-            -u oauth2accesstoken \
-            ${{ env.REGISTRY_URL }}
+      # - name: cosign login
+      #  shell: bash
+      #  run: |
+      #    cosign login \
+      #      -p ${{ steps.auth.outputs.access_token }} \
+      #      -u oauth2accesstoken \
+      #      ${{ env.REGISTRY_URL }}
 
-      - name: cosign attest sbom
-        working-directory: terminal-images/${{ matrix.image }}
-        run: cosign attest -y --predicate sbom-x86_64.spdx.json --type spdxjson "$(cat image-refs.txt)"
+      # - name: cosign attest sbom
+      #  working-directory: terminal-images/${{ matrix.image }}
+      #  run: cosign attest -y --predicate sbom-x86_64.spdx.json --type spdxjson "$(cat image-refs.txt)"
 
-      - name: cosign sign image
-        working-directory: terminal-images/${{ matrix.image }}
-        run: cosign sign -y "$(cat image-refs.txt)"
+      # - name: cosign sign image
+      #  working-directory: terminal-images/${{ matrix.image }}
+      #  run: cosign sign -y "$(cat image-refs.txt)"
