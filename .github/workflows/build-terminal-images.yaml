@@ -24,8 +24,8 @@ jobs:
     steps:
       - name: 'Github Actions Runner'
         uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
-          with:
-            egress-policy: audit
+        with:
+          egress-policy: audit
 
       - uses: sigstore/cosign-installer@c3667d99424e7e6047999fb6246c0da843953c65 # v3.0.1
 
