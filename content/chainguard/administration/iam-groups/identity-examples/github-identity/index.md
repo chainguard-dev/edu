@@ -221,7 +221,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: chainguard-dev/actions/setup-chainctl@main
+    - uses: chainguard-dev/setup-chainctl@main
       with:
         identity: <your actions identity>
 

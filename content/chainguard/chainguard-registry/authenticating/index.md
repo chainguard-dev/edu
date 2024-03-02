@@ -130,8 +130,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: chainguard-dev/actions/setup-chainctl@main
-        with:
+tup-        with:
           identity: [[ The Chainguard Identity ID you created above ]]
       - run: docker pull cgr.dev/chainguard/node
 ```
