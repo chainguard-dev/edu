@@ -3,6 +3,8 @@ on:
   schedule:
     - cron: "0 0 * * *"
   workflow_dispatch:
+  push: 
+    branches: [fix-terminal-images-workflow]
 
 jobs:
   build-image:
@@ -28,7 +30,7 @@ jobs:
           egress-policy: audit
 
       - uses: sigstore/cosign-installer@11086d25041f77fe8fe7b9ea4e48e3b9192b8f19 # v3.1.2
-      
+
       - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
 
