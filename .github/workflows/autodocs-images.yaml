@@ -51,7 +51,7 @@ jobs:
           chmod 777 "${{ github.workspace }}/${{ env.WORKDIR }}"
 
       - name: Set up Chainctl
-        uses: chainguard-dev/actions/setup-chainctl@main
+        uses: chainguard-dev/setup-chainctl@main
         with:
           identity: "${{ secrets.CHAINCTL_IDENTITY }}"
 
