@@ -3,8 +3,6 @@ on:
   schedule:
     - cron: "0 0 * * *"
   workflow_dispatch:
-  push: 
-    branches: [fix-terminal-images-workflow]
 
 jobs:
   build-image:
