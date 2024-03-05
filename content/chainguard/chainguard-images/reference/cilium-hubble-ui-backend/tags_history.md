@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,8 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s) | Last Changed | Digest |
-|---------|--------------|--------|
+| Tag (s)       | Last Changed  | Digest                                                                    |
+|---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 2nd     | `sha256:399dffaa783f16072dbc2b14da8efd8f62a399a842185bc0c8320016b2297202` |
+|  `latest`     | February 29th | `sha256:12f4d48338e8be15b3d34854a60a62dfd4af6552af8489d1968925d467ce5ed6` |
 
 
 ### Private/Dedicated Registry
@@ -35,8 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.13.0-dev` `0.13-dev` `0-dev` | February 26th | `sha256:45c66e8a4509cd58678b919e3c7352524f71cb228d86cc61f5a3487a9e0b1f14` |
+|  `0.13-dev` `0.13.0-dev` `latest-dev` `0-dev` | March 2nd     | `sha256:b12db1518d85b9c30d2813fae1aba7d204482f7ead16a646cd28a6f46a135417` |
 |  `0.13` `latest` `0` `0.13.0`                 | February 26th | `sha256:67f04f72c28944846d2b826b2a9abfd1c5a88d643bb7a0f3e26e347b50b6b4b5` |
 |  `0.12.3-dev` `0.12-dev`                      | February 10th | `sha256:06a5022896eda1415532a3ddb6fed743cf76779f53c7d63f80d5e2d8efbdaea2` |
-|  `0.12` `0.12.3`                              | February 5th  | `sha256:e6e4d9b4a6604ff40047b29b42bcba5831e3964314df0d4af49cc2bfb50805c7` |
 

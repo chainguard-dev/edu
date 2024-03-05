@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubewatch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 27th | `sha256:e2a3ea226a519f20e7491058de4b65260ade0fdfddffdf29f42a68ae998bcc72` |
+|  `latest-dev` | March 1st     | `sha256:8205c373c3e8c70535b5aedc55f6d925723c025b825a499404eed22887521729` |
 |  `latest`     | February 27th | `sha256:f486909385e2441690ff7edbfa92ae0143e7cad4f20226edbdd8c3bd19e07987` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 26th | `sha256:d526c36f3fb02f18a113db0fd3f8e11ff94361be2368173f468a2c2be7ebc81a` |
-|  `latest-dev` | February 26th | `sha256:e4d58384db143eb49f428bd5c5f3c9cdfb4e5eb2ca15476e3efd8d914eb4e3bf` |
+| Tag (s)                                     | Last Changed  | Digest                                                                    |
+|---------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `2.5.0-dev` `latest-dev` `2-dev` `2.5-dev` | March 2nd     | `sha256:3152b3c9cf261c68438dc0f840817f7b2bd7169f7bda4f72ac841bafdaec61a4` |
+|  `2` `2.5.0` `2.5` `latest`                 | February 29th | `sha256:d526c36f3fb02f18a113db0fd3f8e11ff94361be2368173f468a2c2be7ebc81a` |
 

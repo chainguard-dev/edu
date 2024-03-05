@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the semgrep Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,23 +26,21 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 28th | `sha256:97b98aebc95e159c518c33db8bf8a23a6ba2b0fad1ece24efc4206d247999844` |
-|  `latest-dev` | February 28th | `sha256:f2ed85bab857aa9fb03dd31d3353271262414c649a689c6c9d0c0be1adf76e8c` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 1st    | `sha256:1ed688245e78e4713033a4a009940e9e0aba14b71e8e94c2d774f7d6cd0d1c29` |
+|  `latest`     | March 1st    | `sha256:3dc27d96400a090d86d8e039b0c649e3886f05bdad44e986f441ed6ff68ad0c2` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest` `1.60.1` `1.60` `1`                 | February 29th | `sha256:5b6aaccf44220b466a489f74c83cc6a036db0e1ab71930b98aeecf160f89e8e6` |
-|  `latest-dev` `1.60.1-dev` `1-dev` `1.60-dev` | February 29th | `sha256:31f4633e52a744432e59f377470efc506007469958167ddce0f6b7682306101f` |
-|  `1.60.0-dev`                                 | February 8th  | `sha256:73a75ab1bb82c184762df21d99a71b056dacab68a3369645abbb82cee8b4c74f` |
-|  `1.60.0`                                     | February 8th  | `sha256:b16ae2ae5b6bc258d18b88e15dccdec7691c2fba8daecf39ac323adcc57195f1` |
-|  `1.59-dev` `1.59.1-dev`                      | February 8th  | `sha256:3bac956edcbe1bce1904e7a031e23ef6fa48e5c76502a02900bae97348c020e4` |
-|  `1.59.1` `1.59`                              | February 7th  | `sha256:866afa2789fba80c83b2cb9dd03486100bf6b85cf117a08f8051f25633c744f6` |
-|  `1.59.0`                                     | February 2nd  | `sha256:6420a3fe990c5ac80080ad93d25fa8ac201a9bc6896cd8c8367c05318be76641` |
-|  `1.59.0-dev`                                 | February 2nd  | `sha256:b31b77c82da7c1199d453b30ea7bf92f07dfe663977fc44df8e493224bb151e5` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1-dev` `1.60-dev` `1.60.1-dev` `latest-dev` | March 2nd    | `sha256:f56510b5848ed549cc890bedc31799844fdc686ba6addb7297383dab5145a91b` |
+|  `1` `1.60` `1.60.1` `latest`                 | March 1st    | `sha256:8bcd2d04edb04d094426d388615d11ae9b952e6a777d6d1b63f64a9042de712c` |
+|  `1.60.0-dev`                                 | February 8th | `sha256:73a75ab1bb82c184762df21d99a71b056dacab68a3369645abbb82cee8b4c74f` |
+|  `1.60.0`                                     | February 8th | `sha256:b16ae2ae5b6bc258d18b88e15dccdec7691c2fba8daecf39ac323adcc57195f1` |
+|  `1.59-dev` `1.59.1-dev`                      | February 8th | `sha256:3bac956edcbe1bce1904e7a031e23ef6fa48e5c76502a02900bae97348c020e4` |
+|  `1.59.1` `1.59`                              | February 7th | `sha256:866afa2789fba80c83b2cb9dd03486100bf6b85cf117a08f8051f25633c744f6` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grype Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 1st     | `sha256:8a6618067d99bb7ae8ccd883029ae29f616e7e1ebaa97b324c6278248813c354` |
 |  `latest`     | February 27th | `sha256:3e637c78b0322b2564ebb5a4b8777dc53a73ec1b5af23011732a832ace48c38c` |
-|  `latest-dev` | February 27th | `sha256:6b5484c6d0cd90a2c0f7456eba1e96b07935419a11e4542aae3655811b29aa20` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.74-dev` `latest-dev` `0-dev` `0.74.7-dev` | February 26th | `sha256:169836d1b74282640834df2149b24a778f4c21de8b49fb0b02d6411c9b5156c1` |
+|  `0.74.7-dev` `0-dev` `latest-dev` `0.74-dev` | March 2nd     | `sha256:87a77b51aa7ef191775abc554a7db0dbd978ba047278b3b0710054f03e5c0856` |
 |  `0.74` `0` `latest` `0.74.7`                 | February 26th | `sha256:b2a0319b9745beef8eabb0839bc9bebdbb94fc89d4420feb001b96f0f5bdb452` |
 |  `0.74.6-dev`                                 | February 24th | `sha256:d5387724ca01f846d1ac86307b01a3d8ea87380305977ac662ea89e48e65f176` |
 |  `0.74.6`                                     | February 15th | `sha256:dbfda491a10443aecc872cfc99de41775b740b6d3c58f11bc69735df348e26f5` |

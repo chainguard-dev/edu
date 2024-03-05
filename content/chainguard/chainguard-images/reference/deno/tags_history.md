@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the deno Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,15 +26,16 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 27th | `sha256:f51ea381110a665c092d326f5a843ecdf57d66413d6701708265cb91482f56d2` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | March 1st    | `sha256:67646f196dda9c7c09a635b5b84fc5fe48f7da4f5b41a85397854993ce4d9308` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 26th | `sha256:8e01c940e6e2d50e87d200d09fcffa32fab7c9cb3d904fa0ca5f9561197a35d8` |
+| Tag (s)                       | Last Changed  | Digest                                                                    |
+|-------------------------------|---------------|---------------------------------------------------------------------------|
+|  `latest` `1.41.1` `1.41` `1` | March 1st     | `sha256:a5c108b3371ace06f36991a606e4e4b623be11c2b3f9140e3dab2970aabf1972` |
+|  `1.41.0`                     | February 29th | `sha256:8e01c940e6e2d50e87d200d09fcffa32fab7c9cb3d904fa0ca5f9561197a35d8` |
 

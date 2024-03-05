@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-config-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 27th | `sha256:e641e23c66ba1976bc86b23d05c4986bab800cb7e65187b616c59d7205735e4d` |
-|  `latest`     | February 27th | `sha256:762cbb81c3ec53cc456c0507a397052a2f0abebd2346a0136f1527df6ce7910c` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | March 4th    | `sha256:203419e3b3a69bdfb492613ad6f2178dc4ab0f658c4614dedf9f3e7be83949bb` |
+|  `latest-dev` | March 4th    | `sha256:7b4e625cc222ce0145e7c8f2d8c2b2319653e3dae9562fbee2ff12c193363386` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                          | Last Changed  | Digest                                                                    |
 |----------------------------------|---------------|---------------------------------------------------------------------------|
+|  `0.65-dev` `0-dev` `0.65.2-dev` | March 2nd     | `sha256:bdf617947aef3b23eda3a603a8c08ff9563279c57f452f3d9bc523a492ae5daa` |
 |  `0.65` `0` `0.65.2`             | February 26th | `sha256:7b8e0c82463d868119212286e202c4935fa562d68b28e888b42ff156622d9de9` |
-|  `0-dev` `0.65.2-dev` `0.65-dev` | February 26th | `sha256:c9eeb54c342f1f4c0fd7c1fee0466445f2e7500cf1727f307d9adaf98882a159` |
 |  `latest-dev`                    | February 21st | `sha256:98086de6291c0c207cee6e0b94beb259f928c1e73c09375918769807a3609719` |
 

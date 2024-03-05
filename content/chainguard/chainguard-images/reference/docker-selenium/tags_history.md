@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the docker-selenium Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 28th | `sha256:11114fd9066f982c9f10084ef43681f986702eda06ed63c4a848240794179d24` |
-|  `latest-dev` | February 28th | `sha256:be93582eea5a98933966cf09611b7d36ae6a3eba8276abdf6b3526630e489b95` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 5th    | `sha256:7e02fba56039e13cf0f8fe13a74eb335238358e722f6db37fac89713adb94e2e` |
+|  `latest`     | March 5th    | `sha256:2074a1fd44a87b1eea4ecf7e42c8ad723f3d885a3f4c01669f1521cf97a648d7` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `4` `latest` `4.18.1` `4.18`                 | February 29th | `sha256:9b6cdc8cf65917d721165ffd745daf356b7f2b743f92a0c1aad3183dfbd749cf` |
-|  `4.18-dev` `4-dev` `4.18.1-dev` `latest-dev` | February 29th | `sha256:a96adb06ef47a9b2286083a8ebec6bfc2dba3229ec7f1ce1fa12647f71902038` |
+|  `4.18` `4` `latest` `4.18.1`                 | March 5th     | `sha256:5b5ec2fa165ae7456c41a1a85f3bd8aece1f51776c065544699882f3aa377512` |
+|  `4.18-dev` `4-dev` `4.18.1-dev` `latest-dev` | March 5th     | `sha256:45fab215c8a290cae1c39c060e523291d84d8612feb55e8c3ab3e3940e3b031a` |
 |  `4.18.0-dev`                                 | February 24th | `sha256:219bf0ee0f0879f79d2c062bcb72c4f7ab030556b8d82e73d7837db4d079273f` |
 |  `4.18.0`                                     | February 24th | `sha256:43335cf48abc88b6bcbf4ea496deb73a157c96bf76d9ca03598d59d4ee3c8c9f` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nats Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 1st     | `sha256:2265e27e87921c15bf2efcb467d5b05680f20ab0a63e23f4a5ea22202d895661` |
 |  `latest`     | February 27th | `sha256:fff9d80d5f978f5a0cd0c8548b0788f0dde28057ca85313e706ae8227962f3dc` |
-|  `latest-dev` | February 27th | `sha256:e5faffaa569f4adbe7f7b5aeb1216b10c58de1fa89e8fbba6e24aeeef5651783` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed  | Digest                                                                    |
 |------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2.10.11-dev` `2-dev` `2.10-dev` `latest-dev` | February 26th | `sha256:e9f6dd97fc2020748a29e4a9e119753b1ba2896b087ecc68819a373be5c517a6` |
+|  `2.10-dev` `2.10.11-dev` `2-dev` `latest-dev` | March 2nd     | `sha256:3466908b68bdb47629ee055af6a1feb13dd28f814376b4e44c847a12f056dc55` |
 |  `latest` `2.10.11` `2` `2.10`                 | February 26th | `sha256:56806995af8b05899f4b2ff77cf3dabf321003776976671c986708269cecf5f2` |
 |  `2.10.10-dev`                                 | February 15th | `sha256:51900d054be26bfa220c601b1ae31a58395b95141d1d92ecf5f5e50c3e128684` |
-|  `2.10.10`                                     | February 5th  | `sha256:b9ce561bb6d66a59a944d729b8e72a8ae8513e73f9b7ec1174edd53da2b9dd51` |
 

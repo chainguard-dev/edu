@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-server-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.22` `1` `1.22.5` `latest`                 | February 26th | `sha256:ff29035d68e46d714cf194add92714cd9e90e0592822dac3734ae0c409d8ce17` |
-|  `1.22.5-dev` `1-dev` `1.22-dev` `latest-dev` | February 26th | `sha256:6c3341b95830358eb23fc4180142074cc4638f551b4e36fc002e9b8e1e55a480` |
+|  `latest-dev` `1-dev` `1.22-dev` `1.22.6-dev` | March 2nd     | `sha256:39b978ffe68e28ddd90795ecbbab957621c1bb2fa329cb10642b2affc8688f3a` |
+|  `1` `1.22.6` `latest` `1.22`                 | March 1st     | `sha256:0d40a1f18a437cdf486e3a6d5f84e4ad67ea861d93fe8ab5a3543673027df548` |
+|  `1.22.5-dev`                                 | February 26th | `sha256:6c3341b95830358eb23fc4180142074cc4638f551b4e36fc002e9b8e1e55a480` |
+|  `1.22.5`                                     | February 26th | `sha256:ff29035d68e46d714cf194add92714cd9e90e0592822dac3734ae0c409d8ce17` |
 |  `1.22.4`                                     | February 22nd | `sha256:f1949b37fa3778c326f58e451d9b8f6b964f9310c0bbd2037a1c99f95c63f3da` |
 |  `1.22.4-dev`                                 | February 22nd | `sha256:238407483a5102a3562bc273eef58e10127584c874b100e7b55d01cc5c1b89d2` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stakater-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 1st     | `sha256:8cb6a28a831a970b2b5861c222aac01ce7d16bee79c8c9c5d858aabb6bf68685` |
 |  `latest`     | February 27th | `sha256:87edf38b2587303a1e496f7f343f7d4a8d40c7d79f08263664ca59876c68fc90` |
-|  `latest-dev` | February 27th | `sha256:b38ba76670a18dafec9e8fb774c9592762183550d4a7f62240ee37f12556d3e9` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed  | Digest                                                                    |
 |----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.0-dev` `1-dev` `1.0.69-dev` | February 26th | `sha256:c93b3d81bc75b94315d09df4649e659609f22569a3fa78f24cb40768fa150701` |
+|  `1.0-dev` `1-dev` `1.0.69-dev` `latest-dev` | March 2nd     | `sha256:c3d79df209e9b2f369934126cfbff9529969246d1a9863fec3e9f53f05fa05d4` |
 |  `1.0.69` `1` `1.0` `latest`                 | February 26th | `sha256:44f1d296dfd74aa7c9eac334bbd6d07352314c6212d142bf67b93e4f16e45c23` |
 |  `1.0.68-dev`                                | February 23rd | `sha256:72f66290c324af71ceebbdb72d7677f507114bbc7be98db471ea372590eff1f7` |
 |  `1.0.68`                                    | February 21st | `sha256:be80e08a0037fe3945b0ed75df58fbd69246e67debfecd2e62aee309fa71432c` |

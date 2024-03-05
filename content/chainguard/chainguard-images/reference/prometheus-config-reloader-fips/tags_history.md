@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-config-reloader-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,10 +31,9 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.71-dev` `latest-dev` `0.71.2-dev` | February 26th | `sha256:f44b299ed0db68ff94a1f16769402182ecf38fa195b6d0e6d6e7756711029070` |
-|  `latest` `0` `0.71` `0.71.2`                 | February 26th | `sha256:9e0d9e81f86d9e3bd8ff490ff75fb8adf2df9bf0db12cd10d1328538ed27ca62` |
-|  `0.71.1-dev`                                 | February 6th  | `sha256:ad2221aa9db246e0578c107a43556f8f5bf31f79f5363adfa6f9b491c1b2840b` |
-|  `0.71.1`                                     | February 5th  | `sha256:7ae42dfd842a2c2ac12a7ce0883dac8e9699734f93339396141ccdfbe72a2de0` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.71-dev` `0.71.2-dev` `latest-dev` `0-dev` | March 4th    | `sha256:7ede87486c3f3c00ddee37de3d3718dea308fd88075d19fb1342b37fe3b0743b` |
+|  `latest` `0.71` `0` `0.71.2`                 | March 4th    | `sha256:b54e084f709d140c7231a4a9d9e23caa1b08da45de2014618733ea75aab54453` |
+|  `0.71.1-dev`                                 | February 6th | `sha256:ad2221aa9db246e0578c107a43556f8f5bf31f79f5363adfa6f9b491c1b2840b` |
 

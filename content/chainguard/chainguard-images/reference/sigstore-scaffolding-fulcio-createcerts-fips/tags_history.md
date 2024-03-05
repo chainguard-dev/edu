@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-fulcio-createcerts-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed  | Digest                                                                    |
 |----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.6-dev` `0.6.16-dev` `0-dev` `latest-dev` | February 26th | `sha256:b1983ac4451ad460fc40a5fc9d4f2158466b909f2ce2174a9321e735971c13c1` |
+|  `0.6-dev` `latest-dev` `0.6.16-dev` `0-dev` | March 2nd     | `sha256:c62cbe7b94a7245488cc5a751162f78ff354910a838d6fc62036827622b90f0a` |
 |  `latest` `0.6.16` `0.6` `0`                 | February 26th | `sha256:8d3dc562489f0579ee08cebefc579a0ceda8b2ae3fc4eab52b61acf29a2facb2` |
 
