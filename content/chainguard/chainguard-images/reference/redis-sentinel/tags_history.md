@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-sentinel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,16 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 27th | `sha256:297a485b3cfc053c5e63eeac206a292680f0cfcee7b65999421525ccf1723a4e` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | March 1st    | `sha256:f2862e8ef753a416993e77a36c3dca4d988f91ff7fb288d83384032c622a7cd0` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                      | Last Changed  | Digest                                                                    |
-|----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `6.2-dev` `latest-dev` `6-dev` `6.2.13-dev` | February 26th | `sha256:77721f89a233f9eb3c2684470967767e432bf8b6c8a94ddcd8c9a8b5d1f31fc8` |
-|  `latest` `6.2.13` `6` `6.2`                 | February 26th | `sha256:f7af5a0c57719cbaa7cff2f07c121b3244d555abc9fc7f1c18b192dc354566ef` |
+| Tag (s)                                      | Last Changed | Digest                                                                    |
+|----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `6-dev` `latest-dev` `6.2-dev` `6.2.13-dev` | March 2nd    | `sha256:ce5025a41cf5daabdf5446c546dffecac286902ccd9174d3ba8f3e952f0f109d` |
+|  `6` `latest` `6.2.13` `6.2`                 | March 1st    | `sha256:a44971504e87f3bfa660046eb4081f0ccc4b5a8b032afb91dd6fbf29c70d27e0` |
 

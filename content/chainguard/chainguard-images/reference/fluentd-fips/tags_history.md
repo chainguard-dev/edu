@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluentd-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,8 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.15.3` `1.15`                 | February 26th | `sha256:da6f8f894f3175a40b918c115b758c8ddf3447e652d0b30f2a23d0faab38dfa5` |
-|  `latest-dev` `1.15.3-dev` `1.15-dev` `1-dev` | February 26th | `sha256:66875ccb4b3eb5f51f21253e1fd7c1ee061fb4181c5b436a7b55b4b0e5ef8c70` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1` `latest` `1.15.3` `1.15`                 | March 5th    | `sha256:3fe68fb593cab1a66c10fbe88d45923d4f4224432d9d6e15ab0248e89f4a3dc2` |
+|  `1-dev` `1.15-dev` `latest-dev` `1.15.3-dev` | March 5th    | `sha256:deea7db9a77f40f06290c2df39d00b292e49fe47930730213f497d647496f57f` |
 

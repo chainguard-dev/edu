@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 1st     | `sha256:c1dc88aa03afcb7b5320795964e1b751dc20aed7b2305b059021db5c52d3067d` |
 |  `latest`     | February 27th | `sha256:9f50284b3a7e0f9fe52aadca625d961ea81842cf6bf505d12dc0e198c3857aab` |
-|  `latest-dev` | February 27th | `sha256:ed6910d9d75dc38a170a2b4a7e1b03f99ad88cff16625e220c235879fd3a4a78` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 26th | `sha256:0cd7d3ab325a305eb956f10d09853784f7892e74a70b33b26057c3ab806c654e` |
-|  `latest-dev` | February 26th | `sha256:0bc0c587e411a50f713d5c060f85be591c7b6757b4e3c0fef3c08337592e4507` |
+| Tag (s)                                     | Last Changed  | Digest                                                                    |
+|---------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `1.0-dev` `latest-dev` `1.0.0-dev` `1-dev` | March 2nd     | `sha256:8ab99c7c2fd897c2682dc0a7e2508b596e93e194d547eb9f77d9ddca4e0f2bc6` |
+|  `1.0` `1.0.0` `1` `latest`                 | February 29th | `sha256:0cd7d3ab325a305eb956f10d09853784f7892e74a70b33b26057c3ab806c654e` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spark-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,8 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                        | Last Changed  | Digest                                                                    |
-|--------------------------------|---------------|---------------------------------------------------------------------------|
-|  `3.5.0-dev` `3.5-dev` `3-dev` | February 26th | `sha256:51a27ae96639eedd6c3be955b18801ccee64494b3be9ce9dbfb49b7baccfaadd` |
-|  `3.5.0` `3.5` `3`             | February 26th | `sha256:831732d75dfbd3e71f404376233fb8ef0120cfc775dce85d7e7f4adf0f2b5be9` |
+| Tag (s)                        | Last Changed | Digest                                                                    |
+|--------------------------------|--------------|---------------------------------------------------------------------------|
+|  `3.5.0-dev` `3.5-dev` `3-dev` | March 2nd    | `sha256:a930b26d97c081761c8db4e8a577089039c8e3149f81956dce534976955ed164` |
+|  `3.5.0` `3.5` `3`             | March 1st    | `sha256:276bc268f9317be50de973cc334f9ab329a259e35d1d87fb6b86f56dcc2c4a23` |
 

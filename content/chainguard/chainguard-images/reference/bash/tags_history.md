@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bash Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,16 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 27th | `sha256:e8be549335f5409bca8cc55abe59ab0c6adafd6faa50a2d3a0bce75c94949639` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | March 1st    | `sha256:81f0b434b297453ff101de0b5f4f5cd8d4af1c015a1d34162e9ae9a4a9f38669` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                      | Last Changed  | Digest                                                                    |
-|----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `5.2.21-dev` `5-dev` `latest-dev` `5.2-dev` | February 26th | `sha256:ff91fc8326e4cc8a30290a0dd7d366ee58f2747a9f7a016cabfb5cf98a02dc01` |
-|  `5.2.21` `latest` `5.2` `5`                 | February 26th | `sha256:913de0985aeb7229314369afc80f3d135ba52f5d0afc8b78cee2f085e2aef8d9` |
+| Tag (s)                                      | Last Changed | Digest                                                                    |
+|----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `5.2.21-dev` `latest-dev` `5-dev` `5.2-dev` | March 2nd    | `sha256:a02dc8ff522e4853c329efcaf8569f042ba5b7de1ffbe254b9e6540c19d1b73f` |
+|  `5` `latest` `5.2` `5.2.21`                 | March 2nd    | `sha256:8a91c01315f4aaac9e7a458566a6e0199845c8699b0a47fd3990ad0e049d3e72` |
 

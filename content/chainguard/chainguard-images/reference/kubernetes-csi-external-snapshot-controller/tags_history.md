@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 1st     | `sha256:b47713c367fa1d826e5cd521fcd597dde3e95911b00f5c2b527aa87fa292dfd1` |
 |  `latest`     | February 27th | `sha256:4f698383ad0b1d79c304cbc974b840fa8c6a44c12f004391fcee819768f370b5` |
-|  `latest-dev` | February 27th | `sha256:a0a1e0b3a986220653e48a2a5318e4cb34881aa4ba00700fe402fb56088f40e7` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `7.0.1-dev` `7.0-dev` `7-dev` `latest-dev` | February 26th | `sha256:bb7d215d31aaa304b61fd8a1001d528afe2ce8d94a3b7d912d4d6cc39e33d478` |
+|  `7.0.1-dev` `latest-dev` `7.0-dev` `7-dev` | March 2nd     | `sha256:1c41a0c171986f8e08f11c714e146243f90a88e4bc903bdda05196ad231def30` |
 |  `7.0` `7` `7.0.1` `latest`                 | February 26th | `sha256:8e61b146462be1586f0c4228b3e7c669dd928f2852953f0acebb8b54b33c3bb3` |
 |  `7.0.0-dev`                                | February 10th | `sha256:6189b9dbd42a466f3a4f9daf730f73b6fc80a9a876e6bd1a8ade62622f3243a1` |
-|  `7.0.0`                                    | February 5th  | `sha256:6a51253f866de28fbcbec23b8613c138a3095d02074972542d7d9883f77f1871` |
 

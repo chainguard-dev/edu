@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed  | Digest                                                                    |
-|---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.9.5-dev` `1-dev` `latest-dev` `1.9-dev` | February 26th | `sha256:5f6ef10970b428d825c1ce80255a939ef79efe5713c7e10a19df8d3ef2fabf23` |
-|  `1.9.5` `1.9` `latest` `1`                 | February 26th | `sha256:0e565c82d405acf352515a63eb6c82356f2ffe913170f9c6873c4f61eab0a441` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1-dev` `1.10.0-dev` `latest-dev` `1.10-dev` | March 4th    | `sha256:a7c72bc3b0c0e158c39d9f24a02122531fa2e4a1351865ee59a15298fb817c47` |
+|  `1.10` `1.10.0` `1` `latest`                 | March 4th    | `sha256:4f30a987bc3232226b03198924507dd62dd095aef1f14888677091e17e820a2a` |
+|  `1.9-dev` `1.9.5-dev`                        | March 3rd    | `sha256:f4296aab328e83082182e98403bb3020451f37fb6059ae44cb689d4b3f462d82` |
+|  `1.9.5` `1.9`                                | March 3rd    | `sha256:ed24ef41f311a780c83817476df0714485540adc3b0ae3e4537d44a1d95ff16a` |
 

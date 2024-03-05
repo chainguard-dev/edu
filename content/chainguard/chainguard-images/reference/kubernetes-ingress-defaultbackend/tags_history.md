@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 27th | `sha256:07765e4f267f3f24e3c2b940a499b33d858531af0236d3128e091c97418c6193` |
+|  `latest-dev` | March 1st     | `sha256:958b714a5aac11958520a67a80c1648a4b7c11e04bdbbcccf0182a7e2d70e694` |
 |  `latest`     | February 27th | `sha256:dc2ed548765395a685ae572c9d3fa1cdb4795ff8c3b1e6dc9f98d23a540eaff7` |
 
 
@@ -37,8 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` `1-dev` `1.28.0-dev` `1.28-dev` | March 2nd     | `sha256:84dbf048bc804e63cfaaac1a1f58b1fa37e221e0ee9298e8b2d964d0b0ad7069` |
 |  `1` `1.28.0` `latest` `1.28`                 | February 26th | `sha256:d005e1efbeaa0d670bb6b97a5662c4ed643baf73a92ea52fd1afa3c3c68d5d3c` |
-|  `1-dev` `1.28-dev` `1.28.0-dev` `latest-dev` | February 26th | `sha256:903d652264efa611119dc0c752e2443dd5b335c58a979a95cc82ed6dbc881675` |
 |  `1.27-dev` `1.27.3-dev`                      | February 13th | `sha256:65aeee3cc061777ae6dde39eb2ef0cf7a5fb00ebc1d574f21c13acd04ca45385` |
-|  `1.27.3` `1.27`                              | February 5th  | `sha256:7d274bde16b42877fd7d7c36310fa26c66987c4901d3ef1798cf7094b98559fa` |
 

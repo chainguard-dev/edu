@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the oauth2-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 1st     | `sha256:0ab486f218c158e99a0f272e97c8a7469597898203a7c38cea848a38b9cd159a` |
 |  `latest`     | February 27th | `sha256:d735ab9eb9b39937f96cd0fda058d482aa3b2e01be68861f85d7f609bedb4347` |
-|  `latest-dev` | February 27th | `sha256:e2257aa6592f100018614b56632222217872039d10f8be9d8ba25f374fff8e62` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `7.6-dev` `7.6.0-dev` `7-dev` | February 26th | `sha256:47b12e59fee952e7ebc5a84b34beb6b1bde76652c13273edbbbfa8e076c613f6` |
+|  `7.6-dev` `7-dev` `latest-dev` `7.6.0-dev` | March 2nd     | `sha256:b92660d2ea37ac9330072e6c7eab691963f67d92f62135c3facd9b3fa6b5ab4a` |
 |  `7` `latest` `7.6` `7.6.0`                 | February 26th | `sha256:d079c4db0e0efd4164602a7da5dd94da01f6741960712d8484787f9a23ad6de0` |
 |  `7.5-dev` `7.5.1-dev`                      | February 13th | `sha256:5d5bfd33953decddb16b95e3e1a725e1fc4696756f7d6dd2ff10d55b186810d9` |
-|  `7.5.1` `7.5`                              | February 5th  | `sha256:25b2e5c31c63675197fe9b24a3a61aababa9d6c9595f05836d53ab09799ea21b` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ffmpeg Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 27th | `sha256:f5b1d9626e76535cc0d3565ad4151b19ffd0b1c4f5698eed23305a4e70150518` |
+|  `latest-dev` | March 1st     | `sha256:1d31feef966e780d5a123bd0be812c1f5ba5ec7bfc4e4933782ebd665997e991` |
 |  `latest`     | February 27th | `sha256:95c7de815c8a333c95dcb8eb1a0e64064dc205b916255e94c598ad331d72671c` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 26th | `sha256:e43f53b51601c500094c23fe4eb42ec890480cc3a357c8f951ff2ae2b4601d7a` |
-|  `latest-dev` | February 26th | `sha256:ce7b07e39dd36f61a33dd03f943d43ba4424e67be3ab1082ee7b8c3f2cf04356` |
+| Tag (s)                                     | Last Changed  | Digest                                                                    |
+|---------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `6-dev` `6.1.1-dev` `latest-dev` `6.1-dev` | March 2nd     | `sha256:e394faa82a9476de2528b2cbb14514d48f3ae58f216309a8f7a143ee0686ec39` |
+|  `6.1.1` `6` `6.1` `latest`                 | February 29th | `sha256:e43f53b51601c500094c23fe4eb42ec890480cc3a357c8f951ff2ae2b4601d7a` |
 

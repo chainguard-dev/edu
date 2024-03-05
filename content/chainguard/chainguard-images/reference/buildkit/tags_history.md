@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the buildkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,17 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)            | Last Changed  | Digest                                                                    |
 |--------------------|---------------|---------------------------------------------------------------------------|
+|  `latest-root-dev` | March 1st     | `sha256:795a750b4aed772f1fccdc152f84c2d2f154540b630efaaf513b8b086fb530db` |
 |  `latest-root`     | February 27th | `sha256:67573ef65117ca64ee9eb8569efa27bb233fab9b57cc9e2d0f34f1fdb8dc9548` |
-|  `latest-root-dev` | February 27th | `sha256:4ec79560c36151cbf5e0bcbf966ca1534c7f7d7d3a7a46128d93689d63739fe2` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)            | Last Changed  | Digest                                                                    |
-|--------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-root-dev` | February 15th | `sha256:fbdaabead056fc1bff769880be0f207ec52f27a465cf8f22ecc8f39af6651241` |
-|  `latest-root`     | February 7th  | `sha256:d85d6775bcfa58d9b36bb6cd38f797621a5dbf3bb9bd0a43c260256d8ebabe86` |
+| Tag (s)                                       | Last Changed  | Digest                                                                    |
+|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `0.12-dev` `0-dev` `0.12.5-dev` `latest-dev` | March 2nd     | `sha256:e76f382bd0c6ae243d582d63ec7749d70f1a5f1785f1cd1e7d6f7b43b995d609` |
+|  `0` `latest` `0.12.5` `0.12`                 | March 1st     | `sha256:eda1dbc1c751797bd6c2ee1c8010d90fd8ba4779040a173fa51d96cd83ca52ac` |
+|  `latest-root-dev`                            | February 15th | `sha256:fbdaabead056fc1bff769880be0f207ec52f27a465cf8f22ecc8f39af6651241` |
+|  `latest-root`                                | February 7th  | `sha256:d85d6775bcfa58d9b36bb6cd38f797621a5dbf3bb9bd0a43c260256d8ebabe86` |
 
