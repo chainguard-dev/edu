@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the clickhouse Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,19 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 27th | `sha256:cf4c92b79ad6470113a42a46cdadaaffd148b6be1b001e06c29a96419b13a6b7` |
-|  `latest-dev` | February 27th | `sha256:a5c48fc6b1f916cb4f75f9e07e48413225de3516804d500c018840957ff1b9d5` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 1st    | `sha256:66f57e890d4608fed645cdd6d2a3ccf7bf6757435f96c9a0ce6338b4155bda7d` |
+|  `latest`     | March 1st    | `sha256:36a77321c9fb4f2b49cf1d105c65bae7d4a00948d4fb36a453c1f1564a090b3c` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                                       | Last Changed  | Digest                                                                    |
-|---------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `24.1-dev` `24-dev` `latest-dev` `24.1.5-dev` `24.1.5.6-dev` | February 26th | `sha256:a4806ebc7e2abdf6fe0a98cbcaf5c42609965ee7c1e3171a87a7dc48b7a8e9e6` |
-|  `24.1.5.6` `latest` `24.1.5` `24` `24.1`                     | February 26th | `sha256:4f982d6c8693299df1a4d415a057d4c384712c517252599aac8109d414583088` |
+| Tag (s)                                                          | Last Changed  | Digest                                                                    |
+|------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `24.2.1.2248-dev` `24.2-dev` `24-dev` `latest-dev` `24.2.1-dev` | March 2nd     | `sha256:da44e4488e8c96d58f92722ffbcb7c28a31a591c6380b03a14abcc032785e1bf` |
+|  `24.2.1.2248` `24.2` `latest` `24` `24.2.1`                     | March 1st     | `sha256:4ac8f7f82a566a1a54f64e0ab870bf3652f06eadb9cae482b9ae8e597fac8a07` |
+|  `24.1-dev` `24.1.5-dev` `24.1.5.6-dev`                          | February 26th | `sha256:a4806ebc7e2abdf6fe0a98cbcaf5c42609965ee7c1e3171a87a7dc48b7a8e9e6` |
+|  `24.1.5.6` `24.1.5` `24.1`                                      | February 26th | `sha256:4f982d6c8693299df1a4d415a057d4c384712c517252599aac8109d414583088` |
 

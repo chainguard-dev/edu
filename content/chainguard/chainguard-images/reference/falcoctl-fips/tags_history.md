@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falcoctl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.7-dev` `0-dev` `latest-dev` `0.7.3-dev` | February 26th | `sha256:a197f1b77e4da50148860912262c569dc42dd131559d3ac3633880296477c70a` |
+|  `0.4.0-dev` `0.4-dev`                      | March 2nd     | `sha256:d7c13eb136a8ab09349edabb5949cdafc553191fc61374eb266be574ef5fb4e8` |
+|  `0.7.3-dev` `latest-dev` `0.7-dev` `0-dev` | March 2nd     | `sha256:cc1b25de48cbefcbef81a4a1494b0791c2b2d961680806ecdc84d294cbcd9f23` |
 |  `0.4.0` `0.4`                              | February 26th | `sha256:ab54b6ec66bc0f006c2f13b31018b818703591ec56401d5a2335be418c665fc3` |
 |  `latest` `0` `0.7.3` `0.7`                 | February 26th | `sha256:cf698c0f0c99668f08060c0ce610e9ee6bf338ee390c947a06557fb5aa20dfcf` |
-|  `0.4.0-dev` `0.4-dev`                      | February 26th | `sha256:351ee05cc0e3ac9e49e6f7f98379de1b166273ca5c4360da0239ace9fe8f6c63` |
 |  `0.7.2-dev`                                | February 22nd | `sha256:93fb7e3cc7566f720f85bce9a2f1549be2a9af6e08bca30d820513fa66da784e` |
 |  `0.7.2`                                    | February 12th | `sha256:51832fe4361350d0a73464b0a8e6646e45ebf0c7f220296b0171f9c4169e0074` |
 |  `0.7.1-dev`                                | February 10th | `sha256:fb1eb81ae6fd6e5481cd37906e423178985457b3bb0998daa69e0a1e4321bb29` |
-|  `0.7.1`                                    | February 5th  | `sha256:ab123b759ca5d4614838a9665f7aff065ce7f545781e75c56cf72652da1857dd` |
 

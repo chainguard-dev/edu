@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-device-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 27th | `sha256:255b369ba434908aee7b42f6e90e909fc6d8ea03bbc99f8eeb039da70a52ebb9` |
-|  `latest-dev` | February 27th | `sha256:4c8b73b21563387abc7d6018ba70739920b3e4984bfebe53340c904aa9bbb376` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 1st    | `sha256:629c9e97a1f5c4a7a4aae28e6941b14c5d1d9c0ce46add8ea2e304440d0e01e2` |
+|  `latest`     | March 1st    | `sha256:ddf3a64978d1566a1ae96dd59e94f2d625222726523b470280c8c46210df5273` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.14` `0` `latest` `0.14.4`                 | February 26th | `sha256:33bd1d35080a37796a76fe86f67d879b1423f1d874d16c9bb23c86c2f1b6a4ff` |
-|  `0.14.4-dev` `0.14-dev` `latest-dev` `0-dev` | February 26th | `sha256:a68dd9fbc5f0333aeb339f9767e1b499058b8bf906bf71ee933c7cf37109fd58` |
+|  `0-dev` `latest-dev` `0.14.5-dev` `0.14-dev` | March 2nd     | `sha256:e2bd99c1afbe42cb40167426eb7c154977e7de1b62debfa34bac876d9f90a7ad` |
+|  `0.14` `0` `0.14.5` `latest`                 | March 1st     | `sha256:86caeb6a9610d955644fbc9afd46ba376f772eec5a9df11a80b5eb5cd2f76693` |
+|  `0.14.4-dev`                                 | March 1st     | `sha256:63064736a788bb2f7c81d9403a7fb0297693ff6503b238e597b9ade5aeb5f4f0` |
+|  `0.14.4`                                     | February 26th | `sha256:33bd1d35080a37796a76fe86f67d879b1423f1d874d16c9bb23c86c2f1b6a4ff` |
 

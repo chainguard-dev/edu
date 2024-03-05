@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the promtail Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 27th | `sha256:56c0c957e4cdc5419621e514be34b170e199e9087333b775f8f5abe7dfe56fea` |
-|  `latest`     | February 27th | `sha256:a9f2806ca9df1934cd3b7e0c05a494676ea0db29370b245eba2160d5f3956e5d` |
+|  `latest-dev` | March 1st     | `sha256:69f720bf3cf8397427f41cd694010f5ce4f18bf6fe6fb6c4a90d6de7f288512d` |
+|  `latest`     | February 29th | `sha256:f147adca73ae000e5f0989a6c573431c9608522dcdb76791d62d79c6e2a8770c` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 26th | `sha256:41a588dda49e2033dcd0ad86d9e56b31e375b06ac7cdc371f8515556695dd1c3` |
-|  `latest`     | February 26th | `sha256:344cb6d17744eadd665df30fbed749b992a40f7e1de7300af7ce9ac86cca765f` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2-dev` `latest-dev` `2.9.5-dev` `2.9-dev` | March 2nd    | `sha256:b897eb47498b8414f420d732e2a4e5d900c5f05b38a84168b0abe12e2acd3c5e` |
+|  `2` `latest` `2.9.5` `2.9`                 | March 1st    | `sha256:67f9208db234d613c2c81e26ba08d4119bd9079b4034b5541888adcbee53ada6` |
 

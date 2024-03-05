@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-bench Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed  | Digest                                                                    |
 |-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 27th | `sha256:58a4b5d0ee6585c48b3d4517cc5280342d7f8b6121bfbcad56b72d4ac6b61fbc` |
+|  `latest` | February 29th | `sha256:39b7a24f6b242f5228a212ff18693374b31b6887269bf9316975d918ed47d261` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.7-dev` `latest-dev` `0.7.1-dev` | February 26th | `sha256:0cb7b399df008f468d204af914b910956483d3d9857e34f5682c82d2ed489d6c` |
-|  `latest` `0.7` `0` `0.7.1`                 | February 26th | `sha256:aec17664469cd3ecf9b6028d035c170148d9a063395e0d769f2bb0d19a56633c` |
+|  `0-dev` `latest-dev` `0.7.2-dev` `0.7-dev` | March 2nd     | `sha256:fe59139cefb11d2ee3bd4a2a6cce706bac61ff77453244cc384ac600433ac210` |
+|  `0.7` `latest` `0.7.2` `0`                 | February 29th | `sha256:de5c5cd063f114fdb608aed9840fc40cdff6e443ea4cba3d30fb24fdf0280a79` |
+|  `0.7.1-dev`                                | February 26th | `sha256:0cb7b399df008f468d204af914b910956483d3d9857e34f5682c82d2ed489d6c` |
+|  `0.7.1`                                    | February 26th | `sha256:aec17664469cd3ecf9b6028d035c170148d9a063395e0d769f2bb0d19a56633c` |
 

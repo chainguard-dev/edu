@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 28th | `sha256:74a6ec6f120912282a32a0a8ff23d09db39c058e2ebb2ca64b3a1ad6c7abfdfa` |
-|  `latest-dev` | February 28th | `sha256:37f52cfa3cc2fcdf2d5f9c097de180daa55f4a564b2102b42dd2de6bb09ecf72` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 1st    | `sha256:41e6bcab18ecbdb53c7c26391239ed15385b4b0cb32ccbf683a8945985fd7d73` |
+|  `latest`     | March 1st    | `sha256:11f1fad77043302ba2f443c247a3b84eefd1986d8195631a03c79f035f44de3f` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `4.1-dev` `latest-dev` `4.1.4-dev` `4-dev` | February 28th | `sha256:54f8d4a84beec4b48a5ea5c542d58440c397714ec8509a0c650a6d093eae89cb` |
-|  `latest` `4` `4.1` `4.1.4`                 | February 28th | `sha256:393988368863eb7141088eacfe7a33e759cbe51f8a4c1edddeb4e496ba26cf1b` |
+|  `4.1.4-dev` `4-dev` `latest-dev` `4.1-dev` | March 2nd     | `sha256:1d5d31306e07529a9916f9aeebdc74af15edf617b47e96050913bc3f42cad790` |
+|  `4.1` `latest` `4.1.4` `4`                 | March 1st     | `sha256:17f7f1155e3bac4459cdda8cfc7a31961f05417dec6e4f5a61da53f48b6197e3` |
 |  `4.1.3-dev`                                | February 13th | `sha256:1c5fcc9ce01218e9627245c09e2f99d5d570b47d00c3e8df1ae2d5a96c99dbc8` |
 |  `4.1.3`                                    | February 10th | `sha256:1614767a816d74b933dfcb12a443eeb44855bb2d4d8c53bc2a41c744db5eb908` |
 

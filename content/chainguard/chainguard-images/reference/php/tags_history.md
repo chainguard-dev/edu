@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the php Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,12 +26,12 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)           | Last Changed  | Digest                                                                    |
-|-------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev`     | February 27th | `sha256:792299ad875ac02068812ef5a64e88f4282fd9b879da3b314052573b57b6245c` |
-|  `latest`         | February 27th | `sha256:06191b85c94addff3b93d6c2e05c790a94a8245e371e657c9abe372d4b2b0689` |
-|  `latest-fpm-dev` | February 27th | `sha256:d1aa7b3191e4f2c8b47bdd4f4e2ec59a2a1bb4c707aeab0c42d5a83c6aab0689` |
-|  `latest-fpm`     | February 27th | `sha256:b4e3dfc4596acac9aa738ecc1ad5af6cdddd42816c1b31610d3b256444fe9bd1` |
+| Tag (s)           | Last Changed | Digest                                                                    |
+|-------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev`     | March 1st    | `sha256:978fc84cf048654ba415856797e436784a846d46942f8bb3399adb35a51a61cd` |
+|  `latest-fpm`     | March 1st    | `sha256:4c29a748a1a2db9fc04778da7633897d1bc342215e3dc26e7361ca7a46410c6e` |
+|  `latest`         | March 1st    | `sha256:4cabd85819d4fc3ae4f9fb6e0c67b570156915ee197c4cd614e5b0dc4dda90cd` |
+|  `latest-fpm-dev` | March 1st    | `sha256:3b09b59c530914b054d6e296e6a43cb2d51694c32b1aac92ec5e0a2a2c283705` |
 
 
 ### Private/Dedicated Registry
@@ -39,12 +39,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed  | Digest                                                                    |
 |----------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `8.2.16-r0-fpm` `8-fpm` `8.2.16-fpm` `latest-fpm` `8.2-fpm`                     | February 26th | `sha256:b76306a6da9ce8fd2ba5a76d75bd8b83b48dd2d3237162bb1cfd1895db76fe58` |
-|  `latest-fpm-dev` `8-fpm-dev` `8.2.16-r0-fpm-dev` `8.2-fpm-dev` `8.2.16-fpm-dev` | February 26th | `sha256:7444682854f8b1e1092b2dc4c1589ecb35826cef0222da3ef36b1a900add066a` |
-|  `8.2` `8` `latest` `8.2.16`                                                     | February 26th | `sha256:a0db6cf4759d97cc60ecef3e04b5929ff700cc88b54b1e36ca8b27414e166ccd` |
-|  `8-dev` `latest-dev` `8.2-dev` `8.2.16-dev`                                     | February 26th | `sha256:14136b68083404a95aca60287136aee9683810a8ef7c86aa478803d8b3c7abdc` |
+|  `8.2` `latest` `8.2.16` `8`                                                     | March 2nd     | `sha256:f23c568711ebd95e2f3317da4dd6813fd2d898d66b3062947759410ee77e276b` |
+|  `latest-dev` `8-dev` `8.2.16-dev` `8.2-dev`                                     | March 2nd     | `sha256:b403988f22a5b55fb3ba19a2fc3d69ad279311ca4101f37684a186bcb7bf05dd` |
+|  `8.2-fpm` `8.2.16-fpm` `latest-fpm` `8.2.16-r0-fpm` `8-fpm`                     | March 2nd     | `sha256:610e014ac497a3d8a7ad34da62165ff9992e3811e3e744e38a1af51771bc24f0` |
+|  `8.2-fpm-dev` `latest-fpm-dev` `8.2.16-r0-fpm-dev` `8-fpm-dev` `8.2.16-fpm-dev` | March 2nd     | `sha256:27b1d34e2dba5c63a3b72604d21b89bfa93e753de0356aedd9e8316e41293a1f` |
 |  `8.2.15-r0-fpm-dev` `8.2.15-fpm-dev`                                            | February 10th | `sha256:aaab9525db8eb05069f27cd5eb86c7e2608aef96a53e2a3c2b5e6be0392fa9fb` |
 |  `8.2.15-dev`                                                                    | February 10th | `sha256:c0df0ce9b46035b96b3b2049c2fbfd347bb74785ee53019b6f3a34626e6f9668` |
-|  `8.2.15-r0-fpm` `8.2.15-fpm`                                                    | February 5th  | `sha256:904350a8edf8b7700bafbe668863d6d548f9f4562047eb5b829cbfcb541918e8` |
-|  `8.2.15`                                                                        | February 5th  | `sha256:35f590ff1730ff405d28c32747b9d26fbb7d8398ad8c34c2d2aeb9cfab629c7d` |
 

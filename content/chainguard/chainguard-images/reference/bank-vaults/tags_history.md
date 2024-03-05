@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bank-vaults Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 27th | `sha256:a9eb9dd9309bd123dc77b8f97462442173795fba4a246f94c3a20035cfb7fb66` |
+|  `latest-dev` | March 1st     | `sha256:397a785ec56ddaf7c3c19d092b85cb56e91e36eddfb8ff712061a9ed6cdccd52` |
 |  `latest`     | February 27th | `sha256:714c04b105fb988a66a60e72d2105526b6048f67b88f8f13d1d056ce0b1d9452` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 27th | `sha256:03492318aa9c16a6823ac5f0cf9ef91027f8a706a438051e682a3c58f159b59f` |
-|  `latest-dev` | February 27th | `sha256:3576d1c68163ee824cfedc780d6e6b74e58da4c4437056a6d77a540b513cc5e0` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.20.4-dev` `latest-dev` `1-dev` `1.20-dev` | March 2nd    | `sha256:20cf0a063529fc47468a69e0c7d530f6f7be7f0f76f275c0c81769a9513323f9` |
+|  `1` `1.20.4` `1.20` `latest`                 | March 1st    | `sha256:03492318aa9c16a6823ac5f0cf9ef91027f8a706a438051e682a3c58f159b59f` |
 

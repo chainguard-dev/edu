@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the erlang Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 27th | `sha256:318194bba617803cf42fa4960026265e7e5b263c04a072cae76dedb13f69cdd3` |
+|  `latest-dev` | March 1st     | `sha256:4095dd7a40d659bea572e17be85a6dca797e0cb5739b11577ecb2c3abcbe329a` |
 |  `latest`     | February 27th | `sha256:8fce24297840efedac3d88b6e77ec92eccb4571283a7ab52754ccfeb84928c25` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 26th | `sha256:eccabc1d1a8dc9a4d2e5730460decbaf7ee1dcc6e093e315a33856381f345f65` |
-|  `latest`     | February 26th | `sha256:72395cce458566571a35f083b3f5c020b4a2298e844d79b448e1ee529e2e006f` |
+| Tag (s)                                        | Last Changed  | Digest                                                                    |
+|------------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` `26.2.2-dev` `26-dev` `26.2-dev` | March 2nd     | `sha256:cb7ffca4514aa24cdc9dbf1a0b6c23e3f4ace0964bce26f736d0b6085747e930` |
+|  `26` `26.2.2` `26.2` `latest`                 | February 29th | `sha256:72395cce458566571a35f083b3f5c020b4a2298e844d79b448e1ee529e2e006f` |
 

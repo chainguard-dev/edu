@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for vela-cli Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for vela-cli Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                               |
-|------------------------------|------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest                                                                             |
-| `cgr.dev/chainguard-private` | 1, 1.8, 1.8.1, 1.8.2, 1.9, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.9.5, 1.9.6, latest |
+| Registry                     | Tags                                                                                      |
+|------------------------------|-------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest                                                                                    |
+| `cgr.dev/chainguard-private` | 1, 1.8, 1.8.1, 1.8.2, 1.9, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.9.5, 1.9.6, 1.9.9, latest |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for powershell Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for powershell Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                       |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev, latest-root, root-latest                                                                                                                                                                               |
-| `cgr.dev/chainguard-private` | 7, 7.3, 7.3.4, 7.3.5, 7.3.6, 7.3.7, 7.3.8, 7.3.9, 7.4, 7.4.0, latest, latest-dev, latest-root, root-7, root-7.3, root-7.3.4, root-7.3.5, root-7.3.6, root-7.3.7, root-7.3.8, root-7.3.9, root-7.4, root-7.4.0, root-latest |
+| Registry                     | Tags                                                                                                                                                                                                                                                         |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev, latest-root, root-latest                                                                                                                                                                                                                 |
+| `cgr.dev/chainguard-private` | 7, 7-dev, 7.3, 7.3.4, 7.3.5, 7.3.6, 7.3.7, 7.3.8, 7.3.9, 7.4, 7.4-dev, 7.4.0, 7.4.1, 7.4.1-dev, latest, latest-dev, latest-root, root-7, root-7.3, root-7.3.4, root-7.3.5, root-7.3.6, root-7.3.7, root-7.3.8, root-7.3.9, root-7.4, root-7.4.0, root-latest |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

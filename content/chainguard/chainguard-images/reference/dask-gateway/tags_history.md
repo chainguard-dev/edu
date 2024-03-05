@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dask-gateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 27th | `sha256:f53c7103b9d41ff104140d859b05b343653c73610b0aa13eaf69ed299e2b0456` |
-|  `latest-dev` | February 27th | `sha256:2972a371a83bcf73f1638c833fda9b78f1a611b8effb4ddded89c382a298c095` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 1st    | `sha256:e05a1942d0705c47ec03da8aa54b367f484e742c41b2b50c64e4bae41b576fdb` |
+|  `latest`     | March 1st    | `sha256:81eb873b15c3eca028be34568bea0192a03606f8d02c877992d0d8154fa40c47` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                              | Last Changed  | Digest                                                                    |
-|------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2024.1.0-dev` `2024.1-dev` `2024-dev` `latest-dev` | February 26th | `sha256:41de9d13dc7f17bad0da82f6f3c330c5ebd84101a9cf57a59bf6a87bdbe912a3` |
-|  `2024.1.0` `2024` `latest` `2024.1`                 | February 26th | `sha256:00e7bf0c6ab497da2ee5d8ef8adfa3f418c69e68bf2604da4e7ed2c1dcf8ad78` |
+| Tag (s)                                              | Last Changed | Digest                                                                    |
+|------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2024.1-dev` `latest-dev` `2024.1.0-dev` `2024-dev` | March 2nd    | `sha256:e576910a342177370359abb525419e74cc5610c14466b620bb83df473ea1fc49` |
+|  `2024` `latest` `2024.1` `2024.1.0`                 | March 1st    | `sha256:fe67b73b38f0a7b9095d2750f11ff7c9822ac0e7ad53d2168872286672ff92a7` |
 

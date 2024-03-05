@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-image-automation-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,10 +28,9 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                                                             | Last Changed  | Digest                                                                    |
 |---------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev`                                                       | February 27th | `sha256:b085d7f37fabd6a19bc539cdb37c3d7492051029bcfd2bf57e510b4cb268b8a5` |
+|  `latest-dev`                                                       | March 1st     | `sha256:6bbbd622ff09cac31f8a164eee101083427c8217b208a073254783fe5a215568` |
 |  `latest`                                                           | February 27th | `sha256:52f4dcdb41e1a0930cb4a22b262d01c9bd83d731478e8ad96055307e3c0b81b2` |
 |  `v0.37.1-dev` `v0.37-dev` `0.37-dev` `0.37.1-dev` `v0-dev` `0-dev` | February 23rd | `sha256:87547a108455bacc49d07398d02bf2de70f4cca990a955c5b592b3a3623ae97e` |
-|  `v0.37.1` `0.37` `0` `v0.37` `0.37.1` `v0`                         | February 1st  | `sha256:237cce25e7be9dd1ee954200ec5778eca44b69c5b43612d834f5016f9598cd54` |
 
 
 ### Private/Dedicated Registry
@@ -40,5 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 | Tag (s)                                                                          | Last Changed  | Digest                                                                    |
 |----------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
 |  `v0.37.1-dev` `0-dev` `v0.37-dev` `0.37.1-dev` `v0-dev` `0.37-dev` `latest-dev` | February 21st | `sha256:0afb850f9cf1205ae5ecf436a5e8c4a211dfed68da872ae38f0cd50cecc10d43` |
-|  `v0` `v0.37` `latest` `0.37` `v0.37.1` `0.37.1` `0`                             | February 1st  | `sha256:8eca6da1f871f034a6124067d18d8f11ed5bca744a99685b09ec38fed7b7bbfa` |
 

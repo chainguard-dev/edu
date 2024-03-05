@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-logging-operator-fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 27th | `sha256:bb89dd60104842ef37443b31c09494fa86a1d40516b6676b404faa79c4763573` |
-|  `latest`     | February 27th | `sha256:9e7125968475869553957752c69d3b0fa2774e32da9c6b637593280f51c2e05c` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | March 5th    | `sha256:403ea4cadcfe7692a5262aa04a99eab81197ad6a1617b188966c3d03ff645151` |
+|  `latest-dev` | March 5th    | `sha256:02141f101770608c4b1709c36be5413d6a10b76a33ca252d357f88ef9e8ed612` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 26th | `sha256:75aa5f97a452842e1f13ab1f77aba3cc974e9b742f7a5e83d3c8f3c2e801026e` |
-|  `latest`     | February 26th | `sha256:564de4c4ca64fe2f78df0852e33c1f51c702fd38c926b2e4d23cb934f2e51589` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 5th    | `sha256:c05fc62d6b2b0fb4f67735f0dcd849baba422b5a58b71c63fd98073f0656a963` |
+|  `latest`     | March 5th    | `sha256:5d4c2915ebf4bc1371b8cfd5d45496a56d4eb0a62200e4e4225b1118740d5ddf` |
 
