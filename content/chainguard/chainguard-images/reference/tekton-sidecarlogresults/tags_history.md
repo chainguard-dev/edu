@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-sidecarlogresults Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 27th | `sha256:76b63952b4fee55265bd8fa99c1e5919f8aaa3d8ff137b9fc770ab5f0d698c2e` |
+|  `latest-dev` | March 1st     | `sha256:a014b3f8deda8b2dc5c664a8dc2a64da9083d6b8c7829d070e3431283a32d621` |
 |  `latest`     | February 27th | `sha256:20676c2c5f61513d028ce55c963eeea83ea5e8d9649e955de95d2e072300206f` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 26th | `sha256:37ea979f571fdf1257d4971c5aeca171474c52b0289041c5e26a7e04d9c1fde2` |
-|  `latest-dev` | February 26th | `sha256:cf7727c0f6eee1a4582b5a23f3aefaa3d1170489bdd5cbd4a284cf281d1fd62d` |
+| Tag (s)                                       | Last Changed  | Digest                                                                    |
+|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` `0-dev` `0.56-dev` `0.56.0-dev` | March 2nd     | `sha256:7d333985fb58c646deb4713253bdd46acdecf7fc689721595cf79e57f879f5b3` |
+|  `0` `0.56` `0.56.0` `latest`                 | February 29th | `sha256:37ea979f571fdf1257d4971c5aeca171474c52b0289041c5e26a7e04d9c1fde2` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-cainjector-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.14-dev` `latest-dev` `1.14.3-dev` `1-dev` | February 26th | `sha256:ca26a30277f26c54244d6242149fb43056d803f045b458c341b24b245d6c87ba` |
-|  `1.13-dev` `1.13.4-dev`                      | February 26th | `sha256:5952bef6e5efcfeec7701b4ba001cf9adac0bb219bb03f377c5597273bcd25f4` |
+|  `1.13-dev` `1.13.4-dev`                      | March 2nd     | `sha256:f6bcea999ce2393b53c61bfcb5c58ea515556fcff4b80247eb7e2fb792eda4ec` |
+|  `latest-dev` `1-dev` `1.14-dev` `1.14.3-dev` | March 2nd     | `sha256:2ade5aa0b2c4c9dc579c4b65278db89e428a1d97f94b63a8056919d7dcb281ed` |
 |  `1` `1.14.3` `latest` `1.14`                 | February 26th | `sha256:f631ae008c85d104fc3082250a313971ef795a7a8dbec53f21d93795030acc27` |
 |  `1.13` `1.13.4`                              | February 26th | `sha256:d1f0deff99d8f7f493259ca46ee573f8b917dfb6f6f376e9473b53e10b32ec3e` |
 |  `1.14.2-dev`                                 | February 22nd | `sha256:bac4e2e88f014c8c57388253ff3c2bd8649cc2f2187a58f61edf377cb4ec0611` |
@@ -42,5 +42,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.13.3`                                     | February 21st | `sha256:0ca34185dd10e63146a8f0df25518d401e32f07abfe2430847891a2ae5d32529` |
 |  `1.14.2`                                     | February 17th | `sha256:f3675dac404f2bf7e3410fad9c0a8b5dc52183db0cbb8f70e746a55a409b23b7` |
 |  `1.12.7-dev` `1.12-dev`                      | February 17th | `sha256:c9da82c4f3d91c06efba85ede964c586399d1b9569aec215b264c5109c48e6cb` |
-|  `1.12` `1.12.7`                              | February 5th  | `sha256:2e8a3b3550f55c638d438f53e25114c0f9d0b0777f78d2632b4c13cba2ef28d0` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 1st     | `sha256:82bdf5c63818bb3565dc506bf15eea947efec59af816fbdce5fe688d65312b6e` |
 |  `latest`     | February 27th | `sha256:5bce02b9ded9ccea8f708cdc316209270ba6ea230cd2d484dfb232f19cd5387c` |
-|  `latest-dev` | February 27th | `sha256:50ac90a7c85127d7643c993811ab8097e8819f4b77ff54b59062af447e1a1887` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 26th | `sha256:6c2335251094a75e0281fd1d046b7313842cdfb74828210f12444c16941d1524` |
-|  `latest-dev` | February 26th | `sha256:b761fbab6fc226e53f00ee393a041fd383ac76183fa78d9477dc1464f12944ab` |
+| Tag (s)                                     | Last Changed  | Digest                                                                    |
+|---------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `1-dev` `1.5-dev` `latest-dev` `1.5.0-dev` | March 2nd     | `sha256:58ef98f8bd2450eb6c426a83382d14c999ebc38f64792ea724eac6be8147ccaa` |
+|  `1.5.0` `1` `1.5` `latest`                 | February 29th | `sha256:6c2335251094a75e0281fd1d046b7313842cdfb74828210f12444c16941d1524` |
 

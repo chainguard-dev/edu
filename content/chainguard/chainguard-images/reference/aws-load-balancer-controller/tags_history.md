@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-load-balancer-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 27th | `sha256:c62d3be6ad068488cd7209c6f92516d7368c1be5a9d074bf364a5f16be4db1d7` |
+|  `latest-dev` | March 1st     | `sha256:05a798433e7d9506b7beeb49a02022cc33dfdede0806534141de746b5103fb4b` |
 |  `latest`     | February 27th | `sha256:15341eaf9d4a587e89d37f0d295a2cbd32c5d2537fe1607dca1fc25be02de147` |
 
 
@@ -37,8 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `2.7-dev` `2.7.1-dev` `latest-dev` `2-dev` | March 2nd     | `sha256:fa76b776e2cba3e2799c9bc9f45095f282b5ea062df296a21a577cb778f0038b` |
 |  `2` `2.7` `2.7.1` `latest`                 | February 26th | `sha256:b602ed4acbb47efa50eb86089679a9f5a99f08281b1b78152a57e806fb154f87` |
-|  `latest-dev` `2.7-dev` `2.7.1-dev` `2-dev` | February 26th | `sha256:3ac705a44f5a4c3a447dd0233e6c74cb6b4996de18e98f12b8f17c9b55492782` |
 |  `2.7.0-dev`                                | February 8th  | `sha256:2eaee3762ebceb0573e069e94532ed6295c49abfade16f9a30c6a3d935d858a0` |
-|  `2.7.0`                                    | February 5th  | `sha256:ca1963c7956b34a2ff3daf8fb8b0f279252cb3f0dfe090bdab99e093f0cb7cef` |
 

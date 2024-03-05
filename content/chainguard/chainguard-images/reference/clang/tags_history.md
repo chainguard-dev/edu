@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the clang Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 1st     | `sha256:9f76069a0ab984364f5d52428f9acb3b113746f2bfec45efa56dd2cafb93bac8` |
 |  `latest`     | February 27th | `sha256:dcd4c80174bddeffe472dae09518f51534fd14f15a54789991ea79eb85c75f1f` |
-|  `latest-dev` | February 27th | `sha256:a59397a1c77e17a72a60ce8e90518c46c045e5397d1ee3998bc748e4c21ca536` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 28th | `sha256:fea0175174a2bf716f6a73596c58b9df28063f238e50f6519eff26d558806022` |
-|  `latest-dev` | February 28th | `sha256:578e694fba02a8789ed5896258f1894da96a67e7630f9dd5cd27271345f335f6` |
+| Tag (s)                                        | Last Changed | Digest                                                                    |
+|------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `15.0-dev` `15-dev` `latest-dev` `15.0.7-dev` | March 2nd    | `sha256:48f9b223e605c38813f81cae0e042c90d657423e0074654e778c19757a366da9` |
+|  `15.0` `15.0.7` `15` `latest`                 | March 1st    | `sha256:fea0175174a2bf716f6a73596c58b9df28063f238e50f6519eff26d558806022` |
 

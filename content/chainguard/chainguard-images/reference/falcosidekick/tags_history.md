@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falcosidekick Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 27th | `sha256:77f495768ec6b61ccf6cf3b322d3f6466c0d790a6c189d758bc54bfc04be725c` |
+|  `latest-dev` | March 1st     | `sha256:f1bb6dc5c4f0939d84fcafbbf4417afafa0f4f70ecb361042c26bf027768b907` |
 |  `latest`     | February 27th | `sha256:09ceab2027646e5938f93a885854a1a564b6f83dc5ffaeae12e6f6c923fb56ca` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.28-dev` `2.28.0-dev` `latest-dev` | February 26th | `sha256:bf561f02ec82313f62d45ab6044f0f83abb934e028d83ad47e8a70c4cd57db5b` |
+|  `2.28-dev` `2.28.0-dev` `2-dev` `latest-dev` | March 2nd     | `sha256:74e3654d12d5827baeb7132ed047b12373412d188b4dbad7393a5fc10ebfabcc` |
 |  `2` `2.28.0` `latest` `2.28`                 | February 26th | `sha256:786b28da1d802da6e4c1ab27402b6009dc6298b058cf360518519fd973fbd321` |
 

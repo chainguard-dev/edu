@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the external-secrets-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed  | Digest                                                                    |
 |----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.9.13-dev` `0.9-dev` | February 27th | `sha256:0148bce84a3065f23368798b9277bb25cadc201f6c3f7a4b4094e6f8ff1fc7bb` |
+|  `latest-dev` `0-dev` `0.9-dev` `0.9.13-dev` | March 2nd     | `sha256:216bf894e553a3fd36033bd6833bf841c2cfe6985193f94e0c7edf69b83d9333` |
 |  `latest` `0` `0.9.13` `0.9`                 | February 27th | `sha256:b076cabe70f3247fdaa3a824ad638eb27f8e1f988ba5254076247b48171de5f2` |
 |  `0.9.12-dev`                                | February 17th | `sha256:262a10dd4e21c7584dc4af3944542dc55726756ceefb6ca4c70fe2281d05a5e7` |
 |  `0.9.12`                                    | February 8th  | `sha256:270678532ae1abb6f9ac160d0826d46702aa355804e0b2ebc747bd645399b726` |
 |  `0.9.11-dev`                                | February 6th  | `sha256:92bae217c70429168ac32576861203a8ed2b48e02f7d4401bf1193102f4e14de` |
-|  `0.9.11`                                    | February 5th  | `sha256:21ad2f7a8db6f6d1b6d162274351f6f30518e6d9fb5c57b5ef16726cb8887b89` |
 

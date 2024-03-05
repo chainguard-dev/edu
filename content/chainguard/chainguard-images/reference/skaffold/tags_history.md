@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the skaffold Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 27th | `sha256:da41d403353dd3762a1d581ec712809cd350632f1b794d0a9ad4e3f89ff819fc` |
-|  `latest-dev` | February 27th | `sha256:f7750da0f9aa03dddb58a8bc79ca7a61b3e5d862f6e147864802efd17a71e159` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 1st    | `sha256:f8ed7c73c32450f03e6951f00889579616c73a32dd3ff06f7216f702455dd55a` |
+|  `latest`     | March 1st    | `sha256:cb7b1490d0e10d260d209a13d8864b4a82c8151f1851ec2509b449d93c02e419` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 29th | `sha256:088cab5dbdc3fbe735788fbfcd725b045c90b3eed4d9788b7c7eedd2084fef90` |
-|  `latest-dev` | February 29th | `sha256:17553aa7f515e2ed2fe7e7ecea8d8ce6b5087e029663fb10c68d4c87d1425d94` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.10-dev` `2.10.1-dev` `latest-dev` `2-dev` | March 2nd    | `sha256:413f1f8408cf8dee00b78b0c6c47400de2f5a97ebee1f049d69ff975baf4ff86` |
+|  `latest` `2` `2.10.1` `2.10`                 | March 1st    | `sha256:2716ac9cae3baf2f06b1344010c77da477cb54a111b7034151d9b79652edfb0b` |
 

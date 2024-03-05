@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitlab-shell Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 27th | `sha256:cc105e37cafd6fd246429f4b38105386578eebce8f9e63f84ee2f689a6c93f0a` |
-|  `latest`     | February 27th | `sha256:265ade6ea6ddfe314f53ce4d7e6b56d3b863e2f32cf2123c9d96fe9345c31741` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | March 1st    | `sha256:25f158d56bf6011339f0cb3daccc43a5221845bc0b5b371b880080712db4a077` |
+|  `latest-dev` | March 1st    | `sha256:068f19a9c6c19b44300f4b1526ce2dc655eb033f1b5c70591400da7002c17cf1` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 29th | `sha256:b0c8ee700ddadf66320a78e032094a77a3fb94441056bbff666003895464644a` |
-|  `latest`     | February 29th | `sha256:37650be92295eba87064499890d244ef444a41ab9ef35ca81cd8fbfb8d3234aa` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 2nd    | `sha256:ac12d89a5f30a9a4d613edb30832b3c5cc30f72c37ff395fc5f4c7bb821d799e` |
+|  `latest`     | March 2nd    | `sha256:8618775dabcb4160447f2bc97247faeb2e0809d5905ef44a6a73a291c797d7f7` |
 

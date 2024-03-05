@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the pgbouncer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 27th | `sha256:3de82686238e0fecd52ed050965e0669820c231f479736459e86c5d7d7c23060` |
+|  `latest-dev` | March 1st     | `sha256:c623adae040dcef0922dda1b27cd07f657d4cb7847ef809df200e8b91c30f814` |
 |  `latest`     | February 27th | `sha256:9924739ace0a7d6483b6c6e17971028d1fdabdef71f28644a1b5eebcd08ab37a` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 26th | `sha256:2dec39155703b74895af0efffcebab7d188d3a9ee63bb5a648e90fa3422bac42` |
-|  `latest`     | February 26th | `sha256:3517e69c4991d24d3dfb00c1ec9c74d368efac30279bfba254ebc71e0d53b1c7` |
+| Tag (s)                                       | Last Changed  | Digest                                                                    |
+|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` `1.21.0-dev` `1-dev` `1.21-dev` | March 2nd     | `sha256:e87b494b407a9e26f15d24da3c980c34850f5a0cf7a51ee5374423257d26854a` |
+|  `1.21.0` `1` `1.21` `latest`                 | February 29th | `sha256:3517e69c4991d24d3dfb00c1ec9c74d368efac30279bfba254ebc71e0d53b1c7` |
 

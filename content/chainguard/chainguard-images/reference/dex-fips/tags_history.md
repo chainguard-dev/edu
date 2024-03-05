@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dex-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,8 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest`     | February 26th | `sha256:cee6fe269da22271c0e3d5d4349c2090e482752863854472d8c91501e964d4dd` |
-|  `latest-dev` | February 26th | `sha256:f587f98a39329b00bb0213970e1920f18358f64ddc6350ff0536238a51b64eb1` |
+| Tag (s)                                       | Last Changed  | Digest                                                                    |
+|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `2.38-dev` `2-dev` `2.38.0-dev` `latest-dev` | March 2nd     | `sha256:cfa16f0daee18f27304801efa1301101b7dfc29991b9fae32fb9ffb5384d1d79` |
+|  `2.38.0` `2` `2.38` `latest`                 | February 29th | `sha256:cee6fe269da22271c0e3d5d4349c2090e482752863854472d8c91501e964d4dd` |
 

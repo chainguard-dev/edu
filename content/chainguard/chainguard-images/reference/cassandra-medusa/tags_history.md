@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-medusa Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 27th | `sha256:b5d2a6881f2876aee6a0f6563533e9003cfef2e6edef8ff80af5e1798c9cd8a4` |
+|  `latest-dev` | March 1st     | `sha256:94776fbaabe34e315c979530ed95f552320a8f8aa11b19f7c75aba13ed2b75c9` |
 |  `latest`     | February 27th | `sha256:ce1b1931ec9e92ee74dde38cc2df94aa831495cf3ed625a2cd64f479b17b48b5` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.19-dev` `0-dev` `0.19.1-dev` `latest-dev` | February 26th | `sha256:cadccc2f01aaab1f9173c5c406245e3b04bd48c13d73b84b600e6c952e14d9b4` |
+|  `0-dev` `0.19.1-dev` `latest-dev` `0.19-dev` | March 2nd     | `sha256:919c5c05c61709f31c2a0fb1fcdcc03b99055936a024573447affc897119d011` |
 |  `latest` `0.19.1` `0.19` `0`                 | February 26th | `sha256:baa772e0152b9f5ca41d33eb4bd2ab28343222bfffc8cc250ee2696753654d4d` |
 |  `0.19.0-dev`                                 | February 23rd | `sha256:d877cd3c4ca7f40a4dfb9bf7a06a9951b36177b78142f380dddc95fa7d8e8d25` |
 |  `0.19.0`                                     | February 22nd | `sha256:9b2ec70b8b8f98dc699e0407d1dc49019984dab722e27a426fa8021cf4849618` |

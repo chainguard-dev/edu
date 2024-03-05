@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-problem-detector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed  | Digest                                                                    |
 |---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 28th | `sha256:a04c060816ba2ebd244b75a92384a13419577c73a2092d1a7c9a42e49fd4bbe6` |
+|  `latest-dev` | March 1st     | `sha256:c7b9d864ebca68a1718a515b8e304f7d4b2978b653aaf104a2d9a7078434dcaa` |
 |  `latest`     | February 28th | `sha256:1b65a93564e50ae471e7ecfeb0eecf829701aa850f565c2ebf0b634ae3e5aff7` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed  | Digest                                                                    |
 |----------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `0.8.16-dev` `latest-dev` `0.8-dev` `0-dev` | March 2nd     | `sha256:bc40e22dc1321db3998476a40e5e5bcc14e305eed12dfd88e35715f13c43e92b` |
 |  `0.8` `0.8.16` `0` `latest`                 | February 28th | `sha256:7d02dca25e4ea9c914b27483cfe04f0ea2b397f53c2c659f286f57f9983ac0d4` |
-|  `0-dev` `0.8.16-dev` `0.8-dev` `latest-dev` | February 28th | `sha256:bb0089ebc935dfe5ba592202485588d023b097688c7514c62a5cf2e3f9f81469` |
 |  `0.8.15-dev`                                | February 26th | `sha256:5612acdf0f330634336a819f8eff76cbd4d1516ccb40c3f3126c09bafa10b722` |
 |  `0.8.15`                                    | February 26th | `sha256:6ef43425169b1dc833f42adfacc6d0fe6beed2a36986fc62186ba20e7312b2ba` |
 

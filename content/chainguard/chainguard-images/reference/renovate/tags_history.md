@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the renovate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                            | Last Changed  | Digest                                                                    |
 |----------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `37.214.5-dev` `37-dev` `latest-dev` `37.214-dev` | February 27th | `sha256:b1a189dc8ae184de5545bf0ea81e7ad786253065fe85fe285e2b47e2362d48d4` |
-|  `37.214` `37.214.5` `37` `latest`                 | February 27th | `sha256:f3c2a92682bf49f67d0f58821f9799db5305605f5b201cecc6e9f2055b112348` |
+|  `latest` `37` `37.221` `37.221.1`                 | March 4th     | `sha256:df201d173264ab4dd09c855c83cba793c2357dda533bfa1fc9e9f1094e5a7e20` |
+|  `latest-dev` `37-dev` `37.221-dev` `37.221.1-dev` | March 4th     | `sha256:f988c5ad7eca5c2a64f641d437b163fbe481b13d890f8f2a5d27601b4993c7d8` |
+|  `37.221.0-dev`                                    | March 1st     | `sha256:2243b862e6c7631335cc78f9143733386cc39d73473afd975ea2f4e5f07a4736` |
+|  `37.221.0`                                        | March 1st     | `sha256:a3954901b252fe51dfff7b19bc46fd44f14813830853bb3c39378539e465ea97` |
+|  `37.214.5-dev` `37.214-dev`                       | February 27th | `sha256:b1a189dc8ae184de5545bf0ea81e7ad786253065fe85fe285e2b47e2362d48d4` |
+|  `37.214` `37.214.5`                               | February 27th | `sha256:f3c2a92682bf49f67d0f58821f9799db5305605f5b201cecc6e9f2055b112348` |
 |  `37.214.1-dev`                                    | February 27th | `sha256:ffdbfbb85d1712933d64a7c2395187dd212e509ed7e9c6f5893a0a0e598b85ec` |
 |  `37.214.1`                                        | February 27th | `sha256:f0759c642ef7ab0f83e60e5ff78f701b5c0ee8a024627fa7a899dd196f8389d2` |
 |  `37.214.0`                                        | February 26th | `sha256:7f173a97cc15f5027db4bcd50c810c78ab286fb6ed676d092dcf26f7e1884b07` |
@@ -86,10 +90,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `37.174.5` `37.174.5-dev`                         | February 7th  | `sha256:485fec0e41e5adbfc76cf08cb509970aec5042890734cae67c5a5e48899ab190` |
 |  `37.174.0-dev` `37.174.0`                         | February 6th  | `sha256:b9a711fb3281042624a061bf2d97ec3f684236508b0768184a63cc2bfed9c822` |
 |  `37.172.4-dev` `37.172` `37.172-dev` `37.172.4`   | February 5th  | `sha256:53bad30ec5bb2c317ccd7779f70fb3d2fe1d94aaec3c6f1237c40319e2f4fea4` |
-|  `37.168` `37.168.4` `37.168.4-dev` `37.168-dev`   | February 4th  | `sha256:7531d5f965c15652a4a4f1b660dd37677d6a290d8f87615f6d1c0a9d4ae5bd84` |
-|  `37.168.3-dev` `37.168.3`                         | February 3rd  | `sha256:08198841edd84072481149bab9443fc428be94191852204847a7290fcb4abbed` |
-|  `37.165.7` `37.165.7-dev` `37.165` `37.165-dev`   | February 2nd  | `sha256:f1877a3ec3661fbb6cbdb077abb87ccf81c55eac81e2b228e0357c36b9f605cb` |
-|  `37.165.5` `37.165.5-dev`                         | February 2nd  | `sha256:7e23450aec2b23a7c33a038174ca5e50ae6bb061c3fea89d103176131acaf3bd` |
-|  `37.165.3-dev` `37.165.3`                         | February 2nd  | `sha256:c1d7a33690a0cacf0dc80a697256b5de29e19c42f1fb357a703984ea49a624ce` |
-|  `37.165.0-dev` `37.165.0`                         | February 1st  | `sha256:33ef8d78fdebdf382b45bec058513b83439ecb2b4d7270119c7ccc710b1d2b29` |
 

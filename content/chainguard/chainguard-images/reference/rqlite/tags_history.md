@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rqlite Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | February 28th | `sha256:308311cf30533963615e2d0e0b64b5db050e7576972131b13164af23c0c4c6a7` |
-|  `latest`     | February 28th | `sha256:1769ac9502231d352bb3440e25d7e4f85dd2cabaa1fc2db25a571c160b4d66d4` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | March 4th    | `sha256:27af726844efe633b52c8831ea112e833a1104ef0ea78b9d45f874b3865fd32e` |
+|  `latest-dev` | March 4th    | `sha256:b1b48be51532aefe9952c0de7aeaba8cc92345ef6d0eec9e9ce6b8785f2a50ca` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `8.22` `latest` `8.22.1` `8`                 | February 28th | `sha256:38c8223c4451d7bcd28fe54a2d18a4fe6cee13533c7352252c9a9387bea75cdf` |
-|  `8-dev` `8.22.1-dev` `latest-dev` `8.22-dev` | February 28th | `sha256:d0262c6f1a90c8269f02c6e581b231c6dac8ade643d67b7d29803478fa00b6f1` |
+|  `8.22` `8` `latest` `8.22.2`                 | March 3rd     | `sha256:a2489ce7a1a6923021aa5c092f6510da59fca33bbbb3cda01e5e97891efd2b16` |
+|  `8-dev` `8.22.2-dev` `8.22-dev` `latest-dev` | March 3rd     | `sha256:c7c47b9102793dbcf6543ae91f621f756879a36701adf3a4f0a3128723fcc6bf` |
+|  `8.22.1-dev`                                 | March 2nd     | `sha256:a66009cf344b5d981a45b5ae5ab89f73a705b905e1a8000bb68440542b67e9ea` |
+|  `8.22.1`                                     | February 28th | `sha256:38c8223c4451d7bcd28fe54a2d18a4fe6cee13533c7352252c9a9387bea75cdf` |
 |  `8.22.0-dev`                                 | February 27th | `sha256:8b9fd9760e3a25fa3743b27440f135c74380efce7653a24abc7e659277fdb829` |
 |  `8.22.0`                                     | February 27th | `sha256:368434630cb6c31dd0eb5d8da7646f8e313f1800526da585be308539878fb956` |
 |  `8.21` `8.21.3`                              | February 26th | `sha256:a240e1570dc3f75e6eaee54a832517a5ce7bdd100939eab93cadec0553e8bd6b` |
@@ -57,8 +59,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `8.20.0-dev`                                 | February 13th | `sha256:fc7c9425cbeaaf39ae8b90205f3d6a3793bbbffb49c5a71bab6ddf82b09e1b9e` |
 |  `8.19-dev` `8.19.0-dev`                      | February 10th | `sha256:c5e2031bae9e83f68823b98e0e07277eee5445ba2c41154c3cefabed733e1abb` |
 |  `8.19` `8.19.0`                              | February 8th  | `sha256:4fc7d061213cfd556224b932edddd978270fdacb550879557f5958229a1492b9` |
-|  `8.18.7` `8.18`                              | February 2nd  | `sha256:0acc0a7e44f203dc6f7971ef37f0a5e830114861787d3404c7f9c79dc899b39e` |
-|  `8.18.7-dev` `8.18-dev`                      | February 2nd  | `sha256:2989d9ba4390f593e5ec1d02051fcf4669793013b1fda2f944dcfe38673582c4` |
-|  `8.18.6-dev`                                 | February 1st  | `sha256:7b057012a7c611c79cc0e78d3f8d19ac2a9bd4cf7d935a19ca119b7b8cb3142d` |
-|  `8.18.6`                                     | February 1st  | `sha256:f2f806837aa74d9bcd0837fe090850c0b3bcedcb56a101e709cd57d9441ddae0` |
 

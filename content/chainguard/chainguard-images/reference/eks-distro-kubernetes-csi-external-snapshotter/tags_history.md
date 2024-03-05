@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshotter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed  | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `6.3-dev` `6.3.0-eks-1-23-33-dev` `6-eks-1-23-33-dev` `6.3.0-r0-eks-1-23-33-dev` `6-dev` `latest-dev` `6.3.0-dev` `6.3-eks-1-23-33-dev` | March 2nd     | `sha256:50a388a27f74ce0fa990edfec5ed1ca0d68c048ed53e3ee34368dc5628a2673b` |
 |  `6.3.0-eks-1-23-33` `6` `latest` `6.3.0` `6-eks-1-23-33` `6.3` `6.3-eks-1-23-33` `6.3.0-r0-eks-1-23-33`                                 | February 29th | `sha256:871bec9d2b91c0fa4cee1d55db6c15baaa549b18b078ed577651cf14da14d860` |
-|  `6.3-eks-1-23-33-dev` `6.3.0-eks-1-23-33-dev` `6.3.0-dev` `latest-dev` `6-dev` `6-eks-1-23-33-dev` `6.3-dev` `6.3.0-r0-eks-1-23-33-dev` | February 29th | `sha256:60a8d77239e545cb29795fc5625e34d09a500246173fc06d73d4de01a3026366` |
 |  `1.23.33-dev` `1.23-dev` `1-dev`                                                                                                        | February 26th | `sha256:8a5e5ee1eb27fb4ce560ccca9989f4da94cb87e902e57031d4c453dae97c4eb1` |
 |  `1.23.33` `1.23` `1`                                                                                                                    | February 26th | `sha256:bd5c7e0661c93fc4253fb9504fb5ffb83100527c5e683059e0f4ff4ddf5b819d` |
 

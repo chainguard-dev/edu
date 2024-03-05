@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kor Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-05 17:06:05
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,15 +26,18 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 27th | `sha256:f2ccb117d97367086db22ce31dcc9b704917ec0762c54f59c2dfef9b9bb48313` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | March 4th    | `sha256:59f7c373c180b5b52bdc7fb85281c762e88045b0a4b810303a843f16d36d43e8` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 26th | `sha256:75dbe0783015eada5ea1685c31c00db0f83533bd67316fc04ad1890112c03d17` |
+| Tag (s)                                     | Last Changed  | Digest                                                                    |
+|---------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `0.3` `latest` `0` `0.3.6`                 | March 4th     | `sha256:bde4eb75808d2ae640992d76e3b08b02357f94ff914c50295845f84af0bac8bc` |
+|  `0.3.6-dev` `0.3-dev` `0-dev` `latest-dev` | March 4th     | `sha256:e30b40f0ef8ac9ec51807ec7fb8e1fc5322eb5de29e989b51d63ee58859df2f2` |
+|  `0.3.5-dev`                                | March 2nd     | `sha256:774c948684a8bd97521fd7c02b336df27d54c4d5ad6282b4d8f9c11157decaf1` |
+|  `0.3.5`                                    | February 29th | `sha256:75dbe0783015eada5ea1685c31c00db0f83533bd67316fc04ad1890112c03d17` |
 
