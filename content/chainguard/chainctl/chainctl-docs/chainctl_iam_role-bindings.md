@@ -1,5 +1,5 @@
 ---
-date: 2024-03-04T18:07:47Z
+date: 2024-03-04T20:32:40Z
 title: "chainctl iam role-bindings"
 slug: chainctl_iam_role-bindings
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/
