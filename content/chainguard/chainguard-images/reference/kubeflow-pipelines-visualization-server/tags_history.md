@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-visualization-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-06 00:47:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st    | `sha256:f6d4a95a272d5d1e2a2051cabbdffb4d30786a438a93bad7ca74614d33d81369` |
-|  `latest`     | March 1st    | `sha256:82c678ce0df34ad7b66419e2551489db90cc25a33b8cfe96d395baf8ae2238b2` |
+|  `latest-dev` | March 5th    | `sha256:0cc8c45eeb8314c35655c0a0007fb8af29f310445fd9ec493171ab9d32aa7da6` |
+|  `latest`     | March 5th    | `sha256:c6580975b36cf26d1e9485eb0e41ea0e9f11f606f2e8497ae82766f3bf0f7526` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5-dev` `latest-dev` `2.0-dev` `2-dev` | March 2nd    | `sha256:1627f128111fe15b02e26be9281a0fc70c1a2ded5068d24af8255e22c344f4c1` |
-|  `latest` `2.0.5` `2` `2.0`                 | March 1st    | `sha256:74b5af6346d264cddf215bd6bff670490e4fa38cea0c479ee3ca0ca413159cdd` |
+|  `2.0` `2` `latest` `2.0.5`                 | March 5th    | `sha256:608388498e2dea06f85e35d6bb9a439e77570155b014ad0dbcd6e0f6bc1fd43f` |
+|  `2.0-dev` `2-dev` `2.0.5-dev` `latest-dev` | March 5th    | `sha256:79e0f745a0c6bd55e4acc9a7bbf24bf43b25a4195291187aa2006aa786c4b28d` |
 

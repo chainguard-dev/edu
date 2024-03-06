@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the renovate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-06 00:47:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                            | Last Changed  | Digest                                                                    |
 |----------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest` `37` `37.221` `37.221.1`                 | March 4th     | `sha256:df201d173264ab4dd09c855c83cba793c2357dda533bfa1fc9e9f1094e5a7e20` |
-|  `latest-dev` `37-dev` `37.221-dev` `37.221.1-dev` | March 4th     | `sha256:f988c5ad7eca5c2a64f641d437b163fbe481b13d890f8f2a5d27601b4993c7d8` |
+|  `37-dev` `37.221-dev` `latest-dev` `37.221.1-dev` | March 5th     | `sha256:e51f9e533c56730c1d4d787da1576e2100324cdedb1e078acf26e7f1e6ddab24` |
+|  `37.221` `37.221.1` `37` `latest`                 | March 5th     | `sha256:fe689ec575b630d6e37dae83a5935531fe4610eced926e26dd24d781d6c4238a` |
 |  `37.221.0-dev`                                    | March 1st     | `sha256:2243b862e6c7631335cc78f9143733386cc39d73473afd975ea2f4e5f07a4736` |
 |  `37.221.0`                                        | March 1st     | `sha256:a3954901b252fe51dfff7b19bc46fd44f14813830853bb3c39378539e465ea97` |
 |  `37.214.5-dev` `37.214-dev`                       | February 27th | `sha256:b1a189dc8ae184de5545bf0ea81e7ad786253065fe85fe285e2b47e2362d48d4` |
@@ -89,5 +89,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `37.174.7` `37.174-dev` `37.174.7-dev` `37.174`   | February 7th  | `sha256:a35231d712c2c46ed89c2755476e0b35479a92c9808df138d8da8a63593319df` |
 |  `37.174.5` `37.174.5-dev`                         | February 7th  | `sha256:485fec0e41e5adbfc76cf08cb509970aec5042890734cae67c5a5e48899ab190` |
 |  `37.174.0-dev` `37.174.0`                         | February 6th  | `sha256:b9a711fb3281042624a061bf2d97ec3f684236508b0768184a63cc2bfed9c822` |
-|  `37.172.4-dev` `37.172` `37.172-dev` `37.172.4`   | February 5th  | `sha256:53bad30ec5bb2c317ccd7779f70fb3d2fe1d94aaec3c6f1237c40319e2f4fea4` |
 

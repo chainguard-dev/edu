@@ -3,8 +3,8 @@ title: "doppler-kubernetes-operator Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the doppler-kubernetes-operator Chainguard Image"
-date: 2024-03-05 17:06:05
-lastmod: 2024-03-05 17:06:05
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-03-06 00:47:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,11 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 2nd    | `sha256:65380a05d213bc932328543f1dba1b2dc90dd4b2c5deb3e983b8dde0f5725cf6` |
-|  `latest`     | March 2nd    | `sha256:3954468f36c7767ed36b95229ca0a56f5e7a1f46ce607e31007135a50f3f7fb9` |
+|  `latest-dev` | March 5th    | `sha256:43f9239b3c26a6d07fa6d4abf04d60a07017cb976ac3dd175004f7cde65282cc` |
+|  `latest`     | March 5th    | `sha256:c99fe2bd5f8473a2ce50377e3631febcdb7fce91996f411194070f606260a72f` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.5.0-dev` `1-dev` `1.5-dev` `latest-dev` | March 5th    | `sha256:5829de5c512cd4199d2c8dbdae88a1bc51e5eb10a699c4c081d31180b44b049f` |
+|  `1` `1.5.0` `1.5` `latest`                 | March 5th    | `sha256:70a68f4cd8ab701d9eb7910ef94f541061111de1611f7b5e1579b6f9028b152a` |
+
