@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public node-lts Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-06 00:47:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,6 +45,7 @@ The table shows package distribution across variants.
 | `c-ares`                 | X          | X      |
 | `ca-certificates-bundle` | X          | X      |
 | `chainguard-baselayout`  | X          | X      |
+| `dumb-init`              | X          | X      |
 | `gcc`                    | X          |        |
 | `gdbm`                   | X          |        |
 | `git`                    | X          |        |

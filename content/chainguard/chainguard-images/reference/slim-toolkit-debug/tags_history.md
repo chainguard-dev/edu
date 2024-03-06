@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the slim-toolkit-debug Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-06 00:47:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 5th    | `sha256:fe49af2d5507ca1a6f099a14e073793470433694f60cfa684a77ecdbc4f20c5b` |
+|  `latest` | March 5th    | `sha256:6a09ffb833bdeabec85ffe7ed278053c10c56ffe818691bdf2f3d48e217f9c53` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 5th    | `sha256:e60ed19fc40bcd6820fe01294b08aad7ca066e09082cd0a3b8ecd3a43b249788` |
+|  `latest` | March 5th    | `sha256:0be9113481cd49781ee5bff7af91018206c7f37311604ba1180e31edd12b8298` |
 
