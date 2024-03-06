@@ -62,6 +62,14 @@ Chainguard Images are designed to be minimalist, and many of them don't come wit
 ## How often are Chainguard Images updated?
 Chainguard Images are rebuilt every night to ensure that new package versions and security updates in upstream Wolfi are quickly applied.
 
+## What packages are available in Chainguard Images?
+
+Chainguard Images only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
+
+Starting in March of 2024, Chainguard will maintain one version of each Wolfi package at a time. These will track the latest version of the upstream software in the package. Chainguard will end patch support for previous versions of packages in Wolfi. Existing packages will not be removed from Wolfi and you may continue to use them, but be aware that older packages will no longer be updated and will accrue vulnerabilities over time. The tools we use to build packages and images remain freely available and open source in Wolfi.
+
+This change ensures that Chainguard can provide the most up-to-date patches to all packages for our Images customers. Note that specific package versions can be made available in Production Images. If you have a request for a specific package version, please [contact support](https://support.chainguard.dev/hc/en-us).
+
 ## What does Chainguard do when a CVE is published, but a patch is not available from the owner of the OSS code?
 Chainguard investigates the CVE and marks relevant images as affected or not. If Chainguard can identify a patch that's unreleased, Chainguard may apply a patch before it lands upstream. In either case, when the patch lands upstream, Chainguard picks it up and rolls it out.
 
