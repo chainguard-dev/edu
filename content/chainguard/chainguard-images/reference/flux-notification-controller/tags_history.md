@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-notification-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-06 00:47:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                                                         | Last Changed  | Digest                                                                    |
 |-----------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev`                                                   | March 1st     | `sha256:7d6b0beafed16b86039220e8bb18ab96105c0d2876a65e1f7b2593dfc2f7ed4f` |
-|  `latest`                                                       | February 27th | `sha256:810658733b96750d48ca7ee8279ebb70751c9310f40ef6e8b60f7ee6adcc479f` |
+|  `latest`                                                       | March 5th     | `sha256:57bcac2fff5d402c3d0ba848f138c4c12817fe61d25bb4f11ccfee5dda54beaa` |
+|  `latest-dev`                                                   | March 5th     | `sha256:c1fb133b83e73bb87699937df8c88be83b665bdbc3f02197dc74355fe5ea5fcf` |
 |  `1-dev` `v1-dev` `1.2-dev` `v1.2-dev` `1.2.4-dev` `v1.2.4-dev` | February 23rd | `sha256:77ca5e812784d3a42a0dc527bd249d35de4ca812c4cd70766215ad277be6fefe` |
 
 
