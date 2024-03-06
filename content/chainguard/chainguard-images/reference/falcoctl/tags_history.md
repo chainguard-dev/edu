@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falcoctl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-06 00:47:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:ac949a1b54e9082a09a41503a38e10b039ad0b75a6812a81a457b4f773944bd7` |
-|  `latest`     | February 27th | `sha256:6507a0adb6a767d311e411b1c1e475e6af58d9a19d5a260caad78d48cad9136a` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 5th    | `sha256:b316356b1f1f59c9a0961f71c40d179a6a7548eeffae2705d3abe5fa9ed7279a` |
+|  `latest`     | March 5th    | `sha256:c9eaa122056f1831b97279c700033d75cd901f82828e6d2f8651ed38dca32a40` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.7-dev` `0.7.3-dev` `0-dev` | March 5th    | `sha256:8098b2209e1df9ea2edec13e080d3c74983e672e7f4262a1baf41b74f8f49570` |
-|  `0.7.3` `latest` `0` `0.7`                 | March 5th    | `sha256:dcdedddfceb67ad7d392eeff3e4cdffc4ddbb47d1cef6df79ef6252603cf78ab` |
+|  `0-dev` `0.7-dev` `latest-dev` `0.7.3-dev` | March 5th    | `sha256:b74528ced4c28bcc2c2f4ce2e33f1bc0bda8ec04a7f14018e2dedf2e50b79ddc` |
+|  `latest` `0.7.3` `0` `0.7`                 | March 5th    | `sha256:5f154de010e5b9300ea7aa5f661850b92b4de15aa3e2d8e9735b617015e8c433` |
 

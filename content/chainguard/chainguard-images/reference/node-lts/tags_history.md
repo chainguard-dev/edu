@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-06 00:47:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st    | `sha256:43e94cfbce65b1e527ae21a4e8aede869fc5fe5017c22518f0e7bcd8beeabea9` |
-|  `latest`     | March 1st    | `sha256:db24acc73656490c98ff37acccc541a6a860f630c3a4e9648cceeb24bd9b70eb` |
+|  `latest`     | March 5th    | `sha256:2cdd99e6d9e399ffee9aec5d02bd01ceb99707d5c8c08296cc4a677970d4d8a8` |
+|  `latest-dev` | March 5th    | `sha256:de52b841f08ff1cc6c634ba3ee7da22cd3801cd40c4d674d707843d30ee60154` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)       | Last Changed | Digest                                                                    |
-|---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 2nd    | `sha256:79d8adf58b1f64517c7729c66ac204fd1a6b2f35a029476c6358eefa59b35240` |
-|  `latest-dev` | March 2nd    | `sha256:0827beb2958edb24241f098ec06be1246143fa42213924b7caf39a05aa4c2d99` |
+| Tag (s)                                          | Last Changed | Digest                                                                    |
+|--------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `20-dev` `20.11-dev` `20.11.1-dev` | March 5th    | `sha256:07dde20c5b6c307abf81e74ef4ef5e68ff866fe9022977c6c2da1878f5564264` |
+|  `20.11.1` `latest` `20` `20.11`                 | March 5th    | `sha256:b984332e061eb8e0e6d41ae143e63e337caeded7f9b3caabb98378f2bdb9cb05` |
 
