@@ -5,7 +5,6 @@ New images added:
 - argo-exec-fips
 - argo-workflowcontroller-fips
 - boring-registry-fips
-- request-1303
 
 Updated Docs:
 
@@ -97,7 +96,6 @@ New images added:
 - go-ipfs
 - helm-operator
 - nemo
-- request-1303
 
 Updated Docs:
 
