@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the renovate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-06 00:47:02
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -88,5 +88,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `37.175.0-dev` `37.175-dev` `37.175` `37.175.0`   | February 7th  | `sha256:fdc7300df0d99199e3ced1bf8ceb1ae89f0315d17375c2c32abeb969310d92ed` |
 |  `37.174.7` `37.174-dev` `37.174.7-dev` `37.174`   | February 7th  | `sha256:a35231d712c2c46ed89c2755476e0b35479a92c9808df138d8da8a63593319df` |
 |  `37.174.5` `37.174.5-dev`                         | February 7th  | `sha256:485fec0e41e5adbfc76cf08cb509970aec5042890734cae67c5a5e48899ab190` |
-|  `37.174.0-dev` `37.174.0`                         | February 6th  | `sha256:b9a711fb3281042624a061bf2d97ec3f684236508b0768184a63cc2bfed9c822` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st    | `sha256:05e28c62c9d4f5c8278b49151a52d767143a26e5b1f00ab3600614984fc24d60` |
-|  `latest`     | March 1st    | `sha256:8d58df9b96155188d01cb9ba62bdeff2112747e887420af092ee2df9c0e27624` |
+|  `latest-dev` | March 6th    | `sha256:5e522027d58932615b241d257a8754b606a257c58256a16326d32326de51d957` |
+|  `latest`     | March 6th    | `sha256:b2c70b5d6b03390e6c7ab05ed2d17f696173a2d36cb10f9b386328709ece8fba` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0.0_beta5` `3.0` `3` `latest`                 | March 2nd    | `sha256:8a24c2145fc19972953d9a17aa5b1b01e486c71fdc0098a6e7428b546741ac8e` |
-|  `3.0.0_beta5-dev` `3.0-dev` `3-dev` `latest-dev` | March 2nd    | `sha256:3c110c33cad0655e4951c3e3fbfee36926f1e30eeaf07a35af4ebbba6e7adfb5` |
+|  `3` `3.0.0_beta5` `3.0` `latest`                 | March 6th    | `sha256:a57774e9c5ee8102f20579f7cb63777a60f95af154ef16d212afff4a797c547d` |
+|  `3.0.0_beta5-dev` `latest-dev` `3.0-dev` `3-dev` | March 6th    | `sha256:2aec73d549091e99b0a4083f1456cf2b49609555ada2be22a477b1e0b8559239` |
 

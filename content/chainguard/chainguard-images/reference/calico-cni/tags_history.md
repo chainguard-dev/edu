@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-cni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-06 00:47:02
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 5th    | `sha256:a7531276b6cedd5e2f54502662debe5b9cd4f5d994dacf1e1f06b4911d423cd1` |
+|  `latest` | March 6th    | `sha256:a1fe92590c789f24ed59526d7127c02bf03b64f9d690d013b35a5af5ca4e3b2b` |
 
 
 ### Private/Dedicated Registry
@@ -36,7 +36,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed  | Digest                                                                    |
 |----------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `v3.27-dev` `v3.27.2-dev` `3-dev` `v3-dev` `3.27-dev` `3.27.2-dev` `latest-dev` | March 5th     | `sha256:86c3bc4c0230f2f417698abecc94cdc30dc71ed0e190cce364fc5962b1e4f224` |
-|  `3` `latest` `3.27.2` `3.27` `v3` `v3.27` `v3.27.2`                             | March 5th     | `sha256:8208956c7cc6f0342d85f87b437e26bbbe7b7e96a45497883cfd0561e772ac33` |
+|  `3` `3.27` `v3` `latest` `3.27.2` `v3.27` `v3.27.2`                             | March 6th     | `sha256:61dba3af274607a4e98830f3d3a660cc4c7ccc8a7dec35ef087b06dd3af8e66e` |
+|  `latest-dev` `3-dev` `v3-dev` `3.27.2-dev` `v3.27-dev` `v3.27.2-dev` `3.27-dev` | March 6th     | `sha256:805d26c6fb440c72c86f87d9d048a37e7fb205ac39c1d329f14b4f0801da7341` |
 |  `3.27.0-dev` `v3.27.0-dev`                                                      | February 15th | `sha256:b4e47a430851df20e8db6e4c6b5c918b599fbf3afa4a9dbbc22c49ae2ed6e0fc` |
 

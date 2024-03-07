@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the caddy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:a2ddeac9dff9e50cad7c6ba1449059085b551f8790a7db81a987d4dae0eea819` |
-|  `latest`     | February 27th | `sha256:8258fc4636f0ef263693611b9eed8d30732378c416b595c0983f19889b2e9475` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | March 6th    | `sha256:73c1a71c7498112c1471147bfb600c118bca521f183a21b34e6f8380dca839f1` |
+|  `latest-dev` | March 6th    | `sha256:e6ed72698bb24ece0881580321b1ba632ecb793427c9eedae1a503cf5b381fd8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.7.6-dev` `2-dev` `2.7-dev` | March 2nd    | `sha256:526c2ef9441c65dba36593c9f2c523f13ac08ae5d875401eba42b9d43e9d615a` |
-|  `2.7` `2.7.6` `2` `latest`                 | March 1st    | `sha256:43330f698c388356757a0c21e98e2a754061730d089dab9f4fb5cf148f8b72dc` |
+|  `2.7.6-dev` `latest-dev` `2.7-dev` `2-dev` | March 6th    | `sha256:ca0ace9c4b36c0770e741573f8d04c2a26f850d3c5cf5f7417eafe032e8b9532` |
+|  `2.7` `2.7.6` `2` `latest`                 | March 6th    | `sha256:a68305979e6273a63385465a1c57f2285b224f00e3a06d8a5f063773c671c944` |
 

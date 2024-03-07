@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st    | `sha256:b9ed34ef1c0ceaef81a97781524411c6b343292865227fa78325dffa175f09a3` |
-|  `latest`     | March 1st    | `sha256:1ab38adeef41826ddcc47ea75988eb1ea08b6564ae1109cf902c59ec60170326` |
+|  `latest-dev` | March 6th    | `sha256:0fea36f87456f67a8f4e0ecb49067f1859d09c1ff3a7666b3682b40adfeda7e9` |
+|  `latest`     | March 6th    | `sha256:d657454a9331198680c16070e6d5a47ce3265d31190f8cded836ed9c29cb34a4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0-dev` `2-dev` `2.0.5-dev` `latest-dev` | March 2nd    | `sha256:24efcdbca3bfe830dee70f8df54a3458a3c0659f002b2de69d65e819b28934be` |
-|  `latest` `2.0.5` `2.0` `2`                 | March 1st    | `sha256:c2afdde9854eb5aa3484b52b4b62a9aa0285d33cdbfb9e1f350b390fa1cceb87` |
+|  `2.0-dev` `2-dev` `latest-dev` `2.0.5-dev` | March 6th    | `sha256:1d7d36b55295f46d6db0ed6b6f3e85ceacb4573739a38add5e04a01457983e9a` |
+|  `2.0.5` `latest` `2` `2.0`                 | March 6th    | `sha256:07281262b594d2af317c592ea09d3259c4e78cbc7a7e983822eec3b8220e8c05` |
 
