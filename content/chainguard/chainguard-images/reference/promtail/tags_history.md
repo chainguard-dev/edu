@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the promtail Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.9.5-dev` `2.9-dev` | March 2nd    | `sha256:b897eb47498b8414f420d732e2a4e5d900c5f05b38a84168b0abe12e2acd3c5e` |
-|  `2` `latest` `2.9.5` `2.9`                 | March 1st    | `sha256:67f9208db234d613c2c81e26ba08d4119bd9079b4034b5541888adcbee53ada6` |
+|  `2.9.5-dev` `2-dev` `2.9-dev` `latest-dev` | March 6th    | `sha256:0a5a0f5f12e8467304504ae4fbcdf0002c7d600fa4858d3a03449629a215d2b9` |
+|  `latest` `2.9` `2` `2.9.5`                 | March 6th    | `sha256:5c43e24384c70f69f4f05d05c4956f163a0481a57c8198427f3fab4c30bb9d50` |
 

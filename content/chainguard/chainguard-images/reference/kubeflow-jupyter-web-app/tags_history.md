@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-jupyter-web-app Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.8.0-dev` `1-dev` `1.8-dev` `latest-dev` | March 1st    | `sha256:935b41a3cf10777130bd375fd2e3b027fe6354108dad816005288c6a5344099a` |
-|  `latest` `1.8` `1` `1.8.0`                 | March 1st    | `sha256:43b604cf60e725fa376402fd73faeb27ab5c4ad7d7bdfc8fa0bc8a7d8974ca52` |
+|  `1.8` `latest` `1.8.0` `1`                 | March 6th    | `sha256:23a01fea06bdf24eff37b6fbac7c880b1812b05c79a859ddddbc86daefae7e9e` |
+|  `1.8.0-dev` `latest-dev` `1.8-dev` `1-dev` | March 6th    | `sha256:f6b6ae5bb95dc0d863f95386fee464f47d83ab167ea25bc8457ddbd5d71c2dd2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.8-dev` `latest-dev` `1.8.0-dev` `1-dev` | March 2nd    | `sha256:fa6b2bb9e164ee11505b44586f784efeacd54892f1aa56d55373b4fa21267f9c` |
-|  `1.8` `1.8.0` `1` `latest`                 | March 1st    | `sha256:5591c38ddf7af468b9e650b61ecc07935618f56fb42657c76866c888347cddeb` |
+|  `1.8-dev` `1.8.0-dev` `latest-dev` `1-dev` | March 6th    | `sha256:1fc9c0531256fdfc684b887817a074c32088154147b3c3e7e7937b3a759a8e92` |
+|  `latest` `1` `1.8.0` `1.8`                 | March 6th    | `sha256:d9890392ded88ee3b9e40515190da80c9934ce2abc32ce2de2dc57fb3b0674b8` |
 

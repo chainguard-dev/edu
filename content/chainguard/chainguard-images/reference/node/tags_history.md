@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-06 00:47:02
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,12 +37,14 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed  | Digest                                                                    |
 |------------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `21.7.0-dev` `21-dev` `latest-dev` `21.7-dev` | March 6th     | `sha256:4096ca63fb70a1f084df89f27c6b741b58a049358f9ebd8c512ed332c3a031ed` |
+|  `latest` `21.7.0` `21` `21.7`                 | March 6th     | `sha256:ea38d470d61770572489360244240f00cf2885ba25adb6e09f2326473af466ba` |
 |  `18-dev` `18.19-dev` `18.19.1-dev`            | March 5th     | `sha256:44338d38ae6f835ddeec933a12dec1742eefcacc6a69040c33582ccc57f1b22c` |
 |  `20.11.1` `20.11` `20`                        | March 5th     | `sha256:a5e9c7f712d49694362375629e6ad156de13f63024bd8e5d85caf828378a9564` |
 |  `19-dev` `19.9.0-dev` `19.9-dev`              | March 5th     | `sha256:888433db3abb1d3e2c56645dd4e1ee70cc0f9fd785129e8a6a9a20b8e05f5d14` |
-|  `21.6` `21.6.2` `21` `latest`                 | March 5th     | `sha256:5331023107db11d54f2113d031533e7812e311132bbbdb3dfc6178e7558485a2` |
-|  `latest-dev` `21.6.2-dev` `21-dev` `21.6-dev` | March 5th     | `sha256:db8c06a1483fe4a61da7c783097f5292dfc423187a15778292f0f40e2199318c` |
+|  `21.6` `21.6.2`                               | March 5th     | `sha256:5331023107db11d54f2113d031533e7812e311132bbbdb3dfc6178e7558485a2` |
 |  `16.20.2-dev` `16.20-dev` `16-dev`            | March 5th     | `sha256:a5fae0b397904d0a32fa51c5112c5331e36d2afd918e37c13c1a98417d148709` |
+|  `21.6.2-dev` `21.6-dev`                       | March 5th     | `sha256:db8c06a1483fe4a61da7c783097f5292dfc423187a15778292f0f40e2199318c` |
 |  `19` `19.9` `19.9.0`                          | March 5th     | `sha256:f4d9b417b7e81bd35270139199b2357dc2e08c8f52e8e43a580924f3f292d68d` |
 |  `16.20` `16.20.2` `16`                        | March 5th     | `sha256:de84711815782188f0e46246dd179751e5260b2b5d5c154bebbee947657282a0` |
 |  `18` `18.19` `18.19.1`                        | March 5th     | `sha256:a5dd7e642b788b15b61509de472a2a8689099f489a239994d1921256ec0d854b` |

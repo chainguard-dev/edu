@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,14 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed  | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2.10.0-eks-1-25-33-dev` `2.10.0-dev` `2.10-eks-1-25-33-dev` `2-eks-1-25-33-dev` `2.10-dev` `2.10.0-r0-eks-1-25-33-dev`                 | March 2nd     | `sha256:1a6aaa2b3d460d5e1efc0cd5fa304f9cf6520480ee04c8bb18b040317e3f8d47` |
-|  `2-dev` `2-eks-1-23-33-dev` `2.9-eks-1-23-33-dev` `2.9.0-dev` `latest-dev` `2.9.0-eks-1-23-33-dev` `2.9.0-r2-eks-1-23-33-dev` `2.9-dev` | March 2nd     | `sha256:dccc22730beda8f06983bf8883b9391012e7d4b3147476fe4e2146d573623873` |
-|  `latest` `2.9.0-eks-1-23-33` `2.9.0` `2.9.0-r2-eks-1-23-33` `2` `2-eks-1-23-33` `2.9` `2.9-eks-1-23-33`                                 | February 29th | `sha256:541b0e0f5aed19e4f608e186de45eecd2b860403230a15e4fd24847794a350e3` |
-|  `2-eks-1-25-33` `2.10.0-r0-eks-1-25-33` `2.10` `2.10.0-eks-1-25-33` `2.10-eks-1-25-33` `2.10.0`                                         | February 29th | `sha256:106524489fb2a1526510968354ec8871d187396cffc2215086418cff7d0be241` |
+|  `2-eks-1-23-33-dev` `2-dev` `latest-dev` `2.9.0-r3-eks-1-23-33-dev` `2.9-eks-1-23-33-dev` `2.9.0-eks-1-23-33-dev` `2.9.0-dev` `2.9-dev` | March 6th     | `sha256:e3ff6678ab509358e2a4d381565fd3b57df1b00c031a9425942265b89eb9d831` |
+|  `2.10.0-eks-1-25-33-dev` `2.10-dev` `2.10-eks-1-25-33-dev` `2-eks-1-25-33-dev` `2.10.0-dev` `2.10.0-r1-eks-1-25-33-dev`                 | March 6th     | `sha256:0462c92dc3215fe16ef732a83bea293b19c98916a5ae8bf656ee6dc217362258` |
+|  `2.10.0-r1-eks-1-25-33` `2.10.0-eks-1-25-33` `2-eks-1-25-33` `2.10.0` `2.10-eks-1-25-33` `2.10`                                         | March 6th     | `sha256:c7ce600d5fe85d3f98400679699eb7b06ce39f0028823bc1af7446ca2be676ba` |
+|  `2.9` `2` `latest` `2-eks-1-23-33` `2.9-eks-1-23-33` `2.9.0-eks-1-23-33` `2.9.0-r3-eks-1-23-33` `2.9.0`                                 | March 6th     | `sha256:49846fc05a1290473f6e01b1f4fbc24c17615be313a5f39f1c77a778633eee07` |
+|  `2.9.0-r2-eks-1-23-33-dev`                                                                                                              | March 2nd     | `sha256:dccc22730beda8f06983bf8883b9391012e7d4b3147476fe4e2146d573623873` |
+|  `2.10.0-r0-eks-1-25-33-dev`                                                                                                             | March 2nd     | `sha256:1a6aaa2b3d460d5e1efc0cd5fa304f9cf6520480ee04c8bb18b040317e3f8d47` |
+|  `2.10.0-r0-eks-1-25-33`                                                                                                                 | February 29th | `sha256:106524489fb2a1526510968354ec8871d187396cffc2215086418cff7d0be241` |
+|  `2.9.0-r2-eks-1-23-33`                                                                                                                  | February 29th | `sha256:541b0e0f5aed19e4f608e186de45eecd2b860403230a15e4fd24847794a350e3` |
 |  `1.25` `1` `1.25.39`                                                                                                                    | February 26th | `sha256:05c91442b4ac4d8eb61975fe3b3decc09f660cc273125dcbd56b5c43e8bf35a5` |
 |  `1.25.39-dev` `1-dev` `1.25-dev`                                                                                                        | February 26th | `sha256:4e9e9a200118725790fbb11cc8fd6d07568908d77506629424ea5c6292f12653` |
 |  `1.23` `1.23.33`                                                                                                                        | February 26th | `sha256:602bbbcd00b1dec832fb13b54ff25e666a435a9243669670dc39995a9e218c4e` |

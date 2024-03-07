@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trust-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,8 +35,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed  | Digest                                                                    |
-|---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.8.0-dev` `0-dev` `0.8-dev` | March 2nd     | `sha256:b807d78f068d75b1182593e8cf9432f83d5438f2cacbb1d0c8e62dfd03744d8c` |
-|  `0` `0.8.0` `0.8` `latest`                 | February 29th | `sha256:022dc29f6b815cff4634cb1407de5d7d4e2e36c50b20bfc722c5ceae66b03a1f` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.9-dev` `latest-dev` `0.9.0-dev` `0-dev` | March 6th    | `sha256:6cc91bb97a7d0f01daf620e25b93e7431fe437fca315d57a2c088b18b0e2b9c4` |
+|  `latest` `0.9` `0` `0.9.0`                 | March 6th    | `sha256:fb9e71735076fd6e44bc77a70a50e158181b8be1d2f8bc1f7ec8558d93ab8b6c` |
+|  `0.8` `0.8.0`                              | March 6th    | `sha256:3b59acbbca06fc20e427ca39a78daaea4bc7784e8f16b85a17725e65ce5f597a` |
+|  `0.8-dev` `0.8.0-dev`                      | March 6th    | `sha256:a464b9403ee826878215c89f6b2e5eddc4f3382acc3262e84d89b80ec8caccf3` |
 

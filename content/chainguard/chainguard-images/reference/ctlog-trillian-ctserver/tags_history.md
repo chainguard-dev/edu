@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ctlog-trillian-ctserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:a0bb961fa0cb54899e91a3aa50dd6efd1750d4116a78f4680f33168b627f0f02` |
-|  `latest`     | February 27th | `sha256:0f78a538015579dbe7472d2723cb8fd6e16030484baaf312bcc845c104dd60b5` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 6th    | `sha256:8869ac3a55dbf92f24f95b1629c1b92abcd12a8eba811923c89ca1701a34f7de` |
+|  `latest`     | March 6th    | `sha256:f166b5ec53dc4ee17d708e98bd3bb1fd83a90ab7e2779a5fa1583f44d1185de2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1-dev` `1.1.7-dev` `1-dev` `latest-dev` | March 2nd    | `sha256:b3189dc3fdde995c91e7ab86009f022d4b8b385fe90b0dc6d2b13582e987fac7` |
-|  `1.1` `1` `1.1.7` `latest`                 | March 1st    | `sha256:5d7d43fa638d738fad31be4cb3c78bc146d462d62cbba830b5e864965bba90fc` |
+|  `1.1.7` `1` `latest` `1.1`                 | March 6th    | `sha256:5c9c991f0dc6919258061c439ae250087f129e5f53dd5dc7ab7509dfd9642e92` |
+|  `latest-dev` `1.1.7-dev` `1.1-dev` `1-dev` | March 6th    | `sha256:f918b689e0a28551737f3c100f3788ab71f0dd64e7ca2cca3af933397794d26f` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2.50-dev` `2-dev` `latest-dev` `2.50.1-dev` | March 2nd     | `sha256:34085a5e4dc3e2152a6f5f0a32d35ba9d63ba009e25608c0172cda1f26a08b84` |
-|  `2.38.0-dev` `2.38-dev`                      | March 2nd     | `sha256:fcde2ec8fe721967f69748400de9ba3968b2cfc507517d3b6e0fe155218a762d` |
-|  `2.38` `2.38.0`                              | March 1st     | `sha256:33995bd95ee59e3b811ae384c046d18eb6f263a8cc48b1a602be26916c549587` |
-|  `latest` `2.50.1` `2.50` `2`                 | March 1st     | `sha256:d6cb865deed65453ac79177af88e6887bd83625cdb5d9f5745df0ea17cb1a6c6` |
+|  `2.50` `latest` `2.50.1` `2`                 | March 6th     | `sha256:1b86b6ea7f4b298b36f8add42a58f0d7407c8b2b0f26e61bac98b8c62eb9d750` |
+|  `2.50-dev` `latest-dev` `2.50.1-dev` `2-dev` | March 6th     | `sha256:b190bb1573d95c92e7fc3a3692777cc907730c258d8bd941f1ac89d86778bb52` |
+|  `2.38` `2.38.0`                              | March 6th     | `sha256:52d27627109b2d4ac7862aabf84e300a6aa42a82d7978520df9f19bafc50a1ba` |
+|  `2.38.0-dev` `2.38-dev`                      | March 6th     | `sha256:699a8497094ae31b3668c5f5e61867869877cf0403f74f53a17ef249d25cf31c` |
 |  `2.50.0-dev`                                 | February 24th | `sha256:64c52587cfc12541308028321b59034ed03b8ee9aa70d8db69f1c34b3cc0af0c` |
 |  `2.50.0`                                     | February 22nd | `sha256:3d1e20894279936ccd4924db008d4f0e569c82cc62fdc84057c6c168152769fb` |
 |  `2.49.1-dev` `2.49-dev`                      | February 22nd | `sha256:a479c6e792263ea7450e316ee3143338224e90706f2f9fa5b2ee524e0d7582f9` |

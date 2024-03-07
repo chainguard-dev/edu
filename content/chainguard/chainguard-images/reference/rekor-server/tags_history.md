@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rekor-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,8 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed  | Digest                                                                    |
-|---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.3.5-dev` `1.3-dev` `1-dev` | March 2nd     | `sha256:aa8ff1c574b7f92d491e9923d499a4b0b75bdf9d0d2ff11e28056abc4ed41434` |
-|  `1.3.5` `1.3` `latest` `1`                 | February 26th | `sha256:c5198926066b3cbe9104db49d9025970bf2034ec2b0c6f07e06395236a4b206a` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.3` `latest` `1` `1.3.5`                 | March 6th    | `sha256:d71f342905c3686a814d7802d7a0605fcdd195cf2456192ab138cdd4d0141450` |
+|  `latest-dev` `1.3.5-dev` `1.3-dev` `1-dev` | March 6th    | `sha256:857cb051a47300c73fdc4ea081ae58d36724ba842e7162ac94c8e3ec1176f3c9` |
 

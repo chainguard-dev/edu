@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-background-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,15 +26,15 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 27th | `sha256:4ecb7ed773fa49e31190d57a826d03d0997b45be339f87e9d574ab7980b6180b` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | March 6th    | `sha256:6ae108d263234dd751b493452ce61ffce5997c4f65191e9c036e3ab131ce961c` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                       | Last Changed  | Digest                                                                    |
-|-------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.11.4` `1.11` | February 26th | `sha256:4c300d745973bc43150ddf56394816ab21d47833f5321f714761a36a13839db1` |
+| Tag (s)                       | Last Changed | Digest                                                                    |
+|-------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `1.11.4` `1.11` `1` | March 6th    | `sha256:66c93fc2f77fe703bae3d0b81f71c4379090407f55fbabda5aee568d4cccb13a` |
 
