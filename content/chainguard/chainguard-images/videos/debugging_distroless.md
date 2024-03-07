@@ -1,6 +1,6 @@
 ---
 title: "Debugging Distroless Containers with Docker Debug"
-linktitle: "Debugging Distroless Containers with Docker Debug"
+linktitle: "Debugging Distroless Containers"
 lead: ""
 description: "How to use the Docker Debug feature to debug Distroless and minimal containers"
 type: "article"
@@ -11,7 +11,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 25
+weight: 070
 toc: true
 ---
 
