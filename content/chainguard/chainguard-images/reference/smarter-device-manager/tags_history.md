@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the smarter-device-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,8 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                        | Last Changed  | Digest                                                                    |
-|------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.20-dev` `1.20.11-dev` `1-dev` `latest-dev` | March 2nd     | `sha256:2af9e78f0a57bf13796acab1c0fb1a70954a7bfc3c6272151d53869750a8338c` |
-|  `1` `1.20.11` `latest` `1.20`                 | February 26th | `sha256:f1a756c3ff2f9c1f067de87057171b68e60c71ac2eec5834ac1b9e529759dba9` |
+| Tag (s)                                        | Last Changed | Digest                                                                    |
+|------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `1-dev` `1.20-dev` `1.20.11-dev` | March 6th    | `sha256:ca943fe6323a42bc34a540f6fa86ccd32b5df88a347d1ae638f4dbc988677f65` |
+|  `1.20.11` `1.20` `1` `latest`                 | March 6th    | `sha256:c45c85a976885287c28f1ebc508bc00c3a043e353034dd21ca29f82980f80c21` |
 

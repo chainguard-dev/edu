@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-oidc-discovery-provider Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.9-dev` `1.9.0-dev` | March 2nd     | `sha256:28ec22ba762f7d05766d99dfdb4a43aefd847f21b2b66e1db298fbb356420f7c` |
-|  `1.9.0` `latest` `1.9` `1`                 | February 26th | `sha256:c4845ac25c1203bcc1a13caa91b838f426c970528740f7628eaf931288a500a1` |
+|  `1.9-dev` `latest-dev` `1-dev` `1.9.1-dev` | March 6th     | `sha256:fb86043922fe5b32d67fb85e21a5654d4e42b666e4b653bcbc4a4169e716e437` |
+|  `latest` `1` `1.9` `1.9.1`                 | March 6th     | `sha256:f0f4eecd884aa89eefa963a06bca9e4c448bd9ac7c6bd75afabc12d1e30a91bc` |
+|  `1.9.0-dev`                                | March 2nd     | `sha256:28ec22ba762f7d05766d99dfdb4a43aefd847f21b2b66e1db298fbb356420f7c` |
+|  `1.9.0`                                    | February 26th | `sha256:c4845ac25c1203bcc1a13caa91b838f426c970528740f7628eaf931288a500a1` |
 |  `1.8.7-dev` `1.8-dev`                      | February 22nd | `sha256:02ce088e148eff3bdece85cd73f1ebdc514830c26d1e75da8ef56780f09c3bf3` |
 |  `1.8` `1.8.7`                              | February 14th | `sha256:c4f5628796ef25dd98372d59ab8fd4beb01e749fc2e432a3631cd1cfa18ff387` |
 

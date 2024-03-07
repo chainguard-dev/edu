@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,10 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.40.0-dev` `0-dev` `0.40-dev` | March 2nd     | `sha256:c0a78f17147d93c7687b8496686917715bd714fcf97631b351a32142be2b9382` |
-|  `0.37.0-dev` `0.37-dev`                      | March 2nd     | `sha256:61cf94d103744b5a557b0ccddd06bf06c37fb814527d485cf7e567b715f4a0ad` |
-|  `latest` `0.40.0` `0` `0.40`                 | February 26th | `sha256:d06bc2fcf706ef80d9690d0a5648936b1371cda30653b5b91c418f6202733969` |
-|  `0.37.0` `0.37`                              | February 26th | `sha256:3330dd5e54741355506e87a80263e87422ee1ce088555d80a8c3201ba0112025` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.37.0-dev` `0.37-dev`                      | March 6th    | `sha256:89035b6e45bc68033871d604591910c657e58c7fe49915a9c9c941e85bfd0807` |
+|  `0.40` `0` `latest` `0.40.0`                 | March 6th    | `sha256:4289dc4f14c053596e1eeee4be81f943f767d86297fa40f9108c87152b620333` |
+|  `0.40-dev` `latest-dev` `0.40.0-dev` `0-dev` | March 6th    | `sha256:43bcf60a97914239d96761a8aaf1f2149623895d4eac1df579429d22db2839fd` |
+|  `0.37` `0.37.0`                              | March 6th    | `sha256:7c0b2a410f4faa2ffca07e7d8dab64e2e170863fc868bcdfccbe6c4149250a8e` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:b47713c367fa1d826e5cd521fcd597dde3e95911b00f5c2b527aa87fa292dfd1` |
-|  `latest`     | February 27th | `sha256:4f698383ad0b1d79c304cbc974b840fa8c6a44c12f004391fcee819768f370b5` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 6th    | `sha256:152c0ea8bb47965bbccbb24df63e27be2e3a255eaed20c9ba8a53e106b8412fc` |
+|  `latest`     | March 6th    | `sha256:7052632fc1f4d8d8633d0fcc2d5898fd7f2d077660c27f8430a4e664fe5ee8b7` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `7.0.1-dev` `latest-dev` `7.0-dev` `7-dev` | March 2nd     | `sha256:1c41a0c171986f8e08f11c714e146243f90a88e4bc903bdda05196ad231def30` |
-|  `7.0` `7` `7.0.1` `latest`                 | February 26th | `sha256:8e61b146462be1586f0c4228b3e7c669dd928f2852953f0acebb8b54b33c3bb3` |
+|  `7-dev` `7.0-dev` `7.0.1-dev` `latest-dev` | March 6th     | `sha256:21f8f9fb25d9269f8fdb9374c99c23a77e99f407b80cac8f1c6dafb7e7f2eb49` |
+|  `7.0` `7` `7.0.1` `latest`                 | March 6th     | `sha256:6a16370de0ab4959c95ccdbcd0e43988e5ce22c9ee5e8cb6c0dcc90a88828b58` |
 |  `7.0.0-dev`                                | February 10th | `sha256:6189b9dbd42a466f3a4f9daf730f73b6fc80a9a876e6bd1a8ade62622f3243a1` |
 

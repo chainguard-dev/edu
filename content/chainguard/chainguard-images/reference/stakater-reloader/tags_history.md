@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stakater-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,12 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed  | Digest                                                                    |
 |----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.0-dev` `1-dev` `1.0.69-dev` `latest-dev` | March 2nd     | `sha256:c3d79df209e9b2f369934126cfbff9529969246d1a9863fec3e9f53f05fa05d4` |
-|  `1.0.69` `1` `1.0` `latest`                 | February 26th | `sha256:44f1d296dfd74aa7c9eac334bbd6d07352314c6212d142bf67b93e4f16e45c23` |
+|  `1-dev` `1.0.69-dev` `latest-dev` `1.0-dev` | March 6th     | `sha256:ca9e842f19988e990ba65be9e509692461c9cbd7e123f73ee2092737df82f1cd` |
+|  `latest` `1.0.69` `1.0` `1`                 | March 6th     | `sha256:dd65bdc47d5a228c36cb9f403340e8e92535a643fc29d65765f073586b21593f` |
 |  `1.0.68-dev`                                | February 23rd | `sha256:72f66290c324af71ceebbdb72d7677f507114bbc7be98db471ea372590eff1f7` |
 |  `1.0.68`                                    | February 21st | `sha256:be80e08a0037fe3945b0ed75df58fbd69246e67debfecd2e62aee309fa71432c` |
 |  `1.0.67-dev`                                | February 18th | `sha256:56018cad404b302e0e0721f8af1b1cb84566a4a034be893c3876f983e2c2d4ff` |
 |  `1.0.67`                                    | February 8th  | `sha256:c8f72e2a2bd699166c0bcc316c840ede01c0c7f294117128aab5ad951ce92b01` |
-|  `1.0.65-dev`                                | February 6th  | `sha256:5f5c823dc0e86d44ef3f94a5537233879f0ce8a5af482fef6ae4f70649813530` |
-|  `1.0.65`                                    | February 6th  | `sha256:75c1ffbece7a08aea7c67d9444766883ed08a309761beb2ba68235ca754af3be` |
 

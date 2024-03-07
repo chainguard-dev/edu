@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-rekor-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,8 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                      | Last Changed  | Digest                                                                    |
-|----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.6.16-dev` `0.6-dev` `latest-dev` | March 2nd     | `sha256:b3f3e1231fd3f3c64a15b1ed8649f05d3b60a28a3d0029fc9aa89160eae0c4ba` |
-|  `latest` `0.6` `0` `0.6.16`                 | February 26th | `sha256:f1a777e648565d03cc45f5ebac757d0b68ce7aee59cc7a7fba4aab2649c68867` |
+| Tag (s)                                      | Last Changed | Digest                                                                    |
+|----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `0.6-dev` `0.6.16-dev` `0-dev` | March 6th    | `sha256:6527e3c0f5d61828c596019216d4907e02c0dd7f9a3b43082dfc3dc282dec704` |
+|  `0.6.16` `0.6` `0` `latest`                 | March 6th    | `sha256:836f1748c9dfa92c4bd1c41fe8d199e27569a055dc10a9054e004c0d7c0329da` |
 
