@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-load-balancer-controller-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,9 +31,9 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed  | Digest                                                                    |
-|---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2.7-dev` `2.7.1-dev` `latest-dev` `2-dev` | March 2nd     | `sha256:d62dca4e1ed64c6e8e7e257da9b8bb34791a2fc6458a983d7832e67781518663` |
-|  `2.7` `2` `latest` `2.7.1`                 | February 26th | `sha256:304ccad34b8133cc6c473f25e63f599ba150df675bbe05db581e5f39fc706920` |
-|  `2.6-dev` `2.6.2-dev`                      | February 8th  | `sha256:9f58b4bced05e333d0363748a1ecb9ec6c008633045849935d44663ab43e3d6c` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `2.7.1-dev` `2-dev` `2.7-dev` | March 6th    | `sha256:8ef95640760712f03eece98999f2e83223f048d1cc93782bae380911a02d63d2` |
+|  `latest` `2` `2.7.1` `2.7`                 | March 6th    | `sha256:c469c32707e35d1d4f08e4c76bbb615ac8225241f6da5fb7b73922047ab8c5f3` |
+|  `2.6-dev` `2.6.2-dev`                      | February 8th | `sha256:9f58b4bced05e333d0363748a1ecb9ec6c008633045849935d44663ab43e3d6c` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jenkins Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-06 00:47:02
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -47,6 +47,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.445`                          | February 19th | `sha256:205df5a552c6c8e93ae2bc77cb0ab0ff74fc2f01a067535084592d567e0b6d6f` |
 |  `2.444-dev`                      | February 13th | `sha256:63350c2466a881e40fb4b15d17c928f0dc35f8b9304bac75a1bef49749af7c88` |
 |  `2.444`                          | February 8th  | `sha256:d36c3c366d1142336e83e043f3ffab443e1f74c2aa61c691a0166bcbab2de654` |
-|  `2.443-dev`                      | February 6th  | `sha256:bd473455a76aa1f6cb6bb19d071080790a5c6d27dfe19e40ff50166411f392d8` |
-|  `2.443`                          | February 6th  | `sha256:7337c390309b782fc4ee364139c6a250351cab60ad1bfde1002a3a71956ced62` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,10 +39,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                      | Last Changed  | Digest                                                                    |
 |------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.16.3-r1-splunk-dev` `1.16-splunk-dev` `1.16.3-splunk-dev` `1-splunk-dev` | March 2nd     | `sha256:ae10c937fb804e5114bcda2f2b4123de1413a9806e6eb6999b47171ee696b59e` |
+|  `1.16.3-splunk-dev` `1.16-splunk-dev` `1.16.3-r1-splunk-dev` `1-splunk-dev` | March 6th     | `sha256:09da13c8d94b1fb979727c805005897e02d5e92652c7de49c348b009739f64f4` |
+|  `1.16.3-r1-splunk` `1.16.3-splunk` `1-splunk` `1.16-splunk`                 | March 6th     | `sha256:772af4adc6e96be9296028273e1cee3fd2ee776df2aa7f88c0da8849d9a0677c` |
 |  `1-dev` `1.16.3-dev` `1.16-dev` `latest-dev`                                | March 2nd     | `sha256:8106f3447d6aa61a4403c89115180abf93b8578685ff74415679d3fc047325c4` |
 |  `1.16` `1` `latest` `1.16.3`                                                | February 26th | `sha256:06d2fe152a6cac95ab7e5e08a534ff49bdbb410740c2a50e36122f3d9e8d943a` |
-|  `1-splunk` `1.16.3-splunk` `1.16-splunk` `1.16.3-r1-splunk`                 | February 26th | `sha256:2e84cd54817cf27317ed6c167620ea2a3f87998111394ed8a5b1bb645e9a8d19` |
 |  `latest-splunk-dev`                                                         | February 9th  | `sha256:b2d2725bb9fbd7541c09a3b94952eb73751a93c5d99377eebd46ae7dbaeb6853` |
-|  `latest-splunk`                                                             | February 6th  | `sha256:5ee46ea7aeb4d9d4b4aedbd36d90b5d0ef15e94518f9e221a69e23d9c486a3e2` |
 

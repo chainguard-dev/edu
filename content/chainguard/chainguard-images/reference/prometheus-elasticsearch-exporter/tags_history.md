@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st    | `sha256:58cab9f3b8adb7266af979f5f65c3b9da0f658a50b641773cd149a7f692b059e` |
-|  `latest`     | March 1st    | `sha256:7f334d2c85820636a81e418a0938e219dc14b058c6f1f960ab12acce54adbecd` |
+|  `latest-dev` | March 6th    | `sha256:3ce3e847e34579378f3f3f56d6e8030f93ad63cf0350914f8ac537403790090e` |
+|  `latest`     | March 6th    | `sha256:1c072c2fa630d9b632d19cec24eb6b043c712bbc4689ca418da21d0491d44b3f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.7.0-dev` `1.7-dev` `latest-dev` | March 2nd    | `sha256:0c9634a86d3f38019c17543adb3f192c7f5a14f4d282024637b63d7d0b1d46ba` |
-|  `1` `1.7` `latest` `1.7.0`                 | March 1st    | `sha256:2c075400f45678c4736442bfb47c92b8a41131c19e7c1e69edce2ed8606defd5` |
+|  `1.7.0` `1` `1.7` `latest`                 | March 6th    | `sha256:23a7fd531e26347596a443e98d0e083132932923146511d4771df00b2a44f603` |
+|  `1-dev` `1.7-dev` `latest-dev` `1.7.0-dev` | March 6th    | `sha256:06ad31a6265a92f76305888657675897c42b21ecd8e64e7653c00ea1ec62ae77` |
 

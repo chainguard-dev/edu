@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,19 +26,19 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:b28d54312294776229a7f0473f71ba8dd0510adbfa142fc966571cac4678b07f` |
-|  `latest`     | February 27th | `sha256:67fffae306cbcb237f8da1f5794a3c2bd81a1956bebe6c243ae65a42e4c2e9b1` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 6th    | `sha256:7b4a6ea7ea094008b4973f55157a86ea1abc171ae3a88ca8e0bfe86f5554b83c` |
+|  `latest`     | March 6th    | `sha256:dbee85deac6f5f07ff86bd9b79b1db10c4ba73e52f51dff547773397bfe75e6b` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.11-dev` `0.11.2-dev` `latest-dev` `0-dev` | March 2nd     | `sha256:06c901691399c1fdf2f0105095c4df95fcb58a640849a4fd3b78891c40c69cf7` |
-|  `0.10-dev` `0.10.1-dev`                      | March 2nd     | `sha256:1569bdaeccef2597ffa580250e177f291427e0e6671b7c090d2aaf0f1f67ab5c` |
-|  `0.10.1` `0.10`                              | February 26th | `sha256:03ab5f71e6405f1717e1fa4ac6a306f4a92e761510680492d91dcfcc6810b44d` |
-|  `0.11.2` `0` `0.11` `latest`                 | February 26th | `sha256:99739c782e684a96b0a2a86a1878e790bd2bdd1bf9f7c0e8585b004acc8dcf45` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.11` `0` `0.11.2` `latest`                 | March 6th    | `sha256:7c202a29f7f21412ee907d62e9d86dbf73e3de5af31ef063253c1981b58c7e23` |
+|  `0.11-dev` `0-dev` `0.11.2-dev` `latest-dev` | March 6th    | `sha256:b463dfa3e254fef7ceea14f6178ec31eda15d5d1e8001968763b1ebe6773074d` |
+|  `0.10.1` `0.10`                              | March 6th    | `sha256:eae808259edb24809c880b079a23a4eb546dc38a8851925436c1833e64e31b63` |
+|  `0.10.1-dev` `0.10-dev`                      | March 6th    | `sha256:79a4662da4d9b120591ab362781657c5b4391e872429c95be81df04f698c9f0c` |
 
