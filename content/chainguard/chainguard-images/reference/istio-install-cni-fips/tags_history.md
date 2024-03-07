@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-install-cni-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.20-dev` `latest-dev` `1.20.3-dev` `1-dev` | March 2nd     | `sha256:31766ed744d13b1162b761f8e79769ebfae2267531a5a4933b886d9ca8245a5b` |
-|  `1.19.7-dev` `1.19-dev`                      | March 2nd     | `sha256:9685e18ba0081a19a887a3f82fbd5457d29f39129213027614feac759fe10cb3` |
-|  `latest` `1.20` `1` `1.20.3`                 | February 26th | `sha256:8cf0b7c4afbd39e5738305d805949b59a1541619730a60e439c582467d673b57` |
-|  `1.19.7` `1.19`                              | February 26th | `sha256:8bf67f92f0b7b79c4ec85ddb39112c641aa23605215d012cccc5d658616ea282` |
+|  `1.19-dev` `1.19.7-dev`                      | March 6th     | `sha256:37828670bcf4c79fbd2b10b5a3a851b38134f9c1feadd41df1a324fa95c360e8` |
+|  `1.20` `1` `1.20.3` `latest`                 | March 6th     | `sha256:3fabce6d93aa134fd8ec4073ea7fe926593e7897bc3e0e95642100fa1182f764` |
+|  `1.19` `1.19.7`                              | March 6th     | `sha256:261fc09bf83df64b4529f307048d57ceafa0647bd33718837077bcfc3601f50e` |
+|  `latest-dev` `1.20-dev` `1.20.3-dev` `1-dev` | March 6th     | `sha256:43c4122aeb18cf02cffc957ff80dcb15c27e8818ccd0d2bcb780c34de5ca2482` |
 |  `1.19.6-dev`                                 | February 10th | `sha256:56f3416d7c22ef6bd51cbfc295989e04f2794b4574b034be18484c09078d1254` |
 |  `1.20.2-dev`                                 | February 10th | `sha256:683fd0730477f2f052a34755c77c0d01a234b5ae24d09c2911b08fe2599536a3` |
 |  `1.20.2`                                     | February 8th  | `sha256:d0bd30aec03756b125877b6dba5b955d31ab1c8093f6f0894ac786d2632c17f7` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-fluentd-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,18 +26,18 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 28th | `sha256:1b22435310f6d49e78373050889d434f6574c1e68ed5fd695dba2bc97c9cf279` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | March 6th    | `sha256:e64ee61ab403e2880b2c3df6e7c9cb7e2abed3a698986c4d72330317dc027a6b` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.18.2-dev` `1-dev` `latest-dev` `1.18-dev` | March 2nd     | `sha256:1d412c32500ac5e5b4894eb323bfbb5cd1b2839a9e146d4079d820047431eaed` |
-|  `1.18` `latest` `1` `1.18.2`                 | February 28th | `sha256:3f350b3846788c745b0a647733bebe3488aeca3746eec07efa3c86ac4389c124` |
-|  `1.18.1-dev`                                 | February 8th  | `sha256:dfa576453312bb5a32403eac90c582eec40850293d3cfac3319d1bda24b6e9bd` |
-|  `1.18.1`                                     | February 8th  | `sha256:5df2815063c5d96faf959535c46298f29efbf5da42ba7de7b7c100a6c83c897d` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1` `1.18.2` `1.18` `latest`                 | March 6th    | `sha256:d94ba6667eb235da45629abd389bd2f52a5f086a235ea30299c7eebdca086284` |
+|  `1.18-dev` `latest-dev` `1-dev` `1.18.2-dev` | March 6th    | `sha256:04a5b9ff6975eafa4a5d0cd4657d2e1635a204c8bbff585e0de8019e430aa324` |
+|  `1.18.1-dev`                                 | February 8th | `sha256:dfa576453312bb5a32403eac90c582eec40850293d3cfac3319d1bda24b6e9bd` |
+|  `1.18.1`                                     | February 8th | `sha256:5df2815063c5d96faf959535c46298f29efbf5da42ba7de7b7c100a6c83c897d` |
 

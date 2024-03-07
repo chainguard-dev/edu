@@ -4,7 +4,7 @@ linktitle: "Product Release Lifecycle"
 type: "article"
 description: "Understanding Chainguard's Approach to Image Versions"
 date: 2024-01-08T08:49:31+00:00
-lastmod: 2024-01-09T08:49:31+00:00
+lastmod: 2024-03-06T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "Product"]
 images: []
@@ -72,6 +72,14 @@ For multiple release software projects with release schedules clearly published,
 For single release track software projects, Chainguard will maintain only the `:latest` version of the software by applying patches and incrementing the version tag when a new patch is released.
 
 Actively maintained Chainguard Images are rebuilt on a daily cadence, so you can be sure the Image you are using is up to date.
+
+## Wolfi Packages in Chainguard Images
+
+Chainguard Images only contain packages that are either built and maintained internally by Chainguard or packages from the [Wolfi Project](https://github.com/wolfi-dev). These packages follow the same conventions of minimalism and rapid updates as Chainguard Images. 
+
+Starting in March of 2024, Chainguard will maintain one version of each Wolfi package at a time. These will track the latest version of the upstream software in the package. Chainguard will end patch support for previous versions of packages in Wolfi. Existing packages will not be removed from Wolfi and you may continue to use them, but be aware that older packages will no longer be updated and will accrue vulnerabilities over time. The tools we use to build packages and images remain freely available and open source in Wolfi.
+
+This change ensures that Chainguard can provide the most up-to-date patches to all packages for our Images customers. Note that specific package versions can be made available in Production Images. If you have a request for a specific package version, please [contact support](https://support.chainguard.dev/hc/en-us).
 
 ## SLAs
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-nop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,8 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.56-dev` `latest-dev` `0.56.0-dev` `0-dev` | March 2nd     | `sha256:ef4323d0bca4840dba351b9b9de64d0cd7787f1994e723a43b05a6fe5188d4be` |
-|  `0.56.0` `0.56` `0` `latest`                 | February 29th | `sha256:88d929c09b930e1388a49537917efbbd6e9e0f169d25dbaea493b5af82fe5ef3` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0` `latest` `0.56` `0.56.0`                 | March 6th    | `sha256:5f5073958f22c4ce15bce641d4d56d9977eb0cbb9b8fa62f20f4e16593c8c907` |
+|  `latest-dev` `0.56.0-dev` `0-dev` `0.56-dev` | March 6th    | `sha256:3acafab266b6e8620730bfa1def57edae7757a8e4a88b62ae4f7a748c355ef64` |
 

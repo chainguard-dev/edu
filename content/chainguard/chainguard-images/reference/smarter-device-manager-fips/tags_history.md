@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the smarter-device-manager-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,8 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                        | Last Changed  | Digest                                                                    |
-|------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.20-dev` `1.20.11-dev` | March 2nd     | `sha256:52fbb628cbade80d007fe65bbbf2c21f51c48de9e10b569309dce4762d96814a` |
-|  `1` `1.20.11` `latest` `1.20`                 | February 26th | `sha256:66f2866b7faaf01bc8f4f04883f6b52a27880af5892c9b35124bf273ac61ca9c` |
+| Tag (s)                                        | Last Changed | Digest                                                                    |
+|------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `1.20-dev` `1-dev` `1.20.11-dev` | March 6th    | `sha256:33d8287574385f5c5c756f4a014370c57efbdeda2c6e92f6fd1e6b6705c3c211` |
+|  `1.20` `1.20.11` `1` `latest`                 | March 6th    | `sha256:2890ec395efe9a123bff2e7878a5b5626ffaf3667cc28773f85f34231f9cb81e` |
 

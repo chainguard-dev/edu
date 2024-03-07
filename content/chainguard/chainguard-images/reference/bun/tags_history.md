@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bun Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 4th    | `sha256:4cbd10a530f5c0c234bc7306f67661c16a8b2a163575013ae90300ac6fdb8e05` |
-|  `latest`     | March 4th    | `sha256:5e4d3414ce899e4951add1994d5f00cef2ac845d22d96836fcced4ea211aa512` |
+|  `latest`     | March 6th    | `sha256:0b3e69862c0e0bd50b16989ad9d1f40750b83ece6e12125a41012d5c3f5718ca` |
+|  `latest-dev` | March 6th    | `sha256:0b8a82d9a75a749be9ef197810a1c919df65cc87d04af3cb6d4820309155ea3d` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0` `1` `1.0.30` `latest`                 | March 4th    | `sha256:5243cc8dc16421440559f0c2eee144568817326ab8203ab1c4ea9d01325eca1b` |
-|  `1-dev` `1.0.30-dev` `1.0-dev` `latest-dev` | March 4th    | `sha256:2dff219907fe199562205ece553b4b3c62ec56b2a15fd05c896f25e6a4825712` |
+|  `1.0` `latest` `1.0.30` `1`                 | March 6th    | `sha256:bf7a499128df8a09efb236b5c1bda5102587302dd3a6023007c7438e57a3b127` |
+|  `1-dev` `1.0.30-dev` `latest-dev` `1.0-dev` | March 6th    | `sha256:1a7f367a4a28d15b518528b75ef1c314318fdff22eea51376984340f69be4f08` |
 |  `1.0.28-dev`                                | March 2nd    | `sha256:6e9cb9cf79c7b9c5eadb0171a9e11ce2f49080315cbcfd91e746bd880c12da75` |
 |  `1.0.28`                                    | March 1st    | `sha256:2ce7f467ba5184a9a7cedbdeb34b785c920c00e505e34077ad9856dae7a5fd2e` |
 
