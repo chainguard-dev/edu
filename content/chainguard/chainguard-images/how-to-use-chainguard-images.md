@@ -12,7 +12,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 300
+weight: 020
 terminalImage: academy/chainguard-images:latest
 toc: true
 ---
