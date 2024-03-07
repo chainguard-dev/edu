@@ -1,7 +1,4 @@
 # 2024-03-07
-New images added:
-
-- request-1303
 
 Updated Docs:
 
