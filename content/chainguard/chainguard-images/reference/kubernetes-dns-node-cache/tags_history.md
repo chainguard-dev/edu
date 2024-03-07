@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dns-node-cache Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,9 +26,9 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 27th | `sha256:91a0dfbc81f49cac4c615b3634fca49901bc889f29c48c7ded7cbed3216c4457` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | March 6th    | `sha256:3bb61e07d27d0ea3c22ee5896036aad1a3460030b140b9e542a585f91c2fd5f9` |
 
 
 ### Private/Dedicated Registry
@@ -36,9 +36,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `latest` `1` `1.23` `1.23.0`                 | March 6th     | `sha256:9bb5c484bc1832f11b26887775e0d428512df05814c57cc49d48967878f7f9aa` |
+|  `1.23-dev` `1-dev` `1.23.0-dev` `latest-dev` | March 6th     | `sha256:d95fb728030f81f42e889460fd6deaaf8033514391948ccdeec3a7aef0c7927a` |
 |  `1.17-dev` `1.17.4-dev`                      | March 2nd     | `sha256:81760295cd3880bcecd1881c6b59cfd33bbec2d624d079a3b5dfa76f8cb44213` |
-|  `latest-dev` `1.23-dev` `1-dev` `1.23.0-dev` | March 2nd     | `sha256:9759b2e6ee3eb38ff8e2cd5223d071aa58d9bfd45bf9dfb2cde3bbc7678ab2e5` |
 |  `1.17` `1.17.4`                              | February 26th | `sha256:6474b1e7b0c5d1bf53aff5a01a74b8eff408fffdad68d58c5794570ca87f4080` |
-|  `1.23.0` `1` `latest` `1.23`                 | February 26th | `sha256:4e27ddaeeac199296d12e30a85dbb610805d3fb8ae31f7aa9831c24e1c5e06e6` |
 |  `1.22-dev` `1.22.28-dev`                     | February 13th | `sha256:e81d250e10bafd65e6132e3d9f0f0d4883db8db71f035e839b102b82e4a709a6` |
 

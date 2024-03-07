@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-medusa Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:94776fbaabe34e315c979530ed95f552320a8f8aa11b19f7c75aba13ed2b75c9` |
-|  `latest`     | February 27th | `sha256:ce1b1931ec9e92ee74dde38cc2df94aa831495cf3ed625a2cd64f479b17b48b5` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | March 6th    | `sha256:a8a40af9d83de1b3c15b5a5d927b91f9f3d666962a2e05697d6948240d07a8ae` |
+|  `latest-dev` | March 6th    | `sha256:8ec66b2c36ef990cb41ce028fb876addd567ee96979908b12966522df3c2769f` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.19.1-dev` `latest-dev` `0.19-dev` | March 2nd     | `sha256:919c5c05c61709f31c2a0fb1fcdcc03b99055936a024573447affc897119d011` |
-|  `latest` `0.19.1` `0.19` `0`                 | February 26th | `sha256:baa772e0152b9f5ca41d33eb4bd2ab28343222bfffc8cc250ee2696753654d4d` |
+|  `latest` `0.19.1` `0` `0.19`                 | March 6th     | `sha256:4e53fb23f04e81886744620e14b46985fd0bfec83e66426894f48cabde9f93ea` |
+|  `0.19-dev` `latest-dev` `0-dev` `0.19.1-dev` | March 6th     | `sha256:1661cdc5932e57d79b7bff667d0dfb99e68c14d1d9ee0769056a51e3a4e2fe8e` |
 |  `0.19.0-dev`                                 | February 23rd | `sha256:d877cd3c4ca7f40a4dfb9bf7a06a9951b36177b78142f380dddc95fa7d8e8d25` |
 |  `0.19.0`                                     | February 22nd | `sha256:9b2ec70b8b8f98dc699e0407d1dc49019984dab722e27a426fa8021cf4849618` |
 |  `0.17` `0.17.2`                              | February 22nd | `sha256:40ece9a8f0280e05c2e09f1b35cbf6b92ba71f66811fdf7a889b0a58535cdf98` |

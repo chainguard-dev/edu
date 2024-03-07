@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the configmap-reload-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,10 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.12.0-dev` `0.12-dev` `0-dev` `latest-dev` | March 2nd     | `sha256:3c24ab42118946294e23f353f59d933480d1053a350695f59294124c786f2546` |
-|  `0.11.1-dev` `0.11-dev`                      | March 2nd     | `sha256:20137ba90811cc883f45369e248e6f195ca2dd13c96a37c28d75c06b15dccd62` |
-|  `0.12` `latest` `0.12.0` `0`                 | February 26th | `sha256:108bb6d7b2d9a16948e39240f9c9c034c2959cb1f3ed9b6ca6e19dddd9df6422` |
-|  `0.11.1` `0.11`                              | February 26th | `sha256:ff0f0f70a6a6d78f7d2679f2c26225a0aaa05fff4689e79cbf5f7b691ee90bdd` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `0.12.0` `0.12` `0`                 | March 6th    | `sha256:585bde00a5fc1289053fed92d7e1bc8d3d4014455559fb34d5a93b60944197b8` |
+|  `latest-dev` `0-dev` `0.12-dev` `0.12.0-dev` | March 6th    | `sha256:edacde4f12e191ef086a9dd934210b747bfc295ae0b10b9f82f232a8ba2117dc` |
+|  `0.11` `0.11.1`                              | March 6th    | `sha256:cbd9fb7901b6acf06779a8ee5552be60c6984640b18d600356d88d71e967ac7b` |
+|  `0.11.1-dev` `0.11-dev`                      | March 6th    | `sha256:e8a57e492efa37facfb060926906ca0cf4ddf5b13a808aca46374a909e7905fe` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-goptuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-07 00:51:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,17 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16-dev` `0.16.0-dev` `latest-dev` | March 1st     | `sha256:1d86f8a5df53e2d2d3ee84684c6d03586c2985c550cfc8c8fd29e5c5f8047751` |
-|  `0.16.0` `0.16` `latest` `0`                 | February 27th | `sha256:700633d83a0ed6b47826f817d716f54fb3b3e2e856e61bcedd5c8168f4f6321b` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `0` `0.16.0` `0.16`                 | March 6th    | `sha256:c763528881c74154e7477d0c0da33c29f5eee650cbebb121565ee60fe9be3ccb` |
+|  `0-dev` `0.16-dev` `0.16.0-dev` `latest-dev` | March 6th    | `sha256:b1c70b15c70dc0ea4fab82a9d174d7d528b57bcdfdeb163330e6677517061406` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `latest-dev` `0.16-dev` `0-dev` | March 2nd     | `sha256:26dc7273ac6a4c3e3d934809b7237e701f79068492651987aed924526262e6c0` |
-|  `0.16` `latest` `0` `0.16.0`                 | February 26th | `sha256:672f16c1bc0caa3beee5662b849852901cf4f81ff0b2ed3203b6cb747850c669` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `0.16` `0.16.0` `0`                 | March 6th    | `sha256:1e6e927ef7c05e46c43801459c63e24785e9a4a55f758d0b7159fd81c3980091` |
+|  `0.16.0-dev` `latest-dev` `0.16-dev` `0-dev` | March 6th    | `sha256:6f6129e86828d5389e2858d8263c1024b1f01a233080528b0d7237abe8a7cfcb` |
 
