@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-messaging-topology-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:17301f0c75c74f1e8b2cb68f6b3ca52daec557d284a121385a00043b19e0720a` |
-|  `latest`     | February 27th | `sha256:18167f08089a351b67adfab755307f728a7b4470f182fb50401d6bd6f7c40de8` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 7th    | `sha256:25d8bea566d87cef3715fcc55aeed72438c1d02a424551d2842fbf442e4c623c` |
+|  `latest`     | March 7th    | `sha256:8bfc5ff3faf05ae0016f98b32533d6d12ca73ef088bd2460b7c6dcffe317a739` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.13` `latest` `1` `1.13.0`                 | March 6th    | `sha256:7938d3c0ccf5f10fb487014f50a8fb56bb164f7ca754d7c4810dae6a9f0d5d86` |
-|  `latest-dev` `1.13-dev` `1-dev` `1.13.0-dev` | March 6th    | `sha256:27bd4e67de868fe69ab5e5474dcfdada4b1ca9b963e0794708eb9b9f68a6ec33` |
+|  `1.13` `1.13.0` `latest` `1`                 | March 7th    | `sha256:5be41e8657b2d366e781ca421ae1f1489c1ad8afa3ff25822e9a5cd7ff3c4d44` |
+|  `1.13.0-dev` `1-dev` `latest-dev` `1.13-dev` | March 7th    | `sha256:50d37d230eb324859ce115e5d78811af9b20a25911db274491c342e9440cbff5` |
 

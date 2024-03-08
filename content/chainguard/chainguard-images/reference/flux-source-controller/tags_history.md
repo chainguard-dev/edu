@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-source-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-06 00:47:02
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                                                         | Last Changed  | Digest                                                                    |
 |-----------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev`                                                   | March 5th     | `sha256:a05a8941510562c8815432095d88f153441e4e208a5926b6215633ebba95c0d8` |
+|  `latest-dev`                                                   | March 7th     | `sha256:2c21c7e6b73e6aff4ccf353695a2ff39e815dcb24401d5badf22548ff55d7f3f` |
 |  `latest`                                                       | March 5th     | `sha256:55fe389eb88d825c0f05ef26cdf69e8056ab5c5d615d8cd4fc66eeb6c83cd434` |
 |  `1.2-dev` `1.2.4-dev` `v1.2.4-dev` `v1.2-dev` `1-dev` `v1-dev` | February 23rd | `sha256:29ffb4d4d475d3b8bf19609a9f766d575ba4c5d3e546aa9752f0e4aa36ee2cae` |
 |  `v1.2` `1.2.4` `v1.2.4` `v1` `1.2` `1`                         | February 19th | `sha256:9c382879480efeba90a3d360faa4d193ec9375c9e8042c40c3f4829df3ce2b74` |
@@ -39,12 +39,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                 | Last Changed  | Digest                                                                    |
 |---------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.36.1-dev` `0-dev` `0.36-dev`                        | March 2nd     | `sha256:95895911021d57acb1805bb8b0c70b5b027339316c87d29985509cb274b047ef` |
-|  `0.32.1-dev` `0.32-dev`                                | March 2nd     | `sha256:7c2dfee22822a49a3042e19bbb968037588ec7e270c8efbf2072684f0107dd82` |
-|  `1.0.1-dev` `1-dev` `1.0-dev` `latest-dev`             | March 2nd     | `sha256:b5830918d836fdd0735325f1cb4dcc681b5dc5ceb1a8986ab8e492acac0eb4f4` |
-|  `1.0` `1` `latest` `1.0.1`                             | February 26th | `sha256:c5146086309ed441b083757e81f1a1ca897b583ab5b86607ddd50e95066f4e93` |
-|  `0.32` `0.32.1`                                        | February 26th | `sha256:3346c4c5da9dca471fc979634ac8713721fdc4151a7d9fccc61d95ffb659a6fa` |
-|  `0` `0.36.1` `0.36`                                    | February 26th | `sha256:021667b8286522f36cd0e5bb5c219a482e686ac094626f71eb192254722ba73a` |
+|  `0.32.1-dev` `0.32-dev`                                | March 7th     | `sha256:330a26547403bff8df3fa395d15750897050272d4c004b3d90b08d040559553b` |
+|  `1.0` `1.0.1` `latest` `1`                             | March 7th     | `sha256:810da4b5fefa0ddd12db4bed457ab5aa9de2734a240b66a6130b881036cb44f9` |
+|  `0-dev` `0.36.1-dev` `0.36-dev`                        | March 7th     | `sha256:81295b857ba8f3961417f0d0127a6a864b7abb0b2241c0d9b29b0181fa8a7fd5` |
+|  `latest-dev` `1.0.1-dev` `1.0-dev` `1-dev`             | March 7th     | `sha256:876a6517a9cbfaa3f3fbd00b7d25bfd60f3bdbb219fd09aafc9127059edfdfae` |
+|  `0.36` `0` `0.36.1`                                    | March 7th     | `sha256:4764661fb91967209e725fb9dcb9c45487e69ae76120919766a79f14ff187de5` |
+|  `0.32` `0.32.1`                                        | March 7th     | `sha256:2ae32430129968a082f58525d97e96eb537abe284db1820f5897ac80801d4823` |
 |  `1.2.4-dev` `v1.2.4-dev` `v1-dev` `v1.2-dev` `1.2-dev` | February 21st | `sha256:4fd7f0539d9e16bde4361761b0edd1f3bdf1d72ef1f52860a12c1cf6ed74ec3a` |
 |  `1.2` `v1.2.4` `v1.2` `1.2.4` `v1`                     | February 19th | `sha256:157265a907d67393938b9e951fbad72ec0100f108a2bf94f0c1bf0c0506c7e91` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-06 00:47:02
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 5th    | `sha256:2cdd99e6d9e399ffee9aec5d02bd01ceb99707d5c8c08296cc4a677970d4d8a8` |
-|  `latest-dev` | March 5th    | `sha256:de52b841f08ff1cc6c634ba3ee7da22cd3801cd40c4d674d707843d30ee60154` |
+|  `latest`     | March 7th    | `sha256:96cec79a965e7f1ca4ff840dcd9b339c48ab4e45b9dcd82090c32856a9e77652` |
+|  `latest-dev` | March 7th    | `sha256:dd9a2ff6a3bad47dfa00961bc4bb9ee71ef1e80c76b60c7509bb9a55d6958ffd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `20-dev` `20.11-dev` `20.11.1-dev` | March 5th    | `sha256:07dde20c5b6c307abf81e74ef4ef5e68ff866fe9022977c6c2da1878f5564264` |
-|  `20.11.1` `latest` `20` `20.11`                 | March 5th    | `sha256:b984332e061eb8e0e6d41ae143e63e337caeded7f9b3caabb98378f2bdb9cb05` |
+|  `20.11.1` `20` `latest` `20.11`                 | March 7th    | `sha256:93802c07db85a1366ecd8ef5853020398cf8401ac793a92147d680e43aa0a394` |
+|  `20.11.1-dev` `20.11-dev` `latest-dev` `20-dev` | March 7th    | `sha256:9ad8a2bd71fd92fc8b624c825c04a77fa7a82588c95af690f4e7f3d9b41252b4` |
 

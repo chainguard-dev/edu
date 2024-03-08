@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 6th    | `sha256:db12d5bdd5d9c19f324a506e6c1861099dc423d9fe3778c4c775ebf2a3e79eee` |
-|  `latest-dev` | March 6th    | `sha256:b6dab6dce1b0138bd91a28e1da57ecfbae560888b88d52981b804ffaa90dd446` |
+|  `latest-dev` | March 7th    | `sha256:85523c078dc0cb40681197eb7232b6ad047211d8dbd2c4b9078d5cbf016983f3` |
+|  `latest`     | March 7th    | `sha256:c486e71e60bdc4152e4b5538d69361a1257e9b9a4cedadfec18683b698a51c13` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.13.0` `1` `1.13` `latest`                 | March 6th    | `sha256:5b5f36556650ff7a621bc94c2e67b49a553360d1d31aff762c38166cad63cf46` |
-|  `latest-dev` `1.13.0-dev` `1.13-dev` `1-dev` | March 6th    | `sha256:c08490334ca3f1795982abdc101836715833914244327fd0a83160178e7a7805` |
+|  `1` `latest` `1.13` `1.13.0`                 | March 7th    | `sha256:2bb0c8a11150c3e9d26b9b29247b59dacdf24e9216934eb628001fd9f80853ac` |
+|  `1.13.0-dev` `latest-dev` `1.13-dev` `1-dev` | March 7th    | `sha256:acf83725aa876fb98bf1bf2d3b7dde28109e513dbf9157eb13daedee1e899b6a` |
 

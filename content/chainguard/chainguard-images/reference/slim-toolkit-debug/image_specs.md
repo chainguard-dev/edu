@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public slim-toolkit-debug Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -134,6 +134,7 @@ The table shows package distribution across variants.
 | `py3-zipp`                | X      |
 | `py3.12-installer`        | X      |
 | `python-3.12`             | X      |
+| `python-3.12-default`     | X      |
 | `readline`                | X      |
 | `redis-7.2`               | X      |
 | `socat`                   | X      |

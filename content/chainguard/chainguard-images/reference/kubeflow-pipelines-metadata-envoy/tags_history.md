@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:00dca5f32ac65ca6ede091774a3d67c9c1de3e9d3da7400f7cc92f660eaba5bd` |
-|  `latest`     | March 6th    | `sha256:31c04a0f104203be2a39195ee1f3e0679c7b52b817c167a86845626f97e928f3` |
+|  `latest`     | March 7th    | `sha256:95cf36c2809db78361281c1c97bd733696b37226ebe371d41e611402c942e817` |
+|  `latest-dev` | March 7th    | `sha256:cdff36825148aa34874ff98d92293292f482a096e424e438cdd459f7e52a7da6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.0.5-dev` `2.0-dev` `latest-dev` | March 6th    | `sha256:8a51ddde580dc8fa1b31d51a1e05d0cd1277db3fb680c5756e9d36ce5f8060eb` |
-|  `2.0.5` `latest` `2.0` `2`                 | March 6th    | `sha256:3d4c4dd2c20a29aaeac5c9d8c732c5ee2b888fcfd80d0ec8472574eea2fd0c9c` |
+|  `2.0-dev` `2-dev` `latest-dev` `2.0.5-dev` | March 7th    | `sha256:a37cebb60dbe63a2e28e7765b7025bab18a9560df4b877eb8eeb8c8c0483e0af` |
+|  `2.0.5` `2.0` `2` `latest`                 | March 7th    | `sha256:8c83e92a51ad22622333efaca44e6a7f74873ed15f6bade7f9fb52cdfbb457d2` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:9fcb019e9699438bf5f8cb522f98dafbc517391127e516fbe237c66d6deef40e` |
-|  `latest`     | March 6th    | `sha256:038e5f3b979e9871087814cb31db3ad7ddd8c7ce9b0c9af8f0038208da2f0829` |
+|  `latest-dev` | March 7th    | `sha256:4b8826b47c98ba49110dcccf05aeedfe20f50084c9918f76062bf364aa4c9d00` |
+|  `latest`     | March 7th    | `sha256:e1aa81cedf2706be7e9087aa95bfa53892ed8a2e696d6689f45851a365dbb8a9` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.10.0` `1.10` `latest` `1`                 | March 6th     | `sha256:e4ad25a477acc5285f7399032d1df5f953cae9adf47a4f3f8d27c15158b03bc5` |
-|  `1.10-dev` `1.10.0-dev` `latest-dev` `1-dev` | March 6th     | `sha256:58ff7a4961b434fd0699af8aa59122a9e9fda8e8354a418c73c593247d79e3f2` |
+|  `1-dev` `1.10.0-dev` `latest-dev` `1.10-dev` | March 7th     | `sha256:5eebc84bc55b456e93696f6dafeb344c610694dca6a74f737c0d2c3993e0d9ee` |
+|  `latest` `1` `1.10.0` `1.10`                 | March 7th     | `sha256:a5ca190ea29378a8b0ede483e3b0b3758a2875140f0999fc05a1a8de3dee7901` |
 |  `1.9-dev` `1.9.6-dev`                        | February 26th | `sha256:800dddda1d5869e675b7a72711838d4ed267a2fa3f38bbd828e3ef829f728a61` |
 |  `1.9.6` `1.9`                                | February 26th | `sha256:f10203f14a6e462a77762f4186ab89f1e35222b64c22e06b04625c8dccd5af88` |
 

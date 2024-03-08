@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:637270855616d70acc84c240731ce94342d43d9d8173ebd55c5b05633a8a9b35` |
-|  `latest`     | February 27th | `sha256:76d2a4302b7a33b22515b8508d1cde804503ba60bef9d10c77cc2d2a54928f59` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | March 7th    | `sha256:b95d5cdbfb69ec18de8dc26b17c7eb830194a95dfd580bfd1ba8a6c00077548a` |
+|  `latest-dev` | March 7th    | `sha256:1f0fae4c57ab35ba646e8d5d276367dd925f0547a6802c881225e485b8e09c09` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.4.1-dev` `1.4-dev` `latest-dev` | March 6th    | `sha256:7f491070af8c0e8c9134af1815e06edf52b8412343cce9a3e839657b4ac7e476` |
-|  `1.4.1` `1` `1.4` `latest`                 | March 6th    | `sha256:4301baf88aa6649aad7aeb11dfb3e1471c94ed5e59cb7f14cef55f64bf6dc4a5` |
+|  `1.4.1` `1.4` `1` `latest`                 | March 7th    | `sha256:e0c866372b1b79a78eb12e0b7dc2bef2bf2ae1936781ee6d1d58e6a26a7dcd83` |
+|  `1.4-dev` `1.4.1-dev` `1-dev` `latest-dev` | March 7th    | `sha256:554e62c8902b58b7be77f0b34176e60aab0afa3d0557648bf753582e98424e05` |
 

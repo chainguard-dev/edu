@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:68d2d60745687c48a44d22a8190ead0d888db0e1049ade1556db9d88fa47bcad` |
-|  `latest`     | March 6th    | `sha256:e5c693980ce7b420ea63f25143451abb95abcbead92b619adfd2d6e4dbf9f37d` |
+|  `latest`     | March 7th    | `sha256:6022c3fa7561367aa927d882969a75aa7318cc46bdc213a16b2b8ddb21bbeb3d` |
+|  `latest-dev` | March 7th    | `sha256:31c819f5f4f9f201ae219511cf6dc8f246b33a0744cb55e9e8d48d0fb6561879` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.13.0` `latest` `0.13` `0`                 | March 6th     | `sha256:97d934c94d217f4963fdcef8f3a54c4551d55788f814a9b73be0f2045b14bbf2` |
-|  `0-dev` `latest-dev` `0.13.0-dev` `0.13-dev` | March 6th     | `sha256:bf69bfc05210ac52cc2edaab0e3a8d8e4ee2e58479c14ab6b351775be8544cf8` |
+|  `latest` `0.13` `0.13.0` `0`                 | March 7th     | `sha256:cb08bdb9941da47139cbb16c4bc832234f8af88f4444472246851f44d84d8318` |
+|  `0.13.0-dev` `0.13-dev` `latest-dev` `0-dev` | March 7th     | `sha256:dc5239adeebe233f65a5af3749053cd9f718155097e7e34cb47e80f528f50d9f` |
 |  `0.12.3-dev` `0.12-dev`                      | February 10th | `sha256:06a5022896eda1415532a3ddb6fed743cf76779f53c7d63f80d5e2d8efbdaea2` |
 

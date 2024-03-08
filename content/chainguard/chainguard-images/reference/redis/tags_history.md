@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,21 +28,21 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st    | `sha256:d7965284fe3c54f0d9cd0bc59185fb6d4c45d5c05bf0c198021214ba11c53b13` |
-|  `latest`     | March 1st    | `sha256:6cf3066237a604fcf3e716aa9423cdd15383db49049bb594a337a97ca862ca50` |
+|  `latest-dev` | March 7th    | `sha256:4c5947f8f08810f2286794616d8236b99ab8331608b3324cbb5a75f1ddd3070c` |
+|  `latest`     | March 7th    | `sha256:1c32ca30664329e0a0a34da0b53762e87a39c7645946864ed1284b726af1759e` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed  | Digest                                                                    |
-|---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `7.0-dev` `7.0.15-dev`                     | March 2nd     | `sha256:7e012f8d0490348546a78d65081070f8bc91bd19cf619daf2b64c685aa928547` |
-|  `7.2.4-dev` `7.2-dev` `latest-dev` `7-dev` | March 2nd     | `sha256:c89dcda4c122b74e1dad1bf5e42c6237a150d263bbeb327a66e8dc66f18b0eac` |
-|  `6.0.20-dev` `6.0-dev`                     | March 2nd     | `sha256:bcbe12b51125210f0f154831890887c8983651549709a81d1df053f9483fef3e` |
-|  `6.2-dev` `6-dev` `6.2.14-dev`             | March 2nd     | `sha256:0aa3bb43b71b44b58a090b26b57d9986825472569f71a36c82b4c0d895214825` |
-|  `7.0.15` `7.0`                             | March 1st     | `sha256:1c7b226a8927cb92ea0d5f29050ba9ecd8e86b31433f052042e9cd83024c73d6` |
-|  `6.2` `6` `6.2.14`                         | March 1st     | `sha256:6c9dadfcd1a1e7209d2ced6e630f6ffce46e0548eba0c567cd51676efd387eb9` |
-|  `7.2.4` `7` `7.2` `latest`                 | March 1st     | `sha256:098dbc99402f2d282724f2bd4ae8988bf0e0730a99865e782cff0108cb305392` |
-|  `6.0.20` `6.0`                             | February 26th | `sha256:85e10f2937f976bbe38ed6f5316999127c7bad14d5b060be60863078566a0f4c` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `7.2.4-dev` `7-dev` `7.2-dev` | March 7th    | `sha256:67d8cc48ac474d83b579633a6bdf256eb2f934dd770be5260ebe9b34131bb48e` |
+|  `7.2.4` `7.2` `7` `latest`                 | March 7th    | `sha256:ad94e9e4af7356ab54e58d85bd90b70b089d55453a0bf822d7c137ec3f2d5acd` |
+|  `6.0` `6.0.20`                             | March 7th    | `sha256:54908a3145dab348afb723f8aa73d6bc1595138461c0d51bbb6f86bb4f918829` |
+|  `6.2.14` `6.2` `6`                         | March 7th    | `sha256:975de7cbe8de26930dec2dfbb7cbdf907c129983fa7bde84a45971d91d308448` |
+|  `6.2-dev` `6-dev` `6.2.14-dev`             | March 7th    | `sha256:78f2aabd786339a54059f03d0bdfe9071e5e99e0392d89bb64276b0a8f2101ee` |
+|  `7.0.15-dev` `7.0-dev`                     | March 7th    | `sha256:d3a4ab53f0bce2eb1f85126c4ec670cdd58c96338a363118285b87d22297a505` |
+|  `6.0.20-dev` `6.0-dev`                     | March 7th    | `sha256:5d3133afd8cd2f1635865821caa648b42830c9c2618631c77d8a56b3e24666d1` |
+|  `7.0` `7.0.15`                             | March 7th    | `sha256:f2f4e9f6f8cd38786ac534eb35f932115083e11cf983b04df661955acf38ddad` |
 

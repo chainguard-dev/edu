@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the traefik Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,9 +26,9 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 27th | `sha256:f90ce0eaba7633589e8abd320ee2b3d4eb88874f8c5d6a31c012b0cbb552fbb6` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | March 7th    | `sha256:f51ec9655c67631bf550c183b66b76157764ff4ea5515d51e6d62d942b6d6775` |
 
 
 ### Private/Dedicated Registry
@@ -36,7 +36,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2` `2.11.0` `2.11` `latest`                 | March 6th     | `sha256:677d9a29cb4edf27b251e97e6077b68d62c605ce64cb6f58258b59ebcf29b59f` |
-|  `2.11.0-dev` `latest-dev` `2-dev` `2.11-dev` | March 6th     | `sha256:ecb3afc14c1f049edd7e47a71f679567316b9abb31b8682aa8398750110a863e` |
+|  `2.11.0` `2.11` `2` `latest`                 | March 7th     | `sha256:26ff68e0af57df947d130f6cb505c6aa3216831b191290fec5cfe64ea4ac9739` |
+|  `2.11-dev` `latest-dev` `2-dev` `2.11.0-dev` | March 7th     | `sha256:72b9b74b609b2bd55804ac780f5f092457689153392edc7ab66a70a70173494e` |
 |  `2.10-dev` `2.10.7-dev`                      | February 10th | `sha256:5ba897f4f8f978b83410b35112db7adbef1a54b7d158a9a3e90a88139d52355b` |
 

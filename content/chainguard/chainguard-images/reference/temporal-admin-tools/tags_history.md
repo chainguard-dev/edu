@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-admin-tools Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st    | `sha256:b1f055b219747ffea191badccfe6b856e34a680032769c1d4dc0317856bf058e` |
-|  `latest`     | March 1st    | `sha256:142b16f73345763c134bdbf5f1a14b1910bf93433c8ae2f7cdda87ee9874f274` |
+|  `latest`     | March 7th    | `sha256:7556b558cb61c8e3f9ac79542ea5d4b0febb05b90753d6840fab7e6f7d384cd0` |
+|  `latest-dev` | March 7th    | `sha256:01ecacf7ce69c6fc6534cbe8f8bbf718e8a1adaada0a6cf2903ac3550f0089dd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.11` `0.11.0` `0`                 | March 6th    | `sha256:9b24e894c1dd4214abe0ec3455360d8ab8467bb5b4197705f0f5a5203811237a` |
-|  `0-dev` `latest-dev` `0.11.0-dev` `0.11-dev` | March 6th    | `sha256:0508d67730379fd7afe1a6342cfb9b20a502655cca1b15f6824616f3998a653b` |
+|  `0` `0.11` `0.11.0` `latest`                 | March 7th    | `sha256:d7c2a062a1c56b61a2b78f037b83cf90cc0fdb5b8cf7782d1d82503f2d5f93e1` |
+|  `0.11-dev` `latest-dev` `0-dev` `0.11.0-dev` | March 7th    | `sha256:d609afd0ee2ac3805bc19828a884e4ea6367799c9385436f3d755560c8dcb449` |
 
