@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dask-gateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:aebb8fa60b932190eb87f1313c64926adc811dd273cd7cc080fe98733cd8eb9c` |
-|  `latest`     | March 6th    | `sha256:f15fd04189bbb4501eb6789c31749d603cc7e977318a058da68c097a644a23a8` |
+|  `latest-dev` | March 7th    | `sha256:309e472cb182556af868b805f182c41be88ddfca43fcd5e1277cacb73c01c57f` |
+|  `latest`     | March 7th    | `sha256:a8112f08f8df19c025f6facc914d102633325a0856ad61745838609d9bbe9dc6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                              | Last Changed | Digest                                                                    |
 |------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2024.1` `2024.1.0` `2024` `latest`                 | March 6th    | `sha256:592a3456c5b1b8977a41131089b08b469fb64d5141e4acfb69b34f37e9854bae` |
-|  `2024-dev` `2024.1-dev` `latest-dev` `2024.1.0-dev` | March 6th    | `sha256:dea8a428a639c1d86233c4114c70f63c530715a289fd14cbfb232523665fd3ce` |
+|  `2024.1-dev` `2024-dev` `latest-dev` `2024.1.0-dev` | March 7th    | `sha256:8e36da44427423f64a257e1bc474245624009e6c7419d85e75b3cd29b104253b` |
+|  `2024.1` `latest` `2024.1.0` `2024`                 | March 7th    | `sha256:f5abd64a8c386b532136bb7d20d16cc07d60939ba2619d1215a352fe03970f15` |
 

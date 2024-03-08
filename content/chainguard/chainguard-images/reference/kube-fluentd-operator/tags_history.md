@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-fluentd-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 6th    | `sha256:e64ee61ab403e2880b2c3df6e7c9cb7e2abed3a698986c4d72330317dc027a6b` |
+|  `latest` | March 7th    | `sha256:c1bb4eb205b9a8727c40f16a9c0f6686a68717ed7826a57b3a2a96a79dffdab3` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.18.2` `1.18` `latest`                 | March 6th    | `sha256:d94ba6667eb235da45629abd389bd2f52a5f086a235ea30299c7eebdca086284` |
-|  `1.18-dev` `latest-dev` `1-dev` `1.18.2-dev` | March 6th    | `sha256:04a5b9ff6975eafa4a5d0cd4657d2e1635a204c8bbff585e0de8019e430aa324` |
+|  `1.18` `1` `1.18.2` `latest`                 | March 7th    | `sha256:66f2fb7171971893e35f8c4f6682d16da2bb112959c98e8acdca23580b4e09ca` |
+|  `1-dev` `1.18-dev` `latest-dev` `1.18.2-dev` | March 7th    | `sha256:a16a8bcf122e5d848e642e221cdb25f6bbbc9af3063d69c1513a400e160b3ab5` |
 |  `1.18.1-dev`                                 | February 8th | `sha256:dfa576453312bb5a32403eac90c582eec40850293d3cfac3319d1bda24b6e9bd` |
 |  `1.18.1`                                     | February 8th | `sha256:5df2815063c5d96faf959535c46298f29efbf5da42ba7de7b7c100a6c83c897d` |
 

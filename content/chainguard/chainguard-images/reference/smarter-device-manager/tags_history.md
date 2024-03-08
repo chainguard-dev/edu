@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the smarter-device-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:02449392c092fc60a0f21bcc98e6daec31aca64bdc6c09c63e3b87ed3cc0f25c` |
-|  `latest`     | February 27th | `sha256:6a6cce0699f1cb6da76b65f2770b49956738d9daba73446877df652b0f24b51f` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 7th    | `sha256:9e9b1329075e9e1393f98a17d92a4516bedba9b8583b45badd8198fd72937ff6` |
+|  `latest`     | March 7th    | `sha256:18039999059f6b9b4dd36b8cb6ba20243f2482f489e2ccdb4b2f61163bbed917` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.20-dev` `1.20.11-dev` | March 6th    | `sha256:ca943fe6323a42bc34a540f6fa86ccd32b5df88a347d1ae638f4dbc988677f65` |
-|  `1.20.11` `1.20` `1` `latest`                 | March 6th    | `sha256:c45c85a976885287c28f1ebc508bc00c3a043e353034dd21ca29f82980f80c21` |
+|  `1-dev` `1.20-dev` `latest-dev` `1.20.11-dev` | March 7th    | `sha256:57a4bcea06ae473c0f075b046f07ba35e3709c0f2a67ab28bcd7b8be934b4f68` |
+|  `1` `1.20.11` `latest` `1.20`                 | March 7th    | `sha256:027c9627cb0b4c12c07f8c348e59f649ecf58865e052c6750b3fb8de2a71d01a` |
 

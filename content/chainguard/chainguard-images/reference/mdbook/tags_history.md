@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mdbook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,15 +26,15 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 27th | `sha256:36c599a2f9bc03e52e22a43c68c0f6ad827c83a9a1d0f433b2350248db4f4199` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | March 7th    | `sha256:28acc59f1a4d4f57c4e193fa1b3dbbbe154e28c66ed562bfd364aa30806d8c3f` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                      | Last Changed  | Digest                                                                    |
-|------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.4.37` `0.4` `0` `latest` | February 29th | `sha256:b6cc9a4d458d04a23e1cbee21c4deb98b1ea0d7add1326d1d8626c5e390ef35f` |
+| Tag (s)                      | Last Changed | Digest                                                                    |
+|------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.4.37` `0.4` `0` `latest` | March 7th    | `sha256:f5d9a1bbf64cb633c3bf9760b992d53452abc79160f920b4fdf85e58403112d4` |
 

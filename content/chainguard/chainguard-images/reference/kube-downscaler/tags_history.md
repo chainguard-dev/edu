@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st    | `sha256:2cecc8d32752483b74fb53fb1f141fcedffa4142e1d2d94b76dab09c257bbe03` |
-|  `latest`     | March 1st    | `sha256:8a4bc4c39a8f6b8b35143ddee8d1a5757cc68c6c51de9c14e595cfc81e6e070a` |
+|  `latest`     | March 7th    | `sha256:3f2b35acf48ff4fc9b84dc19e2ec3de3aaefccd9723e1bee27fb2c621a58084f` |
+|  `latest-dev` | March 7th    | `sha256:c36c02d647585e624f32d0013d45e7d9676a749eedd1bb6408d9d9805eb613a0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `23.2-dev` `23-dev` `23.2.0-dev` | March 2nd    | `sha256:0aaa0905d71358eb0e9c87dd7d124c79a96d1deeddad4023af52036eb1b96153` |
-|  `23.2` `latest` `23` `23.2.0`                 | March 1st    | `sha256:01017a2e8c2dc6b0638d5da40f50aabdd52034fa8d99b5bc7df9b83a2f7795c3` |
+|  `23.2.0-dev` `23.2-dev` `23-dev` `latest-dev` | March 7th    | `sha256:b98bb4fc0fd790a2623cddbb9bf076a85d38d420b66c220217594dea9e5a123d` |
+|  `23` `23.2` `latest` `23.2.0`                 | March 7th    | `sha256:41f7726a06787958ad8bededd6f4597a58111b8fe444ddf54e5d3e381c8ac44d` |
 

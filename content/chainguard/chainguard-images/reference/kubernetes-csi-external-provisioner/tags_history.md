@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:746f5852afe661dca012e98458930208c39d0125568e6703770217bd4c70b4a0` |
-|  `latest`     | March 6th    | `sha256:a320aa74a1555bbb53f1750e7f68aadfebabd8f7223b1d0e68337c0c8ad8f299` |
+|  `latest`     | March 7th    | `sha256:51eb3e54c5e2fe65e48ab9d0318146b55822d4ea01c2251550e1fcb439e5490f` |
+|  `latest-dev` | March 7th    | `sha256:d7551f13a349b60ecc32dac55c0026b36d8ff462cd8594c81213c49b35c0b1c1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0` `4` `latest` `4.0.0`                 | March 6th    | `sha256:12a8a75d3dbf1564c8bb77af09422cfe88fa4ad33a329e9b7623f4be03f11a29` |
-|  `latest-dev` `4.0.0-dev` `4-dev` `4.0-dev` | March 6th    | `sha256:e75e7417f0d058ad097b5835ec6f55e9e804c86cbd12e1bac4fef5041ff28380` |
+|  `4.0.0` `4` `4.0` `latest`                 | March 7th    | `sha256:f91013aabf6f07bc7c3b9300b6ae354934ce1780f2747409ba3aab60955f682a` |
+|  `4.0.0-dev` `4.0-dev` `4-dev` `latest-dev` | March 7th    | `sha256:c88d07daafe904a918f39071a97edd06f4a818b28ab172342a9777bb9969e93b` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the netcat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,15 +26,15 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 28th | `sha256:e0addff1291ea397877facc649da3338f12c64dfefcd667f56276d8cd3551693` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | March 7th    | `sha256:2ae0efe3d8062446bdc26d1a35e14dd0578a9d793fac8ec49e33495c308e69e8` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)               | Last Changed  | Digest                                                                    |
-|-----------------------|---------------|---------------------------------------------------------------------------|
-|  `1` `1.226` `latest` | February 29th | `sha256:d0ed081f0d0a9818ceb348cd6b4efb230991a9dbf21da507ce10a3dd0ea07ef9` |
+| Tag (s)               | Last Changed | Digest                                                                    |
+|-----------------------|--------------|---------------------------------------------------------------------------|
+|  `1.226` `1` `latest` | March 7th    | `sha256:37816d94410d045338830cf1f574f87fce4ac9bb0ebf441eaf2dfa7eb6e3d886` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cedar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:b2ea86812d00f60702319074b4e4d63cbeec64b94712d219977ae296205c7d36` |
-|  `latest`     | February 27th | `sha256:9fd8a14485429dc7ef963613246e12510eb69a455745f46513eafdf3ffe924d9` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | March 7th    | `sha256:60873c6f58cdfcc4aefa4e418b70703e079877db79dce97dd44fd322c3aaf6c9` |
+|  `latest-dev` | March 7th    | `sha256:aa576959e70a54e75404df8556ce5ee6a308f8b45711a4df975f4ef499972735` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3.0.1-dev` `3.0-dev` `3-dev` | March 2nd    | `sha256:f47d02f421fa545c71b97f310bc6990e23832a4f6a99491ab97e952f4a0ddc85` |
-|  `3.0.1` `3` `3.0` `latest`                 | March 1st    | `sha256:2471f8d71c9ae542f48bfa729cd869e796f25eb198ebb636f8611c4b5969f62f` |
+|  `3-dev` `latest-dev` `3.0.1-dev` `3.0-dev` | March 7th    | `sha256:3451228ed8dcb109701e31184a085b99d896f9aca7c9b1acf747124d3381c020` |
+|  `3.0` `latest` `3` `3.0.1`                 | March 7th    | `sha256:d9f2cdf40ed95fcae5bbc83fe45a68102a9dd3059b9e19ce70722912b0adc108` |
 

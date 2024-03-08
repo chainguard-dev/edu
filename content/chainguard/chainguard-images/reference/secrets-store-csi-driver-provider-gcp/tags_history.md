@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:82bdf5c63818bb3565dc506bf15eea947efec59af816fbdce5fe688d65312b6e` |
-|  `latest`     | February 27th | `sha256:5bce02b9ded9ccea8f708cdc316209270ba6ea230cd2d484dfb232f19cd5387c` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | March 7th    | `sha256:cc1112083f9f2b2ad875473fb842f0932053d28f6d61d44a7de5ffb26f6eb781` |
+|  `latest-dev` | March 7th    | `sha256:7840568b4664f73ae4d9d3d71322de7685f99164c122a3b2c3ed51cfb2a55f32` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.5-dev` `1.5.0-dev` | March 6th    | `sha256:192f61faecc53c604f636834812b57f37b42a8cb4bd9236489abadfe5d4a4178` |
-|  `1` `latest` `1.5.0` `1.5`                 | March 6th    | `sha256:114b8e401feaa273a4f631cf492b4f027fced322417df9ff49fc5ddb25f71273` |
+|  `1-dev` `1.5.0-dev` `1.5-dev` `latest-dev` | March 7th    | `sha256:d92499165625dd47ca4d2a9521e0d5af19426dd64e4d2c859d5096c3fcf9a5ea` |
+|  `latest` `1` `1.5.0` `1.5`                 | March 7th    | `sha256:eaa728b2520e244387d9eee1f102a89e40475a0c692e4b41ce2dcb3df6f9275c` |
 

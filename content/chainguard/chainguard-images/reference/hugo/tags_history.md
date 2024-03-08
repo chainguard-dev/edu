@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hugo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:eacb682f02a6b0fed219dfc1c56af7fdc698e8a067d059fb484be1b290f76b65` |
-|  `latest`     | March 6th    | `sha256:83dedddfc9a6acb4d18c4b4b13f41034c160a8dc8b6005eb1510c4ac8784b04c` |
+|  `latest-dev` | March 7th    | `sha256:b033a802296dc9f0216d8251524a27a7641a7eff0df71a2e177db091438b3bf2` |
+|  `latest`     | March 7th    | `sha256:bdd4e8481e54f24fb3dc1986bb6ad2bed235041a09a6bd4e87673766ba9689d0` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed  | Digest                                                                    |
 |-------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.123` `latest` `0.123.7` `0`                 | March 6th     | `sha256:8ad47c3f3ba8b960f9b9720ddc559a4fb434c9c11ce512032a0c029608f698bd` |
-|  `0.123-dev` `0-dev` `0.123.7-dev` `latest-dev` | March 6th     | `sha256:d32936ac2e2e8470e8b6cc4949670d1c30348ee85394899d439ff3b03a86efbe` |
+|  `latest` `0` `0.123.8` `0.123`                 | March 7th     | `sha256:d454c26119ead38893c8502a6c90c466609c2ff55e9b32e79c81c8250b1c2333` |
+|  `0.123-dev` `0-dev` `0.123.8-dev` `latest-dev` | March 7th     | `sha256:bfc840d66ea7127ce5bbd0cf71869408a947bf74b7d00024eccb5c324b8c08c3` |
+|  `0.123.7-dev`                                  | March 7th     | `sha256:d61917c7b99eeda024884acc36e61d413122ed8c105e840f8e6252c9ef24e541` |
+|  `0.123.7`                                      | March 7th     | `sha256:6ca957efbc5863f32ee4fdb63a44a8c72c5fd1f6bca09b643eaa7a0b8d05fb4f` |
 |  `0.123.6-dev`                                  | March 1st     | `sha256:ba09bbd048aaa8fe9fde7d7bf83d71c31d9b7d8a34c2f02532a0fe12319cbe01` |
 |  `0.123.6`                                      | February 29th | `sha256:16689601a29ec6edc8b435d0099cdb8095fa774342f50f5d0dc7a4ed9000f0d7` |
 

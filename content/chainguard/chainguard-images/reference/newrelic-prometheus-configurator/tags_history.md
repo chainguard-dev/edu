@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus-configurator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:0750e925fe38e909b075cda2a9bdc78d5bbeb973b5b3500edd81fe2ffa4c96fb` |
+|  `latest-dev` | March 7th    | `sha256:589c8981ccd31d9725e7f9f0b87f34acb7227dfdedf0a77eec9b05283479c810` |
 |  `latest`     | March 6th    | `sha256:c79b589de5b6000e09f9085d216509cb0f0d2cfe48571decf42dbe1217e6d30e` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.14` `1.14.0`                 | March 6th     | `sha256:ae76dd5e20807c492d0a271f82aa83d9a98f8b1366eae7204a8a9dbbec73ace0` |
-|  `latest-dev` `1.14-dev` `1-dev` `1.14.0-dev` | March 6th     | `sha256:77ac5ea1837fcfa6954e6487b86f85dbd597fe1bd2cfb0ffee65db4fa50cc891` |
+|  `1.14` `1.14.0` `1` `latest`                 | March 7th     | `sha256:ffe288ecefa7f8b74d15596b4634024cde412845467c24df1e8f0c274bf975a4` |
+|  `1-dev` `latest-dev` `1.14-dev` `1.14.0-dev` | March 7th     | `sha256:06c548158a650e41788f23fcd30fbecb2baef5d50da63bb133ad448738cb111f` |
 |  `1.13-dev` `1.13.0-dev`                      | February 24th | `sha256:10ca871683db9aee0f63d2e389c133155f6ab5d7879b440e61de30dcefcea3d7` |
 

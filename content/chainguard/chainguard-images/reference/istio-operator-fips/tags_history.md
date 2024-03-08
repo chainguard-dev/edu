@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-operator-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest` `1.20` `1` `1.20.3`                 | March 6th     | `sha256:88c11531135457fef096e90691efdef89672c4550813475b6e44cab56b0a02a2` |
-|  `1.20-dev` `latest-dev` `1-dev` `1.20.3-dev` | March 6th     | `sha256:6edbe4ebcd44a195d185f316f39bda0878d48f5b32db376e46f40ad8bd3c0c31` |
-|  `1.19` `1.19.7`                              | March 6th     | `sha256:83642675ea66053db493f3e94d7d15dfa2ab3d82dd6067d256a739715a9eb9b3` |
-|  `1.19-dev` `1.19.7-dev`                      | March 6th     | `sha256:6e0350ca6d29711043e2a7148af9344ffaca2c8014c4d0412416522e96029312` |
+|  `1.20` `1.20.3` `latest` `1`                 | March 7th     | `sha256:9cd0ce1d590d58a4f9690d47d97d792bf107742aee5db37f7957e1f0cfb0261f` |
+|  `1-dev` `1.20-dev` `latest-dev` `1.20.3-dev` | March 7th     | `sha256:34cfcecc31a42f0f2d0381a6efe144e463ae4badc8925efd770eeee4546f6a89` |
+|  `1.19` `1.19.7`                              | March 7th     | `sha256:9d38f4ef7551306469fabbafe7f50ea7f294685e6301e4631a00446ccdee5be1` |
+|  `1.19.7-dev` `1.19-dev`                      | March 7th     | `sha256:765401e555f5b93f743fff3f4eae8b77f7171dca939ee4753cde29cf9011d3ca` |
 |  `1.20.2-dev`                                 | February 10th | `sha256:79746a5e9c8232b3597944ff942b76dea64e833e78e5aa39777d01edad76b927` |
 |  `1.19.6-dev`                                 | February 10th | `sha256:024a60e707a51bb248f5b1bdfec9e9c5f0feab5571a1d8d551351d445de390df` |
 |  `1.20.2`                                     | February 8th  | `sha256:28dbf55688babb6ef58cdce4c98800b5a84fcd9d98303d983171be835bc1b7b4` |

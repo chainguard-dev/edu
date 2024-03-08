@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 6th    | `sha256:829bd78a900338e2c42964948db981c2ddd9528202550f7ea13830c1655834e2` |
-|  `latest-dev` | March 6th    | `sha256:d6a0bef06fd31fbd6c84ccf39543d4b9af5243b99c15abb473709fd068f2762f` |
+|  `latest-dev` | March 7th    | `sha256:9754ca1aae571c5e2f4e521e1a46787e12fd53aa6f6a0771f2a770b69d3606b7` |
+|  `latest`     | March 7th    | `sha256:eebe4e334fc9001623f2ace781d85be310d61990d24281bf0bfb3493cafbbd37` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.8-dev` `1-dev` `latest-dev` `1.8.11-dev` | March 6th    | `sha256:4a9f06b7a1c7794abbdda962e639759c7533009c1bc45f2b65a82bc45eaadafd` |
-|  `1.8.11` `latest` `1.8` `1`                 | March 6th    | `sha256:818d4f4627809261875231a28c091e78e2e8bc31fa646f6879b355eb019e267d` |
+|  `1-dev` `1.8-dev` `latest-dev` `1.8.11-dev` | March 7th    | `sha256:2b8f092ce6b258bcbd950d25defda531627b2654814b17e9e8ed6dcbf9c0330b` |
+|  `1` `1.8.11` `1.8` `latest`                 | March 7th    | `sha256:509bcff6b95da767c3c6a8ac517a8ac77240e53f3f796a4dc3254459d3dc02f2` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 6th    | `sha256:9035c1018b8aa9f7599095970ec26ad9b82af63fcdee552469aa3233e41462c7` |
-|  `latest-dev` | March 6th    | `sha256:3c368eed8a7edace65af2553cf650f9e9f0461baa855133cc009dacad5693e7d` |
+|  `latest-dev` | March 7th    | `sha256:3093c42b81966c01ed275dc6278e96d3f466cc784a89518416e64115d10be45a` |
+|  `latest`     | March 7th    | `sha256:186ed7175f99616982bd07105d38b40df9b8f2cec0c2c01498f2fdccfa69205b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5-dev` `2.0-dev` `2-dev` `latest-dev` | March 6th    | `sha256:a3ba0285279e86d5223d5f23264e3616cf7acf9a9f84cfecf9c839e9f0c0cc92` |
-|  `2.0` `2.0.5` `latest` `2`                 | March 6th    | `sha256:6b1fd604afb6db905d2ef2b7649f0332e951749c0c39c544ea8a46f395491c4d` |
+|  `2.0.5` `2` `2.0` `latest`                 | March 7th    | `sha256:5939b2125fd5b56d09f8dc0546ecbf5db9c790c2a1f286556d88d290e72db324` |
+|  `2.0-dev` `2.0.5-dev` `latest-dev` `2-dev` | March 7th    | `sha256:51f30be0b1c82a4baa628c8bbc034630093b23ee439d1693a5c0155cd216c7a5` |
 

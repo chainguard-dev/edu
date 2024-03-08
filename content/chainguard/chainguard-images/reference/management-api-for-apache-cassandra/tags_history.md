@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 6th    | `sha256:b1de77bd8f10d0296b34617310f9871d608c6a49d073c9b56a664584355fe790` |
-|  `latest-dev` | March 6th    | `sha256:2d1e8cb8bbd8155b2801bf008c4b9913a77f050ae607b9eefac33b2e23f05856` |
+|  `latest`     | March 7th    | `sha256:acd6c2731313a5a6fe77ae66285a3bf1c1d275f654729ae09dcc167d148db245` |
+|  `latest-dev` | March 7th    | `sha256:6c57f69e7734018d144820be27511153a0447a966f07143475f612a272bbbffb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1.73` `0.1` `latest` `0`                 | March 6th    | `sha256:db190ca2631dc9a1ca9ae18395c00a4a4c8356808a5d11b76264fe88ad80869f` |
-|  `latest-dev` `0.1-dev` `0-dev` `0.1.73-dev` | March 6th    | `sha256:b7fce53f514b8ca41e8a0825df82f0a48771e63fd331b84cc71555e60c4008f3` |
+|  `0` `0.1.73` `latest` `0.1`                 | March 7th    | `sha256:30a067aebf95464ce0b8109f55c4d49481ee57a0225bc4c91ee69ac849f6a259` |
+|  `0-dev` `latest-dev` `0.1.73-dev` `0.1-dev` | March 7th    | `sha256:ed18c5fe1cbf89f338ef4a80c6470f89aeac0325168941a3c0f48604a5863b93` |
 

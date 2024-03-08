@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-admission-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:b2ea8f0ef52221552ca680daf9f412e8451479ac0b7b4bb679aff06f922b50ff` |
-|  `latest`     | February 27th | `sha256:aee6be16090b47df326b65d8abd671a61229550f3d7aba2735d4807c499b33ab` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | March 7th    | `sha256:371bee4700d1b36f87a18049735325858aa1890db2db3fd58555bcde1c8306ac` |
+|  `latest-dev` | March 7th    | `sha256:1707b71b909949fb2ec7c8dba6adf696f8a816dab637e2adce429223d9b22b52` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.0` `1.0.0`                 | March 6th    | `sha256:3069cb0aea4d9779cf6f04199c54a92b113e0ec4e503a1a8e76a0376f7b5ca91` |
-|  `1.0-dev` `1.0.0-dev` `1-dev` `latest-dev` | March 6th    | `sha256:dc78946b6303b3a09748cb92e7fd161f9db6bf7ae49bddabb3eb320b3523c6b9` |
+|  `latest-dev` `1.0.0-dev` `1-dev` `1.0-dev` | March 7th    | `sha256:1007d94a78ffd11fb552e713f8932e47a13a6b484c069619082274f38085ac72` |
+|  `1` `1.0.0` `1.0` `latest`                 | March 7th    | `sha256:762171dcaddb0e9a7147ceefcd3917b6b0aa38d8641eede561d14c825fc4f4b4` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:0fea36f87456f67a8f4e0ecb49067f1859d09c1ff3a7666b3682b40adfeda7e9` |
-|  `latest`     | March 6th    | `sha256:d657454a9331198680c16070e6d5a47ce3265d31190f8cded836ed9c29cb34a4` |
+|  `latest-dev` | March 7th    | `sha256:c77fd26d9c600babe9e590cb1227024bf8b36b8b2077839645a2a95afc9552f7` |
+|  `latest`     | March 7th    | `sha256:083cac977c851cc32ec797c2250efffda9fd1c4d53888025e9d82c60ac6cb187` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0-dev` `2-dev` `latest-dev` `2.0.5-dev` | March 6th    | `sha256:1d7d36b55295f46d6db0ed6b6f3e85ceacb4573739a38add5e04a01457983e9a` |
-|  `2.0.5` `latest` `2` `2.0`                 | March 6th    | `sha256:07281262b594d2af317c592ea09d3259c4e78cbc7a7e983822eec3b8220e8c05` |
+|  `latest-dev` `2.0-dev` `2-dev` `2.0.5-dev` | March 7th    | `sha256:52515452ef41f5c5a3a5bb813538cca21d253ceb263997a890a0de28f3b543ac` |
+|  `2` `2.0.5` `2.0` `latest`                 | March 7th    | `sha256:e29ffdad0ff299aacc8cadbe14ce3c1164315ec232ff8e8931eae661749c53e5` |
 

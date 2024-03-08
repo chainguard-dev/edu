@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 7th    | `sha256:b98e0ee3c9a5f6fd6be3bd72484b64e8196edefb012fed2ce758ea43924ef72b` |
 |  `latest`     | March 6th    | `sha256:a0ecccfe037287b16c0799b29bc1f25acd7e4c9a0f9549f86634fcb931d26c95` |
-|  `latest-dev` | March 6th    | `sha256:e96936783bf601f66a1dc4f58f5564a4ca4def9ba8a3c78f213e10f04ccba13f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.14.2-dev` `3-dev` `3.14-dev` `latest-dev` | March 6th    | `sha256:095884ebbde6dba2dab0d4fa6a15b1213ef86dc556fcc53f646aa90109b814f5` |
-|  `3` `3.14` `latest` `3.14.2`                 | March 6th    | `sha256:924ce6818f381d1b8538c88c4e35e096f32bdc225065bed9af36345224e761de` |
+|  `3.14` `3.14.2` `3` `latest`                 | March 7th    | `sha256:90e067a14a5aec5ea76120e9fbe362c78c29c445685cc11aea0a7113cd304898` |
+|  `latest-dev` `3.14-dev` `3-dev` `3.14.2-dev` | March 7th    | `sha256:849485633627a64438abdc39f00de019d2ca9ae9ffa46fa3460ab3c17fbeba24` |
 

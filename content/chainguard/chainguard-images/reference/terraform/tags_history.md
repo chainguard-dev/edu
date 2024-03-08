@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the terraform Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,12 +26,12 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)                                 | Last Changed  | Digest                                                                    |
-|-----------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.5.7-dev` `latest-mpl-dev` `1.5-dev` | March 1st     | `sha256:2657f254551c0da2227ce8704800a635ca96e87cc99d9f6def72eb840ee1ae4a` |
-|  `latest-dev`                           | March 1st     | `sha256:ed101076044934bc12cec5bf052513b386339794e6f84f471053c09e1f150404` |
-|  `latest`                               | February 27th | `sha256:424585d08f10fd158e6c601ff7d6e91892ef3d76b474548b44faa83996772926` |
-|  `1.5.7` `1.5` `latest-mpl`             | February 27th | `sha256:49e836dd130b840c90335676a67939b9d142065e600165bbfbfd9c24df5d41b0` |
+| Tag (s)                                 | Last Changed | Digest                                                                    |
+|-----------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev`                           | March 7th    | `sha256:f7279a8819d10d8238b827bdfdb0ce05676ecb6a151e6c8f3dc9075acac6b223` |
+|  `latest`                               | March 7th    | `sha256:e610e9530b5cfca9336dcb8f79a4c70df09037bc6750d8a6937e334524bc675b` |
+|  `latest-mpl-dev` `1.5-dev` `1.5.7-dev` | March 7th    | `sha256:2570a502b8de484e8659b5993d4d7e2d86df274b4650779ae02c63fe94b78239` |
+|  `latest-mpl` `1.5.7` `1.5`             | March 7th    | `sha256:cf21cb1d6c2fcf3f9b9103a330efe4cb7ddf279f108d303d7ab026ae75d2069a` |
 
 
 ### Private/Dedicated Registry
@@ -39,7 +39,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.7.3-dev` `1-dev` `1.7-dev` | March 2nd     | `sha256:543b31f24f68eed41af2f996a7d34146a331c0ac6205ad82d293a793f03c2908` |
-|  `latest` `1` `1.7` `1.7.3`                 | February 26th | `sha256:6fbc8db9368ded611e7c1364508a68a5f45899491745c50f437581c8f6fb3b73` |
+|  `latest-dev` `1.7.3-dev` `1.7-dev` `1-dev` | March 7th     | `sha256:e6f02a0a3ea037bf0d10ca71ca5ae6b3ddb28ed2df590ed3104271acfdd9bf8d` |
+|  `1` `1.7.3` `1.7` `latest`                 | March 7th     | `sha256:41cf7d54df144c71963fdafaec84e8bb5eef9e506d88cd08f9e7db3346d6dfa3` |
 |  `1.5-dev` `1.5.7-dev`                      | February 13th | `sha256:c83bdfe6f1ce886ddcdb4cd2c355413a36774d5a9a35954020adfb91f31b37ed` |
 

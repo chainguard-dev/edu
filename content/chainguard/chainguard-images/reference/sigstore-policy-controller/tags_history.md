@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-policy-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:3b56c0a2a62ec3ddcacc014240b4590c95e9ee63fc944928e8c6f66436d333cc` |
-|  `latest`     | February 27th | `sha256:fa5f0273435c3d32749ffcd9b8177c012a9c63e3be8b6845cffaaab908924bcf` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 7th    | `sha256:d25c8f9133793989f22e396caa3d52e8789f1b76f8c5c3345338ad01ad36cf28` |
+|  `latest`     | March 7th    | `sha256:44783fb6e857409de09a965b1de9f6371fcb7cc6fc54583ecdfc8854373dca84` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.8` `latest` `0.8.4`                 | March 6th    | `sha256:086214eb18c918f43ff934744ead6031a30cfee9e0ae6b39fef72a76acb24df8` |
-|  `latest-dev` `0.8.4-dev` `0-dev` `0.8-dev` | March 6th    | `sha256:191b4b79225f245c82070f3b69beda5c67e9639ae2c8919092b53f575dec61eb` |
+|  `0-dev` `latest-dev` `0.8-dev` `0.8.4-dev` | March 7th    | `sha256:8041185eb6e2612fcf2f87a3c0e81166ca9dd269d8994bf6591a76bcc279b6cf` |
+|  `0.8.4` `0.8` `0` `latest`                 | March 7th    | `sha256:c8e968118faae6e03af7f0081acdc7d40b2f73123ebf7e2c047d9210b4057e17` |
 

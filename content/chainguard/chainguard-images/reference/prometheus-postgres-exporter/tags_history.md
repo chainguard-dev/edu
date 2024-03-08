@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 1st    | `sha256:6a1d4087227a847b01c2bb8006081e7b341608352462cc9aa569c24f1f25302e` |
-|  `latest-dev` | March 1st    | `sha256:868303b0fc70d93bbcf8b643b42d872ed837a4bd8a2040bb237ce308b1af1cf5` |
+|  `latest`     | March 7th    | `sha256:1ba76ec8cf4c9bafbc9fec74b75b9b05f7c58a1eee81d3c6f181cda43b7de127` |
+|  `latest-dev` | March 7th    | `sha256:d7efdb34008011c644af764efadb1eea6c776e509a888bed19c98af942cffdf2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15.0` `0` `latest` `0.15`                 | March 6th    | `sha256:5160811ca9167ad8e4f38f9820bc48075d834ddcf02f9097c597537f9263f3e6` |
-|  `0-dev` `latest-dev` `0.15.0-dev` `0.15-dev` | March 6th    | `sha256:6225e6002911526942fbdae7e2bdcd1a6e1f0b136d49dd298b239b67524444dc` |
+|  `latest` `0` `0.15` `0.15.0`                 | March 7th    | `sha256:c96d2a24ec345e579604eb27147c23a5929ed421424acd21aee2894fe8fbd7d4` |
+|  `latest-dev` `0.15-dev` `0-dev` `0.15.0-dev` | March 7th    | `sha256:36c06c5ae36b170ad32324183348743bb967326067902458682727b0cd3bf467` |
 

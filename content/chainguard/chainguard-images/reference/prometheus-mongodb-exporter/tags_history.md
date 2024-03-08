@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:c21b1e1cc9acc3c8de5ad7e9aa9f88bd6414e8742996aa44cd6d137b65790e72` |
-|  `latest`     | March 6th    | `sha256:7f64866db68598ac72a44410508435750d0aebd38f0cb14d7a69b65a8f4155d7` |
+|  `latest-dev` | March 7th    | `sha256:2d0d978b7b99d6658a50667c4ddfadb104451488421b5b2d78e4c4737cd3be05` |
+|  `latest`     | March 7th    | `sha256:6545d416fa9c0601fe6d8df4f71c7d3767e366bc4290b2491c679999246fe1a0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.40` `0` `0.40.0`                 | March 6th    | `sha256:ea029755e28db9289bede98416d157b798da82f0f97aec442974b170b04163c7` |
-|  `0.40-dev` `0-dev` `latest-dev` `0.40.0-dev` | March 6th    | `sha256:8ecf265efc3a7953dcf752e4b408d42e96631be63ab00e470faac21b29eecd31` |
+|  `latest` `0.40.0` `0` `0.40`                 | March 7th    | `sha256:e6690eb980dbc74a9afb852b3b53673a75205ab5e8590b23b2c99416b27c43ad` |
+|  `latest-dev` `0.40.0-dev` `0-dev` `0.40-dev` | March 7th    | `sha256:85f74ee853604df7c1e91cead1b1d088de66c9073ed52b27939c0283cef3b565` |
 

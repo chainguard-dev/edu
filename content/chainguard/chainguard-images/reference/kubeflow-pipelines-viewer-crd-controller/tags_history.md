@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-viewer-crd-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:51d451edfa71456e6ed30ebe9620c49f4a32319c0668415120a10f93b389adfa` |
-|  `latest`     | March 6th    | `sha256:cf70d14aa445cc01ab6ed955507c69936c0c6753ec4310b52589eb86d52d1b2b` |
+|  `latest`     | March 7th    | `sha256:3798c8665f9b6a10ce5383a28f131219a1cbfc21b54b763f37df0dfa6045e626` |
+|  `latest-dev` | March 7th    | `sha256:63722b313a2abf0660d5cd2e22a8b40b80c9e34f99093d883c014bf1b2c1a0e8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.0-dev` `2.0.5-dev` `2-dev` | March 6th    | `sha256:8e204c05f33c369a2278efbf799aaf771c4ea6e4cdf66ddd242c58fdb5e9ee6f` |
-|  `2.0` `2` `2.0.5` `latest`                 | March 6th    | `sha256:f754ac717d810ebb651186062b5341c6fac76614c77c1f8cc38ad9978a351355` |
+|  `2.0` `2` `2.0.5` `latest`                 | March 7th    | `sha256:47e651a36200940513a2c48f38a6ef98ba38e3c8ec6185f52f350dbc0dfffe58` |
+|  `latest-dev` `2.0.5-dev` `2-dev` `2.0-dev` | March 7th    | `sha256:85b187f8f521d2d81aa138d5e1998d60bb88fea06e5a57383f992df8f4b8e422` |
 

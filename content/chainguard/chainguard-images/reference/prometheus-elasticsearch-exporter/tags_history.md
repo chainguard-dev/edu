@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:3ce3e847e34579378f3f3f56d6e8030f93ad63cf0350914f8ac537403790090e` |
-|  `latest`     | March 6th    | `sha256:1c072c2fa630d9b632d19cec24eb6b043c712bbc4689ca418da21d0491d44b3f` |
+|  `latest`     | March 7th    | `sha256:876b8d60a0a58057800c92a681abcbd7cf942d38b3005c3469094806d15d5dd9` |
+|  `latest-dev` | March 7th    | `sha256:7dd7f198998ad89704a027c88f1cdb740a9428f55f867683f634797860820815` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7.0` `1` `1.7` `latest`                 | March 6th    | `sha256:23a7fd531e26347596a443e98d0e083132932923146511d4771df00b2a44f603` |
-|  `1-dev` `1.7-dev` `latest-dev` `1.7.0-dev` | March 6th    | `sha256:06ad31a6265a92f76305888657675897c42b21ecd8e64e7653c00ea1ec62ae77` |
+|  `1-dev` `1.7.0-dev` `latest-dev` `1.7-dev` | March 7th    | `sha256:d1f1760e1e2431ae618e3bb18418d5ec4ca1542d3bd1108149b003df12aa3322` |
+|  `1` `latest` `1.7` `1.7.0`                 | March 7th    | `sha256:a28099acf1cc74b02336d0f217acb9cf4c87325a5de1cfd062d02918ce97897d` |
 

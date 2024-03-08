@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,9 +26,9 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 27th | `sha256:34744644351e8ff515050d68c16bc5daa12a0b349d2dbd701e00029dbd0309de` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | March 7th    | `sha256:f0a19cb629525f8003cb23b5e266f81099fdfa163b4164ef7efefcc279556f13` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed  | Digest                                                                    |
 |------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `3.12-dev` `latest-dev` `3.12.13-dev` `3-dev` | March 2nd     | `sha256:1f3029f22ae86b8c427c388d20e1163d357e46c05de798fc4d2f0f89e9a38446` |
-|  `3` `latest` `3.12` `3.12.13`                 | February 26th | `sha256:2f298fb9a623cc0a716e9e94b9833cd61713ecefd5a1fb8761ea746574bec81b` |
+|  `3.12-dev` `3-dev` `latest-dev` `3.12.13-dev` | March 7th     | `sha256:7fd6e453dbae8ff0f72d498f6445da630d665409844085430bac667e3898a3ea` |
+|  `latest` `3.12` `3.12.13` `3`                 | March 7th     | `sha256:4caff678c32b79a131c9e70e9fa531e2e521bc66974eb0f6569bf5684127abee` |
 |  `3.12.12-dev`                                 | February 15th | `sha256:8ad9a199a180c4f95e15d4218b29636e7b7704311b8d9349efce4df33f1d4e40` |
 |  `3.12.12`                                     | February 8th  | `sha256:89cba2b5bf93b4d3fdade2552db7239cf465ce49d0a7a12b1e279f344e49b0f0` |
 

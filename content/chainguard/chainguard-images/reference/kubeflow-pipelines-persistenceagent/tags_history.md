@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 6th    | `sha256:738567b612d05bbc1efd31768dcc831590ea09343c3d71b6c1f50d808d5ce786` |
-|  `latest-dev` | March 6th    | `sha256:d20f08d283ac4814466e43b7b2d58860b7050bba8c145b958e480c8a93023c50` |
+|  `latest`     | March 7th    | `sha256:6e1d3a73d81d62fc9e34d8218d1980a36bed1da3b4ea9c98bbb617a2b3f87b3e` |
+|  `latest-dev` | March 7th    | `sha256:1ede555e043c3c98a3e4c256917c563deeba5f548ba06652ef29b8348d349f86` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5-dev` `2-dev` `2.0-dev` `latest-dev` | March 6th    | `sha256:2c2f4e78b18cabdbd6a7509bc7d1cb1b4ca64b476f0a3678a3739f16acd51a5d` |
-|  `2.0` `latest` `2` `2.0.5`                 | March 6th    | `sha256:7bab5ee2a2d4adea02277e8826057381f2bf1c92dc14d8bb6dcfd217d5f080aa` |
+|  `2.0.5-dev` `latest-dev` `2.0-dev` `2-dev` | March 7th    | `sha256:ba87a57400170533680e6a62a8c8c726b34d4558f264cb43d873ca33295d2f4b` |
+|  `2.0.5` `latest` `2.0` `2`                 | March 7th    | `sha256:58bcf352d61f1b834e8605fdc2ddba278b95db6f95454b7fe79f2c7d36ee21e1` |
 
