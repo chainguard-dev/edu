@@ -3,10 +3,10 @@ title: "Vulnerability Comparisons"
 description: "CVEs in popular external images compared to Chainguard Images"
 type: "article"
 date: 2023-08-22T08:49:15+00:00
-lastmod: 2023-08-22T08:49:15+00:00
+lastmod: 2024-03-08T08:49:15+00:00
 draft: false
 images: []
-weight: 010
+weight: 050
 topic: true
 banner: {
     image: "/go-logo-white.svg",
