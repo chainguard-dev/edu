@@ -4,7 +4,7 @@ linktitle: "Ubuntu Compatibility"
 type: "article"
 description: "Differences between Chainguard Images and Ubuntu third-party images"
 date: 2024-02-23T15:56:52-07:00
-lastmod: 2024-02-23T15:56:52-07:00
+lastmod: 2024-03-08T15:56:52-07:00
 draft: false
 tags: ["IMAGES", "PRODUCT", "CONCEPTUAL"]
 images: []
