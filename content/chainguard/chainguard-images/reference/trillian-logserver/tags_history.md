@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trillian-logserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:adc003073266ba9d7b1a1c6c81e6b3424028fd189080a62cc5cd18740cdb512d` |
-|  `latest`     | February 27th | `sha256:5e6ae54a42a31136d97d3ce0a5b0c7a97f4059a95176ee4d9c835179aa25315d` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 7th    | `sha256:a2f5d463ac23d576630f2f7f9de0eaab0e9ad62a3191a318856bd17b67843f27` |
+|  `latest`     | March 7th    | `sha256:d9c4c44b64a6af0b19607c6943e5c495ee3089f09348373cdacc62e8644c1dd0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.6.0` `1.6`                 | March 6th    | `sha256:a2c409466743d470fb6374f98ab469ffcffeafa3e4b86e2723c4bf34e2563967` |
-|  `latest-dev` `1.6-dev` `1-dev` `1.6.0-dev` | March 6th    | `sha256:9fa07482c85019f508a3715174825d8f7e76f4ec79a08a282559c1a45e3a5e11` |
+|  `1-dev` `1.6-dev` `1.6.0-dev` `latest-dev` | March 7th    | `sha256:a5f4cffa156d2c12bfb8a512fd0b33462e30feafbcc107506c2ee22dccfede54` |
+|  `1.6` `1.6.0` `latest` `1`                 | March 7th    | `sha256:544695203cfc0728629227ee778b0d8fee1109046a48041ddb889c2d5dba791b` |
 

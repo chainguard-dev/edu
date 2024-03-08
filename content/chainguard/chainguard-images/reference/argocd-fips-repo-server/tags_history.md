@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd-fips-repo-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.10.2-dev` `2.10-dev` `latest-dev` | March 6th    | `sha256:3004ab0ac70b3d5559efad34476ee5fe8db8cfe483ae9e5bf15978a15a42f1a1` |
-|  `2.10.2` `2` `latest` `2.10`                 | March 6th    | `sha256:3818f3aa73695e1798c6ad9d4d0e832c4a78dce834ba3c650ce9b23bba0ba1a2` |
-|  `2.9.6-dev` `2.9-dev`                        | March 6th    | `sha256:ae861757434ef80adbeffe35e4f594d416fd756ec9df9cf58e2e9f4423553b0a` |
-|  `2.9` `2.9.6`                                | March 6th    | `sha256:1ced078c1b1aaa772d077312dc6320cbee476608e757c3fda9dacfcfebb2fe66` |
+|  `2.10-dev` `2-dev` `2.10.2-dev` `latest-dev` | March 7th    | `sha256:59103480e2bab5cb0e81e813e2e74a3077c6638ba381ff8805f4b1121d28c458` |
+|  `2.9.6-dev` `2.9-dev`                        | March 7th    | `sha256:569f993a5c8d21339f7cebcc769c8db09f0105002bd39b94a4662891a02a9072` |
+|  `2.9` `2.9.6`                                | March 7th    | `sha256:1bfc68e27ce9ea34df1c8de434696f9f91df183aa35f89a25fe5dbe28dc45d6c` |
+|  `latest` `2.10` `2` `2.10.2`                 | March 7th    | `sha256:578100cca25ea43a0d22e9913faae9de9a2e5dcb8cdb3150cf8447ab3b0439d7` |
 |  `2.10.1-dev`                                 | March 1st    | `sha256:1c3173d5e222e5751d55fa9506059cb71b7f7bea785e12d4d92a3df01b5e2813` |
 |  `2.10.1`                                     | March 1st    | `sha256:e5ff959060abb96cef5266ccf884f2d6d7db30ac6f776c2d2abb66e9992db312` |
 

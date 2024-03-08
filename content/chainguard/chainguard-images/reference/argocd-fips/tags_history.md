@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2.10` `2.10.2` `2` `latest`                 | March 6th     | `sha256:45b9eb400b1a0a958fab4a6b37b18f0afb4e995b69469cfd566a1a4bf4eff0e2` |
-|  `latest-dev` `2-dev` `2.10-dev` `2.10.2-dev` | March 6th     | `sha256:b0b008931ce45288ee6fef06fe9501048ae66e1dad667db9957b97f9d5d5acd7` |
-|  `2.9.6` `2.9`                                | March 6th     | `sha256:1c6299c20fed53aab7f52fe2fb9a5aa6e4fdb751a5649200b8fed86a29a9bba4` |
-|  `2.9.6-dev` `2.9-dev`                        | March 6th     | `sha256:e4ab03cf39c8a8376b322f959bec35315e3b90207bfdfe75abe874d59a16cc62` |
+|  `2.9` `2.9.6`                                | March 7th     | `sha256:cb7705466361dc5e3544eff580ef62f8c57ef19e18d66508bfcaf6c0ec865f5d` |
+|  `2.10` `2.10.2` `2` `latest`                 | March 7th     | `sha256:0935ce8a4e6aaab4bd42c8560e7d6524d3812f61e8154019037e54017e4f54bd` |
+|  `2.9.6-dev` `2.9-dev`                        | March 7th     | `sha256:4555f833f3c525e7ac2f7c7f8154481eaeaad1ba0c120a51cc4ab34b75babc78` |
+|  `2-dev` `2.10-dev` `latest-dev` `2.10.2-dev` | March 7th     | `sha256:bcfa54262232f6fb15b67d3a5b0ec70deeaf44f527ff2c943daafc01b1e9608d` |
 |  `2.10.1-dev`                                 | March 1st     | `sha256:fe01261a81908eca1da60f66172fda0332776ff1c18d481418657f26869f7b63` |
 |  `2.10.1`                                     | February 26th | `sha256:f4558009b125f3a40f5e8b1b910c32dd3c8d67dae067c13889a7f9e3855e9c7f` |
 

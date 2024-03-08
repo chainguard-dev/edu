@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 6th    | `sha256:fddfeed6d7221fa0f920cff44b3fea09eb167f14246005c5f9e311bc4be72a50` |
-|  `latest-dev` | March 6th    | `sha256:4210c55ef41453ee30845a4c3d2a4b6b317361706d3d1d4e93f9f9654f6bbf8d` |
+|  `latest-dev` | March 7th    | `sha256:e19125b5ef68d3dda71e1e48ad9b1f79c8848b2cfa99570a0bd06a6cc983175e` |
+|  `latest`     | March 7th    | `sha256:18e047f0b4bbf62d6b03b34fba4581c524726daf910a5fd81628a70175021792` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.12-dev` `2.12.0-dev` `latest-dev` | March 6th    | `sha256:26ad36a93091391754bb0306e81c071863f92af93ca118b560a7739512fefa43` |
-|  `latest` `2.12` `2` `2.12.0`                 | March 6th    | `sha256:8585657ae0ac71fe61f0488c5ba7afc32799820e9022090258ed2623e555a7db` |
+|  `2.12.0-dev` `2.12-dev` `2-dev` `latest-dev` | March 7th    | `sha256:6ab123970e334359dcac3e20c0c744b41a603249ebe5139a07831008f56f721e` |
+|  `2` `latest` `2.12.0` `2.12`                 | March 7th    | `sha256:7f6fca7aa3f1d8070e93ce1a8772422f49e614b237ddab9a5e5486c582c87c56` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fulcio-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.4.4` `1.4` `1` `latest`                 | March 6th     | `sha256:28b8f8c74d14183e0e6e4cf1ee93aa78ff0af2efe99a31b01f3e13cb76e80a63` |
-|  `latest-dev` `1.4.4-dev` `1-dev` `1.4-dev` | March 6th     | `sha256:eb1283ec829a751b335b39f4b41e7a74b979ea1e6fddcbdc2c05b98e287a2421` |
+|  `1.4.4` `latest` `1` `1.4`                 | March 7th     | `sha256:7d6687b0cfac0db0239f1627798df30ee808b51361930fe017e89d3e9015abaa` |
+|  `1.4-dev` `latest-dev` `1.4.4-dev` `1-dev` | March 7th     | `sha256:29f8470963f482dfa6b4adb16feddd2dfc632c1a4850707b1e2a204312c93e17` |
 |  `1.4.3`                                    | February 26th | `sha256:747557ca4eac5f2d2e9ed58f57e48edcac8677215ed03791548397a1d5d982be` |
 |  `1.4.3-dev`                                | February 26th | `sha256:8d79e00815372e712c31e3d83af4f161e665ee515c4585f6f1d7d38a8332047e` |
 

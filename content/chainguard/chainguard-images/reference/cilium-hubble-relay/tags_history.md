@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-relay Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 6th    | `sha256:1931f17ea158fc167bba4d237a07a5208bcf3b2e75ea90cd18bb2e273cc4c0c6` |
-|  `latest-dev` | March 6th    | `sha256:e8dadc7031ae28cbd4783384397a70b56fd38cf889c8a78721275f2ae81a5a0c` |
+|  `latest-dev` | March 7th    | `sha256:c86c7170b72795534644992990cecde65d7a07f5c112c8377f33cf260785b7ca` |
+|  `latest`     | March 7th    | `sha256:3fff113bc355c11514f98c20454de6f907c46888b4a458b0a5a4d309de4cfeeb` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest` `1.14.7` `1` `1.14`                 | March 6th     | `sha256:319d34f6e234aaae7d765ae05c4e530cfdd641638e83a3bbbf9ffceca5805a29` |
-|  `1.14-dev` `1.14.7-dev` `1-dev` `latest-dev` | March 6th     | `sha256:2110f35e3ffa599bb690b709bec34e14bc303acf0e75cc1bf1b6f832c7263e43` |
+|  `1.14` `latest` `1` `1.14.7`                 | March 7th     | `sha256:f148c7a6fc1b76f80905763b1678a877aa224311e1ba607cc1bf7c275b848bc4` |
+|  `latest-dev` `1.14.7-dev` `1-dev` `1.14-dev` | March 7th     | `sha256:2d8fe4001f81d50b7061eadaa61aa2fdea0d9caa9c439d3029e280ed0350ae6d` |
 |  `1.14.6`                                     | March 6th     | `sha256:332bc93be41e6b2c268dca2cc1dc799be8096eb0dcd2b630d92ca933322ac471` |
 |  `1.14.6-dev`                                 | March 6th     | `sha256:5fba3b293211316051c24ed6439d6dc17a50f080b0e231133c9e93386cf258f2` |
 |  `1.15` `1.15.1`                              | February 26th | `sha256:1097622495c1a5656c6f36b72aeba639e1e7f82d42c74063c39be9b07d6beb96` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cassandra Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -83,6 +83,7 @@ The table shows package distribution across variants.
 | `p11-kit`                | X          | X      |
 | `p11-kit-trust`          | X          | X      |
 | `python-3.11`            | X          | X      |
+| `python-3.11-default`    | X          | X      |
 | `readline`               | X          | X      |
 | `sqlite-libs`            | X          | X      |
 | `wget`                   | X          |        |

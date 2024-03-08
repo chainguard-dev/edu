@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 4th    | `sha256:2eb2e35f3332f9e457fad6cec821667a78bb207de83cd8b56f4040f4523b93b0` |
-|  `latest-dev` | March 4th    | `sha256:13a03702bee55e2680aa8c73b6025d7dfb177f9deae13990d95d3095957e5613` |
+|  `latest-dev` | March 7th    | `sha256:48002dfd02344fc718053b85c174bf0334b1e74f69fa6c437b45ca5ed18cee73` |
+|  `latest`     | March 7th    | `sha256:0a49352030be34d3785b5ee7e01d4b3d2e2ce03256754ffee9109516929dc8a5` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `4` `4.2.6` `4.2` `latest`                 | March 3rd     | `sha256:f29a017b252e0f0d216d4c21c9c775133ef0bbc882fdc1150e978be12a39e6ca` |
-|  `4.2-dev` `4.2.6-dev` `latest-dev` `4-dev` | March 3rd     | `sha256:cf9b624d9c09d66d647f9cdee0ceb705e6438f4b71fab6a1d223e235ae4bcce5` |
+|  `latest-dev` `4.2.6-dev` `4.2-dev` `4-dev` | March 7th     | `sha256:c3fedb2f40f50a003cda8a450ad75ab8815a9e4f370c9d72b052292539a349c2` |
+|  `4` `4.2.6` `4.2` `latest`                 | March 7th     | `sha256:6911c3582b3354613cdf8b95f4c31366d3cd3d80ca08c88bbf08284904bc6d22` |
 |  `4.2.5-dev`                                | March 2nd     | `sha256:9698b20153c2ec11a4183fd01ada7338ac80dae67186fb633b1efe5a9e177cfc` |
 |  `4.2.5`                                    | February 29th | `sha256:4450345ac8ce7719cb355873ec4c8a10c8f3603a380ef8774dc4121f9e22a20c` |
 

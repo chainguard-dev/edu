@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:6c671a5ced41945b544a14a954b5db516ce87027ec0386e18e699c0556eb28ab` |
-|  `latest`     | March 6th    | `sha256:428b46bcf050a3202e73fde72a915cb3ae6bd4093a819f1f2c04b18bdff57959` |
+|  `latest-dev` | March 7th    | `sha256:98dca105334bfdf972b7bb97d21f000d2f00e0b1d38d495b60e534411f444ce3` |
+|  `latest`     | March 7th    | `sha256:912ec404bbdaaf7c21cc6ae1459b0b97f057290a74daef2a83f6cfbbc029eabc` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.0.5-dev` `latest-dev` `2.0-dev` | March 6th    | `sha256:5858c34bace41192e2ef632dfab16a2b34f76c419f1bf00dc742cb874921cde5` |
-|  `2.0.5` `latest` `2.0` `2`                 | March 6th    | `sha256:70e3e6036e8012b8ae03ccfa56486ea32ec31b76e94d52cdb11391aacb3f2d80` |
+|  `2.0.5-dev` `2-dev` `2.0-dev` `latest-dev` | March 7th    | `sha256:a802c5d2ec24dea99000bd2c7c134f35a95ce4c4998d14dfa289309f45580e79` |
+|  `2` `2.0.5` `latest` `2.0`                 | March 7th    | `sha256:93e759929ebe03907245eb526544e73383c804f50c416bbdbbfbc522e9ae9ac5` |
 

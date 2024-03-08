@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argo-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:6a5af6f1e83268d9622ec1588a99fda30a69b13420e3a49a44898ac099aa98cb` |
+|  `latest-dev` | March 7th    | `sha256:2a4923901732c02b19f82e676ca2dfcd736af8396eafbb329aa6590467900708` |
 |  `latest`     | March 6th    | `sha256:6d19183b000b26e89bf232c402814089a0944a82151e1f8c7641769691dc4afb` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `3.5.5-dev` `3.5-dev` `3-dev` `latest-dev` | March 6th     | `sha256:40e312e66db87f7beb8cbbe5642b217652a4aae0889491fe5ca345d5cbd3bdc1` |
-|  `3` `3.5.5` `latest` `3.5`                 | March 6th     | `sha256:5adcf6c35f62191b6b1c42104fedadc3b7cbaf3dec2dee26c989fd84b00b1107` |
+|  `3.5` `latest` `3` `3.5.5`                 | March 7th     | `sha256:fb98a8e389fe038f1586582486b83f9738593b72f721923a0b300479a8515bad` |
+|  `3.5.5-dev` `3-dev` `latest-dev` `3.5-dev` | March 7th     | `sha256:48716cb84eb1b33a517af455244dddca3f23b19139f87e5aada65863bb4bd9fa` |
 |  `3.5.4-dev`                                | February 26th | `sha256:86c213c06f0d0f0e38dd1c1aeb0155da436fb04589e8568bcff049fefb8e43b1` |
 |  `3.5.4`                                    | February 26th | `sha256:1b9b7d9b981b08b786d6f6d303c8ed2efa8357511dab12b5d69c2891d3079377` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for buildkit Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for buildkit Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                           |
-|------------------------------|------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest-root, latest-root-dev                                                                   |
-| `cgr.dev/chainguard-private` | 0, 0-dev, 0.12, 0.12-dev, 0.12.5, 0.12.5-dev, latest, latest-dev, latest-root, latest-root-dev |
+| Registry                     | Tags                                                                                                                               |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest-root, latest-root-dev                                                                                                       |
+| `cgr.dev/chainguard-private` | 0, 0-dev, 0.12, 0.12-dev, 0.12.5, 0.12.5-dev, 0.13, 0.13-dev, 0.13.0, 0.13.0-dev, latest, latest-dev, latest-root, latest-root-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:152c0ea8bb47965bbccbb24df63e27be2e3a255eaed20c9ba8a53e106b8412fc` |
+|  `latest-dev` | March 7th    | `sha256:0c38e11db386897dddfa41f843becd8aa42d7fe9bb6a74beac287b0ec578cfb4` |
 |  `latest`     | March 6th    | `sha256:7052632fc1f4d8d8633d0fcc2d5898fd7f2d077660c27f8430a4e664fe5ee8b7` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `7-dev` `7.0-dev` `7.0.1-dev` `latest-dev` | March 6th     | `sha256:21f8f9fb25d9269f8fdb9374c99c23a77e99f407b80cac8f1c6dafb7e7f2eb49` |
-|  `7.0` `7` `7.0.1` `latest`                 | March 6th     | `sha256:6a16370de0ab4959c95ccdbcd0e43988e5ce22c9ee5e8cb6c0dcc90a88828b58` |
+|  `7.0` `7.0.1` `7` `latest`                 | March 7th     | `sha256:fec8ef5512ef312d398c22fd33321fd55a0546d333bb58c70f5f0db956fa8dcd` |
+|  `latest-dev` `7-dev` `7.0.1-dev` `7.0-dev` | March 7th     | `sha256:ed7dd921e68fabd4f04d16a7fae5f5fa69c5ade3402eef8a7042d35caf14721f` |
 |  `7.0.0-dev`                                | February 10th | `sha256:6189b9dbd42a466f3a4f9daf730f73b6fc80a9a876e6bd1a8ade62622f3243a1` |
 

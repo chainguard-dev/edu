@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-operator-generic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 6th    | `sha256:e3cc3775e8ca0bfa1902bbace8f8af1848f04c8f43d63a1fdc744bb52746763e` |
-|  `latest-dev` | March 6th    | `sha256:3defaa5705a579637dde14289db01001834913bb441c2fae6b04a3db95a1c496` |
+|  `latest-dev` | March 7th    | `sha256:8842e0135686554084671ad29c8411b50b0c188403993b7795aa1d5ea2743fa2` |
+|  `latest`     | March 7th    | `sha256:dda8be89601a461f6cdd4d45780618e6afe0ad5c7b7df6183bbe9109a991888c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.14` `1` `latest` `1.14.7`                 | March 6th     | `sha256:7b4cd0fc951b546b9d693c7d794727a0983adf494c3b95f8a54636faa7ca02f1` |
-|  `1.14.7-dev` `1-dev` `latest-dev` `1.14-dev` | March 6th     | `sha256:c4a722a431321693496e6af0e9d24ffa1bb42af7dfa4c90880ea760adc1d3b83` |
+|  `latest-dev` `1.14.7-dev` `1-dev` `1.14-dev` | March 7th     | `sha256:96e481fba3e84cca4c31cbbd30be60265f6536856537eeb3f50713a2014d4764` |
+|  `latest` `1.14` `1` `1.14.7`                 | March 7th     | `sha256:5ef255fe6a3ae16b0923661b3f35c42d2492549d310987d5475d41964ef2e833` |
 |  `1.14.6-dev`                                 | March 6th     | `sha256:e0203fdbda1e24fd27db90f65516c92fb323088c23e57cb9dda4f562f2da1a1d` |
 |  `1.14.6`                                     | March 6th     | `sha256:088accd8946e4e59e12edba438652433dfad700de874c65379f16c1ddc9b0c4f` |
 |  `1.15.1` `1.15`                              | February 26th | `sha256:6b54945b9a62637a487d7e2a9c79e9b44fbf4acbb9397c4cdfead2ec9830f31d` |

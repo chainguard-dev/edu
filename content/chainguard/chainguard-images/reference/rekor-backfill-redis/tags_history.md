@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rekor-backfill-redis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:6a0522c190b4d8a831d7ad875184a7af9b3c3cc382abe4de07e4e466c8bc88c2` |
-|  `latest`     | February 27th | `sha256:8503514e84f717acb417d80ded151c11a036e1f948b1b6e658accbcf8536c854` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 7th    | `sha256:ab9668adbc9ecf5c39827ee5baa9576cad238793dc57e2feb00e96486291f888` |
+|  `latest`     | March 7th    | `sha256:6c89fe8644987a0592979fef52bedb479d8e0371058262c553219d8f7c55adcb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.3.5` `1.3`                 | March 6th    | `sha256:176f6d63fbaa1992814cc78577f7372e67233f361ba0c71f78ff3c218a52fd23` |
-|  `1.3-dev` `1-dev` `1.3.5-dev` `latest-dev` | March 6th    | `sha256:f515783111f9d31b3c9dd24c95b425dce9fe58bf89577a2982d3a20e178fadca` |
+|  `1.3.5-dev` `latest-dev` `1.3-dev` `1-dev` | March 7th    | `sha256:6ee2cfcf13cfe3628987ebb5d45ac9118302af70008684f6f12a5c5e34941f72` |
+|  `latest` `1.3` `1.3.5` `1`                 | March 7th    | `sha256:2a0af06ce4bfca00b7413a8ea7e43aa8b5985faac8133dc9c63d27fbef270d87` |
 
