@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-load-balancer-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 7th    | `sha256:73304654ddcdc83d805274bc6e28c96978b45c51b99b1f31103b2d9e179f1f0d` |
 |  `latest`     | March 6th    | `sha256:5e52debd1c60fd4c420c936fe12f0aac7165534e6ead9c9eea29c9ff9edcf78f` |
-|  `latest-dev` | March 6th    | `sha256:a2b55f2894bd5a5c9a2ccb54098a8cc5dd1b7780fdb8c7d27172dc0ff1659380` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.7` `2` `2.7.1`                 | March 6th    | `sha256:5a87f10d7189ab7e63cb749aae13c7c8e38c24bcd3b2906dfdcf6065cf919834` |
-|  `2.7.1-dev` `2-dev` `2.7-dev` `latest-dev` | March 6th    | `sha256:e479cae689ab9e27ab2f328b0799d290a4d97d23f643610185883bf704eb65ed` |
+|  `latest` `2.7.1` `2` `2.7`                 | March 7th    | `sha256:03b48af89c0c9a895709095b2cb865a85689e758882e9b4861aca1e20a2b9aae` |
+|  `latest-dev` `2.7.1-dev` `2.7-dev` `2-dev` | March 7th    | `sha256:e6f07ec8ea7f1859bed27c0cfa499722a71107fd182928aa9b6254aaa136d1dc` |
 |  `2.7.0-dev`                                | February 8th | `sha256:2eaee3762ebceb0573e069e94532ed6295c49abfade16f9a30c6a3d935d858a0` |
 

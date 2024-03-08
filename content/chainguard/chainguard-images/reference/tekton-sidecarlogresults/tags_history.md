@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-sidecarlogresults Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:a014b3f8deda8b2dc5c664a8dc2a64da9083d6b8c7829d070e3431283a32d621` |
-|  `latest`     | February 27th | `sha256:20676c2c5f61513d028ce55c963eeea83ea5e8d9649e955de95d2e072300206f` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 7th    | `sha256:0d22064819eaf056a21850fd6a585693fa3b3ebf45f708ffb304c8d8ff377b00` |
+|  `latest`     | March 7th    | `sha256:7837e75f2f37792ba66500c47ab61508f9323ac3fde8ad6cb065e566dfa7dabc` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.56.0` `0` `0.56`                 | March 6th    | `sha256:61b977fbaec01c49a4536c8ec2303db8df853fd83fb10b6d5cd0f98e9d54ed4e` |
-|  `latest-dev` `0.56-dev` `0.56.0-dev` `0-dev` | March 6th    | `sha256:01323a3980b0261d150e424aeaab1fd1936a5cc1cce44f817d93e3b6bda09888` |
+|  `0.56` `0.56.0` `0` `latest`                 | March 7th    | `sha256:0bb4eb9aa98d36f7b5cb05c7be59b3e8925cfabecc2bf56da3bdad658a0e1583` |
+|  `latest-dev` `0-dev` `0.56-dev` `0.56.0-dev` | March 7th    | `sha256:7a50b418b783a4a8af78a914e85fcc1c44e6251f1046102b8c829c23bbb703ac` |
 

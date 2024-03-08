@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createdb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)       | Last Changed  | Digest                                                                    |
-|---------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st     | `sha256:2467e9a570ef6167af7ecae9a8012c134d70161c3865716f2c626b4f2424299b` |
-|  `latest`     | February 27th | `sha256:5dd4b5a5eb198c29634a989a20bd16c89fda3f27a8c8e6ab11cc18e2776a2835` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 7th    | `sha256:3ac2830ff5ecf191375181ab511b325d0922ff4ab9ebc34fedef9e563b9455e5` |
+|  `latest`     | March 7th    | `sha256:5a509d0dd7101109815ded1f148671bfe28e9d6630eb9ce990aeaf1f459069db` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.16` `0` `latest` `0.6`                 | March 6th    | `sha256:d7473c5c3ed72372f0d1ecc4bf224c761eeb88cbe08474a17cd80c069d83aee5` |
-|  `latest-dev` `0.6-dev` `0-dev` `0.6.16-dev` | March 6th    | `sha256:cbb9305a0ed41ba52b3143cb03a8929e71c70f298b912a597f86cd51d3a91d7a` |
+|  `0` `0.6.16` `0.6` `latest`                 | March 7th    | `sha256:707b3de533a0ce5d89edaa8179e6b14717b91dba7e83b0a7ab2f0a308bce1d7d` |
+|  `latest-dev` `0-dev` `0.6-dev` `0.6.16-dev` | March 7th    | `sha256:eb796ac3af04fc3378037b1304d53c74c81d983157e7b069707ac5a9478b473e` |
 

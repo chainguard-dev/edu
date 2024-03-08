@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-ebs-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 6th    | `sha256:b498db277ad1451ac7dd67a202b280c0813d159c09d0fc6df75e54a0d87e66b4` |
-|  `latest-dev` | March 6th    | `sha256:4d1fba8f5307049caed8ba2bb1b4f584cca092a76e9a12d92abf1f464b694b17` |
+|  `latest-dev` | March 7th    | `sha256:9acdeef63e08ae78cd017e67d702de183af35d580ee62598abbfad8135cc6f5e` |
+|  `latest`     | March 7th    | `sha256:51e5de03f299f035e71cca3635fa5b3fea8be0d6f2f86f7f1627b6802e229e0a` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.28.0-dev` `1.28-dev` `1-dev` `latest-dev` | March 6th     | `sha256:4553e3978d2ac10f8ea93a32abf15441db2e3ab12f6d8c895c9c9da448de690e` |
-|  `1` `1.28` `latest` `1.28.0`                 | March 6th     | `sha256:3432b039ad9a62be9177c0d222c17c5f7bffae776cb2bd6bba1ec65338040f21` |
+|  `1` `1.28` `latest` `1.28.0`                 | March 7th     | `sha256:01c923e516a0976b91ff873e4427f05b77089602a2af478a4fe628ff8ac5f7cc` |
+|  `1-dev` `latest-dev` `1.28-dev` `1.28.0-dev` | March 7th     | `sha256:042be8abb64e4f7ee961bc70d7e1a3a412a228f6dcaf48169257aadcfb520080` |
 |  `1.27` `1.27.0`                              | February 19th | `sha256:2f99da04c77b233c976b1fa6ae6df5cf898bba2963c9ee86d80b59f847ede082` |
 |  `1.27.0-dev` `1.27-dev`                      | February 19th | `sha256:1dc3e50aa7c797edbf0b62ba56f56e44b9dddb6153b707b99c334ada45a853ed` |
 

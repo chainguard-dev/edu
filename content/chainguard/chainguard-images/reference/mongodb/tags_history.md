@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mongodb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed  | Digest                                                                    |
 |---------------------------------|---------------|---------------------------------------------------------------------------|
-|  `4.4-dev` `4.4.29-dev` `4-dev` | March 2nd     | `sha256:837c045e5b9a5c425a16a6d96bf70cc376c23a66ae29c4ea1df98fd862940439` |
-|  `4.4` `4.4.29` `4`             | March 2nd     | `sha256:6f42f6f4f0d44f5af503af7985fd17ccb2e87dc5afd79beb5de030431179ee15` |
-|  `5` `5.0` `5.0.25`             | March 2nd     | `sha256:df13d915e25a81a9033c229330e678d86777dc1c0c006751dc77db352d13c847` |
-|  `5-dev` `5.0-dev` `5.0.25-dev` | March 2nd     | `sha256:4e1717a5b9791032985b79579d823e90513e237d4a98fed7e705021c5aaab369` |
+|  `5.0.25` `5.0` `5`             | March 7th     | `sha256:84471b2bfa2a2ed7c14fe314be0cdf061f5cc1a9eab66c005c6a4897cedf5892` |
+|  `4-dev` `4.4.29-dev` `4.4-dev` | March 7th     | `sha256:52295951ec6dbad0ca3de0228706b35c7e79f20b06e70247e92ad91ac8c61b98` |
+|  `5.0-dev` `5.0.25-dev` `5-dev` | March 7th     | `sha256:86acd5147948bd0708882da0449305acada4e522862651c2e39f712dba89b0d6` |
+|  `4.4` `4.4.29` `4`             | March 7th     | `sha256:86a79b0d92fe993f3046d18dd8c26d5df40132a245587f10a45ee680be7eaa2c` |
 |  `4.4.28`                       | February 19th | `sha256:d37a70c12849342669111967a6cac87a69c357d662cd56497142df02d3e8ad47` |
 |  `4.4.28-dev`                   | February 19th | `sha256:8d284a3b23961a69099b66cb4aa5992b8efb2bf5d861acfaf6872f754af81ce3` |
 |  `5.0.24-dev`                   | February 19th | `sha256:cc86ada754a4abb594bd0452a9371ac7de018aba661b4678b6b3841ffd6b3989` |

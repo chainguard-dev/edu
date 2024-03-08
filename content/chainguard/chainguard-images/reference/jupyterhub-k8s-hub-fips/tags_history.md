@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jupyterhub-k8s-hub-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3` `3.2.1` `latest` `3.2`                 | March 6th    | `sha256:5a7175c668f02ca6c763c523047141d50e0872ec4578cfbb00a5004641b2db50` |
-|  `latest-dev` `3.2.1-dev` `3-dev` `3.2-dev` | March 6th    | `sha256:fdf4f483342bbf707eaf9f2c499c375b47205fae411786fc712bf1da9385ae75` |
+|  `latest-dev` `3.2-dev` `3-dev` `3.2.1-dev` | March 7th    | `sha256:255bcd118a465a9b8ea498af53d58890e094b73d25c26390f94f6b6493106fad` |
+|  `3` `3.2.1` `latest` `3.2`                 | March 7th    | `sha256:68456009bffdb0844529222849673c8ec5bfdb8f1e1f59c8a01b78c9fa7bef2d` |
 

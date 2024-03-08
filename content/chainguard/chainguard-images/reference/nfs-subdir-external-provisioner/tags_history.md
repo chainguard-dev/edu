@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,16 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 1st    | `sha256:11c3c2b50a30716aa53c23723d5bc71007addb0b0ee48b28e13269ca740258eb` |
-|  `latest`     | March 1st    | `sha256:55372816805dfbaa42b02b7c1ea392a070e6f80bb7d0373fbc3b54f55be74d4b` |
+|  `latest-dev` | March 7th    | `sha256:d66e9ffd2ddb132c52c598e795e3e461a79ff5db193f9371e1b6796b1e9b94ac` |
+|  `latest`     | March 7th    | `sha256:2d6b7cc6d88376e00dd979c8de19636bd0ca9c9889cfb30c4c9e721e2b650cd9` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                      | Last Changed | Digest                                                                    |
-|----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `4.0.18-dev` `4.0-dev` `latest-dev` | March 2nd    | `sha256:a0e09483a59715f95c43fed36f2b12eeca2f1a2ab2c96be0896a6215181747bc` |
-|  `4` `latest` `4.0.18` `4.0`                 | March 1st    | `sha256:3709f42e57230456af7cadc2cd71e95a7fdb86af1eaebf20557e76969c9913f0` |
+| Tag (s)                            | Last Changed | Digest                                                                    |
+|------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `4.0.18-dev` `4-dev` `latest-dev` | March 8th    | `sha256:5e49fdab8dee3575408d856b9effea4415998df9ce30e1666d76012dc2e9feef` |
+|  `4.0` `latest` `4` `4.0.18`       | March 8th    | `sha256:a4d23b809b762c7cfb2973b6c05a341b6e69c64d00b75d01773bd31869e76953` |
+|  `4.0-dev`                         | March 7th    | `sha256:92fc12e2ab44326d723e9dc06d6831973a0c9cec7ad403c990ed5ba90f8f31db` |
 

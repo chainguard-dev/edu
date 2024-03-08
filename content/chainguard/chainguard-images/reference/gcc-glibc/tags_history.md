@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gcc-glibc Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,16 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 27th | `sha256:f84d7bbd162f386c6f850f17ad466089963d370d9ff34a9d2d9ebfc7a254518c` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | March 7th    | `sha256:0939c351c0df4ec95aeacf6d9d1b432db631a101708d5f41754fcb1e01249c51` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                        | Last Changed  | Digest                                                                    |
-|------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `13.2.0-dev` `13.2-dev` `latest-dev` `13-dev` | March 2nd     | `sha256:e87f8be7c7690356de6e429a8d9c3336e1b45b435873e7e05aa7072d04b7c77d` |
-|  `13` `latest` `13.2.0` `13.2`                 | February 26th | `sha256:5a6938583a954cda650fd573045a35302e8a5e73e3c8c8e8fddc759bb547a071` |
+| Tag (s)                                        | Last Changed | Digest                                                                    |
+|------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `13.2.0-dev` `13-dev` `13.2-dev` `latest-dev` | March 7th    | `sha256:104b4b949f7b2a2377a55f62cfd1874a31d08d1f574d61afa16e4745bdcdf0fc` |
+|  `latest` `13.2.0` `13` `13.2`                 | March 7th    | `sha256:a5f9ea2a4a46958697c3db414346f7362bcbf90c2c37bcb4a64ac8ae5c8cc8fd` |
 

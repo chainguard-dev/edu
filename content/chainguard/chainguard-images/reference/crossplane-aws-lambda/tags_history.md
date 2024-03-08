@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-lambda Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed  | Digest                                                                    |
 |-----------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.1.0` `1.1` `1` `latest` | March 6th     | `sha256:816f151874f5999646f731fed905d748a9b8415231de06f8311397dbb0a301b3` |
+|  `1.1.0` `1.1` `1` `latest` | March 7th     | `sha256:6ae5a126706deb873c2d67ecac6b4868c3b86e3b5e76ac2868343a03cc91e332` |
 |  `0.47.1` `0.47` `0`        | February 16th | `sha256:5bc712cdb8d1f1c61d6fb57947daa9bcbce1a58348f605fe4f26a7d3990c014a` |
 

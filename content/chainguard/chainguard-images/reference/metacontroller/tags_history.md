@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 6th    | `sha256:6e7a03150eb86803222124ae105736297c7f4b0e9db26a0029beaca60fb6966f` |
+|  `latest-dev` | March 7th    | `sha256:253652d9fd578db7a46bb38fbc92b8c8a21ac7ed96a31b8845019373d6e719d0` |
 |  `latest`     | March 6th    | `sha256:67223ca153b1398b91da07f94655b20fa4b770fc8bb9ec4e3416f5ff01726d45` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `4.11.8-dev` `latest-dev` `4.11-dev` `4-dev` | March 6th     | `sha256:a266e3d7472617e83d31d6d0b3dc9ddd8a99e195fcacf12fb67ca551d7b0b3d0` |
-|  `4` `latest` `4.11.8` `4.11`                 | March 6th     | `sha256:15f3a40e4e8137915cc251c74d954a9210f9bca6036fb7cb9e305c322d0ae981` |
+|  `latest` `4.11.8` `4` `4.11`                 | March 7th     | `sha256:0131d4b6d4092791076fb357eeac8127eb5803900ad5a88c94361df6cad654fe` |
+|  `4.11.8-dev` `4-dev` `latest-dev` `4.11-dev` | March 7th     | `sha256:d4ccdd1954db89fb7872fe0b148e36627c4e02268d96733a004c97dba570eebb` |
 |  `4.11.7-dev`                                 | March 1st     | `sha256:e85434f9c76c044b4936f9ad81d64bfa6c7e97bdf6b02464ff6a8cc20e9b1d4d` |
 |  `4.11.7`                                     | February 26th | `sha256:08a86af4b644973236599023fc88f393c01a6b5021a7834b6ecc7b56bbcb3aa3` |
 

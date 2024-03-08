@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wait-for-it Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,16 +26,16 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)   | Last Changed  | Digest                                                                    |
-|-----------|---------------|---------------------------------------------------------------------------|
-|  `latest` | February 27th | `sha256:caead414307e81dbdd86d30662fdfe1b999dd4ce8a10fa667dab3438d0eed193` |
+| Tag (s)   | Last Changed | Digest                                                                    |
+|-----------|--------------|---------------------------------------------------------------------------|
+|  `latest` | March 7th    | `sha256:25acd2b95ec03bd4001b1e49062f3c90aace78660c043483c6dd8f96bde0a58e` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)               | Last Changed  | Digest                                                                    |
-|-----------------------|---------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` | March 2nd     | `sha256:0abc518b5083d4ab139686cdb550925f9a85aeeb095e9e4837a694874b1417ca` |
-|  `0` `latest`         | February 26th | `sha256:c033abeb262b2247ab626e96b88a785cbc988cbd70d2edd17f4a3a84d3532e27` |
+| Tag (s)               | Last Changed | Digest                                                                    |
+|-----------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `0`         | March 7th    | `sha256:af2e68b6e3de9121185cf38a6967491293e179a3be17fb3fb0af6286568dc6c8` |
+|  `0-dev` `latest-dev` | March 7th    | `sha256:4bcb992d69990afb5fb86bdcf1f2ad1b0376d29d2d9003bd564ed0465a659304` |
 

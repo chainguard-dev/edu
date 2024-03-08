@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-ui-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-07 00:51:54
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 5th    | `sha256:2c69f24e15e4e7aac368b701fdce3910b482c253d6220e9f99c7cf4e32d3ce69` |
-|  `latest`     | March 5th    | `sha256:a31e0e6f2ada16d43508a4501e9f0c4f20b4731ba5279b7c9319fa3f7a660331` |
+|  `latest-dev` | March 7th    | `sha256:0eaac10e83ef1a55fd15a6becc8fe95ed21123018ce4ddc0ed71f5ed5b872511` |
+|  `latest`     | March 7th    | `sha256:11b052ac80ab35811bf5c9c90d3d0216747606f07d2ebd02891e392bdb7a616b` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2.24.0` `2` `latest` `2.24`                 | March 6th     | `sha256:9015baa92bb276d4122277f001977499d09a6c037a58dd15b50828b8253e5ffc` |
-|  `2-dev` `2.24-dev` `latest-dev` `2.24.0-dev` | March 6th     | `sha256:da2a6919282dc41b1b973b2645a67283b44d19371a5f70c22d64748d1418af9a` |
+|  `2.24.0` `2.24` `2` `latest`                 | March 7th     | `sha256:91815056e4ac955adcf5d4cdcae5fa7f0a2078398428086173269d766718aeaf` |
+|  `2.24-dev` `2-dev` `latest-dev` `2.24.0-dev` | March 7th     | `sha256:f47570d57947a27095aa8c6c8d9e405cb322efa7bf088d19ade060e5d3b0ad49` |
 |  `2.23-dev` `2.23.0-dev`                      | March 1st     | `sha256:233f495605c89d44afd24a11aa44f199b40183cdb828f57f5ca52eb365636feb` |
 |  `2.23.0` `2.23`                              | February 26th | `sha256:2aee9a44c0f2cf06f37c19a129bfbe33c9189e22671dc49593a7e0dc30bc9c8b` |
 

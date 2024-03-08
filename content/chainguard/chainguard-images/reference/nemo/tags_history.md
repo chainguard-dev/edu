@@ -3,8 +3,8 @@ title: "nemo Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the nemo Chainguard Image"
-date: 2024-03-05 17:06:05
-lastmod: 2024-03-05 17:06:05
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-03-08 00:56:03
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 1st    | `sha256:ab434d5d52b05c5894d389890caef9e6734ffbc46c4f6bb95d2689d0563e2828` |
-|  `latest-dev` | March 1st    | `sha256:cb26aeced14fcb630d62648298421ba20d7e2ba6701312f4a09338410a8f9c1c` |
+|  `latest-dev` | March 7th    | `sha256:c1128c1e14e40002403c7973ddb5d6e156dcab68f8c6453219597c787b9243b9` |
+|  `latest`     | March 7th    | `sha256:9a17212ad3e553a9e50f1a13cda85adf6ee30b554dce6554749e9966b9e67eac` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.23.0` `1.23` `1` `latest`                 | March 2nd    | `sha256:7687aa237daa9fc4452809d035c3eb9e816dfdf29fc310d010e42e6667c79ad9` |
-|  `1-dev` `1.23-dev` `1.23.0-dev` `latest-dev` | March 2nd    | `sha256:db41a27da2ade74f2b5920829ccc8ce7be4e5e9aa6f7f02bc57dee2bf1a1eaf6` |
+|  `1.23-dev` `latest-dev` `1.23.0-dev` `1-dev` | March 7th    | `sha256:1438207fa118e94d9dbe3460216f438813061fc5869873e90aa11a3168678ba8` |
+|  `1.23.0` `latest` `1.23` `1`                 | March 7th    | `sha256:080ee4eb5d3b861faffbd93420745af01a0ce03ff9c99515ac6d0b76cb0ec575` |
 
