@@ -13,35 +13,35 @@ banner: {
     title: "Vulnerability Comparison in Go Images",
     subtitle: "Comparing the external Golang image to the latest Go Chainguard Image",
     cta: "Compare images",
-    link: "/chainguard/chainguard-images/vuln-comparison/go/"
+    link: "/chainguard/chainguard-images/comparing-images/vuln-comparison/go/"
 }
 sectiontitle: "Compare Popular Images"
 tutorials: [
   {
     title: "Node",
-    url: "/chainguard/chainguard-images/vuln-comparison/node/"
+    url: "/chainguard/chainguard-images/comparing-images/vuln-comparison/node/"
   },
   {
     title: "Python",
-    url: "/chainguard/chainguard-images/vuln-comparison/python/"
+    url: "/chainguard/chainguard-images/comparing-images/vuln-comparison/python/"
   },
   {
     title: "Rust",
-    url: "/chainguard/chainguard-images/vuln-comparison/rust/"
+    url: "/chainguard/chainguard-images/comparing-images/vuln-comparison/rust/"
   },
   {
     title: "NGINX",
-    url: "/chainguard/chainguard-images/vuln-comparison/nginx/"
+    url: "/chainguard/chainguard-images/comparing-images/vuln-comparison/nginx/"
   },
   {
     title: "Git",
     description: "",
-    url: "/chainguard/chainguard-images/vuln-comparison/git/"
+    url: "/chainguard/chainguard-images/comparing-images/vuln-comparison/git/"
   },
   {
     title: "MariaDB",
     description: "",
-    url: "/chainguard/chainguard-images/vuln-comparison/mariadb"
+    url: "/chainguard/chainguard-images/comparing-images/vuln-comparison/mariadb"
   },
 ]
 

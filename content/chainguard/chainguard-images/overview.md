@@ -44,7 +44,7 @@ The following graph shows a comparison between the official Nginx image and Chai
 
 The major advantage of distroless images is the reduced size and complexity, which results in a vastly reduced attack surface. This is evidenced by the results from security scanners, which detect far fewer potential vulnerabilities in Chainguard Images.
 
-You can review more comparisons of Chainguard Images and external images by checking out our [Vulnerability Comparisons](/chainguard/chainguard-images/vuln-comparison/) dashboard.
+You can review more comparisons of Chainguard Images and external images by checking out our [Vulnerability Comparisons](/chainguard/chainguard-images/comparing-images/vuln-comparison/) dashboard.
 
 ## Architecture 
 
