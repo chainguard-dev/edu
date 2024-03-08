@@ -6,7 +6,7 @@ aliases:
 - /chainguard/chainguard-images/migration-guides/debian-compatibility/
 description: "Differences between Chainguard Images and Debian third-party images"
 date: 2024-02-08T15:56:52-07:00
-lastmod: 2024-02-08T15:56:52-07:00
+lastmod: 2024-03-08T15:56:52-07:00
 draft: false
 tags: ["IMAGES", "PRODUCT", "CONCEPTUAL"]
 images: []
