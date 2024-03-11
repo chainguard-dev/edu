@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rust Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:b5217e32dd39ad9bd2e2a183bde90d4dc94e20795f2c534c003c39390be60244` |
-|  `latest`     | March 7th    | `sha256:35532ac260963870525fcffe6a33de4e50f9132cf3a08670c59be498c71d1c94` |
+|  `latest-dev` | March 9th    | `sha256:8e15adcf61cf0b80d9035c3215154071d8a223dc738e56f539c54f4377aef495` |
+|  `latest`     | March 9th    | `sha256:ffb7adadab34b4dc50dc5bc2151db620c5236ec0115c38603dee953a2cfaa403` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.76` `1` `1.76.0`                 | March 7th    | `sha256:92ac1ba4d44c2811be74494c22de6cbd2da2a265b43b1191ce56838071bd4417` |
-|  `1-dev` `latest-dev` `1.76-dev` `1.76.0-dev` | March 7th    | `sha256:b7127f49bae0b0d0262c6aef679b72a8559e06bb8b62a1c6146a02051b72f972` |
-|  `1.75-dev` `1.75.0-dev`                      | February 8th | `sha256:f5932ecd8fa9ffbf652cfef5bfa3eb5e04da3fe97d0ca92e56eacc53febb2926` |
+|  `1-dev` `latest-dev` `1.76.0-dev` `1.76-dev` | March 10th   | `sha256:d74bfd0aa5d28642128177c78b1fe16a60b478f88a08dc90421859763b4b1677` |
+|  `1.76.0` `latest` `1` `1.76`                 | March 9th    | `sha256:6d439743758e10c2dc4af77e41560f4348a006c3df9f151a70361a0df4bff6e4` |
 

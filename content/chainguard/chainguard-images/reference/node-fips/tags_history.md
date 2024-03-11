@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed  | Digest                                                                    |
 |--------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `20.11.1` `latest` `20` `20.11`                 | March 7th     | `sha256:25855ae4b22c07b4ca235ffdd35a1f77529a216984e6e869b2eef7dc489d201b` |
-|  `20.11.1-dev` `20.11-dev` `latest-dev` `20-dev` | March 7th     | `sha256:594f86d15d19748947dd9d17adf6a05a7c4a7414f2adc95cc4c123e5cb94b328` |
-|  `18-dev` `18.19-dev` `18.19.1-dev`              | March 7th     | `sha256:d19fd7885ae0db318a9685f3edd277cbe23ccd2a81b11f46cd323a6aab51747b` |
-|  `18.19` `18` `18.19.1`                          | March 7th     | `sha256:1877a5b83871b0fb6bd7e59dbeb7f2ff2f29c7c663aefb4f33f0364eb237aac7` |
+|  `latest-dev` `20-dev` `20.11-dev` `20.11.1-dev` | March 10th    | `sha256:aaa9b84fb855c3e70091ac106f9859c66a29cb7c01452d0823a7617ea180b4c7` |
+|  `18.19-dev` `18-dev` `18.19.1-dev`              | March 10th    | `sha256:c33de79cef3b290bbafbed46bd589d1c291917599b7b14c599ff66bf0177dfff` |
+|  `18.19.1` `18.19` `18`                          | March 8th     | `sha256:02d4797ea6287b7d36d304ee915964ca545a0aa346a3737004b76ca5e7837a03` |
+|  `20.11.1` `20.11` `20` `latest`                 | March 8th     | `sha256:7ae36b293f98fe9fb892e859ed39528743af51611665b46b7aa97f0192aaed5a` |
 |  `18.19.0-dev`                                   | February 13th | `sha256:62b117d843657f9b5443eeea03055f6e88be25e90faa2943b53af0f10fcca036` |
 |  `20.11.0-dev`                                   | February 13th | `sha256:daa4583f5b289866a07778145ba6fa1e9356c57c09c143bccb2190ab0db4cabf` |
 |  `18.19.0`                                       | February 11th | `sha256:fbacc401fa869601453793e34ae19a7b08f38c7fb812846dd32c91f5447b36bb` |

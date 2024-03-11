@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sqlpad Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:ae621cfe67ddfcb326d4e2f07f66975ed9de10ab62e261d59c34d3f063d6bada` |
-|  `latest-dev` | March 7th    | `sha256:a27a60f3be6e04538800c0bdcf01522b011599a30dcca3bde52d8b60e6f9cac6` |
+|  `latest`     | March 10th   | `sha256:fa14e6ea96306341476c2bf989907d667d0655dcaa570b3d41cad621681adf0c` |
+|  `latest-dev` | March 10th   | `sha256:b8bd8f96aa4ae616199ca7736d3c51f4d0f31a2cdeb2804f4c8dd4626afc00f2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7` `latest` `7.4` `7.4.1`                 | March 7th    | `sha256:e6577c3ab22ab3a78dbc72b48d2cbf1af677dac194dad61d8b0b8f08dea1d136` |
-|  `7-dev` `7.4.1-dev` `latest-dev` `7.4-dev` | March 7th    | `sha256:651ae2bb0ffac089f4bffef8416c31eded2afad4b733e0a8ea0e5477919a07c6` |
+|  `7.4-dev` `latest-dev` `7-dev` `7.4.1-dev` | March 10th   | `sha256:cd68c6fc8f3413c6580f5d62cbf4a34399ed6c35d88dea8c6986a43bfc2c849e` |
+|  `latest` `7.4` `7` `7.4.1`                 | March 10th   | `sha256:fb3e850f6a31988bdac76d86a4ec7845c2c84ad0869b50cfe4ba12a066040907` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tsa-createcertchain Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:1e54968c1cdec930b2b01a16f9f18ba6d730ebf9d16b37f6a81db6a5aaf95679` |
-|  `latest-dev` | March 7th    | `sha256:de8b5e8e68ef72b68928b5ca932089582c3b4d966c53bc2bd0d6818977ffe51c` |
+|  `latest`     | March 9th    | `sha256:9689698f65b7d11edb58cc0f3eb1bde6631d3996a287f98a811e4d442dd41b4b` |
+|  `latest-dev` | March 9th    | `sha256:a6ce56df8faaf340705c590ba48a90c1fac0c254394da3ead04cdd78c654902a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6` `latest` `0.6.16` `0`                 | March 7th    | `sha256:daaf8a416b6b6dc4b04699c615bd19cd3de9be106ae42fc1032480c295721f98` |
-|  `0.6.16-dev` `0.6-dev` `0-dev` `latest-dev` | March 7th    | `sha256:e18353bdb2832844cbc9dfad5c78ff423b018c92ef51615cda24fce301a97aaa` |
+|  `0-dev` `0.6-dev` `0.6.16-dev` `latest-dev` | March 10th   | `sha256:3f52aaaeaffd5cc29de8a7a4cdd930cc925634656fc2bf346a32ed232241f6b7` |
+|  `0.6` `0.6.16` `0` `latest`                 | March 8th    | `sha256:2bdf9e5b70fdfdc68ac0499d306959ca2e717c824a57dcfb18febafbef0211cb` |
 

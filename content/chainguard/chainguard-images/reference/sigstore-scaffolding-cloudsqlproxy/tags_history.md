@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:edf6da37f106e2ad3cce3f08649e3ee618a3e6ceae3e748e3590478e7567ef2d` |
-|  `latest`     | March 7th    | `sha256:2c787d4e491d8999461bfb0cebb521d7dbf9c45cfde5d5e52d31d13c00526655` |
+|  `latest`     | March 9th    | `sha256:870ad3d1d3ec071a936d7c95f1faee17f788a2593fee525424bb7de4eefdf793` |
+|  `latest-dev` | March 9th    | `sha256:dd7051494263fd083728f2b7b711464a405d79455082f6f8117dd04c3b67e418` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.6` `0` `0.6.16`                 | March 7th    | `sha256:495b8f547518d672c41688e17137024ec80f998ba3aa4068fccb0479e2ae6493` |
-|  `0.6-dev` `0.6.16-dev` `latest-dev` `0-dev` | March 7th    | `sha256:8ea7b948be79d2bfd2df05227a2901afcfc9b7cdd0ce275921cce847e9a44b09` |
+|  `0.6-dev` `0-dev` `latest-dev` `0.6.16-dev` | March 10th   | `sha256:20aa5e9eb3d9564627f4c55cab4c09def07a875d4de489056db0ed48260bcb3a` |
+|  `0.6` `latest` `0` `0.6.16`                 | March 8th    | `sha256:13372a800db263384746322eff40be514db11f38a54499e5370d361bfd8ad82d` |
 

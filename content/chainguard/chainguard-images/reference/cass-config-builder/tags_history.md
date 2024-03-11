@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-config-builder Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:d3d19368b246620f52bcf9a0a551599506b154b0accb6722138df1f0cbd8eda8` |
-|  `latest-dev` | March 7th    | `sha256:d73f5891abf5db310f42acf24461514a7900c3b752d7c95b506739c0b658e2cf` |
+|  `latest-dev` | March 8th    | `sha256:832bc13303e072c78269749b0a8e0ea2207b5704409bd80d7ca4af4402c6a742` |
+|  `latest`     | March 8th    | `sha256:92420a0550937a4adaa46b47d7853513e9d8db746e62fbd389e13a2196a94d3c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0.8-dev` `1-dev` `latest-dev` `1.0-dev` | March 7th    | `sha256:5436a335dd81a9a72ed4a494dfc6dd61c4215eed9da85af7f50cd5651ff3b883` |
-|  `1.0.8` `1.0` `latest` `1`                 | March 7th    | `sha256:30366cb43bbd1304d1fcd3b71238eff25e9a80bd457fe6be2090e1e92459a22f` |
+|  `1.0.8-dev` `1-dev` `1.0-dev` `latest-dev` | March 10th   | `sha256:25e65434b3e60a8ca46a3cb0c3ff2c1e266570193af9fbaf1c67bebb7fe735ba` |
+|  `1` `latest` `1.0.8` `1.0`                 | March 8th    | `sha256:518e8bc16f1d8b74bab991b8bbb8055ffc8bb1d2cbfa912acec912c586caa7e5` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trust-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:129b6c24e467817c6369ca65a787557a2ad4285086d5a1ac004d4b6388b3ab3c` |
+|  `latest-dev` | March 8th    | `sha256:f8f4265a40ac7a15fd264b76e0f7b5fd1b3bc124080c9fcd22a967c75e0c1b59` |
 |  `latest`     | March 7th    | `sha256:2bc3b4e67c7ad5de31fc70ebbf2753581366b40e4f1f4066ee8f670e57041e2f` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.9` `0.9.0` `latest` `0`                 | March 7th    | `sha256:7216d8b18e71665fed7e110586ef17e330a847807e8b5ba119b2f63218a80855` |
-|  `0.9-dev` `latest-dev` `0-dev` `0.9.0-dev` | March 7th    | `sha256:065a75ce1c49f9a963fbe6e34124ce35b4584ae3d8c667d997097427e4ec1ce3` |
+|  `0.9.0-dev` `latest-dev` `0-dev` `0.9-dev` | March 10th   | `sha256:7c6453bf0a531d953c9bc83f48b32d89d938385c5f6ee902ae4329b609653299` |
+|  `0.9.0` `0.9` `0` `latest`                 | March 8th    | `sha256:15db67047f52b53da0c52596f3cb8e2e15d136cb531c3659fc752b24dba35545` |
 |  `0.8` `0.8.0`                              | March 6th    | `sha256:3b59acbbca06fc20e427ca39a78daaea4bc7784e8f16b85a17725e65ce5f597a` |
 |  `0.8-dev` `0.8.0-dev`                      | March 6th    | `sha256:a464b9403ee826878215c89f6b2e5eddc4f3382acc3262e84d89b80ec8caccf3` |
 

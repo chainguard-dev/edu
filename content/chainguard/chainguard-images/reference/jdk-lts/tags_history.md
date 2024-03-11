@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jdk-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:84212ba044409e93bb36dd9bb90df82f5f5fd514c8c3faf6dc4b1796bf9277f9` |
-|  `latest-dev` | March 7th    | `sha256:cb4613ef84e3841f102016e49d53c4a910e26ba0879f6f235430dfb2bde74d56` |
+|  `latest`     | March 8th    | `sha256:992217bca2d61b1f610c2575c8e30e72be508c407ea5abb3588f945274a0c13c` |
+|  `latest-dev` | March 8th    | `sha256:3cf6bb96d45c13abe4a5c88b0d78ec42c4588de3bd484e4e29e9e449dc7b8fba` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:33e187826bdac373f84f0c39c5ee9b1c24bb9ead82779fa76c3973695aa5703d` |
-|  `latest`     | March 7th    | `sha256:b3db3fc47f581c9df21fd7b71b3f492a613a34d6978cb697b4afb59801f260fc` |
+|  `latest-dev` | March 10th   | `sha256:6a9ee62269170b996d5c906c7fa40061137d1ddf0cc6a33ed57d5953138a5a60` |
+|  `latest`     | March 8th    | `sha256:ba48e1cb0eb2fb2a58a186b514a0cf930e5002e3daf9d3c837827c98bf2c8709` |
 

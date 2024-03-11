@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-admission-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:371bee4700d1b36f87a18049735325858aa1890db2db3fd58555bcde1c8306ac` |
-|  `latest-dev` | March 7th    | `sha256:1707b71b909949fb2ec7c8dba6adf696f8a816dab637e2adce429223d9b22b52` |
+|  `latest-dev` | March 8th    | `sha256:ac8d7b5d6478335f03a17cbce1f7c59bca10e94195b249ca502cc7a03c0778a6` |
+|  `latest`     | March 8th    | `sha256:26a045b6266fc6f25e16b8e2709fd52a6cc277c21a2bf611fd06630149a763b9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.0.0-dev` `1-dev` `1.0-dev` | March 7th    | `sha256:1007d94a78ffd11fb552e713f8932e47a13a6b484c069619082274f38085ac72` |
-|  `1` `1.0.0` `1.0` `latest`                 | March 7th    | `sha256:762171dcaddb0e9a7147ceefcd3917b6b0aa38d8641eede561d14c825fc4f4b4` |
+|  `latest-dev` `1.0-dev` `1.0.0-dev` `1-dev` | March 10th   | `sha256:eebf86cb996a12b7058e2ad61164b6d1e5b1bb5bc7581ef16546c5fd12a5c2ae` |
+|  `1` `1.0.0` `1.0` `latest`                 | March 8th    | `sha256:b5f9ee0dd13535d1a44170476dab2806311f5fc9507706735fe72b16aed2845d` |
 

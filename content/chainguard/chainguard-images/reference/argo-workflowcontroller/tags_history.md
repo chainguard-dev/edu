@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argo-workflowcontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:27437c13ac349076aacae3302de645f6a486b0bb3ecc3e012bba3390f60a8be4` |
-|  `latest`     | March 6th    | `sha256:b9ab77195fd2ea1dc22d58c46e2b3afc1344b91c2747b9a9dfcca3a0d31ac5b3` |
+|  `latest`     | March 9th    | `sha256:2b43b2a8b5dc1a86b074e02d05ce8ad036aed352bfa2ab36019ccdb7ecb61df3` |
+|  `latest-dev` | March 9th    | `sha256:40f4e07f24e7fe023d1024a8e13fa742c26b29c9687368836583b265b1892b38` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `3.5.5-dev` `latest-dev` `3.5-dev` `3-dev` | March 7th     | `sha256:6eb1cdbbb45dba593edbe18da115de142a5d01f738fbcd89722daec2f1e735cb` |
-|  `latest` `3.5` `3.5.5` `3`                 | March 7th     | `sha256:b3e3a70c02b11612fb3536bf3f3feb4ca73ebeee30f005059c07b9a58f328a2b` |
+|  `3-dev` `3.5.5-dev` `latest-dev` `3.5-dev` | March 10th    | `sha256:6a1b69d55fec50af39d37eb618e7502f02efcc4410abb8c1c0fe450b02479340` |
+|  `3.5.5` `3` `3.5` `latest`                 | March 8th     | `sha256:f325391b75b2ef555bb01112907afc1fdfdb9d2c639c6c2674e09368f3c9458d` |
 |  `3.5.4`                                    | February 26th | `sha256:de51bed36179c22e1e9d3affccdde5d868698464db95d8e0029e60c35b198022` |
 |  `3.5.4-dev`                                | February 26th | `sha256:1f989ff1a030040e0cb016ea4f93177b84052b4d68fe366e09234289fefc1606` |
 

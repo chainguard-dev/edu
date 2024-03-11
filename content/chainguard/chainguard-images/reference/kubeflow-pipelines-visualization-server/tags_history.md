@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-visualization-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:2c51ccec247b1106e0263a47924be190a1df3db24e098e4dad298166e49997c7` |
-|  `latest`     | March 7th    | `sha256:1264fe4f404e36431d1373948726055b5bd48f1d2f4047feb05732992bafe6b5` |
+|  `latest-dev` | March 9th    | `sha256:9bf1551f2aa0ee06acf3da09944046e531319486b9c3b123805c02bd6c8e3b9f` |
+|  `latest`     | March 9th    | `sha256:0d3c319e792d122a494a8aa511bb0ad2234142dcd207f5e3b6c462c9bc23270c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.0` `2.0.5` `latest`                 | March 7th    | `sha256:82a8d62a990d55b201dcffbbd609cacb8251af63f401028fe911c90a42c4b819` |
-|  `2.0.5-dev` `2-dev` `latest-dev` `2.0-dev` | March 7th    | `sha256:ca0a479b797908afd3e315371089fd6d1ce78dd78e0e2a82fe46ad26f6237adf` |
+|  `2.0.5-dev` `latest-dev` `2.0-dev` `2-dev` | March 10th   | `sha256:053e992e8550a1dcb24e143053e65b5184c60cae9b2a7d793307c3d1c5f54b9c` |
+|  `2.0` `2.0.5` `latest` `2`                 | March 9th    | `sha256:679b82a3b354521d27029bd91002f33e1cf4dc33352e9f8d288de81f95fcc5a3` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the oauth2-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:456884270e767b77825b4cb10ce1039829b86edb17f04a5aefefa85ccd4af91e` |
-|  `latest`     | March 7th    | `sha256:efd4bf0695c229ac75de0936506c39598d22857b9032e2d5ec236f57b1ad927c` |
+|  `latest-dev` | March 9th    | `sha256:0ed8fb7029b90ad7e1af19dde9f1fb048c5806d3648b630a1e4ab25883a8e333` |
+|  `latest`     | March 9th    | `sha256:b6e40d76f0925e76f0a5b181be3f6c62728fa3e4aaef979caf9ea245f4ed03da` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `7.6.0-dev` `7.6-dev` `7-dev` `latest-dev` | March 7th     | `sha256:79432a105564dc6e7bc702c94c554d3b6590ab3009d04f8f1262da3da0eaf914` |
-|  `7.6.0` `7` `latest` `7.6`                 | March 7th     | `sha256:209219a728ba29dedad8dbf14703c3a9b65192836abc6ddc8e565066e0649eb9` |
+|  `7.6.0-dev` `latest-dev` `7.6-dev` `7-dev` | March 10th    | `sha256:62224dcf8788e46b62b52bca825b85c4654c8821540b9ef7f2f09789f58bc8b3` |
+|  `7` `7.6` `latest` `7.6.0`                 | March 8th     | `sha256:fb730eb2aeaca68e639541be4df2a5041a80ac21ae451c5a06bbd5a585188416` |
 |  `7.5-dev` `7.5.1-dev`                      | February 13th | `sha256:5d5bfd33953decddb16b95e3e1a725e1fc4696756f7d6dd2ff10d55b186810d9` |
 

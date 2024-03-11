@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:68255ba6f5be2938fd260c332558f635227e137628086bd740fe179395b50d88` |
-|  `latest-dev` | March 7th    | `sha256:8dcfac36df68a54e736969d2bff5546d3cc68dd6cf2ccb9b61312b40e2ae9a2c` |
+|  `latest`     | March 9th    | `sha256:497955076e7f8e40e74bef31cf43e149d58eaa4593d0d4c77473c478bdca0dd1` |
+|  `latest-dev` | March 9th    | `sha256:1920c98b3689f7bfa4c14b3c0ec95e8fb43811cb720983c2fa6ff3ef06eb7fa7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.6` `0.6.16` `0`                 | March 7th    | `sha256:0456eeab8b6a50b687d0983cd6a855dbe31eb1d21a2f744f0c0a249e0e847309` |
-|  `0.6.16-dev` `0.6-dev` `latest-dev` `0-dev` | March 7th    | `sha256:1d419cafaeb25c06f30cdd522c9ed62297a362fdaaabe422f4d9128793c4ff69` |
+|  `latest-dev` `0-dev` `0.6.16-dev` `0.6-dev` | March 10th   | `sha256:144cb90eaffa431f07d98bc9f37b00f2216e510625ea45b1f989f538de6ff7fa` |
+|  `0.6.16` `0` `0.6` `latest`                 | March 8th    | `sha256:a5ce3f5f7d0cfee1cd80b9cb29fbbd2d9e2cae658a2e1b52a1ee74568f0d4e72` |
 

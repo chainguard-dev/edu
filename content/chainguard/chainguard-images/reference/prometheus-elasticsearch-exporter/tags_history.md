@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:876b8d60a0a58057800c92a681abcbd7cf942d38b3005c3469094806d15d5dd9` |
-|  `latest-dev` | March 7th    | `sha256:7dd7f198998ad89704a027c88f1cdb740a9428f55f867683f634797860820815` |
+|  `latest`     | March 8th    | `sha256:fc6be99258d0cdb7f7f567d2976d87b1f45f1f57e633d189fa6c4b47d3c2626f` |
+|  `latest-dev` | March 8th    | `sha256:08e11373b909bf7ab8e642a763c24628c9bf21ade375fbb75dbb8f51a8844dac` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.7.0-dev` `latest-dev` `1.7-dev` | March 7th    | `sha256:d1f1760e1e2431ae618e3bb18418d5ec4ca1542d3bd1108149b003df12aa3322` |
-|  `1` `latest` `1.7` `1.7.0`                 | March 7th    | `sha256:a28099acf1cc74b02336d0f217acb9cf4c87325a5de1cfd062d02918ce97897d` |
+|  `1-dev` `latest-dev` `1.7-dev` `1.7.0-dev` | March 10th   | `sha256:c83302b5e4bff0e44100193785bb2d4796cb1affabd49db8e87fd89004fa2db7` |
+|  `1.7` `latest` `1.7.0` `1`                 | March 8th    | `sha256:296d1d9166a1776538817ecfe728d6c5bc28ce85954bced92ad962642a5c2fdc` |
 

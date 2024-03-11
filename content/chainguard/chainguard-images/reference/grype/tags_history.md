@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grype Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:559a4094dd29013e00aefc3bd72ae173ffa2a90eb7b74139335ebcf4ea3d6997` |
-|  `latest`     | March 7th    | `sha256:9a341c2073a2e499e9e02a17385370130c0182d0fd72489bc90e1321b5cb2249` |
+|  `latest-dev` | March 8th    | `sha256:9edd643e71f14790621b7e390d182e914f828269556a354f900ccf9d8e31b4d2` |
+|  `latest`     | March 8th    | `sha256:4db7ee603d3bb780e27a1c27bc15827c3bdeaf975417c42c18c98a7c9abd24f0` |
 
 
 ### Private/Dedicated Registry
@@ -37,10 +37,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.74.7` `0` `latest` `0.74`                 | March 7th     | `sha256:87d3cd2a29a060070f430fca4f9d2f486d11141c78fe637a216091f1e327ba42` |
-|  `0.74-dev` `latest-dev` `0-dev` `0.74.7-dev` | March 7th     | `sha256:3c30bc4408b4b2e0d176ba4274656f42c46de1aaeaa71b5712aa99c42ea18c30` |
+|  `latest-dev` `0-dev` `0.74.7-dev` `0.74-dev` | March 10th    | `sha256:43244d2205a8434f5a567fcc7fc0540d3220252e62d16e828b72050515ef3fb9` |
+|  `0.74.7` `0.74` `0` `latest`                 | March 8th     | `sha256:4bec5014defcc7fef8b82407b37f1c52e3faef86e4c57f715846648e82d9dbb5` |
 |  `0.74.6-dev`                                 | February 24th | `sha256:d5387724ca01f846d1ac86307b01a3d8ea87380305977ac662ea89e48e65f176` |
 |  `0.74.6`                                     | February 15th | `sha256:dbfda491a10443aecc872cfc99de41775b740b6d3c58f11bc69735df348e26f5` |
 |  `0.74.5-dev`                                 | February 13th | `sha256:1637bc03700fb4e4bcb769d55fe9179bbca98f32aa3c585796a1eb0cf598341f` |
-|  `0.74.5`                                     | February 8th  | `sha256:ae6c12ac8cd08bc2821ef16598e7f923ae8cac110daeeaed80def08eb1517e8e` |
 

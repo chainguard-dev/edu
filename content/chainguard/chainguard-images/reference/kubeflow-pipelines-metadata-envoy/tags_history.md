@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:95cf36c2809db78361281c1c97bd733696b37226ebe371d41e611402c942e817` |
-|  `latest-dev` | March 7th    | `sha256:cdff36825148aa34874ff98d92293292f482a096e424e438cdd459f7e52a7da6` |
+|  `latest`     | March 9th    | `sha256:a7d3db4f66136fc2ffe5f662ea7ec8f8380c27cb629240b25898290a906e84d9` |
+|  `latest-dev` | March 9th    | `sha256:7e885d810ab904a2951bbd25d538f38a7e9525e63436a4695c04f0f0b2528f49` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0-dev` `2-dev` `latest-dev` `2.0.5-dev` | March 7th    | `sha256:a37cebb60dbe63a2e28e7765b7025bab18a9560df4b877eb8eeb8c8c0483e0af` |
-|  `2.0.5` `2.0` `2` `latest`                 | March 7th    | `sha256:8c83e92a51ad22622333efaca44e6a7f74873ed15f6bade7f9fb52cdfbb457d2` |
+|  `2-dev` `latest-dev` `2.0.5-dev` `2.0-dev` | March 10th   | `sha256:2fb01d58013b857e238e3b4bc53596bc11a8eb0d4248625048b7d1774c0f1e75` |
+|  `2.0.5` `2.0` `2` `latest`                 | March 9th    | `sha256:66dc3d6a5dfd66f05cdfbcdb37d8d10d2f3e1882b90f5f6e3b89abacbd429670` |
 

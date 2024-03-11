@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kor Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 7th    | `sha256:0329f6d04e5a4209203923bb80f4cb4a43cc429b799c90fcbca2a24075ace24b` |
+|  `latest` | March 8th    | `sha256:a71db30e6f26718a518944799ec902e93ea210a708fcccc0ae58c110ebf47254` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.3-dev` `0-dev` `0.3.6-dev` `latest-dev` | March 7th     | `sha256:b1a2fb86953a43f754bdffb67955157f7e7a7a5052735d993ecc64bea347a91b` |
-|  `0.3` `0` `0.3.6` `latest`                 | March 7th     | `sha256:ff60efec0c215dbc141e10c2dd623df623edea4a223812e0501c08895d6a650d` |
+|  `0.3.6-dev` `0.3-dev` `0-dev` `latest-dev` | March 10th    | `sha256:2e2e02004cf1e8130bf766e245fab6a765d9d7712afa2626184cfe7af837ec04` |
+|  `0` `0.3.6` `0.3` `latest`                 | March 8th     | `sha256:e226c0390cbd11618004184a0efd284149fc2727b0a05f6860a1ead48c6565ac` |
 |  `0.3.5-dev`                                | March 2nd     | `sha256:774c948684a8bd97521fd7c02b336df27d54c4d5ad6282b4d8f9c11157decaf1` |
 |  `0.3.5`                                    | February 29th | `sha256:75dbe0783015eada5ea1685c31c00db0f83533bd67316fc04ad1890112c03d17` |
 
