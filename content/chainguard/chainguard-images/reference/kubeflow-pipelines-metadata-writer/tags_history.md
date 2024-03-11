@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:c77fd26d9c600babe9e590cb1227024bf8b36b8b2077839645a2a95afc9552f7` |
-|  `latest`     | March 7th    | `sha256:083cac977c851cc32ec797c2250efffda9fd1c4d53888025e9d82c60ac6cb187` |
+|  `latest`     | March 9th    | `sha256:19054fd0e2aef908cd0d45155f48c6bd5a587ceba27f2fd5093d913a038e731f` |
+|  `latest-dev` | March 9th    | `sha256:8a380477db56ece525078e66836ca629ff99efc9c43ac6c117efb0cfd6099299` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.0-dev` `2-dev` `2.0.5-dev` | March 7th    | `sha256:52515452ef41f5c5a3a5bb813538cca21d253ceb263997a890a0de28f3b543ac` |
-|  `2` `2.0.5` `2.0` `latest`                 | March 7th    | `sha256:e29ffdad0ff299aacc8cadbe14ce3c1164315ec232ff8e8931eae661749c53e5` |
+|  `latest-dev` `2-dev` `2.0.5-dev` `2.0-dev` | March 10th   | `sha256:5bff76997ae890d9e16c0cdae486ddeed061ef0d157bab69af451f84ec0cb773` |
+|  `2.0.5` `2.0` `latest` `2`                 | March 9th    | `sha256:8c824c211bc59019dac5b6dd880cb339726ab2eb839e7e25c8dccbad4c0a8186` |
 

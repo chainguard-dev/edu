@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ctlog-trillian-ctserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:9131bd2f9e7b3b19cb60da07127646165ea581716188ca57d62f82af24f1cced` |
+|  `latest-dev` | March 8th    | `sha256:efcc0d09f4d98fce881dd463a83797c13ded3eece7b85b919cc0c4f051e7102f` |
 |  `latest`     | March 6th    | `sha256:f166b5ec53dc4ee17d708e98bd3bb1fd83a90ab7e2779a5fa1583f44d1185de2` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1.7-dev` `1-dev` `1.1-dev` `latest-dev` | March 7th    | `sha256:088285aa867a35d86f792f99098314e12f62138fe0fe19336d0f3ad5834f539b` |
-|  `latest` `1.1` `1.1.7` `1`                 | March 7th    | `sha256:89b01f9f603652d75f11f5e1e38d929f7280e86213a0159711f70d9cf75f2bd9` |
+|  `latest-dev` `1-dev` `1.1-dev` `1.1.7-dev` | March 10th   | `sha256:38ebe897f40feb0b0f51d31fe732c6cb951c503b38cb59f950052be5d3e07d8e` |
+|  `1` `latest` `1.1` `1.1.7`                 | March 8th    | `sha256:16e30f02692f737dbb766e7817c5648543b190afc6c643c9189401bd4c768768` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the glibc-dynamic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:020fe8c6e3b5087d2a067a312c15c3462f9df586aba2cae4a91e36e84ce4904f` |
-|  `latest`     | March 7th    | `sha256:1e1b7e420a2eb14197aef25917a9e17401caed1806b8d18204a90d7642e1b383` |
+|  `latest`     | March 8th    | `sha256:0cc5960c42000ac15e08e4e0e77e34412019a122c5d74e066cadbb2d3c65a6b9` |
+|  `latest-dev` | March 8th    | `sha256:68022e05aae66b446553888533bd6394ef6cb99c213afa8bb94e9fce95a9a125` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `13.2.0-dev` `13-dev` `13.2-dev` | March 7th    | `sha256:c66c152c5a575a7cd1ff80772817f72e3fbef1b1ad961d741b6f20a31612c9ee` |
-|  `13` `latest` `13.2` `13.2.0`                 | March 7th    | `sha256:41a1290f23e113d0d89838ccd18e21b12c7a2433c8efdd6afd75d0de811e8e11` |
+|  `latest-dev` `13-dev` `13.2.0-dev` `13.2-dev` | March 10th   | `sha256:d903526343372aa0bd853a081ca468b66453b5eb239e39c17b25f93638c800d2` |
+|  `13.2` `13.2.0` `latest` `13`                 | March 8th    | `sha256:3b60d997f0a3596faabbea98bcbd4fb2c73769ca18292f23ef70cbcedc5ade99` |
 

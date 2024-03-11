@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:98dca105334bfdf972b7bb97d21f000d2f00e0b1d38d495b60e534411f444ce3` |
-|  `latest`     | March 7th    | `sha256:912ec404bbdaaf7c21cc6ae1459b0b97f057290a74daef2a83f6cfbbc029eabc` |
+|  `latest`     | March 8th    | `sha256:3cb0e38e5ccf85f68fad13df7415b0196fe082ebe0c64244eba05357e10ea8f6` |
+|  `latest-dev` | March 8th    | `sha256:8d361c8b22f868ce7f0f71268473452f8784f6b9b0dbd00db45b4ead902496c8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5-dev` `2-dev` `2.0-dev` `latest-dev` | March 7th    | `sha256:a802c5d2ec24dea99000bd2c7c134f35a95ce4c4998d14dfa289309f45580e79` |
-|  `2` `2.0.5` `latest` `2.0`                 | March 7th    | `sha256:93e759929ebe03907245eb526544e73383c804f50c416bbdbbfbc522e9ae9ac5` |
+|  `latest-dev` `2.0.5-dev` `2.0-dev` `2-dev` | March 10th   | `sha256:0915c5306d104a1dd662543400d4d68caccca0debc70b389eb6dbe27e8e5f9ae` |
+|  `2.0.5` `2.0` `latest` `2`                 | March 8th    | `sha256:6d5ed4fe40e41012324d755910d046f3ae122279f4e7cdd795597bf5eba225b8` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-managectroots Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:ea54230af21440867e28816dc64a2246456df16502e75f78ce0b5c4bc3deb590` |
-|  `latest-dev` | March 7th    | `sha256:6509f7a47b8397ee0e5f8115a25c24756d2ba1426da86e0985a3fee0db747cf9` |
+|  `latest-dev` | March 9th    | `sha256:9e9177eda7345bc56be9dd348b3d118bf89b89c631716c5e7aa972e818714f88` |
+|  `latest`     | March 9th    | `sha256:41bc818184d4e29b6d56ef20ddd74c84a1ee6d2617c8652a7aad91a2e8da018a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6-dev` `latest-dev` `0-dev` `0.6.16-dev` | March 7th    | `sha256:cdd9a1b20bb2507237b7b0353f5958829079733346c93543cae723cb0d66d5a3` |
-|  `0` `0.6.16` `0.6` `latest`                 | March 7th    | `sha256:74bd5da1b26abff2b272ee62b03a8df66355bcf4d1b249a16b3afbdad2ffa6d0` |
+|  `latest-dev` `0.6-dev` `0-dev` `0.6.16-dev` | March 10th   | `sha256:805454869fe005347b23ffc463462f136a06bd9fd2c1065ff048ddcd6ef2a648` |
+|  `0.6` `latest` `0.6.16` `0`                 | March 8th    | `sha256:97dbcb187db778e89ced935919603676eeb5c1573339b213a99c496280f4cccf` |
 

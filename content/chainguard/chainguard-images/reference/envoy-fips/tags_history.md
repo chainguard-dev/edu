@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the envoy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.28.0-dev` `1.28-dev` | March 7th    | `sha256:2bf711fc60670716f21f84efb75e2b09cde7382fce092beeff68655aa2f70511` |
-|  `1` `1.28` `1.28.0` `latest`                 | March 7th    | `sha256:911e1755f2bc554fc728fa2ec50a483f98fee591d02db7d0d53af6cfe83fdada` |
+|  `1-dev` `1.28-dev` `latest-dev` `1.28.0-dev` | March 10th   | `sha256:4f7dee0f94bd8c17b54b961d82e8541236d71de8abd5e31b5d298f03f1683110` |
+|  `latest` `1` `1.28` `1.28.0`                 | March 8th    | `sha256:89cc3bb2fc58b479c36d85a5488fc03b639d0514c0463aebf187a866130841b2` |
 

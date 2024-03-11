@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:fb856002184e8491fd936a35ad54190f259efff746c37e34f89cef6ebc42dd4c` |
-|  `latest`     | March 6th    | `sha256:35d883d9f4db8e0ad4c973f866b8b4c0e4c3e2306c8ef25d12cede3ad4a679cb` |
+|  `latest`     | March 8th    | `sha256:7db9d35f6d0dbca6bdf88a8f5525bf316179834d96cf1dbe250502d6ace2be37` |
+|  `latest-dev` | March 8th    | `sha256:eab48d3c6806d828adc3955c67d917e4e4bbf18e21c3b51b658311b32683431a` |
 
 
 ### Private/Dedicated Registry
@@ -37,10 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.14` `1.14.2`                 | March 7th     | `sha256:054fbb8bf3d824262bc9a3357a923f6f4f027eaa7dc37da91cf3bc3cf7c935c8` |
-|  `1-dev` `1.14-dev` `latest-dev` `1.14.2-dev` | March 7th     | `sha256:a29c2ef996fbcdf7dc55b4c4ea6119806a012642a3dede7830be4794bb122c7c` |
-|  `1.13.4` `1.13`                              | March 7th     | `sha256:4b631f7942e37b052cf0bce9598565eb22877c514d743f3f11ed0ca448db8f16` |
-|  `1.13-dev` `1.13.4-dev`                      | March 7th     | `sha256:d11ab7ad3a086926dcd4dd0f49ece81edceec9cde84b28c84268d3fa33d4a227` |
+|  `1.13.4-dev` `1.13-dev`                      | March 10th    | `sha256:ac8770b628fe0df74e10846f9e5edb331988ca63ab4822638ab2504502af9e13` |
+|  `latest-dev` `1-dev` `1.14.4-dev` `1.14-dev` | March 10th    | `sha256:e4b87ab7a18d1ec00326f9e604d369e7d9daefa139c1776447eaf6eb2c098633` |
+|  `1.14.4` `latest` `1.14` `1`                 | March 8th     | `sha256:c24d897f88ff4118033bbe0ba52013f252970b98f9923088a3e7356a3f68eeef` |
+|  `1.13.4` `1.13`                              | March 8th     | `sha256:295edc225700e38839d47768335e2f1dc3a8556ca02159358dd933f104163fc8` |
+|  `1.14.2-dev`                                 | March 8th     | `sha256:0ae563a2452baafdc5a663ea4863697cb5b3a1ed77353b4ac36bbb73c8127520` |
+|  `1.14.2`                                     | March 8th     | `sha256:245513b712ce41a08bb99ca503ae24ba60ca7d363e4725f8fd0942e621c0d712` |
 |  `1.13.3`                                     | February 22nd | `sha256:a02bd1479a09b02ca4477d5e3ab3418fb9d900af3202336032b96d4228141243` |
 |  `1.13.3-dev`                                 | February 22nd | `sha256:d38f10952a7793f3377af0fdee34dee45d0888d37961c02233cf3dddc2b1addb` |
 |  `1.12` `1.12.7`                              | February 18th | `sha256:3f066d0205a5998b6bc13e402d7d45b6525e9372d0396d377d46080ab2cd5487` |

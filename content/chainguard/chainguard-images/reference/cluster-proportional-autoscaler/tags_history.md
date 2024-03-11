@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:9754ca1aae571c5e2f4e521e1a46787e12fd53aa6f6a0771f2a770b69d3606b7` |
-|  `latest`     | March 7th    | `sha256:eebe4e334fc9001623f2ace781d85be310d61990d24281bf0bfb3493cafbbd37` |
+|  `latest-dev` | March 8th    | `sha256:6a193000fc75e42efb28515a31ad4b6e6b3f1c603f8e6841d427d50102a173fc` |
+|  `latest`     | March 8th    | `sha256:7fc5e2db76009d85e5815396ee07bff0f263d25a8dfbc32d1df494c3262cb43a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.8-dev` `latest-dev` `1.8.11-dev` | March 7th    | `sha256:2b8f092ce6b258bcbd950d25defda531627b2654814b17e9e8ed6dcbf9c0330b` |
-|  `1` `1.8.11` `1.8` `latest`                 | March 7th    | `sha256:509bcff6b95da767c3c6a8ac517a8ac77240e53f3f796a4dc3254459d3dc02f2` |
+|  `1.8.11-dev` `1.8-dev` `1-dev` `latest-dev` | March 10th   | `sha256:b18763d71b6cc233274845f734648248269290f7c2dacdbc561d5ffd35565481` |
+|  `1` `1.8` `1.8.11` `latest`                 | March 8th    | `sha256:c2aea42ad4e9aff3c793d409c6ca012cb50e91f912907d43d8976bc2f37f9557` |
 

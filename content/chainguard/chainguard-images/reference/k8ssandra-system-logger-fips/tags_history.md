@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-system-logger-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:0a11d8f3d7af20ad81f5d593eccff6762db3c2f80f9d38526ad043153db5cfe7` |
-|  `latest`     | March 7th    | `sha256:d1432f78da8eb10e60b9e7918942c0ad557b48d712a72623171f615dd0ab73e4` |
+|  `latest-dev` | March 10th   | `sha256:f3bd66bc8974048e784326b34ca6d842cf0f828ad1befdce547c60c55dde1911` |
+|  `latest`     | March 8th    | `sha256:34714fe52d79ec6f22fa4d532d8156292ef5287bcc494071343057649bd8a8e6` |
 
