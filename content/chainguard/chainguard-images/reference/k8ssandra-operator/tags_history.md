@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:85523c078dc0cb40681197eb7232b6ad047211d8dbd2c4b9078d5cbf016983f3` |
-|  `latest`     | March 7th    | `sha256:c486e71e60bdc4152e4b5538d69361a1257e9b9a4cedadfec18683b698a51c13` |
+|  `latest`     | March 8th    | `sha256:d540b03f2f6e1b93f7629c3caad58885f9807b5df8d832f5a810e1d75394cef9` |
+|  `latest-dev` | March 8th    | `sha256:3f943d04d10e2ab7a803711d5d6d96562916683f601f7e8d5ebbd24e0d47a8ab` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.13` `1.13.0`                 | March 7th    | `sha256:2bb0c8a11150c3e9d26b9b29247b59dacdf24e9216934eb628001fd9f80853ac` |
-|  `1.13.0-dev` `latest-dev` `1.13-dev` `1-dev` | March 7th    | `sha256:acf83725aa876fb98bf1bf2d3b7dde28109e513dbf9157eb13daedee1e899b6a` |
+|  `1.13-dev` `1.13.0-dev` `1-dev` `latest-dev` | March 10th   | `sha256:812b6d9c3b58088a4f74fe4e8c40e4d66f7363be51cee5839b4c79cb4feaa364` |
+|  `1.13` `1` `1.13.0` `latest`                 | March 8th    | `sha256:45001ab02da401f58bc7ead41fcf659551f021c9044f62573b95672465e8e969` |
 

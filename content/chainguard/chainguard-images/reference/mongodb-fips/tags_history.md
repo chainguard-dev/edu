@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mongodb-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed  | Digest                                                                    |
 |---------------------------------|---------------|---------------------------------------------------------------------------|
-|  `5.0-dev` `5.0.25-dev` `5-dev` | March 7th     | `sha256:e78bf429395def127c67f4c61727c0f1b83c27a363c06df174ab56a96a7ec3d5` |
-|  `4-dev` `4.4-dev` `4.4.29-dev` | March 7th     | `sha256:b9821cc6ce16bc92933e7298395c0bf149613d9f9da66eb996baffd0806437ec` |
-|  `4` `4.4` `4.4.29`             | March 7th     | `sha256:89ba9115c62e2ea5cc147db9002077d8c674729e227d199c451492cc0b3b46ff` |
-|  `5` `5.0` `5.0.25`             | March 7th     | `sha256:afdeaa7ed69a749469edc6d85efe98e3feb9a6eac72456252b9c2af8d46e1c78` |
+|  `4-dev` `4.4.29-dev` `4.4-dev` | March 10th    | `sha256:8662c229f507e0348f8bf45693aaaa85dc47ceb0ac4c66048acf066803f2ee22` |
+|  `5.0.25-dev` `5-dev` `5.0-dev` | March 10th    | `sha256:7930b5684cfca594dd72fb54b94e3a352c79cd626362a74f5e2ae1a862d591ef` |
+|  `6.0-dev` `6.0.14-dev` `6-dev` | March 10th    | `sha256:81f8044c362ca2390f0cfeae471dbfb6641743f6f3508fbb2f0f861d2b873cfe` |
+|  `5` `5.0` `5.0.25`             | March 9th     | `sha256:713af8a6c6bddb58cc7ab5c2e71b47263b5b7e2bfe38da4a0200e773d92fc69b` |
+|  `6.0` `6.0.14` `6`             | March 9th     | `sha256:c014feb90c48442d7cfc1c614a6c0deb9acf0180074931994422ac45db9321dc` |
+|  `4` `4.4.29` `4.4`             | March 8th     | `sha256:10a9d0773588ffa5df5e81508e0b367a477ad97bfd5cffeadca3a842e0e6ddc9` |
 |  `4.4.28-dev`                   | February 22nd | `sha256:c183ca8e7cc980122e5251af8a48f9110fef33d826bf0a6a024433cf1c559e67` |
 |  `4.4.28`                       | February 20th | `sha256:a6e215154ecae6932fee26aa076cc75c016376d42572a9a846579259404ec69c` |
 

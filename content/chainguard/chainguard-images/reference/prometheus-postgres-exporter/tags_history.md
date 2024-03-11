@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:1ba76ec8cf4c9bafbc9fec74b75b9b05f7c58a1eee81d3c6f181cda43b7de127` |
-|  `latest-dev` | March 7th    | `sha256:d7efdb34008011c644af764efadb1eea6c776e509a888bed19c98af942cffdf2` |
+|  `latest`     | March 8th    | `sha256:9e72244d9bb29b66a02e0d727431b75c24f2aa2785192b7a9077630bf12f8723` |
+|  `latest-dev` | March 8th    | `sha256:0d34a90f335dc7455f1a1aa2c831dea5b4586e08f2fd3efd4e52c11de48b5bb9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0` `0.15` `0.15.0`                 | March 7th    | `sha256:c96d2a24ec345e579604eb27147c23a5929ed421424acd21aee2894fe8fbd7d4` |
-|  `latest-dev` `0.15-dev` `0-dev` `0.15.0-dev` | March 7th    | `sha256:36c06c5ae36b170ad32324183348743bb967326067902458682727b0cd3bf467` |
+|  `latest-dev` `0.15.0-dev` `0.15-dev` `0-dev` | March 10th   | `sha256:3f97f839c0fc90f0be80c44a7d447691beef396586785fc8923089c07642893c` |
+|  `0.15` `0` `latest` `0.15.0`                 | March 8th    | `sha256:ee5fa5c39e2303321ae2517d3bd0fa30ac87be517730c5e1cfbb9c2c163ce05b` |
 

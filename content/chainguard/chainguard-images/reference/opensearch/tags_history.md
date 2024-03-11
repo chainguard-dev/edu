@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:bb01ac0e7ba99757b70364f37eaa4b1f2ad592b712892def36686868c4485a04` |
-|  `latest`     | March 7th    | `sha256:5d3edc3d6b1de78adda7be077695983d4ff943a76acc222186ab2f971766b0b3` |
+|  `latest-dev` | March 8th    | `sha256:469a7a722ea8b0a2e168f481e62169abec88aeefdc2545bcc1fa80eca67f2ecb` |
+|  `latest`     | March 8th    | `sha256:8129f98670831bdb1f8ced6d9e9b5b7dd71589a1a4b166f94b72afb61780056d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.11.1` `2.11` `latest`                 | March 7th    | `sha256:ce7350869d59f31440f031b5fdf43231d26c13b9103a30b833292f3b6ed1465b` |
-|  `2.11-dev` `2-dev` `2.11.1-dev` `latest-dev` | March 7th    | `sha256:fa75ea2c5f9659634bdc5f3155d5cc7af1bc75acfcf724646d6d74c0e1ad51c9` |
+|  `2-dev` `2.11-dev` `latest-dev` `2.11.1-dev` | March 10th   | `sha256:03dc7ffed56c9660a64094d690e0b7ce8e9d218721aee5dc9cfecec7ddb39fd5` |
+|  `2.11.1` `2` `2.11` `latest`                 | March 8th    | `sha256:512838b1bc0f0eedcdb05c3f6de3a9d34065e736892045ca7e5bdb35a5abe3c7` |
 

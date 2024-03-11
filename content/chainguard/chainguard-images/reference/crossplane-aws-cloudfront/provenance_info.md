@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for crossplane-aws-cloudfront Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for crossplane-aws-cloudfront Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                 |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | 0, 0.47, 0.47.1, 1, 1.1, 1.1.0, latest                                                                                               |
-| `cgr.dev/chainguard-private` | 0, 0.42, 0.42.0, 0.43, 0.43.0, 0.43.1, 0.44, 0.44.0, 0.45, 0.45.0, 0.46, 0.46.0, 0.46.1, 0.47, 0.47.0, 0.47.1, 1, 1.1, 1.1.0, latest |
+| Registry                     | Tags                                                                                                                                        |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | 0, 0.47, 0.47.1, 1, 1.1, 1.1.0, 1.1.1, latest                                                                                               |
+| `cgr.dev/chainguard-private` | 0, 0.42, 0.42.0, 0.43, 0.43.0, 0.43.1, 0.44, 0.44.0, 0.45, 0.45.0, 0.46, 0.46.0, 0.46.1, 0.47, 0.47.0, 0.47.1, 1, 1.1, 1.1.0, 1.1.1, latest |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

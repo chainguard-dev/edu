@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the traefik Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,14 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 7th    | `sha256:f51ec9655c67631bf550c183b66b76157764ff4ea5515d51e6d62d942b6d6775` |
+|  `latest` | March 8th    | `sha256:942d44b0c548f273a3b8fe70a3f28415e0f4b2696e9f5fafd585825f391a2ef7` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2.11.0` `2.11` `2` `latest`                 | March 7th     | `sha256:26ff68e0af57df947d130f6cb505c6aa3216831b191290fec5cfe64ea4ac9739` |
-|  `2.11-dev` `latest-dev` `2-dev` `2.11.0-dev` | March 7th     | `sha256:72b9b74b609b2bd55804ac780f5f092457689153392edc7ab66a70a70173494e` |
-|  `2.10-dev` `2.10.7-dev`                      | February 10th | `sha256:5ba897f4f8f978b83410b35112db7adbef1a54b7d158a9a3e90a88139d52355b` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.11.0-dev` `2.11-dev` `latest-dev` `2-dev` | March 10th   | `sha256:0747fa27f494c2d0200762aea78b66615367d0fead0fe27722c7cb2e27f43681` |
+|  `2` `latest` `2.11` `2.11.0`                 | March 8th    | `sha256:a4ffabcb1b8a264fb1eb9ac0adcd3150a70618304480e8b80dda406784c9f3c1` |
 

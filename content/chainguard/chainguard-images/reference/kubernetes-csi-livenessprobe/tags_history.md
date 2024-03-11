@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:e19125b5ef68d3dda71e1e48ad9b1f79c8848b2cfa99570a0bd06a6cc983175e` |
-|  `latest`     | March 7th    | `sha256:18e047f0b4bbf62d6b03b34fba4581c524726daf910a5fd81628a70175021792` |
+|  `latest`     | March 8th    | `sha256:fa30c2c836b17e7513dfd5b2598a8c19701dc60ba70e7344422aeb267eacfab6` |
+|  `latest-dev` | March 8th    | `sha256:dae898b4ffb922401412d05b312991bf2856bc71033466f9aac751cdf748f580` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.12.0-dev` `2.12-dev` `2-dev` `latest-dev` | March 7th    | `sha256:6ab123970e334359dcac3e20c0c744b41a603249ebe5139a07831008f56f721e` |
-|  `2` `latest` `2.12.0` `2.12`                 | March 7th    | `sha256:7f6fca7aa3f1d8070e93ce1a8772422f49e614b237ddab9a5e5486c582c87c56` |
+|  `latest-dev` `2.12-dev` `2.12.0-dev` `2-dev` | March 10th   | `sha256:3b7dbacae5f012dfd0c7d551461d3a42d58f5dc2ebb063b7ff059b4c974aa16e` |
+|  `2` `2.12.0` `2.12` `latest`                 | March 8th    | `sha256:3bd76a26b45369594e167c2015382fe625cab34a137f3e4adb9b14973b13fa0a` |
 

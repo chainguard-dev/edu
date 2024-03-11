@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:2d0d978b7b99d6658a50667c4ddfadb104451488421b5b2d78e4c4737cd3be05` |
-|  `latest`     | March 7th    | `sha256:6545d416fa9c0601fe6d8df4f71c7d3767e366bc4290b2491c679999246fe1a0` |
+|  `latest`     | March 8th    | `sha256:2d5f200c97ae380295e7354ed600850462d7914707f447024286d4dc0fd6fe1b` |
+|  `latest-dev` | March 8th    | `sha256:715605f68d13c8e2aa048dcbdc0b00477c0b4d8c79e1e0963e1b25fa1af7655d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.40.0` `0` `0.40`                 | March 7th    | `sha256:e6690eb980dbc74a9afb852b3b53673a75205ab5e8590b23b2c99416b27c43ad` |
-|  `latest-dev` `0.40.0-dev` `0-dev` `0.40-dev` | March 7th    | `sha256:85f74ee853604df7c1e91cead1b1d088de66c9073ed52b27939c0283cef3b565` |
+|  `latest-dev` `0.40.0-dev` `0.40-dev` `0-dev` | March 10th   | `sha256:68dbf8ec6784dd6a866116bc170d85a646e4714dc247aefea41f893cb5872e9e` |
+|  `0` `latest` `0.40` `0.40.0`                 | March 8th    | `sha256:1a689ea6d8818dbf8eed363fc6df65bd096764b267953c01d54eb54597cdbedd` |
 

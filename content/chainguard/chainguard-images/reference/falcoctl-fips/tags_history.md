@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falcoctl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,11 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.7-dev` `0.7.3-dev` `0-dev` | March 7th     | `sha256:5a68e929485708148f6b497d5e3a9fab8b187ed07c159f965b6b4631fabfb585` |
-|  `0.4` `0.4.0`                              | March 7th     | `sha256:f619a2048f5f6dc94863b3c688acc2da42ac3e75735b6242a35b182d70949f78` |
-|  `0.7` `latest` `0.7.3` `0`                 | March 7th     | `sha256:cc198ff68b94ec0ba7ce465f4708fe483be28f2e30e958c9a80481b540ed25c7` |
-|  `0.4.0-dev` `0.4-dev`                      | March 7th     | `sha256:16cd3d829d60b5d2ee5ca2754f23fe20f4efc6c80d4d805a61bbe2ada88d7dcd` |
+|  `0.4.0-dev` `0.4-dev`                      | March 10th    | `sha256:86c4973886992d9bdbfeab6742cc625091f2db4ed479fe845e85fe6a4819973e` |
+|  `latest-dev` `0-dev` `0.7.3-dev` `0.7-dev` | March 10th    | `sha256:8a392200b02e635c1261c12d95f48396b8561243781e2981aa7b4eae86c3f3cb` |
+|  `0.7.3` `latest` `0.7` `0`                 | March 10th    | `sha256:eee541a494f03eaecf20b1594b0c8397d32a29a2c6ca41fb35a4cb59d073112a` |
+|  `0.4` `0.4.0`                              | March 8th     | `sha256:15b1afaa190ba8db05b48a946cc791c1fc2525e06f80d0f87c8ab3af84deaf6b` |
 |  `0.7.2-dev`                                | February 22nd | `sha256:93fb7e3cc7566f720f85bce9a2f1549be2a9af6e08bca30d820513fa66da784e` |
 |  `0.7.2`                                    | February 12th | `sha256:51832fe4361350d0a73464b0a8e6646e45ebf0c7f220296b0171f9c4169e0074` |
-|  `0.7.1-dev`                                | February 10th | `sha256:fb1eb81ae6fd6e5481cd37906e423178985457b3bb0998daa69e0a1e4321bb29` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the qdrant Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:94909b713b7f7174409c3b1a51fdab739f3f7a753bcd15d0b2924ddff970c4cc` |
-|  `latest-dev` | March 7th    | `sha256:0b727c8a3d68afc8a757888a7acc2feb84da52dac96fccdb849b72add931a321` |
+|  `latest-dev` | March 8th    | `sha256:79ab5b57d37812bca1416e72ae57996d5ebcd31b4f0bb3e7a43f9eb6595027b7` |
+|  `latest`     | March 8th    | `sha256:4b657e4672e12ab4fb3f4ad5f4278ab69bc0630dc3082a2af9e23b3f6e89af97` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.8.0` `1.8`                 | March 7th    | `sha256:d98d8fdee0431b2e79877b73b67289b44cea02439b57a60dfbe08c3e49163a08` |
-|  `latest-dev` `1-dev` `1.8.0-dev` `1.8-dev` | March 7th    | `sha256:9127ca9a8accb2bdac179bdc80e4bb237dca17d1a6fcb44e3abe2a6429c54884` |
+|  `latest-dev` `1.8.1-dev` `1.8-dev` `1-dev` | March 10th   | `sha256:ecd90894a783d4b80ebecf10f981413e22032089e942dd42ecaefb2f7968d52f` |
+|  `latest` `1.8` `1` `1.8.1`                 | March 8th    | `sha256:77d926072dded5e4ec70b0323db7ff469380b5fd29d66f14fac885956ef2c3fe` |
+|  `1.8.0-dev`                                | March 8th    | `sha256:bb22275849a55979cb77f4611ee6a13eb43f2f6d7eb6ffe621be706a3e3b6235` |
+|  `1.8.0`                                    | March 8th    | `sha256:7f63a34b01168b213b80266f42cb3c716319acc1fe7c5cd72f87064d0a55f2e7` |
 |  `1.7-dev` `1.7.4-dev`                      | March 2nd    | `sha256:905693b3f828a80283a98ca9ceaa6871aa57192097c1c123f0e0965407bc45bf` |
 |  `1.7.4` `1.7`                              | March 1st    | `sha256:8bb6498e10a12be7343d35b7dcebd90ec16c006750fd7af5060fb239d2a94b6d` |
 

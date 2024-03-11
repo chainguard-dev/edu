@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public bazel Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -86,7 +86,6 @@ The table shows package distribution across variants.
 | `libstdc++-dev`          | X          | X      |
 | `libtasn1`               | X          | X      |
 | `libunistring`           | X          | X      |
-| `libxcrypt-dev`          | X          | X      |
 | `linux-headers`          | X          | X      |
 | `make`                   | X          | X      |
 | `mpc`                    | X          | X      |

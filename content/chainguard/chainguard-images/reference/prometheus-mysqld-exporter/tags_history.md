@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.15-dev` `0.15.1-dev` `latest-dev` | March 7th    | `sha256:d2c8e50fadb9f46f7fa844cb5b3ddb0b0c4812c7ae71206fe9ae8df265cc4a54` |
-|  `0.15.1` `latest` `0` `0.15`                 | March 7th    | `sha256:578132566816d87c24659879ec73d45686641c5e0bec0b013fc87ca5fc5e395d` |
+|  `latest-dev` `0.15-dev` `0.15.1-dev` `0-dev` | March 8th    | `sha256:e9025bfc854d692e969576820123212e96d4041e0a23d86dcee80b20ffa11d51` |
+|  `0.15` `0.15.1` `0` `latest`                 | March 8th    | `sha256:5e9014afaeb002d75ac1d26b166202b36839f595f4cc3e489e7ecb8ceac37cd3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.15.1-dev` `0-dev` `0.15-dev` | March 7th    | `sha256:8c4349e9666906a38c1700f4fe2f78f55e05b74f325706390fe9db7ec6cb4dfa` |
-|  `latest` `0.15.1` `0.15` `0`                 | March 7th    | `sha256:9fca8e43b2eab47730fe7bc10c72521c9aa1d8bc5c63c133005acc7fd19fbc16` |
+|  `0.15.1-dev` `latest-dev` `0-dev` `0.15-dev` | March 10th   | `sha256:2882cc1c5be770467fb865ecc95de765503af6f8f27cca81564bd5d05911e733` |
+|  `0.15` `latest` `0` `0.15.1`                 | March 8th    | `sha256:84fa6ec4ad3f021c7d793a54e84164b6986f8532e3dcedd0d60f16f33b83d599` |
 

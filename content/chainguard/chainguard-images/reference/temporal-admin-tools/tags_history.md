@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-admin-tools Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:7556b558cb61c8e3f9ac79542ea5d4b0febb05b90753d6840fab7e6f7d384cd0` |
-|  `latest-dev` | March 7th    | `sha256:01ecacf7ce69c6fc6534cbe8f8bbf718e8a1adaada0a6cf2903ac3550f0089dd` |
+|  `latest`     | March 8th    | `sha256:58f390c6a1ff8c97915aa48b8148fd206fd9a42162dae96db2654f1ae4244480` |
+|  `latest-dev` | March 8th    | `sha256:c04addc9b901e579e9f847788d92712928b93b259c5caf268eb0d71eee6df41b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.11` `0.11.0` `latest`                 | March 7th    | `sha256:d7c2a062a1c56b61a2b78f037b83cf90cc0fdb5b8cf7782d1d82503f2d5f93e1` |
-|  `0.11-dev` `latest-dev` `0-dev` `0.11.0-dev` | March 7th    | `sha256:d609afd0ee2ac3805bc19828a884e4ea6367799c9385436f3d755560c8dcb449` |
+|  `0.11.0-dev` `0-dev` `latest-dev` `0.11-dev` | March 10th   | `sha256:8d4ce9eb85b71ddfe98ed022c5dbcbf8529f690a466c6a620e931df960e0905c` |
+|  `0.11.0` `0.11` `0` `latest`                 | March 8th    | `sha256:782228273bef5471915d49f6c470615b5af88bf18a17054ac2f953d57e7109dc` |
 

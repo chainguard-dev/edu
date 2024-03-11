@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:51eb3e54c5e2fe65e48ab9d0318146b55822d4ea01c2251550e1fcb439e5490f` |
-|  `latest-dev` | March 7th    | `sha256:d7551f13a349b60ecc32dac55c0026b36d8ff462cd8594c81213c49b35c0b1c1` |
+|  `latest`     | March 8th    | `sha256:5e74130b1d880265c17a0febc98028dab35b60c676d9cdb1336525ea49b090e2` |
+|  `latest-dev` | March 8th    | `sha256:96831ff35db153f8ee1b626c975e6746d12701ada4adc7ae442ff9368c2050c0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0.0` `4` `4.0` `latest`                 | March 7th    | `sha256:f91013aabf6f07bc7c3b9300b6ae354934ce1780f2747409ba3aab60955f682a` |
-|  `4.0.0-dev` `4.0-dev` `4-dev` `latest-dev` | March 7th    | `sha256:c88d07daafe904a918f39071a97edd06f4a818b28ab172342a9777bb9969e93b` |
+|  `4-dev` `4.0.0-dev` `latest-dev` `4.0-dev` | March 10th   | `sha256:5bdc1976a4399776441c8b4aff93200fc2613124ad3fea94c0c095d233a007e4` |
+|  `4` `4.0.0` `latest` `4.0`                 | March 8th    | `sha256:c2fa769862fbd52ed0a4429e6220b663e9b33263a198cef5a8aeb05274bf65b7` |
 

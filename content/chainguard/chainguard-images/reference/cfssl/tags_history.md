@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cfssl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:4f04b85f4b97d216b745686c4d63b8a1ca3d8be56b2ebb53da89ede35cf21c94` |
-|  `latest-dev` | March 7th    | `sha256:a5b3fd7eed973b17ecdbc1cb202edfdb92d95d7f34919f7b968be859c70df063` |
+|  `latest-dev` | March 8th    | `sha256:be539ef47230f659afa48a42402c75f487a968a2bfb74e8c388a7f620dd0836e` |
+|  `latest`     | March 8th    | `sha256:142101b63f64b1cac2fb22c93f63c9a7a300739a10c03e6b5a497ed54d6328e2` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.6` `1.6.5` `1` `latest`                 | March 7th    | `sha256:e2f4efb3ea9956566445fb7bc4bdff1e94f352c315976415a0783eceb0457581` |
-|  `1.6.5-dev` `1-dev` `1.6-dev` `latest-dev` | March 7th    | `sha256:781a21578492bfab79d56f52424b98063d6a663c1db0754a2d908cecdd1b7df9` |
+|  `latest-dev` `1.6-dev` `1.6.5-dev` `1-dev` | March 10th   | `sha256:3db7f53a1f44f2f7ad04a3cfa668a121a1c7e31ad986ece5977cc780c86c6db2` |
+|  `latest` `1.6` `1.6.5` `1`                 | March 8th    | `sha256:afeccc4f4b38124196f333ecd050c5ce600aedccd9932afe8dc2a5210d1c705a` |
 |  `1.6.4-dev`                                | March 2nd    | `sha256:6bb1365ee7004869afbf8c48665e97c7106fcf69cafa58a6c65b2bcfc1523d66` |
 |  `1.6.4`                                    | March 1st    | `sha256:0f22b930283055b703dae5fa37506924b8b083ee11e6012964f184072692f9c5` |
 

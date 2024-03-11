@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-policy-reporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:1a9aee57829ada55b6292eec025e29551077a31d540c8a8dea93724f789a4542` |
+|  `latest-dev` | March 8th    | `sha256:260920badd19798aebfa325b2b4ecf3b16939b89aba15f0829caa2f756b014d1` |
 |  `latest`     | March 6th    | `sha256:6652c137c3c21b2610c6e6b2b938f105d786765fc67cef5f67d8ee9f1cc047a8` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2` `latest` `2.18.1` `2.18`                 | March 7th     | `sha256:704abbe1b0185286d8cc93568d840e5c1b6b5aac395df26fc74c3783f2824457` |
-|  `2.18-dev` `latest-dev` `2.18.1-dev` `2-dev` | March 7th     | `sha256:02617275016985c6ea9b593a1750030611ac89252f5ffefe4a7a0ad86de972d1` |
+|  `latest-dev` `2.18.1-dev` `2-dev` `2.18-dev` | March 10th    | `sha256:7c94153530f40adcaa54c9e2efbd803e75b3606f609840789d0535f1eb3cdb92` |
+|  `2.18` `2.18.1` `latest` `2`                 | March 8th     | `sha256:59790e032ffffd2c2284d41949208aabedf3408cba50b2d11dfe26a0a63e074a` |
 |  `2.18.0-dev`                                 | February 17th | `sha256:249179b15324d89eab543a017e7c5f9dc02a1e104572c2d9d835cff4ef0b14c5` |
 

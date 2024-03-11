@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:5c97e29ce632a705091e3661231a1b4ea20050daeb5e000d308bccb49d02b903` |
-|  `latest`     | March 7th    | `sha256:4f875523784000a76ad2852b157b0409b996414deaed08a28a11799fee7706ed` |
+|  `latest-dev` | March 8th    | `sha256:bf84fc06748659a062ac8e3c38a7796e8b928387c26a909381823a9da21d3b9e` |
+|  `latest`     | March 8th    | `sha256:b5ed3e6a8aef041fc1499e6a70c1b67a632fdeddd5cf1b81eb9d2e230e3fe09a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3-dev` `3.0-dev` `3.0.0_beta5-dev` | March 7th    | `sha256:d1166a294620ad148592823b348a3d6744ca6590df6f23564aa7d61285f15100` |
-|  `latest` `3.0` `3.0.0_beta5` `3`                 | March 7th    | `sha256:d0d5bab1bd0f255eb5fcec92402ac54ea09321c6cbe4a9f8b835ec05e535ccc3` |
+|  `latest-dev` `3.0-dev` `3-dev` `3.0.0_beta5-dev` | March 10th   | `sha256:490aea7cf7814f42c4838beac5a51fdd77670c440bff95c9cc8c1476926ac943` |
+|  `3` `3.0` `3.0.0_beta5` `latest`                 | March 8th    | `sha256:2930c15ac2ca0fde1b182eeb5de625f83c265ccb84f837f407a33a2cf53931e4` |
 

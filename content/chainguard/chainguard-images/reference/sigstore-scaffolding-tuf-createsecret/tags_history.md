@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:b024146c2876668005dd814c05322a3f6cd1e58dbb957662f53c600962faec62` |
-|  `latest-dev` | March 7th    | `sha256:58925ef868a30abef62e6aab15811ca3e47a1ede60403597d89dc4a923879a55` |
+|  `latest`     | March 9th    | `sha256:d5264de68233e2fc40c8c2132da9f091277496a5e580be1a59750e5b2777a2dc` |
+|  `latest-dev` | March 9th    | `sha256:800d9f540e05453ac8bfa0c4ceb49aee025f83d43627ab0dc18bfe46e687c9a2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.6.16-dev` `0.6-dev` | March 7th    | `sha256:1aeb8a5f9f932492f54a29a778261bace5afdf39539f4546aa3990e291c1ac71` |
-|  `0.6.16` `0.6` `0` `latest`                 | March 7th    | `sha256:73fadb6f2806f90a27b17741fc4bb88454975ebc0e41754e3b48f6cdd25de25b` |
+|  `0-dev` `0.6-dev` `latest-dev` `0.6.16-dev` | March 10th   | `sha256:cc0c384ff3e85376160480e8dec846032bd38dc2e270002f3363b5abe60737ae` |
+|  `0` `0.6.16` `latest` `0.6`                 | March 8th    | `sha256:bca6dca8fbd6643b616a7ee02470e3027f4a532cf74e9a794f9b0393ee6f844f` |
 

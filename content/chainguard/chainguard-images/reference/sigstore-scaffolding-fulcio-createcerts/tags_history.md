@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-fulcio-createcerts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:223cefc6810394e7d7829f4d321df62de29cb9cc25fb7aa4a97e95f61106a2b4` |
-|  `latest`     | March 7th    | `sha256:0fddd1e5f5290c0fa7e0498b01616de827eb2c14d28154590e11b20f379d51b2` |
+|  `latest`     | March 9th    | `sha256:f50026f6b5251fa72feb79bfad0f69ec949a82c7262e52638550aa788368d0af` |
+|  `latest-dev` | March 9th    | `sha256:e9fce180b425300471e6b9e915d9bd30c03bdfd080b9d9e521a4870a886c8dcf` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.6.16` `0` `0.6`                 | March 7th    | `sha256:6fe996ab69e662abe9e0b402de42a774d06b095730cf837e1797c98aa7d6c927` |
-|  `latest-dev` `0.6-dev` `0-dev` `0.6.16-dev` | March 7th    | `sha256:d9d730fcc3af20cd906135e1586240a5399fba6b2790747d7a949b1d96513809` |
+|  `latest-dev` `0.6-dev` `0.6.16-dev` `0-dev` | March 10th   | `sha256:15ad5b0a593f56cdf340b376c0f35c40c701e30df36a6e92064449c87d3650e7` |
+|  `latest` `0.6` `0.6.16` `0`                 | March 8th    | `sha256:802ba62ab46d761bbdc013cb7addfd68b9c994af8b6ac4166fdbe1839c69535a` |
 

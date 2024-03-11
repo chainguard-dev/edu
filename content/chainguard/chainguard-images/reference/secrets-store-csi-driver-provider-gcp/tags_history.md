@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:cc1112083f9f2b2ad875473fb842f0932053d28f6d61d44a7de5ffb26f6eb781` |
-|  `latest-dev` | March 7th    | `sha256:7840568b4664f73ae4d9d3d71322de7685f99164c122a3b2c3ed51cfb2a55f32` |
+|  `latest-dev` | March 8th    | `sha256:f7d61467c5553c3cd2a37715ad9334875d75c6c4a1a786c65c6a7f43b743bd3e` |
+|  `latest`     | March 8th    | `sha256:2684b34863b16cff7e13657f22fde8e5d1cba383f0d11a90d358c98a395faa39` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.5.0-dev` `1.5-dev` `latest-dev` | March 7th    | `sha256:d92499165625dd47ca4d2a9521e0d5af19426dd64e4d2c859d5096c3fcf9a5ea` |
-|  `latest` `1` `1.5.0` `1.5`                 | March 7th    | `sha256:eaa728b2520e244387d9eee1f102a89e40475a0c692e4b41ce2dcb3df6f9275c` |
+|  `latest-dev` `1.5.0-dev` `1.5-dev` `1-dev` | March 10th   | `sha256:8aa1190474ad2a3fff227110ab2e1b9b2e268a8cadb4d72fcc28e440149cc640` |
+|  `1.5` `1.5.0` `1` `latest`                 | March 8th    | `sha256:dcd25e506ac48fdf79c79b37c111d984e5dc2aa964f8247d692127d4e75456e9` |
 

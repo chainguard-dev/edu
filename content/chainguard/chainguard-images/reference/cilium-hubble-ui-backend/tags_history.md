@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,16 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:6022c3fa7561367aa927d882969a75aa7318cc46bdc213a16b2b8ddb21bbeb3d` |
-|  `latest-dev` | March 7th    | `sha256:31c819f5f4f9f201ae219511cf6dc8f246b33a0744cb55e9e8d48d0fb6561879` |
+|  `latest-dev` | March 8th    | `sha256:69f037126f633ea8e8a6f24483b51fec5ea3e959e5008a87f7e728df73e0a539` |
+|  `latest`     | March 8th    | `sha256:ed02adab7dad9748ccccc3697b7a16f53af11b8fe1bfe47781af92bc2d1badf7` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest` `0.13` `0.13.0` `0`                 | March 7th     | `sha256:cb08bdb9941da47139cbb16c4bc832234f8af88f4444472246851f44d84d8318` |
-|  `0.13.0-dev` `0.13-dev` `latest-dev` `0-dev` | March 7th     | `sha256:dc5239adeebe233f65a5af3749053cd9f718155097e7e34cb47e80f528f50d9f` |
-|  `0.12.3-dev` `0.12-dev`                      | February 10th | `sha256:06a5022896eda1415532a3ddb6fed743cf76779f53c7d63f80d5e2d8efbdaea2` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.13.0-dev` `latest-dev` `0.13-dev` `0-dev` | March 10th   | `sha256:c4c17e106728b495084f2dfc0a4c08a872412d588a45f5423b9a5ecfb5c6691e` |
+|  `0.13` `0.13.0` `0` `latest`                 | March 8th    | `sha256:a8523b91411bae7c82424c784dcfb34b25ee0ed403882769da20bd2f5194d7f4` |
 

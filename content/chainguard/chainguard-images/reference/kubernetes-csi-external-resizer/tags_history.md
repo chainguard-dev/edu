@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:a6a6036a68c37dbdb430ceb5c351d1d180e53994282460bd99072a86d62e0aaa` |
+|  `latest-dev` | March 8th    | `sha256:1c683000490e814b8411389bcc9df71f0730ee06ee6245e9f2a41e4a9fe13b08` |
 |  `latest`     | March 6th    | `sha256:b72c29ffa09f9260fa3d5a0fc625645ad98f1d329baae95b11a537f1c5293627` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.8-dev` `1.8.1-dev` | March 7th    | `sha256:fff01112d3a8c7fb6f7166718904a854b94da777165d3f5f0280f609d8f5bb38` |
-|  `1.8` `1.8.1` `latest` `1`                 | March 7th    | `sha256:decbc5a3fcfe69eaf173fb724270e91fd6f7548d89454bac342012adc72b9e64` |
+|  `1.8.1-dev` `1.8-dev` `1-dev` `latest-dev` | March 10th   | `sha256:dd3c506adca46fcd0678d686380742043cc2884167140fbb02448a97895766d9` |
+|  `1` `1.8.1` `latest` `1.8`                 | March 8th    | `sha256:fd52c6f26ce18db50d467207a784466e7d994cefd95b65b6febf311415d2bc21` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-acmesolver-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.14-dev` `1-dev` `1.14.3-dev` `latest-dev` | March 7th     | `sha256:c438e3209a1386aa6b01ad3af7cfbff632b70ae3ee8f634ca951deb7895dbaee` |
-|  `1.13` `1.13.4`                              | March 7th     | `sha256:fe4a6cf8e4f8caba1ddb7dec5eb7fb5e62c79f5c837c31a154015656e7f1e7a6` |
-|  `1.13-dev` `1.13.4-dev`                      | March 7th     | `sha256:3d923038509562542088e98232ea9df3f5f3752d3357edb1628aab8106cd703f` |
-|  `1.14` `1` `1.14.3` `latest`                 | March 7th     | `sha256:044cd2a99f23808344d404b78be4a1f0eafc51ab7119006da054f1c1047970be` |
+|  `1-dev` `1.14-dev` `latest-dev` `1.14.3-dev` | March 10th    | `sha256:59cceb724ba813b553b5eee46643161fab5b5e820c5c01ecc641703f6afa989a` |
+|  `1.13-dev` `1.13.4-dev`                      | March 10th    | `sha256:28e3ecabade3b0569d082cb418012a95e00183c4cf9bd77b5bd8edaed252a036` |
+|  `1.13` `1.13.4`                              | March 8th     | `sha256:582d4d9831394e15ec1306de70da6e260318db9c12f4e2b99cc63beca67baf31` |
+|  `1.14` `latest` `1.14.3` `1`                 | March 8th     | `sha256:a02e1c4a0333e88ea097893affc06823b4abedb5fc6dd51aa4d4692ee54d83d8` |
 |  `1.14.2-dev`                                 | February 22nd | `sha256:d1be182553b78904e7401aa1ce76c95f1509291443b3c31a4811619f59d6dc8c` |
 |  `1.13.3-dev`                                 | February 22nd | `sha256:e2228feccb871f9f61a79a49474f1f4fe17f05507ff222eff0c171b45cc3d49c` |
 |  `1.13.3`                                     | February 21st | `sha256:d5196d6c2b2eec0d22341beb16b52de3dd9a2bdcfdccb5c5ce44f0db9c4bd1c6` |

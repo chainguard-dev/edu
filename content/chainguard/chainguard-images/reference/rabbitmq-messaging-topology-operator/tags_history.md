@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-messaging-topology-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:25d8bea566d87cef3715fcc55aeed72438c1d02a424551d2842fbf442e4c623c` |
-|  `latest`     | March 7th    | `sha256:8bfc5ff3faf05ae0016f98b32533d6d12ca73ef088bd2460b7c6dcffe317a739` |
+|  `latest-dev` | March 9th    | `sha256:9285101b74c9648b4dd504cc4f4fab4936fbfba554da18924184c9a8df94be9e` |
+|  `latest`     | March 9th    | `sha256:626b76442c2b55106175fd1e4a4a0ffec8e95213e9fb7659fa76cbdc457cfd2f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.13` `1.13.0` `latest` `1`                 | March 7th    | `sha256:5be41e8657b2d366e781ca421ae1f1489c1ad8afa3ff25822e9a5cd7ff3c4d44` |
-|  `1.13.0-dev` `1-dev` `latest-dev` `1.13-dev` | March 7th    | `sha256:50d37d230eb324859ce115e5d78811af9b20a25911db274491c342e9440cbff5` |
+|  `latest-dev` `1.13-dev` `1-dev` `1.13.0-dev` | March 10th   | `sha256:3396190b4620434f1078e429688c66d36083e77d3277005dcb65b5a3394e7908` |
+|  `latest` `1.13.0` `1.13` `1`                 | March 8th    | `sha256:ced55f15571d8a6c9ccb473b0477fda09a78742bb77e177662fe233d0d154094` |
 

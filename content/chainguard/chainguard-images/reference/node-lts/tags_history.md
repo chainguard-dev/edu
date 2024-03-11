@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:96cec79a965e7f1ca4ff840dcd9b339c48ab4e45b9dcd82090c32856a9e77652` |
-|  `latest-dev` | March 7th    | `sha256:dd9a2ff6a3bad47dfa00961bc4bb9ee71ef1e80c76b60c7509bb9a55d6958ffd` |
+|  `latest-dev` | March 10th   | `sha256:00d83d15ae5777d64fa2552989f893355e7f91341396f84769db3d84902441e1` |
+|  `latest`     | March 8th    | `sha256:f4d7bcb7eef23f940cad0cd1807b84eea311d57fa8ea87f1f1acb71f8a5c4184` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `20.11.1` `20` `latest` `20.11`                 | March 7th    | `sha256:93802c07db85a1366ecd8ef5853020398cf8401ac793a92147d680e43aa0a394` |
-|  `20.11.1-dev` `20.11-dev` `latest-dev` `20-dev` | March 7th    | `sha256:9ad8a2bd71fd92fc8b624c825c04a77fa7a82588c95af690f4e7f3d9b41252b4` |
+|  `20.11.1-dev` `20.11-dev` `latest-dev` `20-dev` | March 10th   | `sha256:c6fb3d80169105b90b53e74d728883ed749834bdf17f45ccaa9f03db9605510f` |
+|  `20` `latest` `20.11.1` `20.11`                 | March 8th    | `sha256:ffe21c13cd15565557d117eb57e77ad0bc241dc9539fe329d900fefa7b4a43e2` |
 

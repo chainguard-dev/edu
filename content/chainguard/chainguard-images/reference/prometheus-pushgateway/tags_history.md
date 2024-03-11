@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-pushgateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7.0-dev` `latest-dev` `1-dev` `1.7-dev` | March 7th    | `sha256:26f37bd719491b50b82b9b67098266edfb8a93af392b5417bb0b348200b865b7` |
+|  `1.7-dev` `1-dev` `1.7.0-dev` `latest-dev` | March 8th    | `sha256:6c3894af28b10903b3eaabef9812ba717df074213d3be08e6c41c9c2ac658338` |
 |  `latest` `1.7` `1` `1.7.0`                 | March 6th    | `sha256:e126e3a6e1d5c065a7f3ee9377e6dc3114360f1ca23bab774267b4955e274eb2` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7.0-dev` `1-dev` `1.7-dev` `latest-dev` | March 7th    | `sha256:6a8e88ac3294c8c45499cda9357e0e174d20939fb85a1f567dd4e98c7580ed81` |
-|  `1` `1.7` `1.7.0` `latest`                 | March 7th    | `sha256:893893922f4551656a812905c4fbec60b7bd3fecb552ecf9498954ae690e8527` |
+|  `1-dev` `1.7-dev` `1.7.0-dev` `latest-dev` | March 10th   | `sha256:637a1f0291930c25c8740308cf3c4cff99b589e8547779462865c893accfa05e` |
+|  `1.7` `1.7.0` `1` `latest`                 | March 8th    | `sha256:f6e1546a01903d03bb65566be65f2e1f490911e2412065ed29c482b311b4c8df` |
 

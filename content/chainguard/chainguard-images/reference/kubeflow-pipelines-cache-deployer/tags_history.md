@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:3093c42b81966c01ed275dc6278e96d3f466cc784a89518416e64115d10be45a` |
-|  `latest`     | March 7th    | `sha256:186ed7175f99616982bd07105d38b40df9b8f2cec0c2c01498f2fdccfa69205b` |
+|  `latest-dev` | March 8th    | `sha256:7ee95be5aac73fac26349a4f930907e37bb72d7ad7b8f15a5259dfb0d342631b` |
+|  `latest`     | March 8th    | `sha256:6d66961c54daf94fed9c050ad3538af632e2fe86df7d371409db380b8b4fb20a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5` `2` `2.0` `latest`                 | March 7th    | `sha256:5939b2125fd5b56d09f8dc0546ecbf5db9c790c2a1f286556d88d290e72db324` |
-|  `2.0-dev` `2.0.5-dev` `latest-dev` `2-dev` | March 7th    | `sha256:51f30be0b1c82a4baa628c8bbc034630093b23ee439d1693a5c0155cd216c7a5` |
+|  `2.0.5-dev` `latest-dev` `2-dev` `2.0-dev` | March 10th   | `sha256:85897d8d99313b990f0faa3d50492fd10f6752b6105e1a3bffdcbac9899fa2a8` |
+|  `2.0` `latest` `2` `2.0.5`                 | March 8th    | `sha256:a4805eda59bf9ffac33a65cf233ecb8b14ab94b7856401e62d8d5e2c239f9f6b` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-medusa Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:ee059c55f0a7a62d4c38b7cc2f6365e04213c017e554dfe4231036cdfa332cb8` |
-|  `latest-dev` | March 7th    | `sha256:1562a4843c5db4ab59941cd8bc3850b3da75a294da2f2a70a0f25b17a6aa30c8` |
+|  `latest-dev` | March 9th    | `sha256:14ce30253757ef800fedf60eaaa98069eb5fea678ac7def2b3cb47a543cea98c` |
+|  `latest`     | March 9th    | `sha256:dda5f21ad71c309e5687c28464981ffd6acfce665d17db0a12dda1001dec838f` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.19.1-dev` `0.19-dev` | March 7th     | `sha256:0e05a73eccc0e28a95cb1782827c027d757326a635aed0075c6ad46e90b795c7` |
-|  `latest` `0.19.1` `0` `0.19`                 | March 7th     | `sha256:0d2c8f86e2703490a9cc9885626c99c9b7c7c80f5b4f30bc52d6901bc79cdff4` |
+|  `0-dev` `0.19.1-dev` `0.19-dev` `latest-dev` | March 10th    | `sha256:4d1cc898307091a8fc0e00b48b2fca38f7522d2d7d3aa520875ba298298cdd10` |
+|  `0.19` `0` `latest` `0.19.1`                 | March 10th    | `sha256:1216c8b52dd954bdb7477dbdd1a0a9a16881fbeeda71d6504ec5a0c18b93cad5` |
 |  `0.19.0-dev`                                 | February 23rd | `sha256:d877cd3c4ca7f40a4dfb9bf7a06a9951b36177b78142f380dddc95fa7d8e8d25` |
 |  `0.19.0`                                     | February 22nd | `sha256:9b2ec70b8b8f98dc699e0407d1dc49019984dab722e27a426fa8021cf4849618` |
 |  `0.17` `0.17.2`                              | February 22nd | `sha256:40ece9a8f0280e05c2e09f1b35cbf6b92ba71f66811fdf7a889b0a58535cdf98` |

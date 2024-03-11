@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 7th    | `sha256:6e1d3a73d81d62fc9e34d8218d1980a36bed1da3b4ea9c98bbb617a2b3f87b3e` |
-|  `latest-dev` | March 7th    | `sha256:1ede555e043c3c98a3e4c256917c563deeba5f548ba06652ef29b8348d349f86` |
+|  `latest`     | March 8th    | `sha256:66a373a1f4eed69327ec0a63440e81ef6f29909eb78a5603f32c380b1597758c` |
+|  `latest-dev` | March 8th    | `sha256:cae7618cca6b4bb040b4ca8eec048c1aff735a34f4c2fdfa9b8820d0b5c62dbf` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5-dev` `latest-dev` `2.0-dev` `2-dev` | March 7th    | `sha256:ba87a57400170533680e6a62a8c8c726b34d4558f264cb43d873ca33295d2f4b` |
-|  `2.0.5` `latest` `2.0` `2`                 | March 7th    | `sha256:58bcf352d61f1b834e8605fdc2ddba278b95db6f95454b7fe79f2c7d36ee21e1` |
+|  `2.0-dev` `2-dev` `2.0.5-dev` `latest-dev` | March 10th   | `sha256:c5102a018c1dd505aaa22d4c95322a9603efec3e612f782a4de6d17e59eca255` |
+|  `2.0.5` `2` `latest` `2.0`                 | March 8th    | `sha256:95fd480a5848ab7cfa55c53513b914ca7d6ee2881937cd3a9590aae22011b8b7` |
 

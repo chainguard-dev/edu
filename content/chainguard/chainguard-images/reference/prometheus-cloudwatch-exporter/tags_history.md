@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 7th    | `sha256:55b8b8d1eda3f3f3ac4a8c8068631ca27e8ce80316411ec4d35cc00e2d339b92` |
-|  `latest`     | March 7th    | `sha256:cccbe5a33a2982a42f67a29ef763d405134df1e7cc7853bd23897743602c90d3` |
+|  `latest`     | March 8th    | `sha256:570eb68554c6469b9f1c76d583413581b59968d3d227019127a7ba2d81ccc0d8` |
+|  `latest-dev` | March 8th    | `sha256:cea5ee73204c5b8ae0d0409b87bdcbf58d08c24973e69638878494fda2ff80f8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15.5` `latest` `0.15` `0`                 | March 7th    | `sha256:e8af2b21ea53389e66b9f5b2aa0e2982459a78fe1823a95706b2cd9d01021f93` |
-|  `latest-dev` `0-dev` `0.15-dev` `0.15.5-dev` | March 7th    | `sha256:b2cf495f896c0a2d4ea0f3131852ad1ff7d6e1eaa16115cefca6d4cf1c6de464` |
+|  `latest-dev` `0.15-dev` `0.15.5-dev` `0-dev` | March 10th   | `sha256:99ab0110b99cf9b46803a097e8b8366c992a9191139e3357296aba1d6535e6fa` |
+|  `0` `0.15.5` `0.15` `latest`                 | March 8th    | `sha256:a35847b397e835978e0f95341888ad3d5c82cec0064bc0c594cef33e2236b438` |
 

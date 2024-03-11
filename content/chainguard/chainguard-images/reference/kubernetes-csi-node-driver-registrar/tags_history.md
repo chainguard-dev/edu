@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-11 00:52:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 7th    | `sha256:c9264b229a4352d30d0d1a1291497f7134653451ab5c08049c497c3bfbdf5695` |
+|  `latest` | March 8th    | `sha256:7f3581b4b11ee4305e8aa96c69ac899e0847d739e8d6e6d5f75fd8d882f10d3f` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.9` `2` `latest` `2.9.3` | March 7th    | `sha256:ecc4794221094fb25895223b280817b5e9bfa3a0a747156af2509aab41e9aa72` |
+|  `2.9.3` `2.9` `2` `latest` | March 8th    | `sha256:5c602fe8cb17048d10d6732f3359cdf20dca66f5ea2b4f158c89fbf8d773bc5d` |
 
