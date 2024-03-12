@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the powershell Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 8th    | `sha256:7ae527bc2eb1cfb5cd86af75b02359826f693db3e512a1757cd859e44f4b3d11` |
+|  `latest-dev` | March 11th   | `sha256:130ea584ef16f18393d1728f8dfcfbb0b705177983baf92b018c493be38f822c` |
 |  `latest`     | March 8th    | `sha256:44dc682b59df0a3673ea46d587d9fc21787fa08a6dac2cf9fbe2c5a3a91e7325` |
 
 

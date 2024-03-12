@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the timestamp-authority-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 11th   | `sha256:de5dfc13fabfad138c31cfd4526911f3a75fdd906587695152ed169328023fe1` |
 |  `latest`     | March 9th    | `sha256:cf3af152b9042c3b0489a4749a33a97a3490ba94f46d7432ab62b97f2cb3fb7a` |
-|  `latest-dev` | March 9th    | `sha256:48f3f60ff3563c803d3ad7f510b816b870a6092942a1fae91e1b13d534dae9c0` |
 
 
 ### Private/Dedicated Registry

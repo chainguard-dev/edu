@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the buildkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)            | Last Changed | Digest                                                                    |
 |--------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-root-dev` | March 11th   | `sha256:292948e8a49626c4de0ffa38455da9ef3d13ab703ddf63fdf082509e062845f2` |
 |  `latest-root`     | March 8th    | `sha256:c9c27fa201cd2d3db6b2ce7484f2b124acf5d884a37a4ddd9004a9d88ca462ac` |
-|  `latest-root-dev` | March 8th    | `sha256:51cdbb7b30cec528bed909986ea8895bdc514679068fcb3379d205f5bb922961` |
 
 
 ### Private/Dedicated Registry

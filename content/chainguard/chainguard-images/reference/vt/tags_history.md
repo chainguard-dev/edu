@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 8th    | `sha256:608094e500b4a961b8c0e8b0d5c85bc34ee2d5d593c7f13ec47c4412ba5f6d90` |
+|  `latest-dev` | March 11th   | `sha256:791b3a21d4fc97e974450a31b7f4696015cbff337106433c94faf5652147be06` |
 |  `latest`     | March 8th    | `sha256:ef6f35cbdde6a7d6070d99097cc89cd205f2cfa281ae8fd57948f76fa1ce872b` |
 
 

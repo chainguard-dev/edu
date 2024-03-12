@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-pilot Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 8th    | `sha256:cea25703f83e04430effa18458d5e42adbc6e61ee5b46375c77b923d71e42965` |
-|  `latest`     | March 6th    | `sha256:3b96a239d9abdf67e3a21856a30b543869bce59ce207d64b42b5e4d49595e7d5` |
+|  `latest-dev` | March 11th   | `sha256:575971a4a83b6575002910407f17c76e764e75b4ae6b0ebb24b54df1d4714ee1` |
+|  `latest`     | March 11th   | `sha256:8c7cd5b618ac0803533ce947091e7bd66d9d2c47236d8248ca84596fc6d64f15` |
 
 
 ### Private/Dedicated Registry

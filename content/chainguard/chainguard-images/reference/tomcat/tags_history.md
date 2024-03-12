@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tomcat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,9 +36,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed  | Digest                                                                    |
 |----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `9.0.86-dev` `9.0-dev` `9-dev` `latest-dev` | March 10th    | `sha256:06645baf8b6e5888fa0ff6ce3aea5ee8dfec2fc109be876ba6daa0b7a409700b` |
+|  `9.0-dev` `9.0.87-dev` `latest-dev` `9-dev` | March 12th    | `sha256:23eabc6c152769fa94cbc8bc93b41c146bce843b5f4077fadc9adb7118109b46` |
+|  `latest` `9.0` `9.0.87` `9`                 | March 12th    | `sha256:9acf1de6722fc025ebf63943c94babc2d42986d4cf72613970341a4d89738164` |
+|  `9.0.86-dev`                                | March 10th    | `sha256:06645baf8b6e5888fa0ff6ce3aea5ee8dfec2fc109be876ba6daa0b7a409700b` |
 |  `10-dev` `10.1.19-dev` `10.1-dev`           | March 10th    | `sha256:2b32a909340bda39eff553974cf61d8115c082269b2af20239a00276e8eefad8` |
-|  `9.0` `9` `latest` `9.0.86`                 | March 10th    | `sha256:27f2aac053e76b237dd65a5d6a17a0bed6d714eb4aa377c4561792aba428bed7` |
+|  `9.0.86`                                    | March 10th    | `sha256:27f2aac053e76b237dd65a5d6a17a0bed6d714eb4aa377c4561792aba428bed7` |
 |  `10.1` `10` `10.1.19`                       | March 8th     | `sha256:60c21f775d8c45872174832aedc2284d43168b68461ffa1541c8d4e6dbae7865` |
 |  `9.0.85-dev`                                | February 13th | `sha256:46dd0de8ea3f9b8c1a2965de51ae0952df7945c4a1890edaf30ac17f6ce9295a` |
 |  `10.1.18-dev`                               | February 13th | `sha256:acb5322be79bb3c94a2dccfce75c4c7baf44312b87c572e04ddcdbfba597791d` |

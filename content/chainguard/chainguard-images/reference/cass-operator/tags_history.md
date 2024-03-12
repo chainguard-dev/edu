@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 8th    | `sha256:677bfdff796c9f7ee991828778c8f73918cf65b16b12fe392da6dc2860ca2c1b` |
+|  `latest-dev` | March 11th   | `sha256:df869eec4db5727aa91f6facd911e3a71e1745183a9ba0e30ebdedf6ee58d48f` |
 |  `latest`     | March 8th    | `sha256:e5b0c7aee169a0c1f082148347898c9620ff39af0e985d4670306b53e683ed5e` |
 
 

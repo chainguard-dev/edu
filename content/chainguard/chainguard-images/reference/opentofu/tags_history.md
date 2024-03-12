@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentofu Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 8th    | `sha256:06f8b05f2965fbca726d17b709de890ebcadbad690a2028857f5305ddf670864` |
+|  `latest-dev` | March 11th   | `sha256:53a28b07a032a9dbf356a418d2539c689b5d2fbab858666b8de2b1af7c727d70` |
 |  `latest`     | March 6th    | `sha256:aa87b093f09e11c4d68ac8dbab9ec996759b021c87875cc6f4d6b22a4e83908b` |
 
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 8th    | `sha256:88b8ece5407c464badfc13da8b1652cec17c6df64cb05c9f3af78ab9625148d7` |
-|  `latest`     | March 8th    | `sha256:cd809534c9fc79a14369e64b418147026d4622c3f9e968136ce46d564306c8ed` |
+|  `latest`     | March 11th   | `sha256:1d95a328f4656e800cdde6c4438fa84adb322da12169fabeeb96fe4d31fadf4e` |
+|  `latest-dev` | March 11th   | `sha256:48a3c9cd38cfd3393d4f63e44dd282068ed536692af28cd31dc419dace78ebf8` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.19-dev` `1-dev` `1.19.2-dev` `latest-dev` | March 10th    | `sha256:2714aa52a770d78b8c4c5da77dbc154351dd87b1f0af848e71e774b0b4f0a0bd` |
-|  `1.19` `latest` `1.19.2` `1`                 | March 8th     | `sha256:3238f0679385fffcb80ebfe5899a10f0545ef98deb55fa012151873020eabd9d` |
+|  `1.19.2-dev` `1.19-dev` `1-dev` `latest-dev` | March 11th    | `sha256:20d25d56078a16f3732511d03cf7abd033da134e407dbe0ae9e287f74f78b169` |
+|  `1.19.2` `1` `latest` `1.19`                 | March 11th    | `sha256:af9a50afbc8d156d1511aba71ebba6def38f33fd41792df24504f2cb47b51c13` |
 |  `1.19.1-dev`                                 | February 26th | `sha256:0e3e673e19df195c031af9b16566ac6ba0485b3caf183b9dd1ce1a0c111db87a` |
 |  `1.19.1`                                     | February 26th | `sha256:5495e54a9147b0aaa3c1a60cc77a8602d348f282c2ecdaa1e2a9298c7b43f304` |
 

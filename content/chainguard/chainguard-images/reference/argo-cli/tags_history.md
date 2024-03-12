@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argo-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 11th   | `sha256:a670efbc4821215eef8654ceb88bbacf3a5346c33a533759773597cb6b810812` |
 |  `latest`     | March 9th    | `sha256:a6482cd95262f413de6eb38892134c273931f2d31a16b466da0bd8001671da15` |
-|  `latest-dev` | March 9th    | `sha256:8a23f407805462d58b03e43ee37fad6f99aa10acbff479c9a0749203766525e9` |
 
 
 ### Private/Dedicated Registry

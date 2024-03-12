@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public jenkins Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,14 +21,14 @@ toc: true
 
 This page shows detailed information about the Chainguard **jenkins** Image.
 
-|              | latest-dev                                                                             | latest                                                                                 |
-|--------------|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| Default User | `jenkins`                                                                              | `jenkins`                                                                              |
-| Entrypoint   | `/usr/bin/java -Duser.home=/var/jenkins_home -jar /usr/share/java/jenkins/jenkins.war` | `/usr/bin/java -Duser.home=/var/jenkins_home -jar /usr/share/java/jenkins/jenkins.war` |
-| CMD          | not specified                                                                          | not specified                                                                          |
-| Workdir      | `/app`                                                                                 | `/app`                                                                                 |
-| Has apk?     | yes                                                                                    | no                                                                                     |
-| Has a shell? | yes                                                                                    | yes                                                                                    |
+|              | latest-dev    | latest        |
+|--------------|---------------|---------------|
+| Default User | `jenkins`     | `jenkins`     |
+| Entrypoint   | `jenkins.sh`  | `jenkins.sh`  |
+| CMD          | not specified | not specified |
+| Workdir      | `/app`        | `/app`        |
+| Has apk?     | yes           | no            |
+| Has a shell? | yes           | yes           |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/jenkins/tags_history/) for the full list of available tags.
 
@@ -53,6 +53,8 @@ The table shows package distribution across variants.
 | `java-cacerts`           | X          | X      |
 | `java-common`            | X          | X      |
 | `jenkins`                | X          | X      |
+| `jenkins-compat`         | X          | X      |
+| `jenkins-entrypoint`     | X          | X      |
 | `ld-linux`               | X          | X      |
 | `libacl1`                | X          | X      |
 | `libattr1`               | X          | X      |

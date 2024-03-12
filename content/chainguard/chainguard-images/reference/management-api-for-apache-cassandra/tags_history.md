@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 9th    | `sha256:19456e6aeadecc5a8131c2f34319560b32360e15f5538105d27e8635be3bd960` |
-|  `latest`     | March 9th    | `sha256:db1f111524f3cb613269c287b1d902660452bd8b856f7561f0b53e2c6a1c41d3` |
+|  `latest`     | March 11th   | `sha256:5fa37a66e163d3624288720bfa73af3fb65a3d33db06320068d4d195ee3c08f2` |
+|  `latest-dev` | March 11th   | `sha256:b84d0098e37b7f42e7652bec308dec979a67cb547256142c2700bb2252036797` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1-dev` `0-dev` `latest-dev` `0.1.73-dev` | March 10th   | `sha256:cf8b0d6f871846dfdf3881e12550f0050b291d695d3aa6ad834ef7473b09d502` |
-|  `0.1.73` `0` `latest` `0.1`                 | March 9th    | `sha256:2673f5a8153577f11660e7e6e3c05baf778f2e7a3123cfb8736aa985c2bd107f` |
+|  `0.1.73-dev` `0-dev` `latest-dev` `0.1-dev` | March 11th   | `sha256:08649f821edf91ecb75dcb2145ea27f501f49bf84f1a244e89380276d7aa97b6` |
+|  `0.1.73` `0` `0.1` `latest`                 | March 11th   | `sha256:6a0a3182d1734ec2357dec42d04aa9963c291fce00d73d963b88dc74d0e3a86f` |
 

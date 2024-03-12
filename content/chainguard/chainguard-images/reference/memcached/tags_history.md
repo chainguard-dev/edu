@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the memcached Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 8th    | `sha256:f6528fde5905849f88edf3d551104fb571b909c22ed219439ecca1585385c810` |
+|  `latest-dev` | March 11th   | `sha256:f4b3466e417b4e6842bb43baeb9e2a130fec8cc0331e7abdb92b84564a2192e2` |
 |  `latest`     | March 8th    | `sha256:94624ca82eff0cef8bf908413f5c0447d84cd62f813e27fade6b2100776336c3` |
 
 
