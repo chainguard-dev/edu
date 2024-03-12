@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trillian-logsigner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 11th   | `sha256:5380d7f714bd7881d2e61e53396984b9e9ed159815862ee49a8a635be5b2b25e` |
 |  `latest`     | March 8th    | `sha256:971f09d4770440081f8e5cd76b666dcecdb279be758600b08f4b2279c8cdd10b` |
-|  `latest-dev` | March 8th    | `sha256:0c4958783ca24c4544e208ecc3b0e654006831b1d667a6df5e8a3192e18b923b` |
 
 
 ### Private/Dedicated Registry

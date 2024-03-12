@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the openai Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 11th   | `sha256:bc75807c17dc0e561eff9d226be46a7c0acb315e78b85afd9d6be7c4ddd59f73` |
 |  `latest`     | March 9th    | `sha256:ec5809127277475ffd2ea3b513d3ea0bba835c131923ac829c7a3d3002e5f036` |
-|  `latest-dev` | March 9th    | `sha256:00c7a9a0b30d15d18bc408389b602faee8ddff324006849a36b9d5c701fccd1b` |
 
 
 ### Private/Dedicated Registry

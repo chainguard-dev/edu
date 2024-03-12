@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 8th    | `sha256:60b6f2eb5591c7b86534134ef50d21659f3d136fda0c89861c795a5aab99c21f` |
+|  `latest-dev` | March 11th   | `sha256:baa4b1046c5e5011487b1843181954e83dcbfdb1ea5b75b0f28968f41d5601d6` |
 |  `latest`     | March 8th    | `sha256:4918c1a7c521bda0a052db5044b706fff5111918c508e1b88bc92d109c90dd0d` |
 
 

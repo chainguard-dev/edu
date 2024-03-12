@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,6 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `20.11.1` `20.11` `20` `latest`                 | March 8th     | `sha256:7ae36b293f98fe9fb892e859ed39528743af51611665b46b7aa97f0192aaed5a` |
 |  `18.19.0-dev`                                   | February 13th | `sha256:62b117d843657f9b5443eeea03055f6e88be25e90faa2943b53af0f10fcca036` |
 |  `20.11.0-dev`                                   | February 13th | `sha256:daa4583f5b289866a07778145ba6fa1e9356c57c09c143bccb2190ab0db4cabf` |
-|  `18.19.0`                                       | February 11th | `sha256:fbacc401fa869601453793e34ae19a7b08f38c7fb812846dd32c91f5447b36bb` |
-|  `20.11.0`                                       | February 11th | `sha256:e0aff661429d617dc38d37e988facacb5288bf2ca66daebdfa6e1381901064f9` |
 

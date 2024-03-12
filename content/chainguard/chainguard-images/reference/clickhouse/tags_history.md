@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the clickhouse Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 11th   | `sha256:33c0f36bb2c420c563ca7d4be5f0766af9b6129f30aafd94a0d00fc2efe45c85` |
 |  `latest`     | March 8th    | `sha256:99b80c592d4454ce71ab9b59e3bb1e22f839310d2b02bd2cb00821c12763014d` |
-|  `latest-dev` | March 8th    | `sha256:33fb53070029eb1c6ba5d1c3ec0c2a38a2f312992751e172dc53c2c59da1d002` |
 
 
 ### Private/Dedicated Registry

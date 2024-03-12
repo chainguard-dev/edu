@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubewatch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 11th   | `sha256:3c7e8b22f3dabd5db1dd3ddbba3ca0b9ff75e92f90e99013bcefa1164a070180` |
 |  `latest`     | March 8th    | `sha256:d9f0043eefa1c392aa0fe21686ec84e01e99064850fc24337a4dd2f200f77e05` |
-|  `latest-dev` | March 8th    | `sha256:705c68476d9cdcfcfba5cfb839a35f645f197448289dc3a245c9d66b1da949b1` |
 
 
 ### Private/Dedicated Registry
