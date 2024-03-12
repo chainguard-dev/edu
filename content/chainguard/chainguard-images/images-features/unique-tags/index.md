@@ -45,13 +45,13 @@ After signing into the Chainguard Console, click on **Organization images** in t
 
 To the right of the search box and **Category** drop-down menu is a toggle button labeled **Include unique tags**. 
 
-![Screenshot of the Organization images page, showing four Images in a table. The "Include unique tags" button is highlighted with a yellow box.](unique-tags-1.png)
+![Screenshot of the Organization images page, showing four Images in a table. The "Include unique tags" button is highlighted with a yellow box.](ut-a-box.png)
 
 By toggling this button on, each individual Image's details page will show the Unique Tags available for it.
 
 To illustrate, toggle this button on and then click on any Production Image listed in your organization's directory. This example shows a partial list of available versions of the `busybox` Image from the **Versions** tab on its details page.
 
-![Screenshot of a portion of the busybox Image's Versions tab. This screenshot shows the ten most recently built versions, some of which include unique tags such as "latest-20230610."](unique-tags-2.png)
+![Screenshot of a portion of the busybox Image's Versions tab. This screenshot shows the ten most recently built versions, some of which include unique tags such as "latest-20230610."](ut-b.png)
 
 Here there are a number of Image versions with tags similar to `:latest-20230626`. You can read this as "latest as of June 26, 2023," meaning that this particular version of the Image was last updated on June 26, 2023. You can use this version's **Pull URL** (`cgr.dev/chainguard-private/busybox:latest-20230626`) to download this Image, and you can be confident that this Pull URL will always refer to the same Image.
 
