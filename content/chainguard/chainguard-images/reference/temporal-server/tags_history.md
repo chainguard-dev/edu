@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 11th   | `sha256:bd7742ac66cad662402fbf2dd3d0791fd92b085d3028cadc51c3488c6e06a741` |
 |  `latest`     | March 8th    | `sha256:27db92b33927704e814e5a01e4b6b32829aa80ac3f818bc018566da6de8c7627` |
-|  `latest-dev` | March 8th    | `sha256:c047928ef387ee7c73b02328937d6020335eb1cd372d9b21c16684a3180f44eb` |
 
 
 ### Private/Dedicated Registry

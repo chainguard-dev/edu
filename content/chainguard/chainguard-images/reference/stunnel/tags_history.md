@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stunnel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 11th   | `sha256:29c1aec22e4d986b1fb7d4ae66be21db3cece81dec5f799ecbd4d58a0dff3402` |
 |  `latest`     | March 8th    | `sha256:cef5e44650b6638fa976597fa5c0398eeb7f3bea301737d13f926d2de04e8a83` |
-|  `latest-dev` | March 8th    | `sha256:2b42417cb851bfb94fee1b133ee5a4f96eb23a44ba20b0be3f4b7c6dd74cbbb4` |
 
 
 ### Private/Dedicated Registry

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the melange Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 8th    | `sha256:7eb83aa59d17b277f93ac33de79da8ff123383695bb91a944fb434a6fbdc6e61` |
-|  `latest`     | March 8th    | `sha256:33f673d05c2f2df6b599af54bb6343c72e081addf73e3d0d266e0fa62b05b578` |
+|  `latest-dev` | March 11th   | `sha256:5d2e2405feb7984d7ce76513f6facf0c49542486d974e6377aef48dbc13daf4c` |
+|  `latest`     | March 11th   | `sha256:dfc0e2d590a5105ac6d7e42bf47679d32901cca9ab04205f8986b06854b74f13` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.6-dev` `latest-dev` `0.6.9-dev` | March 10th    | `sha256:8e50eff3b185d94f661255c056b2cd5255d8a662325a3ec62b16234df35693b6` |
-|  `0` `0.6.9` `latest` `0.6`                 | March 8th     | `sha256:7033abb169a7b27663aad16cd5d18630be93b52d74d86f0c15772f3a2fdf8ac8` |
+|  `0` `0.6.9` `0.6` `latest`                 | March 11th    | `sha256:1c8f91af087ee982ba1ed61a6ce7c133e732f37b6edbfdfa68908ec6bb918dbf` |
+|  `0.6.9-dev` `0-dev` `latest-dev` `0.6-dev` | March 11th    | `sha256:4ff39c649dd3d2847e6f13996c5d18ba8dc01e7705bbba3bc11bd984da5cf997` |
 |  `0.6.7-dev`                                | March 6th     | `sha256:6596d4d2280b421447ea9879a55fdbb745ab618a243c1f3a7586ae84b3b1c6dd` |
 |  `0.6.7`                                    | March 6th     | `sha256:b32d9d30d4dafb5b09d2bd8a3e567b87ed4a5d2aebb41d0b7eabe87fa8f54a31` |
 |  `0.6.6`                                    | March 4th     | `sha256:0b3a087582983f0382e377b280e7f7b569c9abe0c7ea0a0e11276dd4a47ddbd0` |

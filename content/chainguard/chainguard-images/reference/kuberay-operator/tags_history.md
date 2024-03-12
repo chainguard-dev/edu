@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kuberay-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 11th   | `sha256:24157ac6408c788c5156d271687dc410388345a3fb25e5808212f12277e11546` |
 |  `latest`     | March 8th    | `sha256:8f8cf580d02a3afb8b9d83f30820424b4e5e91062d5d69522e508cf1edeaf525` |
-|  `latest-dev` | March 8th    | `sha256:be1b81e3cc0c60fac71ef76e31ec9021b7bc283e62a7c2162dcb65e798bfad89` |
 
 
 ### Private/Dedicated Registry

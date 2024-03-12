@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sqlpad Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 11th   | `sha256:86c3f53eee03f98ab4e2397e55b0647e1409c6896f11149f93d3db19b80d5b3e` |
 |  `latest`     | March 10th   | `sha256:fa14e6ea96306341476c2bf989907d667d0655dcaa570b3d41cad621681adf0c` |
-|  `latest-dev` | March 10th   | `sha256:b8bd8f96aa4ae616199ca7736d3c51f4d0f31a2cdeb2804f4c8dd4626afc00f2` |
 
 
 ### Private/Dedicated Registry

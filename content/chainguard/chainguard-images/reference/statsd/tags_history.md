@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the statsd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 11th   | `sha256:036b997ac593f08bbb6fbc9ed603b2878d1df2136e9db1521c01a821ef513cfc` |
 |  `latest`     | March 8th    | `sha256:0b73f8ef8afd1a2dea48bbc37386a73644eacaf0af578812e18b6beab078e5aa` |
-|  `latest-dev` | March 8th    | `sha256:937d4e1e1110d83b28e585fe6b998cf30d5c9d2ca6589c392a2bae6b76cb6aaf` |
 
 
 ### Private/Dedicated Registry

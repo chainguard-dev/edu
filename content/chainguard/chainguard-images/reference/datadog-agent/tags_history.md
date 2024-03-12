@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the datadog-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-12 00:55:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 11th   | `sha256:5f822c0a178fa536a9b23d5601b4376b5b101e2ae2ddf7c515b80ddb7dee2571` |
 |  `latest`     | March 9th    | `sha256:63ec195072771fcd9752b420dd2c7c4ccc76f40d36de091180680974bf6ee0e2` |
-|  `latest-dev` | March 9th    | `sha256:93af1a63db59ccf0292e3390a979bbe9c3a7e3167121696403998507c7cf3deb` |
 
 
 ### Private/Dedicated Registry
