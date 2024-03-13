@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-goptuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.16.0-dev` `0.16-dev` | March 11th   | `sha256:d863e722aa8c367124a6ea34fd2cff51f70c47f3848f85c3f9d898eecd6112e6` |
+|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | March 12th   | `sha256:2690e7a50056b88602127a5a48c48ba9a9019ba12325e0f177be84e912a1e4b7` |
 |  `0` `0.16` `latest` `0.16.0`                 | March 8th    | `sha256:439431707c2750db51053594bd8a3146ac8ba3ca2c6317a212e659eb68113a0f` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | March 10th   | `sha256:4bb2ef3c8d7c9385c8b2c2660c1e429fb7fcd8c4180190b0fbd4d0fd86a3b618` |
+|  `latest-dev` `0.16.0-dev` `0-dev` `0.16-dev` | March 12th   | `sha256:cd3752b300baf273c37f6defb0f0d1a733aedf3416da6ec286ece80f8d0f7c1b` |
 |  `0` `0.16` `0.16.0` `latest`                 | March 8th    | `sha256:62fef14bf0add25e9f17c8f682087dd03d16357b8a76f78d073df91d6f3acb49` |
 

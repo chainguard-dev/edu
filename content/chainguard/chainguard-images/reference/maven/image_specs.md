@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public maven Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -72,10 +72,10 @@ The table shows package distribution across variants.
 | `maven`                  | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
-| `openjdk-17`             | X          | X      |
-| `openjdk-17-default-jvm` | X          | X      |
-| `openjdk-17-jre`         | X          | X      |
-| `openjdk-17-jre-base`    | X          | X      |
+| `openjdk-21`             | X          | X      |
+| `openjdk-21-default-jvm` | X          | X      |
+| `openjdk-21-jre`         | X          | X      |
+| `openjdk-21-jre-base`    | X          | X      |
 | `openssl-config`         | X          | X      |
 | `p11-kit`                | X          | X      |
 | `p11-kit-trust`          | X          | X      |

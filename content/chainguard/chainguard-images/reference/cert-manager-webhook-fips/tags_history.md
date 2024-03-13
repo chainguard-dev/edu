@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-webhook-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.14.3-dev` `latest-dev` `1.14-dev` `1-dev` | March 10th    | `sha256:f2052bff75c0d7f0a837d22bdfe6ff5e9a350e31600702fe2cab596d5fd270b9` |
-|  `1.13.4-dev` `1.13-dev`                      | March 10th    | `sha256:2f6df05c32dd028367f43899a8818266456952c60b1ed163e35ef5f7d88036a6` |
+|  `1.14.3-dev` `latest-dev` `1.14-dev` `1-dev` | March 12th    | `sha256:0eb7f85c456bb165dc3d4c52aa877a3a4ff28edd5f3fb3b14b18f43d7ffd5001` |
+|  `1.13.4-dev` `1.13-dev`                      | March 12th    | `sha256:93a9119767ec205d6a32c7acc375ec9c4c3affeda3a0ae7b092d5aa34c7f9b48` |
 |  `1.13` `1.13.4`                              | March 8th     | `sha256:e31cfe5ad822b825652a93efe86035f8137e6b8328f862e19e5f0d9e8d3cca15` |
 |  `1.14` `1` `latest` `1.14.3`                 | March 8th     | `sha256:57b9e48c4a31f5f98a11b014cb5ac1f9b7bf327a83c0239c44905b066d535572` |
 |  `1.13.3-dev`                                 | February 22nd | `sha256:0156c70dea58f8dd38f30111010b0e09df1beab59f9031e955157d513380134f` |

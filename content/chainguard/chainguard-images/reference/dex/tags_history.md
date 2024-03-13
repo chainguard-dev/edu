@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dex Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:e158eb5f02dcef40b3f9d2c8092c058ef67981d391de563ee6235c039b07dce3` |
+|  `latest-dev` | March 12th   | `sha256:749e5c15a76b64e8b3a2a60d4395bfac7f2185626bb07ca5f945de461a8a93ce` |
 |  `latest`     | March 8th    | `sha256:9d068812b9fd4629c5c71a3c20c74762c59c463f1ba8c23f6b25293a240c85c8` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.38-dev` `2-dev` `latest-dev` `2.38.0-dev` | March 10th   | `sha256:825e80fcdb93550bee3074047f79d1deb90a9b80c98e33fae067ea1e43347197` |
+|  `latest-dev` `2.38.0-dev` `2.38-dev` `2-dev` | March 12th   | `sha256:3965d0a71aedc3938fffb09c399cf466b3462ada4d3a651d41b8a85982301283` |
 |  `latest` `2` `2.38` `2.38.0`                 | March 8th    | `sha256:cc63378c06b23680e9107c00a6d1549923ea9e4318e22a9cc0a6340e06f3c215` |
 

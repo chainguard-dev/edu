@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bash Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `5-dev` `5.2-dev` `5.2.21-dev` | March 10th   | `sha256:555f073e50478a0ed9d7727fcae16aee12f706e3601f8bc4ae42ff750747aaa4` |
+|  `5-dev` `5.2.21-dev` `5.2-dev` `latest-dev` | March 12th   | `sha256:945286a981c1fa03611a6a4a99b53af003746980a4fb9b06137ecd4815ec9676` |
 |  `5.2` `latest` `5` `5.2.21`                 | March 8th    | `sha256:fef1fc34e01becb150824ad48c8e9d9948b120ffd400f9dd326555df3b522880` |
 

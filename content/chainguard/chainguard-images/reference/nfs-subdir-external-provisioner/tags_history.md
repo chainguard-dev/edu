@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:53553980111305fa7cf8cce075c69e1adf5ee5ef602e1a1631a5fdbbbd75b255` |
-|  `latest`     | March 9th    | `sha256:aad5520984b71f972c8485be3dc7cc90f6321e80ae26dbd6cc693e35b36cf33b` |
+|  `latest-dev` | March 12th   | `sha256:5e18fc8fd4a0c71c0603bccb81cce6205c082b1097e2a2993f2696611346b2aa` |
+|  `latest`     | March 12th   | `sha256:801b34ca773ffecee36d791701f4653ab91ba567339fe5742f405e36389be2b8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0.18-dev` `4.0-dev` `4-dev` `latest-dev` | March 10th   | `sha256:1b189eb1ebde6e2fbd8409e008f3e205303d1973054218ca01fe351bb7dae1e1` |
-|  `latest` `4.0.18` `4.0` `4`                 | March 9th    | `sha256:05c9dd6dcb569c696b57fb98a3f1b80b4a3fc6e1ca140929caee1c9e009971bc` |
+|  `4.0` `4` `4.0.18` `latest`                 | March 13th   | `sha256:a062638815a87fe1d58474d4badc9be89f74675fef7ef180d73ef706c9ae72b2` |
+|  `4.0-dev` `4.0.18-dev` `4-dev` `latest-dev` | March 13th   | `sha256:b86708e750faa517b111e80665e69c6b5178ddd3aa047dfc99683be3b25f958f` |
 

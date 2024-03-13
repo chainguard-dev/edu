@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bank-vaults Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:6b55f60dac7b7472d1a5a2a2d42e4e0e87fae4b7ae013ad0bbb865ceb00c51f9` |
+|  `latest-dev` | March 12th   | `sha256:a33c231d79111bc7f69ec4bd805bf3c3d174770a5efef02f5edfaeb8a7fa765d` |
 |  `latest`     | March 11th   | `sha256:66f92719bf48f1ed5cadb48d3212332016bf107908cbca30f1b7c60b60041e3f` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.20-dev` `1-dev` `1.20.4-dev` | March 11th   | `sha256:b8cfe6f115f18e4cec2d6490acc69a68948161ccf3ad43a1bfe8f6b319ea3592` |
+|  `1-dev` `1.20.4-dev` `latest-dev` `1.20-dev` | March 12th   | `sha256:26aa7753567727457ed9ad01d585225e9cfa34d347e7d657a9aa1706b8011406` |
 |  `1.20` `latest` `1` `1.20.4`                 | March 11th   | `sha256:4c176ed5b2cd5d8900a128fb2a72b7f144ce935c4cfbe33a05f4f8663b06405d` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-acmesolver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:03ada9d929a70cdddc1c9a5d2bde22490d2915a8bd392c014c7e480b6d4b2864` |
+|  `latest-dev` | March 12th   | `sha256:bbb07fe980ebc7c9d9603c62b7f2a7955b3e7094b651db01dc125d271525be01` |
 |  `latest`     | March 11th   | `sha256:e6c453fc9796cd6fe0d2d097a9e6de953b49ec203bd0a5a8afa432770ebbc2b3` |
 
 
@@ -37,9 +37,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `latest-dev` `1.14-dev` `1-dev` `1.14.4-dev` | March 12th    | `sha256:4f032a88f51a9d1e0e90c3fb6886d1d27501df805320ef15778d789065d341b6` |
+|  `1.13-dev` `1.13.4-dev`                      | March 12th    | `sha256:daf668b955f63c68f6ea81d5e9b3e3ac229e8f3f64261973da88242aea00bb00` |
 |  `1` `1.14` `1.14.4` `latest`                 | March 11th    | `sha256:bb6130ad62dd7561c9e34408be28fad57ec5f5cbad945bf8337ebe19fcce9134` |
-|  `1.14.4-dev` `latest-dev` `1-dev` `1.14-dev` | March 11th    | `sha256:becd72a6ef0b4875c8bedc953d44e2c2807f5efaec31d8bb05b148720f240bff` |
-|  `1.13.4-dev` `1.13-dev`                      | March 10th    | `sha256:dcad8f1db2c08159cd8ca85bac56cd00142d027a78780cc13a6ad72a88cb1661` |
 |  `1.13` `1.13.4`                              | March 8th     | `sha256:d37347f852b459b20420658706d13a4b77827afdaaf97d0c99c67080ac904467` |
 |  `1.14.2-dev`                                 | March 8th     | `sha256:9f7574718e7a00bd0ca9ec21276e2fb3a8744c6e04dac4fbf0b05a26d1c8969a` |
 |  `1.14.2`                                     | March 8th     | `sha256:638ff93c2d09381a80c40b5a17a65156fd457e5aa0bcf9c3911c9f8e90ca8c38` |

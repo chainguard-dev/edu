@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 10th   | `sha256:0f252cab534fc9a429ed1188816d7e6894270923eb37f5b93b623e2bf1bba356` |
+|  `latest-dev` | March 12th   | `sha256:05971760be3f06b7010b374f7a798df2d9886d9b071d288dc13c8e689ea0343e` |
 |  `latest`     | March 8th    | `sha256:a73cac0aa9f60260c87958d491d76f8c46ea186f285fa96e1e0b5ca8534d2b44` |
 

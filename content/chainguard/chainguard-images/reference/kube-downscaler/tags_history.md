@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:1e2b0924ac63e267827284fd4d51d41d4eb335ad6e41b2293c8ae2f5c8d0684b` |
-|  `latest`     | March 9th    | `sha256:dc345456db39bdb2a8153695d2498f9a2529fdf94714c1e5c2fc39ea65e70ac9` |
+|  `latest-dev` | March 12th   | `sha256:e6f3b68fc06d780abfb6dcf649fc26b772185ef849bab6a1d5757b014608c114` |
+|  `latest`     | March 12th   | `sha256:e2cd3075fb2d145a57f6eb758931cb6faab5fc9c31a188a6eec79405a30f7de7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.2-dev` `23.2.0-dev` `23-dev` `latest-dev` | March 10th   | `sha256:3a48fdc937e2d4bc22e0ab7c9383478cce8ecf708accc2a338ca2817148e0c6a` |
-|  `23.2` `23.2.0` `latest` `23`                 | March 9th    | `sha256:4ee8b3122c09249c5445283804f24e19d91cd8ef5e605703c8ee09bbac60cc75` |
+|  `23.2.0` `23.2` `latest` `23`                 | March 13th   | `sha256:8a12276b37c3440da7799570195422d2e174fc49a18353cfb647d3526bb90c54` |
+|  `23.2.0-dev` `23.2-dev` `23-dev` `latest-dev` | March 13th   | `sha256:f96500a827cafda9e04f1d4a7c17b41342c26c7c5d1e8210ecb7da3e9d4b2b70` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public pulumi-kubernetes-operator Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -139,6 +139,7 @@ The table shows package distribution across variants.
 | `python-3.12`                | X      |
 | `python-3.12-default`        | X      |
 | `python-3.12-dev`            | X      |
+| `python-3.12-dev-default`    | X      |
 | `readline`                   | X      |
 | `sqlite-libs`                | X      |
 | `tini`                       | X      |
