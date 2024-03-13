@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the minio-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)               | Last Changed | Digest                                                                    |
 |-----------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` | March 10th   | `sha256:b03a06aa5f9cd67935d45c71901123c79b9f2b8db99f5e72e99c2872652d6e04` |
+|  `0-dev` `latest-dev` | March 12th   | `sha256:90f65a9a40ad07a66c2485eb2fe5ce27876ca948f83152c377e889487ad9956b` |
 |  `0` `latest`         | March 8th    | `sha256:3dcd26b6810815f30180a8134d4fd23ba21662265cfa585bd70a9a4c08e70f8d` |
 

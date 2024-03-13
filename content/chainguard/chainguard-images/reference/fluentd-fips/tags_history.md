@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluentd-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15.3` `1.15` `latest` `1`                 | March 11th   | `sha256:2ed906856b73dd3b36a55f9920749c6c930da26bf84da91ef4d276fd6ff130d8` |
-|  `1.15.3-dev` `1-dev` `1.15-dev` `latest-dev` | March 11th   | `sha256:e40d474da20a1ab25828020e17ceff403e6182df9fb054e19a590b4054527206` |
+|  `1.15.3` `1.15` `latest` `1`                 | March 12th   | `sha256:7e8c79d63a7fb2dc039174e306933ac6e817438485f7aef347877499f1327a6d` |
+|  `1.15-dev` `1-dev` `1.15.3-dev` `latest-dev` | March 12th   | `sha256:23a268ffeabb5da386ce37475508251fc49a8b2abb0d0316958682c221a74f8b` |
 

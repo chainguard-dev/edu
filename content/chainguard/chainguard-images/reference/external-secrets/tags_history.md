@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the external-secrets Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:84f2b931072077e870d4dec0038cebcd01572d70f1fce162180ed2113553343c` |
+|  `latest-dev` | March 12th   | `sha256:e7fcbbc83c4f3fc5f8ac0c65181e7b0841722eaf0b769fda7d8fb92e8093f741` |
 |  `latest`     | March 9th    | `sha256:29176d48a288b866fb1d1270e460ee16094bfdccd561cf5097bab7833ee45171` |
 
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:fe070fc2ae6c653a6909c1be392759ad942b51f52e02c30b0a8eff5aa7d242cd` |
-|  `latest`     | March 8th    | `sha256:b22da696b753db4deb46a67740ee5c29e74516a5f32f200ee484287db88b8a49` |
+|  `latest-dev` | March 12th   | `sha256:1a9937d22859a61db276aa58c88bdadeb0da74ed2c7f25f4daac6ad6800a8729` |
+|  `latest`     | March 12th   | `sha256:cb64f417958e688f926317db557fe6b89a850618b6f0ecd91fa610828cc69aa4` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.19-dev` `1.19.7-dev`                      | March 10th   | `sha256:fe3c2d153b6d89062e96107fea08c1bdb48c4c3d08ab4c312e313b956eb0038e` |
-|  `1.20.3-dev` `1.20-dev` `latest-dev` `1-dev` | March 10th   | `sha256:ce812ab9aea03ccc2b9f774f3e1025607593c89554ed408fd26bd192bbc0605d` |
-|  `1` `1.20.3` `latest` `1.20`                 | March 8th    | `sha256:eb7eb3e4d78d342c7d968f8712998cf4f117f42d2642eef09be961b270faa74d` |
+|  `1` `1.20` `latest` `1.20.3`                 | March 12th   | `sha256:43ccaa0c56c192b6fd8abe4a770c317fadca6452ea3b4b9aab3230d8b949fc2a` |
+|  `latest-dev` `1-dev` `1.20-dev` `1.20.3-dev` | March 12th   | `sha256:421dc6d319bdf9622027a7d1eb4712a4e95a025e7e226099d0bec23a4aac09c3` |
+|  `1.19.7-dev` `1.19-dev`                      | March 12th   | `sha256:df256b3690842168350251ade503c59e81dfb6c63f70af0b1b4ecee6f6c795cf` |
 |  `1.19.7` `1.19`                              | March 8th    | `sha256:d35f7ac94d77ed216111a880008de32925ced53ed8668730e8029685d6e32662` |
 

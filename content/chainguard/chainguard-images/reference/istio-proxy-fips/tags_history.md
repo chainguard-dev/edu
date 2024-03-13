@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-proxy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.20.3-dev` `1-dev` `1.20-dev` `latest-dev` | March 10th    | `sha256:ef8c30e2d9d4e305204484ba56c6dd4e4c94199da8fe2c9d3a9386e40a470ef7` |
-|  `1.19-dev` `1.19.7-dev`                      | March 10th    | `sha256:8a5d5c4b403d37c454d00afa3e7d842d7acf4925d8dabf36057f9f6b20759931` |
-|  `1.20` `1` `1.20.3` `latest`                 | March 10th    | `sha256:ab46ae5e52a2b29338ebae6a02733ee7a9af1fbc14d6ef794b1c3057da591c2a` |
-|  `1.19` `1.19.7`                              | March 8th     | `sha256:29aea1ed0b3180a293bf4dd1936b8036f7890b6f174ad6d074477e1635325d21` |
+|  `1` `latest` `1.20.3` `1.20`                 | March 12th    | `sha256:1a8d92d973a17f6bb80462ead965d0e12db6366b005b9e3b8820a9618ca448b4` |
+|  `1-dev` `1.20.3-dev` `latest-dev` `1.20-dev` | March 12th    | `sha256:a49d6a4e8ab3135574186c3dc95c338b56630fe3ad2446b4ecf7ea2af8cec370` |
+|  `1.19-dev` `1.19.7-dev`                      | March 12th    | `sha256:9fce19da68503b2085a5c9188d4fa551ffb857a4f94d69b678d9a103df3c2d92` |
+|  `1.19.7` `1.19`                              | March 12th    | `sha256:275d9597a21410333317f3ef84b6880343c7384ade7f8a0c98cc35ff8d331c63` |
 |  `1.20.2`                                     | February 13th | `sha256:f82d2968b37bedbf34c955aa06ec06357f5d15a340ad63a4a9bacdadb0d12827` |
 |  `1.19.6`                                     | February 13th | `sha256:a4d67d80eb39bcc50f2587fb02f64ecf58de52e8f120981c588b972eb8e35d18` |
 |  `1.20.2-dev`                                 | February 13th | `sha256:dd40b24c874c706126cd067ad25215360643c4c39963cd579a6dd5953dcb9bdd` |

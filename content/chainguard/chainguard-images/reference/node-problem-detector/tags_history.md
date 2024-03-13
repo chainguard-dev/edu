@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-problem-detector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:abe823aa57cdfd39b99b2b304325ad1de6dd2823a41a3086bc0fe145ffd90fdb` |
+|  `latest-dev` | March 12th   | `sha256:40266674b7cbbdc1d5abc81863cb178c223ec2bf6917f5c41abb1a7cc64493af` |
 |  `latest`     | March 8th    | `sha256:b8e2df5ce8589e4376dcda51ac31f9f5fa02a3df3ec4bf236bc7ca3fde2c4c59` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed  | Digest                                                                    |
 |----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.8-dev` `0-dev` `0.8.17-dev` | March 10th    | `sha256:fe5d37d59d488352b3d787f801c640b9347eaad7a2452e899c0e97c1b31eecab` |
+|  `0-dev` `0.8.17-dev` `latest-dev` `0.8-dev` | March 12th    | `sha256:93dd162d3c8d9062921e4916a23c1ce1d09c0f92e0376d930b281712cf72b019` |
 |  `0.8` `0.8.17` `0` `latest`                 | March 8th     | `sha256:24cc08ba999ec6a6b801ac69cc0e93d47f8ae1c7a09a443d48ab2ae8f4cf743d` |
 |  `0.8.16-dev`                                | March 2nd     | `sha256:bc40e22dc1321db3998476a40e5e5bcc14e305eed12dfd88e35715f13c43e92b` |
 |  `0.8.16`                                    | February 28th | `sha256:7d02dca25e4ea9c914b27483cfe04f0ea2b397f53c2c659f286f57f9983ac0d4` |

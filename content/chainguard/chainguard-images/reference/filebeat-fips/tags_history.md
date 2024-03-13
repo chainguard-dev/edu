@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the filebeat-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `8.12.2-dev` `8.12-dev` `8-dev` `latest-dev` | March 10th    | `sha256:2b6926f0ecf4464fdbd84591aca34a04b086650700c2f3de2542079522149c91` |
+|  `8.12-dev` `8.12.2-dev` `latest-dev` `8-dev` | March 12th    | `sha256:30f5dc5d9ea2552cea2385367e9493375255eec2e11f24a0efbc9b0b6c0f4bd1` |
 |  `8.12` `8` `8.12.2` `latest`                 | March 8th     | `sha256:d7d582c835956db26a0a8c0ca8c718eabbbcd658c947849bec9a841541d7465f` |
 |  `8.12.1`                                     | February 22nd | `sha256:1877fb4ae6ea2b789924d73d5193e1c9dea50023e48dd8b5b09dddff7226aa20` |
 |  `8.12.1-dev`                                 | February 22nd | `sha256:adef09e3fbad2c2fc61cdd09a27dc56cc747342dbe6faa0b8720700866e3e1da` |

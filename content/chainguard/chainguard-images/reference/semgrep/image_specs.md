@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public semgrep Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -46,27 +46,30 @@ The table shows package distribution across variants.
 | `git`                           | X          |        |
 | `glibc`                         | X          | X      |
 | `glibc-locale-posix`            | X          | X      |
+| `gmp`                           | X          | X      |
 | `ld-linux`                      | X          | X      |
-| `libbrotlicommon1`              | X          |        |
-| `libbrotlidec1`                 | X          |        |
+| `libbrotlicommon1`              | X          | X      |
+| `libbrotlidec1`                 | X          | X      |
 | `libbz2-1`                      | X          | X      |
 | `libcrypt1`                     | X          | X      |
 | `libcrypto3`                    | X          | X      |
-| `libcurl-openssl4`              | X          |        |
+| `libcurl-openssl4`              | X          | X      |
+| `libev`                         | X          | X      |
 | `libexpat1`                     | X          | X      |
 | `libffi`                        | X          | X      |
 | `libgcc`                        | X          | X      |
-| `libidn2`                       | X          |        |
-| `libnghttp2-14`                 | X          |        |
+| `libidn2`                       | X          | X      |
+| `libnghttp2-14`                 | X          | X      |
 | `libpcre2-8-0`                  | X          |        |
-| `libpsl`                        | X          |        |
+| `libpsl`                        | X          | X      |
 | `libssl3`                       | X          | X      |
 | `libstdc++`                     | X          | X      |
-| `libunistring`                  | X          |        |
+| `libunistring`                  | X          | X      |
 | `mpdecimal`                     | X          | X      |
 | `ncurses`                       | X          | X      |
 | `ncurses-terminfo-base`         | X          | X      |
 | `openssl-config`                | X          | X      |
+| `pcre`                          | X          | X      |
 | `py3-attrs`                     | X          | X      |
 | `py3-boltons`                   | X          | X      |
 | `py3-bracex`                    | X          | X      |
@@ -106,6 +109,7 @@ The table shows package distribution across variants.
 | `readline`                      | X          | X      |
 | `semgrep`                       | X          | X      |
 | `sqlite-libs`                   | X          | X      |
+| `tree-sitter`                   | X          | X      |
 | `wget`                          | X          |        |
 | `wolfi-baselayout`              | X          | X      |
 | `xz`                            | X          | X      |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the go-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,9 +33,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.19-dev` `1.19.13-dev`                     | March 10th   | `sha256:bf177b00602037d98c99b9055d87c03d84fdafc6d253325ca8a26d7cd985226d` |
-|  `latest-dev` `1-dev` `1.21-dev` `1.21.8-dev` | March 10th   | `sha256:5aeb8a191c98254a6dad52e8751d0fb9a7b2daaac5476ace9813f7e9b24417a4` |
-|  `1.20-dev` `1.20.14-dev`                     | March 10th   | `sha256:5f6ac790e015dcda1ba00c44961cef992d012c93ecaece89ccc4cbf464a98e34` |
+|  `1-dev` `1.21.8-dev` `1.21-dev` `latest-dev` | March 12th   | `sha256:2874daeae0b8a4355a281a561e4eae192c5f8cc5e233f13c54d983c998852c0e` |
+|  `1.20-dev` `1.20.14-dev`                     | March 12th   | `sha256:4a918d6e3c5565211cc2350c17b6771ae89af3412dbc5c2b0e947f17c9dbef1e` |
+|  `1.19-dev` `1.19.13-dev`                     | March 12th   | `sha256:7fda199fdc6f2848c646ebd459b4e659b0e2ea1cfdb8488473496d7ae0dd9f3b` |
 |  `1` `1.21.8` `1.21` `latest`                 | March 8th    | `sha256:9ad874efaf9490dac35c1b5bed93ffcf366dbd231c29b28a357bdd72b59b658d` |
 |  `1.19` `1.19.13`                             | March 8th    | `sha256:bed254145e66279fe987c893a49f0325b00d93d5adb3243b562ccf9aa2a8b4e4` |
 |  `1.20.14` `1.20`                             | March 8th    | `sha256:4e783be95afba42643963425dc6073002c304fb6887a3ef79e3e479da7c088cd` |

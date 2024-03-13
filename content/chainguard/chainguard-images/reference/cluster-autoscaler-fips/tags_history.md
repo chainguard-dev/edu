@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-autoscaler-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.26.6-dev` `1.26-dev`                      | March 10th   | `sha256:c1c319c5863561d6a72e215d58c2e67cf0ca00827a691dafc4754751cd03cbcd` |
-|  `1.28-dev` `1.28.2-dev` `latest-dev` `1-dev` | March 10th   | `sha256:057f2d31e1a4b0203e6d7998985f7ecfaa3385be738f4fcac5a89342a312fab3` |
-|  `1.25.3-dev` `1.25-dev`                      | March 10th   | `sha256:d4a9d56e630a5e7f6a721dbdf857c1592dd63a73098496f4383c6edaa3ce3428` |
-|  `1.27-dev` `1.27.5-dev`                      | March 10th   | `sha256:11ca43a1559dcd29a346473057f2922b6f41f6a65f98fc9bccb6709cde617831` |
+|  `1.26.6-dev` `1.26-dev`                      | March 12th   | `sha256:7a2a269318570136603f8ec96e1f4783b42171ac990e984d021ec954fb0621f9` |
+|  `1.27-dev` `1.27.5-dev`                      | March 12th   | `sha256:644d9e9f87f3e3bcadf9b80d3dd752732c9338324bab734ce64e45dd032efab0` |
+|  `1.28.2-dev` `latest-dev` `1.28-dev` `1-dev` | March 12th   | `sha256:dee1743a542e983325debed50e2727c66d712cb5fcbc5b8f46284ad51c52e78b` |
+|  `1.25.3-dev` `1.25-dev`                      | March 12th   | `sha256:91034b4e693e1941dee12fe7a0c934c63e2c4f302129dc14b9b7866bcfb58577` |
 |  `1.28` `1.28.2` `latest` `1`                 | March 8th    | `sha256:824f9063237613ae4e2f749d50896b4ba15f44db64eeb3371e919fbe14cba4b5` |
 |  `1.25` `1.25.3`                              | March 8th    | `sha256:5b0f4a7285c34d1db4a861c0aabd7bbe712f9a7857a1209f345e20b3496812ca` |
 |  `1.27` `1.27.5`                              | March 8th    | `sha256:ec82aa620e93f59934cb9129f5c3afe5da488bbe069df95fefe619daf0012144` |

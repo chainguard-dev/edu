@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-infrastructure-k8s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed  | Digest                                                                    |
 |------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2.13-dev` `2.13.15-dev` `2-dev` `latest-dev` | March 10th    | `sha256:92b72b94680736f31470fe788674588dc9221383cd92da408d4871c032b725df` |
-|  `2` `latest` `2.13.15` `2.13`                 | March 9th     | `sha256:9fe3f1aa854dbe27acb94d120976c8b782a7339998ddd6e235de7e0ec6c76739` |
+|  `2-dev` `latest-dev` `2.13.15-dev` `2.13-dev` | March 12th    | `sha256:4ddb1375eb39342e6d15efe7316fb5bd9f2528b803ded0dae635dbe9e8996277` |
+|  `2` `2.13.15` `2.13` `latest`                 | March 12th    | `sha256:771f577c351532b27229e9d420f8714eb5d8eca526953d23f7a0d10e66f52fba` |
 |  `2.13.14-dev`                                 | February 26th | `sha256:d286271ea0cfda17bcc445e7599d1cbebe19b1a39955bd79d9ef3613c83b581b` |
 |  `2.13.14`                                     | February 26th | `sha256:101a170784c76b453090baf41370139410e33b1cebe612416a48844ea6b67aad` |
 |  `2.13.12-dev`                                 | February 24th | `sha256:2b868af9f60320fd254215eee7fe8c3c449250314fce0088c034b75af6c55ec6` |
 |  `2.13.12`                                     | February 24th | `sha256:e889d81fb5e0023a66f169d7bbf9d0db086ac998d0adc4c08f1c4eea3a056ac7` |
-|  `2.13.11-dev`                                 | February 12th | `sha256:2d0c7d4cc2c57f2263fb952824ffd43697c298afdc58024e718a00bb99eff3a7` |
-|  `2.13.11`                                     | February 12th | `sha256:952138eea9859aba565a12c444ea3e9470f4dc55c6935c38b1c90aa2fdaecc5f` |
 

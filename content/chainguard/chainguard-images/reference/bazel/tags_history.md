@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bazel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 9th    | `sha256:464db12a84e624f4e8b0bd2a9c2be1598c9dce47a4b539057d65c1fdf3199861` |
+|  `latest` | March 12th   | `sha256:e9b6d1bc81258299b39a29f83e5a94a6c8055608aad4ecbf53646220bac0c7af` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.5-dev` `6.5.0-dev` `latest-dev` `6-dev` | March 10th   | `sha256:c37000f2b4a95e46edef2164936f839d461b6698cf61ba62d38625b45fa223d2` |
-|  `5.4-dev` `5.4.1-dev` `5-dev`              | March 10th   | `sha256:ae5bfb69dfc7687d8cf8b4b7ec60cd01d032e79792ae19fa884110a2cbb755e2` |
-|  `6.5` `6` `6.5.0` `latest`                 | March 9th    | `sha256:fb0905be97e909b79f1173cfb34a5e7261495e5d5d23ec83e65170998029fa3d` |
-|  `5.4` `5` `5.4.1`                          | March 9th    | `sha256:069e10c11a4f4dff9a6d994b34e433455352039238471b61e479104055c0a6e0` |
+|  `5.4.1` `5.4` `5`                          | March 13th   | `sha256:104513b64f63d68c4bdbfbf1d2a52e912fb062c127fd1094010993934c584cbe` |
+|  `latest` `6.5.0` `6` `6.5`                 | March 13th   | `sha256:08d26647bc06a9452818b0dc97681d36935a96d507bb83aa6def04c107d211f3` |
+|  `5-dev` `5.4-dev` `5.4.1-dev`              | March 13th   | `sha256:246a5f5821111992635e0d14e60267802607561353c7a5b0384c9d412ea656e0` |
+|  `6.5.0-dev` `6.5-dev` `6-dev` `latest-dev` | March 13th   | `sha256:37662e27884394fb0c1afe0f4dd719d399aa2679105115b2d8bc38a660352375` |
 

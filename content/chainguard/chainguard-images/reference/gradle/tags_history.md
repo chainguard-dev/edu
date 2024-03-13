@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gradle Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `8-dev` `8.6.0-dev` `8.6-dev` | March 10th   | `sha256:813fa4feb6ec66f72f7a7848681ea1ba36e30e447e1e4f5ec6c0b9382ad56866` |
+|  `8-dev` `8.6.0-dev` `latest-dev` `8.6-dev` | March 12th   | `sha256:98acef4fdbcd4946a5fe71df5fa84b5965dfb9cefd7921292c7ff11ab4aecba8` |
 |  `latest` `8.6.0` `8` `8.6`                 | March 8th    | `sha256:8c2ff2d2dfb10807f232878d0a5a85fecb725f6346593108e298b90c4dcc4dfe` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:42957164770316cb539cb04f570bce8ec4edbd95a0591c856b95325baef843f7` |
+|  `latest-dev` | March 12th   | `sha256:71b95c668d7dd540ec38187802c5fa09313c7ecabe555106974032062a9975fd` |
 |  `latest`     | March 6th    | `sha256:2963a1c27040f2e599ccf09d567c620d746ad51dc125c8735e1e01279d3e8319` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.28-dev` `1-dev` `1.28.1-dev` | March 10th    | `sha256:886395f3ea5994e8e1f06236affc92cfacd1ae7f1854fbaeb7a1944c1b3678bc` |
+|  `1.28.1-dev` `1-dev` `latest-dev` `1.28-dev` | March 12th    | `sha256:bb07b2be4bef7d519613feffe903a03edabca019e006e67a0eed4bdbebd70d51` |
 |  `1.28` `1.28.1` `latest` `1`                 | March 8th     | `sha256:539ebedb09048617cd8f58f27b85e35019b6414a767c89d53235929804de0ce6` |
 |  `1.28.0`                                     | March 6th     | `sha256:7e55569748bcf07481abebd666468944537115a840b0a3999b15e3f076de4eed` |
 |  `1.28.0-dev`                                 | March 6th     | `sha256:3a00cf6b342eb1c77d2ce36a64a1c88e8fa6e543b89dfa3ffcfb107667b8081f` |

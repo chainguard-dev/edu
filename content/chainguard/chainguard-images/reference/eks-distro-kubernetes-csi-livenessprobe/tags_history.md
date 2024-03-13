@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2.12.0-dev` `2.12.0-eks-1-25-33-dev` `2-dev` `2.12-dev` `latest-dev` `2.12.0-r1-eks-1-25-33-dev` `2.12-eks-1-25-33-dev` `2-eks-1-25-33-dev` | March 10th    | `sha256:eaf2bcafec0b46f2141a0a0f38c85e0abb784160a983c68d56fe6bb29bb58a6d` |
-|  `2-eks-1-23-33-dev` `2.11.0-eks-1-23-33-dev` `2.11-dev` `2.11-eks-1-23-33-dev` `2.11.0-dev` `2.11.0-r1-eks-1-23-33-dev`                      | March 10th    | `sha256:93568e172eee50322fdebce129b414d953efe4fde223690d0c36ef0db1e00532` |
+|  `latest-dev` `2.12-eks-1-25-33-dev` `2.12.0-dev` `2-dev` `2.12-dev` `2.12.0-eks-1-25-33-dev` `2-eks-1-25-33-dev` `2.12.0-r1-eks-1-25-33-dev` | March 12th    | `sha256:e4999d669fdb8b66a161cf1f1aaf140c776c386821ef12a445492fd470ecf853` |
+|  `2.11-dev` `2.11.0-eks-1-23-33-dev` `2.11.0-r1-eks-1-23-33-dev` `2.11-eks-1-23-33-dev` `2-eks-1-23-33-dev` `2.11.0-dev`                      | March 12th    | `sha256:7f588401febe4a55254f490b5c042fa3d3b8646bc43930676d4e40be02abc689` |
 |  `2-eks-1-23-33` `2.11-eks-1-23-33` `2.11` `2.11.0-r1-eks-1-23-33` `2.11.0-eks-1-23-33` `2.11.0`                                              | March 8th     | `sha256:b020c2520b13f3feb54d0653ced63de34955c0e681af97d4253d30b4aea47a5f` |
 |  `2` `2-eks-1-25-33` `2.12.0-r1-eks-1-25-33` `2.12` `latest` `2.12-eks-1-25-33` `2.12.0-eks-1-25-33` `2.12.0`                                 | March 8th     | `sha256:4032211ee3597dce50574bf854fec557326292e85281de0f016186c227a469b2` |
 |  `2.11.0-r0-eks-1-23-33-dev`                                                                                                                  | March 2nd     | `sha256:f9d0818e5fbf220a8c42fe860f38703081122406cc4e0fcc2e6d3194ce40c1dd` |

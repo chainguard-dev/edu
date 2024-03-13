@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:43992948ba27b13ff156d1962fc7594958ce2189f0fc4b937b8030dd4d6b7657` |
+|  `latest-dev` | March 12th   | `sha256:22a9a4fc2f4b8879454d1817659daf07bf672d754ef0ef9d4f6e185a2d795cb5` |
 |  `latest`     | March 8th    | `sha256:f4d7bcb7eef23f940cad0cd1807b84eea311d57fa8ea87f1f1acb71f8a5c4184` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `20.11.1-dev` `20.11-dev` `latest-dev` `20-dev` | March 10th   | `sha256:c6fb3d80169105b90b53e74d728883ed749834bdf17f45ccaa9f03db9605510f` |
+|  `20-dev` `20.11-dev` `20.11.1-dev` `latest-dev` | March 12th   | `sha256:728636f3a303eaa6412c9d0693f9e552809b85f0eaba180a5babc60e83320fdd` |
 |  `20` `latest` `20.11.1` `20.11`                 | March 8th    | `sha256:ffe21c13cd15565557d117eb57e77ad0bc241dc9539fe329d900fefa7b4a43e2` |
 

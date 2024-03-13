@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-ebs-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:25b9622347c069b21ceaa12e6e21035bf8f093d6e97825c65342aed74a5f3953` |
+|  `latest-dev` | March 12th   | `sha256:6a83983852b388c66351c4356ca2c485cee3a189abb4030ca9415bf3fa3669f2` |
 |  `latest`     | March 8th    | `sha256:4f1f6d93b736ce1d33cebcc17642301b98d268a177e74eab60916a42617b954a` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.28-dev` `1-dev` `latest-dev` `1.28.0-dev` | March 10th    | `sha256:4d347a6a4e8cffb8f64646451a4d2c26ffa33b595ede9453d10c1cd4b05def64` |
+|  `1.28-dev` `1.28.0-dev` `1-dev` `latest-dev` | March 12th    | `sha256:c1424f5f2b2299e1331652e4ad61bf62f9b8c64026bd626b189f7913771d5471` |
 |  `latest` `1` `1.28` `1.28.0`                 | March 8th     | `sha256:587bd3bcc87dea47e2a3ba9b1a835f4013813bbd06a0c44118662794031e2bc9` |
 |  `1.27` `1.27.0`                              | February 19th | `sha256:2f99da04c77b233c976b1fa6ae6df5cf898bba2963c9ee86d80b59f847ede082` |
 |  `1.27.0-dev` `1.27-dev`                      | February 19th | `sha256:1dc3e50aa7c797edbf0b62ba56f56e44b9dddb6153b707b99c334ada45a853ed` |

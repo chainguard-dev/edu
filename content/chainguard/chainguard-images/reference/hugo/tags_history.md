@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hugo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:ee72822c65d110432927accd34e0d2cbfd4e1f6d168d38e2c529a82b62e79095` |
+|  `latest-dev` | March 12th   | `sha256:1950c0dd838e11158c70c8caa03e7d373f5beb77fceb1e849bccdb1aa3da2b4e` |
 |  `latest`     | March 8th    | `sha256:4509f2973f420a769d59f5b6a3e549bd09f379c62fc39a8f9bce04178002f303` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed  | Digest                                                                    |
 |-------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.123.8-dev` `0-dev` `0.123-dev` `latest-dev` | March 10th    | `sha256:edc887c6f1547a45d1442167ee3dec750d39354e28e0f0732a2be51cede6ea41` |
+|  `0.123-dev` `0-dev` `latest-dev` `0.123.8-dev` | March 12th    | `sha256:ac2ce4cda39528bfb6349685bba8876baa52fe82b5f0e37ec3b77aa71bbd70d5` |
 |  `0.123.8` `latest` `0.123` `0`                 | March 8th     | `sha256:0012cce9fe9868be35135e741579b7c89f33ec94020c7d19a68b1dcfe2b2e7b4` |
 |  `0.123.7-dev`                                  | March 7th     | `sha256:d61917c7b99eeda024884acc36e61d413122ed8c105e840f8e6252c9ef24e541` |
 |  `0.123.7`                                      | March 7th     | `sha256:6ca957efbc5863f32ee4fdb63a44a8c72c5fd1f6bca09b643eaa7a0b8d05fb4f` |

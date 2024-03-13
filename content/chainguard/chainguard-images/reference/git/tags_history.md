@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,12 +28,12 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev`            | March 11th   | `sha256:d33a2d6de6c24e7b3a1a36f0cedfa1d9816a2410e3abce153f18b2777e764b71` |
-|  `latest`                | March 11th   | `sha256:173d61445a780b7d597ea0422b0e6f35b47b79940fad3f0f6866f7cb13e9fb60` |
-|  `latest-root-dev`       | March 11th   | `sha256:1d13c1d8c998cad41e1324c585d418389baf89ce60ea808009400e6617190f7a` |
-|  `latest-root`           | March 11th   | `sha256:c3647c2481df05aec5dd0aa76cd073a6ee0bd46ddd9c4b2b51ae8c223609d0df` |
-|  `latest-glibc-dev`      | March 11th   | `sha256:7144faa7aa33060d8d1ee85929058ee4635db45807fb93e36d73a8b4d9a916da` |
-|  `latest-glibc-root-dev` | March 11th   | `sha256:88a2f4e1c208da61eecbf481afb79a4bcdd2144243eea14ae0605f03b33eefc1` |
+|  `latest-dev`            | March 12th   | `sha256:ed73d783d7a9b73366bc8aa3c51658d8777c6cab6effd0449db08db1710fc099` |
+|  `latest`                | March 12th   | `sha256:cc77e3b25dd5f3a89038fa4df0c4ca1a9078de97a3e52454c165cec71d7d3851` |
+|  `latest-root-dev`       | March 12th   | `sha256:1d03320c253316618eb5e1e81da0a23b64ea457484add4f596b75b1d2859da93` |
+|  `latest-root`           | March 12th   | `sha256:0ede305c49c0cd0ded1885bdac0a1645d5ee5990fc210a8258009e9f19585c6e` |
+|  `latest-glibc-dev`      | March 12th   | `sha256:3ebc1e6885b48259648c80bbf2759db39e29dcbf73063c99375305947366bfa2` |
+|  `latest-glibc-root-dev` | March 12th   | `sha256:81561c1ebd4a52c18f3becfb7cb57db1facfbe0dbfb923a0563afbb5f2a76e2d` |
 |  `latest-glibc-root`     | March 8th    | `sha256:71c0b48a016a86079670f71f3aa852aee0c559c9255403c1318473327c8ad94f` |
 |  `latest-glibc`          | March 8th    | `sha256:110121630cf73870ab6f2b7577a3d9d31dfc849755682084d275a330359233d9` |
 
@@ -43,8 +43,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                   | Last Changed  | Digest                                                                    |
 |-------------------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `glibc-root-2-dev` `latest-glibc-root-dev` `glibc-root-2.44.0-dev` `glibc-root-2.44-dev` | March 10th    | `sha256:54e4b0e4924c1bee38f24ba4ba8e43a4061163bd4826ad516a28cda04701eb81` |
-|  `latest-glibc-dev` `glibc-2.44-dev` `glibc-2.44.0-dev` `glibc-2-dev`                     | March 10th    | `sha256:0ce90cd2beaaa7770e36d3cabd75a81bba5ff5ac1534dd540b67ce8e8efe530a` |
+|  `glibc-root-2.44-dev` `glibc-root-2.44.0-dev` `latest-glibc-root-dev` `glibc-root-2-dev` | March 12th    | `sha256:f219f5aa5a6fd16243f596da90efa2714a8b1d2234d0724000d1824a7d1f4850` |
+|  `glibc-2.44.0-dev` `latest-glibc-dev` `glibc-2-dev` `glibc-2.44-dev`                     | March 12th    | `sha256:90d5f4436524c4b188f53185c66710d0dd98c7544060a1c7112478472a7d9b48` |
 |  `glibc-2` `glibc-2.44` `latest-glibc` `glibc-2.44.0`                                     | March 8th     | `sha256:c3852310b5545b3ea403a681f5129bf968334d4668ad7948fe067edb24c55539` |
 |  `glibc-root-2` `glibc-root-2.44` `glibc-root-2.44.0` `latest-glibc-root`                 | March 8th     | `sha256:50ef405a175baaa14ead1cf0a6b4a547311f1b3358b2c0eb9de3218b83bb06df` |
 |  `glibc-2.43` `glibc-2.43.2`                                                              | February 22nd | `sha256:d3faa9aada431456a32f757b528c236b155777ff345ce01d15d5f0c424cf43bc` |

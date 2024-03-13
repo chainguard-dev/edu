@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the pgbouncer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:a055b12c26d4ec39e055f22fe9e263ee93f0c07cb01d95da74dcf725f160ccab` |
+|  `latest-dev` | March 12th   | `sha256:b4b6de4a0e1cd67fae0a7de68b63b3a2e426fe26e86a3ff68b8cd0eab6f8e645` |
 |  `latest`     | March 8th    | `sha256:1768c5116fd9a924d5f0fa495825dc6395e350d828442680062c545a5509b06a` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.21.0-dev` `latest-dev` `1.21-dev` | March 10th   | `sha256:4612ae6311babe6f8bbb1b0537a277f05f0ea040102435d6eb151e16f74efadd` |
+|  `1-dev` `latest-dev` `1.21.0-dev` `1.21-dev` | March 12th   | `sha256:561c868816d56562df47bce46fc3571f3078c719b201002ba8b557fafa4e2dca` |
 |  `latest` `1` `1.21.0` `1.21`                 | March 8th    | `sha256:e244067e0e4fdda46a0fb46ea57d1c82ac78432f2a8d19dd79c1a01e9671f05b` |
 
