@@ -58,12 +58,6 @@ jobs:
         push: true
         tags: '${{ secrets.REGISTRY_URL }}/${{ secrets.PROJECT_ID }}/${{ secrets.REPOSITORY }}/${{ secrets.SERVICE }}:${{ github.sha }}'
 
-    - name: Deploy to Cloud Run
-      uses: 'google-github-actions/deploy-cloudrun@5081b8db809e5800ddffa3c692d71da0cb670a34' # v0.10.3
-      with:
-        service: 'academy'
-        image: '${{ secrets.REGISTRY_URL }}/${{ secrets.PROJECT_ID }}/${{ secrets.REPOSITORY }}/${{ secrets.SERVICE }}:${{ github.sha }}'
-
     # Attempt to deploy the terraform configuration
     - uses: hashicorp/setup-terraform@a1502cd9e758c50496cc9ac5308c4843bcd56d36 # v2.0.0
       with:
