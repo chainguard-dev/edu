@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:bd7742ac66cad662402fbf2dd3d0791fd92b085d3028cadc51c3488c6e06a741` |
+|  `latest-dev` | March 12th   | `sha256:56e9bd29b40d7c44eaeb1499fb5dedb8e7e0da7ebf32c5534f0fccf4164e3ca4` |
 |  `latest`     | March 8th    | `sha256:27db92b33927704e814e5a01e4b6b32829aa80ac3f818bc018566da6de8c7627` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.22.6-dev` `1-dev` `1.22-dev` | March 10th    | `sha256:1ef2ebabbf71448ba2db41a88fcf40961e9af45871825aeb88d612dce7310b4e` |
+|  `1.22-dev` `latest-dev` `1.22.6-dev` `1-dev` | March 12th    | `sha256:615f891861309a0868bb361ce79d4232330f92fe9139657736f3be283cbbbdf2` |
 |  `1` `1.22.6` `1.22` `latest`                 | March 8th     | `sha256:edf3806f56ef73281b47bc280b15792ac67925e9b531753acac61959ab724ef6` |
 |  `1.22.5-dev`                                 | February 27th | `sha256:13d90cffdada1c51f577f9e8b91f9d064bba128a197cef6c561e8a6005986ec9` |
 |  `1.22.5`                                     | February 27th | `sha256:190ae0b8f543a6398d2995b93c2cba993257473331d0f7fe420df23a55768e00` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the buildkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)            | Last Changed | Digest                                                                    |
 |--------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-root-dev` | March 11th   | `sha256:292948e8a49626c4de0ffa38455da9ef3d13ab703ddf63fdf082509e062845f2` |
+|  `latest-root-dev` | March 12th   | `sha256:7e1a97ac89de393e5b3f035b908512cf47392841423e47f810026e5b5962fb01` |
 |  `latest-root`     | March 8th    | `sha256:c9c27fa201cd2d3db6b2ce7484f2b124acf5d884a37a4ddd9004a9d88ca462ac` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.13.0-dev` `0.13-dev` `latest-dev` `0-dev` | March 10th    | `sha256:cda0fac4cb765648f0079f74e2f21c153ae957d03bf82d287dd6b0dc513ec1ae` |
+|  `latest-dev` `0.13.0-dev` `0.13-dev` `0-dev` | March 12th    | `sha256:bbf264fbfb527ea95ece2e7528292811a1400f7e319ffdc2f6a8a4beebb18632` |
 |  `latest` `0` `0.13` `0.13.0`                 | March 8th     | `sha256:994cc3f25ea043affd8a9bec006912b2f831ae28ece1fa48eaa83b15989e6432` |
 |  `0.12-dev` `0.12.5-dev`                      | March 7th     | `sha256:eb2452151ab5c3adf7ee6f6d1f4dfd4a968e70234b83d642522e66703d244d2a` |
 |  `0.12.5` `0.12`                              | March 7th     | `sha256:e132b011e8b5ac50ba5d5f602001286e59f82c4cb8348a83db7e5aff1f8a06f4` |

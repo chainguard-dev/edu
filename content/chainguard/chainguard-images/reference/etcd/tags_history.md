@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the etcd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:1645cf3bcad7212560229de962e37f2fa9a800e4af2c8d9a7b008525268af3cb` |
+|  `latest-dev` | March 12th   | `sha256:ef67019a469ed855832624770bd2b802c0f15298a7105d03846992421dd59329` |
 |  `latest`     | March 8th    | `sha256:e8e0c8fab426aa43cd8e511c17e4676e363c535c357fd7fea955291ade24fcdb` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.5.12-dev` `latest-dev` `3-dev` `3.5-dev` | March 10th   | `sha256:c68c40e3c8aa0b44139e543fa957d6098db29309237505810c655a20f93fd620` |
-|  `3.4.30-dev` `3.4-dev`                      | March 10th   | `sha256:9cfbc4d796398bb900fea9efe3ea787d6c5af4174fcc6ff645406dc7d829dd08` |
+|  `latest-dev` `3.5.12-dev` `3.5-dev` `3-dev` | March 12th   | `sha256:5d87b6cf8e1d1f73faebaa61ca46633962b38ca0b9bb051e12d7dabfd0727857` |
+|  `3.4-dev` `3.4.30-dev`                      | March 12th   | `sha256:f6f47092b2f232d16e69fc8f1072d54f1af282f01ce8dad10baa6245e618279c` |
 |  `3.4.30` `3.4`                              | March 9th    | `sha256:16c1a816f2c56039db6de1faad2f0975a307aba1bad5e0d5e3d9579d82e4a43b` |
 |  `latest` `3.5.12` `3` `3.5`                 | March 8th    | `sha256:5aa6ed2dfe0e71a5916aed2b9b806b950f0d4e0809e110e7b5712ea6b2bd3a36` |
 

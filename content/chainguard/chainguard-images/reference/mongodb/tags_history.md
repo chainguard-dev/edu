@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mongodb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,9 +33,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed  | Digest                                                                    |
 |---------------------------------|---------------|---------------------------------------------------------------------------|
-|  `6.0.14-dev` `6-dev` `6.0-dev` | March 10th    | `sha256:467311d758e2514049c8da2e270b2d7bf2d338278476fab6fdbee0563bd6fce4` |
-|  `5-dev` `5.0-dev` `5.0.25-dev` | March 10th    | `sha256:69ee24e71f8fb32c46fa5bb2e2f555eed20af4b7e9ce9fd417635708079990c9` |
-|  `4-dev` `4.4.29-dev` `4.4-dev` | March 10th    | `sha256:b5fc95e0c6250d5277b200ba7284673c449a4f5aba81a073becfa66a8306a5fa` |
+|  `6-dev` `6.0.14-dev` `6.0-dev` | March 12th    | `sha256:648c1bb2eefab50f516b4fc092eced4ee46afc12d378a3fda8df76e75c4745ce` |
+|  `5-dev` `5.0.25-dev` `5.0-dev` | March 12th    | `sha256:aa73d635941e0d0d022aedba6bd6e4d5d24bd8f52fbd530c80e7ad1468a411d3` |
+|  `4.4-dev` `4.4.29-dev` `4-dev` | March 12th    | `sha256:ee1febcbd9cb2c0182657a5281ab2840fa69c7680cd579e9e4e60c2787a147ed` |
 |  `6.0.14` `6.0` `6`             | March 9th     | `sha256:ddb8d968a249feb063fcd185403dee505ae945b0d471d6a8225f54268750ab06` |
 |  `5.0` `5.0.25` `5`             | March 9th     | `sha256:efd5b4ac707521d1a8db8a36f87539302e3fcb7707c285e25c0e3c2de7ed5423` |
 |  `4.4` `4.4.29` `4`             | March 8th     | `sha256:9ffe7dd5426995ca1c30c9cfa47046b81a93c4703d54ef798bcf19d62dacae38` |

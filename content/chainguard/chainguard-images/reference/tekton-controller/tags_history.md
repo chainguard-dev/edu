@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:e40c856ba50dde777fa0ab42f4dc3d719cfffe4280a8f88fdafe3b61f902e5aa` |
+|  `latest-dev` | March 12th   | `sha256:df439b2d4aca75c76ce1ef941308e9a27f52da7ef455d9ef6532d6082f11aae5` |
 |  `latest`     | March 9th    | `sha256:c55230ff7120aee844464cd76d9fa19341bff779d18807edddc2cab356553f6e` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.57-dev` `0.57.0-dev` `latest-dev` | March 10th   | `sha256:75adb0b595f5baf2819af4aef3e8d3190e31ede68c6dd71dc5b57b441b6215eb` |
+|  `0.57-dev` `0-dev` `latest-dev` `0.57.0-dev` | March 12th   | `sha256:8952976a0325da996ada04037a3d6786a8684732abb77b1346ac45603018f5c9` |
 |  `0` `0.57` `0.57.0` `latest`                 | March 8th    | `sha256:3cd567c96d3fde4c25c855c74b789e37684d9286eae38845b07b4c5a82e8c96e` |
 |  `0.56.0` `0.56`                              | March 8th    | `sha256:ad435a47030fec78e56d3101033137990902b03e286326936c00171b2df0f392` |
 |  `0.56.0-dev` `0.56-dev`                      | March 8th    | `sha256:278cf0aa58f4b5cd53b834e1d5e4dba4e20b2317f4860b79ab0bc7c2c29ac131` |

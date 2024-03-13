@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-relay Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:ae35c0e66c8772b77b7f456b49c59270993e439bf1d75813027d47a5552a9a28` |
+|  `latest-dev` | March 12th   | `sha256:2d5c2167f57ac76a9971b34b8fa84c9cfb9cc3287c18c85ff761949fce112279` |
 |  `latest`     | March 8th    | `sha256:c9e5e56700a72ccfb0a1cbd5d30dd9f5e087137c5cfd003abfdfa2708187104c` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.14.7-dev` `1.14-dev` `latest-dev` | March 10th    | `sha256:00be1be32f0cce9c1063bb98b299e2c363b6473ca5a4078573a7babc5e095882` |
+|  `1.14.7-dev` `1.14-dev` `1-dev` `latest-dev` | March 12th    | `sha256:cd05c228008d22f18c8a2b3516bbe817f08709a93b09983a81e5593533a369f7` |
 |  `1` `1.14.7` `1.14` `latest`                 | March 8th     | `sha256:52b2881448199a8f00b7ec2b4fbe452f0d2dd2b71bc16e177d0b7d07bdbbe7b8` |
 |  `1.14.6`                                     | March 6th     | `sha256:332bc93be41e6b2c268dca2cc1dc799be8096eb0dcd2b630d92ca933322ac471` |
 |  `1.14.6-dev`                                 | March 6th     | `sha256:5fba3b293211316051c24ed6439d6dc17a50f080b0e231133c9e93386cf258f2` |

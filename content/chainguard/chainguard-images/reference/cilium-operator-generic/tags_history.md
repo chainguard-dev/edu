@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-operator-generic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:36b0360aeba8fccbb221b8978cf70335fb741218c38c1ffb9f1433e3e1844fd7` |
+|  `latest-dev` | March 12th   | `sha256:94a508681914be2127486ea9da85c7e2378d815be47675bbd5da867291537574` |
 |  `latest`     | March 8th    | `sha256:1613495507a06e63ead753f8293b01c95354e468764ae47859a9e6dd67116038` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.14.7-dev` `1.14-dev` | March 10th    | `sha256:f1e23c917ad94776a07d9457e1b0a6c01cb0576d17bc8ea93489aab059a52c0c` |
+|  `latest-dev` `1.14.7-dev` `1-dev` `1.14-dev` | March 12th    | `sha256:6421c09a8404851e603ff2e13ca0c471cb8d70d20127d22ba0293b59837f48cf` |
 |  `latest` `1.14` `1.14.7` `1`                 | March 8th     | `sha256:e6ea472a3872cb53ad72db0fee778b10d18bb8b450e7fc0f117e22afd3036f71` |
 |  `1.14.6-dev`                                 | March 6th     | `sha256:e0203fdbda1e24fd27db90f65516c92fb323088c23e57cb9dda4f562f2da1a1d` |
 |  `1.14.6`                                     | March 6th     | `sha256:088accd8946e4e59e12edba438652433dfad700de874c65379f16c1ddc9b0c4f` |

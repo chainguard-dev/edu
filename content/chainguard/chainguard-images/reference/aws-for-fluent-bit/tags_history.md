@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-for-fluent-bit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                       | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.32.0-dev` `2-dev` `latest-dev` `2.32-dev`                                 | March 11th   | `sha256:5f7cef5f486eb5dce5b9f1f0daa5795a84599b4df262e3a957d61463206b7265` |
+|  `2.32-dev-flb-1.9` `latest-dev-flb-1.9` `2-dev-flb-1.9` `2.32.0-dev-flb-1.9` | March 12th   | `sha256:5d3b1c12da309764a0bd3c8a41caa0b983d7b69071fcb4a820a5d2bdbf7c8c87` |
+|  `2-dev` `2.32.0-dev` `2.32-dev` `latest-dev`                                 | March 12th   | `sha256:46c72ebb0717bc3efa1b5f0042dad20f501cfd14eef827f322aa821bf0af2396` |
 |  `latest` `2.32` `2.32.0` `2`                                                 | March 11th   | `sha256:e25ecf78c92dc08b2de361ff2e22d16eec9fe4ccdbb312249ea02ff35643af10` |
 |  `2.32-flb-1.9` `2-flb-1.9` `2.32.0-flb-1.9` `latest-flb-1.9`                 | March 11th   | `sha256:1d81d5e12ef53fd2afe973db04f23824e94dcd1f5831a02fb3f113a1ed79323b` |
-|  `2.32.0-dev-flb-1.9` `latest-dev-flb-1.9` `2-dev-flb-1.9` `2.32-dev-flb-1.9` | March 11th   | `sha256:3e7be313407854183077bd5926e8e7ce4c8dd2f59ce51a025768f685140087aa` |
 

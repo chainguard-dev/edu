@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-12 00:55:01
+lastmod: 2024-03-13 00:52:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 11th   | `sha256:bbe9dcecbee845f14b26835d6c77f7aa51b4c08855ea93328e8d309603796dab` |
+|  `latest-dev` | March 12th   | `sha256:38b89b4f7dd41f59aea788006cf93111bb4cfe615233bb7350a35b8cac1954e3` |
 |  `latest`     | March 8th    | `sha256:89b3db4e93eb693dee267a7f3013c41d0223e8fd7e9802d5e7322ead773dc630` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed  | Digest                                                                    |
 |------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.13.13-dev` `1.13-dev`                      | March 10th    | `sha256:753b1e5d4a3ed8026e1b233f2eb9fd534fe69fab1457701eb3605ff51b48bb42` |
-|  `1.14.10-dev` `1-dev` `1.14-dev` `latest-dev` | March 10th    | `sha256:f89b2e02fe941726b82bfc23a18556e3830b94da123baf70f26c0ff2d315faae` |
+|  `latest-dev` `1.14-dev` `1-dev` `1.14.10-dev` | March 12th    | `sha256:c5def4d843534fb853a7712f9a5e71b75204cde5445382559903b3f421e0f3d7` |
+|  `1.13.13-dev` `1.13-dev`                      | March 12th    | `sha256:8fead715ae47fdc57115d991d1f615fe5876ec80cd8d2906ead13cfc2bb0fe2b` |
 |  `1.13` `1.13.13`                              | March 8th     | `sha256:6ab5702ac9f5e4c3a4681bcff594577df8b5101289a6804f9a0aed1b05550d2b` |
 |  `1.14` `latest` `1.14.10` `1`                 | March 8th     | `sha256:b3099cbfb2cca00266fe3285a6f583545503860c3f2b9a606a69ad15e3584196` |
 |  `1.14.9-dev`                                  | February 27th | `sha256:3239e153ebec18347066b76b41c79b9ecf441c0ee825f74807324da2f1b414f4` |
