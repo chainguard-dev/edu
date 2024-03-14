@@ -39,7 +39,7 @@ Chainguard Images are available through the [Chainguard Registry](/chainguard/ch
 
 ## Are Chainguard Images available on Docker Hub?
 
-Yes, Chainguard Developer Images are available on Docker Hub. As Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. If you wish to use Production Images, you need to use the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/).
+Yes, Chainguard Developer Images are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. If you wish to use Production Images, you need to use the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/).
 
 ## What options do I have to use Chainguard Images?
 
