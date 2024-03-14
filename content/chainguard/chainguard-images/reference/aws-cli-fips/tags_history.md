@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed  | Digest                                                                    |
 |------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.32` `1` `latest` `1.32.61`                 | March 13th    | `sha256:17048accb758743a037adfeb700bca9b857051bcf0e422864b8ec31c240d1039` |
-|  `latest-dev` `1.32.61-dev` `1.32-dev` `1-dev` | March 13th    | `sha256:db7aac002cc6c0bfab3e75c54ad7a97bebd049df9c407eae95cc2d8645187d7c` |
+|  `latest` `1.32.62` `1.32` `1`                 | March 13th    | `sha256:7e8374f114d338f743024fc945c59cdf5ceb258ca4dfe21cf4d897fdc7d31b64` |
+|  `1.32.62-dev` `1-dev` `latest-dev` `1.32-dev` | March 13th    | `sha256:e68fa67da8cb7436b1ec2861d55975df2e72e1be40741e84af1bb9bf348c5deb` |
+|  `1.32.61-dev`                                 | March 13th    | `sha256:06b0f804ca344a57099ed6ddb73a51276eac69f046845d94159a1054708f9716` |
+|  `1.32.61`                                     | March 13th    | `sha256:f5a97fd8db476d6b3b36050c8ea62a5bd51b179684db6f6b4b40a2e2a87348e1` |
 |  `1.32.60-dev`                                 | March 12th    | `sha256:35181de21659653ef8f4ac4b17c6315317a8ed35b9fa236980302c961c9e3e07` |
 |  `1.32.60`                                     | March 12th    | `sha256:49630080b389e26d3c0b8c73338c2b15ca9cf76a431ebefc74d04d79df98eada` |
 |  `1.32.59-dev`                                 | March 10th    | `sha256:09250ec8e1bffbf5aa67b37622e9a74b137e4427abe55c8f0f980eb4569317b7` |
@@ -73,8 +75,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.32.43-dev`                                 | February 16th | `sha256:a6c18bb137a28933fde823dd18c2c72d2d661e5e38b6609e89229e799cf93bb3` |
 |  `1.32.42`                                     | February 15th | `sha256:b7aae0d23ac81572c70fffeae21d24e290d71ca3f10de6b2d2fdf74740ae8696` |
 |  `1.32.42-dev`                                 | February 15th | `sha256:8e3cb56f8cfa7321f6ea646d8b151bd73efefdcfce821e66acf34fdf36f0ff81` |
-|  `1.32.41`                                     | February 14th | `sha256:6419c0ad840ce770b2fe3026288c12cd556e83dbceed2b33e06b15669f94400a` |
-|  `1.32.41-dev`                                 | February 14th | `sha256:8a9a317d3b43ee072876d2e6ccd429dac8430690aeb70e5f5a9c3503a9d0f399` |
-|  `1.32.40-dev`                                 | February 13th | `sha256:f9eaf7e2038cbfb63fd10a305a1264447b7a81d00c9d226eb853c84005b2aa2c` |
-|  `1.32.40`                                     | February 13th | `sha256:2c70fc55542c63910e1363b8bfa30b98d912a1c1da5432abdb18b5eb1982f2a1` |
 

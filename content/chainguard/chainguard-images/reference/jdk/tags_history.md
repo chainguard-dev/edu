@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jdk Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:afd21428da4e7208445ff7fc860e0d8444a078a14a35c6ea548eb065da772e40` |
-|  `latest`     | March 8th    | `sha256:f0e6774dd8d0409453193890b2d9aea91886ecb994051ba20b1f8046e931ec37` |
+|  `latest-dev` | March 13th   | `sha256:6ec9e7c19be9b9498a63a99c5b1fe1cd665b395d0e113a26ec427bd81072d602` |
+|  `latest`     | March 13th   | `sha256:aff8de3d8c50677ae38ae8285642536bad256bfff1963d460d2c1fc8a64c79fa` |
 
 
 ### Private/Dedicated Registry
@@ -37,18 +37,18 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                            | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `openjdk-11.0.22-dev` `openjdk-11-dev` `openjdk-11.0-dev`                         | March 12th   | `sha256:22aadcc00369bf666718c503ade0f52c81442ba1fc86a83eef6905392d5deb61` |
-|  `openjdk-17.0.10-dev` `openjdk-17.0-dev` `openjdk-17-dev`                         | March 12th   | `sha256:d5a8908d7111ffa99a925c2da98b06e6cb90d9e71ae42c3bcf6d0496e6ebbb38` |
-|  `openjdk-14.0.2-dev` `openjdk-14.0.2.12-dev` `openjdk-14-dev` `openjdk-14.0-dev`  | March 12th   | `sha256:bb1154db274891936e14ed46b87637175481b84fda291aed9da30ff3d6080a8e` |
-|  `openjdk-21.0.2-dev` `openjdk-21.0-dev` `latest-dev` `openjdk-21-dev`             | March 12th   | `sha256:32b86201b8f155cc99575f9c2645cfcb81f0d74d6643a75eb07be6af2e9555a7` |
-|  `openjdk-15.0.10-dev` `openjdk-15.0.10.5-dev` `openjdk-15-dev` `openjdk-15.0-dev` | March 12th   | `sha256:92884c9813d87d2adfb2da74571d8ddd0fe4a7abf77790a09d8aefe25b2a7414` |
-|  `openjdk-16.0.2.7-dev` `openjdk-16.0.2-dev` `openjdk-16.0-dev` `openjdk-16-dev`   | March 12th   | `sha256:94e0058b55cf71a8b0163788f52a25a815377c39542a57b8cb45f07306dd8a7c` |
-|  `openjdk-8.392-dev` `openjdk-8-dev` `openjdk-8.392.08-dev`                        | March 12th   | `sha256:b5e068c938c34c77fc2f9c9500b661312955202462cfb48bf3bb1b76ef7b3b0e` |
+|  `openjdk-14.0` `openjdk-14.0.2` `openjdk-14.0.2.12` `openjdk-14`                  | March 13th   | `sha256:3dd3980ee6bdf1298c5c9a529c2a3bbc691de502d5fda68ff5bb2e46f11884b8` |
+|  `openjdk-16.0.2.7` `openjdk-16` `openjdk-16.0.2` `openjdk-16.0`                   | March 13th   | `sha256:0242c70d4c2dd0631069187695cc1b1306ee4f1afaed7e205b267872b89a26aa` |
+|  `openjdk-15-dev` `openjdk-15.0-dev` `openjdk-15.0.10.5-dev` `openjdk-15.0.10-dev` | March 13th   | `sha256:dd1546fe41ff32fb8687f9a0d513e82053669f03664be20e0dc2d883f1507397` |
+|  `openjdk-17.0.10-dev` `openjdk-17.0-dev` `openjdk-17-dev`                         | March 13th   | `sha256:7d6a9b9899e7eadc1d85301d546102ed7ce2c9c45ac14c6b6b7494ef6d9e4c83` |
+|  `openjdk-15` `openjdk-15.0.10.5` `openjdk-15.0` `openjdk-15.0.10`                 | March 13th   | `sha256:707c0947ce1c72598ee6ce6539e828bdd5758de646c10abdfc4ceed02646d9f9` |
+|  `openjdk-21.0` `openjdk-21` `openjdk-21.0.2` `latest`                             | March 13th   | `sha256:1cdc69e71c95dd29fa98d66a482d9820d0ed38bbbbf3d7e080f284baf714fe18` |
+|  `openjdk-21.0.2-dev` `openjdk-21.0-dev` `openjdk-21-dev` `latest-dev`             | March 13th   | `sha256:e658f56748e466d6eef9524b813d5fbc50f9558eb628643c5b5d33da2b40a5ce` |
+|  `openjdk-16.0-dev` `openjdk-16-dev` `openjdk-16.0.2.7-dev` `openjdk-16.0.2-dev`   | March 13th   | `sha256:4b607b7f64b78f1a3633e83cc6b7219fc3aa8bb348c36e8f405c54f0b4ed915c` |
+|  `openjdk-17.0` `openjdk-17.0.10` `openjdk-17`                                     | March 13th   | `sha256:0b38b889d29d030f54df9622bbce9da8101b2f98d289f39cad7923da8c7c3923` |
+|  `openjdk-11.0.22-dev` `openjdk-11.0-dev` `openjdk-11-dev`                         | March 13th   | `sha256:f9ea19bca4c6ddd092fe9c4b669262ff4bfc70f2b9ad3d0e325ff7bba6741775` |
+|  `openjdk-8.392-dev` `openjdk-8-dev` `openjdk-8.392.08-dev`                        | March 13th   | `sha256:47bd6cc7da25cff42b85b43bf0f38c013efddc07d3e944d51f3ef966a2523121` |
+|  `openjdk-11` `openjdk-11.0.22` `openjdk-11.0`                                     | March 13th   | `sha256:02ed1bc88f89f386efbec3f809377b972b88db0499ddf94e33fe02e33c684579` |
+|  `openjdk-14-dev` `openjdk-14.0-dev` `openjdk-14.0.2-dev` `openjdk-14.0.2.12-dev`  | March 13th   | `sha256:b454684cc79feb1ced494688f3b28ad33616469062b8a05c1848824c1c1f4017` |
 |  `openjdk-8.392` `openjdk-8` `openjdk-8.392.08`                                    | March 8th    | `sha256:bae886490382480e7c9dc0114c4649e4303c8dd715023f9e4ff11470e181ae92` |
-|  `openjdk-15.0.10.5` `openjdk-15` `openjdk-15.0.10` `openjdk-15.0`                 | March 8th    | `sha256:f69188e3fc520e2ac0c552bc8d9f007a76c727b192e9d28eade31bf2336cd7e2` |
-|  `openjdk-11` `openjdk-11.0.22` `openjdk-11.0`                                     | March 8th    | `sha256:ff9325703257e5217741f571279d61f0ca63a31c4d0d20dbc9d0fbd49aa61628` |
-|  `openjdk-14.0.2` `openjdk-14.0.2.12` `openjdk-14` `openjdk-14.0`                  | March 8th    | `sha256:8390bb4c0f25e4af7f3f6df5d4683ced66e2c9f308623341c0e10901cb8fad9f` |
-|  `openjdk-16` `openjdk-16.0.2.7` `openjdk-16.0.2` `openjdk-16.0`                   | March 8th    | `sha256:72889d088d4ec8f77996df3290737c9c0b39ff48a16fdd4aa50a70a91fb64b69` |
-|  `openjdk-21` `openjdk-21.0.2` `latest` `openjdk-21.0`                             | March 8th    | `sha256:90fbf09be77cd0ee843aede7e0751c7cf5f4e80fe9752447cf363aa625bab47a` |
-|  `openjdk-17.0.10` `openjdk-17` `openjdk-17.0`                                     | March 8th    | `sha256:0ec2447213148e9b670fdad940f0eb858cb995dfc89d4890eb74b2bb7ae837f8` |
 

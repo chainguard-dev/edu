@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:0043e2c76a0e806cf7414993b48a1167f60e786c2f3fdcbea5992889a88408af` |
+|  `latest-dev` | March 13th   | `sha256:745cc3ebb670feeb3427f1a961d3f21dd30d553430caad32f9623ca76308545d` |
 |  `latest`     | March 7th    | `sha256:b10ae4dcc562f2be4c896bf593e7c6d63e7da82f5b33c60d345ba288f9bae80a` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.72.0-dev` `latest-dev` `0.72-dev` | March 12th    | `sha256:70252c8b2fe4776fbe3aeb55fff33c1d7100dc63344c291685124c8f406116f2` |
+|  `0.72.0-dev` `latest-dev` `0.72-dev` `0-dev` | March 13th    | `sha256:196568a725ef2424f425f5c75527850108a458f21328449ca1caccadd8b0bd3f` |
 |  `0.72` `latest` `0` `0.72.0`                 | March 8th     | `sha256:2e3a577e21a85c3ba7c43ed099002f4d32f0f8473e4e4c4627907e281b4adc10` |
 |  `0.71.2-dev` `0.71-dev`                      | March 2nd     | `sha256:a1754741840270899af202d7f07ddc7029014f876c074bfdb4e94fd64a61bf90` |
 |  `0.71.2` `0.71`                              | February 26th | `sha256:9dd14064b4979ed9c0ea72423e862eb691446d8cd851f9deff7a5755c0327130` |
