@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:dffa7878601581823a28cbf56a5cf1eb21b65750d5989e3aecfdb8de019cd208` |
-|  `latest`     | March 11th   | `sha256:5fa37a66e163d3624288720bfa73af3fb65a3d33db06320068d4d195ee3c08f2` |
+|  `latest-dev` | March 13th   | `sha256:2f0d0843b2bff6dc104c46a041c17b7e5f0e623b17b57088450452368b30d575` |
+|  `latest`     | March 13th   | `sha256:212867f9060b3137b0b57ae9c9462459c397886bb1ffe0f6f17515ab69a99e10` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1.73-dev` `latest-dev` `0.1-dev` `0-dev` | March 12th   | `sha256:48fda0536b517bd8e07800452c470da2db2f128acfad14973981bf18ec6c9c1d` |
-|  `0.1.73` `0` `0.1` `latest`                 | March 11th   | `sha256:6a0a3182d1734ec2357dec42d04aa9963c291fce00d73d963b88dc74d0e3a86f` |
+|  `0.1-dev` `latest-dev` `0.1.73-dev` `0-dev` | March 13th   | `sha256:97219e6d912d4e28959c469d1f6236ee1e9d8a10ec53490d10e9fbb39c272d11` |
+|  `0` `0.1.73` `latest` `0.1`                 | March 13th   | `sha256:9aff6d29cf6d6f32a42931b0469452066fcb21b18d1711e7692bd3e93ec4ed29` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the openai Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 12th   | `sha256:454aa34235820fb938ded4ba7cb3b137395c59ceb2950a364be98099158fea3b` |
-|  `latest-dev` | March 12th   | `sha256:bc63762f13b1164e43b537bb8c47a55f0353f20b583007b6562872905c19f1ab` |
+|  `latest`     | March 13th   | `sha256:51b8867e3c64906cf5cd0bb9ed73214721f3f19e778a4354576de181dafa2472` |
+|  `latest-dev` | March 13th   | `sha256:d63690bf24c06144ccf834d96e38eafab265f48e3eba106fcf7ba128c4b6b34a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.13.3-dev` `1-dev` `latest-dev` `1.13-dev` | March 13th   | `sha256:56c1a3f56233368371b9bbe0345899704121b1d81fdbe24b45b1f708649b4adf` |
-|  `1.13.3` `latest` `1.13` `1`                 | March 13th   | `sha256:c099f00ac3e53ae69e810bb5bdd1a7c71cb1983fddb93c1ee37c78451c37cd4d` |
+|  `latest-dev` `1.14-dev` `1-dev` `1.14.0-dev` | March 13th   | `sha256:9443f4ac8b5624b2f389b9ea791b0a7bcff03bbf50decee916eb311b844e9a9e` |
+|  `1.14` `1.14.0` `latest` `1`                 | March 13th   | `sha256:99c7977b94b66ac03160070f1cfa5da670674e9c26a534bf310612ad2c370e17` |
+|  `1.13.3-dev` `1.13-dev`                      | March 13th   | `sha256:56c1a3f56233368371b9bbe0345899704121b1d81fdbe24b45b1f708649b4adf` |
+|  `1.13.3` `1.13`                              | March 13th   | `sha256:c099f00ac3e53ae69e810bb5bdd1a7c71cb1983fddb93c1ee37c78451c37cd4d` |
 

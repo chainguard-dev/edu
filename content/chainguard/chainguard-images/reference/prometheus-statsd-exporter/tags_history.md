@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-statsd-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:e74fc5682d7dc964c078cc2186846ab29ffe2434df908d803f679549d8050d0a` |
+|  `latest-dev` | March 13th   | `sha256:4ea558aec22a5e618b9aaf9a06adaf2e0b12af4beac80a2ea4eafab361fb08b0` |
 |  `latest`     | March 7th    | `sha256:2f62d441df6f07718b51bbfdc76d2d2fcddefbdf923a2ab7bf78c70ebfed8a5a` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.26.0-dev` `0-dev` `latest-dev` `0.26-dev` | March 12th   | `sha256:8d67af752f16c4a1eb3895ec59b255cac73b6a1f54886f00106ee1831a4c3126` |
-|  `0.22.8-dev` `0.22-dev`                      | March 12th   | `sha256:ffa8f46f1ba2b53be018bc15403838f1c0090f2c0122588072dc3e6c836bb8bb` |
+|  `latest-dev` `0-dev` `0.26-dev` `0.26.0-dev` | March 13th   | `sha256:b9ebe4459783d68fcac0f59d15e1c84b1d2df8b6247640ed98af13718b652545` |
+|  `0.22-dev` `0.22.8-dev`                      | March 13th   | `sha256:538c93202b0c8aca5116d151ba2b57f4800783a2e4bab737951889f7f7541cb2` |
 |  `0.26` `0` `0.26.0` `latest`                 | March 8th    | `sha256:f9eb62332cafe136709500fe7411cc2a062783f6b3b94a611215dc089e3a1357` |
 |  `0.22` `0.22.8`                              | March 8th    | `sha256:1f162cac66052e3a1ae6a25b57dd889a2febc3963ec99101a8b4051702b84dcd` |
 

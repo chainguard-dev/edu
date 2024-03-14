@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grype Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:c603ad330f2174212f2a3568e8874eaa306dea1a6b714a53c2632b32bfb756f8` |
+|  `latest-dev` | March 13th   | `sha256:e3e6e36fd7aa5e0ea31ebc6de9cea4200d6b6fb572a904cf80a49df75d8530f9` |
 |  `latest`     | March 8th    | `sha256:4db7ee603d3bb780e27a1c27bc15827c3bdeaf975417c42c18c98a7c9abd24f0` |
 
 
@@ -37,9 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.74.7-dev` `0.74-dev` `latest-dev` `0-dev` | March 12th    | `sha256:c83f868c6b267477f665dce632477a42a3214508ba71932838e6c07f256613b2` |
+|  `latest-dev` `0.74-dev` `0.74.7-dev` `0-dev` | March 13th    | `sha256:1b007e512fd94cedba68d7d7a1ec9edb41052645676bcfc80537be46a9519e71` |
 |  `0.74.7` `0.74` `0` `latest`                 | March 8th     | `sha256:4bec5014defcc7fef8b82407b37f1c52e3faef86e4c57f715846648e82d9dbb5` |
 |  `0.74.6-dev`                                 | February 24th | `sha256:d5387724ca01f846d1ac86307b01a3d8ea87380305977ac662ea89e48e65f176` |
 |  `0.74.6`                                     | February 15th | `sha256:dbfda491a10443aecc872cfc99de41775b740b6d3c58f11bc69735df348e26f5` |
-|  `0.74.5-dev`                                 | February 13th | `sha256:1637bc03700fb4e4bcb769d55fe9179bbca98f32aa3c585796a1eb0cf598341f` |
 

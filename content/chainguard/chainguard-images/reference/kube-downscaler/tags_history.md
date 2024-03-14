@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:e6f3b68fc06d780abfb6dcf649fc26b772185ef849bab6a1d5757b014608c114` |
-|  `latest`     | March 12th   | `sha256:e2cd3075fb2d145a57f6eb758931cb6faab5fc9c31a188a6eec79405a30f7de7` |
+|  `latest`     | March 13th   | `sha256:711a45875108bd29efab71d84f1c1019e0aaf8a018d8ff3c9df429ed7c50894e` |
+|  `latest-dev` | March 13th   | `sha256:1f91bd28e7f0cbf1ea1ba9566f65683653df0100fcff665955d41a69ee368ca0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.2.0` `23.2` `latest` `23`                 | March 13th   | `sha256:8a12276b37c3440da7799570195422d2e174fc49a18353cfb647d3526bb90c54` |
-|  `23.2.0-dev` `23.2-dev` `23-dev` `latest-dev` | March 13th   | `sha256:f96500a827cafda9e04f1d4a7c17b41342c26c7c5d1e8210ecb7da3e9d4b2b70` |
+|  `23.2` `latest` `23.2.0` `23`                 | March 13th   | `sha256:c5ec1821b799cce0c4ff1abe4adefebcb6aa644835e772ba9f8d39ba259ea286` |
+|  `23-dev` `latest-dev` `23.2-dev` `23.2.0-dev` | March 13th   | `sha256:013aa2ff1b6160a9bc336cd0be5fbc2376a245b34f6079bb433218f298c7508a` |
 

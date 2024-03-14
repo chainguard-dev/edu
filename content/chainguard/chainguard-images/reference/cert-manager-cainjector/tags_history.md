@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-cainjector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:713b7def06680f4df7a95f09757936a70e0563572d7772a9489d8945232798c5` |
+|  `latest-dev` | March 13th   | `sha256:5045ec0ab22954dbaeac43aa329a60f96ab3015a0b97b634a1898b3134666bad` |
 |  `latest`     | March 11th   | `sha256:92265fe653b3c7e93d26a77c85fb9405e2d58e26a77129800365419c44515c83` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.14-dev` `1-dev` `latest-dev` `1.14.4-dev` | March 12th    | `sha256:6dbc372a72135e733545a9ec0d650469702afb3ff9c71c99e6454dc1a65dca69` |
-|  `1.13-dev` `1.13.4-dev`                      | March 12th    | `sha256:fe9f51178eac9ba896c3e14f0902e187f27841b4bd9f3875cf7a1ca02c594d73` |
+|  `1-dev` `latest-dev` `1.14.4-dev` `1.14-dev` | March 13th    | `sha256:55e57ec8c13204b8c98d1e27b0c60eb685b512e62b1c9978498e05120049339d` |
+|  `1.13-dev` `1.13.4-dev`                      | March 13th    | `sha256:1aa51d3fa3bc424a4d2332f74d2e2f2269d84dd63b61e8a521b7e5029f7a4c8c` |
 |  `1.14.4` `1` `1.14` `latest`                 | March 11th    | `sha256:8895c7cecfab13dda954d7cd078b580cd3bbbc532a7829224dc289ac54b29d2e` |
 |  `1.13` `1.13.4`                              | March 8th     | `sha256:736bae171f0f0f5e63b84a9a9ec95a07aaebdc24bcd58375abfd0ba5e97e2567` |
 |  `1.14.2-dev`                                 | March 8th     | `sha256:9e5a3266c80173990148845b1e434dea689d5dcda41230be1557d863487fd809` |
