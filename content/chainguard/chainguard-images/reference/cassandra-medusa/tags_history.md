@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-medusa Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:801e33704c7b48e21712196e2b1dff53086cbf901d441587d3057c7bded17e6b` |
+|  `latest-dev` | March 13th   | `sha256:d2fe4287c3d4a56a4479c7e5391ed1d4e24cbcc8e7077385bcd7fb28ec019919` |
 |  `latest`     | March 11th   | `sha256:430fd1164c804463bed893f4ac2b13c8f681af975dcec7834484d17061b9bc8c` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.19.1-dev` `0.19-dev` `0-dev` | March 12th    | `sha256:26040d3d91b92b19695b0b9f97b224ca544cfb351f4ff285ace928ac13f2dad4` |
+|  `latest-dev` `0-dev` `0.19.1-dev` `0.19-dev` | March 13th    | `sha256:e6fbd2b2094ef6d9299ffa4375cfe743e73ebcc664c2e5a7884b77580012b149` |
 |  `0.19` `0` `latest` `0.19.1`                 | March 10th    | `sha256:1216c8b52dd954bdb7477dbdd1a0a9a16881fbeeda71d6504ec5a0c18b93cad5` |
 |  `0.19.0-dev`                                 | February 23rd | `sha256:d877cd3c4ca7f40a4dfb9bf7a06a9951b36177b78142f380dddc95fa7d8e8d25` |
 |  `0.19.0`                                     | February 22nd | `sha256:9b2ec70b8b8f98dc699e0407d1dc49019984dab722e27a426fa8021cf4849618` |

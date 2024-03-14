@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-state-metrics Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:dd0ca3226d07ffc3ce7b60a3734d2d90516724306ae6921d51b3e53f66e97d7a` |
-|  `latest`     | March 6th    | `sha256:324e60f8b8a8e2f25df1ec7b8c43861be9043d0d4ef37c56797777182329df2d` |
+|  `latest-dev` | March 13th   | `sha256:2c09baf62ad9b1d71fdca3b89e9d2b23cad2c80b25c352847c9ee1b36c5a469e` |
+|  `latest`     | March 13th   | `sha256:5f8aed5b808c3c68b08987aab49724305945839ddd01f5e8144427748e385d7f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.10.1-dev` `2-dev` `2.10-dev` | March 12th   | `sha256:507db9fc37f6d5f74be3017271fc8443773f4d7eef4d0cf890006cd26b2b7337` |
-|  `2` `latest` `2.10.1` `2.10`                 | March 8th    | `sha256:2d9110c68dd74f7017585ba12eade74776f3dc83d2ab7dc1c59b933e50aeb5a7` |
+|  `2.11.0` `latest` `2` `2.11`                 | March 13th   | `sha256:afd25007f680f1349a532f0e017f3f2d152f0689465071dc3cd0e1865b8a23ea` |
+|  `latest-dev` `2.11.0-dev` `2-dev` `2.11-dev` | March 13th   | `sha256:c7a380ffb2e5986a05a85d574eff0db21d5bd944c309a72bfee4ec4062342f01` |
+|  `2.10.1-dev` `2.10-dev`                      | March 12th   | `sha256:507db9fc37f6d5f74be3017271fc8443773f4d7eef4d0cf890006cd26b2b7337` |
+|  `2.10.1` `2.10`                              | March 8th    | `sha256:2d9110c68dd74f7017585ba12eade74776f3dc83d2ab7dc1c59b933e50aeb5a7` |
 

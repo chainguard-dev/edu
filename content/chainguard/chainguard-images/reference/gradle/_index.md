@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: gradle Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,7 +26,7 @@ toc: true
 
 
 <!--overview:start-->
-Minimal image with [Gradle](https://gradle.org/) build system. **EXPERIMENTAL**
+Minimal image with [Gradle](https://gradle.org/) build system.
 <!--overview:end-->
 
 <!--getting:start-->

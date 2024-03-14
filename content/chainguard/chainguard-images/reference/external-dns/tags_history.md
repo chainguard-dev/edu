@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the external-dns Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:04a1bf8d8c4f3265cc1ed49365590d5ccf8b66b52f67a4c3c90be274e4007fa0` |
+|  `latest-dev` | March 13th   | `sha256:03ddcf2d0ed68c4a678a791bd1460ec4de49aa62a2f612884297d54ff99be277` |
 |  `latest`     | March 5th    | `sha256:90f1bdfea4b2bd5432c6d8b362e6cde14a3f38dd740956189c9350270396aee3` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14.0-dev` `0-dev` `latest-dev` `0.14-dev` | March 12th   | `sha256:0f898fb1299a0eee51d56a1ec9e0c41ccea7baed6d1496de01f41d6c7691718c` |
+|  `0.14.0-dev` `latest-dev` `0-dev` `0.14-dev` | March 13th   | `sha256:89f9d7030d0567835492f9c055ca2df0fcbcdfd904f39991618155f6ecd7fb9d` |
 |  `0.14.0` `0` `latest` `0.14`                 | March 8th    | `sha256:c67c0e4a9a6d52f6332ec321a800cc32e959551667d8d69ae5ca0fa9e67bcff6` |
 

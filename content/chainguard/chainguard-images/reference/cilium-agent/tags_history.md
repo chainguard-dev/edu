@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,12 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.14.7` `1` `latest` `1.14`                 | March 12th    | `sha256:90d6aa6be2605a5c86b45d4f54916152317457feb35dcdb1ffaee6ce3816d93b` |
-|  `1.14.7-dev` `latest-dev` `1.14-dev` `1-dev` | March 12th    | `sha256:2ee855b4426f51b3c1e0d4ec794d8fc0c51d55590e8804862414fbffa406360e` |
+|  `latest-dev` `1.14-dev` `1-dev` `1.14.7-dev` | March 13th    | `sha256:13ae666dd4aca2b472962821c04e7f25e9f19eeb55d5f824de67071fc0b7e879` |
+|  `1` `latest` `1.14.7` `1.14`                 | March 13th    | `sha256:27dbf5b61e225b2169a6b66947ff3e9be41f21357b6044e616d9a494d32e6564` |
 |  `1.14.6`                                     | March 6th     | `sha256:15a4fc984a2aaa8d00eea6d7431105abec46856e9c4fdc149f98230dce688eb8` |
 |  `1.14.6-dev`                                 | March 6th     | `sha256:95f42e794ad0789ed92a92cd172004419ef5a1fea06b9a84485de289cca18bf5` |
 |  `1.15` `1.15.1`                              | February 26th | `sha256:4eb92a59cfe5a919175bad63d86196b9d929c1b9a6db5ba07ef91b06de3902fa` |
 |  `1.15-dev` `1.15.1-dev`                      | February 26th | `sha256:1290ac91905e2b371d0ce2243e178cd428f020cf4a346db88e0c0f69cde44087` |
-|  `1.15.0-dev`                                 | February 13th | `sha256:2440c61dd9706c407200d1dfd9a551c50a12f8bd4317f623caf300ca9c13e645` |
-|  `1.15.0`                                     | February 13th | `sha256:0062292d64e805e68e1a3b49021fc101067a204c9369745fb43402799249845c` |
 
