@@ -37,7 +37,9 @@ docker pull cgr.dev/chainguard/git
 
 Without passing a tag or a digest, the reference to the Git image will pull down the default tag, which is `:latest`.
 
-Note that if you have your own registry, you'll need to change the `cgr.dev/chainguard` path to your own registry path. 
+If you have your own registry, you'll need to change the `cgr.dev/chainguard` path to your own registry path.
+
+Chainguard Developer Images are also available on Docker Hub. Check out [Chainguard's organization page on Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile) for a list of all images and instructions. Note that Production Images can only be accessed from cgr.dev.
 
 ### Pulling by Tag
 
