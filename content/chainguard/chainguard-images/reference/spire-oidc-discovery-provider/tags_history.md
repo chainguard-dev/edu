@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-oidc-discovery-provider Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:4390baacf0946f121bdbb40318f81c29bb14661cd34764b5e0c5c0d6a9765f22` |
+|  `latest-dev` | March 13th   | `sha256:82b8b5137fcf2e8c3cfe1b0c12029ba63857a0d992f6a321a248c4cfd6fb2424` |
 |  `latest`     | March 11th   | `sha256:34cbd344f1f737053c4fbea4bb129587559a912fd908646495edf1c162a29d99` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.9.1-dev` `latest-dev` `1.9-dev` | March 12th    | `sha256:b945926db938add1a2bb099b0350f27560369a103028da4c2853c95ceede1e1c` |
+|  `1.9-dev` `1-dev` `1.9.1-dev` `latest-dev` | March 13th    | `sha256:e7e1484965052464557bf2d16aa310efd2e21d0b38d849be22ae2b58acde17ff` |
 |  `1` `1.9` `latest` `1.9.1`                 | March 10th    | `sha256:fa1d389cd41d01d4cbf93f4addd804232fb4e609e2e4beeacc55003eceeb2105` |
 |  `1.9.0-dev`                                | March 2nd     | `sha256:28ec22ba762f7d05766d99dfdb4a43aefd847f21b2b66e1db298fbb356420f7c` |
 |  `1.9.0`                                    | February 26th | `sha256:c4845ac25c1203bcc1a13caa91b838f426c970528740f7628eaf931288a500a1` |

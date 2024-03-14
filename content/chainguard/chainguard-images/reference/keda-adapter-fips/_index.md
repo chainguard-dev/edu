@@ -4,8 +4,8 @@ linktitle: "keda-adapter-fips"
 type: "article"
 layout: "single"
 description: "Overview: keda-adapter-fips Chainguard Image"
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,7 +26,7 @@ toc: true
 
 
 <!--overview:start-->
-Minimal image with the Keda binary. **EXPERIMENTAL**
+Minimal image with the Keda binary.
 <!--overview:end-->
 
 <!--getting:start-->

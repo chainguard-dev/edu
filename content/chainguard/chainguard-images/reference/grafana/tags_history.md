@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:38e72d3e4ba1e4c8baa0b9d5321b49491df234dc15f9fdbe1c3818c29738f87a` |
+|  `latest-dev` | March 13th   | `sha256:d9323ff6af3814dce3538f06a0d7900b372d9464c78f79077e39180b3f8a25c5` |
 |  `latest`     | March 12th   | `sha256:1a0ced3dd66d4e6bb26025e690d345f3b423f3e6e5c9ecc9501d613b0c813de1` |
 
 
@@ -37,14 +37,14 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed  | Digest                                                                    |
 |------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `10.4-dev` `latest-dev` `10.4.0-dev` `10-dev` | March 12th    | `sha256:325be895777649688db9026b8ca30af4a374a68ebcbc932cfde3da65ad0899cb` |
+|  `latest-dev` `10.4-dev` `10.4.0-dev` `10-dev` | March 13th    | `sha256:4b2e677efc3e360462bb90500bc571418224002531273b7ce26b1900456f852e` |
+|  `10.2-dev` `10.2.5-dev`                       | March 13th    | `sha256:4b9664a7a603d25e5ebaab13edec22d890b5fa8be3d0b1bf09e2405226af7fa0` |
+|  `9-dev` `9.5-dev` `9.5.16-dev`                | March 13th    | `sha256:1c345f077cd24fd7e46fed33cefa08d4f350b409eea950ac048cdbd51cdf90b8` |
+|  `10.1-dev` `10.1.7-dev`                       | March 13th    | `sha256:337653f93a35fcdcc61a06f42c16fc6c9080c064fd0ecc8223a4d1e6ac4d6191` |
 |  `10.1.7` `10.1`                               | March 12th    | `sha256:18c90645b21b39784051bb516285feb026caa29fd0692769029b8f4a8369b5d2` |
 |  `10.4.0` `latest` `10` `10.4`                 | March 12th    | `sha256:6ad8eebf30864569a426c4a440976de2c1d87a8503c9ad604ad5020a3ea29e73` |
-|  `9.5-dev` `9-dev` `9.5.16-dev`                | March 12th    | `sha256:17777dc0c98beb7c7b483909f92d4d6ccfb8bc98c6358c670a83feda51fe3b44` |
-|  `10.2.5-dev` `10.2-dev`                       | March 12th    | `sha256:e25741467bc4502ce0e6f80b221339804aa225251d97f237505a38c34b68a31f` |
 |  `10.2.5` `10.2`                               | March 12th    | `sha256:64f0b538c21306606b4ba7ffedcb074045611e7336bc52d8291f4f54b9334d1d` |
 |  `9.5` `9.5.16` `9`                            | March 12th    | `sha256:5cfd3aec6e6c79543dcd134305741b20672ae37adf1149a56b8bb0490c1e3333` |
-|  `10.1-dev` `10.1.7-dev`                       | March 12th    | `sha256:a7183a5647658a325d06499426584403b932c3e8be2b540e59b7ff0afc3b53ad` |
 |  `10.3.3` `10.3`                               | March 6th     | `sha256:8183f0f899bd32ec27b4f4a9fc32e52e9d31b50d367c990ebd3c27dd355bafc7` |
 |  `10.3-dev` `10.3.3-dev`                       | March 6th     | `sha256:b523ac6e1f67daed0a315f72129213bb44ca146b94c157df3d97a3878659154d` |
 |  `10.1.6-dev`                                  | February 15th | `sha256:178fbe7d0bff02fdf3165d6cb407441566c9bdc195dac86db39cfb94017e4168` |

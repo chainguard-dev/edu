@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:e00519325da5a7ff97f085003f7025a13000d862f52609eeb1ca36bc3c9756be` |
-|  `latest`     | March 8th    | `sha256:21a834ff706213cd90b95ed97d461865a49795f03a710eb60aae2e899860d599` |
+|  `latest`     | March 13th   | `sha256:6de305cab7b38a9d2bc68ada3222e020986e2991c7a2b325257261c791f6a3ae` |
+|  `latest-dev` | March 13th   | `sha256:b654696a5e243dc21494f8c4557e735a8ae174c77f0a84b4d5ba8051b3a7e6dd` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `3-dev` `3.7-dev` `latest-dev` `3.7.0-dev` | March 12th    | `sha256:2be5bc2c36c846c56b4513a0070e6887975bae40860bf5aa44e281fdc4b53ffa` |
-|  `latest` `3.7.0` `3.7` `3`                 | March 8th     | `sha256:328074059e90f4dd2e3b74acfbd3a85859544b4b8fbda8f38c7a991fa5929dd9` |
+|  `3.7` `3` `3.7.0` `latest`                 | March 13th    | `sha256:584ad16b626301a14ee8b6f1dc01f685e97c85f846d6b258b1cd40455d345fe5` |
+|  `3.7.0-dev` `latest-dev` `3-dev` `3.7-dev` | March 13th    | `sha256:c182287d0f3f9d6bd23d442b94939f647fb2bd12f54b0b1bb92f32995219d3cb` |
 |  `3.6.1-dev` `3.6-dev`                      | February 24th | `sha256:66a65ce202813bdc0ed214e11873bed5fa90aa0d2fc860ed350e7720472ec5a6` |
 |  `3.6.1` `3.6`                              | February 23rd | `sha256:3544322c7b1fbe3b6f4810f1bbc3f839d42471fb949b5390c2d5e43c4a675ed5` |
 

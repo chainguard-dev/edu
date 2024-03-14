@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-device-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:477c865fc566a58563ddcd72a0cec26ad0c5279e1c04118a886fc5ed53e6b2e3` |
+|  `latest-dev` | March 13th   | `sha256:deb4056b2a0747e1230d47e24fe96f35f44a91eace6302b6ec0e917f2d25a07b` |
 |  `latest`     | March 8th    | `sha256:7bd345ba64468dd9f1655252b74a3626bf52bbd676a2c57e91378c2da6b024c1` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.14.5-dev` `0.14-dev` `0-dev` `latest-dev` | March 12th    | `sha256:4bdf8582d61cf8edd5f4d760afcfc0029be0f2de5d936943d911d911baf6300e` |
+|  `latest-dev` `0.14.5-dev` `0.14-dev` `0-dev` | March 13th    | `sha256:6a94cc6f4877569eea4582f080b0e599c11e173437df3f22fc5c3c9478e6b6eb` |
 |  `0.14` `0` `latest` `0.14.5`                 | March 8th     | `sha256:5f9dd390d636a11d0c52dca06264b1f475f7e55857efc20f0cc3ded4e0380f73` |
 |  `0.14.4-dev`                                 | March 1st     | `sha256:63064736a788bb2f7c81d9403a7fb0297693ff6503b238e597b9ade5aeb5f4f0` |
 |  `0.14.4`                                     | February 26th | `sha256:33bd1d35080a37796a76fe86f67d879b1423f1d874d16c9bb23c86c2f1b6a4ff` |
