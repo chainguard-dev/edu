@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshotter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed  | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `6.3-dev` `6-dev` `6.3.0-r1-eks-1-23-33-dev` `6-eks-1-23-33-dev` `6.3.0-dev` `6.3.0-eks-1-23-33-dev` `6.3-eks-1-23-33-dev` `latest-dev` | March 12th    | `sha256:8f034e323c8f2c3acd8a7115cf24ba7bc6e9347cef2dae37a30763c2c2e313b6` |
+|  `6.3.0-r1-eks-1-23-33-dev` `6.3-eks-1-23-33-dev` `latest-dev` `6-eks-1-23-33-dev` `6.3-dev` `6.3.0-eks-1-23-33-dev` `6.3.0-dev` `6-dev` | March 13th    | `sha256:ee8b78b56184ca1bc8b0e397f2d718d5de5c6acdd54c2c1a21a95fad5d958701` |
 |  `6.3` `6.3.0-r1-eks-1-23-33` `6` `latest` `6.3.0` `6.3.0-eks-1-23-33` `6-eks-1-23-33` `6.3-eks-1-23-33`                                 | March 8th     | `sha256:41f02fa4478688ed496b7e2f5400ac8248cd4c8c97bf606b580ba8619e8a854f` |
 |  `6.3.0-r0-eks-1-23-33-dev`                                                                                                              | March 2nd     | `sha256:50a388a27f74ce0fa990edfec5ed1ca0d68c048ed53e3ee34368dc5628a2673b` |
 |  `6.3.0-r0-eks-1-23-33`                                                                                                                  | February 29th | `sha256:871bec9d2b91c0fa4cee1d55db6c15baaa549b18b078ed577651cf14da14d860` |

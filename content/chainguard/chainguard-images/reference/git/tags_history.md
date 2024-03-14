@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the git Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,14 +28,14 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                  | Last Changed | Digest                                                                    |
 |--------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev`            | March 12th   | `sha256:ed73d783d7a9b73366bc8aa3c51658d8777c6cab6effd0449db08db1710fc099` |
-|  `latest`                | March 12th   | `sha256:cc77e3b25dd5f3a89038fa4df0c4ca1a9078de97a3e52454c165cec71d7d3851` |
-|  `latest-root-dev`       | March 12th   | `sha256:1d03320c253316618eb5e1e81da0a23b64ea457484add4f596b75b1d2859da93` |
-|  `latest-root`           | March 12th   | `sha256:0ede305c49c0cd0ded1885bdac0a1645d5ee5990fc210a8258009e9f19585c6e` |
-|  `latest-glibc-dev`      | March 12th   | `sha256:3ebc1e6885b48259648c80bbf2759db39e29dcbf73063c99375305947366bfa2` |
-|  `latest-glibc-root-dev` | March 12th   | `sha256:81561c1ebd4a52c18f3becfb7cb57db1facfbe0dbfb923a0563afbb5f2a76e2d` |
-|  `latest-glibc-root`     | March 8th    | `sha256:71c0b48a016a86079670f71f3aa852aee0c559c9255403c1318473327c8ad94f` |
-|  `latest-glibc`          | March 8th    | `sha256:110121630cf73870ab6f2b7577a3d9d31dfc849755682084d275a330359233d9` |
+|  `latest-glibc-root-dev` | March 13th   | `sha256:2db3742eca08e7e6fd0214a8f238014f52249f9f9c9da1db1acca7d093a08114` |
+|  `latest-glibc`          | March 13th   | `sha256:da3e03fa45e57c7c3e023fa5b9600ca929f82c7db03f7e32b28e3474ddc1cb0e` |
+|  `latest-glibc-dev`      | March 13th   | `sha256:ae9397fed8f1be69beb36a134fb21f8eff8f7de24e956693b083fead954636e9` |
+|  `latest-glibc-root`     | March 13th   | `sha256:0ee73fe87419e940db4aad9c47344204e5fc76b13c7964ad48da7ee88f6db193` |
+|  `latest`                | March 13th   | `sha256:d74dbe0e13009004369e7e48ba80a4d27ec1644d834029a98e0a6ae0c7eb4ca4` |
+|  `latest-root-dev`       | March 13th   | `sha256:2949b436956ba4d2673d775872875ff8a9199cc62a541088bf4f11e24056d6f5` |
+|  `latest-dev`            | March 13th   | `sha256:c4d0c7f7ccc1fca44583f2c5d9cfa4372050a07102697f8e3475683e6c1cae02` |
+|  `latest-root`           | March 13th   | `sha256:39ecb6352f0da46c85c51d6159d0e66375de289b654d203bfe66e2076fbf78a7` |
 
 
 ### Private/Dedicated Registry
@@ -43,16 +43,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                   | Last Changed  | Digest                                                                    |
 |-------------------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `glibc-root-2.44-dev` `glibc-root-2.44.0-dev` `latest-glibc-root-dev` `glibc-root-2-dev` | March 12th    | `sha256:f219f5aa5a6fd16243f596da90efa2714a8b1d2234d0724000d1824a7d1f4850` |
-|  `glibc-2.44.0-dev` `latest-glibc-dev` `glibc-2-dev` `glibc-2.44-dev`                     | March 12th    | `sha256:90d5f4436524c4b188f53185c66710d0dd98c7544060a1c7112478472a7d9b48` |
-|  `glibc-2` `glibc-2.44` `latest-glibc` `glibc-2.44.0`                                     | March 8th     | `sha256:c3852310b5545b3ea403a681f5129bf968334d4668ad7948fe067edb24c55539` |
-|  `glibc-root-2` `glibc-root-2.44` `glibc-root-2.44.0` `latest-glibc-root`                 | March 8th     | `sha256:50ef405a175baaa14ead1cf0a6b4a547311f1b3358b2c0eb9de3218b83bb06df` |
+|  `glibc-root-2.44.0-dev` `glibc-root-2-dev` `latest-glibc-root-dev` `glibc-root-2.44-dev` | March 13th    | `sha256:e5f5f60aa64ea485f46b95d14b03a6687357e7c75334e31c466c5ca9b697cbf4` |
+|  `latest-glibc-dev` `glibc-2.44-dev` `glibc-2-dev` `glibc-2.44.0-dev`                     | March 13th    | `sha256:a5fae7853da57f26a53680bcfef25bd2a0eb6e128b123be42d3a28698236543e` |
+|  `latest-glibc-root` `glibc-root-2.44.0` `glibc-root-2` `glibc-root-2.44`                 | March 13th    | `sha256:c22719f960e706d4935c51568adbf969adadc295cc0d1bffe1cdd9d4c618ae88` |
+|  `glibc-2` `glibc-2.44` `latest-glibc` `glibc-2.44.0`                                     | March 13th    | `sha256:d37e7026b2d35fecb5eb270907ae946a1b8f6297babeba12843ecc7fec36ff30` |
 |  `glibc-2.43` `glibc-2.43.2`                                                              | February 22nd | `sha256:d3faa9aada431456a32f757b528c236b155777ff345ce01d15d5f0c424cf43bc` |
 |  `glibc-2.43.2-dev` `glibc-2.43-dev`                                                      | February 22nd | `sha256:83620a49e96e024aa0f58042a5cee8bfba67d41c91d73b61c17ae2c0f6ec8392` |
 |  `glibc-root-2.43.2` `glibc-root-2.43`                                                    | February 22nd | `sha256:1cf940d7ecc5ec0ac4bf8d000aefc4be4244f0ec8f68a11acab20fe0f5c0c5d7` |
 |  `glibc-root-2.43.2-dev` `glibc-root-2.43-dev`                                            | February 22nd | `sha256:14e46233504bdb7d69370eace59e67db5da0bc05e7db079c7f96fbae1c7ec99a` |
-|  `glibc-root-2.43.1`                                                                      | February 13th | `sha256:616d39550a72b688faab97f15b50cd872ba97df9837697b27d82990c3bceae40` |
-|  `glibc-2.43.1`                                                                           | February 13th | `sha256:c92fde81357abd19dba374d686cd5c8b56428874e586f5ab9fd8e3ce2f183fad` |
-|  `glibc-2.43.1-dev`                                                                       | February 13th | `sha256:a504b308e6f6a949b9f40eb907a9c5e376c0d397c2ea26d94791adff9924982e` |
-|  `glibc-root-2.43.1-dev`                                                                  | February 13th | `sha256:d0b1ff22ad38649eab38818d0008092aa8cbb14c2ce0d4874445ba3636282651` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the elasticsearch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,5 +33,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)               | Last Changed | Digest                                                                    |
 |-----------------------|--------------|---------------------------------------------------------------------------|
-|  `7` `7.17.18` `7.17` | March 8th    | `sha256:be8810aa450b817eeab6ca09fcb43e2dba4323b439febd76ba06ae9529a0b77c` |
+|  `7.17` `7` `7.17.18` | March 13th   | `sha256:742392c842837ec4584a80107871c5db73a28a5c74d0a8d3b4c61bc79246f1ee` |
 

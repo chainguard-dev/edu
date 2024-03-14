@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:a23d62f06f2728f68f4e9a52f58e64580507ea43b0a630cfb4c73e323f85dcf9` |
+|  `latest-dev` | March 13th   | `sha256:2b41e440799454c292b3f36d08ca7012014208fc89994623917e6d13ba3585ad` |
 |  `latest`     | March 11th   | `sha256:bb599a0a4c250f9901a3281ee67902eb6f9bf20c28ee495fb8b9d803a3969d7f` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.20.3-dev` `1.20-dev` | March 12th   | `sha256:e4c1b4787edeb21dbbb52eb7371b1fac2e9fdd0ea7d9f7930d13ec1d99e07dc2` |
-|  `1.19.7-dev` `1.19-dev`                      | March 12th   | `sha256:c42113fb5436a876965c33a6664dcc3a1d10ccb648d82916d53a5ffbfbb90820` |
+|  `1.20-dev` `1-dev` `latest-dev` `1.20.3-dev` | March 13th   | `sha256:b12fbc117c0c0a16d78c0ba816ad8f8a4edc41cbceb755a6cdbfe691aa7e768f` |
+|  `1.19-dev` `1.19.7-dev`                      | March 13th   | `sha256:4d553ffd6451c23e3417189ceb44e50513288ba8b056da3c39839cdc5a8c88ef` |
 |  `1.20` `latest` `1.20.3` `1`                 | March 11th   | `sha256:035f9827b0658c81c1296a44aafad09d2ff3e17c483a251b74fafa5814bb081d` |
 |  `1.19.7` `1.19`                              | March 8th    | `sha256:50c7bd92381e83d71211241854ea4430f3fb45be6cd4c7051121b7f86f4196bb` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-sidecarlogresults Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:e2840d641f45dc1571844055afd5e745e15a2284eedcd1c0c9efc8253025e170` |
+|  `latest-dev` | March 13th   | `sha256:0e79a74c2023bd1975cf9333b56b0d8edc6461377e34e7cd86b188124768891b` |
 |  `latest`     | March 9th    | `sha256:6839bdf87958b600762c82303be9685ea8a21bb754cb58c3799188ab8c5c0e3c` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.57.0-dev` `latest-dev` `0.57-dev` `0-dev` | March 12th   | `sha256:8ec10f5efd34b4c28fc8a50dc018a5c363e92d9ce9dd02dbdf80a7662fd6735c` |
+|  `0-dev` `latest-dev` `0.57.0-dev` `0.57-dev` | March 13th   | `sha256:b0dd6a201dc330e5a3775adc8e296fccf2066ff780833790edb6fdfc8fbace05` |
 |  `0` `0.57.0` `0.57` `latest`                 | March 8th    | `sha256:64334f612267a0472c5f848aa146ed5ebb26e97a36a849a8dd0b3ba18924f135` |
 |  `0.56-dev` `0.56.0-dev`                      | March 8th    | `sha256:7a2b8cd22f4a604c81cd31bffcabe7b98198347560eba8528b6371abc1cc48d6` |
 |  `0.56` `0.56.0`                              | March 8th    | `sha256:696b97ee88819d77f4d23cc103d9e931d766b3c3771f47a1bbc08378f611f306` |

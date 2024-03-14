@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:057a620f0290ca8174cd66c44abed6ad190b0bac8d1b35c4e4f577b1ab4fc792` |
+|  `latest-dev` | March 13th   | `sha256:d09ea6503f56ac13fdffaf6dd81c6e68e9d20bad055bd0421d0fa7a2384886f8` |
 |  `latest`     | March 11th   | `sha256:efef5267de93075568241c095539a276ab14824393b701407a90e5ba313f0bcc` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed  | Digest                                                                    |
 |------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `4.11.10-dev` `latest-dev` `4.11-dev` `4-dev` | March 12th    | `sha256:7fc8d0e7ce05419b92fde7512e4e22bb115736745ae3fe6803080f21c3d5dad9` |
+|  `4-dev` `4.11-dev` `4.11.10-dev` `latest-dev` | March 13th    | `sha256:5871df2b59535ce77ff53d6c1100cbcb332aa6379de1959d3e5e9e2304bdcbd6` |
 |  `latest` `4` `4.11.10` `4.11`                 | March 11th    | `sha256:031d73ddae58ac6db7255db3af535c828251785ac6fea96f59ff01b5b4ab75c8` |
 |  `4.11.9-dev`                                  | March 10th    | `sha256:04d56ec09c54ffdaac70c1bb1659306cb3c73558a578a9424e2534f59f214547` |
 |  `4.11.9`                                      | March 8th     | `sha256:8a6e9f74e5b3a223dcb927232dcfd24ff4c546c09bd9cd5e7b9349d39d32c44d` |

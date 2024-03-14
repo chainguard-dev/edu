@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mongodb-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,9 +33,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed  | Digest                                                                    |
 |---------------------------------|---------------|---------------------------------------------------------------------------|
-|  `6.0.14-dev` `6-dev` `6.0-dev` | March 12th    | `sha256:88ff9f20a7165c80d63ac10058a498c65d29c536598e851655bd7bd81c60129b` |
-|  `5.0-dev` `5.0.25-dev` `5-dev` | March 12th    | `sha256:65698cb6fa1e78d8d3fc77854a75e65925c9ac4dd96d48593fefd9e9fda123f2` |
-|  `4.4.29-dev` `4.4-dev` `4-dev` | March 12th    | `sha256:65caf20bf54c76a4e6084cfbe05758a8131e09a4380bc11b60eeeb38ba89c569` |
+|  `5.0.25-dev` `5-dev` `5.0-dev` | March 13th    | `sha256:fa52ef02cd754ebc7137880c1c50d6f5b97eddbac4d9b13fd8a42b7d83ca6f89` |
+|  `6-dev` `6.0-dev` `6.0.14-dev` | March 13th    | `sha256:58e6951c03f30e277410fafc9c83631d242b6feea83314a0c2915253791ac09c` |
+|  `4.4-dev` `4-dev` `4.4.29-dev` | March 13th    | `sha256:64a17b443840e6b8315098b62a680835ed4636746cccca03afbd45c3c02143c1` |
 |  `5` `5.0` `5.0.25`             | March 9th     | `sha256:713af8a6c6bddb58cc7ab5c2e71b47263b5b7e2bfe38da4a0200e773d92fc69b` |
 |  `6.0` `6.0.14` `6`             | March 9th     | `sha256:c014feb90c48442d7cfc1c614a6c0deb9acf0180074931994422ac45db9321dc` |
 |  `4` `4.4.29` `4.4`             | March 8th     | `sha256:10a9d0773588ffa5df5e81508e0b367a477ad97bfd5cffeadca3a842e0e6ddc9` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-ui-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 13th   | `sha256:7b2643727285633eeff55b2cb89080d6feef5d5683ee212297f8165e556b6285` |
 |  `latest`     | March 12th   | `sha256:336d87224e98c8adbcb0955637bbb88275e98abf8fc785256ea01140bbad5a21` |
-|  `latest-dev` | March 12th   | `sha256:3aae5d194e0e00d83737c420548aba7aedb2df884b97807c6144a2189b3b5e3e` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.25-dev` `2-dev` `2.25.0-dev` | March 12th    | `sha256:9e73c75947b0733e326292de0850799031bb498cf6530ffff5f1d3b7d2e77ee5` |
+|  `2-dev` `2.25-dev` `2.25.0-dev` `latest-dev` | March 13th    | `sha256:fd336b16ea2f2580b62bb1f5869f4e511a34cbee2456319977a721eea0cfc6ec` |
 |  `2.25` `2` `latest` `2.25.0`                 | March 12th    | `sha256:fe2b80bbb958d9a8c0a190872ff7c007ceec86cf89547f91388d5269661f2da6` |
 |  `2.24.0-dev` `2.24-dev`                      | March 12th    | `sha256:c6e0fba06aaf8d9ae90c08df9808b61c154455b18b9a8e7b35e99b9d2124ba1c` |
 |  `2.24` `2.24.0`                              | March 8th     | `sha256:22cdaea08ec14c16ddc7ced8b5b94c13ab752c34967d9735a056045e4d0ccab4` |

@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: helm-chartmuseum Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,7 +26,7 @@ toc: true
 
 
 <!--overview:start-->
-Minimal image with [chartmuseum](https://github.com/helm/chartmuseum) binary. **EXPERIMENTAL**
+Minimal image with [chartmuseum](https://github.com/helm/chartmuseum) binary.
 <!--overview:end-->
 
 <!--getting:start-->

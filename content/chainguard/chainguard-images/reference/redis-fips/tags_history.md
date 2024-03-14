@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.2.14-dev` `6.2-dev` `6-dev`             | March 12th   | `sha256:36cc794e25dac8378a090fa96ca99af72bf636b52894d503e0405a028886d8fe` |
-|  `7-dev` `latest-dev` `7.2-dev` `7.2.4-dev` | March 12th   | `sha256:a57afa91e0a3d44eeea06e8f950668d2f0bf78f07a1395e504f1d09461942661` |
-|  `7.0.15-dev` `7.0-dev`                     | March 12th   | `sha256:8218bfe4ca44451ee32e7170083e29b02890a41a6b843e0e57307f05dbd7e35a` |
+|  `7.0.15-dev` `7.0-dev`                     | March 13th   | `sha256:50461a0a93803887d0042412ce0886a17c3a05bd6c46e667068dbe443b7f3396` |
+|  `7-dev` `7.2-dev` `latest-dev` `7.2.4-dev` | March 13th   | `sha256:6e4c2e9770503fdf43d7d1f0164183bf5430f8e20ee53ee4d4089624e0142ea0` |
+|  `6.2-dev` `6-dev` `6.2.14-dev`             | March 13th   | `sha256:567763b0d3943aa79d946ae50182153294cbda706e624f3e3c4f728d3f5a5612` |
+|  `7` `latest` `7.2.4` `7.2`                 | March 13th   | `sha256:8691427aba1758455880205a6c46ee2fbee4157254dda5e10f1a1a3bb44eb26d` |
 |  `7.0.15` `7.0`                             | March 8th    | `sha256:925984075b5bdd82c1d18f89c2671a8a3cbe95c8cb1cb374593036b3928a3bcc` |
 |  `6.2.14` `6` `6.2`                         | March 8th    | `sha256:9894735ff37028509093570c39a6c4a46d35ad9150ef2a541500bbe321c3b052` |
-|  `7.2` `latest` `7.2.4` `7`                 | March 8th    | `sha256:90d753e0afc1e3143f9f646a70d1e1101a3b00b215ff02ab0ba9b816117615fe` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:bf43bd5dda177f3f0302db564c1b1b2335ab93ba9e25c527728c48dd5d754a0f` |
+|  `latest-dev` | March 13th   | `sha256:acab7048cf9ce2d2024fb18de9a7456443716e12b65f4b4c35bc69600ed443d1` |
 |  `latest`     | March 6th    | `sha256:dbee85deac6f5f07ff86bd9b79b1db10c4ba73e52f51dff547773397bfe75e6b` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.10.1-dev` `0.10-dev`                      | March 12th   | `sha256:862b5b298c80aa93e3c0ce6b0456b8d92881495cc3c675991e575b1836cfce51` |
-|  `0.11.2-dev` `latest-dev` `0.11-dev` `0-dev` | March 12th   | `sha256:1ed92675ccd56ba22df39f29320702806f41117b53de599e5a56db04a186db7b` |
+|  `latest-dev` `0.11-dev` `0-dev` `0.11.2-dev` | March 13th   | `sha256:4c832fd8fae46f56d866d52197f64d5c30449b0d61de81f5bcbdfd6cd352443a` |
+|  `0.10.1-dev` `0.10-dev`                      | March 13th   | `sha256:463a3232b793f5fd88a86587681ecae81281df765842699a1881b0e69d1ea136` |
 |  `0.11` `0.11.2` `0` `latest`                 | March 8th    | `sha256:f238363ee4eed12d9b4786e06760048d0eccf8b5bf94282e3bee294267e9ed9d` |
 |  `0.10` `0.10.1`                              | March 8th    | `sha256:a9257d3dc953785fcc50fed2c29fbae57bd869ca999d05faf8f495558e10692b` |
 

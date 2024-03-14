@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: rust Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,7 +26,7 @@ toc: true
 
 
 <!--overview:start-->
-Minimal Wolfi-based Rust image for building Rust applications. **EXPERIMENTAL**.
+Minimal Wolfi-based Rust image for building Rust applications.
 <!--overview:end-->
 
 <!--getting:start-->

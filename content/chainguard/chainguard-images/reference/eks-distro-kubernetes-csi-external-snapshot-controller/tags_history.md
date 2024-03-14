@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed  | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `6.3-eks-1-23-33-dev` `6.3-dev` `6-eks-1-23-33-dev` `6-dev` `6.3.0-r1-eks-1-23-33-dev` `latest-dev` `6.3.0-eks-1-23-33-dev` `6.3.0-dev` | March 12th    | `sha256:a99712af65b857a90a69fc38924976daa81ab18661ca2ab55a682299eca48de9` |
+|  `6.3.0-r1-eks-1-23-33-dev` `6.3.0-dev` `6.3-dev` `latest-dev` `6.3.0-eks-1-23-33-dev` `6.3-eks-1-23-33-dev` `6-eks-1-23-33-dev` `6-dev` | March 13th    | `sha256:66098e9318a41d358b581aa56d954394f4afd751d7fc2bd47b3fa42df76183a9` |
 |  `6.3.0-r1-eks-1-23-33` `6.3-eks-1-23-33` `6.3` `6.3.0` `6-eks-1-23-33` `6.3.0-eks-1-23-33` `latest` `6`                                 | March 8th     | `sha256:e87ac2b573e2d37c64fc88a18a9358b9f5323560fadae5f1ac71c9f8af6a0186` |
 |  `6.3.0-r0-eks-1-23-33-dev`                                                                                                              | March 2nd     | `sha256:35060823fd03a6361408b448ee1e7d618748c58521d0c4664f575a273cd12184` |
 |  `6.3.0-r0-eks-1-23-33`                                                                                                                  | February 29th | `sha256:697841fa4da56f741fd5b444654737632ba388683c1b992fe76915b928a2f3e9` |

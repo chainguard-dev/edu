@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the go-ipfs-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.27-dev` `0.27.0-dev` | March 12th   | `sha256:2b92e2600361b5af671961fab8f9cbdfcbacc6403128140f2694ca724dc46daf` |
+|  `0-dev` `0.27.0-dev` `0.27-dev` `latest-dev` | March 13th   | `sha256:f6b7715646088edd1a3c1f802d21947724fdd3d33ed7af1f30b98331b4563c47` |
 |  `0.27` `latest` `0` `0.27.0`                 | March 8th    | `sha256:716f96d0b5dd53dac9f76f56a011b973e72dbe96e1cad87342cab2390af9108e` |
 

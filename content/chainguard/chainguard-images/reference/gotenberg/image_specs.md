@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public gotenberg Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-14 00:37:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -53,6 +53,7 @@ The table shows package distribution across variants.
 | `cairo`                    | X          | X      |
 | `chainguard-baselayout`    | X          | X      |
 | `chromium`                 | X          | X      |
+| `coreutils`                | X          | X      |
 | `culmus`                   | X          | X      |
 | `cups-libs`                | X          | X      |
 | `dbus-libs`                | X          | X      |
@@ -101,9 +102,11 @@ The table shows package distribution across variants.
 | `harfbuzz`                 | X          | X      |
 | `lcms2`                    | X          | X      |
 | `ld-linux`                 | X          | X      |
+| `libacl1`                  | X          | X      |
 | `libassuan`                | X          | X      |
 | `libatk-1.0`               | X          | X      |
 | `libatk-bridge-2.0`        | X          | X      |
+| `libattr1`                 | X          | X      |
 | `libblkid`                 | X          | X      |
 | `libbrotlicommon1`         | X          | X      |
 | `libbrotlidec1`            | X          | X      |
