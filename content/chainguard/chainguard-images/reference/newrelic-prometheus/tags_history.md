@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:5dc993a324c5b3dd7617bed75a7bf54d7b762e40d1bae9a3a0b132fecf3f6466` |
-|  `latest`     | March 8th    | `sha256:448b5121ae0e844f265f22d1edfbb0eb1e50a87000ac980e97a82e294e92b672` |
+|  `latest-dev` | March 14th   | `sha256:533f7568cc816cdfbfed87797b1a1bcd0c2e0f312e9d12875a3617a82735e577` |
+|  `latest`     | March 14th   | `sha256:f995d079b4c62fb56fe15a2a210338077ceeee371934d8435891cd83b8b6deb9` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.21.0-dev` `2.21-dev` `2-dev` | March 13th    | `sha256:fed967c55e720bf8c641c9fdf3de1dcb7124e8336ed69b1df1f0031d2d60eede` |
-|  `latest` `2` `2.21` `2.21.0`                 | March 8th     | `sha256:dc9b9da6609bdd9e9081f6b5d83ec55a582202298397a3929f8371577535bf52` |
+|  `latest` `2` `2.21.0` `2.21`                 | March 14th    | `sha256:7deb50211e4f6935eb2ee6c562d72603a124f8fb3b11a5b7b70901e79c436f8a` |
+|  `latest-dev` `2.21.0-dev` `2.21-dev` `2-dev` | March 14th    | `sha256:caf1bfb57121996d7e722b988493de9e25c1709e195cfd802af21df5cc85fb22` |
 |  `2.20-dev` `2.20.1-dev`                      | February 22nd | `sha256:b758fa5cbdadb17048a5537afac2e27b988fb856773793b971b6a08f472b6ab5` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gradle Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 13th   | `sha256:704d47711943d8861b5b68367b6482e6297be5589395a9f9f607dc44aef59b98` |
+|  `latest` | March 14th   | `sha256:dbae201599b88685746811d3eb257865967838d4e97f9eed7080bb2bd284bd8e` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `8.6.0-dev` `8.6-dev` `8-dev` | March 13th   | `sha256:61aef2daf4ba07084e712bd0f12f79aafb961a92f6d975d6aa5014e5115ea7aa` |
-|  `8.6` `latest` `8.6.0` `8`                 | March 13th   | `sha256:deb60af158861d4a6fbecf97f00eff5bfc56a4ae27614d2c1e7042d165aaf0a7` |
+|  `8.6.0` `8` `8.6` `latest`                 | March 14th   | `sha256:981639eef24668405cd3e3ee07fb1deb9deee13299c5f5f4084292af08a4b851` |
+|  `latest-dev` `8-dev` `8.6-dev` `8.6.0-dev` | March 14th   | `sha256:d54dd1ed663fc527d41e7dfd77fc146075acb4d78fb8bb8583028de3d51aa757` |
 

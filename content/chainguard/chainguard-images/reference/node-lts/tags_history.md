@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:954b391d151b2c9a68cf37c40eda63614c9ddfb1ff0df6d821c460b3a95276ce` |
-|  `latest`     | March 8th    | `sha256:f4d7bcb7eef23f940cad0cd1807b84eea311d57fa8ea87f1f1acb71f8a5c4184` |
+|  `latest-dev` | March 14th   | `sha256:4e07d57e960334a8b1f6a69588262596d1fea67c80574224c499be3c8e3d0c19` |
+|  `latest`     | March 14th   | `sha256:b0b73bad53a81252f6eb26161863acdb1232d67ecc55641d5232e2f269a0e74a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `20-dev` `latest-dev` `20.11-dev` `20.11.1-dev` | March 13th   | `sha256:6ddbac4e5a146468d71f154d09d0be9ae90e853b5819f999a4609a17e2b254d2` |
-|  `20` `latest` `20.11.1` `20.11`                 | March 8th    | `sha256:ffe21c13cd15565557d117eb57e77ad0bc241dc9539fe329d900fefa7b4a43e2` |
+|  `20-dev` `20.11.1-dev` `20.11-dev` `latest-dev` | March 14th   | `sha256:b64a919b12b0dca3be6a82226128504b9af1d4f02db7df07d04781c425f02bf0` |
+|  `20` `latest` `20.11.1` `20.11`                 | March 14th   | `sha256:b51bdf1cb8526ca116622185092d36c0df31c4eb778b2b8fbe6da7b5504ea72a` |
 

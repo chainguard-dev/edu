@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:2f0d0843b2bff6dc104c46a041c17b7e5f0e623b17b57088450452368b30d575` |
-|  `latest`     | March 13th   | `sha256:212867f9060b3137b0b57ae9c9462459c397886bb1ffe0f6f17515ab69a99e10` |
+|  `latest-dev` | March 14th   | `sha256:caa33b185fd896479a3734cb8e8fef50c97da31aa62e4c92882709d7975f4e3b` |
+|  `latest`     | March 14th   | `sha256:2b5b79fae5c485ee956029b6ac2a90aa95f1de2f1d99f38253a42b1f582f01d8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1-dev` `latest-dev` `0.1.73-dev` `0-dev` | March 13th   | `sha256:97219e6d912d4e28959c469d1f6236ee1e9d8a10ec53490d10e9fbb39c272d11` |
-|  `0` `0.1.73` `latest` `0.1`                 | March 13th   | `sha256:9aff6d29cf6d6f32a42931b0469452066fcb21b18d1711e7692bd3e93ec4ed29` |
+|  `0.1-dev` `0.1.73-dev` `0-dev` `latest-dev` | March 14th   | `sha256:c4be1d76376dc2fe35dea003b2b76b44f9a52d51f6833370e58e6e2aba592b54` |
+|  `0` `latest` `0.1.73` `0.1`                 | March 14th   | `sha256:d5cee9e287f3db9a26f91f676e76412039fc4dcf2df729b7c6d8f8f48e60fad2` |
 

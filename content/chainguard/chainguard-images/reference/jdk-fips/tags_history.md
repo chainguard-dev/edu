@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jdk-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                    | Last Changed | Digest                                                                    |
 |------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `openjdk-11-dev` `openjdk-11.0.22-dev` `openjdk-11.0-dev` | March 14th   | `sha256:df2937a6e513f5d340b2ef5a62aa678826d3ccad35dfd65bd63f32c87fb10d01` |
-|  `openjdk-17.0.10` `openjdk-17.0` `openjdk-17`             | March 14th   | `sha256:e09c432dcda73ec2d8e7de447e79cce26a34300c3cb011ad378b15409e9ae931` |
-|  `openjdk-11` `openjdk-11.0.22` `openjdk-11.0`             | March 14th   | `sha256:121392e3420751d08b062e57369df7363f8e2e9d5aa7ce9755c5d03de922a2b3` |
-|  `openjdk-17.0.10-dev` `openjdk-17.0-dev` `openjdk-17-dev` | March 14th   | `sha256:84b49ba801717ad4e13b57c71ce6aeb3cf744c1f964547ec840bed64544f047d` |
+|  `openjdk-17.0.10-dev` `openjdk-17-dev` `openjdk-17.0-dev` | March 14th   | `sha256:f190299f91cc6891d9d7c827487ca24c13a6c7696cf8112a782b03628148d128` |
+|  `openjdk-17` `openjdk-17.0` `openjdk-17.0.10`             | March 14th   | `sha256:974a1fdecc35347ddba89b2c9f067d59045c2408b440b35fb15f234cbb8cd6d8` |
+|  `openjdk-11.0.22` `openjdk-11.0` `openjdk-11`             | March 14th   | `sha256:e53d0cdbf249add7c05e9743346aa9d48e10f6d8ca03b7783da6ab873243efd5` |
+|  `openjdk-11.0-dev` `openjdk-11-dev` `openjdk-11.0.22-dev` | March 14th   | `sha256:a9bc24ac202594614c20af5b3ab1382b001b019c84df5678aa67080f5b9142b5` |
 

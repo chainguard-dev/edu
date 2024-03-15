@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:485a31d10632de43fc04310263b5774c543bef1705795abe48658475329a9749` |
-|  `latest`     | March 8th    | `sha256:3cb0e38e5ccf85f68fad13df7415b0196fe082ebe0c64244eba05357e10ea8f6` |
+|  `latest`     | March 14th   | `sha256:af045c0533116022ff16ba208e1d65ee0913c98ecbc723b1113b72de69cdd56e` |
+|  `latest-dev` | March 14th   | `sha256:f57274bba32803493a0f0828bbcfb9a71c99b5e676def2385a853be52c310eaf` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.0-dev` `2.0.5-dev` | March 13th   | `sha256:04251c84562d9a873822f7f9b1ff8ba669ec0f10ab255ce3e836705e643ba117` |
-|  `2.0.5` `2.0` `latest` `2`                 | March 8th    | `sha256:6d5ed4fe40e41012324d755910d046f3ae122279f4e7cdd795597bf5eba225b8` |
+|  `2.0.5-dev` `2-dev` `latest-dev` `2.0-dev` | March 14th   | `sha256:f52950ec6f463f0ac273e3f3ad77b058676100fcb4ca9f0f775d1a8d32ebdd8d` |
+|  `2.0` `latest` `2` `2.0.5`                 | March 14th   | `sha256:7d0a3a1d69c91b80fe5c17230e489c010ed3a9c57f124946f82155948d897749` |
 

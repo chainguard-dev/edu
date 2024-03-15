@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rekor-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:6a55d84b4c7d5ebf2d4c839d07de7bb3cb12c01f5c7ea9d4d2760fb31238d230` |
-|  `latest`     | March 9th    | `sha256:02a681ec17d5b9b8ea7070076fd5726abf7c02f6224c1cba8a174a07dd66645c` |
+|  `latest-dev` | March 14th   | `sha256:6c83ac49b8c11efea60f9c8a025a42dac166390d6d34f6441592d5bc040b4d6e` |
+|  `latest`     | March 14th   | `sha256:85fe68c729af265b61a1bf6ef02d46de1a779ee1a18d8658f51ccf91d6781386` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.3-dev` `latest-dev` `1.3.5-dev` | March 13th   | `sha256:9b41b7ca32f9c2bd6cfd60f54012f831a2db0b8f922872c48bedf34d4ff7b72e` |
-|  `1.3` `latest` `1.3.5` `1`                 | March 8th    | `sha256:bb89d5bf9657ed30042887876fba81d8e5d3691239a6328e427aa104e572828d` |
+|  `latest` `1.3.5` `1.3` `1`                 | March 14th   | `sha256:55a93a1251bc390b634c4e77edf07d2def8808adea50251a33b8a490136e2ffe` |
+|  `1.3-dev` `1.3.5-dev` `1-dev` `latest-dev` | March 14th   | `sha256:25caff689f3ea1d59cd2f9da3ff402a40d299f78156732c879bf859f1ad0a6e0` |
 

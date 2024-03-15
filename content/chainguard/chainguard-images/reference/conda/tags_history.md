@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the conda Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 13th   | `sha256:3e1d3bb73a27c27f604d717f2c784f045d40d11a0e02d6cee898378792c552f5` |
-|  `latest-dev` | March 13th   | `sha256:271c1a7955095238d8e5c00ad84f581d91facb41b036af67e6ebbbed19f805ac` |
+|  `latest-dev` | March 14th   | `sha256:a96e368e1ef1e9782b4df99472b1030e53a41d808f68cbc8df4a29c3873624ed` |
+|  `latest`     | March 14th   | `sha256:522597051a4aef4e16e7f63444895a4b21a9cc96ba83231077fb62aad4973caf` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `24` `latest` `24.1.2` `24.1`                 | March 13th   | `sha256:9f24d8254781565b060bc9951dc668e8f3cfe9393a794d880aadff6454a79fb5` |
-|  `latest-dev` `24.1.2-dev` `24-dev` `24.1-dev` | March 13th   | `sha256:cbb677b4293395ea3ecddfde54dfea95e3d47e410a2929b009930a6b92221ccd` |
+|  `latest-dev` `24.1.2-dev` `24-dev` `24.1-dev` | March 14th   | `sha256:024b988d815c4b73b287211553dc1058cafd33c2c6932f89aa938fc2f6238b55` |
+|  `24.1` `latest` `24` `24.1.2`                 | March 14th   | `sha256:f2964710de4884e1e5a9a577c5e724cf63cb29b40ee16b9d8f90458ec956ebdb` |
 
