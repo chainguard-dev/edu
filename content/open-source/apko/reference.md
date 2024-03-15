@@ -178,7 +178,7 @@ include: github.com/chainguard-dev/apko/examples/alpine-base.yaml@main
 This would reference the file `examples/alpine-base.yaml` in the `main` branch of the apko git repository.
 
 At present, the path structure assumes that the git repository lives on a site similar to
-GitHub, GitLab or Gitea. In other words, given an include path like the above, it will
+GitHub, GitLab, or Gitea. In other words, given an include path like the above, it will
 parse as:
 
 ```
