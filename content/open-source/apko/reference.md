@@ -55,13 +55,13 @@ Services are monitored with the [s6 supervisor](https://skarnet.org/software/s6/
 
 ### Examples
 
-#### Example 1: Command entrypoint
+**Example 1: Command entrypoint**
 ```yaml
 entrypoint:
   command: /usr/bin/php81
 ```
 
-#### Example 2: Service entrypoint
+**Example 2: Service entrypoint**
 ```yaml
 entrypoint:
   type: service-bundle
@@ -165,8 +165,7 @@ paths:
 
 ## Includes
 
-Defines a path to a configuration file which should be used as the base config. By default, there is no
-base config used.
+Defines a path to a configuration file which should be used as the base config. By default, there is no base config used.
 
 The path can be either a local file, or a file in a remote git repository, in the same style as Go package names and GitHub Actions.
 
