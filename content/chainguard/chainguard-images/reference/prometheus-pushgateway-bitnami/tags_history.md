@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-pushgateway-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:8bdd4adae9d2267fe3bc7b95653b30a3bf5ccfa823e9f21b6b9942b870e6cfe6` |
-|  `latest`     | March 8th    | `sha256:6ae27514a2eb33a06f1963577eee2c3fd6dd4a327715315fd70723e55dff43d9` |
+|  `latest-dev` | March 14th   | `sha256:1e0da8d94142c8dc7f233b69a5b5ebfd1aea0d4ce48ca4d8b8aee67310b6ef95` |
+|  `latest`     | March 14th   | `sha256:d5bd45e741025d68d5bfa4568c661865ca1b685b2dfbf293a1b886688511d09d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.4.3-dev` `latest-dev` `1.4-dev` | March 13th   | `sha256:a0f233bd743f9301373cd6a2369e8c45d8811dcbf622c33cb41e024d5db1d6b4` |
-|  `1.4` `latest` `1.4.3` `1`                 | March 8th    | `sha256:877f2d4b7beeda6cbd90baa2de4912845132e0efcaa28afa37362c13cd6a9804` |
+|  `1.4` `latest` `1` `1.4.3`                 | March 14th   | `sha256:40eb81d0fe7fcfab512ace28b1056a2adf21ce22ad13bd8a67b66e1386792958` |
+|  `1.4.3-dev` `1-dev` `1.4-dev` `latest-dev` | March 14th   | `sha256:fa914869c58f0a79b1cedbfd66536c850a754851d518429860e2bd0a00d94a20` |
 

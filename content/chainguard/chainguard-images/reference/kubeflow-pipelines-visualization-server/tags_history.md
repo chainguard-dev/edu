@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-visualization-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:578b9b6463eab4e15edb3378a72130f36b69acf7e31a0e45ee3fdd2f19ef8206` |
-|  `latest`     | March 13th   | `sha256:ea0e2bc1489e21e4dd08d83a2f39f6be82424c2ef0952c3b66cbee4b8987f93f` |
+|  `latest-dev` | March 14th   | `sha256:44f9b729f84c6546d07973dc7fb3625f11a2b9e4eafc467c50fb42702c46c718` |
+|  `latest`     | March 14th   | `sha256:dcdf4eed263ead23ad7d2494c7603c7aa08eca633bcab0d45d358831330f15a7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5` `2.0` `2` `latest`                 | March 13th   | `sha256:5dcc5f249abc71fa32cf5986ef2c2806ac9b7c9515e4b7903da6e1835e089ea4` |
-|  `2-dev` `latest-dev` `2.0-dev` `2.0.5-dev` | March 13th   | `sha256:6b9885dcb3f78ffce5a75909701aaa1dd2c36dbebd3a6f11a11e8559165c28a3` |
+|  `latest` `2.0.5` `2.0` `2`                 | March 14th   | `sha256:bb6b7ba03a6b27e38d8d3d65c798e36253f028d19f39084d8eaf9b5e43f1fcb0` |
+|  `2-dev` `2.0.5-dev` `latest-dev` `2.0-dev` | March 14th   | `sha256:11d661b8d5e759330419019444651c4c6ae0be9e7020a4d76d8ccb20765babd4` |
 

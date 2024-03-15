@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-viewer-crd-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:a4312b5d4347ce02f6375f1b7e451730eeb365e45ba90c678e0a10f4813c0b51` |
-|  `latest`     | March 8th    | `sha256:a47004962466c6f95858d0888d3ea9c5b63195d4d2e397a49ae6a862f65b1e9b` |
+|  `latest`     | March 14th   | `sha256:b69af3d965c10b59df40effd054deab27dac269ee3095152677421336cf282f9` |
+|  `latest-dev` | March 14th   | `sha256:be38627f04331a7c172257e1e6580f3d3ebf40a6d630192bcae56267b77f5a72` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.0.5-dev` `2.0-dev` `2-dev` | March 13th   | `sha256:64410ba5e9069a7b6d994dbae281a718ccdbbd38ae83a0c9a2dfd36b9daeddd9` |
-|  `2` `2.0` `2.0.5` `latest`                 | March 8th    | `sha256:9161f65ce0aade32a4b993e8480c29f9b1b8f582f24a02962306f0fd7d3ae15e` |
+|  `2` `2.0.5` `latest` `2.0`                 | March 14th   | `sha256:85db7977ba3c5f3a8ea7670751a7ba6b681d35dbc1fafefb9f8d050617a49a61` |
+|  `2-dev` `latest-dev` `2.0-dev` `2.0.5-dev` | March 14th   | `sha256:76a9d393b0409980eac78165ab8a2a63c8c0d2dbbe0ec43be150b47be1e3bb29` |
 

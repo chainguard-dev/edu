@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8sgpt-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:7c51409a35ba7718a0c86b0f78322e7cbb47741aacb7ede7567793651b972f8e` |
-|  `latest`     | March 8th    | `sha256:416f4f1967ff1edf4f963639a99e86620f52298f14ca4a2027301d0feb342c53` |
+|  `latest`     | March 14th   | `sha256:6b28ba012b24fd6ba4daed215c0a4c8b5159309c7247dd0749804c34e262a8ef` |
+|  `latest-dev` | March 14th   | `sha256:35a79bd52ed3c0f0fa35580ae83a978fb53a1a433849d1174fef1fe59384f792` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1.0-dev` `latest-dev` `0.1-dev` `0-dev` | March 13th   | `sha256:6269104d53956590a16d801225f66fbc38e2ccbada16b21d9e6240aae1c0e532` |
-|  `0.1` `latest` `0.1.0` `0`                 | March 8th    | `sha256:c90a3eeb64074b707554b46b77588711a6eb43ea321e86c252d85d02331accda` |
+|  `0` `0.1.1` `latest` `0.1`                 | March 14th   | `sha256:a1be5e14fa51eb4949556097db67f013fa042fb0d9f34c9465f30d43f8e56f18` |
+|  `0.1.1-dev` `0-dev` `latest-dev` `0.1-dev` | March 14th   | `sha256:b023e65ea4b35fbe5d55b6ed687476080572db9b79ebc3a6f014c284cce7dc2b` |
+|  `0.1.0-dev`                                | March 14th   | `sha256:1689c3c2fb939915a5d69e26d091018cafa7c469df980d2395c8ae02cc922f9b` |
+|  `0.1.0`                                    | March 14th   | `sha256:013fb0edc85694c8533544046b400cbf2c975682d7417da454c31d7ccc8d725a` |
 

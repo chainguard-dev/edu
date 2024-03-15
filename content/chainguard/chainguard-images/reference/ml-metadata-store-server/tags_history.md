@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ml-metadata-store-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:ddcc43c67a90b68a5c0480976bf181f6a6553772fefb0d84e781d766dac5dd42` |
-|  `latest`     | March 8th    | `sha256:6fae35fa08d1cea971fb5593b3bec8fd7581ff068cb0b076a777df5fb6210e87` |
+|  `latest`     | March 14th   | `sha256:0b496900ea8136a9c36d279fc5f026de9be0074ee4289850901cca0d159dee48` |
+|  `latest-dev` | March 14th   | `sha256:f8244434937cbb4e41f5578b0620dc82f20f6a4c7791c4b225afea4a12d3e895` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.14-dev` `1.14.0-dev` | March 13th   | `sha256:0e79a9704b1927b6f74caadd595035a28108625d03e1d50a70df4d834ea7762c` |
-|  `1` `1.14` `1.14.0` `latest`                 | March 8th    | `sha256:f03ef949a007bfd6d94af85abd7564c2230024d1e33b5cfcd9d9edb7838f9985` |
+|  `latest-dev` `1.14.0-dev` `1-dev` `1.14-dev` | March 14th   | `sha256:b21dc87923ef40de32b1a84b5417f19694c69b47136fb640c47b44a92a99f73e` |
+|  `latest` `1.14` `1` `1.14.0`                 | March 14th   | `sha256:b7e166f9d129b4a7a7fbf9c87fd260fea4ebc52cc39b1a3f615db81bd5d01db6` |
 

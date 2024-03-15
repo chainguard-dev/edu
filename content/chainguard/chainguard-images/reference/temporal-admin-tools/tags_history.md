@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-admin-tools Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:fa44f8a0d578de96b4426c566970e173c959b2f8da920b58be22da277f20fb9d` |
-|  `latest`     | March 8th    | `sha256:58f390c6a1ff8c97915aa48b8148fd206fd9a42162dae96db2654f1ae4244480` |
+|  `latest-dev` | March 14th   | `sha256:31c099b60147bd4bd5ad692b0c86d8ca789b26fb225bc0569174d8e8d0d2d480` |
+|  `latest`     | March 14th   | `sha256:4b859510225fdecb1d0b3cdf3888c291d13c39a41243c50245064646514a389b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.11-dev` `0.11.0-dev` `0-dev` `latest-dev` | March 13th   | `sha256:2983d59efa092bbc4247193c9ac58fb05e490ffe0f75f6c44764041b677a907a` |
-|  `0.11.0` `0.11` `0` `latest`                 | March 8th    | `sha256:782228273bef5471915d49f6c470615b5af88bf18a17054ac2f953d57e7109dc` |
+|  `latest` `0` `0.11` `0.11.0`                 | March 14th   | `sha256:72935ba9ffbbfbe93e8fc3128d8c322245f3fcc372ca4dc11f10c35e6cb18fbd` |
+|  `0-dev` `0.11-dev` `0.11.0-dev` `latest-dev` | March 14th   | `sha256:54b52a3cd889de90feda7b08c18acbafd0d580e6df94a195f926301f8e0a007b` |
 

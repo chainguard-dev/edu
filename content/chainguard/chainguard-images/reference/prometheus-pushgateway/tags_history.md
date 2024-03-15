@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-pushgateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.7-dev` `1-dev` `1.7.0-dev` | March 13th   | `sha256:bd99a0beff736f94070a197bda6bcd09174bad9e09c2ec7470f153c28e210b23` |
+|  `1.7-dev` `latest-dev` `1-dev` `1.7.0-dev` | March 14th   | `sha256:d5034884c8852adc93c2a55a3c46f9e7f7d8f16cf111c16a99024f8912e79164` |
 |  `latest` `1.7` `1` `1.7.0`                 | March 6th    | `sha256:e126e3a6e1d5c065a7f3ee9377e6dc3114360f1ca23bab774267b4955e274eb2` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7.0-dev` `1-dev` `latest-dev` `1.7-dev` | March 13th   | `sha256:6a61f49d170e933f824efee010745eada116cfe840ba1b84456a39536b72b090` |
-|  `1.7` `1.7.0` `1` `latest`                 | March 8th    | `sha256:f6e1546a01903d03bb65566be65f2e1f490911e2412065ed29c482b311b4c8df` |
+|  `1.7.0-dev` `1-dev` `1.7-dev` `latest-dev` | March 14th   | `sha256:1fbe1a6834d6f826b8203188d92c7655f1718971169f3a711f8fde186b10b1fe` |
+|  `1.7.0` `1.7` `1` `latest`                 | March 14th   | `sha256:e365d9671d10b39c9e3ffac7b317a3009d238f7bdfc40ca412ff95cedb2202cd` |
 

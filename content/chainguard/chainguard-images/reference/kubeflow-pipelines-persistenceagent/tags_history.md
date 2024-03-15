@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:4e70aeba67210d7140f205a3a8c18a2a46df6b745c7bdeaf86b655b1196c767b` |
-|  `latest`     | March 8th    | `sha256:66a373a1f4eed69327ec0a63440e81ef6f29909eb78a5603f32c380b1597758c` |
+|  `latest`     | March 14th   | `sha256:8943c84651330c92b6d965e4e59c607e88a747abd9f08976262b3502cfc16a59` |
+|  `latest-dev` | March 14th   | `sha256:22bc7ea23f7af9929a698e8abfb8fe2fb9d7c5e2752a70e9c15f03d90940fa26` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5-dev` `latest-dev` `2.0-dev` `2-dev` | March 13th   | `sha256:811114db45477db814e792a8026639eac75296c5c2f6826cdbf563e3bb7326bf` |
-|  `2.0.5` `2` `latest` `2.0`                 | March 8th    | `sha256:95fd480a5848ab7cfa55c53513b914ca7d6ee2881937cd3a9590aae22011b8b7` |
+|  `latest` `2` `2.0` `2.0.5`                 | March 14th   | `sha256:7ae54811c9109e8eef8358b8991b5723eae4472cbb58be2be4d5b947e7d35f6b` |
+|  `2.0-dev` `latest-dev` `2.0.5-dev` `2-dev` | March 14th   | `sha256:24a8b6f69d1a9db049684c16c330f3ee19a275497317aad1c63fa1082a5850cb` |
 

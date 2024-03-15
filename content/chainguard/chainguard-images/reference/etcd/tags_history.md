@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the etcd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:9ef5161ace8da87858e61320a233ab12b75f1f7afe430898897b6a9b78dbf8e1` |
-|  `latest`     | March 8th    | `sha256:e8e0c8fab426aa43cd8e511c17e4676e363c535c357fd7fea955291ade24fcdb` |
+|  `latest`     | March 14th   | `sha256:e916f57b5a4fd25879c17505e8898d46709414a7583b4a94c3bca9b73671cf8a` |
+|  `latest-dev` | March 14th   | `sha256:f47a4772b3065e7499a8639b7f309793261b0260fc8ed39e12695f99e860361c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.5-dev` `3.5.12-dev` `3-dev` `latest-dev` | March 13th   | `sha256:51866c93d4cc99f3fb254b094a89611b013b35d3afb9cad5cbe5ee2342e3cbe4` |
-|  `3.4.30-dev` `3.4-dev`                      | March 13th   | `sha256:e0d6019a22eb0fe453e4265520a070c93db144f127342fa464f29af68acef62c` |
-|  `3.4.30` `3.4`                              | March 9th    | `sha256:16c1a816f2c56039db6de1faad2f0975a307aba1bad5e0d5e3d9579d82e4a43b` |
-|  `latest` `3.5.12` `3` `3.5`                 | March 8th    | `sha256:5aa6ed2dfe0e71a5916aed2b9b806b950f0d4e0809e110e7b5712ea6b2bd3a36` |
+|  `3.5.12-dev` `3.5-dev` `latest-dev` `3-dev` | March 14th   | `sha256:c34c5b12c3a2d53ead81bb2034cda246bedad2059bcbc3e94c8e0affac20860c` |
+|  `latest` `3.5.12` `3.5` `3`                 | March 14th   | `sha256:dd9cf1ee2283ce171c89cc27204063ea56b6ea03f6d073d49dfb44c9e58a4c35` |
+|  `3.4.30` `3.4`                              | March 14th   | `sha256:32ac72bd073b37e01b65b64ed3416ed82adc9104dd942559a76ae172f1660e5c` |
+|  `3.4-dev` `3.4.30-dev`                      | March 14th   | `sha256:a09b71a401e7645ac3ca686938327fdd9f5a81a3fc87d573c68b214107bf6599` |
 

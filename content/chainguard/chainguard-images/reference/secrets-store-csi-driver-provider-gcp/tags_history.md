@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:f79812cd9c32371adf587201c75be7aa64f7175d5169a3e02d4f293f587db5b9` |
-|  `latest`     | March 8th    | `sha256:2684b34863b16cff7e13657f22fde8e5d1cba383f0d11a90d358c98a395faa39` |
+|  `latest`     | March 14th   | `sha256:a4618514dc8f9d7d8005a2fa3cfe37fb4924df29e7dce40ce570027f9486cbe7` |
+|  `latest-dev` | March 14th   | `sha256:2ce4f6671ccde2625a060bf438e79b8eb4a73a62354a602cf6f005bed923b292` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.5.0-dev` `1-dev` `latest-dev` `1.5-dev` | March 13th   | `sha256:3c48d877c048c5a4425877377d8f53a3eb3ae6749b38d8cc46d119462093ee1d` |
-|  `1.5` `1.5.0` `1` `latest`                 | March 8th    | `sha256:dcd25e506ac48fdf79c79b37c111d984e5dc2aa964f8247d692127d4e75456e9` |
+|  `1.5-dev` `latest-dev` `1.5.0-dev` `1-dev` | March 14th   | `sha256:84cc9b257017f997b1cf3bccc2e21b2bd42ec3bbc95adb103b7d9ed86ab08714` |
+|  `1` `latest` `1.5.0` `1.5`                 | March 14th   | `sha256:b6af4ec1013bb13ee6b01932e1ef2964b893f542f26cba4893de56e84a3520c9` |
 
