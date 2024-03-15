@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:7272b6fea3b036895b701457f34a339dbd0a72831d2a58983a3bff07eef3a8ed` |
-|  `latest`     | March 9th    | `sha256:98ea6af471d1d61fd8534338598526125632a28ab46fe9c09e5716a1f2f6c86c` |
+|  `latest-dev` | March 14th   | `sha256:3258edc5f9bb164348a17c1cca0ef22c41a421435a5ab8f795e7253ab9209590` |
+|  `latest`     | March 14th   | `sha256:d68d0e6711bc41fbaeb38ff4d772a48c1f8df710ab91ed1d80801dbdc4cbbfaa` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10-dev` `latest-dev` `10.11-dev` `10.11.7-dev` | March 13th   | `sha256:40e598147cd3e976dc8d17c0f0d4450980089ab223ad948b91bb854306abb899` |
-|  `10` `10.11.7` `10.11` `latest`                 | March 9th    | `sha256:cb4ad7cd0d57219cad8df6334f373f56983f10ce0d0f1a70a9b7b0fe26ff7461` |
+|  `10.11-dev` `latest-dev` `10.11.7-dev` `10-dev` | March 14th   | `sha256:9bf1a5cf2a5e2a03a24ad9e3fa2934f60c38e9745322ff75c8a03255bd9ffb56` |
+|  `10.11` `latest` `10.11.7` `10`                 | March 14th   | `sha256:53648f5ee6cdfa7cb2a225645209d7ef543bc5f0fd8311ac58ffc2d41b0cced8` |
 

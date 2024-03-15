@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:ebddc8661dea5666b619654a2d2495426326a122ab62143988bde7ac043da7fb` |
-|  `latest`     | March 8th    | `sha256:f3f83bd30fa8094dbdd4f2337a2b24500856db4c0fa176e35564306811333e28` |
+|  `latest`     | March 14th   | `sha256:fa03c5b413e55882d04466feb032db6c2f9b172d66041d1a9732d6f7fe99919e` |
+|  `latest-dev` | March 14th   | `sha256:60285eb4eb5452cdeb778ef6219d48e5eb5621c3bdec6c8986020eddcfda34ea` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0.0-dev` `latest-dev` `1.0-dev` `1-dev` | March 13th   | `sha256:2940c781ca1b745ba947d798cc77c8a7d5c3f8462546419858ed041693b4be5d` |
-|  `1.0.0` `1` `latest` `1.0`                 | March 8th    | `sha256:3566e6274b017a960389aaecbb0b532b191a1eba540776e63788c6d5c91a4b0c` |
+|  `latest-dev` `1-dev` `1.0-dev` `1.0.0-dev` | March 14th   | `sha256:47a4a145e3aaf32da4dbabef4f1c6f7514e9eebf9e46aee797565c4e14f37c20` |
+|  `1.0` `latest` `1` `1.0.0`                 | March 14th   | `sha256:8d6122e64f5297c6e52288125943ac144f41b61f8661b8d88a7083d93d47cd83` |
 

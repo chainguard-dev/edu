@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the timoni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:4a1692aded8e8513a79b2db90c3b9c5ce5d3d61206b99ee41da385eaef9494da` |
-|  `latest`     | March 13th   | `sha256:0e0a283f9dea9f47f4482df626b8a1445352829d8d8c8d239f1f387be0161e2f` |
+|  `latest`     | March 14th   | `sha256:44d3512c07b6280da93732c32a87e5498ec9683bf048ff60c9454fbae2d2d537` |
+|  `latest-dev` | March 14th   | `sha256:1b1a63d19ee3dc05ca61a192089dba5acf9a37c52abe2a796a4a33e33cbb4e27` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.20` `0.20.0`                 | March 13th   | `sha256:f7ac84f8756c62a06030f53864f9e983b12619497dddaaeb1e0fea746b3d3e5d` |
-|  `0-dev` `0.20-dev` `latest-dev` `0.20.0-dev` | March 13th   | `sha256:4bb8d8d8544c1bb15a62ed1050291694482ee456c2adbd3cb9f18a7e31dba8a9` |
+|  `latest` `0.20` `0` `0.20.0`                 | March 14th   | `sha256:b33de1305d65680c6f19c4329bd10f129ca401c6190a54f7740dec2417503cf2` |
+|  `0.20.0-dev` `0-dev` `0.20-dev` `latest-dev` | March 14th   | `sha256:0e49cd78224e6967a23442ce511019f7e7691daeaffbb98a27fa5cb389d4ad37` |
 |  `0.19-dev` `0.19.0-dev`                      | March 2nd    | `sha256:4392bf2b54d592a2829af3a007282b30b7fbecc68ffadffcdbbe0e089e22a4d0` |
 |  `0.19.0` `0.19`                              | March 2nd    | `sha256:a390520fc2f33107021376143a30b293f08848078fd253e9df161a85295e9473` |
 

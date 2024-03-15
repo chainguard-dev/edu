@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hugo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:88b49ed176c179dc2f71fb86765e0926b233ec47c7b2be40a6ba683697225d0d` |
-|  `latest`     | March 8th    | `sha256:4509f2973f420a769d59f5b6a3e549bd09f379c62fc39a8f9bce04178002f303` |
+|  `latest`     | March 14th   | `sha256:61aa5bed31fecf00713be571d8135be4fcd712bd607260a3c2a6979d60b692fa` |
+|  `latest-dev` | March 14th   | `sha256:30808bb932a474cf5f1ee012574f46707d752c50c42cb26d34917f14e37cd525` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed  | Digest                                                                    |
 |-------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.123.8-dev` `0-dev` `latest-dev` `0.123-dev` | March 13th    | `sha256:0245d75de8082e9a47a15b5bb89e409aa6d77a8d78cd0a1af0981c8bc617cad5` |
-|  `0.123.8` `latest` `0.123` `0`                 | March 8th     | `sha256:0012cce9fe9868be35135e741579b7c89f33ec94020c7d19a68b1dcfe2b2e7b4` |
+|  `0.123.8` `0.123` `latest` `0`                 | March 14th    | `sha256:7f00272e81a2d45c123593126127b0d78376893d89f38a1ba70180f820cc39ac` |
+|  `0-dev` `0.123-dev` `0.123.8-dev` `latest-dev` | March 14th    | `sha256:64337f694bda1eb3a493d65b0bd3db927e61c1e03479db541f706ca6a53ad1f1` |
 |  `0.123.7-dev`                                  | March 7th     | `sha256:d61917c7b99eeda024884acc36e61d413122ed8c105e840f8e6252c9ef24e541` |
 |  `0.123.7`                                      | March 7th     | `sha256:6ca957efbc5863f32ee4fdb63a44a8c72c5fd1f6bca09b643eaa7a0b8d05fb4f` |
 |  `0.123.6-dev`                                  | March 1st     | `sha256:ba09bbd048aaa8fe9fde7d7bf83d71c31d9b7d8a34c2f02532a0fe12319cbe01` |

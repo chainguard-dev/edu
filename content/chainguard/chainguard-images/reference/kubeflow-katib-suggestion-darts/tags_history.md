@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-darts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.16` `0.16.0` `latest`                 | March 13th   | `sha256:b8b6ed8b8ded70cfd35afc9bcc4312eaf55fa6842581a8c3cf29abc2401d3b0b` |
-|  `0-dev` `0.16-dev` `latest-dev` `0.16.0-dev` | March 13th   | `sha256:572546979e3c6324aa248fc8a782fedc9fa06d89c1a7ec9089f56171a4dd8f6b` |
+|  `latest-dev` `0-dev` `0.16-dev` `0.16.0-dev` | March 14th   | `sha256:66096889a886e47da358662776d75ab7ca720a9ae48d80725e73cc15abbd9389` |
+|  `0.16.0` `0` `0.16` `latest`                 | March 14th   | `sha256:f5bf72bbdb9df11c325fb7505626bb4af82df4966f5ca3c8da3f5e984b9997bf` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16` `latest` `0.16.0` `0`                 | March 13th   | `sha256:eedd8c458337318df6adbd3c17af8e47b55f978797ec3065345e1bae600eba92` |
-|  `latest-dev` `0.16-dev` `0.16.0-dev` `0-dev` | March 13th   | `sha256:e24bd2638bd98dece5a8973113cf5891ef61df7a03e72c9fe8e9903756254100` |
+|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | March 14th   | `sha256:ecf67d85e181ab4618f5d1fac29608869c3c02cf682ec240bb726a5c02c9c9d4` |
+|  `0.16.0` `0` `latest` `0.16`                 | March 14th   | `sha256:8e49dfa24cc7d3a664578dd2fee111e5a4857b56aecb187b6e5788838520d40d` |
 

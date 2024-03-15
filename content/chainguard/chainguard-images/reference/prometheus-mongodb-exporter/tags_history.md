@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:3dd89eb7bcae1f4b8ad0f185de17b4c1839ecd9a15a102422631d60b0ba0c0e3` |
-|  `latest`     | March 8th    | `sha256:2d5f200c97ae380295e7354ed600850462d7914707f447024286d4dc0fd6fe1b` |
+|  `latest-dev` | March 14th   | `sha256:04f1a1310a7b98d1de5bbb21e92ff6ff5c5eca5df09a7abd1273c9299abd9253` |
+|  `latest`     | March 14th   | `sha256:f43e81f6bf0ea07d05be917b07a23d47ce2be3c229dc5e6510b3f9fad40a8cda` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.40.0-dev` `0.40-dev` | March 13th   | `sha256:5443cdb192fb2b08e0aa85d77925c9e8d308678d6fbb1ffac771e0bf850af79f` |
-|  `0` `latest` `0.40` `0.40.0`                 | March 8th    | `sha256:1a689ea6d8818dbf8eed363fc6df65bd096764b267953c01d54eb54597cdbedd` |
+|  `0.40.0` `0.40` `latest` `0`                 | March 14th   | `sha256:65b43faed7ec0bf697f02123e71c6c2350510119f245e308b679d293cfbcf00d` |
+|  `0.40.0-dev` `0-dev` `0.40-dev` `latest-dev` | March 14th   | `sha256:5fd1bbb615d8458eb3ea9523056aa99ff33b0c2078b07d0f6c3c2e9b58abeb56` |
 

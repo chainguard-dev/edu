@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-recommender Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:1413972af8273c96d22eefe39385985922fdad5d6259c8ede9267172cd9f1c49` |
-|  `latest`     | March 8th    | `sha256:252facfb4275397a327ed9173c2f2aa2f1d404d5f23f45e9461c4158dc588da0` |
+|  `latest`     | March 14th   | `sha256:337e38d5f0915ff49e857f5650711ceb6e466c5b1e5fb1c0956294982ec171f0` |
+|  `latest-dev` | March 14th   | `sha256:6f24e8af702fb97e342c808ef500ad4cc37b5e9231d16047ed1fdaaf2b7eb2e4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.0.0-dev` `1.0-dev` `1-dev` | March 13th   | `sha256:f59b6debf85440fa4d4fcad136342421eb3cc406e87890381eca2b00df17fc40` |
-|  `1.0.0` `1.0` `1` `latest`                 | March 8th    | `sha256:195dbc0f004577e0a01b94d6181287af60f60fdd7dff6501c74fba945efc867e` |
+|  `1-dev` `1.0-dev` `latest-dev` `1.0.0-dev` | March 14th   | `sha256:7bd3a2b32b0321788828c6fc615d27e0e944536d6f93b7190006ace8c02cf058` |
+|  `1.0` `latest` `1.0.0` `1`                 | March 14th   | `sha256:ec7bbfb857f40b66fe7e2b046a62d65237b4e6a520e5ddbd562727a288908916` |
 

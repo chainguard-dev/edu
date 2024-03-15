@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-logstash-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:9535f28e1dd4bb03a87f09ee7801d65d7a2d5e6b91c7af34b5b840650781d34a` |
-|  `latest`     | March 8th    | `sha256:553bf0ebb657c54b9e5f37574897de529eb93fab996b6f4e724a78a04d036027` |
+|  `latest`     | March 14th   | `sha256:3ee2412e1b35e970f994b298e96fd5f7a141f386d85784acca91db1581118c72` |
+|  `latest-dev` | March 14th   | `sha256:9bbcd23e621db2f2123b5b64f3a17f2f522dd8f04beb4f7f7cb3109974a3ebdc` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.6.3-dev` `1.6-dev` | March 13th    | `sha256:01e1ef621e7d11c6f99767f1bc3bf317f57a665309c53f9581fae593778f05b2` |
-|  `1.6.3` `latest` `1` `1.6`                 | March 8th     | `sha256:de66982fdfa45ae53efb47532e080b782f1d8ec579a06e3e64a20b913fb6cb34` |
+|  `1.6.3-dev` `1-dev` `latest-dev` `1.6-dev` | March 14th    | `sha256:211f5feb3ec5f7df174f39ad8a3e103665c98e3169a368d7858ea979bd908fe0` |
+|  `1.6` `latest` `1` `1.6.3`                 | March 14th    | `sha256:4eb256b9def7883ede45d23e2bde1817095119d7b4bbfc66d7bf2c1acc72264a` |
 |  `1.6.2-dev`                                | February 26th | `sha256:00b330be7b44178e84bda67ea1bc7c58a5f16d0597c43faf72b3e4d98192cda0` |
 |  `1.6.2`                                    | February 26th | `sha256:e036d31652c30e17a51099778f2650c8c3805c1edfa20c0ecb848ce0126f1cbf` |
 |  `1.6.1-dev`                                | February 15th | `sha256:606d50126606da1425acadfc6f9702b08d24336f77d4ca1756236fcb479cdcb6` |
