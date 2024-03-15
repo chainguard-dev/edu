@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-typha Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 8th    | `sha256:3d8df67a65756d3d5d0544bd051f4c7bb634f3c708e9dcbd41bb52ffe38e0618` |
+|  `latest` | March 14th   | `sha256:6b7a6438639009faf0196b63e21b47f5daeb8dde2b5b47e3dd0d35a5f76b76b3` |
 
 
 ### Private/Dedicated Registry
@@ -36,7 +36,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed  | Digest                                                                    |
 |----------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `v3-dev` `3-dev` `v3.27-dev` `3.27.2-dev` `v3.27.2-dev` `3.27-dev` `latest-dev` | March 13th    | `sha256:1cc305dbf9a00848bdc577b336bdff334737c08353f9e7e1401a374d5f5930fc` |
-|  `3.27.2` `v3` `3` `v3.27.2` `latest` `v3.27` `3.27`                             | March 8th     | `sha256:3dca013dd3f1f46497a792de35f34dc7a92e91039eedfa96290fd65722d2be49` |
+|  `v3` `3.27.2` `v3.27.2` `3.27` `v3.27` `3` `latest`                             | March 14th    | `sha256:a8747d92049278a6b29a7dde9a78c3d3d1a5f0739dfe225ab17f34bcc5941dc9` |
+|  `3.27.2-dev` `3-dev` `v3.27-dev` `v3.27.2-dev` `v3-dev` `3.27-dev` `latest-dev` | March 14th    | `sha256:c5f18482cf49c85c6ac16d44f6399f797e4a4e87620ac610d533a09d8bb595f6` |
 |  `3.27.0-dev` `v3.27.0-dev`                                                      | February 15th | `sha256:e38990849a4b726e77a821ba0e6a6c50396457c5de5c0021fbd13054d6ae5f74` |
 

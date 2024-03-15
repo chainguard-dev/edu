@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:ce01b676a9fc132ef4609840999a65887db113e2dd685edf8522809dd489ed89` |
-|  `latest`     | March 8th    | `sha256:fc6be99258d0cdb7f7f567d2976d87b1f45f1f57e633d189fa6c4b47d3c2626f` |
+|  `latest`     | March 14th   | `sha256:f1fc08c703e03aaa1ea17777bc470ca10d0fa8cf1f6648ccb290e22ab43233e3` |
+|  `latest-dev` | March 14th   | `sha256:9f98b497d43a7059fc487c6064747d7a2fa2802864a63771f1c69d75139056ee` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.7.0-dev` `1.7-dev` `latest-dev` | March 13th   | `sha256:b03d137eb03df514b6aaba39bcf85fb53ed6c508cc35d72f87de8359e39bcdbd` |
-|  `1.7` `latest` `1.7.0` `1`                 | March 8th    | `sha256:296d1d9166a1776538817ecfe728d6c5bc28ce85954bced92ad962642a5c2fdc` |
+|  `latest-dev` `1.7.0-dev` `1.7-dev` `1-dev` | March 14th   | `sha256:36d9b6a5b81df73faffa5e186508dc5d7f497ab0c5eb90ccb7e110d0d6958cb6` |
+|  `1.7.0` `1.7` `1` `latest`                 | March 14th   | `sha256:b0a4ffdce8985cc9f9761490d4f7d45fb544350fecf8b0dbea265e0c4e4742e6` |
 

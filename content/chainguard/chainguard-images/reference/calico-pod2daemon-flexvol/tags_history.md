@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-pod2daemon-flexvol Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 8th    | `sha256:d30aedfc841ba9bc4ddef209ad84dc3181cc13c091123da10400bb0a0147eb7a` |
+|  `latest` | March 14th   | `sha256:6f9b8d183f00fa07fd09c71a9fb0ce0328258d57b189fa79f9d59fc577d96ab9` |
 
 
 ### Private/Dedicated Registry
@@ -36,7 +36,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed  | Digest                                                                    |
 |----------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3-dev` `3.27.2-dev` `v3-dev` `3.27-dev` `v3.27-dev` `v3.27.2-dev` | March 13th    | `sha256:079d85b1828e59d2c5e92c11d9006d8045debcd00c181f6c9d8864db41ed07ec` |
-|  `v3.27.2` `3` `3.27` `v3.27` `v3` `latest` `3.27.2`                             | March 8th     | `sha256:eb3fdde42b2fc043309597e1f2e25a485451b796f57d2c23cb0abeb6e84c73b7` |
+|  `v3.27` `3` `3.27` `3.27.2` `latest` `v3` `v3.27.2`                             | March 14th    | `sha256:18d211dcbd802b792a506eff242f440e6df1707b6886ba222b16d587df487879` |
+|  `3.27-dev` `latest-dev` `3-dev` `v3.27-dev` `3.27.2-dev` `v3-dev` `v3.27.2-dev` | March 14th    | `sha256:369e14e3e60a81ebf0a49511056b916b8c7b741d14262758239e4a136f53871b` |
 |  `3.27.0-dev` `v3.27.0-dev`                                                      | February 15th | `sha256:a0a6b2d0ebae8a16b48b361dc0d3f5a2f975600aeb59c1026f842ff09a2a6e85` |
 

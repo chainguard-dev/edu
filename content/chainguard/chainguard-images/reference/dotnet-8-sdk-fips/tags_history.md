@@ -3,8 +3,8 @@ title: "dotnet-8-sdk-fips Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-8-sdk-fips Chainguard Image"
-date: 2024-03-14 00:37:02
-lastmod: 2024-03-14 00:37:02
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:46779d942f3dfbcf1de55ea7d9d2454b34662623385d40b6c8c522c4d95cae7f` |
-|  `latest`     | March 13th   | `sha256:a7d9305cdcb843aa18ae0dddf244f2a92766b6afcae41727945fdc6e63b72464` |
+|  `latest`     | March 14th   | `sha256:2ff73dc6496a3d9d967ef59f854dfca02889bdef270c709fadea1aa9f06aa09e` |
+|  `latest-dev` | March 14th   | `sha256:abfaa0ef3eaec0b5781acf1646fbc781fcb87bd3fa1792f8b3fedcd6088c39c0` |
 

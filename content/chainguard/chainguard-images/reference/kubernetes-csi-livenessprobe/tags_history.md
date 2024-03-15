@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:12181ff390c7b2f3a223030f74f131d492d9e40219908a546f212a4cc4242ac1` |
-|  `latest`     | March 8th    | `sha256:fa30c2c836b17e7513dfd5b2598a8c19701dc60ba70e7344422aeb267eacfab6` |
+|  `latest-dev` | March 14th   | `sha256:1bc0be6fb08426a3fd5e3b87cf847ba8dd714ed7eaab4cf6b9ac15e8ac885997` |
+|  `latest`     | March 14th   | `sha256:fcd2688ebd08d0a33b6a2b4bbb45057cd1b167aeb022df937b467cac04168b54` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.12-dev` `2.12.0-dev` `latest-dev` | March 13th   | `sha256:533b74160a41aca57eb85ebbf0236a7e0597a46300c4bcf3ab2d2453cdfe39bb` |
-|  `2` `2.12.0` `2.12` `latest`                 | March 8th    | `sha256:3bd76a26b45369594e167c2015382fe625cab34a137f3e4adb9b14973b13fa0a` |
+|  `2.12` `2` `latest` `2.12.0`                 | March 14th   | `sha256:b5b2e65204ada3fa91de1b3a302465c96cb9ae3e6a8790b7bfd6f6a44882be1a` |
+|  `latest-dev` `2.12.0-dev` `2.12-dev` `2-dev` | March 14th   | `sha256:e18536e93b31ffe71742916bd71588aac756be9ee679e88856da07790d395b53` |
 

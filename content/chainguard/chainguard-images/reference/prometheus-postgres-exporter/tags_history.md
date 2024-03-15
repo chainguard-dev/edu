@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:f2f697035e5b2937f3d45c4017fc617d5c73ae99ff9396af44234089a0ead662` |
-|  `latest`     | March 8th    | `sha256:9e72244d9bb29b66a02e0d727431b75c24f2aa2785192b7a9077630bf12f8723` |
+|  `latest`     | March 14th   | `sha256:1d193e6d7df63bb935bbe5528163d83d856d70547b030024a9e0a3fb0149850c` |
+|  `latest-dev` | March 14th   | `sha256:13f25e2a97b4f61096b0f07c9d5f1eb24270a3aa87ea42a6e84818273b04b15f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15.0-dev` `latest-dev` `0.15-dev` `0-dev` | March 13th   | `sha256:c34b614cfd6f02b8db44daadbb83667c06d8f2fc8183a7d1da0fef683b089dde` |
-|  `0.15` `0` `latest` `0.15.0`                 | March 8th    | `sha256:ee5fa5c39e2303321ae2517d3bd0fa30ac87be517730c5e1cfbb9c2c163ce05b` |
+|  `latest` `0` `0.15.0` `0.15`                 | March 14th   | `sha256:ea82521b22fe7b4223a139699f3357c6ebe9458d72a1dbbc49d01a97da2f808f` |
+|  `0.15.0-dev` `latest-dev` `0.15-dev` `0-dev` | March 14th   | `sha256:85507e3e815c3dcaf33c13dbef429f3219a172406a9531c1c8787d4ddbb550ee` |
 

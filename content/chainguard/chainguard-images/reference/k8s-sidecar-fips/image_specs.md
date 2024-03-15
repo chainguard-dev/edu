@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public k8s-sidecar-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-08 00:56:03
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -70,7 +70,7 @@ The table shows package distribution across variants.
 | `openssl-config-fipshardened` | X          | X      |
 | `openssl-provider-fips`       | X          | X      |
 | `python-3.12`                 | X          | X      |
-| `python-3.12-default`         | X          | X      |
+| `python-3.12-base`            | X          | X      |
 | `readline`                    | X          | X      |
 | `sqlite-libs`                 | X          | X      |
 | `wget`                        | X          |        |

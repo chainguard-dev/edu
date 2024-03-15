@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,10 +28,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)              | Last Changed | Digest                                                                    |
 |----------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev`        | March 13th   | `sha256:30c8982070ecf2b0f84694c0fffb833cd933e3ec80e66e71c850035e2b1a2ee5` |
-|  `latest-splunk-dev` | March 13th   | `sha256:e74e497844cff0966772fb19a9c2143f47c306dfe2512c9011d79ea81555a63e` |
-|  `latest`            | March 12th   | `sha256:a3420d83e3334d5cb96a5b06c81039edd6ff239c663d4a0d6c6c521783202735` |
-|  `latest-splunk`     | March 12th   | `sha256:1ba66d96ee5ada53ab6c0073215fa1c74fba7c96f7f5779f03aaa506f5c92d3e` |
+|  `latest`            | March 14th   | `sha256:c5b56a62a78c73e6e42fb8084a71461d9b0a0704885c0c8c33b71ef6c20d9b09` |
+|  `latest-dev`        | March 14th   | `sha256:03a6f2fc4cca330893d9c144b039780cd33ef46a511a4bda330efd893e0f88f2` |
+|  `latest-splunk-dev` | March 14th   | `sha256:1a6b819709d1a661970e3e1eb09ec5573e83a5ca285526cf80238802e56d7b46` |
+|  `latest-splunk`     | March 14th   | `sha256:1d2733b9ea8714b0f84fd8eeff72ca02632af1ba579f01b441b557a10bfbdbc7` |
 
 
 ### Private/Dedicated Registry
@@ -39,8 +39,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                      | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-splunk-dev` `1.16.3-r1-splunk-dev` `1.16-splunk-dev` `1.16.3-splunk-dev` | March 13th   | `sha256:683028dbf718a5d34dae6e657ef577cbbc064ae1a5384ce68cd7408c157d8b7f` |
-|  `latest-dev` `1-dev` `1.16-dev` `1.16.3-dev`                                | March 13th   | `sha256:4f2cb6b45a8b53491b6008fc3d8f87dffdee1ad6a9e52e541df9e657e6d2bf79` |
-|  `1.16-splunk` `1.16.3-r1-splunk` `1.16.3-splunk` `1-splunk`                 | March 12th   | `sha256:9270681dc485f8edc1a6f1ef104ff27aaed8e4ce1987ef266ba3b5dff2238c89` |
-|  `1.16.3` `latest` `1.16` `1`                                                | March 12th   | `sha256:5766852cc8733201701966c1c9cce52d8196d2bc6b5ae2e8d373d762c77b48ac` |
+|  `1` `latest` `1.16` `1.16.4`                                                | March 14th   | `sha256:8299a592c729ebded42e9a69fae2cfeab8879ef81222de51a2275f381e9bd0ee` |
+|  `1.16-dev` `1.16.4-dev` `latest-dev` `1-dev`                                | March 14th   | `sha256:b72894080cd5ec1d53220149d8d9322ea0d971468e40aed41b9d2e4cb9e92d31` |
+|  `1.16.4-splunk` `1.16.4-r0-splunk` `1-splunk` `1.16-splunk`                 | March 14th   | `sha256:9d769e7edbdbd59368022247bc45da98e5f7d8ae3ab19533894e1d7a162bb9a2` |
+|  `1-splunk-dev` `1.16.4-splunk-dev` `1.16.4-r0-splunk-dev` `1.16-splunk-dev` | March 14th   | `sha256:1e603b0791c8154387101fe6cf85dace859072d445ccec0ce966047e2c1098eb` |
+|  `1.16.3-r1-splunk-dev` `1.16.3-splunk-dev`                                  | March 14th   | `sha256:0fef6f7c2cd7b2050db62430cfcbda1321040a445611bd45912694c722feb2ba` |
+|  `1.16.3-r1-splunk` `1.16.3-splunk`                                          | March 14th   | `sha256:7c8e444a1bd10fe1b2ff2420375ac5a307d06b9063555dc20522cc6725758e6c` |
+|  `1.16.3`                                                                    | March 14th   | `sha256:a73b93df29394adca0c321d669efec4d21b1d50ab3e4f19728196a8023b66e2b` |
+|  `1.16.3-dev`                                                                | March 14th   | `sha256:12cb8789fef98f45bd4be9de57f7e2974dd2109ae39dbbfe0fe00c7a2a8d447a` |
 

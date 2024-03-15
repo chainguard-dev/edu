@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for istio-install-cni-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for istio-install-cni-fips Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                         |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                 |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.19, 1.19-dev, 1.19.1, 1.19.1-dev, 1.19.3, 1.19.3-dev, 1.19.4, 1.19.4-dev, 1.19.5, 1.19.5-dev, 1.19.6, 1.19.6-dev, 1.19.7, 1.19.7-dev, 1.20, 1.20-dev, 1.20.2, 1.20.2-dev, 1.20.3, 1.20.3-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                 |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                                         |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.19, 1.19-dev, 1.19.1, 1.19.1-dev, 1.19.3, 1.19.3-dev, 1.19.4, 1.19.4-dev, 1.19.5, 1.19.5-dev, 1.19.6, 1.19.6-dev, 1.19.7, 1.19.7-dev, 1.19.8, 1.19.8-dev, 1.20, 1.20-dev, 1.20.2, 1.20.2-dev, 1.20.3, 1.20.3-dev, 1.20.4, 1.20.4-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

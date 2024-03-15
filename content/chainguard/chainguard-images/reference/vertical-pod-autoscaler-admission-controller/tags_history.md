@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-admission-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:d0dca2149142da413b0c2685bcb24e56104c37275cbe852059690cdef97c47fe` |
-|  `latest`     | March 8th    | `sha256:26a045b6266fc6f25e16b8e2709fd52a6cc277c21a2bf611fd06630149a763b9` |
+|  `latest`     | March 14th   | `sha256:9ba81bcb7fccb0acf5cc473b7f02cbe165d6e7dec1636945c6c1ccf52ca7d854` |
+|  `latest-dev` | March 14th   | `sha256:ef0b6a6a279f958c8d6326ca0dcd8d233929d00892b4723b42e6654f028e6f47` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.0-dev` `1-dev` `1.0.0-dev` | March 13th   | `sha256:e88a172aafab775f0b91c50c413e74e54144a6a31015e877d767d4bb5e552c82` |
-|  `1` `1.0.0` `1.0` `latest`                 | March 8th    | `sha256:b5f9ee0dd13535d1a44170476dab2806311f5fc9507706735fe72b16aed2845d` |
+|  `1.0` `1` `latest` `1.0.0`                 | March 14th   | `sha256:189a2fa9364f64854e0b28213ddd0792fe8b0e30740deada8efc2b5d584d63d7` |
+|  `1.0-dev` `1.0.0-dev` `1-dev` `latest-dev` | March 14th   | `sha256:f2e781165ca3975edcd6fbde091f54bd43d67f8ccf21e3e0ae174fdcdd459f75` |
 

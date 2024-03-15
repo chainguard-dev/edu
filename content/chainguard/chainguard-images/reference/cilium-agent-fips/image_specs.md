@@ -3,8 +3,8 @@ title: "cilium-agent-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public cilium-agent-fips Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,11 +43,9 @@ The table shows package distribution across variants.
 | `busybox`                           | X          | X      |
 | `ca-certificates-bundle`            | X          | X      |
 | `chainguard-baselayout`             | X          | X      |
-| `cilium-envoy-fips`                 | X          | X      |
-| `cilium-envoy-lib-fips`             | X          | X      |
-| `cilium-fips`                       | X          | X      |
-| `cilium-fips-container-init`        | X          | X      |
-| `cilium-fips-container-init-compat` | X          | X      |
+| `cilium-1.14-container-init`        | X          | X      |
+| `cilium-1.14-container-init-compat` | X          | X      |
+| `cilium-fips-1.14`                  | X          | X      |
 | `clang-15`                          | X          | X      |
 | `clang-15-default`                  | X          | X      |
 | `cni-plugins-fips-loopback`         | X          | X      |

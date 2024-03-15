@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 13th   | `sha256:711a45875108bd29efab71d84f1c1019e0aaf8a018d8ff3c9df429ed7c50894e` |
-|  `latest-dev` | March 13th   | `sha256:1f91bd28e7f0cbf1ea1ba9566f65683653df0100fcff665955d41a69ee368ca0` |
+|  `latest`     | March 14th   | `sha256:e2f9af8a6c2619ca92c8878dc91872484e28a62e5e608e031102f04a5bfd8356` |
+|  `latest-dev` | March 14th   | `sha256:f7bb4419190b86c6e854db17c6865294982828b5a609302a7ea2e2a4dee4ca50` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.2` `latest` `23.2.0` `23`                 | March 13th   | `sha256:c5ec1821b799cce0c4ff1abe4adefebcb6aa644835e772ba9f8d39ba259ea286` |
-|  `23-dev` `latest-dev` `23.2-dev` `23.2.0-dev` | March 13th   | `sha256:013aa2ff1b6160a9bc336cd0be5fbc2376a245b34f6079bb433218f298c7508a` |
+|  `23.2-dev` `latest-dev` `23.2.0-dev` `23-dev` | March 14th   | `sha256:eaad94e2f83b85c820a84170c7afee08c533416580b1470c0eb66b3bb183191a` |
+|  `latest` `23.2` `23.2.0` `23`                 | March 14th   | `sha256:ff23fb70c18ce0910a5fb0c4a02c1f3e7bbda29c4539a4f50b198e248edb9fe4` |
 

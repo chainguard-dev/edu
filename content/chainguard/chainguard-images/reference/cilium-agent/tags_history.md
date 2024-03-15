@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.14-dev` `1-dev` `1.14.7-dev` | March 13th    | `sha256:13ae666dd4aca2b472962821c04e7f25e9f19eeb55d5f824de67071fc0b7e879` |
-|  `1` `latest` `1.14.7` `1.14`                 | March 13th    | `sha256:27dbf5b61e225b2169a6b66947ff3e9be41f21357b6044e616d9a494d32e6564` |
+|  `1.14` `latest` `1.14.7` `1`                 | March 14th    | `sha256:e92ffc1ed4794a547bec3645e343c9bb6a5d081730dbb7dcaac1b9f13e104a68` |
+|  `1.14.7-dev` `latest-dev` `1.14-dev` `1-dev` | March 14th    | `sha256:825be924a406b7148380778c7ae771cd01a2eea38214578b65d15696cb7821e0` |
 |  `1.14.6`                                     | March 6th     | `sha256:15a4fc984a2aaa8d00eea6d7431105abec46856e9c4fdc149f98230dce688eb8` |
 |  `1.14.6-dev`                                 | March 6th     | `sha256:95f42e794ad0789ed92a92cd172004419ef5a1fea06b9a84485de289cca18bf5` |
 |  `1.15` `1.15.1`                              | February 26th | `sha256:4eb92a59cfe5a919175bad63d86196b9d929c1b9a6db5ba07ef91b06de3902fa` |

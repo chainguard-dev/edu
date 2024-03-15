@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:c54ef103f1d992e2eb6e524e63df59a020b91cfc857a220b45927bdc13dc94c9` |
-|  `latest`     | March 9th    | `sha256:a7d3db4f66136fc2ffe5f662ea7ec8f8380c27cb629240b25898290a906e84d9` |
+|  `latest`     | March 14th   | `sha256:5b01194e8443b293ee020e546344bcbc7b70288aae4a0b079e545dc2420de0db` |
+|  `latest-dev` | March 14th   | `sha256:f2698d3f27885275832d1c8b9c8bfa440bbe93847a9db401b785341f4c1393ca` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5-dev` `latest-dev` `2-dev` `2.0-dev` | March 13th   | `sha256:ceea0914eee86d97d8863d9cae4654015bf3ff853ae085a7e236c89c705a87b6` |
-|  `2.0.5` `2.0` `2` `latest`                 | March 9th    | `sha256:66dc3d6a5dfd66f05cdfbcdb37d8d10d2f3e1882b90f5f6e3b89abacbd429670` |
+|  `2.0.5-dev` `latest-dev` `2-dev` `2.0-dev` | March 14th   | `sha256:eaf62022f7457e5222f4b611312b8264449f6a3c2aa08daeecfb41a7866a20c1` |
+|  `2.0.5` `latest` `2.0` `2`                 | March 14th   | `sha256:571a0e8d78b1367197076692216647848b331e10464f4568d639ffc511f092aa` |
 

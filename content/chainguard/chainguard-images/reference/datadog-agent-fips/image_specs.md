@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public datadog-agent-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-13 00:52:18
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -82,7 +82,7 @@ The table shows package distribution across variants.
 | `openssl-provider-fips`       | X          | X      |
 | `p11-kit`                     | X          | X      |
 | `p11-kit-trust`               | X          | X      |
-| `python-3.12`                 | X          | X      |
+| `python-3.12-base`            | X          | X      |
 | `readline`                    | X          | X      |
 | `sqlite-libs`                 | X          | X      |
 | `wget`                        | X          |        |

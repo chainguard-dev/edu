@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:d09ea6503f56ac13fdffaf6dd81c6e68e9d20bad055bd0421d0fa7a2384886f8` |
+|  `latest-dev` | March 14th   | `sha256:e3e85b151706aa99b1c7a55927bfda3c8b15941fdf5361450deee567af9b8301` |
 |  `latest`     | March 11th   | `sha256:efef5267de93075568241c095539a276ab14824393b701407a90e5ba313f0bcc` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed  | Digest                                                                    |
 |------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `4-dev` `4.11-dev` `4.11.10-dev` `latest-dev` | March 13th    | `sha256:5871df2b59535ce77ff53d6c1100cbcb332aa6379de1959d3e5e9e2304bdcbd6` |
-|  `latest` `4` `4.11.10` `4.11`                 | March 11th    | `sha256:031d73ddae58ac6db7255db3af535c828251785ac6fea96f59ff01b5b4ab75c8` |
+|  `latest-dev` `4.11-dev` `4.11.10-dev` `4-dev` | March 14th    | `sha256:3a10fb1ed94169d70569843634cddd917c8c19344b518735fdde95c578110119` |
+|  `4.11.10` `4.11` `4` `latest`                 | March 14th    | `sha256:26c43d54cdcc3250e9e85aed36e9f21c9790868e8a0d604d6e8c581a8348b8bb` |
 |  `4.11.9-dev`                                  | March 10th    | `sha256:04d56ec09c54ffdaac70c1bb1659306cb3c73558a578a9424e2534f59f214547` |
 |  `4.11.9`                                      | March 8th     | `sha256:8a6e9f74e5b3a223dcb927232dcfd24ff4c546c09bd9cd5e7b9349d39d32c44d` |
 |  `4.11.8`                                      | March 8th     | `sha256:c6e1bfd7ff3e9fd1e7d87371455c11a552936472b197952ad1e5e1027b694660` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:b5f0c2af6c9198a957a842b5843ddb4f6d1d5bc53605a46883fa764db7cd2a40` |
+|  `latest-dev` | March 14th   | `sha256:f8c1984e8ab324ed6c62b6da26ecf7d9102d7560aee79232312e218153bc9fca` |
 |  `latest`     | March 13th   | `sha256:fd8e4137dcf9bad21af7e92ff89762eb0c7f40da3bd9a27b456805220768aeeb` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `0-dev` `latest-dev` `0.6-dev` | March 13th   | `sha256:0822b7503841a293252e2066a62e1a6035ca6d9f6d82b65ed4fe8f5c4d84774b` |
-|  `latest` `0.6.17` `0` `0.6`                 | March 13th   | `sha256:e8167fb69f2f6014bdd5f3da999f046a5e0513083d542163a8470f860115b0a2` |
+|  `0-dev` `0.6-dev` `0.6.17-dev` `latest-dev` | March 14th   | `sha256:16865478767a2dfd3faadb372a3aadd7670e0643f1a150072207040a24a57d50` |
+|  `latest` `0` `0.6.17` `0.6`                 | March 14th   | `sha256:47ea294336a20888092d2566eac382583453ea38390fe85f69abec07b84d44bf` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:37a525bc0b18dde6de5825c65596dc7add7c966434a28645059c22d0114cca48` |
 |  `0.6.16`                                    | March 8th    | `sha256:13372a800db263384746322eff40be514db11f38a54499e5370d361bfd8ad82d` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:4899b0a7d89dcee4339d8252416937d75528a698f673ccb187830049d8e62573` |
-|  `latest`     | March 8th    | `sha256:5e74130b1d880265c17a0febc98028dab35b60c676d9cdb1336525ea49b090e2` |
+|  `latest`     | March 14th   | `sha256:c6d6e69993e846216ce4d1a1c271555f98109a8299ed3a06225b9fe0b7faad61` |
+|  `latest-dev` | March 14th   | `sha256:fb4e624ede9dd970ced1de41c3fcf1314299139f14070508a65ecff0c57be31c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `4.0-dev` `4-dev` `4.0.0-dev` | March 13th   | `sha256:d96ea25e45616bf73e07ae31a0dc003d27fd8b837c697df65b3dd8a67cfb0699` |
-|  `4` `4.0.0` `latest` `4.0`                 | March 8th    | `sha256:c2fa769862fbd52ed0a4429e6220b663e9b33263a198cef5a8aeb05274bf65b7` |
+|  `4.0` `latest` `4` `4.0.0`                 | March 14th   | `sha256:86ab3ef06a3ff0c54557b39c62d89a5f7f1c38847ee5f415cfd43badf45aa8b7` |
+|  `4-dev` `latest-dev` `4.0.0-dev` `4.0-dev` | March 14th   | `sha256:23125369ec4f5a19554f4238466e58512018449e026ce09d0d932f934125f657` |
 

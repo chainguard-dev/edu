@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.7-dev` `1.7.0-dev` | March 13th   | `sha256:162e3dd01873b88de943f78f901e2992850adb027a2bbb69df9298d60e1658b0` |
-|  `1` `1.7` `1.7.0` `latest`                 | March 8th    | `sha256:afff6a427a9e400e7eb415904b8a085e26fa226ddd6bd0239f913eb9206dccfb` |
+|  `1.7.0` `1` `latest` `1.7`                 | March 14th   | `sha256:e3ad037dc0d8bf15bbcc8494d1bf87c3bfd860f3d0dd85019d7a61db2b7a0f36` |
+|  `1.7-dev` `latest-dev` `1.7.0-dev` `1-dev` | March 14th   | `sha256:79f87ced544e484f098d6df88ff674941f7eedd49891d3d19195c2139565d734` |
 

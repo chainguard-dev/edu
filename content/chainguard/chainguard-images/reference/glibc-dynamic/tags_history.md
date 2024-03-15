@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the glibc-dynamic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:842a50fadaae9e64ddba9cbd7f49f0159d0d23d3ed488caa6391f82db7b8dd08` |
-|  `latest`     | March 8th    | `sha256:0cc5960c42000ac15e08e4e0e77e34412019a122c5d74e066cadbb2d3c65a6b9` |
+|  `latest`     | March 14th   | `sha256:a56e42423e76c79bc5385fc0ff11af637adf6a116aad60035e54eb3a4fd03d45` |
+|  `latest-dev` | March 14th   | `sha256:7089aed52e03c54068d4e79dffe70831d9a63bef07fd42fca893398d2c695759` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `13.2.0-dev` `latest-dev` `13.2-dev` `13-dev` | March 13th   | `sha256:a4efde5900bc4f84eed71de4c4952bc4dcec262072ecd6330afe8ec6154009f9` |
-|  `13.2` `13.2.0` `latest` `13`                 | March 8th    | `sha256:3b60d997f0a3596faabbea98bcbd4fb2c73769ca18292f23ef70cbcedc5ade99` |
+|  `13.2` `13.2.0` `13` `latest`                 | March 14th   | `sha256:24ca36f28c9eae23b6aad26dc8180cf5ff7c483c5a5bad44f7252deb28ce2ea5` |
+|  `latest-dev` `13.2-dev` `13-dev` `13.2.0-dev` | March 14th   | `sha256:396d1f71541741609b8d4617c6db4b596925529559e79810bc96ea6febd8f808` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:4f792b23ba1c7a8e2456a6416f29d8f0fe1000f5ba56f30614f13389c7ca32b0` |
-|  `latest`     | March 13th   | `sha256:277614cdf731d81efbc18cce582c1de07302e2359526482ca192f355bfa097b2` |
+|  `latest`     | March 14th   | `sha256:4521eca3a106f844015a4e8c0cf50a8f8978389e92b18568b8aadec9b0010010` |
+|  `latest-dev` | March 14th   | `sha256:88c99a814dbc58e0165e457f9b8040691600234fb1473bbbe17f6aa0f20677ae` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0` `4.0.18` `latest` `4`                 | March 13th   | `sha256:91ef254f716f63bca38ae7e454d06105c53e24c57898d8fb1e5eb9cfaa42aa73` |
-|  `4-dev` `4.0-dev` `4.0.18-dev` `latest-dev` | March 13th   | `sha256:b32dfd6f0adfc56c47b1d632179b91d4168d2de45e7a281c6c9ee2d772e86ca1` |
+|  `4.0.18-dev` `4.0-dev` `4-dev` `latest-dev` | March 14th   | `sha256:e9e1d39f7a34efb8396bf1c3abf01303e911e010c953c7788351d2b5584d7401` |
+|  `latest` `4.0.18` `4` `4.0`                 | March 14th   | `sha256:affc9a8f1a58ccb19a0fb93839b2ccadb93d4d2b40c7b80298caeb875600403d` |
 

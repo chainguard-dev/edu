@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:28deb1205ff7dfc783debefa9d4672ca7f98641f844a3700e6090f5fa53d6e7a` |
-|  `latest`     | March 13th   | `sha256:2c46c31d590b48203233c0d4ca588ae77ca679915b6f5436aa11854c028b5bf2` |
+|  `latest`     | March 14th   | `sha256:3ff5741b99acef9a67b0a1e9ac842c9cf84bde7142ae3a615daa113baf6725a0` |
+|  `latest-dev` | March 14th   | `sha256:6704f4743aac814ea7e58d9c201cd23096717c8aeb215259e799bdbfed6ed247` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15-dev` `0-dev` `latest-dev` `0.15.5-dev` | March 13th   | `sha256:f696943d3bf5aae2ed95e5f3f01280fd78c8d81400426892587ea10e3f6e8465` |
-|  `latest` `0` `0.15.5` `0.15`                 | March 13th   | `sha256:961d3f6878f55dcb58d05fea6a9eef730d855be0bab3a01c88cb9ef3237139ce` |
+|  `0.15` `0.15.5` `0` `latest`                 | March 14th   | `sha256:f630719a9d48e6fbd64b1f8882c334dd4cd1f9f05b4632e68e908686f516d1c7` |
+|  `latest-dev` `0.15-dev` `0.15.5-dev` `0-dev` | March 14th   | `sha256:0a9626ad7d28146442e271969cf0b43f8069b62e636024657bd2a476a3f0f782` |
 

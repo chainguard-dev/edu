@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argo-workflowcontroller-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.5-dev` `latest-dev` `3.5.5-dev` `3-dev` | March 13th   | `sha256:e197610d0277616ef47c28381a3a23a0e2bfac30c7e174e92ed21e8aaeee7c57` |
-|  `3.5.5` `3` `3.5` `latest`                 | March 12th   | `sha256:5ed5a5888aeed0d87faba63c8ad4808e1631985401ed51878eee45b136f1b55c` |
+|  `3-dev` `latest-dev` `3.5.5-dev` `3.5-dev` | March 14th   | `sha256:501338d8ce1d432b59f09e8c45d0383ad1f4a9f43aeeb9cf23fecf206914880e` |
+|  `latest` `3.5.5` `3` `3.5`                 | March 14th   | `sha256:c2319c353ae26bff5cb87a0d0741243b1c35255fc177090b035bdca4c643cddb` |
 

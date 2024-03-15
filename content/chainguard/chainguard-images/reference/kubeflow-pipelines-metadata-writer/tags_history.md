@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 13th   | `sha256:4415b6ec6da18c92d17a473fe621c094a3e06fda3027dd3441742859fb2708ed` |
-|  `latest`     | March 13th   | `sha256:b0193a1c8eefcf8bdb730ee6d61924837eaab7b8c044c03dce70e9cd09f18c1e` |
+|  `latest-dev` | March 14th   | `sha256:7f9869b1799a1b9441e71cab7a3430aba3474a861eea929714d22159474465a8` |
+|  `latest`     | March 14th   | `sha256:2b6442cfa42d677461fd7181d57ea33e91ecabce364c9ba0541c7aca30489e5c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.0` `2.0.5` `2`                 | March 13th   | `sha256:68d0e2b51e5856ce46188f5b66b212ab4cbbdd90ee61d5bf4eda80cf184f380b` |
-|  `2.0-dev` `2-dev` `2.0.5-dev` `latest-dev` | March 13th   | `sha256:8fa20c4d62993a938c1b8d2c8961c5a80890e24a16ba378b2b900de2f6067f9a` |
+|  `2.0-dev` `latest-dev` `2.0.5-dev` `2-dev` | March 14th   | `sha256:e8d9235a99bb4e7a938b61c64c6248569da43ea839d3936d82107dc00df1fd0e` |
+|  `2.0` `2` `latest` `2.0.5`                 | March 14th   | `sha256:2f9d697126a292bc912a38f27bb27d027f3cfffdae6bbfd5d080c704dafce38d` |
 

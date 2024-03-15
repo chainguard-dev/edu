@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public renovate Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-15 00:51:40
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -179,7 +179,7 @@ The table shows package distribution across variants.
 | `py3.12-pip`                    | X          | X      |
 | `py3.12-setuptools`             | X          | X      |
 | `python-3.12`                   | X          | X      |
-| `python-3.12-default`           | X          | X      |
+| `python-3.12-base`              | X          | X      |
 | `readline`                      | X          | X      |
 | `renovate`                      | X          | X      |
 | `ruby-3.2`                      | X          | X      |
