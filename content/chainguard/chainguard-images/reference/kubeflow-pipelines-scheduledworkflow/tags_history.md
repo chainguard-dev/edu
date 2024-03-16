@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-scheduledworkflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:24bbc9d4428d736707793bf581dae420f794babd6c7315be90b7d930e2eb7fcd` |
-|  `latest-dev` | March 14th   | `sha256:31dc6b7bb02d214615797dbb0f74bdc3a3321174515f1360da6cfcd2fe91a85c` |
+|  `latest-dev` | March 15th   | `sha256:9f9d09af39c278600b4f6eb79b1c838ab9ffdd7c1e9e7ba13fd5e2c8ef823088` |
+|  `latest`     | March 15th   | `sha256:1495cffddd318166002b46d5bfc83109a342d2965247cfb38681f4d7f234e302` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0-dev` `2-dev` `latest-dev` `2.0.5-dev` | March 14th   | `sha256:dd72237de18b7af7da18b47e2c0d828d2676d8ea3fc36757121c8c45ebd46fb1` |
-|  `2` `2.0.5` `2.0` `latest`                 | March 14th   | `sha256:ef5fb8e11057d042412cbc9cbdab41b9d359b97d5e2bb5d9dae590b9b9cd450c` |
+|  `latest` `2` `2.0.5` `2.0`                 | March 15th   | `sha256:67010e648b0f43465e9f0552f08476e567a8e5760bc14b2c2c6d902df29f414d` |
+|  `2.0.5-dev` `2-dev` `latest-dev` `2.0-dev` | March 15th   | `sha256:f23d0096c939158322c71bbb7b2c56519cd5d009b84db465ce041209dad9fb57` |
 

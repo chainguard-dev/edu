@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 14th   | `sha256:caa33b185fd896479a3734cb8e8fef50c97da31aa62e4c92882709d7975f4e3b` |
-|  `latest`     | March 14th   | `sha256:2b5b79fae5c485ee956029b6ac2a90aa95f1de2f1d99f38253a42b1f582f01d8` |
+|  `latest`     | March 15th   | `sha256:cd38342338e64b81a5d52e74ad95c082741268869e19428ab1c749a17fbbd84c` |
+|  `latest-dev` | March 15th   | `sha256:939a3d61bf4bacd6d4805883bc0a5d13ceb855be9cc3d7e3e98c1f60e7046cb9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1-dev` `0.1.73-dev` `0-dev` `latest-dev` | March 14th   | `sha256:c4be1d76376dc2fe35dea003b2b76b44f9a52d51f6833370e58e6e2aba592b54` |
-|  `0` `latest` `0.1.73` `0.1`                 | March 14th   | `sha256:d5cee9e287f3db9a26f91f676e76412039fc4dcf2df729b7c6d8f8f48e60fad2` |
+|  `latest-dev` `0.1.73-dev` `0-dev` `0.1-dev` | March 15th   | `sha256:c2ac254dc9d0993a5b4dc3fb89bd75cd8e65cbf0e73fb53bb9a7d613a6106f4c` |
+|  `0` `0.1.73` `0.1` `latest`                 | March 15th   | `sha256:9d82055a2b77dab0e590a311a61e45405583f6780d660190e9d2ca7e442aabac` |
 

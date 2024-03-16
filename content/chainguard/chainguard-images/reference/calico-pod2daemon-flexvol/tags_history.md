@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-pod2daemon-flexvol Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,14 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 14th   | `sha256:6f9b8d183f00fa07fd09c71a9fb0ce0328258d57b189fa79f9d59fc577d96ab9` |
+|  `latest` | March 15th   | `sha256:8b67d4b9f62bf0b4180541cc496418bd0c123590e4e6f1bf8f251f1c2c74f0fd` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                                                          | Last Changed  | Digest                                                                    |
-|----------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `v3.27` `3` `3.27` `3.27.2` `latest` `v3` `v3.27.2`                             | March 14th    | `sha256:18d211dcbd802b792a506eff242f440e6df1707b6886ba222b16d587df487879` |
-|  `3.27-dev` `latest-dev` `3-dev` `v3.27-dev` `3.27.2-dev` `v3-dev` `v3.27.2-dev` | March 14th    | `sha256:369e14e3e60a81ebf0a49511056b916b8c7b741d14262758239e4a136f53871b` |
-|  `3.27.0-dev` `v3.27.0-dev`                                                      | February 15th | `sha256:a0a6b2d0ebae8a16b48b361dc0d3f5a2f975600aeb59c1026f842ff09a2a6e85` |
+| Tag (s)                                                                          | Last Changed | Digest                                                                    |
+|----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `v3-dev` `3.27.2-dev` `v3.27-dev` `3-dev` `v3.27.2-dev` `3.27-dev` `latest-dev` | March 15th   | `sha256:f6d9f3ccbb2db6fef48744a950fc8076ba861426f93a202ca62a430a7afc3533` |
+|  `v3` `v3.27` `3.27.2` `v3.27.2` `3.27` `latest` `3`                             | March 15th   | `sha256:bfc5af021f75c99ddf1ec758714e1b796f1f3ea1f1cfb1da28f43c64f85db652` |
 

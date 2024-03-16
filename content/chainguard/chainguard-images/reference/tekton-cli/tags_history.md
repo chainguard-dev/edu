@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:6a89815745d763141776f84f14f865ec771fcef3fdd1806bd9ed51097f6f402c` |
-|  `latest-dev` | March 14th   | `sha256:26502af0c961fad09118a951770f5039037be50a02a51c370583b8ba08d4de3c` |
+|  `latest-dev` | March 15th   | `sha256:92f6af00f82bbd65a79bdac170cbe783f5901687f9ff35a2e6a1aed347f46224` |
+|  `latest`     | March 15th   | `sha256:aaff5c0aaf8e54330992068c876dee130fa90f472790bb24fa240d68327f5013` |
 
 
 ### Private/Dedicated Registry

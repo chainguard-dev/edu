@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 14th   | `sha256:7f9869b1799a1b9441e71cab7a3430aba3474a861eea929714d22159474465a8` |
-|  `latest`     | March 14th   | `sha256:2b6442cfa42d677461fd7181d57ea33e91ecabce364c9ba0541c7aca30489e5c` |
+|  `latest`     | March 15th   | `sha256:954613fc3abbddd003824e5181ffc0595a6fa241bc74d30b9b14a7f5f7a89b83` |
+|  `latest-dev` | March 15th   | `sha256:a0d8aad97068d47c41bf148f1373dd6ef974faff3f844a898496d2752d0cf72d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0-dev` `latest-dev` `2.0.5-dev` `2-dev` | March 14th   | `sha256:e8d9235a99bb4e7a938b61c64c6248569da43ea839d3936d82107dc00df1fd0e` |
-|  `2.0` `2` `latest` `2.0.5`                 | March 14th   | `sha256:2f9d697126a292bc912a38f27bb27d027f3cfffdae6bbfd5d080c704dafce38d` |
+|  `2.0.5-dev` `2.0-dev` `2-dev` `latest-dev` | March 15th   | `sha256:5aa05647bc409d8ff2716dc0533e9f90e4961a679198ab755ab45c24c6b514a3` |
+|  `latest` `2.0.5` `2` `2.0`                 | March 15th   | `sha256:1cf586e4b4d64252a8a3882fa6123bfdd4f3702d28057d9fc3a2e5decfb862b5` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:8943c84651330c92b6d965e4e59c607e88a747abd9f08976262b3502cfc16a59` |
-|  `latest-dev` | March 14th   | `sha256:22bc7ea23f7af9929a698e8abfb8fe2fb9d7c5e2752a70e9c15f03d90940fa26` |
+|  `latest-dev` | March 15th   | `sha256:e0e2e7bea83f926a1ab1b58d4bb2a3871ed4b9f6e745ebb416667b1e5b119335` |
+|  `latest`     | March 15th   | `sha256:8eda31ea57f25f1a791288d317ca464351a84396add693a6d081d9af5839b8e2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2` `2.0` `2.0.5`                 | March 14th   | `sha256:7ae54811c9109e8eef8358b8991b5723eae4472cbb58be2be4d5b947e7d35f6b` |
-|  `2.0-dev` `latest-dev` `2.0.5-dev` `2-dev` | March 14th   | `sha256:24a8b6f69d1a9db049684c16c330f3ee19a275497317aad1c63fa1082a5850cb` |
+|  `latest-dev` `2.0-dev` `2-dev` `2.0.5-dev` | March 15th   | `sha256:f2455ef797a2007a2069df98fa1f08e0ab17d3b613f6cf9a28666f6b4334d702` |
+|  `2.0` `2` `latest` `2.0.5`                 | March 15th   | `sha256:e8891d6983e03369ac55e21c434668f369df82b7c27c8c4f0fde5dc579cfc31e` |
 

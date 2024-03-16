@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dask-gateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:f5afc79dd0bb6c3685c13440ff77f35ac6c432618e7aad3aaede80f587f9bac5` |
-|  `latest-dev` | March 14th   | `sha256:df333b7f0264cafccd23a757d3a5ae6cdaf02e2efa670279c0779126c3b3abd2` |
+|  `latest-dev` | March 15th   | `sha256:aeff2635005a9561dc23bfc041993b497c3fce8f77b5b14531fc789632467f09` |
+|  `latest`     | March 15th   | `sha256:74c813efcd0bd93eb374e4363bcae24def97e0201508b1a020af9ef3cf185794` |
 
 
 ### Private/Dedicated Registry

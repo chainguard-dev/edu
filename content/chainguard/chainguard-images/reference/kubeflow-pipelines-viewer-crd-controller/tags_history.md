@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-viewer-crd-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:b69af3d965c10b59df40effd054deab27dac269ee3095152677421336cf282f9` |
-|  `latest-dev` | March 14th   | `sha256:be38627f04331a7c172257e1e6580f3d3ebf40a6d630192bcae56267b77f5a72` |
+|  `latest`     | March 15th   | `sha256:90f8d1b9b68b933ce6a5c34816347811aa9f4ced7e7aa6b97d8e31b6c99038cb` |
+|  `latest-dev` | March 15th   | `sha256:abeb136c0488e8bb38e581132dc9407ac9f5fdc1c6732a35301d32fc7b5f4a7c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.0.5` `latest` `2.0`                 | March 14th   | `sha256:85db7977ba3c5f3a8ea7670751a7ba6b681d35dbc1fafefb9f8d050617a49a61` |
-|  `2-dev` `latest-dev` `2.0-dev` `2.0.5-dev` | March 14th   | `sha256:76a9d393b0409980eac78165ab8a2a63c8c0d2dbbe0ec43be150b47be1e3bb29` |
+|  `2.0.5-dev` `2-dev` `latest-dev` `2.0-dev` | March 15th   | `sha256:343fda598e69f9cd816126606be169a2f523534313a7cd54f85f0074eccd01f5` |
+|  `2.0.5` `latest` `2.0` `2`                 | March 15th   | `sha256:231a5e27182e841cc23671cb5241267ac88425e0589a5f8c0477a7ee2a747c23` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd-fips-repo-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.10` `2.10.3` `latest` `2`                 | March 14th   | `sha256:62a9ab3fd59c6f779c922138d3b1dea9aee6f683f9b474a11ac27a27d809c884` |
-|  `2.9.8-dev` `2.9-dev`                        | March 14th   | `sha256:3857b96f3dd3b4351dedf70472cde225d06a85adece7627138fe82ca33c2fad2` |
-|  `2-dev` `latest-dev` `2.10-dev` `2.10.3-dev` | March 14th   | `sha256:27d6b198040730821cd512689c18c8c756787a893ce2e979999145f552fb21a1` |
-|  `2.9.8` `2.9`                                | March 14th   | `sha256:01a3ce026d1264e460407b61a0d16231d842800af99ba718a87663667482167c` |
+|  `2.10-dev` `latest-dev` `2-dev` `2.10.3-dev` | March 15th   | `sha256:cf1ddb5ad0ce9925e155e06c17cc54e4bd427813520f065e20f0288bffe1418f` |
+|  `2.9.8` `2.9`                                | March 15th   | `sha256:4751d6604b26a44c0233f5b0af7ec8946fd7844a885c1e704ab62e07f1e0c902` |
+|  `2.9.8-dev` `2.9-dev`                        | March 15th   | `sha256:84578bea566009eac5fcc785b73c7bce5f1b5e051876d2d62da6e655e9dfa83c` |
+|  `2.10.3` `latest` `2.10` `2`                 | March 15th   | `sha256:37bb3b955569b7e1822773ba1d074bcfb8b6ee2f17a2d1feffa3f5e004993c78` |
 |  `2.9.6-dev`                                  | March 14th   | `sha256:d3b413854a2d88623bbc87ab48e35f74992f76076173c64309d2ff6d020e8ce1` |
 |  `2.9.6`                                      | March 14th   | `sha256:ef08ff071b59429671052e7d13e0f64ca01b0ca2361ca417575036164f5d7be6` |
 |  `2.10.2-dev`                                 | March 12th   | `sha256:87a1dce6e4c0edceb8b3c3e2b3a170e7ef8d981386f47f7ec99fafa825439766` |

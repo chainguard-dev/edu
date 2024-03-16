@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 14th   | `sha256:da5d8eda2abea362a0af6999dc9ebc4c26f4c7e74cc038256a9939f6e78e45da` |
-|  `latest`     | March 7th    | `sha256:b10ae4dcc562f2be4c896bf593e7c6d63e7da82f5b33c60d345ba288f9bae80a` |
+|  `latest`     | March 15th   | `sha256:a6ef949f2c8689b4dcee569c0c106fbb374b9048010e9aa5f003f8ec2d2e76b4` |
+|  `latest-dev` | March 15th   | `sha256:afc6ee443fa602031f33411a323d780274251525293dcb0f4700b64bd1518b03` |
 
 
 ### Private/Dedicated Registry

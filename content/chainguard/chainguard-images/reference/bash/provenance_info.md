@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for bash Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                               |
 |------------------------------|------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | 5.2.15, latest                                                                     |
+| `cgr.dev/chainguard`         | latest                                                                             |
 | `cgr.dev/chainguard-private` | 5, 5-dev, 5.2, 5.2-dev, 5.2.15, 5.2.15-dev, 5.2.21, 5.2.21-dev, latest, latest-dev |
 
 

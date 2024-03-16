@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-helm-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,12 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)                                                             | Last Changed  | Digest                                                                    |
-|---------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev`                                                       | March 14th    | `sha256:096e93e0f261e48c2158bf6babbde4b9f9f1d3a5b886b45c51f6ceffc42044e6` |
-|  `latest`                                                           | March 5th     | `sha256:a1728b6a4387432acd9e04f4fa2b769aaf037d057bee798d71754d45202e1724` |
-|  `0.37.4-dev` `v0.37-dev` `v0-dev` `0.37-dev` `0-dev` `v0.37.4-dev` | February 23rd | `sha256:042e137c7eb956f390b99411c6469a70cd7d8ef9d074f828427fb44ad9e6d9d5` |
-|  `v0` `0.37.4` `0` `v0.37` `0.37` `v0.37.4`                         | February 19th | `sha256:4ab76c5c1e11bb1ecbacb339560dc12b4d56119283aa082ed70d74baec14afc3` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | March 15th   | `sha256:ad9c711130bfb720b78032ac3786f85dad895b2b68c5b2fef2d9af6fe29194f0` |
+|  `latest-dev` | March 15th   | `sha256:9078c18356871214edba0e29c57fa34be96b3e82a02f251de5856821eb3797cc` |
 
 
 ### Private/Dedicated Registry
@@ -39,12 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                     | Last Changed  | Digest                                                                    |
 |-------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.35.0-dev` `0.35-dev` `latest-dev` `0-dev`               | March 14th    | `sha256:a92b788002c03d0abccc6c3a5cf474be0f1e7d1fab3bde0a4b6131e30ca9e0ef` |
-|  `0.35` `0.35.0` `0` `latest`                               | March 14th    | `sha256:9365fd24b3e712b0fc7a356c4ad09fb792b98e3716205d3742f475b79bccb8bb` |
+|  `0.27` `0.27.0`                                            | March 15th    | `sha256:3811fd6df4e8fba617aa724a573a354a771cc1cabafdc8e44aeff7dac8b80577` |
+|  `0` `latest` `0.35.0` `0.35`                               | March 15th    | `sha256:8a01f6ee0b424c457b242d01f498c6f69dad2b10ac444cd92a05fc33f09e9cb2` |
+|  `0.27-dev` `0.27.0-dev`                                    | March 15th    | `sha256:47d7ca0a06cc7900c1abe12f125f1f80f09a48909478bc497f38e28c34a26f8d` |
+|  `0-dev` `0.35-dev` `0.35.0-dev` `latest-dev`               | March 15th    | `sha256:31f6a0d3431ab6e56126c75ee9ef9021b3eda7d9fb28416748b9e30636368866` |
 |  `0.31` `0.31.2`                                            | March 14th    | `sha256:d628977667a307d5e15c73f4d8397914688d07e40d3da7e021b8123e4b1fd3d9` |
 |  `0.31.2-dev` `0.31-dev`                                    | March 14th    | `sha256:b3a8ea2d838d9874cd5b0541663aff754d1b63a140e1c56ba17987d5b5b1c83d` |
-|  `0.27.0-dev` `0.27-dev`                                    | March 14th    | `sha256:e112050a5b4c00603367dd5886bfce2d2608dccd6612a4c868856a41bc673b5c` |
-|  `0.27.0` `0.27`                                            | March 14th    | `sha256:480dabff83822e45d16c9993c1319d617e2a08b0f712dbbcdef7c963bdab59bf` |
 |  `v0-dev` `v0.37.4-dev` `v0.37-dev` `0.37.4-dev` `0.37-dev` | February 21st | `sha256:bad19951dff1e7566b321010ae913d670bf160b6594b7b9ba0dd502a08c86ca0` |
 |  `v0.37.4` `0.37` `v0` `v0.37` `0.37.4`                     | February 19th | `sha256:361d594017a17421f9e01cacbe6ba5765c397c5c59402c31aaf817c1428445d0` |
 

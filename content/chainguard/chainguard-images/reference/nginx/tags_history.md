@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nginx Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.25` `latest` `1` `1.25.4`                 | March 14th   | `sha256:041a5dcd476811eee1f90e733341b613e59768dccaea88395fdd2a2fdbf293cc` |
-|  `1.24.0` `1.24`                              | March 14th   | `sha256:424073fef785901b4702db415ff39ac46ea7b05b2bb67e374c3b17aba94756f2` |
+|  `mainline` `1.25` `latest` `1` `1.25.4`      | March 15th   | `sha256:041a5dcd476811eee1f90e733341b613e59768dccaea88395fdd2a2fdbf293cc` |
+|  `stable` `1.24.0` `1.24`                     | March 15th   | `sha256:424073fef785901b4702db415ff39ac46ea7b05b2bb67e374c3b17aba94756f2` |
 |  `latest-dev` `1-dev` `1.25.4-dev` `1.25-dev` | March 14th   | `sha256:345d4d127b2d89e417b7ebaf389a2a28f67d4ed24e1d03c0839a2f5a1f632bd8` |
 |  `1.24-dev` `1.24.0-dev`                      | March 14th   | `sha256:5fb49a7ce00e73f5d84a9116cad4be10ae26f940eb14f518d0f693bf29116df8` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bazel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 14th   | `sha256:1f528773bab8596e6d03b58122277af7a8ea77224d9275ff73da9f7242a9f93f` |
+|  `latest` | March 15th   | `sha256:67bd97218ea080e75e9dc2e4a54f65efc10070aa8185167c2158c0b8644ba404` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5` `5.4` `5.4.1`                          | March 14th   | `sha256:d68b16883c51fc81c5d677a18fad78342038fbfb095a66b0cc2d67dbc5ad9a73` |
-|  `latest` `6.5` `6.5.0` `6`                 | March 14th   | `sha256:1d9e9bfb8da65a7e93b0c86d354063a31adba97a04c0566d643ae5a2b758ee11` |
-|  `6-dev` `6.5-dev` `latest-dev` `6.5.0-dev` | March 14th   | `sha256:28a026ce4fda400af626b499bfab7b4c7c4ce5ecb0e556b6aac030454cace985` |
-|  `5.4.1-dev` `5-dev` `5.4-dev`              | March 14th   | `sha256:6cb96202cbb5b71213478469cac502b45f21b8ac900dcb5b6325011a51de8967` |
+|  `latest` `6.5` `6.5.0` `6`                 | March 15th   | `sha256:77269b238207002e79822af7c8cfb8c3ddb0343c8678d79eda5b36168ec0b3e4` |
+|  `latest-dev` `6.5.0-dev` `6-dev` `6.5-dev` | March 15th   | `sha256:d527d6dab53daf7cf160f2ee427e547b9f12d27b763b0ce713c694a80fa8caac` |
+|  `5.4-dev` `5.4.1-dev` `5-dev`              | March 15th   | `sha256:cddb63e6abceb49ed1c58e240e9461fc2ad3a0e40e44e60ee18214acd9c25361` |
+|  `5.4.1` `5.4` `5`                          | March 15th   | `sha256:a97268329d23a6b776b88de490b64a589e728dbd09530b55ad20db668b030490` |
 

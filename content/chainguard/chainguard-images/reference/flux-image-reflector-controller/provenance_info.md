@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for flux-image-reflector-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | 0, 0-dev, 0.31, 0.31-dev, 0.31.1, 0.31.1-dev, 0.31.2, 0.31.2-dev, latest, latest-dev, v0, v0-dev, v0.31, v0.31-dev, v0.31.1, v0.31.1-dev, v0.31.2, v0.31.2-dev                                                                                                                                                                                                                                                       |
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `cgr.dev/chainguard-private` | 0, 0-dev, 0.26, 0.26-dev, 0.26.1, 0.26.1-dev, 0.28, 0.28-dev, 0.28.0, 0.28.0-dev, 0.29, 0.29-dev, 0.29.0, 0.29.0-dev, 0.29.1, 0.29.1-dev, 0.30, 0.30-dev, 0.30.0, 0.30.0-dev, 0.31, 0.31-dev, 0.31.0, 0.31.0-dev, 0.31.1, 0.31.1-dev, 0.31.2, 0.31.2-dev, latest, latest-dev, v0, v0-dev, v0.30, v0.30-dev, v0.30.0, v0.30.0-dev, v0.31, v0.31-dev, v0.31.0, v0.31.0-dev, v0.31.1, v0.31.1-dev, v0.31.2, v0.31.2-dev |
 
 

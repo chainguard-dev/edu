@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,9 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1` `1.58.0` `1.58` `latest`                 | March 14th    | `sha256:0d6cadda8e97da912d9fe4a8289024bfeae1a9840385cb3541a1fc5a7eb07d38` |
-|  `1.58-dev` `1-dev` `latest-dev` `1.58.0-dev` | March 14th    | `sha256:7450d39511769d547617dd79c62034ea3256a1b6b9ab7ab65dcbb257ed40dadf` |
-|  `1.57.0-dev` `1.57-dev`                      | February 15th | `sha256:8908448141909a2eb5b9327aa00206f2a3bc42f3510a5c8af38917f94566bac4` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1` `1.58.0` `1.58` `latest`                 | March 14th   | `sha256:0d6cadda8e97da912d9fe4a8289024bfeae1a9840385cb3541a1fc5a7eb07d38` |
+|  `1.58-dev` `1-dev` `latest-dev` `1.58.0-dev` | March 14th   | `sha256:7450d39511769d547617dd79c62034ea3256a1b6b9ab7ab65dcbb257ed40dadf` |
 

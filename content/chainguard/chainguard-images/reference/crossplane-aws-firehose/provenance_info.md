@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for crossplane-aws-firehose Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                                                                                    |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | 0, 0.47, 0.47.1, 1, 1.1, 1.1.0, 1.1.1, latest                                                                                                           |
+| `cgr.dev/chainguard`         | 1.2, 1.2.0, latest, latest-dev                                                                                                                          |
 | `cgr.dev/chainguard-private` | 0, 0.42, 0.42.0, 0.43, 0.43.0, 0.43.1, 0.44, 0.44.0, 0.45, 0.45.0, 0.46, 0.46.0, 0.46.1, 0.47, 0.47.0, 0.47.1, 1, 1.1, 1.1.0, 1.1.1, 1.2, 1.2.0, latest |
 
 

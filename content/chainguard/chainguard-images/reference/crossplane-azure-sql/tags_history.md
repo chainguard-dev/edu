@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-azure-sql Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)                       | Last Changed  | Digest                                                                    |
-|-------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.42` `0` `0.42.1` `latest` | March 11th    | `sha256:a1c4e590a0ac4302c67a9eec298aaf67c3c140041d89cd0caea3ba6b495bea6d` |
-|  `0.42.0`                     | February 16th | `sha256:a044a7c30925c0e1a19052f247f31f6d642f92734774f57c8a218554a745f12e` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 15th   | `sha256:bfe267d00e15ffd34d5e2a1d8754fb3aea1f4eb925131fe6643da0db5ae9ab90` |
+|  `latest`     | March 15th   | `sha256:437af8b39045988dfbdf28ce0a1a0f548c8c1a5869c6717bc45397252761a5a2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                       | Last Changed  | Digest                                                                    |
 |-------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.42.1` `0.42` | March 14th    | `sha256:61e832613ab2fc04c6d661171253ca81cf48ed6f667e75515dd3d3228490f94f` |
+|  `0.42.1` `0.42` `0` `latest` | March 15th    | `sha256:12b8ed090eda1c1227e306ee87a35bf3403f161f08e4c2dc3ca6d9cdbf8909ae` |
 |  `0.42.0`                     | February 16th | `sha256:089c2fbbdf0b4462a527f338627686ecafaa3c23b18443b568103fbaec1d997f` |
 
