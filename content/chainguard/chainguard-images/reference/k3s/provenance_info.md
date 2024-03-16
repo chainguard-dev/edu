@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for k3s Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                                                                                                                                                                         |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | 1, 1-dev, 1.29, 1.29-dev, 1.29.0, 1.29.0-dev, latest, latest-dev                                                                                                                                                                             |
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                           |
 | `cgr.dev/chainguard-private` | 1, 1-dev, 1.27, 1.27-dev, 1.27.3, 1.27.3-dev, 1.27.4, 1.27.4-dev, 1.27.5, 1.27.5-dev, 1.28, 1.28-dev, 1.28.1, 1.28.1-dev, 1.28.2, 1.28.2-dev, 1.28.3, 1.28.3-dev, 1.28.4, 1.28.4-dev, 1.29, 1.29-dev, 1.29.0, 1.29.0-dev, latest, latest-dev |
 
 

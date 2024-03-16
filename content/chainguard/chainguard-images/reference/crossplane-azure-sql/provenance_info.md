@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for crossplane-azure-sql Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                                                  |
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | 0, 0.41, 0.41.0, 0.42, 0.42.0, 0.42.1, latest                                                                         |
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                    |
 | `cgr.dev/chainguard-private` | 0, 0.37, 0.37.1, 0.38, 0.38.0, 0.38.1, 0.38.2, 0.39, 0.39.0, 0.40, 0.40.0, 0.41, 0.41.0, 0.42, 0.42.0, 0.42.1, latest |
 
 

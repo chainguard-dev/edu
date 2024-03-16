@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for redis-sentinel Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                               |
 |------------------------------|------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, six-dot-two-compat                                                         |
+| `cgr.dev/chainguard`         | latest                                                                             |
 | `cgr.dev/chainguard-private` | 6, 6-dev, 6.2, 6.2-dev, 6.2.13, 6.2.13-dev, latest, latest-dev, six-dot-two-compat |
 
 

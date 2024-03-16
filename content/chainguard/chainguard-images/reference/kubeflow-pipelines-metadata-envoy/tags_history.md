@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:5b01194e8443b293ee020e546344bcbc7b70288aae4a0b079e545dc2420de0db` |
-|  `latest-dev` | March 14th   | `sha256:f2698d3f27885275832d1c8b9c8bfa440bbe93847a9db401b785341f4c1393ca` |
+|  `latest`     | March 15th   | `sha256:a1b2759eed1bdf270d0ac24d59a7383bbdcda3433ffa8711c31a4c95680e0c5d` |
+|  `latest-dev` | March 15th   | `sha256:b479e3f0e26c42bc360eb8ae571f8bf8ac9a7d8d757394df75e3a8b2289dc9b6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5-dev` `latest-dev` `2-dev` `2.0-dev` | March 14th   | `sha256:eaf62022f7457e5222f4b611312b8264449f6a3c2aa08daeecfb41a7866a20c1` |
-|  `2.0.5` `latest` `2.0` `2`                 | March 14th   | `sha256:571a0e8d78b1367197076692216647848b331e10464f4568d639ffc511f092aa` |
+|  `2-dev` `2.0.5-dev` `2.0-dev` `latest-dev` | March 15th   | `sha256:8883a71d2dd693aaadeebb068594d5c122d1ebcb41b45e5a072f7373b3ed07dc` |
+|  `latest` `2.0.5` `2.0` `2`                 | March 15th   | `sha256:afaa04fc73fff40cbfe34bf689da55ed0b8db8d10c84401e29e4a598b3aeba83` |
 
