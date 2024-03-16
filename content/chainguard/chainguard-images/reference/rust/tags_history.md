@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rust Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.76-dev` `latest-dev` `1.76.0-dev` `1-dev` | March 14th   | `sha256:8afb5109182adfb0152316836364519d2e54522c844c8bd630ad1696a9030d77` |
-|  `latest` `1.76` `1` `1.76.0`                 | March 14th   | `sha256:99401853fcb52503c571d7d78232933b099f237a1a47f62adb9eff2c6ee85969` |
+|  `latest` `1.76.0` `1` `1.76`                 | March 15th   | `sha256:3487b442df16e6bbfe8c655b5068e11aafdaa6b79b08615e49a1a8c2dd47981d` |
+|  `1.76.0-dev` `latest-dev` `1-dev` `1.76-dev` | March 15th   | `sha256:2698641eea115b0bcf53e5bd8a39370f117a07e6129b855c014dada7078920cc` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for prometheus Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                         |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | 2, 2-dev, 2.48, 2.48-dev, 2.48.1, 2.48.1-dev, 2.49, 2.49-dev, 2.49.0, 2.49.0-dev, 2.49.1, 2.49.1-dev, 2.50, 2.50-dev, 2.50.0, 2.50.0-dev, 2.50.1, 2.50.1-dev, latest, latest-dev                                                                                                                                                                                                             |
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                                                                           |
 | `cgr.dev/chainguard-private` | 2, 2-dev, 2.43, 2.43.0, 2.43.1, 2.44, 2.44.0, 2.45, 2.45-dev, 2.45.0, 2.45.0-dev, 2.46, 2.46-dev, 2.46.0, 2.46.0-dev, 2.47, 2.47-dev, 2.47.0, 2.47.0-dev, 2.47.1, 2.47.1-dev, 2.47.2, 2.47.2-dev, 2.48, 2.48-dev, 2.48.0, 2.48.0-dev, 2.48.1, 2.48.1-dev, 2.49, 2.49-dev, 2.49.0, 2.49.0-dev, 2.49.1, 2.49.1-dev, 2.50, 2.50-dev, 2.50.0, 2.50.0-dev, 2.50.1, 2.50.1-dev, latest, latest-dev |
 
 

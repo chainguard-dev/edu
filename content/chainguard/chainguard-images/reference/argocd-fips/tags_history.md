@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,11 +33,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `2` `2.10` `latest` `2.10.3`                 | March 15th    | `sha256:02e17801ff4611e8d3ebac70518bfe17c8dcbc301ab5a61af8eb34e7a1ce89c8` |
+|  `latest-dev` `2.10.3-dev` `2.10-dev` `2-dev` | March 15th    | `sha256:93d4c08dea9b5fa2d244e7dafde6adabeb239e3ed340cbbe92c3fda4e221009c` |
 |  `2.9` `2.9.8`                                | March 14th    | `sha256:62795c3fcb8957f1c4c126b57491a0de2ef989a2a899e57881b0774a553fe2a9` |
 |  `2.9.8-dev` `2.9-dev`                        | March 14th    | `sha256:f46aa27068a49b4e84a76ebe6d2c1befdd612f719bf42bd1ae1ac77c6d21c3b6` |
-|  `2.10.3` `latest` `2` `2.10`                 | March 14th    | `sha256:b8c4785db9b46f6ff262a0892f7acb0009098d9d2eeec9fb71975151030a39a6` |
 |  `2.9.6-dev`                                  | March 14th    | `sha256:ecda7be3180ee889f777589aba6da93af247efe9d99482a3bd0501dc88dcdad5` |
-|  `latest-dev` `2.10.3-dev` `2.10-dev` `2-dev` | March 14th    | `sha256:158b68f0679097132edf8986b676b0afd299b7e8a418fe3f592264da767a5e92` |
 |  `2.9.6`                                      | March 14th    | `sha256:ae9fe8d81a63b96c2708598ca66c84a2a95bcfb1c11c4183a3764e865e6d5581` |
 |  `2.10.2-dev`                                 | March 12th    | `sha256:ed432c8436576fad3d0b87ce0c004c7866e4f486e774013ee86dfe50a713de53` |
 |  `2.10.2`                                     | March 8th     | `sha256:227eac65cae832014ff5948b6fb518fee8dbbee2e97036305555a8aeb1b767a1` |

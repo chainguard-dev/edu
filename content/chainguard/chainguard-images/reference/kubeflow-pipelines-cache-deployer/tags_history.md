@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 14th   | `sha256:8804c9cbeabe442d98603c9f29815b561349e7b7edd372819016fde09db90b74` |
-|  `latest`     | March 14th   | `sha256:36a6bc2c8902ebbb72f59aae9099ad362f855028299808285fcb8c3aaa2b2a2b` |
+|  `latest-dev` | March 15th   | `sha256:1b3327818484d929d9c2da77d3143aaab37954db0941d5345a932b2a3c1a70e0` |
+|  `latest`     | March 15th   | `sha256:44fd02c4d32d5e611875e89fb8d13e9006f080a4c77ab96aa59357b8ac1a7276` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.0.5-dev` `2.0-dev` `2-dev` | March 14th   | `sha256:c4d6350faa444d7216b6cb471ce4cdc731e6cbe0be13a72c71987d6c8fdba622` |
-|  `latest` `2` `2.0` `2.0.5`                 | March 14th   | `sha256:4e90652d4fa95da29f89763a833ba28079796dc798c3191bba0de23eb09cbd0c` |
+|  `2-dev` `2.0.5-dev` `latest-dev` `2.0-dev` | March 15th   | `sha256:930728ec2fed11aa80ce2c70f44391dd9cc4107b2d91c73eaac44af7f0c0ea73` |
+|  `latest` `2.0.5` `2.0` `2`                 | March 15th   | `sha256:561db50046dee21a35965e3e1b63037068103bc25eb541104f2edbdb38a30008` |
 

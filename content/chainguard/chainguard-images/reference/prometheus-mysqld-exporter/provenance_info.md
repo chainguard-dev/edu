@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for prometheus-mysqld-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                               |
 |------------------------------|----------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | 0, 0-dev, 0.15, 0.15-dev, 0.15.1, 0.15.1-dev, latest, latest-dev                                   |
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                 |
 | `cgr.dev/chainguard-private` | 0, 0-dev, 0.14, 0.14.0, 0.15, 0.15-dev, 0.15.0, 0.15.0-dev, 0.15.1, 0.15.1-dev, latest, latest-dev |
 
 

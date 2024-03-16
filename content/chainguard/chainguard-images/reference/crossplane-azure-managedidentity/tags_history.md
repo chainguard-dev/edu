@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-azure-managedidentity Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)                       | Last Changed  | Digest                                                                    |
-|-------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0` `0.42` `0.42.1` `latest` | March 11th    | `sha256:3d294af31a7301d3ecc9644b516af740c4fd7d9b74f12af33b9f744a753bc95e` |
-|  `0.42.0`                     | February 16th | `sha256:a1320ab17bad2026644f5d822cacb406e5f6b820433f638b87ebefad76b93008` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | March 15th   | `sha256:1753cd8bbf2db63625cb64dd7024723bc450b0140f9f3bfaee7ed6f4cf25c8ce` |
+|  `latest-dev` | March 15th   | `sha256:c444830626d5a6aa3316b97b3fa515f963d16baf063c2c5c712525dfb2ed20b3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                       | Last Changed  | Digest                                                                    |
 |-------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.42` `0` `latest` `0.42.1` | March 14th    | `sha256:4c5f239e05dd0dca46f59c7d4c2cb5eac6688af5014a27a416760f6a08b85bde` |
+|  `0.42.1` `0.42` `0` `latest` | March 15th    | `sha256:643d10b160a53393668def54e59b3ca190cd20bc6500677a52e5ff391b87b7c2` |
 |  `0.42.0`                     | February 16th | `sha256:8f0e6c1f3738044078f40e98a9cbd595972c39836cd500c6a4f68798057bdb62` |
 

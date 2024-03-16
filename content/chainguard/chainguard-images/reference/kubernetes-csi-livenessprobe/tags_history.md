@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 14th   | `sha256:1bc0be6fb08426a3fd5e3b87cf847ba8dd714ed7eaab4cf6b9ac15e8ac885997` |
-|  `latest`     | March 14th   | `sha256:fcd2688ebd08d0a33b6a2b4bbb45057cd1b167aeb022df937b467cac04168b54` |
+|  `latest`     | March 15th   | `sha256:aa8c8ca14c02d6087fab454dc1496026aa2a923eacd62f0d3c1cd246ad9eec0b` |
+|  `latest-dev` | March 15th   | `sha256:3b0b307e1ad8dbcd467df6164f772e9eb345daf757ab0c419ad72bb2a8930581` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.12` `2` `latest` `2.12.0`                 | March 14th   | `sha256:b5b2e65204ada3fa91de1b3a302465c96cb9ae3e6a8790b7bfd6f6a44882be1a` |
-|  `latest-dev` `2.12.0-dev` `2.12-dev` `2-dev` | March 14th   | `sha256:e18536e93b31ffe71742916bd71588aac756be9ee679e88856da07790d395b53` |
+|  `2-dev` `latest-dev` `2.12.0-dev` `2.12-dev` | March 15th   | `sha256:082b53b2f52197d644dc80f85b7863b1caca88938c8babae3a833b3256d45ee4` |
+|  `latest` `2.12` `2` `2.12.0`                 | March 15th   | `sha256:c9de3cbc64499beb80e1b96af529b61c84fb768c84c5250afe2ffe0156470521` |
 
