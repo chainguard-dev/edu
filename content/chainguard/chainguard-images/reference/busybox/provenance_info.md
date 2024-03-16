@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for busybox Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                           |
 |------------------------------|------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | 1, 1.36, 1.36.1, glibc-1, glibc-1.36, glibc-1.36.1, latest, latest-glibc                       |
+| `cgr.dev/chainguard`         | latest, latest-glibc                                                                           |
 | `cgr.dev/chainguard-private` | 1, 1.36, 1.36.0, 1.36.1, glibc-1, glibc-1.36, glibc-1.36.0, glibc-1.36.1, latest, latest-glibc |
 
 

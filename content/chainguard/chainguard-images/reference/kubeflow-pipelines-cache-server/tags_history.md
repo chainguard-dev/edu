@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:af045c0533116022ff16ba208e1d65ee0913c98ecbc723b1113b72de69cdd56e` |
-|  `latest-dev` | March 14th   | `sha256:f57274bba32803493a0f0828bbcfb9a71c99b5e676def2385a853be52c310eaf` |
+|  `latest-dev` | March 15th   | `sha256:f594d0929ddf0cdd4aae52ece0b17c38514643cdf0209dbe1d28f994ef61bc56` |
+|  `latest`     | March 15th   | `sha256:98e07e8d831ea72539b7be1fbef05a184e8550af6135af65b2ece4ac12a44dd3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5-dev` `2-dev` `latest-dev` `2.0-dev` | March 14th   | `sha256:f52950ec6f463f0ac273e3f3ad77b058676100fcb4ca9f0f775d1a8d32ebdd8d` |
-|  `2.0` `latest` `2` `2.0.5`                 | March 14th   | `sha256:7d0a3a1d69c91b80fe5c17230e489c010ed3a9c57f124946f82155948d897749` |
+|  `2.0.5` `latest` `2.0` `2`                 | March 15th   | `sha256:ee2d2ff1a244d5cb0658448fb08a80d27376798261a8a5f594294c19026160e3` |
+|  `latest-dev` `2.0-dev` `2.0.5-dev` `2-dev` | March 15th   | `sha256:a728386f8f44aecd642cdfdd019b6fa09a0e5887d176f088f5138b1e1c2b682b` |
 

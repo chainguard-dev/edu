@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:c6d6e69993e846216ce4d1a1c271555f98109a8299ed3a06225b9fe0b7faad61` |
-|  `latest-dev` | March 14th   | `sha256:fb4e624ede9dd970ced1de41c3fcf1314299139f14070508a65ecff0c57be31c` |
+|  `latest-dev` | March 15th   | `sha256:95d246a5abf82b95dc6fb53ce956d04fa7582ca07e538a1855c048acbbb43169` |
+|  `latest`     | March 15th   | `sha256:ea67081249902e8a2fefcaa3422a47d10f8150d94444d7cfd1727799e79df396` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0` `latest` `4` `4.0.0`                 | March 14th   | `sha256:86ab3ef06a3ff0c54557b39c62d89a5f7f1c38847ee5f415cfd43badf45aa8b7` |
-|  `4-dev` `latest-dev` `4.0.0-dev` `4.0-dev` | March 14th   | `sha256:23125369ec4f5a19554f4238466e58512018449e026ce09d0d932f934125f657` |
+|  `4-dev` `4.0-dev` `latest-dev` `4.0.0-dev` | March 15th   | `sha256:bb1b2d9502bc2d5f0f9e93a475a7317c303768dc799078f881c19f0903cf2358` |
+|  `4.0` `4` `latest` `4.0.0`                 | March 15th   | `sha256:3d02e098045d23085c056929c1d30aadd5390d151fc838596c321da2cfce71ae` |
 

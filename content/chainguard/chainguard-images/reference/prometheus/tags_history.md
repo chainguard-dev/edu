@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,13 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2` `latest` `2.50` `2.50.1`                 | March 14th    | `sha256:107ebc03b82fe35c030ff58e0ee06099c2cc7ad08a8e1cdd4a8321bf749d92a7` |
-|  `2.50.1-dev` `2-dev` `latest-dev` `2.50-dev` | March 14th    | `sha256:2466a8f5ccbc07cc71ecfc528b146f0d850f06e0dfc822ac93230b2ae1f68419` |
-|  `2.50.0-dev`                                 | February 25th | `sha256:9e2322cd961b3c1b1aec041ecbf18efbf7406fa89e95f4bc69a29e94ec754bba` |
-|  `2.50.0`                                     | February 23rd | `sha256:5348c28467e59cf482c83956f6822ef2eb5ab18fb0907c018ed0940977023012` |
-|  `2.49.1-dev` `2.49-dev`                      | February 18th | `sha256:52c2e9d06563afa35723b0a42c4772ae7c938f185329e13435972c5c4d2f1d1b` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 15th   | `sha256:81f05c39854ef1df3d5b5386e5cc1df0af3e06d833ebe3f42ae3e8add44cca2a` |
+|  `latest`     | March 15th   | `sha256:d2c58a69cbe1f241ab863c3f6394ed9ab327752e572d8c0eed347b4dcdf10408` |
 
 
 ### Private/Dedicated Registry

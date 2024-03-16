@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-operator-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-16 00:33:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.18.2` `1` `1.18`                 | March 14th   | `sha256:2ec0e2e5b5440eb910a890ebbf7616f8329e65000b1c1a2e77ba3f858f4b7798` |
-|  `1.18.2-dev` `1.18-dev` `latest-dev` `1-dev` | March 14th   | `sha256:9e2447a0a351bed94e1ffb8eda3857885e7d09cdb3d1884ab57da8b968723ab0` |
+|  `latest-dev` `1-dev` `1.18.2-dev` `1.18-dev` | March 15th   | `sha256:bbb67ad91f0894f50714d08eda5d2e2968885a30680c602940f4745b5d2867bd` |
+|  `1.18` `1.18.2` `1` `latest`                 | March 15th   | `sha256:ce9f4e6aa75705ec6ac06856ea9ff996d92fc2f26b1cf5abc0fac7c986307bca` |
 
