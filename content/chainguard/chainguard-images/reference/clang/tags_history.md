@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the clang Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:7451bde05e43b26ab8b217ccaed671b64603392feae8f419aa7569d40de38991` |
-|  `latest-dev` | March 14th   | `sha256:6232f3fcd8a6c675b8aa6b7f9315289a6f969e7027efce6b2e825545c0b821eb` |
+|  `latest`     | March 16th   | `sha256:50f37a84993f95d990358ba764e807e1db9fc391128a66b2a94a2d2ab7acc1e6` |
+|  `latest-dev` | March 16th   | `sha256:1939a7d748df14c082f3f5766bf2cee3cbf4f8e21b28fa4e83f0cc08c909fa86` |
 
 
 ### Private/Dedicated Registry

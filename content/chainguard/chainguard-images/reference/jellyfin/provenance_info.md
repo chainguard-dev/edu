@@ -1,9 +1,9 @@
 ---
-title: "Provenance Information for vela-cli Images"
+title: "Provenance Information for jellyfin Images"
 type: "article"
 unlisted: true
-description: "Provenance information for vela-cli Chainguard Image"
-date: 2022-11-01T11:07:52+02:00
+description: "Provenance information for jellyfin Chainguard Image"
+date: 2024-03-18 00:56:27
 lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,23 +13,23 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/vela-cli/" >}}
-{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/vela-cli/image_specs/" >}}
-{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/vela-cli/tags_history/" >}}
-{{< tab title="Provenance" active=true url="/chainguard/chainguard-images/reference/vela-cli/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/jellyfin/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/jellyfin/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/jellyfin/tags_history/" >}}
+{{< tab title="Provenance" active=true url="/chainguard/chainguard-images/reference/jellyfin/provenance_info/" >}}
 {{</ tabs >}}
 
 All Chainguard Images contain verifiable signatures and high-quality SBOMs (software bill of materials), features that enable users to confirm the origin of each image build and have a detailed list of everything that is packed within.
 
 You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https://stedolan.github.io/jq/) in order to download and verify image attestations.
 
-### Registry and Tags for vela-cli Image
+### Registry and Tags for jellyfin Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                              |
-|------------------------------|---------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest                                                                                            |
-| `cgr.dev/chainguard-private` | 1, 1.8, 1.8.1, 1.8.2, 1.9, 1.9.0, 1.9.1, 1.9.10, 1.9.2, 1.9.3, 1.9.4, 1.9.5, 1.9.6, 1.9.9, latest |
+| Registry                     | Tags                                             |
+|------------------------------|--------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                               |
+| `cgr.dev/chainguard-private` | No production tags are available for this image. |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
@@ -37,8 +37,8 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 The commands listed on this page will default to the `latest` tag, but you can specify a different tag to fetch attestations for.
 
-## Verifying vela-cli Image Signatures
-The **vela-cli** Chainguard Images are signed using Sigstore, and you can check the included signatures using `cosign`.
+## Verifying jellyfin Image Signatures
+The **jellyfin** Chainguard Images are signed using Sigstore, and you can check the included signatures using `cosign`.
 
 The `cosign verify` command will pull detailed information about all signatures found for the provided image.
 
@@ -48,7 +48,7 @@ The `cosign verify` command will pull detailed information about all signatures 
 cosign verify \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
   --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
-  cgr.dev/chainguard/vela-cli | jq
+  cgr.dev/chainguard/jellyfin | jq
 ```
 
 ### Private/Dedicated Registry
@@ -57,12 +57,12 @@ cosign verify \
 cosign verify \
 --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
 --certificate-identity=https://github.com/chainguard-images/images-private/.github/workflows/release.yaml@refs/heads/main \
-cgr.dev/chainguard-private/vela-cli | jq
+cgr.dev/chainguard-private/jellyfin | jq
 ```
 
-## Downloading vela-cli Image Attestations
+## Downloading jellyfin Image Attestations
 
-The following [attestations](https://slsa.dev/attestation-model) for the vela-cli image can be obtained and verified via cosign:
+The following [attestations](https://slsa.dev/attestation-model) for the jellyfin image can be obtained and verified via cosign:
 
 | Attestation Type | Description |
 |----------------|-------------|
@@ -71,7 +71,7 @@ The following [attestations](https://slsa.dev/attestation-model) for the vela-cl
 | `https://spdx.dev/Document` | Contains the image SBOM (Software Bill of Materials) in SPDX format. |
 
 
-To download an attestation, use the `cosign download attestation` command and provide both the predicate type and the build platform. For example, the following command will obtain the SBOM for the vela-cli image on `linux/amd64`:
+To download an attestation, use the `cosign download attestation` command and provide both the predicate type and the build platform. For example, the following command will obtain the SBOM for the jellyfin image on `linux/amd64`:
 
 ### Public Registry
 
@@ -79,7 +79,7 @@ To download an attestation, use the `cosign download attestation` command and pr
 cosign download attestation \
   --platform=linux/amd64 \
   --predicate-type=https://spdx.dev/Document \
-  cgr.dev/chainguard/vela-cli | jq -r .payload | base64 -d | jq .predicate
+  cgr.dev/chainguard/jellyfin | jq -r .payload | base64 -d | jq .predicate
 ```
 
 ### Private/Dedicated Registry
@@ -88,15 +88,15 @@ cosign download attestation \
 cosign download attestation \
 --platform=linux/amd64 \
 --predicate-type=https://spdx.dev/Document \
-cgr.dev/chainguard-private/vela-cli | jq -r .payload | base64 -d | jq .predicate
+cgr.dev/chainguard-private/jellyfin | jq -r .payload | base64 -d | jq .predicate
 ```
 
 By default, this command will fetch the SBOM assigned to the `latest` tag. You can also specify the tag you want to fetch the attestation from.
 
 To download a different attestation, replace the `--predicate-type` parameter value with the desired attestation URL identifier.
 
-## Verifying vela-cli Image Attestations
-You can use the `cosign verify-attestation` command to check the signatures of the vela-cli image attestations:
+## Verifying jellyfin Image Attestations
+You can use the `cosign verify-attestation` command to check the signatures of the jellyfin image attestations:
 
 ### Public Registry
 
@@ -105,7 +105,7 @@ cosign verify-attestation \
   --type https://spdx.dev/Document \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
   --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
-  cgr.dev/chainguard/vela-cli
+  cgr.dev/chainguard/jellyfin
 ```
 
 ### Private/Dedicated Registry
@@ -115,13 +115,13 @@ cosign verify-attestation \
 --type https://spdx.dev/Document \
 --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
 --certificate-identity=https://github.com/chainguard-images/images-private/.github/workflows/release.yaml@refs/heads/main \
-cgr.dev/chainguard-private/vela-cli
+cgr.dev/chainguard-private/jellyfin
 ```
 
 This will pull in the signature for the attestation specified by the `--type` parameter, which in this case is the SPDX attestation. You will receive output that verifies the SBOM attestation signature in cosign's transparency log:
 
 ```
-Verification for cgr.dev/chainguard/vela-cli --
+Verification for cgr.dev/chainguard/jellyfin --
 The following checks were performed on each of these signatures:
 - The cosign claims were validated
 - Existence of the claims in the transparency log was verified offline
