@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-pushgateway-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 14th   | `sha256:1e0da8d94142c8dc7f233b69a5b5ebfd1aea0d4ce48ca4d8b8aee67310b6ef95` |
-|  `latest`     | March 14th   | `sha256:d5bd45e741025d68d5bfa4568c661865ca1b685b2dfbf293a1b886688511d09d` |
+|  `latest-dev` | March 17th   | `sha256:f411dd615906b6b56be3aa7aa4ffdf477caf0688cf22a53233e1019254c34996` |
+|  `latest`     | March 17th   | `sha256:59023405e17633f38b8eecacfe36848175c448cc22c4e4b1d81e79fb4f87ea10` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.4` `latest` `1.4.3` `1`                 | March 15th   | `sha256:89d3b141a1cf1783287d0c20325bff39b45b181f11f378df101bd840620d22eb` |
-|  `1-dev` `1.4.3-dev` `1.4-dev` `latest-dev` | March 15th   | `sha256:a109cf9187543fac061dff779a6ffd4df8c29555d1632a12c5af34e13c7011b9` |
+|  `latest-dev` `1.4-dev` `1-dev` `1.4.3-dev` | March 16th   | `sha256:eefa4afd395ebcf814122482a1a7ee6a6d9e0cbf1443412de2f833df7ff904f8` |
+|  `1.4.3` `latest` `1` `1.4`                 | March 16th   | `sha256:7f50550661464660115ac7d5f97530723bb5af593bb426906c5d74e6f406766e` |
 

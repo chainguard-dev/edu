@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the busybox Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,8 +35,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                               | Last Changed  | Digest                                                                    |
-|-------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-glibc` `glibc-1.36.1` `glibc-1.36` `glibc-1` | March 14th    | `sha256:ce123c5d3ab41bfec0b38ec6ac796f4d4f567ba86778aa90ce31476c9d4b089e` |
-|  `latest`                                             | February 16th | `sha256:6799955dbd3396e9670859a42c16e6d17f963aacb264b25b6e99930590c09208` |
+| Tag (s)                                               | Last Changed | Digest                                                                    |
+|-------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-glibc` `glibc-1.36.1` `glibc-1.36` `glibc-1` | March 14th   | `sha256:ce123c5d3ab41bfec0b38ec6ac796f4d4f567ba86778aa90ce31476c9d4b089e` |
 

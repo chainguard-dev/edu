@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:1d193e6d7df63bb935bbe5528163d83d856d70547b030024a9e0a3fb0149850c` |
-|  `latest-dev` | March 14th   | `sha256:13f25e2a97b4f61096b0f07c9d5f1eb24270a3aa87ea42a6e84818273b04b15f` |
+|  `latest-dev` | March 17th   | `sha256:9a445825e540364c400e24b2dd900f40c45ba45fdc4a013cf6f4171d260ed983` |
+|  `latest`     | March 17th   | `sha256:e72ef9829459f66d9e8e86954fc821bbb0a39364db497e50be784c5da205d676` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0` `0.15.0` `0.15`                 | March 14th   | `sha256:ea82521b22fe7b4223a139699f3357c6ebe9458d72a1dbbc49d01a97da2f808f` |
-|  `0.15.0-dev` `latest-dev` `0.15-dev` `0-dev` | March 14th   | `sha256:85507e3e815c3dcaf33c13dbef429f3219a172406a9531c1c8787d4ddbb550ee` |
+|  `latest` `0.15.0` `0.15` `0`                 | March 16th   | `sha256:c91231ed147ae57b2c2a6e4156d12dedbecd59afc6212813f5fbeea7b87bdd33` |
+|  `0-dev` `0.15-dev` `0.15.0-dev` `latest-dev` | March 16th   | `sha256:df137f34f74ae250edceb0e0e0811293b965f008781c928cbf0fe065672cf345` |
 

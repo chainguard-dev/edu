@@ -1,9 +1,9 @@
 ---
-title: "skaffold Image Tags History"
+title: "jellyfin Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the skaffold Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
+description: "Image Tags and History for the jellyfin Chainguard Image"
+date: 2024-03-18 00:56:27
 lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/skaffold/" >}}
-{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/skaffold/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/skaffold/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/skaffold/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/jellyfin/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/jellyfin/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/jellyfin/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/jellyfin/provenance_info/" >}}
 {{</ tabs >}}
 
 The following tables contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -28,15 +28,11 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 17th   | `sha256:0e64799f696620d342f96b4a4aa160a1e2a9e1e188598a455340081e8a6b3b2d` |
-|  `latest-dev` | March 17th   | `sha256:8063b11f97200e0c99788640b6b4cac6e052d55072987e2626e10c52464622ae` |
+|  `latest-dev` | March 17th   | `sha256:d7b0bc3f08a31910e0adab466e0d0c0a4903435409bde58ac63358f4c83e5336` |
+|  `latest`     | March 17th   | `sha256:28b7646ad6abced6bc99ef9c9489269f8cd79329adf3295bc1640b5b9fe7ba3a` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed | Digest                                                                    |
-|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.10-dev` `2-dev` `2.10.1-dev` | March 16th   | `sha256:e1235d2de7e705976047dc6693b14a110f6c5492277819b8fa2bb469778cfe8e` |
-|  `2.10.1` `2.10` `latest` `2`                 | March 16th   | `sha256:68e8c751a9567445f49a1a5f8d7e772c18748149827e53cf63487fbcc0fbf689` |
-
+Currently, there are no Production versions of this image available.
