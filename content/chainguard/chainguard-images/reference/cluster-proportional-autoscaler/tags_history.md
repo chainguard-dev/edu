@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:8b09ddcb1f3286b67aea32196aabc1a9c8e5df5530869b5415bddb024b1a3eaa` |
-|  `latest-dev` | March 14th   | `sha256:48c37e638c942bc84c123e8104d983152a3d58b8f504f2ee865a54754e8981fd` |
+|  `latest-dev` | March 17th   | `sha256:2ee3991071074da64edb08c6bcbf70e0de4806562e071481ae9829821581cbfe` |
+|  `latest`     | March 17th   | `sha256:fcb1603f9b5f0a177c84d103295a924def1abefe18763abd618fd296c7f804cd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.8-dev` `1-dev` `1.8.11-dev` `latest-dev` | March 14th   | `sha256:988ba7cca77e0ca78ab05524a9484615e37905fb52bae6291bccedce40d267cd` |
-|  `latest` `1.8.11` `1` `1.8`                 | March 14th   | `sha256:1261792a36e629ef4b0dd857ffbdbf531fbd4cc32c5cefaf7ee066d86813b311` |
+|  `latest` `1.8.11` `1.8` `1`                 | March 17th   | `sha256:16ced91cec4645772451b48e68b82939434e4c8b94d235701e059adc2e5f26b8` |
+|  `1-dev` `latest-dev` `1.8-dev` `1.8.11-dev` | March 17th   | `sha256:1ac0e68b425a8f2ea486d9125b6dba061658c6cda21a04f7c4247f430211ed26` |
 

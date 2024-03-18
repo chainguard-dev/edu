@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ruby Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -30,6 +30,9 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 |---------------|--------------|---------------------------------------------------------------------------|
 |  `latest-dev` | March 14th   | `sha256:61a883dd8f8c91e2aedbb18e8c84f3e7d4a44972926b628a58bd7ae6352d31a6` |
 |  `latest`     | March 14th   | `sha256:260292e3b4e9a68429f69489c7405113e6a28ba24b3824f68b3477cdba764928` |
+|  `latest-3.1` | March 17th   | `sha256:054c7b1b1afdaeedce7620ae5afce999b888f93bc8983ae7e6d8c0efb603a2e4` |
+|  `latest-3.2` | March 17th   | `sha256:3389cfe1b4507caab788a706a5a288364fb74793b6a4322184a4f9a138ee8627` |
+|  `latest-3.0` | March 17th   | `sha256:3c9afb4f188827ea1062ec3b8acea32893236a0d7df31e0498df93486cff0978` |
 
 
 ### Private/Dedicated Registry

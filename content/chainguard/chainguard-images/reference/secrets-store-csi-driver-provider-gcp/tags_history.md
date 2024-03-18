@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:a4618514dc8f9d7d8005a2fa3cfe37fb4924df29e7dce40ce570027f9486cbe7` |
-|  `latest-dev` | March 14th   | `sha256:2ce4f6671ccde2625a060bf438e79b8eb4a73a62354a602cf6f005bed923b292` |
+|  `latest-dev` | March 17th   | `sha256:e0173390353c3e656e087047f301c86739ded352f267272ae86ecab28d42e0f6` |
+|  `latest`     | March 17th   | `sha256:1549b9033f06547d98edf9c14cebd3d781f77f8cf29315f242ffbf48e9aeaeb7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.5-dev` `latest-dev` `1.5.0-dev` `1-dev` | March 14th   | `sha256:84cc9b257017f997b1cf3bccc2e21b2bd42ec3bbc95adb103b7d9ed86ab08714` |
-|  `1` `latest` `1.5.0` `1.5`                 | March 14th   | `sha256:b6af4ec1013bb13ee6b01932e1ef2964b893f542f26cba4893de56e84a3520c9` |
+|  `latest` `1.5` `1` `1.5.0`                 | March 16th   | `sha256:f7c6c1d8a9de64d9b12dd6321b2f740aba7b381722d06073209fe8b305b23bb3` |
+|  `1.5-dev` `latest-dev` `1.5.0-dev` `1-dev` | March 16th   | `sha256:5d7cf4ea9fdb70ed11b8eba35e93f3937a71c1197b7551ef24c9795ebb5d0679` |
 

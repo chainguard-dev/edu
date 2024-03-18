@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,11 +33,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `2.45.3-dev` `2.45-dev`                      | March 17th    | `sha256:7a3b9c615c7e5fabcc1254c9fabc433dc1c9af89aea55d402549fe94a1915f3d` |
+|  `2.45` `2.45.3`                              | March 17th    | `sha256:9cd21c75ec7054ed03a1369703cddb57d3704c07bfb6746d48c006273d37641b` |
 |  `2-dev` `2.50.1-dev` `latest-dev` `2.50-dev` | March 15th    | `sha256:2625041fc499b2bd54436d3fe604d77ec4b14b4b12c2ce7e44e911941c712fc9` |
 |  `latest` `2.50` `2.50.1` `2`                 | March 15th    | `sha256:ec3f06ad88ba16d1d5da712f01a93c3de25769accc424f256ee3845736ff69ea` |
 |  `2.38` `2.38.0`                              | March 14th    | `sha256:ab4ca21882dc0434237b10f0d108fec9755d0058502bc853b2e4790feb4c5e89` |
-|  `2.45-dev` `2.45.3-dev`                      | March 14th    | `sha256:fdb7392c1b06f6e602524809cc50117d9cb1317111e11fef25ea0bfd02c25c10` |
-|  `2.45.3` `2.45`                              | March 14th    | `sha256:92a431fe492e1521d49db74290742d959857cb492c3f536ae1612f224b9720f6` |
 |  `2.38-dev` `2.38.0-dev`                      | March 14th    | `sha256:92de0be7079275625fd65b8a7fa73d7e1aab09a711c7718e46abe4419106ed01` |
 |  `2.50.0-dev`                                 | February 24th | `sha256:97cfd6f284622c2da82e087f4e8e6c0fbb3147d22da6fd29c09fde41c669366b` |
 |  `2.50.0`                                     | February 22nd | `sha256:d4b9b3a065655df30839cdd29061766060cd3387ffcc3e3b96d983bbec9bf16b` |

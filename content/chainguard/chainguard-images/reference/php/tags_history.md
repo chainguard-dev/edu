@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the php Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,12 +28,12 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)               | Last Changed | Digest                                                                    |
 |-----------------------|--------------|---------------------------------------------------------------------------|
-|  `latest`             | March 14th   | `sha256:7df0b27dc00df72106ba0beb860a1c80b355598bebd20faeda6157bcb1fff79d` |
-|  `latest-laravel`     | March 14th   | `sha256:bc20d1987c976e91e73eb83c58d9891fe19282f8e52b86566e1cd19b2ee4c7ec` |
-|  `latest-laravel-dev` | March 14th   | `sha256:7139319d01996ccd7dde6cf9175aa6c22aabfff3cbfae12e8acba6a5cabe7461` |
-|  `latest-dev`         | March 14th   | `sha256:904042431737ff8275033e622f11e8d034a890fa4e7df41efce4902746ba6ba6` |
-|  `latest-fpm-dev`     | March 14th   | `sha256:552a83c225faa754e39ef5ee6c95914a59569eb45ed8552a490b41da9d4a6962` |
-|  `latest-fpm`         | March 14th   | `sha256:ea0553207b3524b7849425c5f49d134af1a136e20be602051828e0f62a2321e5` |
+|  `latest-laravel-dev` | March 16th   | `sha256:ed746fef2c5ffcffcff509ed01f0f2d843ce0e9ee4d1702dcdbee827f6f6fbb8` |
+|  `latest-laravel`     | March 16th   | `sha256:53a39a72e06f249eb3b709dba9bfd0bfc42cf6326fbb15d9e8955343a5c6cc6e` |
+|  `latest-fpm`         | March 16th   | `sha256:1bb3b29be6948a6ba11a980345fd55d8f63f1c848d7e017cb69150d727567733` |
+|  `latest-fpm-dev`     | March 16th   | `sha256:4ae2556f1b64d40d5d2d641aa4bf82bf7aff109e6cf850fbb9508f0d0fc04eed` |
+|  `latest-dev`         | March 16th   | `sha256:a6156dcd658edd3c386b116dd2ff6757f8303d9ba6fc7a72d78f05d9f0fdf0f4` |
+|  `latest`             | March 16th   | `sha256:2febf04201dc9c7827ca156c1faf8cdedf248197285f08dedd117346af80043a` |
 
 
 ### Private/Dedicated Registry

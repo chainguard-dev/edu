@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kube-events Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -47,5 +47,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.9.0`                                    | February 26th | `sha256:6b116e4b2f49a257083dbcd2f705543dd4b553a439be1321a041977b09b037da` |
 |  `2.8.2-dev` `2.8-dev`                      | February 24th | `sha256:45921f9573ade5164c79064b1ef2449f4658d9a33d9578296eda484e03c73359` |
 |  `2.8` `2.8.2`                              | February 19th | `sha256:44495c27da0f31c71b0830f0f644acf29ba09ee1ddfcd432d9fdee6d814c70d0` |
-|  `2.8.1-dev`                                | February 17th | `sha256:4ab7b6d436c13e7d4c425a6ad86dc181d2751fefa2c141117376535ac2d471a0` |
 

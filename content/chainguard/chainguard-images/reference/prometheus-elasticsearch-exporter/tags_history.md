@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:f1fc08c703e03aaa1ea17777bc470ca10d0fa8cf1f6648ccb290e22ab43233e3` |
-|  `latest-dev` | March 14th   | `sha256:9f98b497d43a7059fc487c6064747d7a2fa2802864a63771f1c69d75139056ee` |
+|  `latest-dev` | March 17th   | `sha256:a2728eb6841aea2f080c81d94561682742d03eeb216fae9e674aa30d833d39b2` |
+|  `latest`     | March 17th   | `sha256:98a78bc0296f5f1cd2a3d804bb247c434fc5688004565251f3b7cce60b891c76` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.7.0-dev` `1.7-dev` `1-dev` | March 14th   | `sha256:36d9b6a5b81df73faffa5e186508dc5d7f497ab0c5eb90ccb7e110d0d6958cb6` |
-|  `1.7.0` `1.7` `1` `latest`                 | March 14th   | `sha256:b0a4ffdce8985cc9f9761490d4f7d45fb544350fecf8b0dbea265e0c4e4742e6` |
+|  `1.7` `1` `1.7.0` `latest`                 | March 16th   | `sha256:08eeb92c6b70cfeccf8d963e3b254fc4cd13ab2e946fcb1d4180e948b8bcc438` |
+|  `1.7-dev` `1.7.0-dev` `1-dev` `latest-dev` | March 16th   | `sha256:f1f0b00957acc2ced072338c23f5e04859b718edabe79008543173e2c8b8f17c` |
 
