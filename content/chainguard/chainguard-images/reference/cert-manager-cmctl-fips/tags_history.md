@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-cmctl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -44,6 +44,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.14.2-dev`                                 | February 22nd | `sha256:fe0a83cceeac226dcb5c772125c33d8b6083270793cc459614272528128ec5c9` |
 |  `1.13.3-dev`                                 | February 22nd | `sha256:b8f878bae4aa0d68dec0894eb1b751345298048ab2d47a731b2d634cd6cab550` |
 |  `1.13.3`                                     | February 21st | `sha256:668aa6f145ca05158225cbabb12a8a7998b6796535ee7995a906c3a7a4f5d035` |
-|  `1.14.2`                                     | February 17th | `sha256:5c37b82e1c7c88c4f7d05a9e924c98ed6f9030c952f239f12dd5f477a20cc49a` |
-|  `1.12.7-dev` `1.12-dev`                      | February 17th | `sha256:da5b0053d02e8b73b0d7449029568d7741f5915a236bd62e550dd73471d0fbe2` |
 

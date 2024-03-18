@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the memcached-exporter-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 14th   | `sha256:cdd74493330e7d08587c4e46a04f8f494cabdc87c10ff08290085ced79c6000e` |
+|  `latest` | March 17th   | `sha256:d00bb4e3aa6a870c38a656254d021584d41f024854c70c24dc006de6bf7beb17` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14.2` `latest` `0` `0.14`                 | March 14th   | `sha256:8ad39d7d5ee36cab34d94412585bae812f5a8774a2b3c4b4d79857f48341834a` |
-|  `0.14.2-dev` `latest-dev` `0-dev` `0.14-dev` | March 14th   | `sha256:1bec46f11a2cb4a5520f7ad08e5484b7171f436d99a06d96200b8d98669797e1` |
+|  `latest` `0` `0.14.2` `0.14`                 | March 16th   | `sha256:b7d821f2af4afba7d8ebc9e0edc6b13e8af26c150f093f72a39df7dfa28e232b` |
+|  `latest-dev` `0.14.2-dev` `0-dev` `0.14-dev` | March 16th   | `sha256:223c46b47b6005996fa3b958701ba2c6c21e2f639cac6225b465c486e26972e2` |
 

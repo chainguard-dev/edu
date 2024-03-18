@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fulcio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-18 00:56:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 14th   | `sha256:be0489b727ca3e9b60b70bffa20621ef4b17ee5632642f9b6e4b28cd74083a6d` |
-|  `latest`     | March 9th    | `sha256:21a1038389a220a67e9a4fc0648231e022ac60ec4bcf665e6e49a07ca294491c` |
+|  `latest`     | March 17th   | `sha256:d6ceb72af611c53aeb34394bc2106b6621cd185d35b3db90145f7c37c6fd2c9e` |
+|  `latest-dev` | March 17th   | `sha256:9259ae1ff9f0a1129a10fd0f0d4c0d7aaf207b864dd9a0b6946103d836a7ea48` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.4` `1.4.4` `latest` `1`                 | March 14th    | `sha256:ca24186bd4f830da81b5644236e5cf632bce190cc826d8b82266a9504673f062` |
-|  `1-dev` `1.4-dev` `1.4.4-dev` `latest-dev` | March 14th    | `sha256:5d00b10c9552e575ade501afbc6fe18069258961776fd6666ce974143e2547bf` |
+|  `latest` `1.4` `1.4.4` `1`                 | March 16th    | `sha256:c13d86add0a8b20db8ec5d731b66c05edbc4ae32b413b5116255bb6cafd11bad` |
+|  `latest-dev` `1-dev` `1.4-dev` `1.4.4-dev` | March 16th    | `sha256:a372cd996074ea5a71953ef4fac631f1c87f817a594b8959027b6b4c0025d8da` |
 |  `1.4.3`                                    | February 26th | `sha256:d680112957f409a24d72fa539bbc1a4c8af7246ddb9f6f2462b86b97dfb684b5` |
 |  `1.4.3-dev`                                | February 26th | `sha256:38b5ccc586bf4eab9c6df844bc8e7063c9da3751a48c496a17d0c2372d979cc3` |
 
