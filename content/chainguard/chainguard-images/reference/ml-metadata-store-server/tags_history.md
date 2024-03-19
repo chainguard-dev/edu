@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ml-metadata-store-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:0b496900ea8136a9c36d279fc5f026de9be0074ee4289850901cca0d159dee48` |
-|  `latest-dev` | March 14th   | `sha256:f8244434937cbb4e41f5578b0620dc82f20f6a4c7791c4b225afea4a12d3e895` |
+|  `latest-dev` | March 18th   | `sha256:a81812eef2516fa880a7af090a8d1131e6033eda8c593394038385b3e275613e` |
+|  `latest`     | March 18th   | `sha256:f1a5937e3d944b00569cc34bbc1b770377f66d7d942426dd991a00f19a18544c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.14.0-dev` `1-dev` `1.14-dev` | March 14th   | `sha256:b21dc87923ef40de32b1a84b5417f19694c69b47136fb640c47b44a92a99f73e` |
-|  `latest` `1.14` `1` `1.14.0`                 | March 14th   | `sha256:b7e166f9d129b4a7a7fbf9c87fd260fea4ebc52cc39b1a3f615db81bd5d01db6` |
+|  `latest` `1` `1.14` `1.14.0`                 | March 18th   | `sha256:5dbb9fb13972a7f58d49cdcb33876ba308e4de613854f87916ba58b7b3413b00` |
+|  `1.14.0-dev` `1.14-dev` `1-dev` `latest-dev` | March 18th   | `sha256:8a4d784addb5b144fe15d0099c4bf9c53f76206dc63e065bc855111855a324b2` |
 

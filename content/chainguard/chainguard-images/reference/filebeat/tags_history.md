@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the filebeat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:f79ce2726d7fccc3b7edd3ff39629a19bf3201205857a2a4912a7487ea591087` |
-|  `latest`     | March 15th   | `sha256:5e3bc78a23148e4dca53dce4cbe70518e1ecc97ebe80c5ff4f72423c71cb540e` |
+|  `latest-dev` | March 18th   | `sha256:aec189216b71a42a4311563dab5c20b2e71ae7571ac9eb1f2dcc972d384d2847` |
+|  `latest`     | March 18th   | `sha256:2432b4d3724fdab26c6ec138b287550d1b1387ce575ced605901985978438a13` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `8` `8.12` `8.12.2`                 | March 14th   | `sha256:9ba08e5c35881bd255fa42b9454c1276b562f7e74d043a794d34e1b64c0aa903` |
-|  `8.12-dev` `latest-dev` `8.12.2-dev` `8-dev` | March 14th   | `sha256:aefe968268a8adfbfac67029ab189afcf94125c29a7a95c8620424e15b4b6e36` |
+|  `8.12.2-dev` `8.12-dev` `8-dev` `latest-dev` | March 18th   | `sha256:a26262392bb2a72ca86b5852530b09718187078c620bee715926324b8cfd154e` |
+|  `latest` `8.12.2` `8.12` `8`                 | March 18th   | `sha256:17fb11edd409d698bf061f71b823880995f1ae0b10f09ed66afcc4c48b713e6f` |
 

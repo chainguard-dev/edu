@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the external-dns-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14` `0.14.0` `0` `latest`                 | March 15th   | `sha256:d2b0ba215f7deee20d42dfc67fdc35b0e011f0da9347e5e7d6fc81ec514a9a6c` |
-|  `0.14.0-dev` `0.14-dev` `0-dev` `latest-dev` | March 15th   | `sha256:30a3aa047fde941848e95afba7ed5005bb82e1e5008a742b81eff961ffe7bf29` |
+|  `0.14-dev` `0.14.0-dev` `0-dev` `latest-dev` | March 18th   | `sha256:be2a57e7c35ea603ad098ad16aec95dde9339bf78a7d7278d52cfa121e36ba22` |
+|  `0.14` `0` `latest` `0.14.0`                 | March 18th   | `sha256:c07993a5b7efe021b51ebf80617ff277dd97d2a7a3baad4137fc102859180d24` |
 

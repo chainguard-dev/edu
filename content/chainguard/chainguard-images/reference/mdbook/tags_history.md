@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mdbook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 14th   | `sha256:66fd28a8c337c7fa1164e4ca6cdcfe43d1d3f79181046706a7f1cdc1e2961fee` |
+|  `latest` | March 18th   | `sha256:e181f90b62e59e09b35d457701f9a1c24dcbb136e7e6cb68069979d98ae884c2` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                      | Last Changed | Digest                                                                    |
 |------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.4` `0` `latest` `0.4.37` | March 14th   | `sha256:7c19439063e68ee7e0b151b87bd00396a7bfd3bccf925741ec470b87c47ccf45` |
+|  `latest` `0.4.37` `0.4` `0` | March 18th   | `sha256:8e0ec5d860a362f4a383c566ae5c75651e950ee1f3c167783f8631e5211a1cd5` |
 

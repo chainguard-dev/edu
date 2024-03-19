@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the docker-selenium Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-18 00:56:27
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 17th   | `sha256:8ae1622c23571609b63b15f540a9e96c010b3330cbe25623fc21bc2dda122aff` |
-|  `latest`     | March 17th   | `sha256:a54f2f8c77d61ddcb7770269d73a18e2aa42c101787c1dff2931f3846979f2b3` |
+|  `latest`     | March 18th   | `sha256:a1f8980e61ad7ed2120819ed1e6dc1dc67535b4b19ac10213bb5c190116a1de5` |
+|  `latest-dev` | March 18th   | `sha256:8470ba6603befec38ab36d25b0bef912db4c28f0cfeb3c3d3d70e664c7cc75ce` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `4.18` `latest` `4` `4.18.1`                 | March 16th    | `sha256:0e63259a2180ebb981bf8565096e1877bc2c644908f6c3cf7c7fbff9ead67798` |
-|  `4.18-dev` `latest-dev` `4.18.1-dev` `4-dev` | March 16th    | `sha256:22e0af42b0c59669dd33e77ca4d78c5d6d94bd0d33a2d649622244e42c23f591` |
+|  `4.18` `4` `latest` `4.18.1`                 | March 18th    | `sha256:a9e19a2004a23024150f2489afa8c25b56cf9d5bad4192b3ffb9311ccae50628` |
+|  `4.18-dev` `latest-dev` `4-dev` `4.18.1-dev` | March 18th    | `sha256:3ee513e4b20271b03714fcca00b49684ed9f1eecc0085af09a2bbfa8f7cf9de3` |
 |  `4.18.0-dev`                                 | February 24th | `sha256:219bf0ee0f0879f79d2c062bcb72c4f7ab030556b8d82e73d7837db4d079273f` |
 |  `4.18.0`                                     | February 24th | `sha256:43335cf48abc88b6bcbf4ea496deb73a157c96bf76d9ca03598d59d4ee3c8c9f` |
 

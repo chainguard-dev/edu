@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:e0e2e7bea83f926a1ab1b58d4bb2a3871ed4b9f6e745ebb416667b1e5b119335` |
-|  `latest`     | March 15th   | `sha256:8eda31ea57f25f1a791288d317ca464351a84396add693a6d081d9af5839b8e2` |
+|  `latest`     | March 18th   | `sha256:c51d1f507e399750240f3ac5b2f16acd4fa8fbf99b9487915442364fe6534bd7` |
+|  `latest-dev` | March 18th   | `sha256:a79222bd17be23dadba2cad86ca4636b50e846e2efdf3aab3c20bc6c24777f50` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.0-dev` `2-dev` `2.0.5-dev` | March 15th   | `sha256:f2455ef797a2007a2069df98fa1f08e0ab17d3b613f6cf9a28666f6b4334d702` |
-|  `2.0` `2` `latest` `2.0.5`                 | March 15th   | `sha256:e8891d6983e03369ac55e21c434668f369df82b7c27c8c4f0fde5dc579cfc31e` |
+|  `latest` `2.0.5` `2.0` `2`                 | March 18th   | `sha256:3993e905d8706927acafc25de9bf0cc9e229116855bc097074451acbcbad1867` |
+|  `2.0.5-dev` `latest-dev` `2-dev` `2.0-dev` | March 18th   | `sha256:f4badfdc03a9ac04c1f0adbf7790f7c26fcd080108911d9d8a06454846733f0d` |
 

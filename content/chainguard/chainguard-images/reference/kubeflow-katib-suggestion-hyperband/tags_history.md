@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 15th   | `sha256:5bdedb9ac11c81688ef4488bc05f7f6f282323b8351b6d2b93ff9f01ecf1898c` |
-|  `latest-dev` | March 15th   | `sha256:11ac1263b53d7045ec09da9c90185fa47d300abc99466167f30abfe8796c3859` |
+|  `latest-dev` | March 18th   | `sha256:c83ef9d0e73252496c625a4a58ab47b7c83557a9c1d1b0ddab917357b69840c7` |
+|  `latest`     | March 18th   | `sha256:dbc3250a2398601e4f581d281cc94219391be4a56269cb1e1229527a1da7b0ba` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.16.0` `0.16` `latest`                 | March 14th   | `sha256:f553a0bb663cc03f842c542833997fc756d35951fe979874869898aea914ae05` |
-|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | March 14th   | `sha256:b24b2e2ca5bf738b7e07f2e7c50fe5812fa23bc130739dc437fa7043e2259e2f` |
+|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | March 18th   | `sha256:1593a89212f061b182ef0964f206677e195873a5a37272ac0da478c26376bd6a` |
+|  `latest` `0` `0.16` `0.16.0`                 | March 18th   | `sha256:cc0f373b0f00e2497e26426a37af96aee9b18bb8172b9ea7fabfbb0c235e8da7` |
 

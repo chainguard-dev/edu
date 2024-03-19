@@ -4,8 +4,8 @@ linktitle: "cluster-autoscaler-fips"
 type: "article"
 layout: "single"
 description: "Overview: cluster-autoscaler-fips Chainguard Image"
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,4 +23,36 @@ toc: true
 {{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cluster-autoscaler-fips/provenance_info/" >}}
 {{</ tabs >}}
 
-# cluster-autoscaler-fips
+
+
+<!--overview:start-->
+Minimal Kubernetes Cluster Autoscaler Image
+<!--overview:end-->
+
+<!--getting:start-->
+## Download this Image
+The image is available on `cgr.dev`:
+
+```
+docker pull cgr.dev/chainguard/cluster-autoscaler:latest
+```
+<!--getting:end-->
+
+<!--body:start-->
+## Usage
+
+This image is a drop-in replacement for the upstream image.
+You can run it using the helm chart with:
+
+```shell
+$ helm repo add autoscaler https://kubernetes.github.io/autoscaler
+$ helm install my-release autoscaler/cluster-autoscaler \
+    --set image.repository=cgr.dev/chainguard/cluster-autoscaler \
+    --set image.tag=latest
+    <other configuration parameters here>
+```
+
+Note that the `cluster-autoscaler` does need cloud provider configuration to work correctly, so it won't run locally.
+See the [configuration](https://github.com/kubernetes/autoscaler/tree/master/charts/cluster-autoscaler) docs for more examples.
+<!--body:end-->
+

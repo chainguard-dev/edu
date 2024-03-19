@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 14th   | `sha256:c4e5d7dec5fe3d116a52f6055fa7a75b2e95dab8b94352b63aa7ee80373693ff` |
-|  `latest`     | March 14th   | `sha256:26c1f80fb5a7a5665266ad5ffb56214622af458bfcdc42a86844d01ac3c76766` |
+|  `latest`     | March 18th   | `sha256:a96d9dd6a6252a7be83b19736376e1284beb97d6050702cfa829b9becc73be3c` |
+|  `latest-dev` | March 18th   | `sha256:46a771754b8357429ac900c94e67935b56f9a9a1d3e2dbab97bf2582c2168b83` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3-dev` `3.0.0_beta5-dev` `latest-dev` `3.0-dev` | March 14th   | `sha256:2a033146c18bfb7ef9a06a552c17a89055970dd77aa2959d115bfb020220c8e2` |
-|  `latest` `3.0` `3` `3.0.0_beta5`                 | March 14th   | `sha256:eebd7221f3818e7e1db8f19e051c678c9c195d778d006bf015409b975e5a817d` |
+|  `3` `3.0` `latest` `3.0.0_beta5`                 | March 18th   | `sha256:5810b4b80b649b2e10f545170b7c1a7478335bac158f457a35774712c1c81846` |
+|  `latest-dev` `3.0-dev` `3-dev` `3.0.0_beta5-dev` | March 18th   | `sha256:5e22f8235993a74f38c30295e7a2fe04b0b2acf2efca4ab5d60301918598126c` |
 

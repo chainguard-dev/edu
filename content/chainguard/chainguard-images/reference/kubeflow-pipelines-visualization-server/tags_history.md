@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-visualization-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:aa8e08534a8b30cf31c07267027651b5814df2c4f7c4c6c284e482c5aa650b55` |
-|  `latest`     | March 15th   | `sha256:dcf942799a69bac8e9685256e22fa2f59153083857d41400b3e75c6175c69247` |
+|  `latest`     | March 18th   | `sha256:5d035e93b96d50c1ae48e9091bc94b3a5e6c0b5a46c8fde24616097b6442fb1c` |
+|  `latest-dev` | March 18th   | `sha256:b41d95aa8a8979b99a710313d09a8c4e7a11ef1b5acab527d7532f6dcfd8813f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.0.5` `2.0` `2`                 | March 14th   | `sha256:bb6b7ba03a6b27e38d8d3d65c798e36253f028d19f39084d8eaf9b5e43f1fcb0` |
-|  `2-dev` `2.0.5-dev` `latest-dev` `2.0-dev` | March 14th   | `sha256:11d661b8d5e759330419019444651c4c6ae0be9e7020a4d76d8ccb20765babd4` |
+|  `2.0-dev` `latest-dev` `2-dev` `2.0.5-dev` | March 18th   | `sha256:85c33fb5b74dd43dffa9954684aea8be843e1d914694e2db4b68ff36320e9bc5` |
+|  `2.0` `2` `latest` `2.0.5`                 | March 18th   | `sha256:17e4f65fe264904350a2bfa4a3914f7fef190394710fcb543e926a16ad07a3da` |
 

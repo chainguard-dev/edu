@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-sentinel-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:572f7f3526985be833ac685b3c9078e8f4a7b20ff8d8239fb1ca6f4d8aaf8aa9` |
-|  `latest-dev` | March 14th   | `sha256:7f2305943a7b014f6aa94bddf31f34df7584b02cad3381bbdf4cc73557138f5a` |
+|  `latest-dev` | March 18th   | `sha256:cae3c4d21fd20bdb7ef8077f2399528d15cbe8a76d4b73597f6b9cb9c351e15d` |
+|  `latest`     | March 18th   | `sha256:46961da0ea74b96a79aa70eb2034fb5b205d02120e0f5a369b2f1221e97ffa3a` |
 
 
 ### Private/Dedicated Registry
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6-dev` `6.2-dev` `6.2.14-dev` | March 14th   | `sha256:6f0760fd88c0c51d2ec7802293dfc90076c0c65476ec779263f8fd6a5389a0c5` |
-|  `7.0.15-dev` `7.0-dev`         | March 14th   | `sha256:4f916dd7aafbed1fc2ab11bcff7a6a161927d2f89653d834825b41b5f53f735c` |
-|  `6.2.14` `6.2` `6`             | March 14th   | `sha256:2a74b4c47a34fb92992d93eab8117b196e8cf4e75bda63cceb0f2688e8c6bf1b` |
-|  `7.2.4-dev` `7.2-dev` `7-dev`  | March 14th   | `sha256:1f8d8e17ade6eaf1327348cc67f2a4fd3eeb0f3aafb94b59d67468dbc8b62c36` |
-|  `7.2` `7` `7.2.4`              | March 14th   | `sha256:2a8b1c88bea8f5793788a04643193f9452e96965b4f5f4e66a60e390a0d23f82` |
-|  `7.0.15` `7.0`                 | March 14th   | `sha256:0f6e24d60dba07a513d66d4b12462882f1eac5f4eff706a18b91bba6bf3675e6` |
+|  `7-dev` `7.2-dev` `7.2.4-dev`  | March 18th   | `sha256:7b4d3b9367dcafa41504b25dfb5068a0842c00f74427a8f4e8a6e698ee67b013` |
+|  `7.0-dev` `7.0.15-dev`         | March 18th   | `sha256:365a200705da493160491e47e082a6c6c7d489e28b89e8ffde2a5b74f3c47522` |
+|  `6.2-dev` `6-dev` `6.2.14-dev` | March 18th   | `sha256:2ee11094e1dd1f50150c8bfd1957b2574e8cbfe1c3c6524907fa1cfb53245a2e` |
+|  `6.2` `6.2.14` `6`             | March 18th   | `sha256:827e705d6a62b16e45bcc30d8eacb2d9ba8ff3c322c211ab2a063311f7106bb6` |
+|  `7.2.4` `7` `7.2`              | March 18th   | `sha256:fb92a1ba90d78fe0a92cf348b5b0e2597a8d5d6d8360692a1d335921cb2990e0` |
+|  `7.0` `7.0.15`                 | March 18th   | `sha256:743e3b8d501639b94370ed155c610ae8144b9bc72db555471a6644321861a340` |
 

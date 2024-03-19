@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-relay Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:2d5c2167f57ac76a9971b34b8fa84c9cfb9cc3287c18c85ff761949fce112279` |
-|  `latest`     | March 8th    | `sha256:c9e5e56700a72ccfb0a1cbd5d30dd9f5e087137c5cfd003abfdfa2708187104c` |
+|  `latest-dev` | March 18th   | `sha256:99d5587fb53400a02cf6a2152346b693405c7098bf25f6a3f903f7b68b24cc6a` |
+|  `latest`     | March 18th   | `sha256:e82ccdebcf98f6688209376b45ef1dab4ae216cec5c5d746d0c6495cda3d60da` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest` `1.14` `1.14.8` `1`                 | March 15th    | `sha256:10b3b68cd571c46fed370c9ece89fe6c5147d5b678da61f28ce6f8b8db9fca15` |
-|  `1.14-dev` `1.14.8-dev` `latest-dev` `1-dev` | March 15th    | `sha256:f71c39b367c490674cb1f955de8d28a05ea488c813df81a2e0af9099f01abd8d` |
+|  `1.14.8` `1` `latest` `1.14`                 | March 18th    | `sha256:d2f488a079c04349eb6df04bd975692524fd1b04c1ac02c359127af8cb782dd6` |
+|  `1.14-dev` `1-dev` `latest-dev` `1.14.8-dev` | March 18th    | `sha256:0d7f108656929a25ace79b6233a218f4f8405478b6ef276f4df6f4097bd1ec09` |
 |  `1.14.7`                                     | March 14th    | `sha256:065c02aaa9a413c95061db87a463e9ed2b219e67dfcdd2978b9a060550ce659a` |
 |  `1.14.7-dev`                                 | March 14th    | `sha256:a2ce687ccca480251f60aa92f8a67c695228670939516e438f95dc4965135faa` |
 |  `1.14.6`                                     | March 6th     | `sha256:332bc93be41e6b2c268dca2cc1dc799be8096eb0dcd2b630d92ca933322ac471` |

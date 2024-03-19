@@ -3,8 +3,8 @@ title: "istio-proxy-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public istio-proxy-fips Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -47,7 +47,7 @@ The table shows package distribution across variants.
 | `glibc-locale-posix`            | X          | X      |
 | `ip6tables`                     | X          | X      |
 | `iptables`                      | X          | X      |
-| `istio-envoy-1.20-compat`       | X          | X      |
+| `istio-envoy-1.21-compat`       | X          | X      |
 | `istio-envoy-fips-1.20`         | X          | X      |
 | `istio-pilot-agent-1.20-compat` | X          | X      |
 | `istio-pilot-agent-fips-1.20`   | X          | X      |

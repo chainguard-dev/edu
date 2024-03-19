@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:82d232a23a63ba35aba0ec955d447cee202961af57febdb3122321926c4c66b3` |
-|  `latest-dev` | March 14th   | `sha256:d7d9a7c8444b75dccdd022edb5f5a0d8772841595d2f94cdb0ece35305edbd44` |
+|  `latest-dev` | March 18th   | `sha256:09939589ef35543aa07a49c766179b1f66174674ba13f6ef4681c95c77f753b9` |
+|  `latest`     | March 18th   | `sha256:57c50a558848e49028d09a609b8a389e73c375f2f73ae7e30492b2191126d2dd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.15.1` `0.15` `0`                 | March 14th   | `sha256:d86395d67cc2b6422d6101bb813523e6a748f03d19bbc697cab0214855795118` |
-|  `0.15.1-dev` `0.15-dev` `0-dev` `latest-dev` | March 14th   | `sha256:11312462a3a7a4faef1675884063951c3e2cc6dab98361e23b728b85768a26e4` |
+|  `latest` `0.15` `0.15.1` `0`                 | March 18th   | `sha256:6d8c224f74e3afb371b7709ca60edb0abb533b89c5af9f06d96d36fcf4283263` |
+|  `latest-dev` `0.15.1-dev` `0.15-dev` `0-dev` | March 18th   | `sha256:027ad93650abbf4ab5c305182fb359af17f6d8c48b345f1fd314195a703a9f19` |
 
