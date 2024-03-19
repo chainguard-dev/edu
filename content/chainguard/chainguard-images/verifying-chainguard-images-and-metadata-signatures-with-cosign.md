@@ -55,7 +55,7 @@ cosign verify \
   cgr.dev/${PARENT}/${IMAGE} | jq
 ```
 
-By default, this command will fetch signatures for the `latest` tag. You can also specify the tag you want to fetch signatures for.
+By default, this command will fetch signatures for the `:latest` tag. You can also specify the tag you want to fetch signatures for.
 
 ## Downloading Image Attestations
 
