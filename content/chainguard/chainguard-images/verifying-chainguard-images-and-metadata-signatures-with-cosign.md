@@ -125,7 +125,7 @@ cosign verify-attestation \
   cgr.dev/${PARENT}/${IMAGE}
 ```
 
-This will pull in the signature for the attestation specified by the `--type` parameter, which in this case is the SPDX attestation for SBOMs (software bill of materials). You should get output that verifies the SBOM attestation signature in cosign's transparency log:
+This will pull in the signature for the attestation specified by the `--type` parameter, which in this case is the SPDX attestation for SBOMs. You should get output that verifies the SBOM attestation signature in Cosign's transparency log:
 
 ```shell
 Verification for cgr.dev/chainguard/go --
