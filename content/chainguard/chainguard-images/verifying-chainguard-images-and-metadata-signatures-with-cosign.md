@@ -61,7 +61,7 @@ By default, this command will fetch signatures for the `:latest` tag. You can al
 
 Attestations are signed metadata about the artifact, which can include SBOMs, vulnerability scans, or other custom predicates.
 
-The [attestations](https://slsa.dev/attestation-model) for an image can be obtained and verified via cosign. These are a few of the existing types:
+The [attestations](https://slsa.dev/attestation-model) for an image can be obtained and verified via Cosign. These are a few of the existing types:
 
 | Attestation Type                       | Description                                                                                                                          |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
