@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:f10d80f06886828f51c61b66c89bdd87f27d3ea0ccb4cd5c33163bd4c98b82ca` |
-|  `latest`     | March 15th   | `sha256:0ab143ffc7b8dde8c62b28b579843d2e3844bd0e380d7208b5c18678dac22028` |
+|  `latest`     | March 18th   | `sha256:67862d577af25c7be660e004f2013c6ead8327f70b5fd4ece2419a7a2f9ef409` |
+|  `latest-dev` | March 18th   | `sha256:d158e16759f28c40eaed504bd461d9dd887cec50e42aaabb14df72383d77d15d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0` `0` `0.16` `latest`                 | March 14th   | `sha256:dc42f5b664532b8a0a7521ef170aaf87e45f00c02926962e30007518f011fa01` |
-|  `0.16.0-dev` `latest-dev` `0-dev` `0.16-dev` | March 14th   | `sha256:6e4f5869bd8decd49f3c6d4eaf9639c633e1ab14f0532f7c5fa59601a7894583` |
+|  `0` `0.16.0` `0.16` `latest`                 | March 18th   | `sha256:bd06616ad5364450c8293986af6a8cb16376a64b0f54b18eeba397b1c1a866b2` |
+|  `0-dev` `0.16-dev` `0.16.0-dev` `latest-dev` | March 18th   | `sha256:3c372ad8cd1578eed0dcd7c7c343badd2c2363dd39ebbf06efe5908def07aec4` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the glibc-dynamic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:a56e42423e76c79bc5385fc0ff11af637adf6a116aad60035e54eb3a4fd03d45` |
-|  `latest-dev` | March 14th   | `sha256:7089aed52e03c54068d4e79dffe70831d9a63bef07fd42fca893398d2c695759` |
+|  `latest-dev` | March 18th   | `sha256:516a2cdd53b49b67cbfd2d17bf6f57f2d87e2b382872ae7c1f535429c0778c2c` |
+|  `latest`     | March 18th   | `sha256:f1c84f0a86e8e9aa581a2853cee5513197dd98ea9b7a34054f491e102a238878` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `13.2` `13.2.0` `13` `latest`                 | March 14th   | `sha256:24ca36f28c9eae23b6aad26dc8180cf5ff7c483c5a5bad44f7252deb28ce2ea5` |
-|  `latest-dev` `13.2-dev` `13-dev` `13.2.0-dev` | March 14th   | `sha256:396d1f71541741609b8d4617c6db4b596925529559e79810bc96ea6febd8f808` |
+|  `13-dev` `latest-dev` `13.2-dev` `13.2.0-dev` | March 18th   | `sha256:2a65e87cbfc40943b7e9a26c2c25e08874c8df4ebecb2f00128af6c5f1c39597` |
+|  `13.2` `13.2.0` `latest` `13`                 | March 18th   | `sha256:b9bb7e120066961dbe2ea9369705af929ef3627f2506d98ce3d0cf67a87cf08a` |
 

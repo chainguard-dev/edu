@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-18 00:56:27
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 17th   | `sha256:4f7f239f9e364ec1dd8702969dcc9348b5e02745bec4fe4bcd67d4b5597fbf0c` |
-|  `latest-dev` | March 17th   | `sha256:6a4b00cbe177a85f738cedd83b8d5093daee9c53ecd40133b18cda2bf12dbe46` |
+|  `latest`     | March 18th   | `sha256:d76e68de65083f40603edcef7d8b8522444547d7fff783d6597de8252bff4417` |
+|  `latest-dev` | March 18th   | `sha256:1f1254868f53ffaf02e098d083376103b6eaa818647c9f1c106b1bf96e8037c6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.40.0-dev` `0-dev` `0.40-dev` `latest-dev` | March 16th   | `sha256:0aa0c40c3b4e9e02769ae9542a568c59369f195f72d0d9990521eef0b2247933` |
-|  `0.40.0` `0` `0.40` `latest`                 | March 16th   | `sha256:343e83c006b576801252c7d4688f0eec072175864b09a13097f7e348df8a60ad` |
+|  `0.40.0-dev` `0.40-dev` `0-dev` `latest-dev` | March 18th   | `sha256:4508f76e7ce2c0a80b44eb40a24b2d63bcf5f8838c6f1eb161ad93f95ac42be0` |
+|  `0.40.0` `0.40` `0` `latest`                 | March 18th   | `sha256:ea916753c482c993a323cfcaa8dd968b9f73ca3ac9a5dad1bfe24bf2e4d7e63b` |
 

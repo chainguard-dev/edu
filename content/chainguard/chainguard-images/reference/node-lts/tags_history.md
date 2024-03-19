@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:bfa059fc043e5d5712754b13c611feb7118cb5c78c0dec48d585a1be7a0d8b95` |
-|  `latest`     | March 14th   | `sha256:b0b73bad53a81252f6eb26161863acdb1232d67ecc55641d5232e2f269a0e74a` |
+|  `latest-dev` | March 18th   | `sha256:94eb3f86ff849cdd4a57f14fa7c709fb1993428a4dce007768faa82ccdadb289` |
+|  `latest`     | March 18th   | `sha256:0df2efaa0f160be1437755c95b86158ccf5827fa1a0cb42e626772f8ef6a3b48` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `20-dev` `20.11.1-dev` `20.11-dev` `latest-dev` | March 14th   | `sha256:b64a919b12b0dca3be6a82226128504b9af1d4f02db7df07d04781c425f02bf0` |
-|  `20` `latest` `20.11.1` `20.11`                 | March 14th   | `sha256:b51bdf1cb8526ca116622185092d36c0df31c4eb778b2b8fbe6da7b5504ea72a` |
+|  `latest-dev` `20-dev` `20.11-dev` `20.11.1-dev` | March 18th   | `sha256:9042c740b80df22bf549889ec2abe12170f3e4b836ecb2498ca67191d9e09be8` |
+|  `20.11` `latest` `20` `20.11.1`                 | March 18th   | `sha256:c972cb33201cd945b4372c2369152967ee1f7493c906f098f8dd0112c481d1dd` |
 

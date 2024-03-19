@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-admin-tools Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:52bba5ed6f3fb893f89d01ff661280aeed775a9f61cb2649dfcd098f7077c3bf` |
-|  `latest`     | March 15th   | `sha256:4703ca3687dc2e41451fd30760720421b4cf733d29093f0a85df318d8e8955da` |
+|  `latest`     | March 18th   | `sha256:830fe9f32c451ba682f9b3fc75b9822c0fdc7a6b908c732e31bcff45cf362288` |
+|  `latest-dev` | March 18th   | `sha256:21d1986507d014ce664d1e1a61c55e85d85d71bf0f2f6ce8b033de83e518d4f1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0` `0.11` `0.11.0`                 | March 14th   | `sha256:72935ba9ffbbfbe93e8fc3128d8c322245f3fcc372ca4dc11f10c35e6cb18fbd` |
-|  `0-dev` `0.11-dev` `0.11.0-dev` `latest-dev` | March 14th   | `sha256:54b52a3cd889de90feda7b08c18acbafd0d580e6df94a195f926301f8e0a007b` |
+|  `0.11.0` `latest` `0.11` `0`                 | March 18th   | `sha256:afda05539713f08499ec5604b32c45ab2f964582a7f99d1b96e4eb36538447e5` |
+|  `0.11.0-dev` `0.11-dev` `latest-dev` `0-dev` | March 18th   | `sha256:8c18c4b3fddd3ba704d7031a15998f34c9c8426a00068257722478badb42f8b1` |
 

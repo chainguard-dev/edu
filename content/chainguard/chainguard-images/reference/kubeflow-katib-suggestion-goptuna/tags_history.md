@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-goptuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 15th   | `sha256:79d45c0596302f3425b4226bdb017e582e22000f44d3e4585aa9ff2fc2e54f4e` |
-|  `latest-dev` | March 15th   | `sha256:78b63100a726d5640c5c63bbe4814090a9a18c166f420be6ebd9f516a7848363` |
+|  `latest`     | March 18th   | `sha256:513a384504db1d36b2de7c44047f67c1fcc13385728dfa259a679ee99e12470d` |
+|  `latest-dev` | March 18th   | `sha256:6ce4e4d3369fa8b831b2cdeb37ee14b954ffd32e148a7205fa6e1b229915a984` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | March 14th   | `sha256:03e8f7631961485e9a465c9767325fbae5954b14ea670259964cd1043c3551aa` |
-|  `0.16` `0` `latest` `0.16.0`                 | March 14th   | `sha256:72f2af88755109aa215811ca1ee84916b1b38f988e7368a44b447ec035cd950d` |
+|  `latest-dev` `0.16.0-dev` `0-dev` `0.16-dev` | March 18th   | `sha256:79bd92332aa468260601cbf99d69f37fe812e1d360abc502605ea7e8cf8face6` |
+|  `0.16` `latest` `0.16.0` `0`                 | March 18th   | `sha256:5914883fc299953a11797bd9cf3d80520e5d53516e491323d7dabcc6d18f03aa` |
 

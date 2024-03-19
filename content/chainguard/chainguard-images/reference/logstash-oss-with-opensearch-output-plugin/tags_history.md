@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the logstash-oss-with-opensearch-output-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `8.12.2-dev` `8.12-dev` `8-dev` `latest-dev` | March 14th    | `sha256:3eceee9bbc60a87d105902c3ecd8635e2000291019545b28403c228ee2e5c567` |
-|  `8.12` `8.12.2` `8` `latest`                 | March 14th    | `sha256:0f52c1877b856357d4a7cc675ff4b41d647051ffd0e395dab4231667f4130db9` |
+|  `8-dev` `8.12.2-dev` `8.12-dev` `latest-dev` | March 18th    | `sha256:43a02f5f2378f298ee6dc063930f28ef3330209eef3eee1f8a269ac84a7cb125` |
+|  `8.12` `8` `latest` `8.12.2`                 | March 18th    | `sha256:59f0d9aac6c857f4e4e988d7929e6f21cf1a0d581d6a91476e8c3228f9a4b160` |
 |  `8.12.1`                                     | February 19th | `sha256:2057b4eb0c08553bee385dbcd5e8ee03c893b31dfef6a3d88ead36f86724f723` |
 |  `8.12.1-dev`                                 | February 19th | `sha256:a8cc5df5d9206cbc4f59b6c275b6054bae3335f8b39d2c114370aea523668772` |
 
