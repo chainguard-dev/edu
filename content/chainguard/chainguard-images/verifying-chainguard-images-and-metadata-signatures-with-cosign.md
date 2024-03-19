@@ -141,6 +141,7 @@ GitHub Workflow Name: .github/workflows/release.yaml
 GitHub Workflow Trigger chainguard-images/images
 GitHub Workflow Ref: refs/heads/main
 ...
+
 ## Learn more
 
 To get up to speed with Sigstore, you can review the [Sigstore](/open-source/sigstore/) section of Chainguard Academy, visit the upstream [Sigstore Docs](https://docs.sigstore.dev/) site, and check out the [Sigstore organization on GitHub](https://github.com/sigstore). You can learn more about verifying software artifacts with Cosign by reading [How to Verify File Signatures with Cosign](/open-source/sigstore/cosign/how-to-verify-file-signatures-with-cosign/).  
