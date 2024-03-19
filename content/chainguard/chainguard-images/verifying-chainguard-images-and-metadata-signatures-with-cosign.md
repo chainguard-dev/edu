@@ -19,7 +19,7 @@ toc: true
 
 All Chainguard Images contain verifiable signatures and build-time SBOMs (software bills of materials), features that enable users to confirm the origin of each image built and have a detailed list of everything that is packed within.
 
-The following commands requires [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https://stedolan.github.io/jq/) to be installed on your machine in order to download and verify image attestations. It will pull detailed information about all signatures found for the provided image.
+The following commands requires [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) and [jq](https://stedolan.github.io/jq/) to be installed on your machine in order to download and verify image attestations. It will pull detailed information about all signatures found for the provided image.
 
 ## Registry and Tags for Chainguard Images
 
