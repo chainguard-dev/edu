@@ -1,6 +1,6 @@
 ---
 title: "Verifying Chainguard Images and Metadata Signatures with Cosign"
-linktitle: "Verifying with Cosign"
+linktitle: "Verifying Images"
 aliases:
   - /chainguard/chainguard-images/verifying-images-with-cosign
 type: "article"
