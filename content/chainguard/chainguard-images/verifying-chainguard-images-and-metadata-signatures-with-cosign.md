@@ -67,7 +67,7 @@ The [attestations](https://slsa.dev/attestation-model) for an image can be obtai
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `https://slsa.dev/provenance/v1`       | The [SLSA 1.0](https://slsa.dev/spec/v1.0/provenance) provenance attestation contains information about the image build environment. |
 | `https://apko.dev/image-configuration` | Contains the configuration used by that particular image build, including direct dependencies, user accounts, and entry point.       |
-| `https://spdx.dev/Document`            | Contains the image SBOM (software bill of materials) in SPDX format.                                                                 |
+| `https://spdx.dev/Document`            | Contains the image SBOM in SPDX format.                                                                 |
 
 To download an attestation, use the `cosign download attestation` command and provide both the `predicate-type` and the build `platform`.
 
