@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for cluster-autoscaler Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for cluster-autoscaler Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.24, 1.24-dev, 1.24.3, 1.24.3-dev, 1.25, 1.25-dev, 1.25.3, 1.25.3-dev, 1.26, 1.26-dev, 1.26.4, 1.26.4-dev, 1.26.5, 1.26.5-dev, 1.26.6, 1.26.6-dev, 1.27, 1.27-dev, 1.27.1, 1.27.1-dev, 1.27.2, 1.27.2-dev, 1.27.3, 1.27.3-dev, 1.27.4, 1.27.4-dev, 1.27.5, 1.27.5-dev, 1.28, 1.28-dev, 1.28.0, 1.28.0-dev, 1.28.1, 1.28.1-dev, 1.28.2, 1.28.2-dev, 9, 9-dev, 9.28, 9.28-dev, 9.28.0, 9.28.0-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.24, 1.24-dev, 1.24.3, 1.24.3-dev, 1.25, 1.25-dev, 1.25.3, 1.25.3-dev, 1.26, 1.26-dev, 1.26.4, 1.26.4-dev, 1.26.5, 1.26.5-dev, 1.26.6, 1.26.6-dev, 1.27, 1.27-dev, 1.27.1, 1.27.1-dev, 1.27.2, 1.27.2-dev, 1.27.3, 1.27.3-dev, 1.27.4, 1.27.4-dev, 1.27.5, 1.27.5-dev, 1.28, 1.28-dev, 1.28.0, 1.28.0-dev, 1.28.1, 1.28.1-dev, 1.28.2, 1.28.2-dev, 1.29, 1.29-dev, 1.29.0, 1.29.0-dev, 9, 9-dev, 9.28, 9.28-dev, 9.28.0, 9.28.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

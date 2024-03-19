@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-18 00:56:27
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 16th   | `sha256:bb6f46a66cfd3480cfadf9f9e3c13af95cc50e598954e0b30ff1341a99d3e401` |
-|  `latest`     | March 16th   | `sha256:923a4fdaf395803b387fa500b8f058b091794f389162203795ae99b0bb07a56e` |
+|  `latest-dev` | March 18th   | `sha256:c7978b457a205e429981b6e1cc2157d5589cdc6c1bc04dee2a5ad891947a91fa` |
+|  `latest`     | March 18th   | `sha256:299e2d374c7e6f991d6c03e6aad13e6476c2c47d0004155a7f2144376863ee46` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.0.5-dev` `2.0-dev` `latest-dev` | March 15th   | `sha256:8883a71d2dd693aaadeebb068594d5c122d1ebcb41b45e5a072f7373b3ed07dc` |
-|  `latest` `2.0.5` `2.0` `2`                 | March 15th   | `sha256:afaa04fc73fff40cbfe34bf689da55ed0b8db8d10c84401e29e4a598b3aeba83` |
+|  `2.0` `2` `2.0.5` `latest`                 | March 18th   | `sha256:41971bbfce230af31fce6d54112625dc5ae417fe5d2862f4e6899624c5c31c09` |
+|  `2.0-dev` `2-dev` `2.0.5-dev` `latest-dev` | March 18th   | `sha256:64281678aed964662566ed5bb28324b76a4d75c8bd0cedcc8068c4d95aeb43a5` |
 

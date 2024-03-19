@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-config-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,16 +28,17 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:d4b57755d3d8ce1e84bfb8182c287e2c08ef04ca6f20bdc42450a0e8c55e97d7` |
-|  `latest`     | March 15th   | `sha256:3e8802cbfbd286ff084aa6d6ae51634a1db671398ba4414816aef2136eea9abe` |
+|  `latest`     | March 18th   | `sha256:4e946f767d2bcf675a337e82ca26c4f80c0a70ed52a18fdcf1c5648be7d2eed5` |
+|  `latest-dev` | March 18th   | `sha256:c02a0d6719370ae6c66a729bec914139936676c55664bb61014c813da37c2161` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                          | Last Changed  | Digest                                                                    |
-|----------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.65.2-dev` `0.65-dev` `0-dev` | March 14th    | `sha256:490dea68030bf65a6694a03e1467749fedb802a7e848c7937c9eeac15ef5aeb2` |
-|  `0.65.2` `0.65` `0`             | March 14th    | `sha256:58081a29cbf34ee2cb3a9ebc13bf6f8fc985ac5325d6eb28c2e42e8869f5653d` |
-|  `latest-dev`                    | February 21st | `sha256:98086de6291c0c207cee6e0b94beb259f928c1e73c09375918769807a3609719` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0` `0.72` `0.72.0` `latest`                 | March 18th   | `sha256:ee167d806f97081a097057d7ed7c98bd76653da7d7ed527f502dee93223048a8` |
+|  `0-dev` `latest-dev` `0.72-dev` `0.72.0-dev` | March 18th   | `sha256:b4d00b9a50e4a7bb855e63abd64f40b8c0fd83bd73d7ffffd92a0f5becc54a31` |
+|  `0.65.2-dev` `0.65-dev`                      | March 18th   | `sha256:1e80d66e2d31396c0326355b3fe68f956911c29093ade1385cf23189bd0fdce0` |
+|  `0.65.2` `0.65`                              | March 18th   | `sha256:db52da1a42a079abdaf3897cd6c3699a2b44b237572e7c3ae981bfd26661a5f7` |
 

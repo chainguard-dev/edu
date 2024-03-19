@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the curl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:212cd9933c2a02c7adc9a92f585069d09ab205a5c38f5076eb669e44f7a9d793` |
-|  `latest-dev` | March 14th   | `sha256:401343d3982e73b08a4202788cd4acdb002c74f3f0926a8c93f977104cd1e281` |
+|  `latest-dev` | March 18th   | `sha256:d2ad5203e44b1a632719deb7e8a4f2f570597173c8504949caf60faca0d0c219` |
+|  `latest`     | March 18th   | `sha256:c8d7ce6b4d9097356a9a6ffa5c33432013384b602ff4c45643c5e9fcf8ceafa4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8-dev` `latest-dev` `8.6-dev` `8.6.0-dev` | March 14th   | `sha256:dda71ee1c618746e971cff2bdce5f3afd7a5d43971e3af9ae0dae81575a07b30` |
-|  `latest` `8` `8.6.0` `8.6`                 | March 14th   | `sha256:b688c20f54011f3faecf3b593edabcb524c9e88648000ceb3f524a652b379221` |
+|  `8` `latest` `8.6` `8.6.0`                 | March 18th   | `sha256:173342299029f68c6998052da3f972d2e32614210ca94127f3455c8a51592fe7` |
+|  `8-dev` `8.6-dev` `latest-dev` `8.6.0-dev` | March 18th   | `sha256:f3921ea1fef74a09fa8ff8a0781b557b176fb15677490671a4a7289a8c43df01` |
 

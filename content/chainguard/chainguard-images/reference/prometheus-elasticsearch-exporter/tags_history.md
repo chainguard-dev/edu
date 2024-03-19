@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-18 00:56:27
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 17th   | `sha256:a2728eb6841aea2f080c81d94561682742d03eeb216fae9e674aa30d833d39b2` |
-|  `latest`     | March 17th   | `sha256:98a78bc0296f5f1cd2a3d804bb247c434fc5688004565251f3b7cce60b891c76` |
+|  `latest`     | March 18th   | `sha256:a9b64e0fdea9f834f7cb6826a21b5cb206c5aedfc37eb948e3be2caf3c08505e` |
+|  `latest-dev` | March 18th   | `sha256:62c63977c6edc3359487f976212c0d3beaff7478751448cb3d2242a3eb447f53` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7` `1` `1.7.0` `latest`                 | March 16th   | `sha256:08eeb92c6b70cfeccf8d963e3b254fc4cd13ab2e946fcb1d4180e948b8bcc438` |
-|  `1.7-dev` `1.7.0-dev` `1-dev` `latest-dev` | March 16th   | `sha256:f1f0b00957acc2ced072338c23f5e04859b718edabe79008543173e2c8b8f17c` |
+|  `1.7` `1.7.0` `1` `latest`                 | March 18th   | `sha256:56f5dff69ad0cc87d9b323dfb51f44efddace54131e43ba9061011e66c68a8df` |
+|  `latest-dev` `1.7-dev` `1-dev` `1.7.0-dev` | March 18th   | `sha256:86af7f088af2ef8ac846a5f034e785b6d7323f0923f9a03a5a1099660639c755` |
 

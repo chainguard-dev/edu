@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-18 00:56:27
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 16th   | `sha256:be93a6c6ee84c578440bf3cf9fd6497401238ec1cede171e2ec0d84d369c1497` |
-|  `latest-dev` | March 16th   | `sha256:0fc26f5f0084708c5050a2c03acdf23c9eef897d8002963d75fca80fa6ee03c5` |
+|  `latest-dev` | March 18th   | `sha256:6fecaa0cdcdf1c6d3e1e8d7505bd288c22c6993136589f24ea67871e30eaae48` |
+|  `latest`     | March 18th   | `sha256:5345b53c6b3d1c9c01ac898f109cc1cf5b104e0847e29baf1c210fb16dbfb555` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.1.73-dev` `0-dev` `0.1-dev` | March 15th   | `sha256:c2ac254dc9d0993a5b4dc3fb89bd75cd8e65cbf0e73fb53bb9a7d613a6106f4c` |
-|  `0` `0.1.73` `0.1` `latest`                 | March 15th   | `sha256:9d82055a2b77dab0e590a311a61e45405583f6780d660190e9d2ca7e442aabac` |
+|  `0.1` `0.1.73` `latest` `0`                 | March 18th   | `sha256:c2855fc92958ce8e4e23ee234842d93f213a30b8fc4071d6f4c8b5f85242ee0f` |
+|  `0.1-dev` `0-dev` `0.1.73-dev` `latest-dev` | March 18th   | `sha256:a52180dff6db54baa4722bae7fcd9757ef08a2d5ac6c5efd1b97e3d16de81f63` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the skaffold Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-18 00:56:27
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 17th   | `sha256:0e64799f696620d342f96b4a4aa160a1e2a9e1e188598a455340081e8a6b3b2d` |
-|  `latest-dev` | March 17th   | `sha256:8063b11f97200e0c99788640b6b4cac6e052d55072987e2626e10c52464622ae` |
+|  `latest-dev` | March 18th   | `sha256:fa3256dbf62fdaf893d621bf6c783c58a77a607cba4b09cf1d9d945fe99f35db` |
+|  `latest`     | March 18th   | `sha256:b72054fea7a9c94850e7a215141222e78db22aedce72dfb07fee097c6965aa98` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.10-dev` `2-dev` `2.10.1-dev` | March 16th   | `sha256:e1235d2de7e705976047dc6693b14a110f6c5492277819b8fa2bb469778cfe8e` |
-|  `2.10.1` `2.10` `latest` `2`                 | March 16th   | `sha256:68e8c751a9567445f49a1a5f8d7e772c18748149827e53cf63487fbcc0fbf689` |
+|  `2.10.1-dev` `2.10-dev` `2-dev` `latest-dev` | March 18th   | `sha256:1c5a6bd630ad7195d2ea9cc72870ad020345d55d4cc67662fab19d2e49d5006c` |
+|  `2` `latest` `2.10` `2.10.1`                 | March 18th   | `sha256:104be2a664bcfd4305f535b956a3ea7a72521959fe8124c20fef721b66bc1953` |
 

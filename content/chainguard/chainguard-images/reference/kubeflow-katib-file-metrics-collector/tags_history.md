@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-file-metrics-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 15th   | `sha256:f8e43e5f4e0e603eda754b54014b58d35d47a719a13d75f70d872d7a5fe4d86b` |
-|  `latest-dev` | March 15th   | `sha256:8753c7c975dc2a50874d3cdc7aa8c6ea26fb0188304843e17877ec6fcec73f0a` |
+|  `latest-dev` | March 18th   | `sha256:1234f8430aedefa9f8efd01c3f97208197aaefbc897a188cf994f6d9ed960f5b` |
+|  `latest`     | March 18th   | `sha256:ba257391a7597334e4cab7b033c603a2f624b6d5d555bf4beea82244e038f22a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16` `0.16.0` `latest` `0`                 | March 14th   | `sha256:6ea6a38e5376a9b7e6805c51042a11d0037164ffc5fc54b756b9ad86302132fa` |
-|  `latest-dev` `0.16.0-dev` `0-dev` `0.16-dev` | March 14th   | `sha256:dd9321a10fa65964a7fefd2dc7120df5bac1744f41ce522e437da8f0fb025c0e` |
+|  `0.16-dev` `0.16.0-dev` `0-dev` `latest-dev` | March 18th   | `sha256:ec0852305ba1d77b621d5efecf6dbdc2c7f92cde84ec29fd83f75476910ff44e` |
+|  `latest` `0` `0.16.0` `0.16`                 | March 18th   | `sha256:bec9f82ecd05dae0fdd1f5f4046a1aab0219973d055d32578686295d070fd74d` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the pulumi-kubernetes-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-18 00:56:27
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.15.0` `1.15` `1` | March 16th   | `sha256:5ed4dd44db56659bf080bb335d367fb566ce91189e4d357023cad95ea464d0ee` |
+|  `1` `latest` `1.15.0` `1.15` | March 18th   | `sha256:a8d2fd85fc534486d158c299ead4495018f6677bd4e1a1bea216e6870c7d2930` |
 |  `1.14.0` `1.14`              | March 13th   | `sha256:74d1f8f6f67485b40ce95920b455d4e572d7101494a6d03f351ac53467d994c9` |
 

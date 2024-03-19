@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the smarter-device-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 14th   | `sha256:a15aac3661c7d21728e9682216867c312cf7fe9a0ca7eb8cda7a07321b7c569a` |
-|  `latest`     | March 7th    | `sha256:18039999059f6b9b4dd36b8cb6ba20243f2482f489e2ccdb4b2f61163bbed917` |
+|  `latest-dev` | March 18th   | `sha256:e975256ef894f15f570c5d0f834bd9de369af3f3fc35a652362190e517b1ab55` |
+|  `latest`     | March 18th   | `sha256:ae9f41a79c6e9d264360920825b5b484cc1a2086dd242da260bc3e32cfef9f74` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.20` `latest` `1.20.11` `1`                 | March 14th   | `sha256:9a4c33f30be623666604b02ad7e6c8b2a1e3e03f15861b1f13dceda84953f4fd` |
-|  `latest-dev` `1-dev` `1.20.11-dev` `1.20-dev` | March 14th   | `sha256:a3f9d9c11cafded1384a566059a183f9607252f0ae078e3918bd4e02ebbc21df` |
+|  `1.20.11` `1.20` `latest` `1`                 | March 18th   | `sha256:a78e135fda79532c2ae92eea78f8477bbae26f8655cacc602dacab10de016725` |
+|  `latest-dev` `1-dev` `1.20.11-dev` `1.20-dev` | March 18th   | `sha256:6244dc729283d87de8ffa88b40d8e0f22452557b356d6b67314a506b3945f3ae` |
 

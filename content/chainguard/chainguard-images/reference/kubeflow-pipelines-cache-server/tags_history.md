@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:f594d0929ddf0cdd4aae52ece0b17c38514643cdf0209dbe1d28f994ef61bc56` |
-|  `latest`     | March 15th   | `sha256:98e07e8d831ea72539b7be1fbef05a184e8550af6135af65b2ece4ac12a44dd3` |
+|  `latest`     | March 18th   | `sha256:aa9bee2a5b6b50840eb5adc8c8911b3cb920d29a02860c8a2d77f8a843e02041` |
+|  `latest-dev` | March 18th   | `sha256:c967064397a5f50619729f6724e575802f19707cc17a494d9d80e3e428332281` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5` `latest` `2.0` `2`                 | March 15th   | `sha256:ee2d2ff1a244d5cb0658448fb08a80d27376798261a8a5f594294c19026160e3` |
-|  `latest-dev` `2.0-dev` `2.0.5-dev` `2-dev` | March 15th   | `sha256:a728386f8f44aecd642cdfdd019b6fa09a0e5887d176f088f5138b1e1c2b682b` |
+|  `latest-dev` `2.0-dev` `2.0.5-dev` `2-dev` | March 18th   | `sha256:f7d8d6a04d23c88c3184a10d37ce6e38467253f3c13010fd9f4c37a77788c299` |
+|  `latest` `2.0.5` `2` `2.0`                 | March 18th   | `sha256:76f43058c0926006dd42a0ed1f20682d4b125a4c5ebaed5ec6af672971a3eddd` |
 

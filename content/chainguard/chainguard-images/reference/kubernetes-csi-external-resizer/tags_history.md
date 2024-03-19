@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 15th   | `sha256:a9f024ad503621f775337e3e9630d70aa70ca5926fba893e661e61c64bc20205` |
-|  `latest-dev` | March 15th   | `sha256:918203fe4450195ed15dacff37289caad10d81751a2c553cc76a716ba97fbba7` |
+|  `latest`     | March 18th   | `sha256:242d8e1c4a83338f8a579956359b8382b69adba7f2308b33e0c6f527236af363` |
+|  `latest-dev` | March 18th   | `sha256:0259d0731adbf1315127d153f76267e45a0e98fadc7b405e73780b02087c7561` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.8.1-dev` `latest-dev` `1.8-dev` `1-dev` | March 14th   | `sha256:4b3904042fbccfcdb0a2743d0ba695838cad9bb0c4572aaec45494db378cb957` |
-|  `1` `1.8.1` `latest` `1.8`                 | March 14th   | `sha256:9935b4b2434cb54ec7e5807e8bc4824cac0bc5eb2af69e05d6178296cc676169` |
+|  `latest-dev` `1.8-dev` `1-dev` `1.8.1-dev` | March 18th   | `sha256:18950be114cc05ac08494fdefc95f92ff99421af647a8a1875eef4cce58f57cf` |
+|  `1.8.1` `latest` `1.8` `1`                 | March 18th   | `sha256:3c0132151080bc7453d13e7e62490a67e0602e6e9e04e7fc5c2415e30ca9a91d` |
 

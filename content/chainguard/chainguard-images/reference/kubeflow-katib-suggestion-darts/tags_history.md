@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-darts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:e90580e4e58465af088eafe5d89bd030c17763c0007a8d014a143a64ab4daa9c` |
-|  `latest`     | March 15th   | `sha256:d63af0ab081933f803bf46399cfa5ca75050a489749ba4a42797e2df6ae92aa9` |
+|  `latest-dev` | March 18th   | `sha256:e1e5b382bbbab7cbd931c809b0b05e562b773394b78dc4d98a789e21b921bbcc` |
+|  `latest`     | March 18th   | `sha256:eee94e499bdacfc679fe5e21c7f0548489aa596040eee59b6c33a29d1b01a9ce` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | March 14th   | `sha256:ecf67d85e181ab4618f5d1fac29608869c3c02cf682ec240bb726a5c02c9c9d4` |
-|  `0.16.0` `0` `latest` `0.16`                 | March 14th   | `sha256:8e49dfa24cc7d3a664578dd2fee111e5a4857b56aecb187b6e5788838520d40d` |
+|  `0.16` `0.16.0` `0` `latest`                 | March 18th   | `sha256:a0050f9f3bc685212ff456ab9cd372c351175df97e9e299f069c05fa60e6e8c8` |
+|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | March 18th   | `sha256:f0b47d0f0975b81b52440dd2a80355f4f99306ae2c9f7e7dd0a44da88156c811` |
 

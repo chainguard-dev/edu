@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:95d246a5abf82b95dc6fb53ce956d04fa7582ca07e538a1855c048acbbb43169` |
-|  `latest`     | March 15th   | `sha256:ea67081249902e8a2fefcaa3422a47d10f8150d94444d7cfd1727799e79df396` |
+|  `latest`     | March 18th   | `sha256:e4c806c0bf71912e24777b8f0925ec105576580180990cf050ae84bd053cf2c3` |
+|  `latest-dev` | March 18th   | `sha256:8e2d26cdbe4e7d402076030929f0f1c9f812d055bc157420e942626d12ebf74e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `4.0-dev` `latest-dev` `4.0.0-dev` | March 15th   | `sha256:bb1b2d9502bc2d5f0f9e93a475a7317c303768dc799078f881c19f0903cf2358` |
-|  `4.0` `4` `latest` `4.0.0`                 | March 15th   | `sha256:3d02e098045d23085c056929c1d30aadd5390d151fc838596c321da2cfce71ae` |
+|  `4.0.0` `4` `latest` `4.0`                 | March 18th   | `sha256:61a61f8f0a3cd513285711f0f34f5b6bd5a414a765bb05753690c1b21f76e353` |
+|  `4.0-dev` `latest-dev` `4-dev` `4.0.0-dev` | March 18th   | `sha256:68fbeb06216c31e7e65de362839a68213b549c577b89f85d36ab3f4770d074d9` |
 

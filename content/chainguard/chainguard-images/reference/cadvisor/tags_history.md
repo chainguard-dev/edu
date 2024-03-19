@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cadvisor Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:190bd7627858d74ffedcb333cae157cfd9edb4c9e786c3cc0040e1f81c07d722` |
-|  `latest`     | March 15th   | `sha256:af4e0be6f6083428155f8883fc2f53427ed30113b5691992454075c1b2cf10a2` |
+|  `latest`     | March 18th   | `sha256:1e26283d888b2bb77c3d335264dc12069286af9973e9c56e544d1bb1757368e1` |
+|  `latest-dev` | March 18th   | `sha256:32f101524d938a94ca4aa21ad306b1bd50db05f0d078f700de6642fb1b354dc7` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.49.1-dev` `0.49-dev` `latest-dev` `0-dev` | March 15th   | `sha256:0a6ce185d62efe9e3dc4602239cb0f9b53209c29c6abb203b64e49ed746700c7` |
-|  `0` `0.49` `0.49.1` `latest`                 | March 15th   | `sha256:9fcfb3800779243ae94377364391c371237b664f6dda5f5e897eb0caa1f61493` |
+|  `0` `0.49.1` `0.49` `latest`                 | March 18th   | `sha256:0ecd1f62037af229762af6378ad4c6f32891efe9400c99a56d55b28b01f87b79` |
+|  `0.49.1-dev` `0-dev` `latest-dev` `0.49-dev` | March 18th   | `sha256:014509ce44b33dba7673b33f1696731fca8e65576810469e9f926ad665eb4010` |
 |  `0.49.0-dev`                                 | March 2nd    | `sha256:a971164e22d772972554153655bfaa591ad5298a2b29493bbb4a870129f88ba6` |
 |  `0.49.0`                                     | March 1st    | `sha256:4f1a3aa68b9c19ca7f17988b93e42aabeb2a7e6ec36aa1e79b7185bb1a32877a` |
 

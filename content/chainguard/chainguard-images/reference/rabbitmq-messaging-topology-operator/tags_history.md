@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-messaging-topology-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 15th   | `sha256:a6a9c41de00d278375522e27410f3e931f6e8e803dcdd364df8e1ff2eae2c116` |
-|  `latest-dev` | March 15th   | `sha256:1e38e1ed1adb80653eca9b91dda9697c95f5ca7e9e694371ecf8c118b4f92455` |
+|  `latest`     | March 18th   | `sha256:21fb44dde4d06bd647a26c35f75b6ad2e5134b1cf648d114f3e156c031207af7` |
+|  `latest-dev` | March 18th   | `sha256:e3948b29816a7c748ac0897a509a3acc9288d272b868babe2cf8af497fcb78b2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.13` `1.13.0` `latest`                 | March 14th   | `sha256:aa26e7654275315d3e5f3a1df78dc9d555337c71ba79be8c1ac7f5322aaf9c2a` |
-|  `1.13.0-dev` `1.13-dev` `latest-dev` `1-dev` | March 14th   | `sha256:129f52133078248d4ef141383c697f416c197980c56038007022fa6fc2ec2d98` |
+|  `1.13` `latest` `1.13.0` `1`                 | March 18th   | `sha256:83fb91c6c4b6cb0c91e3582450330327ff4337ae37f05cf00316cdd00d0ef783` |
+|  `1-dev` `latest-dev` `1.13.0-dev` `1.13-dev` | March 18th   | `sha256:c7fe76a0857550fd2d4382a991d792947c48770aaf136ef06388062bc86f809d` |
 

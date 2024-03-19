@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-recommender Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:dd957c8c4c10dd9ad338c325c252ad528cc69f715717dd22d98cf604d0b1a2a3` |
-|  `latest`     | March 15th   | `sha256:c15af331dd409a2555bf6961a71305e4d7d9b7355c5c3c89238f31ee27cb91b8` |
+|  `latest`     | March 18th   | `sha256:d42512b991d0a66e36316425e75e331687556d97525a0c7b9fffae0bef309281` |
+|  `latest-dev` | March 18th   | `sha256:c2528b1409a9541bd760f127a3e58bd33eadcb1384a02c134a091be29bfdf578` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.0-dev` `latest-dev` `1.0.0-dev` | March 14th   | `sha256:7bd3a2b32b0321788828c6fc615d27e0e944536d6f93b7190006ace8c02cf058` |
-|  `1.0` `latest` `1.0.0` `1`                 | March 14th   | `sha256:ec7bbfb857f40b66fe7e2b046a62d65237b4e6a520e5ddbd562727a288908916` |
+|  `1` `1.0` `1.0.0` `latest`                 | March 18th   | `sha256:fba2bb480732112fe797b9cb0edc32d322b20402a4c640ce08fdd09f3fb7d84b` |
+|  `1.0.0-dev` `1.0-dev` `latest-dev` `1-dev` | March 18th   | `sha256:139a6337a825f701b06d4ff3322fc73ffe4f806d454d66471d00c61269452342` |
 

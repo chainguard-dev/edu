@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-cni-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed  | Digest                                                                    |
 |----------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `v3.27.2` `v3` `3.27.2` `v3.27` `3` `3.27` `latest`                             | March 15th    | `sha256:d5abba54fbe34db2e04d2b997bfb891554fcc15e7c95dd13bf53f6c92cbaa4e5` |
-|  `3.27-dev` `3-dev` `v3.27-dev` `latest-dev` `v3-dev` `3.27.2-dev` `v3.27.2-dev` | March 15th    | `sha256:8c8f789db52750a6df408d092db6082190d8832de1bc290fc670b21ae78abc97` |
+|  `3.27-dev` `v3-dev` `3-dev` `v3.27-dev` `v3.27.2-dev` `latest-dev` `3.27.2-dev` | March 18th    | `sha256:0004fad01c196f4344acef9d295aadf55f52e04b8f806db2fe30b19fd1b6132f` |
+|  `3.27.2` `3` `v3.27` `v3.27.2` `v3` `latest` `3.27`                             | March 18th    | `sha256:e87b56401566bab12c6b384b74fcd788b52e71089070cc0baf3eb52b18b30839` |
 |  `3.27.0-dev` `v3.27.0-dev`                                                      | February 24th | `sha256:f20b4850d4f59e5fe9aa25ebb34a68cadd3c8fef224bc0b571736b17695313f1` |
 

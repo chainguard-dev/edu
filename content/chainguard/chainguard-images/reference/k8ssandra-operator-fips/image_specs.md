@@ -3,8 +3,8 @@ title: "k8ssandra-operator-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public k8ssandra-operator-fips Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,36 +35,36 @@ Check the [tags history page](/chainguard/chainguard-images/reference/k8ssandra-
 ## Packages Included
 The table shows package distribution across variants.
 
-|                               | latest-dev | latest |
-|-------------------------------|------------|--------|
-| `apk-tools`                   | X          |        |
-| `bash`                        | X          |        |
-| `busybox`                     | X          |        |
-| `ca-certificates-bundle`      | X          | X      |
-| `chainguard-baselayout`       | X          | X      |
-| `git`                         | X          |        |
-| `glibc`                       | X          | X      |
-| `glibc-locale-posix`          | X          | X      |
-| `k8ssandra-operator-compat`   | X          | X      |
-| `k8ssandra-operator-fips`     | X          | X      |
-| `ld-linux`                    | X          | X      |
-| `libbrotlicommon1`            | X          |        |
-| `libbrotlidec1`               | X          |        |
-| `libcrypt1`                   | X          |        |
-| `libcrypto3`                  | X          |        |
-| `libcurl-openssl4`            | X          |        |
-| `libexpat1`                   | X          |        |
-| `libidn2`                     | X          |        |
-| `libnghttp2-14`               | X          |        |
-| `libpcre2-8-0`                | X          |        |
-| `libpsl`                      | X          |        |
-| `libssl3`                     | X          |        |
-| `libunistring`                | X          |        |
-| `ncurses`                     | X          |        |
-| `ncurses-terminfo-base`       | X          |        |
-| `openssl-config-fipshardened` | X          | X      |
-| `openssl-provider-fips`       | X          | X      |
-| `wget`                        | X          |        |
-| `wolfi-baselayout`            | X          | X      |
-| `zlib`                        | X          |        |
+|                                  | latest-dev | latest |
+|----------------------------------|------------|--------|
+| `apk-tools`                      | X          |        |
+| `bash`                           | X          |        |
+| `busybox`                        | X          |        |
+| `ca-certificates-bundle`         | X          | X      |
+| `chainguard-baselayout`          | X          | X      |
+| `git`                            | X          |        |
+| `glibc`                          | X          | X      |
+| `glibc-locale-posix`             | X          | X      |
+| `k8ssandra-operator-fips`        | X          | X      |
+| `k8ssandra-operator-fips-compat` | X          | X      |
+| `ld-linux`                       | X          | X      |
+| `libbrotlicommon1`               | X          |        |
+| `libbrotlidec1`                  | X          |        |
+| `libcrypt1`                      | X          |        |
+| `libcrypto3`                     | X          |        |
+| `libcurl-openssl4`               | X          |        |
+| `libexpat1`                      | X          |        |
+| `libidn2`                        | X          |        |
+| `libnghttp2-14`                  | X          |        |
+| `libpcre2-8-0`                   | X          |        |
+| `libpsl`                         | X          |        |
+| `libssl3`                        | X          |        |
+| `libunistring`                   | X          |        |
+| `ncurses`                        | X          |        |
+| `ncurses-terminfo-base`          | X          |        |
+| `openssl-config-fipshardened`    | X          | X      |
+| `openssl-provider-fips`          | X          | X      |
+| `wget`                           | X          |        |
+| `wolfi-baselayout`               | X          | X      |
+| `zlib`                           | X          |        |
 

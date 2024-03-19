@@ -3,8 +3,8 @@ title: "cluster-autoscaler-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public cluster-autoscaler-fips Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -42,8 +42,8 @@ The table shows package distribution across variants.
 | `busybox`                             | X          |        |
 | `ca-certificates-bundle`              | X          | X      |
 | `chainguard-baselayout`               | X          | X      |
-| `cluster-autoscaler-fips-1.28`        | X          | X      |
-| `cluster-autoscaler-fips-1.28-compat` | X          | X      |
+| `cluster-autoscaler-fips-1.29`        | X          | X      |
+| `cluster-autoscaler-fips-1.29-compat` | X          | X      |
 | `git`                                 | X          |        |
 | `glibc`                               | X          | X      |
 | `glibc-locale-posix`                  | X          | X      |

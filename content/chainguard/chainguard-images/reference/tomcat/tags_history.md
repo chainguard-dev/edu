@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tomcat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 14th   | `sha256:859ff727c7571697cc99b68ec790b061df06bf3d4b4dee76eb253ff4510482b7` |
+|  `latest` | March 18th   | `sha256:deeb9253a6e45f8bcfee74b8ae5d639ec6b6a1308c5f6a7eb40798bafb821d0d` |
 
 
 ### Private/Dedicated Registry
@@ -36,10 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `9.0.87-dev` `9.0-dev` `9-dev` | March 14th   | `sha256:5e853fc33a518219abee113b160870b4a36f8d5c935a0770f276bd1f1bc2df32` |
-|  `10.1` `10.1.19` `10`                       | March 14th   | `sha256:4a61472dd00582650e9e8587c6bdc5cfbe178fb48e4706e42ada0b6da5f96799` |
-|  `10-dev` `10.1-dev` `10.1.19-dev`           | March 14th   | `sha256:b6a5c751d6673ad30573d2159bc2e8f966df8ae8d5fbbe3d6a543988ed9def5a` |
-|  `9.0.87` `9` `latest` `9.0`                 | March 14th   | `sha256:da1cdbbac19d3eaeed28d9c84f19f6f8f4b653cba82eb10f9090e15f99c724b2` |
+|  `10.1-dev` `10.1.19-dev` `10-dev`           | March 18th   | `sha256:a3436b00e7ba39e9913fac7ba604cd223ea4e56b791e3e48a03763536c9a7662` |
+|  `9.0.87-dev` `9.0-dev` `latest-dev` `9-dev` | March 18th   | `sha256:c5ba5f2de64be11f0d84c4b6d90e1389e5c563097c467c3a4b26772e01743ad7` |
+|  `10.1.19` `10` `10.1`                       | March 18th   | `sha256:881abefee00e9be0f2694c8beeeb5d03d5a30752a8c8b033b913e0d5418ab422` |
+|  `latest` `9.0.87` `9` `9.0`                 | March 18th   | `sha256:eff7732128cd9ba52ed7d818fc3065ac6b931fc11f10bd72d2d77dff456218f4` |
 |  `9.0.86-dev`                                | March 10th   | `sha256:06645baf8b6e5888fa0ff6ce3aea5ee8dfec2fc109be876ba6daa0b7a409700b` |
 |  `9.0.86`                                    | March 10th   | `sha256:27f2aac053e76b237dd65a5d6a17a0bed6d714eb4aa377c4561792aba428bed7` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-scheduledworkflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:9f9d09af39c278600b4f6eb79b1c838ab9ffdd7c1e9e7ba13fd5e2c8ef823088` |
-|  `latest`     | March 15th   | `sha256:1495cffddd318166002b46d5bfc83109a342d2965247cfb38681f4d7f234e302` |
+|  `latest-dev` | March 18th   | `sha256:5e4068e9816cc9b12d59876814b7f3be0d0da989d55bd1ba63474ad5fd0a9d09` |
+|  `latest`     | March 18th   | `sha256:1b4e8a03e29a7090727f7c8efb66f453fc2a218e6113e2b2c1bb9174a20288ba` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2` `2.0.5` `2.0`                 | March 15th   | `sha256:67010e648b0f43465e9f0552f08476e567a8e5760bc14b2c2c6d902df29f414d` |
-|  `2.0.5-dev` `2-dev` `latest-dev` `2.0-dev` | March 15th   | `sha256:f23d0096c939158322c71bbb7b2c56519cd5d009b84db465ce041209dad9fb57` |
+|  `2.0` `latest` `2.0.5` `2`                 | March 18th   | `sha256:915b30fb00bf51e038d891df6d889fe0afad146de444990f6f0af7df76559446` |
+|  `latest-dev` `2.0-dev` `2-dev` `2.0.5-dev` | March 18th   | `sha256:e942c8a01cd463238fbbdf7c407373f4b6e8451511e116e01a68baad87b0f980` |
 

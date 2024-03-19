@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 15th   | `sha256:6072ac68082dffe7c7781e76f3470b163a0ef4d3efe1a2743c5b14884679897c` |
-|  `latest-dev` | March 15th   | `sha256:342cd9174873b3dc23d0e8ef962cb0142777ad01996a2b900096e1277ad653ff` |
+|  `latest`     | March 18th   | `sha256:7cf953d315340686dc92c1f0e713ad416f357691a02171eaae7e15520b212b83` |
+|  `latest-dev` | March 18th   | `sha256:950d3ed1c51b8223e520309139e65a5e27f004ef1a82092c713928acc4e40362` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0.18-dev` `4.0-dev` `4-dev` `latest-dev` | March 14th   | `sha256:e9e1d39f7a34efb8396bf1c3abf01303e911e010c953c7788351d2b5584d7401` |
-|  `latest` `4.0.18` `4` `4.0`                 | March 14th   | `sha256:affc9a8f1a58ccb19a0fb93839b2ccadb93d4d2b40c7b80298caeb875600403d` |
+|  `4` `4.0.18` `4.0` `latest`                 | March 18th   | `sha256:09460b9f6332f6f42590e4effb4d818af4e924828c364905fd12ef8cad66c415` |
+|  `latest-dev` `4-dev` `4.0-dev` `4.0.18-dev` | March 18th   | `sha256:847b2735e16a2a11b3f238c1cab46af73789adcbbbe574b2d45a84b4da5bc535` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-18 00:56:27
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 16th   | `sha256:a5be8382c6c89924c4dbc0882ecdb5605344fd55571a0938138b046d06354f88` |
-|  `latest`     | March 16th   | `sha256:d555f07165a5ccb8a7913719d3bcdefb1d6b35decf8f98998ce28ddeaf4f7434` |
+|  `latest-dev` | March 18th   | `sha256:670f65396470952f4ab09a7734783c2b9a591bb08b3807025b2d0d82209421b8` |
+|  `latest`     | March 18th   | `sha256:d587026be24dff685a2656d631f830a33dbac3545bb7f715b4e5aff02a9e9e09` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.0.5-dev` `latest-dev` `2.0-dev` | March 15th   | `sha256:930728ec2fed11aa80ce2c70f44391dd9cc4107b2d91c73eaac44af7f0c0ea73` |
-|  `latest` `2.0.5` `2.0` `2`                 | March 15th   | `sha256:561db50046dee21a35965e3e1b63037068103bc25eb541104f2edbdb38a30008` |
+|  `latest` `2` `2.0.5` `2.0`                 | March 18th   | `sha256:4be2ab601c6e181bd46373dc737b8a9d936bd16b45f41c09884326c9ea333a83` |
+|  `2.0.5-dev` `latest-dev` `2.0-dev` `2-dev` | March 18th   | `sha256:b74f1eb8d579efc07ad319cf24776b7158e6b55eedddaaf580542cb090ac893f` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dive Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 6th    | `sha256:ce3954c0462dac0eb71f446a3382e04921c02eb8cd917f13ed7c9f25149f4666` |
+|  `latest` | March 18th   | `sha256:b8699452e00295db0e71b26fbf9cc453c773f164416511cfc1a78cc7aa9b9f2f` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.12` `0` `latest` `0.12.0` | March 14th   | `sha256:6abaffc91b4296ebc8fe340d202c9985d98c5f1276b932848f22638cc88715af` |
+|  `latest` `0.12.0` `0.12` `0` | March 18th   | `sha256:557ef49f651727b4b3666d12d6f80ec397b5b9d60204a0b6f337aba364f17216` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-typha-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed  | Digest                                                                    |
 |----------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `v3.27.2-dev` `3-dev` `v3.27-dev` `latest-dev` `v3-dev` `3.27.2-dev` `3.27-dev` | March 15th    | `sha256:dc8cd7a54a320c770c3512e7186ae0213f6205a2dd851ee09c1a621ccf713e84` |
-|  `latest` `v3.27` `3.27.2` `v3` `3` `v3.27.2` `3.27`                             | March 15th    | `sha256:371457fb19fb13dd6e035e826c0817dc63e5da36d4dc5d7d9728515d60ea417f` |
+|  `3.27.2-dev` `v3.27-dev` `v3.27.2-dev` `v3-dev` `3-dev` `3.27-dev` `latest-dev` | March 18th    | `sha256:504a30e66b2aae543b0e2ebf2e8cb901269e0487e51ec494525d6ba9d69b6ebd` |
+|  `v3.27` `v3.27.2` `3` `v3` `3.27.2` `latest` `3.27`                             | March 18th    | `sha256:ef56164c21e5e125581177aedea8fcf2b4db7b3dbc505b4aed5e47c2b381a6df` |
 |  `v3.27.0-dev` `3.27.0-dev`                                                      | February 24th | `sha256:0471722d7d200026bfa8582fb21715bb841acf013dfd4f07b82c4ec2e4b4eb8a` |
 

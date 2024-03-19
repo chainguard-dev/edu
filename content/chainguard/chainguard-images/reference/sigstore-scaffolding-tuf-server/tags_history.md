@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 15th   | `sha256:5b6e8746eaf72d5ac797206ca7bdf7e6a6aa37dbfe327280615b2382326f8864` |
-|  `latest-dev` | March 15th   | `sha256:77072989430b191a4c0333a65713875cd5858974efeeb35b06bbc8e35e0883f8` |
+|  `latest-dev` | March 18th   | `sha256:cce75a384da6985db6b818881ed3ab49d13660b99a9358a2b58c5d5e37020791` |
+|  `latest`     | March 18th   | `sha256:aecbf48e183c6ff89a84cc030d863a7b104773ea6c0fb76a802bbcdab8823fdb` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17` `0` `latest` `0.6`                 | March 14th   | `sha256:e0df60b887652dd6c64d5decbad8b1f818b31e505d8662eec36b0a00e96fddb8` |
-|  `latest-dev` `0.6-dev` `0-dev` `0.6.17-dev` | March 14th   | `sha256:c90ddfd7ac83cf6556dee5066f309480547c00cd6e6293e8ed50b79dd7e50dd5` |
+|  `0` `0.6.17` `0.6` `latest`                 | March 18th   | `sha256:091add3a2719c98505039aeaf405b64fc05581bc6e851d0225380ee747cd40c8` |
+|  `latest-dev` `0-dev` `0.6-dev` `0.6.17-dev` | March 18th   | `sha256:4ef9381c60b9dcd1824e30ab168dfa12a36c076af5d8377db59971e29e062e1b` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:4f57f334bd80b128f5e1076ed04b25d9289a4d3055c2b33d0962704b475b33a3` |
 |  `0.6.16`                                    | March 8th    | `sha256:a5ce3f5f7d0cfee1cd80b9cb29fbbd2d9e2cae658a2e1b52a1ee74568f0d4e72` |
 

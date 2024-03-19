@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 15th   | `sha256:954613fc3abbddd003824e5181ffc0595a6fa241bc74d30b9b14a7f5f7a89b83` |
-|  `latest-dev` | March 15th   | `sha256:a0d8aad97068d47c41bf148f1373dd6ef974faff3f844a898496d2752d0cf72d` |
+|  `latest`     | March 18th   | `sha256:1ef08e420bd49df0e1aefe8a1a0dd85190fc20483d93676f7c26cccc49be2ebf` |
+|  `latest-dev` | March 18th   | `sha256:8d469e55d4b03417663ebe44432107ac0bfc113208a900efa45edbfae56cdd0b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5-dev` `2.0-dev` `2-dev` `latest-dev` | March 15th   | `sha256:5aa05647bc409d8ff2716dc0533e9f90e4961a679198ab755ab45c24c6b514a3` |
-|  `latest` `2.0.5` `2` `2.0`                 | March 15th   | `sha256:1cf586e4b4d64252a8a3882fa6123bfdd4f3702d28057d9fc3a2e5decfb862b5` |
+|  `2.0.5-dev` `latest-dev` `2.0-dev` `2-dev` | March 18th   | `sha256:0780ab20f7d1165c844bd1623035da1aafe6029bcbb930f54b69b588ff9557ca` |
+|  `2.0` `2` `2.0.5` `latest`                 | March 18th   | `sha256:349eba0b5f0630b9138ac8a379b08b7ef6e1cf1ce25d6f6d19bdff29cbbb0f93` |
 

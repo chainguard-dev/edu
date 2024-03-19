@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cluster-autoscaler Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -42,12 +42,12 @@ The table shows package distribution across variants.
 | `busybox`                        | X          |        |
 | `ca-certificates-bundle`         | X          | X      |
 | `chainguard-baselayout`          | X          | X      |
-| `cluster-autoscaler-1.28`        | X          | X      |
-| `cluster-autoscaler-1.28-compat` | X          | X      |
+| `cluster-autoscaler-1.29`        | X          | X      |
+| `cluster-autoscaler-1.29-compat` | X          | X      |
 | `git`                            | X          |        |
 | `glibc`                          | X          |        |
 | `glibc-locale-posix`             | X          | X      |
-| `ld-linux`                       | X          | X      |
+| `ld-linux`                       | X          |        |
 | `libbrotlicommon1`               | X          |        |
 | `libbrotlidec1`                  | X          |        |
 | `libcrypt1`                      | X          |        |

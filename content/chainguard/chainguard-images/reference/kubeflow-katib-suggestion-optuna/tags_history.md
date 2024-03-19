@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-optuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:3263e0b09b41fe5aebc41a077a0b1ede67053a17319608186d0f42cb0804193e` |
-|  `latest`     | March 15th   | `sha256:c6486fac581ea60b746aeaf3dd1d172a22f179c6435f4dcd48a48b842ac4a2f5` |
+|  `latest-dev` | March 18th   | `sha256:86e224d58d6196139c5db19e4fd3c1f4f034dcd044dfbe890e4c212c7c986f80` |
+|  `latest`     | March 18th   | `sha256:1abf91eb326a032b70a8ae4a3e1a2d5f5b550fcbfab102c2b422cb0fcb14ddb0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16.0-dev` `0.16-dev` `latest-dev` | March 14th   | `sha256:4d62239cc7ea57115613d11f1859c3a874922309577abf375e9c6aaf6e51230b` |
-|  `0.16` `latest` `0` `0.16.0`                 | March 14th   | `sha256:a404fe9f1d477d9ad3c4ffcb6dff541207896beeff760e150be206b9c57446f2` |
+|  `0.16.0` `0.16` `latest` `0`                 | March 18th   | `sha256:95388f6492390008f4d125f02bad8de4f9c89088a49620a098754678706d4dc3` |
+|  `0.16-dev` `0.16.0-dev` `latest-dev` `0-dev` | March 18th   | `sha256:db7bd2293b6152a86fb35613ed3e4ed5ebba8ec34d5f2fcd03c9839d18c6d9a1` |
 

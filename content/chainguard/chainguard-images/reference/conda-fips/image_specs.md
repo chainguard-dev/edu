@@ -3,8 +3,8 @@ title: "conda-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public conda-fips Chainguard Image."
-date: 2024-03-15 00:51:40
-lastmod: 2024-03-15 00:51:40
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -70,6 +70,7 @@ The table shows package distribution across variants.
 | `openssl-config-fipshardened` | X          | X      |
 | `openssl-provider-fips`       | X          | X      |
 | `py3-archspec`                | X          | X      |
+| `py3-boltons`                 | X          | X      |
 | `py3-certifi`                 | X          | X      |
 | `py3-charset-normalizer`      | X          | X      |
 | `py3-colorama`                | X          | X      |

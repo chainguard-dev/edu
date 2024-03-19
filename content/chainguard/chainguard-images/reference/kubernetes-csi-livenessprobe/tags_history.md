@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 15th   | `sha256:aa8c8ca14c02d6087fab454dc1496026aa2a923eacd62f0d3c1cd246ad9eec0b` |
-|  `latest-dev` | March 15th   | `sha256:3b0b307e1ad8dbcd467df6164f772e9eb345daf757ab0c419ad72bb2a8930581` |
+|  `latest-dev` | March 18th   | `sha256:699304aded9b9ebfd5db2fdbe177b4d7ced0242e97631fa33fff9232d3a707fe` |
+|  `latest`     | March 18th   | `sha256:fadf817ce9705531837a65e6ac2b40860289d074c6fb8b7fa3e9057f40e038d8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.12.0-dev` `2.12-dev` | March 15th   | `sha256:082b53b2f52197d644dc80f85b7863b1caca88938c8babae3a833b3256d45ee4` |
-|  `latest` `2.12` `2` `2.12.0`                 | March 15th   | `sha256:c9de3cbc64499beb80e1b96af529b61c84fb768c84c5250afe2ffe0156470521` |
+|  `latest-dev` `2.12-dev` `2-dev` `2.12.0-dev` | March 18th   | `sha256:5515f6d56e92bb1b3005d289b1e6ab83c0273fcba199404ac047ff0c45034a3b` |
+|  `2.12` `latest` `2` `2.12.0`                 | March 18th   | `sha256:3513c35388de8c976edad666f8d825308107da31148d7a2cda4809f2f9a906de` |
 
