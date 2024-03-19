@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-policy-reporter-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 15th   | `sha256:29d19ff36df31130abfabbb4f6a7022d0600985defd835a9e22c08a4fea3d54c` |
-|  `latest-dev` | March 15th   | `sha256:19d253567c9250748449fb9032ddc969f2de444beb20cf7eb481ccc2e8840c15` |
+|  `latest-dev` | March 18th   | `sha256:f41f828fbc6059cbbabe59e3be3894cb8fbe3120928718642110740cf2e88d48` |
+|  `latest`     | March 18th   | `sha256:174c22c0bdf93cf8f812022af79eb4d95a7b46fe4bf80d8e737173ec485f0247` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.6.3` `1.6` `latest` `1`                 | March 14th   | `sha256:41f83f1971d4acc52abd7818ea03094f3a673be555b0c44dbc0f75c316eafa52` |
-|  `1.6-dev` `1-dev` `latest-dev` `1.6.3-dev` | March 14th   | `sha256:8bb19442a263701e5f6c578564b471907f3a9f79102ea35f70c1c30fc0697136` |
+|  `latest-dev` `1.6.3-dev` `1.6-dev` `1-dev` | March 18th   | `sha256:9de4d2b34d29083c72115aa00dad596bf8a68fdc2cb09464db6235dd658b7c62` |
+|  `latest` `1` `1.6` `1.6.3`                 | March 18th   | `sha256:2ca7c9d47d745111a628a25504e6aebfc968ff13970475e6a0c68b09f4039202` |
 

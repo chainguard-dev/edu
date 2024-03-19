@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for prometheus-config-reloader Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for prometheus-config-reloader Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                         |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                                                                           |
-| `cgr.dev/chainguard-private` | 0, 0-dev, 0.64, 0.64-dev, 0.64.0, 0.64.0-dev, 0.64.1, 0.64.1-dev, 0.65, 0.65-dev, 0.65.0, 0.65.0-dev, 0.65.1, 0.65.1-dev, 0.65.2, 0.65.2-dev, 0.66, 0.66-dev, 0.66.0, 0.66.0-dev, 0.67, 0.67-dev, 0.67.0, 0.67.0-dev, 0.67.1, 0.67.1-dev, 0.68, 0.68-dev, 0.68.0, 0.68.0-dev, 0.69, 0.69-dev, 0.69.0, 0.69.0-dev, 0.69.1, 0.69.1-dev, 0.70, 0.70-dev, 0.70.0, 0.70.0-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `cgr.dev/chainguard-private` | 0, 0-dev, 0.64, 0.64-dev, 0.64.0, 0.64.0-dev, 0.64.1, 0.64.1-dev, 0.65, 0.65-dev, 0.65.0, 0.65.0-dev, 0.65.1, 0.65.1-dev, 0.65.2, 0.65.2-dev, 0.66, 0.66-dev, 0.66.0, 0.66.0-dev, 0.67, 0.67-dev, 0.67.0, 0.67.0-dev, 0.67.1, 0.67.1-dev, 0.68, 0.68-dev, 0.68.0, 0.68.0-dev, 0.69, 0.69-dev, 0.69.0, 0.69.0-dev, 0.69.1, 0.69.1-dev, 0.70, 0.70-dev, 0.70.0, 0.70.0-dev, 0.72, 0.72-dev, 0.72.0, 0.72.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

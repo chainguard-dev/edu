@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-admission-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 15th   | `sha256:ca9ee975171e72d7e8a7a408e8715beed8654a7c025e8ae8efbc0b2271fd2444` |
-|  `latest-dev` | March 15th   | `sha256:7d300f61354a498355aa17c66228483256d7e211268e6d120d5af7a5ffc6fed5` |
+|  `latest-dev` | March 18th   | `sha256:1eb3e1e93fb3d17734ec3f632b79c349bb997619d409f74d31ff3d5cee28aa8d` |
+|  `latest`     | March 18th   | `sha256:3fd5d4b21230060234f0e9dec903a1f81939fcfa572392c570ea10ce0b0dd766` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0` `1` `latest` `1.0.0`                 | March 14th   | `sha256:189a2fa9364f64854e0b28213ddd0792fe8b0e30740deada8efc2b5d584d63d7` |
-|  `1.0-dev` `1.0.0-dev` `1-dev` `latest-dev` | March 14th   | `sha256:f2e781165ca3975edcd6fbde091f54bd43d67f8ccf21e3e0ae174fdcdd459f75` |
+|  `1.0` `latest` `1` `1.0.0`                 | March 18th   | `sha256:6320117f890c4a1bd57c7e1994d78f7b93a5547d8979bd438e0d4945cba52d0e` |
+|  `1.0.0-dev` `latest-dev` `1-dev` `1.0-dev` | March 18th   | `sha256:f77e3eb0416607aa40cdb218af9ef7415d2031f153810e394598776d4e61824c` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:605778c6b1ec7fd8549ada9e7327c2a113ea25502c02fb5fff8422f92b4f664e` |
-|  `latest`     | March 8th    | `sha256:ed02adab7dad9748ccccc3697b7a16f53af11b8fe1bfe47781af92bc2d1badf7` |
+|  `latest-dev` | March 18th   | `sha256:d66c557ab95aef25029790f4fc68117d2b48a78a0fd2c63c90ed74c31c344bca` |
+|  `latest`     | March 18th   | `sha256:1dab8de7d4fa5c3c752c6260b263bb9ececcdfac9532a62392935c368059f3ad` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.13.0-dev` `0.13-dev` `0-dev` | March 14th   | `sha256:4cec92b68dc66b508e0cce5c935b647b41ef8cfc9aafe41b13cf99c932a38e76` |
-|  `0` `0.13.0` `latest` `0.13`                 | March 14th   | `sha256:76b48d912a09b9dd2fa5d30c5d1796509615c9fe72700284e7517e2a10fd23d7` |
+|  `0-dev` `latest-dev` `0.13.0-dev` `0.13-dev` | March 18th   | `sha256:6793e76bdc5f5d9681e69839e652a1cf0dc594f190b50fd544fdfc2a960dd948` |
+|  `latest` `0` `0.13` `0.13.0`                 | March 18th   | `sha256:0d3413e5e680f19295f854f8b7e39f3378c1e81980a8ea7f4b156147ad1845db` |
 

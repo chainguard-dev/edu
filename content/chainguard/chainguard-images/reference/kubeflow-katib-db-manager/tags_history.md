@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-db-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 15th   | `sha256:9fcfa5a84dc9121dd393451c7231b742b60fabfed4014c6411b6b3332af9ae74` |
-|  `latest-dev` | March 15th   | `sha256:febc8571aa1919607dee6f2181db86c93e960e1d19e8774b4dc3283114d94e4b` |
+|  `latest`     | March 18th   | `sha256:f05a6b3312b0c0e4f4a6d2b6d40d9b9f1ac63c4f5d4249b6bc18a2da0a7785ee` |
+|  `latest-dev` | March 18th   | `sha256:83c7d77580940416f9b2e79200ba2251f6cbd22b6434c43525abe191b2b06e97` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16` `0` `0.16.0` `latest`                 | March 14th   | `sha256:04d9a0b0d0938039adc30eeb1ddc7376b1c9f720ca717f1478f4c82cacf569e2` |
-|  `latest-dev` `0.16.0-dev` `0-dev` `0.16-dev` | March 14th   | `sha256:067995ccbe3c8297797eb27cf83952c808e9f69d91584f1bebd4a74e21e7d3f3` |
+|  `0.16-dev` `0.16.0-dev` `latest-dev` `0-dev` | March 18th   | `sha256:b83a5f8de96e3cdc6b0a255b5c446e3370506e5dbae0d35f49e87a79490f149f` |
+|  `latest` `0.16` `0.16.0` `0`                 | March 18th   | `sha256:345d8051df8edbf3f48d81d9260e9ffe63320640ec381d5c32f0880123c2b11e` |
 

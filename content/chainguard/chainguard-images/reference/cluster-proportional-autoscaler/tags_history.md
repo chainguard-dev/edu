@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-18 00:56:27
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 17th   | `sha256:2ee3991071074da64edb08c6bcbf70e0de4806562e071481ae9829821581cbfe` |
-|  `latest`     | March 17th   | `sha256:fcb1603f9b5f0a177c84d103295a924def1abefe18763abd618fd296c7f804cd` |
+|  `latest`     | March 18th   | `sha256:180e04102cec455fbd82050e6ba48edcf8062b5d3f2d27cb21d9bf0aaa84474e` |
+|  `latest-dev` | March 18th   | `sha256:12eacd1142639cdc140810782203bbd84a2d24ac79eefd08a38966391b40171f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.8.11` `1.8` `1`                 | March 17th   | `sha256:16ced91cec4645772451b48e68b82939434e4c8b94d235701e059adc2e5f26b8` |
-|  `1-dev` `latest-dev` `1.8-dev` `1.8.11-dev` | March 17th   | `sha256:1ac0e68b425a8f2ea486d9125b6dba061658c6cda21a04f7c4247f430211ed26` |
+|  `1-dev` `1.8.11-dev` `latest-dev` `1.8-dev` | March 18th   | `sha256:05a58f8347597cda3394356e4f7f84f1478d8802ae7db0256fb3f0c154127571` |
+|  `1` `latest` `1.8` `1.8.11`                 | March 18th   | `sha256:0729e621178a6d023dc046e08b0b9380c3158490b7376b2da23abf4325e21792` |
 

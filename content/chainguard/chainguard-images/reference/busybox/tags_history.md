@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the busybox Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-18 00:56:27
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)         | Last Changed | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
+|  `latest-glibc` | March 18th   | `sha256:2e6f1ca3ceca0a7417e1f2887fc38d84cf1e12ab79195daa63eaf58c789363a3` |
 |  `latest`       | March 15th   | `sha256:faabaab8dda4a663b4feb1021a5197b6005329ffd50d1c6176d23b7ad0de379f` |
-|  `latest-glibc` | March 14th   | `sha256:e66df30c75ca3a92947570774591f69ba5c6dbc946d930e792a52ddd7c245591` |
 
 
 ### Private/Dedicated Registry
@@ -37,5 +37,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                               | Last Changed | Digest                                                                    |
 |-------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-glibc` `glibc-1.36.1` `glibc-1.36` `glibc-1` | March 14th   | `sha256:ce123c5d3ab41bfec0b38ec6ac796f4d4f567ba86778aa90ce31476c9d4b089e` |
+|  `glibc-1` `latest-glibc` `glibc-1.36.1` `glibc-1.36` | March 18th   | `sha256:0a90be6bf3edd38c1c884abbcd56efcb90016f6b94d6c33d88178be2272a9cb8` |
 

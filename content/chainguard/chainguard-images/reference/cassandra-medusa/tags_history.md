@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-medusa Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 14th   | `sha256:e8be507bc20a252aef92effe1b325648254a471f804403a3e93db0c24ff5db2e` |
-|  `latest-dev` | March 14th   | `sha256:bf50d826df78da20a9c67edf5967996a6087c43227602163f26112b26e963b2f` |
+|  `latest`     | March 18th   | `sha256:7633e349a2645decec1e7d27d8db5003d81550931fee85f1e1908ec18f935f0b` |
+|  `latest-dev` | March 18th   | `sha256:640750bd90a8cb14d362dac156373b7dd62d4967aca4112ca410d5c26483ddf0` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.19.1` `0.19` `latest` `0`                 | March 14th    | `sha256:a50860f04cbca590f977cd02fd8c17730e3c35d8e173917ece21de8216fdd5cf` |
-|  `0-dev` `0.19-dev` `latest-dev` `0.19.1-dev` | March 14th    | `sha256:1e49924a5493570d0c93c3e8b9ac454017818124faebbc59f44eec92e0abf3ff` |
+|  `0-dev` `latest-dev` `0.19-dev` `0.19.1-dev` | March 18th    | `sha256:f4afe87f4b6db28c0936f583bdfa8ed2822ed5cd263427b95a8dc481138d098a` |
+|  `latest` `0` `0.19` `0.19.1`                 | March 18th    | `sha256:d0bce89c4f1ab8fc437919eecb8dcb5eeec513bba2d2bb6f6371b7a3f1d3a738` |
 |  `0.19.0-dev`                                 | February 23rd | `sha256:d877cd3c4ca7f40a4dfb9bf7a06a9951b36177b78142f380dddc95fa7d8e8d25` |
 |  `0.19.0`                                     | February 22nd | `sha256:9b2ec70b8b8f98dc699e0407d1dc49019984dab722e27a426fa8021cf4849618` |
 |  `0.17` `0.17.2`                              | February 22nd | `sha256:40ece9a8f0280e05c2e09f1b35cbf6b92ba71f66811fdf7a889b0a58535cdf98` |

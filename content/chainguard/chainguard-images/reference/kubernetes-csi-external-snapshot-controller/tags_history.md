@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 15th   | `sha256:ec4632466667479e16126c6158954925ea7160917320cc8da18169fa41258a08` |
-|  `latest`     | March 15th   | `sha256:9c0beb93a71413b498f45ac76ba4b866b1022b9e9a275cbd8dde8a36b8047b37` |
+|  `latest-dev` | March 18th   | `sha256:eaf44c9d1d74b5c23521758632c48455d89855c1e866fd6318c3876bc4071144` |
+|  `latest`     | March 18th   | `sha256:4082ab476bda34178e4ea25cc9b53b117ad1c46eb0d2144e30764678b231f924` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7-dev` `latest-dev` `7.0.1-dev` `7.0-dev` | March 14th   | `sha256:e2782e0c590c2b3fb6bbaf87f3efd1b77b4f4558b427827447467d7df73682d2` |
-|  `7` `7.0` `latest` `7.0.1`                 | March 14th   | `sha256:2909ff8fb0cd3e660d4704877161f7c81f83a7ea427018e7c7b134a093bb362c` |
+|  `7-dev` `7.0-dev` `7.0.1-dev` `latest-dev` | March 18th   | `sha256:d63205422f1ca0f69e2357a622e3727dbcc595d59b23ff7c1f74b7aa2af9eb92` |
+|  `7` `7.0` `7.0.1` `latest`                 | March 18th   | `sha256:315f9becfb47c0f06109e11c1fabb3819a79f6f8e5d56ed4397e84d6553caf88` |
 

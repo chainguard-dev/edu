@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-18 00:56:27
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 17th   | `sha256:9a445825e540364c400e24b2dd900f40c45ba45fdc4a013cf6f4171d260ed983` |
-|  `latest`     | March 17th   | `sha256:e72ef9829459f66d9e8e86954fc821bbb0a39364db497e50be784c5da205d676` |
+|  `latest-dev` | March 18th   | `sha256:87d64423d1a7c5b0f85935f814d22fc3c8b55d31e2b3e393acdb72803260f922` |
+|  `latest`     | March 18th   | `sha256:12a9cd6137b7ee7ea473f2e5c51b716915763a8d6753400b39d4c6e9ac228ac2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.15.0` `0.15` `0`                 | March 16th   | `sha256:c91231ed147ae57b2c2a6e4156d12dedbecd59afc6212813f5fbeea7b87bdd33` |
-|  `0-dev` `0.15-dev` `0.15.0-dev` `latest-dev` | March 16th   | `sha256:df137f34f74ae250edceb0e0e0811293b965f008781c928cbf0fe065672cf345` |
+|  `0-dev` `0.15.0-dev` `0.15-dev` `latest-dev` | March 18th   | `sha256:35fea6554f28ecd0bb169157afa161371b9a8c68c85b2eb05c6abb6644f58dc5` |
+|  `latest` `0.15.0` `0.15` `0`                 | March 18th   | `sha256:ee8f857ceec21357cf6abee9087462247a27872e2cb6e685da5fb2883fe9c329` |
 

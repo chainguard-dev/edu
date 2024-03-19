@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 14th   | `sha256:92e9cbb19fc57453df62f1a0d1acec6b4f6c581a4765e85f58f054093b480b49` |
-|  `latest`     | March 14th   | `sha256:0b240b11bde96bf35461c1bc8ae6f81aeaaffa04c6e106e3b153890bb581ad28` |
+|  `latest-dev` | March 18th   | `sha256:cba380538a3da62bec6dd781bad816cc8f2ad8e80aa93acb94c88c7b655d32bd` |
+|  `latest`     | March 18th   | `sha256:eb4d23166e12c0defe6eee7dcf11d74b82c73f78a1fdc60f5f66ce81e851e321` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.58.0` `1.58` `latest`                 | March 14th   | `sha256:0d6cadda8e97da912d9fe4a8289024bfeae1a9840385cb3541a1fc5a7eb07d38` |
-|  `1.58-dev` `1-dev` `latest-dev` `1.58.0-dev` | March 14th   | `sha256:7450d39511769d547617dd79c62034ea3256a1b6b9ab7ab65dcbb257ed40dadf` |
+|  `1.58.0` `1` `1.58` `latest`                 | March 18th   | `sha256:00edeb88103f8d31a25ae2a20af779ecebbc653d16530203437e370f37d4ea1c` |
+|  `1.58-dev` `1-dev` `latest-dev` `1.58.0-dev` | March 18th   | `sha256:d66426ef4f6834410e369b5cf994f0a5048898cde6978b39ca0efdf760c4ef97` |
 

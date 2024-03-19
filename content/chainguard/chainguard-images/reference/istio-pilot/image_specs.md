@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public istio-pilot Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -47,7 +47,7 @@ The table shows package distribution across variants.
 | `glibc-locale-posix`                | X          | X      |
 | `istio-pilot-discovery-1.20`        | X          | X      |
 | `istio-pilot-discovery-1.20-compat` | X          | X      |
-| `ld-linux`                          | X          |        |
+| `ld-linux`                          | X          | X      |
 | `libbrotlicommon1`                  | X          |        |
 | `libbrotlidec1`                     | X          |        |
 | `libcrypt1`                         | X          |        |

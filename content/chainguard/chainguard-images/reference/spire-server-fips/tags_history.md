@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-server-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.9` `1` `latest` `1.9.0`                 | March 14th    | `sha256:1a8ae9f5a56ed39f3b0474c4eb52262ef0fc907d893bcd9f5441504de80ce5c8` |
-|  `latest-dev` `1.9-dev` `1-dev` `1.9.0-dev` | March 14th    | `sha256:7902993ca831693bd0c8c9e43038512591a2860fd4a1885a14c2c157acb5c70e` |
+|  `1.9.0-dev` `1.9-dev` `1-dev` `latest-dev` | March 18th    | `sha256:d3eaa06e5e492e93c11fceef791b0aead136148f7397a19b552ff7b5d9f7d5a3` |
+|  `1.9.0` `1` `1.9` `latest`                 | March 18th    | `sha256:d1a0fdc59ea971730401f50a411775064b6e173e2ca3eea14c5bee145d5ef433` |
 |  `1.8-dev` `1.8.7-dev`                      | February 22nd | `sha256:58e6d3f08d75d96eb08dcb90bb1e17326873acfd9e49f7a2af14ed95cda9f25e` |
 

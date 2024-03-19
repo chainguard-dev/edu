@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-viewer-crd-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 15th   | `sha256:90f8d1b9b68b933ce6a5c34816347811aa9f4ced7e7aa6b97d8e31b6c99038cb` |
-|  `latest-dev` | March 15th   | `sha256:abeb136c0488e8bb38e581132dc9407ac9f5fdc1c6732a35301d32fc7b5f4a7c` |
+|  `latest`     | March 18th   | `sha256:f7785ac0f9bd7006cebb01409138384a0a395e4460360800dd6d3dbf683e8977` |
+|  `latest-dev` | March 18th   | `sha256:ea7a33021b9ed3401635be3068142107163b8c2c13e39d86c4436e54b4b560ac` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5-dev` `2-dev` `latest-dev` `2.0-dev` | March 15th   | `sha256:343fda598e69f9cd816126606be169a2f523534313a7cd54f85f0074eccd01f5` |
-|  `2.0.5` `latest` `2.0` `2`                 | March 15th   | `sha256:231a5e27182e841cc23671cb5241267ac88425e0589a5f8c0477a7ee2a747c23` |
+|  `2.0.5-dev` `2.0-dev` `2-dev` `latest-dev` | March 18th   | `sha256:f9fd0d9cab57b948c9f8e61f6210e1f7babc3a12651ae3d3ea4cc0351cd394f4` |
+|  `2.0` `2.0.5` `2` `latest`                 | March 18th   | `sha256:98508cb1bac231c66fcc411ce9b5599dcf2f1b32df59b60dd8232f588d5d32d6` |
 

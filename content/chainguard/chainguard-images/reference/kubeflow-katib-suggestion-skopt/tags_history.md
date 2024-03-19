@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-16 00:33:13
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 15th   | `sha256:a9b8c1e797ab223e3cb9538c8f633c5537f68fcb8c0fb5fc392ccad8b5e828a5` |
-|  `latest-dev` | March 15th   | `sha256:ee800492d5ebe08a5d6e4910f64d886721398dbb8f6de61146617a5a81f79495` |
+|  `latest`     | March 18th   | `sha256:56b3a0029522aa13096ee0a14f910df8aa284a644b23d6d61f49bb4cf2fc4572` |
+|  `latest-dev` | March 18th   | `sha256:27a0fb774986abe25a827be066e0aa6f4388c731241ec1a05e6e483ffd299f15` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | March 14th   | `sha256:8cb1bbbb186a6e230d39d6709055f34dd145b41ea89d330462ef1ec050b4f351` |
-|  `0` `0.16.0` `latest` `0.16`                 | March 14th   | `sha256:7c54e1db4dfd1f83e251a16cc20592155948769c758892fc51651d5a9c3214cf` |
+|  `0.16.0` `0` `0.16` `latest`                 | March 18th   | `sha256:145bf2c0c983eb8e0f53bd0ddfe2f326cf82fe330ff234a0d5f6229d54e492ee` |
+|  `latest-dev` `0.16-dev` `0.16.0-dev` `0-dev` | March 18th   | `sha256:d0cd1559c5eb8595e43ba52616400558ff574b27ab011ca685c6ef57ea50d7e2` |
 

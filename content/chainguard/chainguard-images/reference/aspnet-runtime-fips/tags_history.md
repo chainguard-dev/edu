@@ -3,8 +3,8 @@ title: "aspnet-runtime-fips Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the aspnet-runtime-fips Chainguard Image"
-date: 2024-03-16 00:33:13
-lastmod: 2024-03-16 00:33:13
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-03-19 00:54:00
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.0` `7` `7.0.117`                        | March 15th   | `sha256:5ad0b94564e4f751a47bed1ffbe51b1a9b9e88a46eb2ec4eb568a5c1ed521627` |
-|  `6.0` `6` `6.0.128`                        | March 15th   | `sha256:61eefc5c7d7ca8e7575e6eb998d994b72f79e686f2f33e8b089bef30b8378f32` |
-|  `6.0.128-dev` `6.0-dev` `6-dev`            | March 15th   | `sha256:c66dcfd6fc3bf22a5aefd2de72223f3cc0f8edddd0b3e34a1dbcfebc37a2d9d7` |
-|  `8.0.3-dev` `8-dev` `8.0-dev` `latest-dev` | March 15th   | `sha256:d39ae74bd9254a01f2f72f77d796ca062c46341747a7abeab3df3018f864975d` |
-|  `7.0.117-dev` `7-dev` `7.0-dev`            | March 15th   | `sha256:7c5a5255e008bf2aa38183f7e5d30386d0282537b0b1eed17281ba6f852a6bba` |
-|  `8` `8.0` `latest` `8.0.3`                 | March 15th   | `sha256:cf11fdc5702f23ec5ce77ddcd0be50722889259b77a1aa24460daa77e4e51e21` |
+|  `6.0-dev` `6-dev` `6.0.128-dev`            | March 18th   | `sha256:4929abc3d37961aa0eb511a4ac1cd072e0bd96356faaaa4e2fe4bdee64367c4c` |
+|  `8.0.3-dev` `8.0-dev` `8-dev` `latest-dev` | March 18th   | `sha256:cf5fe963872e3de1c1a6aa84557005edf6f97d1080c3ea00e6af84f9e571e2b5` |
+|  `8.0` `latest` `8.0.3` `8`                 | March 18th   | `sha256:aa9ea089c9883b1356168c289b4f0a4d67d268b5ecc3cd4c50ab1bfe008065f6` |
+|  `7` `7.0.117` `7.0`                        | March 18th   | `sha256:c67dac2fcb4c78e7e22ef0462a68f58d6aaf47e12850401336a4dc5ad7b5294c` |
+|  `6.0.128` `6.0` `6`                        | March 18th   | `sha256:a395d05ced1cced97a6dd54752d42a21b042eaaebbbce9bbad255dc9e6cd68b1` |
+|  `7-dev` `7.0-dev` `7.0.117-dev`            | March 18th   | `sha256:0a0e7114effea92e7b29b0abce0baefa6f879c7cce4cee96356782bf07de1940` |
 
