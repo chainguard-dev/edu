@@ -2496,6 +2496,38 @@
         ]
       }
     },
+    "/registry/v1/repos/{repoId}/manifestmetdata": {
+      "get": {
+        "operationId": "Registry_ListManifestMetadata",
+        "parameters": [
+          {
+            "description": "The UIDP of the image repo that the digests belongs to.",
+            "in": "path",
+            "name": "repoId",
+            "pattern": ".+",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/registryManifestMetadataList"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/registry/v1/tags": {
       "get": {
         "operationId": "Registry_ListTags",
@@ -4082,6 +4114,11 @@
           "description": "ClaimMatch subject of the bound identity.",
           "type": "string"
         },
+        "createdAt": {
+          "description": "created_at is the timestamp for when the role binding was created.",
+          "format": "date-time",
+          "type": "string"
+        },
         "email": {
           "description": "email of the bound identity.",
           "type": "string"
@@ -5074,6 +5111,10 @@
     },
     "iamStoredGroupInvite": {
       "properties": {
+        "email": {
+          "description": "email is the email address that is allowed to accept this invite code. If blank,\nanyone with the invite code an accept.",
+          "type": "string"
+        },
         "expiration": {
           "description": "expiration, timestamp this invite becomes no longer valid.",
           "format": "date-time",
@@ -5196,6 +5237,59 @@
       },
       "type": "object"
     },
+    "registryManifestMetadata": {
+      "properties": {
+        "digest": {
+          "description": "Digest of image that packages are associated with.",
+          "type": "string"
+        },
+        "pkgMetadata": {
+          "description": "List of packages that are part of image.",
+          "items": {
+            "$ref": "#/definitions/registryPkgMetadata"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryManifestMetadataFilterEntry": {
+      "properties": {
+        "imageDigest": {
+          "title": "For fetching metadata for an image digest",
+          "type": "string"
+        },
+        "indexFilter": {
+          "$ref": "#/definitions/registryManifestMetadataIndexFilter",
+          "title": "For fetching metadata for an index digest"
+        }
+      },
+      "type": "object"
+    },
+    "registryManifestMetadataIndexFilter": {
+      "properties": {
+        "arch": {
+          "description": "The architecture to fetch metadata for.",
+          "type": "string"
+        },
+        "digest": {
+          "description": "The tag/index digest to fetch metadata for.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "registryManifestMetadataList": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/registryManifestMetadata"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "registryPackageReference": {
       "description": "PackageReference is a reference to a package, containing minimal information to identify it.",
       "properties": {
@@ -5230,6 +5324,33 @@
             "$ref": "#/definitions/registryPackageReference"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "registryPkgMetadata": {
+      "properties": {
+        "buildTimestamp": {
+          "format": "date-time",
+          "title": "timestamp when package was built, date 0-0-0 when build timestamp not available",
+          "type": "string"
+        },
+        "eolDate": {
+          "format": "date-time",
+          "title": "date when EOL, date 0-0-0 when not eol",
+          "type": "string"
+        },
+        "license": {
+          "title": "license of package, empty if unknown",
+          "type": "string"
+        },
+        "originPurl": {
+          "title": "if differ from purl, it means it is a subpackage",
+          "type": "string"
+        },
+        "purl": {
+          "title": "purl of package or subpackage; spec https://github.com/package-url/purl-spec",
+          "type": "string"
         }
       },
       "type": "object"

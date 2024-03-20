@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2024-03-15 22:27:17 +0000 UTC
+date: 2024-03-20 19:33:27 +0000 UTC
 draft: false
 tags: ["Enforce", "Reference", "Product"]
 images: []
@@ -11,6 +11,14 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.254
+Release date: 2024-03-20
+#### Feature
+- `chainctl auth login` will now prompt users to choose an identity provider before redirecting them to a browser to authenticate. Bypass this selection by setting `default.social-login`, `default.org-name`, or `default.identity-provider` configuration values.
+#### Bug or Regression
+- Fix a bug that caused first-time logging in through `chainctl` to fail when using a custom identity provider and refresh tokens.
+
 
 ### v0.1.253
 Release date: 2024-03-15
