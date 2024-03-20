@@ -85,7 +85,7 @@ The first section creates the identity itself.
 
 ```
 resource "chainguard_identity" "gitlab" {
-  parent_id   = chainguard_group.group.id
+  parent_id   = data.chainguard_group.group.id
   name    	= "gitlab-ci"
   description = <<EOF
 	This is an identity that authorizes Gitlab CI in this
@@ -119,7 +119,7 @@ output "gitlab-identity" {
 The section after that looks up the `viewer` role.
 
 ```
-data "chainguard_roles" "viewer" {
+data "chainguard_role" "viewer" {
   name = "viewer"
 }
 ```
@@ -129,8 +129,8 @@ The final section grants this role to the identity on the group.
 ```
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.gitlab.id
-  group	= chainguard_group.group.id
-  role 	= data.chainguard_roles.viewer.items[0].id
+  group	= data.chainguard_group.group.id
+  role 	= data.chainguard_role.viewer.items[0].id
 }
 ```
 
