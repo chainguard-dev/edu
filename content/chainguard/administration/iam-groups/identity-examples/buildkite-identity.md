@@ -135,42 +135,7 @@ resource "chainguard_rolebinding" "view-stuff" {
 }
 ```
 
-Run the following command to create this file with each of these sections. Be sure to change the `subject_pattern` value to align with your own Buildkite pipeline. For example, if your organization name were `example-org-123` and the pipeline name was `sample-pipeline`, you would set the `subject_pattern` value to `"organization:example-org-123:pipeline:sample-pipeline:ref:refs/heads/main:commit:[0-9a-f]+:step:`.
-
-```sh
-cat > buildkite.tf <<EOF
-resource "chainguard_identity" "buildkite" {
-  parent_id   = chainguard_group.group.id
-  name    	= "buildkite"
-  description = <<EOF
-	This is an identity that authorizes Buildkite workflows
-	for this repository to assume to interact with chainctl.
-  EOF
-
-  claim_match {
-	issuer      	= "https://agent.buildkite.com"
-	subject_pattern = "organization:<organization-name>:pipeline:<pipeline-name>:ref:refs/heads/main:commit:[0-9a-f]+:step:"
-  }
-}
-
-output "buildkite-identity" {
-  value = chainguard_identity.buildkite.id
-}
-
-data "chainguard_roles" "viewer" {
-  name = "viewer"
-}
-
-resource "chainguard_rolebinding" "view-stuff" {
-  identity = chainguard_identity.buildkite.id
-  group	= chainguard_group.group.id
-  role 	= data.chainguard_roles.viewer.items[0].id
-}
-EOF
-```
-
 Following that, your Terraform configuration will be ready. Now you can run a few `terraform` commands to create the resources defined in your `.tf` files.
-
 
 ## Creating Your Resources
 
