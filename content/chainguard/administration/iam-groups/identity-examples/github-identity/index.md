@@ -69,7 +69,7 @@ Next, you can create the `sample.tf` file.
 This Terraform configuration consists of two main parts. The first part of the file will contain the following lines.
 
 ```
-data "chainguard_dev" "root_group" {
+data "chainguard_group" "group" {
   name = "my-customer.biz"
 }
 ```
@@ -86,7 +86,7 @@ The first section creates the identity itself.
 
 ```
 resource "chainguard_identity" "actions" {
-  parent_id   = chainguard_group.group.id
+  parent_id   = data.chainguard_group.group.id
   name    	= "github-actions"
   description = <<EOF
     This is an identity that authorizes the actions in this
@@ -125,9 +125,9 @@ data "chainguard_role" "viewer" {
 The final section grants this role to the identity on the group.
 
 ```
-resource "chainguard_role-binding" "view-stuff" {
+resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.actions.id
-  group	= chainguard_group.group.id
+  group	= data.chainguard_group.group.id
   role 	= data.chainguard_role.viewer.items[0].id
 }
 ```

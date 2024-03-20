@@ -136,7 +136,7 @@ Then we'll define a Chainguard identity that can be assumed by the AWS role crea
 
 ```hcl
 resource "chainguard_identity" "aws" {
-  parent_id   = chainguard_group.example-group.id
+  parent_id   = data.chainguard_group.example-group.id
   name        = "aws-auth-identity"
   description = "Identity for AWS Lambda"
 
@@ -157,7 +157,7 @@ The `aws_user_id_pattern` field configures the identity to be assumable only by 
 The section after that looks up the `viewer` role.
 
 ```
-data "chainguard_roles" "viewer" {
+data "chainguard_role" "viewer" {
   name = "viewer"
 }
 ```
@@ -167,8 +167,8 @@ The final section grants this role to the identity on the `example-group`.
 ```
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.aws.id
-  group	= chainguard_group.example-group.id
-  role 	= data.chainguard_roles.viewer.items[0].id
+  group	= data.chainguard_group.example-group.id
+  role 	= data.chainguard_role.viewer.items[0].id
 }
 ```
 
