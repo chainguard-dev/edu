@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-20 01:10:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:973d3cdc03528e37e4f01229cd0a7b484c9215a89a0d91d36dea3bacd1178026` |
-|  `latest-dev` | March 18th   | `sha256:e8ba1d1018971f9428a513176978f039e7e30ebfe9bc9f3e7d1a3373973ebbbf` |
+|  `latest-dev` | March 19th   | `sha256:d953e0c757b5538a2d7006ca5b6812b0cec7b310f373ed797382004b3a062116` |
+|  `latest`     | March 19th   | `sha256:46860f75f83dda743c0d6e9e0b8e02809109b4a7409beb1ffced4edbbef7985d` |
 
 
 ### Private/Dedicated Registry
@@ -77,8 +77,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.32.47`                                     | February 22nd | `sha256:e947e41500674fed67d88a1977eb1ab2f4255f68748d075cc6cbdcccfe8c6221` |
 |  `1.32.46`                                     | February 20th | `sha256:92eb738df8bb4a4b939e9376c9c1fa6a3e26a948d0aed06924610fc37bbac71f` |
 |  `1.32.46-dev`                                 | February 20th | `sha256:f93f2104695379c1d2beaa13b96a493634b51af07025ef95d700c4935cfc5172` |
-|  `1.32.45-dev`                                 | February 20th | `sha256:2ba0cde01ae73d13ebe38438df37d1a265adb60ef8306ce12c9e30a2fb74ddea` |
-|  `1.32.45`                                     | February 20th | `sha256:f1fafb75b67edc1b27382304d866656a005ad020d56e9e33b57b8ae73eb9000a` |
-|  `1.32.44-dev`                                 | February 19th | `sha256:f85e2914913e1c36d54355f62b78facd0b866da46f85c619ae3b55ff0b61ac19` |
-|  `1.32.44`                                     | February 19th | `sha256:7cbd87ada56f412b341ad688a93529d26c9a322d4ab2fde3c983b8e3ab0550ff` |
 

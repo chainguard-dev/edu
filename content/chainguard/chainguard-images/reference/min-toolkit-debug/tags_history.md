@@ -1,9 +1,9 @@
 ---
-title: "cilium-hubble-ui-fips Image Tags History"
+title: "min-toolkit-debug Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the cilium-hubble-ui-fips Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
+description: "Image Tags and History for the min-toolkit-debug Chainguard Image"
+date: 2024-03-20 01:10:09
 lastmod: 2024-03-20 01:10:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/cilium-hubble-ui-fips/" >}}
-{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/cilium-hubble-ui-fips/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/cilium-hubble-ui-fips/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/cilium-hubble-ui-fips/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/min-toolkit-debug/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/min-toolkit-debug/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/min-toolkit-debug/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/min-toolkit-debug/provenance_info/" >}}
 {{</ tabs >}}
 
 The following tables contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -31,8 +31,4 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed | Digest                                                                    |
-|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.13.0` `latest` `0.13` `0`                 | March 19th   | `sha256:14df33321ed9e5a1b31742025ef314c1e6f173d4823613c3ba45dffafd933811` |
-|  `0-dev` `0.13.0-dev` `0.13-dev` `latest-dev` | March 19th   | `sha256:3f85d938e740f69b6db70b92606b1e49e296b584a0b525989ac16946021f9ec2` |
-
+Currently, there are no Production versions of this image available.

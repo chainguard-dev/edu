@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-20 01:10:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,8 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s) | Last Changed | Digest |
-|---------|--------------|--------|
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | March 19th   | `sha256:4cf40796790e1ba2e993ea04538886ea6f315f64702bed2192c4f4739f55af08` |
+|  `latest-dev` | March 19th   | `sha256:7f0fb6b73227769c84507e61f78c6d902031f3fbef0721022a9c6fc7dea46239` |
 
 
 ### Private/Dedicated Registry

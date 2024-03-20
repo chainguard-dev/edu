@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-medusa Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-20 01:10:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:7633e349a2645decec1e7d27d8db5003d81550931fee85f1e1908ec18f935f0b` |
-|  `latest-dev` | March 18th   | `sha256:640750bd90a8cb14d362dac156373b7dd62d4967aca4112ca410d5c26483ddf0` |
+|  `latest-dev` | March 19th   | `sha256:349598072f32f0148505702a1c09f73a9097db619691adcc35e1ce329ddc8353` |
+|  `latest`     | March 19th   | `sha256:1a1841c8242426c032c4e881a081fc8c89e3325452ff9143c32cda2c8713b9f2` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.19-dev` `0.19.1-dev` | March 18th    | `sha256:f4afe87f4b6db28c0936f583bdfa8ed2822ed5cd263427b95a8dc481138d098a` |
-|  `latest` `0` `0.19` `0.19.1`                 | March 18th    | `sha256:d0bce89c4f1ab8fc437919eecb8dcb5eeec513bba2d2bb6f6371b7a3f1d3a738` |
+|  `latest` `0` `0.19` `0.19.1`                 | March 19th    | `sha256:21d40025cdee6dded087be115fb89d97d8497fae3cd4360b616fd26a1c77221a` |
+|  `latest-dev` `0.19.1-dev` `0-dev` `0.19-dev` | March 19th    | `sha256:c59bab9b7a007f53d062226ade6444c8039ce31b3b59b8e1e7ac95ba6ccf0fb2` |
 |  `0.19.0-dev`                                 | February 23rd | `sha256:d877cd3c4ca7f40a4dfb9bf7a06a9951b36177b78142f380dddc95fa7d8e8d25` |
 |  `0.19.0`                                     | February 22nd | `sha256:9b2ec70b8b8f98dc699e0407d1dc49019984dab722e27a426fa8021cf4849618` |
 |  `0.17` `0.17.2`                              | February 22nd | `sha256:40ece9a8f0280e05c2e09f1b35cbf6b92ba71f66811fdf7a889b0a58535cdf98` |
