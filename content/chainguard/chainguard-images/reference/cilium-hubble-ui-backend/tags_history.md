@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-20 01:10:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:d66c557ab95aef25029790f4fc68117d2b48a78a0fd2c63c90ed74c31c344bca` |
-|  `latest`     | March 18th   | `sha256:1dab8de7d4fa5c3c752c6260b263bb9ececcdfac9532a62392935c368059f3ad` |
+|  `latest`     | March 19th   | `sha256:93bf02f9e7a0fb8f3f66149854d8caba96c79cdae4bb3a58a9b106d20b15e36d` |
+|  `latest-dev` | March 19th   | `sha256:1fa7b5f0e371e94b86cde8a81d0e82c2c8ae5f4537191dfb3d2332cd409a1f59` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.13.0-dev` `0.13-dev` | March 18th   | `sha256:6793e76bdc5f5d9681e69839e652a1cf0dc594f190b50fd544fdfc2a960dd948` |
-|  `latest` `0` `0.13` `0.13.0`                 | March 18th   | `sha256:0d3413e5e680f19295f854f8b7e39f3378c1e81980a8ea7f4b156147ad1845db` |
+|  `0.13.0` `0.13` `0` `latest`                 | March 19th   | `sha256:e702f25ac52d50316193af9d549fa4bf0b2a5f2fcc9739b9acc6e18a755eb715` |
+|  `0.13.0-dev` `0.13-dev` `latest-dev` `0-dev` | March 19th   | `sha256:eb105288b0360af44374a92e12b36746cb9055f1714fb723ad240ea4629459c7` |
 
