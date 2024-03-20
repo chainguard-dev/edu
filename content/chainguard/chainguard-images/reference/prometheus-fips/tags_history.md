@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-20 01:10:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,14 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
+|  `2.51.0-dev` `2.51-dev` `latest-dev` `2-dev` | March 19th    | `sha256:a2b5df3773395f2265e11870a1ef00d92a1519186ae504c3f0bfac30d66abe7f` |
+|  `2` `2.51` `2.51.0` `latest`                 | March 19th    | `sha256:a66b3af05b7a8ed751ec68aeb05574fea2bc048fb64d5f332edbb7d4a532953a` |
 |  `2.45.4` `2.45`                              | March 18th    | `sha256:f83f7458bc4b3e03414a846af83d5f542307eea1f808b0aa0e69eaf46d778f6f` |
 |  `2.45.4-dev` `2.45-dev`                      | March 18th    | `sha256:58606bb1bf6c7ee5e48016b71f912a0fa234dcb470439ad34c605e7dc2f1dd3c` |
-|  `2.50.1` `2.50` `2` `latest`                 | March 18th    | `sha256:70d9a646f4f62502abc1c733f886fdd86d39f2e11f6e10e48cbdb565cf74a022` |
+|  `2.50.1` `2.50`                              | March 18th    | `sha256:70d9a646f4f62502abc1c733f886fdd86d39f2e11f6e10e48cbdb565cf74a022` |
 |  `2.38` `2.38.0`                              | March 18th    | `sha256:af6c04aef40dce3d4e87bd3dbfca498569920269f030b440dfb9307b0aab7843` |
-|  `2-dev` `2.50.1-dev` `2.50-dev` `latest-dev` | March 18th    | `sha256:1c2bdc67d5fc9835697a85f89a08d4e4a093fa93b8007a9c39574e3653c19bfe` |
 |  `2.45.3`                                     | March 18th    | `sha256:5cbf048cc31a309933359c1b4f16015266e0e333250e67b7d95e9b72a019056c` |
+|  `2.50.1-dev` `2.50-dev`                      | March 18th    | `sha256:1c2bdc67d5fc9835697a85f89a08d4e4a093fa93b8007a9c39574e3653c19bfe` |
 |  `2.38-dev` `2.38.0-dev`                      | March 18th    | `sha256:29d254d29365b2bcacf0d49b1ac373427f2660e719b61349d6b0d3b0e79e219d` |
 |  `2.45.3-dev`                                 | March 18th    | `sha256:53fb9b14292a843bc76578ffab8b488cb03f01047b0b4b85e211f3ae414f5acc` |
 |  `2.50.0-dev`                                 | February 24th | `sha256:97cfd6f284622c2da82e087f4e8e6c0fbb3147d22da6fd29c09fde41c669366b` |
