@@ -84,7 +84,7 @@ The first section creates the identity itself.
 
 ```
 resource "chainguard_identity" "bitbucket" {
-  parent_id   = chainguard_group.group.id
+  parent_id   = data.chainguard_group.group.id
   name        = "bitbucket"
   description = <<EOF
     This is an identity that authorizes Bitbucket workflows
@@ -132,8 +132,8 @@ The final section grants this role to the identity on the group.
 ```
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.bitbucket.id
-  group    = chainguard_group.group.id
-  role     = data.chainguard_roles.viewer.items[0].id
+  group    = data.chainguard_group.group.id
+  role     = data.chainguard_role.viewer.items[0].id
 }
 ```
 
