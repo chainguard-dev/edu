@@ -3,8 +3,8 @@ title: "cassandra-medusa-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public cassandra-medusa-fips Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-20 01:10:09
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -42,6 +42,7 @@ The table shows package distribution across variants.
 | `busybox`                     | X          | X      |
 | `ca-certificates-bundle`      | X          | X      |
 | `chainguard-baselayout`       | X          | X      |
+| `gdbm`                        | X          | X      |
 | `git`                         | X          |        |
 | `glibc`                       | X          | X      |
 | `glibc-locale-posix`          | X          | X      |
@@ -49,23 +50,32 @@ The table shows package distribution across variants.
 | `ld-linux`                    | X          | X      |
 | `libbrotlicommon1`            | X          |        |
 | `libbrotlidec1`               | X          |        |
+| `libbz2-1`                    | X          | X      |
 | `libcrypt1`                   | X          | X      |
-| `libcrypto3`                  | X          |        |
+| `libcrypto3`                  | X          | X      |
 | `libcurl-openssl4`            | X          |        |
-| `libexpat1`                   | X          |        |
+| `libexpat1`                   | X          | X      |
+| `libffi`                      | X          | X      |
+| `libgcc`                      | X          | X      |
 | `libidn2`                     | X          |        |
 | `libnghttp2-14`               | X          |        |
 | `libpcre2-8-0`                | X          |        |
 | `libpsl`                      | X          |        |
-| `libssl3`                     | X          |        |
+| `libssl3`                     | X          | X      |
+| `libstdc++`                   | X          | X      |
 | `libunistring`                | X          |        |
+| `mpdecimal`                   | X          | X      |
 | `ncurses`                     | X          | X      |
 | `ncurses-terminfo-base`       | X          | X      |
 | `openssl-config-fipshardened` | X          | X      |
 | `openssl-provider-fips`       | X          | X      |
 | `py3-cassandra-medusa`        | X          | X      |
 | `py3-cassandra-medusa-compat` | X          | X      |
+| `python-3.11-base`            | X          | X      |
+| `readline`                    | X          | X      |
+| `sqlite-libs`                 | X          | X      |
 | `wget`                        | X          |        |
 | `wolfi-baselayout`            | X          | X      |
-| `zlib`                        | X          |        |
+| `xz`                          | X          | X      |
+| `zlib`                        | X          | X      |
 
