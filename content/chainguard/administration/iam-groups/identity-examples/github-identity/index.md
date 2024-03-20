@@ -125,7 +125,7 @@ data "chainguard_role" "viewer" {
 The final section grants this role to the identity on the group.
 
 ```
-resource "chainguard_role-binding" "view-stuff" {
+resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.actions.id
   group	= data.chainguard_group.group.id
   role 	= data.chainguard_role.viewer.items[0].id
