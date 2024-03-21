@@ -5,7 +5,7 @@ lead: "Using Chainguard Images and Enforce with firewalls, access control lists,
 type: "article"
 description: "Using Chainguard Images and Enforce with firewalls, access control lists, and proxies"
 date: 2023-09-08T08:49:31+00:00
-lastmod: 2023-11-29T15:22:20+01:00
+lastmod: 2024-03-21T15:22:20+01:00
 draft: false
 aliases:
   - /chainguard/chainguard-images/reference/network-requirements/
@@ -18,19 +18,22 @@ weight: 001
 
 This document provides an overview of network requirements for using [Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs). To use Chainguard tools and Images in environments with firewalls, VPNs, and IDS/IPS systems, you will need to add some rules to allow traffic into and out of your networks.
 
+Chainguard Images do not call Chainguard services while running, so no network changes would be required to the runtime environment. Review the **Notes** column for more info on each Hostname.
+
 ## Chainguard Images Hosts
 
 This table lists the DNS hostnames, associated ports, and protocols that will need to be allowed through firewalls and proxies to use Chainguard Images:
 
-| Hostname                | Port | Protocol | Notes                                 |
-| ----------------------- | ---- | -------- | ------------------------------------- |
-| cgr.dev                 | 443  | HTTPS    | Main image registry                   |
-| console.enforce.dev     | 443  | HTTPS    | Chainguard dashboard                  |
-| console-api.enforce.dev | 443  | HTTPS    | Registry API endpoint                 |
-| enforce.dev             | 443  | HTTPS    | Registry authentication               |
-| dl.enforce.dev          | 443  | HTTPS    | `chainctl` downloads                  |
-| issuer.enforce.dev      | 443  | HTTPS    | Registry STS (Security Token Service) |
-| packages.wolfi.dev      | 443  | HTTPS    | Package repository                    |
+| Hostname                | Port | Protocol | Notes                                           |
+| ----------------------- | ---- | -------- | ----------------------------------------------- |
+| cgr.dev                 | 443  | HTTPS    | Main image registry                             |
+| console.enforce.dev     | 443  | HTTPS    | Chainguard dashboard                            |
+| console-api.enforce.dev | 443  | HTTPS    | Registry API endpoint                           |
+| enforce.dev             | 443  | HTTPS    | Registry authentication                         |
+| dl.enforce.dev          | 443  | HTTPS    | `chainctl` downloads                            |
+| issuer.enforce.dev      | 443  | HTTPS    | Registry STS (Security Token Service)           |
+| packages.wolfi.dev      | 443  | HTTPS    | Package repository (Developer Images)           |
+| packages.cgr.dev        | 443  | HTTPS    | Package repository (Production Images)          |
 
 Note that to be able to authenticate with Chainguard systems, you will need to ensure access to and from the following CIDR ranges:
 
