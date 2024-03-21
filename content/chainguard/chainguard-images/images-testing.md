@@ -34,7 +34,7 @@ When building a new Image, Chainguard will take steps to ensure it meets the fol
 
 | **Requirement** 	  |  **Explanation**     |
 | --- | --- |
-| **Size**     |  Any new Chainguard Images should be smaller than their external counterparts.    |
+| **Size**     |  Any new Chainguard Images should be smaller than their external counterparts, though exceptions may occur.    |
 |  **CVEs**     | When scanned with a CVE scanning tool like Grype, new Images should return zero CVEs. If an Image does return CVEs in its scan results it should include an explanation, though some reported CVEs may be false positives. Refer to our [Security Advisories](https://images.chainguard.dev/security) for more information.	  |
 |  **Kubernetes accessibility**     | Containers used for Kubernetes-based deployments must be able to run inside of a Kubernetes cluster.     |
 |  **Architecture**     | Chainguard Images must be built for both the `x86_64` and `aarch64` architectures.      |
