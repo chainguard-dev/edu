@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trino Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 12th   | `sha256:9fcc852c843f150160851a8e81ea4fcc0cc18db3b7dd7e1e0de99b3a4389f77c` |
-|  `latest`     | March 9th    | `sha256:dbd859f5f8ee9489662f2ff49a7a583dbba0a568886f8897e5a3736f2e7831be` |
+|  `latest-dev` | March 20th   | `sha256:03daf8d28bfdd77f573e21dc15b2b5ed164d9cb184d5ba16c86320cec63398be` |
+|  `latest`     | March 20th   | `sha256:b0564ef8119d9b1c5196763774f9700a9af4cff38782c54e517300354f8fabc1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                 | Last Changed | Digest                                                                    |
 |-------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `439-dev` | March 12th   | `sha256:fdef884292d4c3f0d3ec7685c076895080126f28bec2d1f931932753783de9ad` |
-|  `latest` `439`         | March 9th    | `sha256:a2990263af48d23f0c106dbbfeb1bc5f5b00c9d3978355f5a02cc0186e9fe97a` |
+|  `442-dev` `latest-dev` | March 20th   | `sha256:0fdc5f474a1f48f0721e13efcb88454b0fa9209f24d60b3fd8141a8efe0dc0ba` |
+|  `442` `latest`         | March 20th   | `sha256:aeb33ab130877020cb66a2aee84947bcfe014bbda97c4244ae5878413d629cdb` |
+|  `439-dev`              | March 12th   | `sha256:fdef884292d4c3f0d3ec7685c076895080126f28bec2d1f931932753783de9ad` |
+|  `439`                  | March 9th    | `sha256:a2990263af48d23f0c106dbbfeb1bc5f5b00c9d3978355f5a02cc0186e9fe97a` |
 

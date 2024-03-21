@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:67862d577af25c7be660e004f2013c6ead8327f70b5fd4ece2419a7a2f9ef409` |
-|  `latest-dev` | March 18th   | `sha256:d158e16759f28c40eaed504bd461d9dd887cec50e42aaabb14df72383d77d15d` |
+|  `latest-dev` | March 20th   | `sha256:e78cc544b828f4e28c04255f406f85451f2f7ebac60453282f84b8852783ef42` |
+|  `latest`     | March 20th   | `sha256:db84878ba94285d402b859ab4b73e50978cdce24f37e9429be4434c152614f0b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.16.0` `0.16` `latest`                 | March 18th   | `sha256:bd06616ad5364450c8293986af6a8cb16376a64b0f54b18eeba397b1c1a866b2` |
-|  `0-dev` `0.16-dev` `0.16.0-dev` `latest-dev` | March 18th   | `sha256:3c372ad8cd1578eed0dcd7c7c343badd2c2363dd39ebbf06efe5908def07aec4` |
+|  `0.16.0` `latest` `0.16` `0`                 | March 20th   | `sha256:9c79c9122bd2eaf287c653a9d4ce224ff76d8e2617a2db1717ae6f8f34c8f542` |
+|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | March 20th   | `sha256:aac90e84f3dede6df98d9593d5764f5ecb76796590924f51ca2d6b9b29af4a3f` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for trino Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for trino Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                               |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                 |
-| `cgr.dev/chainguard-private` | 422, 422-dev, 431, 431-dev, 433, 433-dev, 434, 434-dev, 435, 435-dev, 436, 436-dev, 437, 437-dev, 439, 439-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                             |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                               |
+| `cgr.dev/chainguard-private` | 422, 422-dev, 431, 431-dev, 433, 433-dev, 434, 434-dev, 435, 435-dev, 436, 436-dev, 437, 437-dev, 439, 439-dev, 442, 442-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

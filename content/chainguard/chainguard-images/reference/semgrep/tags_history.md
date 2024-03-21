@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the semgrep Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:fb2fa4b96d215596208533ab527e43b0a6ad7cfda66e7f917784794952f62067` |
-|  `latest-dev` | March 18th   | `sha256:42f515a6523e8bb5588544262c5acae9fb487ffc4bdf7e0c6ea975f3465a32ad` |
+|  `latest`     | March 20th   | `sha256:31eaca33a6b20911cc8bddf9c4269734f31b8d251b59b1e21cd3b1c743e3bb4c` |
+|  `latest-dev` | March 20th   | `sha256:f9dcf3bc8466a24745c71903f4dac76b84524c7e1753b3f7b77d56ab392b241f` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.65.0` `1.65`                 | March 18th   | `sha256:0f71924b3df95cdb26e32dabba2c5f3907287ac6720e48f79731f1f6bda84b46` |
-|  `latest-dev` `1.65-dev` `1.65.0-dev` `1-dev` | March 18th   | `sha256:7cdfbd51d0193d655d836f719b36ec1983000fc107251d15619ace7621326e70` |
+|  `1.66` `1.66.0` `1` `latest`                 | March 20th   | `sha256:172d6e347e2961bd4250a0d8b278934f01fbfa6f662593f30a9230d62e8e2e5e` |
+|  `1.66.0-dev` `1.66-dev` `1-dev` `latest-dev` | March 20th   | `sha256:faac14dc791d917f6abe6893280b4b9d3ac46a56b9479dad847c065b9de7343c` |
+|  `1.65.0` `1.65`                              | March 18th   | `sha256:0f71924b3df95cdb26e32dabba2c5f3907287ac6720e48f79731f1f6bda84b46` |
+|  `1.65-dev` `1.65.0-dev`                      | March 18th   | `sha256:7cdfbd51d0193d655d836f719b36ec1983000fc107251d15619ace7621326e70` |
 |  `1.60.1-dev` `1.60-dev`                      | March 10th   | `sha256:057c0ea4e433f42bb93695816948ff01a2b07093d9dcc52edeb2ec1cd4a95222` |
 |  `1.60` `1.60.1`                              | March 10th   | `sha256:ab308f0322784316f7bbe738f75ae31385c829c79884f75801703114a5be50d3` |
 
