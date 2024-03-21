@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-optuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:86e224d58d6196139c5db19e4fd3c1f4f034dcd044dfbe890e4c212c7c986f80` |
-|  `latest`     | March 18th   | `sha256:1abf91eb326a032b70a8ae4a3e1a2d5f5b550fcbfab102c2b422cb0fcb14ddb0` |
+|  `latest-dev` | March 20th   | `sha256:14ab092dfd8308a40a39d258eb821c7a87248836d0aa715b02645ba432cf7e5b` |
+|  `latest`     | March 20th   | `sha256:097973811d8aa13456fccfec3e1454cb9683ad5969ac0b67fe1f929a091722ad` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0` `0.16` `latest` `0`                 | March 18th   | `sha256:95388f6492390008f4d125f02bad8de4f9c89088a49620a098754678706d4dc3` |
-|  `0.16-dev` `0.16.0-dev` `latest-dev` `0-dev` | March 18th   | `sha256:db7bd2293b6152a86fb35613ed3e4ed5ebba8ec34d5f2fcd03c9839d18c6d9a1` |
+|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | March 20th   | `sha256:2742f7361f72ef317c8e8617129e64b020845428d4e03827cc0a114190a7a64f` |
+|  `0` `0.16.0` `latest` `0.16`                 | March 20th   | `sha256:86ae19dd3b78832cf73f8e491616d229be096842ba05cec8e540167fe2be5d7b` |
 

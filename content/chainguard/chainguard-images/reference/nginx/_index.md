@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: nginx Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -75,7 +75,7 @@ Following that, navigate to `localhost:8080` in your web browser. There, you wil
 You can also use the nginx Image to serve your own custom content. As an example, create a file named `index.html` with the following command:
 
 ```sh
-cat > idex.html <<EOF
+cat > index.html <<EOF
 <!doctype html>
 <html lang="en">
 <head>

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.57.0` `latest` `0` `0.57`                 | March 18th   | `sha256:ef36ea7e98cdfeb275c0bdbdeb5ef4c6e62ecc84a898ac5699ce928c193fc568` |
-|  `0.57-dev` `latest-dev` `0-dev` `0.57.0-dev` | March 18th   | `sha256:9205f9445b1489aa79b8135ff416e7e9441274e359b4b9c4ce39cae3d9d59497` |
+|  `0` `latest` `0.58.0` `0.58`                 | March 20th   | `sha256:ffb035eb00fe87a124de56bd4073b1b58e7e3ede0b6a256f389341e5b7df9389` |
+|  `0.58-dev` `0-dev` `0.58.0-dev` `latest-dev` | March 20th   | `sha256:7cffaaa179b8635d169f168c62c5d54afcfc331fad9b6b89a5e5d7f1cae40ced` |
+|  `0.57.0` `0.57`                              | March 18th   | `sha256:ef36ea7e98cdfeb275c0bdbdeb5ef4c6e62ecc84a898ac5699ce928c193fc568` |
+|  `0.57-dev` `0.57.0-dev`                      | March 18th   | `sha256:9205f9445b1489aa79b8135ff416e7e9441274e359b4b9c4ce39cae3d9d59497` |
 |  `0.56-dev` `0.56.0-dev`                      | March 8th    | `sha256:e1107858a3ac3e53a474b00b0aed26f24ebba2e27dae418e04f871ab80ea2ac0` |
 |  `0.56.0` `0.56`                              | March 8th    | `sha256:f8bdb0eb18545b128bb0072d8b208bcb9d69d7eecc8c7d5c294648b2947f95cb` |
 
