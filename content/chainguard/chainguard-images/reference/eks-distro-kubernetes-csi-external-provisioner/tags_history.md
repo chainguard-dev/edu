@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-20 01:10:09
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -47,5 +47,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `3.6.0-r1-eks-1-23-33`                                                                                                                  | February 29th | `sha256:fa555d72241a42dda1b9e197ff9e80f76c16472a6e1e126718b3411609a6b5b4` |
 |  `1` `1.25.39` `1.25`                                                                                                                    | February 26th | `sha256:d01f96db766433f657b8d95580876a55728a952af78744c67fd29167c20f9dc0` |
 |  `1.23.33` `1.23`                                                                                                                        | February 26th | `sha256:e2dc37feff776a242eaccbe9ccf3202f95f67756282c50698a9a8b53bca21822` |
-|  `1.25.33`                                                                                                                               | February 20th | `sha256:1c10c22242fb17d5adb9c7c1427c8f7b18a561f23c82c65f6766abff8a6ab5fc` |
 

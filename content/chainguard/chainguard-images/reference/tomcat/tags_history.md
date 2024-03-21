@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tomcat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-20 01:10:09
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 18th   | `sha256:deeb9253a6e45f8bcfee74b8ae5d639ec6b6a1308c5f6a7eb40798bafb821d0d` |
+|  `latest` | March 20th   | `sha256:bda079ffc9bc8361c113dd426a526c6e7292c79fed3390b6359980ed81cbadf6` |
 
 
 ### Private/Dedicated Registry

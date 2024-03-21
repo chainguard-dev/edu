@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-visualization-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:5d035e93b96d50c1ae48e9091bc94b3a5e6c0b5a46c8fde24616097b6442fb1c` |
-|  `latest-dev` | March 18th   | `sha256:b41d95aa8a8979b99a710313d09a8c4e7a11ef1b5acab527d7532f6dcfd8813f` |
+|  `latest-dev` | March 20th   | `sha256:5237035aa1ec2c247d5c0f4f0187f906d4b65a3ee415d1a3201220740f1015db` |
+|  `latest`     | March 20th   | `sha256:d8e6c2c194e344f6f9efabfe30616f456c4ad868bd65bc14167a9772bc573800` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0-dev` `latest-dev` `2-dev` `2.0.5-dev` | March 18th   | `sha256:85c33fb5b74dd43dffa9954684aea8be843e1d914694e2db4b68ff36320e9bc5` |
-|  `2.0` `2` `latest` `2.0.5`                 | March 18th   | `sha256:17e4f65fe264904350a2bfa4a3914f7fef190394710fcb543e926a16ad07a3da` |
+|  `2.0-dev` `2-dev` `2.0.5-dev` `latest-dev` | March 20th   | `sha256:7a1b165118a017b860b9696760af132c8878d0029bbde88bacb1a2a8381a0763` |
+|  `2.0.5` `2` `2.0` `latest`                 | March 20th   | `sha256:620342adc1515247958bebc4d301766f291517c2243f7197383d08a427e9967f` |
 

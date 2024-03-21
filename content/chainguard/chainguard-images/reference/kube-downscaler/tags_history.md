@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:c9521fabd53e4cd2e9026eda76bc2aa4a6ba6cfa51a3ae853dcac1ddb62ff188` |
-|  `latest-dev` | March 18th   | `sha256:6bbc03cf5b08eb0921232ab4a9d35444f0ac83fabef81330ef2dc704f1a4877e` |
+|  `latest-dev` | March 20th   | `sha256:03b4e52fa15737a25d43c53aec2946374b17de3459d6a600b620a91af7c77d42` |
+|  `latest`     | March 20th   | `sha256:823c5b2f9e402c4d7707942663ef9e07a6da1b7d7301982e4825c98a9c95440b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.2-dev` `latest-dev` `23-dev` `23.2.0-dev` | March 18th   | `sha256:450cd14668e779ef9604a3b0454489c2b0ef0100f30e4118743fadb84ea9ec69` |
-|  `23` `latest` `23.2.0` `23.2`                 | March 18th   | `sha256:43e34bc53236ca54175cd12bf4d79a5e9a1b5e6793c2736a509d499a80d23197` |
+|  `latest` `23` `23.2.0` `23.2`                 | March 20th   | `sha256:4b1b12a6a63e8f28361f4291434b71f4bb7d1d8577b2baea8599da2b81dc6c16` |
+|  `23-dev` `23.2-dev` `latest-dev` `23.2.0-dev` | March 20th   | `sha256:913737374988701bab0bf1eb26a432e6ff366a0ec41f9846705ee71254c17348` |
 

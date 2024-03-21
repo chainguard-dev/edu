@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public hubble-ui Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-20 01:10:09
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,20 +21,40 @@ toc: true
 
 This page shows detailed information about the Chainguard **hubble-ui** Image.
 
-|              |
-|--------------|
-| Default User |
-| Entrypoint   |
-| CMD          |
-| Workdir      |
-| Has apk?     |
-| Has a shell? |
+|              | latest         |
+|--------------|----------------|
+| Default User | `nginx`        |
+| Entrypoint   | Service Bundle |
+| CMD          | not specified  |
+| Workdir      | not specified  |
+| Has apk?     | no             |
+| Has a shell? | no             |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/hubble-ui/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|  |
-|--|
+|                          | latest |
+|--------------------------|--------|
+| `ca-certificates-bundle` | X      |
+| `chainguard-baselayout`  | X      |
+| `execline`               | X      |
+| `glibc`                  | X      |
+| `glibc-locale-posix`     | X      |
+| `hubble-ui`              | X      |
+| `ld-linux`               | X      |
+| `libcrypt1`              | X      |
+| `libcrypto3`             | X      |
+| `libgcc`                 | X      |
+| `libssl3`                | X      |
+| `libstdc++`              | X      |
+| `nginx-mainline`         | X      |
+| `nginx-mainline-config`  | X      |
+| `openssl-config`         | X      |
+| `pcre`                   | X      |
+| `s6`                     | X      |
+| `skalibs`                | X      |
+| `wolfi-baselayout`       | X      |
+| `zlib`                   | X      |
 

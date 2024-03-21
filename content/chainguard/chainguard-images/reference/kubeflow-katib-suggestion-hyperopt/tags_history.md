@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:a0866a7b894375c2b9e9eff10a88e709117809be1c838c7ca9d85a8c32545ab8` |
-|  `latest`     | March 18th   | `sha256:a763554e66bab1f7fc0dc357d5b7f27dd0adaa9ada4a292cd833277031f5df7a` |
+|  `latest-dev` | March 20th   | `sha256:1c2cef8288d6ea5455829146d5f1278987458e427bbb4adec4e510f7cbe4f09a` |
+|  `latest`     | March 20th   | `sha256:fa5ac4478d0d53a6e19aaa016fcbfd0cb21f556052b2b8c7edc73c6fb9306c08` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16` `0` `0.16.0` `latest`                 | March 18th   | `sha256:60f376ca3b4f2b6eb0ad63dad104c47c6f379081b8a09165e873b55d00fd40f5` |
-|  `0.16.0-dev` `0.16-dev` `0-dev` `latest-dev` | March 18th   | `sha256:2f6b052bf82ca87263fe04f42c61604d60a23c9b17dbf13ce553740c113c3d14` |
+|  `0.16.0` `0.16` `0` `latest`                 | March 20th   | `sha256:c8207c339d2d31675c1b39689cda2e6403101ea09cac9eac063fd8fed98d5c42` |
+|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | March 20th   | `sha256:b05af44dea5474966ad2f59f36cedda66ee8053b000834ce7828bf9ce7a9e6ab` |
 

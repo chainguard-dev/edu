@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: keycloak Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -57,7 +57,7 @@ The Keycloak UI can be accessed via:
 
 To launch a production instance of Keycloak, refer to the examples in the
 [following documentation](https://github.com/keycloak/keycloak/blob/main/docs/guides/server/containers.adoc),
-as this is dependent on environment-specific settings and customizatons.
+as this is dependent on environment-specific settings and customizations.
 
 ### Helm
 
@@ -77,7 +77,7 @@ documentation for more detail.
 
 ### Customizing the image
 
-Keyclock provides a mechanism to configure and customize the image. This process
+Keycloak provides a mechanism to configure and customize the image. This process
 is outlined in the [Keycloak image documentation](https://github.com/keycloak/keycloak/blob/main/docs/guides/server/containers.adoc).
 
 There are subtle differences in the executable paths used in the Chainguard

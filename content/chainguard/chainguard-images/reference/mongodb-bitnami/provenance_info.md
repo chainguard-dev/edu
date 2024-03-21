@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for mongodb-bitnami Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for mongodb-bitnami Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                           |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                   |
-| `cgr.dev/chainguard-private` | 4, 4-dev, 4.4, 4.4-dev, 5, 5-dev, 5.0, 5.0-dev, 5.0.22, 5.0.22-dev, 5.0.23, 5.0.23-dev, 5.0.24, 5.0.24-dev, 5.0.25, 5.0.25-dev |
+| Registry                     | Tags                                                                                                                                               |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                       |
+| `cgr.dev/chainguard-private` | 4, 4-dev, 4.4, 4.4-dev, 5, 5-dev, 5.0, 5.0-dev, 5.0.22, 5.0.22-dev, 5.0.23, 5.0.23-dev, 5.0.24, 5.0.24-dev, 5.0.25, 5.0.25-dev, 5.0.26, 5.0.26-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

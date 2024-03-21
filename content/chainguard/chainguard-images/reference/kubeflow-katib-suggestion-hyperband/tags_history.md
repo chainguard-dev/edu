@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-21 00:59:19
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:c83ef9d0e73252496c625a4a58ab47b7c83557a9c1d1b0ddab917357b69840c7` |
-|  `latest`     | March 18th   | `sha256:dbc3250a2398601e4f581d281cc94219391be4a56269cb1e1229527a1da7b0ba` |
+|  `latest`     | March 20th   | `sha256:3fdd019449ee87219c52898160e60ff1801b0e76d2bec894e6a78a4006533d6a` |
+|  `latest-dev` | March 20th   | `sha256:64aba323226cd8211591bf5d8ad133a8b7ab71ddfebb7e36dd40aaa2a86c3a7f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | March 18th   | `sha256:1593a89212f061b182ef0964f206677e195873a5a37272ac0da478c26376bd6a` |
-|  `latest` `0` `0.16` `0.16.0`                 | March 18th   | `sha256:cc0f373b0f00e2497e26426a37af96aee9b18bb8172b9ea7fabfbb0c235e8da7` |
+|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | March 20th   | `sha256:be538de9bd6077bd89f61b8859919ed780b68c4694cd86951e936715e69e820c` |
+|  `0.16.0` `latest` `0` `0.16`                 | March 20th   | `sha256:6417a887283086f446055d18f72e469c76c93f6f3705a81516cc52d4bb9694d0` |
 
