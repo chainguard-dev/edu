@@ -34,7 +34,7 @@ Chainguard Images are available from the [Chainguard Registry](/chainguard/chain
 
 ## Why Distroless
 
-[Distroless images](https://blog.chainguard.dev/minimal-container-images-towards-a-more-secure-future/) are the result of pushing minimalism in containers to the next level. When compared to traditional base images such as [Alpine](https://hub.docker.com/_/alpine) or [Debian](https://hub.docker.com/_/debian), they are more stripped back, lacking even a shell or package managers. However, compared to the empty “scratch” image, they do contain structure essential for the majority of Linux applications such as root certificates for TLS and core files like `/etc/passwd`.
+[Distroless images](/chainguard/chainguard-images/getting-started-distroless/) are the result of pushing minimalism in containers to the next level. When compared to traditional base images such as [Alpine](https://hub.docker.com/_/alpine) or [Debian](https://hub.docker.com/_/debian), they are more stripped back, lacking even a shell or package managers. However, compared to the empty “scratch” image, they do contain structure essential for the majority of Linux applications such as root certificates for TLS and core files like `/etc/passwd`.
 
 ## Comparing Images
 
@@ -46,11 +46,11 @@ The major advantage of distroless images is the reduced size and complexity, whi
 
 You can review more comparisons of Chainguard Images and external images by checking out our [Vulnerability Comparisons](/chainguard/chainguard-images/vuln-comparison/) dashboard.
 
-## Architecture 
+## Architecture
 
 By default, all Wolfi-based images are built for x86_64 (also known as AMD64) and AArch64 (also known as ARM64) architectures. Being able to provide multi-platform Chainguard Images enables the support of more than one runtime environment, like those available on all three major clouds, AWS, GCP, and Azure. The macOS M1 and M2 chips are also based on ARM architecture. Chainguard Images allow you to take advantage of ARM's power consumption and cost benefits.
 
-You can confirm the available architecture of a given Chainguard Image with Crane. In this example, we'll use the latest Ruby image, but you can opt to use an alternate image. 
+You can confirm the available architecture of a given Chainguard Image with Crane. In this example, we'll use the latest Ruby image, but you can opt to use an alternate image.
 
 ```sh
 crane manifest cgr.dev/chainguard/ruby:latest |jq -r '.manifests []| .platform'
@@ -69,6 +69,6 @@ Once you run this command, you'll receive output similar to the following.
 }
 ```
 
-This verifies that the Ruby Chainguard Image is built for both AMD64 and ARM64 architectures. 
+This verifies that the Ruby Chainguard Image is built for both AMD64 and ARM64 architectures.
 
 You can read more about our support of ARM64 in our blog on [Building Wolfi from the ground up](https://www.chainguard.dev/unchained/building-wolfi-from-the-ground-up-and-announcing-arm64-support).

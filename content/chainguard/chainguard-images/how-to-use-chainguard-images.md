@@ -17,11 +17,9 @@ terminalImage: academy/chainguard-images:latest
 toc: true
 ---
 
-[Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs) are distroless images based on [Wolfi](/open-source/wolfi/overview/), our Linux _undistro_. You can have a look at [Chainguard Image's GitHub org](https://github.com/chainguard-images) in order to find out which images are already available for general usage.
+[Chainguard Images](https://www.chainguard.dev/chainguard-images?utm_source=docs) are based on [Wolfi](/open-source/wolfi/overview/), our Linux _undistro_ designed specifically for containers. Wolfi uses the [Alpine apk](https://wiki.alpinelinux.org/wiki/Package_management) package format, which contributes in making packages smaller and more accountable, resulting in smaller images with traceable provenance information based on cryptographic signatures.
 
-Each image has its own usage instructions, which is detailed in their READMEs. All images are hosted on the `cgr.dev` registry.
-
-In this guide, you'll learn how to get started using Chainguard Images and how to migrate existing container-based workflows to use our images.
+In this guide, you'll find general instructions on how to get started using Chainguard Images and how to migrate existing container-based workflows to use our images. For specific image usage instructions, please refer to our [Images Reference Docs](https://edu.chainguard.dev/chainguard/chainguard-images/reference/), which contains the full list of all images available to the public and their respective documentation.
 
 ## Quickstart: Using Chainguard Images
 
@@ -131,82 +129,9 @@ This will start a Wolfi container where you can explore the file system and inve
 
 Continue reading the next section to learn more about building off of the Wolfi base image.
 
-## Getting Started with Distroless Base Images
+## Extending Chainguard Base Images
 
-Chainguard Images are fully OCI compatible, which means they work seamlessly with any system that supports that standard, including Docker.
-
-Most Chainguard Images do not include a package manager such as `apt` or `apk`. This is by design to keep images minimal, following the distroless approach.
-
-There are a few different ways to include additional software on distroless images, depending on your use case. If you are using Chainguard Images with  Dockerfile pipelines, you can add artifacts from a multi-stage Docker build. Alternatively, you can use Chainguard’s [apko](/open-source/apko/getting-started-with-apko/) and [melange](/open-source/melange/tutorials/getting-started-with-melange/) tooling to add extra software (this will also give you some extra features like build-time SBOM support).
-
-### Using the Distroless Base Images
-
-Many of the images are intended as platforms for running compiled binaries in as minimal an environment as possible. In the case of languages that can compile completely static binaries (such as C and Rust), the static base image can be used.
-
-Let's work on an example. Navigate to a test directory. For example:
-
-```sh
-mkdir ~/distroless-example && cd $_
-```
-
-In this directory, we'll create an example Dockerfile that builds a "Hello, World!" program in C.
-
-You can create the Dockerfile with nano, for instance.
-
-```sh
-nano Dockerfile
-```
-
-We will create the program on top of the `cgr.dev/chainguard/static:latest` base image.
-
-```dockerfile
-# syntax=docker/dockerfile:1.4
-FROM cgr.dev/chainguard/gcc-glibc:latest as build
-
-COPY <<EOF /hello.c
-#include <stdio.h>
-int main() { printf("Hello Distroless!%c",0x0A); }
-EOF
-RUN cc -static /hello.c -o /hello
-
-FROM cgr.dev/chainguard/static:latest
-
-COPY --from=build /hello /hello
-CMD ["/hello"]
-```
-
-Run the following command to build the demo image and tag it as `c-distroless`:
-
-```shell
-DOCKER_BUILDKIT=1 docker build -t c-distroless  .
-```
-
-If you receive an error, you may try removing the top line of the Dockerfile. Now you can run the image with:
-
-```shell
-docker run c-distroless
-```
-
-You should get output like this:
-
-```
-Hello Distroless!
-```
-
-You can note the size of the resulting image.
-
-```shell
-docker images c-distroless
-```
-
-```
-REPOSITORY     TAG       IMAGE ID       CREATED              SIZE
-c-distroless   latest    d3b1c78f4ed2   8 seconds ago   3.31MB
-```
-
-### Extending Chainguard Base Images
-
-It often happens that you want a distroless image with one or two extra packages, for example you may have a binary with a dependency on `curl` or `git`. Ideally you’d like a base image with this dependency already installed. There are a few options here:
+It often happens that you want a [distroless](/chainguard/chainguard-images/getting-started-distroless/) image with one or two extra packages, for example you may have a binary with a dependency on `curl` or `git`. Ideally you’d like a base image with this dependency already installed. There are a few options here:
 
 1. Compile the dependency from source and use a multi-stage Dockerfile to create a new base image. This works, but may require considerable effort to get the dependency compiling and to keep it up to date. This process quickly becomes untenable if you require several dependencies.
 2. Use the `wolfi-base` image that includes apk tools to install the package in the traditional Dockerfile manner. This works but sacrifices a lot of the advantages of the “distroless” philosophy.
@@ -267,3 +192,4 @@ You should get output like this, with a random piece of advice:
 "Big things have small beginnings."
 ```
 
+Check also the [Wolfi Images with Dockerfiles](/open-source/wolfi/wolfi-with-dockerfiles/) guide for more examples using Wolfi-based images with Dockerfiles, and the [Getting Started with Distroless](/chainguard/chainguard-images/getting-started-distroless/) guide for more details about distroless images and how to use them in Docker multi-stage builds.
