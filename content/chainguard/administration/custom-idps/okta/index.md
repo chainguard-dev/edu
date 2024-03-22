@@ -5,7 +5,7 @@ lead: ""
 description: "Procedural tutorial on how to create an Okta App Integration"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2023-12-08T15:22:20+01:00
+lastmod: 2024-03-21T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Procedural"]
 images: []
@@ -23,13 +23,14 @@ To complete this guide, you will need the following.
 
 * `chainctl` installed on your system. Follow our guide on [How To Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) if you don't already have this installed.
 * An Okta account over which you have administrative access.
+* A Custom IDP quota of at least 1. You can reach out to [Chainguard's support team](https://support.chainguard.dev/) for help with this.
 
 
 ## Create an Okta App integration
 
 To integrate your Okta identity provider with the Chainguard platform, [log in to Okta](https://www.okta.com/login/) and navigate to the **Applications** landing page in the Admin console. There, click the **Create App Integration** button.
 
-![Screenshot of the Okta Admin console, showing the Applications landing page. "Applications" is circled in the lefthand sidebar menu, as is the "Create App Integration" button.](okta-1.png)
+![Screenshot of the Okta Admin console, showing the Applications landing page. "Applications" is circled in the left hand sidebar menu, as is the "Create App Integration" button.](okta-1.png)
 
 Select **OIDC - OpenID Connect** as the sign-in method and **Web Application** as the application type.
 
@@ -54,7 +55,7 @@ Click the **Save** button. Then, select the **Sign On** tab. Find the **OpenID C
 
 Set the **Issuer** option to **Okta URL**, then click the **Save** button.
 
-![Screenshot showing the OpenID Connect ID Token sectionb eing edited. The Issuer field is set to the "Okta URL" option, while the rest of the options are set as their default options.](okta_6_open_id_connect-2.png)
+![Screenshot showing the OpenID Connect ID Token section being edited. The Issuer field is set to the "Okta URL" option, while the rest of the options are set as their default options.](okta_6_open_id_connect-2.png)
 
 That completes our configuration of the Okta Application. Next, we need to configure the Chainguard platform to use our Okta application.
 
@@ -77,21 +78,21 @@ To configure the platform, make a note of the following settings from your Okta 
 * **Client Secret**: Find this on the **General** Tab under **Client Credentials**
 * **Issuer URL**: This is found under the **Sign on** tab in the **OpenID Connect ID Token** section
 
-You will also need the UIDP for the Chainguard group under which you want to install the identity provider.  Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
+You will also need the UIDP for the Chainguard organization under which you want to install the identity provider.  Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
 
-You can retrieve a list of all your Chainguard groups — along with their UIDPs — with the following command.
+You can retrieve a list of all Chainguard organizations you belong to — along with their UIDPs — with the following command.
 
 ```shell
-chainctl iam groups ls -o table
+chainctl iam organizations ls -o table
 ```
 ```output
-                             ID                             |      NAME       |    DESCRIPTION
-------------------------------------------------------------+-----------------+---------------------
-  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43                  | sample_group    |
-  . . .                                                     | . . .           |
+                         	ID                         	|  	  NAME    |	DESCRIPTION
+--------------------------------------------------------+-------------+---------------------
+  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43              | sample_org  |
+  . . .                                                 | . . .       |
 ```
 
-Note down the `ID` value for your chosen group.
+Note down the `ID` value for your chosen organization.
 
 With this information in hand, create a new identity provider with the following commands.
 
@@ -100,7 +101,7 @@ export NAME=okta
 export CLIENT_ID=<your client id here>
 export CLIENT_SECRET=<your client secret here>
 export ISSUER=<your issuer url here>
-export GROUP=<your group UIDP here>
+export ORG=<your organization UIDP here>
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
   --oidc-client-id=${CLIENT_ID} \
@@ -108,7 +109,7 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
-  --group=${GROUP} \
+  --parent=${ORG} \
   --default-role=viewer \
   --name=${NAME}
 ```

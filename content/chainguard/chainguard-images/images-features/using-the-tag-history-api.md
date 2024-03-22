@@ -1,18 +1,18 @@
 ---
 title: "Using the Tag History API"
 linktitle: "Tag History API"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/using-the-tag-history-api
 type: "article"
 description: "Learn how to use the Chainguard Images Tag History API to fetch the tag history of image variants."
 date: 2023-05-26T08:49:31+00:00
-lastmod: 2023-09-22T08:49:31+00:00
+lastmod: 2024-03-21T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Product"]
 images: []
 menu:
   docs:
-    parent: "chainguard-images"
+    parent: "images-features"
 weight: 040
 toc: true
 ---
@@ -88,15 +88,15 @@ You should get output like the following:
 ```
 {
   "history": [
-    {
-      "updateTimestamp": "2023-05-12T13:46:10.555Z",
-      "digest": "sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474360740824d8a7fa6a8fecb"
-    },
-    {
-      "updateTimestamp": "2023-05-12T20:50:19.702Z",
-      "digest": "sha256:a8724b7a80cae14263a3b55f7acb5d195fcbb24afbc8067aa5198aa2a9131cde"
-    },
-    ...
+	{
+  	"updateTimestamp": "2023-05-12T13:46:10.555Z",
+  	"digest": "sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474360740824d8a7fa6a8fecb"
+	},
+	{
+  	"updateTimestamp": "2023-05-12T20:50:19.702Z",
+  	"digest": "sha256:a8724b7a80cae14263a3b55f7acb5d195fcbb24afbc8067aa5198aa2a9131cde"
+	},
+	...
 
   ]
 }
@@ -130,17 +130,19 @@ You'll need to use credentials to access the Registry. First, authenticate with 
 chainctl auth login
 ```
 
-Next, grab your Group ID and store it in a variable.
+Next, retrieve your Organization's UIDP and store it in a variable.
 
 ```sh
-chainctl iam groups ls -o table
-export GROUP_ID="cc...52"
+chainctl iam organizations ls -o table
+```
+```
+export ORG_ID="cc...52"
 ```
 
 At this point, you can create a token for 30 days. Note that 30 days is the default, the max you can initialize a token for is 1 year.
 
 ```sh
-chainctl auth configure-docker --pull-token --group $GROUP_ID --ttl 720h
+chainctl auth configure-docker --pull-token --parent $ORG_ID --ttl 720h
 ```
 
 If you would like to use this pull token in another environment, run this command with Docker.
@@ -167,9 +169,9 @@ Add the base64 encoded value to `~/.docker/config.json` with the following forma
 ```sh
 {
   "auths": {
-    "https://cgr.dev": {
-      "auth": "Y2M...Wc="
-    }
+	"https://cgr.dev": {
+  	"auth": "Y2M...Wc="
+	}
   }
 }
 ```

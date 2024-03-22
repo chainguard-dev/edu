@@ -3,7 +3,7 @@ title: "Authenticating to Chainguard Registry"
 type: "article"
 description: "A guide on authenticating to the Chainguard Registry to get images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2024-02-08T15:10:16+00:00
+lastmod: 2024-03-21T15:22:20+01:00
 tags: ["Chainguard Images", "Product", "Registry"]
 draft: false
 images: []
@@ -22,7 +22,7 @@ As of August 16, 2023, all other tags for Chainguard Images are unavailable with
 
 ## Signing Up
 
-You can register a Chainguard account through our [sign up form](https://console.enforce.dev/auth/login?utm_source=docs). This will create your account and your organization's root [IAM group](/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/). If you already have an account, you can log in through the [login page](https://console.enforce.dev/auth/login?utm_source=docs).
+You can register a Chainguard account through our [sign up form](https://console.enforce.dev/auth/login?utm_source=docs). This will create your account and a [Chainguard IAM organization](/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/). If you already have an account, you can log in through the [login page](https://console.enforce.dev/auth/login?utm_source=docs).
 
 For more details on signing in, you can review our [sign in guidance](/chainguard/chainguard-enforce/authentication/log-in-chainguard-enforce/). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/chainguard/chainguard-enforce/authentication/custom-idps/).
 
@@ -56,11 +56,11 @@ You can also pass the `--save` flag, which will update your Docker config file w
 
 This token expires in 30 days by default, which can be shortened using the `--ttl` flag (for example, `--ttl=24h`).
 
-Pulls authenticated in this way are associated with a Chainguard identity, which is associated with the group selected when the pull token was created.
+Pulls authenticated in this way are associated with a Chainguard identity, which is associated with the organization selected when the pull token was created.
 
 ### Note on Multiple Pull Tokens
 
-Running the `chainctl auth configure-docker --pull-token` command multiple times will result in multiple pull tokens being created. However, the tokens are stored in your Docker config when using `--save` will overwrite old tokens.
+Running the `chainctl auth configure-docker --pull-token` command multiple times will result in multiple pull tokens being created. However, the tokens stored in your Docker config when using `--save` will overwrite old tokens.
 
 Tokens cannot be retrieved once they have been overwritten so they must be extracted from the local Docker config and saved elsewhere if multiple are required.
 
@@ -108,7 +108,7 @@ chainctl iam identity create github [GITHUB-IDENTITY] \
   --role=registry.pull
 ```
 
-**Note**: The value passed to `--github-repo` should be equal to the repository name you expect to be returned in the `subject` field of the token from GitHub. If you need to further scope or change the subject you can find a number of useful examples in the ["Example subject claims"](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) section of GitHub's OIDC documentation and then you may update the identity with [chainctl iam identities update](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_update/).
+**Note**: The value passed to `--github-repo` should be equal to the repository name you expect to be returned in the `subject` field of the token from GitHub. If you need to further scope or change the subject you can find a number of useful examples in the ["Example subject claims"](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) section of GitHub's OIDC documentation and then you may update the identity with [`chainctl iam identities update`](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_update/).
 
 This creates a Chainguard identity that can be assumed by a GitHub Actions workflow only for the specified GitHub repository, triggered on pushes to the specified branch (such as `refs/heads/main`), with permissions only to pull from the Chainguard Registry.
 
@@ -119,7 +119,7 @@ name: Chainguard Registry Example
 
 on:
   push:
-    branches: ['main']
+	branches: ['main']
 
 permissions:
   contents: read
@@ -127,16 +127,16 @@ permissions:
 
 jobs:
   example:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: chainguard-dev/setup-chainctl@main
-        with:
-          identity: [[ The Chainguard Identity ID you created above ]]
-      - run: docker pull cgr.dev/chainguard/node
+	runs-on: ubuntu-latest
+	steps:
+  	- uses: actions/checkout@v3
+  	- uses: chainguard-dev/setup-chainctl@main
+    	with:
+      	identity: [[ The Chainguard Identity ID you created above ]]
+  	- run: docker pull cgr.dev/chainguard/node
 ```
 
-Pulls authenticated in this way are associated with the Chainguard identity you created, which is associated with the group selected when the identity was created.
+Pulls authenticated in this way are associated with the Chainguard identity you created, which is associated with the organization selected when the identity was created.
 
 If the identity is configured to only work with GitHub Actions workflow runs from a given repo and branch, that identity will not be able to pull from other repos or branches, including pull requests targeting the specified branch.
 
@@ -150,8 +150,8 @@ After that, you can create a Kubernetes secret based on those credentials, follo
 
 ```sh
 kubectl create secret generic regcred \
-    --from-file=.dockerconfigjson=<path/to/.docker/config.json> \
-    --type=kubernetes.io/dockerconfigjson
+	--from-file=.dockerconfigjson=<path/to/.docker/config.json> \
+	--type=kubernetes.io/dockerconfigjson
 ```
 
 **Important Note:** this will also make any other credentials you have configured in your Docker config available in the secret! Ensure only the necessary credentials are included.
@@ -166,7 +166,7 @@ metadata:
 spec:
   containers:
   - name: nginx
-    image: cgr.dev/chainguard/nginx:latest
+	image: cgr.dev/chainguard/nginx:latest
   imagePullSecrets:
   - name: regcred
 ```
