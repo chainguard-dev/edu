@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the loki Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-20 01:10:09
+lastmod: 2024-03-22 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 19th   | `sha256:a378dd847a9a875763054c581c5c87bfa98d1b27ca0bbc7dbb52a2733a64459c` |
-|  `latest`     | March 19th   | `sha256:50113fa9a2d19366f5530633452a0366d8831a837f3eb4b98392cd3d70f0f36e` |
+|  `latest-dev` | March 21st   | `sha256:02c30ed3d4eecdc14225b6bc5f17c736d72db3b8f138f24788b22bc2c0314e08` |
+|  `latest`     | March 21st   | `sha256:a11e496962550585e4adcbf99bcf234f7e9f1f75eb4ee40694c4c9cca05af975` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.9.5-dev` `latest-dev` `2.9-dev` | March 18th   | `sha256:6bd106a6e5ce1c414a301b7b5a73719b1555af46dec219506f8128e3d449f96a` |
-|  `latest` `2.9` `2` `2.9.5`                 | March 18th   | `sha256:752f7068a02f9d033214728d1617ee85edfe9485bc278fa829a2650708b40381` |
+|  `2.9.5` `latest` `2.9` `2`                 | March 21st   | `sha256:7cc3285e7a48bc68790e9fc28d15a91f78e706b708bb4ae98ecc8f038c24b623` |
+|  `latest-dev` `2.9.5-dev` `2.9-dev` `2-dev` | March 21st   | `sha256:cf62544d2247e75bbd085f5a14c2e47275dee8ae553540233dca5876b6ab38fd` |
 

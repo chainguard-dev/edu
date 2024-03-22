@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ko Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-22 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 18th   | `sha256:9710bc89570a142b9136b53f2377e65b262dde6e86493bd3bad5290ec5c3f411` |
+|  `latest` | March 21st   | `sha256:7e589d823b9ca7d166cf908583378f0dfb4685598072a8bfaee11b3cb7df5f09` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed  | Digest                                                                    |
 |-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.15.2` `0` `latest` `0.15`                 | March 18th    | `sha256:f4221b6911437b1853a4a5035b7736270e1244782677d6b4719582aae0ac6616` |
-|  `0.15.2-dev` `latest-dev` `0-dev` `0.15-dev` | March 18th    | `sha256:9aa795d84ab11ea487427d4df40c9e35fe4a11c4aeb4af341b6bab38e3611d4e` |
+|  `0.15.2` `0` `latest` `0.15`                 | March 21st    | `sha256:c10cdd6d6d9f45dab8e50ebe37dcd60362cb314c901d55c1be7a42045377321c` |
+|  `latest-dev` `0.15-dev` `0-dev` `0.15.2-dev` | March 21st    | `sha256:dca279ab577142ebdd90d883d541b1b5b53573ebb5a1a37320db7879f6c2eb22` |
 |  `0.15.1-dev`                                 | February 22nd | `sha256:0e2e313edcc079fcbe2e8f532765b06e914abb9084d15fa0b0f62d3d436caa63` |
 |  `0.15.1`                                     | February 22nd | `sha256:284135cb2ea3e77f8247a7ea14323f918d299005918e92ee3e64704738e34a12` |
 

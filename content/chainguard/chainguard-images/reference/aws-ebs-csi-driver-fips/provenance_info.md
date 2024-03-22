@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for aws-ebs-csi-driver-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-22 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for aws-ebs-csi-driver-fips Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                                             |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                                                                                     |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.23, 1.23-dev, 1.23.0, 1.23.0-dev, 1.23.1, 1.23.1-dev, 1.24, 1.24-dev, 1.24.0, 1.24.0-dev, 1.24.1, 1.24.1-dev, 1.25, 1.25-dev, 1.25.0, 1.25.0-dev, 1.26, 1.26-dev, 1.26.0, 1.26.0-dev, 1.26.1, 1.26.1-dev, 1.27, 1.27-dev, 1.27.0, 1.27.0-dev, 1.28, 1.28-dev, 1.28.0, 1.28.0-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                 |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                                                                                                                         |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.23, 1.23-dev, 1.23.0, 1.23.0-dev, 1.23.1, 1.23.1-dev, 1.24, 1.24-dev, 1.24.0, 1.24.0-dev, 1.24.1, 1.24.1-dev, 1.25, 1.25-dev, 1.25.0, 1.25.0-dev, 1.26, 1.26-dev, 1.26.0, 1.26.0-dev, 1.26.1, 1.26.1-dev, 1.27, 1.27-dev, 1.27.0, 1.27.0-dev, 1.28, 1.28-dev, 1.28.0, 1.28.0-dev, 1.29, 1.29-dev, 1.29.0, 1.29.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-22 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:ee5e6431de1c3811bffdd7477937fb49fbc99aa8dda62d4a262221eb25658b4d` |
-|  `latest-dev` | March 18th   | `sha256:2af54e802cce6371002b0e4a029100288f2b488974c72385bd9dd3523d44e8c3` |
+|  `latest-dev` | March 21st   | `sha256:267a1ce4a0a7638d7ebf25befd5169cb02ec18e8c1247c21d04f632653890d8c` |
+|  `latest`     | March 21st   | `sha256:89315990f5616b42f95df657c69578ce8a903417dfa7a51b04994f2e6c07f7f7` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.28-dev` `1.28.2-dev` `1-dev` `latest-dev` | March 18th   | `sha256:23878c216528ff38c4d238c1028486d730194d6b22686f282cc5b61efe62ead2` |
-|  `1.28` `1` `latest` `1.28.2`                 | March 18th   | `sha256:cbd3384b15ce358ca286cf3203c917eae90bef5e785a737be1b55a11f9c31951` |
+|  `1-dev` `1.28-dev` `1.28.3-dev` `latest-dev` | March 21st   | `sha256:dd44f7300be2553acb7745b6a65dddf5afca2277429b2944f1ebb85dd39e72db` |
+|  `1.28` `1.28.3` `1` `latest`                 | March 21st   | `sha256:9dab6d1783c070b679db86d2c97e86b028954be19454de6b443bd6ade8ff24fe` |
+|  `1.28.2-dev`                                 | March 18th   | `sha256:23878c216528ff38c4d238c1028486d730194d6b22686f282cc5b61efe62ead2` |
+|  `1.28.2`                                     | March 18th   | `sha256:cbd3384b15ce358ca286cf3203c917eae90bef5e785a737be1b55a11f9c31951` |
 |  `1.28.1-dev`                                 | March 14th   | `sha256:ef984f25e9672234653432d1e7268a3bc40958f8057177d15bd5d2689e8a9db5` |
 |  `1.28.1`                                     | March 14th   | `sha256:f5b6fe277ed802d14d6fec81776992a9b8c6516c5fedf9f8bf713ab28f454177` |
 |  `1.28.0`                                     | March 6th    | `sha256:7e55569748bcf07481abebd666468944537115a840b0a3999b15e3f076de4eed` |

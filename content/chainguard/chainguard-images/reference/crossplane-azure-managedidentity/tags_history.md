@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-azure-managedidentity Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-20 01:10:09
+lastmod: 2024-03-22 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,14 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 19th   | `sha256:d0f5c5d965e205ab5f30932008fa416c22f2797f01600bc6740c60fe033d1aba` |
-|  `latest-dev` | March 19th   | `sha256:8956452bf3b146797222d97d7d61b74844470db72adbc160110e3566c46dc426` |
+|  `latest-dev` | March 21st   | `sha256:2a6990eb1d408e86218a62c4d18063c0272a525178482c7f0370bd5b7bd930b2` |
+|  `latest`     | March 21st   | `sha256:16988de98be0b3683a897f4d684df3ed7b9df3013dcbc3550a42c7c5c0b81ec5` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                       | Last Changed | Digest                                                                    |
-|-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.42.1` `0.42` `0` | March 18th   | `sha256:9707384466fb9cfba35c02ed261d11580ebb2f8cc99ca91061a4f5a6cc2ed2bb` |
+| Tag (s)                     | Last Changed | Digest                                                                    |
+|-----------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.0.0` `1.0` `1` `latest` | March 21st   | `sha256:8d0d211ae8ec8a8b5977eb4f5eabf41795d35738f1d3d4ecfd7be5e85f56d4ee` |
+|  `0.42.1` `0.42` `0`        | March 18th   | `sha256:9707384466fb9cfba35c02ed261d11580ebb2f8cc99ca91061a4f5a6cc2ed2bb` |
 
