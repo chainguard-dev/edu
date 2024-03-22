@@ -5,7 +5,7 @@ lead: ""
 description: "An introduction to and overview of Chainguard's custom IDP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2023-12-08T15:22:20+01:00
+lastmod: 2024-03-21T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Overview"]
 images: []
@@ -152,7 +152,7 @@ export NAME=my-sso-identity-provider
 export CLIENT_ID=<your application/client id here>
 export CLIENT_SECRET=<your client secret here>
 export ISSUER=<your issuer url here>
-export GROUP=<your group UIDP here>
+export ORG=<your organization UIDP here>
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
   --oidc-client-id=${CLIENT_ID} \
@@ -160,30 +160,30 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
-  --group=${GROUP} \
+  --parent=${ORG} \
   --default-role=viewer \
   --name=${NAME}
 ```
 
 The `oidc-issuer`, `oidc-client-id`, and `oidc-issuer-secret` values are required when setting up an OIDC configuration with `chainctl`. You must also include a unique name for each custom IDP account.
 
-Be aware that if you don't include the `--group` or `--default-role` options in the command, you will be prompted to select these values interactively.
+Be aware that if you don't include the `--parent` or `--default-role` options in the command, you will be prompted to select these values interactively.
 
 The `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. For more information, refer to the [IAM and Security section](/#iam-and-security).
 
-The `--group` option specifies which Chainguard IAM group your identity provider will be installed under. You can retrieve a list of all your Chainguard groups — along with their UIDPs — with the following command.
+The `--parent` option specifies which Chainguard IAM organization your identity provider will be installed under. You can retrieve a list of all your Chainguard organizations — along with their UIDPs — with the following command.
 
 ```shell
-chainctl iam groups ls -o table
+chainctl iam organizations ls -o table
 ```
 ```output
-                             ID                             |      NAME       |    DESCRIPTION
-------------------------------------------------------------+-----------------+---------------------
-  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43                  | sample_group    |
-  . . .                                                     | . . .           |
+                        	ID                      	|    NAME    | DESCRIPTION
+--------------------------------------------------------+------------+---------------------
+  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43          	| sample_org |
+  . . .                                             	| . . .      |
 ```
 
-Your group selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
+Your organization selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
 
 
 ## Managing Existing Identity Providers
@@ -223,7 +223,7 @@ For more details, check out the [`chainctl` documentation for these commands](/c
 
 ## IAM and Security
 
-Once an identity provider has been created on the Chainguard platform, any user that can authenticate with that identity provider will be able to use it to access the Chainguard platform. It’s important to note that users can do so even if they have no IAM capabilities with the IAM Group at which the identity provider is defined. Identity providers give access to the Chainguard platform, but not the specific IAM Group where the identity provider is defined.
+Once an identity provider has been created on the Chainguard platform, any user that can authenticate with that identity provider will be able to use it to access the Chainguard platform. It’s important to note that users can do so even if they have no IAM capabilities with the IAM organization at which the identity provider is defined. Identity providers give access to the Chainguard platform, but not the specific IAM organization where the identity provider is defined.
 
 The IAM capabilities `identity_providers.create`, `identity_providers.update`, `identity_providers.list` and `identity_providers.delete` control which users can read and manipulate identity providers. The built-in roles `viewer`, `editor` and `owner` have the following identity provider related capabilities.
 
@@ -232,8 +232,6 @@ The IAM capabilities `identity_providers.create`, `identity_providers.update`, `
 | `viewer`   | `identity_providers.list`   |
 | `editor`   | `identity_providers.list`   |
 | `owner`   | `identity_providers.create`, `identity_providers.list`, `identity_providers.update`, `identity_providers.delete`   |
-
-As with other capabilities, if an identity provider capability is granted to a parent IAM group, it is inherited on all child IAM groups.
 
 
 ## Backup accounts

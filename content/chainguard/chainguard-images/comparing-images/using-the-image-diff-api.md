@@ -1,18 +1,18 @@
 ---
 title: "Using the Image Diff API"
 linktitle: "Image Diff API"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/using-the-image-diff-api
 type: "article"
 description: "Learn how to use the Chainguard Images Diff API to compare changes between image versions."
 date: 2023-12-10T08:49:31+00:00
-lastmod: 2024-01-22T08:49:31+00:00
+lastmod: 2024-03-21T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Product", "API"]
 images: []
 menu:
   docs:
-    parent: "chainguard-images"
+    parent: "comparing-images"
 weight: 020
 toc: true
 ---
@@ -60,13 +60,13 @@ Note that if at any point in this tutorial you receive an error like the followi
 {"code":16, "message":"failed to verify token", "details":[]}
 ```
 
-For the purposes of this guide, we will use the `public-images` Chainguard IAM group. Set an environment variable corresponding to the group's [UIDP](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers), which will be used later on:
+For the purposes of this guide, we will use the `public-images` Chainguard IAM organization. Set an environment variable corresponding to the organization's [UIDP](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers), which will be used later on:
 
 ```sh
-GROUP_UIDP=$(chainctl iam group describe public-images -ojson |jq -r '.id')
+ORG_UIDP=$(chainctl iam organization describe public-images -ojson |jq -r '.id')
 ```
 
-If you are using a private registry, be sure to substitute your IAM group name in place of `public-images` to use your specific private group UIDP identifier in your subsequent commands.
+If you are using a private registry, be sure to substitute your IAM organization name in place of `public-images` to use your specific private organization's UIDP identifier in your subsequent commands.
 
 ## Getting Image Digests to Compare
 
@@ -120,7 +120,7 @@ Now you can run the following command to record the repository UIDP identifier a
 ```sh
 REPO_UIDP=$(curl -s -X GET -H "Authorization: Bearer $TOKEN" \
   "https://console-api.enforce.dev/registry/v1/repos?name=${REPO_NAME}" | \
-  jq -r ".items[] | select(.id | startswith(\"${GROUP_UIDP}\")) | .id")
+  jq -r ".items[] | select(.id | startswith(\"${ORG_UIDP}\")) | .id")
 ```
 
 With all of these variables set, you can call the Diff API with the following command:
@@ -139,20 +139,20 @@ You will receive output like the following:
 {
 "packages": {
   "added": [
-    . . .
-    {
-      "name": "bash",
-      "version": "5.2.21-r0",
-      "reference": "pkg:apk/wolfi/bash@5.2.21-r0?arch=x86_64"
-    },
-    {
-      "name": "busybox",
-      "version": "1.36.1-r2",
-      "reference": "pkg:apk/wolfi/busybox@1.36.1-r2?arch=x86_64"
-    },
-    . . .
+	. . .
+	{
+  	"name": "bash",
+  	"version": "5.2.21-r0",
+  	"reference": "pkg:apk/wolfi/bash@5.2.21-r0?arch=x86_64"
+	},
+	{
+  	"name": "busybox",
+  	"version": "1.36.1-r2",
+  	"reference": "pkg:apk/wolfi/busybox@1.36.1-r2?arch=x86_64"
+	},
+	. . .
   "removed": [
-    . . .
+	. . .
   ]
 },
 "vulnerabilities": {
@@ -199,20 +199,20 @@ You will receive output like the following:
 {
 "packages": {
   "added": [
-    . . .
-    {
-      "name": "bash",
-      "version": "5.2.21-r0",
-      "reference": "pkg:apk/wolfi/bash@5.2.21-r0?arch=x86_64"
-    },
-    {
-      "name": "busybox",
-      "version": "1.36.1-r2",
-      "reference": "pkg:apk/wolfi/busybox@1.36.1-r2?arch=x86_64"
-    },
-    . . .
+	. . .
+	{
+  	"name": "bash",
+  	"version": "5.2.21-r0",
+  	"reference": "pkg:apk/wolfi/bash@5.2.21-r0?arch=x86_64"
+	},
+	{
+  	"name": "busybox",
+  	"version": "1.36.1-r2",
+  	"reference": "pkg:apk/wolfi/busybox@1.36.1-r2?arch=x86_64"
+	},
+	. . .
   "removed": [
-    . . .
+	. . .
   ]
 },
 "vulnerabilities": {
@@ -232,24 +232,24 @@ The `metadata` array in the vulnerability result section will resemble the follo
 ```
 [
   {
-    "digest": "sha256:f91e3713d0349fe145262ae00b2de79cf315e49e73b7bfc28a10ba1545578230",
-    "scanner": {
-      "name": "grype",
-      "version": "v0.74.1"
-    },
-    "vulnerabilityDbLastBuildTime": "2024-02-27T01:23:18Z",
-    "vulnerabilityDbSchemaVersion": "5"
+	"digest": "sha256:f91e3713d0349fe145262ae00b2de79cf315e49e73b7bfc28a10ba1545578230",
+	"scanner": {
+  	"name": "grype",
+  	"version": "v0.74.1"
+	},
+	"vulnerabilityDbLastBuildTime": "2024-02-27T01:23:18Z",
+	"vulnerabilityDbSchemaVersion": "5"
   },
   {
-    "digest": "sha256:077db361ef9ab680350915c90799fd19bda550dfbb17756636dfa4bba9b24c4a",
-    "scanner": {
-      "name": "grype",
-      "version": "v0.74.1"
-    },
-    "vulnerabilityDbLastBuildTime": "2024-02-27T01:23:18Z",
-    "vulnerabilityDbSchemaVersion": "5"
+	"digest": "sha256:077db361ef9ab680350915c90799fd19bda550dfbb17756636dfa4bba9b24c4a",
+	"scanner": {
+  	"name": "grype",
+  	"version": "v0.74.1"
+	},
+	"vulnerabilityDbLastBuildTime": "2024-02-27T01:23:18Z",
+	"vulnerabilityDbSchemaVersion": "5"
   }
 ]
 ```
 
-You can use this information to indepdendently verify scan results using a local copy of Grype.
+You can use this information to independently verify scan results using a local copy of Grype.
