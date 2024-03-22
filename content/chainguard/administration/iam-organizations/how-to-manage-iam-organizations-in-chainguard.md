@@ -55,12 +55,12 @@ You can retrieve your organizations' UIDPs by adding the `-o table` option to th
 chainctl iam organizations list -o table
 ```
 ```
-       	ID     	| 	NAME 	|  	DESCRIPTION
+          ID          |     NAME     |  	DESCRIPTION
 ----------------------+--------------+---------------------------------
   <Organization UIDP> | tutorial-org | This is a shared IAM
-                  	|          	| organization for tutorials.
-  <Organization UIDP> | demo-org 	| This is a shared IAM
-                  	|          	| organization for running demos
+                      |              | organization for tutorials.
+  <Organization UIDP> | demo-org     | This is a shared IAM
+                      |              | organization for running demos
 ```
 
 Some other `chainctl` functions require you to know an organization's UIDP, making this a useful option to remember.
@@ -85,7 +85,7 @@ chainctl iam invite list
 This will provide output in the form of a table with the organization ID, a timestamp indicating when the invitation to the organization will expire, the invite code's key ID, and the selected role.
 
 ```
-      	ID      	|    	EXPIRATION    	| 	KEYID 	|          	ROLE          	 
+          ID          |        EXPIRATION        |     KEYID     |          	ROLE          	 
 ----------------------+--------------------------+---------------+---------------------------------
   <Organization UIDP> | 2024-03-23T00:55:04.813Z | <Invite code> | [editor] Editor            	 
 ```

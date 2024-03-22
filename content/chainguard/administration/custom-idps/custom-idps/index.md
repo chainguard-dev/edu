@@ -177,10 +177,10 @@ The `--parent` option specifies which Chainguard IAM organization your identity 
 chainctl iam organizations ls -o table
 ```
 ```output
-                        	ID                      	|	NAME	| DESCRIPTION
+                        	ID                      	|    NAME    | DESCRIPTION
 --------------------------------------------------------+------------+---------------------
   59156e77fb23e1e5ebcb1bd9c5edae471dd85c43          	| sample_org |
-  . . .                                             	| . . .  	|
+  . . .                                             	| . . .      |
 ```
 
 Your organization selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
