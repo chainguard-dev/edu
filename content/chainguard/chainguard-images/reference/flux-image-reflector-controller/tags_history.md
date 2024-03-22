@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-image-reflector-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-22 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,14 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:41c427f0ebab4c08ed38ebc86c913c13ed3b79cc8f19e6054ddcdbd434ea5aeb` |
-|  `latest-dev` | March 18th   | `sha256:0bce7839eb5e1c0e4617ba9a91495091819cb6c35272a310c9ca11d886fbfee4` |
+|  `latest-dev` | March 21st   | `sha256:ea677fc7ebc7f79fd586f2af0e9e221676af8dcd615c2a0c8cacc2e039392c0b` |
+|  `latest`     | March 21st   | `sha256:93944327b467c934994581507c84e982475c2842143c0d43234df7ea23dfd5cd` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                                                          | Last Changed  | Digest                                                                    |
-|----------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `v0.31-dev` `0.31.2-dev` `latest-dev` `0.31-dev` `0-dev` `v0.31.2-dev` `v0-dev` | February 21st | `sha256:6c677b06eb2cdfb741ecf0d402c6042ab192f0748043b69cdd6881bc359493ec` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.31-dev` `0.31.2-dev` `0-dev` `latest-dev` | March 21st   | `sha256:550031035e8e0aaba8d2bede3bbe4e089cd7da11e160c6c63625d86cacb6ab04` |
+|  `latest` `0.31` `0.31.2` `0`                 | March 21st   | `sha256:cada5b4a7be3a3bdf77d159c1b4f2de85820cb0402171fcfeb6ae70302eb3bd4` |
 

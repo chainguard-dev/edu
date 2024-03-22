@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-entrypoint Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-22 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:41e41bc482ebf7883d75f8530680725e3f11350823a3b43646ea4b9b34952a55` |
-|  `latest-dev` | March 18th   | `sha256:f0a550220a329b935157c7e5a8532f2ad83db759ee79f33ace698ef630520014` |
+|  `latest`     | March 21st   | `sha256:7b759f27f7dc3c630af789d1b54633abce33d5f6476a54fa5f8e87a3806d309d` |
+|  `latest-dev` | March 21st   | `sha256:18bbeb35b74a7cf4683493d95406b1f0f5bac3dba366430cdcc6ab0818ab587d` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.58-dev` `0-dev` `0.58.0-dev` | March 20th   | `sha256:53250c4fa57b063548072e3c9e7dfde7685e08ab497ff2708f293c659eb2d2f5` |
-|  `0` `0.58.0` `0.58` `latest`                 | March 20th   | `sha256:48337ff5182be1bbfb2b92edf4277b3593deeea33c6cbc675effaff70101e689` |
+|  `0.58` `latest` `0.58.0` `0`                 | March 21st   | `sha256:366fdd3a30a0b02ebb759c1f3ae908bc501632c8dba2305dfb42c6273a4d4321` |
+|  `latest-dev` `0.58-dev` `0.58.0-dev` `0-dev` | March 21st   | `sha256:96388941e99315b403d963c530014627365746f7034b23a12fef6f0f94ce6e7b` |
 |  `0.57` `0.57.0`                              | March 18th   | `sha256:b399633f63074622c4e9ecbf8cd07d16a440e7180f89bc8bd3129986e2808187` |
 |  `0.57.0-dev` `0.57-dev`                      | March 18th   | `sha256:a893a33e6dea6f236352d33770a37af7f9848240e5d834fff24b2bccca6285bf` |
 |  `0.56-dev` `0.56.0-dev`                      | March 8th    | `sha256:a0d1d07811c41a0402aa3b12cc3b77ecd73663868c3813f6a1910677c4a50220` |

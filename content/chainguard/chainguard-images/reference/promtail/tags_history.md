@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the promtail Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-22 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:57071728440bbdc1bfb23b8425ee44a6499f91d29035966111a04a6e0a68b49b` |
-|  `latest`     | March 18th   | `sha256:74f2de05ed6999004d396bdbf7488ba7c5bb1391d2da521aa9632c69326649cc` |
+|  `latest`     | March 21st   | `sha256:f4396e6ecef8d33606d1bf63f5ddfc6cc9013c13d4cfe2ac599bf824d072af63` |
+|  `latest-dev` | March 21st   | `sha256:cb933c14c00ae6b0537c3bbe8ee24c8c7dfedab2444198db10ec1abd41e61edf` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.9-dev` `2.9.5-dev` `2-dev` | March 18th   | `sha256:25e86b2a5f4ac1a5fed06bb4e994abf8708e8e52936fa4b710cbcf606fb02e13` |
-|  `2.9` `2.9.5` `2` `latest`                 | March 18th   | `sha256:8001cbe46764f082989c32a97e4e1c1bf2f3dd0d646fdb7fca9a737ff23919fc` |
+|  `2` `latest` `2.9` `2.9.5`                 | March 21st   | `sha256:74ccd7ee10cf542b03c13a21f9464dd1c02a9cf5eee6cc60c118151f1e985c79` |
+|  `2.9-dev` `2-dev` `2.9.5-dev` `latest-dev` | March 21st   | `sha256:41598911762f67bf987d83f06b2a19f1688311e9ae1629200b5910d3499d1687` |
 
