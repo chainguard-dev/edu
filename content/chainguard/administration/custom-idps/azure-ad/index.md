@@ -5,7 +5,7 @@ lead: ""
 description: "Procedural tutorial on how to register an Azure Active Directory Application"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2023-12-08T15:22:20+01:00
+lastmod: 2024-03-21T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Procedural"]
 images: []
@@ -23,6 +23,7 @@ To complete this guide, you will need the following.
 
 * `chainctl` installed on your system. Follow our guide on [How To Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) if you don't already have this installed.
 * An Azure account you can use to set up an Active Directory Application.
+* A Custom IDP quota of at least 1. You can reach out to [Chainguard's support team](https://support.chainguard.dev/) for help with this.
 
 
 ## Create an Azure Active Directory Application
@@ -82,21 +83,21 @@ To configure Chainguard, make a note of the following details from your Azure Ac
 ![Screenshot of the Azure AD Overview tab showing the Essentials information. Th
 He Application (client) ID and the Directory (tenant) ID are both highlighted in red circles.](aad-8.png)
 
-You will also need the UIDP for the Chainguard group under which you want to install the identity provider.  Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
+You will also need the UIDP for the Chainguard organization under which you want to install the identity provider.  Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
 
-You can retrieve a list of all your Chainguard groups — along with their UIDPs — with the following command.
+You can retrieve a list of all the Chainguard organizations you belong to — along with their UIDPs — with the following command.
 
 ```shell
-chainctl iam groups ls -o table
+chainctl iam organizations ls -o table
 ```
 ```output
-                             ID                             |      NAME       |    DESCRIPTION
+                         	ID                         	|  	NAME   	|	DESCRIPTION
 ------------------------------------------------------------+-----------------+---------------------
-  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43                  | sample_group    |
-  . . .                                                     | . . .           |
+  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43              	| sample_org	|
+  . . .                                                 	| . . .       	|
 ```
 
-Note down the `ID` value for your chosen group.
+Note down the `ID` value for your chosen organization.
 
 With this information in hand, create a new identity provider with the following commands.
 
@@ -104,6 +105,7 @@ With this information in hand, create a new identity provider with the following
 export NAME=azure-ad
 export CLIENT_ID=<your application/client id here>
 export CLIENT_SECRET=<your client secret here>
+export ORG=<your organization UIDP here>
 export TENANT_ID=<your directory/tenant id here>
 export ISSUER="https://login.microsoftonline.com/${TENANT_ID}/v2.0"
 chainctl iam identity-provider create \
@@ -113,7 +115,7 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
-  --group=${GROUP} \
+  --parent=${ORG} \
   --default-role=viewer \
   --name=${NAME}
 ```

@@ -5,7 +5,7 @@ lead: ""
 description: "Procedural tutorial on how to create a Ping Identity Application"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2023-12-08T15:22:20+01:00
+lastmod: 2024-03-21T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Procedural"]
 images: []
@@ -23,13 +23,14 @@ To complete this guide, you will need the following.
 
 * `chainctl` installed on your system. Follow our guide on [How To Install `chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) if you don't already have this installed.
 * A Ping Identity account over which you have administrative access.
+* A Custom IDP quota of at least 1. You can reach out to [Chainguard's support team](https://support.chainguard.dev/) for help with this.
 
 
 ## Create a Ping Identity Application
 
-To integrate the Ping identity provider with the Chainguard platform, [sign on to Ping Identity](https://www.pingidentity.com/en.html) and navigate to the Dashboard. Click on the **Connections** tab in the lefthand sidebar menu, and then click on **Applications** in the resulting dropdown menu. From the Applications landing page, click the plus sign (**➕**) to set up a new application.
+To integrate the Ping identity provider with the Chainguard platform, [sign on to Ping Identity](https://www.pingidentity.com/en.html) and navigate to the Dashboard. Click on the **Connections** tab in the left hand sidebar menu, and then click on **Applications** in the resulting dropdown menu. From the Applications landing page, click the plus sign (**➕**) to set up a new application.
 
-![Screenshot of the Ping Identity Dashboard, showing the applications landing page. The Applications tab in the lefthand sidebar and the "add application" plus sign icon are circled in magenta.](ping-1.png)
+![Screenshot of the Ping Identity Dashboard, showing the applications landing page. The Applications tab in the left hand sidebar and the "add application" plus sign icon are circled in magenta.](ping-1.png)
 
 Configure the application as follows:
 
@@ -89,21 +90,21 @@ To configure Chainguard make a note of the following settings from your Ping app
 * Client Secret
 * Issuer URL
 
-You will also need the UIDP for the Chainguard group under which you want to install the identity provider.  Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
+You will also need the UIDP for the Chainguard organization under which you want to install the identity provider.  Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
 
-You can retrieve a list of all your Chainguard groups — along with their UIDPs — with the following command.
+You can retrieve a list of all the Chainguard organizations you belong to — along with their UIDPs — with the following command.
 
 ```shell
-chainctl iam groups ls -o table
+chainctl iam organizations ls -o table
 ```
 ```output
-                             ID                             |      NAME       |    DESCRIPTION
+                         	ID                         	|  	NAME   	|	DESCRIPTION
 ------------------------------------------------------------+-----------------+---------------------
-  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43                  | sample_group    |
-  . . .                                                     | . . .           |
+  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43              	| sample_org	|
+  . . .                                                 	| . . .       	|
 ```
 
-Note down the `ID` value for your chosen group.
+Note down the `ID` value for your chosen organization.
 
 With this information in hand, create a new identity provider with the following commands.
 
@@ -112,7 +113,7 @@ export NAME=ping-id
 export CLIENT_ID=<your client id here>
 export CLIENT_SECRET=<your client secret here>
 export ISSUER=<your issuer url here>
-export GROUP=<your group UIDP here>
+export ORG=<your organization UIDP here>
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
   --oidc-client-id=${CLIENT_ID} \
@@ -120,7 +121,7 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
-  --group=${GROUP} \
+  --parent=${ORG} \
   --default-role=viewer \
   --name=${NAME}
 ```

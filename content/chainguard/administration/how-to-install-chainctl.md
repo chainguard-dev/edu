@@ -1,12 +1,12 @@
 ---
 title: "How to Install chainctl"
 linktitle: "Install chainctl"
-aliases: 
+aliases:
 - /chainguard/chainguard-enforce/how-to-install-chainctl
 type: "article"
 description: "Install the chainctl command line tool to work with Chainguard Enforce and Images"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2023-12-07T15:56:52-07:00
+lastmod: 2024-03-21T15:22:20+01:00
 draft: false
 tags: ["chainctl", "Product"]
 images: []
@@ -19,7 +19,7 @@ weight: 005
 
 The Chainguard command line interface (CLI) tool, `chainctl`, will help you interact with the account model that Chainguard provides, and enable you to make queries into the state of your Chainguard resources.
 
-The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. For example, to list groups within the context of Chainguard Identity and Access Management (IAM), you can run `chainctl iam groups list` to receive relevant output.
+The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. For example, to retrieve a list of all the private Chainguard Images available to your organization, you can run `chainctl images list`.
 
 Before we begin, let’s move into a temporary directory that we can work in. Be sure you have curl installed, which you can achieve through visiting the [curl download docs](https://curl.se/download.html) for your relevant operating system.
 
@@ -82,23 +82,23 @@ chainctl version
 You should receive output similar to the following.
 
 ```
-   ____   _   _      _      ___   _   _    ____   _____   _
-  / ___| | | | |    / \    |_ _| | \ | |  / ___| |_   _| | |
- | |     | |_| |   / _ \    | |  |  \| | | |       | |   | |
- | |___  |  _  |  / ___ \   | |  | |\  | | |___    | |   | |___
+   ____   _   _  	_  	___   _   _	____   _____   _
+  / ___| | | | |	/ \	|_ _| | \ | |  / ___| |_   _| | |
+ | | 	| |_| |   / _ \	| |  |  \| | | |   	| |   | |
+ | |___  |  _  |  / ___ \   | |  | |\  | | |___	| |   | |___
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 
-GitVersion:    <semver version>
-GitCommit:     <commit hash>
+GitVersion:	<semver version>
+GitCommit: 	<commit hash>
 GitTreeState:  clean
-BuildDate:     <date here>
-GoVersion:     <compiler version>
-Compiler:      gc
-Platform:      <your platform>
+BuildDate: 	<date here>
+GoVersion: 	<compiler version>
+Compiler:  	gc
+Platform:  	<your platform>
 ```
 
-If you received output that you did not expect, check your bash profile to make sure that your system is using the expected PATH. 
+If you received output that you did not expect, check your bash profile to make sure that your system is using the expected PATH.
 
 ## Verifying the `chainctl` binary with Cosign
 
@@ -129,7 +129,7 @@ With chainctl installed, you can authenticate into Chainguard with the following
 chainctl auth login
 ```
 
-This will open your browser window and take you through a workflow to login with your OIDC provider. 
+This will open your browser window and take you through a workflow to login with your OIDC provider.
 
 ## Configure a Docker credential helper
 
