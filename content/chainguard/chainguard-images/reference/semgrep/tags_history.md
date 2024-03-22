@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the semgrep Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-22 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 20th   | `sha256:31eaca33a6b20911cc8bddf9c4269734f31b8d251b59b1e21cd3b1c743e3bb4c` |
-|  `latest-dev` | March 20th   | `sha256:f9dcf3bc8466a24745c71903f4dac76b84524c7e1753b3f7b77d56ab392b241f` |
+|  `latest-dev` | March 21st   | `sha256:fc5d44a304726364cf624b9969f21423ae2ba9c3c9149545d465a0c9326f7fd9` |
+|  `latest`     | March 21st   | `sha256:03a827365288ea759bcd948f422e11dfb6055ffb8b505c851bf13f498fbbdd58` |
 
 
 ### Private/Dedicated Registry

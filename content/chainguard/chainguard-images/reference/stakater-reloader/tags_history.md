@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stakater-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-22 00:34:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -42,5 +42,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.0.69-dev`                                | March 18th    | `sha256:1f748d7ab971e0984e0a708deacf51c01059f78a745578032aad2e1896890a38` |
 |  `1.0.69`                                    | March 18th    | `sha256:c8cc76ee1ab959b2d6c33a9cab6d913751407952c030f62b929583b016d799a1` |
 |  `1.0.68-dev`                                | February 23rd | `sha256:72f66290c324af71ceebbdb72d7677f507114bbc7be98db471ea372590eff1f7` |
-|  `1.0.68`                                    | February 21st | `sha256:be80e08a0037fe3945b0ed75df58fbd69246e67debfecd2e62aee309fa71432c` |
 
