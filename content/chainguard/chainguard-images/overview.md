@@ -5,7 +5,7 @@ type: "article"
 description: "Chainguard Images Overview"
 lead: "A primer on Chainguard Images and the distroless approach"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2022-09-01T08:49:31+00:00
+lastmod: 2023-03-22T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "Product", "Overview"]
 images: []

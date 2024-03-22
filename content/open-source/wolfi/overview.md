@@ -4,7 +4,7 @@ type: "article"
 description: "Getting started with Wolfi, the Linux undistro for secure container images"
 lead: "Introducing Wolfi, the Linux undistro for secure container images"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2022-09-01T08:49:31+00:00
+lastmod: 2023-03-22T08:49:31+00:00
 draft: false
 tags: ["Wolfi", "Overview"]
 images: []
