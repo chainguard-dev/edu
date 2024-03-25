@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 20th   | `sha256:3fdd019449ee87219c52898160e60ff1801b0e76d2bec894e6a78a4006533d6a` |
-|  `latest-dev` | March 20th   | `sha256:64aba323226cd8211591bf5d8ad133a8b7ab71ddfebb7e36dd40aaa2a86c3a7f` |
+|  `latest-dev` | March 22nd   | `sha256:e7b7558d7432b9feae3e30f8b6a066462367bd21fd568cf596a6efa26e543c4a` |
+|  `latest`     | March 22nd   | `sha256:8f876a2867593f99bd6aceb36c4eeeca0c6d8f239fc6af1953fb7a5818c696ae` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | March 20th   | `sha256:be538de9bd6077bd89f61b8859919ed780b68c4694cd86951e936715e69e820c` |
-|  `0.16.0` `latest` `0` `0.16`                 | March 20th   | `sha256:6417a887283086f446055d18f72e469c76c93f6f3705a81516cc52d4bb9694d0` |
+|  `0.16` `0` `0.16.0` `latest`                 | March 22nd   | `sha256:119ef35b92bf2ad269331a23f4c3f9d347d5efda37d175814105a35a12d600fd` |
+|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | March 22nd   | `sha256:d52ffd8fa04999b1f64b7a80ed1d4329421eec8c035164fe4d5427b11ed6477a` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-operator-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,9 +31,8 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.13` `1.13.0` `1` `latest`                 | March 18th    | `sha256:5a24622d66ab36a2a2aa3982115bb7baca83d069b64abace23aa9df19404148d` |
-|  `1-dev` `1.13.0-dev` `latest-dev` `1.13-dev` | March 18th    | `sha256:3cdf2bc9330aab0a5ee5b401cebe738afef8a27e37459372c05e5bb5cc0d183c` |
-|  `1.12-dev` `1.12.0-dev`                      | February 22nd | `sha256:35b414c3850aac979d20e1bf7c0c161aca9c0746fabb3bed5676d5cb303d7a50` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.13` `1.13.0` `1` `latest`                 | March 18th   | `sha256:5a24622d66ab36a2a2aa3982115bb7baca83d069b64abace23aa9df19404148d` |
+|  `1-dev` `1.13.0-dev` `latest-dev` `1.13-dev` | March 18th   | `sha256:3cdf2bc9330aab0a5ee5b401cebe738afef8a27e37459372c05e5bb5cc0d183c` |
 

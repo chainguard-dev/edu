@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-admin-tools-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,10 +31,8 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.11-dev` `latest-dev` `0-dev` `0.11.0-dev` | March 18th    | `sha256:bc79d7bea4984f4e83459e5759170c9f6adcf1de77fd86fc6a73ba3478e71953` |
-|  `0` `0.11.0` `latest` `0.11`                 | March 18th    | `sha256:790de7f383d152d83d7fc0fb61a6dd02364c277d3e746db460c6267a943390a8` |
-|  `0.10-dev` `0.10.7-dev`                      | February 24th | `sha256:9a28907e10ee73bf04ae981ad9b8742234dca255c4e154aea64f494544fc1ad8` |
-|  `0.10.7` `0.10`                              | February 22nd | `sha256:d77d78e14bcb2e1e1cefde82a4511b5382bf78a34b6d4eed6b1ff8645fb10feb` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0-dev` `0.11-dev` `latest-dev` `0.11.0-dev` | March 22nd   | `sha256:e18b0fd18784ced0bc73a9fbb80578a2b3356a1e384d39300788a024e05a4c90` |
+|  `0` `latest` `0.11` `0.11.0`                 | March 22nd   | `sha256:bab85439296017aaa8298e175432b4f53ef45927d64b476035625d181810bb5d` |
 

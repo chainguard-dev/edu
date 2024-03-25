@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 20th   | `sha256:4129ed5241a926a3752879a7a3cb1b6f5ccd78425db05939f1b63689015e84ed` |
-|  `latest`     | March 20th   | `sha256:06f617317baa8d61caf5d091e7e7cd775e9592790b5a428e885657797d8aad69` |
+|  `latest-dev` | March 23rd   | `sha256:90565c01887886b29d7690e9c23ea5f15db83da0697f50a94654122573ad3672` |
+|  `latest`     | March 23rd   | `sha256:d9743c1196673e5b354db9d06177baa0ad6dcb9ff5981e2f28571c55381a384c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5-dev` `2.0-dev` `latest-dev` `2-dev` | March 20th   | `sha256:6c0c5337e528882cb9a6267ebded241f083ba31873a822994f2a974bc10c4c32` |
-|  `2.0.5` `2.0` `latest` `2`                 | March 20th   | `sha256:1f3ba4f1a0c37ec99d8bed0e02a99f2194d500a1e88de1ee5fbe56f0657e2612` |
+|  `latest-dev` `2-dev` `2.0-dev` `2.0.5-dev` | March 22nd   | `sha256:503e9ae1b9b2d2053066d031c70ce86cc680f89905fe5adc9d4b46d0ca61316d` |
+|  `2.0` `latest` `2.0.5` `2`                 | March 22nd   | `sha256:729954a65aadc6e99b6b966ddee563e441fafbaf1f9aa2bf45b3c1fb5a70f82e` |
 

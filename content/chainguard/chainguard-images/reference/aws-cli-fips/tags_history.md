@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-22 00:34:55
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed  | Digest                                                                    |
 |------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.32` `1.32.68`                 | March 21st    | `sha256:4c724d22b885307bdf7a36be0227eee8a70eaaf9b3aee0e8898aa830b05cf73e` |
-|  `1-dev` `latest-dev` `1.32.68-dev` `1.32-dev` | March 21st    | `sha256:47ff3a96abd75f3fbe8db27b43ca64eeecd23d7fa3caaf43e5d01c0fcddd2f27` |
+|  `1-dev` `1.32-dev` `1.32.69-dev` `latest-dev` | March 22nd    | `sha256:51d6daff005917f2ca20b31f6d3f3643b20b0d6ba6de80790d8bc5102cc5c4db` |
+|  `1.32` `1` `latest` `1.32.69`                 | March 22nd    | `sha256:75c7ede763b9917750eeba10d9c9a42e82b46076e2bec01578a50e74ada1b3d3` |
+|  `1.32.68-dev`                                 | March 21st    | `sha256:47ff3a96abd75f3fbe8db27b43ca64eeecd23d7fa3caaf43e5d01c0fcddd2f27` |
+|  `1.32.68`                                     | March 21st    | `sha256:4c724d22b885307bdf7a36be0227eee8a70eaaf9b3aee0e8898aa830b05cf73e` |
 |  `1.32.67`                                     | March 20th    | `sha256:9505020284304983ce4a9c0ca329c9b4d6d898716a32ee1bb87dbdf104ad8e90` |
 |  `1.32.67-dev`                                 | March 20th    | `sha256:00e966ffb5834cad3356fbbf98f70c603048077fefc40bc98a2bf4acdd5a8384` |
 |  `1.32.66`                                     | March 20th    | `sha256:55ced4701167f96b3fe0b4dc2612acb6ecc3e6dd78aba7aa0da5d2c93f96e99b` |
@@ -71,10 +73,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.32.51`                                     | February 28th | `sha256:005dc3f34f8afe7e84fc9d63178d2c46370d9040f454485d756396c425094dcf` |
 |  `1.32.50`                                     | February 26th | `sha256:addef27db25c09011a92634e16850f00f1a165b53cc88cd1a0f14b60b028f7f1` |
 |  `1.32.50-dev`                                 | February 26th | `sha256:045bcf3e8b90eee3cbeccee154aa0a7bfa936eab3fc5517c639fb17f79e8ee4b` |
-|  `1.32.49-dev`                                 | February 24th | `sha256:5057e8447c7310e7eab254fbf2206eabb9e18ef127b92fdca137ccc83707f265` |
-|  `1.32.49`                                     | February 24th | `sha256:d529db3e58c7205c3ec81aba685727ebb7f19ee90952d7143533f7fbdaa9c66f` |
-|  `1.32.48-dev`                                 | February 23rd | `sha256:95acb1a5410265d89cab99243c4134c37fa1a2dd1fdd9a3e404fbc1101e295e6` |
-|  `1.32.48`                                     | February 23rd | `sha256:46f11762d53ab4e80dd8363331929261a4626c15b1d68421be2d1921581767ec` |
-|  `1.32.47-dev`                                 | February 22nd | `sha256:e1d686ca988b617b8c0ff7c7e2bec7e704ee391d97bfdb7f66cded30b4c826b0` |
-|  `1.32.47`                                     | February 22nd | `sha256:a43c7abe768afd645ab1ed1418c69f3ce365b1b8f85d77df5a00492c2d95f39c` |
 

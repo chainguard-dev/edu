@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aspnet-runtime Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-20 01:10:09
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,11 +37,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `6.0-dev` `6-dev` `6.0.128-dev`            | March 22nd   | `sha256:2e5cfc37632f7af100e6c7c57044dfd78d97196b85d2c3a14dca9773cf2cc0ac` |
+|  `6.0` `6.0.128` `6`                        | March 22nd   | `sha256:c1e30732356cd3f3375ce101825aae2e385321aa897ab26e8e913f2d76c3de7d` |
 |  `latest` `8.0.3` `8.0` `8`                 | March 18th   | `sha256:e17d0d3864305b6da5d3088852cc1ac7d00b78aed5eb700cc698ed5b45fb1825` |
 |  `7.0` `7.0.117` `7`                        | March 18th   | `sha256:533e357afafc9df6d595fa709c7f6eb2c8ed2f2c09d086a0ec91e8b5cfa5973b` |
-|  `6` `6.0.128` `6.0`                        | March 18th   | `sha256:94e69e494273fb82bad265b9f11ed5be4d5ac67da93b01e26f853fd8b2bb3a9f` |
 |  `8.0.3-dev` `8.0-dev` `latest-dev` `8-dev` | March 18th   | `sha256:ee088d52f3e2e8df0381d7772675fb0632a28f703b92dbbcecc5259d09f27a46` |
-|  `6.0-dev` `6.0.128-dev` `6-dev`            | March 18th   | `sha256:283b5940002c96d46aea7189a985950a02948bab115b33f197f30cef907c80c6` |
 |  `7.0-dev` `7-dev` `7.0.117-dev`            | March 18th   | `sha256:14924dee82089d0e9e01cd495fc30ec0d267e38a6929d3106c40c606028a767a` |
 |  `8.0.2-dev`                                | March 12th   | `sha256:d1780b08f21bf64f0ea29864e2f6724fb8aaafe09263d4d726d2e2eca2b2b7fe` |
 |  `6.0.127-dev`                              | March 12th   | `sha256:55b9a001160d285ae51030de1fa0c75de286fda9d6067b5705ba45f3232f91bf` |

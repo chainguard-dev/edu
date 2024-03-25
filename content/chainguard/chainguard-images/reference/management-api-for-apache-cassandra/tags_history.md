@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-22 00:34:55
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 21st   | `sha256:39481d3484568b6ccd05c0a1bef99fa70f484a4e0738cc6cc6fcbf5f22c5c935` |
-|  `latest-dev` | March 21st   | `sha256:07701331601ed86579cba8ebeccbf866af4e08e961380cd323fcf5f52b1c2c23` |
+|  `latest-dev` | March 24th   | `sha256:5573d644bf68d17213a3e264bc2dda402c9c65ecaa3c01348a55beb76c91794d` |
+|  `latest`     | March 24th   | `sha256:12a7c9fce3c2d5c34862a5441da756438c90bed6c89f98b32ac4b8d8f0536211` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1` `latest` `0.1.74` `0`                 | March 21st   | `sha256:4ffb0aa9a6089b497121a4b458383ad3c40ab155dfdd09a5540f6aad6bbb382f` |
-|  `0-dev` `0.1-dev` `latest-dev` `0.1.74-dev` | March 21st   | `sha256:58516591b0f7c440f220f8c98afd1599b8394118e5a79566f2d8213ea363b165` |
+|  `0.1.74` `latest` `0` `0.1`                 | March 24th   | `sha256:609e3f6d6f7332d590f277324ca66b20732be1f47fc8d7781fc07fa4a12a82f3` |
+|  `0.1.74-dev` `latest-dev` `0.1-dev` `0-dev` | March 24th   | `sha256:474ec8eb3ca54ab8574ab799c00eb5736b4a7efcbd7ba32f75cdfc8a1e79171f` |
 |  `0.1.73`                                    | March 21st   | `sha256:5baf9152f233df3e6089b23252143302fd508c533c028b286b129040de3de60f` |
 |  `0.1.73-dev`                                | March 21st   | `sha256:6af880578d1d133f080658cab2859456cd9c07e9ff46555b716e98e0113b7d5c` |
 

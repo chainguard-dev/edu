@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-file-metrics-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:1234f8430aedefa9f8efd01c3f97208197aaefbc897a188cf994f6d9ed960f5b` |
-|  `latest`     | March 18th   | `sha256:ba257391a7597334e4cab7b033c603a2f624b6d5d555bf4beea82244e038f22a` |
+|  `latest`     | March 22nd   | `sha256:55bc133cf2c95f9b316e4080a01719b6a41409162801051b7a83b784b80617f3` |
+|  `latest-dev` | March 22nd   | `sha256:7a8ea7ff88a887139a47e21eb2db438c97b7d3639044c9fada23004a20dfb89c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0.16.0-dev` `0-dev` `latest-dev` | March 18th   | `sha256:ec0852305ba1d77b621d5efecf6dbdc2c7f92cde84ec29fd83f75476910ff44e` |
-|  `latest` `0` `0.16.0` `0.16`                 | March 18th   | `sha256:bec9f82ecd05dae0fdd1f5f4046a1aab0219973d055d32578686295d070fd74d` |
+|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | March 22nd   | `sha256:30296afc1ea6c5d4e5bbe2fafd85300c1e7f594c12bba15eadfd677fffb0dd51` |
+|  `0` `latest` `0.16` `0.16.0`                 | March 22nd   | `sha256:2c6d04ccd9e224df62c0544751363afce159cd5c46c2e2f831504067638766c5` |
 

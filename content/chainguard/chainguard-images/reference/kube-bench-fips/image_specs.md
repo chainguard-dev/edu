@@ -3,8 +3,8 @@ title: "kube-bench-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public kube-bench-fips Chainguard Image."
-date: 2024-03-13 00:52:18
-lastmod: 2024-03-13 00:52:18
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -47,7 +47,7 @@ The table shows package distribution across variants.
 | `glibc-locale-posix`          | X          | X      |
 | `kube-bench-configs`          | X          | X      |
 | `kube-bench-fips`             | X          | X      |
-| `kubectl-fips-1.28`           | X          | X      |
+| `kubectl-fips-1.29`           | X          | X      |
 | `ld-linux`                    | X          | X      |
 | `libbrotlicommon1`            | X          |        |
 | `libbrotlidec1`               | X          |        |

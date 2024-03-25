@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sqlpad-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,10 +31,8 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed  | Digest                                                                    |
-|---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `7.4` `7` `7.4.1` `latest`                 | March 18th    | `sha256:d454a3774ab78f279b7340697761d44b3fedf53c119ee616eccaab7a8ca6de54` |
-|  `latest-dev` `7.4-dev` `7-dev` `7.4.1-dev` | March 18th    | `sha256:703c9e0c331912c638955a90bc59bd96661d7b8129fc61e20d2c5df9aca2781a` |
-|  `7.4.0-dev`                                | February 24th | `sha256:25725e89c434299c3d19408925499a5c6d08f42f00df716ff9428a011fd95ca5` |
-|  `7.4.0`                                    | February 23rd | `sha256:d33c3ac7776a5451a1ad22864f5449af2ccbdc2e95f5c3021545ce0032fdc4ed` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `7.4` `7` `7.4.1` `latest`                 | March 18th   | `sha256:d454a3774ab78f279b7340697761d44b3fedf53c119ee616eccaab7a8ca6de54` |
+|  `latest-dev` `7.4-dev` `7-dev` `7.4.1-dev` | March 18th   | `sha256:703c9e0c331912c638955a90bc59bd96661d7b8129fc61e20d2c5df9aca2781a` |
 
