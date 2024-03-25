@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 20th   | `sha256:1c2cef8288d6ea5455829146d5f1278987458e427bbb4adec4e510f7cbe4f09a` |
-|  `latest`     | March 20th   | `sha256:fa5ac4478d0d53a6e19aaa016fcbfd0cb21f556052b2b8c7edc73c6fb9306c08` |
+|  `latest`     | March 22nd   | `sha256:d78edaa0566499468d6be3866691cd65f07daa456979b352d7a6f245ac4e3a81` |
+|  `latest-dev` | March 22nd   | `sha256:58ce8567cc4779b31961c582d8bb80127e0d57c094070c28a555ae3692356c88` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0` `0.16` `0` `latest`                 | March 20th   | `sha256:c8207c339d2d31675c1b39689cda2e6403101ea09cac9eac063fd8fed98d5c42` |
-|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | March 20th   | `sha256:b05af44dea5474966ad2f59f36cedda66ee8053b000834ce7828bf9ce7a9e6ab` |
+|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | March 22nd   | `sha256:fbb450051824024b05f076a767c14c7f3bdcf9a787149f4427751258db1f829b` |
+|  `0` `0.16.0` `latest` `0.16`                 | March 22nd   | `sha256:eb39f5471b43cbf9ad58a95be45e90eee0b09913d1472d74b43213761067bf25` |
 

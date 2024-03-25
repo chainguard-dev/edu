@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dex Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:f42e9b9e5ac6137c28b385d37820b5e3ee1a01973ca96fbd9caebb731ba85ffd` |
-|  `latest-dev` | March 18th   | `sha256:15b6f2688a865ffdf3babb3d983dc0a3ae6a55003a7d22b992e258b1b4cb6db9` |
+|  `latest-dev` | March 23rd   | `sha256:1b7dcb615db5835b1f8a333b6fb2894e2bcafa25a3bbba9c2a897c70341a089b` |
+|  `latest`     | March 23rd   | `sha256:bbd8e99a7f50592f3ab14ab45d88f372fa6f1d55149526599653e966e522b4c0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `latest` `2.38` `2.38.0`                 | March 18th   | `sha256:dd930871af9e1e1fa350e613997858171cb65940708a1d1fac5f4d4aa3207273` |
-|  `2.38-dev` `2-dev` `2.38.0-dev` `latest-dev` | March 18th   | `sha256:7c3a1871d9cf049a47b208522cfdc92a316d9c456bd4cbed5735273e2d33e61f` |
+|  `latest` `2` `2.39.0` `2.39`                 | March 23rd   | `sha256:2fba5b21599357839e26ba727cfb56d1771e536a8c9a562704260380104217e3` |
+|  `latest-dev` `2.39.0-dev` `2.39-dev` `2-dev` | March 23rd   | `sha256:e6d782dd103f6f0e04ceeaed78f3eeff1ff81161d5cae7d057ba65f5ac0e8a73` |
+|  `2.38-dev` `2.38.0-dev`                      | March 18th   | `sha256:7c3a1871d9cf049a47b208522cfdc92a316d9c456bd4cbed5735273e2d33e61f` |
+|  `2.38` `2.38.0`                              | March 18th   | `sha256:dd930871af9e1e1fa350e613997858171cb65940708a1d1fac5f4d4aa3207273` |
 

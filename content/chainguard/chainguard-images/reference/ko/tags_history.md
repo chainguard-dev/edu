@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ko Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-22 00:34:55
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,10 +34,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.15.2` `0` `latest` `0.15`                 | March 21st    | `sha256:c10cdd6d6d9f45dab8e50ebe37dcd60362cb314c901d55c1be7a42045377321c` |
-|  `latest-dev` `0.15-dev` `0-dev` `0.15.2-dev` | March 21st    | `sha256:dca279ab577142ebdd90d883d541b1b5b53573ebb5a1a37320db7879f6c2eb22` |
-|  `0.15.1-dev`                                 | February 22nd | `sha256:0e2e313edcc079fcbe2e8f532765b06e914abb9084d15fa0b0f62d3d436caa63` |
-|  `0.15.1`                                     | February 22nd | `sha256:284135cb2ea3e77f8247a7ea14323f918d299005918e92ee3e64704738e34a12` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.15.2` `0` `latest` `0.15`                 | March 21st   | `sha256:c10cdd6d6d9f45dab8e50ebe37dcd60362cb314c901d55c1be7a42045377321c` |
+|  `latest-dev` `0.15-dev` `0-dev` `0.15.2-dev` | March 21st   | `sha256:dca279ab577142ebdd90d883d541b1b5b53573ebb5a1a37320db7879f6c2eb22` |
 

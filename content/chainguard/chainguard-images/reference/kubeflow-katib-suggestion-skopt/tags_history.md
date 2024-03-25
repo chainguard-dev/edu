@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 20th   | `sha256:d52e5819019392ecf60f26831ae23d573f17d0f55e01f7bce719941e740a4437` |
-|  `latest-dev` | March 20th   | `sha256:62042c44db68f7e9b14662c75cff836c7cd97e19eac8dc58c3074e69047063ad` |
+|  `latest-dev` | March 22nd   | `sha256:94777df0c38607c7e7b54c46da05c0e6c3c055b4c09c2ad78217647b30425b07` |
+|  `latest`     | March 22nd   | `sha256:945ef32174bc332a637662e35a7577fa04c2c36918622bc5cff9de6c9a435150` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16` `0.16.0` `0` `latest`                 | March 20th   | `sha256:c9f19c667126a1704e6be81438bf0d79547d57a1df48c9228ca366fdf0fc2d77` |
-|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | March 20th   | `sha256:00e195c1317bf77c1bc3ce275df3f64e1212e6b525d175b8d2e15966b0563b96` |
+|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | March 22nd   | `sha256:88ffd15627b5776bbae0169928cc8dff670f13643a7dfccad60aff6d492daaf9` |
+|  `0.16.0` `0.16` `latest` `0`                 | March 22nd   | `sha256:7e54db8c5e71589db6fd887f34937ee2c3c3c6411ccc40c77e51187932c0f844` |
 

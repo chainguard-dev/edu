@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,14 +37,14 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `14-dev` `14.11-dev`             | March 18th   | `sha256:5c459c3b68801734c8d72ad71c20dfa7252a21b74061f0e17b9b62378213a370` |
+|  `14.11-dev` `14-dev`             | March 24th   | `sha256:1fbaab61fecb75c0c853b0b20ee818b8c2b6ed8a2c079bc7995be2d42f46c6b9` |
+|  `14` `14.11`                     | March 24th   | `sha256:ae8d96e30925ee23865adc7f64edefa8ae6859fe7d789d12f73024a110016dd2` |
+|  `13.14` `13`                     | March 24th   | `sha256:8adf6e50e62896bf9fb888ef1d29219b21cad896a09639898a0908c59136e8d0` |
+|  `13-dev` `13.14-dev`             | March 24th   | `sha256:5d14cfd8205667275624f7e87dab5c73567ed570a9c771d12b214e29fb1f197d` |
 |  `latest` `16` `16.2`             | March 18th   | `sha256:82d0fd412e8ff7047509bf2937d668fa39f66eaab7c2042232abdfed5cb63f23` |
-|  `14.11` `14`                     | March 18th   | `sha256:e3fb359d3e43b54f0fed7fd99f774856d891a9f5326e85acbff200255a377c7c` |
 |  `15.6-dev` `15-dev`              | March 18th   | `sha256:41bc648ab5eaeb4549df1a129ba8b7e864abd86f68c2d693f898b7f0212c77bf` |
 |  `12.18` `12`                     | March 18th   | `sha256:7869ac3aa5a54f1df913993dbf1abf53d379d1fae5684ce34de355fbf3b0feae` |
-|  `13.14-dev` `13-dev`             | March 18th   | `sha256:86f7b7373732dee354daf45ec3e80f69f8160f44f2498691b2a244bc6458966e` |
 |  `15.6` `15`                      | March 18th   | `sha256:9957c1b0f24e649651613aeee8f1f03d09818b5b5d4a0d559b86f124dc01fa19` |
 |  `12-dev` `12.18-dev`             | March 18th   | `sha256:aa9b9329bdebf327479370706e2db5fcd36066d2cd09d546301be1c5871176a4` |
-|  `13` `13.14`                     | March 18th   | `sha256:486de8c888e2b9cf85bfae8e2f5d3eac0cd9255c10ecc3fade215f8899cfcf27` |
 |  `16.2-dev` `latest-dev` `16-dev` | March 18th   | `sha256:e61eeec0bdabcb5c11f2adf10112830836fb1f5ceacf9772ae3d4c29bc0bd504` |
 

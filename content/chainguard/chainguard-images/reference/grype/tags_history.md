@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grype Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-22 00:34:55
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,9 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.74-dev` `0.74.7-dev` `latest-dev` `0-dev` | March 21st    | `sha256:ba3e84c464ce0f45e1da2243ac1d8f7e6df82d06324981299100b68c8ae42095` |
-|  `0.74.7` `latest` `0.74` `0`                 | March 21st    | `sha256:94a005d95d6aa7503dc48dfcdafb97cc09933f4ba42b4335d7829479121f2a05` |
-|  `0.74.6-dev`                                 | February 24th | `sha256:d5387724ca01f846d1ac86307b01a3d8ea87380305977ac662ea89e48e65f176` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.74-dev` `0.74.7-dev` `latest-dev` `0-dev` | March 21st   | `sha256:ba3e84c464ce0f45e1da2243ac1d8f7e6df82d06324981299100b68c8ae42095` |
+|  `0.74.7` `latest` `0.74` `0`                 | March 21st   | `sha256:94a005d95d6aa7503dc48dfcdafb97cc09933f4ba42b4335d7829479121f2a05` |
 

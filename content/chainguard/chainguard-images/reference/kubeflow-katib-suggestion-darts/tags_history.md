@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-darts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 20th   | `sha256:6658f467eb5a9de14aec2832bc9d784d41f509bf45e503bdd317ce7ed92120e6` |
-|  `latest`     | March 20th   | `sha256:fa85e68638500f2bee800bd5849529a5bded25287958806ad616d2b39fd24904` |
+|  `latest-dev` | March 22nd   | `sha256:3f45ac1dd8a1b65f9a217a1e5849489210cac8d5432a66f92bcebaf2e2f0893a` |
+|  `latest`     | March 22nd   | `sha256:d97a751f6e3ce339ec8c358b07870835436ef6c5f58facd4ef05ef118bc59435` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | March 20th   | `sha256:5ca414b99c17a3521a6df5e838d8acba60a28e38b7bc5bd907ccea398f9697a8` |
-|  `latest` `0` `0.16` `0.16.0`                 | March 20th   | `sha256:1586e9f9c04d212d7a6a0c15f12bd088ff1e5a2d47b1f79df18d1896819bc694` |
+|  `latest` `0.16.0` `0` `0.16`                 | March 22nd   | `sha256:5b6b6399ab9a7b9d4bb2647ab93255cdad1b4b0d5075d4700806e6d351a55fc6` |
+|  `0.16.0-dev` `latest-dev` `0-dev` `0.16-dev` | March 22nd   | `sha256:421decd461c13a347f752724f148a1bcbd444536004fee607ebb82007e83bc4e` |
 

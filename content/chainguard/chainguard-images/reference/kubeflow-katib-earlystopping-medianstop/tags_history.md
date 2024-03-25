@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 20th   | `sha256:507368569b2579ed644d9c376e0679159411e664845a01113e9b0a59be5634c6` |
-|  `latest-dev` | March 20th   | `sha256:63a3bce2e05170df363c283e238c6c943d605a62f6d21e1d257b4c458ebc844e` |
+|  `latest`     | March 22nd   | `sha256:e2553cd0d64c190b56b8f20e0002cda1c0d47eb6b538d51e7b5a5d8ba94524d3` |
+|  `latest-dev` | March 22nd   | `sha256:f2e3e40ba96f9793a59fad90159f749156fec81392ab808be852d506b9d7e084` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0` `0` `latest` `0.16`                 | March 20th   | `sha256:5e24cb6dab04f6b804b67a9beb5896a5c1f0aa3168a5dc25d7a699dacee0a953` |
-|  `0.16.0-dev` `0.16-dev` `0-dev` `latest-dev` | March 20th   | `sha256:da628ef83da6550ed59d6a8fb4e2243cbb7aedbc4f25b17b0fe077aa38da7fbc` |
+|  `latest` `0.16` `0` `0.16.0`                 | March 22nd   | `sha256:d88617b229b9e5c8379c33848791651022662f2f068d6fd07ec2a6ac356c5182` |
+|  `0.16.0-dev` `0-dev` `0.16-dev` `latest-dev` | March 22nd   | `sha256:55f42f7d6cb298bb222cd6dec4df6703ef796d38560eef59e7e2556350e75641` |
 
