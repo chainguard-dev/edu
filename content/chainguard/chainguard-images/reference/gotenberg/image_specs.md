@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public gotenberg Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-15 00:51:40
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -57,6 +57,7 @@ The table shows package distribution across variants.
 | `culmus`                   | X          | X      |
 | `cups-libs`                | X          | X      |
 | `dbus-libs`                | X          | X      |
+| `exiftool`                 | X          | X      |
 | `findutils`                | X          | X      |
 | `font-abyssinica`          | X          | X      |
 | `font-amiri`               | X          | X      |
@@ -171,6 +172,7 @@ The table shows package distribution across variants.
 | `p11-kit`                  | X          | X      |
 | `pango`                    | X          | X      |
 | `pdftk`                    | X          | X      |
+| `perl`                     | X          | X      |
 | `pixman`                   | X          | X      |
 | `python-3.11`              | X          | X      |
 | `python-3.11-base`         | X          | X      |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `14.11` `14`                     | March 18th   | `sha256:b6456d17bd4cee65f7aa1ce9abcda55b7b24cf55f52418f9f593515b8dc8198f` |
-|  `14.11-dev` `14-dev`             | March 18th   | `sha256:ffcc81c5d4cfa4d074a590f32a1b6d61d9d73bc6cb354fb1920e8b99a5c4fb42` |
+|  `14` `14.11`                     | March 24th   | `sha256:03c762d023c5787e467a7ca4f3135ec7fde25b4f6e3bc9dcebc08dd72ec71ea1` |
+|  `14.11-dev` `14-dev`             | March 24th   | `sha256:b0e063162cdf830f3331817d0ed097cbb32cc61849ba8a42afa339a42e3a116c` |
 |  `16-dev` `16.2-dev` `latest-dev` | March 18th   | `sha256:1f697470e0575ccaf8fb75845ab76e29af01497410668976fd5233b54b06cd7f` |
 |  `15-dev` `15.6-dev`              | March 18th   | `sha256:158cf7f0572993609b89c8c77775e5985dd49c6d0926f928c4af6294e89095c3` |
 |  `15.6` `15`                      | March 18th   | `sha256:b115f3e2b2a4b6b7fdbfd48a101d5afa5b65dce47087a2cd1dcb76488ea359e8` |

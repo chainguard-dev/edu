@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 20th   | `sha256:03b4e52fa15737a25d43c53aec2946374b17de3459d6a600b620a91af7c77d42` |
-|  `latest`     | March 20th   | `sha256:823c5b2f9e402c4d7707942663ef9e07a6da1b7d7301982e4825c98a9c95440b` |
+|  `latest`     | March 23rd   | `sha256:49d482865e33b88d54009cb8e1b3a213a4c2f1d38b46d5984b9f14129d10e0db` |
+|  `latest-dev` | March 23rd   | `sha256:24eb523ed2ccec4f44e6c78f40064a92568bf3d5eabea203199b4ffb03648717` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `23` `23.2.0` `23.2`                 | March 20th   | `sha256:4b1b12a6a63e8f28361f4291434b71f4bb7d1d8577b2baea8599da2b81dc6c16` |
-|  `23-dev` `23.2-dev` `latest-dev` `23.2.0-dev` | March 20th   | `sha256:913737374988701bab0bf1eb26a432e6ff366a0ec41f9846705ee71254c17348` |
+|  `23.2-dev` `latest-dev` `23-dev` `23.2.0-dev` | March 22nd   | `sha256:1570db91f6a4f29567d6546b78f0d5fc46ac465957dc7714e5fb884118a829d0` |
+|  `23.2` `23.2.0` `latest` `23`                 | March 22nd   | `sha256:b3c9850909df5ea9333b45bc644959b59ecda75ea8de6a27b8c6ef0f6abc0603` |
 

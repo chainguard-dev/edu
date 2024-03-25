@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aspnet-runtime-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.0-dev` `6-dev` `6.0.128-dev`            | March 18th   | `sha256:4929abc3d37961aa0eb511a4ac1cd072e0bd96356faaaa4e2fe4bdee64367c4c` |
+|  `6.0.128` `6` `6.0`                        | March 22nd   | `sha256:c7c83ec214171e2dd5bc490fa9b5370c8b06790f53a0b79208a013cd6e55f34d` |
+|  `6.0-dev` `6-dev` `6.0.128-dev`            | March 22nd   | `sha256:a935d76ceef5df0ec291207e3d74b81b35d4d4eef9facdf1a08f1b99e7577f2b` |
 |  `8.0.3-dev` `8.0-dev` `8-dev` `latest-dev` | March 18th   | `sha256:cf5fe963872e3de1c1a6aa84557005edf6f97d1080c3ea00e6af84f9e571e2b5` |
 |  `8.0` `latest` `8.0.3` `8`                 | March 18th   | `sha256:aa9ea089c9883b1356168c289b4f0a4d67d268b5ecc3cd4c50ab1bfe008065f6` |
 |  `7` `7.0.117` `7.0`                        | March 18th   | `sha256:c67dac2fcb4c78e7e22ef0462a68f58d6aaf47e12850401336a4dc5ad7b5294c` |
-|  `6.0.128` `6.0` `6`                        | March 18th   | `sha256:a395d05ced1cced97a6dd54752d42a21b042eaaebbbce9bbad255dc9e6cd68b1` |
 |  `7-dev` `7.0-dev` `7.0.117-dev`            | March 18th   | `sha256:0a0e7114effea92e7b29b0abce0baefa6f879c7cce4cee96356782bf07de1940` |
 

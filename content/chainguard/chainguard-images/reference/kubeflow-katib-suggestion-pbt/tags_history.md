@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 20th   | `sha256:e78cc544b828f4e28c04255f406f85451f2f7ebac60453282f84b8852783ef42` |
-|  `latest`     | March 20th   | `sha256:db84878ba94285d402b859ab4b73e50978cdce24f37e9429be4434c152614f0b` |
+|  `latest`     | March 22nd   | `sha256:e300375dff64ed71f4b6f5bd8cfb46af65b0b4baa7b24b50c9a58954920f5b59` |
+|  `latest-dev` | March 22nd   | `sha256:b343d40da80a474e4269b0b2496eba9b993b1be68af80d8472ad2776e21ecdf5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0` `latest` `0.16` `0`                 | March 20th   | `sha256:9c79c9122bd2eaf287c653a9d4ce224ff76d8e2617a2db1717ae6f8f34c8f542` |
-|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | March 20th   | `sha256:aac90e84f3dede6df98d9593d5764f5ecb76796590924f51ca2d6b9b29af4a3f` |
+|  `latest-dev` `0.16.0-dev` `0-dev` `0.16-dev` | March 22nd   | `sha256:ed99074398f3df7316664289de19f62ff621c59b7bd09a436c387ae22af7cc23` |
+|  `0` `0.16.0` `0.16` `latest`                 | March 22nd   | `sha256:00fa46f507c407a9f5de43f6bb746c63d4873e33bfc5d2b3c26e3b5b17a6f17e` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-22 00:34:55
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 21st   | `sha256:46133c83c5e0a154563312a0a316ef6c309433c8ea098c4f046cb20e167b9e70` |
-|  `latest-dev` | March 21st   | `sha256:c6a0db236c5625e1bd71ad388a0a230e907b5c5f3e241ab1bf06d67ee7ca56df` |
+|  `latest`     | March 23rd   | `sha256:58ca883fbd0139dc3758700494e1e724c50561d2510a42154f067bf12e708493` |
+|  `latest-dev` | March 23rd   | `sha256:6440eccc036727a6aefbd08c122ee551fec05f00657759854524445b22ed6ff6` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed  | Digest                                                                    |
 |------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.32-dev` `1.32.68-dev` | March 21st    | `sha256:ebc13564bc4cc59f979611a175b43a043f2b6f0532be49a9601eb37049aa74b5` |
-|  `1.32.68` `1` `latest` `1.32`                 | March 21st    | `sha256:3dd7b2c825dcaf67c5a5dfbc6f6e3682c6b9673aa8bf25c06746f3ebaeb5299b` |
+|  `1.32-dev` `1.32.69-dev` `1-dev` `latest-dev` | March 22nd    | `sha256:ba8adb846a4c26230a3ec0514919d3c3265f05d028101fc30c72caa3e762787b` |
+|  `1` `1.32.69` `1.32` `latest`                 | March 22nd    | `sha256:a40d44c7006fa580ecd61250a1f733f9c1f23044c91f451357181de531f5e2d1` |
+|  `1.32.68`                                     | March 21st    | `sha256:3dd7b2c825dcaf67c5a5dfbc6f6e3682c6b9673aa8bf25c06746f3ebaeb5299b` |
+|  `1.32.68-dev`                                 | March 21st    | `sha256:ebc13564bc4cc59f979611a175b43a043f2b6f0532be49a9601eb37049aa74b5` |
 |  `1.32.67-dev`                                 | March 20th    | `sha256:62ff8c88fe8cf665e4f7756aa76a4b5a28e33ea754bf1654f0e850552e9bf9c4` |
 |  `1.32.67`                                     | March 20th    | `sha256:8bd11656e4781836f4874621e15fd31082f4377ede65e90c5b423a370da91eed` |
 |  `1.32.66`                                     | March 20th    | `sha256:e53c7c91f24a38a9ac52ec7326cc2de4409f2705abb05c57a8a54e1aff699699` |
@@ -75,10 +77,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.32.51-dev`                                 | February 28th | `sha256:cd6e620cdde8c0157bd048b9822fbdd07067e7c56be1ab21b45fa7cf1149a83e` |
 |  `1.32.50-dev`                                 | February 26th | `sha256:7136abcd2d8f3547dcefd753a72e10d5905a00a4bf151e9fc35dd676f1fa070c` |
 |  `1.32.50`                                     | February 26th | `sha256:13c2035501101263c17b5803554029a63286b1cf32e5874f2753daa52ff221af` |
-|  `1.32.49-dev`                                 | February 24th | `sha256:dd2009a9a0e97278d98da6b42efb635d830e6317baba9c7c9152ff839019e30d` |
-|  `1.32.49`                                     | February 24th | `sha256:190dc2d618fee7175f442952147957d14d79def193cbfae2fedc9f74bbe42d1c` |
-|  `1.32.48-dev`                                 | February 23rd | `sha256:0c866d009f08852baea892203369facac228fc7c019e42dd43fbcfbeb3887280` |
-|  `1.32.48`                                     | February 23rd | `sha256:2b59fdfdb94d95d21a36866ec97a3b53228a207f6f97c7c2a3fb231b9785a276` |
-|  `1.32.47-dev`                                 | February 22nd | `sha256:30b0da723de0ab016239f3fef636266b92d470e30b4d3f1b5dab6f378fd429ab` |
-|  `1.32.47`                                     | February 22nd | `sha256:e947e41500674fed67d88a1977eb1ab2f4255f68748d075cc6cbdcccfe8c6221` |
 

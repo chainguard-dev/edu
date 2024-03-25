@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-db-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:f05a6b3312b0c0e4f4a6d2b6d40d9b9f1ac63c4f5d4249b6bc18a2da0a7785ee` |
-|  `latest-dev` | March 18th   | `sha256:83c7d77580940416f9b2e79200ba2251f6cbd22b6434c43525abe191b2b06e97` |
+|  `latest-dev` | March 22nd   | `sha256:25fc35f8df4eacdef6121e054a15c5305393de0b49bea2e6c81a8a5b9604c355` |
+|  `latest`     | March 22nd   | `sha256:8ec7ab18c7336c6dfa8bb35eebe9b43778629f221a98401d5975520415f5aefe` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0.16.0-dev` `latest-dev` `0-dev` | March 18th   | `sha256:b83a5f8de96e3cdc6b0a255b5c446e3370506e5dbae0d35f49e87a79490f149f` |
-|  `latest` `0.16` `0.16.0` `0`                 | March 18th   | `sha256:345d8051df8edbf3f48d81d9260e9ffe63320640ec381d5c32f0880123c2b11e` |
+|  `0.16-dev` `0.16.0-dev` `0-dev` `latest-dev` | March 22nd   | `sha256:3f9da5135494d0681cb27b0fa58aa926f7102237998de792079a09cf69f6418c` |
+|  `latest` `0.16` `0` `0.16.0`                 | March 22nd   | `sha256:e10378f604750156680b71146637a5459070ead6f0da67854539816629aedf71` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-goptuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:513a384504db1d36b2de7c44047f67c1fcc13385728dfa259a679ee99e12470d` |
-|  `latest-dev` | March 18th   | `sha256:6ce4e4d3369fa8b831b2cdeb37ee14b954ffd32e148a7205fa6e1b229915a984` |
+|  `latest`     | March 22nd   | `sha256:6335f926247bf61753aaf9dabc4beb02cd6f231cc151cb69855e00822e4769eb` |
+|  `latest-dev` | March 22nd   | `sha256:92520a25dc7ff752586eedb73e9a4eef1b15cfbedd1f377e09c84b9e1c4ca5fd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16.0-dev` `0-dev` `0.16-dev` | March 18th   | `sha256:79bd92332aa468260601cbf99d69f37fe812e1d360abc502605ea7e8cf8face6` |
-|  `0.16` `latest` `0.16.0` `0`                 | March 18th   | `sha256:5914883fc299953a11797bd9cf3d80520e5d53516e491323d7dabcc6d18f03aa` |
+|  `0-dev` `0.16-dev` `latest-dev` `0.16.0-dev` | March 22nd   | `sha256:f93a800f6052e68056f5df285514c189164709a47440e4074940618bc5edf13d` |
+|  `0` `0.16.0` `0.16` `latest`                 | March 22nd   | `sha256:517a15c12a2ead064ada22ae334c941ce542f829c2da38c62e1a810845a409bd` |
 

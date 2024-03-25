@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-kms Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-20 01:10:09
+lastmod: 2024-03-25 00:49:44
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)        | Last Changed | Digest                                                                    |
 |----------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev`  | March 19th   | `sha256:ac08cd69c173ce94fbd4b08597ebf19e9e9ce4b807ce23c1f8cd4fa26ff4765f` |
-|  `latest`      | March 19th   | `sha256:516d6ee26b5ae6f27e77e22884dcd53a7ecf0fa85907b6dc8cb51187c6d780bc` |
+|  `latest`      | March 22nd   | `sha256:d9ff575ebf0dd25922aef32a9f079eec19da6f4d5f55b50dd431b71f3ef8d5d3` |
+|  `latest-dev`  | March 22nd   | `sha256:7da31f5ed8f23a6b46fcabaf4f25e53f69ee5c227016be03e9e7596b4e7ffb31` |
 |  `1.2.0` `1.2` | March 15th   | `sha256:5eae7bf97b85d4f8accd8bc06d37cb13c873735447acbf02c4b04bcb80cf8091` |
 
 
@@ -38,7 +38,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.2.1` `1.2` | March 18th   | `sha256:e94ad7d1310b1dc2476ecf24fd19b5b651efbe330b4387d8705ea51b7dc3647b` |
+|  `1.2` `1` `latest` `1.2.1` | March 22nd   | `sha256:292d4f15bca47497a6bdf569c6d4a4608c5acde713e82f98108fba5b91335b4c` |
 |  `1.2.0`                    | March 18th   | `sha256:8e45eeea62127e258297879f76d530ed8c1d38c009aadc4766a18b60d2eaf519` |
 |  `1.1.1` `1.1`              | March 14th   | `sha256:9ac96cfd1990122ed212452c7ee9a73cad3254b801c118b87c7950b50cf23b22` |
 |  `1.1.0`                    | March 8th    | `sha256:333a419e74af22f6d04ce779ed7ebd3f48ced836bb852e47ef51a03adbcd4713` |
