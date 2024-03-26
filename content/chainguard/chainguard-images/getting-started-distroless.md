@@ -24,17 +24,17 @@ This minimal approach offers several benefits, including:
 - **Simplified Dependency Management:** Traditional container images can introduce dependency bloat, making it difficult to track and manage exactly what's included. Distroless images keep things clear by only containing what's directly required for the application to function.
 - **Potentially Smaller Image Sizes:** By eliminating extraneous OS components, distroless images can be significantly smaller than their full-blown counterparts.
 
-Chainguard offers a mix of distroless and development (or builder) images that are minimalist and contain provenance attestations for increased security. Since distroless images have fewer tools and don't come with a package manager, some adaptation might be necessary when migrating from traditional base images. A typical approach is using Docker multi-stage builds to compose a final distroless image containing the additional artifacts required by the application in order to run successfully.
+Chainguard offers a mix of distroless and development (or builder) images that are minimalist and contain provenance attestations for increased security. Since distroless images have fewer tools and don't come with a package manager, some adaptation might be necessary when migrating from traditional base images. A typical approach is using multi stage builds to compose a final distroless image containing the additional artifacts required by the application in order to run successfully.
 
-## Multi-Stage Builds
-A Docker multi-stage build is a technique for creating slimmer and more efficient Docker images. It allows you to define multiple stages within a single Dockerfile. Each stage acts like a separate build environment with its own base image and instructions.
+## Multi Stage Builds
+A multi stage build is a technique for creating slimmer and more efficient container images. It allows you to define multiple stages within a single Dockerfile. Each stage acts like a separate build environment with its own base image and instructions.
 
-The key benefit of multi-stage builds is that they enable you to separate the build process from the final runtime environment. This separation helps in reducing the final image size by:
+The key benefit of multi stage builds is that they enable you to separate the build process from the final runtime environment. This separation helps in reducing the final image size by:
 
 - **Using different base images**: You can leverage a larger image containing all the build tools in the initial stage and then switch to a smaller, leaner base image for the final stage that only includes the necessary runtime dependencies for your application.
 - **Excluding unnecessary layers**: By separating the build and runtime stages, you can exclude all the temporary files, build tools, and intermediate artifacts from the final image. These elements are only required during the build process and not needed when running the application.
 
-Overall, multi-stage builds promote efficient Docker images by minimizing their size and optimizing their contents for execution.
+Overall, multi stage builds promote efficient container images by minimizing their size and optimizing their contents for execution.
 
 ### Example 1: Distroless images as runtime for static binaries
 Distroless images are typically designed to work as platforms for running workloads in as minimal an environment as possible. In the case of languages that can compile completely static binaries (such as C and Rust), the **static** base image can be used as a runtime. You'll still need to get your application compiled in a separate build stage that has the tooling necessary to build it.
@@ -112,7 +112,7 @@ If you look into the image layers with `docker inspect c-distroless`, you'll als
 
 ### Example 2: Incorporating Application-Level Dependencies in Distroless Images
 
-When working with language ecosystems that have their own dependency management tools such as PHP (Composer) and Node (npm), a multi-stage build is necessary to include application dependencies within the final distroless runtime.
+When working with language ecosystems that have their own dependency management tools such as PHP (Composer) and Node (npm), a multi stage build is necessary to include application dependencies within the final distroless runtime.
 
 The next example creates a Dockerfile to run a demo PHP application that has third-party dependencies managed by [Composer](https://getcomposer.org/). The application is a single executable that queries the [cat facts API](https://catfact.ninja/) and returns a random fact.
 
@@ -215,7 +215,6 @@ php          cli-alpine   7879e816aba0   6 days ago   104MB
 
 ## Final Considerations
 
-Distroless images offer a compelling approach to creating minimal and secure container images by stripping away system components that are unnecessary at execution time, such as package managers and shells. While such images offer many advantages, they might require some adjustments in your existing development and deployment workflows. In this guide we demonstrated how to use Docker multi-stage builds to create final distroless images that include additional components, such as static binaries and application-level dependencies.
-
+Distroless images offer a compelling approach to creating minimal and secure container images by stripping away system components that are unnecessary at execution time, such as package managers and shells. While such images offer many advantages, they might require some adjustments in your existing development and deployment workflows. In this guide we demonstrated how to use multi stage builds to create final distroless images that include additional components, such as static binaries and application-level dependencies.
 
 You can find more examples in our [Getting Started Guides](/chainguard/chainguard-images/getting-started/) page. Check also our article on [Debugging Distroless Images](/chainguard/chainguard-images/debugging-distroless-images/) for important tips when you run into issues and need to debug containers running distroless images.
