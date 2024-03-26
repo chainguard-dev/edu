@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the telegraf Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-26 00:38:30
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,12 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.26-dev` `1.26.3-dev`                      | March 25th   | `sha256:ed3fe177e84bd824ee422a78dd27c7ba492e8dea231cfc9a16467fbf11bf67ff` |
+|  `1.29.5-dev` `1.29-dev` `1-dev` `latest-dev` | March 25th   | `sha256:f0bac02355c47395b49812d89297e8c32f8dbedd9e0af6af8f5460c5e4d6a473` |
+|  `1.27.4-dev` `1.27-dev`                      | March 25th   | `sha256:50f9801b56173fa404b9c05d6e5a3b71e56c900cd218863329b1846d39fe5aa3` |
+|  `1.28-dev` `1.28.5-dev`                      | March 25th   | `sha256:d651df13a2d211f7fa54dd9d1694b460fb52eeacca05a944bb0a36796fb126a5` |
 |  `1.28.5` `1.28`                              | March 24th   | `sha256:df69ceb641fce575125dcad8b38a62dab5c0f1633887b0dbb91758d0b54ded07` |
-|  `1.28-dev` `1.28.5-dev`                      | March 24th   | `sha256:d651df13a2d211f7fa54dd9d1694b460fb52eeacca05a944bb0a36796fb126a5` |
-|  `1.26-dev` `1.26.3-dev`                      | March 21st   | `sha256:ed3fe177e84bd824ee422a78dd27c7ba492e8dea231cfc9a16467fbf11bf67ff` |
 |  `1.26` `1.26.3`                              | March 21st   | `sha256:f4d68455df7a11a22e109338e688526644dfcbd30cf0ae2d73e301d104ddfd4e` |
-|  `1.27.4-dev` `1.27-dev`                      | March 21st   | `sha256:50f9801b56173fa404b9c05d6e5a3b71e56c900cd218863329b1846d39fe5aa3` |
 |  `1.27` `1.27.4`                              | March 21st   | `sha256:9afe7318c63dc44b19543715d0aef6dfbe0bf8b02e4417976d0a7d44630beada` |
 |  `1.29.5` `latest` `1.29` `1`                 | March 21st   | `sha256:a09e0f03823cfba46150fc9b0cda9f774387a61eabb5a1065729dac3c61556dd` |
-|  `1.29.5-dev` `1-dev` `latest-dev` `1.29-dev` | March 21st   | `sha256:f0bac02355c47395b49812d89297e8c32f8dbedd9e0af6af8f5460c5e4d6a473` |
 

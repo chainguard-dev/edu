@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-logging-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-20 01:10:09
+lastmod: 2024-03-26 00:38:30
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,10 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.1.0-dev` `4.1-dev`                      | March 18th   | `sha256:e3e1d2345f64146627395cedcb935d38d2c88b28c9e095155ef44532d3e67382` |
-|  `latest-dev` `4-dev` `4.6.0-dev` `4.6-dev` | March 18th   | `sha256:0f809a16e3a84a08658808b7becd1aa7f25d404728848a9ed1ca5ab750f267df` |
+|  `latest-dev` `4-dev` `4.6.0-dev` `4.6-dev` | March 25th   | `sha256:0f809a16e3a84a08658808b7becd1aa7f25d404728848a9ed1ca5ab750f267df` |
+|  `3.17.11-dev` `3.17-dev` `3-dev`           | March 25th   | `sha256:04d3f6b9a06229d8006c3f3cdf352a4d78cec02661d86a4a847793bdb9dfa1fd` |
+|  `4.1-dev` `4.1.0-dev`                      | March 25th   | `sha256:e3e1d2345f64146627395cedcb935d38d2c88b28c9e095155ef44532d3e67382` |
 |  `3.17` `3` `3.17.11`                       | March 18th   | `sha256:edcc74edb72d50161a79cfed1bb295cf3238c65e525e08be933a87ced93fe66e` |
-|  `3.17-dev` `3.17.11-dev` `3-dev`           | March 18th   | `sha256:04d3f6b9a06229d8006c3f3cdf352a4d78cec02661d86a4a847793bdb9dfa1fd` |
 |  `4.1` `4.1.0`                              | March 18th   | `sha256:6f6df5c1fd2b31406adf2e2ededf5a8707ae5da91c84979becdf53bd249af91b` |
 |  `4.6.0` `4.6` `latest` `4`                 | March 18th   | `sha256:d2e002f94d805c59f17a79b54c32c15f3e2c2d0e45a6c34f1e42f19d02500d16` |
 |  `4.5.6-dev` `4.5-dev`                      | March 18th   | `sha256:8ee464ae64eb6b7f111a94430d1dfd62e54826d035d9acd71e0b4be4af058454` |

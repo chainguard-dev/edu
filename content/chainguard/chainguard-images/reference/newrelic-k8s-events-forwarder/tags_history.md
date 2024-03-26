@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-k8s-events-forwarder Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-26 00:38:30
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.51.0-dev` `1.51-dev` `latest-dev` `1-dev` | March 25th   | `sha256:edfdfa72294b57f4446f3a8ab84ce6c20951d6ff2d16755da5ea70537e99974b` |
+|  `1` `1.51.0` `1.51` `latest`                 | March 25th   | `sha256:2db51c5027ca156ed20759654321380a3f88911b38d50e1cf69547e7051767a1` |
 |  `1.43.2-dev` `1.43-dev`                      | March 21st   | `sha256:388dc244946f9507a25723121be62feb9db87430c0e41e52b9dfc46e2971b383` |
 |  `1.43.2` `1.43`                              | March 21st   | `sha256:2b3c004084c25c5947a9ca1b569f530baae99dff93be2606bb90bc6dd638d141` |
-|  `1.50.0` `1` `latest` `1.50`                 | March 21st   | `sha256:73978610a003c5a7af889f51425c9707ec1355ab9ee27ef0ae830afb79965c43` |
-|  `latest-dev` `1.50-dev` `1.50.0-dev` `1-dev` | March 21st   | `sha256:0739a3470bd06c96f56ea1199b3dc4051b013413c2a9d816137ef059cbc24129` |
+|  `1.50.0` `1.50`                              | March 21st   | `sha256:73978610a003c5a7af889f51425c9707ec1355ab9ee27ef0ae830afb79965c43` |
+|  `1.50-dev` `1.50.0-dev`                      | March 21st   | `sha256:0739a3470bd06c96f56ea1199b3dc4051b013413c2a9d816137ef059cbc24129` |
 

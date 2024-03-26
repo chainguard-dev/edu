@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kubernetes Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-26 00:38:30
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `3.27.1-dev` `3-dev` `3.27-dev` | March 20th   | `sha256:1d1050589aadf0f745fca90b8c458476c72d2597cd89a54f7e1a236d3f21b6db` |
-|  `3.27` `latest` `3.27.1` `3`                 | March 20th   | `sha256:96d5822a52db5854f8b323f9eb2574c4f0126e774dcf81de7fe45a6a4abbd929` |
+|  `latest-dev` `3-dev` `3.28.0-dev` `3.28-dev` | March 25th   | `sha256:f41493628ffe7e5fe8c4f1da54af01a56f8a7c13c8595c4ad2bfe291b9f20b30` |
+|  `3.28` `3.28.0` `latest` `3`                 | March 25th   | `sha256:f463798f47bb05fd9202529171d1377de015f71093187a3769d9989e636130c0` |
+|  `3.27` `3.27.1`                              | March 20th   | `sha256:96d5822a52db5854f8b323f9eb2574c4f0126e774dcf81de7fe45a6a4abbd929` |
+|  `3.27.1-dev` `3.27-dev`                      | March 20th   | `sha256:1d1050589aadf0f745fca90b8c458476c72d2597cd89a54f7e1a236d3f21b6db` |
 |  `3.27.0-dev`                                 | March 18th   | `sha256:e6fd60cb5b03cecc2eb579bce222b1cc4b720340f79bb0042bf932a3e9a5f1f6` |
 |  `3.27.0`                                     | March 18th   | `sha256:24b0172227586deb56d19342b6db32ba42d9d5abb87f8d32eb6bd1e4178c82e9` |
 |  `3.26.1-dev` `3.26-dev`                      | March 10th   | `sha256:56ced5368d5bc4315f4f4bc5917b9c08ec5a6a340c44c1d504243268b947e652` |
