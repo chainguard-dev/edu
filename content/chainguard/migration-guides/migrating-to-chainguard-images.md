@@ -50,9 +50,9 @@ If you are coming from a Red Hat UBI based Dockerfile, you'll need to adapt some
 
 | Command Description          | Red Hat UBI Dockerfile | Wolfi-based Equivalent |
 |------------------------------|------------------------|------------------------|
-| Install a package            | yum install            | apk add                |
-| Remove a package             | yum remove             | apk del                |
-| Update package manager cache | yum makecache          | apk update             |
+| Install a package            | `yum install`          | apk add                |
+| Remove a package             | `yum remove`           | apk del                |
+| Update package manager cache | `yum makecache`        | apk update             |
 
 ## Migrating from Alpine Dockerfiles
 If your Dockerfile is based on Alpine, the process for migrating to Chainguard Images should be more straightforward, since you're already using `apk` commands. Wolfi packages typically match what is available in Alpine, with some exceptions. For instance, the Wolfi busybox package is slimmer and doesn't include all tools available in Alpine's busybox. Check the [Alpine Compatibility](https://edu.chainguard.dev/chainguard/migration-guides/alpine-compatibility/) page for a list of common tools and their corresponding packages in Wolfi and Alpine.
@@ -94,6 +94,7 @@ php-xmlreader-8.2.11-r1
 php-xmlwriter-8.2.11-r1
 ```
 
+### Searching which package has a command
 To search in which package you can find a command, you can use the syntax `apk search cmd:command-name`. For instance, if you want to discover which package has the command `useradd`, you can use:
 
 ```shell
@@ -103,8 +104,27 @@ You'll get output indicating that the `shadow` package has the command you are l
 ```shell
 shadow-4.15.1-r0
 ```
-Use `apk --help` for more options when searching for packages.
 
-### If you Can't find a Package
+### Searching for package dependencies
+To check for package dependencies, you can use the syntax `apk search -R info package`. For example, to search which packages are listed as dependencies for the `shadow` package that we've seen in the previous section, you can run:
 
-If your build requires dependencies that are not yet available in Wolfi, you can compile them from source using the `wolfi-base` image, or build your own apks using [melange](/open-source/melange/overview/). Check the [Getting started with melange](/open-source/melange/tutorials/getting-started-with-melange/) guide for more details on how to go about that.
+```shell
+apk -R info shadow
+```
+And this will give you a list of dependencies for each version of the `shadow` package currently available.
+
+### Searching for packages that include a shared object
+To search which packages include a shared object, you can use the syntax `apk search so:shared-library`. As an example, if you want to check which packages include the `libxml2` shared library, you can run something like:
+
+```shell
+apk search so:libxml2.so*
+```
+And this should give you output indicating that this shared object is included within the `libxml2-2.12.6-r0` package.
+
+For detailed information about apk options and flags when searching for packages, check the [official documentation](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html#_searching_for_packages).
+
+## Resources to Learn More
+
+Our [Getting Started Guides](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/) have detailed examples for different language ecosystems and stacks. Make sure to also check image-specific documentation in our [reference docs](https://edu.chainguard.dev/chainguard/chainguard-images/reference/).
+
+If you can't find an image that is a good match for your use case, or if your build has dependencies that cannot be met with the regular catalog, [get in touch with us](https://www.chainguard.dev/contact) for alternative options.
