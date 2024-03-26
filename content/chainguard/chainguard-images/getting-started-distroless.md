@@ -16,7 +16,7 @@ toc: true
 ---
 
 ## About Distroless Images
-[Distroless](https://blog.chainguard.dev/minimal-container-images-towards-a-more-secure-future/) container images are a type of container image designed to be minimal. Unlike traditional images based on Debian or Ubuntu, which include package managers, utilities, and shells, distroless images typically contain only essential software required to run an application or service.
+[Distroless](https://blog.chainguard.dev/minimal-container-images-towards-a-more-secure-future/) container images are a type of container image  that is designed to be minimal. Unlike traditional images based on Debian or Ubuntu — which include package managers, utilities, and shells — distroless images typically contain only essential software required to run an application or service.
 
 This minimal approach offers several benefits, including:
 
@@ -24,7 +24,7 @@ This minimal approach offers several benefits, including:
 - **Simplified Dependency Management:** Traditional container images can introduce dependency bloat, making it difficult to track and manage exactly what's included. Distroless images keep things clear by only containing what's directly required for the application to function.
 - **Potentially Smaller Image Sizes:** By eliminating extraneous OS components, distroless images can be significantly smaller than their full-blown counterparts.
 
-Chainguard offers a mix of distroless and development (or builder) images that are minimalist and contain provenance attestations for increased security. Since distroless images have fewer tools and don't come with a package manager, some adaptation might be necessary when migrating from traditional base images. A typical approach is using Docker muilti stage builds to compose a final distroless image containing the additional artifacts required by the application in order to run successfully.
+Chainguard offers a mix of distroless and development (or builder) images that are minimalist and contain provenance attestations for increased security. Since distroless images have fewer tools and don't come with a package manager, some adaptation might be necessary when migrating from traditional base images. A typical approach is using Docker multi-stage builds to compose a final distroless image containing the additional artifacts required by the application in order to run successfully.
 
 ## Multi-Stage Builds
 A Docker multi-stage build is a technique for creating slimmer and more efficient Docker images. It allows you to define multiple stages within a single Dockerfile. Each stage acts like a separate build environment with its own base image and instructions.
@@ -39,7 +39,7 @@ Overall, multi-stage builds promote efficient Docker images by minimizing their 
 ### Example 1: Distroless images as runtime for static binaries
 Distroless images are typically designed to work as platforms for running workloads in as minimal an environment as possible. In the case of languages that can compile completely static binaries (such as C and Rust), the **static** base image can be used as a runtime. You'll still need to get your application compiled in a separate build stage that has the tooling necessary to build it.
 
-In this example, we'll build a distroless image to run a "Hello World" program in C. Start by creating a diretctory for the demo. We'll call it **distroless-demo**.
+In this example, we'll build a distroless image to run a "Hello World" program in C. Start by creating a directory for the demo. We'll call it **distroless-demo**.
 
 ```sh
 mkdir ~/distroless-demo && cd $_
@@ -98,7 +98,7 @@ REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
 c-distroless   latest    cd3bb76a84f5   45 seconds ago   2.04MB
 ```
 
-If you look into the image layers with `docker inspect c-distroless`, you'll also notice that it has only two layers: a single layer from the `static` image that serves as base for the final image, and one layer with the COPY command that brings in the compiled binary from the **build** stage.
+If you look into the image layers with `docker inspect c-distroless`, you'll also notice that it has only two layers: a single layer from the `static` image that serves as base for the final image, and one layer with the `COPY` command that brings in the compiled binary from the **build** stage.
 
 ```shell
         "RootFS": {
@@ -114,7 +114,7 @@ If you look into the image layers with `docker inspect c-distroless`, you'll als
 
 When working with language ecosystems that have their own dependency management tools such as PHP (Composer) and Node (npm), a multi-stage build is necessary to include application dependencies within the final distroless runtime.
 
-The next example creates a Dockerfile to run a demo PHP application that has third-party dependencies managed by [Composer](https://getcomposer.org/). The application is a single executable that queries the [cat facts api](https://catfact.ninja/) and returns a random quote.
+The next example creates a Dockerfile to run a demo PHP application that has third-party dependencies managed by [Composer](https://getcomposer.org/). The application is a single executable that queries the [cat facts API](https://catfact.ninja/) and returns a random fact.
 
 Start by creating a directory for the demo. We'll call it **distroless-php**.
 
@@ -138,7 +138,7 @@ Now create the PHP executable. You can call it `catfact.php`:
 nano catfact.php
 ```
 
-The following code makes a query to the cat facts api, returning the quote as output. Copy the contents to your own `catfact.php` script:
+The following code makes a query to the cat facts API, returning the quote as output. Copy the contents to your own `catfact.php` script:
 
 ```php
 <?php
