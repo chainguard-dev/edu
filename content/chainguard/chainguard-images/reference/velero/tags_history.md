@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-26 00:38:30
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,4 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.13` `latest` `1.13.1` `1`                 | March 25th   | `sha256:ac9bbcf63293f70ff598a25049ed623a49b3d48663dde9e11cdfa032d394ded3` |
+|  `1-dev` `1.13-dev` `1.13.1-dev` `latest-dev` | March 25th   | `sha256:d34c49003a3e8de5087a091f658ee3b6084b619fa61334f7a33bd08689234f28` |
+

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public prometheus-alertmanager Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-26 00:38:30
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,12 +23,12 @@ This page shows detailed information about the Chainguard **prometheus-alertmana
 
 |              | latest-dev                                                                      | latest                                                                          |
 |--------------|---------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Default User | `nonroot`                                                                       | `nonroot`                                                                       |
+| Default User | `alertmanager`                                                                  | `alertmanager`                                                                  |
 | Entrypoint   | `/usr/bin/alertmanager`                                                         | `/usr/bin/alertmanager`                                                         |
 | CMD          | `--config.file=/etc/alertmanager/alertmanager.yml --storage.path=/alertmanager` | `--config.file=/etc/alertmanager/alertmanager.yml --storage.path=/alertmanager` |
 | Workdir      | not specified                                                                   | not specified                                                                   |
-| Has apk?     | yes                                                                             | no                                                                              |
-| Has a shell? | yes                                                                             | no                                                                              |
+| Has apk?     | yes                                                                             | yes                                                                             |
+| Has a shell? | yes                                                                             | yes                                                                             |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/prometheus-alertmanager/tags_history/) for the full list of available tags.
 
@@ -37,32 +37,34 @@ The table shows package distribution across variants.
 
 |                           | latest-dev | latest |
 |---------------------------|------------|--------|
-| `apk-tools`               | X          |        |
+| `apk-tools`               | X          | X      |
 | `bash`                    | X          |        |
-| `busybox`                 | X          |        |
+| `busybox`                 | X          | X      |
 | `ca-certificates-bundle`  | X          | X      |
 | `chainguard-baselayout`   | X          | X      |
 | `git`                     | X          |        |
-| `glibc`                   | X          |        |
+| `glibc`                   | X          | X      |
 | `glibc-locale-posix`      | X          | X      |
-| `ld-linux`                | X          |        |
+| `ld-linux`                | X          | X      |
 | `libbrotlicommon1`        | X          |        |
 | `libbrotlidec1`           | X          |        |
-| `libcrypt1`               | X          |        |
-| `libcrypto3`              | X          |        |
+| `libcrypt1`               | X          | X      |
+| `libcrypto3`              | X          | X      |
 | `libcurl-openssl4`        | X          |        |
 | `libexpat1`               | X          |        |
 | `libidn2`                 | X          |        |
 | `libnghttp2-14`           | X          |        |
 | `libpcre2-8-0`            | X          |        |
 | `libpsl`                  | X          |        |
-| `libssl3`                 | X          |        |
+| `libssl3`                 | X          | X      |
 | `libunistring`            | X          |        |
 | `ncurses`                 | X          |        |
 | `ncurses-terminfo-base`   | X          |        |
-| `openssl-config`          | X          |        |
+| `openssl-config`          | X          | X      |
 | `prometheus-alertmanager` | X          | X      |
 | `wget`                    | X          |        |
+| `wolfi-base`              | X          | X      |
 | `wolfi-baselayout`        | X          | X      |
-| `zlib`                    | X          |        |
+| `wolfi-keys`              | X          | X      |
+| `zlib`                    | X          | X      |
 
