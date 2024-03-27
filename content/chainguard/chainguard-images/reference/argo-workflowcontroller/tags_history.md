@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argo-workflowcontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-22 00:34:55
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,10 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed  | Digest                                                                    |
-|---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest` `3` `3.5.5` `3.5`                 | March 21st    | `sha256:d886169501fc705d6effb8a47f9b7b3ebb6beaafe8b87d8305371ef9e1e4b63f` |
-|  `3.5-dev` `3-dev` `3.5.5-dev` `latest-dev` | March 21st    | `sha256:e7ae8c078a4bf28b6f32288f84dc42d561b42b01e502c838fa0bae5383d24273` |
-|  `3.5.4`                                    | February 26th | `sha256:de51bed36179c22e1e9d3affccdde5d868698464db95d8e0029e60c35b198022` |
-|  `3.5.4-dev`                                | February 26th | `sha256:1f989ff1a030040e0cb016ea4f93177b84052b4d68fe366e09234289fefc1606` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `3` `3.5.5` `3.5`                 | March 21st   | `sha256:d886169501fc705d6effb8a47f9b7b3ebb6beaafe8b87d8305371ef9e1e4b63f` |
+|  `3.5-dev` `3-dev` `3.5.5-dev` `latest-dev` | March 21st   | `sha256:e7ae8c078a4bf28b6f32288f84dc42d561b42b01e502c838fa0bae5383d24273` |
 

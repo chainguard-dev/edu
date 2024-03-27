@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -47,8 +47,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.10.0-r0-eks-1-25-33-dev`                                                                                                             | March 2nd     | `sha256:1a6aaa2b3d460d5e1efc0cd5fa304f9cf6520480ee04c8bb18b040317e3f8d47` |
 |  `2.10.0-r0-eks-1-25-33`                                                                                                                 | February 29th | `sha256:106524489fb2a1526510968354ec8871d187396cffc2215086418cff7d0be241` |
 |  `2.9.0-r2-eks-1-23-33`                                                                                                                  | February 29th | `sha256:541b0e0f5aed19e4f608e186de45eecd2b860403230a15e4fd24847794a350e3` |
-|  `1.25` `1` `1.25.39`                                                                                                                    | February 26th | `sha256:05c91442b4ac4d8eb61975fe3b3decc09f660cc273125dcbd56b5c43e8bf35a5` |
-|  `1.25.39-dev` `1-dev` `1.25-dev`                                                                                                        | February 26th | `sha256:4e9e9a200118725790fbb11cc8fd6d07568908d77506629424ea5c6292f12653` |
-|  `1.23` `1.23.33`                                                                                                                        | February 26th | `sha256:602bbbcd00b1dec832fb13b54ff25e666a435a9243669670dc39995a9e218c4e` |
-|  `1.23-dev` `1.23.33-dev`                                                                                                                | February 26th | `sha256:de979a1958e14da5a7a86f440cc12a65c313909469e6b723c06f6014bef6bab4` |
 

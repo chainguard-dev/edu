@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,4 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.34.1` `1` `latest` `1.34`                 | March 26th   | `sha256:5363988cbc0c282d75b6c233f016b64f750c8ee2113f762df65338df163ac57e` |
+|  `1.34-dev` `latest-dev` `1.34.1-dev` `1-dev` | March 26th   | `sha256:0457147dcb28e542427c68d4b40137340f17c62f6facc985fb503bfa754b3f3b` |
+
