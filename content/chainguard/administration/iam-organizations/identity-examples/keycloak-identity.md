@@ -2,7 +2,7 @@
 title : "Create an Assumable Identity for a CLI session authenticated with Keycloak"
 linktitle: "Keycloak Assumable Identity"
 aliases:
-- /chainguard/chainguard-enforce/authentication/identity-examples/enforce-keycloak-identity/
+- /chainguard/administration/iam-groups/identity-examples/keycloak-identity/
 lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Keycloak user."
 type: "article"
