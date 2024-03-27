@@ -46,9 +46,9 @@ If you are coming from a Red Hat UBI based Dockerfile, you'll need to adapt some
 
 | Command Description          | Red Hat UBI Dockerfile | Wolfi-based Equivalent |
 |------------------------------|------------------------|------------------------|
-| Install a package            | `yum install`          | `apk add`                |
-| Remove a package             | `yum remove`           | `apk del`                |
-| Update package manager cache | `yum makecache`        | `apk update`             |
+| Install a package            | `yum install`          | `apk add`              |
+| Remove a package             | `yum remove`           | `apk del`              |
+| Update package manager cache | `yum makecache`        | `apk update`           |
 
 ## Migrating from Alpine Dockerfiles
 If your Dockerfile is based on Alpine, the process for migrating to Chainguard Images should be more straightforward, since you're already using `apk` commands. Wolfi packages typically match what is available in Alpine, with some exceptions. For instance, the Wolfi busybox package is slimmer and doesn't include all tools available in Alpine's busybox. Check the [Alpine Compatibility](/chainguard/migration-guides/alpine-compatibility/) page for a list of common tools and their corresponding packages in Wolfi and Alpine.
@@ -64,10 +64,16 @@ Then, run `apk update` to update the local apk cache with latest Wolfi packages:
 
 ```shell
 apk update
+```
+
+You'll get output similar to this:
+
+```
 fetch https://packages.wolfi.dev/os/x86_64/APKINDEX.tar.gz
 [https://packages.wolfi.dev/os]
 OK: 46985 distinct packages available
 ```
+
 Now you can use `apk search` to look for packages. The following example searches for PHP 8.2 XML extensions:
 
 ```shell
@@ -75,7 +81,7 @@ apk search php*8.2*xml*
 ```
 You should get output similar to this:
 
-```shell
+```
 php-8.2-simplexml-8.2.17-r0
 php-8.2-simplexml-config-8.2.17-r0
 php-8.2-xml-8.2.17-r0
@@ -97,16 +103,29 @@ To search in which package you can find a command, you can use the syntax `apk s
 apk search cmd:useradd
 ```
 You'll get output indicating that the `shadow` package has the command you are looking for.
+
+```
 shadow-4.15.1-r0
 ```
 
 ### Searching for package dependencies
-To check for package dependencies, you can use the syntax `apk search -R info package`. For example, to search which packages are listed as dependencies for the `shadow` package that we've seen in the previous section, you can run:
+To check for package dependencies, you can use the syntax `apk search -R info package-name`. For example, to search which packages are listed as dependencies for the `shadow` package that we've seen in the previous section, you can run:
 
 ```shell
 apk -R info shadow
 ```
-And this will give you a list of dependencies for each version of the `shadow` package currently available.
+And this will give you a list of dependencies for each version of the `shadow` package currently available:
+
+```
+...
+shadow-4.15.1-r0 depends on:
+so:ld-linux-x86-64.so.2
+so:libbsd.so.0
+so:libc.so.6
+so:libcrypt.so.1
+so:libpam.so.0
+so:libpam_misc.so.0
+```
 
 ### Searching for packages that include a shared object
 To search which packages include a shared object, you can use the syntax `apk search so:shared-library`. As an example, if you want to check which packages include the `libxml2` shared library, you can run something like:
