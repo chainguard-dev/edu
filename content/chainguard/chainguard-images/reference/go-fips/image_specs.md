@@ -3,8 +3,8 @@ title: "go-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public go-fips Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -51,7 +51,7 @@ The table shows package distribution across variants.
 | `glibc-dev`                   | X          | X      |
 | `glibc-locale-posix`          | X          | X      |
 | `gmp`                         | X          | X      |
-| `go-fips-1.21`                | X          | X      |
+| `go-fips-1.22`                | X          | X      |
 | `isl`                         | X          | X      |
 | `ld-linux`                    | X          | X      |
 | `libatomic`                   | X          | X      |
@@ -88,7 +88,6 @@ The table shows package distribution across variants.
 | `openssh-server-config`       | X          | X      |
 | `openssh-sftp-server`         | X          | X      |
 | `openssl-config-fipshardened` | X          | X      |
-| `openssl-dev`                 | X          | X      |
 | `openssl-provider-fips`       | X          | X      |
 | `pkgconf`                     | X          | X      |
 | `posix-cc-wrappers`           | X          | X      |

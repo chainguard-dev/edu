@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the filebeat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:aec189216b71a42a4311563dab5c20b2e71ae7571ac9eb1f2dcc972d384d2847` |
-|  `latest`     | March 18th   | `sha256:2432b4d3724fdab26c6ec138b287550d1b1387ce575ced605901985978438a13` |
+|  `latest`     | March 26th   | `sha256:2b744a2351a11231850218b90af7728b0e51ce14419bed6d86dce0bdfce68b81` |
+|  `latest-dev` | March 26th   | `sha256:5f1870986eeca6009aa2263fe12b6cc6284a0428db287ee94b32b48697c5d7c1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.12.2-dev` `8.12-dev` `8-dev` `latest-dev` | March 18th   | `sha256:a26262392bb2a72ca86b5852530b09718187078c620bee715926324b8cfd154e` |
-|  `latest` `8.12.2` `8.12` `8`                 | March 18th   | `sha256:17fb11edd409d698bf061f71b823880995f1ae0b10f09ed66afcc4c48b713e6f` |
+|  `8.13` `latest` `8.13.0` `8`                 | March 26th   | `sha256:9572919b43df8f964233b04976cec211237a37e796601023a43d4ad2f078f9c3` |
+|  `8.13.0-dev` `latest-dev` `8.13-dev` `8-dev` | March 26th   | `sha256:ce05f3c3c4204f330dddb7a5e56383de4048399d42de2990f41fe32729ea3fec` |
+|  `8.12.2-dev` `8.12-dev`                      | March 18th   | `sha256:a26262392bb2a72ca86b5852530b09718187078c620bee715926324b8cfd154e` |
+|  `8.12.2` `8.12`                              | March 18th   | `sha256:17fb11edd409d698bf061f71b823880995f1ae0b10f09ed66afcc4c48b713e6f` |
 

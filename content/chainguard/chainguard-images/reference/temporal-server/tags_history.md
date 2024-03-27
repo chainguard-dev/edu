@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,10 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.22.6-dev` `1.22-dev` `latest-dev` `1-dev` | March 18th    | `sha256:19cdc76c2b6c7dd7ae0dd919b52992ff8230e05197cb5a08015b45dcd098cfa1` |
-|  `1.22` `1` `latest` `1.22.6`                 | March 18th    | `sha256:7b7a560cd6d96657b6782c30895f754a21e2cecb069755939bb7faf38b3d2878` |
-|  `1.22.5-dev`                                 | February 27th | `sha256:13d90cffdada1c51f577f9e8b91f9d064bba128a197cef6c561e8a6005986ec9` |
-|  `1.22.5`                                     | February 27th | `sha256:190ae0b8f543a6398d2995b93c2cba993257473331d0f7fe420df23a55768e00` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.22.6-dev` `1.22-dev` `latest-dev` `1-dev` | March 18th   | `sha256:19cdc76c2b6c7dd7ae0dd919b52992ff8230e05197cb5a08015b45dcd098cfa1` |
+|  `1.22` `1` `latest` `1.22.6`                 | March 18th   | `sha256:7b7a560cd6d96657b6782c30895f754a21e2cecb069755939bb7faf38b3d2878` |
 

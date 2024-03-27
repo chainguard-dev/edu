@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the proxysql Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,12 +35,11 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed  | Digest                                                                    |
-|---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2.6.1-dev` `2-dev` `2.6-dev` `latest-dev` | March 22nd    | `sha256:1cc7375ac5c7407acfb7150cd76e72449a1ba2233191dd550273414573a522e5` |
-|  `2.6.1` `2` `latest` `2.6`                 | March 22nd    | `sha256:3fee4ff5f66bb5091d5fe0f3252ca1821e77ee3db805e1db0ee1f8bb5f03d941` |
-|  `2.6.0`                                    | March 20th    | `sha256:04dfa528d211bf64c19a8f2a09b4d873114bf6aee1bf8862e9f471f36fa1832e` |
-|  `2.6.0-dev`                                | March 20th    | `sha256:66af6929c3fb48f842671729df3d5dd3b3a22753488a5c91224b4b7ac79cde80` |
-|  `2.5-dev` `2.5.5-dev`                      | March 2nd     | `sha256:46f55355d67f154683ecb2840f3e0dd3014e00b65383490aa41611a7736082db` |
-|  `2.5` `2.5.5`                              | February 26th | `sha256:5c6409ad936d57963ce30dd6f057d44f4c8e960a48016578646405cf39f8d027` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.6.1-dev` `2-dev` `2.6-dev` `latest-dev` | March 22nd   | `sha256:1cc7375ac5c7407acfb7150cd76e72449a1ba2233191dd550273414573a522e5` |
+|  `2.6.1` `2` `latest` `2.6`                 | March 22nd   | `sha256:3fee4ff5f66bb5091d5fe0f3252ca1821e77ee3db805e1db0ee1f8bb5f03d941` |
+|  `2.6.0`                                    | March 20th   | `sha256:04dfa528d211bf64c19a8f2a09b4d873114bf6aee1bf8862e9f471f36fa1832e` |
+|  `2.6.0-dev`                                | March 20th   | `sha256:66af6929c3fb48f842671729df3d5dd3b3a22753488a5c91224b4b7ac79cde80` |
+|  `2.5-dev` `2.5.5-dev`                      | March 2nd    | `sha256:46f55355d67f154683ecb2840f3e0dd3014e00b65383490aa41611a7736082db` |
 

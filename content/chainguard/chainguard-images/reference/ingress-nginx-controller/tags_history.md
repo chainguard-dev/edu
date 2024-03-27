@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,10 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest` `1.10.0` `1.10` `1`                 | March 25th    | `sha256:5248ef856ebf8a2289171d1f5316e164a1e66a2cc855c97d9626b1088eb6c70b` |
-|  `latest-dev` `1-dev` `1.10-dev` `1.10.0-dev` | March 25th    | `sha256:578f432093728e2610a145a35118e8abfd11df30db8963a2111806d1b623b7c7` |
-|  `1.9-dev` `1.9.6-dev`                        | February 26th | `sha256:800dddda1d5869e675b7a72711838d4ed267a2fa3f38bbd828e3ef829f728a61` |
-|  `1.9.6` `1.9`                                | February 26th | `sha256:f10203f14a6e462a77762f4186ab89f1e35222b64c22e06b04625c8dccd5af88` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `1.10.0` `1.10` `1`                 | March 25th   | `sha256:5248ef856ebf8a2289171d1f5316e164a1e66a2cc855c97d9626b1088eb6c70b` |
+|  `latest-dev` `1-dev` `1.10-dev` `1.10.0-dev` | March 25th   | `sha256:578f432093728e2610a145a35118e8abfd11df30db8963a2111806d1b623b7c7` |
 

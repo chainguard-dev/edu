@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-infrastructure-k8s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,10 +31,8 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                        | Last Changed  | Digest                                                                    |
-|------------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2.13` `2` `latest` `2.13.15`                 | March 25th    | `sha256:c3894450256b215c3ee5cc3e656cc7f106b344dd79ee1d0773c25e6064e5d926` |
-|  `2.13-dev` `2.13.15-dev` `2-dev` `latest-dev` | March 25th    | `sha256:b545c810189fed02248aa336550945ee85097a80eb22b186a324dd6bd2dcb54c` |
-|  `2.13.14-dev`                                 | February 26th | `sha256:d286271ea0cfda17bcc445e7599d1cbebe19b1a39955bd79d9ef3613c83b581b` |
-|  `2.13.14`                                     | February 26th | `sha256:101a170784c76b453090baf41370139410e33b1cebe612416a48844ea6b67aad` |
+| Tag (s)                                        | Last Changed | Digest                                                                    |
+|------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.13` `2` `latest` `2.13.15`                 | March 25th   | `sha256:c3894450256b215c3ee5cc3e656cc7f106b344dd79ee1d0773c25e6064e5d926` |
+|  `2.13-dev` `2.13.15-dev` `2-dev` `latest-dev` | March 25th   | `sha256:b545c810189fed02248aa336550945ee85097a80eb22b186a324dd6bd2dcb54c` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,10 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed  | Digest                                                                    |
-|-----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1` `1.19.2` `1.19` `latest`                 | March 18th    | `sha256:a68bbd5f627fdc4739eae5c9f05632e9277ba0def0fad01b854cba7c2ac627bd` |
-|  `latest-dev` `1.19.2-dev` `1.19-dev` `1-dev` | March 18th    | `sha256:7b20b266d4c10063940106a2f750e6c77b09be3c1b2cc83e62929a9b895bf3c3` |
-|  `1.19.1-dev`                                 | February 26th | `sha256:0e3e673e19df195c031af9b16566ac6ba0485b3caf183b9dd1ce1a0c111db87a` |
-|  `1.19.1`                                     | February 26th | `sha256:5495e54a9147b0aaa3c1a60cc77a8602d348f282c2ecdaa1e2a9298c7b43f304` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1-dev` `latest-dev` `1.19.2-dev` `1.19-dev` | March 26th   | `sha256:7b20b266d4c10063940106a2f750e6c77b09be3c1b2cc83e62929a9b895bf3c3` |
+|  `1` `1.19.2` `1.19` `latest`                 | March 18th   | `sha256:a68bbd5f627fdc4739eae5c9f05632e9277ba0def0fad01b854cba7c2ac627bd` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -47,8 +47,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.9.0-r3-eks-1-23-33-dev`                                                                                                              | March 2nd     | `sha256:b3f1e2d40f268a48c5a924e0e49309f7d56581cf1f926c1164e6483e0c52bfe9` |
 |  `1.9.0-r3-eks-1-23-33`                                                                                                                  | February 29th | `sha256:a86d875414e060110d684977df44f611799e51620f055b2c3b17172bb42bedb3` |
 |  `1.10.0-r0-eks-1-25-33`                                                                                                                 | February 29th | `sha256:ec95d34737f3c1ad5da6f74672d415116b662f6fcda360feca3ad3a947d129b9` |
-|  `1.23.33` `1.23`                                                                                                                        | February 26th | `sha256:82cf5cfed9813a1e48df5385b7beec27b8da9f9ca4dc917d09126269b0e832c6` |
-|  `1.25.39` `1.25`                                                                                                                        | February 26th | `sha256:3dd04f87af35e1ecaf3f8f7f2460502e2463bed5ef18ab537ca2132352b63e5f` |
-|  `1.23-dev` `1.23.33-dev`                                                                                                                | February 26th | `sha256:477341916b983145d6c9b3927c55c56affc4840821b403a9c751e127e5eb3510` |
-|  `1.25-dev` `1.25.39-dev`                                                                                                                | February 26th | `sha256:d62ec2e06586bab37778b7da92705d34da0749437447056a2c10d82525e1b8f0` |
 

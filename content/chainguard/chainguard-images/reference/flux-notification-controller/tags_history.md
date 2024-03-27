@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-notification-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-22 00:34:55
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -40,9 +40,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.2.4` `1.2` `1` `latest`                 | March 21st   | `sha256:56bed3af29e02ea5655496fbe86cec40da93279ce6e92cfa6e27754904113cce` |
 |  `latest-dev` `1-dev` `1.2.4-dev` `1.2-dev` | March 21st   | `sha256:56bbb23cdfdcfcff882abcc255353f2c09075d3b25f059117fda36e08bda9f85` |
 |  `1.0` `1.0.0`                              | March 18th   | `sha256:c84e5c5dc4252c5a9b068a9d704eb006010100c4fe96743306fceaf082ff9682` |
-|  `0.33.0` `0.33` `0`                        | March 18th   | `sha256:32a623086033cd75c1cc21c92cee21586bb8a042908c3d1974ab35e87517c1f2` |
-|  `0.29` `0.29.0`                            | March 18th   | `sha256:3a6ba470f28b8e1565da5420c45fecff293b4794c722785e8dc80b53df0c77be` |
-|  `0.33.0-dev` `0.33-dev` `0-dev`            | March 18th   | `sha256:eb9dc701b4344eea771c618d1708fba438366c93b58b22c688dd2253f4d1fc06` |
 |  `1.0-dev` `1.0.0-dev`                      | March 18th   | `sha256:add4e9c5c99181617e1311c14ce2a33fa4191ea6f04df4b4ef53ef2ad6bfcde1` |
-|  `0.29-dev` `0.29.0-dev`                    | March 18th   | `sha256:60568f2b8f2dd9f5f7b7f8f7c264ac56992ea50ed8d23cabf28e8535b5aa0297` |
 
