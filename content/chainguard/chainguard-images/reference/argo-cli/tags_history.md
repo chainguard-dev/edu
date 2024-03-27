@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argo-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-22 00:34:55
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,10 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed  | Digest                                                                    |
-|---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `3.5.5-dev` `latest-dev` `3-dev` `3.5-dev` | March 21st    | `sha256:ad321a7afa2ee2b5a7dfeebb3e5c366968280e3d37ccd5bb90d985a5265e5c6a` |
-|  `latest` `3.5` `3.5.5` `3`                 | March 21st    | `sha256:ab9f2fd329df14bdce65ec4947189c38ebd4121f076f61cc159e34ac7f1ce952` |
-|  `3.5.4-dev`                                | February 26th | `sha256:86c213c06f0d0f0e38dd1c1aeb0155da436fb04589e8568bcff049fefb8e43b1` |
-|  `3.5.4`                                    | February 26th | `sha256:1b9b7d9b981b08b786d6f6d303c8ed2efa8357511dab12b5d69c2891d3079377` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `3.5.5-dev` `latest-dev` `3-dev` `3.5-dev` | March 21st   | `sha256:ad321a7afa2ee2b5a7dfeebb3e5c366968280e3d37ccd5bb90d985a5265e5c6a` |
+|  `latest` `3.5` `3.5.5` `3`                 | March 21st   | `sha256:ab9f2fd329df14bdce65ec4947189c38ebd4121f076f61cc159e34ac7f1ce952` |
 

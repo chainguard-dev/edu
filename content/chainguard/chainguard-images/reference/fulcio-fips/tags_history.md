@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fulcio-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,10 +31,8 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed  | Digest                                                                    |
-|---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `latest` `1.4.4` `1.4` `1`                 | March 18th    | `sha256:6e85156600d9892a5f058d66f0156ab1f824642d25efa1f886c0d0124842f584` |
-|  `latest-dev` `1.4.4-dev` `1-dev` `1.4-dev` | March 18th    | `sha256:06933d7c628ffaa1f0c7a79abf1a864c3973c1920cd1d830d6a6c41694e0e635` |
-|  `1.4.3`                                    | February 26th | `sha256:747557ca4eac5f2d2e9ed58f57e48edcac8677215ed03791548397a1d5d982be` |
-|  `1.4.3-dev`                                | February 26th | `sha256:8d79e00815372e712c31e3d83af4f161e665ee515c4585f6f1d7d38a8332047e` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `1.4.4` `1.4` `1`                 | March 18th   | `sha256:6e85156600d9892a5f058d66f0156ab1f824642d25efa1f886c0d0124842f584` |
+|  `latest-dev` `1.4.4-dev` `1-dev` `1.4-dev` | March 18th   | `sha256:06933d7c628ffaa1f0c7a79abf1a864c3973c1920cd1d830d6a6c41694e0e635` |
 

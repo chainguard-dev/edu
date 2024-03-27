@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public jre Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -73,9 +73,9 @@ The table shows package distribution across variants.
 | `libunistring`           | X          |        |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
-| `openjdk-21-default-jvm` | X          | X      |
-| `openjdk-21-jre`         | X          | X      |
-| `openjdk-21-jre-base`    | X          | X      |
+| `openjdk-22-default-jvm` | X          | X      |
+| `openjdk-22-jre`         | X          | X      |
+| `openjdk-22-jre-base`    | X          | X      |
 | `openssl-config`         | X          | X      |
 | `p11-kit`                | X          | X      |
 | `p11-kit-trust`          | X          | X      |

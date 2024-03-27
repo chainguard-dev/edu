@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the docker-selenium Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 24th   | `sha256:22295f34a40fbd5ed30f95a32f79465febcd7766eecff1c91163c946d2dd6dac` |
-|  `latest`     | March 24th   | `sha256:4c9c9527cb8a3201f4ce0f121a17395ca6b493c5e9fa48e1549fb537de7df97a` |
+|  `latest`     | March 26th   | `sha256:721615efbc0d56a7f2a765348037287ed47e23af3a296f57571b52ac5a76026f` |
+|  `latest-dev` | March 26th   | `sha256:77e7941509d6397a4408cb356ae0d2946f6ad5ec3b1cffc58391ec30bb21eff9` |
 
 
 ### Private/Dedicated Registry

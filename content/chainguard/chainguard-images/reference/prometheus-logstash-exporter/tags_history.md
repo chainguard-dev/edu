@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-logstash-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-27 00:48:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,10 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed  | Digest                                                                    |
-|---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.6.3-dev` `1.6-dev` `latest-dev` `1-dev` | March 18th    | `sha256:806390efb1ab8b8532406bfeb2803f20ed37dcf5392032b378e4ae73f91d4eac` |
-|  `1.6.3` `latest` `1` `1.6`                 | March 18th    | `sha256:4d72228d89f812a7411c110b211647f05986763bd8f43049040906d24306bfce` |
-|  `1.6.2-dev`                                | February 26th | `sha256:00b330be7b44178e84bda67ea1bc7c58a5f16d0597c43faf72b3e4d98192cda0` |
-|  `1.6.2`                                    | February 26th | `sha256:e036d31652c30e17a51099778f2650c8c3805c1edfa20c0ecb848ce0126f1cbf` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.6.3-dev` `1.6-dev` `latest-dev` `1-dev` | March 18th   | `sha256:806390efb1ab8b8532406bfeb2803f20ed37dcf5392032b378e4ae73f91d4eac` |
+|  `1.6.3` `latest` `1` `1.6`                 | March 18th   | `sha256:4d72228d89f812a7411c110b211647f05986763bd8f43049040906d24306bfce` |
 
