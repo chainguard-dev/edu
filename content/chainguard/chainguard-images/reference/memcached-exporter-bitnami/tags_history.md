@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the memcached-exporter-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 23rd   | `sha256:d53511b9ee15324262d28c6dc90930efe4199ba4e657a68ab43e3ce8a1e7bc6e` |
+|  `latest` | March 27th   | `sha256:109e541b08802029146b6faa8e02d5a61b5967b1b8157f4a6266a7daed4c4ecc` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14.3-dev` `0-dev` `0.14-dev` `latest-dev` | March 24th   | `sha256:02119dfa2aa9b990feda353a99ac0877c58b6df7e56c9e874a8d49484665d838` |
-|  `latest` `0.14` `0.14.3` `0`                 | March 24th   | `sha256:292a9909f0a49ca4c11f59fcea5ae0bd2fe4ecfa0a746e8946df6e9745172f00` |
+|  `0` `0.14` `latest` `0.14.3`                 | March 27th   | `sha256:ecd90c69db1f6555a13bbf7a94a0a3192afc9cb97611edc9c0f04cdcf0f67abe` |
+|  `latest-dev` `0-dev` `0.14-dev` `0.14.3-dev` | March 27th   | `sha256:312d8ead4e6eb61d89ffb7ffc75732a1f4b9c5500915412434021f1e46282b9f` |
 |  `0.14.2`                                     | March 18th   | `sha256:8e27a0d02043302029be4bc1fee4b4143fb62831ab326b7722a55cdd33479ec2` |
 |  `0.14.2-dev`                                 | March 18th   | `sha256:fd368ece14b01bc1368b4b91c7a394625e63c23275aeb7955d9f40eed4a86138` |
 

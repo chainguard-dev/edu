@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:3eb986fbfc4cdcb3f7292e5c83637b3bdadb79142a3797364bcef1649e92af04` |
-|  `latest-dev` | March 18th   | `sha256:bcf252b03db19405cfed967198fbea4844548239162585d92c23971c9cc10696` |
+|  `latest-dev` | March 27th   | `sha256:2a654858fe588a175bf8125928e9f52e11c0d8d4a59eb07ff19a97d26cf555d6` |
+|  `latest`     | March 27th   | `sha256:cf6a2761d285dc6a1efbe4924f7c2daa5ec4349e0467f93458a729288678d044` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.19.2-dev` `1.19-dev` | March 26th   | `sha256:7b20b266d4c10063940106a2f750e6c77b09be3c1b2cc83e62929a9b895bf3c3` |
-|  `1` `1.19.2` `1.19` `latest`                 | March 18th   | `sha256:a68bbd5f627fdc4739eae5c9f05632e9277ba0def0fad01b854cba7c2ac627bd` |
+|  `1` `1.19` `1.19.2` `latest`                 | March 27th   | `sha256:babfc14f36f64df8e73d721eed102b893d3f41bc505826429ddf278a35f52d8f` |
+|  `latest-dev` `1.19.2-dev` `1.19-dev` `1-dev` | March 27th   | `sha256:b902d8a0f8e633c0756f8cfdb138ab36a7591fe206cbafde6024506816144497` |
 

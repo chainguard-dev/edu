@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-admin-tools Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 23rd   | `sha256:b40936d4eb94d543b654218eeec42a219930f49f93cc8cad7a681dbabd305214` |
-|  `latest-dev` | March 23rd   | `sha256:16c08f06ddf3d164916589d6bf1eef8dc2644ac41fa9ef7d89ce8ff041ff3927` |
+|  `latest-dev` | March 27th   | `sha256:e9a5042bb73c0c781c47faf910ff5f05e46baf90509dd75165a3ac4cd06e75b9` |
+|  `latest`     | March 27th   | `sha256:67537e6aa29689fdb083b9b14957697d997d02b8279cad53861fd3eeb0bd74e4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.11.0-dev` `0.11-dev` `latest-dev` | March 25th   | `sha256:b872fea2bf98f84663fd2217f2724e93af45d3e14d1b27f889411a9453a59136` |
-|  `0` `latest` `0.11.0` `0.11`                 | March 22nd   | `sha256:8a6ab32dbd0d6169b78447ec2a3219101e780463281440b0542222b77b2aff8b` |
+|  `0` `0.11.0` `0.11` `latest`                 | March 27th   | `sha256:fa6c325f9d72b45e41572dcc6ae0c0b1119870de9c451660321d23b88f282a40` |
+|  `latest-dev` `0-dev` `0.11.0-dev` `0.11-dev` | March 27th   | `sha256:b3e6b793393d5ab32637fda0cc5dbd58c63f28d976d19a28e4d77ceebcaa2bbd` |
 

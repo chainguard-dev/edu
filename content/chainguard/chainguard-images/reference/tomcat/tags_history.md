@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tomcat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,11 +36,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10` `10.1.20` `10.1`                       | March 19th   | `sha256:43afe7b64bc130579af14dcd5f69b96e16777abb1076253b848d0e4a83f1556a` |
-|  `10-dev` `10.1-dev` `10.1.20-dev`           | March 19th   | `sha256:7bca9d1edcc0ead43b9a6ff7e919612a502a52eae3827d38ad3e16aeccdbf983` |
-|  `9.0.87-dev` `9.0-dev` `latest-dev` `9-dev` | March 18th   | `sha256:c5ba5f2de64be11f0d84c4b6d90e1389e5c563097c467c3a4b26772e01743ad7` |
+|  `9` `latest` `9.0` `9.0.87`                 | March 27th   | `sha256:ba00b107fcf5c1fb5d139a0accfd8b9a4ca6d688efc782a37f0fc5a6867d8333` |
+|  `10.1.20-dev` `10.1-dev` `10-dev`           | March 27th   | `sha256:85d191a337544776a2aacdcab1a66f8f33fde37a48a413b20ec954a8df20e6e6` |
+|  `10.1` `10.1.20` `10`                       | March 27th   | `sha256:bf65c7b69dcfe1240d12b4001b7d8830d42c4b117218cb9477ce61c9be30cefa` |
+|  `9.0.87-dev` `9-dev` `9.0-dev` `latest-dev` | March 27th   | `sha256:1498296f5a5176d953f5cbd9cb6f1d3c44f9161239cb5f93e4d179f5595a9e45` |
 |  `10.1.19`                                   | March 18th   | `sha256:881abefee00e9be0f2694c8beeeb5d03d5a30752a8c8b033b913e0d5418ab422` |
-|  `latest` `9.0.87` `9` `9.0`                 | March 18th   | `sha256:eff7732128cd9ba52ed7d818fc3065ac6b931fc11f10bd72d2d77dff456218f4` |
 |  `10.1.19-dev`                               | March 18th   | `sha256:a3436b00e7ba39e9913fac7ba604cd223ea4e56b791e3e48a03763536c9a7662` |
 |  `9.0.86-dev`                                | March 10th   | `sha256:06645baf8b6e5888fa0ff6ce3aea5ee8dfec2fc109be876ba6daa0b7a409700b` |
 |  `9.0.86`                                    | March 10th   | `sha256:27f2aac053e76b237dd65a5d6a17a0bed6d714eb4aa377c4561792aba428bed7` |

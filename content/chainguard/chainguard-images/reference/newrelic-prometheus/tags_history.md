@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:6d008a78c34a7af542834f0c86395e23f1026afa0ce74a29978df964152409bb` |
-|  `latest`     | March 18th   | `sha256:e629a95af89788f18434e48099c8307679bcf1b4e651530bcf75f2eed0665b5f` |
+|  `latest`     | March 27th   | `sha256:37ee41a1a3046e37602e92b40fb2126cdd6eacd13f73f92847ad1a00cd4639dd` |
+|  `latest-dev` | March 27th   | `sha256:ffd3adf108d3ed7169a4b20d29230ec77ebc4d87ec5cab23ccf12d86de4d3778` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.21` `2.21.0` `2`                 | March 18th   | `sha256:a0a8a7065a9b2a18b48d2429c1f24a14e92c1ab13a8f89bd3f56f14e7dbea3f3` |
-|  `latest-dev` `2-dev` `2.21.0-dev` `2.21-dev` | March 18th   | `sha256:5817f2d876ccaf784a1177f25275dc47bd346aa84691d48c5ac780f67ecc613e` |
+|  `latest` `2.21.0` `2` `2.21`                 | March 27th   | `sha256:e6c1766688e7595915bf3e9045210ea73b5b3dca75555d55479f5cc678bf5d36` |
+|  `2.21.0-dev` `latest-dev` `2-dev` `2.21-dev` | March 27th   | `sha256:962dfe3adb8791902db1abf030fea7a21d760a29bf099498f85e4f79e07bad51` |
 

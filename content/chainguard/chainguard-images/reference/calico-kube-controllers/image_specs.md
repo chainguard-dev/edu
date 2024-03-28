@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public calico-kube-controllers Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -50,7 +50,7 @@ The table shows package distribution across variants.
 | `ld-linux`                | X          | X      |
 | `libbrotlicommon1`        | X          |        |
 | `libbrotlidec1`           | X          |        |
-| `libcrypt1`               | X          | X      |
+| `libcrypt1`               | X          |        |
 | `libcrypto3`              | X          |        |
 | `libcurl-openssl4`        | X          |        |
 | `libexpat1`               | X          |        |
@@ -60,6 +60,8 @@ The table shows package distribution across variants.
 | `libpsl`                  | X          |        |
 | `libssl3`                 | X          |        |
 | `libunistring`            | X          |        |
+| `libxcrypt`               | X          | X      |
+| `libxcrypt-dev`           | X          | X      |
 | `linux-headers`           | X          | X      |
 | `ncurses`                 | X          |        |
 | `ncurses-terminfo-base`   | X          |        |

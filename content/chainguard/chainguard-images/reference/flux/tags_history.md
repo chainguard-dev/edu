@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.2.3-dev` `2.2-dev` `2-dev` | March 21st   | `sha256:94686d89e1bc9308ca8a3f65aa43a349a87602289d88ef44fc343399276d1e43` |
-|  `2` `latest` `2.2.3` `2.2`                 | March 21st   | `sha256:47739ab91ac807e1de24bedd3f9f15cacc48edec178303ace4398b467405e599` |
+|  `2.2-dev` `2-dev` `latest-dev` `2.2.3-dev` | March 27th   | `sha256:41f1ab346b7f84348f6db174660d78ce0798178cd9672b7a070594ed92127f1d` |
+|  `2` `2.2.3` `2.2` `latest`                 | March 27th   | `sha256:0a47fb2081ad06a13d151ae9c4953367b7de82363707671c76c56c02595b2c34` |
 |  `2.0.1-dev` `2.0-dev`                      | March 18th   | `sha256:450718cfc4046e79d088812a0f0f41c843a0f2f2bc81bca9338248f0d698acdc` |
 |  `2.0.1` `2.0`                              | March 18th   | `sha256:d61ee022c0891cc78882e60aa2cb1a2ed1ce6e42aff5a5d6df3502904faa27e3` |
 

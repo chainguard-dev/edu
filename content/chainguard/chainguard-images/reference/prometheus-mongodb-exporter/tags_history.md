@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:d76e68de65083f40603edcef7d8b8522444547d7fff783d6597de8252bff4417` |
-|  `latest-dev` | March 18th   | `sha256:1f1254868f53ffaf02e098d083376103b6eaa818647c9f1c106b1bf96e8037c6` |
+|  `latest-dev` | March 27th   | `sha256:7a71a282557ebca1ff2af0f574eb194cf16e563bee9c2e4a589a9fa405404363` |
+|  `latest`     | March 27th   | `sha256:803f66f286faeafc92d7c4f17abdaf1cdf40fb34b4ae38366742eaee8e705c09` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.40.0-dev` `0.40-dev` `0-dev` `latest-dev` | March 18th   | `sha256:4508f76e7ce2c0a80b44eb40a24b2d63bcf5f8838c6f1eb161ad93f95ac42be0` |
-|  `0.40.0` `0.40` `0` `latest`                 | March 18th   | `sha256:ea916753c482c993a323cfcaa8dd968b9f73ca3ac9a5dad1bfe24bf2e4d7e63b` |
+|  `0.40.0` `0.40` `0` `latest`                 | March 27th   | `sha256:a3bca7a96783e4f67684f15c1c316862f999e4272a7e3fa18de5164dbbf7101e` |
+|  `0.40.0-dev` `0.40-dev` `0-dev` `latest-dev` | March 27th   | `sha256:281c1f4a3e1913a64b18d1aedcb73cedef2938e3c772349e19cd815cc5e8a5f7` |
 

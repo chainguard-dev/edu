@@ -3,8 +3,8 @@ title: "dotnet-sdk-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public dotnet-sdk-fips Chainguard Image."
-date: 2024-03-15 00:51:40
-lastmod: 2024-03-15 00:51:40
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -67,6 +67,7 @@ The table shows package distribution across variants.
 | `libssl3`                     | X          | X      |
 | `libstdc++`                   | X          | X      |
 | `libunistring`                | X          |        |
+| `libxcrypt`                   | X          | X      |
 | `lttng-ust`                   | X          | X      |
 | `ncurses`                     | X          |        |
 | `ncurses-terminfo-base`       | X          |        |

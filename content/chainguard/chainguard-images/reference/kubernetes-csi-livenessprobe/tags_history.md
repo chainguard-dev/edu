@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:699304aded9b9ebfd5db2fdbe177b4d7ced0242e97631fa33fff9232d3a707fe` |
-|  `latest`     | March 18th   | `sha256:fadf817ce9705531837a65e6ac2b40860289d074c6fb8b7fa3e9057f40e038d8` |
+|  `latest-dev` | March 27th   | `sha256:23f50cbf3782917e62998f2276e7fc877bc1d1893f08fb6892ebbd2571f4c569` |
+|  `latest`     | March 27th   | `sha256:a7f734f9533e1e3eedb4de0f1429689107f6b57c48b4112cf761bfde342b479b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.12.0-dev` `2.12-dev` | March 25th   | `sha256:5515f6d56e92bb1b3005d289b1e6ab83c0273fcba199404ac047ff0c45034a3b` |
-|  `2.12` `latest` `2` `2.12.0`                 | March 18th   | `sha256:3513c35388de8c976edad666f8d825308107da31148d7a2cda4809f2f9a906de` |
+|  `2.12.0-dev` `2-dev` `2.12-dev` `latest-dev` | March 27th   | `sha256:31e889424b0cf9f5a1fdca766867303bfbae79eca84899660cff00589c1d7ec4` |
+|  `2.12` `2.12.0` `2` `latest`                 | March 27th   | `sha256:7c1c025c5b6fc32875b4efa25f38446f005185d3e3e598a6675f81623f6f52ea` |
 

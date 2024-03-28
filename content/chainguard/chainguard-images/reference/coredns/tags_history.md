@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the coredns Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.11-dev` `latest-dev` `1.11.1-dev` | March 20th   | `sha256:d54661973aed9e6d868c7f82aa98a830f061859f82b8b8ffdde3977207666946` |
-|  `1` `latest` `1.11` `1.11.1`                 | March 20th   | `sha256:0939b5fdcc88dd3d6731055ead2b2fc9fce216c0b2be5883e57d6f51a6889787` |
+|  `1` `latest` `1.11.1` `1.11`                 | March 27th   | `sha256:c76dd5359550d03f47fc941d2fe3d8ed92d800ed46b6bccd5691be1dab6f8f23` |
+|  `1.11.1-dev` `1-dev` `1.11-dev` `latest-dev` | March 27th   | `sha256:459bf67f1f470a87e975acc4dd411e8784615035f85efb86e0bf57e574082f05` |
 |  `1.11.2-dev`                                 | March 18th   | `sha256:c915c33fb119e6015284fdf4e1ee2c632b8231e6789552500ea588daadeb1c12` |
 |  `1.11.2`                                     | March 18th   | `sha256:a9163de24269f49945b6995c4be94c2a5ce0d1f8a1c189e4506acc301bd38081` |
 

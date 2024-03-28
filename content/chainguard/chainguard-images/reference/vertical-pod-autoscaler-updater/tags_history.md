@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:112b0913a7cb1d4a6c3c7e4c6a62965443a4d290e26252175cfef0a82018a114` |
-|  `latest`     | March 18th   | `sha256:22e78bc9125d47de2c153a4a684579fccb6199509df5e54bc78216680db00538` |
+|  `latest-dev` | March 27th   | `sha256:e7dfc8d4a124b78279cb8266096076268e2d5615353e32ce7f6048b76fd262cd` |
+|  `latest`     | March 27th   | `sha256:74372ff500376fa48e24258f95e942b2baab249f712704c4f7b129db1a070968` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.0-dev` `1.0.0-dev` `1-dev` | March 25th   | `sha256:38821a752d3df15ff71b1836bdb156f3fa84d5bd4309a3989956d498b0ae68be` |
-|  `latest` `1` `1.0.0` `1.0`                 | March 18th   | `sha256:65cb8f46f9fc85d1d0bba59d3e332220381a6dd04529c234ef8f6df276181190` |
+|  `latest` `1.0.0` `1.0` `1`                 | March 27th   | `sha256:a794573df3864b4e044becef90a27065bfcb58ed21b7821e17960b0bab3a9b93` |
+|  `1.0-dev` `1.0.0-dev` `1-dev` `latest-dev` | March 27th   | `sha256:bfb5c4f068708f6d46005383eccd40163c3f8fc7af7ad62a3f689938a621ee06` |
 

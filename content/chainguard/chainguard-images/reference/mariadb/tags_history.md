@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:436eb4f7cee11b9afdaf25fad041a12dc953e4d9298d0d3587665238a250d5ef` |
-|  `latest`     | March 18th   | `sha256:2ee96fa3c65f547b33188f5f45314df18e38121c55ee644574b472b9b593acb1` |
+|  `latest-dev` | March 27th   | `sha256:c41939d7d3fd775a5715a91b155e42853f02cebd87156411f14d300c319fb946` |
+|  `latest`     | March 27th   | `sha256:2b858437fe597051118da2ab0fb6ca3052fc19a57b9a2708734331bb984cc203` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10.11-dev` `latest-dev` `10.11.7-dev` `10-dev` | March 18th   | `sha256:1eaed003154e06b9951ad2253272508855f5268af48dbee225565761665a82f3` |
-|  `10.11` `latest` `10.11.7` `10`                 | March 18th   | `sha256:7afe15d87e7a3bf12ae61e761399c5387363b03ebd5364b38a5ffa3ec302c446` |
+|  `10` `10.11` `10.11.7` `latest`                 | March 27th   | `sha256:c972c01d951a94949888ade9a7ae6cbdab006da2472fc45913ccce995431dcc5` |
+|  `10-dev` `10.11.7-dev` `10.11-dev` `latest-dev` | March 27th   | `sha256:3dfa50586bb75449bdc532e3691ba0061e519a869203541c10800ed18e5761c9` |
 

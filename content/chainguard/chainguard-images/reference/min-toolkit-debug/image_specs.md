@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public min-toolkit-debug Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -91,6 +91,7 @@ The table shows package distribution across variants.
 | `libunistring`            | X      |
 | `libuv`                   | X      |
 | `libverto`                | X      |
+| `libxcrypt`               | X      |
 | `libxml2`                 | X      |
 | `libzstd1`                | X      |
 | `ltrace`                  | X      |

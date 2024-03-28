@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-admission-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:1eb3e1e93fb3d17734ec3f632b79c349bb997619d409f74d31ff3d5cee28aa8d` |
-|  `latest`     | March 18th   | `sha256:3fd5d4b21230060234f0e9dec903a1f81939fcfa572392c570ea10ce0b0dd766` |
+|  `latest-dev` | March 27th   | `sha256:67e1c0a6cf091d8680e92d6550e66d14c5a79502f4865b6e6f63c59d96d1c901` |
+|  `latest`     | March 27th   | `sha256:dd02fab43e13ab858c0ce701d8da7ec24ea5d7bc72b53d4e596c3b2d80d68e24` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.0-dev` `latest-dev` `1.0.0-dev` | March 25th   | `sha256:f77e3eb0416607aa40cdb218af9ef7415d2031f153810e394598776d4e61824c` |
-|  `1.0` `latest` `1` `1.0.0`                 | March 18th   | `sha256:6320117f890c4a1bd57c7e1994d78f7b93a5547d8979bd438e0d4945cba52d0e` |
+|  `1.0-dev` `latest-dev` `1.0.0-dev` `1-dev` | March 27th   | `sha256:d838ebbb7777ac0ba5533f5ddd69352be1783d5ba609940c09d75eb1c022c7ca` |
+|  `latest` `1.0.0` `1` `1.0`                 | March 27th   | `sha256:426dc05d4d14950d5f3c04134c904911865a1865638ac5605855dc009b76be6e` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-problem-detector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:d7b486f38b35868d8aa6c11640123e049e2434d748ede8e856f7bd4351307a24` |
-|  `latest-dev` | March 18th   | `sha256:b170e57f69ae061e844955ace46ac392fee36fa12a6299cbb34c4e54e42ff901` |
+|  `latest`     | March 27th   | `sha256:6c8ee1f34253b31c5f9d6e6b509c61ed8e13ffd201e836530403af627c5b01c4` |
+|  `latest-dev` | March 27th   | `sha256:68cc85783e05d5aa9868c321da20fec2b8415b0215ee2ad2d5e8c68f4ebfcc9b` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed  | Digest                                                                    |
 |----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.8` `0.8.17` `0` `latest`                 | March 18th    | `sha256:b9ad8424aaab8d8cad5bce0228310d3023c889dee12123ccfb82bc3183db71c0` |
-|  `0-dev` `0.8-dev` `latest-dev` `0.8.17-dev` | March 18th    | `sha256:8fbc1faa9f0a27c7ff3598dfea1acaa2051e41bd18f69deb61f7b3e0704266d0` |
+|  `0.8` `0` `0.8.17` `latest`                 | March 27th    | `sha256:23381eaef477c1f02eb6add0d0c90f089d152608cc2195fc07ae83c7f0499d06` |
+|  `0.8-dev` `0.8.17-dev` `0-dev` `latest-dev` | March 27th    | `sha256:27138552f34e455fce834fdbf6bce732a784f50492fdd7548ea0d621578d0210` |
 |  `0.8.16-dev`                                | March 2nd     | `sha256:bc40e22dc1321db3998476a40e5e5bcc14e305eed12dfd88e35715f13c43e92b` |
 |  `0.8.16`                                    | February 28th | `sha256:7d02dca25e4ea9c914b27483cfe04f0ea2b397f53c2c659f286f57f9983ac0d4` |
 

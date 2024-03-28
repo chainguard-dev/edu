@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public hubble-ui Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -49,6 +49,7 @@ The table shows package distribution across variants.
 | `libgcc`                 | X      |
 | `libssl3`                | X      |
 | `libstdc++`              | X      |
+| `libxcrypt`              | X      |
 | `nginx-mainline`         | X      |
 | `nginx-mainline-config`  | X      |
 | `openssl-config`         | X      |

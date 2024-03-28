@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:6ba90ae0f9c6cd5a9cc82e078640f8fc07f4e803949fc3e4967c6fc00e5b003d` |
-|  `latest-dev` | March 18th   | `sha256:8ca2174db5653cf12af5b14a0654fcb23ca541eb98804e1444a6e2d6d0a1e5b8` |
+|  `latest`     | March 27th   | `sha256:55273470e6375c74f86a0d9560331db8b515b9e628e6de3e04343f98f7fd2453` |
+|  `latest-dev` | March 27th   | `sha256:cacfbcb2743c687c2f97c12684752a861ca5a9b712e9990c39bc04b4a9f5197e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.5-dev` `1-dev` `1.5.0-dev` `latest-dev` | March 25th   | `sha256:94a5998ed9ea3f85828a44179b561b88b4adb1c2e953c28f95109dd83bffed68` |
-|  `1.5.0` `1` `1.5` `latest`                 | March 18th   | `sha256:fc1a5f59c52716efc13d66536298e3569339229ea3e0e11eb7cd2e8733bf1e23` |
+|  `1.5.0-dev` `1.5-dev` `1-dev` `latest-dev` | March 27th   | `sha256:c837a20c2eb50f4ca37cc47aefdf5cdb324aeb408497c719ff75bd6807618b49` |
+|  `1.5` `1` `latest` `1.5.0`                 | March 27th   | `sha256:acea2da01ff578a704319eb0f9c7d1eeb0b1c4b1e96a1f8bb358922682b08b27` |
 

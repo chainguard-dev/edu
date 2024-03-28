@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector-contrib Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 26th   | `sha256:25ffda6aeddb5f35b053469995c84aea37a7ef6d9ec42afbf8e3ac5f0f14ae12` |
-|  `latest`     | March 26th   | `sha256:de1b0e7d1d57e63a043f2a6dc1fdc1e9412663e1365ad25b21b61ac804125574` |
+|  `latest`     | March 27th   | `sha256:5029b975d65c2b2aa3f80071cfb268beaa2ab3d3aa50c08de54ba9d8d979eddb` |
+|  `latest-dev` | March 27th   | `sha256:3036bd705c4a59dd89d0ab4cc5b5999af4c6cf712e03590ce2fd16b10e80207c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.97.0-dev` `0.97-dev` `0-dev` | March 26th   | `sha256:acfa23ec8819a32c80df04325f33c4989db114721fc9db759120cccdf3046825` |
-|  `0.97.0` `0` `latest` `0.97`                 | March 26th   | `sha256:a33cc4ec7d185a6540cd458894d4ed631f5e8601089bb094f911041496f7c271` |
+|  `latest-dev` `0-dev` `0.97.0-dev` `0.97-dev` | March 27th   | `sha256:77e8420daaacb3bf5026d9514a39c8722e0e22e50150fb1c8b48a3e4727cef43` |
+|  `0.97.0` `0` `latest` `0.97`                 | March 27th   | `sha256:4638d4f4373dc368d8642daa09270f7e459f8122a055dd1b958b0c25831ce9a1` |
 |  `0.96-dev` `0.96.0-dev`                      | March 18th   | `sha256:ac6865a8f27f0c027639ba49f2c4251a7ec3273a25ba27fb79354673d467c61d` |
 |  `0.96.0` `0.96`                              | March 18th   | `sha256:066142617c42addce3d2d34dddd9849ba1ce143cd05eab93f3cd308da455c7a8` |
 |  `0.95-dev` `0.95.0-dev`                      | March 2nd    | `sha256:7d4d2f332b473f2e304a83c04f1d0af177e1acd67c74b24d79879a2e09f5036e` |

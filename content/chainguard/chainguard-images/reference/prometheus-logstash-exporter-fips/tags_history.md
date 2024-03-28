@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-logstash-exporter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.6.1-dev` `1.6-dev` `1-dev` `latest-dev` | March 18th   | `sha256:f9ccaa67a517d9352d0a2323e2887b217695e16e2ad584f20e43210f7e824bf2` |
-|  `1.6.1` `1.6` `latest` `1`                 | March 18th   | `sha256:42807bdfbe21630aabf2b17d33e6aa7fd33f25109113420e01e55270500e7ceb` |
+|  `1.6.1` `1` `latest` `1.6`                 | March 27th   | `sha256:3de3cbf738098de4ca872dce88e4c8a1b6e756659ff6ee8c425941a640ae0dcc` |
+|  `1.6.1-dev` `latest-dev` `1.6-dev` `1-dev` | March 27th   | `sha256:5a42bdac59ab7bc800f38787827629bacee3812cc8fd4b074e2e528d83178b11` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-kustomize-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.2.2` `1.2` `1` `latest`                 | March 21st   | `sha256:0fe0b67c1d317cbee1161d5782b4c7da36f45273b554a71ebf0d2694c9a4503d` |
-|  `1.2-dev` `latest-dev` `1.2.2-dev` `1-dev` | March 21st   | `sha256:5a4c2e381df42342357d1c2b84912fb911ea0fcd0b59e91ed223952e7fa6536f` |
+|  `1.2.2` `1` `1.2` `latest`                 | March 27th   | `sha256:749e7b73062577194a86d0e0c90e6f7528608700865e3523773a55515f8f80a9` |
+|  `1-dev` `1.2-dev` `1.2.2-dev` `latest-dev` | March 27th   | `sha256:242be05a3e0c0c8b8c0bd41f4b0fc8d1c39fa80291deea6cbeba7ac0d4606e70` |
 |  `1.0` `1.0.1`                              | March 18th   | `sha256:b59e977dd8bca1eebe527a58421236f0b5a119e7a7e064183b8febb09a9b8803` |
 |  `1.0-dev` `1.0.1-dev`                      | March 18th   | `sha256:1e56c97f0ad8f274861a539340ae84831c33ccc177b7950cfe37fb8dbb104a1f` |
 

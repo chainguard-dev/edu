@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mongodb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.0` `5.0.26` `5`             | March 20th   | `sha256:292ac93ec3462789181af5d20a215a172e596ef40be3ac18479f8587230dd3be` |
-|  `5.0.26-dev` `5-dev` `5.0-dev` | March 20th   | `sha256:094bf4ffa23cfcabc337f57bb41da2fd948c7067294c0c8db87ccde10cfa4f51` |
-|  `4` `4.4` `4.4.29`             | March 18th   | `sha256:56ad07b20e4263f510bf3849124ba896d06a8ee7a4df647d6280e4980f82c87b` |
-|  `6.0-dev` `6.0.14-dev` `6-dev` | March 18th   | `sha256:37a6b712202354a2dbbc8ebf16302fd896a14c4f8fada43d8b2e58e5d016d818` |
-|  `4-dev` `4.4.29-dev` `4.4-dev` | March 18th   | `sha256:e729d7e7abb33d4f67ab6d73e615427de304f3c8bb58f3c4d9376fa78696c589` |
-|  `6.0.14` `6.0` `6`             | March 18th   | `sha256:3ca53ba4abb2f4d5f069d75c07e09b2f6d6ffb9c1a9e519a67edc9d3a20724b3` |
+|  `6-dev` `6.0-dev` `6.0.14-dev` | March 27th   | `sha256:6ced1760425ff7eb0d7c457dfc5e09d4f121b5d454ab61d367c7e7ba1a1f2cd2` |
+|  `4.4` `4.4.29` `4`             | March 27th   | `sha256:7b2373692cee1120d8343197ef8110dc24fa2e861da2f2ad84004de8f628c340` |
+|  `5-dev` `5.0-dev` `5.0.26-dev` | March 27th   | `sha256:a35273476005e18770a2c1060f4ed56522106fb1ae607c6c7ae7673c5b56c86c` |
+|  `4.4-dev` `4-dev` `4.4.29-dev` | March 27th   | `sha256:c14ec7e01cf20030be11185a0aa9ba6c427192b3a3b6bd5022ccc5b1605c7dc4` |
+|  `6.0.14` `6` `6.0`             | March 27th   | `sha256:8cc14825a2504116ca1d9d91af151c9dc886ff58f55c64f446d75f493bd85dcb` |
+|  `5.0.26` `5` `5.0`             | March 27th   | `sha256:b5413369838f8bdde77180cf893be8c8ee8f6fc1d9290b3c7e42e48a876441a7` |
 |  `5.0.25`                       | March 18th   | `sha256:5d491fe95aaea9a51dac62d75c924a1b2e9c2a00b74f7dc063df667f40971519` |
 |  `5.0.25-dev`                   | March 18th   | `sha256:cce12466d1bd7c288b26c2ff64a3308d4f3fb9f8fb2a255d12627517ffe9dc54` |
 

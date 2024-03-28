@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:a9b64e0fdea9f834f7cb6826a21b5cb206c5aedfc37eb948e3be2caf3c08505e` |
-|  `latest-dev` | March 18th   | `sha256:62c63977c6edc3359487f976212c0d3beaff7478751448cb3d2242a3eb447f53` |
+|  `latest-dev` | March 27th   | `sha256:1eaf07888b3c7c4a8213bea50c11499e53604c68707d3dffaf2e83211f43dfee` |
+|  `latest`     | March 27th   | `sha256:b795051fc4636590feb99a450e561773e157f3f31c8120f6b1166bc87073a74d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7` `1.7.0` `1` `latest`                 | March 18th   | `sha256:56f5dff69ad0cc87d9b323dfb51f44efddace54131e43ba9061011e66c68a8df` |
-|  `latest-dev` `1.7-dev` `1-dev` `1.7.0-dev` | March 18th   | `sha256:86af7f088af2ef8ac846a5f034e785b6d7323f0923f9a03a5a1099660639c755` |
+|  `latest-dev` `1.7.0-dev` `1-dev` `1.7-dev` | March 27th   | `sha256:c93c145f3d92f882c17ea3576d17546980c6e21adfa5cbd2fc8843aa0d1910a3` |
+|  `1.7` `1` `latest` `1.7.0`                 | March 27th   | `sha256:dfa575ca78d8aa5f259358845a21c04d32f8588e71009ab1c9e29515592b79aa` |
 

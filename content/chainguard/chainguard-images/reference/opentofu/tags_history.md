@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentofu Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:034be45fcedf02eb4d5b37682a5411bdfacefa46e97f7df32e9939f6abaa3565` |
+|  `latest-dev` | March 27th   | `sha256:6eb10a04d1e138c5a43cc20e6a4ebc3abcb2caa264aa48fa31e552b56302dba6` |
 |  `latest`     | March 18th   | `sha256:14d54eff68d0a99c8df7db9a6f7a5139d5c87a75046ae43d700a8e8b732edd7a` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.6` `1.6.2` `latest`                 | March 18th   | `sha256:e607e2ed96184b909cd8508ddd8500f01f474f6fc5336a0db99e5f87c166f8e0` |
-|  `1.6.2-dev` `1.6-dev` `1-dev` `latest-dev` | March 18th   | `sha256:c4ed3ff686e266e5c4ab6e27781dbe191b79f5c51d6eb63530573a8ec515b7e3` |
+|  `1.6.2-dev` `1-dev` `1.6-dev` `latest-dev` | March 27th   | `sha256:f451f9aadee160f5fccca9ff93a019f4deb8d3f20875f7894fc7f3bb33594481` |
+|  `1` `1.6.2` `latest` `1.6`                 | March 27th   | `sha256:046e44c3a2c33020de3c624cc73e275e6269e09b50d60254b506864b38f28d95` |
 

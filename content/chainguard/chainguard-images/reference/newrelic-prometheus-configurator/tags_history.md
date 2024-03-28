@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus-configurator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 26th   | `sha256:9bc13ba860125bab5ef9c4be8b96e74f88bc5b202d93bad7f4a80cd83d3aa8da` |
+|  `latest-dev` | March 27th   | `sha256:c5213545d04ad618b1db16a6535409bfb117d118517c6c3088d1e9cb959b9fad` |
 |  `latest`     | March 26th   | `sha256:21c5cf01089dd90b1b02e62c92a7ea5f7f6e80a851769cacfbc51ee7f748beb8` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.15.0-dev` `1.15-dev` | March 26th   | `sha256:3aa1940252cc8981f2fa3d7978b3f4a63c84e896a8d6f0a7e5b5815762f5394b` |
-|  `1.15` `1` `latest` `1.15.0`                 | March 25th   | `sha256:010d8ca563a443e8fd2660c7200b496d9562d2c0c185b8bf5b2675fc0c3fe0a2` |
+|  `1.15-dev` `latest-dev` `1-dev` `1.15.0-dev` | March 27th   | `sha256:b742c734beb5a6ad93b0be9233eb7c73c2db05372d500871eab9a9dafdf4928a` |
+|  `1.15.0` `1` `latest` `1.15`                 | March 27th   | `sha256:1fefc3140494d34162f23f0a8a78ab9d91f5a0668e25bc35aeaa8645dcece656` |
 |  `1.14.0-dev` `1.14-dev`                      | March 18th   | `sha256:34f62ccde8947dfab129d29f9b1d1bbd7bab3cb91c33af1f0a1260d34f1eeead` |
 |  `1.14` `1.14.0`                              | March 18th   | `sha256:be454b971c6f0e0d846b4879b160a850b1dc3224d7b63edb237fa0c8ccebae5d` |
 

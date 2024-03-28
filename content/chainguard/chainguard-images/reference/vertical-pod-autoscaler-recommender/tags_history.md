@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-recommender Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:d42512b991d0a66e36316425e75e331687556d97525a0c7b9fffae0bef309281` |
-|  `latest-dev` | March 18th   | `sha256:c2528b1409a9541bd760f127a3e58bd33eadcb1384a02c134a091be29bfdf578` |
+|  `latest`     | March 27th   | `sha256:9e4708b28621f51f9dc2b17f64c1790af5a67441cb86d03fd3711245a0b4fea7` |
+|  `latest-dev` | March 27th   | `sha256:427d5980259fec55f933a4ffd97b9fa88439308a789f0d7c56b0f44dad68fa68` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0.0-dev` `1.0-dev` `latest-dev` `1-dev` | March 25th   | `sha256:139a6337a825f701b06d4ff3322fc73ffe4f806d454d66471d00c61269452342` |
-|  `1` `1.0` `1.0.0` `latest`                 | March 18th   | `sha256:fba2bb480732112fe797b9cb0edc32d322b20402a4c640ce08fdd09f3fb7d84b` |
+|  `1.0.0-dev` `1.0-dev` `latest-dev` `1-dev` | March 27th   | `sha256:f5b545f9304c90260ec8e5c7935b089742159e2293262e838bcd1fedec39b268` |
+|  `1.0.0` `latest` `1.0` `1`                 | March 27th   | `sha256:195d47cfcd66d4759f1ef033f46dd980423dd424664913d76921494676f18caa` |
 

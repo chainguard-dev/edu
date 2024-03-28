@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.14-dev` `latest-dev` `3.14.3-dev` `3-dev` | March 25th   | `sha256:1ca9c611f0f0988a0c79acf383ff745f87c1876d52f7cdbb60d32926164ff9c3` |
-|  `latest` `3.14` `3.14.3` `3`                 | March 21st   | `sha256:8498161ccf42c6359e26a6a22a8f7227011e0132bab2bad2225b5c6537c08f45` |
+|  `latest` `3.14` `3` `3.14.3`                 | March 27th   | `sha256:449d6266ea7387dbe0b9df76f75037c4b10ab6a5d143e6b181ee344f22ca04fe` |
+|  `3.14.3-dev` `3-dev` `latest-dev` `3.14-dev` | March 27th   | `sha256:68287defa690f428f7e68b0c7f15e728390f5579edb58ae91bd8935c7b170114` |
 

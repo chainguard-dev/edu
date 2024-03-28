@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public wolfi-base Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -47,6 +47,7 @@ The table shows package distribution across variants.
 | `libcrypt1`              | X      |
 | `libcrypto3`             | X      |
 | `libssl3`                | X      |
+| `libxcrypt`              | X      |
 | `openssl-config`         | X      |
 | `wolfi-base`             | X      |
 | `wolfi-baselayout`       | X      |

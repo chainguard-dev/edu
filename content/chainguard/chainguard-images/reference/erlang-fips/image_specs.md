@@ -3,8 +3,8 @@ title: "erlang-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public erlang-fips Chainguard Image."
-date: 2024-03-20 01:10:09
-lastmod: 2024-03-20 01:10:09
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -61,6 +61,7 @@ The table shows package distribution across variants.
 | `libssl3`                     | X          |        |
 | `libstdc++`                   | X          | X      |
 | `libunistring`                | X          |        |
+| `libxcrypt`                   | X          | X      |
 | `ncurses`                     | X          | X      |
 | `ncurses-terminfo-base`       | X          | X      |
 | `openssl-config-fipshardened` | X          | X      |

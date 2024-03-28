@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public buildkit Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -61,6 +61,7 @@ The table shows package distribution across variants.
 | `libseccomp`             | X          | X               | X           | X      |
 | `libssl3`                | X          | X               |             |        |
 | `libunistring`           | X          | X               |             |        |
+| `libxcrypt`              | X          |                 |             |        |
 | `ncurses`                | X          | X               |             |        |
 | `ncurses-terminfo-base`  | X          | X               |             |        |
 | `openssl-config`         | X          | X               |             |        |

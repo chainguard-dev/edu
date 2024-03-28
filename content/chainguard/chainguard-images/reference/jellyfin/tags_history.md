@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jellyfin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,4 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)                                         | Last Changed | Digest                                                                    |
+|-------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `10-dev` `10.8.13-dev` `10.8-dev` `latest-dev` | March 27th   | `sha256:637b1dfdbd5bbb601f5dddd9a25c20b3b7da13e98bafa1e861f85f0f025f8692` |
+|  `10` `10.8` `latest` `10.8.13`                 | March 27th   | `sha256:b12adc738eeafbac82850257d6c8a070b36c80f71953b93b62b14bc2899abd57` |
+

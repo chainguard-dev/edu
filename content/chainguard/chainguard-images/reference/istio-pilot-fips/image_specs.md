@@ -3,8 +3,8 @@ title: "istio-pilot-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public istio-pilot-fips Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,8 +45,8 @@ The table shows package distribution across variants.
 | `git`                               | X          |        |
 | `glibc`                             | X          | X      |
 | `glibc-locale-posix`                | X          | X      |
-| `istio-pilot-discovery-1.20-compat` | X          | X      |
-| `istio-pilot-discovery-fips-1.20`   | X          | X      |
+| `istio-pilot-discovery-1.21-compat` | X          | X      |
+| `istio-pilot-discovery-fips-1.21`   | X          | X      |
 | `ld-linux`                          | X          | X      |
 | `libbrotlicommon1`                  | X          |        |
 | `libbrotlidec1`                     | X          |        |
@@ -60,6 +60,7 @@ The table shows package distribution across variants.
 | `libpsl`                            | X          |        |
 | `libssl3`                           | X          |        |
 | `libunistring`                      | X          |        |
+| `libxcrypt`                         | X          |        |
 | `ncurses`                           | X          |        |
 | `ncurses-terminfo-base`             | X          |        |
 | `openssl-config-fipshardened`       | X          | X      |

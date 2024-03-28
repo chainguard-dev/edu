@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-policy-reporter-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:f41f828fbc6059cbbabe59e3be3894cb8fbe3120928718642110740cf2e88d48` |
-|  `latest`     | March 18th   | `sha256:174c22c0bdf93cf8f812022af79eb4d95a7b46fe4bf80d8e737173ec485f0247` |
+|  `latest-dev` | March 27th   | `sha256:e3f4e122a4dc63d75dbbfc9f5f639d5d9923009d8be0f75178f6a238738ba11a` |
+|  `latest`     | March 27th   | `sha256:5d2fc2cdff042960bd18cf9643d511b3c77bc0857bfac82b5f1d5e11cfa5c7a3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.6.3-dev` `1.6-dev` `1-dev` | March 18th   | `sha256:9de4d2b34d29083c72115aa00dad596bf8a68fdc2cb09464db6235dd658b7c62` |
-|  `latest` `1` `1.6` `1.6.3`                 | March 18th   | `sha256:2ca7c9d47d745111a628a25504e6aebfc968ff13970475e6a0c68b09f4039202` |
+|  `1` `latest` `1.6` `1.6.3`                 | March 27th   | `sha256:acf7a02bbb1c0246ff25ce64bf2eacf6ea181d476ee846294ccc9aab7853b346` |
+|  `1-dev` `latest-dev` `1.6.3-dev` `1.6-dev` | March 27th   | `sha256:1a75146f16f5de15bc8eb4da585467684c94ad91a7c35b8bfc4990460c31143d` |
 
