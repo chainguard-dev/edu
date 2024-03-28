@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-sdk-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.0` `6` `6.0.128`                        | March 22nd   | `sha256:c15d093c6260080ff162d7868fc605799ef927eb146f67705d351106d6e40515` |
-|  `6.0-dev` `6-dev` `6.0.128-dev`            | March 22nd   | `sha256:d06cf0ca2206457cf87da28ccefcaa0351f796144081f75432eaec337555e2c7` |
-|  `7` `7.0` `7.0.117`                        | March 18th   | `sha256:fdcb56c6af2a3ee62e297342290493b1c745c31ecac4994371aa1b5459e3ad91` |
-|  `8` `latest` `8.0` `8.0.3`                 | March 18th   | `sha256:7ef4e28099dba2c32d0e6746b17f5ad0824573e83c17b8fa0fbcd525dcea00df` |
-|  `7.0-dev` `7.0.117-dev` `7-dev`            | March 18th   | `sha256:99c967d647007ec7bb3af8c95922a776e3366d1c75ddede1ff965b59cf191d4c` |
-|  `latest-dev` `8-dev` `8.0-dev` `8.0.3-dev` | March 18th   | `sha256:f3a808ddab7880ae7ed6db28806cbb2150f94237b3d48d6452c08d912ce162ea` |
+|  `8.0.3-dev` `8-dev` `8.0-dev` `latest-dev` | March 27th   | `sha256:537131c59207524efb692023c0598a599adde9f9bdddbddb5d4f7e84808e7081` |
+|  `6-dev` `6.0.128-dev` `6.0-dev`            | March 27th   | `sha256:1c4459a7396b39e0129825b1ab771e5f34612006f82b9d3fd73f2c2de018b911` |
+|  `7.0` `7.0.117` `7`                        | March 27th   | `sha256:97e0fd10a2c360e71b3e8a99ceb555bfa0356139b85ca66fd4eade4d5a32aa34` |
+|  `8` `latest` `8.0` `8.0.3`                 | March 27th   | `sha256:e629ddb00eb9269e567ad391bcc07e012f8c2cb2b519dbbeb39aa0d207b59d93` |
+|  `6.0.128` `6` `6.0`                        | March 27th   | `sha256:5c41af5ff5dafd874475eb8d9bd91ed9e2eb964249430c757c7ebe7e6b320d40` |
+|  `7-dev` `7.0.117-dev` `7.0-dev`            | March 27th   | `sha256:fabe32f5a2ba7998fc07846d04321d335969c7ac6428598d5c7f96037d8a7b5e` |
 

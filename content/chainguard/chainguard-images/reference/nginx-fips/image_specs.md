@@ -3,8 +3,8 @@ title: "nginx-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public nginx-fips Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -60,6 +60,7 @@ The table shows package distribution across variants.
 | `libssl3`                       | X          | X      |
 | `libstdc++`                     | X          | X      |
 | `libunistring`                  | X          |        |
+| `libxcrypt`                     | X          | X      |
 | `ncurses`                       | X          |        |
 | `ncurses-terminfo-base`         | X          |        |
 | `nginx-mainline`                | X          | X      |

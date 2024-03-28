@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the loki Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 27th   | `sha256:0297e73792cc6a7b60f0fdbc4dac681e2118378711243ebd50af74e2fc477ce0` |
 |  `latest`     | March 22nd   | `sha256:e215a22836464941892cd077311c6fd8e402245b4019176283c5c8b6ec878e1d` |
-|  `latest-dev` | March 22nd   | `sha256:50db7b9fc21b5ae47e67322847dcde1bbc352808a92886948ea7bf3b3363400f` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.9.6` `2.9` `latest`                 | March 24th   | `sha256:fdc41e98ea8144b8e1eaa6fe2a98805bc9e8cf0e532da9584e94230c8cd5e55c` |
-|  `2.9-dev` `2-dev` `latest-dev` `2.9.6-dev` | March 24th   | `sha256:f768da24e74b3758de7ee77a82df204f330f7687a7ad64cb309d0dc804a4a309` |
+|  `2-dev` `2.9-dev` `2.9.6-dev` `latest-dev` | March 27th   | `sha256:3299e5996b0bcc653c3f3aa5c5412538c2582f4146a92626f1e2d637d19fb4f7` |
+|  `2.9.6` `2` `latest` `2.9`                 | March 27th   | `sha256:62975763e66c6b716688e738a11defc731ad23ea15d6a10423107111c7cecd4a` |
 |  `2.9.5`                                    | March 21st   | `sha256:7cc3285e7a48bc68790e9fc28d15a91f78e706b708bb4ae98ecc8f038c24b623` |
 |  `2.9.5-dev`                                | March 21st   | `sha256:cf62544d2247e75bbd085f5a14c2e47275dee8ae553540233dca5876b6ab38fd` |
 

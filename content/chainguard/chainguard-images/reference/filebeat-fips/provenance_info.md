@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for filebeat-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for filebeat-fips Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                 |
-|------------------------------|--------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                         |
-| `cgr.dev/chainguard-private` | 8, 8-dev, 8.12, 8.12-dev, 8.12.1, 8.12.1-dev, 8.12.2, 8.12.2-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                     |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                             |
+| `cgr.dev/chainguard-private` | 8, 8-dev, 8.12, 8.12-dev, 8.12.1, 8.12.1-dev, 8.12.2, 8.12.2-dev, 8.13, 8.13-dev, 8.13.0, 8.13.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

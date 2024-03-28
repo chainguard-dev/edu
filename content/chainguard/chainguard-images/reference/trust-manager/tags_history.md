@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trust-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 27th   | `sha256:2e8e0f30ad34896b0130f2ca334df7454b94c85fcde6fceeaa2d3dfaee7574ae` |
 |  `latest`     | March 26th   | `sha256:222b3195ebdc9353113451c789c6c294727c9128cfe01f7aa2acf17d7cdeb1e7` |
-|  `latest-dev` | March 26th   | `sha256:443cf4b17e98cd32c99377bbd00232354c90bce45f4b1729cf969d204214a9b3` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.9` `latest` `0.9.2` `0`                 | March 26th   | `sha256:afcc1b8ae7b20a2b54d3b5e5492b9eb2807c94125415050ea049978c187eef45` |
-|  `0-dev` `0.9.2-dev` `latest-dev` `0.9-dev` | March 26th   | `sha256:7191b412323d0f5519a9e40106507ba97d30d846c79c4d27fa15137daab19012` |
+|  `0-dev` `0.9-dev` `0.9.2-dev` `latest-dev` | March 27th   | `sha256:1104ff2100168d3b13e767c7361929e8d7d03a27b7877c8c5f917f8fbcd61bc1` |
+|  `0.9.2` `0.9` `latest` `0`                 | March 27th   | `sha256:897ba1cd775667f753d0062ef3761efdd2216130b43bc6b32e20b7e44c43eeef` |
 |  `0.9.1-dev`                                | March 25th   | `sha256:dac454824a02838b6dc5461c7ac481297df5f979c2e3f67963b49fc737a01320` |
 |  `0.9.1`                                    | March 18th   | `sha256:2450a04c24862595f8dca06bb36c634e1599207fa4aca9677b589bf64bd126dd` |
 |  `0.9.0-dev`                                | March 12th   | `sha256:89f7a960e0ccaebb5b8e7bb8188c751e38fd06db8a92c49d93e43aa71f92cc20` |
