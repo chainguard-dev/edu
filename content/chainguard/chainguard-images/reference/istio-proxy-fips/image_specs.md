@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public istio-proxy-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-21 00:59:19
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -48,9 +48,9 @@ The table shows package distribution across variants.
 | `ip6tables`                     | X          | X      |
 | `iptables`                      | X          | X      |
 | `istio-envoy-1.21-compat`       | X          | X      |
-| `istio-envoy-fips-1.20`         | X          | X      |
+| `istio-envoy-fips-1.21`         | X          | X      |
 | `istio-pilot-agent-1.21-compat` | X          | X      |
-| `istio-pilot-agent-fips-1.20`   | X          | X      |
+| `istio-pilot-agent-fips-1.21`   | X          | X      |
 | `ld-linux`                      | X          | X      |
 | `libbrotlicommon1`              | X          |        |
 | `libbrotlidec1`                 | X          |        |
@@ -68,6 +68,7 @@ The table shows package distribution across variants.
 | `libpsl`                        | X          |        |
 | `libssl3`                       | X          |        |
 | `libunistring`                  | X          |        |
+| `libxcrypt`                     | X          |        |
 | `ncurses`                       | X          |        |
 | `ncurses-terminfo-base`         | X          |        |
 | `openssl-config-fipshardened`   | X          | X      |

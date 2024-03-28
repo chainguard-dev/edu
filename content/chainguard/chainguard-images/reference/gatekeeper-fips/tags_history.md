@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gatekeeper-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.14.1-dev` `3-dev` `3.14-dev` `latest-dev` | March 18th   | `sha256:89b219d184dff013413c67ea829129a922fe61429e82a23930b3eeba621983c0` |
-|  `3.14.1` `latest` `3.14` `3`                 | March 18th   | `sha256:501f5fe80594a8f89574430b1f4a0888d9f6b885ce690e71110217627ff4914d` |
-|  `3.13-dev` `3.13.4-dev`                      | March 18th   | `sha256:1fc3341a597f1af8434adbc923cd9cbf9b16360ce68716abb6707d3396e5aa3d` |
-|  `3.13.4` `3.13`                              | March 18th   | `sha256:98f2f78980574731d001b86b3591e967b654c35fe7fc7449796e6e8f28ccb090` |
+|  `3` `latest` `3.14.1` `3.14`                 | March 27th   | `sha256:434a89b3ee9d35d7c8e40b90e7dfbd2e56e80e4fcaaa9522e99b2cad775a86cc` |
+|  `3.13` `3.13.4`                              | March 27th   | `sha256:86212cdb8f0efdb9319a58e5c8c35ae4966a35d79dc8ce3a3752d56660cf3f8b` |
+|  `3.14.1-dev` `3-dev` `latest-dev` `3.14-dev` | March 27th   | `sha256:a75437ffc710a5643f66f654dbb4d65c86356e627477a8ba3ee7207c5014c176` |
+|  `3.13.4-dev` `3.13-dev`                      | March 27th   | `sha256:5d170e9ea054ef5580a818f079428a11bd933608336888d0ae793ba71eba587b` |
 |  `3.14.0-dev`                                 | March 12th   | `sha256:bb6f5b54a75c1a700021e21801263cf9265296aa4eccee8c65e216e510d95e07` |
 |  `3.14.0`                                     | March 8th    | `sha256:ad74756b14402e94a46a022a75dd92bd0e6dcb1994451050e42a8512d9f04a1f` |
 

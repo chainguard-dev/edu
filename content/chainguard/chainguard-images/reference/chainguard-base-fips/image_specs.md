@@ -3,8 +3,8 @@ title: "chainguard-base-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public chainguard-base-fips Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -47,6 +47,7 @@ The table shows package distribution across variants.
 | `libcrypt1`                   | X      |
 | `libcrypto3`                  | X      |
 | `libssl3`                     | X      |
+| `libxcrypt`                   | X      |
 | `openssl-config-fipshardened` | X      |
 | `openssl-provider-fips`       | X      |
 | `wolfi-base`                  | X      |

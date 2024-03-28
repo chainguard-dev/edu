@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the configmap-reload-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.11-dev` `0.11.1-dev`                      | March 18th   | `sha256:0290db6c82bb8b846ac85f13a36bee9e6381bf08230c704b05036115acdb2a5c` |
-|  `0` `0.12` `latest` `0.12.0`                 | March 18th   | `sha256:81a9231c833bc695fa641238586f496754a637511f1fe2414260e28e5e68c160` |
-|  `latest-dev` `0.12.0-dev` `0.12-dev` `0-dev` | March 18th   | `sha256:22247589ac0492ea0dfcec802b4ab20f7b0d0aac6339ea84ea5384e564e0ae4d` |
-|  `0.11` `0.11.1`                              | March 18th   | `sha256:8f9df10413c80689d8e4d921b1fb723f3838ece1b9ddc8ce55dd93f0216ada73` |
+|  `0.12-dev` `latest-dev` `0-dev` `0.12.0-dev` | March 27th   | `sha256:c4650e1c9a70daa35fc14aaffd6f0519215d3da9626013afd5107ef9b2957b5b` |
+|  `0.11-dev` `0.11.1-dev`                      | March 27th   | `sha256:3064e3a19004acac92a081265a5e936111bdbe1591604bc82fc975567285d928` |
+|  `latest` `0.12` `0.12.0` `0`                 | March 27th   | `sha256:114a9560e528a59adae4205e65962cbc48db121afcbc02a7e3f9e4d4a34b2dfb` |
+|  `0.11` `0.11.1`                              | March 27th   | `sha256:5318a07e3d1273a9a6d21a2e5b350770757f4a5c65d62146bfcbf0b2588b6419` |
 

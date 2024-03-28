@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:87d64423d1a7c5b0f85935f814d22fc3c8b55d31e2b3e393acdb72803260f922` |
-|  `latest`     | March 18th   | `sha256:12a9cd6137b7ee7ea473f2e5c51b716915763a8d6753400b39d4c6e9ac228ac2` |
+|  `latest`     | March 27th   | `sha256:04f290f020a5f5060c9b932a8108eef472dd02766bad8c52672f6cc968e525ec` |
+|  `latest-dev` | March 27th   | `sha256:f12889c1c961a289da6e29b51813ecff9ef85f3848ab02d1acd0945f7aa492f5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.15.0-dev` `0.15-dev` `latest-dev` | March 18th   | `sha256:35fea6554f28ecd0bb169157afa161371b9a8c68c85b2eb05c6abb6644f58dc5` |
-|  `latest` `0.15.0` `0.15` `0`                 | March 18th   | `sha256:ee8f857ceec21357cf6abee9087462247a27872e2cb6e685da5fb2883fe9c329` |
+|  `latest` `0.15.0` `0` `0.15`                 | March 27th   | `sha256:c716efe718692d25fee5d1324e14a00b448f4ed989b59e00805e47f1b34f76fd` |
+|  `0-dev` `latest-dev` `0.15.0-dev` `0.15-dev` | March 27th   | `sha256:468f3b8edaf388eb8ff15cc0b1a799fcca9d63389442726062c46cbb457c4f6c` |
 

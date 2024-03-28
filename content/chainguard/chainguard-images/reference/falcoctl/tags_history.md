@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the falcoctl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.7` `0.7.3` `latest`                 | March 22nd   | `sha256:a85feac4d04221513a6f09a0c54f497c325911366d2ff520583e865b3ec8a0c7` |
-|  `0-dev` `0.7-dev` `latest-dev` `0.7.3-dev` | March 22nd   | `sha256:c5777dd9c8546264c42600e6a9b759eddc9c5acc46cc7e5c55c20d7787154f96` |
+|  `0.7.3-dev` `0-dev` `0.7-dev` `latest-dev` | March 27th   | `sha256:22c94b481cb50d83cccac6383e33e6de6a73ff5dc9bb4efaa22540d6c45c0456` |
+|  `latest` `0.7.3` `0` `0.7`                 | March 27th   | `sha256:e25dc5aca4c217ea2f16c65838d00455fe4bff6113b4eb412b8731d82dc246c1` |
 

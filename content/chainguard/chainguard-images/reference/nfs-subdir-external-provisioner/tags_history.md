@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:7cf953d315340686dc92c1f0e713ad416f357691a02171eaae7e15520b212b83` |
-|  `latest-dev` | March 18th   | `sha256:950d3ed1c51b8223e520309139e65a5e27f004ef1a82092c713928acc4e40362` |
+|  `latest-dev` | March 27th   | `sha256:0014561b797576f666c2abebe83748a63bbb9ba77cc6454de0a3d5693d8c6183` |
+|  `latest`     | March 27th   | `sha256:dc01d5b3ce6e1a1fef5c503d97c93992946e066d8c6747adadd7aec3c3bd9843` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4` `4.0.18` `4.0` `latest`                 | March 18th   | `sha256:09460b9f6332f6f42590e4effb4d818af4e924828c364905fd12ef8cad66c415` |
-|  `latest-dev` `4-dev` `4.0-dev` `4.0.18-dev` | March 18th   | `sha256:847b2735e16a2a11b3f238c1cab46af73789adcbbbe574b2d45a84b4da5bc535` |
+|  `4.0` `latest` `4.0.18` `4`                 | March 27th   | `sha256:5efced25fc51c033a96a7af85c5d87527f31c8c5a9450c22b24008bba3a520b6` |
+|  `4-dev` `4.0.18-dev` `4.0-dev` `latest-dev` | March 27th   | `sha256:c24e5a790f6b318fe528465e4c7fc6e3fbedec337b7eeab2e5a1d34665cc779d` |
 

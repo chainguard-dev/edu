@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the clickhouse Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,11 +37,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                        | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.8.12.13-dev` `23-dev` `23.8-dev` `23.8.12-dev`            | March 26th   | `sha256:c165ae26869b2aa63658575f915a384b1f0a175426da6b03cd30d5801ddae83c` |
-|  `23` `23.8.12.13` `23.8` `23.8.12`                            | March 26th   | `sha256:913586471ee2c93db9f4293d0de5922de912c28e3fd5a7a6da7da8b0e4cab5da` |
+|  `23.8.12.13` `23` `23.8` `23.8.12`                            | March 27th   | `sha256:62b525dd06649e96b56d44152a3ef07276134915ab6041121754c17a188f01b4` |
+|  `24.2.2` `24.2.2.71` `24.2` `24` `latest`                     | March 27th   | `sha256:a31a80e9a84dca9bda4b713bdd035fe0fe9f1fa1d3206c481cbb2974df6f43ab` |
+|  `24.2.2.71-dev` `24-dev` `24.2.2-dev` `24.2-dev` `latest-dev` | March 27th   | `sha256:35a87326f338d0b9e96232bdf28975efa06e1651df5151c97008b9aca3db676e` |
+|  `23.8.12.13-dev` `23.8.12-dev` `23.8-dev` `23-dev`            | March 27th   | `sha256:7a7a656b669501a4562cfcc59b833fb812152f93e71229bd7e8e1e036e1dbee4` |
 |  `23.8.11` `23.8.11.28`                                        | March 18th   | `sha256:d558ea1c2e4933cb4c81ead52542490be0f9b3b80e16b8a7f251d73fdb8a1ae7` |
-|  `24.2` `24.2.2.71` `24` `24.2.2` `latest`                     | March 18th   | `sha256:e84559b52e1baebec70c4aa985c2571b9f2243f1c5aaebf8ee8f7599c8390e35` |
-|  `24.2.2.71-dev` `24.2-dev` `24.2.2-dev` `24-dev` `latest-dev` | March 18th   | `sha256:7e8570d215097ccd4b50fb7530a31e87ca0dda40b6289bd329be263957bdf654` |
 |  `23.8.11.28-dev` `23.8.11-dev`                                | March 18th   | `sha256:47ad87521985fca8d0e624cb8e2463169f74a9d74975f8ef03fe3106f0026c46` |
 |  `23.8.10` `23.8.10.43`                                        | March 14th   | `sha256:bdbd8d62428c6f58dc12429029d7b15d8aba8c5e996dde11c8b62a7f2f0e93d6` |
 |  `24.2.1` `24.2.1.2248`                                        | March 14th   | `sha256:531dbde1e935f90d47a7615a8a1e9ea97e0b6997165722188602dfd1a6269501` |

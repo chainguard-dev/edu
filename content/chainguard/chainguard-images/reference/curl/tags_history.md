@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the curl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8` `8.6` `8.6.0` `latest`                 | March 25th   | `sha256:604e81a778fc0465dea88f90cd91cb6e96f49952b499991d1c2fe2f45ba7621d` |
-|  `latest-dev` `8.6-dev` `8.6.0-dev` `8-dev` | March 25th   | `sha256:a0e7f0efc0c708ffe09d4a0b4609f3436879f600a9cf1ccf3cd3212c34f0bbb5` |
+|  `8` `latest` `8.7.1` `8.7`                 | March 27th   | `sha256:8063016d5f414b74176595b546bad06292c6440a9196df187a76ddd72ddcd22a` |
+|  `latest-dev` `8.7.1-dev` `8.7-dev` `8-dev` | March 27th   | `sha256:e938285b0b1e2e54ccac938a0083316238b6abb4aec854a075f551e9e500846f` |
+|  `8.6` `8.6.0`                              | March 25th   | `sha256:604e81a778fc0465dea88f90cd91cb6e96f49952b499991d1c2fe2f45ba7621d` |
+|  `8.6-dev` `8.6.0-dev`                      | March 25th   | `sha256:a0e7f0efc0c708ffe09d4a0b4609f3436879f600a9cf1ccf3cd3212c34f0bbb5` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-pilot Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.20.4-dev` `1.20-dev` | March 25th   | `sha256:8726002b8f3fdd425ef37c5e84fa4102bcae40a3f28006d2742ea7388d0d1ad3` |
-|  `1.19.8-dev` `1.19-dev`                      | March 25th   | `sha256:9e1e9db15dcea09699e5a1aa95f7efe8c3a74d4191a439be5b7f9990f243fbf2` |
-|  `1.20.4` `latest` `1` `1.20`                 | March 22nd   | `sha256:4ac2820cbb35157ee9fa8bcc14c9ac353f9421bb7158bde8c9b067e2a5d58c64` |
-|  `1.19` `1.19.8`                              | March 21st   | `sha256:3f97309926b718519402d09b26138da02506a947af707ecfca9524519797f1e7` |
+|  `1.20` `1.20.4` `1` `latest`                 | March 27th   | `sha256:f0c06dcb772553b5bf8c5ab6424165126bf733854305063c98c70ddb478ce577` |
+|  `latest-dev` `1-dev` `1.20-dev` `1.20.4-dev` | March 27th   | `sha256:261dd302f7d08e5f28f5ab3d6084327d392fbebecb9e06e8cb5d85cb430dc756` |
+|  `1.19.8-dev` `1.19-dev`                      | March 27th   | `sha256:744900297c751245fd2ed8d0cbd3bcff6b78f9bdcf387abf2787cf8aefcad2c5` |
+|  `1.19` `1.19.8`                              | March 27th   | `sha256:5f2ef56375b23c1b6732d8575e4372cb5b923198ef89394adf71452924d1cf6a` |
 |  `1.19.7-dev`                                 | March 14th   | `sha256:72e34cc265672d0de718e91e97e288a0ea943e0f4a249538e496b77af28272e6` |
 |  `1.20.3-dev`                                 | March 14th   | `sha256:76f8d20b363a8d116fb86331b4eb61abdc68912b55be2db5d9c40b7cd6845c28` |
 |  `1.20.3`                                     | March 14th   | `sha256:cafd3224511ba488de1215005e1a8c521d9c8920f251aee24a34739f67177925` |

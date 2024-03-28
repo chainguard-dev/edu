@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda-adapter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,10 +31,8 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                               | Last Changed  | Digest                                                                    |
-|---------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `2.13.1-dev` `2.13-dev` `latest-dev` | March 18th    | `sha256:f3a4aec455f8637a8e87f8ba520acd7ec3ec9ad2ac8564236a73ba6fa02e3680` |
-|  `2.13.1` `2.13` `latest`             | March 18th    | `sha256:b497b589835d5077072336b5f185bc4928a16f496a89901d15f3a919cf3dad51` |
-|  `2.13.0-dev`                         | February 27th | `sha256:1a87a5b48b0f55cdeca8151e3eede203cbdc07f001a9a913c923b51242d9aab2` |
-|  `2.13.0`                             | February 27th | `sha256:50371c9db60d6db370f9fde818c33824335a6273a8bbfd1b3335343508d9b824` |
+| Tag (s)                               | Last Changed | Digest                                                                    |
+|---------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.13-dev` `latest-dev` `2.13.1-dev` | March 27th   | `sha256:fe8008d8db98de476a1c36e510d482fdff39444e7a9eee906ea9931e43c0a43c` |
+|  `2.13` `latest` `2.13.1`             | March 27th   | `sha256:fe10f67f69e0e1c9f1c5deacdeca2eb43c9c16db4d274a070fa72e0528b1ee3c` |
 

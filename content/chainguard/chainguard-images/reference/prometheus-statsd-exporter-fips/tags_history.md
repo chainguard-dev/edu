@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-statsd-exporter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.26-dev` `0.26.1-dev` `latest-dev` | March 22nd   | `sha256:7734a8f544f5550990ff96a525d1ce39d02860e2adfac57d88a48d1eba30d537` |
-|  `0.26` `0.26.1` `0` `latest`                 | March 22nd   | `sha256:2651a633f65dc9944c5305e637ea929c7bf1656fcc42766e2be8e58ce3228f12` |
-|  `0.22.8` `0.22`                              | March 18th   | `sha256:6a0360bc5a8b8bc9b6c311b3f8a5c0def3798f1fcbdfc26120597395af1f83fe` |
-|  `0.22-dev` `0.22.8-dev`                      | March 18th   | `sha256:8bba5d3b3bf87d8727ef1bc75771e10e1e49312afefcf6218f082ab51fb5dc69` |
+|  `0.22-dev` `0.22.8-dev`                      | March 27th   | `sha256:613e38571dd3d5af637e1b06261e8d39b502bab18fea633644ac850feb9faad3` |
+|  `0` `0.26` `latest` `0.26.1`                 | March 27th   | `sha256:0da8a31100f446f906af7920f79b8158b3c6bdc36c5754e996dea2f0247f7e49` |
+|  `0-dev` `latest-dev` `0.26-dev` `0.26.1-dev` | March 27th   | `sha256:afde25e8c97e75a5ba36ed3ec80215c23b3c9f1e8162a649b5351f9f13cb84be` |
+|  `0.22.8` `0.22`                              | March 27th   | `sha256:a8e2f33ac7e6dd7623216e89fe4b1931b21fb1d4cd22efe79a4365fca7c3485a` |
 |  `0.26.0`                                     | March 18th   | `sha256:79fa26fc7837fab8b610ccdadb34a881aaccf02711b4edd57727d0864c081f32` |
 |  `0.26.0-dev`                                 | March 18th   | `sha256:32332f83e29aec64128419223c4cf18962a45819f126db0b06db3a565bfd59f1` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the az Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.58` `2.58.0` `latest` `2`                 | March 18th   | `sha256:2e0f268c0d6bdc25672fa0be0cf75183375ea4ca06566808d31b0e66ea4dd0df` |
-|  `2-dev` `latest-dev` `2.58.0-dev` `2.58-dev` | March 18th   | `sha256:ecb09a03caa08911b2ee9e9b0af26a0ab0eec8f62702eb5fea0f62d6aedd7be2` |
+|  `latest` `2` `2.58` `2.58.0`                 | March 27th   | `sha256:7fa149110193111060cfbb8bbbaac44a1a82a516e36021df5f607a7a81ba7e86` |
+|  `2.58-dev` `2.58.0-dev` `latest-dev` `2-dev` | March 27th   | `sha256:bb405c4581a9f2241df687c84f4861f1a2b0a68f32c6d9e17ead0fe669fa3d52` |
 |  `2.57-dev` `2.57.0-dev`                      | March 2nd    | `sha256:bbbddfde4935d20df168de07289a3fa937e70c42bde7730b5135c400e21543f9` |
 |  `2.57.0` `2.57`                              | March 1st    | `sha256:df6efa3600d254a0177d52ed521a444349dba3a7d08a92a6ed23e26661f96651` |
 

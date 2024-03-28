@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the openai Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-03-28 00:50:32
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 26th   | `sha256:558831877f7942e4cee3f7a8597040d7f0c98982e7f6f106b7654d139b9f387a` |
-|  `latest`     | March 26th   | `sha256:7631418deb568b7031b8afa2349077cee8d19c62762891d3974df57adc3aee4e` |
+|  `latest`     | March 27th   | `sha256:f01aa0f5f7d4e07cf43cb8812e627ea87b84abbe636928f5bb9eecfceb005328` |
+|  `latest-dev` | March 27th   | `sha256:5d6f88d348029a6d30f6f3886cdd911252fce3acc7675f54a78227aee78f7ee3` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14-dev` `1.14.3-dev` `latest-dev` `1-dev` | March 25th   | `sha256:1babfef5bf5567b394556f57efb340b4527417812496d6d7d237406ab30665bd` |
-|  `latest` `1.14` `1` `1.14.3`                 | March 25th   | `sha256:882eeacfb760acac402a72472e2f5dadea6122001ba687f222855723b0f13237` |
+|  `1` `1.14.3` `latest` `1.14`                 | March 28th   | `sha256:600bc456224194c35e3248fef25ec1e6d6d8121fb014a6d9b6116ed679542f2b` |
+|  `1.14-dev` `1.14.3-dev` `latest-dev` `1-dev` | March 28th   | `sha256:00a324fdb84185c073c3ce137ce56fd9206ee4822cb69c6ff26af55d3245cd6e` |
 |  `1.14.2`                                     | March 21st   | `sha256:506ecb5a118611bc1539366f3307a6c8bd4cb4a61615fdb8e94847f12dab21a0` |
 |  `1.14.2-dev`                                 | March 21st   | `sha256:6e0b0fe64bdad66d0ca2e56ae9347bc25b6d911cd736ec06de9ed82f80764d2a` |
 |  `1.14.1`                                     | March 18th   | `sha256:ff00ea862ead99bed35ef4cc3f3de9fbefd6b23907b0df41cceff281a4d0a0b9` |
