@@ -3,8 +3,8 @@ title: "How to Set Up Pull Through from Chainguard Registry to Nexus"
 linktitle: "Pull Through Nexus"
 type: "article"
 description: "Tutorial outlining how to set up a Nexus repository to pull Images through from a Chainguard Registry."
-date: 2024-02-13T15:56:52-07:00
-lastmod: 2024-02-13T15:56:52-07:00
+date: 2024-03-28T15:56:52-07:00
+lastmod: 2024-03-28T15:56:52-07:00
 draft: false
 tags: ["Product", "Procedural", "Chainguard Images"]
 images: []
@@ -25,16 +25,18 @@ This tutorial outlines how to set up a repository with [Sonatype Nexus](https://
 In order to complete this tutorial, you will need the following:
 
 * Administrative privileges over a Nexus instance. If you're interested in testing out this configuration, you can either download a trial from [Sonatype's website](https://www.sonatype.com/products/sonatype-nexus-oss-download) or run it as a [Docker container](https://github.com/sonatype/docker-nexus3).
-* Privileges to create a pull token on a Chainguard Registry. (For private Chainguard repository access)
-* A spare port on the Nexus server to serve the repository (Nexus limits you to 20 ports). Or an alternative solution (eg reverse proxy) which is beyond the scope of this guide.
 
-NB If you use the Docker solution, you will need to add an extra port for the repository to the `docker run` command. For example, if you run the repository on port 5000 `-p 5000:5000`
+> Note: If you use the Docker solution, you will need to add an extra port for the repository to the `docker run` command. For example, if you run the repository on port `5051`, you would a command like `docker run -d -p 8081:8081 -p 5051:5051 --name nexus sonatype/nexus3` instead of the example given in the linked GitHub overview.
+
+* Privileges to create a pull token on a Chainguard Registry. (For private Chainguard repository access)
+* A spare port on the Nexus server to serve the repository (Nexus limits you to 20 ports). Or an alternative solution — such as a reverse proxy — which is beyond the scope of this guide.
+
 
 ## Setting up Nexus as a pull through for Developer Images
 
 Chainguard's Developer Images are free to use, publicly available, and always represent versions tagged as `:latest`.
 
-To set up a remote repository in Nexus from which you can pull Chainguard Developer Images, log in to Nexus with an admin account. Once there, click on the Administration mode cog in the top bar and choose **Repository/Repositories** from the admin menu. On the Repositories page, click the **Create Repository** button and select the **docker (proxy)** type.
+To set up a remote repository in Nexus from which you can pull Chainguard Developer Images, log in to Nexus with an **admin** account. Once there, click on the Administration mode cog in the top bar, click **Repository** in the left-hand navigation menu, and then select **Repositories**. On the Repositories page, click the **Create Repository** button and select the **docker (proxy)** Recipe.
 
 Following that, you can enter the following details for your new remote repository:
 
@@ -46,11 +48,11 @@ Following that, you can enter the following details for your new remote reposito
 
 Following that, click the **Create repository** button at the bottom of the page. If everything worked as expected, you'll be taken back to the repository list and should now see an extra repository with your chosen name, with type "proxy".
 
-Your Nexus URL is the hostname of the Nexus server AND the port number you chose. eg `myrepo.local:5051`
+Your Nexus URL is the hostname of the Nexus server AND the port number you chose; for example, `myrepo.local:5051`. If your Nexus server is running from a Docker container, your Nexus URL would be something like `localhost:5051`.  
 
 ### Testing pull through of a Chainguard Developer Image
 
-If your setup requires authentication, login with a valid Nexus username and password:
+If your setup requires authentication, log in with a valid Nexus username and password:
 
 ```sh
 docker login -u<user> <Nexus URL>
@@ -64,6 +66,8 @@ After running the `docker login` command, you will be able to pull a Chainguard 
 docker pull <Nexus URL>/chainguard/wolfi-base
 ```
 
+Be sure the `docker pull` command contains the correct Nexus URL for your repository. 
+
 ## Setting up Nexus as a pull through for Production Images
 
 Production Chainguard Images are enterprise-ready images that come with patch SLAs and features such as Federal Information Processing Standard (FIPS) readiness. The process for setting up an Nexus repository that you can use as a pull through cache for Chainguard Production Images is similar to the one outlined previously for Developer Images, but with a few extra steps.
@@ -72,17 +76,20 @@ To get started, you will need to create [a pull token](/chainguard/chainguard-re
 
 Follow the instructions in the link above to create a pull token and take note of the values for `username` and `password` as you'll need this to configure a repository for pulling through Production Images.
 
-You can edit the existing repository and all your users will have access to the private images. Or create a new `chainguard-private` repository exactly as before, but with restricted access. (Restricting access to repositories in Nexus is beyond the scope of this guide)
+You can edit the existing repository and all your users will have access to the private images. Alternatively, you could create a new `chainguard-private` repository exactly as before but with restricted access, though restricting access to repositories in Nexus is beyond the scope of this guide.
 
-At the bottom of the configuration screen you'll see an HTTP section. Tick the Authentication box and use the "Username" Authentication type.
+At the bottom of the configuration screen there will be an HTTP section. Check the **Authentication** box and use the "Username" Authentication type.
 
-Enter the `username` and `password` from the pull token in the username and password fields and "Save" your changes.
+Enter the `username` and `password` from the pull token in the respective fields. 
 
 ![Screenshot of the Sonatype Nexus Repositories screen, showing the authentication configuration.](nexus-2.png)
 
+Click the **Save** button to apply the changes.
+
+
 ### Testing pull through of a Chainguard Production image: 
 
-If your setup requires authentication, login with a valid Nexus username and password:
+If your setup requires authentication, log in with a valid Nexus username and password:
 
 ```sh
 docker login -u<user> <Nexus URL>
@@ -90,13 +97,13 @@ docker login -u<user> <Nexus URL>
 
 After running this command, you'll be prompted to enter a password.
 
-After running the `docker login` command, you will be able to pull a Chainguard Production Image through Nexus. If you are entitled to it, the following example will pull the `argo-cli-fips` Image.
+After running the `docker login` command, you will be able to pull a Chainguard Production Image through Nexus. If your organization has access to it, the following example will pull the `argo-cli-fips` Image.
 
 ```sh
 docker pull <Nexus URL>/<company domain>/argo-cli-fips
 ```
 
-Be sure the `docker pull` command you run includes the proper name of your organization's registry.
+Be sure the `docker pull` command you run includes the name of your organization's registry.
 
 
 ## Debugging pull through from Chainguard’s registry to Nexus
@@ -111,4 +118,4 @@ If you run into issues when trying to pull Images from Chainguard's Registry to 
 
 ## Learn more
 
-If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about the Chainguard Registry. You can also learn more about Chainguard Images by referring to our [Images documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about Sonatype Nexus, we encourage you to refer to the [official Nexus documentation](https://help.sonatype.com/en/sonatype-nexus-repository.html).
+If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about the Chainguard Registry. You can also learn more about Chainguard Images by checking out our [Images documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about Sonatype Nexus, we encourage you to refer to the [official Nexus documentation](https://help.sonatype.com/en/sonatype-nexus-repository.html).

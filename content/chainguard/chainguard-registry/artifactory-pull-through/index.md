@@ -126,7 +126,8 @@ After clicking the **Set Up Docker Client** button, a modal window will appear f
 The first will be a `docker login` command similar to the following example. Copy this command and run it in your terminal.
 
 ```sh
-docker login -u<inky@chainguard.dev> <myproject>.jfrog.io```
+docker login -u<inky@chainguard.dev> <myproject>.jfrog.io
+```
 
 Be sure to include your own username and Artifactory instance.
 
