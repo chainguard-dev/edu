@@ -119,7 +119,7 @@ Lastly, in the **Advanced** configuration tab, ensure that the **Block Mismatchi
 
 Following that, click the **Create Remote Repository** button. If everything worked as expected, a modal window will appear letting you know that the repository was created successfully. You can click the **Set Up Docker Client** button at the bottom of this window to retrieve the commands you'll use to test that you can pull Images through this repository.
 
-### Testing pull through of a Chainguard Developer image: 
+### Testing pull through of a Chainguard Production image: 
 
 After clicking the **Set Up Docker Client** button, a modal window will appear from the right side of the page. Click the **Generate Token & Create Instructions** button, which will generate two code blocks.
 
@@ -132,7 +132,7 @@ Be sure to include your own username and Artifactory instance.
 
 After running this command, you'll be prompted to enter a password. Copy the token from the second code block, paste it into your terminal, and press `ENTER`.
 
-After running the `docker login` command, you will be able to pull a Chainguard Developer Image through Artifactory. The following example pulls the `wolfi-base` Image.
+After running the `docker login` command, you will be able to pull a Chainguard Production Image through Artifactory. The following example pulls the `wolfi-base` Image.
 
 ```sh
 docker pull <myproject>.jfrog.io/<cgr-private>/chainguard/<organization-name>/wolfi-base
