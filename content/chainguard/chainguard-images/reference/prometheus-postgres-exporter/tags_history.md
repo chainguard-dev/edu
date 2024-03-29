@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 27th   | `sha256:04f290f020a5f5060c9b932a8108eef472dd02766bad8c52672f6cc968e525ec` |
-|  `latest-dev` | March 27th   | `sha256:f12889c1c961a289da6e29b51813ecff9ef85f3848ab02d1acd0945f7aa492f5` |
+|  `latest-dev` | March 28th   | `sha256:8a84a7d64215354cb204d62a9b682e8ffd7beedc9a122f557f726ce4fd5148fb` |
+|  `latest`     | March 28th   | `sha256:ddd0505e06a0c5c569172b89334e8cce340f1306af193514ce74926deab2b68a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.15.0` `0` `0.15`                 | March 27th   | `sha256:c716efe718692d25fee5d1324e14a00b448f4ed989b59e00805e47f1b34f76fd` |
-|  `0-dev` `latest-dev` `0.15.0-dev` `0.15-dev` | March 27th   | `sha256:468f3b8edaf388eb8ff15cc0b1a799fcca9d63389442726062c46cbb457c4f6c` |
+|  `0-dev` `0.15.0-dev` `latest-dev` `0.15-dev` | March 28th   | `sha256:9eb8677273f1144719ebf963a082f61a971ca756328e7b7848543c4a5d207cb5` |
+|  `latest` `0.15.0` `0.15` `0`                 | March 28th   | `sha256:20f788abf42eb4ef88382c7fb3d527bf124d10e0b26b6925b92a8de3a6dc189e` |
 

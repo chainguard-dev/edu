@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 27th   | `sha256:7a71a282557ebca1ff2af0f574eb194cf16e563bee9c2e4a589a9fa405404363` |
-|  `latest`     | March 27th   | `sha256:803f66f286faeafc92d7c4f17abdaf1cdf40fb34b4ae38366742eaee8e705c09` |
+|  `latest`     | March 28th   | `sha256:12ca8eed7328b57ec31b4b6cc2aba6164664ba00c08ebf494e71ca00bbe879c6` |
+|  `latest-dev` | March 28th   | `sha256:fb6b3197bcff53b44533ef344fa3f5deec44287d7dc39df4237d5ef1025514f1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.40.0` `0.40` `0` `latest`                 | March 27th   | `sha256:a3bca7a96783e4f67684f15c1c316862f999e4272a7e3fa18de5164dbbf7101e` |
-|  `0.40.0-dev` `0.40-dev` `0-dev` `latest-dev` | March 27th   | `sha256:281c1f4a3e1913a64b18d1aedcb73cedef2938e3c772349e19cd815cc5e8a5f7` |
+|  `0.40.0-dev` `0-dev` `0.40-dev` `latest-dev` | March 28th   | `sha256:459890f5872211944d57cb862926e5a672f8cfbd86c81fb75dca62c02ceb163f` |
+|  `latest` `0.40` `0` `0.40.0`                 | March 28th   | `sha256:4ea9f264c3c9a1bc27c8cfe09389a0c790a1bbb9c6a6dd893b9bf74935391f44` |
 

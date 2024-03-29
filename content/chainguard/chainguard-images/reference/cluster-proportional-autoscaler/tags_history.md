@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:180e04102cec455fbd82050e6ba48edcf8062b5d3f2d27cb21d9bf0aaa84474e` |
-|  `latest-dev` | March 18th   | `sha256:12eacd1142639cdc140810782203bbd84a2d24ac79eefd08a38966391b40171f` |
+|  `latest-dev` | March 28th   | `sha256:874543e0f489862776046b064ffad92d91a449c352dc6d37ee402faad7b800a7` |
+|  `latest`     | March 28th   | `sha256:038333344454a28c66ce6552fad76e08170ae8a678f6fdd330947cf9011a6f97` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.8.11-dev` `1.8-dev` `latest-dev` | March 27th   | `sha256:e3b33f138b05e373464644f95e4892a7da1765f7f19a3ceddb11b89a453824ac` |
-|  `1.8.11` `1` `1.8` `latest`                 | March 27th   | `sha256:c0a09667c4537c10bf79db47ca71460bbc3a1b9debbb0c942fc14f184fa6001b` |
+|  `1.8.11` `1.8` `latest` `1`                 | March 28th   | `sha256:25c0f5a9a2df93bfcc399607f95f3331bc2b4246ba9bfec69f05caa227170248` |
+|  `latest-dev` `1-dev` `1.8.11-dev` `1.8-dev` | March 28th   | `sha256:0ac1a2f5ca1f81f3d180b98016b9d47e749e41c99a9e7c279a3a0e19ae9a6206` |
 

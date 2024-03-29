@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the az-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.58` `2.58.0` `2` `latest`                 | March 27th   | `sha256:3d25f916c0bf6857bd512dd4ed36bdf4f1b5e215974a0d4abb0ab6b706573d1c` |
-|  `2.58.0-dev` `2.58-dev` `latest-dev` `2-dev` | March 27th   | `sha256:de9072aa8153baeb977a4832c939f3f718bfa0ed5b857a612757c6e3b1f8e27f` |
+|  `2` `latest` `2.58.0` `2.58`                 | March 28th   | `sha256:ca09d69dae4b57c13ea1f591e007b43b87298bc24d3d327e1454d60f5c443b60` |
+|  `latest-dev` `2.58.0-dev` `2.58-dev` `2-dev` | March 28th   | `sha256:9b60f63fdce0c594b5bab7bae8fa8dbbc992cab61c8bf2cf5eaf2ab4e8e5466d` |
 

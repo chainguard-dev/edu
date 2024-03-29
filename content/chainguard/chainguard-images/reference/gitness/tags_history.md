@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:a96d9dd6a6252a7be83b19736376e1284beb97d6050702cfa829b9becc73be3c` |
-|  `latest-dev` | March 18th   | `sha256:46a771754b8357429ac900c94e67935b56f9a9a1d3e2dbab97bf2582c2168b83` |
+|  `latest`     | March 28th   | `sha256:c83b1ecd49fea0958b3f3e92e4695a2c9dc886a1cfd673845b9beac7ef635249` |
+|  `latest-dev` | March 28th   | `sha256:6330c80e405ba77370af7a24d1e6b2096e2c26f0f74a82ecfec9bb714f2338ce` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3` `3.0` `3.0.0_beta5` `latest`                 | March 27th   | `sha256:b11d5957342081b9d2f27a634864cc5c94328517036cde6c070f5c30d27d157c` |
-|  `latest-dev` `3-dev` `3.0.0_beta5-dev` `3.0-dev` | March 27th   | `sha256:c2c51dc8b278eac96541bbf995bcb8139a8c4e5b7b54914559e37c0f8c95b73b` |
+|  `latest` `3.0` `3` `3.0.0_beta5`                 | March 28th   | `sha256:9e45a6ef0329e840054375cd4c136a5d00b1809e4dfa5782c70b1dba53c43c2f` |
+|  `3-dev` `latest-dev` `3.0-dev` `3.0.0_beta5-dev` | March 28th   | `sha256:f2b14f3832e3d9d519de797e9e1b6118c984640ab152da2a5eedf71cf1fda830` |
 

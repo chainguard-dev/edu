@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 19th   | `sha256:1b06f64fab9c54546ed286a2c0d2b814f323cddcb4c7948cc95d9a4f6a5b0c33` |
-|  `latest`     | March 19th   | `sha256:33b4be83351fb8a0d464a0259bf126d3274d7eaf441341d415320ad44cc8a4a2` |
+|  `latest`     | March 28th   | `sha256:b6633e89aac72bc056cd8a89265ac8686bb557e852118f81f3d5be97977bf843` |
+|  `latest-dev` | March 28th   | `sha256:f16afc096a360a29001951319db3f027a7031bc41fc93a222bbbb2ed500ed386` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.13-dev` `1.13.0-dev` `1-dev` `latest-dev` | March 27th   | `sha256:97e80e0edf16e96268cde8866d75d2f4845b6ae975d2a3130f6ecc7d67d0942e` |
-|  `1` `latest` `1.13` `1.13.0`                 | March 27th   | `sha256:c90da51ec8b2643e9ef7dc6290eb0ab926a9d649cbf9e2684f941922a50930a1` |
+|  `latest` `1.13` `1` `1.13.0`                 | March 28th   | `sha256:6f3a549e7eab4b137b89096924397008c877673d0b1097586c33015f4e51515c` |
+|  `1.13.0-dev` `1-dev` `latest-dev` `1.13-dev` | March 28th   | `sha256:a9b181fa3133018684940de3e3ea5b0a128538d0cb9e3383940e49a3b2d5e4e3` |
 

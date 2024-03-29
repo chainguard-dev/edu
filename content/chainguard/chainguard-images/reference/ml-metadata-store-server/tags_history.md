@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ml-metadata-store-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 27th   | `sha256:22e6ee68d7130a045df90ec77336e081b1319d18efd4a2daa47827af1fdd0ad6` |
-|  `latest-dev` | March 27th   | `sha256:6cf8a014274d20f658b465b0a3774e53fd340e1ef7bb005eda189c8d53fb67fb` |
+|  `latest`     | March 28th   | `sha256:38e2ab73fdf5b324538fd50f442f2b2e9da002f272baeba53e840645bb371079` |
+|  `latest-dev` | March 28th   | `sha256:192e533117798734265b37904790ea458ebfda9dcae89b14424bd3fb8aeb058e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.14.0` `1.14`                 | March 27th   | `sha256:8793669ac1e921eb231188ae86d9929edc45e7d2b9fadb079fa8214eef2636be` |
-|  `latest-dev` `1.14.0-dev` `1-dev` `1.14-dev` | March 27th   | `sha256:04c99a0e7512f6032cab16dcaa8d07bf16e215337153042c7d61905d79791ea5` |
+|  `latest-dev` `1-dev` `1.14.0-dev` `1.14-dev` | March 28th   | `sha256:99cdf4cdaa22b8fe07abcf689d7bc38783a0c29d8d61cda97e7fb2c83723295e` |
+|  `1.14` `latest` `1.14.0` `1`                 | March 28th   | `sha256:d329117a114f7e3bc560f12321461738d8b2cf277f473299249e1f804d5521bf` |
 

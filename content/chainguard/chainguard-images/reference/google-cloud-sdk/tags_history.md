@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the google-cloud-sdk Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 22nd   | `sha256:9c84b8deb40d6d49ac24320e85f86b040176e6da9f140102854269092e601dd3` |
+|  `latest` | March 28th   | `sha256:ae871c3c80daae750b9b7df2510ee3f4bd859d374fc56492d347407543beb9d8` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `469.0.0` `latest` `469.0` `469`                 | March 27th   | `sha256:33620cc61070ce7f4e376a9950da1c3ff51ddf444b7701e5945b6574bee61d5f` |
-|  `469.0-dev` `469-dev` `latest-dev` `469.0.0-dev` | March 27th   | `sha256:b7faaa2f75416c84e0a63fb60dfd50cc9cd64fc4f118386ec755dad63aeab972` |
+|  `469-dev` `469.0-dev` `latest-dev` `469.0.0-dev` | March 28th   | `sha256:d0b2a73d906b6d09999022d8d5a65fc94d871a9037852c4e28fb1162ee07e806` |
+|  `469.0.0` `469` `latest` `469.0`                 | March 28th   | `sha256:5ad0a0af1a8fd0994e5646a7f98892cf0bece8b6329685ea09c9e3efeee48c17` |
 |  `460-dev` `460.0.0-dev` `460.0-dev`              | March 18th   | `sha256:c2ae7bcf34f67af52da95d6cbaf6f8c998713fb31bf5c41e45ad54a088f93486` |
 |  `460.0` `460.0.0` `460`                          | March 18th   | `sha256:9e6740a6860fe3b1183556a7f91319705514db0259de2d2e6b5120c34ddb5d61` |
 

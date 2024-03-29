@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jellyfin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 26th   | `sha256:71f786c1593fcd5d534586d1420e39235c6e22673d8dcabf3aa1d447aee0f3ff` |
-|  `latest`     | March 26th   | `sha256:00392fda0977c01336e82f519a32937802a6107c02c1825f56a899738210f11f` |
+|  `latest`     | March 28th   | `sha256:141cefcd5fb280ac4daa34b40f05e677202d045f8998344dcecc90175d1bbbca` |
+|  `latest-dev` | March 28th   | `sha256:0fc09b561a5da156ced28914043539e73a40b6f4e9381f8fd777b0128d2b1ac0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10-dev` `10.8.13-dev` `10.8-dev` `latest-dev` | March 27th   | `sha256:637b1dfdbd5bbb601f5dddd9a25c20b3b7da13e98bafa1e861f85f0f025f8692` |
-|  `10` `10.8` `latest` `10.8.13`                 | March 27th   | `sha256:b12adc738eeafbac82850257d6c8a070b36c80f71953b93b62b14bc2899abd57` |
+|  `10.8.13-dev` `10.8-dev` `10-dev` `latest-dev` | March 28th   | `sha256:2f322646fa7e459cd7dd42500dc69a9a8515abdd471fba30ef716a73ccea0db4` |
+|  `latest` `10.8` `10` `10.8.13`                 | March 28th   | `sha256:0085259643836b77705d1981b8483822e27d504b8118a4629b70d6377d077203` |
 

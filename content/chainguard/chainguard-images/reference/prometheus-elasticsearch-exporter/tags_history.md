@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 27th   | `sha256:1eaf07888b3c7c4a8213bea50c11499e53604c68707d3dffaf2e83211f43dfee` |
-|  `latest`     | March 27th   | `sha256:b795051fc4636590feb99a450e561773e157f3f31c8120f6b1166bc87073a74d` |
+|  `latest-dev` | March 28th   | `sha256:b700972cccb4e708f8f5c40de63707695406975e9796e1d2bae354a2f7c2e5d4` |
+|  `latest`     | March 28th   | `sha256:4a491bbc65dffaba11fc2364de4072206d3d4b83505db6d20edb3c6a2b2411e1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.7.0-dev` `1-dev` `1.7-dev` | March 27th   | `sha256:c93c145f3d92f882c17ea3576d17546980c6e21adfa5cbd2fc8843aa0d1910a3` |
-|  `1.7` `1` `latest` `1.7.0`                 | March 27th   | `sha256:dfa575ca78d8aa5f259358845a21c04d32f8588e71009ab1c9e29515592b79aa` |
+|  `1` `1.7` `1.7.0` `latest`                 | March 28th   | `sha256:9cd7c1c37554c3bed6557b7dfb6afde0b2ee5569d18da333280d45e33adb0a00` |
+|  `1-dev` `latest-dev` `1.7.0-dev` `1.7-dev` | March 28th   | `sha256:ee8e29c605279890c6177428753692cb76b0fbc54fd2d42f66599c98374bd3df` |
 

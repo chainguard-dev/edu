@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:e4c806c0bf71912e24777b8f0925ec105576580180990cf050ae84bd053cf2c3` |
-|  `latest-dev` | March 18th   | `sha256:8e2d26cdbe4e7d402076030929f0f1c9f812d055bc157420e942626d12ebf74e` |
+|  `latest-dev` | March 28th   | `sha256:dcd6bcfe800b1ea33067aa1ab7c7513c383d27e94cc4ff2ffb421a2219450a51` |
+|  `latest`     | March 28th   | `sha256:b28d664f8b589698061e63300ecb7af3ba3ad787ec32068e1a3cd4a136a85ba6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4` `4.0.0` `4.0` `latest`                 | March 27th   | `sha256:2f9301c882ff7fc292e0aa1b6ef8de9f4dbc892f1d9d2294a7046d5d3325d6fd` |
-|  `4-dev` `4.0.0-dev` `latest-dev` `4.0-dev` | March 27th   | `sha256:e15b37012b7c8a00146d16632c0d231fe63cba539c182e87d8150d50541922a2` |
+|  `4.0.0-dev` `4-dev` `latest-dev` `4.0-dev` | March 28th   | `sha256:4a4f33d30cb97922437d928b7dfa74120b52df5928d3dbf0ca03b27b1e22810d` |
+|  `4.0` `latest` `4.0.0` `4`                 | March 28th   | `sha256:ed90d693660a2ecab5606be34788c7d9ad8f755423940414055ef3b078d00c7e` |
 

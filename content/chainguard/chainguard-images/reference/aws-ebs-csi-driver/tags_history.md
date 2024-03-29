@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-ebs-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 22nd   | `sha256:dd252ab169bf0790256bc7df142e101ca82f581bae46a5c646f25e5995faea4c` |
-|  `latest-dev` | March 22nd   | `sha256:c005d8ca28759d742e2c531ffd646a6054f8e7aafb0fe5d7f4af2ffcdb120fdd` |
+|  `latest`     | March 28th   | `sha256:b6408b82c6833a4748aab8e40ec2ac908861922c41be0124b55b4cb14a24f825` |
+|  `latest-dev` | March 28th   | `sha256:86743785304faf5e4b1519f1647848c08271358fe15152243f9871a195d57936` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.29-dev` `1.29.0-dev` `1-dev` `latest-dev` | March 27th   | `sha256:3b3527e0801c0a28dc2012b911c6f22c03242cc8f3b98d8c97640f6fb4a3d453` |
-|  `latest` `1` `1.29.0` `1.29`                 | March 27th   | `sha256:c06c97306175d67870ea01cdf2894d31d769891a8ae9d52f3631c8420a720750` |
+|  `1-dev` `1.29.0-dev` `latest-dev` `1.29-dev` | March 28th   | `sha256:a9825006d778e42649e016a1291728c98661f41144877894af3a4803e13bea10` |
+|  `1` `1.29` `latest` `1.29.0`                 | March 28th   | `sha256:90eddbe12457d596f36ec56a95dc608526146b54a88e0c87c6ca8e363cf4b5c3` |
 |  `1.28.0-dev` `1.28-dev`                      | March 18th   | `sha256:ebc9d78c324a1de37a53fbf5d0690a5a50daecc5ae70eb3369484190e6e5b92c` |
 |  `1.28.0` `1.28`                              | March 18th   | `sha256:c64f4ca7686afbe1803be69f0c234670623af6187015f5dbb7d39ff983965724` |
 

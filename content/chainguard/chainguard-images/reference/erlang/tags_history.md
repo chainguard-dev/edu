@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the erlang Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:0876e37399242bb599a3841cd888ebc68cb6c1e7c9153e3c206f058bc8843267` |
-|  `latest-dev` | March 18th   | `sha256:a03f5c526ef29ac2a2f9b349bec76c19516d8ebac173dc5909126d25ebe6cb2e` |
+|  `latest-dev` | March 28th   | `sha256:c2e1d7be89aae39a86bb30c9a3e0060fb7ebecdce7e0c5e357173c389e4b023e` |
+|  `latest`     | March 28th   | `sha256:a2829b185be05243fc9be3adfa97608e90cb30b09d3c274cd89eec648ec12a2b` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `26.2` `26` `26.2.3`                 | March 27th   | `sha256:90ae3a2fe060fa02d52702c4500b21666da91d5d24b7beab28a3dda4ea99bf59` |
-|  `26.2-dev` `26.2.3-dev` `26-dev` `latest-dev` | March 27th   | `sha256:fcffdc4b73fcad7bb980c99da2b1aac1ce0ec8d372e6d35fe54876acfa3c9982` |
+|  `26` `26.2` `26.2.3` `latest`                 | March 28th   | `sha256:86929f3655243fd02c8d62cf24d326f3e8cb1c1d5e1d59f2ecea5ab5bbfc25c1` |
+|  `26.2.3-dev` `latest-dev` `26.2-dev` `26-dev` | March 28th   | `sha256:820147e6e76c3c6760d82a5162cf07540772b87ef1f56d99016a02ed436efd4c` |
 |  `26.2.2`                                      | March 7th    | `sha256:f23a411a183aab5c7024668f811f9cfe15b2503854313bfeb968c37515898c4b` |
 |  `26.2.2-dev`                                  | March 7th    | `sha256:5531516038471e0fdc45732be0089dc51b1c2563d2e4a968abbbfc7b530a4443` |
 

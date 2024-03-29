@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 25th   | `sha256:5d946674d09cf645d3f4993327d37b14a4b7c9cab3e1f0a29117e337e8dc500c` |
-|  `latest`     | March 25th   | `sha256:f483bbd53602207076381f9ae748049ce9544da370764e54a5dc078a0fbbe70f` |
+|  `latest-dev` | March 28th   | `sha256:8ab5700c519d4aa4da9725556480a8f869d75b602b30926613b758caa65c47f6` |
+|  `latest`     | March 28th   | `sha256:355eeb00407ed723cff2d315253a644dd9280bc37d0885630460899089116de3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.10.0` `1.10` `1`                 | March 27th   | `sha256:9a2eebccc58c7994a6f4c202f9866939a97bf0d488c0b6ba7c6d20a2850d573f` |
-|  `latest-dev` `1.10-dev` `1.10.0-dev` `1-dev` | March 27th   | `sha256:578bf699f71c93db715c86424a71bae7f584c7fa6037c542b4db4ca3729592ef` |
+|  `1.10.0-dev` `latest-dev` `1-dev` `1.10-dev` | March 28th   | `sha256:024e5345538927042b471eb1c273c3e993e0efdeb83d739466aef5b2481fb3c9` |
+|  `1.10.0` `latest` `1` `1.10`                 | March 28th   | `sha256:ec979454b5d413472b9d3b578a4b199973daf9a700ed12a34e6fd5a47def3986` |
 

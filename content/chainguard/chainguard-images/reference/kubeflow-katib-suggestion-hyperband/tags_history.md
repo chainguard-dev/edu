@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 22nd   | `sha256:e7b7558d7432b9feae3e30f8b6a066462367bd21fd568cf596a6efa26e543c4a` |
-|  `latest`     | March 22nd   | `sha256:8f876a2867593f99bd6aceb36c4eeeca0c6d8f239fc6af1953fb7a5818c696ae` |
+|  `latest-dev` | March 28th   | `sha256:635a1fc5c9ffde7645914fbc21ee13c06c3b0422c2edcd3a987d58e11cb7d4f8` |
+|  `latest`     | March 28th   | `sha256:d698d1ee4b619738a293608a546047fa4de9451d4bf9b2c14bb8d9bbd991f502` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16` `0.16.0` `0` `latest`                 | March 27th   | `sha256:2f785f800ab6d99259ce1c262a88d6a7dbdc5f1031ed4543c02f16d7d458be0a` |
-|  `latest-dev` `0.16-dev` `0.16.0-dev` `0-dev` | March 27th   | `sha256:4eb93e2c8fa992a24587f982ca738316b0c0b07a0aa4b29fcbd68811108ac037` |
+|  `0.16` `latest` `0.16.0` `0`                 | March 28th   | `sha256:2aba9586c615f240b376280d575f142e7ec2fc1fd4fc20353fc8b32f4567b66c` |
+|  `latest-dev` `0.16-dev` `0.16.0-dev` `0-dev` | March 28th   | `sha256:82456531a12f48978233dcdf509942e67dd009decea957ccd62a5c283f12e886` |
 
