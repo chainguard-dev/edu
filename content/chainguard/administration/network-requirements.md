@@ -5,7 +5,7 @@ lead: "Using Chainguard Images and Enforce with firewalls, access control lists,
 type: "article"
 description: "Using Chainguard Images and Enforce with firewalls, access control lists, and proxies"
 date: 2023-09-08T08:49:31+00:00
-lastmod: 2024-03-21T15:22:20+01:00
+lastmod: 2024-03-28T15:22:20+01:00
 draft: false
 aliases:
   - /chainguard/chainguard-images/reference/network-requirements/
@@ -35,10 +35,6 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | packages.wolfi.dev      | 443  | HTTPS    | Package repository (Developer Images)           |
 | packages.cgr.dev        | 443  | HTTPS    | Package repository (Production Images)          |
 
-Note that to be able to authenticate with Chainguard systems, you will need to ensure access to and from the following CIDR ranges:
-
-{{< blurb/enforce-ips >}}
-
 ## Chainguard Images Third-party Hosts
 
 This table lists the third-party DNS hostnames, associated ports, and protocols that will need to be allowed through firewalls and proxies to use Chainguard Images:
@@ -58,8 +54,6 @@ You can use either the single `9236a389bd48b984df91adc1bc924620.r2.cloudflaresto
 Connections to the hosts listed on this page are generally initiated as new outbound connections. If you are using stateful firewall rules, then you will need to add symmetric rules to ensure that traffic flows correctly.
 
 You will need egress rules that allow new traffic to the hosts listed here. You will need corresponding ingress rules that allow related and established traffic.
-
-For the CIDR ranges listed here, ensure that you allow incoming connections from those networks. These IPs are used for workload discovery on public clouds.
 
 ## DNS Records and TTLs
 
