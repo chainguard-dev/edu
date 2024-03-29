@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 27th   | `sha256:0014561b797576f666c2abebe83748a63bbb9ba77cc6454de0a3d5693d8c6183` |
-|  `latest`     | March 27th   | `sha256:dc01d5b3ce6e1a1fef5c503d97c93992946e066d8c6747adadd7aec3c3bd9843` |
+|  `latest`     | March 28th   | `sha256:a83a92523acefd4e14be656e148f0b72a932b1e8a642d34772e8b76371faac84` |
+|  `latest-dev` | March 28th   | `sha256:36c5c6dd0838faaf2cd81ddb8f7acc96e9472aac7fb07523bfb963560eba4305` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0` `latest` `4.0.18` `4`                 | March 27th   | `sha256:5efced25fc51c033a96a7af85c5d87527f31c8c5a9450c22b24008bba3a520b6` |
-|  `4-dev` `4.0.18-dev` `4.0-dev` `latest-dev` | March 27th   | `sha256:c24e5a790f6b318fe528465e4c7fc6e3fbedec337b7eeab2e5a1d34665cc779d` |
+|  `4.0-dev` `4.0.18-dev` `4-dev` `latest-dev` | March 28th   | `sha256:551c72dec05c758e7d406f985d728c80cb5c9ca3fabd94c13e436ad84bbee16f` |
+|  `4.0.18` `4.0` `4` `latest`                 | March 28th   | `sha256:30d7d84f3d626cdd9bc36c5ea985b75e93b515fd4d8d6299b2913da03fdec50b` |
 

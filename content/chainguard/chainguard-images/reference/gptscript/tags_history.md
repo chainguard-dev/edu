@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gptscript Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 23rd   | `sha256:5d4a6c3163ca0530161e8bddd9e3df59ae77a4e1ad765c2015aa3ab58c3e1e3b` |
-|  `latest-dev` | March 23rd   | `sha256:da99e7dbacd51d43eeed8b9657165a47f1cac472d191268d53ee4af821235d6e` |
+|  `latest-dev` | March 28th   | `sha256:d9b8c5e33aae4065fa57760ed090679912ff89cf473fb4281c59458427fe20cd` |
+|  `latest`     | March 28th   | `sha256:4b275ffc4f35b98a478a1869039bdaa29599b265a5b69dfd393c8b364c97d76d` |
 
 
 ### Private/Dedicated Registry

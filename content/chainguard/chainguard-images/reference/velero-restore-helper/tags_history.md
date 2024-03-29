@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 26th   | `sha256:28c17b7701974ad2e0876eb18c5df66fddbe82a4485d6cba685624b110caae68` |
-|  `latest-dev` | March 26th   | `sha256:dad86edee625399d16ff2577285f86cbfe92bdb96308e856044608615888d6d4` |
+|  `latest`     | March 28th   | `sha256:887e15f1407bf67ea4b16e13301ff9ba6c43389cbdde713e5b2352460d7cff11` |
+|  `latest-dev` | March 28th   | `sha256:7a822811a05aa176a4aa0618a02bd2d779aa73329fe477ebad5d714bad2f5716` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.13` `1` `latest` `1.13.1`                 | March 27th   | `sha256:c79c76cf1f465570e2686c5db3d02a9aeaaee10ce620b564fe7f718777ea68ca` |
-|  `1-dev` `latest-dev` `1.13-dev` `1.13.1-dev` | March 27th   | `sha256:23e8fc88602d86e0eab949696089c67ee9cd7931b03f1e22f8a1cbbaebb0c1eb` |
+|  `1.13.1` `1.13` `1` `latest`                 | March 28th   | `sha256:ccf77eefb99476f9fe3bfc1821ece1dcbd02de351bf98c25e5646c0dd55327b6` |
+|  `1-dev` `latest-dev` `1.13-dev` `1.13.1-dev` | March 28th   | `sha256:e283ebe435cd65b7eb041e8f7c3021516e1f4b6f29d0b0eb83ac92e877d38b0c` |
 

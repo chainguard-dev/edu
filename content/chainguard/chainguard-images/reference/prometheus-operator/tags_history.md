@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 27th   | `sha256:5ef5e352af3db41df04a9aef355517f8c71e85f5758291a05993ec4e77dfc2f2` |
+|  `latest-dev` | March 28th   | `sha256:ae211879c0dcd3d6df2730efc8017c33632f32edfc7ef9f80f7b78b5a5420201` |
 |  `latest`     | March 18th   | `sha256:fa1c6bb708ef7afd620efb430f89e82b371833ab8787f650a26c220c4ed653da` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.72.0` `latest` `0.72` `0`                 | March 27th   | `sha256:9c748d51823045c6192e0c2c986653652039735b51cc9c4b43ca8bf13e3a9a1a` |
-|  `0-dev` `0.72.0-dev` `latest-dev` `0.72-dev` | March 27th   | `sha256:5d9fde89f0d4c40fabebfb2abe7c0e954f6031445627401406e879c6f356e4ae` |
+|  `0.72-dev` `0-dev` `0.72.0-dev` `latest-dev` | March 28th   | `sha256:b36b6335dafed48ae3aa0a50ddb0618c67d20d0d905fcc0eb627f05721e8e839` |
+|  `0` `latest` `0.72` `0.72.0`                 | March 28th   | `sha256:aeb6eb86825f13a9cf54c4b5e3d7f71cb7f9362cd6c4ffb36c8a4331800827ac` |
 |  `0.71.2-dev` `0.71-dev`                      | March 2nd    | `sha256:a1754741840270899af202d7f07ddc7029014f876c074bfdb4e94fd64a61bf90` |
 

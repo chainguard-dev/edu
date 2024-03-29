@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 27th   | `sha256:8ccc164a4653fe8428cb102ab34c60d56509477a51d6ed34b36d1dd83edd1962` |
+|  `latest-dev` | March 28th   | `sha256:5bf6f073acf575a3711544a524d5568350dbb82e004dea513e884e8da57fafb1` |
 |  `latest`     | March 21st   | `sha256:14e53d75cacc7b77fb11d44e14099782e7a917f575fe370ad8f661afc2ce5797` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.58.0-dev` `0.58-dev` `0-dev` `latest-dev` | March 27th   | `sha256:079938dcdb5ab8fc7eb8abfe48d7cdf84cd4a460731995f75e97f0bad57fbd5a` |
-|  `0.58.0` `0` `0.58` `latest`                 | March 27th   | `sha256:b6f1024a01d87afd81b9cab0053610d1cd35d4ac6362104ef886271910bb2320` |
+|  `latest` `0.58.0` `0.58` `0`                 | March 28th   | `sha256:e618c57b2186ac31dd5c8738f96f12dfbda1613e8651b4318ba407b4406c0b4f` |
+|  `0.58.0-dev` `latest-dev` `0-dev` `0.58-dev` | March 28th   | `sha256:b254cc68c1690a230180cd1946ff0c4e3a13daad4e23a3979a5020275b5589df` |
 |  `0.57.0-dev` `0.57-dev`                      | March 18th   | `sha256:933cd594be9724abaf2ea3edf9a0ee457788ae97546362c47abe5c8e57f4b0ea` |
 |  `0.57.0` `0.57`                              | March 18th   | `sha256:9aa35c781505dd6c705bc069e28efa41bed24fa1feec2d01abc166d96f671f2e` |
 |  `0.56.0` `0.56`                              | March 8th    | `sha256:ad435a47030fec78e56d3101033137990902b03e286326936c00171b2df0f392` |

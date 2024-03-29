@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the logstash-oss-with-opensearch-output-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 19th   | `sha256:6311d0c946dbf696f212a3c1bc99840e679758d4108128bbdfe0825bb7371371` |
-|  `latest`     | March 19th   | `sha256:ba3e8e82b4603bf8d0458073ec35bf750f532159123fd0c2488bac73fc0d979a` |
+|  `latest`     | March 28th   | `sha256:56b5e4b7cb2bfe39633d0434fb5fd212677f0db133c7da050086ffb134cb558d` |
+|  `latest-dev` | March 28th   | `sha256:13ce72d64080b8202612da370a1458ce51b3971706d26e16372b655f747c5803` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.12` `8` `8.12.2` `latest`                 | March 27th   | `sha256:204bd339c9213b5b5d3f4fba52039cc9a7225bef99d87673aa1c926f0b5dfc71` |
-|  `8-dev` `8.12-dev` `8.12.2-dev` `latest-dev` | March 27th   | `sha256:468c3ec633f6aff8b81238e46db88abc4ae92e3180d9e58d00ceff80f7ddd1fb` |
+|  `8.12` `8` `latest` `8.12.2`                 | March 28th   | `sha256:c4db3e89cbd86f2ba83c2c86eaa63993e3b6656235089f62cb60fa4ec643a5ea` |
+|  `8-dev` `8.12.2-dev` `8.12-dev` `latest-dev` | March 28th   | `sha256:a56a62eaaea32ebb4ce43fef52a795a4b832b543e5eff709bcdfe89327f089b1` |
 

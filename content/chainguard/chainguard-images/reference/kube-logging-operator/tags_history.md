@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-logging-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,12 +36,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.1-dev` `4.1.0-dev`                      | March 27th   | `sha256:c4c018151e1f91e97692cf489483a7e0ade8ec3aadf362519b6a4e8f0be4b9bc` |
-|  `3` `3.17` `3.17.11`                       | March 27th   | `sha256:4017510cd28be8b169d52d79f497112a888e09d523f05b0633078427bdfb26cc` |
-|  `4.1.0` `4.1`                              | March 27th   | `sha256:e3dca610305b94034dac9aea619fc300ce63764861097c7e8730ce6fe4f7662b` |
-|  `latest-dev` `4.6.0-dev` `4.6-dev` `4-dev` | March 27th   | `sha256:ee981fcacac2c1b1ba9e96b54a2fbf2f2c22f0d8e8ddd4b5b50167393786a547` |
-|  `latest` `4.6.0` `4.6` `4`                 | March 27th   | `sha256:a5226763f5b1b97a39996349ca718063b958b1c0d2696d0e6762ebde5d454c52` |
-|  `3.17-dev` `3.17.11-dev` `3-dev`           | March 27th   | `sha256:28873605d72bc48af63bffc76f660703a98c3a68fd5c1b0de599a659fedd97a8` |
+|  `latest` `4.6.0` `4` `4.6`                 | March 28th   | `sha256:2b2ae1062447bbcbc91f69146a48033e5cf265de553173fac7d74e5cb89c3506` |
+|  `4.1.0-dev` `4.1-dev`                      | March 28th   | `sha256:048a7da9f90c04ceee14100ce0e736fb8cf469fba71b34d5b3a90998275086a8` |
+|  `4-dev` `4.6.0-dev` `latest-dev` `4.6-dev` | March 28th   | `sha256:9234a145a0311651cb7762db1d3497a7d1d353dab8a881b559422339a8e77f9c` |
+|  `3.17.11-dev` `3.17-dev` `3-dev`           | March 28th   | `sha256:97148a61691f78af5815baf1ab1a51e792492aa8667355760ec7b27fd5be073e` |
+|  `3.17.11` `3.17` `3`                       | March 28th   | `sha256:c9867179203d0e765d31b7c78cc8e34e11d0b27dd14c2e910a74f4ff7392b1f2` |
+|  `4.1.0` `4.1`                              | March 28th   | `sha256:6448b594c9b6bd1756f6f63171093b6f77f79fd06e3f0a708d8e7fa0ccf637ff` |
 |  `4.5.6-dev` `4.5-dev`                      | March 18th   | `sha256:8ee464ae64eb6b7f111a94430d1dfd62e54826d035d9acd71e0b4be4af058454` |
 |  `4.5` `4.5.6`                              | March 18th   | `sha256:e73c9ab05aea56ee3ef77915fcdb8d2800f35e612e910af97ae004d7b93a3f5e` |
 

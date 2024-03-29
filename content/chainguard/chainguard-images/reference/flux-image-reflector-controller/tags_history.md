@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-image-reflector-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 21st   | `sha256:ea677fc7ebc7f79fd586f2af0e9e221676af8dcd615c2a0c8cacc2e039392c0b` |
-|  `latest`     | March 21st   | `sha256:93944327b467c934994581507c84e982475c2842143c0d43234df7ea23dfd5cd` |
+|  `latest-dev` | March 28th   | `sha256:3aa7502a8d433d9d67c179e8fa7b1e6f459797f19f74e75b8dc2a1ed6536fcfe` |
+|  `latest`     | March 28th   | `sha256:ce6e8580c6a99eb62e47929a2c3a31b09b7f9c54de981a2b74a1bdce610c2d48` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.31.2-dev` `0.31-dev` `0-dev` | March 27th   | `sha256:e3d0052210f344bdd69bcbaffd8bcc8dc55c6a4af53b3de1804b148168e1376e` |
-|  `0.31` `0` `latest` `0.31.2`                 | March 27th   | `sha256:68917608d47ae48467fe70ed9c1a039ec351e06695f195bee5aae382481554a5` |
+|  `0.31.2` `0.31` `0` `latest`                 | March 28th   | `sha256:ad72904bbe67f157ccb33e8625381f7ef21c586def478fa06784940d71942367` |
+|  `0-dev` `0.31-dev` `0.31.2-dev` `latest-dev` | March 28th   | `sha256:a2ea1b41220ffb67293413fdb16702a96235c93bdbc80eba31a357ad0fff018d` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dns-node-cache Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 27th   | `sha256:2acef27fe94a30ca33f5bf9a4f3b8ed3b7336705a836a4118d1597ac85277514` |
+|  `latest` | March 28th   | `sha256:69bbc61477010bb9221f76e9e1b9a4e4f7fb46318f21e33e59419d1473b98113` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.23-dev` `1-dev` `1.23.0-dev` `latest-dev` | March 27th   | `sha256:9192dbadcdf225511f73df1f5b72b576cd965a357b10ca6fb074f6bd441c7a0e` |
-|  `1.17-dev` `1.17.4-dev`                      | March 27th   | `sha256:c5baf60d95f23abf85f02cd1b7b8c074c2f1720e147792ea7f0859b0a69c9078` |
-|  `1.17` `1.17.4`                              | March 27th   | `sha256:2662f96808ee176961d9f033371e00b4a3fdccd06a79703f4c0f78d719e1b8bd` |
-|  `latest` `1.23` `1` `1.23.0`                 | March 27th   | `sha256:9a968c82a9d9d9b078959de9967387efe6254cabcade4a55e2a0128b9c630391` |
+|  `1.17.4` `1.17`                              | March 28th   | `sha256:f6a0cc3627cafbf56f285c02d180f8b63cb9ad12a8ac4d3bb5ab2096d3f8174a` |
+|  `1.17.4-dev` `1.17-dev`                      | March 28th   | `sha256:0787c91079170b1eaf13575d3651d78d2fb7835285783e0f4f98d4ecd4583641` |
+|  `1.23.0` `1.23` `latest` `1`                 | March 28th   | `sha256:81cff62c85e9fc72e56231620e03aa1b4e964852fa59ff890b1eb5ada881a583` |
+|  `1.23.0-dev` `1.23-dev` `1-dev` `latest-dev` | March 28th   | `sha256:34bf836e3fa712a2a91fb1a573590b92c80bb86e5bff635ef56c54c2558965ab` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-db-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 22nd   | `sha256:25fc35f8df4eacdef6121e054a15c5305393de0b49bea2e6c81a8a5b9604c355` |
-|  `latest`     | March 22nd   | `sha256:8ec7ab18c7336c6dfa8bb35eebe9b43778629f221a98401d5975520415f5aefe` |
+|  `latest-dev` | March 28th   | `sha256:5da84aa1dc30e868fc166af9da619792cd9c4d47b42989c0c5f4d50693a4920e` |
+|  `latest`     | March 28th   | `sha256:1e05c715f831764cc7cba1471d59ee233dad66e78128bd514c1fab337dbf74db` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0` `0.16.0` `0.16`                 | March 27th   | `sha256:b0d1dbaac9dc7037c2aa8c0222e19d4bca2dca4497727753a9e067db5bc9f88d` |
-|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | March 27th   | `sha256:416ea3d24e3e175522d388e71c4e78b8d8e0976f28b5b7b95a40d3f6133b527e` |
+|  `0.16.0-dev` `0.16-dev` `0-dev` `latest-dev` | March 28th   | `sha256:eb64755235d864afcca8d0771db75b2233f550c267324981d21659317e2b9da6` |
+|  `0.16.0` `0.16` `0` `latest`                 | March 28th   | `sha256:2fe91b8a9ad2123a6445ed0db21636004923486dc0c64740616fea4ce516260d` |
 

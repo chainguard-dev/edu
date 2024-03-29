@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 27th   | `sha256:2a654858fe588a175bf8125928e9f52e11c0d8d4a59eb07ff19a97d26cf555d6` |
-|  `latest`     | March 27th   | `sha256:cf6a2761d285dc6a1efbe4924f7c2daa5ec4349e0467f93458a729288678d044` |
+|  `latest`     | March 28th   | `sha256:3d991d96cf4daef167e85541b894ae2c3068cf12a5d143b6e098961fc0166f07` |
+|  `latest-dev` | March 28th   | `sha256:96a453498c9a09ce94d6c5fffc5da375f328a3b3e8c1a5e40f336837a4b79251` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.19` `1.19.2` `latest`                 | March 27th   | `sha256:babfc14f36f64df8e73d721eed102b893d3f41bc505826429ddf278a35f52d8f` |
-|  `latest-dev` `1.19.2-dev` `1.19-dev` `1-dev` | March 27th   | `sha256:b902d8a0f8e633c0756f8cfdb138ab36a7591fe206cbafde6024506816144497` |
+|  `1-dev` `1.19-dev` `latest-dev` `1.19.2-dev` | March 28th   | `sha256:361f2ec32a42a2a20b1ec9691ba36c5ddb9eecabb6e73f978f120321a670cd15` |
+|  `1.19.2` `latest` `1` `1.19`                 | March 28th   | `sha256:4f83f3aff6f0d16a0e5b01753fe61a698f3e3266d1aaa462c0e85a9f985470b2` |
 

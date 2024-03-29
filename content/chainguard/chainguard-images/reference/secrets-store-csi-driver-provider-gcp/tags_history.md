@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 27th   | `sha256:55273470e6375c74f86a0d9560331db8b515b9e628e6de3e04343f98f7fd2453` |
-|  `latest-dev` | March 27th   | `sha256:cacfbcb2743c687c2f97c12684752a861ca5a9b712e9990c39bc04b4a9f5197e` |
+|  `latest-dev` | March 28th   | `sha256:f7aa87b4749afeedd0000776fc3a856b446e7f8ae9be2c4b9bc960eef0b7cd51` |
+|  `latest`     | March 28th   | `sha256:e5316fec2dacc953dbd44e403cfe23ea49718e4897bfc3765bbcd3c862fef68f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.5.0-dev` `1.5-dev` `1-dev` `latest-dev` | March 27th   | `sha256:c837a20c2eb50f4ca37cc47aefdf5cdb324aeb408497c719ff75bd6807618b49` |
-|  `1.5` `1` `latest` `1.5.0`                 | March 27th   | `sha256:acea2da01ff578a704319eb0f9c7d1eeb0b1c4b1e96a1f8bb358922682b08b27` |
+|  `1.5.0` `1.5` `1` `latest`                 | March 28th   | `sha256:4e6e6cf9376ac9fea20348fcd720988bac71c3140a44d3f4c6a42b1a7e11ce72` |
+|  `1.5-dev` `1-dev` `latest-dev` `1.5.0-dev` | March 28th   | `sha256:f40de55125339722891405aef77fe8726f5cbcc3e684cea0bbded062e66a8bf9` |
 

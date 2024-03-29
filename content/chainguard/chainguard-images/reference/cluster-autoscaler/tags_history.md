@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | March 28th   | `sha256:364c5e6ea236e446756c93d6560f1d38aa9e2d1bcb0ae2a8cf32acf0139357e3` |
 |  `latest`     | March 18th   | `sha256:a2ff64e4f2e46c09ebe57551a0af3655d934ed0219d83af5dbcda4f524195cfd` |
-|  `latest-dev` | March 18th   | `sha256:3db271e33342f922884f644760602e3259f47c97379ff8ea2c367e1d70c262c5` |
 
 
 ### Private/Dedicated Registry
@@ -37,14 +37,14 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.28-dev` `1.28.2-dev`                      | March 27th   | `sha256:fdfee22c9cdcf98b0c90c6bce748f6f3f817d763f472924c21998f83ec72e7fe` |
-|  `latest-dev` `1-dev` `1.29.0-dev` `1.29-dev` | March 27th   | `sha256:badcb89fbc46308d11404c14602f1fa4552657f00831f103c903095d525f81b9` |
-|  `latest` `1.29` `1` `1.29.0`                 | March 27th   | `sha256:4d00429a6dc6d17c6cc8a59853bdd0acf5c6d7fd50a98297c18a9e17d7d2137c` |
-|  `1.26.6` `1.26`                              | March 27th   | `sha256:45bfacbd92de65d7bbb3c84a8e5e76bfd3692c71b60a30e80e6a21875e8116c5` |
-|  `1.28` `1.28.2`                              | March 27th   | `sha256:6bdba7a2b721d025b5cf7f98476a65b9bd8c354589d1cf5b69e92e1f0f43f8b7` |
-|  `1.27` `1.27.5`                              | March 27th   | `sha256:eec65ea610bbd0733d73b235f9bca5b48286d94a496ad7134c2d4510a7463937` |
-|  `1.27-dev` `1.27.5-dev`                      | March 27th   | `sha256:4acc3b0268bd5f8796460e088bb4ce991687ab9f67305b87bc63465b8346be82` |
-|  `1.25-dev` `1.25.3-dev`                      | March 27th   | `sha256:585862b3565c042acc52c0103d88ca8868984b05a377d94cb14e4409d5a4de5d` |
-|  `1.26-dev` `1.26.6-dev`                      | March 27th   | `sha256:403340dc13e2c3950df949b397549cc8ea46b3f5751d7705b8fe421f726d9071` |
-|  `1.25.3` `1.25`                              | March 27th   | `sha256:4f0cd790226673748a5f0e2d9fc8a0a2f13c67110b0c8134063f5f2d3405c47b` |
+|  `1.26.6-dev` `1.26-dev`                      | March 28th   | `sha256:86bc78541a18280c60cd0c90e8df25309694891ee8bd5391e6fe8bea9e6044c4` |
+|  `1.26` `1.26.6`                              | March 28th   | `sha256:c56bb84334c47ad825c5b713f480d5a727e688a4b195818b5b0ca062bbeae3bd` |
+|  `1.29.0-dev` `1-dev` `1.29-dev` `latest-dev` | March 28th   | `sha256:815f4bf7a8b8f6656c23d73daa1ecca5a9e4954ab9bcbae2767082eefa92f9c8` |
+|  `1.29` `1` `1.29.0` `latest`                 | March 28th   | `sha256:f38a2e83fa9d0b18170ac62f521787e6cc55611b5ed902b3417e5d4344b25d28` |
+|  `1.27.5-dev` `1.27-dev`                      | March 28th   | `sha256:943e6884cbe527f08b7f2ab9dde548cf895fc6f05af171bb4c08a104bff88940` |
+|  `1.28.2-dev` `1.28-dev`                      | March 28th   | `sha256:e1f4f4af88340c46bed9c806e61325ee68771ba1074885b1b67c740697d6fb69` |
+|  `1.25.3` `1.25`                              | March 28th   | `sha256:6fc123a90a5da1b292a111391b5f3ab13a071cfcf8ae78b2a701f949baeb7c3f` |
+|  `1.27.5` `1.27`                              | March 28th   | `sha256:59bbfe6f6323cee393becc25630e6b6b23b575525289d44a8cc0940589e107e2` |
+|  `1.28.2` `1.28`                              | March 28th   | `sha256:497b2f6669b330de312266a207cd79373f971465ae1516ce253dd970b56035b0` |
+|  `1.25-dev` `1.25.3-dev`                      | March 28th   | `sha256:f41a218015c94617e93008fc8a92f5fbecbab12509cf9fe3bda03a0e8f1b9028` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-policy-controller-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.8-dev` `0.8.4-dev` | March 27th   | `sha256:0f851fa7d6636a8508fc8bb23a986086697e0cc95c0336d1b3d5188834b1e224` |
-|  `0.8.4` `latest` `0.8` `0`                 | March 27th   | `sha256:c25ae5bbe02d7223065a5d882f1eacef5abac173de6e75a388be22426ba583c8` |
+|  `0` `0.8` `0.8.4` `latest`                 | March 28th   | `sha256:12fd18f135df1713f7918927bc46a76591169ab8851cfbbcd0040539e800da28` |
+|  `latest-dev` `0-dev` `0.8-dev` `0.8.4-dev` | March 28th   | `sha256:76909351ba6368c194e1d7a4df650e08b85de32958a6a17d5504e14df7a35758` |
 

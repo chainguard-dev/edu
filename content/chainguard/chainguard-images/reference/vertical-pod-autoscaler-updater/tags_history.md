@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 27th   | `sha256:e7dfc8d4a124b78279cb8266096076268e2d5615353e32ce7f6048b76fd262cd` |
-|  `latest`     | March 27th   | `sha256:74372ff500376fa48e24258f95e942b2baab249f712704c4f7b129db1a070968` |
+|  `latest-dev` | March 28th   | `sha256:00031450a735d47cac90d6b12df2b8904bc9210326dd2e94546990565a09e9a7` |
+|  `latest`     | March 28th   | `sha256:24e8e0add4230f3f115b3089f8f83780bbc73f83cc1c7b741fca7bbd2b82e672` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.0.0` `1.0` `1`                 | March 27th   | `sha256:a794573df3864b4e044becef90a27065bfcb58ed21b7821e17960b0bab3a9b93` |
-|  `1.0-dev` `1.0.0-dev` `1-dev` `latest-dev` | March 27th   | `sha256:bfb5c4f068708f6d46005383eccd40163c3f8fc7af7ad62a3f689938a621ee06` |
+|  `1-dev` `1.0.0-dev` `1.0-dev` `latest-dev` | March 28th   | `sha256:4d8962959d3fc3ac3c4a58b93d57911c1421a4bc025cb37f33a9bf84b3660d9a` |
+|  `1.0.0` `latest` `1` `1.0`                 | March 28th   | `sha256:a01c9298984cbe0772d52679ab0aea2fa192d5084e58074564f7aeda42110dda` |
 

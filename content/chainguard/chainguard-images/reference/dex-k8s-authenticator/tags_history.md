@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dex-k8s-authenticator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,5 +33,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.4.0` `1.4` `1` | March 27th   | `sha256:e501d839636eb49053326e2f45cf0d57d1fb81b191f21418a9a36ccfc41007dc` |
+|  `1.4.0` `1.4` `1` `latest` | March 28th   | `sha256:d1d84c1e98071ccc97f271546ab23a0c0547cffe7b57dd12775b499261876cb0` |
 

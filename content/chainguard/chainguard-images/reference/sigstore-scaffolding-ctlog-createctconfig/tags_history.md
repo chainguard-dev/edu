@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-createctconfig Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 27th   | `sha256:686e03bb1004fd13610f45916cd5ae48c0805baf8d26871bafee8c52476e83a3` |
-|  `latest`     | March 27th   | `sha256:76d4ed6afc4ed8c50e1d98f5b2168170c713d84d9a8a66b2d8edcc7dd010973d` |
+|  `latest-dev` | March 28th   | `sha256:c8d94e3f5503c68281b3284e910d0a0a650ecf1af8f858e5a36db7389f60f62f` |
+|  `latest`     | March 28th   | `sha256:09b62e864497ad8c6fbf15eb8422506c9d4ff58ac6f78f3f3e22ada4789d71fd` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.6.17` `0.6` `0`                 | March 27th   | `sha256:4f8031820755eb12fa75d7d9958087986ebef418a175665c3646966a37036a7e` |
-|  `0.6.17-dev` `0-dev` `latest-dev` `0.6-dev` | March 27th   | `sha256:4a1a972137debed4c923183344b497e2a5fe11f2ff0ff5503e9a065831ae4aaa` |
+|  `0-dev` `latest-dev` `0.6-dev` `0.6.17-dev` | March 28th   | `sha256:88f48ebde344a09fabcf6e7341ba802ed774c0cad67367af117e156025dd9e6a` |
+|  `0` `0.6.17` `0.6` `latest`                 | March 28th   | `sha256:7692f266688de6395e0a69ee087fd06ac02f3193ed859814d556af88bf910515` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:563a333cd8e57803f951ae2fd064384b82b357927d0974792eb0cdfe759fd722` |
 |  `0.6.16`                                    | March 8th    | `sha256:20f75fa97e86dac6f491799bb0f4af381d690a5acf50666d6088de7ebfff0f68` |
 

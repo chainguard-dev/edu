@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 27th   | `sha256:37c0f08badba5668b978d6b88d553e6987b417181e522a08b519de9d1f316d40` |
-|  `latest`     | March 27th   | `sha256:e20372f0df773dd13ec41fa4fbee7808808bce9624db777a1d30530c4e89181c` |
+|  `latest`     | March 28th   | `sha256:f0a3550f05b9d1932be8794f72106aff52a881c6955bd52c12155f59b48fc5ad` |
+|  `latest-dev` | March 28th   | `sha256:28216f3c2bdbd8e810df20c6cab2c5563a8170ea4a9a69ec38e400c2fda3d25f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.58-dev` `1.58.0-dev` | March 27th   | `sha256:84ceaf374cd8a316542130f6bd4d2f0e536f836192ee00d9012ad1989dfdbb57` |
-|  `1` `latest` `1.58.0` `1.58`                 | March 27th   | `sha256:8d367be76ff351ff94c2fea885f880e720ac04c8f6d3b2a19a94c371723f8350` |
+|  `1` `latest` `1.58` `1.58.0`                 | March 28th   | `sha256:ad6772a8f95510d8e3c95ec6a702999ba55c0a6ae3c3fd83ab863352d8c09571` |
+|  `1-dev` `1.58.0-dev` `latest-dev` `1.58-dev` | March 28th   | `sha256:559b00b81426a03161052619df2ba28e1976eb0a0268dc311ff56eacd9944b0c` |
 

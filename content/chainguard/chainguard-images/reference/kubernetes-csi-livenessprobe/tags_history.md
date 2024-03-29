@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 27th   | `sha256:23f50cbf3782917e62998f2276e7fc877bc1d1893f08fb6892ebbd2571f4c569` |
-|  `latest`     | March 27th   | `sha256:a7f734f9533e1e3eedb4de0f1429689107f6b57c48b4112cf761bfde342b479b` |
+|  `latest`     | March 28th   | `sha256:4ee3ca621baa1929f9203197e81b338d729dd0eac7bff2f0c80af60b57ffce57` |
+|  `latest-dev` | March 28th   | `sha256:3d5ce5de53118340f7fabe3be004fe7c9084e5bcd9fbbf0ef989abb26bbd64a7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.12.0-dev` `2-dev` `2.12-dev` `latest-dev` | March 27th   | `sha256:31e889424b0cf9f5a1fdca766867303bfbae79eca84899660cff00589c1d7ec4` |
-|  `2.12` `2.12.0` `2` `latest`                 | March 27th   | `sha256:7c1c025c5b6fc32875b4efa25f38446f005185d3e3e598a6675f81623f6f52ea` |
+|  `2.12.0` `2.12` `2` `latest`                 | March 28th   | `sha256:650ffb84acf6a204439794f4fa7270311fda4657fb46a753e8d0913c23d7f6a8` |
+|  `2.12-dev` `2-dev` `latest-dev` `2.12.0-dev` | March 28th   | `sha256:3970e747f67342277005441ebc780b8675911fafd83b6e8556858d7ce956fdcc` |
 

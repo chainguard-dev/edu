@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-file-metrics-collector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 22nd   | `sha256:55bc133cf2c95f9b316e4080a01719b6a41409162801051b7a83b784b80617f3` |
-|  `latest-dev` | March 22nd   | `sha256:7a8ea7ff88a887139a47e21eb2db438c97b7d3639044c9fada23004a20dfb89c` |
+|  `latest`     | March 28th   | `sha256:8b9e8494ad8fbc4df1bd8fd8d736c26857e341a865261e7dc4ca8e7a196b8ff4` |
+|  `latest-dev` | March 28th   | `sha256:2e08600948d2f281065aae545b2d54911d50b529564dc8f3504dce50427bcbf7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0.16-dev` `latest-dev` `0-dev` | March 27th   | `sha256:21ced029caa28d248acd07bbdf0547dc25bd046eea3a5d0b5934a36e08fc7944` |
-|  `0.16` `latest` `0` `0.16.0`                 | March 27th   | `sha256:b1b02902ee9d1132c96180f4ed5e21c269e28d574b0ced1f0259de7419ab1833` |
+|  `0` `0.16.0` `0.16` `latest`                 | March 28th   | `sha256:88d2543fa4c8438cf7776b42551d879bfe1d50c41421db6482a09b1cd67b0bf7` |
+|  `0.16-dev` `0-dev` `0.16.0-dev` `latest-dev` | March 28th   | `sha256:808c6daae00b5b9701182deb4f812c6c869604288749df418d2d19e8724c366c` |
 

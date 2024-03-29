@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault-k8s-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.3` `1.3.1` `1`                 | March 27th   | `sha256:804a7f42c8b7393846d9ddd63527662c0b95ca3e0a37b7dbe3b0e506fcb310b9` |
-|  `1.3.1-dev` `1.3-dev` `latest-dev` `1-dev` | March 27th   | `sha256:dee186f2bbebe65e883b5152745256ded477810ce2d37e33b72f6e8f3ff18c6c` |
+|  `1.3.1` `1` `latest` `1.3`                 | March 28th   | `sha256:6301928007751daf397732d4cdd69cb1f143fc154ae16b6012af3bf062850e1c` |
+|  `1-dev` `latest-dev` `1.3.1-dev` `1.3-dev` | March 28th   | `sha256:d8b46eb8cd307c9be8eb18f44cac311a1616a829415ba2f43a6d574c2f6efecb` |
 

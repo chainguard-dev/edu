@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public pulumi-kubernetes-operator Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -109,7 +109,6 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`      | X      |
 | `nghttp2`                    | X      |
 | `nodejs-20`                  | X      |
-| `npm`                        | X      |
 | `nss-db`                     | X      |
 | `nss-hesiod`                 | X      |
 | `openjdk-17`                 | X      |
