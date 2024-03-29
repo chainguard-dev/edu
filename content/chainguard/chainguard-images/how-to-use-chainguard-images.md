@@ -5,7 +5,7 @@ type: "article"
 description: "A primer on how to migrate to Chainguard Images"
 lead: "A primer on how to migrate to Chainguard Images"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2024-03-22T19:42:31+00:00
+lastmod: 2024-03-29T19:42:31+00:00
 draft: false
 tags: ["Chainguard Images", "Procedural", "Product"]
 images: []
@@ -193,3 +193,12 @@ You should get output like this, with a random piece of advice:
 ```
 
 Check also the [Wolfi Images with Dockerfiles](/open-source/wolfi/wolfi-with-dockerfiles/) guide for more examples using Wolfi-based images with Dockerfiles, and the [Getting Started with Distroless](/chainguard/chainguard-images/getting-started-distroless/) guide for more details about distroless images and how to use them in Docker multi-stage builds.
+
+
+## A Note regarding package availability in Chainguard Images
+
+Chainguard Images only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
+
+Starting in March of 2024, Chainguard will maintain one version of each Wolfi package at a time. These will track the latest version of the upstream software in the package. Chainguard will end patch support for previous versions of packages in Wolfi. Existing packages will not be removed from Wolfi and you may continue to use them, but be aware that older packages will no longer be updated and will accrue vulnerabilities over time. The tools we use to build packages and images remain freely available and open source in Wolfi.
+
+This change ensures that Chainguard can provide the most up-to-date patches to all packages for our Images customers. Note that specific package versions can be made available in Production Images. If you have a request for a specific package version, please [contact support](https://support.chainguard.dev?utm=docs).
