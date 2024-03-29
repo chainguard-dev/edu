@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kor Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 24th   | `sha256:9f1ea92b05abc484cbab93f32325a4a9a19af3e6b66cca298007577911fd5c68` |
+|  `latest` | March 28th   | `sha256:df2647a6fdd7693eeb4fde95b82705a7e7f267b980a316f863bba3a5c067d625` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed  | Digest                                                                    |
 |---------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.3-dev` `0.3.7-dev` | March 27th    | `sha256:a802a82fa9f081dc37f756376d1a8b73d0217943fa5b5e64a4b1c8cb9eca8e02` |
-|  `0` `latest` `0.3.7` `0.3`                 | March 27th    | `sha256:f54c56ae5dda6c1ab7f05082ba4b61ae58887a4bca87b9fa283be2185780df9b` |
+|  `0` `latest` `0.3.7` `0.3`                 | March 28th    | `sha256:2b3e95e5e2c159d2e3e09898ab4aa546d1ab31d03ee926bc1490d0790bc748d0` |
+|  `0.3-dev` `0-dev` `0.3.7-dev` `latest-dev` | March 28th    | `sha256:7fa2571ab9c7f71cd47ac0f9c8f97600ae5d4eb775f0ac2bdab95ae5f3ad9c8d` |
 |  `0.3.6-dev`                                | March 18th    | `sha256:a4b14c89afea61dd9c0179905aae4c801e9fba3e9fc80d7f9c31b177994008cb` |
 |  `0.3.6`                                    | March 18th    | `sha256:2a36578a43678bf87967b130e5b0d82d8280887d1473f3d801b7dd1883e97fab` |
 |  `0.3.5-dev`                                | March 2nd     | `sha256:774c948684a8bd97521fd7c02b336df27d54c4d5ad6282b4d8f9c11157decaf1` |

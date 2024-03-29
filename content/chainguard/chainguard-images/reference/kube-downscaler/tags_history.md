@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 23rd   | `sha256:49d482865e33b88d54009cb8e1b3a213a4c2f1d38b46d5984b9f14129d10e0db` |
-|  `latest-dev` | March 23rd   | `sha256:24eb523ed2ccec4f44e6c78f40064a92568bf3d5eabea203199b4ffb03648717` |
+|  `latest`     | March 28th   | `sha256:f907c93654dc685b71b79eb3ad2c6c640f34b3a33ec2218c593b5ff659618ca0` |
+|  `latest-dev` | March 28th   | `sha256:4f35b4945c18f16967f24abee6af94d8e2e3f51c37d1281b6bcedfa3263c29a3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.2` `23` `23.2.0` `latest`                 | March 27th   | `sha256:a1192b777ea947ad6a5188921385efa9ab4fc96de1866590cbe2b448ccd5149a` |
-|  `latest-dev` `23-dev` `23.2.0-dev` `23.2-dev` | March 27th   | `sha256:c734d6f25b77b32eaab0deed41485abddf6d8abf2a76af6b1414d4b3d1888aa9` |
+|  `latest-dev` `23.2-dev` `23.2.0-dev` `23-dev` | March 28th   | `sha256:c5130251004aa65b5201271d21b784061af1c79df817ced8fd871281b0a7838b` |
+|  `23.2.0` `23.2` `latest` `23`                 | March 28th   | `sha256:1fc9440ccc73a0c364fc1b29140fd539eb187ce1967b80d555feddf20c34026f` |
 

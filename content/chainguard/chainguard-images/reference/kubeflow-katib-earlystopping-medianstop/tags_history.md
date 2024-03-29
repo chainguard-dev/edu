@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 22nd   | `sha256:e2553cd0d64c190b56b8f20e0002cda1c0d47eb6b538d51e7b5a5d8ba94524d3` |
-|  `latest-dev` | March 22nd   | `sha256:f2e3e40ba96f9793a59fad90159f749156fec81392ab808be852d506b9d7e084` |
+|  `latest`     | March 28th   | `sha256:e7007c8e2cbf68a7fb390fa78e08f316884c8e5ba9a6ca1b2a033b8a9d922e69` |
+|  `latest-dev` | March 28th   | `sha256:77fd5eecd7da1f46c8c2e34f3a9af23c338f2824ee1033a758328bcae3cc0d13` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.16.0` `0.16`                 | March 27th   | `sha256:56248899c69a91551724b2b6ef99d2743be5680f2b3ca8a7296457a5acafc2d4` |
-|  `0.16.0-dev` `0.16-dev` `latest-dev` `0-dev` | March 27th   | `sha256:7c77f1c63492577ed783f0f35505654bf4dba498b3fc07ba0da9d19303f226c0` |
+|  `latest` `0.16` `0.16.0` `0`                 | March 28th   | `sha256:28a820a2ae1536b211de43d665ab8d6c09fbcf9753b95c5c74b053e39d1a5799` |
+|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | March 28th   | `sha256:8142dfdefb648d700df5b88d258a88434c309deef050e890726a1a9bf63d8797` |
 

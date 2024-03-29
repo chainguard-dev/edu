@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-device-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 27th   | `sha256:2f7bab255240aeada485f0ae614e0b4a746e0850ef8508b1ffd6b8cdbcc8b713` |
-|  `latest`     | March 27th   | `sha256:4ae672b83bde61fa2a5a09db73216b8cb9d73c8cb7b1d4b11d440a197a51c9bd` |
+|  `latest`     | March 28th   | `sha256:207ee59d8070d11989ca7bca6ae0b4c022781bf908d47679512493a77e306d69` |
+|  `latest-dev` | March 28th   | `sha256:a2e94c30f98c8512d135c3997025c3f9a4e32eec0e0d10eedc9c4ce14871c1f6` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14` `0` `0.14.5` `latest`                 | March 27th   | `sha256:6023ff60e029a94df456ef116b4e107a5da3473c2f577025cfc5eb7ae8078c6b` |
-|  `0-dev` `0.14-dev` `latest-dev` `0.14.5-dev` | March 27th   | `sha256:d532b0d1bba895d3dff57ccdbe8d6044e88051ddcaf790dff050fd399bed3a2c` |
+|  `0.14.5` `0.14` `0` `latest`                 | March 28th   | `sha256:a105ad2573e03cd8d1e80b28c349304844e70b019b863a936a4e11d19ea9ba9c` |
+|  `latest-dev` `0.14-dev` `0.14.5-dev` `0-dev` | March 28th   | `sha256:afb9b194083b9d8718f04aaab2e28ace2c09be9a26ecfd2474e903e55cd65493` |
 |  `0.14.4-dev`                                 | March 1st    | `sha256:63064736a788bb2f7c81d9403a7fb0297693ff6503b238e597b9ade5aeb5f4f0` |
 

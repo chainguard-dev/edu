@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 27th   | `sha256:37ee41a1a3046e37602e92b40fb2126cdd6eacd13f73f92847ad1a00cd4639dd` |
-|  `latest-dev` | March 27th   | `sha256:ffd3adf108d3ed7169a4b20d29230ec77ebc4d87ec5cab23ccf12d86de4d3778` |
+|  `latest`     | March 28th   | `sha256:a8c098d982b03db991bb96acbc3dad70a9f28fe0ea6c9c73fe4a17735d8a53a8` |
+|  `latest-dev` | March 28th   | `sha256:ae229d1102244bd9bf98a95896fdad5394bdf82fa9e1cc34020cf40d5b18f53a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.21.0` `2` `2.21`                 | March 27th   | `sha256:e6c1766688e7595915bf3e9045210ea73b5b3dca75555d55479f5cc678bf5d36` |
-|  `2.21.0-dev` `latest-dev` `2-dev` `2.21-dev` | March 27th   | `sha256:962dfe3adb8791902db1abf030fea7a21d760a29bf099498f85e4f79e07bad51` |
+|  `2-dev` `2.21-dev` `2.21.0-dev` `latest-dev` | March 28th   | `sha256:e50b987b743534bca0a6665585a455a5d6dc442664729704b1529c067f284014` |
+|  `2.21.0` `2.21` `2` `latest`                 | March 28th   | `sha256:e69d248dba2ddb47c7f468dc3cba267725ce850e194caa0457eead4e8fa20629` |
 

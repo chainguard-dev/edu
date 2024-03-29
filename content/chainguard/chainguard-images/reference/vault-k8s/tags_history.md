@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault-k8s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:c2914cf0574843af1cdfd85f1ea42dc758c9443177b7822a545f61a154b1f106` |
-|  `latest-dev` | March 18th   | `sha256:0266ae275d40d3c25e0eb0cf655926681c6a04f32c2228cb59aba938429919ae` |
+|  `latest`     | March 28th   | `sha256:bffcbee7737e0a329552a8df3cf3317b492b629779cb873b248b24854b3e0792` |
+|  `latest-dev` | March 28th   | `sha256:ee50ee7b6e77cc8533516fe6b95cc03f673ca2ea6483feea093dd2a5ae01db71` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.4.0` `1.4` `1`                 | March 27th   | `sha256:4965cc33bdc24a9fee397db88384d3889c524d687e0aceb8ce77647cd06fa3ba` |
-|  `1-dev` `1.4.0-dev` `1.4-dev` `latest-dev` | March 27th   | `sha256:6aca647b42f2e7fdaf770b2e18a26df72ac251bcfa789eb667814a34a22a7446` |
+|  `latest-dev` `1.4-dev` `1-dev` `1.4.0-dev` | March 28th   | `sha256:7b5dc429f51fa86a67d28641b553b98a764772ef99e48fa36b1887d8e4c5cbca` |
+|  `1.4` `1.4.0` `latest` `1`                 | March 28th   | `sha256:0fd79966e7f4b9a8b990fe75311f842f960f3f76d1184d9196d4083476851f45` |
 |  `1.3.1-dev` `1.3-dev`                      | March 2nd    | `sha256:443f8bf27d544025cd104ffe40edb775b8c3ddf8a583f09ab57a8044bba82a2e` |
 

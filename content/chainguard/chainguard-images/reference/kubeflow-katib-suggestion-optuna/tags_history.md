@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-optuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 22nd   | `sha256:5d83612bbd78c44b5cf57e42e215f4bac0e19e728850346b8b19a8f8e152722f` |
-|  `latest`     | March 22nd   | `sha256:3348a65cf054f0630e2f160a501df6a3435deab802527ebb0d0b3aedc4a899a6` |
+|  `latest`     | March 28th   | `sha256:4be49f4359ef78af5043e00f982ef8b097d14ef899fbca301877c32e94215eb6` |
+|  `latest-dev` | March 28th   | `sha256:2c7e38a5205b52cf5ac1c4a4bc230841dd9e0f92405ffa7f5a0a8069b903cbdf` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | March 27th   | `sha256:63a0a84df2277a8b50b22c3baac7bcbb3b482373bbbdf66b3e3985f7d1fb1e28` |
-|  `0.16.0` `latest` `0` `0.16`                 | March 27th   | `sha256:95d16b47ce7dd21753bffd2d2f20bbcad537a49479a6502dd45a79120a0fa8a7` |
+|  `latest` `0.16.0` `0` `0.16`                 | March 28th   | `sha256:a349e238359ea0aabe637e2561e33b86aedaaebedffaac7fee8a1d76c7863e06` |
+|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | March 28th   | `sha256:a660c2327e506bdd6c26c77561e62436a2af8c2c4d9ebb8f3f5cbfb1ee093936` |
 

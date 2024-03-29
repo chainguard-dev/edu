@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-darts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 22nd   | `sha256:3f45ac1dd8a1b65f9a217a1e5849489210cac8d5432a66f92bcebaf2e2f0893a` |
-|  `latest`     | March 22nd   | `sha256:d97a751f6e3ce339ec8c358b07870835436ef6c5f58facd4ef05ef118bc59435` |
+|  `latest-dev` | March 28th   | `sha256:d9988b7e8799c7d761dabc5f8184834c8c62cfc571a8cf1af6bcea2ca14ad46e` |
+|  `latest`     | March 28th   | `sha256:0683159b3f776f69cb81b389cee5acb860007c76be52131e5cb4008a489eca2e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `latest-dev` `0.16-dev` `0-dev` | March 27th   | `sha256:6f80f0b5b114756f055faf7b01b32c5b688f15a7938202b4cf36f21d008c1d82` |
-|  `0.16.0` `0.16` `0` `latest`                 | March 27th   | `sha256:e697682b50da0c99b2e22541c84f6a98558770d00c71d8dc9e144c77dea02da4` |
+|  `0` `latest` `0.16.0` `0.16`                 | March 28th   | `sha256:fe66ca56aa95cbf652865edf35c37ee0c2a54864151f7c0cfcc26321789d7e03` |
+|  `0.16-dev` `0.16.0-dev` `latest-dev` `0-dev` | March 28th   | `sha256:7b954f9f0fcf95dc7fe5cb7bb26fa0444e6ae903440b4cc5c5b8879633669814` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-pushgateway-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 27th   | `sha256:ad075e0be07491324e7f84d7b8416447f374874a847e24dec09b21148e4137a0` |
-|  `latest`     | March 27th   | `sha256:761909f8039edfa369cb75b97ee64ca789424edf31fe6e054a15408d4dc3c015` |
+|  `latest`     | March 28th   | `sha256:8c74fe76dca2f3fd2ec38d04071606407a3c71f1304bc2d02c00f3b0d3bf5750` |
+|  `latest-dev` | March 28th   | `sha256:73cf2cda89dd759e9b65df8c8cff858e3c2c3160ace21a2c32dd4e6d531f742b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.4.3` `1.4`                 | March 27th   | `sha256:61dab6f42da9cb528820438fd879175e0a60365a03bb51ffa4e54b8412524b60` |
-|  `latest-dev` `1-dev` `1.4.3-dev` `1.4-dev` | March 27th   | `sha256:009cdb32bbe0021615caf7798501da4be0522aa429272f27d8015384f6aeb935` |
+|  `1` `latest` `1.4.3` `1.4`                 | March 28th   | `sha256:d5a8337635124dda74d04e800d4656f83691654105be78c1e14267d31de3b082` |
+|  `1.4.3-dev` `1-dev` `latest-dev` `1.4-dev` | March 28th   | `sha256:60cf833b8280c982a8811f8c44daa19ddabf943879f304e29b5655f5e420b208` |
 

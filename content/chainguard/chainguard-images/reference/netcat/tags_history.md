@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the netcat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 27th   | `sha256:9da528dacc21abfcfd4ecc8f1811fa0c0b23843c7b231642a61f11a1115afd08` |
+|  `latest` | March 28th   | `sha256:6bdae734e59afceeb7cb62908533d5a42a2a994a65eb2a10fa9fbe8b6e1f7197` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)               | Last Changed | Digest                                                                    |
 |-----------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.226` `1` | March 27th   | `sha256:461b9bc3d26b51038bea182d239c168f53a829c51ea3498ce0f5b367296f4b74` |
+|  `1.226` `1` `latest` | March 28th   | `sha256:4ec27646aa18a8582094875993a5f8f9eb7dfca32d2532243bf902002bc734d9` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cedar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:603303ec091e879bfe2e2b2de526bfe426f26e2bec54b4cde078077297b90d08` |
-|  `latest`     | March 18th   | `sha256:20742ca7047e20bfacdf82fbdf8710e52e8121a3e6e7046a45d1b9718182be00` |
+|  `latest`     | March 28th   | `sha256:3c678b3f612f0d8b7c35fb5327c24f6deb7cbdade2b9221cb6a7046078f6b39e` |
+|  `latest-dev` | March 28th   | `sha256:ffef461476e85f2f1ae5825e9e4ddf71a267904ca1b44bf905437691e18b5a6c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.1.1-dev` `latest-dev` `3-dev` `3.1-dev` | March 27th   | `sha256:91c6b1e3aa8590e206cbe98c2afec28b141e28a0e987cb3e03aa145c2480bd00` |
-|  `3` `latest` `3.1` `3.1.1`                 | March 27th   | `sha256:70a4ee4a84311e953d10b9bf27f5d16eadbe43cd514be9fe6596758f8005afae` |
+|  `latest` `3.1` `3.1.1` `3`                 | March 28th   | `sha256:17302921c55438624c57e173f92b5fa363ebcc582248dfa5756406e22d696203` |
+|  `3.1.1-dev` `3-dev` `latest-dev` `3.1-dev` | March 28th   | `sha256:ae46720556f3bf1e7fc2aa46d417c6f4ecdea00d5a50f5e970623369e1119d76` |
 |  `3.1.0`                                    | March 14th   | `sha256:8fc3c1355bb7f4f67450e4059bd2362215c23c085a67d9064685280c4dc0e38f` |
 |  `3.1.0-dev`                                | March 14th   | `sha256:f221d3cbd9ee7beb5099e58d2d48ab17da7b4855e3528673593b4e8c9dfd8ef1` |
 |  `3.0-dev` `3.0.1-dev`                      | March 8th    | `sha256:c6e01f06c064c4113639003fafefddb4a4fab50f0d924aa6988be90dc5e75ae6` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 22nd   | `sha256:d78edaa0566499468d6be3866691cd65f07daa456979b352d7a6f245ac4e3a81` |
-|  `latest-dev` | March 22nd   | `sha256:58ce8567cc4779b31961c582d8bb80127e0d57c094070c28a555ae3692356c88` |
+|  `latest`     | March 28th   | `sha256:5d25aca4c4f15cf1775a535d445d5ef2562996c94e90ab50356e819ee49ba3ec` |
+|  `latest-dev` | March 28th   | `sha256:d3c87b5cc183e47870c11632f2cfb4df1d7d914637659a6de4a675c39e6f2db8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.16.0` `0.16` `latest`                 | March 27th   | `sha256:82a34118e1efdfb5bff734d6c2599a985d7ea8626ae18988d45b34734924e254` |
-|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | March 27th   | `sha256:f742c64d7308469b9d7c52532d4842750af9e9f6dda73e5e468e09da1aa5e1ee` |
+|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | March 28th   | `sha256:d22e51d015959ee820d98a9f2144f7a66ba1464c9744938fa2c140726dcdfdc0` |
+|  `0.16.0` `0.16` `0` `latest`                 | March 28th   | `sha256:a2a11ef78a4956167f89d6d582ad680fc2e8142923b429cdc24bb858d3c6935f` |
 

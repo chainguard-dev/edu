@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k3s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 21st   | `sha256:055bf8db29bff169a5a22043f09b46a6bdfb02c42ed86b8d47dfad57fb9ad4f9` |
-|  `latest-dev` | March 21st   | `sha256:b9821c1245083966c9dbdd37428bbc880dbcfee11fec0fa8a6799ada2ef543c9` |
+|  `latest`     | March 28th   | `sha256:53ebb99f6ccc688ae69e1557bf31f451e1543f54f91534058af9da419c9b3395` |
+|  `latest-dev` | March 28th   | `sha256:276351f8648900f4df673ae22ab19776bd99cf923d2fd20a28964b637f897cba` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.29.2` `1.29` `latest` `1`                 | March 27th   | `sha256:6802353a8ce9d324acca6bccec57576188d3409c7368ee09dbd7da1dff406b15` |
-|  `1.29-dev` `1-dev` `latest-dev` `1.29.2-dev` | March 27th   | `sha256:a32df5dfc4ffa58db6bd3f3b72540e543ed59a476840be94bf033f6448cf7ce4` |
+|  `latest-dev` `1-dev` `1.29-dev` `1.29.3-dev` | March 28th   | `sha256:a941dcdcf9bb79db0ea9aa10dc9631362235a58eb8619f07860f9bb0f8b692c6` |
+|  `latest` `1` `1.29` `1.29.3`                 | March 28th   | `sha256:a84e7b1cc14cf682f6341017d337e832bd62c2062abf8f54ffbb931c91a2fc24` |
+|  `1.29.2`                                     | March 27th   | `sha256:6802353a8ce9d324acca6bccec57576188d3409c7368ee09dbd7da1dff406b15` |
+|  `1.29.2-dev`                                 | March 27th   | `sha256:a32df5dfc4ffa58db6bd3f3b72540e543ed59a476840be94bf033f6448cf7ce4` |
 |  `1.29.0-dev`                                 | March 2nd    | `sha256:b416758e770504a47b960f0ce1ef8909c0b4754fa1457a1b9d720b045cf971fb` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-admin-tools Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 27th   | `sha256:e9a5042bb73c0c781c47faf910ff5f05e46baf90509dd75165a3ac4cd06e75b9` |
-|  `latest`     | March 27th   | `sha256:67537e6aa29689fdb083b9b14957697d997d02b8279cad53861fd3eeb0bd74e4` |
+|  `latest-dev` | March 28th   | `sha256:5672fc1a3f9d8d0ec54f7bbaa1425062232929e7055b6ec17fb4b33872cb1d07` |
+|  `latest`     | March 28th   | `sha256:3cb33872f003d7875d80369060c246cd3a208351f151cade8fd102cbc178d365` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.11.0` `0.11` `latest`                 | March 27th   | `sha256:fa6c325f9d72b45e41572dcc6ae0c0b1119870de9c451660321d23b88f282a40` |
-|  `latest-dev` `0-dev` `0.11.0-dev` `0.11-dev` | March 27th   | `sha256:b3e6b793393d5ab32637fda0cc5dbd58c63f28d976d19a28e4d77ceebcaa2bbd` |
+|  `0` `0.11` `latest` `0.11.0`                 | March 28th   | `sha256:27469c82cdc17aad1d35568c6104d3516b09acdfdbe3f414670f648fb800cb7b` |
+|  `latest-dev` `0.11.0-dev` `0.11-dev` `0-dev` | March 28th   | `sha256:2ed12a388f931de3ffea1dfe8d6f664a02784a2ecb8cf38f92ff695531910b1f` |
 

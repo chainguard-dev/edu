@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 22nd   | `sha256:e300375dff64ed71f4b6f5bd8cfb46af65b0b4baa7b24b50c9a58954920f5b59` |
-|  `latest-dev` | March 22nd   | `sha256:b343d40da80a474e4269b0b2496eba9b993b1be68af80d8472ad2776e21ecdf5` |
+|  `latest-dev` | March 28th   | `sha256:6995c66ef0d960ffe8542dbc89c56771b32db6fa9c39a0049e9428281d22fbac` |
+|  `latest`     | March 28th   | `sha256:e56589de1599ea4370d8e178719d700b96af3c017a13dafddefacbd42bb1a6d5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16` `0` `latest` `0.16.0`                 | March 27th   | `sha256:d82992860159cf520ca11f30831dd20925fad07e4d553e03cb51694efdd4e3da` |
-|  `latest-dev` `0-dev` `0.16.0-dev` `0.16-dev` | March 27th   | `sha256:ffdb678dd292b0276cfa9f962f46b3afd661f9ae325685b1ca7755467fad8702` |
+|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | March 28th   | `sha256:3acbe3af13a3dc51a630a6c8f422d339f446ec7fc9a50b0dfe7d86721489456d` |
+|  `0.16` `latest` `0.16.0` `0`                 | March 28th   | `sha256:339435b6c1859462bab38955289bb392cdf2c4948846f70d3e43f575a1a4cdd6` |
 
