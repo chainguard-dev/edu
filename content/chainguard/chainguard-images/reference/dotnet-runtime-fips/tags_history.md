@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-runtime-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-03-30 00:51:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.0-dev` `6-dev` `6.0.128-dev`            | March 28th   | `sha256:1aa8f69895100826d7aae7753dfc656a8e0b049069c11a227987a2cfd219a196` |
+|  `7.0.117-dev` `7.0-dev` `7-dev`            | March 29th   | `sha256:08d344d88df524c46746118bb8682d4393f27aa3f06e91bca84ae1d318a57b59` |
+|  `6.0.128-dev` `6.0-dev` `6-dev`            | March 29th   | `sha256:a8e123923999a4ac332ab897b482229d676d7b47789efa31f50e6ec1cbc520c4` |
+|  `7.0` `7` `7.0.117`                        | March 29th   | `sha256:8d8644c030ce2da998302cc22d33d68bdb5f7821e57961926bb23c36e694d5c7` |
+|  `6` `6.0` `6.0.128`                        | March 29th   | `sha256:62979404bc4b9c89c384117be1ba447e770bfe1cec7a95b96f7fef88971f9a9d` |
 |  `8-dev` `latest-dev` `8.0.3-dev` `8.0-dev` | March 28th   | `sha256:cbc7643019b554f5701381e63d41654abb23794fc75ba0ff2f97bdbf3de98fec` |
-|  `7.0` `7.0.117` `7`                        | March 28th   | `sha256:8e5d2c1113076dbef412fb48df98ae7a9ecc60058939ca0bd63126f43bf50cef` |
-|  `7.0.117-dev` `7.0-dev` `7-dev`            | March 28th   | `sha256:fc72b8b31a8231a80c1a22e6787e41fb7e4ca5101c79f3abffcf7af168015219` |
 |  `8.0.3` `latest` `8` `8.0`                 | March 28th   | `sha256:18a480df82612f434e3ae988badc494f0e25b5f5980bc4a02e9e9e42051e45d3` |
-|  `6` `6.0.128` `6.0`                        | March 28th   | `sha256:43b178e536ae9fbc42fb019f0d1c2053e32c721073d10595722f82f786bc49f8` |
 

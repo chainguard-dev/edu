@@ -1,9 +1,9 @@
 ---
-title: "sqlpad-fips Image Tags History"
+title: "aws-cli-v2 Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the sqlpad-fips Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
+description: "Image Tags and History for the aws-cli-v2 Chainguard Image"
+date: 2024-03-30 00:51:55
 lastmod: 2024-03-30 00:51:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/sqlpad-fips/" >}}
-{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/sqlpad-fips/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/sqlpad-fips/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/sqlpad-fips/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/aws-cli-v2/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/aws-cli-v2/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/aws-cli-v2/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/aws-cli-v2/provenance_info/" >}}
 {{</ tabs >}}
 
 The following tables contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -26,13 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | March 29th   | `sha256:c80d61c18b8d53449d90e7046b9e822eed75466e4805643de93a79ab7bf25630` |
+|  `latest-dev` | March 29th   | `sha256:9b5ec108b0e2daa23bda41bb56ad10ca116929566f5a8a38bc36d03a9b656f26` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed | Digest                                                                    |
-|---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.4.1-dev` `7.4-dev` `latest-dev` `7-dev` | March 29th   | `sha256:d5f2386347d490b384994a1d142b15889aefd69bf48e4a39effb7378e95de2d0` |
-|  `7.4.1` `7` `latest` `7.4`                 | March 29th   | `sha256:3bf47b3443178e391bbe2f09f73474252fca55d4ebd52cceec37f9ba7a5a5304` |
-
+Currently, there are no Production versions of this image available.

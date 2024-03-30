@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mongodb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-03-30 00:51:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
+|  `6.0.14` `6.0` `6`             | March 29th   | `sha256:7590a81bbe0153b5bc9e9d3d3c3f5c5890fd7eeafeb04094525a98713f950e24` |
+|  `5.0` `5.0.26` `5`             | March 29th   | `sha256:b1383587f5288656b303692bb3711df24d429757f2eb3687e53ef12061bc1bb7` |
+|  `6.0.14-dev` `6.0-dev` `6-dev` | March 29th   | `sha256:47d3b8d46f082cd333bc51a39302307438191bbd3573327e497667e78db959f6` |
+|  `5.0.26-dev` `5.0-dev` `5-dev` | March 29th   | `sha256:e5b0324f21b98b3b8f6b8a996f027a614e4ee2d5f4cbd60f1c3448a02dd56d79` |
 |  `4.4-dev` `4.4.29-dev` `4-dev` | March 28th   | `sha256:d3b562ad18541d67090a5a06ed7512d8f396f33ef7f7abc385be998bb0a22834` |
-|  `5.0.26-dev` `5.0-dev` `5-dev` | March 28th   | `sha256:71d6147e46c9b80e477be21c5edaedd47b06ed271b0c6b48c0b592e5b36f3cd4` |
-|  `6-dev` `6.0-dev` `6.0.14-dev` | March 28th   | `sha256:48861d130a6d2f638b5b90ace5b395bb367de61fb19ddc23e6428a2566b2ca65` |
-|  `6` `6.0` `6.0.14`             | March 28th   | `sha256:679729bf910531bf1a654b01fdb5115032adbde822e007eabdb0acf028db4f17` |
 |  `4.4.29` `4.4` `4`             | March 28th   | `sha256:faab145ba7b1e11b37cba3004a552327fca842243a5dabfd9a2a259e1196708b` |
-|  `5` `5.0` `5.0.26`             | March 28th   | `sha256:9921a731893ce9836cc8a8b733a6417ae60d8224ffd21033f33fd64ead144f9c` |
 |  `5.0.25`                       | March 18th   | `sha256:5d491fe95aaea9a51dac62d75c924a1b2e9c2a00b74f7dc063df667f40971519` |
 |  `5.0.25-dev`                   | March 18th   | `sha256:cce12466d1bd7c288b26c2ff64a3308d4f3fb9f8fb2a255d12627517ffe9dc54` |
 

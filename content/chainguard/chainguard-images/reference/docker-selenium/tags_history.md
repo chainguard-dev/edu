@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the docker-selenium Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-03-30 00:51:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.19` `4` `4.19.0` `latest`                 | March 28th   | `sha256:702eca7fe4cf69a624a8abd716401c1070230705d105db3dbcb6da4d7eccd105` |
-|  `4.19.0-dev` `4.19-dev` `4-dev` `latest-dev` | March 28th   | `sha256:d8edaaf88a1f62a8b12e2c5983f531ab5d7384db41cabc991d9a1c128723aaad` |
+|  `4` `4.19` `latest` `4.19.0`                 | March 29th   | `sha256:f2e68c44c72d024d8dedbf0ed734235b388dc80d6890f42d0445ac61ed8069ad` |
+|  `latest-dev` `4.19-dev` `4.19.0-dev` `4-dev` | March 29th   | `sha256:c5ad39a83c520108731ed50e72241905ccc81a56bb7d2770c036d6d12307758b` |
 |  `4.18-dev` `4.18.1-dev`                      | March 28th   | `sha256:5d5cb2e5319f52b9729f13f92308233dee5fb692dddf61e35a1e242422a92a6e` |
 |  `4.18` `4.18.1`                              | March 28th   | `sha256:a7759d6dbb6b5270c132d4cf0d38dee14f8f53418f8458e3fde3ed6074043cef` |
 
