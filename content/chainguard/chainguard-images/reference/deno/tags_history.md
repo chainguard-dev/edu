@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the deno Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-03-30 00:51:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,11 +34,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                       | Last Changed  | Digest                                                                    |
-|-------------------------------|---------------|---------------------------------------------------------------------------|
-|  `1.42` `1` `latest` `1.42.0` | March 28th    | `sha256:b49ccb3f10107e697832af03d086cfcf14542d375f701d078bffbd7f9fdcf224` |
-|  `1.41.3` `1.41`              | March 27th    | `sha256:142493148d2b3b48a5ab3f3a4527f02a646745e2c63f73d99a2a3f1814ac2fcc` |
-|  `1.41.2`                     | March 14th    | `sha256:1c991351f6b29cb0f877cceb22cf67622b11fccb27f98ec84c84aef2306debd4` |
-|  `1.41.1`                     | March 8th     | `sha256:876ca39e8900d09e7c08d1865bc5878bd76a05e9c4c0b608a319f0d2cadf411e` |
-|  `1.41.0`                     | February 29th | `sha256:8e01c940e6e2d50e87d200d09fcffa32fab7c9cb3d904fa0ca5f9561197a35d8` |
+| Tag (s)                       | Last Changed | Digest                                                                    |
+|-------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.42` `1` `latest` `1.42.0` | March 28th   | `sha256:b49ccb3f10107e697832af03d086cfcf14542d375f701d078bffbd7f9fdcf224` |
+|  `1.41.3` `1.41`              | March 27th   | `sha256:142493148d2b3b48a5ab3f3a4527f02a646745e2c63f73d99a2a3f1814ac2fcc` |
+|  `1.41.2`                     | March 14th   | `sha256:1c991351f6b29cb0f877cceb22cf67622b11fccb27f98ec84c84aef2306debd4` |
+|  `1.41.1`                     | March 8th    | `sha256:876ca39e8900d09e7c08d1865bc5878bd76a05e9c4c0b608a319f0d2cadf411e` |
 

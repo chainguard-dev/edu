@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8s-sidecar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-03-30 00:51:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.26.1` `latest` `1` `1.26`                 | March 28th   | `sha256:07219c804d8274a54b9fdc3cb34fc3ef24bcde085fcaf521d67c06c875cdcf14` |
-|  `1.26-dev` `latest-dev` `1.26.1-dev` `1-dev` | March 28th   | `sha256:a3dc93375a5c92292071a4cfdcc58477eb5ed93962c4624b6661056b9ca987b3` |
+|  `latest` `1` `1.26.1` `1.26`                 | March 29th   | `sha256:cbf28059d0ec0b5c920015b0b9937f044d8684dcdde9423d9c844f995d8628d9` |
+|  `1-dev` `1.26.1-dev` `1.26-dev` `latest-dev` | March 29th   | `sha256:119d8ebbcacdc2a293f72ef87ec2320565d61449569eaf20337096c3a8f13e3a` |
 |  `1.26.0-dev`                                 | March 2nd    | `sha256:fbfacc2f5ca90fbc0933e95b1354a7e397d83b81938181261f498a453c72672d` |
 |  `1.26.0`                                     | March 1st    | `sha256:fa244bba955ff2419b401e83fb062f6d2d0e4db5f2955126a71dd866a6847852` |
 
