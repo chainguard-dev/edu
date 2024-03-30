@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aspnet-runtime-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-03-30 00:51:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `6.0-dev` `6-dev` `6.0.128-dev`            | March 29th   | `sha256:e6ef82b2c7e7e1ba98e82c978dcee5721ffb12720723e81bfba50e835387eee0` |
+|  `7.0.117` `7` `7.0`                        | March 29th   | `sha256:55c8af5214d09928bdce6d3f752cdde4d4280b63e6e23c93586690f3a839b42f` |
+|  `6` `6.0.128` `6.0`                        | March 29th   | `sha256:cbb7543432f08e4c75ce96ac2dca8abf7e2680c8884db34e2d5c1354fa983842` |
+|  `7.0.117-dev` `7-dev` `7.0-dev`            | March 29th   | `sha256:d641479953d174a2896be24e00e6796365dc5523640ed7d2fb9eefbea190f934` |
 |  `latest-dev` `8.0-dev` `8.0.3-dev` `8-dev` | March 28th   | `sha256:7066b199be1e11fe8bcdab6cfa2c1e135e0e3fcb388c9a3cdaba2644b67a6d81` |
 |  `8` `8.0` `8.0.3` `latest`                 | March 28th   | `sha256:5851d65f20389113a8a59e3f631c8d53736e8a20e2bf8a50e9dad65d9fb80e29` |
-|  `6.0` `6.0.128` `6`                        | March 28th   | `sha256:2384d778737d2f41be3321054625c6cb28b08ed4410c97bbac8a0eb7a6dde010` |
-|  `7.0-dev` `7-dev` `7.0.117-dev`            | March 28th   | `sha256:fada64f5f0075d76bf9ad0b5eec73266d3b698853b04247b5c5d49bd062f8485` |
-|  `7.0.117` `7.0` `7`                        | March 28th   | `sha256:74790fa4a8580359bb8b5172e4f091e2fae462763bfe1051ed16d530d36f8b35` |
-|  `6.0.128-dev` `6.0-dev` `6-dev`            | March 28th   | `sha256:0acc211daebfd0bf14d26948a25ca6c53ba3352709515729877d828bd8f36f3d` |
 

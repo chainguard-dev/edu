@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-03-30 00:51:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 28th   | `sha256:a83a92523acefd4e14be656e148f0b72a932b1e8a642d34772e8b76371faac84` |
-|  `latest-dev` | March 28th   | `sha256:36c5c6dd0838faaf2cd81ddb8f7acc96e9472aac7fb07523bfb963560eba4305` |
+|  `latest`     | March 29th   | `sha256:83b23d7ebbb2f6c8006ed1e096f1ae6c5f8fa111cfc1245f94e3ec19e204ac10` |
+|  `latest-dev` | March 29th   | `sha256:d62cf286297f3a75bfeba3f071d9e09bf8ee4605c9408cba28f7f601c188c440` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0-dev` `4.0.18-dev` `4-dev` `latest-dev` | March 28th   | `sha256:551c72dec05c758e7d406f985d728c80cb5c9ca3fabd94c13e436ad84bbee16f` |
-|  `4.0.18` `4.0` `4` `latest`                 | March 28th   | `sha256:30d7d84f3d626cdd9bc36c5ea985b75e93b515fd4d8d6299b2913da03fdec50b` |
+|  `4.0-dev` `4-dev` `4.0.18-dev` `latest-dev` | March 29th   | `sha256:a983f275e67b326ff959e2f4ae12082745addc8be6c7c025484f7b69b88a5ec6` |
+|  `4` `latest` `4.0` `4.0.18`                 | March 29th   | `sha256:e78612e8f9925fd7de93293d578775f7448f09d2f8d39c26c7dc55345c56cc37` |
 

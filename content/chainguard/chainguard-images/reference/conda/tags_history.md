@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the conda Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-03-30 00:51:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `24.3` `24.3.0` `latest` `24`                 | March 28th   | `sha256:35d53734c03bd8ae8e982cafc4047eb2f494dd6911f42a82412e89574541e31c` |
-|  `24.3.0-dev` `24.3-dev` `24-dev` `latest-dev` | March 28th   | `sha256:21fd64ee7550b7707bb5842afdb11885d944c0608330fda447a2646df6cf3aec` |
+|  `24` `latest` `24.3` `24.3.0`                 | March 29th   | `sha256:2d4978a6d63f26dca1420e0a1ae19777c44b14e1b152393b00ff5b6e753ce78b` |
+|  `24-dev` `24.3.0-dev` `24.3-dev` `latest-dev` | March 29th   | `sha256:dc22785076f43f655ed38b2042f3ffa0a49df917fb41fe0992b61831fe16bae5` |
 |  `24.1.2` `24.1`                               | March 18th   | `sha256:c4ded39d1296d285dd0292b96eda8becb5fec3ed63c071709d7c8de448e4a59d` |
 |  `24.1-dev` `24.1.2-dev`                       | March 18th   | `sha256:170c94f39165c6e06538e2a326bf9f888c06d00f95747e3662d28bf51f9ceec0` |
 

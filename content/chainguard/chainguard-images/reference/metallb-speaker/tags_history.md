@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metallb-speaker Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-03-30 00:51:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                | Last Changed | Digest                                                                    |
 |------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `latest` | March 28th   | `sha256:bb6dc64f4ec23029d9aaf105853ce0ebad94717666cca70da469280d29ecc013` |
+|  `latest` `latest-dev` | March 29th   | `sha256:983486327bdef8b16645d2c1aad87d115864cc867a9c329b5e9ca6993c324bea` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14.4` `0` `latest` `0.14`                 | March 28th   | `sha256:fd16c81c9be1e24f557169fb3d30284164c6eb7bbbeeb6bcb25af1038406482b` |
-|  `latest-dev` `0-dev` `0.14.4-dev` `0.14-dev` | March 28th   | `sha256:7a9a97264bdca9e56df985561abd145faf85342503c898528d76df9e86b8d6d2` |
+|  `0.14.4-dev` `0-dev` `latest-dev` `0.14-dev` | March 29th   | `sha256:50499a98fcbef01e54db456b1fe61fbe3c9fcb6421ced8cf66523b52bd56b831` |
+|  `0` `0.14.4` `latest` `0.14`                 | March 29th   | `sha256:bb9aeebdaf7b83e4a2a0fdb70a1052e8a6da35c334eafc31466e4b9a168677bf` |
 |  `0.14.3-dev`                                 | March 26th   | `sha256:29eca9391aff9d466adf01350fa22941f79f4f361e5cf0a801cfc90891eb713a` |
 |  `0.14.3`                                     | March 26th   | `sha256:96e2e3835e84df630f72beb31493b6a63a1e8fcf17b40ddf7893abd7e79094bf` |
 

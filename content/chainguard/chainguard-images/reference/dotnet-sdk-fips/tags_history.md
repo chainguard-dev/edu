@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-sdk-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-03-30 00:51:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.0.128-dev` `6.0-dev` `6-dev`            | March 28th   | `sha256:73ad606f7c20689fdaa62920977a7bbc6adab3f1eb40f211913132deb7ecbf47` |
-|  `7.0.117` `7.0` `7`                        | March 28th   | `sha256:b564d80c979595de28ea49daf140fefa623a81fd6e5cdbbe456e39442056b675` |
-|  `7.0.117-dev` `7.0-dev` `7-dev`            | March 28th   | `sha256:b9715620d7d87d22cab30378749a41e5cbc7695afb942ab4dfbf341bb5ee0f0f` |
+|  `6.0-dev` `6-dev` `6.0.128-dev`            | March 29th   | `sha256:afd490bee625758ed98f7278813cf1bd3efe5d6bd57bd410f712efb9e28cd28c` |
+|  `7-dev` `7.0-dev` `7.0.117-dev`            | March 29th   | `sha256:0c5d5493e70f8c36062e255f397ea47eacdd35bbd6a25e474f0023f33d566b0b` |
+|  `6.0` `6.0.128` `6`                        | March 29th   | `sha256:6e3ef6b9ae447759fa90f4e347057af0b044d1f34aa030d39fc5d3d0ce2afe6a` |
+|  `7` `7.0.117` `7.0`                        | March 29th   | `sha256:9e54ac67a2ebc5b4305c19409bf60ed1cb5741353674cf782ad1f8e8638dede1` |
 |  `8.0.3-dev` `8-dev` `8.0-dev` `latest-dev` | March 28th   | `sha256:348e695abf3a241d6ca45636db6ab02a1f7b003815153778751606ddee734ade` |
-|  `6.0.128` `6.0` `6`                        | March 28th   | `sha256:56d38d689ca1696d70c7e42ab2ce225d4a0a68a4d8521e57e52c0279398b668f` |
 |  `latest` `8.0.3` `8.0` `8`                 | March 28th   | `sha256:444c535b5a63dc819d521968577f98e08682c10cbb4dd43c949079ed6488c428` |
 
