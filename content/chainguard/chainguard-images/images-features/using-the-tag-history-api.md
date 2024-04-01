@@ -169,9 +169,9 @@ Add the base64 encoded value to `~/.docker/config.json` with the following forma
 ```sh
 {
   "auths": {
-	"https://cgr.dev": {
-  	"auth": "Y2M...Wc="
-	}
+    "cgr.dev": {
+      "auth": "Y2M...Wc="
+    }
   }
 }
 ```
