@@ -2,7 +2,7 @@
 title: "How to Retrieve SBOMs for Chainguard Images"
 linktitle: "Retrieve an Image's SBOM"
 aliases: 
-- /chainguard/chainguard-images/retrieve-image-boms
+- /chainguard/chainguard-images/retrieve-image-sboms
 type: "article"
 description: "A brief tutorial on how to use Cosign to retrieve Chainguard Image SBOMs."
 date: 2023-11-17T11:07:52+02:00
