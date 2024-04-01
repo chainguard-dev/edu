@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-30 00:51:55
+lastmod: 2024-04-01 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 28th   | `sha256:635a1fc5c9ffde7645914fbc21ee13c06c3b0422c2edcd3a987d58e11cb7d4f8` |
-|  `latest`     | March 28th   | `sha256:d698d1ee4b619738a293608a546047fa4de9451d4bf9b2c14bb8d9bbd991f502` |
+|  `latest`     | March 31st   | `sha256:ba46958ef604229829bfc82d007c7f6d90c30a3c4504cd012640792af8f70818` |
+|  `latest-dev` | March 31st   | `sha256:443fa175b6b997da04a5ab9fac5085bcc4750dec7b0ec1b0945a47ef8179a5ff` |
 
 
 ### Private/Dedicated Registry
