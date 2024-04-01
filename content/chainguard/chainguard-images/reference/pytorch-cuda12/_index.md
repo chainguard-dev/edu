@@ -26,7 +26,7 @@ toc: true
 
 
 <!--overview:start-->
-A minimal, [wolfi](https://github.com/wolfi-dev)-based image for pytorch, a Python package that provides two high-level features: Tensor computation with strong GPU acceleration and Deep neural networks built on a tape-based autograd system.
+A minimal, Wolfi-based image for PyTorch, a Python package that provides two high-level features: Tensor computation with strong GPU acceleration and Deep neural networks built on a tape-based autograd system.
 
 <!--overview:end-->
 
@@ -43,13 +43,13 @@ docker pull cgr.dev/chainguard/pytorch-cuda12:latest
 
 ## Running pytorch-cuda12
 
-Pytorch has some pre-requisites which need to be configured in the environment
+PyTorch has some pre-requisites which need to be configured in the environment
 prior to running with GPUs. For examples, please refer to [TESTING.md](https://github.com/chainguard-images/images/blob/main/images/pytorch-cuda12/TESTING.md).
 
 Additionally, please refer to the [upstream documentation](https://github.com/pytorch/pytorch)
 for more information on coniguring and using Pytorch.
 
-Assuming the environment pre-requisite have been met, below demonstrates how
+Assuming the environment pre-requisites have been met, below demonstrates how
 to launch the container:
 
 ```bash
@@ -59,7 +59,7 @@ docker run --rm -i -t \
     cgr.dev/chainguard/pytorch:latest
 ```
 
-If your environment has access to GPUs, you may provide access pytorch access to it by running 
+If your environment has access to GPUs, you may provide PyTorch access to it by running 
 ```bash
 docker run --rm -it --gpus all cgr.dev/chainguard/pytorch-cuda12:latest
 bash-5.2$ python
