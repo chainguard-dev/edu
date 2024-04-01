@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-30 00:51:55
+lastmod: 2024-04-01 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 29th   | `sha256:844218d7b04e71f506098726e6b75af690f7020dca7d4f39c94593d8d46463ac` |
-|  `latest`     | March 29th   | `sha256:6853a306de838e2cadcc9221bbbb5b5fd838aa92574ce3722e131132d8bd0f32` |
+|  `latest-dev` | March 31st   | `sha256:a8991115cbf999dcd85e178fb26935fa45ea9f7f98948ae6fd82c6870866e3bf` |
+|  `latest`     | March 31st   | `sha256:abff29c822f5b56deebbdfaf85f2a88de4ce13d359e7b282f86a848811858e7a` |
 
 
 ### Private/Dedicated Registry
@@ -37,12 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `21.7-dev` `21.7.1-dev` `21-dev` `latest-dev` | March 29th   | `sha256:93da489a1c0588957638c5bfbfd98b7bbfcca1db07602d4238b9898d27d7789e` |
-|  `20-dev` `20.12-dev` `20.12.0-dev`            | March 29th   | `sha256:d0dea8175075a30f7da07e0c0387f69a3a6f14fb2c389db181b373daa94a69a0` |
-|  `21.7` `21` `21.7.1` `latest`                 | March 29th   | `sha256:0f47f032fd3ecc34cb96c8028c045510063a82d1d05dd8fee10346eee9806b10` |
-|  `18.20.0` `18.20` `18`                        | March 29th   | `sha256:3abe5d460b507129f73aa2d65a48992f675a1bb876557b54f8e39032504afd6d` |
-|  `18.20-dev` `18-dev` `18.20.0-dev`            | March 29th   | `sha256:10ad1ac8aca86ba48437b589c07a3a1b17f662dd524d3558e46a08c46f6d06bc` |
-|  `20.12` `20.12.0` `20`                        | March 29th   | `sha256:fff08b164533f45ab5cf407f365d50388f99059772713cbce477e48d95c1b80d` |
+|  `20.12` `20` `20.12.0`                        | March 31st   | `sha256:dc643783df98cf6c00e80f28431756f12f9156a17e5616254967a27d6309e216` |
+|  `18.20.0` `18.20` `18`                        | March 31st   | `sha256:88c5d59004704cef54c551dec7d9096ae9f5df05c72f1942c6a439fe4903b77e` |
+|  `20.12-dev` `20.12.0-dev` `20-dev`            | March 31st   | `sha256:6fc0b36399caf58de42c4382992b05b863999852d918975ddc655738168444f1` |
+|  `latest` `21.7` `21.7.1` `21`                 | March 31st   | `sha256:f75730caf5ebefc459f5d585c35ce7ddc2cbaf829a78d07d4d10bb348aef3ee8` |
+|  `21.7-dev` `latest-dev` `21-dev` `21.7.1-dev` | March 31st   | `sha256:e4931deee4aefa3977e2b136314a8bc0640a08255105b369b056fef32f750d12` |
+|  `18-dev` `18.20.0-dev` `18.20-dev`            | March 31st   | `sha256:e8d2dd9856efbeda24938fef5582c8c5f22cfb0b3f8f7daef60408f1afd1d4a9` |
 |  `20.11.1` `20.11`                             | March 18th   | `sha256:87168b3d8f399b63df72266a0361c60eb0d5da1ea51d74f3fa07ff920ff22d07` |
 |  `18.19.1-dev` `18.19-dev`                     | March 18th   | `sha256:98fa6f702f2afea1602c7e92b6a19008d074ef37d23472c2f6c18a7a35bcaa98` |
 |  `18.19` `18.19.1`                             | March 18th   | `sha256:42a1d04e0644a7e831a04b9fe00338ab4edcac320bd38237412f3a336e3e0e72` |

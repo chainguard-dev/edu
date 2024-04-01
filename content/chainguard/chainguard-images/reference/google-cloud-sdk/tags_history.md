@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the google-cloud-sdk Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-30 00:51:55
+lastmod: 2024-04-01 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 28th   | `sha256:ae871c3c80daae750b9b7df2510ee3f4bd859d374fc56492d347407543beb9d8` |
+|  `latest` | March 31st   | `sha256:0cd024d55d798bc52d69513d8ab175c514da3fbc33f1d0c9498a48fc1d7f58b8` |
 
 
 ### Private/Dedicated Registry

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dynamic-localpv-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-30 00:51:55
+lastmod: 2024-04-01 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 28th   | `sha256:b144b06e497afbcac9da79f5c8dff040b4c82bcd807409e8a08bc90d4e45a386` |
-|  `latest`     | March 28th   | `sha256:e7c680103694138151469ff7d9ba377ac52900f66dacfcb47f79a12aebf18ee9` |
+|  `latest-dev` | March 31st   | `sha256:0b47db6a5594212bcbd991a0d396f3a7f859182bbd179c4d077bd718dbfb5723` |
+|  `latest`     | March 31st   | `sha256:6d1ecff4dc7c42f235ea11dd4f361c0b555b92777808e0d248cbf756265573d9` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0` `4.0.0` `4` `latest`                 | March 29th   | `sha256:602b27e2dc2b6be8b01448c11e6eedbe96e3fbdd95672dec12fa5c63719e3166` |
-|  `latest-dev` `4.0.0-dev` `4-dev` `4.0-dev` | March 29th   | `sha256:1a06f3f9ebc20115cd8e4af5ebfce2eae113db1182e62978001e35584e0efe8a` |
+|  `latest` `4` `4.0.0` `4.0`                 | March 31st   | `sha256:ce8294cf9f0c25d5cb4edb140b872b8ecdfb55ab922b7387f0f2f95b326b3897` |
+|  `latest-dev` `4.0-dev` `4-dev` `4.0.0-dev` | March 31st   | `sha256:214394285323b84a3e9fd2eabd6b53da45a43c7decb76af7cb97ac0fbf6efbc3` |
 |  `3.5-dev` `3-dev` `3.5.0-dev`              | March 18th   | `sha256:ee54b011791d519b67cc9dc7e1208cba85771f1bb0717c8b0eebd3cd319352d7` |
 |  `3` `3.5.0` `3.5`                          | March 18th   | `sha256:05bf9e4f83619b176d53bc77d04c5faa785a136d0db06df35c790e275d0b122d` |
 

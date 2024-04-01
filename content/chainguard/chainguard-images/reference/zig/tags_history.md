@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the zig Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-30 00:51:55
+lastmod: 2024-04-01 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 28th   | `sha256:94188646b260b4202864746b209187548e2d8cc2bb0665db9cdb26358dadecf8` |
-|  `latest`     | March 28th   | `sha256:88f1a23e188f9b68e77886f848d7d89b5ba246bb9c0e4e987adb82cc6c57327e` |
+|  `latest`     | March 31st   | `sha256:0f9d83039af3d50c30e61c76333f37ee3528b98deff781fe59a2f3967f342ae6` |
+|  `latest-dev` | March 31st   | `sha256:8983fdafdd6381871ad2d09dd5b4e4479c15ae99ff2cb01f1d6d28f34d758c1d` |
 
 
 ### Private/Dedicated Registry

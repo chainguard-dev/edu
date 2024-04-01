@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-medusa Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-30 00:51:55
+lastmod: 2024-04-01 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 28th   | `sha256:781964a720b28d9d84891df8acc7a1a39951ad513dbe179f01e3c1f5a78db6b5` |
-|  `latest`     | March 28th   | `sha256:78a4dc078b96a3c7905543609b3d75e8386758ac260d9c9ea755df36542a384b` |
+|  `latest`     | March 31st   | `sha256:965490dab66c21c4b3fe95291e3f67d1c62a00f524b46fe760637a76f528c0c4` |
+|  `latest-dev` | March 31st   | `sha256:0be04eacd50650473edcb6593e99989882c5bd088299093d8fa8017895822b31` |
 
 
 ### Private/Dedicated Registry

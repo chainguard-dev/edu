@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the etcd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-30 00:51:55
+lastmod: 2024-04-01 00:38:36
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 28th   | `sha256:99284915715c6c723f46cbe6e78d24b602432871641bd3da2e6ea7b04e6ea098` |
-|  `latest`     | March 28th   | `sha256:90b480c23499f2d58d06d748aa3c31ef320f59e1cfe55eab5591c13bcd3a4164` |
+|  `latest-dev` | March 31st   | `sha256:c414619b8ed3d44ef0f279db76a8a6abe6e4f2a1a45224764e8d3e0abd808e5a` |
+|  `latest`     | March 31st   | `sha256:18ce7ed747c93ec5a88a38a85f374adbb36b1417192137f54579d0418cffcd86` |
 
 
 ### Private/Dedicated Registry
