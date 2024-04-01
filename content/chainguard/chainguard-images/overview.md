@@ -33,22 +33,22 @@ Chainguard Images are available from the [Chainguard Registry](/chainguard/chain
 
 ## Why Minimal container images
 
-The fewer dependencies a given piece of software uses, the lower likelihood that it will be impacted by CVEs. By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard Images inherently contain few to zero CVEs. Chainguard Images are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes fixes vulnerabilities before they’re detected.
+The fewer dependencies a given piece of software uses, the lower likelihood that it will be impacted by CVEs. By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard Images inherently contain few to zero CVEs. Chainguard Images are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=docs).
 
-Note that there is often a `-dev` variant of each Chainguard Image available. For example, the `-dev` variant of the `mariadb:latest` Image is `mariadb:latest-dev`. These images typically contain a shell and tools like a package manager to allow users to more easily debug and modify the image.
+Note that there is often a `-dev` variant of each Chainguard Image available. For example, the `-dev` variant of the `mariadb:latest` Image is `mariadb:latest-dev`. These images typically contain a shell and tools like a package manager to allow users to more easily debug and modify the image. We recommend for production environments that you use Chainguard's `-dev` Images in a multi-stage Docker build; this will allow you to use a `-dev` variant image as a builder container, and then promote that build to an image that removes anything unnecessary.
 
 
 ## Why Distroless
 
 [Distroless images](/chainguard/chainguard-images/getting-started-distroless/) are the result of pushing minimalism in containers to the next level. When compared to traditional base images such as [Alpine](https://hub.docker.com/_/alpine) or [Debian](https://hub.docker.com/_/debian), they are more stripped back, lacking even a shell or package managers. However, compared to the empty “scratch” image, they do contain structure essential for the majority of Linux applications such as root certificates for TLS and core files like `/etc/passwd`.
 
-[Wolfi](https://github.com/wolfi-dev) is a community Linux distribution designed by Chainguard for the container and cloud-native era. Chainguard started the Wolfi project to enable building Chainguard Images, which required a Linux distribution with components at the appropriate granularity and with support for [glibc](https://www.gnu.org/software/libc/). 
+[Wolfi](https://github.com/wolfi-dev) is a community Linux distribution developed by Chainguard for the container and cloud-native era. Chainguard started the Wolfi project to enable building Chainguard Images, which required a Linux distribution with components at the appropriate granularity and with support for [glibc](https://www.gnu.org/software/libc/). 
 
 ### A Note about Wolfi packages
 
-Chainguard Images only contain packages that come from the Wolfi Project or those that are built and maintained internally by Chainguard. Starting in March of 2024, Chainguard will maintain one version of each Wolfi package at a time. These will track the latest version of the upstream software in the package. Chainguard will end patch support for previous versions of packages in Wolfi. Existing packages will not be removed from Wolfi and you may continue to use them, but be aware that older packages will no longer be updated and will accrue vulnerabilities over time. The tools we use to build packages and images remain freely available and open source in Wolfi.
+Chainguard Images only contain packages that come from the Wolfi Project or those that are built and maintained internally by Chainguard. As of March of 2024, Chainguard will maintain one version of each Wolfi package at a time. These will track the latest version of the upstream software in the package. Chainguard offers patch support only for the latest version of the upstream software in the package. Existing packages will not be removed from Wolfi and you may continue to use them, but be aware that older packages will no longer be updated and will accrue vulnerabilities over time. The tools we use to build packages and images remain freely available and open source in [Wolfi](https://github.com/wolfi-dev).
 
-This change ensures that Chainguard can provide the most up-to-date patches to all packages for our Images customers. Note that specific package versions can be made available in Production Images. If you have a request for a specific package version, please [contact support](https://support.chainguard.dev?utm=docs).
+This change ensures that Chainguard can provide the most up-to-date patches to all packages for our Images users. Note that specific package versions can be made available in Production Images. If you have a request for a specific package version, please [contact support](https://www.chainguard.dev/contact?utm=docs).
 
 
 ## Production and Developer Images
@@ -59,7 +59,7 @@ Production Images are enterprise-ready images that come with patch SLAs and feat
 
 You can access Images directly from the [Chainguard Registry](/chainguard/chainguard-registry/overview/). The Chainguard Registry provides public access to all public Chainguard Images, and provides customer access for Production Images after logging in and authenticating.
 
-You can find complete lists of all the Developer and Production Images available to you in [the Chainguard Console](https://console.enforce.dev/). After logging in you will be able to find all the current Developer Images in the **Public images** tab. If you've selected an appropriate Organization in the drop-down menu above the left hand navigation, you can find your organization's Production images in the **Organization images** tab.
+You can find complete lists of all the Developer and Production Images available to you in [the Chainguard Console](https://console.enforce.dev/?utm=docs). After logging in you will be able to find all the current Developer Images in the **Public images** tab. If you've selected an appropriate Organization in the drop-down menu above the left hand navigation, you can find your organization's Production Images in the **Organization images** tab.
 
 
 ## Comparing Images
@@ -100,4 +100,4 @@ Once you run this command, you'll receive output similar to the following.
 
 This verifies that the Ruby Chainguard Image is built for both AMD64 and ARM64 architectures.
 
-You can read more about our support of ARM64 in our blog on [Building Wolfi from the ground up](https://www.chainguard.dev/unchained/building-wolfi-from-the-ground-up-and-announcing-arm64-support).
+You can read more about our support of ARM64 in our blog on [Building Wolfi from the ground up](https://www.chainguard.dev/unchained/building-wolfi-from-the-ground-up-and-announcing-arm64-support?utm=docs).
