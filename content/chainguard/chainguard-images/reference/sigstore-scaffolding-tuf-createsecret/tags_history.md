@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 28th   | `sha256:c0205728fa416012a7c8312009c3f4bd79cf3b323cba052cc6fa21b8222a6a35` |
+|  `latest-dev` | April 1st    | `sha256:889aac5d53e0bbaca58f4eae191ba947e98b8e59cafd617c1e39e75c64a7d255` |
 |  `latest`     | March 28th   | `sha256:ed79cb0f2bd57c908a70ebdffaed03dc8833658a8966f5322eaccc669d19e363` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.6.17-dev` `latest-dev` `0.6-dev` | March 28th   | `sha256:d6eec01bebc62f40f914993cd6b342447a61f3339685e08ce1579f065d982509` |
+|  `0.6-dev` `0.6.17-dev` `0-dev` `latest-dev` | April 1st    | `sha256:772c41b10f0627c5a846a028887ad7a9af3e1ff85b39d9f38cfcdf6102653bb6` |
 |  `0.6` `0` `0.6.17` `latest`                 | March 28th   | `sha256:519df31f1ff84759aa619ca962d923044dac183b8ad699aa3a05427f5fea4c23` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:f96c30575ccc0ea91e04f6361e3500f6d0396185c2671a726f8e879ae8cb0bc1` |
 |  `0.6.16`                                    | March 8th    | `sha256:bca6dca8fbd6643b616a7ee02470e3027f4a532cf74e9a794f9b0393ee6f844f` |

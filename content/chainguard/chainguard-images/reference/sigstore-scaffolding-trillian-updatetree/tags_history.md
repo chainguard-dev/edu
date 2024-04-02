@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-updatetree Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 1st    | `sha256:b684e29331e7653ad23d6ec212e7405909439b4f2038106cb7bdba09b83d96bb` |
 |  `latest`     | March 28th   | `sha256:5b1c1530e6974cd01dc9f84d5c8a47effc2946a0fbb1aa6b69aeb5fa3a7058e7` |
-|  `latest-dev` | March 28th   | `sha256:602d83bcfc9cbb813f23cc9f8108ddeac66afd93811e4bad14313a48f34b5aaa` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.6-dev` `0.6.17-dev` `0-dev` | March 28th   | `sha256:906fe88538525c17614d72c3c04c89d32cb6bb3963a9f91a354f1eaf9568c6be` |
+|  `0.6.17-dev` `0.6-dev` `latest-dev` `0-dev` | April 1st    | `sha256:13cded8df670d93bbb5296d964915a8d750b075499a673be8742c5eee89dfddb` |
 |  `0.6.17` `0.6` `latest` `0`                 | March 28th   | `sha256:a0bdb98f19cf91222330026202a9d4ff41dd96c09c670534868b18c0cad1c2f2` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:98ad6fa7857dd6e0e31bc54f49901ff13da4befdee30a1de31689ddec75ba164` |
 |  `0.6.16`                                    | March 8th    | `sha256:0f2b8d7e8ae3d196fc7267333d7fc81e0a89a4e367f3642ad62780be54317b5a` |

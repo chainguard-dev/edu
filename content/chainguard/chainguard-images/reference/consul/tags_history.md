@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the consul Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 1st    | `sha256:079e30004b72835395df2839ff0e298cc2f92c018325e65e23430bea11bb52c2` |
 |  `latest`     | March 28th   | `sha256:8bf4eac05e57fcf81f37e1ffea250fe053c63b7d60c2e1edaf62d500677c4ee9` |
-|  `latest-dev` | March 28th   | `sha256:ed6ddd66c6c7ee5aa55cd8db94db4deb081c086a0da12b063f790baf6497ee8d` |
 
 
 ### Private/Dedicated Registry

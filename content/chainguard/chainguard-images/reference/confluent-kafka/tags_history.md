@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the confluent-kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-30 00:51:55
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 28th   | `sha256:4f3141500b9bc7a8a00ff39664b48f44b42801f83cae3617ddb69289cd675de7` |
-|  `latest`     | March 28th   | `sha256:3cbc01528fb2c7fac99e72ef650e500000f2d92e96564478e71f11785633b285` |
+|  `latest-dev` | April 1st    | `sha256:7f0193816c85d54519c446de46ffddcca03a5288f047b029101f85ddd955c303` |
+|  `latest`     | March 31st   | `sha256:d0ebdcc4df367e68840b31b5d09a9bda6ad1958c3787be22a1c2a632387c12e8` |
 
 
 ### Private/Dedicated Registry

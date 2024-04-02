@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-createctconfig Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 28th   | `sha256:c8d94e3f5503c68281b3284e910d0a0a650ecf1af8f858e5a36db7389f60f62f` |
+|  `latest-dev` | April 1st    | `sha256:e35348402b1e6bfbe58af4f59fdfef0d1b534968c75ec3361a54782c288e0ec7` |
 |  `latest`     | March 28th   | `sha256:09b62e864497ad8c6fbf15eb8422506c9d4ff58ac6f78f3f3e22ada4789d71fd` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.6-dev` `0.6.17-dev` | March 28th   | `sha256:88f48ebde344a09fabcf6e7341ba802ed774c0cad67367af117e156025dd9e6a` |
+|  `0.6.17-dev` `latest-dev` `0.6-dev` `0-dev` | April 1st    | `sha256:42a14b83b510c4b16de137a094bcb845d861853581a0949320774b2edcbe014a` |
 |  `0` `0.6.17` `0.6` `latest`                 | March 28th   | `sha256:7692f266688de6395e0a69ee087fd06ac02f3193ed859814d556af88bf910515` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:563a333cd8e57803f951ae2fd064384b82b357927d0974792eb0cdfe759fd722` |
 |  `0.6.16`                                    | March 8th    | `sha256:20f75fa97e86dac6f491799bb0f4af381d690a5acf50666d6088de7ebfff0f68` |

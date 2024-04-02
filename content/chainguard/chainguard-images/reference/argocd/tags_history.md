@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-30 00:51:55
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 28th   | `sha256:1aa2b2961a0590ffefce68c79b0a436df062df9bbdf00a32afdc63aabf20d87b` |
+|  `latest-dev` | April 1st    | `sha256:1f1c459d060ff464ff09ea2d24bb2309eda45fdc845f9a0847e140ee5df66bc1` |
 |  `latest`     | March 28th   | `sha256:64ca7b5db71b848d41d844d24944bca2ea3abf65fb4349179fff9594dd409654` |
 
 
@@ -53,7 +53,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.9.7`                                      | March 2nd    | `sha256:4ff0a973d500237f7062d2ec5b93067ac3300585873675e9c5559c3e5066da9b` |
 |  `2.10.2`                                     | March 2nd    | `sha256:699f61bc0947ad783a17c47eb8a82028120a04b8ea437e96c88154ee6445f8f0` |
 |  `2.9.7-dev`                                  | March 2nd    | `sha256:5248f9fe7b62ca0a6e40ef27bc873d09ee07495f2143adf31b9823dfb5e1dc63` |
-|  `2.9.6-dev`                                  | March 2nd    | `sha256:5cf62948626e973a9170cec944248bf28f2b18202612310b60a54c2a96869609` |
-|  `2.8.10-dev`                                 | March 2nd    | `sha256:7812604e7bc90623af124772975abe048e28143bc6e73949ff94e8f445280095` |
-|  `2.10.1-dev`                                 | March 2nd    | `sha256:018117dd074fc30920c6a30198c2bf97eab512faeb1e6025e841226995e26ca7` |
 

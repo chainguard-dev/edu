@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-policy-reporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 28th   | `sha256:5abb994868891fd189a437884d20c47e420c4190a1ecec49365bd5c4a3ef3353` |
-|  `latest`     | March 18th   | `sha256:3def9900315b96a1a62565de527e31e23d019b80f95861d3315dc552f6715aac` |
+|  `latest-dev` | April 1st    | `sha256:5664c4f69f9ebca19559441869ab4385e191e4e9921802869b10dc22634b1d48` |
+|  `latest`     | March 31st   | `sha256:e906c23b48b5a6b4281e96288155f6f56bbaea3657ac577c69f95c1ec1195cee` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.18.1-dev` `2-dev` `2.18-dev` | March 28th   | `sha256:0df6400174a2db73d6ddceb746931965e54d78bb004a09bf4999caaf96cc4188` |
-|  `2.18.1` `2.18` `latest` `2`                 | March 28th   | `sha256:c16ff641118325a7ea8e5d59f86e640fdda3952df5b2a8fc4337fe32187e2ef5` |
+|  `2-dev` `latest-dev` `2.18.1-dev` `2.18-dev` | April 1st    | `sha256:d63c88e08ab4e9b742d5f718e99effc2e6ada330f908837b5ce0c03c58b798d4` |
+|  `2.18` `2.18.1` `2` `latest`                 | March 31st   | `sha256:995e06ac2592f37dfaba4c5756e0fd3a1977133ad0f94f4f7d830fbd869bc268` |
 

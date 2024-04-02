@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jellyfin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-30 00:51:55
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 28th   | `sha256:141cefcd5fb280ac4daa34b40f05e677202d045f8998344dcecc90175d1bbbca` |
-|  `latest-dev` | March 28th   | `sha256:0fc09b561a5da156ced28914043539e73a40b6f4e9381f8fd777b0128d2b1ac0` |
+|  `latest-dev` | April 1st    | `sha256:3ee2d8c8dd7205a4b23b35aa78c92c5918d893d242a952486717c75680dcb469` |
+|  `latest`     | March 31st   | `sha256:cd3da61f83624a8375b59a8300d3cac67880e9ff2825c6c4e1b308cdf35085c9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `10.8.13-dev` `10-dev` `10.8-dev` | March 29th   | `sha256:e4085044e8eca13524caa0a38626bb4c16a8f18bc6a6f986cafaec1a9cc35b89` |
-|  `10.8` `10` `10.8.13` `latest`                 | March 29th   | `sha256:b08e7d64ba71e868e9ffccc96ded79d5d77526a73dce624e1ae0cc1967dda90e` |
+|  `10.8.13-dev` `10.8-dev` `latest-dev` `10-dev` | April 1st    | `sha256:f07955d2c05ff47075acf98b2e446b5d1b1f900015a4580ac296d69912d28b1b` |
+|  `10` `10.8` `10.8.13` `latest`                 | March 31st   | `sha256:7ef5649b7fc5f3e07a24e481e1e698a8a583502ab58227d94e8561f6fc904580` |
 

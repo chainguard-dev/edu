@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 28th   | `sha256:f0a3550f05b9d1932be8794f72106aff52a881c6955bd52c12155f59b48fc5ad` |
-|  `latest-dev` | March 28th   | `sha256:28216f3c2bdbd8e810df20c6cab2c5563a8170ea4a9a69ec38e400c2fda3d25f` |
+|  `latest-dev` | April 1st    | `sha256:5150e3b5e020adf6dcb85ed8ee1cdd3c4887416b5c723d8881cc1d83c9dab4e7` |
+|  `latest`     | March 31st   | `sha256:c337ab9715813552aa4ed6396697dddf9f377ca50b1c847d583190d5f0e15574` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.58` `1.58.0`                 | March 28th   | `sha256:ad6772a8f95510d8e3c95ec6a702999ba55c0a6ae3c3fd83ab863352d8c09571` |
-|  `1-dev` `1.58.0-dev` `latest-dev` `1.58-dev` | March 28th   | `sha256:559b00b81426a03161052619df2ba28e1976eb0a0268dc311ff56eacd9944b0c` |
+|  `1-dev` `1.58-dev` `1.58.0-dev` `latest-dev` | April 1st    | `sha256:cf0fc4e0f93769e221db83953ee8c726dbdbd0a6ddb71b837d5a412733abe5c2` |
+|  `latest` `1.58` `1.58.0` `1`                 | March 31st   | `sha256:228caedeaa8c553e20aaf72da5ae70546f76617ff5523d0078f859844b5ff3de` |
 
