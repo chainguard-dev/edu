@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-01 00:38:36
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 31st   | `sha256:a9bb6d5d8b5c1b1fb31cf15a7619889c2d04df522fbec11bee47c42f4f883034` |
-|  `latest-dev` | March 31st   | `sha256:a2c6e2c3e91e514dc52070e0f56c751025af9d9b7914384df29d845466fb5736` |
+|  `latest`     | April 1st    | `sha256:239585f4ae20f9b0514f438ecae6b793cda1d771934692d7007f847adaee9ae0` |
+|  `latest-dev` | April 1st    | `sha256:c5f6f756afd5812b058f938ea571e9fc3f9ba8a7549aa4a7acff2f7fa8f4e767` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15-dev` `0-dev` `0.15.1-dev` `latest-dev` | March 31st   | `sha256:987ef82e0473d41def0b429ec9dca7930e6307d3780672f65c4c7dd810069d02` |
-|  `latest` `0.15.1` `0.15` `0`                 | March 31st   | `sha256:7cdcd8d061c4ef2fd5d20836b71330241a45b7c3f5507092812eda3bbee9b8c6` |
+|  `0.15.1` `latest` `0` `0.15`                 | April 1st    | `sha256:e7c25ed2c0e6c62d1e0062b10115e816756a06ae062189cf365e3e7f184dc9d8` |
+|  `latest-dev` `0.15.1-dev` `0-dev` `0.15-dev` | April 1st    | `sha256:630b036ad19180539d5dd5f024f8d27f1c5f390179112b28b904ed05e2bb802e` |
 

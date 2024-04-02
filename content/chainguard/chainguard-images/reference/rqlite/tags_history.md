@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rqlite Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 28th   | `sha256:b9f16a69ca3a6ec8b3f4bdf66ff715ba61971a2dd2375a625706deab89abc838` |
+|  `latest-dev` | April 1st    | `sha256:f67aa9f04c47706d64892c68ac38365cf22965a1f80b302c3c652c9a212b49d3` |
 |  `latest`     | March 28th   | `sha256:120256e0ea761bbd0476e66d6107536f8d015cbe4d8027e9a26196715b7f053b` |
 
 
@@ -37,9 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `8.23-dev` `8.23.0-dev` `8-dev` `latest-dev` | April 1st    | `sha256:fffe038e595b46ef6972ca64d465fcf8a495618bf639e99dc40be8c6782a9001` |
 |  `8.23` `8` `8.23.0` `latest`                 | March 28th   | `sha256:eb83426faa09aa1c10f39b07b1fcc011c5cbdc4eaab4ba413ad41fd885465f6b` |
-|  `8-dev` `8.23-dev` `8.23.0-dev` `latest-dev` | March 28th   | `sha256:9987e3de97768807ba3d4bff48f6e892909ea461df1316c4e194519e8f1dc0d0` |
 |  `8.22` `8.22.2`                              | March 14th   | `sha256:72e9242a8527905e6bd2c199b69961799f643d52279e7edda0ea217b5cfc5b01` |
 |  `8.22.2-dev` `8.22-dev`                      | March 14th   | `sha256:2b97a0fc0cebbeab6308d8b2d2a5f9547390f820cff408d8aaa507eba0079198` |
-|  `8.22.1-dev`                                 | March 2nd    | `sha256:a66009cf344b5d981a45b5ae5ab89f73a705b905e1a8000bb68440542b67e9ea` |
 

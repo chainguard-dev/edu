@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-01 00:38:36
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 31st   | `sha256:c3184c896a5f624c30c21136d7b844a77b878972226618dda9bd44569ace524d` |
+|  `latest-dev` | April 1st    | `sha256:8bfd9efb4f0a7c3b52ae7f0009667cfbfac74201f78e7308189348f161355356` |
 |  `latest`     | March 31st   | `sha256:1c17eb063479a047501b19b2d5b1fa98114c83433643547643d723c5bd8346ba` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0.0_beta6-dev` `3-dev` `3.0-dev` `latest-dev` | March 30th   | `sha256:d1696c331b9bc2909ceb6f061ff0db434e828a3cd2678695c74d6001044a387e` |
+|  `3.0.0_beta6-dev` `3-dev` `latest-dev` `3.0-dev` | April 1st    | `sha256:1e23f40602c1f0afc19371ac5d2f0e34f4d696d0b136696ec2f6cd399db53216` |
 |  `latest` `3` `3.0.0_beta6` `3.0`                 | March 30th   | `sha256:7f556b19adcffe143346427eea7a9acdd8894d5189b71dd10cac193e621f0497` |
 |  `3.0.0_beta5-dev`                                | March 28th   | `sha256:f2b14f3832e3d9d519de797e9e1b6118c984640ab152da2a5eedf71cf1fda830` |
 |  `3.0.0_beta5`                                    | March 28th   | `sha256:9e45a6ef0329e840054375cd4c136a5d00b1809e4dfa5782c70b1dba53c43c2f` |

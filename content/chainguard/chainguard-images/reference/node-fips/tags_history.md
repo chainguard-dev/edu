@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-01 00:38:36
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,11 +33,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `20.12.0-dev` `20-dev` `20.12-dev`            | April 1st    | `sha256:27132d9951dd657cdf61d562e20b3be2627d936df425e63fa9dccdf83180c85b` |
+|  `18.20-dev` `18-dev` `18.20.0-dev`            | April 1st    | `sha256:2bd541602ea3b55a636d45d830559a478e8cc9476f000c420628927f9e73f835` |
+|  `21-dev` `latest-dev` `21.7-dev` `21.7.1-dev` | April 1st    | `sha256:6397905daed29028e2d46d9fb0d3c1c2608dc4efeb1b27a7e910dc99b4050aa9` |
 |  `18.20` `18` `18.20.0`                        | March 31st   | `sha256:2f9155d94b15478fed6a0299f7680d4f9265df868b3d5a90e0420ec6e4248757` |
-|  `18.20.0-dev` `18.20-dev` `18-dev`            | March 31st   | `sha256:f347bdf4e7910fd246b2424a28e6f99b26352533888b48c9dbf1ae622484ed25` |
 |  `latest` `21.7` `21` `21.7.1`                 | March 31st   | `sha256:c13534659eb41aa0573d014b7c899281166b6b8b79c35acfd0dbb9ed6a952a53` |
-|  `20.12-dev` `20.12.0-dev` `20-dev`            | March 31st   | `sha256:301f6b2e066883dae8f1941cda169e64d48e7c6cdbac725410d027f614e28aeb` |
-|  `21-dev` `latest-dev` `21.7-dev` `21.7.1-dev` | March 31st   | `sha256:8f55a12f3d100c7ca777133df3e3ecb4f3d998ea3307d9e4e3d46531cab0e78c` |
 |  `20.12.0` `20.12` `20`                        | March 31st   | `sha256:a0bf234ac4c72c64a19cf05ec79de6170e49a9beaf2990733d4b34a23cf2110c` |
 |  `20.11-dev` `20.11.1-dev`                     | March 18th   | `sha256:421f57d00100dfedc5c70ddf72617ee22087d2f7841183b7ad43afd8bb6d7472` |
 |  `20.11` `20.11.1`                             | March 18th   | `sha256:4bc1d82cec4be04c3015bb9f75455d693a0cf49241ab0138f0a1acad4e78e9d3` |
