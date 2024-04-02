@@ -3,7 +3,7 @@ title: "How to Migrate a Java Application to Chainguard Images"
 linktitle: "Migrate Java Applications to Chainguard"
 lead: ""
 description: "How to migrate an existing Dockerfile for a Java application to use Chainguard Images
-in order to improve security and reduce file size."
+in order to improve security and reduce image size."
 type: "article"
 date: 2024-04-02T15:21:01+00:00
 lastmod: 2024-04-02T15:21:01+00:00
@@ -25,7 +25,7 @@ toc: true
 ## Resources
 
 * Blog on [bootstrapping Java in Wolfi](https://www.chainguard.dev/unchained/fully-bootstrapping-java-from-source-in-wolfi)
-* [Git repository with code used](https://github.com/chainguard-dev/learning-labs-java)
+* [Learning Labs Git repository](https://github.com/chainguard-dev/learning-labs-java) with code used in demo
 
 ## Transcript
 
