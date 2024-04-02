@@ -1,12 +1,12 @@
-name: Build Enforce Docs
+name: Build Platform Docs
 
 on:
   schedule:
     - cron: "0 * * * *"
   workflow_dispatch:
   push:
-    branches:
-      - "update-enforce-workflow"
+    branches: 
+      - platform-docs
 
 jobs:
   check-new-docs:
@@ -51,7 +51,7 @@ jobs:
           echo "latest=$latest" >> $GITHUB_OUTPUT
         fi
 
-  integrate-enforce-docs:
+  integrate-platform-docs:
     runs-on: ubuntu-latest
 
     permissions:
@@ -83,7 +83,7 @@ jobs:
         workload_identity_provider: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
         service_account: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
 
-    - uses: ./.github/workflows/integrate-enforce-docs
+    - uses: ./.github/workflows/integrate-platform-docs
       with:
         project_id: "${{ secrets.PROJECT_ID }}"
         workload_identity_provider: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
@@ -103,6 +103,13 @@ jobs:
     - name: npm run build
       run: npm run build
 
+    - name: Set up Octo-STS
+      uses: chainguard-dev/octo-sts-action@6177b4481c00308b3839969c3eca88c96a91775f # v1.0.0
+      id: octo-sts
+      with:
+        scope: chainguard-dev/edu
+        identity: edu
+
     - name: Commit to autodocs branch
       env:
         GH_TOKEN: ${{ github.token }}
@@ -121,11 +128,10 @@ jobs:
           PR=$(gh pr list --json title,headRefName,url |jq '.[] | select(.headRefName=="autodocs")')
           if [ -z "${PR}" ]; then
             gh pr create \
-              --assignee jamonation \
               --base main --head autodocs \
-              --title "Enforce docs ${{needs.check-new-docs.outputs.latest}} autocommit" \
-              --body "Enforce docs ${{needs.check-new-docs.outputs.latest}} autocommit" \
-              --no-maintainer-edit --label automated,documentation,enforce
+              --title "Platform docs ${{needs.check-new-docs.outputs.latest}} autocommit" \
+              --body "Platform docs ${{needs.check-new-docs.outputs.latest}} autocommit" \
+              --no-maintainer-edit --label automated,documentation,platform
           else
             echo "PR exists, see ${PR}"
           fi

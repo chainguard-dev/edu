@@ -20,19 +20,19 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: download enforce changelog.md from cloud storage
+    - name: download changelog.md from cloud storage
       shell: bash
       run: |
         gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
           "${{ inputs.storage_bucket }}/enforce-changelog/changelog.md" content/chainguard/chainguard-enforce/
 
-    - name: download enforce openapi api.json spec from cloud storage
+    - name: download openapi api.json spec from cloud storage
       shell: bash
       run: |
         gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
           "${{ inputs.storage_bucket }}/enforce-openapi/api.json" static/
 
-    - name: download enforce events.md from cloud storage
+    - name: download events.md from cloud storage
       shell: bash
       run: |
         gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
@@ -59,13 +59,13 @@ runs:
     - name: add tags to changelog by inserting line with sed
       shell: bash
       run: |
-        sed '/draft: false/a tags: ["Enforce", "Reference", "Product"]' \
+        sed '/draft: false/a tags: ["Platform", "Reference", "Product"]' \
           -i content/chainguard/chainguard-enforce/changelog.md
 
     - name: add tags to cloudevents by inserting line with sed
       shell: bash
       run: |
-        sed '/draft: false/a tags: ["Enforce", "Reference", "Product"]' \
+        sed '/draft: false/a tags: ["Platform", "Reference", "Product"]' \
           -i content/chainguard/administration/cloudevents/events-reference.md
 
     - name: download domains.md from cloud storage
