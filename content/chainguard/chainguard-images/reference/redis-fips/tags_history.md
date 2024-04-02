@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `7.0.15-dev` `7.0-dev`                     | April 1st    | `sha256:81d7a9c86f9f547057b310ae3442307756b77dc48596a68a901f333fa148a417` |
+|  `7-dev` `7.2.4-dev` `7.2-dev` `latest-dev` | April 1st    | `sha256:17d5b558e30bcfa94c88fce1e8356a8e344d669914c66a8ebcf7ed884c08f403` |
+|  `6-dev` `6.2-dev` `6.2.14-dev`             | April 1st    | `sha256:04adbf97b49f6b71163dd011709084ffaab000369df4a140c277fa72e51bef99` |
 |  `7` `7.2` `7.2.4` `latest`                 | March 28th   | `sha256:83ba6d1d9a59430c2b796a32494df6dd9ad768c0b72a3a529d47312b7120eb03` |
-|  `7.2.4-dev` `latest-dev` `7.2-dev` `7-dev` | March 28th   | `sha256:cec6ae1cd7ea8ccd97093c40a17887afe481d76037920f4c661159b877ff5568` |
 |  `6.2.14` `6` `6.2`                         | March 28th   | `sha256:71c217b6d1c74598de90a1ed72d216e63a3cb8e9fb18919a4d6f7349cba002cc` |
-|  `6.2.14-dev` `6-dev` `6.2-dev`             | March 28th   | `sha256:9d81ef5fe0a92f0b134a26b5dff6969464a828cef7d6d26ec3cd085d72a1a6e6` |
 |  `7.0` `7.0.15`                             | March 28th   | `sha256:ca45ec445604f505a2009355ef46e9a70c235ba9e27e79c38c8015a81f71a8f2` |
-|  `7.0.15-dev` `7.0-dev`                     | March 28th   | `sha256:9858bcdc9592d5d76b61c127dda4decc72d81007b5a08add2c66842151beec19` |
 
