@@ -3,8 +3,8 @@ title: "harbor-registry Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-registry Chainguard Image"
-date: 2024-04-01 00:38:36
-lastmod: 2024-04-01 00:38:36
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 1st    | `sha256:f1305ed98ba45f1695ae018ffb813c50eec3604a15723b0048b9b336c1d1301f` |
 |  `latest`     | March 31st   | `sha256:d4474257387d4f19267dfa6eb0e852f050f4ca6d35d8ce9ad77852a3c1276f3c` |
-|  `latest-dev` | March 31st   | `sha256:5bb25d3898847ad9d8313b0b08d2eccae09780509058c8484573b1baf316b93f` |
 
 
 ### Private/Dedicated Registry

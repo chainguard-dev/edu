@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nats Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 1st    | `sha256:744aa9f4b5650f558a5728fc9768314be49884a43704b743cf6d1a6ddcdfea22` |
 |  `latest`     | March 28th   | `sha256:857e661064c9b6b8c7ba8b85fbf69129346aec267e0bfcb863bb3088466c5e7f` |
-|  `latest-dev` | March 28th   | `sha256:ea26b449f946457cc858d06b30bde35236bb6ca38c9b5a8c86d31e75a3d6ac93` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.10.12-dev` `latest-dev` `2.10-dev` `2-dev` | March 28th   | `sha256:f8a6834da9eccb132113ef03c59af104cb23605cb175bdfe4ce1100a24c451a9` |
+|  `2.10.12-dev` `2.10-dev` `latest-dev` `2-dev` | April 1st    | `sha256:bb9140231d2d1969c1b53c1073abc77be36cf06b7942c574aa750d94163110df` |
 |  `2.10` `2.10.12` `latest` `2`                 | March 28th   | `sha256:b5ed3bdddecc49c021ca69a5bd99267ef77a825b5821bbd21acbbed3e211af37` |
 |  `2.10.11-dev`                                 | March 12th   | `sha256:0db3812b63bc9863df462766aac87059da3dbda2aa7a9dfa3ba1176c99e8ef85` |
 |  `2.10.11`                                     | March 8th    | `sha256:1a0e6828d114137145a8258e3bd20950cacf3754b0722a099e362b1aaac7798d` |

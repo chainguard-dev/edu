@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubernetes-csi-node-driver-registrar Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,14 +35,12 @@ Check the [tags history page](/chainguard/chainguard-images/reference/kubernetes
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                                   | latest |
-|---------------------------------------------------|--------|
-| `ca-certificates-bundle`                          | X      |
-| `chainguard-baselayout`                           | X      |
-| `glibc`                                           | X      |
-| `glibc-locale-posix`                              | X      |
-| `kubernetes-csi-node-driver-registrar-2.9`        | X      |
-| `kubernetes-csi-node-driver-registrar-2.9-compat` | X      |
-| `ld-linux`                                        | X      |
-| `wolfi-baselayout`                                | X      |
+|                                                    | latest |
+|----------------------------------------------------|--------|
+| `ca-certificates-bundle`                           | X      |
+| `chainguard-baselayout`                            | X      |
+| `glibc-locale-posix`                               | X      |
+| `kubernetes-csi-node-driver-registrar-2.10`        | X      |
+| `kubernetes-csi-node-driver-registrar-2.10-compat` | X      |
+| `wolfi-baselayout`                                 | X      |
 

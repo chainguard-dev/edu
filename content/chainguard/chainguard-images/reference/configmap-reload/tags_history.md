@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the configmap-reload Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 1st    | `sha256:8d4374e323a23f106b4eba1e4a52533937152f6b3bb623d6cd9b3c045c484b21` |
 |  `latest`     | March 28th   | `sha256:4d13ca9b944f5e0bbc38d095defd735f4e10e4b77b1a4834bc6c5464bdb1ea95` |
-|  `latest-dev` | March 28th   | `sha256:0a6b44cfa6a07063fe85f3e38c12a7c3c51e18faebfff0a2ba3f9fa853cd3445` |
 
 
 ### Private/Dedicated Registry

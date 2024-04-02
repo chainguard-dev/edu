@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 28th   | `sha256:887e15f1407bf67ea4b16e13301ff9ba6c43389cbdde713e5b2352460d7cff11` |
-|  `latest-dev` | March 28th   | `sha256:7a822811a05aa176a4aa0618a02bd2d779aa73329fe477ebad5d714bad2f5716` |
+|  `latest`     | April 1st    | `sha256:0caf962a8bf8447825ea115c2199065b1d3bb57a446d84c450d023b90a55cd60` |
+|  `latest-dev` | April 1st    | `sha256:d7289efb42304fd616736c2d65723fc5e19cfb2aab32c95d2c2f276062b86efa` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.13.1` `1.13` `1` `latest`                 | March 28th   | `sha256:ccf77eefb99476f9fe3bfc1821ece1dcbd02de351bf98c25e5646c0dd55327b6` |
-|  `1-dev` `latest-dev` `1.13-dev` `1.13.1-dev` | March 28th   | `sha256:e283ebe435cd65b7eb041e8f7c3021516e1f4b6f29d0b0eb83ac92e877d38b0c` |
+|  `1.13.1-dev` `latest-dev` `1.13-dev` `1-dev` | April 1st    | `sha256:f9df9fe2a8388a406898ea60520b94471a5271a8a086ffb2671ef5f7bbc4c6f2` |
+|  `1.13.1` `latest` `1.13` `1`                 | April 1st    | `sha256:a6e8f3a093668db1ec0523623d3a9837b95a7818e93888016441270999c6e74b` |
 

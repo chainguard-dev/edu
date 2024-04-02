@@ -3,8 +3,8 @@ title: "bincapz Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the bincapz Chainguard Image"
-date: 2024-04-01 00:38:36
-lastmod: 2024-04-01 00:38:36
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 31st   | `sha256:f68f99788809b3fb2168a06c8813b37c0b79dde3f742c908153dba8e12afdc74` |
-|  `latest`     | March 31st   | `sha256:a987d2f085f613f0214e190b502ef05d7c3ffcace3de7a50087520eb4541e70e` |
+|  `latest-dev` | April 1st    | `sha256:b7aaec6e29f8ed7219f684774bfc7103a9ca42e08f390ad682ff297703b30e83` |
+|  `latest`     | April 1st    | `sha256:30c88dd2be7236740b1574dd07a841ccf7e22bb7aaf05ee4c398df280248b762` |
 
 
 ### Private/Dedicated Registry

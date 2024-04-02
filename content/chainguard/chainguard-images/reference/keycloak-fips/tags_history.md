@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keycloak-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `latest` `24.0` `24.0.1` `24`                 | March 5th    | `sha256:f430c15ff7d220498d5b693ef29ac557dfdc6bbe01690c9a68087fcf2d187eb4` |
 |  `24.0.0`                                      | March 4th    | `sha256:b984c226f56795a916f550cb72a94e1477d45cff4a88f4129b4236a75fdae9f3` |
 |  `24.0.0-dev`                                  | March 4th    | `sha256:bd7a663eeab81cb15138de1bc3682a0a5ebb64617606f05e76902d59b9ecafae` |
-|  `23.0-dev` `23-dev` `23.0.7-dev`              | March 2nd    | `sha256:09993769bc8d3b4cde8b50056ca7981918bbb3f42256ce4df1ecd5f496a84cc5` |
-|  `23.0.7` `23.0` `23`                          | March 1st    | `sha256:46ed86335ae602769e110546611af23abb63c644771fc6bfe5d27f66616387ef` |
 

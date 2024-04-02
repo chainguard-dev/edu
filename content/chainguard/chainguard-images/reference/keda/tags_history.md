@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 1st    | `sha256:13693f0613a0beeba3285805195a315159d09c4ebc1108012abcb163cad21483` |
 |  `latest`     | March 28th   | `sha256:f121f5a3353db9cc9743316fe3e0a60c6fe05e9d9f87c0c5d6ebfe99a2776af0` |
-|  `latest-dev` | March 28th   | `sha256:3b683af4466c16b4a9d4bd1b188ae4a47364ba7d035e878e93c0eaf8254c1b22` |
 
 
 ### Private/Dedicated Registry
@@ -37,12 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.13-dev` `latest-dev` `2.13.1-dev` `2-dev` | April 1st    | `sha256:6b4e9a7d1ca51c94e48013bb116af161daaf7b3fc2e4de36bc993c289df00e83` |
+|  `2.10.1-dev` `2.10-dev`                      | April 1st    | `sha256:3efcad5ae9a9e1c05ac6a256c68282b4f8f54a50d88f64aa77656dd3b2a0d646` |
+|  `2.8.2-dev` `2.8-dev`                        | April 1st    | `sha256:4f20858451cf3c785997a17881c5fa94d693139cdddf8dc7a47d54d40bb52644` |
+|  `2.9.1-dev` `2.9-dev`                        | April 1st    | `sha256:0bec1bd9901372d44d27c6c4bc2669413cc2ff2777218073f68d67ea7cd523d7` |
 |  `2.10.1` `2.10`                              | March 28th   | `sha256:fc8d17cba653a06e22a8fb781779f2c7ab9d91204a1cde952551e16620e760c4` |
 |  `2.9.1` `2.9`                                | March 28th   | `sha256:71435d650cdb41ac8297105ef99a0dbf97c642c3c68565e6b43eadb1347d3d29` |
-|  `2.13.1-dev` `2.13-dev` `2-dev` `latest-dev` | March 28th   | `sha256:4a1e1e93645cdfced60b1555031d1054ee1f3250c38a8d18e0610c2f4ee247f7` |
 |  `2.13` `latest` `2` `2.13.1`                 | March 28th   | `sha256:0a5ebfaadaeb97b4aacd1cef655da237e04b58db2c30270d1ef2fea7bd3e80cd` |
-|  `2.10-dev` `2.10.1-dev`                      | March 28th   | `sha256:b4b351b6c7aa3116a1ac3de77454d80dc2de9c3789e72a505f2adcb734e8e7d8` |
-|  `2.9-dev` `2.9.1-dev`                        | March 28th   | `sha256:18d801733293cfdf34e958ad999883576089a9956d8b6ba63b6b25a8bdd70b8e` |
 |  `2.8.2` `2.8`                                | March 28th   | `sha256:7556ef5da56471d9a5081d54da5eaf509779343fb337dcde5a96b1acb94bdc50` |
-|  `2.8-dev` `2.8.2-dev`                        | March 28th   | `sha256:928b9e30c9e928750d83f60fb076f9b933fbb620fdfdae2f0a1ccd22dbade12a` |
 

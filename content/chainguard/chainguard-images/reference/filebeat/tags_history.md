@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the filebeat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 1st    | `sha256:2845ea1b3fdb470274d0618fcc7d9fabb280510a10d72b7f7193e29d819fa9e6` |
 |  `latest`     | March 28th   | `sha256:4afb65258f904bcba480b07f00aadf5abe7029c853380fbf5f05a6963451bc0b` |
-|  `latest-dev` | March 28th   | `sha256:e7cb41341defe1aa41c357f853bdc096f40cf757b6b4953b6f0a1fefda2a3d73` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.13-dev` `8-dev` `latest-dev` `8.13.0-dev` | March 28th   | `sha256:8b7473a4819bdb4a95f75e5a587b9916718f8c5f3b50c5e5e393ccecfecada31` |
+|  `latest-dev` `8.13-dev` `8-dev` `8.13.0-dev` | April 1st    | `sha256:2df5d87c3abe8088085fe4675ad642a9659b2bdad2fecf0160eb3be233b9aae2` |
 |  `8.13` `8` `latest` `8.13.0`                 | March 28th   | `sha256:9dd3496b9d4de8d2f82685ddd2b2f72ed056470e3e721753faef4869dd126a35` |
 |  `8.12.2-dev` `8.12-dev`                      | March 18th   | `sha256:a26262392bb2a72ca86b5852530b09718187078c620bee715926324b8cfd154e` |
 |  `8.12.2` `8.12`                              | March 18th   | `sha256:17fb11edd409d698bf061f71b823880995f1ae0b10f09ed66afcc4c48b713e6f` |

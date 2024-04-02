@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-attacher-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `4.3.0-dev` `4.3-dev`                      | April 1st    | `sha256:fa066628fa1bb09f9dd8d638655c29541118f8064d4a400f43326bcc043bae8b` |
+|  `4.4.4-dev` `latest-dev` `4.4-dev` `4-dev` | April 1st    | `sha256:757fdf6f6e87a52a9b1bc72eb043ef94b2152221ba5464ea9fb14c52ef23cb30` |
 |  `4` `4.4.4` `4.4` `latest`                 | March 28th   | `sha256:2fc2859bc3edf01d48ce87680b9661bfd8433ebbe828267344a083ff0ee1d758` |
 |  `4.3` `4.3.0`                              | March 28th   | `sha256:edc08bf328b81d355e05eaaee5b6cbe7611cf75b55de5c80005ff56c58f824e4` |
-|  `latest-dev` `4-dev` `4.4.4-dev` `4.4-dev` | March 28th   | `sha256:c0faae9714ab5a8176f6595fafa65c06451e4bbaa2634783e39feaec6cbb9c3b` |
-|  `4.3.0-dev` `4.3-dev`                      | March 28th   | `sha256:dede009aedac6748ffdc8bb9abe767d2aa4796cb06bc8a6dc34388399d73b1ca` |
 |  `4.4.3-dev`                                | March 18th   | `sha256:155575740a912afab178612dfe47acf395b0f3401c29cc2fd805998c87e8b73f` |
 |  `4.4.3`                                    | March 18th   | `sha256:b59d64ed758d6e21940b1e8430234de004d8b2a52e027213f7b4eb375080aecc` |
 

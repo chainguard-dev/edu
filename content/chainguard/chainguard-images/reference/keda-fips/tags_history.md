@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-02 00:36:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                               | Last Changed | Digest                                                                    |
 |---------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.13-dev` `latest-dev` `2.13.1-dev` | March 29th   | `sha256:1ed2f955ef0c7bd01660a98857b1434d695362831fb4741e4e57220860b83b74` |
+|  `latest-dev` `2.13.1-dev` `2.13-dev` | April 1st    | `sha256:a7797a629beaac5e24ee400263d195327662a680927fa2d64b99e964974e2581` |
 |  `2.13` `latest` `2.13.1`             | March 29th   | `sha256:b86a64d1bf791fec1b8bbb402513d0c8acd5f2b7bd6a14dadafc494a2a3a116d` |
 
