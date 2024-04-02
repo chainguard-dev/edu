@@ -1,0 +1,8 @@
+issuer: https://token.actions.githubusercontent.com
+subject: repo:chainguard-dev/edu:ref:refs/heads/platform-docs
+claim_pattern:
+  job_workflow_ref: chainguard-dev/edu/.github/workflows/autodocs-platform.yaml@refs/heads/platform-docs
+
+permissions:
+  contents: write
+  pull_requests: write
