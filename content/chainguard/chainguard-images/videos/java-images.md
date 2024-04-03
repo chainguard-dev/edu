@@ -37,7 +37,7 @@ So our images are largely equivalent to the existing Java images that you can fi
 
 The difference is that we're much more focused on producing minimal images with a low CVE count.
 
-We do build our own JDK and there's a really great blog on the Chainguard site that explains how we do this and how we bootstrap from the really early versions of Java, which I thoroughly recommend checking out and I will link in the notes.
+We do build our own JDK and there's a [really great blog](https://www.chainguard.dev/unchained/fully-bootstrapping-java-from-source-in-wolfi) on the Chainguard site that explains how we do this and how we bootstrap from the really early versions of Java, which I thoroughly recommend checking out and I will link in the notes.
 
 For this video I'm going to use an example created by my colleague Mauren Berti, so all the hard work in this video is actually down to her.
 
@@ -167,7 +167,7 @@ Took a little bit more work to get to the multi-stage build but not a ridiculous
 
 So that's about it.
 
-We've seen how you can use Chainguards maven and JRE images to reduce the size and CVE count in a Java application with relatively little work.
+We've seen how you can use Chainguard's maven and JRE images to reduce the size and CVE count in a Java application with relatively little work.
 
 Please do take a look and let me know how you get on.
 
