@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the semgrep Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:6be68460f9887532be73759d6a45afd5c7cf2a40382af71661d7c9b9b5b0738f` |
+|  `latest-dev` | April 2nd    | `sha256:d9665509e433ece104ff22b8a311340e056576d6f112de2992c60074b722dbd9` |
 |  `latest`     | April 1st    | `sha256:1002b771100ff84842c81e47093df34c72d3360e88a54f30c6035a61842e19b4` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.67-dev` `1.67.0-dev` `latest-dev` | April 1st    | `sha256:a88fc2e1ef3f74611edf5ca43effef73e5faadf4c42a8821358e5f2aa3aaff4a` |
+|  `1.67.0-dev` `1.67-dev` `latest-dev` `1-dev` | April 2nd    | `sha256:bb72c019337321ca82504ab14d0e7711b06f430ae07980b3f8c06a1d3628afad` |
 |  `1.67` `latest` `1.67.0` `1`                 | April 1st    | `sha256:a69ceb5d6912ac3cb5b13f576d5eb11cb00206ef949369146c26f2471dfcc632` |
 |  `1.66.2-dev` `1.66-dev`                      | March 28th   | `sha256:73633b0f3e138a3b62d613963588d645b5cf714ece8649531b841f65b52c4687` |
 |  `1.66.2` `1.66`                              | March 28th   | `sha256:d4a6dfebe67800b4f24b83e7455c23d5e5440461d5ce9f3ea66da9e7294650f6` |

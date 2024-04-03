@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:7112d814d70da6e6946661fb7dda766ec410d12acc0d8893fc3764e3c233dea4` |
+|  `latest-dev` | April 2nd    | `sha256:d62cf286297f3a75bfeba3f071d9e09bf8ee4605c9408cba28f7f601c188c440` |
 |  `latest`     | March 29th   | `sha256:83b23d7ebbb2f6c8006ed1e096f1ae6c5f8fa111cfc1245f94e3ec19e204ac10` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0-dev` `4.0.18-dev` `4-dev` `latest-dev` | April 1st    | `sha256:4d972dd16fa82d91d1492ec5a5145d868138f7c994232ba30d22ea9c6b314ee8` |
+|  `4.0.18-dev` `4.0-dev` `latest-dev` `4-dev` | April 2nd    | `sha256:a983f275e67b326ff959e2f4ae12082745addc8be6c7c025484f7b69b88a5ec6` |
 |  `4` `latest` `4.0` `4.0.18`                 | March 29th   | `sha256:e78612e8f9925fd7de93293d578775f7448f09d2f8d39c26c7dc55345c56cc37` |
 

@@ -3,8 +3,8 @@ title: "Provenance Information for harbor-core Images"
 type: "article"
 unlisted: true
 description: "Provenance information for harbor-core Chainguard Image"
-date: 2024-04-01 00:38:36
-lastmod: 2024-04-01 00:38:36
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for harbor-core Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                             |
-|------------------------------|--------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                               |
-| `cgr.dev/chainguard-private` | No production tags are available for this image. |
+| Registry                     | Tags               |
+|------------------------------|--------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev |
+| `cgr.dev/chainguard-private` | latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

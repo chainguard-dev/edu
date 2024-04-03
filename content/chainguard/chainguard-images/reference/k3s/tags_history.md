@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k3s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:16d2fb8533f15747103db613da305c5a746735ece2ea20a803a5e75a017b91fd` |
+|  `latest-dev` | April 2nd    | `sha256:e0d00748379c336c1f78f562e09700935e8c61afac12332ef91bb3cd17ddc44d` |
 |  `latest`     | March 31st   | `sha256:d736788354ae160a4f9d6d0257adc163ad02844eb29214f1e23aa4593670da5b` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.29-dev` `1.29.3-dev` `1-dev` | April 1st    | `sha256:648beeb6d12a8636d368c1f2ceffe60d847f212176af7e1547444b71c0b2fe97` |
+|  `1-dev` `1.29.3-dev` `1.29-dev` `latest-dev` | April 2nd    | `sha256:d0e655f39f06ba1f579f4f1770a1db7973c1e096829ab699fefe7abb25d078e7` |
 |  `1.29` `1.29.3` `1` `latest`                 | March 31st   | `sha256:89e492c6e267c4edac21e574402f2256ce23c20f021e5b83350e31044c6598bf` |
 |  `1.29.2`                                     | March 27th   | `sha256:6802353a8ce9d324acca6bccec57576188d3409c7368ee09dbd7da1dff406b15` |
 |  `1.29.2-dev`                                 | March 27th   | `sha256:a32df5dfc4ffa58db6bd3f3b72540e543ed59a476840be94bf033f6448cf7ce4` |

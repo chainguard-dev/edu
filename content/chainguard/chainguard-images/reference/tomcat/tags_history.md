@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tomcat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `9-dev` `9.0.87-dev` `9.0-dev` `latest-dev` | April 1st    | `sha256:f31a276af720f56572a2690a20382a4ffb4bdd8ca6d1e49a710ed846a649f04e` |
-|  `10.1.20-dev` `10-dev` `10.1-dev`           | April 1st    | `sha256:c3c77bd8390500bfe2c05a7d71df5568c89a1e542f263438875f10c9215ccf18` |
+|  `latest-dev` `9-dev` `9.0-dev` `9.0.87-dev` | April 2nd    | `sha256:2718bd44c70523766f99843ec9239649e8d53167dbf91da28c46991df73d4c05` |
+|  `10.1-dev` `10-dev` `10.1.20-dev`           | April 2nd    | `sha256:d6aad339a7e39f86a5ee7e59e52f80364923c7deba598a7a19345d8e04e25bbf` |
 |  `9.0.87` `9` `latest` `9.0`                 | March 28th   | `sha256:5ebf7d9860de0dd801873e17cdc85854baf7af3f4489ab1ddb4b7d01d956f233` |
 |  `10.1.20` `10` `10.1`                       | March 28th   | `sha256:0348107fd30c24cdece195beae835b66437dcf3acad89e336da3bad0f41903c0` |
 |  `10.1.19`                                   | March 18th   | `sha256:881abefee00e9be0f2694c8beeeb5d03d5a30752a8c8b033b913e0d5418ab422` |

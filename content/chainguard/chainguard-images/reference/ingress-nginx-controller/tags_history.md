@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:d44ed86b921ff8aa0f6c77a0bc88fc2071584611a2c3106d82ea7e75f697b4cf` |
-|  `latest`     | March 31st   | `sha256:0b090147d66244791d32da57b5ef6d10da78b54076569c857345b7d0cd30d00d` |
+|  `latest-dev` | April 2nd    | `sha256:b4249c7682bffdc6bfc9c35d248af868de43c6867ca47f8338a9cb0bbc89680f` |
+|  `latest`     | April 2nd    | `sha256:f45698b2ebae294c307f94d06a59633f476bcc8912c494e8092683916f7e5193` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.10.0-dev` `1-dev` `1.10-dev` | April 1st    | `sha256:32072a20421d94acf908880f0d5fd2888933148cd330e0a5ba2b15a6d21c88a1` |
-|  `latest` `1.10` `1.10.0` `1`                 | March 31st   | `sha256:d73d6cbd9d6d16bd4177493edf0ea57f4ca04b3a88c05b2067522235b93e454e` |
+|  `1.10.0-dev` `1.10-dev` `1-dev` `latest-dev` | April 2nd    | `sha256:fd71dee20b2dd0bb447f6ddd85b3ce7f48cc690c6fdce06cf8774a6615f14ef5` |
+|  `latest` `1.10` `1` `1.10.0`                 | April 2nd    | `sha256:80a027717db0e8d395a06d255dbe6b1be54cabbacbf678c39294656e8a2d2aa0` |
 
