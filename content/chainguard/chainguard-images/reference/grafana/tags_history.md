@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:61edf6f2657295f65d9fe8bcdcd9b9a8aa7f0d23c6880da5e3e6bbe972c65997` |
+|  `latest-dev` | April 2nd    | `sha256:0d5db09b1624c2e31a5f109b1f46f997defc0932606557b1a1d06f4c2e0a90ad` |
 |  `latest`     | March 28th   | `sha256:ea96ee2671f16fa39cdf3fc1d6b09909fdb5a54077e80264e3dcbebd68be4e2e` |
 
 
@@ -37,9 +37,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `9-dev` `9.5-dev` `9.5.18-dev`                | April 1st    | `sha256:ddf6f29fd715d0e2a7f0aae3603684dc6cf997c1818f4c0052ef71ecc732b78b` |
-|  `10.4-dev` `10.4.1-dev` `latest-dev` `10-dev` | April 1st    | `sha256:9b85962c16a857b2c7f5d4d6f490f6440e5827b904413b59be62cad6f07fb405` |
-|  `10.3-dev` `10.3.5-dev`                       | April 1st    | `sha256:d98b99452d9dd37f6c36ae593e3e8b24baf1a4ab12238f66bf3b3598ec90a9b8` |
+|  `10.4-dev` `latest-dev` `10.4.1-dev` `10-dev` | April 2nd    | `sha256:eb9ca76cbc584086da12ae83821a1147ef9de2f7d558c8c30c779983c4b6bbc0` |
+|  `10.3-dev` `10.3.5-dev`                       | April 2nd    | `sha256:caf3667b13b8b0d1dfc60b9841be8e5a1b414b5b7957672612759de2e1af5dd1` |
+|  `9.5-dev` `9-dev` `9.5.18-dev`                | April 2nd    | `sha256:21eda9881e3fada82906312967da88051c3b1e47cd96fe8fea0ff48e019c8164` |
 |  `10.3.5` `10.3`                               | April 1st    | `sha256:9b48a431c5727e2050b1fb78f56c5174bd139a204107eb2cc7e5e91d7cfa778c` |
 |  `10.4` `latest` `10.4.1` `10`                 | March 28th   | `sha256:f942c1ad17e452bb5a4b68cbbe11ff992810612223bc0cf51d7a0fedf0c8376e` |
 |  `9` `9.5` `9.5.18`                            | March 28th   | `sha256:d34c4e9c2af0da55ac9f2bed5943dfe7566cf4ff2ffadecb14f4c03e95353841` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createdb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:b47a6c09f9493981e149646b851f0a2499b3b3463538141e4ab43dd7c7db01d9` |
+|  `latest-dev` | April 2nd    | `sha256:d2fff43ea34d91377a822e35c6bf6d937f1c9bab1913b6c332eb1e208e8e0c65` |
 |  `latest`     | March 28th   | `sha256:d4ad8de24edd6f9b3f093c776c35ce777f30577f46dab46b993d264bdad49916` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.6.17-dev` `0.6-dev` | April 1st    | `sha256:9dbdf23c5e8670c64831883390de284617969f457bceeada5dca9311ee861601` |
+|  `0.6-dev` `latest-dev` `0-dev` `0.6.17-dev` | April 2nd    | `sha256:de22d73a7f3938742f598445dfb2eb8bea3609fb3e23942716b01aad03ee1821` |
 |  `0` `0.6.17` `0.6` `latest`                 | March 28th   | `sha256:bb6601744819e798b10e125a3e5871d99847bb118ecee4cd7d5cfcfe3c5e616b` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:b0836edce49faa558d4d93f6a67b051895baa1ff10304ec8d0cdd84539ef75f4` |
 |  `0.6.16`                                    | March 8th    | `sha256:130c9ffa8e251f3445e40d96e01561b58952dd91880e9fc860a314f047d0bf46` |

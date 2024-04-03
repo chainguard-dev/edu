@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:d4d3234b1a631549167658baf5c00f39bbd540dffcc4efa8f61c0ce294168bb2` |
+|  `latest-dev` | April 2nd    | `sha256:f83626093c40e5758b1baba1afed7a09f413cc41f7ed316903efdab8beaafd65` |
 |  `latest`     | March 28th   | `sha256:6c72d123bd17cde3c77450c3d190e762af1c367d36759c0d83f7cc33c12d9742` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.28.4-dev` `1.28-dev` `1-dev` `latest-dev` | April 1st    | `sha256:9d1e1918921bc5efb01f6e10033f02eeeeb08c964efab307829954f75cf515ac` |
+|  `1-dev` `1.28-dev` `latest-dev` `1.28.4-dev` | April 2nd    | `sha256:c1ea4eb243fb3618627f9617a054a2e8473ca32d448ffcdccf23a630b6eb180e` |
 |  `1.28.4` `1` `1.28` `latest`                 | March 28th   | `sha256:2b983b76d1cc3c7beab2fe15de1e194cf3aed07d3aaf705fe8d555f5bf7e3458` |
 |  `1.28.3-dev`                                 | March 27th   | `sha256:ddd28be4eb22edac91c136d4d448d314d5f2f991c59242beb46f0d8f6580f4a4` |
 |  `1.28.3`                                     | March 27th   | `sha256:c14ac0fb43be6ac72052939b1afef628259163a73be0f8238103f74ef12c5628` |

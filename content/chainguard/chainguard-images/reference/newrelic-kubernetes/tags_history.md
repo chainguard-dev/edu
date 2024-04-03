@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-kubernetes Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 2nd    | `sha256:cf053b2920a92112c531c3142e0bcbbf890e0e86ef30c5c18f94ab2705ebf90f` |
 |  `latest`     | April 1st    | `sha256:c6f93905cf77a46c9053c6425ebf70a680e135ecb59f2d50197f094dcc0f4d73` |
-|  `latest-dev` | April 1st    | `sha256:4ff9ebe1e7ba3966fce6157d490535e5a22cbcff87db9f7dcdf389ce8d021b1f` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.28-dev` `3.28.1-dev` `latest-dev` `3-dev` | April 1st    | `sha256:fd06e17843d586fa85602c52973ec44422f2f391cf3d76999430262b6890e303` |
+|  `3.28.1-dev` `3.28-dev` `latest-dev` `3-dev` | April 2nd    | `sha256:6a36fbab6e7741067630434f38f10bea9460b94fdee6429108e6b0f6511f0c60` |
 |  `latest` `3` `3.28` `3.28.1`                 | April 1st    | `sha256:6d68495975913b751f7cfb7a9c2138d0e6c9346043be5eeed1fedf8c0677ad6e` |
 |  `3.28.0`                                     | March 31st   | `sha256:a91bee158d57419be0f515c2e6858631a92d62eeeaa6086375f9b9330071bda3` |
 |  `3.28.0-dev`                                 | March 31st   | `sha256:731785220972fe3d804ddf02fc48e997e92eaa472f77160c6214edc7735e5e40` |

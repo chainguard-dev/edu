@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-install-cni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:0438f8e18d655fcda4cbc94b26a3d4cd5b42abb79bf0d189d1b2b70d66354668` |
+|  `latest-dev` | April 2nd    | `sha256:6a8d85a104fd90b23bb4de545ed5da38ec7b7ccba72e12906bbae942ef6ba449` |
 |  `latest`     | March 18th   | `sha256:aef677cc9289f333d11ac4cd78cf63e4897b71d1c0d2a5498c0ddc9cf822d705` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.20.4-dev` `1.20-dev` `latest-dev` `1-dev` | April 1st    | `sha256:950dca38b1ca22793b630a8914596d73cf2a86fa00b10773c3396ab3955602cf` |
-|  `1.19-dev` `1.19.8-dev`                      | April 1st    | `sha256:902818e1ad54a6c270b069fbe8c8a6e979b2c890443583671c232b5d6e4c6ccd` |
+|  `1-dev` `latest-dev` `1.20.4-dev` `1.20-dev` | April 2nd    | `sha256:db16ec8490dfd66e949f5635b74d54c8fd8d401d963f0a9daf6a99b245d172c8` |
+|  `1.19-dev` `1.19.8-dev`                      | April 2nd    | `sha256:e152b06eb9f5942312c1c51598f2d38cfb5e5c058358bddb1a790b947b825dc0` |
 |  `1.19.8` `1.19`                              | March 28th   | `sha256:6f68db83acf90956d90808ea2ec4ff9ba264a45703828a0ad5f176cdd937f137` |
 |  `1.20` `1` `1.20.4` `latest`                 | March 28th   | `sha256:6c588b91387330983c9707dfffac1c7b32c69e208c2b9aee421dfa6d1076d94d` |
 |  `1.20.3`                                     | March 14th   | `sha256:0d74382e5673c3c14d1931def6d1f92716c173253993946e8042effc610c0edb` |

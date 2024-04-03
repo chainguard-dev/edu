@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gpu-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.9.2-dev` `23-dev` `23.9-dev` `latest-dev` | April 1st    | `sha256:f81abf8bafc52533348f728d047dd6ff493ee7ddd4b9320527de1a349c92ea8a` |
+|  `23.9.2-dev` `latest-dev` `23.9-dev` `23-dev` | April 2nd    | `sha256:5523a6b3d6423a8a89d67de29cb8b4214c9cac3aafbfc0b5e71371037c345872` |
 |  `23` `latest` `23.9.2` `23.9`                 | March 28th   | `sha256:1c0fcc3e2779f78a4511fd1c8212376bb069aa685831dab31df77e99a88c3cf2` |
 |  `23.9.1-dev`                                  | March 6th    | `sha256:aaee66485e1a07758bf107afb8ca7dea9d434e66a010bfc586efe71af5a30642` |
 |  `23.9.1`                                      | March 6th    | `sha256:22c73394e96fbf14c2764e05a2969f041e688c0a05f9c57d4ecafda05e1799aa` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-source-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 2nd    | `sha256:6ad2469f26f89f8d861e1ea5543bc0956a9dc16a93592213ce73ffa94eee8b10` |
 |  `latest`     | April 1st    | `sha256:b805a3e14fe04d657168f24f307b333a04c1f876fd6a33094c2910f15d57605a` |
-|  `latest-dev` | April 1st    | `sha256:4ae1d673d2216ca98e8abad08b53993523d5460f27009489e08ad1db00e82332` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.2.4-dev` `1.2-dev` `1-dev` `latest-dev` | April 1st    | `sha256:2a50b37bb4bf9b54dd53edc82ebee9558dafe6b2220a20a1413f1f6e58979d62` |
+|  `1.2-dev` `latest-dev` `1.2.4-dev` `1-dev` | April 2nd    | `sha256:380eaa076e84df0b0f894f99292dd8ff3e01aaf8cd3acb27e23ff138745b3f20` |
 |  `1.2.4` `1.2` `1` `latest`                 | April 1st    | `sha256:41468e226aabf1384edd4026e7d32c54d09dfbe57004eefc9404fe7f292956d6` |
 |  `1.0.1` `1.0`                              | March 18th   | `sha256:3bec8ba02ff8efd88289f9a085d8c5ef3c40b40a4ae2a9521412022631b4d7e3` |
 |  `1.0-dev` `1.0.1-dev`                      | March 18th   | `sha256:b5a8264d555bf4b2abf10ee18fcf7800e77575ef9119ba58761234dc22acce9f` |

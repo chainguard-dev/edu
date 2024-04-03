@@ -3,8 +3,8 @@ title: "postgres-operator Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres-operator Chainguard Image"
-date: 2024-04-02 00:36:12
-lastmod: 2024-04-02 00:36:12
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,11 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:b3cc0367e7ab4bfdc5851e8bef42a332963c3811b2669dd217997e501602f007` |
-|  `latest`     | April 1st    | `sha256:a4e20f830824b0d3becb293224d5b59fe8ce08522a69efb5616475d0044c63d8` |
+|  `latest-dev` | April 2nd    | `sha256:bc95acdf273ae39ac94762aa18ac9fca670508191bc3bebf09102c727b3c3607` |
+|  `latest`     | April 2nd    | `sha256:af0ec03798d853fdf0577803f2dd041303d6bd00e1e797be30be7cd583bc7473` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.11.0-dev` `1.11-dev` `1-dev` `latest-dev` | April 2nd    | `sha256:1fe2ab97853b7191c7679b16bb0153aea3dd8b628f6d73e030feee2a88345a76` |
+|  `1` `latest` `1.11.0` `1.11`                 | April 2nd    | `sha256:cf53b8492889a965803661458379fa164da882b51aa0727df524b205730e1b60` |
+

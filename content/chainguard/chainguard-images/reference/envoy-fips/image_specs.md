@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public envoy-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -44,7 +44,7 @@ The table shows package distribution across variants.
 | `chainguard-baselayout`       | X          | X      |
 | `envoy-1.29-config`           | X          | X      |
 | `envoy-1.29-oci-entrypoint`   | X          | X      |
-| `envoy-fips-1.29`             | X          |        |
+| `envoy-fips-1.27`             | X          |        |
 | `git`                         | X          |        |
 | `glibc`                       | X          | X      |
 | `glibc-locale-posix`          | X          | X      |
@@ -70,5 +70,5 @@ The table shows package distribution across variants.
 | `wget`                        | X          |        |
 | `wolfi-baselayout`            | X          | X      |
 | `zlib`                        | X          |        |
-| `envoy-fips-1.27`             |            | X      |
+| `envoy-fips-1.29`             |            | X      |
 

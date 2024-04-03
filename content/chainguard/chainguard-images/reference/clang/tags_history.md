@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the clang Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `15.0-dev` `latest-dev` `15.0.7-dev` `15-dev` | March 29th   | `sha256:47821f39fc4f0fcb7248e0ecaf4c9c81a2a4cbc49c70802ca07863ebbb980094` |
+|  `15-dev` `15.0.7-dev` `latest-dev` `15.0-dev` | April 2nd    | `sha256:47821f39fc4f0fcb7248e0ecaf4c9c81a2a4cbc49c70802ca07863ebbb980094` |
 |  `15` `15.0.7` `15.0` `latest`                 | March 29th   | `sha256:f71b25ccd02b00bb7bb82c9a1f71ef0fad4685e6ff9efc1b094caecc8004cf86` |
 

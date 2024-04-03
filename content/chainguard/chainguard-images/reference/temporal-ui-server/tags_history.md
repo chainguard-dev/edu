@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-ui-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:b7086d39202063fa594bd889e8072c0107043d470717df8333e4e4e5e68c11f2` |
+|  `latest-dev` | April 2nd    | `sha256:44dec2b48a05b6f17210bbcfdf3bd16ada5d4efadd02452729df3c6875657130` |
 |  `latest`     | March 28th   | `sha256:efa95621e323e4cb1624074cf66c63368da62a0bb0977ec1b21d9ac7a3205603` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.25.0-dev` `2.25-dev` `2-dev` `latest-dev` | April 1st    | `sha256:c05e10fa6cc6087b8a9e64b17ac0fc1b3e977a67211d7ad197ef059c2c571997` |
+|  `2-dev` `2.25.0-dev` `latest-dev` `2.25-dev` | April 2nd    | `sha256:c0583ceb0111994d5e42965fbe27599787b3101e738114fecdcf1b52282bf6c2` |
 |  `2.25` `latest` `2` `2.25.0`                 | March 28th   | `sha256:0e1984b92482cb9e4ec3c0d799b679afadd8f7ae995cbbafd914d51b122870df` |
 |  `2.24.0-dev` `2.24-dev`                      | March 12th   | `sha256:c6e0fba06aaf8d9ae90c08df9808b61c154455b18b9a8e7b35e99b9d2124ba1c` |
 |  `2.24` `2.24.0`                              | March 8th    | `sha256:22cdaea08ec14c16ddc7ced8b5b94c13ab752c34967d9735a056045e4d0ccab4` |

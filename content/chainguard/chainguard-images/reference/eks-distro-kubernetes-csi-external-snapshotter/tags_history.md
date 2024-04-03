@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshotter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.3-eks-1-23-33-dev` `latest-dev` `6.3.0-r3-eks-1-23-33-dev` `6-dev` `6-eks-1-23-33-dev` `6.3.0-dev` `6.3.0-eks-1-23-33-dev` `6.3-dev` | April 1st    | `sha256:8d7a762dc624666399130a7cdc31ac271dbc03f90e6d44e453c162c37d7190d2` |
+|  `6.3.0-dev` `latest-dev` `6.3-eks-1-23-33-dev` `6-eks-1-23-33-dev` `6-dev` `6.3-dev` `6.3.0-r3-eks-1-23-33-dev` `6.3.0-eks-1-23-33-dev` | April 2nd    | `sha256:8abfb0e15f2c8e557a69506d590e9487f4555fdd680eb4da625ef38f12969046` |
 |  `6.3-eks-1-23-33` `6.3` `6.3.0` `6.3.0-eks-1-23-33` `latest` `6.3.0-r3-eks-1-23-33` `6-eks-1-23-33` `6`                                 | March 28th   | `sha256:d7ca3ac312b6a64a789f3c207b68a51453488ebadd5344be8a3811ad6c74ce56` |
 |  `6.3.0-r2-eks-1-23-33`                                                                                                                  | March 15th   | `sha256:73ae119849b68bd46c40de3a18ffab7f6c27165050d72cc0480b45ffe767b73e` |
 |  `6.3.0-r2-eks-1-23-33-dev`                                                                                                              | March 15th   | `sha256:31eff1d1ee727c27fac25ed83c8125b603d843a7ce720e763f8302cb18971edc` |
