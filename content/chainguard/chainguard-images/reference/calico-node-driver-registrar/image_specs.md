@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public calico-node-driver-registrar Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,36 +35,36 @@ Check the [tags history page](/chainguard/chainguard-images/reference/calico-nod
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                                   | latest-dev | latest |
-|---------------------------------------------------|------------|--------|
-| `apk-tools`                                       | X          |        |
-| `bash`                                            | X          |        |
-| `busybox`                                         | X          |        |
-| `ca-certificates-bundle`                          | X          | X      |
-| `chainguard-baselayout`                           | X          | X      |
-| `git`                                             | X          |        |
-| `glibc`                                           | X          | X      |
-| `glibc-locale-posix`                              | X          | X      |
-| `kubernetes-csi-node-driver-registrar-2.9`        | X          | X      |
-| `kubernetes-csi-node-driver-registrar-2.9-compat` | X          | X      |
-| `ld-linux`                                        | X          | X      |
-| `libbrotlicommon1`                                | X          |        |
-| `libbrotlidec1`                                   | X          |        |
-| `libcrypt1`                                       | X          |        |
-| `libcrypto3`                                      | X          |        |
-| `libcurl-openssl4`                                | X          |        |
-| `libexpat1`                                       | X          |        |
-| `libidn2`                                         | X          |        |
-| `libnghttp2-14`                                   | X          |        |
-| `libpcre2-8-0`                                    | X          |        |
-| `libpsl`                                          | X          |        |
-| `libssl3`                                         | X          |        |
-| `libunistring`                                    | X          |        |
-| `libxcrypt`                                       | X          |        |
-| `ncurses`                                         | X          |        |
-| `ncurses-terminfo-base`                           | X          |        |
-| `openssl-config`                                  | X          |        |
-| `wget`                                            | X          |        |
-| `wolfi-baselayout`                                | X          | X      |
-| `zlib`                                            | X          |        |
+|                                                    | latest-dev | latest |
+|----------------------------------------------------|------------|--------|
+| `apk-tools`                                        | X          |        |
+| `bash`                                             | X          |        |
+| `busybox`                                          | X          |        |
+| `ca-certificates-bundle`                           | X          | X      |
+| `chainguard-baselayout`                            | X          | X      |
+| `git`                                              | X          |        |
+| `glibc`                                            | X          |        |
+| `glibc-locale-posix`                               | X          | X      |
+| `kubernetes-csi-node-driver-registrar-2.10`        | X          | X      |
+| `kubernetes-csi-node-driver-registrar-2.10-compat` | X          | X      |
+| `ld-linux`                                         | X          |        |
+| `libbrotlicommon1`                                 | X          |        |
+| `libbrotlidec1`                                    | X          |        |
+| `libcrypt1`                                        | X          |        |
+| `libcrypto3`                                       | X          |        |
+| `libcurl-openssl4`                                 | X          |        |
+| `libexpat1`                                        | X          |        |
+| `libidn2`                                          | X          |        |
+| `libnghttp2-14`                                    | X          |        |
+| `libpcre2-8-0`                                     | X          |        |
+| `libpsl`                                           | X          |        |
+| `libssl3`                                          | X          |        |
+| `libunistring`                                     | X          |        |
+| `libxcrypt`                                        | X          |        |
+| `ncurses`                                          | X          |        |
+| `ncurses-terminfo-base`                            | X          |        |
+| `openssl-config`                                   | X          |        |
+| `wget`                                             | X          |        |
+| `wolfi-baselayout`                                 | X          | X      |
+| `zlib`                                             | X          |        |
 

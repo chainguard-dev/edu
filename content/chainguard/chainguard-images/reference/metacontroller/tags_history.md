@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:6b080b9004d7a216ff04dcbf5c371fd7ecfbea72a8011793d8570def9fc68aed` |
+|  `latest-dev` | April 2nd    | `sha256:a2409c445dec4411901d2509db8846bcd084b7fc4e527eeaeb567dc10b290795` |
 |  `latest`     | March 26th   | `sha256:47d2238ad8de2d7284d026f99c89ce057db695542e703d3fdc9e1d2005111a07` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.11-dev` `4-dev` `4.11.11-dev` `latest-dev` | April 1st    | `sha256:6f4a7df10aaf538426fbba476c329cc5cce2a937348789799124b8ac84f41715` |
+|  `4.11-dev` `4.11.11-dev` `latest-dev` `4-dev` | April 2nd    | `sha256:85d601a7011e86cfd0f7462658987484b692b8e6c04af54536f7fb26ad838876` |
 |  `latest` `4.11.11` `4.11` `4`                 | March 28th   | `sha256:8b7aaf37ec584fc75b3defd1b52e938105d35d566e8b1d11cd891b550315f15b` |
 |  `4.11.10`                                     | March 18th   | `sha256:0c224a2c13658be07fc8ffd9a5aa2cd0ad1704f8b190d9b88ba4e146f1a12041` |
 |  `4.11.10-dev`                                 | March 18th   | `sha256:c7df09bb5223ac1c9d2475d16ea0e87db579d9fe3d25fc471517eb6be4d56c3c` |

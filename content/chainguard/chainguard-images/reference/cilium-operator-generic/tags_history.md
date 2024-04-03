@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-operator-generic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.14-dev` `latest-dev` `1.14.9-dev` | March 28th   | `sha256:9955d5c0b4f0040ab932755ada4ebc5a9c481c5adbaa2ac5b231a2954ae3067a` |
+|  `1.14.9-dev` `1-dev` `1.14-dev` `latest-dev` | April 2nd    | `sha256:9955d5c0b4f0040ab932755ada4ebc5a9c481c5adbaa2ac5b231a2954ae3067a` |
 |  `latest` `1.14.9` `1` `1.14`                 | March 28th   | `sha256:09d4d28910c88cfb31442480336656aba5465705ad29ee25eff619661e0ec033` |
 |  `1.14.8-dev`                                 | March 18th   | `sha256:0d9f98d677a41572d921160267a5046463e8517ad3de978f743598079986a0bb` |
 |  `1.14.8`                                     | March 18th   | `sha256:7890740d0acabfa83251e36b65a89c33ac95dcc10f22b44a69dde782ad4ed063` |

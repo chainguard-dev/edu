@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.12-dev` `1.12.9-dev`                      | April 2nd    | `sha256:9f5b855498f29157429d4d1291a411f7d4669a4330eee93dd3b9e0f195c0d946` |
+|  `1.14-dev` `1-dev` `1.14.4-dev` `latest-dev` | April 2nd    | `sha256:422455bf1a25d2a91c2bd735156a34baeae3a732f621e07d17fd66ede6be472c` |
+|  `1.13.5-dev` `1.13-dev`                      | April 2nd    | `sha256:57a835ae140fbfe86fb0b394b59c070fcaaa759a13b0c008ee0fb418c63b1ec2` |
 |  `1` `latest` `1.14` `1.14.4`                 | March 28th   | `sha256:03091109025dec661f7b582137f7303bc68614b22ec56acda50d0fcb86154afd` |
-|  `1.12-dev` `1.12.9-dev`                      | March 28th   | `sha256:9f5b855498f29157429d4d1291a411f7d4669a4330eee93dd3b9e0f195c0d946` |
-|  `1.14-dev` `latest-dev` `1-dev` `1.14.4-dev` | March 28th   | `sha256:422455bf1a25d2a91c2bd735156a34baeae3a732f621e07d17fd66ede6be472c` |
-|  `1.13.5-dev` `1.13-dev`                      | March 28th   | `sha256:57a835ae140fbfe86fb0b394b59c070fcaaa759a13b0c008ee0fb418c63b1ec2` |
 |  `1.12.9` `1.12`                              | March 28th   | `sha256:f31e8f3dbee2ff16dd371895c46529eb4f6ade2bf7d23430edba5508236372ae` |
 |  `1.13` `1.13.5`                              | March 28th   | `sha256:f0018cb787a466ea3ee3b643bac67f9d056d86c3526788acba8ef09334796798` |
 |  `1.13.4`                                     | March 14th   | `sha256:4b2c92da9688a656c776e9179ac6cd6aaf64e5828c516642306e31a895c292b6` |

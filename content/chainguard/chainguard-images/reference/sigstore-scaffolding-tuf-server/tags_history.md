@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:323f708b36cdb03330465cbafe3a9222dfa0c7d19dfec6c543877470d1c7570f` |
+|  `latest-dev` | April 2nd    | `sha256:e813ef2f7fff791c2869ec2a1b59b8f0e72db6445724a95155cf4347c938a714` |
 |  `latest`     | March 28th   | `sha256:23f964d9241882d1143634e9e2c61ce8140150a0d604ba914553dfb7c5b96015` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.6.17-dev` `0.6-dev` `0-dev` | April 1st    | `sha256:b1bc29e03165e5436dd9c8eac673009ba73561e3ef1eb8c817c21875c3b15d88` |
+|  `0.6-dev` `0-dev` `latest-dev` `0.6.17-dev` | April 2nd    | `sha256:53a1a4f4e6f96c46f3471bb9fea6e19f63d79cafbe632b1738b907d3f01d643a` |
 |  `0.6.17` `0.6` `latest` `0`                 | March 28th   | `sha256:7c42d2d6bf0e3a5b8b61fee7f37a2b360123ec423b6346f36c306bbcd4255af2` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:4f57f334bd80b128f5e1076ed04b25d9289a4d3055c2b33d0962704b475b33a3` |
 |  `0.6.16`                                    | March 8th    | `sha256:a5ce3f5f7d0cfee1cd80b9cb29fbbd2d9e2cae658a2e1b52a1ee74568f0d4e72` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector-contrib Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:c64e733bb400f2db455907e83a2f43866084e4c6336178ce3c9df255faf6da59` |
+|  `latest-dev` | April 2nd    | `sha256:d3460c3bef0f66cae069dd9f35f2abe9f7bff0e95ef3b04e18bc8c7fbf270a76` |
 |  `latest`     | March 28th   | `sha256:3721804592282d8062fbf89c43cc0c4cfc130bde7330412751ec1d2ed9cf48b3` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.97.0-dev` `latest-dev` `0.97-dev` | April 1st    | `sha256:70a7c0400b31290660b1657be8583dec5294931d84fe85601643e7d97aa0aa3b` |
+|  `0-dev` `latest-dev` `0.97.0-dev` `0.97-dev` | April 2nd    | `sha256:7266c53d62c0e39dd5d2cc779138e955e867546283d2fc3b2c07c65e0c22b3cb` |
 |  `0.97.0` `0` `0.97` `latest`                 | March 28th   | `sha256:a7177108f1f64348ec3b6abe5d1b72c2cab3c3a6e8a2a1959bb5ee78b643024f` |
 |  `0.96-dev` `0.96.0-dev`                      | March 18th   | `sha256:ac6865a8f27f0c027639ba49f2c4251a7ec3273a25ba27fb79354673d467c61d` |
 |  `0.96.0` `0.96`                              | March 18th   | `sha256:066142617c42addce3d2d34dddd9849ba1ce143cd05eab93f3cd308da455c7a8` |

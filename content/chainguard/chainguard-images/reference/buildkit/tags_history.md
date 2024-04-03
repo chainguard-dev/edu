@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the buildkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.13.1-dev` `0-dev` `latest-dev` `0.13-dev` | April 2nd    | `sha256:fa6bd632434bf8bc2706e33266e02608361411d558778a25e13728cc15746a0d` |
 |  `0.13` `latest` `0.13.1` `0`                 | March 28th   | `sha256:d76260871f20bd6feb8fbe48741c1dcb12532d3d4f28f57c2fbc964b9fcb4a50` |
-|  `0-dev` `latest-dev` `0.13.1-dev` `0.13-dev` | March 28th   | `sha256:fa6bd632434bf8bc2706e33266e02608361411d558778a25e13728cc15746a0d` |
 |  `0.13.0-dev`                                 | March 18th   | `sha256:d60dce9606288013c6035a2f7c59b16b3fd4bf5663d420af6049f98660cce018` |
 |  `0.13.0`                                     | March 18th   | `sha256:04473e9997f4b681540978caa6e8c95a5bb9cff988fb71e8000c36fae7aec439` |
 |  `0.12-dev` `0.12.5-dev`                      | March 7th    | `sha256:eb2452151ab5c3adf7ee6f6d1f4dfd4a968e70234b83d642522e66703d244d2a` |

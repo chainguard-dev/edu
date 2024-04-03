@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-03 00:49:16
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.3.0-dev` `6.3.0-r3-eks-1-23-33-dev` `6-eks-1-23-33-dev` `latest-dev` `6.3.0-eks-1-23-33-dev` `6.3-eks-1-23-33-dev` `6.3-dev` `6-dev` | April 1st    | `sha256:f11a72553da8ec3211c25236d8cf17baa0345f2cbb01ed3bb62d0f3733bb0d41` |
+|  `6.3.0-dev` `6-eks-1-23-33-dev` `6.3.0-r3-eks-1-23-33-dev` `6-dev` `6.3-eks-1-23-33-dev` `6.3-dev` `latest-dev` `6.3.0-eks-1-23-33-dev` | April 2nd    | `sha256:33f4c7338ec75d12c4d692ca24b49dbf51d0c1571dc2193f7d72303c765d926a` |
 |  `6.3.0` `6` `latest` `6.3.0-r3-eks-1-23-33` `6.3.0-eks-1-23-33` `6.3` `6.3-eks-1-23-33` `6-eks-1-23-33`                                 | March 28th   | `sha256:f4df9cabfe39aa0e89a067a8a69a2fa13c1d9b7bf24ff7f83a4ec6a84bf1c6df` |
 |  `6.3.0-r2-eks-1-23-33-dev`                                                                                                              | March 15th   | `sha256:1ab9f89df826dcae33de6df3ba782b7d8bf7f5c978919d5218f7e1d1ebd3dd44` |
 |  `6.3.0-r2-eks-1-23-33`                                                                                                                  | March 15th   | `sha256:9ff184367968227b9b86e9d41289a293d4d69b96671266437d97c6e58dbaf6e4` |
