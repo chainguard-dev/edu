@@ -59,11 +59,13 @@ If you build it yourself it will take a little bit longer because it will have t
 
 So let's see if I can get this right.
 
-docker run --rm -d --port 8080 to port 8080 on the host.
+`docker run --rm -d --port 8080`
+
+to port 8080 on the host.
 
 Image was called java-maven.
 
-So now hopefully if I do curl localhost://8080/hello I get "Hello world" back.
+So now hopefully if I do `curl localhost:8080/hello` I get "Hello world" back.
 
 So that's the application working.
 
@@ -141,17 +143,19 @@ That looks good.
 
 So if I do... well I guess we should prove it still works.
 
-So if I do docker run.
+So if I do `docker run`.
 
-I'll do docker ps first.
+I'll do `docker ps` first.
 
-docker rm -f 12
+`docker rm -f 12`
 
-Now if I do docker run again.
+Now if I do `docker run` again.
 
-So java-maven-multi-chainguard. curl localhost 8080/hello.
+So `java-maven-multi-chainguard`.
 
-So still working just the same as before but now java-maven-multi-cg -- we can see we've got the size down a little bit further.
+`curl localhost 8080/hello`
+
+So still working just the same as before but now `java-maven-multi-cg` -- we can see we've got the size down a little bit further.
 
 So I think it was what 360 megabytes and now we've got it down to 325 megabytes.
 
