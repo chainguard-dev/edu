@@ -45,7 +45,7 @@ So the starting point for this video is this example app.
 
 It's a Spring Boot app and all it does is listen on port 8080 and return "Hello world" effectively.
 
-So here is the Dockerfile and we can see it starts with "FROM maven".
+So here is the Dockerfile and we can see it starts with `FROM maven`.
 
 So this is using the Docker official image for maven which itself is built on top of Eclipse Temurin.
 
@@ -63,7 +63,7 @@ So let's see if I can get this right.
 
 to port 8080 on the host.
 
-Image was called java-maven.
+Image was called `java-maven`.
 
 So now hopefully if I do `curl localhost:8080/hello` I get "Hello world" back.
 
@@ -83,11 +83,11 @@ If we look at the CVEs -- I'm going to use Docker Scout, use grype or whatever -
 
 Honestly I don't think it's a terrible result but let's see if we can do better.
 
-So let's take a look at this Dockerfile and what I'm going to do here is change to use cgr.dev/chainguard/maven.
+So let's take a look at this Dockerfile and what I'm going to do here is change to use `cgr.dev/chainguard/maven`.
 
-So that's using the cgr.dev, Chainguard's registry.
+So that's using the `cgr.dev`, Chainguard's registry.
 
-You could just delete the cgr.dev and use the Docker Hub because we now have Chainguard images on the Docker Hub under the Chainguard workspace.
+You could just delete the `cgr.dev` and use the Docker Hub because we now have Chainguard images on the Docker Hub under the Chainguard workspace.
 
 But let's just do that for the minute and we will rebuild it.
 
@@ -95,13 +95,13 @@ This time I'll add "cg" on the end so we can see the difference.
 
 And there we go.
 
-So let's take a look at java-maven-cg.
+So let's take a look at `java-maven-cg`.
 
 So I think we are 585 megabytes.
 
 So we've dropped it by 220 megabytes or 225 megabytes to 360 megabytes.
 
-So that's a fairly big saving by just making -- just adding -- cgr.dev/chainguard to the start.
+So that's a fairly big saving by just making -- just adding -- `cgr.dev/chainguard` to the start.
 
 But more interestingly what happens to the CVEs?
 
@@ -115,13 +115,13 @@ But we can still take it further.
 
 I'm going to use Mauren's hard work and we'll look at how you can create a multi-stage Docker build.
 
-I've done Docker reset.
+I've done `docker reset`.
 
-I meant to do git reset.
+I meant to do `git reset`.
 
 Okay.
 
-Git switch to the Chainguard multi-stage JRE image.
+`git switch` to the Chainguard multi-stage JRE image.
 
 And if we look at the Dockerfile and what we now have is a multi-stage build.
 
