@@ -147,6 +147,7 @@ Be sure the `docker pull` command you run includes the name of your project, you
 If you run into issues when trying to pull Images from Chainguard's Registry to Artifactory, please ensure the following requirements are met:
 
 * Ensure that all Images [network requirements](https://edu.chainguard.dev/chainguard/administration/network-requirements/) are met.
+* Regarding networking, if you attempt to pull a non-existing image via pull-through, Artifactory will also make calls to `chainguard.dev` and `www.chainguard.dev`.  Calls to these domains should not occur when pulling a valid image.
 * When configuring a remote Artifactory repository, ensure that the **URL** field is set to `https://cgr.dev/`. This field **must not** contain additional components. 
 * You can troubleshoot by running `docker login` from another node (using the Artifactory pull token credentials) and try pulling an Image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<company domain>/<image name>`.
 * It may help to [clear the Artifactory cache](https://jfrog.com/help/r/artifactory-cleanup-best-practices/clearing-an-oversized-cache).
