@@ -28,7 +28,7 @@ For a deeper exploration of distroless images and their differentiation from sta
 When migrating from distributions that are not based on the `apk` ecosystem, you'll need to update your Dockerfile accordingly. Our high-level guide on [Migrating to Chainguard Images](https://edu.chainguard.dev/chainguard/migration-guides/migrating-to-chainguard-images/) contains details about distro-based migration and package compatibility when migrating from Debian, Ubuntu, and Red Hat UBI base images.
 
 ### Installing PHP Extensions
-Wolfi offers most of the built-in PHP extensions as optional packages installable via `apk`. Because PHP extensions are system-level packages, they require `apk` which is only available in our **builder** images. The following extensions are already included within all variants:
+Wolfi offers several PHP extensions as optional packages installable via `apk`. Because PHP extensions are system-level packages, they require `apk` which is only available in our **builder** images (`latest-dev` and `latest-fpm-dev`). The following extensions are already included within all variants:
 
 - `php-mbstring`
 - `php-curl`
@@ -41,7 +41,6 @@ Wolfi offers most of the built-in PHP extensions as optional packages installabl
 - `php-pdo_mysql`
 - `php-sodium`
 - `php-phar`
-
 
 To check for available extensions, you can run a temporary container based on the `php:latest-dev` image:
 
@@ -59,7 +58,23 @@ If you want to search for PHP 8.2 XML extensions, for example, you can run the f
 ```shell
 apk search php*8.2*xml*
 ```
-And this should give you a list of all PHP 8.2 XML extensions available in Wolfi. For more searching tips, check the [Searching for Packages](/chainguard/migration-guides/migrating-to-chainguard-images/#searching-for-packages) section of our base migration guide.
+And this should give you a list of all PHP 8.2 XML extensions available in Wolfi.
+
+```
+php-8.2-simplexml-8.2.17-r0
+php-8.2-simplexml-config-8.2.17-r0
+php-8.2-xml-8.2.17-r0
+php-8.2-xml-config-8.2.17-r0
+php-8.2-xmlreader-8.2.17-r0
+php-8.2-xmlreader-config-8.2.17-r0
+php-8.2-xmlwriter-8.2.17-r0
+php-8.2-xmlwriter-config-8.2.17-r0
+php-simplexml-8.2.11-r1
+php-xml-8.2.11-r1
+php-xmlreader-8.2.11-r1
+php-xmlwriter-8.2.11-r1
+```
+For more searching tips, check the [Searching for Packages](/chainguard/migration-guides/migrating-to-chainguard-images/#searching-for-packages) section of our base migration guide.
 
 ## Migrating PHP CLI workloads to use Chainguard Images
 Our `latest` and `latest-dev` PHP image variants are designed to run CLI applications and scripts that don't need a web server. As a first step towards migration, you might want to change your base image to the `latest-dev` variant, since that would be the closest option for a drop-in base image replacement. Once you have your dependencies and steps dialed in, you can optionally migrate to a multi stage build to create a strict runtime containing only what the application needs to run.
