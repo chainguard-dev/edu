@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-04-04 00:51:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:b19c1804718d58b30a7f1765b301ce3dc808fff79bb5ce218a3893b5179e2733` |
+|  `latest-dev` | April 3rd    | `sha256:78cb0acb7d08054e0791420398b5d2999dc48f45027183b0c3f4000b388554fe` |
 |  `latest`     | March 21st   | `sha256:27ed39fc817e6b4ec520d5d1d1898777b6f288d66dd5c32619c94c34bf05e293` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.15-dev` `1.15.1-dev` | April 2nd    | `sha256:d93d5e06e982ec8111f5a4c018b72ca5c143b559a98e0f8f58373d4c0e20f8da` |
-|  `latest` `1.15` `1.15.1` `1`                 | March 28th   | `sha256:66426dc25e322e6e3c987e285e600bd7c0a16abbef87da6f49404994e0cae1dd` |
+|  `1` `latest` `1.15` `1.15.1`                 | April 3rd    | `sha256:6ec84910df8eaa991d3b3d1d7cb0f4f96e43b04ce28b124e1e22f7c19b930e8b` |
+|  `1-dev` `1.15-dev` `1.15.1-dev` `latest-dev` | April 3rd    | `sha256:cbe06ea11c3445c8ba129222e89411cc5b34020f7f91df132d9022a0f51b9ee3` |
 |  `1.15.0`                                     | March 14th   | `sha256:cb442fbdc7328cef389944d7dbde41cb0ed9f63ad6d832e0509bfb19bbaa3a6e` |
 |  `1.15.0-dev`                                 | March 14th   | `sha256:aa9a69bd46fb68acbcd0420821581c4c88b5afa909e62c926967efff4ec9161f` |
 

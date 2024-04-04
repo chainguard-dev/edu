@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8s-sidecar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-04-04 00:51:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:2d854c50d429415575cdd723cfbffae205f84042a13b72d14878b5c59e8c4680` |
+|  `latest-dev` | April 3rd    | `sha256:d23c7785195f9dd5466ed5b5b3856059997ac53b2a8e7f3d00ebba75db5eb66d` |
 |  `latest`     | March 31st   | `sha256:3a2ab938ab3468a7eeda05ae9789a58f2d5e1a10c91d8627b1454d8a60e7bb4e` |
 
 

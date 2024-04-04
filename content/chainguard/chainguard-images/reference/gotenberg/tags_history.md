@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gotenberg Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-04-04 00:51:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.3-dev` `8-dev` `8.3.0-dev` `latest-dev` | April 2nd    | `sha256:f85061b99dddc0bc44896455cff0cf7bcf9f5d3692e9dfb7345b7727bf8a614c` |
-|  `latest` `8.3.0` `8` `8.3`                 | April 2nd    | `sha256:5b1f33cf44c3d3452f0c7aee7bb4d24f12e41c61b6f74852d090a7cc7a0b8198` |
+|  `8.3.0` `8` `8.3` `latest`                 | April 3rd    | `sha256:bd475ff965eed51d91e21e2fafa31f771bf6f7649418cbe6df344cbfa0e6b1ec` |
+|  `8-dev` `8.3-dev` `latest-dev` `8.3.0-dev` | April 3rd    | `sha256:cc858d06e8da3b73e5c3f0df73bed03df6a8b4f37cc7f04be09768da81e8eb69` |
 |  `8.2` `8.2.2`                              | March 24th   | `sha256:86bfe48b41efb0fb09f57f839a2d6db02514366e80ebe7d8cce25c03e145f430` |
 |  `8.2-dev` `8.2.2-dev`                      | March 24th   | `sha256:e7ad577d213c8c4ce7709e1468581f4d263fe8875af1b288a83c4a43f1292b83` |
 |  `8.2.1`                                    | March 14th   | `sha256:9466698c8689deb313f6ab3798b09a54d36263617e3958f035618cb617895c80` |
 |  `8.2.1-dev`                                | March 14th   | `sha256:b0a01ce9fbe7d5f02f17121cf18baa04e900362904200e76aff525cfa1f4ace2` |
-|  `8.2.0-dev`                                | March 3rd    | `sha256:bf7c8725591cd232b7e9230335719d610b82f541fa3ce599d9552f31b5b3395e` |
-|  `8.2.0`                                    | March 3rd    | `sha256:060a9fe7811710c2cc734c27c70271529c0655877512f4b389c93b96c40bf3bd` |
 

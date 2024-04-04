@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the erlang Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-04-04 00:51:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:5644ea58d7bdb54aeae07e3d2a734d7e9976d9ef468da1888731ec59842519ed` |
+|  `latest-dev` | April 3rd    | `sha256:c2e1d7be89aae39a86bb30c9a3e0060fb7ebecdce7e0c5e357173c389e4b023e` |
 |  `latest`     | March 28th   | `sha256:a2829b185be05243fc9be3adfa97608e90cb30b09d3c274cd89eec648ec12a2b` |
 
 
