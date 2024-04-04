@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crane Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-04-04 00:51:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:542ee75c8ebaba0a3121cb852a3e1d1fa3a544d05ebecde331c862eee8ac1d47` |
+|  `latest-dev` | April 3rd    | `sha256:483c497818b4c7a2e1d32e49e3c70f750955c9c04f7b0474418eb372211b0ca7` |
 |  `latest`     | March 22nd   | `sha256:4475cf8b4358f78b4d0157e7f7057a6262950a15084e413dc3ddaf2763754124` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.19.1-dev` `0-dev` `0.19-dev` | April 2nd    | `sha256:8da0d53ecabc16c54b043d9a1e593aeba4685e0d0d78416b673a0d9de0785059` |
-|  `latest` `0.19.1` `0.19` `0`                 | March 28th   | `sha256:40617e35205c733504b16400e4d3c8b3aecae85352801667e541a9606c24d771` |
+|  `0.19` `0.19.1` `0` `latest`                 | April 3rd    | `sha256:13d61cc93fcbcf4454481e656feefb2db8934cccc2e354fc9988fce5b664983d` |
+|  `0.19.1-dev` `0.19-dev` `0-dev` `latest-dev` | April 3rd    | `sha256:3cf09c3db89366ec7581b5db4d6b45907d40ce2dc0f600fb75175f6fd97570f0` |
 |  `0.19.0`                                     | March 14th   | `sha256:b59c331645e80dec6154fb5795bc1cdc9b6fd3e6dd0f678e6c866c200d5df4d5` |
 |  `0.19.0-dev`                                 | March 14th   | `sha256:b160c8f7a419dac939388cf65f15572d74f418bd8a0860af9d92700c7b72144e` |
 

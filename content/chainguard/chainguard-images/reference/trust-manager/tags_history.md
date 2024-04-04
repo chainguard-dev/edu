@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trust-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-04-04 00:51:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.9-dev` `0-dev` `0.9.2-dev` | April 2nd    | `sha256:6ba2b87b420b659749d172094b08b1e1eda4e2427a6d57fc9f41140c0d20f160` |
-|  `0` `0.9` `0.9.2` `latest`                 | March 28th   | `sha256:a412aa3101a0a5b6713587d0ac9582b6a9087a7370175878188ab1c0f8fcd2a3` |
+|  `latest-dev` `0.9-dev` `0-dev` `0.9.2-dev` | April 3rd    | `sha256:ed677526791d3cd25fe1514877952c0621e681170b97ddb652bf960ad0805232` |
+|  `0.9.2` `0` `latest` `0.9`                 | April 3rd    | `sha256:8db8717ac9272f3ecefbb39cb5f21543ed0e199c376299dd6db9afbd0329d059` |
 |  `0.9.1-dev`                                | March 25th   | `sha256:dac454824a02838b6dc5461c7ac481297df5f979c2e3f67963b49fc737a01320` |
 |  `0.9.1`                                    | March 18th   | `sha256:2450a04c24862595f8dca06bb36c634e1599207fa4aca9677b589bf64bd126dd` |
 |  `0.9.0-dev`                                | March 12th   | `sha256:89f7a960e0ccaebb5b8e7bb8188c751e38fd06db8a92c49d93e43aa71f92cc20` |

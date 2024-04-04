@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-04-04 00:51:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 1st    | `sha256:82a0d4475830c7b5738696fb090bb44da427897641085a37998f6b28e43c05d1` |
+|  `latest-dev` | April 3rd    | `sha256:364c5e6ea236e446756c93d6560f1d38aa9e2d1bcb0ae2a8cf32acf0139357e3` |
 |  `latest`     | March 18th   | `sha256:a2ff64e4f2e46c09ebe57551a0af3655d934ed0219d83af5dbcda4f524195cfd` |
 
 
@@ -37,14 +37,14 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.28-dev` `1.28.2-dev`                      | April 2nd    | `sha256:b0f04d340025416797a5fb8744368ff3eb6325996284a410e56295deb59d1fb8` |
-|  `1-dev` `1.29.0-dev` `1.29-dev` `latest-dev` | April 2nd    | `sha256:815f4bf7a8b8f6656c23d73daa1ecca5a9e4954ab9bcbae2767082eefa92f9c8` |
-|  `1.25.3-dev` `1.25-dev`                      | April 2nd    | `sha256:f41a218015c94617e93008fc8a92f5fbecbab12509cf9fe3bda03a0e8f1b9028` |
-|  `1.27.5-dev` `1.27-dev`                      | April 2nd    | `sha256:324a03286519ba63802a6a465fec1d2d4b2d0237eea798b0cb03d55f2cc92575` |
-|  `1.26.6-dev` `1.26-dev`                      | April 2nd    | `sha256:e570afd9348bf7c875ecf3b262ea1cfa6815481127198cdbeaac738c63c96b73` |
-|  `1.28.2` `1.28`                              | April 2nd    | `sha256:442dc0dc0da6752a6ee3b0fc2eb3e43f9c2f5fb6d9f7350442e728301c0ba74f` |
-|  `1.27.5` `1.27`                              | April 2nd    | `sha256:8752b86203de123390a27f96d63a8255311b641809daed0fa235ce83701de90e` |
-|  `1.26` `1.26.6`                              | April 2nd    | `sha256:fae8d62faa51c54381c371259d02b4cc68180154efb10f5cbefd892c9aa66494` |
-|  `1.29` `1` `1.29.0` `latest`                 | March 28th   | `sha256:f38a2e83fa9d0b18170ac62f521787e6cc55611b5ed902b3417e5d4344b25d28` |
-|  `1.25.3` `1.25`                              | March 28th   | `sha256:6fc123a90a5da1b292a111391b5f3ab13a071cfcf8ae78b2a701f949baeb7c3f` |
+|  `1-dev` `latest-dev` `1.29-dev` `1.29.0-dev` | April 4th    | `sha256:9159daa984841ab879153f916e3541c77780d76f74a4e0d60a158966cb97e8ba` |
+|  `1.25.3` `1.25`                              | April 4th    | `sha256:73517ca9f2bf535afeda89599351bef06736cd1e01f358636a4f49240e305bb7` |
+|  `1.25.3-dev` `1.25-dev`                      | April 4th    | `sha256:4eae731a8b20997deeb22a540c4b1054d5781142ae7e31906e5a47068c61bfa1` |
+|  `latest` `1` `1.29.0` `1.29`                 | April 4th    | `sha256:8c5b9de7230eb1805bf0f93aae2ee2b636f7ef9c6b7c79ebcb157341c35d3814` |
+|  `1.27.5-dev` `1.27-dev`                      | April 3rd    | `sha256:cd04c85ccdb76fdeee471053157888866d216cbb94bbd86b2d419f24048f9b4a` |
+|  `1.26.6-dev` `1.26-dev`                      | April 3rd    | `sha256:15870b02795e7181f81256c8f9478fb910d5bffe9f8964d5aac3feb7a63b8d21` |
+|  `1.28.2-dev` `1.28-dev`                      | April 3rd    | `sha256:ce2bea60a895931ac90bcdc025f8e4b8a92d80a0a39e811f598a9cf4e1c3d0e3` |
+|  `1.27` `1.27.5`                              | April 3rd    | `sha256:09b5854cde61ff244b0a108052991938431d0058c3ef99e399d76c504f15b35d` |
+|  `1.28` `1.28.2`                              | April 3rd    | `sha256:b98a5985efc969814a26264984fe5947c76fd60744398cdee4ca1afa7984fa11` |
+|  `1.26` `1.26.6`                              | April 3rd    | `sha256:b63a66b224a8100e6b4a8a4fc68c3252e3a89f475f650f7c2b9850d6e60673a0` |
 

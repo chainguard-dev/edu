@@ -1,0 +1,73 @@
+---
+title: "aws-cli-v2-fips Image Details"
+type: "article"
+unlisted: true
+description: "Detailed information about the public aws-cli-v2-fips Chainguard Image."
+date: 2024-04-04 00:51:18
+lastmod: 2024-04-04 00:51:18
+draft: false
+tags: ["Reference", "Chainguard Images", "Product"]
+images: []
+weight: 550
+toc: true
+---
+
+{{< tabs >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/aws-cli-v2-fips/" >}}
+{{< tab title="Details" active=true url="/chainguard/chainguard-images/reference/aws-cli-v2-fips/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/aws-cli-v2-fips/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/aws-cli-v2-fips/provenance_info/" >}}
+{{</ tabs >}}
+
+This page shows detailed information about the Chainguard **aws-cli-v2-fips** Image.
+
+|              | latest-dev    | latest        |
+|--------------|---------------|---------------|
+| Default User | `nonroot`     | `nonroot`     |
+| Entrypoint   | `aws`         | `aws`         |
+| CMD          | not specified | not specified |
+| Workdir      | not specified | not specified |
+| Has apk?     | yes           | no            |
+| Has a shell? | yes           | no            |
+
+Check the [tags history page](/chainguard/chainguard-images/reference/aws-cli-v2-fips/tags_history/) for the full list of available tags.
+
+## Packages Included
+The table shows package distribution across variants.
+
+|                               | latest-dev | latest |
+|-------------------------------|------------|--------|
+| `apk-tools`                   | X          |        |
+| `aws-cli-v2`                  | X          | X      |
+| `bash`                        | X          |        |
+| `busybox`                     | X          |        |
+| `ca-certificates-bundle`      | X          | X      |
+| `chainguard-baselayout`       | X          | X      |
+| `git`                         | X          |        |
+| `glibc`                       | X          | X      |
+| `glibc-locale-posix`          | X          | X      |
+| `groff`                       | X          | X      |
+| `ld-linux`                    | X          | X      |
+| `libbrotlicommon1`            | X          |        |
+| `libbrotlidec1`               | X          |        |
+| `libcrypt1`                   | X          |        |
+| `libcrypto3`                  | X          |        |
+| `libcurl-openssl4`            | X          |        |
+| `libexpat1`                   | X          |        |
+| `libgcc`                      | X          | X      |
+| `libidn2`                     | X          |        |
+| `libnghttp2-14`               | X          |        |
+| `libpcre2-8-0`                | X          |        |
+| `libpsl`                      | X          |        |
+| `libssl3`                     | X          |        |
+| `libstdc++`                   | X          | X      |
+| `libunistring`                | X          |        |
+| `libxcrypt`                   | X          |        |
+| `ncurses`                     | X          |        |
+| `ncurses-terminfo-base`       | X          |        |
+| `openssl-config-fipshardened` | X          | X      |
+| `openssl-provider-fips`       | X          | X      |
+| `wget`                        | X          |        |
+| `wolfi-baselayout`            | X          | X      |
+| `zlib`                        | X          |        |
+

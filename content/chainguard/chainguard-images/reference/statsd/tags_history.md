@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the statsd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-04-04 00:51:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.10-dev` `0-dev` `0.10.2-dev` | April 2nd    | `sha256:f6acd17d2bbc01ffea533b97106a49145a165311ed6aea9f5c3cd7fed1fe1ebd` |
-|  `0.10.2` `0.10` `0` `latest`                 | March 31st   | `sha256:5218927ab121069fbf77e36a471e43e229c2846bc1cd69577ca68bb8907f1b32` |
+|  `0-dev` `0.10.2-dev` `0.10-dev` `latest-dev` | April 3rd    | `sha256:838222394567c6863cf51c99f6ddffe3d4a2f3fa3365205f1f3901381c1cd88f` |
+|  `0.10.2` `0.10` `0` `latest`                 | April 3rd    | `sha256:2e5dd21f15199e7367e7b663281d684006bc0e60f5b198e96ebef326847485fc` |
 
