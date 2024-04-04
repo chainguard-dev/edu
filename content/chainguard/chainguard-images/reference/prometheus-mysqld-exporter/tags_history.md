@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-04-04 00:51:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15.1-dev` `0.15-dev` `0-dev` `latest-dev` | April 2nd    | `sha256:987ef82e0473d41def0b429ec9dca7930e6307d3780672f65c4c7dd810069d02` |
-|  `latest` `0.15.1` `0.15` `0`                 | April 2nd    | `sha256:7cdcd8d061c4ef2fd5d20836b71330241a45b7c3f5507092812eda3bbee9b8c6` |
+|  `0` `0.15.1` `0.15` `latest`                 | April 3rd    | `sha256:d2e2f55701a1bed59a48103e1cfbae40fbb1dccdafc961f948f33e3352220f8a` |
+|  `latest-dev` `0-dev` `0.15-dev` `0.15.1-dev` | April 3rd    | `sha256:205a92ec98068d9bfb2e9c72a173702364645bef5b0b00d7d9ab2156cc144146` |
 

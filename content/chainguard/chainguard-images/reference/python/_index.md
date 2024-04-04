@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: python Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-04 00:51:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -49,6 +49,12 @@ These images are available on `cgr.dev`:
 ```
 docker pull cgr.dev/chainguard/python:latest
 docker pull cgr.dev/chainguard/python:latest-dev
+```
+
+Note that in order to access the shell in the `python:latest-dev` image, you'll need to include an `--entrypoint` option, as in the following example.
+
+```sh
+docker run -it --entrypoint /bin/bash chainguard/python:latest-dev
 ```
 
 ## Usage

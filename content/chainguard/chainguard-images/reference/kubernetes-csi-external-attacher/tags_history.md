@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-attacher Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-04-04 00:51:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `latest-dev` `4.4.4-dev` `4.4-dev` | April 2nd    | `sha256:2a8ed496dd7fb09ea3cc8c4e010541363fc98fd9460dc7bd5845d1cd3e21003b` |
-|  `4.3.0-dev` `4.3-dev`                      | April 2nd    | `sha256:05cdf54af108bcf051be1a1617699b163b1c67e8a37100d75fb6de0984b411f3` |
-|  `4.3` `4.3.0`                              | March 28th   | `sha256:2e9d4512da4836be398f799d29fa9148eace73c4627c27ed721f81848d5ffbe4` |
-|  `latest` `4.4.4` `4.4` `4`                 | March 28th   | `sha256:f79f8cbc0478fd0ad9165c94f5280da464c18804d7cefab406f093441a8e7e52` |
+|  `latest` `4.4` `4` `4.4.4`                 | April 3rd    | `sha256:2918cb71bc9d4904df9bb7c7a03ba91a63831b7a0bb093a0b9206251042272fa` |
+|  `4.3.0` `4.3`                              | April 3rd    | `sha256:350ba96520884203f63c8f6d0e4b00fe8b3e45b2c1bfcc26736617c14121ae3e` |
+|  `4.3-dev` `4.3.0-dev`                      | April 3rd    | `sha256:efe4824b9af17281a632da4152c793b39eb49567621af31ee663f59e4c9978c4` |
+|  `latest-dev` `4.4-dev` `4-dev` `4.4.4-dev` | April 3rd    | `sha256:5909db03cc18a66f3c58f6a0ad7bc5047f072a7f111eb707920f1ae71262bfaa` |
 |  `4.4.3`                                    | March 18th   | `sha256:fd9e2643c5ca8a511811f375e4b0d31412778c3755bbfb76706db308fb32819d` |
 |  `4.4.3-dev`                                | March 18th   | `sha256:97cf1f9113a00924bc5c51ff1654acda9edc0608eb07b9b92330618a4fe5455e` |
 

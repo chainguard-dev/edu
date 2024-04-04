@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-frontend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-04 00:51:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0` `2` `latest` `2.0.5`                 | March 28th   | `sha256:af4578bd65c8d94ef2a949c6023794a1c56c7c279d12c9684509f6463684b5be` |
-|  `2-dev` `2.0.5-dev` `latest-dev` `2.0-dev` | March 28th   | `sha256:3c8442d38e26bc3b8abfc05b5b1e26c073661916ff914c56211a6d438385c695` |
+|  `2.0.5` `2` `latest` `2.0`                 | April 4th    | `sha256:9b24c67cac601b2b6952d784134687ed03b81a0120bbcb50a083940dc21723af` |
+|  `2-dev` `latest-dev` `2.0.5-dev` `2.0-dev` | April 4th    | `sha256:8f1c0fc98b0e4bd51c8629468d441ed45ac359d3656ba4ead5695dee7b2e5c02` |
 
