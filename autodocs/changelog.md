@@ -1,20 +1,4 @@
 # 2024-04-05
-New images added:
-
-- docker-cli
-- harbor-fips-core
-- harbor-fips-jobservice
-- harbor-fips-portal
-- harbor-fips-registry
-- harbor-fips-registryctl
-- harbor-trivy-adapter
-- rstudio-fips
-- tomcat-10
-- velero-plugin-for-aws-fips
-- velero-plugin-for-aws-fips-velero-fips
-- velero-plugin-for-csi-fips
-- velero-plugin-for-csi-fips-velero-fips
-- velero-plugin-for-csi-fips-velero-plugin-for-aws-fips
 
 Updated Docs:
 
