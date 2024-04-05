@@ -22,23 +22,33 @@ function timer() {
     const t = document.getElementById("terminal-init");
     const image = t.attributes.getNamedItem("data-image").nodeValue;
     const color_scheme = localStorage.getItem("theme") || "dark";
-    const bg_light = "background: white;"
-    const bg_dark = "background: #0E0E0E;"
-    let bg = new String;
-    if (color_scheme == "dark") {
-      bg = bg_dark;
-    } else {
-      bg = bg_light;
-    }
+    const bg_light = "background: white;";
+    const bg_dark = "background: #0E0E0E;";
+    const bg = color_scheme === "dark" ? bg_dark : bg_light;
+
     const iframe = `<div id="terminal-container"><iframe id="terminal" frameBorder="0" rel="opener" src="https://terminal.inky.wtf/?image=${image}&color-scheme=${color_scheme}" style="${bg}"></iframe></div>`;
     t.insertAdjacentHTML("afterend", iframe);
     document
       .getElementById("close-button")
       .addEventListener("click", window.terminal.exit);
+
+    const container = document.getElementById("terminal-container");
+    if (container) {
+      container.addEventListener("mouseenter", () => {
+        if (window.gtag) {
+          window.gtag("event", "terminal-mouseenter");
+        }
+      });
+    }
+
     interval = window.setInterval(timer, 1000);
   };
 
   window.terminal.exit = () => {
+    if (window.gtag) {
+      window.gtag("event", "terminal-close");
+    }
+
     document.getElementById("terminal-init").remove();
     document.getElementById("terminal-container").remove();
     document.getElementById("terminal-nav").remove();
@@ -48,9 +58,10 @@ function timer() {
   };
 })();
 
-
 document.addEventListener("DOMContentLoaded", async () => {
-  const response = await fetch("https://storage.googleapis.com/chainguard-academy/terminal/status.json");
+  const response = await fetch(
+    "https://storage.googleapis.com/chainguard-academy/terminal/status.json"
+  );
   const status = await response.json();
   if (status.enabled == false) {
     return;
