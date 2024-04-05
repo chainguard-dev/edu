@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the traefik Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-04 00:51:18
+lastmod: 2024-04-05 00:47:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 21st   | `sha256:cf9f0c3caf39b105811d6eea40e3717ca9517e951d5d23cb9b4c37b2c17e47bf` |
+|  `latest` | April 4th    | `sha256:c16e315cca4f73c845ab24fa9cf13c540a8e8fbe64736e7a88a5c223c7c91247` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.11.0` `latest` `2` `2.11`                 | April 3rd    | `sha256:2bfe18b331436c5b2feab273fee50f378801523902bea5878a486fc9f3c344c3` |
-|  `2.11.0-dev` `2.11-dev` `latest-dev` `2-dev` | April 3rd    | `sha256:862eaefd393a87a5f940cf1bdc227e122227bec5a82b23a2a890bd613e81a184` |
+|  `2.11.0-dev` `latest-dev` `2.11-dev` `2-dev` | April 4th    | `sha256:ed885e7f2d831cabc08dfa4c298bc55c3a0336d70b586f4e39779ba9eeb1efd8` |
+|  `2.11.0` `latest` `2` `2.11`                 | April 4th    | `sha256:917ac8202bb63bf4b662745212810d2cd22533373de4d5b37c463bc56b61dda5` |
 

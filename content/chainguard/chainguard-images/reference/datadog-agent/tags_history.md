@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the datadog-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-04 00:51:18
+lastmod: 2024-04-05 00:47:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 3rd    | `sha256:0c1aa8241b29bc2a78b2a8197e7691a48a93741dbc66e1b33bf75ad595549127` |
-|  `latest`     | March 31st   | `sha256:f34fd31b524f355b94e8e5baa7b0b1811ed6e73ebc2b556e484eb892ff6f34b7` |
+|  `latest`     | April 4th    | `sha256:04f80b8de80a6b942ec9cb5ffe4bf79be740048c2ee14df2e5ee9950b5eca9fb` |
+|  `latest-dev` | April 4th    | `sha256:714c6db8e809640c8ba6bfe7de05e42b4094e3436eb1def5d3dd54bc4dfa8439` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7` `7.52` `7.52.0` `latest`                 | April 3rd    | `sha256:b270703d41807bbfb6d6bf7789b859de0a6f3fcf256924508f0bc80741edd650` |
-|  `latest-dev` `7.52.0-dev` `7.52-dev` `7-dev` | April 3rd    | `sha256:0ede592c3b82fd165ccb6f4d284b77a50d8d8026b5942f064da80a945724f53d` |
+|  `7-dev` `7.52.1-dev` `latest-dev` `7.52-dev` | April 4th    | `sha256:a12e6fd95cc5361e47fb1b6dd7e8791435e6514c0e78d7c9d54f391f33a20aaf` |
+|  `7` `7.52` `7.52.1` `latest`                 | April 4th    | `sha256:d219bafa9fc5ffb6948a54b320756b58c19291a517aca728e5d16a077907cbc1` |
+|  `7.52.0-dev`                                 | April 3rd    | `sha256:0ede592c3b82fd165ccb6f4d284b77a50d8d8026b5942f064da80a945724f53d` |
+|  `7.52.0`                                     | April 3rd    | `sha256:b270703d41807bbfb6d6bf7789b859de0a6f3fcf256924508f0bc80741edd650` |
 |  `7.51.1` `7.51`                              | March 21st   | `sha256:a6083a5bf6722a92cf1aa59f7107f794dfb99cf519f1067e3eeedeef75e66994` |
 |  `7.51.1-dev` `7.51-dev`                      | March 21st   | `sha256:13de8a9003bbe92b6a64f547e1e7878a112ef8eafdeb5c652c32aabaf8d74f05` |
 

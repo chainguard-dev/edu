@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the confluent-kafka Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-04 00:51:18
+lastmod: 2024-04-05 00:47:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 3rd    | `sha256:daf2590669048132584d0938fa00e4d399e59a2884f3c7916da5f03ec694f2d0` |
-|  `latest`     | March 31st   | `sha256:d0ebdcc4df367e68840b31b5d09a9bda6ad1958c3787be22a1c2a632387c12e8` |
+|  `latest-dev` | April 4th    | `sha256:cbce8e5d11b01d99ab6349345e8a41676103d132c95c837c5641fc9870cb661f` |
+|  `latest`     | April 4th    | `sha256:d87470065d0f52ffcd3e521661bdad8beeef410f8983079aed3b9ca93890290e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                   | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.8-dev` `7.8.0.9-dev` `7-dev` `latest-dev` `7.8.0-dev` | April 2nd    | `sha256:b35c2a9eb5ec6b93d27f90fe1f3f5622e380c0c002c28c72410a02182adbaf0d` |
-|  `7` `7.8.0.9` `7.8` `7.8.0` `latest`                     | March 29th   | `sha256:5c50a10a1a440958c907e588feb7b9cfed67db970c548393251bf4f8fefb6e69` |
+|  `latest-dev` `7-dev` `7.8-dev` `7.8.0.9-dev` `7.8.0-dev` | April 4th    | `sha256:08b529651b2f242dcead93d9a0c4b9ef6afeb41661d6f22c2403558e2f4c65ae` |
+|  `7.8.0.9` `7.8` `latest` `7` `7.8.0`                     | April 4th    | `sha256:ba38ae862d4c31f33102acdc9ff37d1e7856596642ff6f3d6adfd8012a7fb087` |
 

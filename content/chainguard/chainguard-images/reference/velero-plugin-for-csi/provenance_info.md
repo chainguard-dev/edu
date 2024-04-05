@@ -3,8 +3,8 @@ title: "Provenance Information for velero-plugin-for-csi Images"
 type: "article"
 unlisted: true
 description: "Provenance information for velero-plugin-for-csi Chainguard Image"
-date: 2024-04-04 00:51:18
-lastmod: 2024-04-04 00:51:18
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-05 00:47:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for velero-plugin-for-csi Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                             |
-|------------------------------|--------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                               |
-| `cgr.dev/chainguard-private` | No production tags are available for this image. |
+| Registry                     | Tags                                                         |
+|------------------------------|--------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                           |
+| `cgr.dev/chainguard-private` | 0, 0-dev, 0.7, 0.7-dev, 0.7.0, 0.7.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

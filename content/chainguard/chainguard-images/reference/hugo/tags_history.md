@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hugo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-04 00:51:18
+lastmod: 2024-04-05 00:47:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 2nd    | `sha256:cbb3816c856fa0c8ce346122705ca3882b27f711f5cbff3c9df1f6197afeb5bc` |
-|  `latest`     | March 28th   | `sha256:8a534a113ce3a9ab45aa71b4e650eb6e896cd3b5de2dbad2532df1ed2ca508ed` |
+|  `latest`     | April 4th    | `sha256:57e064df1570c754c5b49a54037dfcdc6cc6c2a32f0aca2743c4a9eff24f31c4` |
+|  `latest-dev` | April 4th    | `sha256:f021fbd2fc04e6be6e0de8cbb4b9b522c0c8eb691bd0e053f05dbc73abdc00c5` |
 
 
 ### Private/Dedicated Registry

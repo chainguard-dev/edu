@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nvidia-device-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-04 00:51:18
+lastmod: 2024-04-05 00:47:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 2nd    | `sha256:a2e94c30f98c8512d135c3997025c3f9a4e32eec0e0d10eedc9c4ce14871c1f6` |
-|  `latest`     | March 28th   | `sha256:207ee59d8070d11989ca7bca6ae0b4c022781bf908d47679512493a77e306d69` |
+|  `latest`     | April 4th    | `sha256:6975a0480a765858aef5812ddb91565f4de7fe88cb90437425eac525fa6384b1` |
+|  `latest-dev` | April 4th    | `sha256:56c72346e5c30e0fbe4616ee24fe4c15e829b3a829efef68f57f4e2033f1755a` |
 
 
 ### Private/Dedicated Registry

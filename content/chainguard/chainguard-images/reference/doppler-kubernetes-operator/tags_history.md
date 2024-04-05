@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the doppler-kubernetes-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-04 00:51:18
+lastmod: 2024-04-05 00:47:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 3rd    | `sha256:4a40189242d903135e5b955ca987ef2372f274f9cab31d3ab60148313a230123` |
-|  `latest`     | March 28th   | `sha256:b57ab74f30d70abe19f57aaf7c026a42d9b60dfda1c76a6a1f083986e2f6d90c` |
+|  `latest-dev` | April 4th    | `sha256:1fac984adbf18eae6f12b771163a4da854c74ab01615f305d050d38fe2c67b42` |
+|  `latest`     | April 4th    | `sha256:e2fe07a5ef81250189c257c6dd2ae673d09c4bf093e438656f023b8783c4762b` |
 
 
 ### Private/Dedicated Registry

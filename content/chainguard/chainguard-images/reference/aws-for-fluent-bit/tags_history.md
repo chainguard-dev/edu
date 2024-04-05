@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-for-fluent-bit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-04 00:51:18
+lastmod: 2024-04-05 00:47:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 2nd    | `sha256:50853ea8a6adc250a7fc36d2b36e6bd09608e1013e32111662c8d21989ae10d5` |
+|  `latest` | April 4th    | `sha256:4fbe741d1973a611d9b676e0fcc7e9513bc791cf7398670328d367fc659bcbd4` |
 
 
 ### Private/Dedicated Registry
