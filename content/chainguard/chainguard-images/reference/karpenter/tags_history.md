@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the karpenter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-04 00:51:18
+lastmod: 2024-04-05 00:47:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 3rd    | `sha256:f3b47beb5e9dfa1fb8628f7c3cc4372befd9ef0cd77b6da8a388f52ee929ef37` |
-|  `latest`     | April 3rd    | `sha256:bfc8510f97e624dd418ec199ec2b4fb953141e42b4347537a9ccec32dab4f63d` |
+|  `latest-dev` | April 4th    | `sha256:0bc2b2e24ee43a155d2d16167508f13e47d25e333dd7ac3910b2e74ba2c7c732` |
+|  `latest`     | April 4th    | `sha256:2325e5691523110621285f9d4839a21f6170121d9c3ed81bc415fe6f21d2deef` |
 
 
 ### Private/Dedicated Registry

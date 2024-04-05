@@ -3,8 +3,8 @@ title: "velero-restore-helper-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public velero-restore-helper-fips Chainguard Image."
-date: 2024-03-28 00:50:32
-lastmod: 2024-03-28 00:50:32
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-04-05 00:47:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -27,8 +27,8 @@ This page shows detailed information about the Chainguard **velero-restore-helpe
 | Entrypoint   | `/usr/bin/velero-restore-helper` | `/usr/bin/velero-restore-helper` |
 | CMD          | not specified                    | not specified                    |
 | Workdir      | not specified                    | not specified                    |
-| Has apk?     | yes                              | yes                              |
-| Has a shell? | yes                              | yes                              |
+| Has apk?     | yes                              | no                               |
+| Has a shell? | yes                              | no                               |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/velero-restore-helper-fips/tags_history/) for the full list of available tags.
 
@@ -37,9 +37,9 @@ The table shows package distribution across variants.
 
 |                               | latest-dev | latest |
 |-------------------------------|------------|--------|
-| `apk-tools`                   | X          | X      |
+| `apk-tools`                   | X          |        |
 | `bash`                        | X          |        |
-| `busybox`                     | X          | X      |
+| `busybox`                     | X          |        |
 | `ca-certificates-bundle`      | X          | X      |
 | `chainguard-baselayout`       | X          | X      |
 | `git`                         | X          |        |
@@ -48,7 +48,7 @@ The table shows package distribution across variants.
 | `ld-linux`                    | X          | X      |
 | `libbrotlicommon1`            | X          |        |
 | `libbrotlidec1`               | X          |        |
-| `libcrypt1`                   | X          | X      |
+| `libcrypt1`                   | X          |        |
 | `libcrypto3`                  | X          | X      |
 | `libcurl-openssl4`            | X          |        |
 | `libexpat1`                   | X          |        |
@@ -58,7 +58,7 @@ The table shows package distribution across variants.
 | `libpsl`                      | X          |        |
 | `libssl3`                     | X          | X      |
 | `libunistring`                | X          |        |
-| `libxcrypt`                   | X          | X      |
+| `libxcrypt`                   | X          |        |
 | `ncurses`                     | X          |        |
 | `ncurses-terminfo-base`       | X          |        |
 | `openssl`                     | X          | X      |
@@ -70,8 +70,6 @@ The table shows package distribution across variants.
 | `velero-fips`                 | X          | X      |
 | `velero-restore-helper-fips`  | X          | X      |
 | `wget`                        | X          |        |
-| `wolfi-base`                  | X          | X      |
 | `wolfi-baselayout`            | X          | X      |
-| `wolfi-keys`                  | X          | X      |
-| `zlib`                        | X          | X      |
+| `zlib`                        | X          |        |
 
