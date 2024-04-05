@@ -1,6 +1,6 @@
 ---
 title: "Migrating to PHP Chainguard Images"
-linktitle: "PHP"
+linktitle: "PHP Migration"
 type: "article"
 description: "Guidance on how to migrate PHP Dockerfile workloads to use Chainguard Images"
 date: 2024-04-04T15:56:52-07:00
@@ -8,7 +8,7 @@ lastmod: 2024-04-04T15:56:52-07:00
 draft: false
 tags: ["Images", "Product", "Conceptual"]
 images: []
-weight: 120
+weight: 700
 toc: true
 ---
 
