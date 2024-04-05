@@ -136,7 +136,7 @@ After running this command, you'll be prompted to enter a password. Copy the tok
 After running the `docker login` command, you will be able to pull a Chainguard Production Image through Artifactory. The following example pulls the `wolfi-base` Image.
 
 ```sh
-docker pull <myproject>.jfrog.io/<cgr-private>/chainguard/<organization-name>/wolfi-base
+docker pull <my artifactory host>/<my artifactory remote>/<my chainguard domain>/wolfi-base
 ```
 
 Be sure the `docker pull` command you run includes the name of your project, your repository key, and the proper name of your organization's registry.
