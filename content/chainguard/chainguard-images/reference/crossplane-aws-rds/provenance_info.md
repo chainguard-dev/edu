@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for crossplane-aws-rds Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-05 00:47:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for crossplane-aws-rds Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                     |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | 1.2, 1.2.0, latest, latest-dev                                                                                                                                                           |
-| `cgr.dev/chainguard-private` | 0, 0.41, 0.41.0, 0.42, 0.42.0, 0.43, 0.43.0, 0.43.1, 0.44, 0.44.0, 0.45, 0.45.0, 0.46, 0.46.0, 0.46.1, 0.47, 0.47.0, 0.47.1, 1, 1.1, 1.1.0, 1.1.1, 1.2, 1.2.0, 1.2.1, 1.3, 1.3.0, latest |
+| Registry                     | Tags                                                                                                                                                                                            |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | 1.2, 1.2.0, latest, latest-dev                                                                                                                                                                  |
+| `cgr.dev/chainguard-private` | 0, 0.41, 0.41.0, 0.42, 0.42.0, 0.43, 0.43.0, 0.43.1, 0.44, 0.44.0, 0.45, 0.45.0, 0.46, 0.46.0, 0.46.1, 0.47, 0.47.0, 0.47.1, 1, 1.1, 1.1.0, 1.1.1, 1.2, 1.2.0, 1.2.1, 1.3, 1.3.0, 1.3.1, latest |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
