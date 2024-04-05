@@ -1,6 +1,6 @@
 ---
 title: "Migrating to PHP Chainguard Images"
-linktitle: "Migrating PHP"
+linktitle: "PHP"
 type: "article"
 description: "Guidance on how to migrate PHP Dockerfile workloads to use Chainguard Images"
 date: 2024-04-04T15:56:52-07:00
@@ -8,7 +8,7 @@ lastmod: 2024-04-04T15:56:52-07:00
 draft: false
 tags: ["Images", "Product", "Conceptual"]
 images: []
-weight: 100
+weight: 120
 toc: true
 ---
 
@@ -84,7 +84,7 @@ The following `Dockerfile` uses the `php:latest-dev` image to build the applicat
 ```Dockerfile
 FROM cgr.dev/chainguard/php:latest-dev AS builder
 USER root
-COPY . /app
+COPY .. /app
 RUN chown -R php /app
 USER php
 RUN cd /app && \

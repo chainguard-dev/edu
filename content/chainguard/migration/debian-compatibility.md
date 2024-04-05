@@ -13,7 +13,7 @@ images: []
 menu:
   docs:
     parent: "concepts"
-weight: 600
+weight: 400
 toc: true
 ---
 
