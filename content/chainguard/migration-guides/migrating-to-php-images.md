@@ -12,23 +12,23 @@ weight: 100
 toc: true
 ---
 
-Chainguard Images are built on top of [Wolfi](/chainguard/open-source/wolfi/), a Linux _undistro_ designed specifically for containers. Our PHP images have a minimal design that ensures a smaller attack surface, which results in smaller images [with low to zero](/chainguard/chainguard-images/vuln-comparison/php/) CVEs. Nightly builds deliver fresh images whenever updated packages are available, which also helps to reduce the toil of manually patching CVEs in PHP images.
+Chainguard Images are built on top of [Wolfi](/open-source/wolfi/), a Linux _undistro_ designed specifically for containers. Our PHP images have a minimal design that ensures a smaller attack surface, which results in smaller images [with few to zero](/chainguard/chainguard-images/vuln-comparison/php/) CVEs. Nightly builds deliver fresh images whenever updated packages are available, which also helps to reduce the toil of manually patching CVEs in PHP images.
 
-This article will assist you in the process of migrating your existing PHP Dockerfiles to leverage the benefits of Chainguard Images, for a smaller attack surface and a more secure application footprint.
+This article will assist you in the process of migrating your existing PHP Dockerfiles to leverage the benefits of Chainguard Images, including a smaller attack surface and a more secure application footprint.
 
 ## Chainguard PHP Images
 
-Chainguard PHP Images offer multiple variants catering to distinct use cases, such as command-line interfaces (CLI) and web applications. Each variant comes in two flavors: a minimal runtime image (distroless) and a builder image distinguished by the `-dev` suffix (e.g., `latest-dev`).
+Chainguard offers multiple PHP Image variants catering to distinct use cases, such as command-line interfaces (CLI) and web applications. Each variant comes in two flavors: a minimal runtime image (distroless) and a builder image distinguished by the `-dev` suffix (e.g., `latest-dev`).
 
-In a nutshell, distroless images don't include a package manager or a shell, being used exclusively as runtimes to keep the environment to a minimum. Builder images, on the other hand, include packages such as `apk` and `composer` for building PHP applications. Builder images can be used _as-is_ to provide a more straightforward migration path, but we encourage users to combine both images in a multi stage environment to build a final distroless image that serves as a strict application runtime, whenever that is possible.
+In a nutshell, distroless images don't include a package manager or a shell, being used exclusively as runtimes to keep the environment to a minimum. Builder images, on the other hand, include packages such as `apk` and `composer` for building PHP applications. Builder images can be used _as-is_ to provide a more straightforward migration path. Whenever possible, though, we encourage users to combine both images in a multi-stage environment to build a final distroless image that will function strictly as an application runtime.
 
-For a deeper exploration of distroless images and their differentiation from standard base images, refer to the guide on [Getting Started with Distroless images](/chainguard/chainguard-images/getting-started-distroless/).
+For a deeper exploration of distroless images and their differences from standard base images, refer to the guide on [Getting Started with Distroless images](/chainguard/chainguard-images/getting-started-distroless/).
 
 ### Migrating from non-apk systems
 When migrating from distributions that are not based on the `apk` ecosystem, you'll need to update your Dockerfile accordingly. Our high-level guide on [Migrating to Chainguard Images](https://edu.chainguard.dev/chainguard/migration-guides/migrating-to-chainguard-images/) contains details about distro-based migration and package compatibility when migrating from Debian, Ubuntu, and Red Hat UBI base images.
 
 ### Installing PHP Extensions
-Wolfi offers several PHP extensions as optional packages installable via `apk`. Because PHP extensions are system-level packages, they require `apk` which is only available in our **builder** images (`latest-dev` and `latest-fpm-dev`). The following extensions are already included within all variants:
+Wolfi offers several PHP extensions as optional packages you can install with `apk`. Because PHP extensions are system-level packages, they require `apk` which is only available in our **builder** images (`latest-dev` and `latest-fpm-dev`). The following extensions are already included within all variants:
 
 - `php-mbstring`
 - `php-curl`
@@ -77,7 +77,7 @@ php-xmlwriter-8.2.11-r1
 For more searching tips, check the [Searching for Packages](/chainguard/migration-guides/migrating-to-chainguard-images/#searching-for-packages) section of our base migration guide.
 
 ## Migrating PHP CLI workloads to use Chainguard Images
-Our `latest` and `latest-dev` PHP image variants are designed to run CLI applications and scripts that don't need a web server. As a first step towards migration, you might want to change your base image to the `latest-dev` variant, since that would be the closest option for a drop-in base image replacement. Once you have your dependencies and steps dialed in, you can optionally migrate to a multi stage build to create a strict runtime containing only what the application needs to run.
+Our `latest` and `latest-dev` PHP image variants are designed to run CLI applications and scripts that don't need a web server. As a first step towards migration, you might want to change your base image to the `latest-dev` variant, since that would be the closest option for a drop-in base image replacement. Once you have your dependencies and steps dialed in, you can optionally migrate to a multi-stage build to create a strict runtime containing only what the application needs to run.
 
 The following `Dockerfile` uses the `php:latest-dev` image to build the application, which in this case means copying the application files and installing dependencies via `composer`. A second build stage copies the application to a final distroless image based on `php:latest`.
 
@@ -101,7 +101,7 @@ Our [PHP Getting Started](/chainguard/chainguard-images/getting-started/php/) gu
 ## Migrating PHP Web applications to use Chainguard Images
 For PHP web applications that serve content through a web server, you should use the `latest-fpm` and `latest-fpm-dev` variants of our PHP image. Combine it with our [Nginx image](/chainguard/chainguard-images/reference/nginx) and an optional database for a traditional LEMP setup.
 
-The overall migration process is essentially the same as described in the previous section, with the difference that you won't set up application entry points, since these images run as services. Your Dockerfile may require additional steps to set up front end dependencies, initialize databases, and perform any additional tasks needed for the application to run through a web server.
+The overall migration process is essentially the same as described in the previous section, with the difference that you won't set up application entry points, since these images run as services. Your Dockerfile may require additional steps to set up front-end dependencies, initialize databases, and perform any additional tasks needed for the application to run through a web server.
 
 You can use [Docker Compose](https://docs.docker.com/compose/) to create a LEMP environment and test your setup locally. The following `docker-compose.yaml` file creates a local environment to serve a PHP web application using our PHP-FPM, Nginx, and MariaDB images:
 
@@ -182,6 +182,6 @@ http {
 
 ## Additional Resources
 
-Our [PHP image documentation](/chainguard/chainguard-images/reference/php/) covers details about all PHP image variants, including the list of available tags for both development and production images. For another example of LEMP setup using MariaDB, check our [Getting Started with the MariaDB Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/mariadb/).
+Our [PHP image documentation](/chainguard/chainguard-images/reference/php/) covers details about all PHP image variants, including the list of available tags for both development and production images. For another example of a LEMP setup using MariaDB, check our guide on [Getting Started with the MariaDB Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/mariadb/).
 
-The [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. Check also the [Verifying Images](/chainguard/chainguard-images/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
+The [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying Images](/chainguard/chainguard-images/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
