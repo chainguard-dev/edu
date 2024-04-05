@@ -2,7 +2,7 @@
 title: "Getting Started with the PHP Chainguard Image"
 type: "article"
 linktitle: "PHP"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-php
 description: "Tutorial on how to get started with the PHP Chainguard Image"
 date: 2023-01-09T11:07:52+02:00
@@ -54,7 +54,7 @@ composer require minicli/minicli
 If you don't have a local PHP development environment, you can use the `php:latest-dev` image variant with a volume in order to install application dependencies with Composer:
 
 ```shell
-docker run --rm -v ${PWD}:/work --entrypoint composer \
+docker run --rm -v ${PWD}:/work --entrypoint composer --user root \
     cgr.dev/chainguard/php:latest-dev \
     require minicli/minicli --working-dir=/work
 ```
