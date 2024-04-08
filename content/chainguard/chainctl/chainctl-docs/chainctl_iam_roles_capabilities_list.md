@@ -1,5 +1,5 @@
 ---
-date: 2024-03-20T19:45:19Z
+date: 2024-04-04T08:56:03Z
 title: "chainctl iam roles capabilities list"
 slug: chainctl_iam_roles_capabilities_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_capabilities_list/
@@ -23,8 +23,8 @@ chainctl iam roles capabilities list [--actions=ACTION,...] [--resources=RESOURC
   # List all capabilities
   chainctl iam roles capabilities list
   
-  # List all capabilities for groups and clusters
-  chainctl iam roles capabilities list --resources=groups,clusters
+  # List all capabilities for groups and repos
+  chainctl iam roles capabilities list --resources=groups,repos
   
   # List all capabilities that include list
   chainctl iam roles capabilities list --actions=list
