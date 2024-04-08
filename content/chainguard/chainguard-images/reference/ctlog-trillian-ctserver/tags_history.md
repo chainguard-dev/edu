@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ctlog-trillian-ctserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 5th    | `sha256:e2d81cb17f2e461a4f6486af99ab0d2fae191f35730e53dac01506cd32611c9e` |
 |  `latest`     | April 4th    | `sha256:f85bb6aa54ac593bed53cf8c9cc3f6e37316a1f85ba43d2cac92f5ba328bd7f1` |
-|  `latest-dev` | April 4th    | `sha256:9adda83c19847f28384a23e893277a00e5ab3f16369f9a0d9f736a70b17da652` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.1-dev` `1.1.8-dev` | April 4th    | `sha256:0bc519f1c5647a952da84718af898de9c30800fec2674a89ba7860ef95ad2eef` |
+|  `1-dev` `1.1.8-dev` `latest-dev` `1.1-dev` | April 5th    | `sha256:23069b4a8378435c8666625474bd3a0952e38c3a46c5c988c8ebb95527bb4ca0` |
 |  `1` `1.1` `latest` `1.1.8`                 | April 4th    | `sha256:d6e81624669f328e2beb1e3a6a4471a74c230ff9d0eded270778e7a9226b278d` |
 |  `1.1.7-dev`                                | March 10th   | `sha256:38ebe897f40feb0b0f51d31fe732c6cb951c503b38cb59f950052be5d3e07d8e` |
-|  `1.1.7`                                    | March 8th    | `sha256:16e30f02692f737dbb766e7817c5648543b190afc6c643c9189401bd4c768768` |
 

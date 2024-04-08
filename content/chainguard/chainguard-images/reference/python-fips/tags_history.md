@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the python-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.9.19-dev` `3.9-dev`                       | April 2nd    | `sha256:bac5479f6f79059eeb3fe073006763b4a71b08326ef5cc9c1d780960e4d082ba` |
-|  `3.11.9-dev` `3.11-dev`                      | April 2nd    | `sha256:21c42b4268e8f0bc5a3ef988c9694dcecccd447df7596ce01386996fe9ea1d0a` |
-|  `3.12-dev` `3-dev` `latest-dev` `3.12.2-dev` | April 2nd    | `sha256:1921e8e7b96b485527a54cd05a1e6a31c9774428a2add083d4852df1c4488271` |
-|  `3.10-dev` `3.10.14-dev`                     | April 2nd    | `sha256:88a9da7dcc35178c11f4565d6e2d7b05326cc82ca80fce861da73eda16a4bf82` |
+|  `3.11.9-dev` `3.11-dev`                      | April 5th    | `sha256:b75006dedc69abe7e9f558eebd4bc9d327da6b54aa8c102231a0725376b52c66` |
+|  `3.10-dev` `3.10.14-dev`                     | April 5th    | `sha256:3c4e67bee5db301a9c75c33837b8904115afc8c57a7d723f9d1645d625b5ffa3` |
+|  `3.9.19-dev` `3.9-dev`                       | April 5th    | `sha256:18fb719fe92af13951565fcdc8179db5a5822a7fbff2e82e2bb3930895fc7b23` |
+|  `3.12-dev` `3-dev` `3.12.2-dev` `latest-dev` | April 5th    | `sha256:353df01b0ba62f482d706db1aec87760768bc47b3d11e55984d0f0c7f0427a3b` |
 |  `3.11.9` `3.11`                              | April 2nd    | `sha256:8746cae5e31aa040152eeb3f4d06d6b9923e29f042e2d61b8b95a6350d15ad8e` |
 |  `3.11.8-dev`                                 | April 1st    | `sha256:c39b4fcdbc5beb29400c6ac87d3ae4b2508684e2952ed61343b68d04dfd49f1d` |
 |  `3.12` `3.12.2` `latest` `3`                 | March 29th   | `sha256:837edaeb6c15c11f9e658f980201966f50ce7b139eb0d4e073ab814f1bf9e9ac` |

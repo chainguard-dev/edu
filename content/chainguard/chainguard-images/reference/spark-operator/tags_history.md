@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spark-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:30bc22e55245df9929386a8778212b875b64940ef08311f233167b5c54b5c244` |
-|  `latest-dev` | March 18th   | `sha256:75906e68ce92c9854a0d80e7ed4a43dc756f1bfba1281ecad167c96d905462e1` |
+|  `latest-dev` | April 7th    | `sha256:d1ea00d3fee4130aae665f8efc8fe6d3c432ed6e2e0b9a55aa1f20e4b35d0c19` |
+|  `latest`     | April 7th    | `sha256:5170046c9465d61bfb6127037096fb7aafa3905f4f5c6afbf14caa5087082028` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.1-dev` `1.1.27-dev` `1-dev` | March 18th   | `sha256:929bbeedd48cb916feb0f284f7806a6e395ab8979b1ad89667c7dd19bde21046` |
-|  `1.1.27` `1` `latest` `1.1`                 | March 18th   | `sha256:e5bf218cd174244378999aff2f54c408917d7c6d6c15cbf5c32574435be97912` |
+|  `latest-dev` `1-dev` `1.1.27-dev` `1.1-dev` | April 7th    | `sha256:4fe9ce657186275a12a56e7a5445edfe42352c198b9a7f1d5e09ca418e42444e` |
+|  `latest` `1.1` `1.1.27` `1`                 | April 7th    | `sha256:f104e92e2052098b675109eaaefc90d80c76381180a5f1a95178731900f0c42e` |
 

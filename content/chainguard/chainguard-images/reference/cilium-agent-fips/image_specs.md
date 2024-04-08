@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cilium-agent-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -53,6 +53,7 @@ The table shows package distribution across variants.
 | `glibc`                             | X          | X      |
 | `glibc-locale-posix`                | X          | X      |
 | `gops-fips`                         | X          | X      |
+| `ip6tables`                         | X          | X      |
 | `iproute2`                          | X          | X      |
 | `ipset`                             | X          | X      |
 | `iptables`                          | X          | X      |

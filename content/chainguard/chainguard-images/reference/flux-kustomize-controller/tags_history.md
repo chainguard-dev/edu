@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-kustomize-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 4th    | `sha256:0c7450737b312041bbf7930c1542a19df75b5a7aa48b3915f3f45209e04b2397` |
-|  `latest-dev` | April 4th    | `sha256:78ee69bfc679d3a2f6d03f373bb1aba6fb5201fa8acc55db9078e3a533daa99a` |
+|  `latest`     | April 5th    | `sha256:f426798c10f3600fefc54d89c6bccbef743a743d175e24a676012da0e62507d6` |
+|  `latest-dev` | April 5th    | `sha256:4fbd6a4e0f0e84535111c7ae24eaa2b2ebe0d17f1a565af10966d8a2cb2c7feb` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.2.2-dev` `latest-dev` `1.2-dev` `1-dev` | April 3rd    | `sha256:9aacf5e9a5372cd2ceb314e173d3c1833cfc92f31aa7f7f9c8168a8694a2b99d` |
-|  `1.2.2` `1` `latest` `1.2`                 | April 3rd    | `sha256:6a58ba2e655225dace07c1d2d2cde37ed0217504629c4c5ac99e1f3cfc5cbe62` |
+|  `1-dev` `latest-dev` `1.2.2-dev` `1.2-dev` | April 5th    | `sha256:49fbc305e83aaa328e2d71e0972b033a8314abf361b5e947400bc95559189d3b` |
+|  `1` `latest` `1.2` `1.2.2`                 | April 5th    | `sha256:75920c5cf0a8d0469dc93d7a7871a6de1bf02af5a68bb3752da7824f8dffa478` |
 |  `1.0` `1.0.1`                              | March 18th   | `sha256:b59e977dd8bca1eebe527a58421236f0b5a119e7a7e064183b8febb09a9b8803` |
 |  `1.0-dev` `1.0.1-dev`                      | March 18th   | `sha256:1e56c97f0ad8f274861a539340ae84831c33ccc177b7950cfe37fb8dbb104a1f` |
 

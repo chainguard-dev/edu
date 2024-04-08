@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 2nd    | `sha256:39512031dae8be6e302393c12b42f4e8a8281960ff8cfaafb474ed3dbe34461e` |
+|  `latest-dev` | April 5th    | `sha256:cf0bd006773620773e0ba3dd708e8b95417efa37a5dd17684f2d2cccc153c7fa` |
 |  `latest`     | March 28th   | `sha256:281d2e901ea79798437f2d650720380dbaa027d6dfab8bd5cdacd729c8cc4eeb` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15-dev` `latest-dev` `0-dev` `0.15.5-dev` | April 2nd    | `sha256:acb36cb36e3bb5b52d096b7e0ca47a783cebb0236e62b5ea5a10bbc4909b1c7f` |
+|  `0.15.5-dev` `0-dev` `0.15-dev` `latest-dev` | April 5th    | `sha256:8d1ebc0afaf37ad9dd12319b46c70b9cb39b4a697c6fdc57d8a13ab4395eb434` |
 |  `0` `0.15.5` `0.15` `latest`                 | March 28th   | `sha256:db4fe8b6ac1ced56ee7fa8a9e9f9816d3de30399eac84731c7433d43f70a3046` |
 

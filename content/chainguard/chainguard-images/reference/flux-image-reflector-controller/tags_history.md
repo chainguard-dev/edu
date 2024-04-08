@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-image-reflector-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 4th    | `sha256:8c4f2b32d2b8f9e90b6780e60e05a51fdcb4f9e6240aa4ff9c2b3e61bbce17dc` |
+|  `latest-dev` | April 5th    | `sha256:0a8b9e400e2bd99700d97765c83e2a6e85a2f6c18079a97cb345e983d713ef1d` |
 |  `latest`     | April 4th    | `sha256:3b0c7d75a2c8779d1d1bf7a0f1d83822de12e526495561bdc745d54ca26e14da` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `0.31-dev` `0.31.2-dev` `0-dev` | April 5th    | `sha256:47cf1f8db1a461dc60bafbdac0f4622831fb680a469cf5a441f349d94b728111` |
 |  `latest` `0.31` `0.31.2` `0`                 | April 3rd    | `sha256:6f516afb1636f3d98fe498193c74c334ea991881b2fcf3598598beea3a4705ce` |
-|  `latest-dev` `0-dev` `0.31-dev` `0.31.2-dev` | April 3rd    | `sha256:31e8fd8dcbe24cd478f5671f5423dfbe373802c6f8894f7c595e58cb2c68b4f4` |
 

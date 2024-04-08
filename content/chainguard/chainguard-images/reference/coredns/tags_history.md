@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the coredns Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 5th    | `sha256:d3020ab470f3c91c1faac1bcf7b098fab8fb801b0c0d36b85612f8e779952385` |
 |  `latest`     | April 4th    | `sha256:245b86c97ef0ebe87a8ee8ae0f02ee5b876ab65ae807d9a3d13c6e5e5e96246f` |
-|  `latest-dev` | April 4th    | `sha256:a9a03483d5e5b01e7198d970127a42ddffdded318511f8606a5914bb5d682a12` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.11-dev` `1-dev` `1.11.1-dev` | April 3rd    | `sha256:f16ee6377a2869486eb10f408868c45e8f446ab547a92019bd96f9d1cc689923` |
+|  `1.11-dev` `1-dev` `latest-dev` `1.11.1-dev` | April 5th    | `sha256:fd9996756ae19735ba3c70f591c6df7604b245b41d6d45420bdfb3319132bdcb` |
 |  `1.11` `latest` `1` `1.11.1`                 | April 3rd    | `sha256:03d0408050f57e657a37dd22851c0a9f8764cbf4893cdc550b1b211de5a56b86` |
 |  `1.11.2-dev`                                 | March 18th   | `sha256:c915c33fb119e6015284fdf4e1ee2c632b8231e6789552500ea588daadeb1c12` |
 |  `1.11.2`                                     | March 18th   | `sha256:a9163de24269f49945b6995c4be94c2a5ce0d1f8a1c189e4506acc301bd38081` |

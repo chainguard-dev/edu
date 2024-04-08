@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-cluster-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 5th    | `sha256:df532ce15258566285c7698b98223d9b646e9b11799745ae4d1d7669c85e6585` |
 |  `latest`     | April 4th    | `sha256:5754b0c3731f36294ba8d9b45cfd3d607b598cc64a6abf029ebc63bf04e6ad1b` |
-|  `latest-dev` | April 4th    | `sha256:438a6fcd016d97142acc4ae11065a936e49bddbacf1d6ac7041f6914879de0d5` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.8.0-dev` `2-dev` `2.8-dev` `latest-dev` | April 3rd    | `sha256:f3b179e60eab0dd736742a08cf05185a1bc49cf2d0bb384e331f089d2c52a805` |
+|  `2.8-dev` `latest-dev` `2-dev` `2.8.0-dev` | April 5th    | `sha256:95a4a31bcbae2fac0a96c927592dbe71128f07eb7d272239e0d6062538bbfa1c` |
 |  `2.8` `2.8.0` `2` `latest`                 | April 3rd    | `sha256:6e29f1d71807addf68153bf4f14c2a621c0490e46b3d52837796c779934ae64b` |
 |  `2.7-dev` `2.7.0-dev`                      | April 2nd    | `sha256:6d440593287753facb8af86283b372776bacb85a71980eb827a19e0089d3b64a` |
 |  `2.7` `2.7.0`                              | March 28th   | `sha256:1ecb5c96abe5ea5fbcb12c9c19d0cc57d1e751c1499ef1543d1949dfc9076dab` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 4th    | `sha256:4edd537a6feb9b1a6bb21cc33f7663a51b18b531c66e96a52f4eb07fafce73a2` |
+|  `latest-dev` | April 5th    | `sha256:fbcdf1bfe76b9500a981d9e91c8ce4a6f2e1c23ac63ced770a13e7c576e64b10` |
 |  `latest`     | April 4th    | `sha256:2dbb9e897ce596725ba269ec30dc7dc45e9b5c35bd5a0d39c749abbb5835642f` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.73.0-dev` `latest-dev` `0.73-dev` | April 4th    | `sha256:381bef1b6b5b39455be3c7b1364142acad562d7c3d9c96247314b61897fc1703` |
+|  `latest-dev` `0.73-dev` `0-dev` `0.73.0-dev` | April 5th    | `sha256:881ff090e39ecaa2f30ce6271fce4dced7a54bf2363ee99e280900c56c73d40a` |
 |  `0` `0.73.0` `0.73` `latest`                 | April 4th    | `sha256:b00ac74b1e7e8365ed0f08397e93e7f6d134c0945d0936447b731eb55abd37f6` |
 |  `0.72` `0.72.0`                              | April 3rd    | `sha256:676fe325b8750a8c3df73b8c28a0b2282ec74c621d4799ccd6b1030528348d5c` |
 |  `0.72.0-dev` `0.72-dev`                      | April 3rd    | `sha256:dbc8f3f950acef725c8b7f887f6e3cf3960b80f751e17b5d0fe15daf05e84531` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-verifyfulcio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 5th    | `sha256:5867b27b4bf2c1e72bee2b76e6e784fb2f25f2ac206ab8ab40bc2b81fc117c89` |
 |  `latest`     | April 4th    | `sha256:12f95acb59e2baf1cd287d7324e20ef5e51c0e9ddf0fc7976fe383946dee0810` |
-|  `latest-dev` | April 4th    | `sha256:0cc98e07be3bfa93f9a546e81d9e2131a5fcd4d2a9da0c006b873ed494abd28e` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.6.17-dev` `0-dev` `0.6-dev` `latest-dev` | April 5th    | `sha256:209e056230712ac8785c1a75cb7f64a7eddac12f098566c28914dacd93b72542` |
 |  `0.6.17` `0.6` `0` `latest`                 | April 3rd    | `sha256:71962c7610629e107ea33f8301006831684965972e87d22a9d05d56244fcb0cb` |
-|  `0.6-dev` `0-dev` `0.6.17-dev` `latest-dev` | April 3rd    | `sha256:bded469b4d9c8cee7392aca2a53b1ae82b7b13dab2ce2f6725deb51184daeabc` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:05d4d17874ce2772dc55cd6445afc72029039dfd9350c1b7dc895efc5b15e143` |
 |  `0.6.16`                                    | March 8th    | `sha256:894a0377a3d5c1618a3cd8999d4ad33892983b1eb9ecada55477d44558804f17` |
 

@@ -3,8 +3,8 @@ title: "temporal-server-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public temporal-server-fips Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -50,15 +50,16 @@ The table shows package distribution across variants.
 | `libbrotlicommon1`                      | X          |        |
 | `libbrotlidec1`                         | X          |        |
 | `libcrypt1`                             | X          |        |
-| `libcrypto3`                            | X          |        |
+| `libcrypto3`                            | X          | X      |
 | `libcurl-openssl4`                      | X          |        |
 | `libexpat1`                             | X          |        |
 | `libidn2`                               | X          |        |
 | `libnghttp2-14`                         | X          |        |
 | `libpcre2-8-0`                          | X          |        |
 | `libpsl`                                | X          |        |
-| `libssl3`                               | X          |        |
+| `libssl3`                               | X          | X      |
 | `libunistring`                          | X          |        |
+| `libxcrypt`                             | X          |        |
 | `ncurses`                               | X          | X      |
 | `ncurses-terminfo-base`                 | X          | X      |
 | `openssl-config-fipshardened`           | X          | X      |

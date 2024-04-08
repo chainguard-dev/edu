@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the go-ipfs Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 4th    | `sha256:7e27aaa9ae6fd6a71213899932ceb16358c1de703cfabc1547c2da6ac43193d0` |
+|  `latest-dev` | April 5th    | `sha256:6d94bf63ff21897f364e86597e6b294713622c321cfb95f6183e4d5476950371` |
 |  `latest`     | April 4th    | `sha256:b73b351e24a348eb5acd5a1399032b93cee9ff22e4ede8cc1eed2508ed60adcc` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.27-dev` `0.27.0-dev` `0-dev` | April 4th    | `sha256:0d6d7985d78da5831f657fbd7e4acaf32f5d278aae89d5fbc887548114167997` |
+|  `0.27-dev` `0.27.0-dev` `latest-dev` `0-dev` | April 5th    | `sha256:86da8ea942fbc8f8c1ad7ba06d243eef8cd477c0d63f9669bf0bc0f80d4e676b` |
 |  `0.27.0` `0` `latest` `0.27`                 | April 4th    | `sha256:e6a9bebd53e398c85e942536bae74f9673bd0864835047c3e5afe97dd7fb1fb3` |
 
