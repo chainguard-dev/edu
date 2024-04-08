@@ -2,15 +2,96 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2024-03-20 19:33:27 +0000 UTC
+date: 2024-04-04 08:26:40 +0000 UTC
 draft: false
-tags: ["Enforce", "Reference", "Product"]
+tags: ["Platform", "Reference", "Product"]
 images: []
 weight: 799
 ---
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.270
+Release date: 2024-04-04
+
+Customer facing changes: N/A
+
+### v0.1.269
+Release date: 2024-04-03
+
+Customer facing changes: N/A
+
+### v0.1.268
+Release date: 2024-04-03
+
+Customer facing changes: N/A
+
+### v0.1.267
+Release date: 2024-04-03
+
+Customer facing changes: N/A
+
+### v0.1.266
+Release date: 2024-04-03
+
+Customer facing changes: N/A
+
+### v0.1.265
+Release date: 2024-04-02
+
+Customer facing changes: N/A
+
+### v0.1.264
+Release date: 2024-04-01
+
+Customer facing changes: N/A
+
+### v0.1.263
+Release date: 2024-03-29
+
+Customer facing changes: N/A
+
+### v0.1.262
+Release date: 2024-03-28
+
+Customer facing changes: N/A
+
+### v0.1.261
+Release date: 2024-03-27
+
+Customer facing changes: N/A
+
+### v0.1.260
+Release date: 2024-03-27
+
+Customer facing changes: N/A
+
+### v0.1.259
+Release date: 2024-03-27
+
+Customer facing changes: N/A
+
+### v0.1.258
+Release date: 2024-03-27
+
+Customer facing changes: N/A
+
+### v0.1.257
+Release date: 2024-03-26
+
+Customer facing changes: N/A
+
+### v0.1.256
+Release date: 2024-03-26
+
+Customer facing changes: N/A
+
+### v0.1.255
+Release date: 2024-03-25
+#### Feature
+- Use flag `--social-login={google|github|gitlab}` to `chainctl auth login` to specify which identity provider to use for authentication. This flag takes precedence over the default configuration value `default.social-login`
+
 
 ### v0.1.254
 Release date: 2024-03-20

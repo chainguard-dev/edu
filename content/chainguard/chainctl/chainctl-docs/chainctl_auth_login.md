@@ -1,5 +1,5 @@
 ---
-date: 2024-03-20T19:45:19Z
+date: 2024-04-04T08:56:03Z
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_login/
@@ -14,7 +14,7 @@ toc: true
 Login to the Chainguard platform.
 
 ```
-chainctl auth login [--invite-code=INVITE_CODE | --register] [--identity-token=PATH_TO_TOKEN] [--identity=IDENTITY_ID] [--identity-provider=IDP_ID] [--org-name=ORG_NAME] [--cluster=CLUSTER] [--headless] [--prefer-ambient-credentials] [--refresh] [--output table|id|json|none]
+chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN] [--identity=IDENTITY_ID] [--identity-provider=IDP_ID] [--org-name=ORG_NAME] [--social-login={google|github|gitlab}] [--headless] [--prefer-ambient-credentials] [--refresh] [--output table|id|json|none]
 ```
 
 ### Examples
@@ -34,7 +34,6 @@ chainctl auth login [--invite-code=INVITE_CODE | --register] [--identity-token=P
 ### Options
 
 ```
-      --cluster string               UID of the Cluster.
       --headless                     Skip browser authentication and use device flow.
   -h, --help                         help for login
       --identity string              The unique ID of the identity to assume when logging in.
@@ -44,7 +43,7 @@ chainctl auth login [--invite-code=INVITE_CODE | --register] [--identity-token=P
       --org-name string              Organization to use for authentication. If configured the organization's custom identity provider will be used
       --prefer-ambient-credentials   Auth with ambient credentials, if present, before using a supplied identity token.
       --refresh                      Enable auto refresh of the Chainguard token (for workloads).
-      --register                     Register a new account if needed. Will create a new root group when an invite code is not specified.
+      --social-login string          Which of the default identity providers to use for authentication. Must be one of: google, github, gitlab
       --sts-http1-downgrade          Downgrade STS requests to HTTP/1.x
       --validate                     Validates token after exchange (default true)
 ```

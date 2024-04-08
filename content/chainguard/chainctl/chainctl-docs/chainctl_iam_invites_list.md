@@ -1,5 +1,5 @@
 ---
-date: 2024-03-20T19:45:19Z
+date: 2024-04-04T08:56:03Z
 title: "chainctl iam invites list"
 slug: chainctl_iam_invites_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites_list/
@@ -48,5 +48,5 @@ chainctl iam invites list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER
 
 ### SEE ALSO
 
-* [chainctl iam invites](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities or clusters with Chainguard.
+* [chainctl iam invites](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities with Chainguard.
 

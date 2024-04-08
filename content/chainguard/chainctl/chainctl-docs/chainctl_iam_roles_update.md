@@ -1,5 +1,5 @@
 ---
-date: 2024-03-20T19:45:19Z
+date: 2024-04-04T08:56:03Z
 title: "chainctl iam roles update"
 slug: chainctl_iam_roles_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_update/
@@ -21,13 +21,13 @@ chainctl iam roles update ROLE_NAME|ROLE_ID [--capabilities=CAPABILITY,...] [--a
 
 ```
   # Update a role with a complete set of capabilities
-  chainctl iam roles update my-role --capabilities=policy.list,groups.list,clusters.list
+  chainctl iam roles update my-role --capabilities=policy.list,groups.list,identity.list
   
   # Add new capabilities to a role
   chainctl iam roles update my-role --add-capabilities=policy.create
   
   # Remove an existing capabilities from a role
-  chainctl iam roles update my-role --remove-capabilities=clusters.list
+  chainctl iam roles update my-role --remove-capabilities=identity.list
   
   # Interactively choose capabilities to add to a role
   chainctl iam roles update my-role --add-capabilities=

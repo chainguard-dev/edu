@@ -1,5 +1,5 @@
 ---
-date: 2024-03-20T19:45:19Z
+date: 2024-04-04T08:56:03Z
 title: "chainctl iam identities create gitlab"
 slug: chainctl_iam_identities_create_gitlab
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_gitlab/
@@ -14,7 +14,7 @@ toc: true
 
 
 ```
-chainctl iam identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-PROJECT [--ref-type=REF-TYPE] [--ref=REF] [--parent=PARENT] [--description=DESC] [--role=ROLE,ROLE,...] [--output id|table|json]
+chainctl iam identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-PROJECT --ref=REF --ref-type={tag|branch} [--parent=PARENT] [--description=DESC] [--role=ROLE,ROLE,...] [--output id|table|json]
 ```
 
 ### Examples

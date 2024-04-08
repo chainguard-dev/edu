@@ -1,5 +1,5 @@
 ---
-date: 2024-03-20T19:45:19Z
+date: 2024-04-04T08:56:03Z
 title: "chainctl iam invites create"
 slug: chainctl_iam_invites_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites_create/
@@ -11,10 +11,10 @@ toc: true
 ---
 ## chainctl iam invites create
 
-Generate an invite code to identities or register clusters with Chainguard.
+Generate an invite code to identities with Chainguard.
 
 ```
-chainctl iam invites create [ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--role=ROLE_ID|ROLE_NAME | --cluster] [--ttl=TTL_DURATION] [--email=EMAIL] [--output json|table|id]
+chainctl iam invites create [ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--role=ROLE_ID|ROLE_NAME] [--ttl=TTL_DURATION] [--email=EMAIL] [--output json|table|id]
 ```
 
 ### Examples
@@ -27,15 +27,11 @@ chainctl iam invite create ORGANIZATION_ID --role=ROLE_ID --ttl=5d
 # Create an invite that only Kim can accept:
 chainctl iam invite create ORGANIZATION_ID --role=ROLE_ID --email=kim@example.com
 
-# Create an invite for a cluster:
-chainctl iam invite create ORGANIZATION_ID --cluster
-
 ```
 
 ### Options
 
 ```
-      --cluster        Default roles for cluster invites.
       --email string   The email address that is allowed to accept this invite code.
   -h, --help           help for create
       --role string    Role is used to role-bind the invited to the associated location.
@@ -56,5 +52,5 @@ chainctl iam invite create ORGANIZATION_ID --cluster
 
 ### SEE ALSO
 
-* [chainctl iam invites](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities or clusters with Chainguard.
+* [chainctl iam invites](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities with Chainguard.
 
