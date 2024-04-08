@@ -4,7 +4,7 @@ linktitle: "Pull Through Artifactory"
 type: "article"
 description: "Tutorial outlining how to set up a remote Artifactory repository to pull Images through from a Chainguard Registry."
 date: 2024-02-13T15:56:52-07:00
-lastmod: 2024-02-13T15:56:52-07:00
+lastmod: 2024-04-08T15:56:52-07:00
 draft: false
 tags: ["Product", "Procedural", "Chainguard Images"]
 images: []
@@ -70,10 +70,10 @@ After running this command, you'll be prompted to enter a password. Copy the tok
 After running the `docker login` command, you will be able to pull a Chainguard Developer Image through Artifactory. The following example pulls the `wolfi-base` Image.
 
 ```sh
-docker pull <myproject>.jfrog.io/<cgr-public>/chainguard/wolfi-base
+docker pull <myproject>.jfrog.io/cgr-public/chainguard/wolfi-base
 ```
 
-Be sure the `docker pull` command you run includes the name of your project as well as your repository key.
+Be sure the `docker pull` command you run includes the name of your project as well as your own repository key in place of `cgr-public`.
 
 
 ## Setting up Artifactory as a pull through for Production Images
@@ -85,7 +85,7 @@ To get started, you will need to create [a pull token](/chainguard/chainguard-re
 To create a pull token with `chainctl`, run the following command. 
 
 ```sh
-chainctl auth configure-docker --pull-token --group <organization>
+chainctl auth configure-docker --pull-token --parent <organization>
 ```
 
 Be sure to replace `<organization>` with your organization's name or ID.
@@ -137,10 +137,10 @@ After running this command, you'll be prompted to enter a password. Copy the tok
 After running the `docker login` command, you will be able to pull a Chainguard Production Image through Artifactory. The following example pulls the `wolfi-base` Image.
 
 ```sh
-docker pull <myproject>.jfrog.io/<cgr-private>/<organization-name>/wolfi-base
+docker pull <myproject>.jfrog.io/cgr-private/<organization-name>/wolfi-base
 ```
 
-Be sure the `docker pull` command you run includes the name of your project, your repository key, and the proper name of your organization's registry.
+Be sure the `docker pull` command you run includes the name of your artifactory project and the proper name of your organization's registry. Additionally, if you entered a different repository key in the setup section, use it in place of `cgr-private`.
 
 
 ## Debugging pull through from Chainguard’s registry to Artifactory
