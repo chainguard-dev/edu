@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 4th    | `sha256:62fb9b762165215a2b176a937d88008e1bc85792ece741fc1202530c2a5f0fac` |
-|  `latest`     | April 4th    | `sha256:87bd0375ff7994c31f260a6cf70365433b39a335f0f19c9c24e8f1e1ca620a49` |
+|  `latest`     | April 5th    | `sha256:a93cb0e968f3cd3c13e0da90eb040743699f9ba447eb9856ffb52b5955007927` |
+|  `latest-dev` | April 5th    | `sha256:040f47ba4e52e5d918c36f4a8bb7e54ed18c598d62e1f819c6c3e43abe27257e` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.0.0_beta6` `3.0` `latest` `3`                 | April 4th    | `sha256:e19fd80ca1ed89d5268d060f83f44f9ce5d04e250952bd5c6e4e91be1f6769c2` |
-|  `3.0.0_beta6-dev` `latest-dev` `3.0-dev` `3-dev` | April 4th    | `sha256:57da99aae9931e77f1dea5e48a06e032b13c35824b92d11a54a547db0ce8e0e8` |
+|  `3.0.0_beta6-dev` `latest-dev` `3.0-dev` `3-dev` | April 5th    | `sha256:377385fc17208cc9cae4a5aae49adb4223d0d2b8f622d33c8d377b0ca700253b` |
+|  `latest` `3.0` `3` `3.0.0_beta6`                 | April 5th    | `sha256:27b72adae93cb5abb943ab52e9f4963e738f8b3c90903c4e96a34793f6cbc7bc` |
 |  `3.0.0_beta5-dev`                                | March 28th   | `sha256:f2b14f3832e3d9d519de797e9e1b6118c984640ab152da2a5eedf71cf1fda830` |
 |  `3.0.0_beta5`                                    | March 28th   | `sha256:9e45a6ef0329e840054375cd4c136a5d00b1809e4dfa5782c70b1dba53c43c2f` |
 

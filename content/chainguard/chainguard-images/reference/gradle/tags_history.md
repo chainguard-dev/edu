@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gradle Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `openjdk-17-8-dev` `openjdk-17-8.7.0-dev` `openjdk-17-dev` `openjdk-17-8.7-dev`              | April 2nd    | `sha256:a79cb5226c96a4127f69bda2ae062cc0fe141767b3aa7b8444290e9eccbe06db` |
-|  `openjdk-21-8-dev` `openjdk-21-8.7-dev` `latest-dev` `openjdk-21-8.7.0-dev` `openjdk-21-dev` | April 2nd    | `sha256:6aa8abb6a21edec259c020ca1d6892e314b1c7ec8b5d37b40dd7ab5033b77220` |
+|  `openjdk-17-8.7.0-dev` `openjdk-17-dev` `openjdk-17-8.7-dev` `openjdk-17-8-dev`              | April 5th    | `sha256:39413c3ae14809011b8f5e24e6ebc8fee5e09cdea2396fa08f98518a52d548d8` |
+|  `openjdk-21-8.7.0-dev` `latest-dev` `openjdk-21-dev` `openjdk-21-8.7-dev` `openjdk-21-8-dev` | April 5th    | `sha256:0c89f34ecb3f0076e9f2395f271b02df10033e3e03a10ff7eaeccccb31275426` |
 |  `openjdk-17-8.7` `openjdk-17-8.7.0` `openjdk-17` `openjdk-17-8`                              | March 31st   | `sha256:d4f247c8574971eebba64944a1863954099fc2c5f645fa208de23308402244b7` |
 |  `openjdk-21-8` `openjdk-21` `openjdk-21-8.7` `latest` `openjdk-21-8.7.0`                     | March 31st   | `sha256:240ea4a342db7e3ce342739c78063e70e2fbf96abfb6a45f8b49c5dbe504a57a` |
 |  `openjdk-21-8.6.0` `openjdk-21-8.6`                                                          | March 18th   | `sha256:0ce6d8d683f2399fce2cfe4447d79f80d123a70512d344d162fa2c319b87d3c8` |

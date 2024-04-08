@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-frontend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 4th    | `sha256:e5e4a5880412ef2cbf4d156b0eeb082c4ba66a4bf753ec032ddbf298d0718449` |
-|  `latest-dev` | April 4th    | `sha256:3c4488d56b34eba048328878d4ca04719c7a4c59bcd5fb683edfa58cb6d5e876` |
+|  `latest-dev` | April 5th    | `sha256:360124bbbc26278988fc72e16695b9e2a2bae0322cf23acf6eea445f997a8e0a` |
+|  `latest`     | April 5th    | `sha256:647f06171c43d932a439e95f8f5f1fa09db58db88498224a2c10309d6c704a4c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5` `2` `latest` `2.0`                 | April 4th    | `sha256:9b24c67cac601b2b6952d784134687ed03b81a0120bbcb50a083940dc21723af` |
-|  `2-dev` `latest-dev` `2.0.5-dev` `2.0-dev` | April 4th    | `sha256:8f1c0fc98b0e4bd51c8629468d441ed45ac359d3656ba4ead5695dee7b2e5c02` |
+|  `2` `2.0` `latest` `2.0.5`                 | April 5th    | `sha256:69d97c4165d562ca86c2fa9570d5546a1713095b362324c79f5c5d307cd0fd91` |
+|  `latest-dev` `2-dev` `2.0-dev` `2.0.5-dev` | April 5th    | `sha256:af9596225ea681cfc81ef64d6441f873daa2e3be8487385d0412a8f113872a89` |
 

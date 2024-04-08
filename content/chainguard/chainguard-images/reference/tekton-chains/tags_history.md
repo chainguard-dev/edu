@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-chains Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 5th    | `sha256:aa4fe6a97c1ee3afc5abb64d996b6f7421138ee9150489f7ef311d871e44681d` |
 |  `latest`     | April 4th    | `sha256:92c48a4f5f675afbefc7b94c622a4e7a7e05a47b09349948501ebd21a69c4ca8` |
-|  `latest-dev` | April 4th    | `sha256:ed2256d27159302d78b5f2448f6f608de68b8139dbc4b0b7d5eb673db27bb517` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.20-dev` `latest-dev` `0.20.1-dev` `0-dev` | April 3rd    | `sha256:e194abc21944186456981065babcdea9896b47d7f3b89b7c624f030dd96882f8` |
+|  `0.20-dev` `0.20.1-dev` `0-dev` `latest-dev` | April 5th    | `sha256:5f4f0703a923edfc9f71363fcddde385deb8fe95b8bf308ef34c99fce3e2a075` |
 |  `latest` `0` `0.20` `0.20.1`                 | April 3rd    | `sha256:998491b1f80886c84b57c7997fd1e5b445817c0d2533f0ba9c401086962159b1` |
 |  `0.20.0`                                     | March 18th   | `sha256:f19df78cee08e529a50f342e8d7a84dc8ddd3cf8d35e2cb5ad1f8c2149bcd341` |
 |  `0.20.0-dev`                                 | March 18th   | `sha256:0fa54570c49e5917f108afe6775143fcfd8427f6aeeec29fc4802f95a4599017` |

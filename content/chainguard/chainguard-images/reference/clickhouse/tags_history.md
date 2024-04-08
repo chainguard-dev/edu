@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the clickhouse Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-04 00:51:18
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 3rd    | `sha256:19bf062425b7d1adef088238399bad6743a2709f239b574a121ab66cb4ea9789` |
+|  `latest-dev` | April 5th    | `sha256:9e36542578845666651cb1649eacc2f3bc30eb1cdc12cc3ca4ba641b51679b1c` |
 |  `latest`     | March 28th   | `sha256:94b4085cdd6d99d003833cfa00afa93fcf1df49fa7b0f7ba95e87b71b2caab48` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                        | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23-dev` `23.8.12.13-dev` `23.8-dev` `23.8.12-dev`            | April 2nd    | `sha256:4d83954e2bed7c37d9ce23cd6f2c526b222591e6a6d3f4149a6cd214696b6a60` |
-|  `24.2.2-dev` `24-dev` `latest-dev` `24.2-dev` `24.2.2.71-dev` | April 2nd    | `sha256:a18dde86a87ced7e89507cb309433cc2087677a35a510737d48eb4feafc5c129` |
+|  `latest-dev` `24-dev` `24.2.2.71-dev` `24.2.2-dev` `24.2-dev` | April 5th    | `sha256:ed78a8c9eb4c53c4d6bbbf778cebb332de8e22c7a7a78435e879506b57d59b6b` |
+|  `23.8.12-dev` `23.8-dev` `23-dev` `23.8.12.13-dev`            | April 5th    | `sha256:838e9cd2f22f148c22f3c1916d9a36966968b2de59d4ebdbe0def91060aa9d43` |
 |  `23` `23.8` `23.8.12` `23.8.12.13`                            | March 28th   | `sha256:21a58f148a44753168e55ec0fa5c5a5aa74605d421962234fb81640b7387e4bf` |
 |  `24.2.2.71` `24` `24.2.2` `24.2` `latest`                     | March 28th   | `sha256:d7d62b576f20241dc5f2c38ab2a9a1a8111a00b09406e8b586c9c197785a004e` |
 |  `23.8.11` `23.8.11.28`                                        | March 18th   | `sha256:d558ea1c2e4933cb4c81ead52542490be0f9b3b80e16b8a7f251d73fdb8a1ae7` |

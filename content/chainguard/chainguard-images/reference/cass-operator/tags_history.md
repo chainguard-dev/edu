@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 5th    | `sha256:fca1a8bb8cf34c41c4aa7631732d20d20f3892d69058fa81bbbded409a437a16` |
 |  `latest`     | April 4th    | `sha256:466cbec872d12148963acd0d555096ca0b3e16eba09c57be74105f8b5d9a20f8` |
-|  `latest-dev` | April 4th    | `sha256:016ac2c11b999a1194f8f5cda9c1b5059b96404ecfc3fe8e9d9297dbcd5b3b16` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.19.1-dev` `1.19-dev` | April 4th    | `sha256:74990276a47e923510333a0195dddf80fc6bf1d2f30a67a1109606b2a6c4d55a` |
+|  `1.19-dev` `1.19.1-dev` `1-dev` `latest-dev` | April 5th    | `sha256:3edd8ca923a772cee9e740f531af4e587360876ac4594f738b77e8066db39e92` |
 |  `1.19.1` `1.19` `1` `latest`                 | April 4th    | `sha256:41e6bdc291462576df4d1e4439cf959c1a4bf334da3f952629c239c8b58a3027` |
 |  `1.18.2` `1.18`                              | March 27th   | `sha256:a349b4179dc1c9493968f8127381bac3f7ebec4cdf6b869b1c6c496e6c41618f` |
 |  `1.18-dev` `1.18.2-dev`                      | March 27th   | `sha256:f28b48ca337d5013f82e66d2da453b2dc91615b30d27654f983b8e45a9aed8a0` |

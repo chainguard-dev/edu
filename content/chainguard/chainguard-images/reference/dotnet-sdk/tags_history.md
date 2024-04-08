@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dotnet-sdk Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-04 00:51:18
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 3rd    | `sha256:a3d36a9f38b27eaabfcb497a16e2eacc34db3356aacaf90244c4976c16f43455` |
+|  `latest-dev` | April 5th    | `sha256:3ff5b14f01d8e12d89f8bfe6b2efca16fb90e476d8851894baac86773f10502c` |
 |  `latest`     | March 28th   | `sha256:4753d3e0a59fa302b2e4ec443c9c28e53627bbf969abd7617b6af48d22baefba` |
 
 
@@ -37,9 +37,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.0.3-dev` `latest-dev` `8.0-dev` `8-dev` | April 2nd    | `sha256:70b46f9a9b2772406c2e4d2035aa6e47c49a3dfa6e9a25da5e573c23a82b0206` |
-|  `7.0.117-dev` `7.0-dev` `7-dev`            | April 2nd    | `sha256:6cc13f7029b9877eedd1c0918e18e783c6cf2028decc81533e11a103e7ddc41c` |
-|  `6-dev` `6.0-dev` `6.0.128-dev`            | April 2nd    | `sha256:21a8ac82df7ed0a0c3922702b82af68733695bf00caee80f267dec162e34b33a` |
+|  `8-dev` `8.0.3-dev` `8.0-dev` `latest-dev` | April 5th    | `sha256:9e84a3fdff0ab5d3324bce2ea5196b9599dac3e18d6566e833f7e31f8471604b` |
+|  `6.0-dev` `6.0.128-dev` `6-dev`            | April 5th    | `sha256:5cc8e7095eeb69228a96b148873d917edd1f9fbebd94ae2910da7a13d774d062` |
+|  `7-dev` `7.0.117-dev` `7.0-dev`            | April 5th    | `sha256:5f789c6b4f07d30435a71a9150ba3fc83a2f62ec1f60e17f326ba968dd6bcd81` |
 |  `7.0` `7` `7.0.117`                        | March 29th   | `sha256:413d5e3dece48a3579a8caa80a90880ee1bcf0be336f363273bae87bd1f0c859` |
 |  `6` `6.0.128` `6.0`                        | March 29th   | `sha256:4b438b8fadfdd5b372c8f99e2aa9f8df3a916e85cde728ea688aede3e175caa7` |
 |  `latest` `8` `8.0.3` `8.0`                 | March 28th   | `sha256:86464dffd1b0c4b583d942073dbae001ce2ec95318eb7faf98654e7425eab146` |
@@ -48,5 +48,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `7.0.116-dev`                              | March 12th   | `sha256:6d0812a2bb06a9230cf0c420baf0edcd60e5c6e3b7294efcd8c3013f2a1e05fd` |
 |  `6.0.127`                                  | March 9th    | `sha256:7f19aa93d7cd0ab426549c83a657f21937fef8a09a7617f1891a9f0d16bbb9a6` |
 |  `7.0.116`                                  | March 9th    | `sha256:5973d4ce96b51deff131e4f20919a57ad7e47324b3f17a4e9c02915c92e611db` |
-|  `8.0.2`                                    | March 8th    | `sha256:8de411be16f78a22e2be726313ac68f635b827a007ac86804dec90f90e29b2e0` |
 

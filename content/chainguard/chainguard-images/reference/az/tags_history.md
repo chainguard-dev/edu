@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the az Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-04 00:51:18
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 5th    | `sha256:da2fdd2483eb73b47463cd6c761016d1f54fe1fb3f9d040b8b8f8c0a72e28a5d` |
 |  `latest`     | April 3rd    | `sha256:dda6e60213c831a990e79dd7b10d685139291e7c0c66666c6486535f54325aa0` |
-|  `latest-dev` | April 3rd    | `sha256:5a9d6e94b687a22e04e2d82b8524d4578ff379388237826ddfb54dfcfb27c505` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.59.0-dev` `latest-dev` `2.59-dev` | April 2nd    | `sha256:ed1cda23e371543af3f8c7f97dcba87731940e3adbc17c12d4847e7110040f6e` |
+|  `2.59-dev` `2-dev` `latest-dev` `2.59.0-dev` | April 5th    | `sha256:ab48b13805f272125569b03689f5698e3e8ec77dfd8c8a698e4a4ea6d3b2eddb` |
 |  `2` `latest` `2.59` `2.59.0`                 | April 2nd    | `sha256:6d72f8bf5b56354d1c3f283d5ba31a8e38051622a4d018df1697999254473e8b` |
 |  `2.58.0` `2.58`                              | March 29th   | `sha256:734813223228612022acbdaff720f02863b1d55b8fe5f711edfe5534d9496568` |
 |  `2.58.0-dev` `2.58-dev`                      | March 29th   | `sha256:6c09869e1638043d06effba12ef736ade8f6c546f4ceaf794e4a0fd303a02350` |

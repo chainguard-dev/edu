@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd-repo-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 4th    | `sha256:ce55b72db40e772ed88d9f81e7131bfbf270e117e2f810c33ceacf1bf710a15c` |
-|  `latest`     | April 4th    | `sha256:9ec8ffcd108c54deaa0d0fe41a9375ed16eeb57c469ad4b2da51e9ab6d2bdd0b` |
+|  `latest-dev` | April 5th    | `sha256:a5a0274c9e1820a70f6c222c69ccc90e54e77a23c572465c4e45e77d2fc46cfe` |
+|  `latest`     | April 5th    | `sha256:63cc057b5d958d07b15c576eecf33463dd94ceaf159418e9f7522c219652f1e2` |
 
 
 ### Private/Dedicated Registry
@@ -37,12 +37,18 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.8-dev` `2.8.14-dev`                       | April 4th    | `sha256:156996488e5dfc57c9679db08119e678d1eab59625c5af1777cc98a4139bb7ba` |
-|  `latest` `2.10.5` `2.10` `2`                 | April 4th    | `sha256:74a615b2642cf385c7db30a75ebf685350cfb02f82771798e1bac42d32cd2479` |
-|  `2.9` `2.9.10`                               | April 4th    | `sha256:f4538cd436980c3941410e0c34413af2039f0ab59ae2670077f6e64e2675c49d` |
-|  `2.9.10-dev` `2.9-dev`                       | April 4th    | `sha256:6a87015c45e17feed12bb20a39524bc0eff310c0eede86c43f33f869c0a8ef01` |
-|  `2.8.14` `2.8`                               | April 4th    | `sha256:27efe278cb5036ebef2eb0e48a03f10bbd268364a017939e12a2d9005b581049` |
-|  `latest-dev` `2.10-dev` `2-dev` `2.10.5-dev` | April 4th    | `sha256:60d82fbbce5c9c92d7270a0bad45e9b3fef772d0bcd1dca98c19ba410e736e37` |
+|  `2.8.15` `2.8`                               | April 5th    | `sha256:39166ac45c88cda76b0718d01ab19df9cee67fb3613c20870c3401e9c7f37794` |
+|  `2.10` `2` `2.10.6` `latest`                 | April 5th    | `sha256:8d69b73c767b6416425c191851b4a793896eadce98d89b0add8d3f452d8807ce` |
+|  `2.8-dev` `2.8.15-dev`                       | April 5th    | `sha256:2e50a480d4e2fd8622c4e7c98ac884ebd6dc0ee2afd14f18ac2917f269e988be` |
+|  `2-dev` `2.10-dev` `2.10.6-dev` `latest-dev` | April 5th    | `sha256:86ad30353772f302a5ca9077c8bff5d459e7de5488525f6bff7094c29e2ed52a` |
+|  `2.9` `2.9.11`                               | April 5th    | `sha256:1eaabfb2373aa15e8cc297f1501e9d0c8fcc789bdd589b3d3acb80a1cd062cee` |
+|  `2.9.11-dev` `2.9-dev`                       | April 5th    | `sha256:6f705ec6dc16bfd686f0c2436312e222e16f25fa3f3f88c02f63abed3fb08538` |
+|  `2.9.10-dev`                                 | April 4th    | `sha256:6a87015c45e17feed12bb20a39524bc0eff310c0eede86c43f33f869c0a8ef01` |
+|  `2.8.14`                                     | April 4th    | `sha256:27efe278cb5036ebef2eb0e48a03f10bbd268364a017939e12a2d9005b581049` |
+|  `2.9.10`                                     | April 4th    | `sha256:f4538cd436980c3941410e0c34413af2039f0ab59ae2670077f6e64e2675c49d` |
+|  `2.10.5`                                     | April 4th    | `sha256:74a615b2642cf385c7db30a75ebf685350cfb02f82771798e1bac42d32cd2479` |
+|  `2.8.14-dev`                                 | April 4th    | `sha256:156996488e5dfc57c9679db08119e678d1eab59625c5af1777cc98a4139bb7ba` |
+|  `2.10.5-dev`                                 | April 4th    | `sha256:60d82fbbce5c9c92d7270a0bad45e9b3fef772d0bcd1dca98c19ba410e736e37` |
 |  `2.9.9-dev`                                  | April 2nd    | `sha256:1577222250740d0da7a8bdfe213378a4ec58d5131285bb49ff8f270a58f0b451` |
 |  `2.9.9`                                      | April 2nd    | `sha256:b67042b57b515ad90c89a9a0eab64cc17cb4740d273eb9b43ed5186c43e87b5e` |
 |  `2.10.4`                                     | March 28th   | `sha256:90dbc3dc5d9ce25118b106cc59e5fef981f5610b350f11c552d81d482678bbf8` |

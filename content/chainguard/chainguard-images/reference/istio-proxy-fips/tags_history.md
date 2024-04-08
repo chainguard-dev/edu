@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-proxy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-04 00:51:18
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.19.8-dev` `1.19-dev`                      | April 5th    | `sha256:5aacf309c7c225bc2fce7b97827ab90144b1340359c558fb68c526e2d0e03ce3` |
+|  `1.21.0-dev` `1-dev` `latest-dev` `1.21-dev` | April 5th    | `sha256:46a1aba504da62441e6c960e113b98f8722a1e981b5b5d025f2a2c91f39f81bc` |
+|  `1.20.4-dev` `1.20-dev`                      | April 5th    | `sha256:9a1e15f5f960e6bb009881b4db2e9ad0888eb36e59a463a99f98a7650ea2749c` |
 |  `1.20.4` `1.20`                              | April 4th    | `sha256:11ef9bedbb9b9965aef21f48d706b5de8bba3f6e452f7370d039ab572868ab77` |
-|  `1.21.0-dev` `1-dev` `1.21-dev` `latest-dev` | April 4th    | `sha256:a6dff396a381eaca28b63f328cc02342ad3ec5da1106afab701c9c1bb44ee417` |
 |  `1.19.8` `1.19`                              | April 4th    | `sha256:ed76b27f1432c23b3d462ef629eb91cd230f0043f40e1d090bd66b3acf2f1e52` |
 |  `1` `latest` `1.21.0` `1.21`                 | April 4th    | `sha256:803fe67ce268ce42f635c887b4e5dbd4e3bfd010f0289f08d96c1a5707df7850` |
-|  `1.19.8-dev` `1.19-dev`                      | April 4th    | `sha256:c17a454c5b15cfdd82de371032b36bbe88f2a4ad3c74d0874f00ef439370420c` |
-|  `1.20.4-dev` `1.20-dev`                      | April 4th    | `sha256:1eb652e0de11da9e93fd467c4ec0f4cc1b6b2a8522912ecbee2ebe652840617c` |
 |  `1.19.7`                                     | March 15th   | `sha256:8f65243c8e8e1754ac70079f75e6374b41df25d71125c11b40981e66b4041fd9` |
 |  `1.20.3-dev`                                 | March 15th   | `sha256:a0e26ea166c5484b017049b5c7730113b4f3c2847a8920791934f35d3bfae955` |
 |  `1.19.7-dev`                                 | March 15th   | `sha256:9470665b6a3748ac153dc0e729b00a667811ffd3044389e46fbf4f7cbbb4eaa7` |

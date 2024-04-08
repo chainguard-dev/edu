@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jellyfin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 4th    | `sha256:956c0cde052bb62e7e4bc4b0ffc67963f103be25d5ca7b5122b3fc06502e3102` |
-|  `latest`     | April 4th    | `sha256:cb675f914aa9a35688d2ceeb3f5f5461b0d36cbd896603d759d3a44d26730173` |
+|  `latest`     | April 5th    | `sha256:0922364ebdf94672167ee5dc79d9b5578720376a9a0ef7677a4b69317462ca99` |
+|  `latest-dev` | April 5th    | `sha256:f563808d78a08f9738e9887060ade6023f92e11cd7cd3cee2f7c93e78a3b443f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10.8-dev` `10.8.13-dev` `10-dev` `latest-dev` | April 3rd    | `sha256:b615ecee233d46e20cea95ca824eb8a4fe0691d404fbfb9119308558a72345b7` |
-|  `10.8.13` `latest` `10` `10.8`                 | April 3rd    | `sha256:dbddcc4ba4537a23eb4c618f69ae5f0b609c8d14a34234a1c610f52aedf0fdc4` |
+|  `latest` `10.8` `10` `10.8.13`                 | April 5th    | `sha256:dfbeae5cae483f7626b20fc356ee528334dbffc062ba13681f979daa3ff714be` |
+|  `10-dev` `latest-dev` `10.8.13-dev` `10.8-dev` | April 5th    | `sha256:9bf9910d65924b2121ebbf6eb77fc8ca3aef4cd122e4aa91bd28bdb262b2d774` |
 

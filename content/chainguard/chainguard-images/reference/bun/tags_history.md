@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bun Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 5th    | `sha256:5203ec30b50a26cadda9fb910c37cbaf96aa76022ed013e6403dab88366eb8b1` |
 |  `latest`     | April 4th    | `sha256:10ad74ae2827159bc54a5caa5c4002accffa5b9a1f669662a6f6c57d7aa17b15` |
-|  `latest-dev` | April 4th    | `sha256:7604f2ca4e7a498eede879c79096e24ed2a7f48e418185fe50068a1fa9abfe81` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.1.0-dev` `1.1-dev` | April 4th    | `sha256:6759f8db9506fcbbdc83dc1e6610f2f48234c66f6d68d4244d6c46f2a78f4d69` |
+|  `latest-dev` `1.1.0-dev` `1.1-dev` `1-dev` | April 5th    | `sha256:98279f7ec44a574addc5f1edac275639337f105a2f6d5a0743d6bfa410b13bbb` |
 |  `1.1.0` `1.1` `1` `latest`                 | April 4th    | `sha256:84364ccff2f87d3e153046c790e93a2969ffb7c4daa103035f98130ad3c97cbd` |
 |  `1.0.36` `1.0`                             | March 29th   | `sha256:4a70a3b96ed716ba96b6401d97119d91bdcef2e87a9f2bfb5f24c1acc589b2a0` |
 |  `1.0-dev` `1.0.36-dev`                     | March 29th   | `sha256:343cf981e17fb6155ae0de1e6a485487e904d7672dd099beebea2a1a2f309d65` |

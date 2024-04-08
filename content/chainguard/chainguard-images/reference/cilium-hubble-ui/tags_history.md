@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 4th    | `sha256:e2088261d0f01ca595bfaaae608dfa3b99301995a70309c13dae574ee5d1f771` |
-|  `latest`     | April 4th    | `sha256:4894a470241519b0b2bc3d67153be31013195849f6f1938cf75402ee17f9f175` |
+|  `latest-dev` | April 6th    | `sha256:e862be3e0b9a9a9ee80a05402ba92e2083979b8400f83231ef39072a8e639fb1` |
+|  `latest`     | April 6th    | `sha256:7ed4d25f20485b5df5bf3d16cab870ca10ceecd9e8c5cc2d8949592491b8f297` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.13.0-dev` `0.13-dev` `latest-dev` `0-dev` | April 4th    | `sha256:c9fed8c4299327f16187f433f4975c99855f6c484d6bf21ffa48964effb6c062` |
+|  `0.13.0-dev` `0.13-dev` `0-dev` `latest-dev` | April 5th    | `sha256:bf1d0a91e79e3f165e004e247e0fdbd7b1c58cb7c91ebf2de8e516580a359f12` |
 |  `0.13` `latest` `0` `0.13.0`                 | April 4th    | `sha256:d01cd679adcf67a77f9823e137dc72d4e3d8ad1d295d54f7fa646d4c47cd557d` |
 

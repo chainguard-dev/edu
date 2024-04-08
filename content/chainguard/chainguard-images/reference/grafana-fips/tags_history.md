@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10` `10.4.1` `10.4` `latest`                 | April 4th    | `sha256:9783a8208137a0c13ad0977ad146ba3b8229cd02a7f8c5823d691671ae671f90` |
-|  `latest-dev` `10.4.1-dev` `10-dev` `10.4-dev` | April 4th    | `sha256:9cd398031a1b3c70544562919b675037338e5d7720f1f06e90572a5d6f025ab5` |
-|  `10.3.5-dev` `10.3-dev`                       | April 4th    | `sha256:cf75d0450c87779d8453b0f56a398e7086ea53c04548cd0b309cb996478e2305` |
-|  `10.3.5` `10.3`                               | April 4th    | `sha256:b9259d43b08e8494173d29815883a48ff8454e62b979d0bf2440d0686ff91573` |
+|  `9.5.18-dev` `9.5-dev` `9-dev`                | April 7th    | `sha256:f319774c53c0d398bd5bd502bccfefc764f8c2c249f670506e9fa2059c59a17d` |
+|  `9.5` `9.5.18` `9`                            | April 7th    | `sha256:cd91cf106045e5b996a9fddd0950338d117171f504ed9f784c34db8481c26865` |
+|  `10.3` `10.3.5`                               | April 6th    | `sha256:6073e86466b9532ed60fa757a9b6f49b093322addbfcfec913e5224321b48109` |
+|  `10.3.5-dev` `10.3-dev`                       | April 6th    | `sha256:18f3a240bbeb7509ef1cf4cb5f75b344612e56a23668d2d6ca26ef14c21c75a5` |
+|  `10.4-dev` `10.4.1-dev` `latest-dev` `10-dev` | April 6th    | `sha256:93a6e48f2f61861b32da3e994818c03f8f82a6c4990c2534e9e6c7e9fb387bf1` |
+|  `10.4` `10` `10.4.1` `latest`                 | April 6th    | `sha256:fa6583e26f3b8eaafabc4d553d5c91dc333a4aeb0442ec247f5494a58796519c` |
 

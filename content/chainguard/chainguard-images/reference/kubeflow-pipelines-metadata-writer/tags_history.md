@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 4th    | `sha256:3b49a3a21922f1720e2cbb69fcaaeb6e36a690912b409dbf7b2254153a598d37` |
-|  `latest`     | April 4th    | `sha256:e0869bf69ce6d7b002567960efc1fc2e2bb598e367284a20a7675c85f77cf60a` |
+|  `latest-dev` | April 5th    | `sha256:e6d9ffdea24d6d3d1f438bb6b455497960c320d9a9d98d06c80362dad2dbb54c` |
+|  `latest`     | April 5th    | `sha256:f1547fd7e6123825f6320b9046190d1c3248f7f7b0d3cc893cf9ee9570777804` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.0.5` `2.0` `latest`                 | April 4th    | `sha256:2bc35b76a6ef60c5927316d111b010cf88bce01ee45ca77e96a76cd4bbb0b4fd` |
-|  `2.0-dev` `2-dev` `2.0.5-dev` `latest-dev` | April 4th    | `sha256:976f4890bf6e032d4fcdab929453b28b27a718670f1e3586d3d8377ee2c22013` |
+|  `2.0.5-dev` `2-dev` `latest-dev` `2.0-dev` | April 5th    | `sha256:d6956881a924c2c8b32c27b05f4578538ad9d86abd9fc696fab3cca2c21bc155` |
+|  `2.0.5` `latest` `2.0` `2`                 | April 5th    | `sha256:b29a6e58467d39ccca6f386c7f3291b37c96f0fb09fbbbcd2503d7c7b778cb32` |
 

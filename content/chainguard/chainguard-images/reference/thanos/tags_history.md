@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the thanos Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 4th    | `sha256:47a44244bcb2cc9c7fc937c5ca122a8a3bd0987dba747f7db3b8bd876941b902` |
+|  `latest-dev` | April 5th    | `sha256:09dfce29cf4b55d0fd88f134a34e463aaed61103eb1d98fd1b52eb70650f9bee` |
 |  `latest`     | April 4th    | `sha256:b03783eaa2c4771033baad3a5142bcc1d94fc215f200287c3640c7984d867349` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.34.1-dev` `0-dev` `0.34-dev` `latest-dev` | April 5th    | `sha256:5298d236f8bbfdc11b91743340577b98b0f48c021855422681cc444fc205caad` |
 |  `0.34.1` `0` `0.34` `latest`                 | April 3rd    | `sha256:44d378591fadd3974d15e006c879b93f2540bf7a703c3ab67c64566e9db766ff` |
-|  `0.34.1-dev` `latest-dev` `0.34-dev` `0-dev` | April 3rd    | `sha256:f2506ec9a470abea9162c4e0330264aa6c147030a341157c104bac2164387c77` |
 

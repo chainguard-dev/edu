@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tigera-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 4th    | `sha256:ab1cf304563466b98f1746b4c40a9abe8cdf890a458bbaab1b7c7f00168c3cf4` |
+|  `latest-dev` | April 5th    | `sha256:636436f5c399f43702161d6708ee47cae2485054a32d5f463adfd0befd45f273` |
 |  `latest`     | April 4th    | `sha256:d8285c929d47e9d5ffc0bdb4ce0a848dfdd5b4782d5c48b1b249a4d8f6acec70` |
 
 
@@ -37,13 +37,13 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `v1.32.7-dev` `v1.32-dev` `1.32.7-dev` `1.32-dev`                                             | April 5th    | `sha256:c5ec5fd25955d34d06f5ef34010c185b1acba93d97d7ff21600e2d9809f68ec4` |
+|  `1.33.0-dev` `1.33-dev` `v1.33.0-dev` `v1-dev` `latest-dev` `1-dev` `vlatest-dev` `v1.33-dev` | April 5th    | `sha256:0bec15430c36742899fd57c657dc0472027d20ef596fc217960211226a0abfc5` |
+|  `v1.31-dev` `1.31-dev` `v1.31.2-dev` `1.31.2-dev`                                             | April 5th    | `sha256:b04ed845f72b89a392e266ca4f2a27e4c74fb1c07dec39f7abb88d19b3aac2bb` |
+|  `v1.30-dev` `v1.30.10-dev` `1.30.10-dev` `1.30-dev`                                           | April 5th    | `sha256:82bbd13ef6ce1c96a7b3e43d470566c945744eca4ff6ff1f5da86999c86f704d` |
 |  `1.32.7` `1.32` `v1.32.7` `v1.32`                                                             | April 4th    | `sha256:c0aea25fe31c5323d4dfb4be8b2706cc7a7713ea2b8be610adb1318f9fa1221e` |
 |  `1.31.2` `1.31` `v1.31.2` `v1.31`                                                             | April 4th    | `sha256:624316f6ab4d668fea7eec9f1013bbc425d2df72f2a80b0308de14eb7074a1e0` |
-|  `v1.32.7-dev` `v1.32-dev` `1.32-dev` `1.32.7-dev`                                             | April 4th    | `sha256:19829bd8385251319d4645820eee1dac4551fd92e27b5bd59f92ec94b6be2116` |
 |  `v1.30` `1.30` `1.30.10` `v1.30.10`                                                           | April 4th    | `sha256:6ef74df64c4ac1aeab5820a6eddedaf59a305367dbb5332f58038deaa8fbcc48` |
-|  `v1.31-dev` `1.31.2-dev` `1.31-dev` `v1.31.2-dev`                                             | April 4th    | `sha256:a47511173d81d50ec48a962aee4e9b2d6d41774475c20e56029a93b8f92fcf7c` |
-|  `v1.30-dev` `1.30-dev` `v1.30.10-dev` `1.30.10-dev`                                           | April 4th    | `sha256:19f92fc22198d4330be3f60636491851b7094ce62f6384b0243bf5b4c5239c40` |
-|  `1.33.0-dev` `v1.33-dev` `v1-dev` `latest-dev` `vlatest-dev` `1.33-dev` `v1.33.0-dev` `1-dev` | April 3rd    | `sha256:503a173f0d85117f62612ea10e0821fc68d84549130ce4d191ac705eccebca2d` |
 |  `1.33.0` `v1.33.0` `vlatest` `latest` `1.33` `1` `v1` `v1.33`                                 | April 3rd    | `sha256:5cc87b834877584132af68d1ae5b1f8176f5701a17f36fcc09e5234658f759c0` |
 |  `v1.32.6-dev` `1.32.6-dev`                                                                    | April 1st    | `sha256:79a068bcc41e0cc7308e0cd2c3331385fb51782e22e908798e3c2af0a4231d6f` |
 |  `v1.32.6` `1.32.6`                                                                            | March 28th   | `sha256:b4ac4dcb88b35911853f65896234492e6f7603d901f73981298bdad05168268c` |

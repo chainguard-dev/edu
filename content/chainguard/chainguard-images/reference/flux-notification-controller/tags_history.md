@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-notification-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 5th    | `sha256:0de60f16853adfede94ba0c54cf10b985465d5588c90e020d794143c280d2625` |
 |  `latest`     | April 4th    | `sha256:79fe1cb8a8d5b4cd82849eccd6da05b80de90b859bd5b95653b8ffc45464be24` |
-|  `latest-dev` | April 4th    | `sha256:42ae6d3c92b402155415fc196007ed8670f9c430b580b6d590978f6ea89ad75e` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.2-dev` `latest-dev` `1.2.4-dev` `1-dev` | April 5th    | `sha256:da6c593ac4731aebacf99cc41d64d50277d492c980cf0f3c6368b07f4f9be409` |
 |  `1` `latest` `1.2` `1.2.4`                 | April 3rd    | `sha256:204746b43cf20ab4b4db31310fba0f45914a06634e54cbba347e34524d874121` |
-|  `1.2.4-dev` `1-dev` `1.2-dev` `latest-dev` | April 3rd    | `sha256:4f0341e5affbbbf08e441d6a3a253b790a25ce879ad214e6948871b6188b6f61` |
 |  `1.0` `1.0.0`                              | March 18th   | `sha256:c84e5c5dc4252c5a9b068a9d704eb006010100c4fe96743306fceaf082ff9682` |
 |  `1.0-dev` `1.0.0-dev`                      | March 18th   | `sha256:add4e9c5c99181617e1311c14ce2a33fa4191ea6f04df4b4ef53ef2ad6bfcde1` |
 
