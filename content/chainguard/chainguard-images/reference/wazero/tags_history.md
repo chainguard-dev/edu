@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wazero Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:07e538bf1ab612b3eeb9ab656cf061505ce341a134cf77d466bce9bcdee91ee9` |
-|  `latest`     | March 18th   | `sha256:24c60216de44136628a1041074d0a6d421da166907f10ab0dea9672ece62b6be` |
+|  `latest-dev` | April 5th    | `sha256:b775b0e9ff9d80c0d23b27bd59d7fa2b019808187324fb74dd7ef4b15abaf741` |
+|  `latest`     | April 4th    | `sha256:820b3c637ff8b52017eb6e36091f0bd0ed0bf6bcb3e540adf4b44cd75b9ea4da` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.7-dev` `1-dev` `1.7.0-dev` | March 25th   | `sha256:75504646bfd2d15ac7db989a26d4a3823c6b9cdb1327480b447f5d1b9632ec23` |
-|  `1.7` `1` `1.7.0` `latest`                 | March 18th   | `sha256:be4b547bc69744858445291987bd109bf91418412882d80b5889b640f9979c53` |
+|  `1.7.0-dev` `latest-dev` `1-dev` `1.7-dev` | April 5th    | `sha256:b3f7cd0c1e1c5e7252a31d943ec21e6463c126ef4e3b58e7654bfab51b4d8076` |
+|  `latest` `1` `1.7` `1.7.0`                 | April 3rd    | `sha256:0085750aebcf356339c8cf2c77d7ebab067aaae80414dd217c17ae52bb99233f` |
 |  `1.6.0-dev` `1.6-dev`                      | March 14th   | `sha256:3c0a93ae52271f8a662a63303866ebc91c32392793a3de4624c27d1fa3f38a06` |
 |  `1.6` `1.6.0`                              | March 14th   | `sha256:0836ad07b9c3792c5bcb7dea7fb71c5c871477b4726b0ced23186ed85c54bcf9` |
 

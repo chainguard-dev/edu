@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:6ba90ae0f9c6cd5a9cc82e078640f8fc07f4e803949fc3e4967c6fc00e5b003d` |
-|  `latest-dev` | March 18th   | `sha256:8ca2174db5653cf12af5b14a0654fcb23ca541eb98804e1444a6e2d6d0a1e5b8` |
+|  `latest-dev` | April 5th    | `sha256:79b4cbfa01bc2f00274a22a4c434affd87bfb4273079f9c1dad81d6e538d2d8e` |
+|  `latest`     | April 4th    | `sha256:48ec4a0c64fbfdc7f43f7bd2a6998c4df82fd63fddc4367a61bcbf6b2b7f33d1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.5-dev` `1-dev` `1.5.0-dev` `latest-dev` | March 25th   | `sha256:94a5998ed9ea3f85828a44179b561b88b4adb1c2e953c28f95109dd83bffed68` |
-|  `1.5.0` `1` `1.5` `latest`                 | March 18th   | `sha256:fc1a5f59c52716efc13d66536298e3569339229ea3e0e11eb7cd2e8733bf1e23` |
+|  `1.5-dev` `1-dev` `latest-dev` `1.5.0-dev` | April 5th    | `sha256:a3660b8f358170cd327b0b0cfda022523489fdf1d4e233270905470837b28a29` |
+|  `1` `latest` `1.5.0` `1.5`                 | April 3rd    | `sha256:3c31a46a0c85f204ef5437b48c93d33b6b54a72016a8dce608c706bf8494bd99` |
 

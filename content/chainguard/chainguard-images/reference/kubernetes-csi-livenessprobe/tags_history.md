@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:699304aded9b9ebfd5db2fdbe177b4d7ced0242e97631fa33fff9232d3a707fe` |
-|  `latest`     | March 18th   | `sha256:fadf817ce9705531837a65e6ac2b40860289d074c6fb8b7fa3e9057f40e038d8` |
+|  `latest-dev` | April 5th    | `sha256:f031818428d45ab3c87a1c3b5512572426cedb06180b67ec73ab3b367bc9cee7` |
+|  `latest`     | April 4th    | `sha256:78ef366cb045e7220a542d9104c016b36f51ebbc8d13efaad54040f69c3afbd2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.12.0-dev` `2.12-dev` | March 25th   | `sha256:5515f6d56e92bb1b3005d289b1e6ab83c0273fcba199404ac047ff0c45034a3b` |
-|  `2.12` `latest` `2` `2.12.0`                 | March 18th   | `sha256:3513c35388de8c976edad666f8d825308107da31148d7a2cda4809f2f9a906de` |
+|  `2.12.0-dev` `latest-dev` `2.12-dev` `2-dev` | April 5th    | `sha256:cd97f0801a48af1ad595d13848490f7115c7e0ac0e8db2d5b4a59c097f91f4e6` |
+|  `2.12` `2.12.0` `2` `latest`                 | April 3rd    | `sha256:c8e5c0d8afd9f09ccfef30fbc09f92875e26a47b0bc27da4a7336ffa7b571478` |
 

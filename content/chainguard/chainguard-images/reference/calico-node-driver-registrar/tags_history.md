@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,14 +28,16 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 18th   | `sha256:57256368a8d1b362336572fe4421319e7797c84e5f05f17bc075c3265ecee099` |
+|  `latest` | April 4th    | `sha256:16ae89474a44ac1069a60056d7a9d93e9ef39c821ef2957e3ca6a07bc5269a80` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                                                      | Last Changed | Digest                                                                    |
-|------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `3.27` `3.27.2` `v2.9` `2.9.3` `3` `latest` `v2` `2.9` `v2.9.3`         | March 18th   | `sha256:99c9fe4901f12d9b3aad5e33e12af81cce247e466ea7300a6d6ea6a17ce5d65b` |
-|  `2.9.3-dev` `v2.9.3-dev` `v2.9-dev` `2.9-dev` `v2-dev` `2-dev` `latest-dev` | March 18th   | `sha256:398b5f79f2f8ee2cfd05d8270dbf8c33d39880208f65756e25cb9fd5a2a99e82` |
+| Tag (s)                                                                           | Last Changed | Digest                                                                    |
+|-----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.10.0-dev` `latest-dev` `2-dev` `v2.10-dev` `v2.10.0-dev` `2.10-dev` `v2-dev`  | April 5th    | `sha256:2d726d8cd29f6de19dcaadce8b970be0b250b04e4b49dcbef4c87614ac27c83c` |
+|  `3.27.3` `3.27.2` `v2.10` `v2.10.0` `v2` `3` `2` `3.27` `2.10` `2.10.0` `latest` | April 5th    | `sha256:9ac5c7deffbf9b35ade6c7e908378e7af89f5606532247f2d12c973ecce3590a` |
+|  `v2.9-dev` `v2.9.3-dev` `2.9.3-dev` `2.9-dev`                                    | March 28th   | `sha256:bd278850d0a63f947ab3b28d81b2b90402e70baa4966f527f59003064fea3fab` |
+|  `v2.9` `2.9` `v2.9.3` `2.9.3`                                                    | March 28th   | `sha256:41c6d564f1e724e0f5eac36c13ead8fc1279461189e39e5415eb2d88aa6e499e` |
 

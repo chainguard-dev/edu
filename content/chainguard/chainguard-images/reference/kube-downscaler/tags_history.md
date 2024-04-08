@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 23rd   | `sha256:49d482865e33b88d54009cb8e1b3a213a4c2f1d38b46d5984b9f14129d10e0db` |
-|  `latest-dev` | March 23rd   | `sha256:24eb523ed2ccec4f44e6c78f40064a92568bf3d5eabea203199b4ffb03648717` |
+|  `latest-dev` | April 5th    | `sha256:1a830cbf2075724c4faf18ea6c8aa93488588ffe1455f60861382cbdb8fe5b7d` |
+|  `latest`     | March 31st   | `sha256:fac4fd4a2977f4c381d767a9b7259f00f7fc1c1d4f3887e6e43bfd3633d13f20` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `23.2.0` `23` `23.2`                 | March 26th   | `sha256:c7244ad832ac8f732a1a68009f8f93c0725d14c9f9d9bc0aee185a5bc2f74eae` |
-|  `latest-dev` `23.2-dev` `23.2.0-dev` `23-dev` | March 26th   | `sha256:8037da02ae8db6db9f6dda16623c2591ce384357106ecf96a5135aec12297a16` |
+|  `23.2-dev` `23.2.0-dev` `23-dev` `latest-dev` | April 5th    | `sha256:3efc75da7cb17efa91a80b297e5d8a50853d693a5c6d8f36bc5eece50451e91c` |
+|  `latest` `23.2.0` `23.2` `23`                 | March 29th   | `sha256:0dc361f93398f4867b67a0bbc403421abc24584b3176d4a0b0cf6f480e6b3942` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-pushgateway-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:237de4ebc65ad21090496a8ff9136ca84df60d5db85796346644b40303c30110` |
-|  `latest`     | March 18th   | `sha256:e04099a82e123bf8c12263d699ca80b9bc5f2d3f046680205fe72f4a6cbe6c53` |
+|  `latest-dev` | April 5th    | `sha256:082762b97f3c7a3d4049c5aca9cdeb9f2aa2c6b8d0477c2e5682dab18b13faa0` |
+|  `latest`     | April 4th    | `sha256:0af248f16721570ed14b792cf39527fdbf9508ef3e64b589f9c79cc904d06ca9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.4.3-dev` `1.4-dev` `1-dev` `latest-dev` | March 18th   | `sha256:c9508a9a651b2abb74a8ad46ab529b46388d5aa6076bdcb856af34c67bce68ec` |
-|  `1` `latest` `1.4` `1.4.3`                 | March 18th   | `sha256:968785c5785629bc6ec0756bdd902a3968004bd55086b8402066cf5e7d573857` |
+|  `latest-dev` `1.4-dev` `1.4.3-dev` `1-dev` | April 5th    | `sha256:32c6913ca0c047759ea005a4ad1bf027d6590247d46fd8451fd1eff9297760bc` |
+|  `1.4.3` `1.4` `latest` `1`                 | April 4th    | `sha256:e399255d8b9b453c881631ee05cd536f52f70dc747a3fc33fc2029fbd6178915` |
 

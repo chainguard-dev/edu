@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 22nd   | `sha256:e2553cd0d64c190b56b8f20e0002cda1c0d47eb6b538d51e7b5a5d8ba94524d3` |
-|  `latest-dev` | March 22nd   | `sha256:f2e3e40ba96f9793a59fad90159f749156fec81392ab808be852d506b9d7e084` |
+|  `latest-dev` | April 5th    | `sha256:9ffb497616ddd63e8cf6045161f9fa7dca721ff0b3cf305044ce80b183de447f` |
+|  `latest`     | April 4th    | `sha256:6c9b2a2642bfc18545e1e7eb9563b2441ad592f92dc98aa966d9f78c433e00ae` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.16` `0` `0.16.0`                 | March 22nd   | `sha256:d88617b229b9e5c8379c33848791651022662f2f068d6fd07ec2a6ac356c5182` |
-|  `0.16.0-dev` `0-dev` `0.16-dev` `latest-dev` | March 22nd   | `sha256:55f42f7d6cb298bb222cd6dec4df6703ef796d38560eef59e7e2556350e75641` |
+|  `0.16-dev` `0.16.0-dev` `0-dev` `latest-dev` | April 5th    | `sha256:2e3e6d55b61869bdd5ff7075acc6b90a21a4eaa43558e9429f3516b40ff2f408` |
+|  `latest` `0.16` `0.16.0` `0`                 | April 4th    | `sha256:fc4712667ebe9befce9afe7486de2fa00bf29fe80348fc0df24c1166c4d562ad` |
 

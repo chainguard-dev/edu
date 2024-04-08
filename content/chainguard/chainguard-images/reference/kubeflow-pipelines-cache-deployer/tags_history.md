@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:670f65396470952f4ab09a7734783c2b9a591bb08b3807025b2d0d82209421b8` |
-|  `latest`     | March 18th   | `sha256:d587026be24dff685a2656d631f830a33dbac3545bb7f715b4e5aff02a9e9e09` |
+|  `latest-dev` | April 5th    | `sha256:00f90f4a0266d6ff14febdd7c2ae4127769cd58edd701d1266915e5602327d53` |
+|  `latest`     | April 4th    | `sha256:befa8a8d9bc6d2d3ebd0e0ff0f46d4eb780cd5e3cc65ee522c4b4f4c358e9669` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2` `2.0.5` `2.0`                 | March 18th   | `sha256:4be2ab601c6e181bd46373dc737b8a9d936bd16b45f41c09884326c9ea333a83` |
-|  `2.0.5-dev` `latest-dev` `2.0-dev` `2-dev` | March 18th   | `sha256:b74f1eb8d579efc07ad319cf24776b7158e6b55eedddaaf580542cb090ac893f` |
+|  `2.0.5-dev` `2.0-dev` `latest-dev` `2-dev` | April 5th    | `sha256:551cf8d9d7ab1a2d83156fda1c3a1f5cf1373859d7a07b6cd4c8fe3ea023a1cc` |
+|  `latest` `2.0` `2` `2.0.5`                 | April 4th    | `sha256:49ed66ad8494210285ccfd17578973125573c02826e45df1351d27e703ee1a0e` |
 

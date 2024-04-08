@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public go Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-03-30 00:51:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -73,6 +73,8 @@ The table shows package distribution across variants.
 | `libstdc++`              | X          | X      |
 | `libstdc++-dev`          | X          | X      |
 | `libunistring`           | X          | X      |
+| `libxcrypt`              | X          | X      |
+| `libxcrypt-dev`          | X          | X      |
 | `linux-headers`          | X          | X      |
 | `make`                   | X          | X      |
 | `mpc`                    | X          | X      |
@@ -81,12 +83,7 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`  | X          | X      |
 | `nss-db`                 | X          | X      |
 | `nss-hesiod`             | X          | X      |
-| `openssh`                | X          | X      |
 | `openssh-client`         | X          | X      |
-| `openssh-keygen`         | X          | X      |
-| `openssh-server`         | X          | X      |
-| `openssh-server-config`  | X          | X      |
-| `openssh-sftp-server`    | X          | X      |
 | `openssl-config`         | X          | X      |
 | `pkgconf`                | X          | X      |
 | `posix-cc-wrappers`      | X          | X      |

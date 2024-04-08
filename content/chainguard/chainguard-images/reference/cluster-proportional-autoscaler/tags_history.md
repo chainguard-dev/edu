@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:180e04102cec455fbd82050e6ba48edcf8062b5d3f2d27cb21d9bf0aaa84474e` |
-|  `latest-dev` | March 18th   | `sha256:12eacd1142639cdc140810782203bbd84a2d24ac79eefd08a38966391b40171f` |
+|  `latest-dev` | April 5th    | `sha256:a5e5ec79cf8fb68b16d0ac87186dac8a761c1e7fdbb120f40bd40b61191a9d0a` |
+|  `latest`     | April 4th    | `sha256:07e12f697d612862fb21214d63214871b0e71c6780bbe907f019776af18ed384` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.8.11-dev` `latest-dev` `1.8-dev` | March 18th   | `sha256:05a58f8347597cda3394356e4f7f84f1478d8802ae7db0256fb3f0c154127571` |
-|  `1` `latest` `1.8` `1.8.11`                 | March 18th   | `sha256:0729e621178a6d023dc046e08b0b9380c3158490b7376b2da23abf4325e21792` |
+|  `1.8-dev` `1-dev` `1.8.11-dev` `latest-dev` | April 5th    | `sha256:b3a3ac08aa2ec40b266419b7d94c2ae4cfbde6e07bbe8763b41a3c8b090199ed` |
+|  `1` `1.8` `latest` `1.8.11`                 | April 4th    | `sha256:1c8b73cc3e066de39735a562ea8f80d00d1652be34fe46bf84ba99fe834f561d` |
 

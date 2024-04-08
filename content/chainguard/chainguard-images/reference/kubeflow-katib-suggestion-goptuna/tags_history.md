@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-goptuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 22nd   | `sha256:6335f926247bf61753aaf9dabc4beb02cd6f231cc151cb69855e00822e4769eb` |
-|  `latest-dev` | March 22nd   | `sha256:92520a25dc7ff752586eedb73e9a4eef1b15cfbedd1f377e09c84b9e1c4ca5fd` |
+|  `latest-dev` | April 5th    | `sha256:6de90a12a71548d6a7e7f92de658ad84ac6d525238d5ab488abb3415c18a9cad` |
+|  `latest`     | April 4th    | `sha256:1c9879cd555b27988ad7ad23e8a7e77bb21b7ed1f568e80d362dd5acc42081f6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | March 25th   | `sha256:f93a800f6052e68056f5df285514c189164709a47440e4074940618bc5edf13d` |
-|  `0` `0.16.0` `0.16` `latest`                 | March 22nd   | `sha256:517a15c12a2ead064ada22ae334c941ce542f829c2da38c62e1a810845a409bd` |
+|  `latest-dev` `0.16.0-dev` `0-dev` `0.16-dev` | April 5th    | `sha256:588c0dfda585a61d64fbb31dbb7791bfc000f2aa3a3b4fe44c5363bdbfaba574` |
+|  `0` `latest` `0.16` `0.16.0`                 | April 4th    | `sha256:9be33aeb00ec27f47ed24691d7b75dc98a99e7018d86063abf41381e7bb32a5a` |
 

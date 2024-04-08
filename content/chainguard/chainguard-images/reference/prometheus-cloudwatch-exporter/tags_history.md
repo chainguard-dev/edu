@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:6412699390e8407a3551787364d3e91a7af0980e1034839fdfd3e4836bc1cb36` |
-|  `latest-dev` | March 18th   | `sha256:f12c5a23850112460f21b6b810ce02dbf919071480e2542995d7823b89c02072` |
+|  `latest-dev` | April 5th    | `sha256:cf0bd006773620773e0ba3dd708e8b95417efa37a5dd17684f2d2cccc153c7fa` |
+|  `latest`     | March 28th   | `sha256:281d2e901ea79798437f2d650720380dbaa027d6dfab8bd5cdacd729c8cc4eeb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15-dev` `0.15.5-dev` `0-dev` `latest-dev` | March 18th   | `sha256:f58231e43f86ce728fd9289f44c8e74515bb4e40c1087944c17bc56b2139df57` |
-|  `0` `0.15.5` `latest` `0.15`                 | March 18th   | `sha256:8dbff83a795b4f5959f68e46b06ec1f4b98f7cb40cda9433226ac8f28c6985ac` |
+|  `0.15.5-dev` `0-dev` `0.15-dev` `latest-dev` | April 5th    | `sha256:8d1ebc0afaf37ad9dd12319b46c70b9cb39b4a697c6fdc57d8a13ab4395eb434` |
+|  `0` `0.15.5` `0.15` `latest`                 | March 28th   | `sha256:db4fe8b6ac1ced56ee7fa8a9e9f9816d3de30399eac84731c7433d43f70a3046` |
 

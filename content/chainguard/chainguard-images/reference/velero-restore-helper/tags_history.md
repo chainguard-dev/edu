@@ -3,8 +3,8 @@ title: "velero-restore-helper Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
-date: 2024-03-27 00:48:55
-lastmod: 2024-03-27 00:48:55
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,11 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 26th   | `sha256:28c17b7701974ad2e0876eb18c5df66fddbe82a4485d6cba685624b110caae68` |
-|  `latest-dev` | March 26th   | `sha256:dad86edee625399d16ff2577285f86cbfe92bdb96308e856044608615888d6d4` |
+|  `latest-dev` | April 5th    | `sha256:5a43d6cae8e41ea7a751856e4536a4c080c588439c5d045441486903e9cd48d6` |
+|  `latest`     | April 4th    | `sha256:87dc4b1098d49c0bab7bbe116383fb5dd3f97ff19835c71e2436f62362f17b5c` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1-dev` `1.13-dev` `1.13.1-dev` `latest-dev` | April 5th    | `sha256:2d02f8673adf3099e9ec92d162bbb146294e2b47118e919ca2690a09dedecf34` |
+|  `1.13` `latest` `1` `1.13.1`                 | April 3rd    | `sha256:39bd319ee61bb11150c98aa02c313e59d57253cac957175333d059ec5f4f8113` |
+

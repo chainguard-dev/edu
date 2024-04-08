@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.57-dev` `1.57.0-dev` | March 18th   | `sha256:8ef6e97c4e0d3be44f9c11e0fd8f51dc164be69eb527054ff0f51ac71a5dd597` |
-|  `1.57` `latest` `1.57.0` `1`                 | March 18th   | `sha256:93cebc7acc91f0973b8b2d95c16ac86c3364b4e6c8d2cf880a192ca21630fbc6` |
-|  `1.44` `1.44.0`                              | March 18th   | `sha256:9616d94345117d97ccea434e0adbafccac0940a68fd958a4bfbb2e0a7e9851bb` |
-|  `1.44.0-dev` `1.44-dev`                      | March 18th   | `sha256:c700965e94256f0b236a65d5785a806c03f7e76ea1d165e948b16c9f0833d1f6` |
+|  `1.44-dev` `1.44.0-dev`                      | April 5th    | `sha256:b27404a2cbd0edbf98138c840bf73c9e09a7dce5682afeb4011a2ffac03ec165` |
+|  `1-dev` `latest-dev` `1.57-dev` `1.57.0-dev` | April 5th    | `sha256:2c6f96cbe8344624f919ed53884ea9f5a0e044db0896bdd254b8e7d5d5e2a696` |
+|  `latest` `1.57.0` `1.57` `1`                 | March 28th   | `sha256:414d6ce49c5c18549bb0c8bc8cede1dbefe54480a91380cecb9b6d866a2fe06c` |
+|  `1.44` `1.44.0`                              | March 28th   | `sha256:0e8a4c77e1aaa16f30ebad2ced85a00c7a3e13ac114b438a67f7fe8b7bbfd249` |
 

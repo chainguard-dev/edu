@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for crossplane-azure-storage Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-22 00:34:55
+lastmod: 2024-04-05 00:47:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for crossplane-azure-storage Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                 |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                   |
-| `cgr.dev/chainguard-private` | 0, 0.37, 0.37.1, 0.38, 0.38.0, 0.38.1, 0.38.2, 0.39, 0.39.0, 0.40, 0.40.0, 0.41, 0.41.0, 0.42, 0.42.0, 0.42.1, 1, 1.0, 1.0.0, latest |
+| Registry                     | Tags                                                                                                                                        |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                          |
+| `cgr.dev/chainguard-private` | 0, 0.37, 0.37.1, 0.38, 0.38.0, 0.38.1, 0.38.2, 0.39, 0.39.0, 0.40, 0.40.0, 0.41, 0.41.0, 0.42, 0.42.0, 0.42.1, 1, 1.0, 1.0.0, 1.0.1, latest |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

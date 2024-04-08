@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:a9b64e0fdea9f834f7cb6826a21b5cb206c5aedfc37eb948e3be2caf3c08505e` |
-|  `latest-dev` | March 18th   | `sha256:62c63977c6edc3359487f976212c0d3beaff7478751448cb3d2242a3eb447f53` |
+|  `latest-dev` | April 5th    | `sha256:94e372d187aa9d95e17e82af9432d0744efb908b127671d2ccd057af3666b4f1` |
+|  `latest`     | April 4th    | `sha256:c588f597470df030ce8846041101eb239ebfcf8bb3a5413dce409f26f224a64e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7` `1.7.0` `1` `latest`                 | March 18th   | `sha256:56f5dff69ad0cc87d9b323dfb51f44efddace54131e43ba9061011e66c68a8df` |
-|  `latest-dev` `1.7-dev` `1-dev` `1.7.0-dev` | March 18th   | `sha256:86af7f088af2ef8ac846a5f034e785b6d7323f0923f9a03a5a1099660639c755` |
+|  `1-dev` `latest-dev` `1.7.0-dev` `1.7-dev` | April 5th    | `sha256:4dd0ae824d161344d9c03d66806dd9a66f31e4c243c8ed5652250e2a15f43857` |
+|  `1.7.0` `1.7` `latest` `1`                 | April 3rd    | `sha256:fae21991aa023cdf68b53d0f91c057efda2a31f072fa479c152ec2af2fb23ede` |
 

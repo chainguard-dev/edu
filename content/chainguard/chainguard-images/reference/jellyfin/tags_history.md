@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jellyfin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,11 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 26th   | `sha256:71f786c1593fcd5d534586d1420e39235c6e22673d8dcabf3aa1d447aee0f3ff` |
-|  `latest`     | March 26th   | `sha256:00392fda0977c01336e82f519a32937802a6107c02c1825f56a899738210f11f` |
+|  `latest`     | April 5th    | `sha256:0922364ebdf94672167ee5dc79d9b5578720376a9a0ef7677a4b69317462ca99` |
+|  `latest-dev` | April 5th    | `sha256:f563808d78a08f9738e9887060ade6023f92e11cd7cd3cee2f7c93e78a3b443f` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)                                         | Last Changed | Digest                                                                    |
+|-------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `10.8` `10` `10.8.13`                 | April 5th    | `sha256:dfbeae5cae483f7626b20fc356ee528334dbffc062ba13681f979daa3ff714be` |
+|  `10-dev` `latest-dev` `10.8.13-dev` `10.8-dev` | April 5th    | `sha256:9bf9910d65924b2121ebbf6eb77fc8ca3aef4cd122e4aa91bd28bdb262b2d774` |
+

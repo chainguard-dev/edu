@@ -3,8 +3,8 @@ title: "calico-calicoctl Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public calico-calicoctl Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-04-04 00:51:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -44,9 +44,9 @@ The table shows package distribution across variants.
 | `calicoctl`              | X          | X      |
 | `chainguard-baselayout`  | X          | X      |
 | `git`                    | X          |        |
-| `glibc`                  | X          | X      |
+| `glibc`                  | X          |        |
 | `glibc-locale-posix`     | X          | X      |
-| `ld-linux`               | X          | X      |
+| `ld-linux`               | X          |        |
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
 | `libcrypt1`              | X          |        |
@@ -59,6 +59,7 @@ The table shows package distribution across variants.
 | `libpsl`                 | X          |        |
 | `libssl3`                | X          |        |
 | `libunistring`           | X          |        |
+| `libxcrypt`              | X          |        |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
 | `openssl-config`         | X          |        |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-scheduledworkflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:5e4068e9816cc9b12d59876814b7f3be0d0da989d55bd1ba63474ad5fd0a9d09` |
-|  `latest`     | March 18th   | `sha256:1b4e8a03e29a7090727f7c8efb66f453fc2a218e6113e2b2c1bb9174a20288ba` |
+|  `latest-dev` | April 5th    | `sha256:d5da8fa326fab8e9dd02a9c16b814c78af7c3fecd9a85f098dfd07d6aec1a88c` |
+|  `latest`     | April 4th    | `sha256:54fc98a014a3f754ea8cc3c0d13f0e870555e09f021fa6acb40a509b802bd445` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.0-dev` `2.0.5-dev` `latest-dev` | March 25th   | `sha256:e942c8a01cd463238fbbdf7c407373f4b6e8451511e116e01a68baad87b0f980` |
-|  `2.0` `latest` `2.0.5` `2`                 | March 18th   | `sha256:915b30fb00bf51e038d891df6d889fe0afad146de444990f6f0af7df76559446` |
+|  `2.0.5-dev` `2.0-dev` `2-dev` `latest-dev` | April 5th    | `sha256:39e238b60264e35f633403c9b605d371972755cac6ffcdc8c212b9e8d6b48f0c` |
+|  `2.0.5` `latest` `2.0` `2`                 | April 4th    | `sha256:bf23db257b32a670c0ccae0839c99e4f21d56e51b26f921ed31fb39094118d5a` |
 

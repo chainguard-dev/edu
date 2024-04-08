@@ -1,0 +1,85 @@
+name: Integrate Enforce Docs
+
+inputs:
+  workload_identity_provider:
+    type: string
+    required: true
+    description: "Workload identity provider for GCP Workload Federation."
+  service_account:
+    type: string
+    required: true
+    description: "GCP Service Account to impersonate."
+  storage_bucket:
+    type: string
+    required: true
+    description: "Name of GCS bucket for static files"
+  project_id:
+    type: string
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: download changelog.md from cloud storage
+      shell: bash
+      run: |
+        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
+          "${{ inputs.storage_bucket }}/enforce-changelog/changelog.md" content/chainguard/chainguard-enforce/
+
+    - name: download openapi api.json spec from cloud storage
+      shell: bash
+      run: |
+        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
+          "${{ inputs.storage_bucket }}/enforce-openapi/api.json" static/
+
+    - name: download events.md from cloud storage
+      shell: bash
+      run: |
+        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
+          "${{ inputs.storage_bucket }}/enforce-events/events.md" content/chainguard/administration/cloudevents/events-reference.md
+
+    - name: download chainctl docs from cloud storage
+      shell: bash
+      run: |
+        gcloud --quiet storage cp --recursive --project="${{ inputs.project_id }}" \
+          "${{ inputs.storage_bucket }}/chainctl-docs" /tmp/
+
+    - name: copy changed chainctl docs into academy content directory
+      shell: bash
+      run: |
+        rsync -av --delete --exclude="_index.md" \
+          "/tmp/chainctl-docs/" "content/chainguard/chainctl/"
+
+    - name: add tags to chainctl docs by inserting line with sed
+      shell: bash
+      run: |
+        sed '/draft: false/a tags: ["chainctl", "Reference", "Product"]' \
+          -i content/chainguard/chainctl/chainctl-docs/*.md
+          
+    - name: add tags to changelog by inserting line with sed
+      shell: bash
+      run: |
+        sed '/draft: false/a tags: ["Platform", "Reference", "Product"]' \
+          -i content/chainguard/chainguard-enforce/changelog.md
+
+    - name: add tags to cloudevents by inserting line with sed
+      shell: bash
+      run: |
+        sed '/draft: false/a tags: ["Platform", "Reference", "Product"]' \
+          -i content/chainguard/administration/cloudevents/events-reference.md
+
+    - name: download domains.md from cloud storage
+      shell: bash
+      run: |
+        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
+          "${{ inputs.storage_bucket }}/enforce-blurbs/domains.md" /tmp/domains.md
+        sed 's/^/- /g' -i /tmp/domains.md
+        mv /tmp/domains.md data/domains.yaml
+
+    - name: download ips.md from cloud storage
+      shell: bash
+      run: |
+        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
+          "${{ inputs.storage_bucket }}/enforce-blurbs/ips.md" /tmp/ips.md
+        sed 's/^/- /g' -i /tmp/ips.md
+        mv /tmp/ips.md data/ips.yaml

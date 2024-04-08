@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:6d008a78c34a7af542834f0c86395e23f1026afa0ce74a29978df964152409bb` |
-|  `latest`     | March 18th   | `sha256:e629a95af89788f18434e48099c8307679bcf1b4e651530bcf75f2eed0665b5f` |
+|  `latest-dev` | April 5th    | `sha256:c89d3cd4516cbe2eaf5b609095eecbfc9dc9b452a013be222ab37c5cca5d80ee` |
+|  `latest`     | April 4th    | `sha256:8fb377b652c15c8d48694662becdd7f259b8453eb0b790cda8a25da5b5ef80d5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.21` `2.21.0` `2`                 | March 18th   | `sha256:a0a8a7065a9b2a18b48d2429c1f24a14e92c1ab13a8f89bd3f56f14e7dbea3f3` |
-|  `latest-dev` `2-dev` `2.21.0-dev` `2.21-dev` | March 18th   | `sha256:5817f2d876ccaf784a1177f25275dc47bd346aa84691d48c5ac780f67ecc613e` |
+|  `2-dev` `2.21.0-dev` `2.21-dev` `latest-dev` | April 5th    | `sha256:5f45e9e4eb5d450750a95c00de1d33fc5fb93bb9305fa2b918e031bce022f2a6` |
+|  `2.21` `2` `latest` `2.21.0`                 | April 3rd    | `sha256:02cb44ce95df36a5d7e11e6e71da22a2aa8fa59bfb2ee0614212803a17a4fb33` |
 

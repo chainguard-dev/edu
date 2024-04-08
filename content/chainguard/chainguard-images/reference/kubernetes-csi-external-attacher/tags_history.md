@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-attacher Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 21st   | `sha256:2cd44a2dcf06e52e8bad4590dcf215546f78c689d4b66d755ee68fe616014d9f` |
-|  `latest-dev` | March 21st   | `sha256:c8e9b016f5148dc632b5a0c0298a4057383651db0e2b4b68ee977638fddc81aa` |
+|  `latest-dev` | April 5th    | `sha256:0b95c20f6857462f0199b7f13446e8ff1806dfcd8dbae26b4ff38fc46a9aa3ed` |
+|  `latest`     | April 4th    | `sha256:7e19014ca4c450303f3d6c14531650a3c60dd828ece3912d3dc54a5285eb7ab3` |
 
 
 ### Private/Dedicated Registry
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `4.4-dev` `latest-dev` `4.4.4-dev` | March 25th   | `sha256:a0e82726116270753a2be3edb9d3717030c3e32d76b064b4fff2957200e0080b` |
-|  `4.3-dev` `4.3.0-dev`                      | March 25th   | `sha256:537814d01acb236ae35b33ca3158c9239454da0aee5fb619a6efc545f53ef3e4` |
-|  `latest` `4.4` `4` `4.4.4`                 | March 20th   | `sha256:c85d119b66d92113076747fdbf3fcf6f92881a85708ae06a4dab44fc316610fc` |
-|  `4.3.0` `4.3`                              | March 18th   | `sha256:872e5efbb8542a2ead2c1652db32f1646d16d1f5c40925d238797928dc5ac525` |
+|  `4.3.0-dev` `4.3-dev`                      | April 5th    | `sha256:fcdfc6ad27e550c148bb9d63941a77b658b29a0f4b8a1f41ed77bfc585dd7ddb` |
+|  `4.4-dev` `4-dev` `4.4.4-dev` `latest-dev` | April 5th    | `sha256:ddcaf3589b9f00858ec12eee52af97c6458351d88201284b423b53920324379c` |
+|  `latest` `4.4` `4` `4.4.4`                 | April 3rd    | `sha256:2918cb71bc9d4904df9bb7c7a03ba91a63831b7a0bb093a0b9206251042272fa` |
+|  `4.3.0` `4.3`                              | April 3rd    | `sha256:350ba96520884203f63c8f6d0e4b00fe8b3e45b2c1bfcc26736617c14121ae3e` |
 |  `4.4.3`                                    | March 18th   | `sha256:fd9e2643c5ca8a511811f375e4b0d31412778c3755bbfb76706db308fb32819d` |
 |  `4.4.3-dev`                                | March 18th   | `sha256:97cf1f9113a00924bc5c51ff1654acda9edc0608eb07b9b92330618a4fe5455e` |
 

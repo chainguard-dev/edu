@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dragonfly Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 25th   | `sha256:8e1dd20fba66bd6d19313a2f4c6ccb23dc1004457fd7c690c6712a86605af589` |
-|  `latest`     | March 25th   | `sha256:f71b01c003afe09368b3a38305100193fa7d4770be0792117237efc63a268093` |
+|  `latest-dev` | April 5th    | `sha256:57cfbc97af3bd7460268e679fcca227ee90a8970a53d4f3dc9892f181b4c6753` |
+|  `latest`     | March 31st   | `sha256:344afed047bb6a24492f16dfa4feae6d800b1732656b4eb8198e2b6d70423446` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15.1-dev` `latest-dev` `1.15-dev` `1-dev` | March 26th   | `sha256:9c531f400a9a2d2489c99b8a170995faa5b72661315f173c25130007c99343b1` |
-|  `1.15.1` `1` `latest` `1.15`                 | March 26th   | `sha256:52376886b742b979b351446dbc23c3f3f12e582d361b95ec72a329fa033164c8` |
+|  `1.15-dev` `latest-dev` `1.15.1-dev` `1-dev` | April 5th    | `sha256:7b78d938ef4c4db9c76ed467b5085b9b65998c6d02eff44b073a380f05084c89` |
+|  `1.15` `1` `latest` `1.15.1`                 | March 29th   | `sha256:57bb2cfcb772cb801e9c54f48f8819f83ef413e0b5ee9acf55eaa6dd1ffed64e` |
 

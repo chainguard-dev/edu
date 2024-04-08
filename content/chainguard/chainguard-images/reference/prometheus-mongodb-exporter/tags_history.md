@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:d76e68de65083f40603edcef7d8b8522444547d7fff783d6597de8252bff4417` |
-|  `latest-dev` | March 18th   | `sha256:1f1254868f53ffaf02e098d083376103b6eaa818647c9f1c106b1bf96e8037c6` |
+|  `latest-dev` | April 5th    | `sha256:7692a2109087f90adbb6020bd93fb68801f6496080272896b158b205f3573163` |
+|  `latest`     | April 4th    | `sha256:fa3d5a97af891c120f982de619c1fe7bccff87c25b649d7df72cb2df2629963c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.40.0-dev` `0.40-dev` `0-dev` `latest-dev` | March 18th   | `sha256:4508f76e7ce2c0a80b44eb40a24b2d63bcf5f8838c6f1eb161ad93f95ac42be0` |
-|  `0.40.0` `0.40` `0` `latest`                 | March 18th   | `sha256:ea916753c482c993a323cfcaa8dd968b9f73ca3ac9a5dad1bfe24bf2e4d7e63b` |
+|  `latest-dev` `0.40.0-dev` `0-dev` `0.40-dev` | April 5th    | `sha256:2341ef84d6d502cce251570bf9ddcd272abfc1bafb2f8941e538c5ad71b89ae3` |
+|  `latest` `0` `0.40.0` `0.40`                 | April 3rd    | `sha256:691bf333dead2aae36571660907ea20004a6a00acaff8da4efbb6fe16193af87` |
 

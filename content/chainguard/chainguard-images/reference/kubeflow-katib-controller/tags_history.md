@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 22nd   | `sha256:86e7f2ca97a60e658670d737e2ff9b46e5a0d56a81e6371755d3bcdd887ba329` |
-|  `latest-dev` | March 22nd   | `sha256:a4fdfc6c4e3f329ba520f6eb652af4a9e2ecdc708139b11b90ef65f2326a1401` |
+|  `latest-dev` | April 5th    | `sha256:a4cd4de17907c639f9ed69094203131161381dfcb06e336dfee9adb7b9fb7b3a` |
+|  `latest`     | April 4th    | `sha256:f093f8a126bc64bf236ed3207587326d7e2169f6b59b76765051033da7119730` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0.16-dev` `0-dev` `latest-dev` | March 25th   | `sha256:ca965550de3f2839ffef0e63786101d6431adeec43f7f2ffe4ef4bbb44f0d8e6` |
-|  `0.16.0` `0` `0.16` `latest`                 | March 22nd   | `sha256:602e0ff2137a6028f5cc5153dcf3d18a8ae5786ca6cde7c3cc3061f456855639` |
+|  `0.16-dev` `latest-dev` `0-dev` `0.16.0-dev` | April 5th    | `sha256:d0a1ef10bfaab784a840f856f120135b9f2277af311b65f1babb184dccbc7156` |
+|  `0.16.0` `0.16` `0` `latest`                 | April 4th    | `sha256:3452d062aeac8f4a6bb3cbe37c7b024aa78a4b8943df677382b26ec42790dfbb` |
 

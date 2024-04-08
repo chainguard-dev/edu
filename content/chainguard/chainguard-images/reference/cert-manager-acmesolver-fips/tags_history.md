@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-acmesolver-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14.4-dev` `1.14-dev` `latest-dev` `1-dev` | March 21st   | `sha256:9bdd40e9d4bac94b34ec26c77218af2aeb7d1663ed7c6f4657039dcfe89efecb` |
-|  `1.14.4` `1.14` `latest` `1`                 | March 21st   | `sha256:d90035800a03c037e980db48876317e83eaa6786db2de1cb1611dd218da93457` |
-|  `1.13-dev` `1.13.5-dev`                      | March 18th   | `sha256:ddd27bc9bda16a76b6f31d146caf5a59b37b935c25594693eccb03654c9c8769` |
-|  `1.13.5` `1.13`                              | March 18th   | `sha256:e5b0e0418af8e0635116952ca07e423e427b67d7d7d5e4e6d78f6f68febbbefe` |
+|  `1.13.5-dev` `1.13-dev`                      | April 5th    | `sha256:988ee6dd96d5f1153bdd440c714fc0f6391474671196fa4236ff4ac8298ef3c9` |
+|  `1.14.4-dev` `latest-dev` `1.14-dev` `1-dev` | April 5th    | `sha256:98786ba47b18e63f3f688c15cfc559e8f804f73f7b14d102421dd9ee2388e4ac` |
+|  `1.13.5` `1.13`                              | March 28th   | `sha256:e7394540891a122222ee9170416152cb9e0c8754fbd82966d9f0834d589b01a6` |
+|  `latest` `1.14.4` `1.14` `1`                 | March 28th   | `sha256:e2a31970a377cd9167cb109ed608c6d788ccd4378934296b1063fc318babefbc` |
 |  `1.13.4-dev`                                 | March 14th   | `sha256:80467d15c27e26171c028c765bfef96631eaaa5106936fe3014275fe7cbde5e1` |
 |  `1.13.4`                                     | March 14th   | `sha256:0482dcdcffc8e6b3dbf2dfe96271a2010d62611358b80627930f6c983ce0c2cb` |
 |  `1.14.3`                                     | March 14th   | `sha256:ad79c93340548d5dc1813402c64849ab52a9b46a11d8c4f4a6b49b1e74854115` |

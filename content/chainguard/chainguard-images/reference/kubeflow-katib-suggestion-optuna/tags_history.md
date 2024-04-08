@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-optuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 22nd   | `sha256:5d83612bbd78c44b5cf57e42e215f4bac0e19e728850346b8b19a8f8e152722f` |
-|  `latest`     | March 22nd   | `sha256:3348a65cf054f0630e2f160a501df6a3435deab802527ebb0d0b3aedc4a899a6` |
+|  `latest-dev` | April 5th    | `sha256:25c72e8c6b0a8fa8e938330cfce79b6697206d4293be8826c3a86dbf574bfe5b` |
+|  `latest`     | April 4th    | `sha256:ebf725b3b53f6886eaccac17825efb9462a8da09a80fc7a83cf86fdcb53fb4b0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.16` `0` `0.16.0`                 | March 25th   | `sha256:88e7d96076a9000740976be73b0fe3571e9391f1dbf59add84b9118e83329e4d` |
-|  `latest-dev` `0.16-dev` `0-dev` `0.16.0-dev` | March 25th   | `sha256:a87693f2e32fbb87376a9e7778e7b062ea8dd3365794f4e7262507f7b3e1e7e4` |
+|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | April 5th    | `sha256:286094392c1728a424cf4633e6d801c1b1f204d84d1a26c0044439489412a1fc` |
+|  `latest` `0.16` `0.16.0` `0`                 | April 4th    | `sha256:f3253765bdecc8e0bdd738337f06dd6dee4cd353fd8133d7727b3976c3e387a3` |
 

@@ -1,0 +1,138 @@
+name: Build Platform Docs
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+  push:
+    branches: 
+      - platform-docs
+
+jobs:
+  check-new-docs:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write # federates to talk to storage
+
+    outputs:
+      status: ${{ steps.compare-releases.outputs.status }}
+    
+    steps:
+    - name: 'Github Actions Runner'
+      uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+      with:
+        egress-policy: audit
+
+    - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
+      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
+
+    - name: Authenticate to Google Cloud
+      id: auth
+      uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
+      with:
+        token_format: 'access_token'
+        project_id: "${{ secrets.PROJECT_ID }}"
+        workload_identity_provider: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
+        service_account: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
+
+    - id: compare-releases
+      name: 'Compare published docs to upstream releases'
+      run: |
+        latest=$(gcloud storage cat \
+          "gs://chainguard-academy/enforce-changelog/changelog.md" | \
+          awk '/###/ {print $NF}' | \
+          head -n 1)
+        current=$(awk '/###/ {print $NF}' \
+          content/chainguard/chainguard-enforce/changelog.md | \
+          head -n 1)
+        if [ "$current" != "$latest" ]; then
+          echo "status=outdated" >> $GITHUB_OUTPUT
+          echo "latest=$latest" >> $GITHUB_OUTPUT
+        fi
+
+  integrate-platform-docs:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # writes to a branch on the repo
+      id-token: write # federates with GCP and Sigstore
+      pull-requests: write # creates PRs with the GH CLI
+
+    needs: check-new-docs
+    if: needs.check-new-docs.outputs.status == 'outdated'
+
+    steps:
+    - name: 'Github Actions Runner'
+      uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+      with:
+        egress-policy: audit
+
+    - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
+      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
+
+    - name: 'Setup gitsign'
+      uses: chainguard-dev/actions/setup-gitsign@main
+
+    - name: Authenticate to Google Cloud
+      id: auth
+      uses: google-github-actions/auth@ceee102ec2387dd9e844e01b530ccd4ec87ce955 # v0
+      with:
+        token_format: 'access_token'
+        project_id: "${{ secrets.PROJECT_ID }}"
+        workload_identity_provider: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
+        service_account: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
+
+    - uses: ./.github/workflows/integrate-platform-docs
+      with:
+        project_id: "${{ secrets.PROJECT_ID }}"
+        workload_identity_provider: "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}"
+        service_account: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
+        storage_bucket: "${{ secrets.STORAGE_BUCKET }}"
+
+    - uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # v3
+      with:
+        node-version: 16
+
+    - name: Update themes
+      run: git submodule update --init --recursive
+
+    - name: npm install
+      run: npm install
+
+    - name: npm run build
+      run: npm run build
+
+    - name: Set up Octo-STS
+      uses: chainguard-dev/octo-sts-action@6177b4481c00308b3839969c3eca88c96a91775f # v1.0.0
+      id: octo-sts
+      with:
+        scope: chainguard-dev/edu
+        identity: edu
+
+    - name: Commit to autodocs branch
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        git config user.name github-actions
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+        # Check git status and push changes if needed
+        GIT_STATUS=$(git status content --porcelain)
+        if [ -n "${GIT_STATUS}" ]; then
+          git add content/
+          git commit -am "Automated docs commit"
+          git push origin HEAD:autodocs --force
+
+          # Now open a PR if needed
+          PR=$(gh pr list --json title,headRefName,url |jq '.[] | select(.headRefName=="autodocs")')
+          if [ -z "${PR}" ]; then
+            gh pr create \
+              --base main --head autodocs \
+              --title "Platform docs ${{needs.check-new-docs.outputs.latest}} autocommit" \
+              --body "Platform docs ${{needs.check-new-docs.outputs.latest}} autocommit" \
+              --no-maintainer-edit --label automated,documentation,platform
+          else
+            echo "PR exists, see ${PR}"
+          fi
+        fi

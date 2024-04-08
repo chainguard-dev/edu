@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grype Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 21st   | `sha256:53d3c763ac109d7d839fee911af45faed44bd4e17b8c358b8c820d76eb03654b` |
-|  `latest`     | March 21st   | `sha256:dbca4aca461f7c3d57b10c2d3ef8a868e1f8565e0442b56e10e966c1b34295db` |
+|  `latest-dev` | April 5th    | `sha256:8a5c4bc26f16386400f9e344069e075297c05c0a7b203baf19778ab00549a696` |
+|  `latest`     | April 4th    | `sha256:ba52ae3459575d5930365b27bb91ed78bfa09efa7a913ea73265f921284abd57` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.74-dev` `0.74.7-dev` `latest-dev` `0-dev` | March 21st   | `sha256:ba3e84c464ce0f45e1da2243ac1d8f7e6df82d06324981299100b68c8ae42095` |
-|  `0.74.7` `latest` `0.74` `0`                 | March 21st   | `sha256:94a005d95d6aa7503dc48dfcdafb97cc09933f4ba42b4335d7829479121f2a05` |
+|  `0.75-dev` `latest-dev` `0.75.0-dev` `0-dev` | April 5th    | `sha256:3f74e6183983613a935573a97ce7a4c288ee87df507b4e2cba330c11d826ed1b` |
+|  `0` `0.75` `0.75.0` `latest`                 | April 4th    | `sha256:cf42976650078eca72070ef8f882df8dda648ff6bccaa16c13bc9946692c07a4` |
+|  `0.74.7-dev` `0.74-dev`                      | April 4th    | `sha256:2b7411ab77222fc8d3e7f91543150391404b4031e9f9342477e67448ee169adb` |
+|  `0.74` `0.74.7`                              | April 4th    | `sha256:dd9f631c8fe8112e1f13b3feb4137e8cfcc5b41a748985d2aaaa6e724e2d28dd` |
 

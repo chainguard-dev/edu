@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-recommender Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:d42512b991d0a66e36316425e75e331687556d97525a0c7b9fffae0bef309281` |
-|  `latest-dev` | March 18th   | `sha256:c2528b1409a9541bd760f127a3e58bd33eadcb1384a02c134a091be29bfdf578` |
+|  `latest-dev` | April 5th    | `sha256:75a25c37b47540deda248bb1892d92cc7a848c9c5af7fbe6ff709355d3dff7d4` |
+|  `latest`     | April 4th    | `sha256:9296d5a0686f26369dce66147a4c6934a652ab2a23dc07afbc909a51d3a0fe5c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0.0-dev` `1.0-dev` `latest-dev` `1-dev` | March 25th   | `sha256:139a6337a825f701b06d4ff3322fc73ffe4f806d454d66471d00c61269452342` |
-|  `1` `1.0` `1.0.0` `latest`                 | March 18th   | `sha256:fba2bb480732112fe797b9cb0edc32d322b20402a4c640ce08fdd09f3fb7d84b` |
+|  `1.0-dev` `latest-dev` `1.0.0-dev` `1-dev` | April 5th    | `sha256:c70c2762e90d54bef9c57bce08627d603ad85f55fdd8f02e891b3c552c32eb13` |
+|  `latest` `1.0.0` `1` `1.0`                 | April 3rd    | `sha256:08a8094bfa14e11ddf62c714129fa9dd5c89e241e314c19d9fd6eff8d1e46dae` |
 

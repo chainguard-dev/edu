@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault-k8s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:c2914cf0574843af1cdfd85f1ea42dc758c9443177b7822a545f61a154b1f106` |
-|  `latest-dev` | March 18th   | `sha256:0266ae275d40d3c25e0eb0cf655926681c6a04f32c2228cb59aba938429919ae` |
+|  `latest-dev` | April 5th    | `sha256:3df128bbd72cb3e50b06b44c4749ea84ef08888b21df9651f408c45bc45269e5` |
+|  `latest`     | April 4th    | `sha256:ab01e306ffa41f1f378bd920059c5f898d565a1b2f5063bd44d4d3e141eefe25` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.4.0-dev` `1.4-dev` `1-dev` | March 25th   | `sha256:ddc395fee8ded84d100dd5fd6899bc307bd41d300a14e8ffb09bdbfcb7d4bf74` |
-|  `1` `1.4.0` `1.4` `latest`                 | March 18th   | `sha256:07437f3cc1b661d31b889b429b33f34ba6d14100deac3cd80d1eaf11cb7b69f2` |
-|  `1.3.1-dev` `1.3-dev`                      | March 2nd    | `sha256:443f8bf27d544025cd104ffe40edb775b8c3ddf8a583f09ab57a8044bba82a2e` |
+|  `latest-dev` `1.4-dev` `1-dev` `1.4.0-dev` | April 5th    | `sha256:ab8f220bf3cea1e54e79c9920c3c96e4a7d2c1e7db104917a2f6f4e418f626f3` |
+|  `1.4` `1.4.0` `latest` `1`                 | April 3rd    | `sha256:e763e3954b390877984facc74c7729f8fb36e947aba7ca3930d3bfbc6f2e91a4` |
 

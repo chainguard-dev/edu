@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:87d64423d1a7c5b0f85935f814d22fc3c8b55d31e2b3e393acdb72803260f922` |
-|  `latest`     | March 18th   | `sha256:12a9cd6137b7ee7ea473f2e5c51b716915763a8d6753400b39d4c6e9ac228ac2` |
+|  `latest-dev` | April 5th    | `sha256:d78f2a5b3281ceb912c785134251904a945fb2eae205252ca3c6e735a22a1e23` |
+|  `latest`     | April 4th    | `sha256:abb7a6b53e3badafda832c347f176e4ffa41370d27001cb8cc60fec68c3d46fb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.15.0-dev` `0.15-dev` `latest-dev` | March 18th   | `sha256:35fea6554f28ecd0bb169157afa161371b9a8c68c85b2eb05c6abb6644f58dc5` |
-|  `latest` `0.15.0` `0.15` `0`                 | March 18th   | `sha256:ee8f857ceec21357cf6abee9087462247a27872e2cb6e685da5fb2883fe9c329` |
+|  `0.15.0-dev` `0-dev` `latest-dev` `0.15-dev` | April 5th    | `sha256:2a5c185cbd854fe569751fbd28f38eefb834f01bf66c2ba61efb812225034d31` |
+|  `0.15.0` `latest` `0.15` `0`                 | April 3rd    | `sha256:f1acfc793745896a2435ac7bf50702169c62e81d2055bd95828005e61613ebda` |
 

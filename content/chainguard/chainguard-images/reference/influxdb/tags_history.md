@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the influxdb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 24th   | `sha256:2990b0a1736186897df877380a6d56549866dc02e766c36f391e22d42491da44` |
-|  `latest-dev` | March 24th   | `sha256:1aa28d5e6837831b9c3e010d462f9cf1fbc6b30692890f11a32f1976dc231d0e` |
+|  `latest-dev` | April 5th    | `sha256:07977851bd65af22e76c6e59b203204064d320a36071319feec8b21960f8e9b8` |
+|  `latest`     | April 4th    | `sha256:7a63a095f7829dc5b496ac65e425ca20255e51a47a8a9d28766c737adcffb124` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.7.3` `2` `2.7` `latest`                 | March 24th   | `sha256:b3f7d3609667687d40e5ec5eb64409e22196351121c698007e49aea7616add2c` |
-|  `2.7.3-dev` `latest-dev` `2-dev` `2.7-dev` | March 24th   | `sha256:6039cf228f0dd0d783b9b3361148abe1c4661be0b780b6cbd90bd5c9b4ef88bc` |
+|  `2.7-dev` `latest-dev` `2.7.3-dev` `2-dev` | April 5th    | `sha256:fdf3cfbdbcb90fa0805c1de8302f828bb08417c83f8f9be0556f7190f283d039` |
+|  `latest` `2.7.3` `2.7` `2`                 | April 4th    | `sha256:bd152a0a9c578aa6d898805298360e8ee0b4b7a528e60169a53d868123ac966e` |
 

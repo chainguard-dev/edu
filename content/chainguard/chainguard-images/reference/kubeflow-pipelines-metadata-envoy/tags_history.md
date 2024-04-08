@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:c7978b457a205e429981b6e1cc2157d5589cdc6c1bc04dee2a5ad891947a91fa` |
-|  `latest`     | March 18th   | `sha256:299e2d374c7e6f991d6c03e6aad13e6476c2c47d0004155a7f2144376863ee46` |
+|  `latest-dev` | April 5th    | `sha256:31237a060552baad22aef0154e1738a5562ce166d1143eb4a4a1263e102198ae` |
+|  `latest`     | April 5th    | `sha256:c5586c7d5b4160110f3a3904ae0d692c401c890c7493aeddcc4841ca8c58ecb3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0` `2` `2.0.5` `latest`                 | March 18th   | `sha256:41971bbfce230af31fce6d54112625dc5ae417fe5d2862f4e6899624c5c31c09` |
-|  `2.0-dev` `2-dev` `2.0.5-dev` `latest-dev` | March 18th   | `sha256:64281678aed964662566ed5bb28324b76a4d75c8bd0cedcc8068c4d95aeb43a5` |
+|  `2` `2.0` `latest` `2.0.5`                 | April 5th    | `sha256:45d5e0333a43768e3aaa20151018adcf03c375a714d86f33cc536729903f30c3` |
+|  `2.0.5-dev` `latest-dev` `2.0-dev` `2-dev` | April 5th    | `sha256:91657a1e7a9128746f9c3260c578ae8a15085f996341026b85ca74e169d227a9` |
 

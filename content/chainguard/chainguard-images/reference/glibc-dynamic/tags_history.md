@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the glibc-dynamic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:516a2cdd53b49b67cbfd2d17bf6f57f2d87e2b382872ae7c1f535429c0778c2c` |
-|  `latest`     | March 18th   | `sha256:f1c84f0a86e8e9aa581a2853cee5513197dd98ea9b7a34054f491e102a238878` |
+|  `latest-dev` | April 5th    | `sha256:de6d4b95cbd291e325a79878d02ec665cb85047e417c2f1100d946da8a2d112e` |
+|  `latest`     | March 28th   | `sha256:e1f6ffa9629cc74d31d3d28007d846264f7a6cc2447bfa4275e9e7238a6619c3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `13-dev` `latest-dev` `13.2-dev` `13.2.0-dev` | March 18th   | `sha256:2a65e87cbfc40943b7e9a26c2c25e08874c8df4ebecb2f00128af6c5f1c39597` |
-|  `13.2` `13.2.0` `latest` `13`                 | March 18th   | `sha256:b9bb7e120066961dbe2ea9369705af929ef3627f2506d98ce3d0cf67a87cf08a` |
+|  `latest-dev` `13.2.0-dev` `13-dev` `13.2-dev` | April 5th    | `sha256:5e10e5f7b9dab871143e4e2a4bcc22c4c470d02b1e7daa33fc8e85fd62e05f2a` |
+|  `13.2.0` `latest` `13.2` `13`                 | March 28th   | `sha256:bccc00ba10552167edbadd3cd09ce453f1fe3b05abe5c15d0d1ea73dd9b269c4` |
 

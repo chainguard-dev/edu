@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the trino Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 22nd   | `sha256:1bb5ed88dcfd582c9d53e09ccdc6f26e3f7c011b74bc28d165117fcb53b3b502` |
-|  `latest`     | March 22nd   | `sha256:716525b987df8fbdd79f116f9db4194c038ab5c5369670aa551e6599e7b17041` |
+|  `latest-dev` | April 5th    | `sha256:4aae1052c2bb1f8df1a0906fac1cdc5c78d5fb9a669b145d703f71fe006a8bc3` |
+|  `latest`     | April 5th    | `sha256:9592bbf7e76b0e1c249b402718427eb07ffe812b5629ce6342ef1dc3cbd4bbe0` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                 | Last Changed | Digest                                                                    |
 |-------------------------|--------------|---------------------------------------------------------------------------|
-|  `443-dev` `latest-dev` | March 22nd   | `sha256:c2804d83540baf1ae8a8572eef1616582ac8762bab2f28d8dabec44c5c039650` |
-|  `443` `latest`         | March 22nd   | `sha256:aef1f54d9034ba561f7d79ada4e2c7a10383b187d06c5c02f2e038550a1260bd` |
+|  `latest-dev` `443-dev` | April 5th    | `sha256:65dd6fca0af751127358fb13d8efcb0bb66c89bdac0486c53cd3a0896728e371` |
+|  `latest` `443`         | April 5th    | `sha256:a3d6a1a692249493b88b8c4ec851ab43cf6e3f180eff8dfc669b073d0333de9e` |
 |  `442-dev`              | March 20th   | `sha256:0fdc5f474a1f48f0721e13efcb88454b0fa9209f24d60b3fd8141a8efe0dc0ba` |
 |  `442`                  | March 20th   | `sha256:aeb33ab130877020cb66a2aee84947bcfe014bbda97c4244ae5878413d629cdb` |
 |  `439-dev`              | March 12th   | `sha256:fdef884292d4c3f0d3ec7685c076895080126f28bec2d1f931932753783de9ad` |

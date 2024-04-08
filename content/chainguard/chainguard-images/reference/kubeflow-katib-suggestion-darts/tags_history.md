@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-darts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 22nd   | `sha256:3f45ac1dd8a1b65f9a217a1e5849489210cac8d5432a66f92bcebaf2e2f0893a` |
-|  `latest`     | March 22nd   | `sha256:d97a751f6e3ce339ec8c358b07870835436ef6c5f58facd4ef05ef118bc59435` |
+|  `latest-dev` | April 5th    | `sha256:67a33ef968bdda3e232d94af403d0a06fc36e7f1b2bc021f871fc1404e8c7dfb` |
+|  `latest`     | April 4th    | `sha256:5e5f53281aa6c092434d2267aed8f7093b23eced00649700053f1d68f856f2b4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.16.0` `0` `0.16`                 | March 22nd   | `sha256:5b6b6399ab9a7b9d4bb2647ab93255cdad1b4b0d5075d4700806e6d351a55fc6` |
-|  `0.16.0-dev` `latest-dev` `0-dev` `0.16-dev` | March 22nd   | `sha256:421decd461c13a347f752724f148a1bcbd444536004fee607ebb82007e83bc4e` |
+|  `0-dev` `0.16.0-dev` `latest-dev` `0.16-dev` | April 5th    | `sha256:677c82ba9b562a649d1f110c46c951381adf10b6404bd62e0bd3d0ea2bee7f7f` |
+|  `latest` `0` `0.16` `0.16.0`                 | April 4th    | `sha256:e55cb125d9fffb139e2e860aa2095c4c9008f77b52e52723ad70b1a067a1b018` |
 

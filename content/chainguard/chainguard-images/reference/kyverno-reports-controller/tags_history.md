@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-reports-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-22 00:34:55
+lastmod: 2024-04-05 00:47:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 21st   | `sha256:b5f6c0f782bfe633f7091befdbc835f0207d40639e581625dcd9dc3f9cbe815e` |
+|  `latest` | April 4th    | `sha256:86c576e6b52dc5612f02b98c3f062d463a4a1e42dbc06a3b0a42f3d63a54888c` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.11.4` `1.11` `1` | March 21st   | `sha256:ac42dcef2ddae66929c1c6c2cea297f5834d559695c20ea67b98d691577abd1d` |
+|  `1.11.4` `1.11` `1` `latest` | April 4th    | `sha256:3046ca32aab79f1b800ea196e3d0136639b7574f42351e3539cab46652984c22` |
 

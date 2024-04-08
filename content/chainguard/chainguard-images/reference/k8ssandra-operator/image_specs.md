@@ -3,8 +3,8 @@ title: "k8ssandra-operator Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public k8ssandra-operator Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,11 +43,11 @@ The table shows package distribution across variants.
 | `ca-certificates-bundle`    | X          | X      |
 | `chainguard-baselayout`     | X          | X      |
 | `git`                       | X          |        |
-| `glibc`                     | X          | X      |
+| `glibc`                     | X          |        |
 | `glibc-locale-posix`        | X          | X      |
 | `k8ssandra-operator`        | X          | X      |
 | `k8ssandra-operator-compat` | X          | X      |
-| `ld-linux`                  | X          | X      |
+| `ld-linux`                  | X          |        |
 | `libbrotlicommon1`          | X          |        |
 | `libbrotlidec1`             | X          |        |
 | `libcrypt1`                 | X          |        |
@@ -60,6 +60,7 @@ The table shows package distribution across variants.
 | `libpsl`                    | X          |        |
 | `libssl3`                   | X          |        |
 | `libunistring`              | X          |        |
+| `libxcrypt`                 | X          |        |
 | `ncurses`                   | X          |        |
 | `ncurses-terminfo-base`     | X          |        |
 | `openssl-config`            | X          |        |

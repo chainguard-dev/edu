@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rabbitmq-cluster-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:f07009752e03b6cea636b08fc820f4f2a2c99ff47659c0f7681b560ccbe1f2a5` |
-|  `latest`     | March 18th   | `sha256:92c2a72a9fee7b84452075321f0869710346302601785537ba21f6f9f7478c4f` |
+|  `latest-dev` | April 5th    | `sha256:df532ce15258566285c7698b98223d9b646e9b11799745ae4d1d7669c85e6585` |
+|  `latest`     | April 4th    | `sha256:5754b0c3731f36294ba8d9b45cfd3d607b598cc64a6abf029ebc63bf04e6ad1b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.7.0` `latest` `2.7` `2`                 | March 18th   | `sha256:c6cfd0decff3e25a9ffcf39e51d5a5c6770e54a46318c0d23f4bf4aa62a64eb8` |
-|  `2.7-dev` `2.7.0-dev` `latest-dev` `2-dev` | March 18th   | `sha256:d5ffe8981f97abed197157f19a995aeceb2bf41363ec798cf548a24b1e2c9702` |
+|  `2.8-dev` `latest-dev` `2-dev` `2.8.0-dev` | April 5th    | `sha256:95a4a31bcbae2fac0a96c927592dbe71128f07eb7d272239e0d6062538bbfa1c` |
+|  `2.8` `2.8.0` `2` `latest`                 | April 3rd    | `sha256:6e29f1d71807addf68153bf4f14c2a621c0490e46b3d52837796c779934ae64b` |
+|  `2.7-dev` `2.7.0-dev`                      | April 2nd    | `sha256:6d440593287753facb8af86283b372776bacb85a71980eb827a19e0089d3b64a` |
+|  `2.7` `2.7.0`                              | March 28th   | `sha256:1ecb5c96abe5ea5fbcb12c9c19d0cc57d1e751c1499ef1543d1949dfc9076dab` |
 

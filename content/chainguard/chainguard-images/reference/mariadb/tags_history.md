@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:436eb4f7cee11b9afdaf25fad041a12dc953e4d9298d0d3587665238a250d5ef` |
-|  `latest`     | March 18th   | `sha256:2ee96fa3c65f547b33188f5f45314df18e38121c55ee644574b472b9b593acb1` |
+|  `latest`     | April 6th    | `sha256:2c0360a38f6e85425849409c432f96144a8700ec581cd29b9a3a50e2e102d989` |
+|  `latest-dev` | April 6th    | `sha256:e393869abc3bf34a26792545710c193e931f505fd6943cfbe95e704b48fe954d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10.11-dev` `latest-dev` `10.11.7-dev` `10-dev` | March 18th   | `sha256:1eaed003154e06b9951ad2253272508855f5268af48dbee225565761665a82f3` |
-|  `10.11` `latest` `10.11.7` `10`                 | March 18th   | `sha256:7afe15d87e7a3bf12ae61e761399c5387363b03ebd5364b38a5ffa3ec302c446` |
+|  `10-dev` `latest-dev` `10.11.7-dev` `10.11-dev` | April 6th    | `sha256:51bd415776c90e6092e143c326c66e2a301a195920bc94ebc6c6354ab0bbd802` |
+|  `latest` `10` `10.11.7` `10.11`                 | April 6th    | `sha256:f18957b7bca44483edcd477de8bb0fe7c33a7b812100fd3d584d4acc10de1ca3` |
 

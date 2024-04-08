@@ -120,20 +120,21 @@ Lastly, in the **Advanced** configuration tab, ensure that the **Block Mismatchi
 
 Following that, click the **Create Remote Repository** button. If everything worked as expected, a modal window will appear letting you know that the repository was created successfully. You can click the **Set Up Docker Client** button at the bottom of this window to retrieve the commands you'll use to test that you can pull Images through this repository.
 
-### Testing pull through of a Chainguard Developer image: 
+### Testing pull through of a Chainguard Production image: 
 
 After clicking the **Set Up Docker Client** button, a modal window will appear from the right side of the page. Click the **Generate Token & Create Instructions** button, which will generate two code blocks.
 
 The first will be a `docker login` command similar to the following example. Copy this command and run it in your terminal.
 
 ```sh
-docker login -u<inky@chainguard.dev> <myproject>.jfrog.io```
+docker login -u<inky@chainguard.dev> <myproject>.jfrog.io
+```
 
 Be sure to include your own username and Artifactory instance.
 
 After running this command, you'll be prompted to enter a password. Copy the token from the second code block, paste it into your terminal, and press `ENTER`.
 
-After running the `docker login` command, you will be able to pull a Chainguard Developer Image through Artifactory. The following example pulls the `wolfi-base` Image.
+After running the `docker login` command, you will be able to pull a Chainguard Production Image through Artifactory. The following example pulls the `wolfi-base` Image.
 
 ```sh
 docker pull <myproject>.jfrog.io/<cgr-private>/<organization-name>/wolfi-base
@@ -147,6 +148,7 @@ Be sure the `docker pull` command you run includes the name of your project, you
 If you run into issues when trying to pull Images from Chainguard's Registry to Artifactory, please ensure the following requirements are met:
 
 * Ensure that all Images [network requirements](https://edu.chainguard.dev/chainguard/administration/network-requirements/) are met.
+* Regarding networking, if you attempt to pull a non-existing image via pull-through, Artifactory will also make calls to `chainguard.dev` and `www.chainguard.dev`.  Calls to these domains should not occur when pulling a valid image.
 * When configuring a remote Artifactory repository, ensure that the **URL** field is set to `https://cgr.dev/`. This field **must not** contain additional components. 
 * You can troubleshoot by running `docker login` from another node (using the Artifactory pull token credentials) and try pulling an Image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<company domain>/<image name>`.
 * It may help to [clear the Artifactory cache](https://jfrog.com/help/r/artifactory-cleanup-best-practices/clearing-an-oversized-cache).

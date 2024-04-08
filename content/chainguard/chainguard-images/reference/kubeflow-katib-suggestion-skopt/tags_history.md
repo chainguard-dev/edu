@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 22nd   | `sha256:94777df0c38607c7e7b54c46da05c0e6c3c055b4c09c2ad78217647b30425b07` |
-|  `latest`     | March 22nd   | `sha256:945ef32174bc332a637662e35a7577fa04c2c36918622bc5cff9de6c9a435150` |
+|  `latest-dev` | April 5th    | `sha256:5de48b9dcf6ac1b53fb9b382c187426c9d07093574c0e43f14fce7d86fffadb1` |
+|  `latest`     | April 4th    | `sha256:7fbd2461a8ab6282f75bc28bd4aa7c1b6aff6c7e0acac25263ac26a8ec9094f4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | March 25th   | `sha256:88ffd15627b5776bbae0169928cc8dff670f13643a7dfccad60aff6d492daaf9` |
-|  `latest` `0.16` `0` `0.16.0`                 | March 25th   | `sha256:7e54db8c5e71589db6fd887f34937ee2c3c3c6411ccc40c77e51187932c0f844` |
+|  `0-dev` `0.16.0-dev` `latest-dev` `0.16-dev` | April 5th    | `sha256:34ea3671c11fec156287ea77557e0603afc21e59250a6634e6f659679e6a440b` |
+|  `0` `0.16` `latest` `0.16.0`                 | April 4th    | `sha256:3da3da9ef485e7bba42eae9a46a87b35a6422dd39d4113f25d76b9aa1e2320d3` |
 

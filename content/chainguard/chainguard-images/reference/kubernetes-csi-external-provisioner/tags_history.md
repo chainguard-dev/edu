@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:e4c806c0bf71912e24777b8f0925ec105576580180990cf050ae84bd053cf2c3` |
-|  `latest-dev` | March 18th   | `sha256:8e2d26cdbe4e7d402076030929f0f1c9f812d055bc157420e942626d12ebf74e` |
+|  `latest-dev` | April 5th    | `sha256:6aba94b371a16cc5a46ee2a7f656cf5de967e7071102913cf1c4c7d9ed88b9d8` |
+|  `latest`     | April 4th    | `sha256:10e6d37f0b4eacba78f4a8cb03b919d5f4df6574a055b2758d403369be6b8809` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `4.0.0-dev` `4.0-dev` `4-dev` | March 25th   | `sha256:68fbeb06216c31e7e65de362839a68213b549c577b89f85d36ab3f4770d074d9` |
-|  `4.0.0` `4` `latest` `4.0`                 | March 18th   | `sha256:61a61f8f0a3cd513285711f0f34f5b6bd5a414a765bb05753690c1b21f76e353` |
+|  `latest-dev` `4.0.0-dev` `4.0-dev` `4-dev` | April 5th    | `sha256:6d96461cda8458554f442a195ac8c042eb80a1070b5561baf7bbd75fc4f6e318` |
+|  `latest` `4.0.0` `4.0` `4`                 | April 3rd    | `sha256:98185e5eec1bda60ec5271f5011828700e4ddb46877a53740620c734a6576e78` |
 

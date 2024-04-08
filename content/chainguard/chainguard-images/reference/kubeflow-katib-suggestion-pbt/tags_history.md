@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 22nd   | `sha256:e300375dff64ed71f4b6f5bd8cfb46af65b0b4baa7b24b50c9a58954920f5b59` |
-|  `latest-dev` | March 22nd   | `sha256:b343d40da80a474e4269b0b2496eba9b993b1be68af80d8472ad2776e21ecdf5` |
+|  `latest-dev` | April 5th    | `sha256:f9fc06725538fb5dda33c67ddacd2d43fb4e120c99b7ffe841f23e426a67448c` |
+|  `latest`     | April 4th    | `sha256:1216cad8290a5be9486474ebd633b456da2b56f51e9f78a4b084cbb36b004c8b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0.16-dev` `latest-dev` `0-dev` | March 25th   | `sha256:ed99074398f3df7316664289de19f62ff621c59b7bd09a436c387ae22af7cc23` |
-|  `0.16.0` `latest` `0.16` `0`                 | March 25th   | `sha256:00fa46f507c407a9f5de43f6bb746c63d4873e33bfc5d2b3c26e3b5b17a6f17e` |
+|  `0-dev` `latest-dev` `0.16.0-dev` `0.16-dev` | April 5th    | `sha256:1c54449e9f2ccc82a2129785257b04817f14c7a8695d6c04b0a4621749847847` |
+|  `0.16` `latest` `0.16.0` `0`                 | April 4th    | `sha256:7d21d61a7f418cd8a9512f97ff0bdf0ec0314a4b9617532bafcfc0c045a6804d` |
 

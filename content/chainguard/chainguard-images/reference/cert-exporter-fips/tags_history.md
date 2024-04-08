@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-exporter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.12` `2.12.0` `latest` `2`                 | March 18th   | `sha256:ca5a2a6dad44fba27d6fd8811f741afb5dcee9c636f4abaed670f119eceec337` |
-|  `latest-dev` `2.12.0-dev` `2.12-dev` `2-dev` | March 18th   | `sha256:f60635d0a1d7a73740ba931f8220313d36aef61fe527356963f2762780bcb776` |
+|  `2.12.0-dev` `2-dev` `latest-dev` `2.12-dev` | April 5th    | `sha256:13bae1b61bc0c1e4925efcca0d84595a7b2fbc51bbb009ba4fe23db53956e84e` |
+|  `2.12.0` `latest` `2.12` `2`                 | March 29th   | `sha256:be171f22100c9799594eadde2b5c9dce126591bb14e1a92f37f41535eb726d31` |
 

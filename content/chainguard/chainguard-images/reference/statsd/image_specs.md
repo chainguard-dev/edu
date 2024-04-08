@@ -3,8 +3,8 @@ title: "statsd Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public statsd Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-03-29 00:47:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -65,10 +65,10 @@ The table shows package distribution across variants.
 | `libstdc++`              | X          | X      |
 | `libunistring`           | X          |        |
 | `libuv`                  | X          | X      |
+| `libxcrypt`              | X          |        |
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
 | `nodejs-18`              | X          | X      |
-| `npm`                    | X          | X      |
 | `openssl-config`         | X          | X      |
 | `procps`                 | X          | X      |
 | `statsd`                 | X          | X      |

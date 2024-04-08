@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:9b26017b718f6839066bb90778fdba438e4e1cd4fa0957c7aac2ad4e98f74de2` |
-|  `latest`     | March 18th   | `sha256:ea734ebdcf0ebc89301499cc6fc5c7e4e43e787732c56014fbc27a4f6ac041bf` |
+|  `latest-dev` | April 5th    | `sha256:d58a5c5b46d21e227736a81b40550982547764b2effee560ca52b98fe2a761bd` |
+|  `latest`     | March 28th   | `sha256:9e2c368e3f1ab137b0c5198d5960486722c8233311ca41dee175fdff72524e81` |
 
 
 ### Private/Dedicated Registry
@@ -37,14 +37,14 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `14.11-dev` `14-dev`             | March 24th   | `sha256:1fbaab61fecb75c0c853b0b20ee818b8c2b6ed8a2c079bc7995be2d42f46c6b9` |
-|  `14` `14.11`                     | March 24th   | `sha256:ae8d96e30925ee23865adc7f64edefa8ae6859fe7d789d12f73024a110016dd2` |
-|  `13.14` `13`                     | March 24th   | `sha256:8adf6e50e62896bf9fb888ef1d29219b21cad896a09639898a0908c59136e8d0` |
-|  `13-dev` `13.14-dev`             | March 24th   | `sha256:5d14cfd8205667275624f7e87dab5c73567ed570a9c771d12b214e29fb1f197d` |
-|  `latest` `16` `16.2`             | March 18th   | `sha256:82d0fd412e8ff7047509bf2937d668fa39f66eaab7c2042232abdfed5cb63f23` |
-|  `15.6-dev` `15-dev`              | March 18th   | `sha256:41bc648ab5eaeb4549df1a129ba8b7e864abd86f68c2d693f898b7f0212c77bf` |
-|  `12.18` `12`                     | March 18th   | `sha256:7869ac3aa5a54f1df913993dbf1abf53d379d1fae5684ce34de355fbf3b0feae` |
-|  `15.6` `15`                      | March 18th   | `sha256:9957c1b0f24e649651613aeee8f1f03d09818b5b5d4a0d559b86f124dc01fa19` |
-|  `12-dev` `12.18-dev`             | March 18th   | `sha256:aa9b9329bdebf327479370706e2db5fcd36066d2cd09d546301be1c5871176a4` |
-|  `16.2-dev` `latest-dev` `16-dev` | March 18th   | `sha256:e61eeec0bdabcb5c11f2adf10112830836fb1f5ceacf9772ae3d4c29bc0bd504` |
+|  `13-dev` `13.14-dev`             | April 5th    | `sha256:2a460fce476d183027dd99287f39abff03dafd71756cf2a6e48341d5c55e5357` |
+|  `15-dev` `15.6-dev`              | April 5th    | `sha256:39a731d71c52111d096c1054201e0e4a4ea667549d9b812840bafa3c83e9e2ab` |
+|  `12.18-dev` `12-dev`             | April 5th    | `sha256:4aedb4e9524e080d504e706681e0c2ed7ad9fbf7ebe0d105d2de3c2147bab35f` |
+|  `latest-dev` `16-dev` `16.2-dev` | April 5th    | `sha256:3302025ead1df60aaef1f1dc566d3f2da140ea6f0aff20389cd52c0893091728` |
+|  `14.11-dev` `14-dev`             | April 5th    | `sha256:ca11700ead50a312ef7f6789d2010f9f98b3350c4583e8aa0bd6128c3e5898dc` |
+|  `12` `12.18`                     | March 28th   | `sha256:f15d87d58d695a584316d315491da541fc868f73e997f7ddc0274ab5af09f20f` |
+|  `15.6` `15`                      | March 28th   | `sha256:44ec8b261744146dfe2e8d8a80726c3c6ea0d2225a5661d347083477da22bb4d` |
+|  `latest` `16.2` `16`             | March 28th   | `sha256:ed46d3dc6fa2be48a2a03abc8577b9d83542dba582665fd389f28164e0a1a565` |
+|  `14` `14.11`                     | March 28th   | `sha256:d3760f8232776872181ab68781835e103e2ac55d4fba838cfea877d25018b8ab` |
+|  `13.14` `13`                     | March 28th   | `sha256:285adf862ed472b7d05a08ab978545fee89ad262b3163d194667cdad0816e499` |
 

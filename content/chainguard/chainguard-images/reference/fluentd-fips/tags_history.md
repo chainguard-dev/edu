@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluentd-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.16.4` `1` `latest` `1.16`                 | March 22nd   | `sha256:b519cd64e758d80d001967f543b4f1afe057c64f5d3df0652f42d7dad602101f` |
-|  `1.16-dev` `latest-dev` `1-dev` `1.16.4-dev` | March 22nd   | `sha256:f08723d3dc0015b2a8af5efd63b9843fbe951dd2e0e2bd928648b52985e78262` |
-|  `1.15-dev` `1.15.3-dev`                      | March 22nd   | `sha256:8b28ba7e07024983b60eae4a651d5ee7f7a7213828909a562b3615c3bcfb1dbf` |
-|  `1.15` `1.15.3`                              | March 22nd   | `sha256:50fff76ab335100291d6dd9258a36bd77ab85b9aaa61dcf3a9235841c3874e36` |
+|  `1.15-dev` `1.15.3-dev`                      | April 5th    | `sha256:06f37500820f4fbec57a05ee3088859181ca7ecaed77dcbb42387b894889abac` |
+|  `1.16-dev` `1-dev` `1.16.5-dev` `latest-dev` | April 5th    | `sha256:ef5e5b201dcead189f4ee0bf32ccb78701577e268496fe8994f2221bbf5837b5` |
+|  `1.15.3` `1.15`                              | March 28th   | `sha256:8dcf1523a4b3cd91810b7ae158135c5833d292ad70eff21e318b16eb153a2bf7` |
+|  `1.16.5` `latest` `1` `1.16`                 | March 28th   | `sha256:9952348f388716ee24ed99f3afb2447dbe3adc04f2f6e24cf5d147a30ea1db3a` |
+|  `1.16.4-dev`                                 | March 27th   | `sha256:692e0d140e3f32835d08b24487156caa932fcf2766746a1d58e00e60520c2833` |
+|  `1.16.4`                                     | March 22nd   | `sha256:b519cd64e758d80d001967f543b4f1afe057c64f5d3df0652f42d7dad602101f` |
 

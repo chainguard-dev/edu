@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-getoidctoken Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:46d4439bc9aaa42de3d9e9c5fcc4b8954d0be7119386fe5beb901f498c185b0a` |
-|  `latest`     | March 18th   | `sha256:6fb326ac2b478f0e5a9c9ed6fc575d2837746374a206541001943d8e1237e257` |
+|  `latest-dev` | April 5th    | `sha256:7e03684ed5bc8c91e9a16fb351c57457e85b1eab841889add71932a5464a85ba` |
+|  `latest`     | April 4th    | `sha256:ee367a81d9204e36c42bfe678e96ea2285fb18a4b2f0050c1eb8dfa1a382c69a` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6-dev` `0-dev` `latest-dev` `0.6.17-dev` | March 25th   | `sha256:c77e256f962b8444e8f66b0ef056712d446030da7d686defc7bdfd6c57ec520f` |
-|  `0.6` `0.6.17` `latest` `0`                 | March 18th   | `sha256:85eb2d93f727bcf9c480278cc3d10daf95440fe6f58d99472878451b57202af7` |
+|  `latest-dev` `0.6-dev` `0.6.17-dev` `0-dev` | April 5th    | `sha256:f461b42ef79ca6d6b181fadf3c789860ad7d0b0fe0012887b67a1a38409b78af` |
+|  `0` `latest` `0.6.17` `0.6`                 | April 3rd    | `sha256:81c9aa638e91200e7045ee2c830d85cf067b5c60e7270c9eaace77cc72e73422` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:f9540dc79fe42a5f90759762dd1a6a5e96c9fb4255a097b1dc56ec1cd6d90aa7` |
 |  `0.6.16`                                    | March 8th    | `sha256:ecb0523c7197897385743d2edad9d663fc8f89a68e802ca92900b0c0b3ec1a69` |
 

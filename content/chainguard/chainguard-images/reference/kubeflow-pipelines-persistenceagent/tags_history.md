@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-persistenceagent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:c51d1f507e399750240f3ac5b2f16acd4fa8fbf99b9487915442364fe6534bd7` |
-|  `latest-dev` | March 18th   | `sha256:a79222bd17be23dadba2cad86ca4636b50e846e2efdf3aab3c20bc6c24777f50` |
+|  `latest-dev` | April 5th    | `sha256:174566473edb206b425718a317ad4531be25509e04c8072e0f1cf82e9d0cb0fc` |
+|  `latest`     | April 4th    | `sha256:372aacd09391abb90f86a1fe80688efd8498eaf510e56120ad155a80f423141b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.0.5-dev` `2-dev` `2.0-dev` | March 25th   | `sha256:f4badfdc03a9ac04c1f0adbf7790f7c26fcd080108911d9d8a06454846733f0d` |
-|  `latest` `2.0.5` `2.0` `2`                 | March 18th   | `sha256:3993e905d8706927acafc25de9bf0cc9e229116855bc097074451acbcbad1867` |
+|  `2-dev` `latest-dev` `2.0.5-dev` `2.0-dev` | April 5th    | `sha256:c214385963ba00166917bbf2cb910e2b0bc8b034475b64e4952c8bbb3491656c` |
+|  `2.0` `2` `latest` `2.0.5`                 | April 4th    | `sha256:b7c7059e28a7585ae4665b45b56b08e0ceb4b0b103a9aea6968dce38839e4f69` |
 

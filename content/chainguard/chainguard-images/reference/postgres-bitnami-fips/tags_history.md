@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres-bitnami-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `14.11-dev` `14-dev`             | March 24th   | `sha256:bbfddbb4b8553ae2121ea424fb5bc113b8ac06e37f6c2cfd905ce3543e4232b5` |
-|  `14.11` `14`                     | March 24th   | `sha256:8f9d9bf5fe804be97da60ba369d4d05c4f05625faf0ce2d7759735d89d8422ef` |
-|  `16.2` `latest` `16`             | March 18th   | `sha256:d6a54b28468126b74bfbd34ef284e2cb0176630108bb8a330e3a45136f5c704a` |
-|  `15.6` `15`                      | March 18th   | `sha256:da4fb80490bc6a53fba8a5da7979559398cdc62fa7aca18cc08784ccf4622706` |
-|  `15-dev` `15.6-dev`              | March 18th   | `sha256:bdaf2eecdece3edbfe962e3a8364305fcbbc072fcb7062fa115675b733006c50` |
-|  `latest-dev` `16-dev` `16.2-dev` | March 18th   | `sha256:8732f1e0d93aa4c867de611e06676cb3a99e37adf8202199a0339ab5ffe13926` |
+|  `16.2-dev` `latest-dev` `16-dev` | April 5th    | `sha256:51ba509b83c7c7ea529560c83c9b7782f1652b6fccd5e5e1563ccf48fc83fe42` |
+|  `15.6-dev` `15-dev`              | April 5th    | `sha256:063ee0b8264f9e6d07f29a8f96a5cfebb8b261087eca19ff88306fef333e4655` |
+|  `14-dev` `14.11-dev`             | April 5th    | `sha256:28ba37429276e97b05c7b4a61433c4f270024c77b40d5e3f4a84e2ca927bd9e7` |
+|  `14` `14.11`                     | March 28th   | `sha256:5707b752b52163eddf911f0f60dbf4241dcc1dbc9a6699c43d2356327b7a6838` |
+|  `16.2` `16` `latest`             | March 28th   | `sha256:bb42c69b809d3b159c917b974decff9ad5a7a8480062e5ad40415a85259c1520` |
+|  `15` `15.6`                      | March 28th   | `sha256:a3b6be1cb0312ef9beb4e9f1e6b5bf4037dab077a1fb3e92d4251f79c36c0c1c` |
 

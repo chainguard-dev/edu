@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:aa9bee2a5b6b50840eb5adc8c8911b3cb920d29a02860c8a2d77f8a843e02041` |
-|  `latest-dev` | March 18th   | `sha256:c967064397a5f50619729f6724e575802f19707cc17a494d9d80e3e428332281` |
+|  `latest-dev` | April 5th    | `sha256:31b88f996d01f8f4c8c032cf203dd53cc24740dd81d60bc2c65d028db1871c6f` |
+|  `latest`     | April 4th    | `sha256:1a2052daecdad8f7b42739e9870e503a9f112b70522787e69b42de520c4035dc` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.0-dev` `latest-dev` `2.0.5-dev` | March 25th   | `sha256:f7d8d6a04d23c88c3184a10d37ce6e38467253f3c13010fd9f4c37a77788c299` |
-|  `latest` `2.0.5` `2` `2.0`                 | March 18th   | `sha256:76f43058c0926006dd42a0ed1f20682d4b125a4c5ebaed5ec6af672971a3eddd` |
+|  `latest-dev` `2.0-dev` `2-dev` `2.0.5-dev` | April 5th    | `sha256:59502206c256508f5a8f01ec22238b983f23f8fb8ae28e4ab7c63ae13388795c` |
+|  `2.0` `2` `2.0.5` `latest`                 | April 4th    | `sha256:1ea5cd20fc6474f9a1983c7944b31b7f37291e27df676c420966f749d19ab19c` |
 

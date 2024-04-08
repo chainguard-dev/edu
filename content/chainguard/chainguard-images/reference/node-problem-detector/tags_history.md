@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-problem-detector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,17 +28,17 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:d7b486f38b35868d8aa6c11640123e049e2434d748ede8e856f7bd4351307a24` |
-|  `latest-dev` | March 18th   | `sha256:b170e57f69ae061e844955ace46ac392fee36fa12a6299cbb34c4e54e42ff901` |
+|  `latest-dev` | April 5th    | `sha256:3e420a524909bf89ff6d4abd593c9e35b593582368467c13f55f1c9978b1500c` |
+|  `latest`     | April 5th    | `sha256:8812bfb76b1dbe4e008a3902159ef28465fb5a629813b7ef7924a9535b3641d0` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                      | Last Changed  | Digest                                                                    |
-|----------------------------------------------|---------------|---------------------------------------------------------------------------|
-|  `0.8` `0.8.17` `0` `latest`                 | March 18th    | `sha256:b9ad8424aaab8d8cad5bce0228310d3023c889dee12123ccfb82bc3183db71c0` |
-|  `0-dev` `0.8-dev` `latest-dev` `0.8.17-dev` | March 18th    | `sha256:8fbc1faa9f0a27c7ff3598dfea1acaa2051e41bd18f69deb61f7b3e0704266d0` |
-|  `0.8.16-dev`                                | March 2nd     | `sha256:bc40e22dc1321db3998476a40e5e5bcc14e305eed12dfd88e35715f13c43e92b` |
-|  `0.8.16`                                    | February 28th | `sha256:7d02dca25e4ea9c914b27483cfe04f0ea2b397f53c2c659f286f57f9983ac0d4` |
+| Tag (s)                                      | Last Changed | Digest                                                                    |
+|----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.8-dev` `0-dev` `latest-dev` `0.8.18-dev` | April 5th    | `sha256:a517f5f5ce75895184980f40a427144369d28bf6690ba0461366a685d2c901a1` |
+|  `0.8` `0.8.18` `0` `latest`                 | April 5th    | `sha256:111dd4c2b98bf6496c8fd34cc098da821a9de47f29a0e0fd57253c5f18131314` |
+|  `0.8.17`                                    | April 3rd    | `sha256:add591da981878f055887b9a080dba8ad9224e3a80190b9494baaea19ca3f8b6` |
+|  `0.8.17-dev`                                | April 3rd    | `sha256:20916b81c831e90cd5e63b96cc505d64fa980ee2c1705f56d866d36ec6fd5138` |
 

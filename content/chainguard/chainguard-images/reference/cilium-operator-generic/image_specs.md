@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cilium-operator-generic Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-05 17:06:05
+lastmod: 2024-04-04 00:51:18
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -44,7 +44,7 @@ The table shows package distribution across variants.
 | `chainguard-baselayout`        | X          | X      |
 | `cilium-1.14-operator-generic` | X          | X      |
 | `git`                          | X          |        |
-| `glibc`                        | X          | X      |
+| `glibc`                        | X          |        |
 | `glibc-locale-posix`           | X          | X      |
 | `gops`                         | X          | X      |
 | `ld-linux`                     | X          | X      |
@@ -60,6 +60,7 @@ The table shows package distribution across variants.
 | `libpsl`                       | X          |        |
 | `libssl3`                      | X          |        |
 | `libunistring`                 | X          |        |
+| `libxcrypt`                    | X          |        |
 | `ncurses`                      | X          |        |
 | `ncurses-terminfo-base`        | X          |        |
 | `openssl-config`               | X          |        |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cfssl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:e6d96ca3f87fce59edaa385a4d37a85a49d51fdd982e025c899ea0567500a48c` |
-|  `latest`     | March 18th   | `sha256:61ddd7b41f220c969f8ba57c5b48f133b5d9d09fe4fa47f9db4802e09df52e41` |
+|  `latest-dev` | April 5th    | `sha256:e96e21247f24cee5a8faa8523e81b7d91973ba59e8cada673a1e2da84307d5bd` |
+|  `latest`     | April 4th    | `sha256:6fb6047ea17714aab34c17270bedb0acaea6a8c3a222d45c16faecc84d63a427` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.6` `latest` `1` `1.6.5`                 | March 18th   | `sha256:49ac2e9ea02b68bc3eafcff944419a965e922bf4ba0cc3552fddc8fa8f2f8255` |
-|  `1.6-dev` `1.6.5-dev` `1-dev` `latest-dev` | March 18th   | `sha256:0f30536632ed6ee351e743284109d399601c3995d363b6adc07cfedf3fe4af20` |
-|  `1.6.4-dev`                                | March 2nd    | `sha256:6bb1365ee7004869afbf8c48665e97c7106fcf69cafa58a6c65b2bcfc1523d66` |
-|  `1.6.4`                                    | March 1st    | `sha256:0f22b930283055b703dae5fa37506924b8b083ee11e6012964f184072692f9c5` |
+|  `latest-dev` `1.6-dev` `1.6.5-dev` `1-dev` | April 5th    | `sha256:64379c451db9c320b46e5651c3556f95b8b745c91ac9ae9859ba11b660737219` |
+|  `1.6` `latest` `1.6.5` `1`                 | April 4th    | `sha256:ce267b1371e41afd0c1b7cc8b2477d1422a2d8c59ac6363047a8afdafb30d0d2` |
 

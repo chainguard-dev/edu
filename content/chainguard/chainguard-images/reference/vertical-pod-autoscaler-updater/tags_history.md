@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-26 00:38:30
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:112b0913a7cb1d4a6c3c7e4c6a62965443a4d290e26252175cfef0a82018a114` |
-|  `latest`     | March 18th   | `sha256:22e78bc9125d47de2c153a4a684579fccb6199509df5e54bc78216680db00538` |
+|  `latest-dev` | April 5th    | `sha256:9c6d9f06aeae5d3a51621bb057f51887dd6bc4b05873a110da34656a81ebfe3d` |
+|  `latest`     | April 4th    | `sha256:f185d51266a46e1fdeeaffca1497e139344f9e4a3d6ae5a6e1175eaaba5f2a4d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.0-dev` `1.0.0-dev` `1-dev` | March 25th   | `sha256:38821a752d3df15ff71b1836bdb156f3fa84d5bd4309a3989956d498b0ae68be` |
-|  `latest` `1` `1.0.0` `1.0`                 | March 18th   | `sha256:65cb8f46f9fc85d1d0bba59d3e332220381a6dd04529c234ef8f6df276181190` |
+|  `latest-dev` `1-dev` `1.0.0-dev` `1.0-dev` | April 5th    | `sha256:76ed29b485e8f4025f00da44f7870dc9f301f5d90031b7d8f1c189c1d70db429` |
+|  `1.0` `latest` `1` `1.0.0`                 | April 3rd    | `sha256:fc89f295aa6916684d6d84a716339a04bdcc9798a45a39195bd8c80e0fd55798` |
 

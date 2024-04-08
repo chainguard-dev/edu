@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 18th   | `sha256:3eb986fbfc4cdcb3f7292e5c83637b3bdadb79142a3797364bcef1649e92af04` |
-|  `latest-dev` | March 18th   | `sha256:bcf252b03db19405cfed967198fbea4844548239162585d92c23971c9cc10696` |
+|  `latest-dev` | April 5th    | `sha256:2a0ea8fa8552e7d802717bac542f3cc8db1dfecb455ab67b7f7331afc79c5592` |
+|  `latest`     | April 4th    | `sha256:b4c6fb6d16c7be6aa48f6e47567806869064a629c1db7a8a2f4a55c2745f0947` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.19.2-dev` `1.19-dev` | March 26th   | `sha256:7b20b266d4c10063940106a2f750e6c77b09be3c1b2cc83e62929a9b895bf3c3` |
-|  `1` `1.19.2` `1.19` `latest`                 | March 18th   | `sha256:a68bbd5f627fdc4739eae5c9f05632e9277ba0def0fad01b854cba7c2ac627bd` |
+|  `1-dev` `1.19-dev` `1.19.2-dev` `latest-dev` | April 5th    | `sha256:707df58d69f77327b055743c6b02bd94f9cecc4253f30c1179c7a4687691d87e` |
+|  `1.19` `1.19.2` `1` `latest`                 | April 3rd    | `sha256:9e2170866e4f9a68396c0e01453f1e8f2094fb0ac8870565447f5ee9b689f09e` |
 

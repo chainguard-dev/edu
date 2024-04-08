@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the zot Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 26th   | `sha256:461791a737dd473726cbf7d436411cd2431479af52bcd069f34a6caaae033192` |
-|  `latest-dev` | March 26th   | `sha256:ee4fecc41bbfe27e2ff1a98e7119b0882a77765aab2f758c25b6cbd8b296c53a` |
+|  `latest-dev` | April 6th    | `sha256:77b5c00ac039e53af453d57e1ce231350ab008e43b9de8b3c5148b79d1524aad` |
+|  `latest`     | April 6th    | `sha256:753936fbf8a1832b4e268b51cd385a2538029c6508e152b0b346d88dc8b745f7` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0` `2.0.3` `latest` `2`                 | March 26th   | `sha256:92f5027b45b077e69174c6e9c0948a3c0b9e5a369bdf1ccdc6bed5c0a817eb0c` |
-|  `2-dev` `2.0-dev` `latest-dev` `2.0.3-dev` | March 26th   | `sha256:69a9143e46e3191ac36a4f64306f13eb8e900e938bcecad617c22798fc707b2d` |
+|  `latest` `2.0` `2.0.3` `2`                 | April 5th    | `sha256:8d314c904fac0c94c8083e14a73d6dfd94879ad2a6643162722e0528a4d8fa74` |
+|  `latest-dev` `2.0.3-dev` `2.0-dev` `2-dev` | April 5th    | `sha256:bae185ff04bfdd9165e683d0149f1e25e4a2c7d048f921e6b665d550204adaf4` |
 |  `2.0.2-dev`                                | March 25th   | `sha256:b6b902647e3a99b14533943f9587037f33841ba0052be2958482cdd64d9870b4` |
 |  `2.0.2`                                    | March 18th   | `sha256:8cb2d2fbff96ff289c3a15bde803d6ac214960bfef156f9b443ec04804345ec3` |
 |  `2.0.1`                                    | March 14th   | `sha256:a0a20a0550a26a7b5d314e6785e7f950d0348a3ce18ff529c33322c9d755b0ef` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 18th   | `sha256:09939589ef35543aa07a49c766179b1f66174674ba13f6ef4681c95c77f753b9` |
-|  `latest`     | March 18th   | `sha256:57c50a558848e49028d09a609b8a389e73c375f2f73ae7e30492b2191126d2dd` |
+|  `latest-dev` | April 5th    | `sha256:88e0b2ab192d4ed84826441f4901400b2b6ebc42ad40d26b2ea344bc6d59e540` |
+|  `latest`     | April 4th    | `sha256:ee5e987041f0c0c20a8cbff28d5e8827730cee9b2a210bf0f47783600b3850d1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.15` `0.15.1` `0`                 | March 18th   | `sha256:6d8c224f74e3afb371b7709ca60edb0abb533b89c5af9f06d96d36fcf4283263` |
-|  `latest-dev` `0.15.1-dev` `0.15-dev` `0-dev` | March 18th   | `sha256:027ad93650abbf4ab5c305182fb359af17f6d8c48b345f1fd314195a703a9f19` |
+|  `latest-dev` `0-dev` `0.15.1-dev` `0.15-dev` | April 5th    | `sha256:28ff82001062be6a3334a074bd127717da7c4edaeb094585f1e11380ad66cf31` |
+|  `0` `0.15.1` `0.15` `latest`                 | April 3rd    | `sha256:d2e2f55701a1bed59a48103e1cfbae40fbb1dccdafc961f948f33e3352220f8a` |
 

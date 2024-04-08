@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | March 25th   | `sha256:5d946674d09cf645d3f4993327d37b14a4b7c9cab3e1f0a29117e337e8dc500c` |
-|  `latest`     | March 25th   | `sha256:f483bbd53602207076381f9ae748049ce9544da370764e54a5dc078a0fbbe70f` |
+|  `latest-dev` | April 6th    | `sha256:7d8a3caf3d111b1a989c4a1c0705302901136843ea9c9fdcd978f6d3789e9722` |
+|  `latest`     | April 6th    | `sha256:d4a8ab9e5b9a286b28f166172296c857d9e56e7635a3341f4f3703baf3ab804e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.10.0` `1.10` `1`                 | March 25th   | `sha256:5248ef856ebf8a2289171d1f5316e164a1e66a2cc855c97d9626b1088eb6c70b` |
-|  `latest-dev` `1-dev` `1.10-dev` `1.10.0-dev` | March 25th   | `sha256:578f432093728e2610a145a35118e8abfd11df30db8963a2111806d1b623b7c7` |
+|  `latest` `1` `1.10.0` `1.10`                 | April 5th    | `sha256:685c9b90f07714955a72cff3f2b039ef34d034007d5daa665b5dab2a594df439` |
+|  `1.10.0-dev` `1.10-dev` `1-dev` `latest-dev` | April 5th    | `sha256:7260b669089e2daa4813e4eb9d317f1c467088f3e07edec3d6a3a172ccfec451` |
 

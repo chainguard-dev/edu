@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-03-20 01:10:09
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | March 19th   | `sha256:93bf02f9e7a0fb8f3f66149854d8caba96c79cdae4bb3a58a9b106d20b15e36d` |
-|  `latest-dev` | March 19th   | `sha256:1fa7b5f0e371e94b86cde8a81d0e82c2c8ae5f4537191dfb3d2332cd409a1f59` |
+|  `latest`     | April 6th    | `sha256:90ebb19a908f720754104bb42dfa425182253c84c08bd5c6128d745f0f8b8750` |
+|  `latest-dev` | April 6th    | `sha256:4926cf69022d3fe4bbd5a30758572edfc371848e46e2e5e9b673d5d73b7ba5b0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.13.0` `0.13` `0` `latest`                 | March 19th   | `sha256:e702f25ac52d50316193af9d549fa4bf0b2a5f2fcc9739b9acc6e18a755eb715` |
-|  `0.13.0-dev` `0.13-dev` `latest-dev` `0-dev` | March 19th   | `sha256:eb105288b0360af44374a92e12b36746cb9055f1714fb723ad240ea4629459c7` |
+|  `0.13-dev` `0-dev` `latest-dev` `0.13.0-dev` | April 5th    | `sha256:f76780eeb4a3a8844367c0d1f3ed26045a9ee5ff623e559f43eecd2bfe84e740` |
+|  `latest` `0.13` `0` `0.13.0`                 | April 4th    | `sha256:0386694bfb5655373d2b816f9a8d8d4e4db1df528bab3c2ecf18e423d33dfd63` |
 
