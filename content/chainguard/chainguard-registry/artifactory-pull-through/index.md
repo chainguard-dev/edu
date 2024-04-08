@@ -4,7 +4,7 @@ linktitle: "Pull Through Artifactory"
 type: "article"
 description: "Tutorial outlining how to set up a remote Artifactory repository to pull Images through from a Chainguard Registry."
 date: 2024-02-13T15:56:52-07:00
-lastmod: 2024-02-13T15:56:52-07:00
+lastmod: 2024-04-08T15:56:52-07:00
 draft: false
 tags: ["Product", "Procedural", "Chainguard Images"]
 images: []
@@ -70,10 +70,10 @@ After running this command, you'll be prompted to enter a password. Copy the tok
 After running the `docker login` command, you will be able to pull a Chainguard Developer Image through Artifactory. The following example pulls the `wolfi-base` Image.
 
 ```sh
-docker pull <myproject>.jfrog.io/<cgr-public>/chainguard/wolfi-base
+docker pull <myproject>.jfrog.io/cgr-public/chainguard/wolfi-base
 ```
 
-Be sure the `docker pull` command you run includes the name of your project as well as your repository key.
+Be sure the `docker pull` command you run includes the name of your project as well as your own repository key in place of `cgr-public`.
 
 
 ## Setting up Artifactory as a pull through for Production Images
@@ -85,7 +85,7 @@ To get started, you will need to create [a pull token](/chainguard/chainguard-re
 To create a pull token with `chainctl`, run the following command. 
 
 ```sh
-chainctl auth configure-docker --pull-token --group <organization>
+chainctl auth configure-docker --pull-token --parent <organization>
 ```
 
 Be sure to replace `<organization>` with your organization's name or ID.
@@ -100,18 +100,19 @@ This command will return a `docker login` command like the following.
 	docker login "cgr.dev" --username "<pull_token_ID>" --password "<password>"
 ```
 
-Take note of the value that appears in place of `<password>` as you'll need this when you configure a new remote Artifactory repository for pulling through Production Images.
+Take note of the values for `<pull_token_ID>` and  `<password>` as you'll need these credentials when you configure a new remote Artifactory repository for pulling through Production Images.
 
-After noting your `<password>` value, you can begin setting up an Artifactory repository from which you can pull Chainguard Production Images. As mentioned previously, this process is similar to the one outlined previously for setting up an Artifactory repository. 
+After noting your credentials, you can begin setting up an Artifactory repository from which you can pull Chainguard Production Images. This process is similar to the one outlined previously for setting up an Artifactory repository. 
 
 Create another repository and again select the **Remote** option. Also, be sure to once again choose **Docker** as the type of remote repository you want to set up. Enter the following details for your new remote repository in the **Basic** configuration tab:
 
 * **Repository Key** — Again, you can choose whatever name you like here, but this guide's examples will use the name `cgr-private`.
 * **URL** — This must be set to `https://cgr.dev/`.
-* **Password / Access Token** — Enter the `<password>` value you noted down from the `docker login` command you received 
+* **User Name** — Enter the `<pull_token_ID>` value you noted down from the `docker login` command  
+* **Password / Access Token** — Enter the `<password>` value you noted down from the `docker login` command
 * **Include Patterns** — Ensure that you use the default value (`**/*`) in this field.
 
-![Screenshot of Artifactory's New Remote Repository "Basic" Configuration tab. The "Repository Key" field is set to "cgr-private", the "URL" field is set to "https://cgr.dev/", the username is set to "inky@example.com", the "Include Patterns" section has only the default entry "**/*", and the "Password / Access Token" field is set to a long hidden password.](artifactory-4.png)
+![Screenshot of Artifactory's New Remote Repository "Basic" Configuration tab. The "Repository Key" field is set to "cgr-private", the "URL" field is set to "https://cgr.dev/", the username is set to a long hex value, the "Include Patterns" section has only the default entry "**/*", and the "Password / Access Token" field is set to a long hidden password.](artifactory-4.png)
 
 Lastly, in the **Advanced** configuration tab, ensure that the **Block Mismatching Mime Types** option is checked. Again, this should be the default.
 
@@ -136,10 +137,10 @@ After running this command, you'll be prompted to enter a password. Copy the tok
 After running the `docker login` command, you will be able to pull a Chainguard Production Image through Artifactory. The following example pulls the `wolfi-base` Image.
 
 ```sh
-docker pull <my artifactory host>/<my artifactory remote>/<my chainguard domain>/wolfi-base
+docker pull <myproject>.jfrog.io/cgr-private/<organization-name>/wolfi-base
 ```
 
-Be sure the `docker pull` command you run includes the name of your project, your repository key, and the proper name of your organization's registry.
+Be sure the `docker pull` command you run includes the name of your artifactory project and the proper name of your organization's registry. Additionally, if you entered a different repository key in the setup section, use it in place of `cgr-private`.
 
 
 ## Debugging pull through from Chainguard’s registry to Artifactory
