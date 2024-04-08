@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.32.71` `1.32`                 | April 4th    | `sha256:c5178ccd888030d725621f7147c350bd04dbb6b8ab8f196fa47e39740aa3efbe` |
-|  `1-dev` `latest-dev` `1.32.71-dev` `1.32-dev` | April 4th    | `sha256:40d82e78262f9e52592e2d2c82dac80270827e5ca99573ef26cb147e79f399ee` |
+|  `1-dev` `latest-dev` `1.32.71-dev` `1.32-dev` | April 5th    | `sha256:299f92c68b508087c11def2279dc0ed6ada4137275c09801a6977fab821a5665` |
+|  `1.32` `1` `latest` `1.32.71`                 | April 5th    | `sha256:902c564c321ed03c79064a0c9d21eb6f8c9cc895a8ff74aa7a45f5e2ca223317` |
 |  `1.32.70-dev`                                 | March 25th   | `sha256:6ecbfb0610f783730a7d77377ab3253b7ee4219fa6613a09d0092167d55f19d3` |
 |  `1.32.70`                                     | March 25th   | `sha256:3a968c9f9d346c89e3a108647de6a0950660f6534f6f4694c7e15f552c62f74f` |
 |  `1.32.69-dev`                                 | March 22nd   | `sha256:51d6daff005917f2ca20b31f6d3f3643b20b0d6ba6de80790d8bc5102cc5c4db` |
@@ -61,8 +61,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.32.59`                                     | March 9th    | `sha256:5e33a688f1b07295f873e392ed09fb39529f6ab0c30cf8969d730c85635ebf82` |
 |  `1.32.58`                                     | March 8th    | `sha256:6cc78c7005182356134c44f3c3ffd884267d07a98327b7cd9f40f34a19955f01` |
 |  `1.32.58-dev`                                 | March 8th    | `sha256:fb82299040ed73833c25930d3ceed548278f8a2fa20604c3357c33d30bb3abf6` |
-|  `1.32.57-dev`                                 | March 8th    | `sha256:8954c53c123e49a06048fc48827242a51c7a3b4f6ff21e13ff7b4fc75127f88d` |
-|  `1.32.57`                                     | March 8th    | `sha256:e01abba677a00427fc4bb17b3cbe6f3aeea362ccacfccce4b9599781d2a3da8b` |
-|  `1.32.56-dev`                                 | March 6th    | `sha256:b569ab1308c22855a1f5f4b8612352a26c90de2e7f0cbf9d33944af6d139ea4d` |
-|  `1.32.56`                                     | March 6th    | `sha256:dfcec72999204cd8302b4c5d40bb8b50bdd718ecd0995bcff198dddb127c1e2d` |
 

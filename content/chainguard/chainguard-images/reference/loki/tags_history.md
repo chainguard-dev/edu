@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the loki Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 5th    | `sha256:5df425f183e9d2f03f1607a977d1511ee15352413bd32bdfedc88c2c1da5ec3f` |
 |  `latest`     | April 4th    | `sha256:bcb6cb062eee433d62ac917a65cd763e5e58c31a89d2d471f4c8d58fff4ffa2e` |
-|  `latest-dev` | April 4th    | `sha256:b5691ef9ccab5da3e478474cacb6052282b1a0bd7d77e556674e7b7aee338c10` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.9-dev` `2.9.6-dev` `2-dev` `latest-dev` | April 3rd    | `sha256:cd299b40ca4ba5a35342f79f5d19f84a1a24fce63dc0e68ace486f0564f662d5` |
+|  `latest-dev` `2-dev` `2.9.6-dev` `2.9-dev` | April 5th    | `sha256:01c011a9aa43a67ac97befaa515f896a34d8a718ca1a141a3fe9ae8b740d1283` |
 |  `2.9.6` `2.9` `latest` `2`                 | April 3rd    | `sha256:4863ce4e3e24b48368ab8fca9e10fa86a859813b612096668cd1fcd3e50cd963` |
 |  `2.9.5`                                    | March 21st   | `sha256:7cc3285e7a48bc68790e9fc28d15a91f78e706b708bb4ae98ecc8f038c24b623` |
 |  `2.9.5-dev`                                | March 21st   | `sha256:cf62544d2247e75bbd085f5a14c2e47275dee8ae553540233dca5876b6ab38fd` |

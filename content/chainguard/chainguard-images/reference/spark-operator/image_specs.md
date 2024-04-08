@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public spark-operator Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,7 +37,6 @@ The table shows package distribution across variants.
 
 |                                 | latest-dev | latest |
 |---------------------------------|------------|--------|
-| `alsa-lib`                      | X          | X      |
 | `apk-tools`                     | X          |        |
 | `bash`                          | X          | X      |
 | `busybox`                       | X          | X      |
@@ -45,55 +44,40 @@ The table shows package distribution across variants.
 | `ca-certificates-bundle`        | X          | X      |
 | `chainguard-baselayout`         | X          | X      |
 | `coreutils`                     | X          | X      |
+| `fontconfig-config`             | X          | X      |
 | `freetype`                      | X          | X      |
-| `giflib`                        | X          | X      |
 | `git`                           | X          |        |
 | `glibc`                         | X          | X      |
 | `glibc-locale-posix`            | X          | X      |
 | `java-cacerts`                  | X          | X      |
 | `java-common`                   | X          | X      |
-| `keyutils-libs`                 | X          | X      |
-| `krb5-conf`                     | X          | X      |
-| `krb5-libs`                     | X          | X      |
-| `lcms2`                         | X          | X      |
 | `ld-linux`                      | X          | X      |
 | `libacl1`                       | X          | X      |
 | `libattr1`                      | X          | X      |
 | `libbrotlicommon1`              | X          | X      |
 | `libbrotlidec1`                 | X          | X      |
 | `libbz2-1`                      | X          | X      |
-| `libcom_err`                    | X          | X      |
 | `libcrypt1`                     | X          | X      |
 | `libcrypto3`                    | X          | X      |
 | `libcurl-openssl4`              | X          |        |
-| `libexpat1`                     | X          |        |
+| `libexpat1`                     | X          | X      |
 | `libffi`                        | X          | X      |
-| `libgcc`                        | X          | X      |
+| `libfontconfig1`                | X          | X      |
 | `libidn2`                       | X          |        |
-| `libjpeg-turbo`                 | X          | X      |
 | `libnghttp2-14`                 | X          |        |
 | `libpcre2-8-0`                  | X          |        |
 | `libpng`                        | X          | X      |
 | `libproc-2-0`                   | X          | X      |
 | `libpsl`                        | X          |        |
 | `libssl3`                       | X          | X      |
-| `libstdc++`                     | X          | X      |
 | `libtasn1`                      | X          | X      |
 | `libunistring`                  | X          |        |
-| `libverto`                      | X          | X      |
-| `libx11`                        | X          | X      |
-| `libxau`                        | X          | X      |
-| `libxcb`                        | X          | X      |
-| `libxcomposite`                 | X          | X      |
-| `libxdmcp`                      | X          | X      |
-| `libxext`                       | X          | X      |
-| `libxi`                         | X          | X      |
-| `libxrender`                    | X          | X      |
-| `libxtst`                       | X          | X      |
+| `libxcrypt`                     | X          | X      |
 | `ncurses`                       | X          | X      |
 | `ncurses-terminfo-base`         | X          | X      |
-| `openjdk-8-default-jvm`         | X          | X      |
-| `openjdk-8-jre`                 | X          | X      |
+| `openjdk-17-default-jvm`        | X          | X      |
+| `openjdk-17-jre`                | X          | X      |
+| `openjdk-17-jre-base`           | X          | X      |
 | `openssl`                       | X          | X      |
 | `openssl-config`                | X          | X      |
 | `openssl-provider-legacy`       | X          | X      |
@@ -101,7 +85,7 @@ The table shows package distribution across variants.
 | `p11-kit-trust`                 | X          | X      |
 | `posix-libc-utils`              | X          | X      |
 | `procps`                        | X          | X      |
-| `spark`                         | X          | X      |
+| `spark-3.5`                     | X          | X      |
 | `spark-compat`                  | X          | X      |
 | `spark-operator`                | X          | X      |
 | `spark-operator-oci-entrypoint` | X          | X      |

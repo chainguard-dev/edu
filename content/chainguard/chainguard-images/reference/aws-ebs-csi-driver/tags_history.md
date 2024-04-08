@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-ebs-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 5th    | `sha256:586fbef2241e810c352d56855b6984b5ed64d871d4bbb7f4c98b32dabbb93a9b` |
 |  `latest`     | April 4th    | `sha256:4c4621273447519ebf7acf3463239a4689d0e42b93c7091d7b1c0ebebfd5e0bd` |
-|  `latest-dev` | April 4th    | `sha256:8a13b789a4970232e9cc49700da900cd3eab4e97c04eadf2a36d36da58193c71` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.29-dev` `1.29.1-dev` | April 4th    | `sha256:3618640c45aed822761fd6f57052fbb13b28bb64d89dbe478c3370d3216df594` |
+|  `1.29.1-dev` `1-dev` `1.29-dev` `latest-dev` | April 5th    | `sha256:6b7b767663e1d142c5709ce80bee8dd1dbb28402f5b93024c84450e8b2e4748a` |
 |  `1` `1.29.1` `1.29` `latest`                 | April 4th    | `sha256:5f665ee8ff953d443cac39186b4b5f7c4ca6499a835ef56b6338b112a086b4ef` |
 |  `1.29.0-dev`                                 | March 28th   | `sha256:a9825006d778e42649e016a1291728c98661f41144877894af3a4803e13bea10` |
 |  `1.29.0`                                     | March 28th   | `sha256:90eddbe12457d596f36ec56a95dc608526146b54a88e0c87c6ca8e363cf4b5c3` |

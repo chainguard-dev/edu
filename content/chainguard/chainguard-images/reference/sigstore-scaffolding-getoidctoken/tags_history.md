@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-getoidctoken Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 4th    | `sha256:e34ec83b2f4acc3a104a4b9cc0892bc9ec6c24443de2e6a8900ef0486075aee5` |
+|  `latest-dev` | April 5th    | `sha256:7e03684ed5bc8c91e9a16fb351c57457e85b1eab841889add71932a5464a85ba` |
 |  `latest`     | April 4th    | `sha256:ee367a81d9204e36c42bfe678e96ea2285fb18a4b2f0050c1eb8dfa1a382c69a` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6-dev` `latest-dev` `0.6.17-dev` `0-dev` | April 3rd    | `sha256:43c97f9f11692d33934596ce519e9ae8568fad7947c70eb9171b368d3d1a692f` |
+|  `latest-dev` `0.6-dev` `0.6.17-dev` `0-dev` | April 5th    | `sha256:f461b42ef79ca6d6b181fadf3c789860ad7d0b0fe0012887b67a1a38409b78af` |
 |  `0` `latest` `0.6.17` `0.6`                 | April 3rd    | `sha256:81c9aa638e91200e7045ee2c830d85cf067b5c60e7270c9eaace77cc72e73422` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:f9540dc79fe42a5f90759762dd1a6a5e96c9fb4255a097b1dc56ec1cd6d90aa7` |
 |  `0.6.16`                                    | March 8th    | `sha256:ecb0523c7197897385743d2edad9d663fc8f89a68e802ca92900b0c0b3ec1a69` |

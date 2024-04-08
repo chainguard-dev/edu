@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-load-balancer-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-05 00:47:12
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 5th    | `sha256:4133e178bff10f4f09c7bb9d992581d43796c39d2a26b394cafb8a3beed73a71` |
 |  `latest`     | April 4th    | `sha256:b699ebdac2471e9e086eea575039bdf8cf25841655e6bf1a459cea7811996e40` |
-|  `latest-dev` | April 4th    | `sha256:530aaca633316f2fc9daae1ca9366231196410ebe895c9c63fc49995b431abdd` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.7.2-dev` `2.7-dev` `2-dev` `latest-dev` | April 5th    | `sha256:f7cb6853af24eb5102afd50bff5f1dbb797ca2ff1d485551586a82e2e123aedb` |
 |  `2` `2.7` `2.7.2` `latest`                 | April 4th    | `sha256:3ae8ad3c3399827bb54211766561ccbf422d5cda0c25186923c44a0d1f9e3ba3` |
-|  `2-dev` `latest-dev` `2.7-dev` `2.7.2-dev` | April 4th    | `sha256:a66a2108517ff0a3027d0acc70e01bcb69ee2c782ed7cdd52a9280a1e10e283b` |
 |  `2.7.1-dev`                                | March 18th   | `sha256:386f3acf7dcd6633fd99bfaa9ff8b183d54b372122bf06c0d8988bf881b08997` |
 |  `2.7.1`                                    | March 18th   | `sha256:c99d28b41769fd3bf4cb03f59dab6b5ec541dbceca3fc41413e48a345aa89d28` |
 

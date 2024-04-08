@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wait-for-it Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-04-08 00:38:35
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)               | Last Changed | Digest                                                                    |
 |-----------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` | April 2nd    | `sha256:d9516dd38ce869f6fa5ef261932e6d7a54e99eb19e95f7d55f8006c2bd1d18aa` |
+|  `0-dev` `latest-dev` | April 5th    | `sha256:01f98a50cdfb449e15194ef7283184f465a1f7f0ad58e676f17f6e4acc83e1bd` |
 |  `latest` `0`         | March 28th   | `sha256:e199fd4ae1e6622307d0876fea75fab42163805ed94444af0362ead18f8f2dbe` |
 
