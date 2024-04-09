@@ -50,10 +50,10 @@ After running this command, an interactive prompt will appear asking you to sele
 You can avoid using the interactive prompt by including the `--parent` and `--capabilities` options in this command. 
 
 ```sh
-chainctl iam roles create new-role --parent=example-org --capabilities=roles.create,roles.delete,roles.list
+chainctl iam roles create new-role --parent=example-org --capabilities=roles.list
 ```
 
-This example creates a new role named `new-role` under an organization named `example-org`. The new role has the ability to create, delete, and list roles.
+This example creates a new role named `new-role` under an organization named `example-org`. The new role will only have the ability to list roles in the organization.
 
 You can also use `chainctl` to delete custom roles.
 
