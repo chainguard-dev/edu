@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-02 00:36:12
+lastmod: 2024-04-09 00:57:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -46,5 +46,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.9.6-dev`                                  | March 14th   | `sha256:ecda7be3180ee889f777589aba6da93af247efe9d99482a3bd0501dc88dcdad5` |
 |  `2.9.6`                                      | March 14th   | `sha256:ae9fe8d81a63b96c2708598ca66c84a2a95bcfb1c11c4183a3764e865e6d5581` |
 |  `2.10.2-dev`                                 | March 12th   | `sha256:ed432c8436576fad3d0b87ce0c004c7866e4f486e774013ee86dfe50a713de53` |
-|  `2.10.2`                                     | March 8th    | `sha256:227eac65cae832014ff5948b6fb518fee8dbbee2e97036305555a8aeb1b767a1` |
 

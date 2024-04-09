@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the weaviate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-09 00:57:51
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.24.7` `1` `latest` `1.24`                 | April 5th    | `sha256:1767e81047581015835dc8e608a34ac18eb79ce64133513804fc389e8f2e0c7e` |
-|  `1.24.7-dev` `1.24-dev` `latest-dev` `1-dev` | April 5th    | `sha256:5c9c2432774df362a5cecb1b9a656e6e17e97cbe631d97590323d72ee45d90ad` |
+|  `latest-dev` `1.24.8-dev` `1-dev` `1.24-dev` | April 8th    | `sha256:683f3cc813bf7ade40a3dd564ca9196d27cf6c1ce6176183a0f061885a5a57d2` |
+|  `1.24.8` `latest` `1.24` `1`                 | April 8th    | `sha256:d20396cd729534726c96b232573a1d2229f5499c7d1e144151b625b3f735e7fb` |
+|  `1.24.7`                                     | April 5th    | `sha256:1767e81047581015835dc8e608a34ac18eb79ce64133513804fc389e8f2e0c7e` |
+|  `1.24.7-dev`                                 | April 5th    | `sha256:5c9c2432774df362a5cecb1b9a656e6e17e97cbe631d97590323d72ee45d90ad` |
 |  `1.24.6-dev`                                 | April 5th    | `sha256:840d70a753448b224cb07ebacf9d29e96cc371070f9cbb7997d19a5fac8f7fa9` |
 |  `1.24.6`                                     | April 3rd    | `sha256:19e222764931899f06c2eab4a7327202f32bf275a3dba9e99f698d2cb548453f` |
 |  `1.24.5`                                     | March 21st   | `sha256:8a7243d2cdd909460912fe83967ff4943182241106246dfe8e2ba5d5bd29f9ad` |
@@ -50,5 +52,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.24.2-dev`                                 | March 14th   | `sha256:289152d1aa6eb00baa573be628433356a09e4881e540192ad852ade6db48127c` |
 |  `1.24.2`                                     | March 14th   | `sha256:49ba580632c1b0baf05d17f2248a60f2d78435fbbb27341f16576eaa7ecef1f6` |
 |  `1.24.1-dev`                                 | March 12th   | `sha256:ce665fb7e49738cf1ab71fb8323a14c5baaddd9240f4349a08b4379004a05014` |
-|  `1.24.1`                                     | March 8th    | `sha256:1fe3502c70ebf5ff8cbb133214f0a02813cc56c83d9c88ba82524516a141f0d4` |
 
