@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aspnet-runtime Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:ce3d766c4b5fc3c9549bbecbd266bc42f5967b7b37cfaae7ad24ba5a07925ee3` |
-|  `latest`     | March 28th   | `sha256:e757b458397646c29c09cffd617cb409076dafa0633af9a7438eb991022c652a` |
+|  `latest-dev` | April 9th    | `sha256:d04cb1190ed21841af2ff93510d9788b08106e14b6808d2d5564506941130a48` |
+|  `latest`     | April 9th    | `sha256:15f483376f986b7f16e109b71c5a1c597271f830940e950c0d8d869d020f8e0a` |
 
 
 ### Private/Dedicated Registry
@@ -37,15 +37,13 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6-dev` `6.0-dev` `6.0.128-dev`            | April 5th    | `sha256:012d3c8e494ec9dd32d3f4ba3efd98d51b39e22aeaae5131f8215acac913bd54` |
-|  `latest-dev` `8-dev` `8.0-dev` `8.0.3-dev` | April 5th    | `sha256:f1f469b7cbd8b75493a88f5d63e6c60ec8f0a81979bba4b03cd82a8b5ad79c40` |
-|  `7.0.117-dev` `7-dev` `7.0-dev`            | April 5th    | `sha256:0384621049ef610f491077a4e084cace2a6936b29f5bb7d98cc1b6cf37e44990` |
-|  `7` `7.0.117` `7.0`                        | March 29th   | `sha256:1dd249b42c808cc65e6db8999bf307e4ae5ff95deaab7d6adad23c93052bd992` |
-|  `6` `6.0.128` `6.0`                        | March 29th   | `sha256:69bcb653da86eaf4f2c11c14cd19e68b1ccabeaac7f7459617d7922b1d39b0d2` |
-|  `latest` `8.0.3` `8.0` `8`                 | March 28th   | `sha256:2f164af4e1cb7929ab46eb8bd0d56ebd91133382d3094d4fbe1622cb41b1a4f7` |
+|  `7-dev` `7.0.117-dev` `7.0-dev`            | April 9th    | `sha256:f85cd0017304e81b970c2eee5e082e60d63eeb126f4774fce370991d48c9ef33` |
+|  `8.0.3-dev` `latest-dev` `8.0-dev` `8-dev` | April 9th    | `sha256:810c914b1bb78b46aebac31624d6c403653f95c9a175c7068acbe0f320263947` |
+|  `7` `7.0` `7.0.117`                        | April 9th    | `sha256:305e2844d9d8e204476d5be7493c5b58240c3eb4b65d8afa7248a376cda6161d` |
+|  `6.0.128-dev` `6-dev` `6.0-dev`            | April 9th    | `sha256:36460788aea4be4fec1d7b8ed8c683b91663340a3f2f4a0afddb4e17803cc08e` |
+|  `6.0.128` `6.0` `6`                        | April 9th    | `sha256:8a4137ae1ea5366113888582afbfaa6483be863cfa8b8982912517b59c9a6fc9` |
+|  `8.0.3` `latest` `8` `8.0`                 | April 9th    | `sha256:5b35179fe6e1c230df0a98807982ae794ceeb3eec483725ac0d1b96120f03942` |
 |  `8.0.2-dev`                                | March 12th   | `sha256:d1780b08f21bf64f0ea29864e2f6724fb8aaafe09263d4d726d2e2eca2b2b7fe` |
 |  `6.0.127-dev`                              | March 12th   | `sha256:55b9a001160d285ae51030de1fa0c75de286fda9d6067b5705ba45f3232f91bf` |
 |  `7.0.116-dev`                              | March 12th   | `sha256:cb03f6606b139e6695c9d0ab31261c3aef42fa0ee73ab3640328aed93ac19f88` |
-|  `7.0.116`                                  | March 9th    | `sha256:b85ac6e68d9ce3f01aaa73589cbe66a963778cf467113c9feab39ea34cbdaaf2` |
-|  `6.0.127`                                  | March 9th    | `sha256:4b63e0626c3f1c526dba925eee1bc20b3858eeabfb8b867a970aef9dc1ad5d6a` |
 

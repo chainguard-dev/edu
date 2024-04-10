@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the renovate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                            | Last Changed | Digest                                                                    |
 |----------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `37` `latest` `37.280` `37.280.0`                 | April 7th    | `sha256:61495377e793263b4ecf1b6e1a491051a8bb9393fcf34658624bbfb215ead300` |
-|  `37-dev` `latest-dev` `37.280.0-dev` `37.280-dev` | April 7th    | `sha256:39bac365335031a20aef438892bfb82f72784921791fc94c2da788012d9828f3` |
+|  `37.281-dev` `37.281.1-dev` `37-dev` `latest-dev` | April 9th    | `sha256:68fdbdb31c4decb13248c11abe6bdf78c0b1ea6b8626e7bbf1d8954fcee6352b` |
+|  `37` `37.281.1` `37.281` `latest`                 | April 9th    | `sha256:9659c2ef5750e8283d29919472546078001b018266a5699cda1ff55ab347b516` |
+|  `37.280.1` `37.280`                               | April 9th    | `sha256:5cf3a762443dfbaa94561231b7bf13882691b94da7a1c11912084a094d5447ef` |
+|  `37.280.1-dev` `37.280-dev`                       | April 9th    | `sha256:c7cf84a283d025d7386a8f1c0c5b7d9dc092d5e52fc35340af1dff176a232f0f` |
+|  `37.280.0`                                        | April 8th    | `sha256:0b3068788ee9fc55f2bffb1dc08a8fd6cd3b6d9c31727a3e501555af5f545120` |
+|  `37.280.0-dev`                                    | April 8th    | `sha256:0e7848859fe6b7a78799daf79fae08e4db50d9488ad7a2223e2cefe3af19dc39` |
 |  `37.279.0` `37.279`                               | April 6th    | `sha256:1614f2cbc78c9d32654667866e44ba17b9a7a3c344ee3ec55b5e0dada1748e25` |
 |  `37.279.0-dev` `37.279-dev`                       | April 6th    | `sha256:a3146a9a386f3f72a0aa00d3fd08b2bf3b4d0c3b568407952782ee97c4ba58a3` |
 |  `37.277` `37.277.0`                               | April 2nd    | `sha256:63ac9a380b61550b67b37fbab913bf277f291a202f724a52f1d067ffcb22a390` |

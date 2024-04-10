@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-attacher-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.4-dev` `latest-dev` `4.4.4-dev` `4-dev` | April 5th    | `sha256:d436b9b43bab770eadd8a4e8c42f75edc6428b52b8fef75339df810e56cacf00` |
-|  `4.3.0-dev` `4.3-dev`                      | April 5th    | `sha256:a48b6f1a1ce544f6d6d35c2bf4c03e91287c74e945250d55fd48c8ae3e46744d` |
-|  `4` `4.4.4` `4.4` `latest`                 | March 28th   | `sha256:2fc2859bc3edf01d48ce87680b9661bfd8433ebbe828267344a083ff0ee1d758` |
-|  `4.3` `4.3.0`                              | March 28th   | `sha256:edc08bf328b81d355e05eaaee5b6cbe7611cf75b55de5c80005ff56c58f824e4` |
+|  `latest-dev` `4.4.4-dev` `4.4-dev` `4-dev` | April 9th    | `sha256:94e29281f30d6054fd63bc06f310e0c5603a7dfc5e98892a908ab8825ebd0ea3` |
+|  `4.4.4` `4.4` `latest` `4`                 | April 9th    | `sha256:2cb1da15ec85c74495418f1a508dd8e7c1f092c8e2695dab9d72e592e7c0f775` |
+|  `4.3` `4.3.0`                              | April 9th    | `sha256:f8bfdeabdd0254dc18dd8431d3978ce5ce3949ee9392afb775c136de26042908` |
+|  `4.3-dev` `4.3.0-dev`                      | April 9th    | `sha256:25086496af47d28ffbb392f9c208e7cfd085805862c50336ccea34bca0417089` |
 |  `4.4.3-dev`                                | March 18th   | `sha256:155575740a912afab178612dfe47acf395b0f3401c29cc2fd805998c87e8b73f` |
 |  `4.4.3`                                    | March 18th   | `sha256:b59d64ed758d6e21940b1e8430234de004d8b2a52e027213f7b4eb375080aecc` |
 

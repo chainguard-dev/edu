@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-livenessprobe-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:d8a946f00e2d0c623ab74925a3a25bdeac618b2a4d055bb79e70b3b7600cd921` |
-|  `latest`     | March 28th   | `sha256:81bffc46d6638b5fa95f0c489194f0d31be9bb1af8ae1a010f9ce86e71f2a18b` |
+|  `latest-dev` | April 9th    | `sha256:63a13bcde6429ae1e72a6af358ff00fa7bcd41f758e65f544cb2dab85c404562` |
+|  `latest`     | April 9th    | `sha256:f6788fb28f41d68194c4a9802d4f53257e9f9d8d224e6e887d993b29e53021a4` |
 

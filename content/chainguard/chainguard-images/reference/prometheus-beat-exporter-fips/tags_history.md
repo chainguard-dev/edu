@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-beat-exporter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.4` `latest` `0.4.0` `0`                 | April 5th    | `sha256:cd11e58f2c5d602d5f8d2e753d726a6c07fa21e2452acec1af5911e3187ef7e2` |
-|  `0-dev` `0.4.0-dev` `latest-dev` `0.4-dev` | April 5th    | `sha256:98d1f4caaa675abb6b62dbe023562052415a2438e5ae1bed5da73ff2cb7ad4d9` |
+|  `0.4` `0.4.0` `0` `latest`                 | April 9th    | `sha256:c4ed8ed442074fe51327a4cc88cd63faddaec1fca7fc106f60cec0ae332d50d4` |
+|  `0-dev` `0.4-dev` `latest-dev` `0.4.0-dev` | April 9th    | `sha256:da2bb6002e73b7f4d5d7f01877b79f05a4544f06fccaabdf41da823ab3ab9f7d` |
 

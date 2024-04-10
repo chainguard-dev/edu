@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:29315344f3efc18fdcfe60178c490bc980ac466ffac9759f89b40817b3dd7a3d` |
-|  `latest`     | April 5th    | `sha256:8c5f0eb6d859091d0a356149642b12904f4fc2eee85d78bde3fbfb07517427f0` |
+|  `latest-dev` | April 9th    | `sha256:aa8a58f9fa839cc464f0b6457ae21659449bcd52dd27755baa948efb800c6a24` |
+|  `latest`     | April 9th    | `sha256:8275f3ab0dc0af41913318920486f5169da661052da550277c9750615ae4407c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `20.12.1-dev` `latest-dev` `20-dev` `20.12-dev` | April 5th    | `sha256:923da98639542fa17580943652b3f90113d8eac3b420a44a3b91998ca5eec39c` |
-|  `20.12` `latest` `20` `20.12.1`                 | April 5th    | `sha256:6735fe72ae26fb087abac02ae8c00ec6a67446a370bf91884853d80171d8b24f` |
+|  `20` `20.12` `latest` `20.12.1`                 | April 9th    | `sha256:7d95ea2daa4623b270d640e2a7e9f7aeb353993313b277bd44f29a67bce1655f` |
+|  `20.12.1-dev` `20-dev` `20.12-dev` `latest-dev` | April 9th    | `sha256:d289a7c7a304ddbed4b56ad9d455d5927e43fdb587c451e75bd652ee876feed2` |
 |  `20.12.0-dev`                                   | April 3rd    | `sha256:83afbbb59e0c66fe10e503df0da53673df4724b013dcf10bdc996d6898a8608c` |
 |  `20.12.0`                                       | April 3rd    | `sha256:0f9217ed827198cbb8c09503e28fb93acbe24a2f1af31c45e5cdcb31fe0f5347` |
 |  `20.11` `20.11.1`                               | March 18th   | `sha256:c972cb33201cd945b4372c2369152967ee1f7493c906f098f8dd0112c481d1dd` |

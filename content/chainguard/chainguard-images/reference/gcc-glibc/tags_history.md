@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gcc-glibc Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `13.2.0-dev` `latest-dev` `13.2-dev` `13-dev` | April 5th    | `sha256:7e29980871874654f570b05314b9020441f6f36bb0d5cbf26255a72600823fd6` |
+|  `13.2-dev` `13-dev` `latest-dev` `13.2.0-dev` | April 9th    | `sha256:5bb92a3f7987b3478f541ab4d57551bce7f9a0867d5440443a611b16e50f9d99` |
 |  `13.2` `13` `latest` `13.2.0`                 | March 28th   | `sha256:a80fc8662d1f069824f09816a74c32bf13cc461125dd11c33fb4e41b52df5b9a` |
 

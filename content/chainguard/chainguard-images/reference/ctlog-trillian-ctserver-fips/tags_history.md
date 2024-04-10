@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ctlog-trillian-ctserver-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1-dev` `latest-dev` `1-dev` `1.1.8-dev` | April 5th    | `sha256:e47a9b6297c3cb70d569849193428cac4a33907b0bdf58baf7204ee84853b708` |
-|  `latest` `1.1.8` `1` `1.1`                 | March 29th   | `sha256:481b168d406bbd6d0ed64f6bb49cb5dcf3debe9c58935d1a0f0836e8a3f62517` |
+|  `1.1.8` `1` `1.1` `latest`                 | April 9th    | `sha256:a78d33a94a89c473e3c0c700112df123f16f7815675d6b30086c8283dacd600b` |
+|  `1-dev` `1.1.8-dev` `1.1-dev` `latest-dev` | April 9th    | `sha256:07aac6e8e30ffb884bc60d069f108938dc26ece1476c3c609d7174d9f3155aec` |
 |  `1.1.7-dev`                                | March 10th   | `sha256:4f22cf5a311f5d5c696c913d3bb90b04bf325145ed19a1127130ad58e4032bb1` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createtree Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:cbdc907fb7ead9905baf3365d4502ae3ea056acf38936bee991a2aa6395983b8` |
+|  `latest-dev` | April 9th    | `sha256:b44f64fb675bc96aa8855e261c4af90b90ab184a8f41a21a175c03ad65e559b9` |
 |  `latest`     | April 4th    | `sha256:df6169b6ad85e0d9de9327b4b5b4144aff841280aa859a7476ba3512bf221838` |
 
 
@@ -37,8 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.6.17-dev` `0.6-dev` `0-dev` | April 5th    | `sha256:028afcd26ddfa8b2c563613bf24a9ecb24056ebc46be97e8952717728b29dac8` |
+|  `latest-dev` `0.6.17-dev` `0-dev` `0.6-dev` | April 9th    | `sha256:959e9c2ec028f6620333ba1c9ebb2adca9c196c16a466206deb54ee1e17983ed` |
 |  `0` `0.6.17` `0.6` `latest`                 | April 3rd    | `sha256:705574190141bc9855751f333cf11b8b85f131379bd4e810ecfb5181c0eade0d` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:803b4c9699fe940b907004c965bfb140fb53f4aa179add7a2ae5e3231662bdb2` |
-|  `0.6.16`                                    | March 8th    | `sha256:218b6fa6113b22a1d7f895667fe0bec948d33ca04dc46043ff78b7ee00210156` |
 

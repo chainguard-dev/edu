@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-volume-modifier-for-k8s-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.2-dev` `0-dev` `latest-dev` `0.2.1-dev` | April 5th    | `sha256:5a4fe39da05f7ce80b0a6d8ac592d6810882ad22c2ff6570d32f7fbf22d8c036` |
-|  `0` `latest` `0.2.1` `0.2`                 | April 2nd    | `sha256:002a33c801f5194df007eda26453cbd427aa2684f168d121e5226c3d3ad049f5` |
+|  `latest-dev` `0.2-dev` `0.2.1-dev` `0-dev` | April 9th    | `sha256:6eb51e66db4894a5bcec7974eac6112095586f6b6122a99e2e9faee92c7836a8` |
+|  `0` `latest` `0.2.1` `0.2`                 | April 9th    | `sha256:807c8b040942679764d5185c94f146af203f294baf1419e3fe32e5bdcc3484f8` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public calico-node-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -57,7 +57,7 @@ The table shows package distribution across variants.
 | `libbrotlidec1`               | X          |        |
 | `libbz2-1`                    | X          | X      |
 | `libcrypt1`                   | X          | X      |
-| `libcrypto3`                  | X          |        |
+| `libcrypto3`                  | X          | X      |
 | `libcurl-openssl4`            | X          |        |
 | `libelf`                      | X          | X      |
 | `libexpat1`                   | X          |        |
@@ -74,7 +74,7 @@ The table shows package distribution across variants.
 | `libpcre2-8-0`                | X          |        |
 | `libproc-2-0`                 | X          | X      |
 | `libpsl`                      | X          |        |
-| `libssl3`                     | X          |        |
+| `libssl3`                     | X          | X      |
 | `libunistring`                | X          |        |
 | `libxcrypt`                   | X          | X      |
 | `libzstd1`                    | X          | X      |

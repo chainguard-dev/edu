@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fulcio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 9th    | `sha256:aa47d9c12e28402e61ab21f7f09c86586c4db149c5aeeed32ac89fb700bcc51b` |
 |  `latest`     | April 6th    | `sha256:26c25202f4c232bd153d1083b63e24648fc30ef81faf1dcc54c6fa132ea1c392` |
-|  `latest-dev` | April 6th    | `sha256:d7cf31a0c65db0e768c38f078c09b912e045e681d0fe6102e50a6da4b0ecaa12` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.4.5-dev` `1.4-dev` | April 5th    | `sha256:da2b5b9174877271c6cffd1c2f5c07bded4996b4de582f897aeb49f8c07ace2a` |
+|  `1.4-dev` `1.4.5-dev` `latest-dev` `1-dev` | April 9th    | `sha256:ee643b346aea21523b25a43048f419e386ffa5774ae1ba8969596f7b42769d01` |
 |  `latest` `1.4.5` `1.4` `1`                 | April 5th    | `sha256:612a24716341a131841c67cf9d4c2a77c86d07887f15d2e9481cd7d221bc1c3d` |
 |  `1.4.4-dev`                                | April 5th    | `sha256:dc72a507971e46f7f296af211fc4b55dff3d11561f9bd90f4ffce45f7968f38e` |
 |  `1.4.4`                                    | March 28th   | `sha256:2bf427ef342ab4d7115b98f5b7b41ef246b70ba13ba308b066be024086d7afc3` |

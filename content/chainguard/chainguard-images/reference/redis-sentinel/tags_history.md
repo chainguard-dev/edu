@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-sentinel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | March 28th   | `sha256:6b77c3d07c458e4c0cd2d9b858021a694300df1752d10b32d64cf46bce27996e` |
+|  `latest` | April 9th    | `sha256:da61acbd887598fae235e36cc9877c393e6ae62bd148b430bac0fa089d0124aa` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.2.13-dev` `latest-dev` `6-dev` `6.2-dev` | April 5th    | `sha256:283be16849e2190436acf1dd7a2a98d6be83b2a4910a3e67d8438a3657b57397` |
-|  `6` `6.2` `6.2.13` `latest`                 | March 28th   | `sha256:fdd13bc5262161367a89356d78c82a8215474735f0b502f8da729e4ed03c9647` |
+|  `6.2.13` `6.2` `6` `latest`                 | April 9th    | `sha256:3f10becde20e926ab46c9e986416a7bb25f12c213d808331e0c311e37762668f` |
+|  `6.2.13-dev` `6-dev` `6.2-dev` `latest-dev` | April 9th    | `sha256:cb47b948da210acef1c9ce0f0681b9726b7ead84e25bf471d815d206cb443be3` |
 

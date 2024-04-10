@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jellyfin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 5th    | `sha256:0922364ebdf94672167ee5dc79d9b5578720376a9a0ef7677a4b69317462ca99` |
-|  `latest-dev` | April 5th    | `sha256:f563808d78a08f9738e9887060ade6023f92e11cd7cd3cee2f7c93e78a3b443f` |
+|  `latest-dev` | April 9th    | `sha256:9196abf5a7dd17616add9b8aafacec61b0fc4328234eb541c2e8fbc1c4586a5e` |
+|  `latest`     | April 9th    | `sha256:215b50d498243490bbeb814d81ec743e491c395d0c4953c434804163f50cee34` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `10.8` `10` `10.8.13`                 | April 5th    | `sha256:dfbeae5cae483f7626b20fc356ee528334dbffc062ba13681f979daa3ff714be` |
-|  `10-dev` `latest-dev` `10.8.13-dev` `10.8-dev` | April 5th    | `sha256:9bf9910d65924b2121ebbf6eb77fc8ca3aef4cd122e4aa91bd28bdb262b2d774` |
+|  `10.8.13` `10.8` `latest` `10`                 | April 9th    | `sha256:5b8908866698897150414b70b3c65f865190b9d754cbcf1300094614162da293` |
+|  `10.8.13-dev` `10.8-dev` `10-dev` `latest-dev` | April 9th    | `sha256:35a42d3e442b5e143e0b4f56281c980ed57543ad4234c7fb0179f6f0d199195f` |
 

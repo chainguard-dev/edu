@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-node-driver-registrar-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.8-dev` `2.8.0-dev`                        | April 5th    | `sha256:f478837f39b958ac78d73b15f51851c6f3f3574ccf12c29cd03f2321018b016c` |
-|  `2.10.0-dev` `2.10-dev` `2-dev` `latest-dev` | April 5th    | `sha256:cc16eaa0f7e7021cb57fa0a0a6df080a9a01c2920f84f709aa010f6798d2862c` |
-|  `2.9-dev` `2.9.3-dev`                        | April 5th    | `sha256:e144cb000a6af43b587faf3ab868ccfef349ace34ca3b9b682168376b2aac782` |
-|  `2.10` `2.10.0` `latest` `2`                 | April 1st    | `sha256:b3bd01e7f954e38b6f4a2ba239727c6f15f2135a583eb410841a7ddb955a4560` |
-|  `2.9.3` `2.9`                                | April 1st    | `sha256:da22fe039e813cc4000c5092fe4f62dbc1bf00d2139444252b8ca80c86ece18c` |
-|  `2.8` `2.8.0`                                | April 1st    | `sha256:fc10936e7a22876c2a0c5c3669f46083483824595e9ab73063a01bd6c56f3fae` |
+|  `2.9.3-dev` `2.9-dev`                        | April 9th    | `sha256:4a586056a82ad9fc2e502ca0e5d878e61342455c350f64d2f5409ed96b4d2750` |
+|  `2.10` `2` `latest` `2.10.0`                 | April 9th    | `sha256:33e82d9eb87257e35719c2e13112f57cd877db97426537e5a8346defb0c03859` |
+|  `2.9.3` `2.9`                                | April 9th    | `sha256:ffadf9e837fc0b1a19cb58b2da8f7230e56daf74fce020c4b03d756d5aec8a26` |
+|  `2.8.0` `2.8`                                | April 9th    | `sha256:8d233dac8541da369b02789075d012c89ed75c83b74144bb1627c20d841a2681` |
+|  `latest-dev` `2.10-dev` `2.10.0-dev` `2-dev` | April 9th    | `sha256:fd1b3e14d9864c370eed06156d50c935431aa5fe05c444b2dc41aaa821b986df` |
+|  `2.8-dev` `2.8.0-dev`                        | April 9th    | `sha256:888ee9dc0ca9e54219de2bcd571f575509dbb3ca158e3b46f9d3ec098b714f05` |
 

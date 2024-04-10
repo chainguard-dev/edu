@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-ui-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:d50eb4f3efc3124abef378961bfbbf0bd3e3bad833bafe289b612ddc8b2a588c` |
+|  `latest-dev` | April 9th    | `sha256:4dff17931870df61033e061c234c000f4e5ac4dc4f8daf41a0873351a3acb52e` |
 |  `latest`     | April 4th    | `sha256:0f98d79c2464bbdc541d8de996edbd1a6b29c24f8e07c2fec71bc33ae08d73e3` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.25-dev` `2.25.0-dev` `latest-dev` `2-dev` | April 5th    | `sha256:5a18973fc4b4d76755cf9bf8276681ffafad0af1b4e8eb8807d25e13be689380` |
+|  `latest-dev` `2.25.0-dev` `2-dev` `2.25-dev` | April 9th    | `sha256:5304ae94c3216e99005565375eaf52adea64387418e4acd97b216516a82235e7` |
 |  `latest` `2.25` `2` `2.25.0`                 | April 3rd    | `sha256:1ace653030d0ab4335a28730429280e306464b2555abf40d38b5467126cf1fa0` |
 |  `2.24.0-dev` `2.24-dev`                      | March 12th   | `sha256:c6e0fba06aaf8d9ae90c08df9808b61c154455b18b9a8e7b35e99b9d2124ba1c` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cilium-hubble-ui-backend-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,20 +45,20 @@ The table shows package distribution across variants.
 | `git`                         | X          |        |
 | `glibc`                       | X          | X      |
 | `glibc-locale-posix`          | X          | X      |
-| `gops-fips`                   | X          | X      |
+| `gops`                        | X          | X      |
 | `hubble-ui-backend-fips`      | X          | X      |
 | `ld-linux`                    | X          | X      |
 | `libbrotlicommon1`            | X          |        |
 | `libbrotlidec1`               | X          |        |
 | `libcrypt1`                   | X          |        |
-| `libcrypto3`                  | X          |        |
+| `libcrypto3`                  | X          | X      |
 | `libcurl-openssl4`            | X          |        |
 | `libexpat1`                   | X          |        |
 | `libidn2`                     | X          |        |
 | `libnghttp2-14`               | X          |        |
 | `libpcre2-8-0`                | X          |        |
 | `libpsl`                      | X          |        |
-| `libssl3`                     | X          |        |
+| `libssl3`                     | X          | X      |
 | `libunistring`                | X          |        |
 | `libxcrypt`                   | X          |        |
 | `ncurses`                     | X          |        |

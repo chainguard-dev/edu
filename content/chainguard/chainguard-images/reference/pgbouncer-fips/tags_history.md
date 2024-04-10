@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the pgbouncer-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.21.0-dev` `latest-dev` `1.21-dev` `1-dev` | April 5th    | `sha256:bba5d2893d43d53cbd8ae7535e73325f91a036e496bbb8331ff70fab1c9e4fdc` |
-|  `1.21.0` `1.21` `1` `latest`                 | March 31st   | `sha256:44350d7bcb072a191d2d9632236633554d9060671a96bd2c1fd721dbe3546ba7` |
+|  `1.21` `latest` `1` `1.21.0`                 | April 9th    | `sha256:392df0191ccfad7d0290c670f78e94d4fbfa6270a6baa384499231dff84ef44f` |
+|  `1-dev` `latest-dev` `1.21.0-dev` `1.21-dev` | April 9th    | `sha256:a15426827c77e5d85912dbdd8d37b39d35b5483d15ff3dccbc348eba127f0101` |
 

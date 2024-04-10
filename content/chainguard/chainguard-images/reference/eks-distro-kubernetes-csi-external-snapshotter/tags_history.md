@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshotter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-10 00:53:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6-dev` `6.3.0-dev` `6-eks-1-23-33-dev` `6.3.0-eks-1-23-33-dev` `latest-dev` `6.3-dev` `6.3.0-r4-eks-1-23-33-dev` `6.3-eks-1-23-33-dev` | April 5th    | `sha256:d0d2a7d1597a1d2e0302df0a673ef73e99fd3dc5638d9e6358391a275f0dbbe7` |
+|  `6-eks-1-23-33-dev` `latest-dev` `6.3.0-dev` `6-dev` `6.3-eks-1-23-33-dev` `6.3.0-eks-1-23-33-dev` `6.3-dev` `6.3.0-r4-eks-1-23-33-dev` | April 9th    | `sha256:b1ca77c616f8be0fcfacd63fda43c761a88ff7d14b16f3c76b70e17e5e90904f` |
 |  `6.3.0-eks-1-23-33` `6.3-eks-1-23-33` `6.3.0` `latest` `6.3` `6-eks-1-23-33` `6` `6.3.0-r4-eks-1-23-33`                                 | April 3rd    | `sha256:46eec42d8824f0dc2e01c186f7f456f520d7ba647bf9f5074596fc9713520e34` |
 |  `6.3.0-r3-eks-1-23-33-dev`                                                                                                              | April 2nd    | `sha256:8abfb0e15f2c8e557a69506d590e9487f4555fdd680eb4da625ef38f12969046` |
 |  `6.3.0-r3-eks-1-23-33`                                                                                                                  | March 28th   | `sha256:d7ca3ac312b6a64a789f3c207b68a51453488ebadd5344be8a3811ad6c74ce56` |
