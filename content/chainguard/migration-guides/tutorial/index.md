@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Porting a Sample Application to Chainguard Images"
-linktitle: "Tutorial: Porting a Sample Application to Chainguard Images"
+linktitle: "Tutorial: Porting a Sample Application"
 type: "article"
 description: "Tutorial that shows how to port a sample application to Chainguard Images"
 date: 2024-04-10T15:56:52-07:00
@@ -11,7 +11,7 @@ images: []
 menu:
   docs:
     parent: "concepts"
-weight: 600
+weight: 800
 toc: true
 ---
 
@@ -19,13 +19,14 @@ This article works through porting a small but complete application to use Chain
 we'll see, this is relatively straightforward, but it is important to be aware of some of the
 differences to other common images.
 
+
 ---
 ## TL;DR Porting Key Points
 
 * Chainguard Images have no shell or package manager by default. This is great for security, but
   sometimes you need these things, especially in builder images. For those cases we have `-dev`
   images (e.g. `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
-* Chainguard Images typically don't run as root, so a "USER root" statement may be required before
+* Chainguard Images typically don't run as root, so a `USER root` statement may be required before
   installing software
 * The `-dev` images and `wolfi-base` use busybox by default, so any `groupadd` or `useradd` commands
   will need to be ported to `addgroup` and `adduser`
@@ -34,13 +35,14 @@ differences to other common images.
 * We use apk tooling, so `apt get` commands will become `apk add`
 * Chainguard Images are based on `glibc` and our packages cannot be mixed with Alpine packages
 * The entrypoint on Chainguard Images is likely to be different to other common images (due to the
-  lack of a shell) which can be confusing e.g. shell commands getting run by the Python interpreter
+  lack of a shell) which can be confusing -- for example shell commands may get unexpectedly run by
+  the Python interpreter
 
 ---
 
 The application in question is [identidock](https://github.com/using-docker/identidock). This
-application was written for the book _[Using
-Docker](https://learning.oreilly.com/library/view/using-docker/9781491915752/)_ about ten years ago,
+application was written for the book [Using
+Docker](https://learning.oreilly.com/library/view/using-docker/9781491915752/) about ten years ago,
 which shows that we can still migrate software of this age to a new container while realizing the
 benefits of a no-to-low CVE count. The application itself will create
 [identicons](https://en.wikipedia.org/wiki/Identicon) for a user name, similar to what [GitHub
@@ -58,7 +60,7 @@ identidock service will first check the cache to see if it has already created a
 input and if not requests a new identicon from the dnmonster service. The identicon is then returned
 to the user and saved to the cache if required.
 
-![alt_text](images/image1.png "image_tooltip")
+![Diagram of Identidock Architecture](arch.png "Diagram of Identidock Architecture")
 
 The book walked through using various orchestrators to deploy the application, some of which have
 since fallen out of usage (anyone remember [fleet](https://github.com/coreos/fleet)?). For the sake
@@ -96,7 +98,7 @@ curl --output ./monster.png 'localhost:8080/monster/wolfi?size=100'
 
 In this example, we give dnmonster the input "wolfi", for which it will produce the following image:
 
-![alt_text](images/image2.png "image_tooltip")
+![Simple "monster" art](monster.png "Monster generated for wolfi input")
 
 The version of the code on the v1 branch already contains a few updates from the original code, as
 well as bumping versions the codebase was moved from the old and sporadically maintained
@@ -708,7 +710,7 @@ services:
 
 If you now run `docker compose up –build`, you should have a working application that can be reached on port 9090:
 
-![alt_text](images/image3.png "image_tooltip")
+![Screenshot of running application](app.png "Screenshot of running application")
 
 There are some differences between this version and the original. The environment variable used for
 switching between image variants has been removed and the ports have changed to reflect the default
