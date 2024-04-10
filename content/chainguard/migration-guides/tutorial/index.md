@@ -13,7 +13,7 @@ images: []
 menu:
   docs:
     parent: "concepts"
-weight: 800
+weight: 100
 toc: true
 ---
 
@@ -75,7 +75,7 @@ tutorial](https://github.com/chainguard-dev/identidock-cg/).
 In order to follow along with the tutorial, please clone the code and switch to the `v1` branch e.g:
 
 
-```
+```bash
 git clone https://github.com/chainguard-dev/identidock-cg.git
 cd identidock-cg
 git switch v1
@@ -87,7 +87,7 @@ To begin, we'll update the heart of the application – the dnmonster service. d
 [monsterid.js](monsterid.js) by Kevin Gaudin. The dnmonster container hosts an API which returns an
 [identicon](https://en.wikipedia.org/wiki/Identicon) based on the input it's given.
 
-```
+```bash
 docker run -d -p 8080:8080 amouat/dnmonster
 curl --output ./monster.png 'localhost:8080/monster/wolfi?size=100'
 ```
@@ -105,7 +105,7 @@ The Dockerfile for this version of the dnmonster service can be found in the dnm
 looks like:
 
 
-```
+```Dockerfile
 FROM node
 
 RUN apt-get update && apt-get install -yy --no-install-recommends \
@@ -133,14 +133,14 @@ CMD [ "npm", "start" ]
 
 The image can be built with:
 
-```
+```bash
 cd dnmonster
 docker build -t dnmonster .
 ```
 
 Looking at this image:
 
-```
+```bash
 docker images dnmonster
 REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
 dnmonster    latest    1eb74ae9d0f0   3 hours ago   1.22GB
@@ -171,13 +171,13 @@ anything breaks. In this case, we’ll begin with the developer variant of the N
 first line of the Dockerfile from:
 
 
-```
+```Dockerfile
 FROM node
 ```
 
 To:
 
-```
+```Dockerfile
 FROM cgr.dev/chainguard/node:latest-dev
 ```
 
@@ -202,7 +202,7 @@ following "RUN apk update" and adding a "USER root" line. The start of the Docke
 like this:
 
 
-```
+```Dockerfile
 FROM cgr.dev/chainguard/node:latest-dev
 
 USER root
@@ -215,7 +215,7 @@ The next change we need to make is to the "RUN groupadd …" line. Chainguard im
 default, which means `groupadd` needs to become `addgroup`. Rewrite the line so that it looks like
 this:
 
-```
+```Dockerfile
 RUN addgroup dnmonster && adduser -D -G dnmonster dnmonster
 ```
 
@@ -226,13 +226,13 @@ official image uses an entrypoint script to interpret commands, but this can't b
 entrypoint to match. The easiest fix is to change the `CMD` command to `ENTRYPOINT` which will
 override the `/usr/bin/node` command:
 
-```
+```Dockerfile
 ENTRYPOINT [ "npm", "start" ]
 ```
 
 Once you've made all these changes, you should have a Dockerfile that looks like:
 
-```
+```Dockerfile
 FROM cgr.dev/chainguard/node:latest-dev
 
 USER root
@@ -263,14 +263,14 @@ ENTRYPOINT [ "npm", "start" ]
 At this point, we have a version of dnmonster that works and is equivalent to the previous version.
 We can build this image:
 
-```
+```bash
 docker build -t dnmonster-cg .
 ...
 ```
 
 And investigate it again:
 
-```
+```bash
 docker images dnmonster-cg
 REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
 dnmonster-cg   latest    d4bb3a473a90   36 seconds ago   880MB
@@ -306,7 +306,7 @@ Node modules. Instead, we're going to use the `wolfi-base` image and install `no
 
 To do this, replace the Dockerfile with the following:
 
-```
+```Dockerfile
 FROM cgr.dev/chainguard/node:latest-dev as build
 
 USER root
@@ -353,7 +353,7 @@ changed the entrypoint to execute node directly, as the image no longer contains
 Build and investigate the image:
 
 
-```
+```bash
 docker build -t dnmonster-multi .
 …
 docker images dnmonster-multi
@@ -389,7 +389,7 @@ to be hard killed with SIGKILL. To fix this, we can add
 The `tini` binary will run as PID 1, launch npm as a subprocess and take care of PID 1
 responsibilities. Now, the final Dockerfile looks like this:
 
-```
+```Dockerfile
 FROM cgr.dev/chainguard/node:latest-dev as build
 
 USER root
@@ -425,14 +425,14 @@ This version is also available in the main branch of the repository.
 
 Build it:
 
-```
+```bash
 docker  build -t dnmonster-final .
 …
 ```
 
 And run it to prove it still works:
 
-```
+```bash
 docker run -d -p 8080:8080 amouat/dnmonster-final
 ...
 curl --output ./monster.png 'localhost:8080/monster/wolfi?size=100'
@@ -453,7 +453,7 @@ Again, the version of the code on the v1 branch already contains a few updates f
 code, but in this case all that was needed was to bump various libraries to newer versions. The
 Dockerfile for the v1 version can be found in the identidock folder and looks like:
 
-```
+```Dockerfile
 FROM python
 
 RUN groupadd -r uwsgi && useradd -r -g uwsgi uwsgi
@@ -470,7 +470,7 @@ CMD ["/cmd.sh"]
 
 The image can be built with the following, assuming the current directory is the root of repo:
 
-```
+```bash
 cd identidock
 docker build -t identidock .
 …
@@ -478,7 +478,7 @@ docker build -t identidock .
 
 Take a look at the image:
 
-```
+```bash
 docker images identidock
 REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
 identidock   latest    46d3857f790b   8 minutes ago   1.05GB
@@ -486,7 +486,7 @@ identidock   latest    46d3857f790b   8 minutes ago   1.05GB
 
 Scan for vulnerabilities:
 
-```
+```bash
 grype docker:identidock
 ✔ Vulnerability DB                [no update available]
 ✔ Loaded image                                                                                                      identidock:latest
@@ -505,14 +505,14 @@ At the time of writing, this image is 1.05GB with 980 vulnerabilities (5 critica
 
 Again as a first step, we will try to switch out directly to the Chainguard Image. To do this, edit the Dockerfile so the first line reads:
 
-```
+```Dockerfile
 FROM cgr.dev/chainguard/python:latest-dev
 ```
 
 Before building the image we need to also update "groupadd" syntax to use the "addgroup" format. As Chainguard Images don't run as root by default for security reasons, we also need to change to the root user for this command to work. Replace the RUN groupadd line with the lines:
 
 
-```
+```Dockerfile
 USER root
 RUN addgroup uwsgi && adduser -D -G uwsgi uwsgi
 ```
@@ -521,7 +521,7 @@ RUN addgroup uwsgi && adduser -D -G uwsgi uwsgi
 The image now builds, but there are issues due to differences in the image entrypoint. If you run
 the image, you will get a confusing error message such as:
 
-```
+```bash
 `File "/cmd.sh", line 4`
   if [ "$ENV" = 'DEV' ]; then
          ^^^^^^
@@ -535,7 +535,7 @@ Python](https://hub.docker.com/_/python) images makes sense, but can still be a 
 Fixing this can be as easy as changing the entrypoint, but let's take a look at the script first.
 This is the file `cmd.sh` in the identidock directory:
 
-```
+```bash
 #!/bin/bash
 set -e
 
@@ -566,7 +566,7 @@ images](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/
 
 Replace the Dockerfile with this one (this is also available on the "main" branch):
 
-```
+```Dockerfile
 FROM cgr.dev/chainguard/python:latest-dev as dev
 
 ENV LANG=C.UTF-8
@@ -610,7 +610,7 @@ gunicorn==21.2.0
 The first thing to notice is that we have a multistage build now. If you want the development image
 rather than the production one, you can specify it during docker build:
 
-```
+```bash
 docker build --target dev -t identidock:dev .
 ```
 
@@ -637,13 +637,13 @@ mode"](https://github.com/unbit/uwsgi).
 
 Build the final image:
 
-```
+```bash
 docker build -t identidock-cg .
 ```
 
 And take a look at it:
 
-```
+```bash
 docker images identidock-cg
 REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
 identidock-cg   latest    30a424aa8a51   15 seconds ago   93.6MB
@@ -652,7 +652,7 @@ identidock-cg   latest    30a424aa8a51   15 seconds ago   93.6MB
 Run a scan with grype:
 
 
-```
+```bash
 grype docker:identidock-cg
 ✔ Vulnerability DB                [updated]
 ✔ Loaded image                                                                                                                                                                    identidock-cg:latest
@@ -688,7 +688,7 @@ Full details on the new Docker Compose file are found in the next section.
 In the top level directory of the repo, replace the `docker-compose.yaml` with the following:
 
 
-```
+```yaml
 name: identidock
 
 services:
