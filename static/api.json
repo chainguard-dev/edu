@@ -575,6 +575,10 @@
                   "description": "role is the Role UIDP the invited identity will be role-bound to the group with.",
                   "type": "string"
                 },
+                "singleUse": {
+                  "description": "if single_use is set to true, then the invite will be deleted after a user joins the group.",
+                  "type": "boolean"
+                },
                 "ttl": {
                   "description": "expiration, timestamp this invite becomes no longer valid.",
                   "type": "string"
@@ -5111,6 +5115,11 @@
     },
     "iamStoredGroupInvite": {
       "properties": {
+        "createdAt": {
+          "description": "created_at is the timestamp for when the invite was created.",
+          "format": "date-time",
+          "type": "string"
+        },
         "email": {
           "description": "email is the email address that is allowed to accept this invite code. If blank,\nanyone with the invite code an accept.",
           "type": "string"
@@ -5131,6 +5140,10 @@
         "role": {
           "$ref": "#/definitions/iamRole",
           "description": "role is the role the invited identity will be role-bound to the group with."
+        },
+        "singleUse": {
+          "description": "single_use indicates whether or not the invite will be deleted after a user joins the group.",
+          "type": "boolean"
         }
       },
       "type": "object"

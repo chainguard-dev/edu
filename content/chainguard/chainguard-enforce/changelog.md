@@ -2,7 +2,7 @@
 title : "Chainguard Enforce Changelog"
 description: "Chainguard Enforce Changelog"
 type: "article"
-date: 2024-04-04 08:26:40 +0000 UTC
+date: 2024-04-10 19:17:40 +0000 UTC
 draft: false
 tags: ["Platform", "Reference", "Product"]
 images: []
@@ -11,6 +11,32 @@ weight: 799
 
 ## Introduction
 Any customer facing changes to Chainguard Enforce or [`chainctl`](/chainguard/chainguard-enforce/how-to-install-chainctl/) are highlighted in the following notes. Any new features, bug fixes, or general ease of use improvements will be listed under the corresponding release version.
+
+### v0.1.275
+Release date: 2024-04-10
+
+Customer facing changes: N/A
+
+### v0.1.274
+Release date: 2024-04-09
+
+Customer facing changes: N/A
+
+### v0.1.273
+Release date: 2024-04-09
+
+Customer facing changes: N/A
+
+### v0.1.272
+Release date: 2024-04-09
+
+Customer facing changes: N/A
+
+### v0.1.271
+Release date: 2024-04-08
+#### Feature
+- hpe cluster value has been removed
+
 
 ### v0.1.270
 Release date: 2024-04-04
