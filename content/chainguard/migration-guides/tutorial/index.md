@@ -2,9 +2,11 @@
 title: "Tutorial: Porting a Sample Application to Chainguard Images"
 linktitle: "Tutorial: Porting a Sample Application"
 type: "article"
-description: "Tutorial that shows how to port a sample application to Chainguard Images"
-date: 2024-04-10T15:56:52-07:00
-lastmod: 2024-04-10T15:56:52-07:00
+description: "This article works through porting a small but complete application to use Chainguard Images. As
+we'll see, this is relatively straightforward, but it is important to be aware of some of the
+differences to other common images."
+date: 2024-04-10T12:56:52-00:00
+lastmod: 2024-04-10T14:44:52-00:00
 draft: false
 tags: ["IMAGES", "PRODUCT", "CONCEPTUAL"]
 images: []
@@ -15,12 +17,6 @@ weight: 800
 toc: true
 ---
 
-This article works through porting a small but complete application to use Chainguard Images. As
-we'll see, this is relatively straightforward, but it is important to be aware of some of the
-differences to other common images.
-
-
----
 ## TL;DR Porting Key Points
 
 * Chainguard Images have no shell or package manager by default. This is great for security, but
