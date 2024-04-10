@@ -5,7 +5,7 @@ lead: ""
 description: "An introduction to and overview of Chainguard's custom IDP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2024-03-21T15:22:20+01:00
+lastmod: 2024-04-03T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Overview"]
 images: []
@@ -143,7 +143,7 @@ Next, use `chainctl` to log in to Chainguard with an OIDC provider (such as Goog
 chainctl auth login
 ```
 
-This bootstrap account can be used as a [backup account](/chainguard/chainguard-enforce/authentication/custom-idps/#backup-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, if you prefer to remove this rolebinding after configuring the custom IDP, you may also do so.
+This bootstrap account can be used as a [backup account](/chainguard/chainguard-enforce/authentication/custom-idps/#backup-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, if you prefer to remove this role-binding after configuring the custom IDP, you may also do so.
 
 Create a new identity provider using the details you noted from your OIDC application. Be sure to update the details in the following example `export` commands to align with your own application/client ID, client secret, and issuer URL.
 

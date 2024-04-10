@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Using Identity and Access Management in Chainguard"
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2024-03-21T15:22:20+01:00
+lastmod: 2024-04-03T15:22:20+01:00
 draft: false
 tags: ["Product", "Procedural"]
 images: []
@@ -76,7 +76,7 @@ To do so, run the following command, making sure to replace `$ORGANIZATION` with
 chainctl iam invite create $ORGANIZATION
 ```
 
-You will be prompted for the scope that the invite code will be granted. After selecting the [role bindings](/chainguard/administration/iam-groups/overview-of-enforce-iam-model/#role-bindings), this command will generate both an invite code and an invite link.  If you ever lose the invite code, you can retrieve a list of active invite codes with the following `chainctl` command:
+You will be prompted for the scope that the invite code will be granted. After selecting the [role-bindings](/chainguard/administration/iam-groups/roles-role-bindings), this command will generate both an invite code and an invite link.  If you ever lose the invite code, you can retrieve a list of active invite codes with the following `chainctl` command:
 
 ```sh
 chainctl iam invite list
