@@ -5,7 +5,7 @@ lead: ""
 description: "Procedural tutorial on how to register an Azure Active Directory Application"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2024-03-21T15:22:20+01:00
+lastmod: 2024-04-03T15:22:20+01:00
 draft: false
 tags: ["Chainguard Images", "Procedural"]
 images: []
@@ -72,7 +72,7 @@ First, log in to Chainguard with `chainctl`, using an OIDC provider like Google,
 chainctl auth login
 ```
 
-Note that this bootstrap account can be used as a [backup account](/chainguard/chainguard-enforce/authentication/custom-idps/#backup-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, if you prefer to remove this rolebinding after configuring the custom IDP, you may also do so.
+Note that this bootstrap account can be used as a [backup account](/chainguard/chainguard-enforce/authentication/custom-idps/#backup-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, if you prefer to remove this role-binding after configuring the custom IDP, you may also do so.
 
 To configure Chainguard, make a note of the following details from your Azure Active Directory application:
 
