@@ -56,7 +56,7 @@ identidock service will first check the cache to see if it has already created a
 input and if not requests a new identicon from the dnmonster service. The identicon is then returned
 to the user and saved to the cache if required.
 
-![Diagram of Identidock Architecture](arch.png "Diagram of Identidock Architecture")
+![Diagram of Identidock Architecture](arch.png)
 
 The book walked through using various orchestrators to deploy the application, some of which have
 since fallen out of usage (anyone remember [fleet](https://github.com/coreos/fleet)?). For the sake
