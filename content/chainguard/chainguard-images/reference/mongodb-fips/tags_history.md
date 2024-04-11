@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mongodb-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.4-dev` `4-dev` `4.4.29-dev` | April 5th    | `sha256:d81898f0ce9f8badf74e25258b147bda80ae74ef0240cf2f153e09622f6d410c` |
-|  `6-dev` `6.0-dev` `6.0.14-dev` | April 5th    | `sha256:561383a0e98ca1cc9e97693a81b9477c2fc7f036c33a3165b4984faaf7135a1d` |
-|  `5.0-dev` `5.0.26-dev` `5-dev` | April 5th    | `sha256:19b66bc776a55fdc820e3dee6522e134ccf5d5b09b357835b05717a6f6a4a88a` |
-|  `5.0` `5` `5.0.26`             | April 5th    | `sha256:8b2ab4e42168cc4fe6e3f4460e51904c4f689c7dbb36ad6aa0298ee6a2bee50f` |
-|  `4.4.29` `4.4` `4`             | April 5th    | `sha256:688e96451da3d95c0bd60e05ae9b268a0155c144b3af9e80eea4ffd59bdc2912` |
-|  `6.0` `6.0.14` `6`             | April 5th    | `sha256:fce12d6bc4bdc7b12baaf42238d9e6082a7f35d2f62a59dd2bb286d03b4f29ad` |
+|  `5.0-dev` `5-dev` `5.0.26-dev` | April 10th   | `sha256:6775466a20aac5fb4c2dab40b990da67492fc34f5d0bb81afaf15cfd054b988e` |
+|  `6-dev` `6.0.14-dev` `6.0-dev` | April 10th   | `sha256:cb57e603fd080166e1f00971382dcc4046a397c96fd6887bf769b2df8abc3e95` |
+|  `5.0` `5.0.26` `5`             | April 10th   | `sha256:b60847d3619769e63ae566dc3b93a8e545bd138d17d1fd6f7cd533f910bba27a` |
+|  `4.4.29-dev` `4-dev` `4.4-dev` | April 10th   | `sha256:9abbdf87fcd0daf171fb73561afca1e56023a8c592cb7b35ac83955b5c42bec7` |
+|  `6.0.14` `6.0` `6`             | April 10th   | `sha256:6de50c0f3c4240567e0b3584d21f37b1120a167d95ffcd023e9518407c8e300a` |
+|  `4.4.29` `4.4` `4`             | April 10th   | `sha256:f01f36b642f8e2c0aebb16c3fffb522446a466f19c00ee929c620c72777cfa8b` |
 |  `5.0.25`                       | March 18th   | `sha256:b37f80aa7cb936b17b7bb156575623476d50e2d67e181bf309be00f9b7639514` |
 |  `5.0.25-dev`                   | March 18th   | `sha256:ab4d0901902a0d1e5bf223645fa6a10b5a22d6d51924ba0c552ab96939639008` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hugo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:e030c2d714b9326443735c8efd88b2b9ef4adaafebef4e982b517487df117301` |
+|  `latest-dev` | April 9th    | `sha256:dcac38b0ac294708a74d0c46f77079e6390a9a83df74e3d68c4514a401047ae2` |
 |  `latest`     | April 4th    | `sha256:57e064df1570c754c5b49a54037dfcdc6cc6c2a32f0aca2743c4a9eff24f31c4` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.124.1-dev` `0.124-dev` `0-dev` | April 5th    | `sha256:e04617381e53386e80d988b1eed00870eaf41de4362e9ad4af78344a679afa8a` |
+|  `latest-dev` `0.124.1-dev` `0.124-dev` `0-dev` | April 9th    | `sha256:7680bdf9c2698676665245ed0b5ba5698d9fd6ebb0ffba13eb4d0e75a236318c` |
 |  `latest` `0.124` `0.124.1` `0`                 | April 4th    | `sha256:2d37286522291d59fbd0e1673d576f01d6f8d765b6a07ee7d7e186e8c87012ce` |
 |  `0.124.0-dev`                                  | March 18th   | `sha256:5ad99380d1980f35cdfd07d57b42f206adff9c94403cda39017f3523e5b0dc80` |
 |  `0.124.0`                                      | March 18th   | `sha256:cc468ce2d60da53a51ca413acedd6e34daa88be9f9fc7b2d6353a648e4d9a848` |

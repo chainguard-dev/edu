@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:88e0b2ab192d4ed84826441f4901400b2b6ebc42ad40d26b2ea344bc6d59e540` |
-|  `latest`     | April 4th    | `sha256:ee5e987041f0c0c20a8cbff28d5e8827730cee9b2a210bf0f47783600b3850d1` |
+|  `latest-dev` | April 9th    | `sha256:2588331fab975b42c6aa8871321f61845cb7882432fdbbc98d493f7520850325` |
+|  `latest`     | April 9th    | `sha256:07f40535bbe7fdc6212babfa672adad2d292fcf18b5a870ab68df5f65c21038f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.15.1-dev` `0.15-dev` | April 5th    | `sha256:28ff82001062be6a3334a074bd127717da7c4edaeb094585f1e11380ad66cf31` |
-|  `0` `0.15.1` `0.15` `latest`                 | April 3rd    | `sha256:d2e2f55701a1bed59a48103e1cfbae40fbb1dccdafc961f948f33e3352220f8a` |
+|  `0.15.1-dev` `0-dev` `0.15-dev` `latest-dev` | April 9th    | `sha256:14754629d2426774b8d93f504d750d0e156ddc2e883048fda92ed8cae1092fe0` |
+|  `0.15` `0.15.1` `0` `latest`                 | April 9th    | `sha256:dba47e780dc9fe7bd9af17ded3608a64dbc36d4d85222a8b06a65e82de1e836d` |
 

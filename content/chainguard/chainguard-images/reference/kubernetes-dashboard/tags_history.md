@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dashboard Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:283070c8925b14c9c0573960c845abdd28b1226a3635089d49c263185969939c` |
+|  `latest-dev` | April 9th    | `sha256:612cac3f139550d4aac9b45ea9b561d5d4725bdd246c04199aecbed2c5a9dbe0` |
 |  `latest`     | April 4th    | `sha256:198ed394f311806dd0f65e11027f1e63087e95c3bea05cc445d3f2713fa1449b` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.0-dev` `1.0.9-dev` | April 5th    | `sha256:578660907224daf5a3c4dec14cbd73e0687ac438431092ee29d6f250c8d669dd` |
-|  `latest` `1.0` `1` `1.0.9`                 | April 5th    | `sha256:600d363f96bee00426f2a650fb179fbdcf7ab979a619c85e32f8a603e1cde9fb` |
-|  `2.7.0-dev` `2.7-dev` `2-dev`              | April 5th    | `sha256:f3755de6a32536318676c2794dba2db81fc73b1600c70681354ef79d5bacb91a` |
+|  `latest-dev` `2-dev` `2.7.0-dev` `2.7-dev` | April 11th   | `sha256:5fc98436b1134fb7a1b8e2c5ab66643b7ee088b0adb45e7cb5a1c74baf338ecd` |
+|  `latest` `1.0` `1` `1.0.9`                 | April 11th   | `sha256:600d363f96bee00426f2a650fb179fbdcf7ab979a619c85e32f8a603e1cde9fb` |
+|  `1-dev` `1.0.9-dev` `1.0-dev`              | April 9th    | `sha256:74a51630f0ce2d2a00a24afb459541a8af4aa91ee7f07e9c6706a01e5566bab0` |
 |  `2.7.0` `2.7` `2`                          | April 3rd    | `sha256:73c80304be53d9d17bbe6eaafafaab889fc93e0b08c647277af50a7532d3aacf` |
 

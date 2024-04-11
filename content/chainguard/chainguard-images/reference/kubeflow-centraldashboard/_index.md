@@ -4,8 +4,8 @@ linktitle: "kubeflow-centraldashboard"
 type: "article"
 layout: "single"
 description: "Overview: kubeflow-centraldashboard Chainguard Image"
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -32,14 +32,14 @@ For more information, see the [Kubeflow Central Dashboard](https://www.kubeflow.
 
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/kubeflow-centraldashboard:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 <!--body:end-->

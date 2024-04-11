@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: cc-dynamic Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Base image with just enough to run arbitrary binaries that may require gcc or cc libraries, typically C++ or Rust binaries.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/cc-dynamic:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 

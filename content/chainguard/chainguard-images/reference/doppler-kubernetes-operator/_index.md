@@ -4,8 +4,8 @@ linktitle: "doppler-kubernetes-operator"
 type: "article"
 layout: "single"
 description: "Overview: doppler-kubernetes-operator Chainguard Image"
-date: 2024-03-05 17:06:05
-lastmod: 2024-03-05 17:06:05
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Automatically sync secrets from Doppler to Kubernetes and auto-reload deployments when secrets change.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/images/doppler-kubernetes-operator:latest
+docker pull cgr.dev/chainguard/doppler-kubernetes-operator:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 doppler-kubernetes-operator is a Kubernetes operator, which can be deployed using helm. Refer to the [upstream repositories documentation](https://github.com/DopplerHQ/kubernetes-operator) for how to get started with doppler-kubernetes-operator.

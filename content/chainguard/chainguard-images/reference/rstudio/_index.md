@@ -4,8 +4,8 @@ linktitle: "rstudio"
 type: "article"
 layout: "single"
 description: "Overview: rstudio Chainguard Image"
-date: 2024-03-28 00:50:32
-lastmod: 2024-03-28 00:50:32
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimal [RStudio](https://github.com/rstudio/rstudio) container image.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/rstudio:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Running the Image

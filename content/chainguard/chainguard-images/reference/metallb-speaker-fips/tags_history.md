@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metallb-speaker-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14.4` `0.14` `latest` `0`                 | April 5th    | `sha256:d6d602d5baa0719f523a24bc37478b910783665956ddb7819dd3d6fee1ca33e3` |
-|  `0.14.4-dev` `0.14-dev` `latest-dev` `0-dev` | April 5th    | `sha256:c6be83f67f8368b5c18d3bb8ac27c5b7ea2e78d19f2f00ea0b56fc76d05e02fa` |
+|  `0.14.4-dev` `0.14-dev` `0-dev` `latest-dev` | April 10th   | `sha256:253f17aabc4ff10c82213b49139e914fd9f45a2a10712ec17b4cb57157eb7abe` |
+|  `0.14.4` `0.14` `latest` `0`                 | April 10th   | `sha256:b8b1429d610e5177aaae20d4161cccf0c490a0d1a173ad7d2ae4a43439227fc2` |
 

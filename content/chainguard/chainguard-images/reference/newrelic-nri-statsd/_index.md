@@ -4,8 +4,8 @@ linktitle: "newrelic-nri-statsd"
 type: "article"
 layout: "single"
 description: "Overview: newrelic-nri-statsd Chainguard Image"
-date: 2024-04-08 00:38:35
-lastmod: 2024-04-08 00:38:35
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 The StatsD integration lets you easily get StatsD data into New Relic
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/newrelic-nri-statsd:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 

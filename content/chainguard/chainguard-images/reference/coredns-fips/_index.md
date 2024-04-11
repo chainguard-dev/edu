@@ -4,8 +4,8 @@ linktitle: "coredns-fips"
 type: "article"
 layout: "single"
 description: "Overview: coredns-fips Chainguard Image"
-date: 2024-03-21 00:59:19
-lastmod: 2024-03-21 00:59:19
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 [CoreDNS](https://coredns.io) is a fast and flexible DNS server written in Go
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/coredns:latest
+docker pull cgr.dev/chainguard-private/coredns-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Using CoreDNS

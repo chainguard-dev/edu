@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:2a0ea8fa8552e7d802717bac542f3cc8db1dfecb455ab67b7f7331afc79c5592` |
-|  `latest`     | April 4th    | `sha256:b4c6fb6d16c7be6aa48f6e47567806869064a629c1db7a8a2f4a55c2745f0947` |
+|  `latest-dev` | April 9th    | `sha256:60fc4d9263b10128eea4116270559ef42fe96d536a384c5f5d5bff283012dafb` |
+|  `latest`     | April 9th    | `sha256:542d7faa79035500c4cda014fe2f2d48789af4cf5a4accce99eac23fe175e486` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.19-dev` `1.19.2-dev` `latest-dev` | April 5th    | `sha256:707df58d69f77327b055743c6b02bd94f9cecc4253f30c1179c7a4687691d87e` |
-|  `1.19` `1.19.2` `1` `latest`                 | April 3rd    | `sha256:9e2170866e4f9a68396c0e01453f1e8f2094fb0ac8870565447f5ee9b689f09e` |
+|  `1.19.2` `1.19` `latest` `1`                 | April 9th    | `sha256:68b071d3e64e1cf32392ab58cdb8947f0225a7558546ce939670c661fe8bc866` |
+|  `1-dev` `latest-dev` `1.19.2-dev` `1.19-dev` | April 9th    | `sha256:f098fb7ccbc9ec6cfa51c9b1298076c8e7ed17cdaed312111fe460b3d48f5b06` |
 

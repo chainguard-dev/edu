@@ -4,8 +4,8 @@ linktitle: "aws-cli-v2-fips"
 type: "article"
 layout: "single"
 description: "Overview: aws-cli-v2-fips Chainguard Image"
-date: 2024-04-04 00:51:18
-lastmod: 2024-04-04 00:51:18
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimal [aws-cli v2](https://github.com/aws/aws-cli/tree/v2) container image.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/aws-cli-v2:latest
+docker pull cgr.dev/chainguard-private/aws-cli-v2-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Usage
