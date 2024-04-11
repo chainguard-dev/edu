@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:9ffb497616ddd63e8cf6045161f9fa7dca721ff0b3cf305044ce80b183de447f` |
-|  `latest`     | April 4th    | `sha256:6c9b2a2642bfc18545e1e7eb9563b2441ad592f92dc98aa966d9f78c433e00ae` |
+|  `latest`     | April 9th    | `sha256:470ce43a2c3b8a1235c2c7c490414d0b3e0fec1cc6345d9181d2226e7a256769` |
+|  `latest-dev` | April 9th    | `sha256:fef61166ceb90c8715fed474605a3200501399a713b30c79ae713f066abe72dd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16-dev` `0.16.0-dev` `0-dev` `latest-dev` | April 5th    | `sha256:2e3e6d55b61869bdd5ff7075acc6b90a21a4eaa43558e9429f3516b40ff2f408` |
-|  `latest` `0.16` `0.16.0` `0`                 | April 4th    | `sha256:fc4712667ebe9befce9afe7486de2fa00bf29fe80348fc0df24c1166c4d562ad` |
+|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | April 10th   | `sha256:3cbe8af60678e3924d2c0534eb4501849ab32654d253708b8dcc523114d5b9b6` |
+|  `0.16.0` `0.16` `0` `latest`                 | April 10th   | `sha256:9e68e5ef182d958b84cebd7c1d9b33676b69216b7847e2012dd54ab832c8f7f8` |
 

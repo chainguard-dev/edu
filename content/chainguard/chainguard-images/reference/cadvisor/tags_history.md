@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cadvisor Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:3391de8477f7e700b752fbbe14862b49cf6efeb38370253d70d7aee5f3e526d2` |
+|  `latest-dev` | April 9th    | `sha256:a91f78e9e7d00ef64273d109d0305320d269d4b20ac3ec1a935c7a739de478f7` |
 |  `latest`     | April 4th    | `sha256:b9fc5a3b0d80dc50cd3bae1454e87c10f781c4d881816f5fdcdb0e99901b84a1` |
 
 

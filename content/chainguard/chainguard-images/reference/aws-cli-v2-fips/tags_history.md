@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-v2-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `latest-dev` `2.15-dev` `2.15.35-dev` | April 5th    | `sha256:43474adbf2d5c36f8ed13c98cf4ee4cb81ff97482e04f6103986b6742af05fbb` |
-|  `latest` `2.15.35` `2.15` `2`                 | April 4th    | `sha256:ce7b738ffcb7d64c0b38191eff1d82d53b583f3954d6ff75ed66e41bb7697894` |
+|  `2.15-dev` `2-dev` `2.15.37-dev` `latest-dev` | April 10th   | `sha256:07364c2ddd87ff51fe4f7e508e124cf782a3bafd48fcfeb3dfd1d817a6b5c9f6` |
+|  `latest` `2.15.37` `2.15` `2`                 | April 10th   | `sha256:5d50c0af1af4e85e6f7332ac8941e2af14f99a432d12ff0d513296f6e4111664` |
+|  `2.15.36-dev`                                 | April 10th   | `sha256:48db8ff2aac72438ba2aae8f670229185493e3351c7c0765f41f0fcafed5ff23` |
+|  `2.15.36`                                     | April 10th   | `sha256:57fc738c1beb48695c307f1b184cc14fc1dea3c279cbf7a48e83758e993b2046` |
+|  `2.15.35-dev`                                 | April 5th    | `sha256:43474adbf2d5c36f8ed13c98cf4ee4cb81ff97482e04f6103986b6742af05fbb` |
+|  `2.15.35`                                     | April 4th    | `sha256:ce7b738ffcb7d64c0b38191eff1d82d53b583f3954d6ff75ed66e41bb7697894` |
 |  `2.15.34-dev`                                 | April 3rd    | `sha256:9c7dd427dc0669263ceb522ed51b83caf1cfb80afe0373f069da79f8d564c890` |
 |  `2.15.34`                                     | April 3rd    | `sha256:25e4a66cbae8854276e54357f7679c8b212f48c8f0384668272f31ace70a4128` |
 

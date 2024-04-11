@@ -3,8 +3,8 @@ title: "harbor-fips-trivy-adapter Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-fips-trivy-adapter Chainguard Image"
-date: 2024-04-08 00:38:35
-lastmod: 2024-04-08 00:38:35
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 6th    | `sha256:6b28bccc755bb08e2181c8468443ba4b66370b883e8bc389310d5b389d836dc0` |
-|  `latest-dev` | April 6th    | `sha256:ccf7a55b5cd21d535805933c0a53cd01a28e9eed87ff78785b8c5250e5796058` |
+|  `latest-dev` | April 11th   | `sha256:90b9a68480ee391659d558520ef0c752a394cb99797e4e98af976af401ec6659` |
+|  `latest`     | April 11th   | `sha256:f93c98d893c4a5e412222b42a393c679b7e6006678808bb4b3e23c82e8e8fb74` |
 

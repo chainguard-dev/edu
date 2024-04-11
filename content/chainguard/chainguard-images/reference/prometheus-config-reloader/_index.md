@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: prometheus-config-reloader Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimalist Wolfi-based image for Prometheus Config Reloader. It helps with config of Prometheus Operator which creates/configures/manages Prometheus clusters atop Kubernetes
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/prometheus-config-reloader:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 

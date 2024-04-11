@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: sigstore-policy-controller Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Policy Controller image that is part of the Sigstore stack
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/sigstore-policy-controller:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 # Minimal `sigstore/policy-controller` image

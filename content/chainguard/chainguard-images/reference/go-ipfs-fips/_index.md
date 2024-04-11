@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: go-ipfs-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-27 00:48:55
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/go-ipfs:latest
+docker pull cgr.dev/chainguard-private/go-ipfs-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start--><!--body:end-->
 

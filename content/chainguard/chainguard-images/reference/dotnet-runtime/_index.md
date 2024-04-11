@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: dotnet-runtime Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimal image for .NET and the .NET Tools.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/dotnet:latest
+docker pull cgr.dev/chainguard/dotnet-runtime:latest
 ```
-<!--getting:end-->
+
 
 <!--compatibility:start-->
 ## Compatibility Notes

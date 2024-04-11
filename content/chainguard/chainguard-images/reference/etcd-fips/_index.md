@@ -4,8 +4,8 @@ linktitle: "etcd-fips"
 type: "article"
 layout: "single"
 description: "Overview: etcd-fips Chainguard Image"
-date: 2024-03-28 00:50:32
-lastmod: 2024-03-28 00:50:32
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 [etcd](https://etcd.io/) Distributed reliable key-value store for the most critical data of a distributed system
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/etcd:latest
+docker pull cgr.dev/chainguard-private/etcd-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Using etcd

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public rstudio Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -67,6 +67,7 @@ The table shows package distribution across variants.
 | `glibc-locale-posix`     | X          | X      |
 | `glibc-locales`          | X          | X      |
 | `gmp`                    | X          | X      |
+| `gnu-libiconv`           | X          | X      |
 | `graphite2`              | X          | X      |
 | `harfbuzz`               | X          | X      |
 | `icu`                    | X          | X      |

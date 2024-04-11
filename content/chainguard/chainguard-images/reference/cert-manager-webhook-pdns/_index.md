@@ -4,8 +4,8 @@ linktitle: "cert-manager-webhook-pdns"
 type: "article"
 layout: "single"
 description: "Overview: cert-manager-webhook-pdns Chainguard Image"
-date: 2024-04-04 00:51:18
-lastmod: 2024-04-04 00:51:18
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 A PowerDNS webhook for cert-manager
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/cert-manager-webhook-pdns:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Usage

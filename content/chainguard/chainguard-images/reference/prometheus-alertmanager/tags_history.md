@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,16 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 8th    | `sha256:850d79a7081dfa65ddea1345a56dea5c408a6550705f8bc61d1330bec7b27d30` |
-|  `latest-dev` | April 8th    | `sha256:f8e12a3710d95be2eb13d1943329498a5332849136145e44f25d04e6bd86be3e` |
+|  `latest`     | April 11th   | `sha256:a6590fb32c3546cd9ee8650a8252854d42319e5dd0417316200b21b4442ec8de` |
+|  `latest-dev` | April 11th   | `sha256:b61bd5705d04476354dce81f3e16dfab36645d38e61130e72cf31aa5c4bad12a` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                          | Last Changed | Digest                                                                    |
-|----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.27-dev` `0-dev` | April 8th    | `sha256:2f3f64654b5908f8d4e80e501319dafa7d46f0c0f0068b5fa5a6b0dd218c2092` |
-|  `0.27.0-dev`                    | April 8th    | `sha256:d23dc031172d302e0d13fa6566a0c65c1e2b41aa172205183d1f6a71ab8bf752` |
-|  `latest` `0.27.0` `0` `0.27`    | April 8th    | `sha256:012dfd22b76f02494ad01e4c621e54d82698dfe98d5c92ae287de27c707b2ad7` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `0.27` `0.27.0` `0`                 | April 11th   | `sha256:ad16203d347df590b180d040039381e08bcfbc153bcd4d4bfb128a5c4cc1f908` |
+|  `0-dev` `latest-dev` `0.27.0-dev` `0.27-dev` | April 11th   | `sha256:a87594769910f31dd0c7509a220f1260b600cc1348f14c8778ade08e2b4c90d7` |
 

@@ -4,8 +4,8 @@ linktitle: "helm-operator"
 type: "article"
 layout: "single"
 description: "Overview: helm-operator Chainguard Image"
-date: 2024-03-05 17:06:05
-lastmod: 2024-03-05 17:06:05
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 open source toolkit to manage Kubernetes native applications.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/helm-operator:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start--><!--body:end-->
 

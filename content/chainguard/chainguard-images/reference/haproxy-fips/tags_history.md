@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the haproxy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.9.7` `2` `latest` `2.9`                 | April 6th    | `sha256:4df3a0c4fbc53f1fb717bed6d28d17ddf3e5c0d4852df396078a8359c444d457` |
-|  `2.9-dev` `2.9.7-dev` `2-dev` `latest-dev` | April 6th    | `sha256:5151eb4ccff36fb9fb6a0341fa19ebb5509d770e1f9a36cba3b7054f4fb75790` |
+|  `2.9` `2` `latest` `2.9.7`                 | April 10th   | `sha256:238eef42d41df644cffb985a0238fd325263f47796a6174de1ab182074cdaa52` |
+|  `latest-dev` `2.9.7-dev` `2.9-dev` `2-dev` | April 10th   | `sha256:6db21924fae3a7ca2b9ae49416881251e3c531691120540c21e30073f4c5fb16` |
 |  `2.9.6-dev`                                | April 5th    | `sha256:8cefd088bc1b54fe515dda012b3fc1768fdd26b1204de7462ba4175c533fdc71` |
 |  `2.9.6`                                    | April 5th    | `sha256:28581b203c0f989a683334274acab82b2c2dd88dd34b2e0fce30ce5e469a837a` |
 

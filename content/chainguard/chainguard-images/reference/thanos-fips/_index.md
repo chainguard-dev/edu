@@ -4,8 +4,8 @@ linktitle: "thanos-fips"
 type: "article"
 layout: "single"
 description: "Overview: thanos-fips Chainguard Image"
-date: 2024-03-28 00:50:32
-lastmod: 2024-03-28 00:50:32
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimal Thanos Image, a highly available Prometheus setup with long term storage
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/thanos:latest
+docker pull cgr.dev/chainguard-private/thanos-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Usage

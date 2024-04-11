@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:5a43d6cae8e41ea7a751856e4536a4c080c588439c5d045441486903e9cd48d6` |
-|  `latest`     | April 4th    | `sha256:87dc4b1098d49c0bab7bbe116383fb5dd3f97ff19835c71e2436f62362f17b5c` |
+|  `latest`     | April 9th    | `sha256:81239b606c0db59237b3de4d362c011bf6c71f2570c0178cb5d66e5bedf8e167` |
+|  `latest-dev` | April 9th    | `sha256:6b299a3438448d53f939805b418a13a3c5b60e3f0a7f978e8209e041ccb67200` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.13-dev` `1.13.1-dev` `latest-dev` | April 5th    | `sha256:2d02f8673adf3099e9ec92d162bbb146294e2b47118e919ca2690a09dedecf34` |
-|  `1.13` `latest` `1` `1.13.1`                 | April 3rd    | `sha256:39bd319ee61bb11150c98aa02c313e59d57253cac957175333d059ec5f4f8113` |
+|  `latest` `1.13` `1` `1.13.1`                 | April 9th    | `sha256:aa8233aec8e4e3d88b9e55df1462d8604d85ecc942d589aede5331d89c374f70` |
+|  `latest-dev` `1.13.1-dev` `1.13-dev` `1-dev` | April 9th    | `sha256:67359c533ac2a041082ea54c292b36cbc07d115fe48e87fa63845476948814f3` |
 

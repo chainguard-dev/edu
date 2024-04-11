@@ -4,8 +4,8 @@ linktitle: "nfs-subdir-external-provisioner-fips"
 type: "article"
 layout: "single"
 description: "Overview: nfs-subdir-external-provisioner-fips Chainguard Image"
-date: 2024-03-26 00:38:30
-lastmod: 2024-03-26 00:38:30
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Dynamic sub-dir volume provisioner on a remote NFS server.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/nfs-subdir-external-provisioner:latest
+docker pull cgr.dev/chainguard-private/nfs-subdir-external-provisioner-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Testing

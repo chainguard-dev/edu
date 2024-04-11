@@ -4,8 +4,8 @@ linktitle: "harbor-fips-registryctl"
 type: "article"
 layout: "single"
 description: "Overview: harbor-fips-registryctl Chainguard Image"
-date: 2024-04-08 00:38:35
-lastmod: 2024-04-08 00:38:35
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 A Wolf-based image for Harbor - an open-source container registry with policies and RBAC, vulnerability scans, and provides trusted image signing.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/harbor-registry:latest
+docker pull cgr.dev/chainguard-private/harbor-fips-registryctl:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Deploying Harbor with Helm

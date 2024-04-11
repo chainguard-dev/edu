@@ -4,8 +4,8 @@ linktitle: "vault-fips"
 type: "article"
 layout: "single"
 description: "Overview: vault-fips Chainguard Image"
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Vault Server Image
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/vault:latest
+docker pull cgr.dev/chainguard-private/vault-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Using Vault

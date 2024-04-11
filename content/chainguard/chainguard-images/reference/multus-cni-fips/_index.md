@@ -4,8 +4,8 @@ linktitle: "multus-cni-fips"
 type: "article"
 layout: "single"
 description: "Overview: multus-cni-fips Chainguard Image"
-date: 2024-04-04 00:51:18
-lastmod: 2024-04-04 00:51:18
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 A CNI meta-plugin for multi-homed pods in Kubernetes
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/multus-cni:latest
+docker pull cgr.dev/chainguard-private/multus-cni-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Usage

@@ -4,8 +4,8 @@ linktitle: "external-dns-fips"
 type: "article"
 layout: "single"
 description: "Overview: external-dns-fips Chainguard Image"
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimal image to configure external DNS servers (AWS Route53, Google CloudDNS and others) for Kubernetes Ingresses and Services
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/external-dns:latest
+docker pull cgr.dev/chainguard-private/external-dns-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Using External DNS

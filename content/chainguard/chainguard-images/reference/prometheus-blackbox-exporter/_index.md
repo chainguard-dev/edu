@@ -4,8 +4,8 @@ linktitle: "prometheus-blackbox-exporter"
 type: "article"
 layout: "single"
 description: "Overview: prometheus-blackbox-exporter Chainguard Image"
-date: 2024-03-25 00:49:44
-lastmod: 2024-03-25 00:49:44
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Prometheus blackbox exporter allows blackbox probing of endpoints over HTTP, HTTPS, DNS, TCP, ICMP and gRPC.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/prometheus-blackbox-exporter:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Usage

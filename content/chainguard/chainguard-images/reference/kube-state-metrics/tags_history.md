@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-state-metrics Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:0d03c210f26d320a9f0738e96d168a8c04fba73c226e28af2b4883be7f1b8e3a` |
+|  `latest-dev` | April 9th    | `sha256:2ff86f8d70463bbcc74ef042504ddcd4de837b42caab110480e8bb1767e6ac40` |
 |  `latest`     | April 4th    | `sha256:f08833988d047ed28b5964b054f15c445a23f400dd684dc2183a60796d7190b0` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.12.0-dev` `2-dev` `2.12-dev` `latest-dev` | April 5th    | `sha256:06741e62b8bddfe075f9413fa8aa22866c72bafbe13ea4e34f88dd72d4dd09f8` |
+|  `2.12.0-dev` `2-dev` `latest-dev` `2.12-dev` | April 9th    | `sha256:7975db4bc7051eee979b26a48a64a71c51e123dd196dca19d1236f619599fb89` |
 |  `latest` `2.12.0` `2.12` `2`                 | April 4th    | `sha256:78f886ac08d2e0d3d6f452b829ee361bc2d6c37abec168fe05134fa223156382` |
 |  `2.11.0-dev` `2.11-dev`                      | April 2nd    | `sha256:706e73acac09cb39a66aa4d7dc7818eb8b7da4523225d524945e514ae573b69f` |
 |  `2.11` `2.11.0`                              | March 28th   | `sha256:c3990aab4400dbf38ebfb98012531f843e603b109d92935807dcc26c9f4d041b` |

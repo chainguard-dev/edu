@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 6th    | `sha256:2c0360a38f6e85425849409c432f96144a8700ec581cd29b9a3a50e2e102d989` |
-|  `latest-dev` | April 6th    | `sha256:e393869abc3bf34a26792545710c193e931f505fd6943cfbe95e704b48fe954d` |
+|  `latest`     | April 9th    | `sha256:6c70288a83cb43be85ea86844487a9b17d3b09ee86cf0ae5d619e3c8c138c3f8` |
+|  `latest-dev` | April 9th    | `sha256:41154be1a211f7824a2c2f093769de8d8334bc99c3ef076a5c07152dfe1c39fe` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10-dev` `latest-dev` `10.11.7-dev` `10.11-dev` | April 6th    | `sha256:51bd415776c90e6092e143c326c66e2a301a195920bc94ebc6c6354ab0bbd802` |
-|  `latest` `10` `10.11.7` `10.11`                 | April 6th    | `sha256:f18957b7bca44483edcd477de8bb0fe7c33a7b812100fd3d584d4acc10de1ca3` |
+|  `10.11.7-dev` `latest-dev` `10.11-dev` `10-dev` | April 9th    | `sha256:7b0778248774fdb9a10acf3292550f4863438a5c9d91175c062fedceee0b1ed4` |
+|  `10.11.7` `10.11` `latest` `10`                 | April 9th    | `sha256:6e398e94c0b37c76e69530e7a880856a000ad6568e02b793214dd1deda6ef026` |
 

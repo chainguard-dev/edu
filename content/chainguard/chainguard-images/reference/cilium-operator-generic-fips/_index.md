@@ -4,8 +4,8 @@ linktitle: "cilium-operator-generic-fips"
 type: "article"
 layout: "single"
 description: "Overview: cilium-operator-generic-fips Chainguard Image"
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 [Cilium](https://cilium.io/) is an open source, cloud native solution for providing, securing, and observing network connectivity between workloads using eBPF
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/cilium:latest
+docker pull cgr.dev/chainguard-private/cilium-operator-generic-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 # Cilium images:

@@ -4,8 +4,8 @@ linktitle: "velero"
 type: "article"
 layout: "single"
 description: "Overview: velero Chainguard Image"
-date: 2024-03-22 00:34:55
-lastmod: 2024-03-22 00:34:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Backup and migrate Kubernetes applications and their persistent volumes
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/velero:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 [Velero] (https://velero.io/docs/v1.13/) (formerly Heptio Ark) gives you tools to back up and restore your Kubernetes cluster resources and persistent volumes. You can run Velero with a cloud provider or on-premises. \

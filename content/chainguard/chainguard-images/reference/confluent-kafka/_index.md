@@ -4,8 +4,8 @@ linktitle: "confluent-kafka"
 type: "article"
 layout: "single"
 description: "Overview: confluent-kafka Chainguard Image"
-date: 2024-03-25 00:49:44
-lastmod: 2024-03-25 00:49:44
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 A Wolfi-based container image for the Community Edition of Confluent Kafka (cp-kafka), which extends Apache Kafka with additional features.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/confluent-kafka:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 Here's a basic example of how to launch a local instance of confluent-kafka in
