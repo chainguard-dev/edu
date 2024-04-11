@@ -4,8 +4,8 @@ linktitle: "cadvisor-fips"
 type: "article"
 layout: "single"
 description: "Overview: cadvisor-fips Chainguard Image"
-date: 2024-03-22 00:34:55
-lastmod: 2024-03-22 00:34:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 [cAdvisor (Container Advisor)](https://github.com/google/cadvisor) provides container users an understanding of the resource usage and performance characteristics of their running containers.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/cadvisor:latest
+docker pull cgr.dev/chainguard-private/cadvisor-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Usage

@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: vertical-pod-autoscaler-recommender Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Image to automatically adjust the amount of CPU and memory requested by pods running in the Kubernetes Cluster
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/vertical-pod-autoscaler:latest
+docker pull cgr.dev/chainguard/vertical-pod-autoscaler-recommender:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 <!--body:end-->

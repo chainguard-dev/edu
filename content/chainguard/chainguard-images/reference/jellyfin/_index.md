@@ -4,8 +4,8 @@ linktitle: "jellyfin"
 type: "article"
 layout: "single"
 description: "Overview: jellyfin Chainguard Image"
-date: 2024-03-18 00:56:27
-lastmod: 2024-03-18 00:56:27
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimal [Jellyfin](https://github.com/jellyfin/jellyfin) container image.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/jellyfin:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Running the Image

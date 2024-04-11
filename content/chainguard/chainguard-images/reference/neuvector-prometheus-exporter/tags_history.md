@@ -3,8 +3,8 @@ title: "neuvector-prometheus-exporter Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the neuvector-prometheus-exporter Chainguard Image"
-date: 2024-04-08 00:38:35
-lastmod: 2024-04-08 00:38:35
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 6th    | `sha256:6a662780a5ad8bf0620a9edd8216f8ce546b736441beafcf14c0322578bb5209` |
-|  `latest`     | April 6th    | `sha256:7f5207045f7b31315af82139974b28161bb9b4f08626ea1d241a1b0f44ed2ff2` |
+|  `latest`     | April 9th    | `sha256:5ec5a3a58ad32b870d901c8501d4ebe5b78b81c7de3b4cf4fd56358e63cda5fe` |
+|  `latest-dev` | April 9th    | `sha256:bfda82a7fc3a61a1c7b51c0dcc011c860a6e5a56e8abdbcfe8249e2a3fa29a95` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.3.0-dev` `latest-dev` `5.3-dev` `5-dev` | April 7th    | `sha256:b02e20d39e5402abaa6b76f0a482274b2e2af20b57a29af0d494413dceee00d8` |
-|  `5` `5.3.0` `5.3` `latest`                 | April 7th    | `sha256:209c973e0b3082cefb9ed27d26958971b44489ce78f636fda80106580077deae` |
+|  `5-dev` `latest-dev` `5.3.0-dev` `5.3-dev` | April 9th    | `sha256:fe0a01d0135105ddf7cd40af804f001db3bfb71487fec76adc5fc68f01031ca5` |
+|  `5.3` `latest` `5.3.0` `5`                 | April 9th    | `sha256:7343ea83bd953f8e980b13f5862710ce4cb7a160f19d685d6bc5e6ac098e61d7` |
 

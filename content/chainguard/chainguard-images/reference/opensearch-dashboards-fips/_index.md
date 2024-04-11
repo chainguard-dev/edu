@@ -4,8 +4,8 @@ linktitle: "opensearch-dashboards-fips"
 type: "article"
 layout: "single"
 description: "Overview: opensearch-dashboards-fips Chainguard Image"
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimal image with OpenSearch Dashboards
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/opensearch-dashboards:latest
+docker pull cgr.dev/chainguard-private/opensearch-dashboards-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Using OpenSearch Dashboards

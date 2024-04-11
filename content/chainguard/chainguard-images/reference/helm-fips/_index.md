@@ -4,8 +4,8 @@ linktitle: "helm-fips"
 type: "article"
 layout: "single"
 description: "Overview: helm-fips Chainguard Image"
-date: 2024-03-16 00:33:13
-lastmod: 2024-03-16 00:33:13
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimal image with [helm](https://helm.sh) binary.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/helm:latest
+docker pull cgr.dev/chainguard-private/helm-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 

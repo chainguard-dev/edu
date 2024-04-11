@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:a006a7c2d625b83eab3894d30a238b176f38fdc022d6c91c987685a22d8c5aed` |
-|  `latest`     | April 4th    | `sha256:adb761ba233c0a94c944aaf6f6c9544dded80b241444ec761971816ee7f6bb19` |
+|  `latest`     | April 9th    | `sha256:272c3737ff17148e84b84971aadea276716f0df2aecd348057deac4bdbd6e56f` |
+|  `latest-dev` | April 9th    | `sha256:ea565326fae6b0f307e1b956da322ed4446de46b8eeee6b5523ad51894e1bd93` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0-dev` `4-dev` `latest-dev` `4.0.18-dev` | April 5th    | `sha256:591054571d71c74512257c7a73cddb36f93392f8f12118b96372cdf93eaf7bca` |
-|  `4.0` `latest` `4` `4.0.18`                 | April 3rd    | `sha256:bd86f6ecd73aa4bb1c13e4d471418729d25e221877a6947865545466196a5d15` |
+|  `4.0.18` `4` `4.0` `latest`                 | April 9th    | `sha256:765567b1efb9542f41a0cd930bceab2f571a02fcb1de34c25f58e433b6f95c8e` |
+|  `4.0-dev` `4.0.18-dev` `4-dev` `latest-dev` | April 9th    | `sha256:2b9cbf91c15a2e277b4a80a22e2e563be460314d5c1db5e9b0745bd9120ba3c5` |
 

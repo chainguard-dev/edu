@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: k8s-sidecar Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimal image with the k8s-sidecar app.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/k8s-sidecar:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Using k8s-sidecar

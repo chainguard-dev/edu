@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 6th    | `sha256:7d8a3caf3d111b1a989c4a1c0705302901136843ea9c9fdcd978f6d3789e9722` |
-|  `latest`     | April 6th    | `sha256:d4a8ab9e5b9a286b28f166172296c857d9e56e7635a3341f4f3703baf3ab804e` |
+|  `latest`     | April 9th    | `sha256:28005cff97b26265ebe99da9d970397fe8181f33576e7ba08e74f8f8128a7c64` |
+|  `latest-dev` | April 9th    | `sha256:d6e090a3fb85a316efaacd6de42bd0ba9cce0084033e0345e0879bdffa36163b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.10.0` `1.10`                 | April 5th    | `sha256:685c9b90f07714955a72cff3f2b039ef34d034007d5daa665b5dab2a594df439` |
-|  `1.10.0-dev` `1.10-dev` `1-dev` `latest-dev` | April 5th    | `sha256:7260b669089e2daa4813e4eb9d317f1c467088f3e07edec3d6a3a172ccfec451` |
+|  `latest` `1.10` `1` `1.10.0`                 | April 10th   | `sha256:56d29e13f8ec12531e4567ddfe9d424294e5adeb9c75cf880e7f147a3e70527f` |
+|  `1.10-dev` `1-dev` `latest-dev` `1.10.0-dev` | April 10th   | `sha256:790c1123b42a622dd1c682c023aa246041a3e4c794b4cb5aed63400a7cf0c2a5` |
 

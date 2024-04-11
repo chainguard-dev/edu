@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: oauth2-proxy Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) is a reverse proxy that provides authentication with Google, Azure, OpenID Connect and many more identity providers.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/oauth2-proxy:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Use It!

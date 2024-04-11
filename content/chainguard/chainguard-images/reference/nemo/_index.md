@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: nemo Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-14 00:37:02
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 NVIDIA NeMo Framework is an end-to-end, cloud-native framework to build, customize, and deploy generative AI models anywhere.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/nemo:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 Documentation on how to use NeMo Framework is discussed in detail in [NVIDIA documentation](https://docs.nvidia.com/nemo-framework/user-guide/latest/index.html)

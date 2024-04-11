@@ -4,8 +4,8 @@ linktitle: "squid-proxy"
 type: "article"
 layout: "single"
 description: "Overview: squid-proxy Chainguard Image"
-date: 2024-04-08 00:38:35
-lastmod: 2024-04-08 00:38:35
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Squid Proxy is an open-source, high-performance, and highly configurable caching and forwarding web proxy. It is widely used for speeding up web servers by caching web, DNS, and other computer network lookups for a group of people sharing network resources, and for aiding security by filtering traffic.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/squid-proxy:latest
 ```
-<!--getting:end-->
+
 
 <!--compatibility:start-->
 ## Compatibility Notes

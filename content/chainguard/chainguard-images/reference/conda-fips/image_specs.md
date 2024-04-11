@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public conda-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-01 00:38:36
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,14 +21,14 @@ toc: true
 
 This page shows detailed information about the Chainguard **conda-fips** Image.
 
-|              | latest-dev       | latest           |
-|--------------|------------------|------------------|
-| Default User | `nonroot`        | `nonroot`        |
-| Entrypoint   | `/usr/bin/conda` | `/usr/bin/conda` |
-| CMD          | `--help`         | `--help`         |
-| Workdir      | not specified    | not specified    |
-| Has apk?     | yes              | no               |
-| Has a shell? | yes              | yes              |
+|              | latest-dev               | latest                   |
+|--------------|--------------------------|--------------------------|
+| Default User | `root`                   | `root`                   |
+| Entrypoint   | `/usr/bin/conda-wrapper` | `/usr/bin/conda-wrapper` |
+| CMD          | `--help`                 | `--help`                 |
+| Workdir      | not specified            | not specified            |
+| Has apk?     | yes                      | no                       |
+| Has a shell? | yes                      | yes                      |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/conda-fips/tags_history/) for the full list of available tags.
 
@@ -38,11 +38,14 @@ The table shows package distribution across variants.
 |                               | latest-dev | latest |
 |-------------------------------|------------|--------|
 | `apk-tools`                   | X          |        |
-| `bash`                        | X          |        |
+| `bash`                        | X          | X      |
 | `busybox`                     | X          | X      |
 | `ca-certificates-bundle`      | X          | X      |
 | `chainguard-baselayout`       | X          | X      |
 | `conda`                       | X          | X      |
+| `conda-base`                  | X          | X      |
+| `conda-init`                  | X          | X      |
+| `conda-wrapper`               | X          | X      |
 | `fmt`                         | X          | X      |
 | `gdbm`                        | X          | X      |
 | `git`                         | X          |        |

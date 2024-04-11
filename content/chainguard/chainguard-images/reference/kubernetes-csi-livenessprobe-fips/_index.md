@@ -4,8 +4,8 @@ linktitle: "kubernetes-csi-livenessprobe-fips"
 type: "article"
 layout: "single"
 description: "Overview: kubernetes-csi-livenessprobe-fips Chainguard Image"
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
  A sidecar container that can be included in a CSI plugin pod to enable integration with Kubernetes Liveness Probe.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/kubernetes-csi-livenessprobe:latest
+docker pull cgr.dev/chainguard-private/kubernetes-csi-livenessprobe-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Run it

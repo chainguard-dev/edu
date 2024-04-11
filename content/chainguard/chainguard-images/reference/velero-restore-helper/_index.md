@@ -4,8 +4,8 @@ linktitle: "velero-restore-helper"
 type: "article"
 layout: "single"
 description: "Overview: velero-restore-helper Chainguard Image"
-date: 2024-03-27 00:48:55
-lastmod: 2024-03-27 00:48:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Backup and migrate Kubernetes applications and their persistent volumes
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/velero-restore-helper:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 Velero uses a helper init container when performing a filesystem restore (FSB in Velero's terminology). To use this image as the helper follow the [File System Backup](https://velero.io/docs/main/file-system-backup/#customize-restore-helper-container) documentation, and edit the provided `ConfigMap` to use `cgr.dev/chainguard/velero-restore-helper`.

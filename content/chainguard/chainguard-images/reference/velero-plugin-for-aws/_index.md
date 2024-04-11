@@ -4,8 +4,8 @@ linktitle: "velero-plugin-for-aws"
 type: "article"
 layout: "single"
 description: "Overview: velero-plugin-for-aws Chainguard Image"
-date: 2024-03-29 00:47:42
-lastmod: 2024-03-29 00:47:42
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Plugins to support Velero on AWS
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/velero-plugin-for-aws:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 

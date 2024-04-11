@@ -4,8 +4,8 @@ linktitle: "metallb-controller-fips"
 type: "article"
 layout: "single"
 description: "Overview: metallb-controller-fips Chainguard Image"
-date: 2024-03-27 00:48:55
-lastmod: 2024-03-27 00:48:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 [MetalLB](https://metallb.org) provides network load balancers for bare-metal Kubernetes clusters
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/metallb:latest
+docker pull cgr.dev/chainguard-private/metallb-controller-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 Configuring MetalLB for your Kubernetes environment is beyond the scope of this document. It has multiple configuration options depending on the mode that it is configured to use (Layer 2 or BGP). Refer to the [MetalLB Concepts](https://metallb.universe.tf/concepts/) documentation for details on how each mode works.

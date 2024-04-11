@@ -4,8 +4,8 @@ linktitle: "postgres-operator-fips"
 type: "article"
 layout: "single"
 description: "Overview: postgres-operator-fips Chainguard Image"
-date: 2024-04-03 00:49:16
-lastmod: 2024-04-03 00:49:16
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Creates and manages PostgreSQL clusters running in Kubernetes.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/postgres-operator:latest
+docker pull cgr.dev/chainguard-private/postgres-operator-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Usage

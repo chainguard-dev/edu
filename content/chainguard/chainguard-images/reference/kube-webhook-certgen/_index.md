@@ -4,8 +4,8 @@ linktitle: "kube-webhook-certgen"
 type: "article"
 layout: "single"
 description: "Overview: kube-webhook-certgen Chainguard Image"
-date: 2024-04-03 00:49:16
-lastmod: 2024-04-03 00:49:16
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Tools to help with self signed cert generation for Kubernetes test environment
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/kube-webhook-certgen:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start--><!--body:end-->
 

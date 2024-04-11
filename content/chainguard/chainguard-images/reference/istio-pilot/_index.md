@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: istio-pilot Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 [Istio](https://istio.io) is a service mesh that extends Kubernetes to provide traffic management, telemetry, security, and policy for complex deployments.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/istio:latest
+docker pull cgr.dev/chainguard/istio-pilot:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 # Istio images:

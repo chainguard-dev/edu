@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: clickhouse Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-11 00:52:51
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 [Clickhouse](https://clickhouse.com) is the fastest and most resource efficient open-source database for real-time apps and analytics.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/clickhouse:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Using Clickhouse

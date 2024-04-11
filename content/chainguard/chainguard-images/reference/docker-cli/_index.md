@@ -4,8 +4,8 @@ linktitle: "docker-cli"
 type: "article"
 layout: "single"
 description: "Overview: docker-cli Chainguard Image"
-date: 2024-04-08 00:38:35
-lastmod: 2024-04-08 00:38:35
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -32,14 +32,14 @@ This image contains solely the Docker CLI.
 
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/docker-cli:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Usage

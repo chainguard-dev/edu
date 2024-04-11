@@ -1,3 +1,14 @@
+# 2024-04-11
+New images added:
+
+- argocd-extension-installer-fips
+- cortex-fips
+- hubble-ui-backend
+- step-ca
+- step-cli
+
+A total of **1376** documents were updated.
+
 # 2024-04-08
 New images added:
 

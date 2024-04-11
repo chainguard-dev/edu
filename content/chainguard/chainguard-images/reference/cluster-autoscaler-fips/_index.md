@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: cluster-autoscaler-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimal Kubernetes Cluster Autoscaler Image
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/cluster-autoscaler:latest
+docker pull cgr.dev/chainguard-private/cluster-autoscaler-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Usage

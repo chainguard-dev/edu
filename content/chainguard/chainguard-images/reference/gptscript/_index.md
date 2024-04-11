@@ -4,8 +4,8 @@ linktitle: "gptscript"
 type: "article"
 layout: "single"
 description: "Overview: gptscript Chainguard Image"
-date: 2024-03-08 00:56:03
-lastmod: 2024-03-08 00:56:03
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimal [gptscript](https://github.com/gptscript-ai/gptscript) container image.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/gptscript:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 

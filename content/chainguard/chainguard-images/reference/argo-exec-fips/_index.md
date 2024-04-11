@@ -4,8 +4,8 @@ linktitle: "argo-exec-fips"
 type: "article"
 layout: "single"
 description: "Overview: argo-exec-fips Chainguard Image"
-date: 2024-03-06 00:47:02
-lastmod: 2024-03-06 00:47:02
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Images for working with [Argo workflows](https://argoproj.github.io/argo-workflows/)
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/argo:latest
+docker pull cgr.dev/chainguard-private/argo-exec-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Versions

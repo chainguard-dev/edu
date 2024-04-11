@@ -4,8 +4,8 @@ linktitle: "gatekeeper-fips"
 type: "article"
 layout: "single"
 description: "Overview: gatekeeper-fips Chainguard Image"
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimalist Wolfi-based [Gatekeeper](https://open-policy-agent.github.io/gatekeeper) which is a policy controller for Kubernetes
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/gatekeeper:latest
+docker pull cgr.dev/chainguard-private/gatekeeper-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Usage

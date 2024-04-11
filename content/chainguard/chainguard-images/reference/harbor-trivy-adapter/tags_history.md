@@ -3,8 +3,8 @@ title: "harbor-trivy-adapter Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter Chainguard Image"
-date: 2024-04-08 00:38:35
-lastmod: 2024-04-08 00:38:35
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:65bf6bcb02ec8980fe08a1bcf1e411fbba791469f7dddf9465912ad5192522ca` |
+|  `latest-dev` | April 9th    | `sha256:9b3e1fc4a029fd683499a62a77e01823d0c2bdba78525bda3b4b38aedbb3944b` |
 |  `latest`     | April 5th    | `sha256:b2e5130bb934cc3d78e37834fbd8468387bb26f04e8ee6bc181a3e62bbf36914` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:d1687b07105dd9a7c73a3505825333f07ab824a2657d9a44132f7c6c1b9d5096` |
+|  `latest-dev` | April 9th    | `sha256:8027d5289a02015086366f31bf182a7b13cd167eabc5a42ac777c2d5ec9a512e` |
 |  `latest`     | April 5th    | `sha256:f74f2ee47cb72693f460afc173cd46e825248d32276356e568d31d06ef2997b4` |
 

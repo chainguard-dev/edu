@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jellyfin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 5th    | `sha256:0922364ebdf94672167ee5dc79d9b5578720376a9a0ef7677a4b69317462ca99` |
-|  `latest-dev` | April 5th    | `sha256:f563808d78a08f9738e9887060ade6023f92e11cd7cd3cee2f7c93e78a3b443f` |
+|  `latest`     | April 10th   | `sha256:70f7d34e144dcb00bc0adfa09b076203b5ff7e6aa9b6a2888d87f54c6160e467` |
+|  `latest-dev` | April 10th   | `sha256:b61e2a35befd0bbf2cd433d6a45694931c8b30d55ab0e9401798620e9bf0dc56` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `10.8` `10` `10.8.13`                 | April 5th    | `sha256:dfbeae5cae483f7626b20fc356ee528334dbffc062ba13681f979daa3ff714be` |
-|  `10-dev` `latest-dev` `10.8.13-dev` `10.8-dev` | April 5th    | `sha256:9bf9910d65924b2121ebbf6eb77fc8ca3aef4cd122e4aa91bd28bdb262b2d774` |
+|  `latest-dev` `10-dev` `10.8.13-dev` `10.8-dev` | April 10th   | `sha256:b8d92f2adeb777cc946cdbfd6d3f2e9ccea76e808f959858001f34f467ffeb29` |
+|  `latest` `10.8.13` `10` `10.8`                 | April 10th   | `sha256:1f716c799a1ebf662a6677b7c8a6fde42513ae2076bc8b4a7ca3dde09bdfff13` |
 

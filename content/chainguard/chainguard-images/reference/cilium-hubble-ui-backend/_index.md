@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: cilium-hubble-ui-backend Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 [Cilium](https://cilium.io/) is an open source, cloud native solution for providing, securing, and observing network connectivity between workloads using eBPF
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/cilium:latest
+docker pull cgr.dev/chainguard/cilium-hubble-ui-backend:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 # Cilium images:

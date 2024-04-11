@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: kubernetes-event-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimalist [wolfi](https://github.com/wolfi-dev)-based image of [Kubernetes Event Exporter](https://github.com/resmoio/kubernetes-event-exporter) for exporting Kubernetes events to various outputs to be used for observability or alerting purposes.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
 docker pull cgr.dev/chainguard/kubernetes-event-exporter:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Usage

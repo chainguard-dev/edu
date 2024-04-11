@@ -4,8 +4,8 @@ linktitle: "shadowsocks-rust-ssserver"
 type: "article"
 layout: "single"
 description: "Overview: shadowsocks-rust-ssserver Chainguard Image"
-date: 2024-03-29 00:47:42
-lastmod: 2024-03-29 00:47:42
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Shadowsocks-rust is a Rust implementation of the Shadowsocks protocol, aimed at ensuring secure and private internet access by encrypting connections and circumventing internet restrictions.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/shadowsocks-rust:latest
+docker pull cgr.dev/chainguard/shadowsocks-rust-ssserver:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Usage

@@ -4,8 +4,8 @@ linktitle: "kube-bench-fips"
 type: "article"
 layout: "single"
 description: "Overview: kube-bench-fips Chainguard Image"
-date: 2024-03-13 00:52:18
-lastmod: 2024-03-13 00:52:18
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimal image with [kube-bench](https://github.com/aquasecurity/kube-bench).
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/kube-bench:latest
+docker pull cgr.dev/chainguard-private/kube-bench-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 <!--body:end-->

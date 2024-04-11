@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: redis-server-bitnami Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimalist Wolfi-based [Redis-Bitnami](https://github.com/redis/redis) image.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/redis-bitnami:latest
+docker pull cgr.dev/chainguard/redis-server-bitnami:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 This image is intended to be a drop in replacement for deployments that require Bitnami compatibility. The most common case is the Bitnami Helm chart, which can be deployed as follows:

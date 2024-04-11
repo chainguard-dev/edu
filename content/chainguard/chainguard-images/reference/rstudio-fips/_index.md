@@ -4,8 +4,8 @@ linktitle: "rstudio-fips"
 type: "article"
 layout: "single"
 description: "Overview: rstudio-fips Chainguard Image"
-date: 2024-04-08 00:38:35
-lastmod: 2024-04-08 00:38:35
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,14 +29,14 @@ toc: true
 Minimal [RStudio](https://github.com/rstudio/rstudio) container image.
 <!--overview:end-->
 
-<!--getting:start-->
 ## Download this Image
+
 The image is available on `cgr.dev`:
 
 ```
-docker pull cgr.dev/chainguard/rstudio:latest
+docker pull cgr.dev/chainguard-private/rstudio-fips:latest
 ```
-<!--getting:end-->
+
 
 <!--body:start-->
 ## Running the Image

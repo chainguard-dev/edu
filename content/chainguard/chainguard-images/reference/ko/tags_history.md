@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ko Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 12:38:02
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 5th    | `sha256:7f04e3d9c539b0005d84ad9c9e661b2ae8d4db5c18a4085747a44bcd083b397f` |
+|  `latest` | April 9th    | `sha256:cfd921f2d5a2f01f7aec581a2711b441410db7a8a7c05e0109686bc8b32d28a6` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.15-dev` `latest-dev` `0.15.2-dev` | April 5th    | `sha256:9916bf70cf0cb9b0268f07f626358e2a0593b28aa92c921508516db77a1e3a71` |
-|  `0.15` `0` `0.15.2` `latest`                 | April 5th    | `sha256:3dc980110de5def79fc375ce2e50a3261fe6f21744139a4434649429e57e7cb9` |
+|  `0.15` `0.15.2` `latest` `0`                 | April 9th    | `sha256:cdd342f2013b3cd1e19a765be2081ae09a9442a377f85ddbc07303f674928031` |
+|  `0-dev` `0.15.2-dev` `latest-dev` `0.15-dev` | April 9th    | `sha256:a4271a683bb3fe296f7112eae485a00feb8dcc0a8d63f246e30dab086b4978ed` |
 
