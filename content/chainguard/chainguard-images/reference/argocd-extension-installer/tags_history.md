@@ -3,8 +3,8 @@ title: "argocd-extension-installer Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd-extension-installer Chainguard Image"
-date: 2024-04-08 00:38:35
-lastmod: 2024-04-08 00:38:35
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,11 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 6th    | `sha256:f47886ed83395dd123df3f16f8de13acf6c45d012cbbbedb011579fa777a61aa` |
-|  `latest-dev` | April 6th    | `sha256:f102323a0981cff6030bdba7b266201d1c5314a20af787fc7e84ded8941e7c5b` |
+|  `latest`     | April 9th    | `sha256:f4b147d9511fb8d69455eea831bf1e60baaa8a544e0c9a7e15d09c1cdae14e92` |
+|  `latest-dev` | April 9th    | `sha256:345f70d5c688cac2e95888a4537df3d4a1d686f3b55eab3c40c2383c52a98925` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)               | Last Changed | Digest                                                                    |
+|-----------------------|--------------|---------------------------------------------------------------------------|
+|  `0` `latest`         | April 9th    | `sha256:9181ed68c2b832f117eefcb2635a585ed208fb9ffccd43922acf0359f04a5784` |
+|  `latest-dev` `0-dev` | April 9th    | `sha256:0a56e8efe3f05d3fad0b2338abf967345896a75fa34e6d16a4d03f8791683896` |
+

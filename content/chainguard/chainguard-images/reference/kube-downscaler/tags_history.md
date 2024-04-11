@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:1a830cbf2075724c4faf18ea6c8aa93488588ffe1455f60861382cbdb8fe5b7d` |
-|  `latest`     | March 31st   | `sha256:fac4fd4a2977f4c381d767a9b7259f00f7fc1c1d4f3887e6e43bfd3633d13f20` |
+|  `latest`     | April 9th    | `sha256:e67cf0f8313f3e34768ba4db47b2a022607e1a9be5e77004acdd40c21190eeca` |
+|  `latest-dev` | April 9th    | `sha256:247817a8b8a68f4e80825ce88ac41fa17ca01b19b4140efdd0f2cf9a38babb9d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.2-dev` `23.2.0-dev` `23-dev` `latest-dev` | April 5th    | `sha256:3efc75da7cb17efa91a80b297e5d8a50853d693a5c6d8f36bc5eece50451e91c` |
-|  `latest` `23.2.0` `23.2` `23`                 | March 29th   | `sha256:0dc361f93398f4867b67a0bbc403421abc24584b3176d4a0b0cf6f480e6b3942` |
+|  `23-dev` `23.2.0-dev` `23.2-dev` `latest-dev` | April 9th    | `sha256:2ce4b366a746c14593fe780372f8769fa260901d73a5546fd2e83351fccc681f` |
+|  `23.2.0` `23` `latest` `23.2`                 | April 9th    | `sha256:bdd32dfd5a3d2c360df207e6a186e505b7abcb08d5a3b90f6a801bbf832d5917` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the external-secrets Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:0ba32b52f30555551ce80cbd355f2f7ba363d946821b057dbbf38d88b504722f` |
+|  `latest-dev` | April 9th    | `sha256:7df5b3caf890d714c554adbe450dc7872a949412d0a9e6e6eced775e5b85ea02` |
 |  `latest`     | March 31st   | `sha256:2d1e131d61419d39ff169554f58c909bf5c6930414b884cc09b5cdc19bd2436f` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7.3-dev` `0.7-dev`                       | April 3rd    | `sha256:20773394256a1ffe5ccd6e9c2d0fe7aeeed229f242800e6bc01fa073af377b2b` |
-|  `0-dev` `0.9.14-dev` `latest-dev` `0.9-dev` | April 3rd    | `sha256:09a8df5c3841ce90a8812d14fc838e225a7445cfff5e13ef75c6b1ed3424b99f` |
+|  `0.9-dev` `latest-dev` `0.9.14-dev` `0-dev` | April 9th    | `sha256:a57e0353a455a554d52664efc2c987540768e6fba9913aaad32d7ae7ba98b374` |
+|  `0.7-dev` `0.7.3-dev`                       | April 9th    | `sha256:9b6a94e60dbfb7f0d0195e6e0d3d13cc41eb503b2753114239d98e13e21ddfd5` |
 |  `latest` `0` `0.9.14` `0.9`                 | March 30th   | `sha256:df41798df0b438467a1fe882c1893faa5e06aea8ec5d6d1fdd622dbfe820183f` |
 |  `0.9.13-dev`                                | March 28th   | `sha256:ce636c85e3a7e1715491f00a8e56f284720a5e58b84082685b73c2d8f3a2deb7` |
 |  `0.7` `0.7.3`                               | March 28th   | `sha256:3426fc221a0ad0a197afe295cc7cfdf342928787e8ce96c11b1f33b68d47c348` |

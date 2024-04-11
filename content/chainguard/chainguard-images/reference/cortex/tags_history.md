@@ -3,8 +3,8 @@ title: "cortex Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the cortex Chainguard Image"
-date: 2024-04-08 00:38:35
-lastmod: 2024-04-08 00:38:35
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,11 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 9th    | `sha256:a37bb9601508f4e8ef12259b040eb32daa0fea7e5c981290f5a25d194b7b4d72` |
 |  `latest`     | April 5th    | `sha256:94391f27588237be936d9b48b453333cea02daac69918dfc580f5f37c895425c` |
-|  `latest-dev` | April 5th    | `sha256:e016f089e55347f20d6939cd8151fcdd075e3f83dac36d4854133e3fe16ae4ec` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.16-dev` `latest-dev` `1.16.0-dev` `1-dev` | April 9th    | `sha256:ffa18733027624f0a41ec1ffcfa2f302b49441d7c14abedc950dbe3a84119332` |
+|  `1.16` `1` `latest` `1.16.0`                 | April 9th    | `sha256:4e8290fa0c04b882247d99be17201988b8bf4947614d4e85e8d9833484e4fa14` |
+

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:e6d9ffdea24d6d3d1f438bb6b455497960c320d9a9d98d06c80362dad2dbb54c` |
-|  `latest`     | April 5th    | `sha256:f1547fd7e6123825f6320b9046190d1c3248f7f7b0d3cc893cf9ee9570777804` |
+|  `latest`     | April 9th    | `sha256:1538f9469e239d7784997ec524d472a13787e533607e9f3cd5881cb608dff3d0` |
+|  `latest-dev` | April 9th    | `sha256:878bc088116d9915f80e6234fa32eb35e27d0e61aba693fabf7087a07ccc59f2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5-dev` `2-dev` `latest-dev` `2.0-dev` | April 5th    | `sha256:d6956881a924c2c8b32c27b05f4578538ad9d86abd9fc696fab3cca2c21bc155` |
-|  `2.0.5` `latest` `2.0` `2`                 | April 5th    | `sha256:b29a6e58467d39ccca6f386c7f3291b37c96f0fb09fbbbcd2503d7c7b778cb32` |
+|  `2.0.5` `2.0` `latest` `2`                 | April 9th    | `sha256:6a1a2cf4124e97af047fafef68237ac7dbd46bd925199e8b459275d72cec92ba` |
+|  `2-dev` `2.0.5-dev` `latest-dev` `2.0-dev` | April 9th    | `sha256:df9f387a15a7318a73faf861d4bd092759278b7c12569de87c07212b05f018a9` |
 

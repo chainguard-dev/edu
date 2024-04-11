@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.44-dev` `1.44.0-dev`                      | April 5th    | `sha256:b27404a2cbd0edbf98138c840bf73c9e09a7dce5682afeb4011a2ffac03ec165` |
-|  `1-dev` `latest-dev` `1.57-dev` `1.57.0-dev` | April 5th    | `sha256:2c6f96cbe8344624f919ed53884ea9f5a0e044db0896bdd254b8e7d5d5e2a696` |
-|  `latest` `1.57.0` `1.57` `1`                 | March 28th   | `sha256:414d6ce49c5c18549bb0c8bc8cede1dbefe54480a91380cecb9b6d866a2fe06c` |
-|  `1.44` `1.44.0`                              | March 28th   | `sha256:0e8a4c77e1aaa16f30ebad2ced85a00c7a3e13ac114b438a67f7fe8b7bbfd249` |
+|  `1.58.0-dev` `1-dev` `latest-dev` `1.58-dev` | April 10th   | `sha256:d60ce886dcf4de96bfc901b78caa5569efd943ee736216934420e1dac64b1ea3` |
+|  `1.44-dev` `1.44.0-dev`                      | April 10th   | `sha256:031463f66305a478c50aba94d1a86f489a3c19d08c7ff520c2dcde3c6fbdb73c` |
+|  `latest` `1.58` `1` `1.58.0`                 | April 10th   | `sha256:30c96ce1f6f9692c891d3c579c230d623011482690de3b1afffd0fad27c71516` |
+|  `1.44` `1.44.0`                              | April 10th   | `sha256:41b9d69924730845c67bb27d1cfd11f5bb595206507b88ec2ae8386e55c0a5f7` |
+|  `1.57-dev` `1.57.0-dev`                      | April 5th    | `sha256:2c6f96cbe8344624f919ed53884ea9f5a0e044db0896bdd254b8e7d5d5e2a696` |
+|  `1.57.0` `1.57`                              | March 28th   | `sha256:414d6ce49c5c18549bb0c8bc8cede1dbefe54480a91380cecb9b6d866a2fe06c` |
 

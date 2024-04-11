@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for promtail Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-25 00:49:44
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for promtail Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                           |
-|------------------------------|----------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                             |
-| `cgr.dev/chainguard-private` | 2, 2-dev, 2.8, 2.8-dev, 2.8.4, 2.8.4-dev, 2.9, 2.9-dev, 2.9.5, 2.9.5-dev, 2.9.6, 2.9.6-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                     |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                       |
+| `cgr.dev/chainguard-private` | 2, 2-dev, 2.8, 2.8-dev, 2.8.4, 2.8.4-dev, 2.9, 2.9-dev, 2.9.5, 2.9.5-dev, 2.9.6, 2.9.6-dev, 3, 3-dev, 3.0, 3.0-dev, 3.0.0, 3.0.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

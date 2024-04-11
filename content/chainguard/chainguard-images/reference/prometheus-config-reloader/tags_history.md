@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-config-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:947d7deb5fa3a964109324fa92bfeb7347677d5ff30e2f7e1367face78768d2a` |
+|  `latest-dev` | April 9th    | `sha256:f514caa7355e1ba68924757876283ef8d612ff5f8c32da8128f942c4ec64dfe3` |
 |  `latest`     | April 4th    | `sha256:d657e11e4fb34b6736d65b059a25305b33a5a890db43f14527174bbd4e4f7393` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.73-dev` `0-dev` `0.73.0-dev` `latest-dev` | April 5th    | `sha256:23a36a5074a7308ad1acf44d59c79e7163d206364e501e582c3ed5c987048358` |
+|  `0.73-dev` `latest-dev` `0.73.0-dev` `0-dev` | April 9th    | `sha256:b302ddbd084b4c7a6f7ebc40eee92d061402f7414d687fd2ea45b827351ecf60` |
 |  `0.73.0` `0` `latest` `0.73`                 | April 4th    | `sha256:973dbf898e176f89ca39b59d5a9bb3be8ea0f56e88a7ff1c85c21779997f2cc9` |
 |  `0.72-dev` `0.72.0-dev`                      | April 3rd    | `sha256:f5ad4dc898ef29b97aa0bdab09d608e906be4a45bcf9ec2ef8add89e6a327a40` |
 |  `0.72` `0.72.0`                              | April 3rd    | `sha256:72ad2a9ac97c486dbcd3cf50873a6a90788e56bdd56ee403a6864c93e78d3d20` |

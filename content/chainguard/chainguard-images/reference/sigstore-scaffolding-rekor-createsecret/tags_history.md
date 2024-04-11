@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-rekor-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:1799bb0c8c27813518eaea4d5a6ae5726018cc5594d9548b8fae66fd595cef82` |
+|  `latest-dev` | April 9th    | `sha256:1c063397875b82cd0c1ce1dc2a78cbf4c6b761412baa7517d0476ad5f3cfaea4` |
 |  `latest`     | April 4th    | `sha256:d8b722e862daa350f82822585035308633befb60420800453cee51ba9a8e878f` |
 
 
@@ -37,8 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.6-dev` `0.6.17-dev` `0-dev` | April 5th    | `sha256:aa68a55258739e2c4a37122e1aa0be375f0cc57f620f6a247d8285d7a86ce665` |
+|  `0.6-dev` `0-dev` `latest-dev` `0.6.17-dev` | April 9th    | `sha256:47c33a58f00ebf62ff5aee541aef627180d5396d887b85b7b8d12818aa7f6d6a` |
 |  `0` `0.6` `0.6.17` `latest`                 | April 3rd    | `sha256:f71e2a0dfe282050b745633cea27510818bc3f619c662679856aefa30c04c65a` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:319c7d3e7866a485261a75acdf318026737871fc3fa99027292867e32810bfe8` |
-|  `0.6.16`                                    | March 8th    | `sha256:0c0dad28034b1d9d052d73181ce63d26ad5b743dc7b4f981f5dfdd73563b5ae8` |
 

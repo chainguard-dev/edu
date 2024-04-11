@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-verifyfulcio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:5867b27b4bf2c1e72bee2b76e6e784fb2f25f2ac206ab8ab40bc2b81fc117c89` |
+|  `latest-dev` | April 9th    | `sha256:a6ba75b665512a2f287b15db6198755a1ef5fcdfb8c0445e97afeeed84d26250` |
 |  `latest`     | April 4th    | `sha256:12f95acb59e2baf1cd287d7324e20ef5e51c0e9ddf0fc7976fe383946dee0810` |
 
 
@@ -37,8 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `0-dev` `0.6-dev` `latest-dev` | April 5th    | `sha256:209e056230712ac8785c1a75cb7f64a7eddac12f098566c28914dacd93b72542` |
+|  `0.6-dev` `0-dev` `latest-dev` `0.6.17-dev` | April 9th    | `sha256:9d9716c10be3299df3eb04d0a5ab15f8d8fd356015e33faeb7d32033dd200ba7` |
 |  `0.6.17` `0.6` `0` `latest`                 | April 3rd    | `sha256:71962c7610629e107ea33f8301006831684965972e87d22a9d05d56244fcb0cb` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:05d4d17874ce2772dc55cd6445afc72029039dfd9350c1b7dc895efc5b15e143` |
-|  `0.6.16`                                    | March 8th    | `sha256:894a0377a3d5c1618a3cd8999d4ad33892983b1eb9ecada55477d44558804f17` |
 

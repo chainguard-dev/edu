@@ -3,8 +3,8 @@ title: "harbor-fips-registryctl Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-fips-registryctl Chainguard Image"
-date: 2024-04-08 00:38:35
-lastmod: 2024-04-08 00:38:35
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 6th    | `sha256:7f287ec47299950681b512ed23668ce911a968e45041c59b8961b18137846629` |
-|  `latest`     | April 6th    | `sha256:fee9a3c09469124805daa881e521fe84f49194c041110c97dc9196dd4318425c` |
+|  `latest`     | April 10th   | `sha256:0606593498ce940e483515981ef04a0b6e0f7054f1c6fcfc3a7d6338f8634d66` |
+|  `latest-dev` | April 10th   | `sha256:b50683d480611e6f842870c29da72b18a149386db6baaef3f7e5d5bb29227c9f` |
 

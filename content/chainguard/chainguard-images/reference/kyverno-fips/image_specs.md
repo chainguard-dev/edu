@@ -3,8 +3,8 @@ title: "kyverno-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public kyverno-fips Chainguard Image."
-date: 2024-03-21 00:59:19
-lastmod: 2024-03-21 00:59:19
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,6 +45,8 @@ The table shows package distribution across variants.
 | `kubectl-latest`              | X      |
 | `kyverno-fips`                | X      |
 | `ld-linux`                    | X      |
+| `libcrypto3`                  | X      |
+| `libssl3`                     | X      |
 | `openssl-config-fipshardened` | X      |
 | `openssl-provider-fips`       | X      |
 | `wolfi-baselayout`            | X      |

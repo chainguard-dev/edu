@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gatekeeper-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,9 +33,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.13` `3.13.4`                              | April 5th    | `sha256:c8dd38d7b87ba30f1873c8e279c1f765632d2fc72c85ffcfd362c69e2b5be531` |
-|  `3.13-dev` `3.13.4-dev`                      | April 5th    | `sha256:0b683011636fb8e257269d1c779b3eeeb6687d47be354e0c0c57db297b9f5aad` |
-|  `3-dev` `3.14-dev` `3.14.1-dev` `latest-dev` | April 5th    | `sha256:99eca1f92242babc3ff8059835105eb4ac0335046a5f0470db45aba44c047588` |
-|  `latest` `3.14` `3.14.1` `3`                 | April 5th    | `sha256:21aada8936aedb1b3ca6b849b94bbe2a4a750d50dbe404e471a0546dc99fb06f` |
+|  `3.13` `3.13.4`                              | April 10th   | `sha256:5c07137aedbf6321855231a5d319d8b7456fb410ffb1bdc61455a7d530b9b43a` |
+|  `3.13-dev` `3.13.4-dev`                      | April 10th   | `sha256:3a2da50daff70726c018cdcf2bec49bcbf27dcc4842f4d730ad464f08e211865` |
+|  `3` `3.14.1` `3.14` `latest`                 | April 10th   | `sha256:b901a2aafca40a44b5cb1162948943f42c4b2ec7db29c53849ac5a8716230c81` |
+|  `3.14-dev` `3.14.1-dev` `latest-dev` `3-dev` | April 10th   | `sha256:7801cb7a15066c2cef9a519a1213406b331ccb1fc0c0c7903c6a7936e7f4d6a3` |
 |  `3.14.0-dev`                                 | March 12th   | `sha256:bb6f5b54a75c1a700021e21801263cf9265296aa4eccee8c65e216e510d95e07` |
 

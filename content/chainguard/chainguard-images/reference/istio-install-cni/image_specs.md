@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public istio-install-cni Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,8 +43,9 @@ The table shows package distribution across variants.
 | `ca-certificates-bundle`        | X          | X      |
 | `chainguard-baselayout`         | X          | X      |
 | `git`                           | X          |        |
-| `glibc`                         | X          |        |
+| `glibc`                         | X          | X      |
 | `glibc-locale-posix`            | X          | X      |
+| `iptables`                      | X          | X      |
 | `istio-cni-1.20`                | X          | X      |
 | `istio-cni-1.20-compat`         | X          | X      |
 | `istio-install-cni-1.20`        | X          | X      |
@@ -57,6 +58,8 @@ The table shows package distribution across variants.
 | `libcurl-openssl4`              | X          |        |
 | `libexpat1`                     | X          |        |
 | `libidn2`                       | X          |        |
+| `libmnl`                        | X          | X      |
+| `libnftnl`                      | X          | X      |
 | `libnghttp2-14`                 | X          |        |
 | `libpcre2-8-0`                  | X          |        |
 | `libpsl`                        | X          |        |

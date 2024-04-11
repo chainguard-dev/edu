@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `16.2-dev` `latest-dev` `16-dev` | April 5th    | `sha256:e36238324ba5081467780f5b5708d3a4ac25bdd4dc95fdc7790a146491aa5ebc` |
-|  `14.11-dev` `14-dev`             | April 5th    | `sha256:48d2dc8abfd175d32354f48db53630ac1ae2e77fb8a481e1e7c1906abfdfad9c` |
-|  `15.6-dev` `15-dev`              | April 5th    | `sha256:3b8d5dc94546041ac7b9ca0ef59fe0b658107e7e55a8878d6d1d03d1fc12131c` |
-|  `latest` `16` `16.2`             | March 28th   | `sha256:9fbb5825d3352a3691b7f4bbfe61d6ae11381161d2fa1fc29759ba26687c0ac8` |
-|  `15.6` `15`                      | March 28th   | `sha256:dd660b59c081c43a1b70b60da1ca06054cecedd0fd12474c64cc643edc4fbf49` |
-|  `14.11` `14`                     | March 28th   | `sha256:55cd9c67ac774ac69f9473832369d43e95b1c364aa3d09c94e25fe4519f64cf0` |
+|  `16.2-dev` `latest-dev` `16-dev` | April 10th   | `sha256:686300c308db9b82191ccf889ef2d7733fd212e62b3ef15f9470473d61967a01` |
+|  `15.6-dev` `15-dev`              | April 10th   | `sha256:3f918f19f1d234155c5ad9b3968668dfbf7e8b05ecd638287258419fba6e7f95` |
+|  `16.2` `latest` `16`             | April 10th   | `sha256:1f454495fbb6837947fbbcd0fecb52072770510f51d33d4207061b3fc92e65a5` |
+|  `14` `14.11`                     | April 10th   | `sha256:dc41ce24f517576bb6db3faab19daf6d0d7f59e07dfef8f6485fffd5accad662` |
+|  `14.11-dev` `14-dev`             | April 10th   | `sha256:6848bb53a5066568692daaf1a4eb5984ed1f0dfbb69adfe0ef4885760ac59ffc` |
+|  `15.6` `15`                      | April 10th   | `sha256:c5e808aab3d7ad218b9074c3d8700bcbaaaa2df06fd5d9b135380743555ebc32` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:31237a060552baad22aef0154e1738a5562ce166d1143eb4a4a1263e102198ae` |
-|  `latest`     | April 5th    | `sha256:c5586c7d5b4160110f3a3904ae0d692c401c890c7493aeddcc4841ca8c58ecb3` |
+|  `latest-dev` | April 9th    | `sha256:10c34d4ab412150eea74fca08cc0deb7cb62b0293de51f04700009e768f7467f` |
+|  `latest`     | April 9th    | `sha256:08cb16a1f546c162423368b2c0fe520714f22dc641db31e9af08d3ca17930011` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.0` `latest` `2.0.5`                 | April 5th    | `sha256:45d5e0333a43768e3aaa20151018adcf03c375a714d86f33cc536729903f30c3` |
-|  `2.0.5-dev` `latest-dev` `2.0-dev` `2-dev` | April 5th    | `sha256:91657a1e7a9128746f9c3260c578ae8a15085f996341026b85ca74e169d227a9` |
+|  `2` `2.0` `latest` `2.0.5`                 | April 9th    | `sha256:7c3df6e4a84d8720db365568c61e76191acb3314b425e75b61e449c540599785` |
+|  `latest-dev` `2.0.5-dev` `2-dev` `2.0-dev` | April 9th    | `sha256:6e9161d3c968e7c85ee649e6b04ed7a10b7a1d8bf5770866b9d9a847fc09afe2` |
 

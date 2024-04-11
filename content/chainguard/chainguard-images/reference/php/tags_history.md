@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the php Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,12 +28,12 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)               | Last Changed | Digest                                                                    |
 |-----------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-laravel`     | April 5th    | `sha256:93962d472f713d79e2139f9352234b8a81258f4c07362aea3b54e044fd308187` |
-|  `latest-laravel-dev` | April 5th    | `sha256:7b1602ecab8b5e71aae7fa76d26c1dce774795c06fd24444af293d87689f3ca5` |
-|  `latest-fpm-dev`     | April 5th    | `sha256:cc06ca8e270f2f9e79315a8336b34bbb1ffa697dbedf9396e0e86d30d9d8fcdd` |
-|  `latest-fpm`         | April 5th    | `sha256:bbf315baf73a330d5641db9eef0eb693e88425d2ae3392b58af851e818c66eb0` |
-|  `latest-dev`         | April 5th    | `sha256:a4da2b59aeece59d4fa9f789b7a08a82740461bd780d9ce8e4ddc74667386893` |
-|  `latest`             | April 5th    | `sha256:76626bf58900dce4fa87024006cc716b6ea3e5143277f51c4b829a9ed1c112fe` |
+|  `latest-fpm`         | April 9th    | `sha256:9b56e4974bcbb93b71ec940dbc949ec58b90999b6f16a3a58a60d728058334dc` |
+|  `latest-fpm-dev`     | April 9th    | `sha256:667e2269b70403a9ee3c1fb85223f1dd9207f4bc752ed22291288f9217beea7d` |
+|  `latest`             | April 9th    | `sha256:a57e6070f56c4706683a18e8240e3c3d1b10dfa26ea18924556df70d0830f176` |
+|  `latest-dev`         | April 9th    | `sha256:1b8954a83925774039f2d8144598ba2792cd999b6a32e39cfde0fa6fa1ace499` |
+|  `latest-laravel-dev` | April 9th    | `sha256:d559ae527a000efff5436aba5bce8cca55328bb379d1df3a604d66af60b323e7` |
+|  `latest-laravel`     | April 9th    | `sha256:e5dd60611c4f83d245640a355c52b039cd3352455bfb9e77c5f217d8b31eb862` |
 
 
 ### Private/Dedicated Registry
@@ -41,12 +41,14 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8-fpm-dev` `latest-fpm-dev` `8.2.17-r0-fpm-dev` `8.2.17-fpm-dev` `8.2-fpm-dev` | April 5th    | `sha256:f3b3275c86c88d9b595bcf988916014dca7f463ab7acf5284374bf59b760810f` |
-|  `latest-fpm` `8.2.17-r0-fpm` `8.2.17-fpm` `8.2-fpm` `8-fpm`                     | April 5th    | `sha256:70df938cfe5ce70f6fdaa7352810df8a5a932e83c7d1f7e6577f461ce540de8f` |
-|  `8.2` `latest` `8` `8.2.17`                                                     | April 5th    | `sha256:401ddd0c849f14a91d4da7b65a00003e7200df71b2afbd1c080029e24ae1309b` |
-|  `8.2-dev` `latest-dev` `8-dev` `8.2.17-dev`                                     | April 5th    | `sha256:b1707c9bc4aa241fc171d2accbd3b062c9f270fa7d35c3390470d1614b1fbebd` |
+|  `latest` `8.2` `8.2.18` `8`                                                     | April 9th    | `sha256:050ff424431fc2b9cbec0934ef5c17061907181dd529efbfb533737f7e5abdc6` |
+|  `8.2.18-dev` `8.2-dev` `8-dev` `latest-dev`                                     | April 9th    | `sha256:78ebcea5c5bd40f4759c06c2b60dae7afab4cfb1533657d0f3dd8b2f590242a1` |
+|  `8.2.18-r0-fpm-dev` `8.2.18-fpm-dev` `latest-fpm-dev` `8-fpm-dev` `8.2-fpm-dev` | April 9th    | `sha256:7287f55041c7fd61a804d6cac682a9a1e10578d447173796b0dd9cee2d355be6` |
+|  `8-fpm` `8.2.18-fpm` `8.2.18-r0-fpm` `latest-fpm` `8.2-fpm`                     | April 9th    | `sha256:0a2225e241aac7814f3366d6ad2ed509929935767c6d4864ce3eeee2b4b2105e` |
+|  `8.2.17-r0-fpm` `8.2.17-fpm`                                                    | April 5th    | `sha256:70df938cfe5ce70f6fdaa7352810df8a5a932e83c7d1f7e6577f461ce540de8f` |
+|  `8.2.17-r0-fpm-dev` `8.2.17-fpm-dev`                                            | April 5th    | `sha256:f3b3275c86c88d9b595bcf988916014dca7f463ab7acf5284374bf59b760810f` |
+|  `8.2.17`                                                                        | April 5th    | `sha256:401ddd0c849f14a91d4da7b65a00003e7200df71b2afbd1c080029e24ae1309b` |
+|  `8.2.17-dev`                                                                    | April 5th    | `sha256:b1707c9bc4aa241fc171d2accbd3b062c9f270fa7d35c3390470d1614b1fbebd` |
 |  `8.2.16-fpm-dev` `8.2.16-r2-fpm-dev`                                            | March 12th   | `sha256:97f58bfd708efb00b13ae23147578742f71b69418cf63ac57f84207f3712264c` |
 |  `8.2.16-dev`                                                                    | March 12th   | `sha256:e00efa792d0cabce50f11a8aca51fe58801754f3900d1f1a748169b15186b84a` |
-|  `8.2.16-r2-fpm` `8.2.16-fpm`                                                    | March 9th    | `sha256:4bd1cd3d6bf2a801bdf5f948742ab0133ffdb50bc787e2be65f16ed2feeb191c` |
-|  `8.2.16`                                                                        | March 9th    | `sha256:dae5dfc98fcc7664617d89c77a0a728b68b3558a5281a58c6f1d9d7aee3e98c4` |
 

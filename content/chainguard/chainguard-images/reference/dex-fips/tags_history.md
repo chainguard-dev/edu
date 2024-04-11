@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dex-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.39-dev` `latest-dev` `2-dev` `2.39.0-dev` | April 5th    | `sha256:0db581dfbb95b283fe122df6e1e4df0e95302ef2617612778d8bfed1dfe86835` |
-|  `2.39` `2` `latest` `2.39.0`                 | April 4th    | `sha256:111e6fad74d95041e84957229f5ef96f0bfa4ad78fa6cf45a5afbc6275cc4b22` |
+|  `latest` `2.39.1` `2.39` `2`                 | April 10th   | `sha256:244f6153b7a0bc52d479d2a1f7a89f2fda2cdcebda7eadbd79b3cebb75ef3455` |
+|  `2.39-dev` `latest-dev` `2-dev` `2.39.1-dev` | April 10th   | `sha256:d5e015528be90f9795b785c8f48a821270851ef1b01bf7442774652868f7b764` |
+|  `2.39.0-dev`                                 | April 5th    | `sha256:0db581dfbb95b283fe122df6e1e4df0e95302ef2617612778d8bfed1dfe86835` |
+|  `2.39.0`                                     | April 4th    | `sha256:111e6fad74d95041e84957229f5ef96f0bfa4ad78fa6cf45a5afbc6275cc4b22` |
 |  `2.38.0` `2.38`                              | March 18th   | `sha256:380fd7c34062bb7fad00e61c98207e2dc30a53822e1cb1b738c63ed7639e12d5` |
 |  `2.38.0-dev` `2.38-dev`                      | March 18th   | `sha256:8d82085b6ee70aeed3992fefd3d8aa04afb0f4cc6cfc5e5dc57cb9c63b5388e7` |
 

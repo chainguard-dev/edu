@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:00f90f4a0266d6ff14febdd7c2ae4127769cd58edd701d1266915e5602327d53` |
-|  `latest`     | April 4th    | `sha256:befa8a8d9bc6d2d3ebd0e0ff0f46d4eb780cd5e3cc65ee522c4b4f4c358e9669` |
+|  `latest-dev` | April 9th    | `sha256:64a6daf41d9e54a6c883a01ff7997c57076f1a2aa3f2fb8cd2b3a9abb8cd0f9d` |
+|  `latest`     | April 9th    | `sha256:81d7f6bc5c42e32195894720b3f7faa3537e14643e826d096968f06c76b4a2f7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5-dev` `2.0-dev` `latest-dev` `2-dev` | April 5th    | `sha256:551cf8d9d7ab1a2d83156fda1c3a1f5cf1373859d7a07b6cd4c8fe3ea023a1cc` |
-|  `latest` `2.0` `2` `2.0.5`                 | April 4th    | `sha256:49ed66ad8494210285ccfd17578973125573c02826e45df1351d27e703ee1a0e` |
+|  `2-dev` `2.0-dev` `2.0.5-dev` `latest-dev` | April 9th    | `sha256:0a0ab3d3285d714f710118eb18e6b4ce98412a6e62fab324731341ab5a73e33f` |
+|  `2.0` `2` `2.0.5` `latest`                 | April 9th    | `sha256:5ccc782c21a1ccbb86b2ee035dc59170934e6791635c6221b03e3d6a0ed13b3a` |
 

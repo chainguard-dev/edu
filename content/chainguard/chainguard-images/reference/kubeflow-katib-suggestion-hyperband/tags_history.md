@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-08 00:38:35
+lastmod: 2024-04-11 00:54:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:e8869f80185cd4c7f9f1a2550655e7375e4217619a88698dda6104ae6575773d` |
-|  `latest`     | April 4th    | `sha256:864aec8a2a78bf8b39fb2040e81a06bab84f560873f84f574ed8dbd1a16070b0` |
+|  `latest`     | April 9th    | `sha256:7343bb32210f0f4f4a85e603ef75ce8c43fc2418dfe45f6c712228430ac99c20` |
+|  `latest-dev` | April 9th    | `sha256:479014ac952f7bea0674f11ce3f79a8e7cb37cea3ceeb727602424ab20310c5c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16-dev` `0.16.0-dev` `latest-dev` | April 5th    | `sha256:cfa3392f4dd79f0404ceab7a4d897cbbf8601483a7fae624e92e2312bd1f1d22` |
-|  `latest` `0` `0.16.0` `0.16`                 | April 4th    | `sha256:a6fc4c47fe0b268ef5ce2e4576d2ec214fd4d55494bcc242ac0993b6a6dd834c` |
+|  `0-dev` `0.16.0-dev` `latest-dev` `0.16-dev` | April 10th   | `sha256:fa610a2c2f04a8a2e3e951a10ce6b05d2555137908783f1c9a710493f219e898` |
+|  `0.16.0` `0.16` `0` `latest`                 | April 10th   | `sha256:20df0d128d9bfe755e90678bdac31ac3ee9f9fa3be7e83311621f5c970e62d45` |
 
