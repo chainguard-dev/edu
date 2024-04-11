@@ -13,7 +13,7 @@ images: []
 menu:
   docs:
     parent: "concepts"
-weight: 100
+weight: 800
 toc: true
 ---
 
@@ -51,7 +51,7 @@ the time to demonstrate a "microservices" approach, and as such it's made up of 
 * A NodeJS application which creates the identicons
 * Redis which is used as a simple cache
 
-The services are put together as shown. The user only talks to the identidock service. The
+The services are put together as shown in the below diagram. The user only talks to the identidock service. The
 identidock service will first check the cache to see if it has already created an identicon for the
 input and if not requests a new identicon from the dnmonster service. The identicon is then returned
 to the user and saved to the cache if required.
