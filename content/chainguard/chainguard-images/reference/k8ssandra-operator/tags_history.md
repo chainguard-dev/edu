@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:bf4695814f1633bd68df1e4bee0f8eadbf0a007c8368a45e5945f147545f8574` |
+|  `latest-dev` | April 11th   | `sha256:5e578eb6a65bb1e7b3ebb6e10d155b903f88ec99398ed0956c8f18f38b252b90` |
 |  `latest`     | April 5th    | `sha256:a9cb0928d790d50d39d7c2f912ae52812d1f3574571bb274ad603b716abd2419` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.14.0-dev` `1.14-dev` `1-dev` | April 9th    | `sha256:7d235856fe6af9d845b660a60e831118145ba019972cde98e5b8f0a8bcb14403` |
+|  `1-dev` `1.14-dev` `1.14.0-dev` `latest-dev` | April 11th   | `sha256:836ad7a15af37e0756b07e42732767977a64a8bacb5ce9d85558947d3a873553` |
 |  `1.14.0` `1.14` `latest` `1`                 | April 5th    | `sha256:178ac6dbecde3877b19cb1ee33dfbbc06ffcfeb1e03faba379ebd60d3d5a4068` |
 |  `1.13-dev` `1.13.0-dev`                      | April 2nd    | `sha256:a9b181fa3133018684940de3e3ea5b0a128538d0cb9e3383940e49a3b2d5e4e3` |
 |  `1.13` `1.13.0`                              | March 28th   | `sha256:6f3a549e7eab4b137b89096924397008c877673d0b1097586c33015f4e51515c` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the memcached Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:e2530d793b8b249736fbacd6c09631a60ca37f2dd2b8a816be7a8d6538572138` |
-|  `latest`     | April 9th    | `sha256:328255b13e5b16793c8f155e9a51cebd59d4b62c575d8f58728059a068a06e5c` |
+|  `latest`     | April 11th   | `sha256:511842323398efe80a9b4fc34820a97427c4080dc36c04feb94e852fb8542177` |
+|  `latest-dev` | April 11th   | `sha256:ea1dede5da3810a8501ab72673c78227b9b1436250697a636baa1db648bf53e3` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.6.25` `1` `latest` `1.6`                 | April 9th    | `sha256:e8669f067f23601e45803d081564a0a296e815dd377d82b128289654a9b63e9f` |
-|  `1.6.25-dev` `latest-dev` `1-dev` `1.6-dev` | April 9th    | `sha256:887425105e0bf90ad652fd98d6da6d6a301e19f23ecd3b4650b72d9d726260a4` |
+|  `1.6` `latest` `1` `1.6.25`                 | April 11th   | `sha256:ed94e0fce1cbb8230f5697550791bcfb6bba5354f05704a58bba3f73d7399057` |
+|  `latest-dev` `1.6.25-dev` `1.6-dev` `1-dev` | April 11th   | `sha256:b0aa50e7390897a4f2fccac9fab28d60dd68d03348fcf85fdb2479ef960a963d` |
 |  `1.6.24-dev`                                | March 13th   | `sha256:656fcdae892efffe109529b52db9551777268b97f7ef05ca825efa134d605829` |
 

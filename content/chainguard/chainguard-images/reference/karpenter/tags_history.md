@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the karpenter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:a0b6e3a8a2cb5de1b1a942125376fa4c2fb6b17da8463cb0577e9ef3c138861a` |
-|  `latest`     | April 4th    | `sha256:2325e5691523110621285f9d4839a21f6170121d9c3ed81bc415fe6f21d2deef` |
+|  `latest-dev` | April 11th   | `sha256:ba97bfcffee0fe9757abcc81300f7bb4fdcd495843b145f58c9795f8667b7237` |
+|  `latest`     | April 11th   | `sha256:2fa1f66d366ae5d2f594c5942e6ed02007c2242ff7877c10a7f970a044ed35a5` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.36.0-dev` `0-dev` `0.36-dev` | April 11th   | `sha256:b0eab8e6477b29ad41fc9d7d3f477c47a64b08d843035f7b78a63cd3d11d191d` |
+|  `0-dev` `0.36.0-dev` `0.36-dev` `latest-dev` | April 11th   | `sha256:1b10d81376c94c274a90097f2f744d03f9d3914f19cd3d8e327f911eb6a6a957` |
 |  `0` `0.36` `0.36.0` `latest`                 | April 11th   | `sha256:9435066652ea84fab4f6970eb8eacfc34c9962c28746767bb665ffdc8daac8de` |
 |  `0.35-dev` `0.35.4-dev`                      | April 9th    | `sha256:8cc27be69489e27ab451f1fef40c01ae809b2d0e4d7497b07354e4d8468958fa` |
 |  `0.35.4` `0.35`                              | April 4th    | `sha256:6832ddcaf4b8f542b81bd5c3ba02ed4b9917688ae997a36e6168318e035a80cb` |

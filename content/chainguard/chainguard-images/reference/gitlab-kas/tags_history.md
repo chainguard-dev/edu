@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitlab-kas Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 5th    | `sha256:ffc92ca9510b370c8b9584926b7f469a2ca10e77543da6ed7ed3fe1bf59caa0a` |
+|  `latest-dev` | April 11th   | `sha256:a4e6578373eed8c520f4c3858f4f4ff62caac0be8acebf765c24ffeea0480c97` |
 |  `latest`     | April 4th    | `sha256:58a2ecd42a4154e29db0dfc9eef57abfe1f81559e7126f846a10a67ba3821d5a` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 10th   | `sha256:6ac674279019a5c7587893acc609bee4d6b16084f4dae00a882e882181b91d08` |
+|  `latest-dev` | April 11th   | `sha256:8c0dfa7158fa912e1ff3c426a39adb816c4bfdee7b322099cdc9e92c6c2a92e5` |
 |  `latest`     | April 4th    | `sha256:4321dea33dd6c328d775417324a280b2ca3469de009bae1b90fe40534d5ab1ab` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the traefik Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 10th   | `sha256:bde3942d253317ac4ee2cd73d69f025263c1014b7d26a8e0d6b907684b3f6848` |
+|  `latest` | April 11th   | `sha256:e32a6222d769f4cacd3e7fe7998950ac56fe25e15ad2581b8b2b36e2a760f420` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.11` `2` `2.11.1`                 | April 10th   | `sha256:bd070911a490bbbb78416c6b9fad0ab154195733eeb79b397d11a62112d1b5e0` |
-|  `latest-dev` `2.11.1-dev` `2-dev` `2.11-dev` | April 10th   | `sha256:14ee220ecc12780248473f19b7b8251799fda503f038ff98345efb8250e9cc4f` |
+|  `latest` `2.11.2` `2.11` `2`                 | April 11th   | `sha256:70e91bd70602e99b950380ecfcb7b4cce133a55ebfba2f12d7eeafd0aab7307d` |
+|  `2.11.2-dev` `2-dev` `latest-dev` `2.11-dev` | April 11th   | `sha256:ce1f23571cd893df1cbdde2d32aeae05800ebdf594c9878c4d003a83453aed23` |
+|  `2.11.1-dev`                                 | April 11th   | `sha256:8bd68e738cc21b178d4037eca3903b43bed6147ce64c1efc951a3b8088f7e41b` |
+|  `2.11.1`                                     | April 10th   | `sha256:bd070911a490bbbb78416c6b9fad0ab154195733eeb79b397d11a62112d1b5e0` |
 |  `2.11.0-dev`                                 | April 9th    | `sha256:2d7cf24d24df6ee2f460d99ea2f3ab93e5bed38b5b45bba36408714c31deb7bf` |
 |  `2.11.0`                                     | April 4th    | `sha256:917ac8202bb63bf4b662745212810d2cd22533373de4d5b37c463bc56b61dda5` |
 

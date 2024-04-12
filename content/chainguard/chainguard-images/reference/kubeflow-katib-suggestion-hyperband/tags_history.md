@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 9th    | `sha256:7343bb32210f0f4f4a85e603ef75ce8c43fc2418dfe45f6c712228430ac99c20` |
-|  `latest-dev` | April 9th    | `sha256:479014ac952f7bea0674f11ce3f79a8e7cb37cea3ceeb727602424ab20310c5c` |
+|  `latest`     | April 11th   | `sha256:8045d3c3d800df423e4811d9d30a8f3715dbf47962d0e5856efe86e0c634b1c3` |
+|  `latest-dev` | April 11th   | `sha256:dbe5f31e8aa635c293ec67d7099a32675b3d8bdb6f765902af2212185103d532` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.16.0-dev` `latest-dev` `0.16-dev` | April 10th   | `sha256:fa610a2c2f04a8a2e3e951a10ce6b05d2555137908783f1c9a710493f219e898` |
-|  `0.16.0` `0.16` `0` `latest`                 | April 10th   | `sha256:20df0d128d9bfe755e90678bdac31ac3ee9f9fa3be7e83311621f5c970e62d45` |
+|  `0.16-dev` `latest-dev` `0.16.0-dev` `0-dev` | April 11th   | `sha256:fd5869f8594d6932318733c5fe45076b316930fdc87fc88e6baba5204fd86f78` |
+|  `0.16` `latest` `0` `0.16.0`                 | April 11th   | `sha256:bc6d86b7ecdf1840dd8f7041d5814d24dd9b332b46e60e851734509b9371ace1` |
 

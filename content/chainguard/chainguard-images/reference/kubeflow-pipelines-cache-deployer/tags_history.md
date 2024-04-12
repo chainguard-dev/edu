@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:64a6daf41d9e54a6c883a01ff7997c57076f1a2aa3f2fb8cd2b3a9abb8cd0f9d` |
-|  `latest`     | April 9th    | `sha256:81d7f6bc5c42e32195894720b3f7faa3537e14643e826d096968f06c76b4a2f7` |
+|  `latest-dev` | April 11th   | `sha256:f9b5fd3e3d085aa2601b6ed9eaf44672a0e27b6cb1c25ba8712175693505996a` |
+|  `latest`     | April 11th   | `sha256:d65046a0db7b53700cea572886cb26230ff76dc52456d52b6338347c37b0a198` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.0-dev` `2.0.5-dev` `latest-dev` | April 9th    | `sha256:0a0ab3d3285d714f710118eb18e6b4ce98412a6e62fab324731341ab5a73e33f` |
-|  `2.0` `2` `2.0.5` `latest`                 | April 9th    | `sha256:5ccc782c21a1ccbb86b2ee035dc59170934e6791635c6221b03e3d6a0ed13b3a` |
+|  `2.0-dev` `latest-dev` `2.0.5-dev` `2-dev` | April 11th   | `sha256:9d70c1f2efa2fc05b78ca299a24baa1612611d368b6488e4a37aa39155832fb0` |
+|  `2.0` `latest` `2.0.5` `2`                 | April 11th   | `sha256:997eb41cea80caa24a191b9f62b575207ac0a5e04994dc91854ab2f07692f750` |
 

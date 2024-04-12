@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 9th    | `sha256:81239b606c0db59237b3de4d362c011bf6c71f2570c0178cb5d66e5bedf8e167` |
-|  `latest-dev` | April 9th    | `sha256:6b299a3438448d53f939805b418a13a3c5b60e3f0a7f978e8209e041ccb67200` |
+|  `latest-dev` | April 11th   | `sha256:ffb6338a9d4dd9f435b7d92af77752112bae9eed853918b882069ed389e87c60` |
+|  `latest`     | April 11th   | `sha256:ebf1f995eeb72c36daec57c7e01074861ba963443826b89443b8c436d565323a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.13` `1` `1.13.1`                 | April 9th    | `sha256:aa8233aec8e4e3d88b9e55df1462d8604d85ecc942d589aede5331d89c374f70` |
-|  `latest-dev` `1.13.1-dev` `1.13-dev` `1-dev` | April 9th    | `sha256:67359c533ac2a041082ea54c292b36cbc07d115fe48e87fa63845476948814f3` |
+|  `1-dev` `latest-dev` `1.13.1-dev` `1.13-dev` | April 11th   | `sha256:be76a6131d706d0695ac3f6967b1e107c20bf9f0d3afc4752307f84b94941760` |
+|  `1.13` `latest` `1.13.1` `1`                 | April 11th   | `sha256:01084c3fb51f1cd1453b30b91f82c0cd08702c54e13c3cccddc3780eeb4aff5e` |
 

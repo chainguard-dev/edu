@@ -1,3 +1,10 @@
+# 2024-04-12
+New images added:
+
+- tesseract
+
+A total of **626** documents were updated.
+
 # 2024-04-11
 New images added:
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 10th   | `sha256:d0ede63edcacf299ff362b54b21f9c971131f744e765b6d52546e5e2bf1d126f` |
-|  `latest-dev` | April 10th   | `sha256:343b47ec3fecb9f9ac2e7c99a780fb222bc842bf5553cb02ceaebac74e42654b` |
+|  `latest`     | April 11th   | `sha256:f545134f08853cdb4b12e602c4322ac241d19a28ea67c1a4382171390c99d906` |
+|  `latest-dev` | April 11th   | `sha256:fb975c19f928cb402c76f200034b240119ff56a74058e5aec3ec56237a56f92a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15.5` `0.15` `latest` `0`                 | April 10th   | `sha256:dabdf6148654d01b951655ec70b2bd06764b3e3eae4db8c34151c4ab59696c02` |
-|  `0.15-dev` `0.15.5-dev` `latest-dev` `0-dev` | April 10th   | `sha256:5329e5879bac092250e84d87cad0e451a72a38a6d0f7ad3b9fc831af70603f96` |
+|  `latest` `0.15` `0.15.5` `0`                 | April 11th   | `sha256:b303cddf6ab35b280dd89b73634bb276d1e9617a7ceb55755128953261f459bd` |
+|  `latest-dev` `0.15-dev` `0-dev` `0.15.5-dev` | April 11th   | `sha256:6ac9b2b3ddf5c02edf8d15b8d753b063e0c6ddb4d083435b0411dcfe5c1cb408` |
 

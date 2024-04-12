@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the maven Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,12 +28,12 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                        | Last Changed | Digest                                                                    |
 |--------------------------------|--------------|---------------------------------------------------------------------------|
-|  `openjdk-21-dev` `latest-dev` | April 9th    | `sha256:7095f3ddaa3987e67484dc5e4e04999b13da88bc908d6e44b567804b20207151` |
-|  `openjdk-11`                  | April 9th    | `sha256:d9cf83d8e229dbdcbb419af03bf71a17b8575128db0713c29cabc816d976b2d7` |
-|  `latest` `openjdk-21`         | April 9th    | `sha256:025b1cc7a4af0633d897ed6548e8512c8330a34bbb83401ec465d72fdd604068` |
-|  `openjdk-17-dev`              | April 9th    | `sha256:cd8d415996339a61ccd37a7d2d4ea713dea8033b34d1485e05b6268f539cb7f9` |
-|  `openjdk-11-dev`              | April 9th    | `sha256:9f7bc85ee726d923464161627bbb46065c7e6c31ab7ac2e91562257a2a62830f` |
-|  `openjdk-17`                  | April 9th    | `sha256:d527d779687d72c085fc32f857ee87affa82929117fad8cd451ba5b3ace65cb7` |
+|  `openjdk-21` `latest`         | April 11th   | `sha256:698b02b794492eb8f5d017836c9672a99c4a06d4a18c9a5115c5272f8356c901` |
+|  `latest-dev` `openjdk-21-dev` | April 11th   | `sha256:f9bf3ccfa4634a75a3522f75f6249416851ad03d10b318ed13ead0ad69a8ec50` |
+|  `openjdk-17`                  | April 11th   | `sha256:7f83961b92323f677aef902de4fcbffe4bdf987df610e0abe90f2add2b0e5bf1` |
+|  `openjdk-11-dev`              | April 11th   | `sha256:ce7bccc09340083aa9130d869a23a818134cf4220fe4e3181e507c369a894fe2` |
+|  `openjdk-17-dev`              | April 11th   | `sha256:7744138aac163174462f2310b66aa6d7b0ed0cd32a26cb13d17200bfcc4f340d` |
+|  `openjdk-11`                  | April 11th   | `sha256:2b236d5a2f144439b3ae90f7e5d88a9e98c83556b76d87f4afb031ab3a146023` |
 
 
 ### Private/Dedicated Registry
@@ -41,10 +41,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `openjdk-17` `openjdk-17-3.9` `openjdk-17-3` `openjdk-17-3.9.6`                              | April 9th    | `sha256:183e2b34911c172821ce47ef5a608792f45dbf28a9cf878fe120dbf4cef9660e` |
-|  `openjdk-11-3.9.6-dev` `openjdk-11-3.9-dev` `openjdk-11-dev` `openjdk-11-3-dev`              | April 9th    | `sha256:8113ea192013a3841ae2e6234e1de4c70badecdeccf7001c80692b26db8b5837` |
-|  `openjdk-21-3.9` `openjdk-21` `openjdk-21-3.9.6` `openjdk-21-3` `latest`                     | April 9th    | `sha256:cc14d18ca270d3dc7f6f9812b5e30245859a5d3934d8866eedea5954c3793550` |
-|  `openjdk-17-3-dev` `openjdk-17-3.9.6-dev` `openjdk-17-dev` `openjdk-17-3.9-dev`              | April 9th    | `sha256:7a26e0a8990178ef24f71b9e10b2b11ff1b89168c094f5d45ec994f92820d6ef` |
-|  `latest-dev` `openjdk-21-dev` `openjdk-21-3-dev` `openjdk-21-3.9-dev` `openjdk-21-3.9.6-dev` | April 9th    | `sha256:cf1af87142f709b540f742d4443cb1e0ca96a56ec8e01e571a349bfc26ee353c` |
-|  `openjdk-11-3.9.6` `openjdk-11` `openjdk-11-3.9` `openjdk-11-3`                              | April 9th    | `sha256:972b63056d16cf55a0d1b0e4a741e88b045f673df157b4f96f9e9d795f7bc3f8` |
+|  `openjdk-17-3.9.6` `openjdk-17-3.9` `openjdk-17` `openjdk-17-3`                              | April 11th   | `sha256:62d975d6ebf903771607aba3d7d472728dc4410ec601c9b9be3405fe5ad70f57` |
+|  `openjdk-11-3.9` `openjdk-11-3` `openjdk-11-3.9.6` `openjdk-11`                              | April 11th   | `sha256:e07b3338ec5a4be6c1f876636376fbc377f7b5f7d50ca079436697937383fe9c` |
+|  `openjdk-21` `openjdk-21-3` `latest` `openjdk-21-3.9` `openjdk-21-3.9.6`                     | April 11th   | `sha256:218baa0adcbda6d26038e1d129539efd31847556256baafb4379c213266a29b8` |
+|  `openjdk-17-3.9.6-dev` `openjdk-17-3.9-dev` `openjdk-17-dev` `openjdk-17-3-dev`              | April 11th   | `sha256:71722bf29431f4f9426eee896bd2c77fca73473b86a021b73c6a019ead70eed9` |
+|  `openjdk-21-3.9.6-dev` `openjdk-21-dev` `openjdk-21-3.9-dev` `latest-dev` `openjdk-21-3-dev` | April 11th   | `sha256:4ec54b379262b6a13263c865dc320f8f6859a8392ee017ed5733ec949207e938` |
+|  `openjdk-11-3.9.6-dev` `openjdk-11-3-dev` `openjdk-11-dev` `openjdk-11-3.9-dev`              | April 11th   | `sha256:de18f775e2d5e02fd89d71e0c17584fda8072e28814fcc6e752d14b2a11006d9` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-optuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 9th    | `sha256:74d2b3b91235c1a280c042eed04a234189470923a56e9e6e0fb22c5080dc2e79` |
-|  `latest-dev` | April 9th    | `sha256:0f7201a607550fbcf34ff21ccef7d23ac9d16b9cad0728febaf2577b4c22bf1b` |
+|  `latest`     | April 11th   | `sha256:1d88c5b616e6aed6b7c02c9aa712edcaec6884c285b2e5f20d94278f904edef3` |
+|  `latest-dev` | April 11th   | `sha256:97ac2d098d13428bf66867dcf0f0621dda8d66b68f7b8e92f02e65ec6b10ea33` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16` `0.16.0` `0` `latest`                 | April 10th   | `sha256:85ab5ec99ba6c960b02cd4c7e0dd3daf5f0bc6bfa0da9636bd96404486e7a9e6` |
-|  `0-dev` `0.16.0-dev` `0.16-dev` `latest-dev` | April 10th   | `sha256:22ebd45a68e5801347f7c625f492d7f9689d51cedb24318b292a54ca727d9f43` |
+|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | April 11th   | `sha256:402d855fed7591b18ea2d9be4a84d42f51a39958f0305bfc63f4240ab7fc2e61` |
+|  `0.16` `latest` `0.16.0` `0`                 | April 11th   | `sha256:70a7b620584af5ad79df7b21a3bc8d722d797cda9a4f7b8c122be1067201e045` |
 

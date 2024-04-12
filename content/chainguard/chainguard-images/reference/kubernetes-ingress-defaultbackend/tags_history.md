@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:3d16bc01c39e04f9acdd63a71d1b0e27aa517a0a7b6b25b0e205f591ea970abe` |
+|  `latest-dev` | April 11th   | `sha256:bde15e6c037f4ec265841b964e8065819556cad639ca4d8f95f73413817aa7b9` |
 |  `latest`     | April 11th   | `sha256:4f46659672f2f21612e24cddb68941512de0dfa9127d508c81fd204118597147` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.28-dev` `latest-dev` `1.28.5-dev` `1-dev` | April 10th   | `sha256:2a4b1e4dab378107dc0dd4a94e40bda65df7a419fd40c53730bf621c760f484b` |
+|  `1.28.5-dev` `1.28-dev` `1-dev` `latest-dev` | April 11th   | `sha256:169d54d0dee283c3d924135ae3e1224f337f0e6b4a9c508b936b4f7aed0bfad5` |
 |  `latest` `1.28` `1` `1.28.5`                 | April 10th   | `sha256:209e0f880de905d47f77399b02fab3ee023202e61c7d49ea6002dc8612529977` |
 |  `1.28.4-dev`                                 | April 9th    | `sha256:0300b02d1d61350e8d75cb9e2d2f416585ff5ac8cf9c4eaf5fa7e47cd57afbfa` |
 |  `1.28.4`                                     | April 3rd    | `sha256:0b90c4da0930ba4104cb1dcd593263af730f20ee84b2a3764f88484437ea9467` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the erlang-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `26.2.3-dev` `26-dev` `latest-dev` `26.2-dev` | April 10th   | `sha256:ea0805e9704dbbcfd0f333eb4ca3fc49f085fef9f46a70b34fab16fe61fa93d4` |
-|  `latest` `26.2.3` `26.2` `26`                 | April 10th   | `sha256:7d56ae73f3311cd818e58ecb70c637ee493d553478f363ebeb575531b2a00cc7` |
+|  `26-dev` `latest-dev` `26.2-dev` `26.2.3-dev` | April 11th   | `sha256:499939690823fccb7005e9d97f4b7da56ae92cc231d4356cbda109e5e0497711` |
+|  `26` `latest` `26.2.3` `26.2`                 | April 11th   | `sha256:f383c14bd953d4c90f7a81c3647abc45aeb349070a259d438e6e9cf549dd9665` |
 

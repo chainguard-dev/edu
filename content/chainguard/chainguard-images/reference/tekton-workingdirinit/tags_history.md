@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-workingdirinit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:71c009970efdb74e1d9d581b597d51e5acbb2af2f5d97ef69de17fcf887012f6` |
+|  `latest-dev` | April 11th   | `sha256:5261b5b23e9c6b1c0a04ba3f98f345442cd9ace04227e7a65c884c789fc08e28` |
 |  `latest`     | April 4th    | `sha256:c8b9b35b56365ffe79d101618fd0dc108d11d9da381d3eb346370550231893cc` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.58-dev` `0.58.0-dev` `latest-dev` | April 9th    | `sha256:8a23eeabf686f52e009c77206cda6e8b20072a9384cb6ced5c7a32dee2a3733d` |
+|  `0.58-dev` `0-dev` `0.58.0-dev` `latest-dev` | April 11th   | `sha256:3ff7d66ca9932fd775ab8709ef15f61a0c8774fd858c05b0702ceda30084f25d` |
 |  `0.58.0` `0` `latest` `0.58`                 | April 3rd    | `sha256:0efe06b8d5f6160aee38a429e2598e49032d8320b5b1842b45b989c76a35b277` |
 |  `0.57.0` `0.57`                              | March 18th   | `sha256:c8344c0a3da03ba3f994ddf3aa38b896e47a0b855911315c4686682cd729bf5e` |
 |  `0.57-dev` `0.57.0-dev`                      | March 18th   | `sha256:108d8ef3f5c0b3df8fa8257c1d99f4bf6736ddd50f9e0c39f2787efc518b4676` |

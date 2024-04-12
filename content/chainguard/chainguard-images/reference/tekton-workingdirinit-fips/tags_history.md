@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-workingdirinit-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.58.0-dev` `0.58-dev` `0-dev` `latest-dev` | April 10th   | `sha256:ef8c282ad3d3d9999ecc27bd334338a855cd5012e6e2de4dd20c76ebb24af6c4` |
-|  `0.58` `0` `latest` `0.58.0`                 | April 10th   | `sha256:33859e7d609352486eabb86ecdc2cbdeef41bdd78306e9be746475cb90a4afef` |
+|  `0.58-dev` `0.58.0-dev` `latest-dev` `0-dev` | April 11th   | `sha256:468907ccdf0bf06cfddf1177b6fb1a734f55a4cf798781ea3d8f33a8456989c1` |
+|  `0` `latest` `0.58.0` `0.58`                 | April 11th   | `sha256:9fbfd6e7a7890661fe900311a98efb9d8f6cc85952457b9d38c5d2ed46e6d075` |
 

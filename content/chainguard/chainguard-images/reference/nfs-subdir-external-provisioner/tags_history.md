@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 9th    | `sha256:272c3737ff17148e84b84971aadea276716f0df2aecd348057deac4bdbd6e56f` |
-|  `latest-dev` | April 9th    | `sha256:ea565326fae6b0f307e1b956da322ed4446de46b8eeee6b5523ad51894e1bd93` |
+|  `latest`     | April 11th   | `sha256:76da505eab9754d9a8f97471111d8205da23632c0b63941ccf6fac4e2cc39b15` |
+|  `latest-dev` | April 11th   | `sha256:06bb07fbf7b41d149cf47ba9619ba7469e9838287829413371039c545c39ba6a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0.18` `4` `4.0` `latest`                 | April 9th    | `sha256:765567b1efb9542f41a0cd930bceab2f571a02fcb1de34c25f58e433b6f95c8e` |
-|  `4.0-dev` `4.0.18-dev` `4-dev` `latest-dev` | April 9th    | `sha256:2b9cbf91c15a2e277b4a80a22e2e563be460314d5c1db5e9b0745bd9120ba3c5` |
+|  `4.0.18-dev` `4.0-dev` `latest-dev` `4-dev` | April 11th   | `sha256:13b5af19e5f8e844a66e6bd48643e47a8927186d1a7bccd24a660981fd618606` |
+|  `latest` `4.0.18` `4.0` `4`                 | April 11th   | `sha256:3f3aec8d30a6fcfc9560ad1c126b00adac2668ae64d94acdb05bf2063ce61806` |
 
