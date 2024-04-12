@@ -1,6 +1,6 @@
 ---
 title: "How to Port a Sample Application to Chainguard Images"
-linktitle: "Tutorial: Porting a Sample Application"
+linktitle: "Porting a Sample Application"
 type: "article"
 description: "This article works through porting a small but complete application to use Chainguard Images. As
 we'll see, this is relatively straightforward, but it is important to be aware of some of the
@@ -8,12 +8,12 @@ differences to other common images."
 date: 2024-04-10T12:56:52-00:00
 lastmod: 2024-04-10T14:44:52-00:00
 draft: false
-tags: ["images", "product", "procedural"]
+tags: ["Images", "Product", "Procedural"]
 images: []
 menu:
   docs:
     parent: "concepts"
-weight: 800
+weight: 20
 toc: true
 ---
 
