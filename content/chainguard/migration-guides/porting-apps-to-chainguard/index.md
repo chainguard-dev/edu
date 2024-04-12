@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Porting a Sample Application to Chainguard Images"
+title: "How to Port a Sample Application to Chainguard Images"
 linktitle: "Tutorial: Porting a Sample Application"
 type: "article"
 description: "This article works through porting a small but complete application to use Chainguard Images. As
@@ -8,7 +8,7 @@ differences to other common images."
 date: 2024-04-10T12:56:52-00:00
 lastmod: 2024-04-10T14:44:52-00:00
 draft: false
-tags: ["IMAGES", "PRODUCT", "CONCEPTUAL"]
+tags: ["images", "product", "procedural"]
 images: []
 menu:
   docs:
@@ -21,18 +21,18 @@ toc: true
 
 * Chainguard Images have no shell or package manager by default. This is great for security, but
   sometimes you need these things, especially in builder images. For those cases we have `-dev`
-  images (e.g. `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
+  images (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * Chainguard Images typically don't run as root, so a `USER root` statement may be required before
-  installing software
-* The `-dev` images and `wolfi-base` use busybox by default, so any `groupadd` or `useradd` commands
-  will need to be ported to `addgroup` and `adduser`
+  installing software.
+* The `-dev` images and `wolfi-base` use BusyBox by default, so any `groupadd` or `useradd` commands
+  will need to be ported to `addgroup` and `adduser`.
 * The free developer tier of images provides `latest` and `latest-dev` versions. For specific tags
   or older versions please see our production images.
-* We use apk tooling, so `apt get` commands will become `apk add`
-* Chainguard Images are based on `glibc` and our packages cannot be mixed with Alpine packages
+* We use apk tooling, so `apt get` commands will become `apk add`.
+* Chainguard Images are based on `glibc` and our packages cannot be mixed with Alpine packages.
 * The entrypoint on Chainguard Images is likely to be different to other common images (due to the
   lack of a shell) which can be confusing -- for example shell commands may get unexpectedly run by
-  the Python interpreter
+  the Python interpreter.
 
 ---
 
@@ -72,7 +72,7 @@ moving to Chainguard Images) can be found on the [v1
 branch](https://github.com/chainguard-dev/identidock-cg/tree/v1) of the [repository for this
 tutorial](https://github.com/chainguard-dev/identidock-cg/).
 
-In order to follow along with the tutorial, please clone the code and switch to the `v1` branch e.g:
+In order to follow along with the tutorial, please clone the code and switch to the `v1` branch:
 
 
 ```bash
@@ -81,7 +81,7 @@ cd identidock-cg
 git switch v1
 ```
 
-# Updating dnmonster
+## Updating the Node.js Microservice
 
 To begin, we'll update the heart of the application – the dnmonster service. dnmonster is based on
 [monsterid.js](monsterid.js) by Kevin Gaudin. The dnmonster container hosts an API which returns an
@@ -195,7 +195,7 @@ of <code>apt-get</code>. We then need to figure out the Wolfi equivalents of the
 packages, which may not always have a one-to-one correspondence. There are tools to help here – you
 can consult our [migration
 guides](https://edu.chainguard.dev/chainguard/migration-guides/debian-compatibility/) and use apk
-tools (e.g. <code>apk search libjpeg</code>), but searching the [Wolfi
+tools (like <code>apk search libjpeg</code>), but searching the [Wolfi
 GitHub](https://github.com/wolfi-dev/os) repository for package names will often provide you with
 what you’re looking for. Make these changes by replacing the "RUN apt-get … " line with the
 following "RUN apk update" and adding a "USER root" line. The start of the Dockerfile should look
@@ -211,7 +211,7 @@ RUN apk update && apk add \
     librsvg-dev glib-dev harfbuzz-dev fribidi-dev expat-dev libxft-dev
 ```
 
-The next change we need to make is to the "RUN groupadd …" line. Chainguard images use busybox by
+The next change we need to make is to the "RUN groupadd …" line. Chainguard images use BusyBox by
 default, which means `groupadd` needs to become `addgroup`. Rewrite the line so that it looks like
 this:
 
@@ -443,7 +443,7 @@ building NodeJS containers in this GitHub
 repo](https://github.com/BretFisher/nodejs-rocks-in-docker). But for the purposes of this example
 app, we've made excellent progress.
 
-## Updating Identidock
+## Updating the Python Microservice
 
 The next service we will look at updating is Identidock, the main entrypoint for the application.
 Identidock is responsible for looking up requests in the cache and falling-back to calling the
@@ -674,18 +674,15 @@ Further information on using Chainguard Images with Python can be found in our
 [guide](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/python/).
 
 
-## Updating Redis
+## Updating Redis and Docker Compose
 
-This migration is the most straightforward. We're not making any changes to the application image,
-so all we need to do is directly update the reference to `redis:7` in the Docker Compose file to
+Updating Redis is straightforward. We're not making any changes to the application image, so all we
+need to do is directly update the reference to `redis:7` in the Docker Compose file to
 `cgr.dev/chainguard/redis`. The new image requires no extra configuration but we go from a 139 MB
 image with 137 vulnerabilities to a 23MB image with 0 CVEs (again according to Grype).
 
-Full details on the new Docker Compose file are found in the next section.
-
-## Updating Docker Compose
-
-In the top level directory of the repo, replace the `docker-compose.yaml` with the following:
+To update Compose, in the top level directory of the repo, replace the `docker-compose.yaml` with
+the following:
 
 
 ```yaml
@@ -722,7 +719,6 @@ solution that volume mounts. See [What is Docker Compose Watch and what problem 
 solve?](https://collabnix.com/what-is-docker-compose-watch-and-what-problem-does-it-solve/) for an
 introductory tutorial on using Compose Watch.
 
-
 ## Conclusion
 
 Porting our application to Chainguard Images was relatively straightforward. There were some gotchas
@@ -730,3 +726,20 @@ around differences to other images, such as different entrypoint settings and na
 The largest part of the puzzle was moving from single image builds to multistage builds that take
 advantage of the minimal Chainguard runtime images for Python and NodeJS. Once all this was done, we
 ended up with a much smaller set of images and with a drastically reduced number of CVEs.
+
+### Clean-up
+
+First stop any containers started by Compose:
+
+```
+docker-compose down
+```
+
+Then check `docker ps` to see if any containers are still running and stop them with `docker stop
+<id>`.
+
+You can then remove any images you've built:
+
+```
+docker rmi -f dnmonster dnmonster-cg dnmonster-multi identidock identidock:dev identidock-cg
+```
