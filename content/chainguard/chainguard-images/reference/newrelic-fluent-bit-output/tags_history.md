@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:60fc4d9263b10128eea4116270559ef42fe96d536a384c5f5d5bff283012dafb` |
-|  `latest`     | April 9th    | `sha256:542d7faa79035500c4cda014fe2f2d48789af4cf5a4accce99eac23fe175e486` |
+|  `latest`     | April 11th   | `sha256:d65d26c18eaf0f9e96dfcca536ae12ce216100fb5a7ade8a5b6173aff94be7bb` |
+|  `latest-dev` | April 11th   | `sha256:17828b1b62f8f05c4730ba2b2e07b16f068f207f9e8e32607f3bb605150bf91e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.19.2` `1.19` `latest` `1`                 | April 9th    | `sha256:68b071d3e64e1cf32392ab58cdb8947f0225a7558546ce939670c661fe8bc866` |
-|  `1-dev` `latest-dev` `1.19.2-dev` `1.19-dev` | April 9th    | `sha256:f098fb7ccbc9ec6cfa51c9b1298076c8e7ed17cdaed312111fe460b3d48f5b06` |
+|  `1.19-dev` `latest-dev` `1.19.2-dev` `1-dev` | April 11th   | `sha256:cbcb063e10bcfff472737219e7574a8a92fcb50f4ce4d8146365214d42d3f135` |
+|  `1.19.2` `latest` `1` `1.19`                 | April 11th   | `sha256:c7a32d5237a72e8715db8d88754dcf96215ad7e7a0f75134bb98a1c0d7145450` |
 

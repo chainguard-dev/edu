@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-updatetree Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:5bc068bc94503bcdad9d767da8a8f13ca924888499a789b832ff842ac726096e` |
+|  `latest-dev` | April 11th   | `sha256:0c64dfcd9e55fd79f29babcfb7eb756e51d86f276ac9757735902111d0a0dad1` |
 |  `latest`     | April 4th    | `sha256:c259e8f5dd9b9240c0b3e0ace430dc8d2d8a54b9a756499b88773b93939ddd7c` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6-dev` `0.6.17-dev` `0-dev` `latest-dev` | April 9th    | `sha256:836156b61c328f39f8f114d15c8d03f3aba1dbb3904808cdaa0018c768245170` |
+|  `0.6-dev` `0.6.17-dev` `0-dev` `latest-dev` | April 11th   | `sha256:809a97972afb984d56883da5688108f51d2f2f69a150b20e842f478b1d15b005` |
 |  `0.6` `0.6.17` `0` `latest`                 | April 3rd    | `sha256:f952f22e4816d81a9f4060eeb8e5ca1c13942fe86f0bcc8beaf1d01a7f71b6f5` |
 |  `0.6.16-dev`                                | March 12th   | `sha256:98ad6fa7857dd6e0e31bc54f49901ff13da4befdee30a1de31689ddec75ba164` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tempo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:dc2c88edd64b408614398b1b6fc4249abf77e4578a5dbe1144b712438d5c1523` |
+|  `latest-dev` | April 11th   | `sha256:ea8aba781648fb782e225852b761d9839f1c1e1b833ca888852f640ddd696506` |
 |  `latest`     | April 4th    | `sha256:ca425439137f201307a39226ff358844c9f6f0dbbbef6d74d5359636a38a9b78` |
 
 

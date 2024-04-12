@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 9th    | `sha256:28005cff97b26265ebe99da9d970397fe8181f33576e7ba08e74f8f8128a7c64` |
-|  `latest-dev` | April 9th    | `sha256:d6e090a3fb85a316efaacd6de42bd0ba9cce0084033e0345e0879bdffa36163b` |
+|  `latest-dev` | April 11th   | `sha256:9d992503e1d8d08d418e802f08d00ccb6383d2c261e8eb52c7d2e8f72d40a4bc` |
+|  `latest`     | April 11th   | `sha256:691961e59e8f86a4a01d1afbe49aee5a5c7210e82ea7b37a2c0abb9f2446d58e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.10` `1` `1.10.0`                 | April 10th   | `sha256:56d29e13f8ec12531e4567ddfe9d424294e5adeb9c75cf880e7f147a3e70527f` |
-|  `1.10-dev` `1-dev` `latest-dev` `1.10.0-dev` | April 10th   | `sha256:790c1123b42a622dd1c682c023aa246041a3e4c794b4cb5aed63400a7cf0c2a5` |
+|  `1.10-dev` `1-dev` `latest-dev` `1.10.0-dev` | April 11th   | `sha256:7895063a356a16aca9852078bf21117bcf99dc40884e8717341bb0cf920f1521` |
+|  `latest` `1.10` `1` `1.10.0`                 | April 11th   | `sha256:c9eff518590518ef4f605a21acf898ae236f071f54f1797c302589c7bcce5dab` |
 

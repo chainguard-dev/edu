@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 11th   | `sha256:a6590fb32c3546cd9ee8650a8252854d42319e5dd0417316200b21b4442ec8de` |
-|  `latest-dev` | April 11th   | `sha256:b61bd5705d04476354dce81f3e16dfab36645d38e61130e72cf31aa5c4bad12a` |
+|  `latest`     | April 11th   | `sha256:2bdd9e3d192158c6d75b5735bedefe6dab968528040bf4dd6e721494a7cc9e42` |
+|  `latest-dev` | April 11th   | `sha256:6d581161ad6a8328dd145cb982b4e8e774390f721a23307d9e1b3c3843435489` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.27` `0.27.0` `0`                 | April 11th   | `sha256:ad16203d347df590b180d040039381e08bcfbc153bcd4d4bfb128a5c4cc1f908` |
-|  `0-dev` `latest-dev` `0.27.0-dev` `0.27-dev` | April 11th   | `sha256:a87594769910f31dd0c7509a220f1260b600cc1348f14c8778ade08e2b4c90d7` |
+|  `0.27.0` `0` `latest` `0.27`                 | April 12th   | `sha256:5bae30039b5b994fd222002c8fc6dff4ed19591ae113faf0da21603e410fa97d` |
+|  `0.27.0-dev` `0-dev` `latest-dev` `0.27-dev` | April 12th   | `sha256:7478027cbeb45dce616ee49608c47eaaed3864901e35953c1e85af0d6215b2d0` |
 

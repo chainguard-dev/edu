@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-darts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 9th    | `sha256:dd8caa1f57eb3ab69ee51ab84ff00c229006101117b74b3f771de56a09a2cc0e` |
-|  `latest-dev` | April 9th    | `sha256:7bb84c744b3a7aec3758307eeb0d6a72d38d5f31f256bf4bc9e0fae046ff43dd` |
+|  `latest-dev` | April 11th   | `sha256:96202c3032d3380b37b534eeb7d2c8ba923c60ffcd1ab3660047aea19f7aa35a` |
+|  `latest`     | April 11th   | `sha256:749692e0d7ac80f50f4c5f22a37307475b2df6febc85e718ce53dca8f391c85f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | April 10th   | `sha256:4c0255dca76e48b15e8a1d44a25f5f3aefc5da503d61d1abe3f0fb7ed05322be` |
-|  `0.16.0` `0` `latest` `0.16`                 | April 10th   | `sha256:2c4e8a6b88d2e731b691e3b074d1276a410728ed626a23da59d4dfc022e2e29b` |
+|  `latest` `0.16.0` `0` `0.16`                 | April 11th   | `sha256:ea1a0863661087cb3c26097921b163c02f87875716c0ab375a67dda023e252d3` |
+|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | April 11th   | `sha256:24c2f667a3be52ded0ccf770064f7c3137337bd18432b84979a2620033f01422` |
 

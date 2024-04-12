@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:2588331fab975b42c6aa8871321f61845cb7882432fdbbc98d493f7520850325` |
-|  `latest`     | April 9th    | `sha256:07f40535bbe7fdc6212babfa672adad2d292fcf18b5a870ab68df5f65c21038f` |
+|  `latest`     | April 11th   | `sha256:bada6d61773c35ce52637f1a2612ebf06d26c358accb56e98a0d2fbc88d972e9` |
+|  `latest-dev` | April 11th   | `sha256:c110584ce86551a5226e809350b19c1e0c09ee14022fda01bea125d637536344` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15.1-dev` `0-dev` `0.15-dev` `latest-dev` | April 9th    | `sha256:14754629d2426774b8d93f504d750d0e156ddc2e883048fda92ed8cae1092fe0` |
-|  `0.15` `0.15.1` `0` `latest`                 | April 9th    | `sha256:dba47e780dc9fe7bd9af17ded3608a64dbc36d4d85222a8b06a65e82de1e836d` |
+|  `0` `latest` `0.15` `0.15.1`                 | April 11th   | `sha256:762dedd1df00d91053f682e2a3fc642f1870e86e970393a2ad6f92679cd8c581` |
+|  `latest-dev` `0.15-dev` `0-dev` `0.15.1-dev` | April 11th   | `sha256:4df4e1a6657d4af1305eb94a63771df34961be4478e65d6de0b6247c12ffe9eb` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:10c34d4ab412150eea74fca08cc0deb7cb62b0293de51f04700009e768f7467f` |
-|  `latest`     | April 9th    | `sha256:08cb16a1f546c162423368b2c0fe520714f22dc641db31e9af08d3ca17930011` |
+|  `latest-dev` | April 11th   | `sha256:2049f3c2f07fa711361488af7cea61db0082f582ad0bb3fe475bf09b2a0117f6` |
+|  `latest`     | April 11th   | `sha256:f9c0761876ae5ce6c9a324c5bd57d3f7509fe7d46e1a1dc18668dd92835fdf0b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.0` `latest` `2.0.5`                 | April 9th    | `sha256:7c3df6e4a84d8720db365568c61e76191acb3314b425e75b61e449c540599785` |
-|  `latest-dev` `2.0.5-dev` `2-dev` `2.0-dev` | April 9th    | `sha256:6e9161d3c968e7c85ee649e6b04ed7a10b7a1d8bf5770866b9d9a847fc09afe2` |
+|  `latest-dev` `2-dev` `2.0.5-dev` `2.0-dev` | April 11th   | `sha256:64720aae227f8e98868e9d88a7641d57a91b44eb2bbb1bd83ecfc2809fbdd166` |
+|  `latest` `2.0` `2.0.5` `2`                 | April 11th   | `sha256:93ff956735abe458237ce6b004ce2841b538a3f8b11b9bb497b95af1b0f7d749` |
 

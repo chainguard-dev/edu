@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crane Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:08a1fc1df6a8d1b84d5424fb7b0ff8e6745d59c25200feb6450c4005359b11eb` |
+|  `latest-dev` | April 11th   | `sha256:931e19c513cc0db1ae340a246b2ee339ccffb1fb39f86d35a1973196eac3c0d7` |
 |  `latest`     | April 4th    | `sha256:aee92b21def93631c67a451f2fa54a43dccb30cd36c439af7b894c07159f8f20` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.19-dev` `latest-dev` `0-dev` `0.19.1-dev` | April 9th    | `sha256:b82d05828a103934b1df5509b791cf136d74ed99dafb8b16ac8a122326fb9586` |
+|  `0.19.1-dev` `0.19-dev` `latest-dev` `0-dev` | April 11th   | `sha256:9ce1ddf12470f301a7d84a6e2ce6307e9296961dea9b72ddacaf0e28d738b318` |
 |  `0.19` `0.19.1` `0` `latest`                 | April 3rd    | `sha256:13d61cc93fcbcf4454481e656feefb2db8934cccc2e354fc9988fce5b664983d` |
 |  `0.19.0`                                     | March 14th   | `sha256:b59c331645e80dec6154fb5795bc1cdc9b6fd3e6dd0f678e6c866c200d5df4d5` |
 |  `0.19.0-dev`                                 | March 14th   | `sha256:b160c8f7a419dac939388cf65f15572d74f418bd8a0860af9d92700c7b72144e` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the renovate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                            | Last Changed | Digest                                                                    |
 |----------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `37` `37.285` `37.285.1` `latest`                 | April 11th   | `sha256:73fb5075dd37838deed93bce981212af4c45303a5017379bd5422a15a32f4c41` |
-|  `37.285-dev` `37.285.1-dev` `latest-dev` `37-dev` | April 11th   | `sha256:5e51f7a333b74832e14752d660a3c6bcbea8dfd047c179b0a98e19d5dfdf5a15` |
+|  `37.286.1-dev` `37.286-dev` `latest-dev` `37-dev` | April 11th   | `sha256:a06158255de12dad972be1c2c07ab20aa5e15d54ff44ed0e926666f1b0c11460` |
+|  `37.286.1` `37` `latest` `37.286`                 | April 11th   | `sha256:4e5f2f513872431421c9e676ce8728219bbcf435686cac644033fc36a4a3bac9` |
+|  `37.286.0`                                        | April 11th   | `sha256:c29116e62140561b064a6bf20f09ff7e5ded854d7fb594c9dcf3485f03951bf6` |
+|  `37.286.0-dev`                                    | April 11th   | `sha256:40ffa4f86fe723bfc1c1285e1cae0fcf1df1192521293cc1ac42570c7816912a` |
+|  `37.285` `37.285.1`                               | April 11th   | `sha256:73fb5075dd37838deed93bce981212af4c45303a5017379bd5422a15a32f4c41` |
+|  `37.285-dev` `37.285.1-dev`                       | April 11th   | `sha256:5e51f7a333b74832e14752d660a3c6bcbea8dfd047c179b0a98e19d5dfdf5a15` |
 |  `37.284.0-dev` `37.284-dev`                       | April 11th   | `sha256:cb46fc4bd0d48e70bda7b104aeb6bb4a42901e9a0a14be952ff60f249fa078b1` |
 |  `37.284` `37.284.0`                               | April 11th   | `sha256:669b3095a9ec5f31442744e769ea1d79b82d0cea88fd394d61cb0f5ca8f2c7a4` |
 |  `37.282` `37.282.0`                               | April 11th   | `sha256:05371be8eafb2378b50c54bb9222e925a4c609886d31b066ae90e64bbe30709f` |
