@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:5dc22d69b5b370011937aed4a5a6026943d7b4399e5637c592b41334a06c9d35` |
-|  `latest`     | April 9th    | `sha256:24ff6a379088c40d260a2c4915c8ba8b7d0b91d1686f5d3d5c8ce4e1e2c9fe6d` |
+|  `latest-dev` | April 11th   | `sha256:f020b6689d89cc15c3d1c8e141f4a2700dc1fce8eb353e63a32d17eda2d297bb` |
+|  `latest`     | April 11th   | `sha256:bfe3f430aaa618ee3296db3c6487312bee898f497125b35232651df1ddc469a9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0.16-dev` `latest-dev` `0-dev` | April 10th   | `sha256:4f9908097b8ad9a0b53eaf8ead45f8b835d386fa61a1f4060a17ccf74faf1b57` |
-|  `0.16` `latest` `0.16.0` `0`                 | April 10th   | `sha256:84d891c309e192da9b24ff313ccdb49c316f94bc4943681ae57133dad27c0056` |
+|  `0.16.0-dev` `0-dev` `latest-dev` `0.16-dev` | April 11th   | `sha256:2d676b6eab955bad9f61f6a8de67cc5aba922b494cfd631211b7a8425d4921ca` |
+|  `0.16.0` `0` `0.16` `latest`                 | April 11th   | `sha256:4857f4373a3fd78c1bd04e7e6ee59535d93e23ca74c26f4c7332b38b35d35fbf` |
 

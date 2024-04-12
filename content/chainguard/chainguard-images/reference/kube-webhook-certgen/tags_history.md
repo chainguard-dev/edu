@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-webhook-certgen Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:57511dca5d0ddd64ba72e56457b7bc5d9670033b92e870a291567d2424ce73e8` |
+|  `latest-dev` | April 11th   | `sha256:17e321eb5c3f1d79ef6c0acaf2a4bf369f87282329fdfd7b1edbb880e2b09568` |
 |  `latest`     | April 4th    | `sha256:fc0791df5584c2cae64ecfdeb8ae98f38d07822939f80c0bd7379892bc90e6e7` |
 
 

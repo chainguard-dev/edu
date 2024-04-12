@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stakater-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 11th   | `sha256:3e82ca287e8949c184857eef4d42317881fb28c2dce7f33dac989f58152bede4` |
 |  `latest`     | April 10th   | `sha256:fb076f1d2f20fa6b46a524acb29e81e07f13b15b3b90221d90cced2416be9544` |
-|  `latest-dev` | April 10th   | `sha256:b08c5501abf133fcd2089db3282635b883e34dcd43ec77df174e1c73549ae66b` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1-dev` `1.0-dev` `latest-dev` `1.0.78-dev` | April 11th   | `sha256:dc59714c3029ddebcc6853fe028ab3497ddc6dffe9de68ad7e9f3fd4d631edec` |
 |  `1.0.78` `1` `latest` `1.0`                 | April 10th   | `sha256:3dd73640f44a25fdd64f8125c5d39ff0b12401eff8199d7f0e3e45e081871d88` |
-|  `1.0.78-dev` `latest-dev` `1-dev` `1.0-dev` | April 10th   | `sha256:935550ebe23b3686cc4b04a3aa937e3fe5a712620f942b1ffbb7eee0a936252d` |
 |  `1.0.77`                                    | April 10th   | `sha256:c42d2c754db8892bbe730cce0284a9683d3feedbed2dc8637039df0500590df6` |
 |  `1.0.77-dev`                                | April 10th   | `sha256:bd4fbb5b46acff16cd94ed6db5fa2a0eae51c24aa160af448481c5cf391919de` |
 |  `1.0.76-dev`                                | April 9th    | `sha256:04c19b5d1a1d74e9dda12cace5a01bf7b56a75f72af7321c18d46b4f13a1146d` |

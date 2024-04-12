@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the solr Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 9th    | `sha256:5e5d78b57228aa79af36fde17689084e7aa2d06748c64b112b79cec5021ed85a` |
-|  `latest-dev` | April 9th    | `sha256:e878fc23079400265ab3fd640bdcc8b1b0c2dace47f7395aed7e26b969a3d241` |
+|  `latest`     | April 11th   | `sha256:c16f1f73db449b42493ea9e0cf7f544101e8529b1a24418b8e40e1e9c449d68e` |
+|  `latest-dev` | April 11th   | `sha256:53c3c2090421a6542c6925d29baa0a7e3add995d48b8449b6aacffb4c99eac59` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `9.5.0` `9` `9.5` `latest`                 | April 9th    | `sha256:2f7bea62f625ca4b500635f0b5deaee41ccb58914863c566e291a98d294378c2` |
-|  `9-dev` `latest-dev` `9.5-dev` `9.5.0-dev` | April 9th    | `sha256:fa4220ca4bc5c07e620816b50ae9bdee948e05064ae1d1b53fb2fd73ec68f719` |
+|  `9-dev` `latest-dev` `9.5.0-dev` `9.5-dev` | April 11th   | `sha256:ca7945cb2f9a9c831c4813d72cf988d29fb5edb88516837324545ea4f726f7d0` |
+|  `9` `9.5.0` `9.5` `latest`                 | April 11th   | `sha256:3cc2cc102bad234d407aeab32184ea7056943b8d3f4bf8a6b17a03d6390c7eca` |
 

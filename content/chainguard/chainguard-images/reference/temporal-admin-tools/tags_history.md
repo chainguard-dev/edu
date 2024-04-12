@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the temporal-admin-tools Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:963dbf1a8ae4d462f80683dd6f338a6e4aebc5efa69b1ea4b868b05b6546b17b` |
-|  `latest`     | April 9th    | `sha256:1854009345eccab7d36e9f9e8c320062f667102e61ed8224ef2bbe82573658be` |
+|  `latest-dev` | April 11th   | `sha256:30783afaf95803ddef42d3180814550ca3b5002082c658b72b225fec7355ac85` |
+|  `latest`     | April 11th   | `sha256:31baa05b1edaefc6268ca413ef217658366e26d41ab69235f270a5b170a72622` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.23` `1` `1.23.0`                 | April 9th    | `sha256:cb9f6c53e6424e5c00a04ca6cec3ded60f36af3821f97139d3a4022992a70248` |
-|  `latest-dev` `1-dev` `1.23.0-dev` `1.23-dev` | April 9th    | `sha256:bdfac454570cb50de4ad99a1bf1d92848c95c8ce77a919a19f60517a58c3fef6` |
+|  `1.23.0` `1.23` `latest` `1`                 | April 11th   | `sha256:fc37f2f4d1bfcc0c8ff3e5034fda417a08b236529749d6aff87d8935ae75f2fa` |
+|  `1.23.0-dev` `1.23-dev` `1-dev` `latest-dev` | April 11th   | `sha256:ce0bfae33144244fb83d881a365134bdc96099fdb93134707d933fce27168cc6` |
 |  `0.11.0-dev` `0-dev` `0.11-dev`              | April 5th    | `sha256:064b8a9996c177038c77fc3783212ca2d98e65fa021fc77a6f2b855f703ceffe` |
 |  `0.11` `0` `0.11.0`                          | April 3rd    | `sha256:ec6b9f77c73ffd2b3674cdbdcd2c7a66c4b68478c6e4774e8492ed44c4fcf284` |
 

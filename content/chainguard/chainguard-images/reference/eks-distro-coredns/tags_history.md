@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-coredns Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.8.7-r9-eks-1-23-33-dev` `1.8-dev` `1.8.7-eks-1-23-33-dev` `1-eks-1-23-33-dev` `1.8-eks-1-23-33-dev` `1.8.7-dev`                      | April 9th    | `sha256:4430034c1b9a217efe7f1c861892fc7326b0b0db0cbfd125935644b7f0a5a222` |
-|  `1-dev` `latest-dev` `1.9-eks-1-25-33-dev` `1.9-dev` `1-eks-1-25-33-dev` `1.9.3-dev` `1.9.3-eks-1-25-33-dev` `1.9.3-r4-eks-1-25-33-dev` | April 9th    | `sha256:ccc89def7a73541447af5072371035c6cc2c6755fb8f2b42d5665da5732e9cc2` |
+|  `1-eks-1-23-33-dev` `1.8.7-r9-eks-1-23-33-dev` `1.8.7-dev` `1.8-dev` `1.8.7-eks-1-23-33-dev` `1.8-eks-1-23-33-dev`                      | April 11th   | `sha256:f3b8499e75a5054252f11c030b0a6d07104e25c20c07fa4832b1fdd2a7504eff` |
+|  `1-eks-1-25-33-dev` `1-dev` `1.9.3-dev` `1.9.3-eks-1-25-33-dev` `1.9-dev` `1.9-eks-1-25-33-dev` `1.9.3-r4-eks-1-25-33-dev` `latest-dev` | April 11th   | `sha256:387f3fe9b2b658a3aed00de976d63fca96b0b03e6e1d368ebaebac2d66f60947` |
 |  `1` `1.9.3` `1.9.3-eks-1-25-33` `1.9-eks-1-25-33` `1.9.3-r4-eks-1-25-33` `1.9` `1-eks-1-25-33` `latest`                                 | April 3rd    | `sha256:c923af15f62cad5e0e18788f8385e024b2c6d9218fb49c6f5360853fe5f56b01` |
 |  `1.9.3-r3-eks-1-25-33-dev`                                                                                                              | April 3rd    | `sha256:c6796f79f34e36b6cf381307a38c026e4a514966cda434f1f425ef0f5b61ca35` |
 |  `1.8.7-r9-eks-1-23-33` `1.8.7-eks-1-23-33` `1.8-eks-1-23-33` `1.8.7` `1-eks-1-23-33` `1.8`                                              | April 3rd    | `sha256:c9df488cba02b3f7d735bce44e406fcdd65b0be45dd8aaa65452f4e55fcc2758` |

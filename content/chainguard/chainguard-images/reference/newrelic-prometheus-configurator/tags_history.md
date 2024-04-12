@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus-configurator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:7ca07372b219ff47988a840801ac9371e392c8b80517b50d10070e8bb6d58467` |
+|  `latest-dev` | April 11th   | `sha256:8b72979aeba84617095dab8668e7c566991317674cec50bb6e68a366dda0c1c3` |
 |  `latest`     | April 4th    | `sha256:a5fca2ddb1ea158f16ed7fa53148cde1cc1f49ee93256f86001f7cfbce52b88c` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15.0-dev` `1.15-dev` `1-dev` `latest-dev` | April 9th    | `sha256:20cd6dcd88b189c9f84ba24cc21f599c681f7869922f946e46ed70f7ae4dbcf4` |
+|  `latest-dev` `1-dev` `1.15.0-dev` `1.15-dev` | April 11th   | `sha256:fda91330d3afc64e2533743a6315510343d94cc866669caec55e0da9c8d23270` |
 |  `1.15` `1` `latest` `1.15.0`                 | April 3rd    | `sha256:2125945ed3e69fc30f30fcca097347d7cfce4671de9a1ee9c58c4be9f0195c3d` |
 |  `1.14.0-dev` `1.14-dev`                      | March 18th   | `sha256:34f62ccde8947dfab129d29f9b1d1bbd7bab3cb91c33af1f0a1260d34f1eeead` |
 |  `1.14` `1.14.0`                              | March 18th   | `sha256:be454b971c6f0e0d846b4879b160a850b1dc3224d7b63edb237fa0c8ccebae5d` |

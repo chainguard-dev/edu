@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the conda Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:b167fdeaacc5677124c370ee0b9aee7facd2ee86db6361a1e599a3fb5c5bf6a7` |
-|  `latest`     | April 9th    | `sha256:d771afb0127b550e3154d1daf253f380141cc87fc334f66f014819babf4e46f7` |
+|  `latest-dev` | April 11th   | `sha256:efc749f831150976b35c353c9f9551e3c9e09362f992c2c339ca70b902ec2f09` |
+|  `latest`     | April 11th   | `sha256:eb7e2d24e1739ede5d1b549993fd5f41cd2849f29f333a1e83beaeb3b812778c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `24.3-dev` `24-dev` `24.3.0-dev` `latest-dev` | April 9th    | `sha256:9b8c479891cd24647f9a25c67a5a76f4de352877d09db999b4a6154a75f41b1b` |
-|  `latest` `24.3` `24` `24.3.0`                 | April 9th    | `sha256:1a1ee9b8f2c356dcf0bfbef72c6a5fa1c0b65e2639d68b1d2bfc2b3289bf610c` |
+|  `24.3.0-dev` `latest-dev` `24.3-dev` `24-dev` | April 11th   | `sha256:adf69212ea85bdd49d50bcbd81f1ea98094b391f88842a2d767f8ffebade311e` |
+|  `latest` `24.3` `24` `24.3.0`                 | April 11th   | `sha256:b9de1c19427eb32dea8f4d5e7d900cbfa76abc65e1a237d8a79d36e15c9ff8c3` |
 |  `24.1.2` `24.1`                               | March 18th   | `sha256:c4ded39d1296d285dd0292b96eda8becb5fec3ed63c071709d7c8de448e4a59d` |
 |  `24.1-dev` `24.1.2-dev`                       | March 18th   | `sha256:170c94f39165c6e06538e2a326bf9f888c06d00f95747e3662d28bf51f9ceec0` |
 

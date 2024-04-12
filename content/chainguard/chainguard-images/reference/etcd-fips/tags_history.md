@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the etcd-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.4` `3.4.31`                              | April 10th   | `sha256:bc4419a767baf28b6d2003ed9d52ea8870cb6e684e1028a05a07fcc8977a859c` |
-|  `3.4-dev` `3.4.31-dev`                      | April 10th   | `sha256:6d8d50f55eb60e26abb70abd429e0f1ca2081a2d8faeea965f55572f7e788d28` |
-|  `latest-dev` `3-dev` `3.5.13-dev` `3.5-dev` | April 10th   | `sha256:0e9187d0235030def6c3087a244511c9d09eceaf75ed3c0fba129ed8a7923b0d` |
-|  `3.5.13` `latest` `3.5` `3`                 | April 10th   | `sha256:0f7ea83ca3501a2c4e5d3d3b3951f6d051485f8f2dc50edc90b871723e6b096a` |
+|  `3.4.31` `3.4`                              | April 11th   | `sha256:cea30ddc88fde6d8f0a5847d0c7d3c265662972b86a0db439f373f314f8d0fbd` |
+|  `3.4.31-dev` `3.4-dev`                      | April 11th   | `sha256:74c9f966f782b71d002588b73595503a460d6d9eca84e0fef28ea4dbc98cb153` |
+|  `3-dev` `3.5-dev` `latest-dev` `3.5.13-dev` | April 11th   | `sha256:df5ec968566e0d7a11717d6a7f6a0959fcc08c94665b4f7206ab83e6b432846e` |
+|  `3` `3.5.13` `3.5` `latest`                 | April 11th   | `sha256:a5b4d1da6217239388ff474e631cf89aa34501cb8e56d0a5e1812e6b1e5fe78e` |
 |  `3.5.12-dev`                                | March 28th   | `sha256:00e73f9503e8b7c0369d6684c0895396f00c11ea399956f643e9921d8db11cc5` |
 |  `3.5.12`                                    | March 28th   | `sha256:d6ab4069713154df38d471afb4c425cb70c687aa2047cf458981d534da1015c9` |
 

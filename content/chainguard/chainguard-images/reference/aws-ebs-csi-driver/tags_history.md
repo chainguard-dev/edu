@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-ebs-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 9th    | `sha256:a8deeedf5062b1436609963996e36ed7ee9d932a7ed1978de53a9a376741b963` |
+|  `latest-dev` | April 11th   | `sha256:14d6ac3c01ff098eb27d6b953b79503da5f9517077121e0303e73b020bb9329a` |
 |  `latest`     | April 4th    | `sha256:4c4621273447519ebf7acf3463239a4689d0e42b93c7091d7b1c0ebebfd5e0bd` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.29.1-dev` `1.29-dev` `latest-dev` `1-dev` | April 9th    | `sha256:c1b059a75bfd39479e9ab8dc81c5820b891415b247b09bad3df4c72893bcd340` |
+|  `1.29-dev` `1.29.1-dev` `1-dev` `latest-dev` | April 11th   | `sha256:1cfed0d0e0c503174e25c7387ffd75da8f7073bfbbd77e40c6eec0dc2c9b2a84` |
 |  `1` `1.29.1` `1.29` `latest`                 | April 4th    | `sha256:5f665ee8ff953d443cac39186b4b5f7c4ca6499a835ef56b6338b112a086b4ef` |
 |  `1.29.0-dev`                                 | March 28th   | `sha256:a9825006d778e42649e016a1291728c98661f41144877894af3a4803e13bea10` |
 |  `1.29.0`                                     | March 28th   | `sha256:90eddbe12457d596f36ec56a95dc608526146b54a88e0c87c6ca8e363cf4b5c3` |

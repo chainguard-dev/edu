@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-metadata-writer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 9th    | `sha256:1538f9469e239d7784997ec524d472a13787e533607e9f3cd5881cb608dff3d0` |
-|  `latest-dev` | April 9th    | `sha256:878bc088116d9915f80e6234fa32eb35e27d0e61aba693fabf7087a07ccc59f2` |
+|  `latest-dev` | April 11th   | `sha256:54214a0cb07676497fdcd3a4201961a4fcd1a756e0d28de84be1a8c1b587eca9` |
+|  `latest`     | April 11th   | `sha256:4d30193f7f1bcb470b3bb6f40d5604bc01502fa775af2bf8d4c9a476cd1193f2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0.5` `2.0` `latest` `2`                 | April 9th    | `sha256:6a1a2cf4124e97af047fafef68237ac7dbd46bd925199e8b459275d72cec92ba` |
-|  `2-dev` `2.0.5-dev` `latest-dev` `2.0-dev` | April 9th    | `sha256:df9f387a15a7318a73faf861d4bd092759278b7c12569de87c07212b05f018a9` |
+|  `2-dev` `latest-dev` `2.0-dev` `2.0.5-dev` | April 11th   | `sha256:4dfdabdadf3bff0ae3881da292d2ebce5d157511794a88c8d6ebc7491bd0c6bc` |
+|  `latest` `2` `2.0.5` `2.0`                 | April 11th   | `sha256:d5e5a471b7f70ea3599a792fadf95518813857642108e90744af3ccf2720e022` |
 

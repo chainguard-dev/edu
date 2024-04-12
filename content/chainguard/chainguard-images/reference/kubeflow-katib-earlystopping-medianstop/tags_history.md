@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-earlystopping-medianstop Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-12 00:54:01
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 9th    | `sha256:470ce43a2c3b8a1235c2c7c490414d0b3e0fec1cc6345d9181d2226e7a256769` |
-|  `latest-dev` | April 9th    | `sha256:fef61166ceb90c8715fed474605a3200501399a713b30c79ae713f066abe72dd` |
+|  `latest-dev` | April 11th   | `sha256:dd8b9aa8bde812e532f23a8235d770612a250862df7632de03cd1ea8e68d4679` |
+|  `latest`     | April 11th   | `sha256:673794134bf3b294a617aa0d54b0cbeb84d17119104bf26aa33d09facb4abd97` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.16.0-dev` `0.16-dev` `0-dev` | April 10th   | `sha256:3cbe8af60678e3924d2c0534eb4501849ab32654d253708b8dcc523114d5b9b6` |
-|  `0.16.0` `0.16` `0` `latest`                 | April 10th   | `sha256:9e68e5ef182d958b84cebd7c1d9b33676b69216b7847e2012dd54ab832c8f7f8` |
+|  `0-dev` `0.16-dev` `latest-dev` `0.16.0-dev` | April 11th   | `sha256:0aaea886670c9c8a676e1abdbfa8a8d897c8d1740f05db7daf09fec5ea9f4172` |
+|  `0.16.0` `0` `latest` `0.16`                 | April 11th   | `sha256:2ad56bbfa40e4f9f45d96383c4f3dd19bd563698e0617b26630af90c02357d22` |
 
