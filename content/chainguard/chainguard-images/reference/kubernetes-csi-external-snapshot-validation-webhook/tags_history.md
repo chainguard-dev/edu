@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 4th    | `sha256:4bd9aeb67f6c2fa15964056863b08d77c75a4c9489223305794a21c91b10b09d` |
+|  `latest` | April 13th   | `sha256:d0dc1b995c631a4585ccef7470600812b2f37be82da2cc69262f38323d2ec68b` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `7.0-dev` `7-dev` `7.0.1-dev` | April 11th   | `sha256:68842435e6d17a8a3532afa3191ae6c7cb040a4c63530e04ddd17bc9bd238c35` |
-|  `7.0` `latest` `7.0.1` `7`                 | April 3rd    | `sha256:1e33de31b7f0e9dae53c1d651a03624502647b7b86d0d18a434d18a18e50c6b4` |
+|  `7-dev` `latest-dev` `7.0.2-dev` `7.0-dev` | April 13th   | `sha256:115435775b1f652ffa236307ea750ab12c55bacbc556bf86ca34331e4865d810` |
+|  `7` `7.0.2` `7.0` `latest`                 | April 13th   | `sha256:b2af475120a5c85ebc4a4e65f0f02c492d57eefe529634212992075a5be0ff75` |
+|  `7.0.1-dev`                                | April 11th   | `sha256:68842435e6d17a8a3532afa3191ae6c7cb040a4c63530e04ddd17bc9bd238c35` |
+|  `7.0.1`                                    | April 3rd    | `sha256:1e33de31b7f0e9dae53c1d651a03624502647b7b86d0d18a434d18a18e50c6b4` |
 

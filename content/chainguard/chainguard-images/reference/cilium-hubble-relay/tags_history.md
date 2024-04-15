@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-relay Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.14.9-dev` `1.14-dev` `1-dev` | April 11th   | `sha256:cf159da1108471b2d9ce49c04b1b17861f0c16cde2c42d706d9dd13b6e591cff` |
-|  `1` `latest` `1.14` `1.14.9`                 | April 9th    | `sha256:ee8245014930228ace3001f0226cae3d6c55de9e160ab3ce803ddf27ca2b7de7` |
+|  `latest` `1.15` `1.15.3` `1`                 | April 12th   | `sha256:d3c2dc548c5290ac9f6ce271db2669e0b51630c5248cb055e9ef729ff1a082ca` |
+|  `latest-dev` `1.15-dev` `1.15.3-dev` `1-dev` | April 12th   | `sha256:5ebcb667a09d322f0a46ae3e41a5f8402def20dd98382632af349c3d8ad71a96` |
+|  `1.14.9-dev` `1.14-dev`                      | April 11th   | `sha256:cf159da1108471b2d9ce49c04b1b17861f0c16cde2c42d706d9dd13b6e591cff` |
+|  `1.14` `1.14.9`                              | April 9th    | `sha256:ee8245014930228ace3001f0226cae3d6c55de9e160ab3ce803ddf27ca2b7de7` |
 |  `1.14.8`                                     | March 18th   | `sha256:d2f488a079c04349eb6df04bd975692524fd1b04c1ac02c359127af8cb782dd6` |
 |  `1.14.8-dev`                                 | March 18th   | `sha256:0d7f108656929a25ace79b6233a218f4f8405478b6ef276f4df6f4097bd1ec09` |
-|  `1.14.7`                                     | March 14th   | `sha256:065c02aaa9a413c95061db87a463e9ed2b219e67dfcdd2978b9a060550ce659a` |
-|  `1.14.7-dev`                                 | March 14th   | `sha256:a2ce687ccca480251f60aa92f8a67c695228670939516e438f95dc4965135faa` |
 

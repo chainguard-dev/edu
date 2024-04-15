@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: melange Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,7 +39,7 @@ docker pull cgr.dev/chainguard/melange:latest
 
 
 <!--body:start-->
-To build the melange workflow in [examples](tests/minimal.yaml):
+To build the melange workflow in [examples](https://github.com/chainguard-images/images/blob/main/images/melange/tests/minimal.yaml):
 
 ```
 docker run --privileged -v "$PWD":/work cgr.dev/chainguard/melange build /work/tests/minimal.yaml

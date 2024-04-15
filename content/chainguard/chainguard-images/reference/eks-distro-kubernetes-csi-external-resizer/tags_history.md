@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,8 +45,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.10.0-r3-eks-1-25-33`                                                                                                                 | March 28th   | `sha256:e80a8cf4bac1eee13ef4969c0117f26366f063b43c60f8a281a5a87bbfb853b5` |
 |  `1.10.0-r2-eks-1-25-33-dev`                                                                                                             | March 16th   | `sha256:3ccb52f0d9145a947e3d219725a43669573a1b834f1d9727bcc1cb664b54df8a` |
 |  `1.10.0-r2-eks-1-25-33`                                                                                                                 | March 16th   | `sha256:17a041d164508bf3b97fa6069d19a613ace6d7363413db8a59989d49326826f4` |
-|  `1.9.0-r4-eks-1-23-33`                                                                                                                  | March 14th   | `sha256:6fe5843bac89400f261c6156a50cd3159722f3c1d9705cfbf70d75cb5cdfce4d` |
-|  `1.10.0-r1-eks-1-25-33-dev`                                                                                                             | March 14th   | `sha256:cb175a4be3a021e5a0ec0035aca62ed71248a82871483e1e463233fa543c9132` |
-|  `1.9.0-r4-eks-1-23-33-dev`                                                                                                              | March 14th   | `sha256:d6bb8880655ed6ac0702964411033e40b5c9e10d41ae600765ff0c338a47d327` |
-|  `1.10.0-r1-eks-1-25-33`                                                                                                                 | March 14th   | `sha256:93c47517cb24d3e2573c337727ed425c277dc156bd28ba17af1c43b92f3a5d96` |
 

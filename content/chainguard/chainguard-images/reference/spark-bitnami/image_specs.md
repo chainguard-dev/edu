@@ -3,8 +3,8 @@ title: "spark-bitnami Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public spark-bitnami Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,20 +21,65 @@ toc: true
 
 This page shows detailed information about the Chainguard **spark-bitnami** Image.
 
-|              |
-|--------------|
-| Default User |
-| Entrypoint   |
-| CMD          |
-| Workdir      |
-| Has apk?     |
-| Has a shell? |
+|              | latest-dev                                 | latest                                     |
+|--------------|--------------------------------------------|--------------------------------------------|
+| Default User | `spark`                                    | `spark`                                    |
+| Entrypoint   | `/opt/bitnami/scripts/spark/entrypoint.sh` | `/opt/bitnami/scripts/spark/entrypoint.sh` |
+| CMD          | `/opt/bitnami/scripts/spark/run.sh`        | `/opt/bitnami/scripts/spark/run.sh`        |
+| Workdir      | `/opt/bitnami/spark`                       | `/opt/bitnami/spark`                       |
+| Has apk?     | yes                                        | no                                         |
+| Has a shell? | yes                                        | yes                                        |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/spark-bitnami/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|  |
-|--|
+|                            | latest-dev | latest |
+|----------------------------|------------|--------|
+| `apk-tools`                | X          |        |
+| `bash`                     | X          | X      |
+| `busybox`                  | X          | X      |
+| `ca-certificates`          | X          | X      |
+| `ca-certificates-bundle`   | X          | X      |
+| `chainguard-baselayout`    | X          | X      |
+| `fontconfig-config`        | X          | X      |
+| `freetype`                 | X          | X      |
+| `git`                      | X          |        |
+| `glibc`                    | X          | X      |
+| `glibc-locale-posix`       | X          | X      |
+| `java-cacerts`             | X          | X      |
+| `java-common`              | X          | X      |
+| `ld-linux`                 | X          | X      |
+| `libbrotlicommon1`         | X          | X      |
+| `libbrotlidec1`            | X          | X      |
+| `libbz2-1`                 | X          | X      |
+| `libcrypt1`                | X          | X      |
+| `libcrypto3`               | X          | X      |
+| `libcurl-openssl4`         | X          |        |
+| `libexpat1`                | X          | X      |
+| `libffi`                   | X          | X      |
+| `libfontconfig1`           | X          | X      |
+| `libidn2`                  | X          |        |
+| `libnghttp2-14`            | X          |        |
+| `libpcre2-8-0`             | X          |        |
+| `libpng`                   | X          | X      |
+| `libpsl`                   | X          |        |
+| `libssl3`                  | X          |        |
+| `libtasn1`                 | X          | X      |
+| `libunistring`             | X          |        |
+| `libxcrypt`                | X          | X      |
+| `ncurses`                  | X          | X      |
+| `ncurses-terminfo-base`    | X          | X      |
+| `openjdk-17`               | X          | X      |
+| `openjdk-17-jre`           | X          | X      |
+| `openjdk-17-jre-base`      | X          | X      |
+| `openssl-config`           | X          | X      |
+| `p11-kit`                  | X          | X      |
+| `p11-kit-trust`            | X          | X      |
+| `spark-3.5`                | X          | X      |
+| `spark-3.5-bitnami-compat` | X          | X      |
+| `wget`                     | X          |        |
+| `wolfi-baselayout`         | X          | X      |
+| `zlib`                     | X          | X      |
 

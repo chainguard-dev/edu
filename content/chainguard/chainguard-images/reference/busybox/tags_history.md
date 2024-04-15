@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the busybox Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)         | Last Changed | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-|  `latest`       | April 10th   | `sha256:aa026ab06ac707c48d35cafb456f1dfc4bfc44d66f9fff2a8fdbcf3d50fecaeb` |
+|  `latest`       | April 12th   | `sha256:35bec721169105c2f254d3a49e366a56eb912bfb8979b445ad955f3d38c857a1` |
 |  `latest-glibc` | March 28th   | `sha256:4d405f1202877ce289404f9599a683aaa76f0a0f9b40d9ea580d134f6620610b` |
 
 
