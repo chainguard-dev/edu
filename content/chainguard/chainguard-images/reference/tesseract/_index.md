@@ -4,8 +4,8 @@ linktitle: "tesseract"
 type: "article"
 layout: "single"
 description: "Overview: tesseract Chainguard Image"
-date: 2024-04-12 00:54:01
-lastmod: 2024-04-12 00:54:01
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,14 +41,26 @@ docker pull cgr.dev/chainguard/tesseract:latest
 <!--body:start-->
 # Usage
 
-tessaract sample Example: OCR a eurotext.png file to .txt
+tessaract sample Example: OCR an image from a URL to standard output
 
 ```
-docker run --rm \
+$ docker run --rm \
     -v "${PWD}":/work \
     -w /work \
     cgr.dev/chainguard/tesseract:latest
-    eurotext.png -
+    https://tesseract-ocr.github.io/tessdoc/images/eurotext.png -
+The (quick) [brown] {fox} jumps!
+Over the $43,456.78 <lazy> #90 dog
+& duck/goose, as 12.5% of E-mail
+from aspammer@website.com is spam.
+Der ,schnelle” braune Fuchs springt
+iiber den faulen Hund. Le renard brun
+«rapide» saute par-dessus le chien
+paresseux. La volpe marrone rapida
+salta sopra il cane pigro. El zorro
+marrén rapido salta sobre el perro
+perezoso. A raposa marrom ripida
+salta sobre o cdo preguigoso.
 ```
 <!--body:end-->
 

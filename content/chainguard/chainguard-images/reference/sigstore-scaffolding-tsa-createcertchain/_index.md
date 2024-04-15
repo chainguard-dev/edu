@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: sigstore-scaffolding-tsa-createcertchain Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -61,6 +61,6 @@ The stack also pulls in several support images:
 - (NYI) `mysql` - Currently sigstore relies on the nearly EOL `mysql` 5.7
 
 To see an example of how we substitute images into the `scaffold` Helm chart's
-`values.yaml` see our [`values.tf`](./tests/values.tf) example.
+`values.yaml` see our [`values.tf`](https://github.com/chainguard-images/images/blob/main/images/sigstore-scaffolding/tests/values.tf) example.
 <!--body:end-->
 

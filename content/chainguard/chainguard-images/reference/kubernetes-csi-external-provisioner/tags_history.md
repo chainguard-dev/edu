@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:cd76013a80461ac10c2687d17286387b5aa2895d4f11da0e60e0249248629c9d` |
-|  `latest`     | April 4th    | `sha256:10e6d37f0b4eacba78f4a8cb03b919d5f4df6574a055b2758d403369be6b8809` |
+|  `latest`     | April 12th   | `sha256:b2117c578d583bc05af66ef0fdfa6a96857b831af2a84ed90fdd3e8ad5bc71a0` |
+|  `latest-dev` | April 12th   | `sha256:e817f7132ee5787c819769078796d3668ba7ebdd4c042da6a4bcde79068935be` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0-dev` `4.0.0-dev` `latest-dev` `4-dev` | April 11th   | `sha256:9660d74533e0b879ac32c23da1e9035768dc97ac60452ed84e94c7734835c26f` |
-|  `latest` `4.0.0` `4.0` `4`                 | April 3rd    | `sha256:98185e5eec1bda60ec5271f5011828700e4ddb46877a53740620c734a6576e78` |
+|  `4.0.1` `4.0` `latest` `4`                 | April 13th   | `sha256:3fbc640733b6cfea72d861f5511262034dafb28016d089a4ffff9653be09eb73` |
+|  `4-dev` `4.0-dev` `latest-dev` `4.0.1-dev` | April 13th   | `sha256:deaae5c4b4b3470785ed2fda8727dfed56936d463f4978080eb295befdde24d3` |
+|  `4.0.0-dev`                                | April 11th   | `sha256:9660d74533e0b879ac32c23da1e9035768dc97ac60452ed84e94c7734835c26f` |
+|  `4.0.0`                                    | April 3rd    | `sha256:98185e5eec1bda60ec5271f5011828700e4ddb46877a53740620c734a6576e78` |
 

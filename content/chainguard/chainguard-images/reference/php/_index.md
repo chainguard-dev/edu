@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: php Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,7 +45,6 @@ Our `latest` tags use the most recent build of the [Wolfi PHP](https://github.co
 
 - `latest`: This is a distroless image for running command-line PHP applications.
 - `latest-fpm`: This is the distroless `php-fpm` image variant, designed to be used together with our [Nginx](https://edu.chainguard.dev/chainguard/chainguard-images/reference/nginx) image.
-- `latest-laravel`: This is an experimental image designed to develop and run [Laravel](https://laravel.com) applications, including all required extensions.
 
 ### PHP Version
 This will automatically pull the image to your local system and execute the command `php --version`:
@@ -54,12 +53,22 @@ This will automatically pull the image to your local system and execute the comm
 docker run --rm cgr.dev/chainguard/php --version
 ```
 
-You should see output similar to this:
+You should get output similar to this:
 
 ```
 PHP 8.2.1 (cli) (built: Jan  1 1970 00:00:00) (NTS)
 Copyright (c) The PHP Group
 Zend Engine v4.2.1, Copyright (c) Zend Technologies
+```
+
+## Running Composer
+
+To install application dependencies from your host machine, you can use the `latest-dev` variant with a shared volume:
+
+```shell
+docker run --rm -v ${PWD}:/work --entrypoint composer --user root \
+    cgr.dev/chainguard/php:latest-dev \
+    install --working-dir=/work
 ```
 
 ## Application Setup for End Users
@@ -145,6 +154,12 @@ http {
 For more detailed information on how to use these images, check the [Getting Started with the PHP Chainguard Images](https://edu.chainguard.dev/chainguard/chainguard-images/reference/php/getting-started-php/) guide.
 
 ## Detailed Environment Information
+
+To obtain information about available modules, you can run:
+
+```shell
+docker run --rm --entrypoint php cgr.dev/chainguard/php:latest -m
+```
 
 To obtain detailed information about the environment, you can run a `php --info` command on any of the image tags and use `grep` to look for a specific module or extension.
 

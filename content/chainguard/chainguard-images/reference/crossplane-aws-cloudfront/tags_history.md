@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-cloudfront Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,11 +26,10 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-| Tag (s)        | Last Changed | Digest                                                                    |
-|----------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev`  | April 11th   | `sha256:188857596de91d0ce1a7bdd7084279652b4fb5a77afd13df5b5ba9339861c1b3` |
-|  `latest`      | April 5th    | `sha256:458851bf42804814b8e3b41d2820304a854983599ba52b44863485e661263c34` |
-|  `1.2.0` `1.2` | March 15th   | `sha256:63413de66145c436bc316742fa3a02b064741c3b282c86e0a45d3902fa41ad99` |
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 12th   | `sha256:75ad12c0dd1c1a109f49765df686db55fab2969e626e85f1747c1de6c0676a3d` |
+|  `latest`     | April 12th   | `sha256:5bfa8273743a51cc88a8cc27aa78fd9ad10d374024010c519d42189c30cda4c0` |
 
 
 ### Private/Dedicated Registry
@@ -38,9 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.3` `1` `latest` `1.3.1` | April 11th   | `sha256:aff0a07de9ec3fd4dc28258790c30731968c7b2394441ade57701bb25625fcc3` |
+|  `1.3.1` `1.3` `1` `latest` | April 12th   | `sha256:bfedbac91c6310d674f80c3bf1071e43f5c5bf59a23ecebffe1e050e009276ce` |
 |  `1.3.0`                    | April 3rd    | `sha256:f5d0a8b4cac6b72ce83c67c2fa407184f6b68db04b8268b249ba2e5aa5486893` |
 |  `1.2.1` `1.2`              | March 28th   | `sha256:0c42d8eb2e304a4779f786488a2cad0b7618ea6d6795fb7c5497284d44bbcebf` |
 |  `1.2.0`                    | March 18th   | `sha256:24486e2afe289b6145e433541ab1b0ea3dcaf0364d261e5a269d8d46d16fd682` |
-|  `1.1.1` `1.1`              | March 14th   | `sha256:b650221a2f8a35e710a5d39741c985fd3edf816683947cd16bf8d35bf8a6c86f` |
 
