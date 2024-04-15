@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:9d992503e1d8d08d418e802f08d00ccb6383d2c261e8eb52c7d2e8f72d40a4bc` |
-|  `latest`     | April 11th   | `sha256:691961e59e8f86a4a01d1afbe49aee5a5c7210e82ea7b37a2c0abb9f2446d58e` |
+|  `latest-dev` | April 14th   | `sha256:ae81e94e9c0da16f6775149987640f3f5b376d8f08f6074ffbb2a7272e1289dc` |
+|  `latest`     | April 14th   | `sha256:2102e2789d1ffc16204342b9196baf9f8f25f700aa2f94ad3f0045b304aa8bdb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.10-dev` `1-dev` `latest-dev` `1.10.0-dev` | April 11th   | `sha256:7895063a356a16aca9852078bf21117bcf99dc40884e8717341bb0cf920f1521` |
-|  `latest` `1.10` `1` `1.10.0`                 | April 11th   | `sha256:c9eff518590518ef4f605a21acf898ae236f071f54f1797c302589c7bcce5dab` |
+|  `1.10` `latest` `1` `1.10.0`                 | April 13th   | `sha256:e3f9a21cfa0abd49381e7319bd66cbd4372ad9182ca750cee5b07f6c2ac34493` |
+|  `latest-dev` `1.10-dev` `1.10.0-dev` `1-dev` | April 13th   | `sha256:cb42aa7c630f6d469f95be64b0c7e85c23321a1fb17f56d818ce5d9d9be42681` |
 

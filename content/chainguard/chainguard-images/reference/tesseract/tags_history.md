@@ -3,8 +3,8 @@ title: "tesseract Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the tesseract Chainguard Image"
-date: 2024-04-12 00:54:01
-lastmod: 2024-04-12 00:54:01
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 11th   | `sha256:472b5f6c3ec67f972020bc95eaf53849e48ac408d0217293f122d37c26bfa639` |
-|  `latest-dev` | April 11th   | `sha256:bab593ab75029817923fdff1a5c450a341f8e9be5e95e827f733533bce850213` |
+|  `latest-dev` | April 14th   | `sha256:53dbbbc798dc30cb04cfeaa4775d8e4a4139d07faa2bd92961aa8c8c9fff7f83` |
+|  `latest`     | April 14th   | `sha256:6293e044e0b68ff59ee69aed9cfacfc765f970b83ebc6b2b70e0f5950ecada0c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.3-dev` `5-dev` `5.3.4-dev` `latest-dev` | April 11th   | `sha256:561b3bc480f3e4c28a38362022311e63fe12a6cd8ba92676bc1f3deec8d67f5e` |
-|  `5.3` `latest` `5` `5.3.4`                 | April 11th   | `sha256:2ea1cab415d4c1dc63d1768d4d738d6ac2cbfb52a0c0e7e460ce845985829f38` |
+|  `latest-dev` `5-dev` `5.3.4-dev` `5.3-dev` | April 13th   | `sha256:30909f9f574ee0af9040efb7c77dbcea4e8e5eef1258833d21ec912aa334fb95` |
+|  `latest` `5.3.4` `5.3` `5`                 | April 13th   | `sha256:683f2e251f2fe008cb8f398aade75661392a6dc8e523fba1128b070bdc173325` |
 

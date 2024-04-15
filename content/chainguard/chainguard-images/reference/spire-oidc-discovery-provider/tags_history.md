@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-oidc-discovery-provider Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:329e96b844e4ce72138a19d51008665421243c89716d80edeaccff47c916c370` |
-|  `latest`     | April 11th   | `sha256:197a5e51377b9e5b053c833e8de18dc12e516473befc1ab4bb2a4dd529077177` |
+|  `latest`     | April 12th   | `sha256:efe48bbff1328a509bcbda5e8be07d8b35d2e91d09f55c14fdc3880bece4c29a` |
+|  `latest-dev` | April 12th   | `sha256:b92c417106d1bac28a1ca5ea8862d51ea9ae1c24494260be94fd9ae22cf43b6c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.9-dev` `1-dev` `latest-dev` `1.9.4-dev` | April 11th   | `sha256:3bd958b441ccae2c6e76530ec0a21783c93e64c9aaf46c1289c6425e6b710da4` |
-|  `1.9` `latest` `1` `1.9.4`                 | April 11th   | `sha256:da5d18ea7bbd1b58f834ebc67d3b0d964bf98d4b84420768da8882b36b677b1e` |
+|  `1.9-dev` `1-dev` `1.9.4-dev` `latest-dev` | April 12th   | `sha256:3c65286ea828857244ca83c0ce953389c27f072f501ff0c76529966b4778c846` |
+|  `1` `1.9` `latest` `1.9.4`                 | April 12th   | `sha256:ae13dff7bac312b71ce303e8f7ef7115178b8270de16a174a72207f21776e407` |
 |  `1.9.2`                                    | March 28th   | `sha256:a4e6e1c8fda5c0f845b334ea19ed4cc18bc22acfbf2a37557dfe172f5c5a8026` |
 |  `1.9.2-dev`                                | March 28th   | `sha256:0666db9e9dd314d0af349d67c18999f0abae9b3bda36238d321f16c4482a320b` |
 |  `1.9.1-dev`                                | March 25th   | `sha256:179776dfae3ae52366d1a159b6a15336a21ef3dc8ce4fe52defcba3fe833249d` |

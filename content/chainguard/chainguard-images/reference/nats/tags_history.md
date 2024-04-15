@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nats Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:d6136124421a16617ccfa4763624aab5ccda30d1c2052d2ed64957cd8b782ee8` |
-|  `latest`     | April 4th    | `sha256:62e2c4618192d14978a60f44d93a2024bfa674e90bbe3e462c204a4d10c27879` |
+|  `latest-dev` | April 12th   | `sha256:16b5d594a65463becb1d56cb0e498f843f8c80244389dc50ac921ef35adff959` |
+|  `latest`     | April 12th   | `sha256:9ebb054ebedfb8a5b60c8fcb616ac5d4cbe0fa2978d49d26545311facda484a7` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.10.12-dev` `2.10-dev` `2-dev` | April 11th   | `sha256:2c126766434b41af0a74859938041cd2109d5cd2b54ee03aaaa52393a8fe07fd` |
-|  `2` `2.10.12` `2.10` `latest`                 | April 3rd    | `sha256:389c087566e4e09d8eee209726157ae6cbf06b3f36180a979d44cd1b6301db63` |
-|  `2.10.11-dev`                                 | March 12th   | `sha256:0db3812b63bc9863df462766aac87059da3dbda2aa7a9dfa3ba1176c99e8ef85` |
+|  `2` `2.10.14` `2.10` `latest`                 | April 12th   | `sha256:d367b45080c3fd68bf7b951785ef6339626471e7bb576639bf52c7963426cd4c` |
+|  `2.10-dev` `2.10.14-dev` `latest-dev` `2-dev` | April 12th   | `sha256:838b79e205b85e919298e5bbdcd6dd41f185e18061c9df8a38d136228f4da770` |
+|  `2.10.12-dev`                                 | April 11th   | `sha256:2c126766434b41af0a74859938041cd2109d5cd2b54ee03aaaa52393a8fe07fd` |
+|  `2.10.12`                                     | April 3rd    | `sha256:389c087566e4e09d8eee209726157ae6cbf06b3f36180a979d44cd1b6301db63` |
 

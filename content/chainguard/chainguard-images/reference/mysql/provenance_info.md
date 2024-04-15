@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for mysql Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -29,7 +29,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 | Registry                     | Tags                                         |
 |------------------------------|----------------------------------------------|
 | `cgr.dev/chainguard`         | No public tags are available for this image. |
-| `cgr.dev/chainguard-private` | 8, 8.0, 8.0.34, 8.0.35                       |
+| `cgr.dev/chainguard-private` | 8, 8.0, 8.0.34, 8.0.35, latest               |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

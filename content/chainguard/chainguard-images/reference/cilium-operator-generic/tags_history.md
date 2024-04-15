@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-operator-generic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14.9-dev` `1.14-dev` `1-dev` `latest-dev` | April 11th   | `sha256:6dcd33882df7084813a04f92f0fc671b4f9b01a6d0711dc22fab1278f6752050` |
-|  `1.14` `1` `1.14.9` `latest`                 | April 9th    | `sha256:a4a34c2282c5a316ad8ba8081e36f9f05a043563c98b708298615f3292653e0a` |
+|  `1.15` `1` `latest` `1.15.3`                 | April 12th   | `sha256:eeb778324c34bf57a224a00595c69ccd304a95aceefb20a4117a325d245a568b` |
+|  `1.15.3-dev` `1-dev` `1.15-dev` `latest-dev` | April 12th   | `sha256:d3fb352bea882f080dfd4b326b00d23823b7991738b1a88b4227b1603004d563` |
+|  `1.14.9-dev` `1.14-dev`                      | April 11th   | `sha256:6dcd33882df7084813a04f92f0fc671b4f9b01a6d0711dc22fab1278f6752050` |
+|  `1.14` `1.14.9`                              | April 9th    | `sha256:a4a34c2282c5a316ad8ba8081e36f9f05a043563c98b708298615f3292653e0a` |
 |  `1.14.8-dev`                                 | March 18th   | `sha256:0d9f98d677a41572d921160267a5046463e8517ad3de978f743598079986a0bb` |
 |  `1.14.8`                                     | March 18th   | `sha256:7890740d0acabfa83251e36b65a89c33ac95dcc10f22b44a69dde782ad4ed063` |
-|  `1.14.7-dev`                                 | March 14th   | `sha256:2e8b9a508dcde028bfd0000f38052ab9bd09c652fdc7f7829cc5a5cb32a1babe` |
-|  `1.14.7`                                     | March 14th   | `sha256:ee75ab7aed37322320f70c4b4ff738984bf0c1a65998feecede467d130a89d97` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 11th   | `sha256:d65d26c18eaf0f9e96dfcca536ae12ce216100fb5a7ade8a5b6173aff94be7bb` |
-|  `latest-dev` | April 11th   | `sha256:17828b1b62f8f05c4730ba2b2e07b16f068f207f9e8e32607f3bb605150bf91e` |
+|  `latest`     | April 12th   | `sha256:44fc83d859b055e11bb2e1b0af853a547b8f12c450cc74361756935addbc0d6e` |
+|  `latest-dev` | April 12th   | `sha256:5c05a0df8f27ff5a3e638d30755eb1b88d17240d312195f2b473d48ea8c3ecc6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.19-dev` `latest-dev` `1.19.2-dev` `1-dev` | April 11th   | `sha256:cbcb063e10bcfff472737219e7574a8a92fcb50f4ce4d8146365214d42d3f135` |
-|  `1.19.2` `latest` `1` `1.19`                 | April 11th   | `sha256:c7a32d5237a72e8715db8d88754dcf96215ad7e7a0f75134bb98a1c0d7145450` |
+|  `latest-dev` `1-dev` `1.19-dev` `1.19.2-dev` | April 14th   | `sha256:852697d25aaff2c02f00a551712070abca72c6248774222e2a893639465ddd08` |
+|  `1` `1.19` `1.19.2` `latest`                 | April 12th   | `sha256:745127b82030a3126754e741ce3a02b0b385d78672400c6d4ef902f1dee6a552` |
 

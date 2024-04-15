@@ -3,8 +3,8 @@ title: "mysql Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public mysql Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,20 +21,50 @@ toc: true
 
 This page shows detailed information about the Chainguard **mysql** Image.
 
-|              |
-|--------------|
-| Default User |
-| Entrypoint   |
-| CMD          |
-| Workdir      |
-| Has apk?     |
-| Has a shell? |
+|              | latest                                 |
+|--------------|----------------------------------------|
+| Default User | `mysql`                                |
+| Entrypoint   | `/usr/bin/docker-entrypoint.sh mysqld` |
+| CMD          | not specified                          |
+| Workdir      | not specified                          |
+| Has apk?     | no                                     |
+| Has a shell? | yes                                    |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/mysql/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|  |
-|--|
+|                                   | latest |
+|-----------------------------------|--------|
+| `bash`                            | X      |
+| `busybox`                         | X      |
+| `ca-certificates-bundle`          | X      |
+| `chainguard-baselayout`           | X      |
+| `glibc`                           | X      |
+| `glibc-locale-posix`              | X      |
+| `keyutils-libs`                   | X      |
+| `krb5-conf`                       | X      |
+| `krb5-libs`                       | X      |
+| `ld-linux`                        | X      |
+| `libaio`                          | X      |
+| `libcom_err`                      | X      |
+| `libcrypt1`                       | X      |
+| `libcrypto3`                      | X      |
+| `libgcc`                          | X      |
+| `libssl3`                         | X      |
+| `libstdc++`                       | X      |
+| `libtirpc`                        | X      |
+| `libverto`                        | X      |
+| `libxcrypt`                       | X      |
+| `mysql-8.0`                       | X      |
+| `mysql-8.0-oci-entrypoint`        | X      |
+| `mysql-8.0-oci-entrypoint-compat` | X      |
+| `ncurses`                         | X      |
+| `ncurses-terminfo-base`           | X      |
+| `openssl-config`                  | X      |
+| `pwgen`                           | X      |
+| `tzdata`                          | X      |
+| `wolfi-baselayout`                | X      |
+| `zlib`                            | X      |
 

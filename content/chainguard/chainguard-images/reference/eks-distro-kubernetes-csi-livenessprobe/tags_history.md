@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-15 03:08:24
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,8 +43,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.12.0-r3-eks-1-25-33`                                                                                                                      | March 28th   | `sha256:c8db7c00351acd4df03abbeb3e63b08185680de4ecb94aa85daef8f57bccab10` |
 |  `2.12.0-r2-eks-1-25-33-dev`                                                                                                                  | March 15th   | `sha256:8cd4f9bb8416bc9cd3ccebd4e37ded983a227cebce27cf13f636b43d040cd4ca` |
 |  `2.12.0-r2-eks-1-25-33`                                                                                                                      | March 15th   | `sha256:1fe48a7789f58c85311b7e77bff92039645931f25f057d9e992981f41d60a956` |
-|  `2.11.0-r1-eks-1-23-33`                                                                                                                      | March 14th   | `sha256:15d85efcc5aea2217c8a0651c7b7db781f432a4413bd2edde15ddac745a33e36` |
-|  `2.12.0-r1-eks-1-25-33`                                                                                                                      | March 14th   | `sha256:cc788aa0bba4fc8f18b29882c1b5b0525e61636cef7141ac2ab5115e8e538066` |
-|  `2.11.0-r1-eks-1-23-33-dev`                                                                                                                  | March 14th   | `sha256:8f049cc6dc07eb4c1b350f673c47a7985271b9510ae98d2c526e5bca63603939` |
-|  `2.12.0-r1-eks-1-25-33-dev`                                                                                                                  | March 14th   | `sha256:6647e6c7e846bbb56fd3e3c1007b6d01bdc96c6c27e453e80f4eca8d66f25627` |
 
