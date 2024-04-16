@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-16 00:44:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,6 +41,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.10.0-r2-eks-1-25-33-dev`                                                                                                             | April 2nd    | `sha256:3e5a3962d6afef6de9f713a5c4e6a75add0b4f0605db206cff262a35d1dd7931` |
 |  `2.10.0-r2-eks-1-25-33`                                                                                                                 | March 28th   | `sha256:2395252513a83254a01744871586312daf00ade2189b18b6c20589027e66e7e8` |
 |  `2.9.0-r5-eks-1-23-33`                                                                                                                  | March 28th   | `sha256:1530c7f8aed2bc316bb19a83258ebb08773703bd6976df567793d6f3360db2d4` |
-|  `2.9.0-r4-eks-1-23-33`                                                                                                                  | March 15th   | `sha256:e3855651dc1e3fe0c04699521b4486479e55fdc047ee399c596d383bcb72d641` |
-|  `2.9.0-r4-eks-1-23-33-dev`                                                                                                              | March 15th   | `sha256:bd9061c26b0f7b82cc3e9863abba1a2546963f69491959d6ea1171f1d4ba182d` |
 

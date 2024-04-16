@@ -1,9 +1,9 @@
 ---
-title: "hubble-ui Image Tags History"
+title: "kubernetes-autoscaler-addon-resizer Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the hubble-ui Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
+description: "Image Tags and History for the kubernetes-autoscaler-addon-resizer Chainguard Image"
+date: 2024-04-16 00:44:43
 lastmod: 2024-04-16 00:44:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/hubble-ui/" >}}
-{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/hubble-ui/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/hubble-ui/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/hubble-ui/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubernetes-autoscaler-addon-resizer/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/kubernetes-autoscaler-addon-resizer/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/kubernetes-autoscaler-addon-resizer/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/kubernetes-autoscaler-addon-resizer/provenance_info/" >}}
 {{</ tabs >}}
 
 The following tables contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -26,12 +26,13 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | April 15th   | `sha256:ed392c2c31dd93d7b9148140614b6ff077b588dae8d995ba1bcf935575354510` |
+|  `latest-dev` | April 15th   | `sha256:59f44a0315c5d8b54766d3895e1841ea9d54c9c2850fd69d0dd6fc95b24fa442` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                       | Last Changed | Digest                                                                    |
-|-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.13.0` `0.13` `0` `latest` | April 15th   | `sha256:dd7d5a529952eb2f30b2749f98c0b124f696a8595e7c3745f247da042f461759` |
-
+Currently, there are no Production versions of this image available.

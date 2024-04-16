@@ -1,3 +1,12 @@
+# 2024-04-16
+New images added:
+
+- kubernetes-autoscaler-addon-resizer
+- kubernetes-autoscaler-addon-resizer-fips
+- node-feature-discovery
+
+A total of **56** documents were updated.
+
 # 2024-04-15
 New images added:
 

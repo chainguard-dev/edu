@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-16 00:44:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `latest` `6-eks-1-23-33` `6.3.0` `6` `6.3-eks-1-23-33` `6.3.0-eks-1-23-33` `6.3` `6.3.0-r4-eks-1-23-33`                                 | April 3rd    | `sha256:50f355513034aaa5c290a8849a98c4ecb1f645745f5532a8e4209fda712ef910` |
 |  `6.3.0-r3-eks-1-23-33-dev`                                                                                                              | April 2nd    | `sha256:49dd4d7b6071b0d34cbb9fe1ed0f1064074050e7d1c9b447fb9b7f028034d152` |
 |  `6.3.0-r3-eks-1-23-33`                                                                                                                  | March 28th   | `sha256:c1820974a233fd830ab7b0b87b5a6c155b9fe7375eea3ca5e79c60f11335c8b9` |
-|  `6.3.0-r2-eks-1-23-33`                                                                                                                  | March 15th   | `sha256:330b37d16ca140b9fca5f80bf028789e3533832fe3392c43adc6c311e4ff46fb` |
-|  `6.3.0-r2-eks-1-23-33-dev`                                                                                                              | March 15th   | `sha256:a7584a935dc4362c4a0d2d1b8ec99994f739f9010073a34f0727bf9a21098390` |
 

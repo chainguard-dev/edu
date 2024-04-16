@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: weaviate Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-16 00:44:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -102,5 +102,19 @@ Connector config & MQTT config:
 Help Options:
   -h, --help               Show this help message
 ```
+
+## Helm Deployment
+
+This image is a drop-in replacement for the upstream `weaviate` image, and can be used in the [standard Helm charts](https://github.com/weaviate/weaviate-helm).
+To deploy in that helm chart, you can use:
+
+```
+$ helm repo add weaviate https://weaviate.github.io/weaviate-helm
+$ helm install my-weaviate weaviate/weaviate \
+    --set image.registry=cgr.dev \
+    --set image.repo=chainguard/weaviate \
+    --set image.tag=latest
+```
+
 <!--body:end-->
 
