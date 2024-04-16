@@ -1,9 +1,9 @@
 ---
-title: "hubble-ui-fips Image Tags History"
+title: "node-feature-discovery Image Tags History"
 type: "article"
 unlisted: true
-description: "Image Tags and History for the hubble-ui-fips Chainguard Image"
-date: 2023-06-22T11:07:52+02:00
+description: "Image Tags and History for the node-feature-discovery Chainguard Image"
+date: 2024-04-16 00:44:43
 lastmod: 2024-04-16 00:44:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,10 +13,10 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/hubble-ui-fips/" >}}
-{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/hubble-ui-fips/image_specs/" >}}
-{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/hubble-ui-fips/tags_history/" >}}
-{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/hubble-ui-fips/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/node-feature-discovery/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/node-feature-discovery/image_specs/" >}}
+{{< tab title="Tags History" active=true url="/chainguard/chainguard-images/reference/node-feature-discovery/tags_history/" >}}
+{{< tab title="Provenance" active=false url="/chainguard/chainguard-images/reference/node-feature-discovery/provenance_info/" >}}
 {{</ tabs >}}
 
 The following tables contains the most recent tags and digests that can be used to pin your Dockerfile to a specific build of this image. Check our guide on [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) for information on how to fetch all tags from an image and how to pin your Dockerfile to a specific digest.
@@ -26,13 +26,17 @@ Please note that digests and timestamps only change when there is a change to th
 ### Public Registry
 The Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
 
-Currently, there are no Developer versions of this image available.
+| Tag (s)       | Last Changed | Digest                                                                    |
+|---------------|--------------|---------------------------------------------------------------------------|
+|  `latest`     | April 15th   | `sha256:91c9edbc0f1adf4cf4d3d31b4e9b797fce77392986be7973b941a73bd5f20cdf` |
+|  `latest-dev` | April 15th   | `sha256:264dc49eb9e3ec269e020b68e146e646b20a7c5378dfa372caf33d043c426600` |
+
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.13.0-dev` `latest-dev` `0.13-dev` | April 15th   | `sha256:b7064b05b2e339bc811dac11cfdac95fa2ba9a7123de1e18495fef280199286e` |
-|  `latest` `0` `0.13.0` `0.13`                 | April 15th   | `sha256:2466d9a92c54e705431e409359d9a93f0047771444e1c11cfdab012d0af4ecda` |
+|  `0.14` `latest` `0` `0.14.6`                 | April 15th   | `sha256:bc88fd3234c54ae1318cc4436626039fd245b06a5c26d22638ee16408159a16b` |
+|  `0-dev` `latest-dev` `0.14-dev` `0.14.6-dev` | April 15th   | `sha256:8f7199be8d5fc8dcc0de525cd1aaebf9646f7656346fba90ba8eceaf24ca113c` |
 

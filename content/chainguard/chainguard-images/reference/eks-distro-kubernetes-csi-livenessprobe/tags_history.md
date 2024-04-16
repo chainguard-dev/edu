@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-livenessprobe Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-16 00:44:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,6 +41,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.11.0-r2-eks-1-23-33-dev`                                                                                                                  | April 2nd    | `sha256:a0c00d2d7ab8208f0b65b88e02427156a2846b32dab0d6196b8d9ac545676597` |
 |  `2.11.0-r2-eks-1-23-33`                                                                                                                      | March 28th   | `sha256:293b91bbb5f2cf7fb1f5fc8f112b4e03b95f80c67fb8f59b4096345592f91f93` |
 |  `2.12.0-r3-eks-1-25-33`                                                                                                                      | March 28th   | `sha256:c8db7c00351acd4df03abbeb3e63b08185680de4ecb94aa85daef8f57bccab10` |
-|  `2.12.0-r2-eks-1-25-33-dev`                                                                                                                  | March 15th   | `sha256:8cd4f9bb8416bc9cd3ccebd4e37ded983a227cebce27cf13f636b43d040cd4ca` |
-|  `2.12.0-r2-eks-1-25-33`                                                                                                                      | March 15th   | `sha256:1fe48a7789f58c85311b7e77bff92039645931f25f057d9e992981f41d60a956` |
 

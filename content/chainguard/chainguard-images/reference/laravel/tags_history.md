@@ -3,8 +3,8 @@ title: "laravel Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the laravel Chainguard Image"
-date: 2024-04-15 03:08:24
-lastmod: 2024-04-15 03:08:24
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-16 00:44:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 12th   | `sha256:24d778ee6bc23f7ac7bdf008fafda30ca23cb0f27f1c9d37a6c015fcbb1a9e49` |
-|  `latest-dev` | April 12th   | `sha256:f4d26818e69b71ee954f035687271065d98d368b3356912eac2f8857dd99b176` |
+|  `latest-dev` | April 15th   | `sha256:6e77cc83f3920ae50ae07524b37f728aea282a930fcf42ebc3854461237d77fe` |
+|  `latest`     | April 15th   | `sha256:00aa34a2a4d4572ad6c064e886dbb0c74fb104c4425e9977226db10a24a8279a` |
 
 
 ### Private/Dedicated Registry

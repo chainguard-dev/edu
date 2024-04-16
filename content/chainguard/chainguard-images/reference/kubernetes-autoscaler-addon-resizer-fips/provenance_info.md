@@ -1,9 +1,9 @@
 ---
-title: "Provenance Information for newrelic-kube-events Images"
+title: "Provenance Information for kubernetes-autoscaler-addon-resizer-fips Images"
 type: "article"
 unlisted: true
-description: "Provenance information for newrelic-kube-events Chainguard Image"
-date: 2022-11-01T11:07:52+02:00
+description: "Provenance information for kubernetes-autoscaler-addon-resizer-fips Chainguard Image"
+date: 2024-04-16 00:44:43
 lastmod: 2024-04-16 00:44:43
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
@@ -13,23 +13,23 @@ toc: true
 ---
 
 {{< tabs >}}
-{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/newrelic-kube-events/" >}}
-{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/newrelic-kube-events/image_specs/" >}}
-{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/newrelic-kube-events/tags_history/" >}}
-{{< tab title="Provenance" active=true url="/chainguard/chainguard-images/reference/newrelic-kube-events/provenance_info/" >}}
+{{< tab title="Overview" active=false url="/chainguard/chainguard-images/reference/kubernetes-autoscaler-addon-resizer-fips/" >}}
+{{< tab title="Details" active=false url="/chainguard/chainguard-images/reference/kubernetes-autoscaler-addon-resizer-fips/image_specs/" >}}
+{{< tab title="Tags History" active=false url="/chainguard/chainguard-images/reference/kubernetes-autoscaler-addon-resizer-fips/tags_history/" >}}
+{{< tab title="Provenance" active=true url="/chainguard/chainguard-images/reference/kubernetes-autoscaler-addon-resizer-fips/provenance_info/" >}}
 {{</ tabs >}}
 
 All Chainguard Images contain verifiable signatures and high-quality SBOMs (software bill of materials), features that enable users to confirm the origin of each image build and have a detailed list of everything that is packed within.
 
 You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https://stedolan.github.io/jq/) in order to download and verify image attestations.
 
-### Registry and Tags for newrelic-kube-events Image
+### Registry and Tags for kubernetes-autoscaler-addon-resizer-fips Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.9, 1.9-dev, 1.9.3, 1.9.3-dev, 2, 2-dev, 2.1, 2.1.2, 2.2, 2.2.0, 2.2.12, 2.2.13, 2.2.2, 2.2.7, 2.3, 2.3.0, 2.5, 2.5-dev, 2.5.0, 2.5.0-dev, 2.6, 2.6-dev, 2.6.0, 2.6.0-dev, 2.7, 2.7-dev, 2.7.0, 2.7.0-dev, 2.7.1, 2.7.1-dev, 2.7.2, 2.7.2-dev, 2.7.3, 2.7.3-dev, 2.7.4, 2.7.4-dev, 2.8, 2.8-dev, 2.8.0, 2.8.0-dev, 2.8.1, 2.8.1-dev, 2.8.2, 2.8.2-dev, 2.9, 2.9-dev, 2.9.0, 2.9.0-dev, 2.9.1, 2.9.1-dev, 2.9.2, 2.9.2-dev, 2.9.3, 2.9.3-dev, 2.9.4, 2.9.4-dev, latest, latest-dev |
+| Registry                     | Tags                                                           |
+|------------------------------|----------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                   |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.8, 1.8-dev, 1.8.20, 1.8.20-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
@@ -37,8 +37,8 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 The commands listed on this page will default to the `latest` tag, but you can specify a different tag to fetch attestations for.
 
-## Verifying newrelic-kube-events Image Signatures
-The **newrelic-kube-events** Chainguard Images are signed using Sigstore, and you can check the included signatures using `cosign`.
+## Verifying kubernetes-autoscaler-addon-resizer-fips Image Signatures
+The **kubernetes-autoscaler-addon-resizer-fips** Chainguard Images are signed using Sigstore, and you can check the included signatures using `cosign`.
 
 The `cosign verify` command will pull detailed information about all signatures found for the provided image.
 
@@ -48,7 +48,7 @@ The `cosign verify` command will pull detailed information about all signatures 
 cosign verify \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
   --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
-  cgr.dev/chainguard/newrelic-kube-events | jq
+  cgr.dev/chainguard/kubernetes-autoscaler-addon-resizer-fips | jq
 ```
 
 ### Private/Dedicated Registry
@@ -57,12 +57,12 @@ cosign verify \
 cosign verify \
 --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
 --certificate-identity=https://github.com/chainguard-images/images-private/.github/workflows/release.yaml@refs/heads/main \
-cgr.dev/chainguard-private/newrelic-kube-events | jq
+cgr.dev/chainguard-private/kubernetes-autoscaler-addon-resizer-fips | jq
 ```
 
-## Downloading newrelic-kube-events Image Attestations
+## Downloading kubernetes-autoscaler-addon-resizer-fips Image Attestations
 
-The following [attestations](https://slsa.dev/attestation-model) for the newrelic-kube-events image can be obtained and verified via cosign:
+The following [attestations](https://slsa.dev/attestation-model) for the kubernetes-autoscaler-addon-resizer-fips image can be obtained and verified via cosign:
 
 | Attestation Type | Description |
 |----------------|-------------|
@@ -71,7 +71,7 @@ The following [attestations](https://slsa.dev/attestation-model) for the newreli
 | `https://spdx.dev/Document` | Contains the image SBOM (Software Bill of Materials) in SPDX format. |
 
 
-To download an attestation, use the `cosign download attestation` command and provide both the predicate type and the build platform. For example, the following command will obtain the SBOM for the newrelic-kube-events image on `linux/amd64`:
+To download an attestation, use the `cosign download attestation` command and provide both the predicate type and the build platform. For example, the following command will obtain the SBOM for the kubernetes-autoscaler-addon-resizer-fips image on `linux/amd64`:
 
 ### Public Registry
 
@@ -79,7 +79,7 @@ To download an attestation, use the `cosign download attestation` command and pr
 cosign download attestation \
   --platform=linux/amd64 \
   --predicate-type=https://spdx.dev/Document \
-  cgr.dev/chainguard/newrelic-kube-events | jq -r .payload | base64 -d | jq .predicate
+  cgr.dev/chainguard/kubernetes-autoscaler-addon-resizer-fips | jq -r .payload | base64 -d | jq .predicate
 ```
 
 ### Private/Dedicated Registry
@@ -88,15 +88,15 @@ cosign download attestation \
 cosign download attestation \
 --platform=linux/amd64 \
 --predicate-type=https://spdx.dev/Document \
-cgr.dev/chainguard-private/newrelic-kube-events | jq -r .payload | base64 -d | jq .predicate
+cgr.dev/chainguard-private/kubernetes-autoscaler-addon-resizer-fips | jq -r .payload | base64 -d | jq .predicate
 ```
 
 By default, this command will fetch the SBOM assigned to the `latest` tag. You can also specify the tag you want to fetch the attestation from.
 
 To download a different attestation, replace the `--predicate-type` parameter value with the desired attestation URL identifier.
 
-## Verifying newrelic-kube-events Image Attestations
-You can use the `cosign verify-attestation` command to check the signatures of the newrelic-kube-events image attestations:
+## Verifying kubernetes-autoscaler-addon-resizer-fips Image Attestations
+You can use the `cosign verify-attestation` command to check the signatures of the kubernetes-autoscaler-addon-resizer-fips image attestations:
 
 ### Public Registry
 
@@ -105,7 +105,7 @@ cosign verify-attestation \
   --type https://spdx.dev/Document \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
   --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
-  cgr.dev/chainguard/newrelic-kube-events
+  cgr.dev/chainguard/kubernetes-autoscaler-addon-resizer-fips
 ```
 
 ### Private/Dedicated Registry
@@ -115,13 +115,13 @@ cosign verify-attestation \
 --type https://spdx.dev/Document \
 --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
 --certificate-identity=https://github.com/chainguard-images/images-private/.github/workflows/release.yaml@refs/heads/main \
-cgr.dev/chainguard-private/newrelic-kube-events
+cgr.dev/chainguard-private/kubernetes-autoscaler-addon-resizer-fips
 ```
 
 This will pull in the signature for the attestation specified by the `--type` parameter, which in this case is the SPDX attestation. You will receive output that verifies the SBOM attestation signature in cosign's transparency log:
 
 ```
-Verification for cgr.dev/chainguard/newrelic-kube-events --
+Verification for cgr.dev/chainguard/kubernetes-autoscaler-addon-resizer-fips --
 The following checks were performed on each of these signatures:
 - The cosign claims were validated
 - Existence of the claims in the transparency log was verified offline
