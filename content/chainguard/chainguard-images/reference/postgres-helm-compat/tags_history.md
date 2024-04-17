@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres-helm-compat Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-17 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `15.6-dev` `15-dev` `latest-dev` | April 11th   | `sha256:39ccfb3593db602d9aa11952a0d020492d8f0b4b4da78477c982c225455ff9c0` |
-|  `15.6` `15` `latest`             | April 11th   | `sha256:9cce95501dcce515b9e7189281d5eacfdb12581317f4a88f88cc127f99c688b0` |
+|  `15.6` `15` `latest`             | April 16th   | `sha256:99de8f01c1a1df3de02966c03bdc80d4a2910aa823b14734fb761c7f316a85e9` |
+|  `15-dev` `latest-dev` `15.6-dev` | April 16th   | `sha256:4bc139cf5960a54ef1336e9e6b898535b6f304ca9fa00a8b21cf47fc85b902c0` |
 

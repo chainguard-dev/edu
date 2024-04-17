@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tesseract Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-17 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 14th   | `sha256:53dbbbc798dc30cb04cfeaa4775d8e4a4139d07faa2bd92961aa8c8c9fff7f83` |
-|  `latest`     | April 14th   | `sha256:6293e044e0b68ff59ee69aed9cfacfc765f970b83ebc6b2b70e0f5950ecada0c` |
+|  `latest`     | April 16th   | `sha256:08a083fa1dc817ad4e5df31485a6a8a36754c150779c97d8e3df91d73891b49c` |
+|  `latest-dev` | April 16th   | `sha256:b0a87c1443dba9ba8026163100076d1f602dbcf57433bacaeaad2a7456956328` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `5-dev` `5.3.4-dev` `5.3-dev` | April 13th   | `sha256:30909f9f574ee0af9040efb7c77dbcea4e8e5eef1258833d21ec912aa334fb95` |
-|  `latest` `5.3.4` `5.3` `5`                 | April 13th   | `sha256:683f2e251f2fe008cb8f398aade75661392a6dc8e523fba1128b070bdc173325` |
+|  `5.3.4-dev` `5-dev` `latest-dev` `5.3-dev` | April 16th   | `sha256:562fbade5fc18960819b46d3c2f52d988aa139aaa73ec0a3ad2babc5031d5f44` |
+|  `5` `5.3` `latest` `5.3.4`                 | April 16th   | `sha256:9173f4790229504096ef7a7b2c5ee90a540f4b2b0c4e23ce1968df19bb6c0678` |
 

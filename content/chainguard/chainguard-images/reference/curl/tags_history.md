@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the curl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-17 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:7a90b5c01748ab64a73d06809b0743db0d7c3d84887aa149b7fc2f0494cbceac` |
-|  `latest`     | April 5th    | `sha256:0f3dd12791d342e921d196a281645632c6446dfa235b6b5b1c3afd733cce6ebc` |
+|  `latest`     | April 16th   | `sha256:8901f9c2e2fff4f14aa6eb7f9d9b57f7c8d937ab47600c4cf2ed9d42d440d244` |
+|  `latest-dev` | April 16th   | `sha256:33acdbe6ed7b628716e24e5b599fb77078a5657773fb37aa8540ed449ecf8929` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.7.1-dev` `8.7-dev` `8-dev` `latest-dev` | April 11th   | `sha256:6ff1254b5eeb43da87547b91c88ffcbdddf1537d4ce82053b46b0dba68170d3b` |
-|  `8.7` `8` `8.7.1` `latest`                 | April 5th    | `sha256:c2922758bed509cd14ad5cc9e4245ddb20fd4dbeb4f1640675e2435d37242993` |
+|  `latest` `8.7.1` `8` `8.7`                 | April 16th   | `sha256:296f4b84dc9b6824fcaa4750134e4f5918630e510dad8508bf24242f91ba106c` |
+|  `8-dev` `8.7.1-dev` `8.7-dev` `latest-dev` | April 16th   | `sha256:97fd8df008b88e03f8f4feef831864d4b31a4a1a0267315c3ecaef8dff102a08` |
 |  `8.6` `8.6.0`                              | March 25th   | `sha256:604e81a778fc0465dea88f90cd91cb6e96f49952b499991d1c2fe2f45ba7621d` |
 |  `8.6-dev` `8.6.0-dev`                      | March 25th   | `sha256:a0e7f0efc0c708ffe09d4a0b4609f3436879f600a9cf1ccf3cd3212c34f0bbb5` |
 

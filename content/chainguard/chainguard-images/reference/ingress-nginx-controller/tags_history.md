@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-17 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 14th   | `sha256:ae81e94e9c0da16f6775149987640f3f5b376d8f08f6074ffbb2a7272e1289dc` |
-|  `latest`     | April 14th   | `sha256:2102e2789d1ffc16204342b9196baf9f8f25f700aa2f94ad3f0045b304aa8bdb` |
+|  `latest-dev` | April 16th   | `sha256:7fd328a9fe4ab8924aabc34bc2432b6acd7f2c998c62cebfa2811a819f2caea1` |
+|  `latest`     | April 16th   | `sha256:84cefde6d7406f7e0ec3308a2b45cf235f9ac50b1945caa54e66991f7080c31b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.10` `latest` `1` `1.10.0`                 | April 13th   | `sha256:e3f9a21cfa0abd49381e7319bd66cbd4372ad9182ca750cee5b07f6c2ac34493` |
-|  `latest-dev` `1.10-dev` `1.10.0-dev` `1-dev` | April 13th   | `sha256:cb42aa7c630f6d469f95be64b0c7e85c23321a1fb17f56d818ce5d9d9be42681` |
+|  `latest-dev` `1.10-dev` `1.10.0-dev` `1-dev` | April 16th   | `sha256:68a4214b55f0aec88db88f57d7a936688e75f6c84303525903f1d848a2e6afdf` |
+|  `latest` `1.10` `1` `1.10.0`                 | April 16th   | `sha256:5c67cfcbf8a7e3d3a000bb5fe8401202e51ba7c760ccab582f912936f016361b` |
 
