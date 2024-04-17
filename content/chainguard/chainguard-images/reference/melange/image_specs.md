@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public melange Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-04-17 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ This page shows detailed information about the Chainguard **melange** Image.
 | CMD          | `--help`           | `--help`           |
 | Workdir      | `/work`            | `/work`            |
 | Has apk?     | yes                | no                 |
-| Has a shell? | yes                | yes                |
+| Has a shell? | yes                | no                 |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/melange/tags_history/) for the full list of available tags.
 
@@ -41,7 +41,7 @@ The table shows package distribution across variants.
 | `apk-tools`              | X          |        |
 | `bash`                   | X          |        |
 | `bubblewrap`             | X          | X      |
-| `busybox`                | X          | X      |
+| `busybox`                | X          |        |
 | `ca-certificates-bundle` | X          | X      |
 | `chainguard-baselayout`  | X          | X      |
 | `git`                    | X          |        |
@@ -51,7 +51,7 @@ The table shows package distribution across variants.
 | `libbrotlicommon1`       | X          |        |
 | `libbrotlidec1`          | X          |        |
 | `libcap`                 | X          | X      |
-| `libcrypt1`              | X          | X      |
+| `libcrypt1`              | X          |        |
 | `libcrypto3`             | X          |        |
 | `libcurl-openssl4`       | X          |        |
 | `libexpat1`              | X          |        |
@@ -61,7 +61,7 @@ The table shows package distribution across variants.
 | `libpsl`                 | X          |        |
 | `libssl3`                | X          |        |
 | `libunistring`           | X          |        |
-| `libxcrypt`              | X          | X      |
+| `libxcrypt`              | X          |        |
 | `melange`                | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |

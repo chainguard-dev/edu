@@ -3,8 +3,8 @@ title: "kubernetes-autoscaler-addon-resizer Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-autoscaler-addon-resizer Chainguard Image"
-date: 2024-04-16 00:44:43
-lastmod: 2024-04-16 00:44:43
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-17 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,4 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)                                      | Last Changed | Digest                                                                    |
+|----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1` `1.8` `latest` `1.8.20`                 | April 16th   | `sha256:84c0d532e240a0eaed99a024c1b69f3fc8c8f2a5e4a8985d8285006387b5483b` |
+|  `1.8-dev` `latest-dev` `1.8.20-dev` `1-dev` | April 16th   | `sha256:b16061bf2c7ce2da5008e4ebb94655d88806e530724e5293bdfca85acff29728` |
+
