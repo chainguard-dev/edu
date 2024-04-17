@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spark-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-17 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,8 +35,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                      | Last Changed | Digest                                                                    |
-|----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.1` `1` `1.1.27`                 | April 11th   | `sha256:a4cada8bbf76bcad98dcdb6fa26921fcc0f2910e9666cec6fae74df023b6af3a` |
-|  `1-dev` `latest-dev` `1.1-dev` `1.1.27-dev` | April 11th   | `sha256:820cb00918283d2d2f9aaf459d3bfb11b43d690305e6928210f4e39ca704a564` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `1.2` `1.2.7` `1`                 | April 17th   | `sha256:48ce44422f3b1b45ad3fece4471428b764d8ccacdb3b33027bd843e7d7696f39` |
+|  `latest-dev` `1.2.7-dev` `1-dev` `1.2-dev` | April 17th   | `sha256:4d553c026fbd3219513bac0bb14782cedccdd716890f955a48e695daf3dfd66d` |
+|  `1.1` `1.1.27`                             | April 11th   | `sha256:a4cada8bbf76bcad98dcdb6fa26921fcc0f2910e9666cec6fae74df023b6af3a` |
+|  `1.1-dev` `1.1.27-dev`                     | April 11th   | `sha256:820cb00918283d2d2f9aaf459d3bfb11b43d690305e6928210f4e39ca704a564` |
 

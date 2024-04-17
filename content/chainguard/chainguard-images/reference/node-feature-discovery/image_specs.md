@@ -3,8 +3,8 @@ title: "node-feature-discovery Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public node-feature-discovery Chainguard Image."
-date: 2024-04-16 00:44:43
-lastmod: 2024-04-16 00:44:43
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-04-17 00:46:08
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,6 @@ The table shows package distribution across variants.
 
 |                               | latest-dev | latest |
 |-------------------------------|------------|--------|
-| `abseil-cpp`                  | X          | X      |
-| `abseillib`                   | X          | X      |
 | `apk-tools`                   | X          |        |
 | `bash`                        | X          |        |
 | `busybox`                     | X          |        |
@@ -47,8 +45,6 @@ The table shows package distribution across variants.
 | `git`                         | X          |        |
 | `glibc`                       | X          | X      |
 | `glibc-locale-posix`          | X          | X      |
-| `gmock`                       | X          | X      |
-| `gtest`                       | X          | X      |
 | `ld-linux`                    | X          | X      |
 | `libbrotlicommon1`            | X          |        |
 | `libbrotlidec1`               | X          |        |
@@ -56,23 +52,18 @@ The table shows package distribution across variants.
 | `libcrypto3`                  | X          |        |
 | `libcurl-openssl4`            | X          |        |
 | `libexpat1`                   | X          |        |
-| `libgcc`                      | X          | X      |
 | `libidn2`                     | X          |        |
 | `libnghttp2-14`               | X          |        |
 | `libpcre2-8-0`                | X          |        |
-| `libprotobuf`                 | X          | X      |
-| `libprotoc`                   | X          | X      |
 | `libpsl`                      | X          |        |
 | `libssl3`                     | X          |        |
-| `libstdc++`                   | X          | X      |
 | `libunistring`                | X          |        |
 | `libxcrypt`                   | X          |        |
 | `ncurses`                     | X          |        |
 | `ncurses-terminfo-base`       | X          |        |
-| `node-feature-discovery-0.14` | X          | X      |
+| `node-feature-discovery-0.15` | X          | X      |
 | `openssl-config`              | X          |        |
-| `protoc`                      | X          | X      |
 | `wget`                        | X          |        |
 | `wolfi-baselayout`            | X          | X      |
-| `zlib`                        | X          | X      |
+| `zlib`                        | X          |        |
 
