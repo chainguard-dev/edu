@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-18 00:43:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:ae5d4869f4ef9f10013343ff47b041cef29ec7088bd2d50bd6f8714b335934c4` |
-|  `latest`     | April 4th    | `sha256:a46f2534432031a907cbb5de4dc59d94e037cd57943339e085345edb2ea6455d` |
+|  `latest`     | April 17th   | `sha256:7325f3e0e10878085eb3ae9a33842efaeeb0effa018551446767f1640d9ec8ad` |
+|  `latest-dev` | April 17th   | `sha256:89ef4c1c6166a47c50cb159643d18e8556a449689a3bae03aac9fb8eb2187ff4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.6-dev` `0.6.17-dev` `latest-dev` | April 11th   | `sha256:3dc6162b136b03793b439a682acc74220bf26de7c7767de8a69a6dc5f2a1b566` |
-|  `0.6.17` `0.6` `latest` `0`                 | April 4th    | `sha256:a8604bc6b0f21b2ff822ce9db32eac6caec8e592377a24d4a497ba63ad451145` |
+|  `latest-dev` `0.6.17-dev` `0.6-dev` `0-dev` | April 17th   | `sha256:01e1f172b2db728da2ec3f8bfd039c83b0971203d28e6f818a00f04b8c0301b9` |
+|  `0.6.17` `0` `0.6` `latest`                 | April 17th   | `sha256:9c12340038999c3556f1b7498dcc4eb16e69c56fc7aa7f7521a9ffdbb875f61b` |
 

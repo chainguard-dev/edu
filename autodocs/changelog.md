@@ -1,3 +1,14 @@
+# 2024-04-18
+New images added:
+
+- prometheus-pushgateway-bitnami-bitnami
+- redis-bitnami-cluster-bitnami
+- redis-bitnami-sentinel-bitnami
+- redis-bitnami-server-bitnami
+- tesseract-fips
+
+A total of **185** documents were updated.
+
 # 2024-04-17
 
 

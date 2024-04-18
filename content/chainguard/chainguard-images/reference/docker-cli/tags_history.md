@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the docker-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-18 00:43:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,4 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)                                        | Last Changed | Digest                                                                    |
+|------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `24.0.6` `latest` `24.0` `24`                 | April 17th   | `sha256:01d321fce55e5489a1af1b192ca7e0c2d3dbc597d273d1e10d987d1e1324fd0f` |
+|  `24-dev` `24.0-dev` `latest-dev` `24.0.6-dev` | April 17th   | `sha256:deaca87fe6e7a2de5a2372ceb599f308083bcd361dd42e6c34b89f517176cbc5` |
+
