@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the pulumi Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-17 00:46:08
+lastmod: 2024-04-18 00:43:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 16th   | `sha256:c61f028ad9bd4fa61838574c489b5f928fc3ded1ccb848f385e8b110f440e30e` |
+|  `latest` | April 17th   | `sha256:bb0e078c5dc1f921e074f7c7e059d63ae871cc6d31fb5c2af8dabd19b908cc8f` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.112.0` `3.112` `3` `latest` | April 16th   | `sha256:31b52c33f5af9418e0399295a3ac2c2d88bebbcc8b55d01826f855b1164f7be5` |
+|  `3.112.0` `3.112` `3` `latest` | April 17th   | `sha256:da4d7b56dddde3376ebe6a7c819cbb85f3dc7e4e88fb37e60bcda9b176626d80` |
 |  `3.111.1` `3.111`              | March 19th   | `sha256:2631d79a9860199d05de9b7c1ea6ec4a059c980e2d5a9626adf9d7184ceec6b1` |
 

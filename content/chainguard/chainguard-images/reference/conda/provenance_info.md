@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for conda Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-19 00:54:00
+lastmod: 2024-04-18 00:43:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for conda Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                   |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                     |
-| `cgr.dev/chainguard-private` | 23, 23-dev, 23.5, 23.5-dev, 23.5.0, 23.5.0-dev, 23.5.2, 23.5.2-dev, 23.7, 23.7-dev, 23.7.0, 23.7.0-dev, 23.7.2, 23.7.2-dev, 23.7.3, 23.7.3-dev, 24, 24-dev, 24.1, 24.1-dev, 24.1.2, 24.1.2-dev, 24.3, 24.3-dev, 24.3.0, 24.3.0-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                       |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                         |
+| `cgr.dev/chainguard-private` | 23, 23-dev, 23.5, 23.5-dev, 23.5.0, 23.5.0-dev, 23.5.2, 23.5.2-dev, 23.7, 23.7-dev, 23.7.0, 23.7.0-dev, 23.7.2, 23.7.2-dev, 23.7.3, 23.7.3-dev, 24, 24-dev, 24.1, 24.1-dev, 24.1.1, 24.1.1-dev, 24.1.2, 24.1.2-dev, 24.3, 24.3-dev, 24.3.0, 24.3.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

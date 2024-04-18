@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-cache-deployer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-18 00:43:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:f9b5fd3e3d085aa2601b6ed9eaf44672a0e27b6cb1c25ba8712175693505996a` |
-|  `latest`     | April 11th   | `sha256:d65046a0db7b53700cea572886cb26230ff76dc52456d52b6338347c37b0a198` |
+|  `latest-dev` | April 17th   | `sha256:18a515a8ec8ab28f245b0d2e56f16060a56082f3da3c46f9ec606fae6c40048f` |
+|  `latest`     | April 17th   | `sha256:e97d19cd02e6bf018db14b86d34bb0df29e3d6541dd8b319c34706774f26170d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0-dev` `latest-dev` `2.0.5-dev` `2-dev` | April 11th   | `sha256:9d70c1f2efa2fc05b78ca299a24baa1612611d368b6488e4a37aa39155832fb0` |
-|  `2.0` `latest` `2.0.5` `2`                 | April 11th   | `sha256:997eb41cea80caa24a191b9f62b575207ac0a5e04994dc91854ab2f07692f750` |
+|  `2.0.5` `2.0` `2` `latest`                 | April 17th   | `sha256:2a4e5f362cfac3850aaaaad76190da714f977688c542ec9654b84b5e6ae359a6` |
+|  `latest-dev` `2.0-dev` `2-dev` `2.0.5-dev` | April 17th   | `sha256:15aa86ea3f5c38f442eae580fc97091811d69425f7e8af707324c3c7340058c7` |
 

@@ -3,8 +3,8 @@ title: "gptscript Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public gptscript Chainguard Image."
-date: 2024-03-08 00:56:03
-lastmod: 2024-03-08 00:56:03
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-04-18 00:43:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,20 +21,49 @@ toc: true
 
 This page shows detailed information about the Chainguard **gptscript** Image.
 
-|              |
-|--------------|
-| Default User |
-| Entrypoint   |
-| CMD          |
-| Workdir      |
-| Has apk?     |
-| Has a shell? |
+|              | latest-dev    | latest        |
+|--------------|---------------|---------------|
+| Default User | `root`        | `root`        |
+| Entrypoint   | `gptscript`   | `gptscript`   |
+| CMD          | not specified | not specified |
+| Workdir      | not specified | not specified |
+| Has apk?     | yes           | yes           |
+| Has a shell? | yes           | yes           |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/gptscript/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|  |
-|--|
+|                          | latest-dev | latest |
+|--------------------------|------------|--------|
+| `apk-tools`              | X          | X      |
+| `bash`                   | X          |        |
+| `busybox`                | X          | X      |
+| `ca-certificates-bundle` | X          | X      |
+| `chainguard-baselayout`  | X          | X      |
+| `git`                    | X          |        |
+| `glibc`                  | X          | X      |
+| `glibc-locale-posix`     | X          | X      |
+| `gptscript`              | X          | X      |
+| `ld-linux`               | X          | X      |
+| `libbrotlicommon1`       | X          |        |
+| `libbrotlidec1`          | X          |        |
+| `libcrypt1`              | X          | X      |
+| `libcrypto3`             | X          | X      |
+| `libcurl-openssl4`       | X          |        |
+| `libexpat1`              | X          |        |
+| `libidn2`                | X          |        |
+| `libnghttp2-14`          | X          |        |
+| `libpcre2-8-0`           | X          |        |
+| `libpsl`                 | X          |        |
+| `libssl3`                | X          | X      |
+| `libunistring`           | X          |        |
+| `libxcrypt`              | X          | X      |
+| `ncurses`                | X          |        |
+| `ncurses-terminfo-base`  | X          |        |
+| `openssl-config`         | X          | X      |
+| `wget`                   | X          |        |
+| `wolfi-baselayout`       | X          | X      |
+| `zlib`                   | X          | X      |
 

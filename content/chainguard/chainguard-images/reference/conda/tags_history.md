@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the conda Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-18 00:43:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `24.3.0-dev` `latest-dev` `24.3-dev` `24-dev` | April 11th   | `sha256:adf69212ea85bdd49d50bcbd81f1ea98094b391f88842a2d767f8ffebade311e` |
-|  `latest` `24.3` `24` `24.3.0`                 | April 11th   | `sha256:b9de1c19427eb32dea8f4d5e7d900cbfa76abc65e1a237d8a79d36e15c9ff8c3` |
-|  `24.1.2` `24.1`                               | March 18th   | `sha256:c4ded39d1296d285dd0292b96eda8becb5fec3ed63c071709d7c8de448e4a59d` |
-|  `24.1-dev` `24.1.2-dev`                       | March 18th   | `sha256:170c94f39165c6e06538e2a326bf9f888c06d00f95747e3662d28bf51f9ceec0` |
+|  `24.1` `24.1.2` `24` `latest`                 | April 17th   | `sha256:b5b7a346387e12d9e140c656eb55f43e7e995ee138836b76e00f08f833e0d937` |
+|  `24.1.2-dev` `24-dev` `latest-dev` `24.1-dev` | April 17th   | `sha256:ae2c92b05ffa140a8f0880c667aac51d98c78ea44ec2c61a052df5071555501a` |
+|  `24.1.1-dev`                                  | April 17th   | `sha256:aa147df9fe61e8a5e44e5319789b4811e64d5bc9c50059674763a5ce5ffcf664` |
+|  `24.1.1`                                      | April 17th   | `sha256:7fe51869ff7d85fe8aa34248ddaaf29e585fcba44b362b55639c2a4aa23f7221` |
+|  `24.3.0-dev` `24.3-dev`                       | April 11th   | `sha256:adf69212ea85bdd49d50bcbd81f1ea98094b391f88842a2d767f8ffebade311e` |
+|  `24.3` `24.3.0`                               | April 11th   | `sha256:b9de1c19427eb32dea8f4d5e7d900cbfa76abc65e1a237d8a79d36e15c9ff8c3` |
 

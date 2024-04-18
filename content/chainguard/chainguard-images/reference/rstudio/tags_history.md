@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rstudio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-17 00:46:08
+lastmod: 2024-04-18 00:43:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 16th   | `sha256:35fdef0182b90fc389c261ecfa0819c8ddd15c83b225323c286f22025e2e5b8b` |
-|  `latest-dev` | April 16th   | `sha256:2a7c8d2f83c312395330e81381f71b0bb1bd73be1d7d32703e7f241f31f18dc1` |
+|  `latest`     | April 17th   | `sha256:0f702003205e6637d686af19a5a8e933b60e744e78adb45a29c8c7f3618830bc` |
+|  `latest-dev` | April 17th   | `sha256:498e1675e1780ec292083cdb41619794d6a8bdb5f11c4b4cc543f219d1766a00` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 16th   | `sha256:b2e6670ec35a88dcddee93ea7b90b9b23b4d42fd3a6eeb24ccb5e4db14684a46` |
-|  `latest-dev` | April 16th   | `sha256:e1668b0fbcc282bd1f277986d2de84d65264a21c2ee9f31c662e3af6f64fea0b` |
+|  `latest-dev` | April 17th   | `sha256:22988a345b8a794cb66090cb3b4ac57a23a4d02b0a18de4485b3d1925a11071a` |
+|  `latest`     | April 17th   | `sha256:c93c1e5b5ed738f494403c4c7b96a1f691c16ea3fe88d809702cc50a237ec918` |
 

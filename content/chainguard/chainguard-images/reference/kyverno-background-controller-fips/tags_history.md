@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-background-controller-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-18 00:43:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,5 +33,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.11.4` `1.11` `1` `latest` | April 11th   | `sha256:c2c8dfff391f8b9100773d32534e9d9bf7ed4753ef3d954216a123d7413552f7` |
+|  `1.11.4` `1.11` `1` `latest` | April 17th   | `sha256:dd6244fe4874363fbd8be947c280a38e1be31a9d66a073ea7dc378b23ac5bd85` |
 
