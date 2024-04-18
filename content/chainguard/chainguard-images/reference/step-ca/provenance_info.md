@@ -3,8 +3,8 @@ title: "Provenance Information for step-ca Images"
 type: "article"
 unlisted: true
 description: "Provenance information for step-ca Chainguard Image"
-date: 2024-04-11 12:38:02
-lastmod: 2024-04-11 12:38:02
+date: 2022-11-01T11:07:52+02:00
+lastmod: 2024-04-18 00:43:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for step-ca Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                             |
-|------------------------------|--------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                               |
-| `cgr.dev/chainguard-private` | No production tags are available for this image. |
+| Registry                     | Tags                                                             |
+|------------------------------|------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                               |
+| `cgr.dev/chainguard-private` | 0, 0-dev, 0.26, 0.26-dev, 0.26.0, 0.26.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

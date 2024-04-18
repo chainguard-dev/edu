@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the conda-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-18 00:43:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `24.3-dev` `latest-dev` `24-dev` `24.3.0-dev` | April 11th   | `sha256:7ac82dc27adaa58180d66cc226b267eaceac2987c41039a205e6323f15e91de4` |
-|  `24` `latest` `24.3.0` `24.3`                 | April 11th   | `sha256:3d570d22a5d67c90d7ec824637a9fda55212d96c89a708bc1a6e93b757b6d9e5` |
-|  `24.1.2-dev` `24.1-dev`                       | March 18th   | `sha256:2e717302a76eb919feadb77bbe3cdd87e686cd750f0cd34c61cecc974a75f329` |
-|  `24.1.2` `24.1`                               | March 18th   | `sha256:4d113ed0b28009a5ed0439fa6987600f434f1c863da77b117025e91febaf1e6f` |
+|  `24.1-dev` `latest-dev` `24-dev` `24.1.2-dev` | April 17th   | `sha256:5e206ffb57b2accd5e3d272979ee97f94ab74e7ccb33e1c2baf1c5dc4bf666fc` |
+|  `24.1.2` `24` `24.1` `latest`                 | April 17th   | `sha256:2a5e8c1ae8b2f64eb9bcae5a407cde22e483350cd35fc604722cbe972c9778a5` |
+|  `24.1.1`                                      | April 17th   | `sha256:abf18754a9f758105d5852e9ec5db1b6a0d6b31cbabb7bfccdb3a1fe97dd7414` |
+|  `24.1.1-dev`                                  | April 17th   | `sha256:d9e26aebacdd780a46eb9b424a2e59c30e1491de772a379486e24e3adbdf9669` |
+|  `24.3-dev` `24.3.0-dev`                       | April 11th   | `sha256:7ac82dc27adaa58180d66cc226b267eaceac2987c41039a205e6323f15e91de4` |
+|  `24.3.0` `24.3`                               | April 11th   | `sha256:3d570d22a5d67c90d7ec824637a9fda55212d96c89a708bc1a6e93b757b6d9e5` |
 

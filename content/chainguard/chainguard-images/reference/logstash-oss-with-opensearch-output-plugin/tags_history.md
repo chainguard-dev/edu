@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the logstash-oss-with-opensearch-output-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-18 00:43:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 11th   | `sha256:ae5926183d3ae29d11568ef9c77aa9ed94ccfd0661f3c9fa853df110998ba221` |
-|  `latest-dev` | April 11th   | `sha256:5e946a5b80c444480abdb9f8bb64c813f200470b6f5b7b22ae0f56b8b079f7ea` |
+|  `latest`     | April 17th   | `sha256:9913aee2a6dc5a3aa819e764b1122b78f8663a210f58c4de03c2ed5dd8e0b110` |
+|  `latest-dev` | April 17th   | `sha256:7de189dcbc47e389de271a412c3300f314be99b4d96fefeb5d0f93a09fdb448e` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `8` `8.13.2` `8.13`                 | April 11th   | `sha256:a5e3377d93594b61e5040e9111ee839f8c80476e8260e8dff07ba747cb1dd2b1` |
-|  `8.13-dev` `8-dev` `8.13.2-dev` `latest-dev` | April 11th   | `sha256:c94a7891c1b332cd1981647b157fdad559788c7ab046de5895cd36760fb17423` |
+|  `8.13.2` `8` `8.13` `latest`                 | April 17th   | `sha256:5bde333c4b6bd60ec1331f9f8c6cc2b9c529a23634b18fd30afbcbfeeee34f97` |
+|  `latest-dev` `8.13.2-dev` `8-dev` `8.13-dev` | April 17th   | `sha256:8abdd4e2473801c0a4442289787218cb0457cc6b7002937f0cce31d2cac04a4f` |
 |  `8.13.1-dev`                                 | April 5th    | `sha256:1d08c225e54289ae5466eb3066ea14ed21cea862c23aeb93c0ee87d5d9e78d6b` |
 |  `8.13.1`                                     | April 3rd    | `sha256:538a65398f8be48600adbb6ad23c5ebf50d8dec766b75b7be23cff8b4ce4b9c8` |
 |  `8.13.0-dev`                                 | April 1st    | `sha256:ca0686ab439fabc0d2151e949faa6b62ea907b61064230496db1751057b143f0` |

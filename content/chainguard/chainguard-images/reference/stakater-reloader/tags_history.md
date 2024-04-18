@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the stakater-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-16 00:44:43
+lastmod: 2024-04-18 00:43:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 15th   | `sha256:2a4a0b861ed3bc9a9649633c86b26ee1634c06a78e594d43808a76ad74fe3ea9` |
-|  `latest`     | April 15th   | `sha256:e2dfb0394ece0acaa4e5e5ac454fcf2e6f6a73db68f398f66cafce6846739f38` |
+|  `latest`     | April 17th   | `sha256:f8490c77331985597a7766048266cdbfea204b8303adc301b7ac845b3ad50117` |
+|  `latest-dev` | April 17th   | `sha256:b46beae1db6c384659633f00d77a15ef59d71e8e6422c61a5dcd6404734e9f31` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0` `latest` `1` `1.0.79`                 | April 14th   | `sha256:860e73d3b7bfba5f0faf732ee323c5f5ca809eaa18411def0f754159f80cb3d1` |
-|  `1.0.79-dev` `latest-dev` `1.0-dev` `1-dev` | April 14th   | `sha256:2c600c54d8c974649b2cd14fc3dce9428cdca7710b1bad186f30ae4471480670` |
+|  `1` `1.0` `1.0.80` `latest`                 | April 17th   | `sha256:a3faebac4e5acc030ae855cffd34ec076dc37ccc73b7865b2af3e03c5b679800` |
+|  `latest-dev` `1-dev` `1.0.80-dev` `1.0-dev` | April 17th   | `sha256:a16942ecb62fdb6e9b68f528ea893d0a1c25271c0851ab5c7bd7eed24334dd5f` |
+|  `1.0.79-dev`                                | April 14th   | `sha256:2c600c54d8c974649b2cd14fc3dce9428cdca7710b1bad186f30ae4471480670` |
+|  `1.0.79`                                    | April 14th   | `sha256:860e73d3b7bfba5f0faf732ee323c5f5ca809eaa18411def0f754159f80cb3d1` |
 |  `1.0.78-dev`                                | April 11th   | `sha256:dc59714c3029ddebcc6853fe028ab3497ddc6dffe9de68ad7e9f3fd4d631edec` |
 |  `1.0.78`                                    | April 10th   | `sha256:3dd73640f44a25fdd64f8125c5d39ff0b12401eff8199d7f0e3e45e081871d88` |
 |  `1.0.77`                                    | April 10th   | `sha256:c42d2c754db8892bbe730cce0284a9683d3feedbed2dc8637039df0500590df6` |
