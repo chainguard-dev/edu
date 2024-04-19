@@ -17,7 +17,7 @@ weight: 611
 toc: true
 ---
 
-Chainguard offers a minimal, low-CVE image for deep learning with [PyTorch](https://pytorch.org/) that includes the [CUDA 12](https://developer.nvidia.com/about-cuda) parallel computing platform for performing computation on NVIDIA GPUs. This introductory guide to Chainguard's [pytorch-cuda12](https://edu.chainguard.dev/chainguard/chainguard-images/reference/pytorch-cuda12/) image will walk you through fine-tuning an image classification model, saving the model, and running it securely for inference. We'll also compare the security and footprint of the PyTorch-CUDA12 Chainguard Image to an official runtime image distributed by PyTorch and present ways to adapt the resources in this tutorial to your own deep learning projects powered by PyTorch.
+Chainguard offers a minimal, low-CVE image for deep learning with [PyTorch](https://pytorch.org/) that includes the [CUDA 12](https://developer.nvidia.com/about-cuda) parallel computing platform for performing computation on NVIDIA GPUs. This introductory guide to Chainguard's [pytorch-cuda12](https://edu.chainguard.dev/chainguard/chainguard-images/reference/pytorch-cuda12/) image will walk you through fine-tuning an image classification model, saving the model, and running it securely for inference. We'll also compare the security and footprint of the PyTorch-CUDA12 Chainguard Image to the official runtime image distributed by PyTorch and present ways to adapt the resources in this tutorial to your own deep learning projects powered by PyTorch.
 
 {{< details "Chainguard Images" >}}
 {{< blurb/images >}}
@@ -44,7 +44,7 @@ r.dev/chainguard/pytorch-cuda12:latest \
  python
 ```
 
-Running the above for the first time may take a few minutes to pull the pytorch-cuda12 image. Once the image runs, you will be interacting with a Python interpreter in the running container. Enter the following commands at the prompt to check the availability of your GPU.
+Running the above for the first time may take a few minutes to pull the pytorch-cuda12 Chainguard Image, currently 3.3GB. Once the image runs, you will be interacting with a Python interpreter in the running container. Enter the following commands at the prompt to check the availability of your GPU.
 
 ```
 Python 3.11.9 (main, Apr  2 2024, 15:40:32) [GCC 13.2.0] on linux
@@ -66,7 +66,7 @@ Once you've determined that your environment has access to CUDA and connected GP
 
 A common workflow in deep learning is to collect labeled data, train a model using that data, and store the model. Later, this model can be loaded and used for inference, or making predictions based on novel inputs not in the training set. For example, we might train a model to recognize animals, then store the model as a serialized and compressed file. Later, and possibly in a new environment, we can load the model and use it to perform a classification task on novel data, such as an image of a whale provided by a user.
 
-It is common for model training to be performed in a more controlled developer environment, and for inference to be performed in a less controlled production environment. We will follow this assumption in this tutorial, but be mindful not to use privileged access or root users in production.
+It is common for model training to be performed in a development environment, and for inference to be performed in a production environment. We will follow this assumption in this tutorial, but be mindful not to use privileged access or root users in production.
 
 In this tutorial, we'll fine-tune a pretrained model for an image classification task: classifying whether a provided image is an octopus 🐙, a whale 🐳, or a penguin 🐧. We've chosen these animals in appreciation of Wolfi / Chainguard Images, Docker, and Linux, respectively. Rather than train a model from scratch, a process that requires a large set of input data, we'll start with a ResNet model with 18 layers ([resnet18](https://pytorch.org/vision/main/models/generated/torchvision.models.resnet18.html)). Using a fine-tuning approach with a pretrained model with relatively few layers is appropriate when using a limited amount of input data. In our case, we'll be using 60 images for each class, further divided into 40 training and 20 validation images.
 
@@ -92,6 +92,8 @@ mkdir image_classification && cd image_classification && \
  cgr.dev/chainguard/pytorch-cuda12:latest \
  -c "python /home/nonroot/octopus-detector/image_classification.py"
 ```
+
+In the current version of the image, you may see the following message: `UserWarning: Attempt to open cnn_infer failed: handle=0 error` during model training. This is only a warning and can safely be ignored.
 
 The above command creates a new folder, `image_classification`, and changes the working directory to that folder. It then uses `curl` to download the training script and training and validation images from GitHub as a tar file and extracts the files. A container based on the pytorch-cuda12 image is then created and the script and data are shared between host and container in a volume. The model is trained using the provided script and data, and the resulting model is saved to the volume.
 
@@ -178,9 +180,9 @@ In the below steps, the prompt of your host machine will be denoted as `(host) $
 
 ## Running Inference
 
-Using the above script, you have now downloaded the resnet18 pretrained model and fine-tuned it to detect three classes of images: octopus, whales, and dolphins. Now that the model is trained, we can load it, pass in a new image, and receive the model's prediction. Using an existing model for prediction is called inference, and in many common scenarios inference is run in a production environment. For this reason, we'll access our existing model with the nonroot user in this section.
+You have now downloaded the resnet18 pretrained model and fine-tuned it to detect three classes of images: octopuses, whales, and penguins. Now that the model is trained, we can load it, pass in a new image, and receive the model's prediction. Using an existing model for prediction is called inference, and in many common scenarios inference is run in a production environment. For this reason, we'll access our existing model with the nonroot user in this section.
 
-The script above has been written to check if a model exists in the same folder and, if present, load it. It will also perform inference if a path to an image is passed as an argument when the script is run. Since we should now have a model file present on our host machine, let's go ahead and run inference on a new image of an octopus.
+The script ([image_classification.py](https://github.com/chainguard-dev/pytorch-cuda-getting-started/blob/main/image_classification.py)) run in the above commands has been written to check if a model exists in the same folder and, if present, load it. It will also perform inference if a path to an image is passed as an argument when the script is run. Since we should now have a model file present on our host machine, let's go ahead and run inference on a new image of an octopus.
 
 Feel free to find your own image of an octopus on the web, or run the below command to download [an image](https://raw.githubusercontent.com/chainguard-dev/pytorch-cuda-getting-started/main/inference-images/octopus.jpg) not in the training data. The training data used realistic images, so you may not wish to choose, for example, a stylized or cartoon image of an octopus.
 
@@ -204,11 +206,11 @@ After running this, you should see the model's classification of the image as ou
 octopus
 ```
 
-Feel free to try the above inference on other images of octopus, whales, and penguins. The model should have high accuracy for images similar to those in the training set, which consists of photorealistic images.
+Feel free to try the above inference on other images of octopuses, whales, and penguins. The model should have high accuracy for images similar to those in the training set, which consists of photorealistic images.
 
 ## Advantages of Chainguard Images for Production ML
 
-Chainguard Images are built with security in mindfrom the ground up. They include fewer packages, a lighter footprint, included SBOMs, and active and ongoing CVE remediation. Let's compare the pytorch/pytorch:2.2.2-cuda12.1-cudnn8-runtime provided by PyTorch with the pytorch-cuda12 Chainguard Image using [Docker Scout](https://docs.docker.com/scout/). 
+Chainguard Images are built with security in mind, from the ground up. They include fewer packages, a lighter footprint, SBOMs, and undergo active and ongoing CVE remediation. Let's compare the pytorch/pytorch:2.2.2-cuda12.1-cudnn8-runtime provided by PyTorch with the pytorch-cuda12 Chainguard Image using [Docker Scout](https://docs.docker.com/scout/). 
 
 ```bash
 $ docker scout cves pytorch/pytorch:2.2.2-cuda12.1-cudnn8-runtime
@@ -242,12 +244,17 @@ $ docker scout cves cgr.dev/chainguard/pytorch-cuda12:latest
 
 As of April 18, 2024, the pytorch-cuda12:latest image has no CVEs recognized by Docker Scout. Further, the Chainguard Image has 33 packages compared to 268 in the image provided by PyTorch. That's 235 fewer packages to worry about remediating in the future.
 
+Many packages included by default in the official PyTorch image, such as the `dash` package for dashboard creation or the `pillow` package for image manipulation, are needed for some projects but not others. If you decide you need additional packages for your project, you can install them with the pip package manager. 
+
 ## Notes on the Script
 
 In this section, we'll review the script provided in the above steps, highlighting some common options and approaches and a few ways the script might be adapted to other use cases. Deep learning is a complex and emerging field, so this section can only provide a high-level overview and a few recommendations for moving forward.
 
-To fine-tune a model for image classification as we did here, you can simply replace the provided training and validation data with your own. The script examines the number of folders in the training set to determine the targeted number of classes. The folder names are used as class labels. We used 40 training and 20 validation images for each class., but a ratio of 5:1 training to validation may also produce good results. 
+To fine-tune a model for image classification as we did here, you can replace the provided training and validation data with your own. The script examines the number of folders in the training set to determine the targeted number of classes. The folder names are used as class labels. We used 40 training and 20 validation images for each class, but a ratio of 5:1 training to validation may also produce good results. 
 
 By fine-tuning a pretrained model, we took advantage of transfer learning, meaning that the pretrained model (resnet18) was already trained on inputs with relevance to our classification task. Because we used transfer learning, the relatively small amount of input data was still sufficient for good accuracy in our fine-tuned model. If you're working with a large amount of input data, you might consider using a larger pretrained model, such as resnet34. In addition, if training using significantly more data or training using limited computation relative to the task, you may consider the more efficient convolutional neural network as fixed feature extractor approach, which trains only one attached layer rather than updates the original model.
 
-PyTorch maintains a [set of guides](https://pytorch.org/tutorials/) that are frequently updated. These provide a good starting point when undertaking a new project in PyTorch. If you're new to the field of deep learning, the book [Deep Learning for Coders with Fastai and PyTorch](https://course.fast.ai/Resources/book.html) hosts [freely available materials on GitHub](https://github.com/fastai/fastbook.0) that provide a good starting place.
+PyTorch maintains a [set of guides](https://pytorch.org/tutorials/) that are frequently updated. These provide a good starting point when undertaking a new project in PyTorch. If you're new to the field of deep learning, the book [Deep Learning for Coders with Fastai and PyTorch](https://course.fast.ai/Resources/book.html) hosts [freely available materials on GitHub](https://github.com/fastai/fastbook.0).
+
+
+
