@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-19 00:39:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -55,10 +55,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `20.12.0-dev`                                 | April 3rd    | `sha256:47dc806dbacd5f8c0dc9541cde1fdfbedead308f4a9bbb69d448b8cbaad2c072` |
 |  `18.20.0`                                     | April 3rd    | `sha256:8aea9f756f30e3e962b1823c9b1093740c67cf8c2dcb5b855b3516e3a7f55bf4` |
 |  `18.20.0-dev`                                 | April 3rd    | `sha256:1d690ca26b47f51ffc42346a74229e59d6b862eca58e2e4bf4de75b78a1cd6c1` |
-|  `20.11.1` `20.11`                             | March 18th   | `sha256:87168b3d8f399b63df72266a0361c60eb0d5da1ea51d74f3fa07ff920ff22d07` |
-|  `18.19.1-dev` `18.19-dev`                     | March 18th   | `sha256:98fa6f702f2afea1602c7e92b6a19008d074ef37d23472c2f6c18a7a35bcaa98` |
-|  `18.19` `18.19.1`                             | March 18th   | `sha256:42a1d04e0644a7e831a04b9fe00338ab4edcac320bd38237412f3a336e3e0e72` |
-|  `20.11.1-dev` `20.11-dev`                     | March 18th   | `sha256:dc0ea464ab3ef846c06d086c7df940384ea12a0c54ae59443cc8248d0d220098` |
 |  `16.19.1-dev` `16.19-dev`                     | April 13th   | `sha256:bba7820a61df3f1a8560ed8e58cc472b63bde7211a28c53408ddc037de324b39` |
 |  `16.19.1` `16.19`                             | April 13th   | `sha256:3cb3f6b898f8cd15aea39688a54a20035e0f62fed358799fcd162283f535bb54` |
 |  `16-dev-dev`                                  | March 19th   | `sha256:a9a5c098defe64c18db8c783553535a791d65301023ba2210cd74da5ee37a985` |

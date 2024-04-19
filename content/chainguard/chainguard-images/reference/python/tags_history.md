@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the python Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-16 00:44:43
+lastmod: 2024-04-19 00:39:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -51,12 +51,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `3.11.8-dev`                                 | April 1st    | `sha256:f44ae21097740f7858fb636791f6ca1590d90b22de7029631d13de9e6e082733` |
 |  `3.12.2`                                     | March 29th   | `sha256:98ab0d6216a460935880a2934cfbd689087b1b337be041f143f30bded0e34f2a` |
 |  `3.11.8`                                     | March 29th   | `sha256:f8fd4930abe3b1aa8a3ae16bce9673d0ff10fe895498c268dddb93cda136de62` |
-|  `3.8.18`                                     | March 18th   | `sha256:97f3b595c707a8b6bafda67172af9b68eb15cdd728f232912158ce9ff26c1356` |
-|  `3.10.13`                                    | March 18th   | `sha256:071d550e62eb61ff06629f195846956e2131302320fa26a795cc1d2f988df5df` |
-|  `3.9.18-dev`                                 | March 18th   | `sha256:729c4736a4c4c5753029420b1fc954d8966eeb1e3483135d512148b93167b6ac` |
-|  `3.8.18-dev`                                 | March 18th   | `sha256:3e4dca73ed38960c993f56f6f9383798a9257444bea860c4e16ea0de7002c2fc` |
-|  `3.10.13-dev`                                | March 18th   | `sha256:10f913ebf9f265256053107262c9415dd8ca4eef29677480f368646f9606018a` |
-|  `3.9.18`                                     | March 18th   | `sha256:40dcd5f01ebc4f916de0daff356d57a65107944b1781c6bb29cbc3f7d081ada7` |
 |  `3.8-dev-dev`                                | March 19th   | `sha256:b044484a9db53338e631d38333a20fb9965bb36a8aa2fe30d5518bd939c6cad1` |
 |  `3.9-dev-dev`                                | March 19th   | `sha256:c1d69814dfcbdd45fa0e356a2a7943e9ed2eca6726b8848859b70620c1474202` |
 

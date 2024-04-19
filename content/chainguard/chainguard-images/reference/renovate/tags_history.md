@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the renovate Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-18 00:43:55
+lastmod: 2024-04-19 00:39:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                            | Last Changed | Digest                                                                    |
 |----------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `37.296.0` `latest` `37.296` `37`                 | April 18th   | `sha256:ebd0a78f60c91c11c1595efec3329e337d355770eeb09a8a190d9c60e05df0aa` |
-|  `37-dev` `latest-dev` `37.296-dev` `37.296.0-dev` | April 18th   | `sha256:77e353bf5b29d3d777e7ccf212c0eef5734da555804f76148351c319c892f66c` |
+|  `37.303.3` `latest` `37` `37.303`                 | April 19th   | `sha256:586ecc06ed2446e263c08de4567be29bebb953c849e29f17f3bc2e1c590ac9de` |
+|  `latest-dev` `37.303.3-dev` `37.303-dev` `37-dev` | April 19th   | `sha256:288c97e4b204f93396bc01a69f5acd82df432a8ec73c3d9fede8ebd072676ac8` |
+|  `37.296.0` `37.296`                               | April 18th   | `sha256:ebd0a78f60c91c11c1595efec3329e337d355770eeb09a8a190d9c60e05df0aa` |
+|  `37.296-dev` `37.296.0-dev`                       | April 18th   | `sha256:77e353bf5b29d3d777e7ccf212c0eef5734da555804f76148351c319c892f66c` |
 |  `37.293.0-dev` `37.293-dev`                       | April 14th   | `sha256:a65785b70d9db418b461d228b8e0d331bf4c5d816adb2deb0989b975f1accac1` |
 |  `37.293.0` `37.293`                               | April 14th   | `sha256:012999e9190afe6885bc1401f6d61329f6533151471c234184476d3325f0177b` |
 |  `37.292` `37.292.1`                               | April 14th   | `sha256:6fde453e6f391f842848766936ad5681c4bca9794274ba68d13e0d17bcda15b5` |
@@ -99,6 +101,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `37.261-dev` `37.261.0-dev`                       | March 20th   | `sha256:33afbe9e3707a7b6aa081ca0780e04f5d89e62cde8b83ad2b76c1c1ec6232cd5` |
 |  `37.256` `37.256.1`                               | March 19th   | `sha256:84158b9cf0d1e478b003fe3b4108441f91767cf07fce4e2b7927d28fd626fb9e` |
 |  `37.256.1-dev` `37.256-dev`                       | March 19th   | `sha256:ba67e7a2979663ab6757aaec35122145d5b0cf15402d38153191c34fbe133d1c` |
-|  `37.252` `37.252.0`                               | March 18th   | `sha256:00b6e801f76c8ab046df6a0c9f066368377d476fbed29c0a80462016db0c2614` |
-|  `37.252.0-dev` `37.252-dev`                       | March 18th   | `sha256:806d61979ce2c99e4780a410d63d209403f44161eb096f412e3bb2cb2f4d3810` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bazel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-18 00:43:55
+lastmod: 2024-04-19 00:39:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -34,10 +34,6 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed | Digest                                                                    |
-|---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6` `6.5` `6.5.0` `latest`                 | March 18th   | `sha256:f3edbf492d5c854e9b8fcc3af0d456d72371a331c99d0225bba61a3d5f0fff12` |
-|  `5.4.1-dev` `5.4-dev` `5-dev`              | March 18th   | `sha256:dfb89f93294aacc0db056fd025ab78344982b43b95a39cbd692207b44665ef91` |
-|  `6.5-dev` `latest-dev` `6-dev` `6.5.0-dev` | March 18th   | `sha256:573072e86654896af22a8fa188ae3cf10909b920ea41367681809a549488fed7` |
-|  `5.4.1` `5` `5.4`                          | March 18th   | `sha256:5ed7cf31077c26ef8ee910f125e97201772d54c6a2919c178f47f2325a513bbf` |
+| Tag (s) | Last Changed | Digest |
+|---------|--------------|--------|
 

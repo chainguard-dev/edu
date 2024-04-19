@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-19 00:39:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -53,6 +53,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `10.2-dev` `10.2.5-dev`                     | March 28th   | `sha256:59aeb1e1d0f537bb3465d48d8b8368c8fbabe70ac04c4da903086bd84fff74a1` |
 |  `9.5.16`                                    | March 27th   | `sha256:bd9f478afc6e4b7d95f0577ba4fedd9950137044aeae4008680418e476f9704d` |
 |  `9.5.16-dev`                                | March 27th   | `sha256:5ac6c45427ac9fbd2c13deffc2064f2b9b04d6922aaa896a3f4c4cfb07e0ff90` |
-|  `10.4.0`                                    | March 18th   | `sha256:0a85615a2108697fa3d86ce7e30dd55fa4ee2fbfbd251d3fcf000782a656f916` |
-|  `10.4.0-dev`                                | March 18th   | `sha256:c50bbb693f2b304e7841ff431c206989f96958cb9a2e4904a4a4ab507633745a` |
 

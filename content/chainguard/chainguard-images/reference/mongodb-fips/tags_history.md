@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mongodb-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-17 00:46:08
+lastmod: 2024-04-19 00:39:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,6 +41,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `5-dev` `5.0-dev` `5.0.26-dev` | April 11th   | `sha256:976b1b454579687532de7698c90d2c9eb928554f6b6b5493a07e9ce472597760` |
 |  `6.0.14-dev`                   | April 11th   | `sha256:2b79bbeffd81b848356acd8a8e40ab36f62fe18053577464230487dace9a24b9` |
 |  `6.0.14`                       | April 11th   | `sha256:e16bfd75b3aab6e929b1a6c44e170fb5f86b2d7d0bd3a1942e028c9151718a1a` |
-|  `5.0.25`                       | March 18th   | `sha256:b37f80aa7cb936b17b7bb156575623476d50e2d67e181bf309be00f9b7639514` |
-|  `5.0.25-dev`                   | March 18th   | `sha256:ab4d0901902a0d1e5bf223645fa6a10b5a22d6d51924ba0c552ab96939639008` |
 

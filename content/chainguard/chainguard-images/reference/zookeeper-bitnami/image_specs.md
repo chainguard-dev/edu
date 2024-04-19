@@ -3,8 +3,8 @@ title: "zookeeper-bitnami Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public zookeeper-bitnami Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-04-19 00:39:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -76,6 +76,7 @@ The table shows package distribution across variants.
 | `libssl3`                      | X          |        |
 | `libtasn1`                     | X          | X      |
 | `libunistring`                 | X          |        |
+| `libxcrypt`                    | X          | X      |
 | `libxml2`                      | X          | X      |
 | `libxslt`                      | X          | X      |
 | `ncurses`                      | X          | X      |

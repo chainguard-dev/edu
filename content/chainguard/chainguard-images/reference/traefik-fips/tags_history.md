@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the traefik-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-19 00:39:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,6 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.11.1-dev`                                 | April 11th   | `sha256:5688406b68d5a38ff887149561ec45ef0646094d671c85b1c6e275ccb3dc7373` |
 |  `2.11.0-dev`                                 | April 10th   | `sha256:7c93354ea7b9cbf8408d0a8be4aab1f7d9e28c7b094f1b8b516d1a20582ffc56` |
 |  `2.11.0`                                     | April 10th   | `sha256:066f19e96ccc2edb57b22aa5467a8ef12e4300051ba0c435d6d56d01e0d09b60` |
-|  `2.10.7` `2.10`                              | March 18th   | `sha256:91659b3f4ee5d8c68edd22ff9d496fa4cdece0631876d5808728db6764dad1b0` |
-|  `2.10.7-dev` `2.10-dev`                      | March 18th   | `sha256:815d924115495ab3176741865194f3c1b87927ed2d6737dbf878ab93b94fb74e` |
 
