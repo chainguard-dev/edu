@@ -5,8 +5,8 @@ linktitle: "PyTorch / CUDA 12"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-pytorch-cuda12
 description: "Tutorial on the PyTorch-CUDA12 Chainguard Image"
-date: 2024-04-27:07:52+02:00
-lastmod: 2024-04-27:46:53+00:00
+date: 2024-04-19:07:52+02:00
+lastmod: 2024-04-19:46:53+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -83,8 +83,8 @@ Run the following to download necessary files and train the model. If there is a
 Note: if you're following this tutorial in an environment without access to GPU, remove the ` --gpus all \` line below before running.
 
 ```bash
-mkdir image_classification && cd image_classification && \
- curl https://codeload.github.com/chainguard-dev/pytorch-cuda-getting-started/tar.gz/main | \
+mkdir image_classification && cd image_classification
+curl https://codeload.github.com/chainguard-dev/pytorch-cuda-getting-started/tar.gz/main | \
  tar -xz --strip=1 pytorch-cuda-getting-started-main/ && \
  docker run --user root --rm -it \
  --gpus all \
@@ -105,7 +105,7 @@ README.md  image_classification.py
 data       octopus_whale_penguin_model.pt
 ```
 
-## <a name="manual"></a> Manual Steps to Fine-Tune the Model
+## Manual Steps to Fine-Tune the Model
 
 Below are manual steps to perform the above download and training procedure interactively. You may wish to follow these steps if you need to modify the above for your own use case, if you'd like to better understand the steps involved, or if you have difficulty running the above command in your environment. These steps use `git clone` rather than `curl`.
 
@@ -123,8 +123,8 @@ In the below steps, the prompt of your host machine will be denoted as `(host) $
 2. Clone the [repository with the training and validation data and the training script](https://github.com/chainguard-dev/pytorch-cuda-getting-started) and `cd` into the cloned repository:
 
     ```bash
-    git clone https://github.com/chainguard-dev/pytorch-cuda-getting-started.git
-    cd pytorch-cuda-getting-started
+    (host) $ git clone https://github.com/chainguard-dev/pytorch-cuda-getting-started.git
+    (host) $ cd pytorch-cuda-getting-started
     ```
 
 3. Run the below command to start an interactive session in a running pytorch-cuda12 Chainguard Image with root access. If your environment doesn't have access to GPU, remove the ` --gpus all \` line before running. Note the volume option, which creates a volume on the container based on the current working directory, allowing access to our training script and data inside the container. Remember that this guide assumes you are training the model in a controlled development environment—do not use root access in any production senario.
@@ -212,20 +212,23 @@ Feel free to try the above inference on other images of octopuses, whales, and p
 
 Chainguard Images are built with security in mind, from the ground up. They include fewer packages, a lighter footprint, SBOMs, and undergo active and ongoing CVE remediation. Let's compare the pytorch/pytorch:2.2.2-cuda12.1-cudnn8-runtime provided by PyTorch with the pytorch-cuda12 Chainguard Image using [Docker Scout](https://docs.docker.com/scout/). 
 
+### Official PyTorch Runtime Image
+
 ```bash
 $ docker scout cves pytorch/pytorch:2.2.2-cuda12.1-cudnn8-runtime
 ```
 
 <details open="true"><summary>:package: Image Reference</strong> <code>pytorch/pytorch:2.2.2-cuda12.1-cudnn8-runtime</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:3a352be3ede6b499065c8fc0fe5a1122875ac1d619af113ddf902d788c1ba8d2</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 2" src="https://img.shields.io/badge/high-2-e25d68"/> <img alt="medium: 96" src="https://img.shields.io/badge/medium-96-fbb552"/> <img alt="low: 47" src="https://img.shields.io/badge/low-47-fce1a9"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:3a352be3ede6b499065c8fc0fe5a1122875ac1d619af113ddf902d788c1ba8d2</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="critical-0.png"/> <img alt="high: 2" src="high.png"/> <img alt="medium: 96" src="medium.png"/> <img alt="low: 47" src="low.png"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>size</td><td>4.1 GB</td></tr>
 <tr><td>packages</td><td>268</td></tr>
 </table>
 </details>
 
-
 Now let's compare with the pytorch-cuda12 Chainguard Image:
+
+### PyTorch-CUDA12 Chainguard Image
 
 ```bash
 $ docker scout cves cgr.dev/chainguard/pytorch-cuda12:latest 
@@ -233,7 +236,7 @@ $ docker scout cves cgr.dev/chainguard/pytorch-cuda12:latest
 
 <details open="true"><summary>:package: Image Reference</strong> <code>cgr.dev/chainguard/pytorch-cuda12:latest</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:8ec67ed18d1a0404af74dd1e2621ea6d4aace2903be9b7a7c8671ef0a11b1996</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/medium-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:8ec67ed18d1a0404af74dd1e2621ea6d4aace2903be9b7a7c8671ef0a11b1996</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="critical-0.png"/> <img alt="high: 0" src="high-0.png"/> <img alt="medium: 0" src="medium-0.png"/> <img alt="low: 0" src="low-0.png"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>size</td><td>3.3 GB</td></tr>
 <tr><td>packages</td><td>33</td></tr>
 </table>
