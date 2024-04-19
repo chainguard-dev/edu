@@ -1,3 +1,18 @@
+# 2024-04-19
+New images added:
+
+- grafana-operator
+- grafana-operator-fips
+- kubeflow-katib-suggestion-nas-darts
+- litestream
+- step-issuer
+- step-issuer-fips
+- vertical-pod-autoscaler-fips-admission-controller
+- vertical-pod-autoscaler-fips-recommender
+- vertical-pod-autoscaler-fips-updater
+
+A total of **219** documents were updated.
+
 # 2024-04-18
 New images added:
 
