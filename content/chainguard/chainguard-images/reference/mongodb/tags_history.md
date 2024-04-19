@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mongodb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-17 00:46:08
+lastmod: 2024-04-19 00:39:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,6 +41,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `4.4.29` `4` `4.4`             | April 11th   | `sha256:8b28cb8bc0c09254ac1c2eeb5dd25c17e2d1469a74114345505fa223c9fec669` |
 |  `6.0.14-dev`                   | April 11th   | `sha256:3660c0f5d4254a873d51b402390cc2dee0527bb29914b8542944af2cb5c3b214` |
 |  `6.0.14`                       | April 11th   | `sha256:d79a84ad9aaddb7e5c75b2d27c9de63513b1ba22b1775a0192950602a2843f26` |
-|  `5.0.25`                       | March 18th   | `sha256:5d491fe95aaea9a51dac62d75c924a1b2e9c2a00b74f7dc063df667f40971519` |
-|  `5.0.25-dev`                   | March 18th   | `sha256:cce12466d1bd7c288b26c2ff64a3308d4f3fb9f8fb2a255d12627517ffe9dc54` |
 

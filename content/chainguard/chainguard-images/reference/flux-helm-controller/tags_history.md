@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-helm-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-19 00:39:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,6 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `0.37.4-dev` `latest-dev` `0.37-dev` `0-dev` | April 11th   | `sha256:22c1c8c7a846e846eb49a17674d049e819f7496707876f2c13ae6e1eb3ab2f00` |
 |  `0` `latest` `0.37.4` `0.37`                 | April 3rd    | `sha256:a14cd5b00a47f6ddb648f670ba129815efe49f7d54aa6cef91d792a548c19dde` |
-|  `0.35.0` `0.35`                              | March 18th   | `sha256:2a130585986ad3d6847443d23397ed7dfa019649a1c4bc6e8a1f094c8e49dfba` |
-|  `0.35-dev` `0.35.0-dev`                      | March 18th   | `sha256:7791e4e27fc0816f05643a9427de2a544dc905afde85f989d550927c4aefb7e0` |
 

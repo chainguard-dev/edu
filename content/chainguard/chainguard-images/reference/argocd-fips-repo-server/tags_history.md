@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd-fips-repo-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-19 00:39:27
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,8 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.8.13-dev` `2.8-dev`                       | March 20th   | `sha256:35d4ee1c70ceae90dabe5fbd55275c85c57c6772b43b5c54370ba16e2c7892c1` |
 |  `2.10.4` `2` `latest` `2.10`                 | March 20th   | `sha256:261d2d8fe4b58d1ba51b6e7c4f83b69571062b7ca99ba2f1a93e787e4c5da525` |
 |  `2.10-dev` `latest-dev` `2.10.4-dev` `2-dev` | March 20th   | `sha256:7749908c1b3fcd5fc8e2db76dd6719d1c9ab68f82af22f0f7c83a10daec0c64b` |
-|  `2.9.8-dev`                                  | March 18th   | `sha256:f8cc837cb4c73a669c0d3f482b80713efd054b6c418f30f4eb90cb0619a392e8` |
-|  `2.9.8`                                      | March 18th   | `sha256:9b6035e215433c76b7064adcfa617505e0e0e40df5276185625b700f9314b958` |
-|  `2.10.3-dev`                                 | March 18th   | `sha256:8f16f483c583838fda282c290e7a35f2f4fcba2394e0c50f40b31e393aa2b8b4` |
-|  `2.10.3`                                     | March 18th   | `sha256:f9c6d7d9592b0e5d8452ed73a4f5298bb1b99444cde8204b76adc23113eea3c6` |
 
