@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vela-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                      | Last Changed | Digest                                                                    |
 |------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.9.10` `1.9` `1` | April 3rd    | `sha256:5f51b99d1bd6708105b57f78e9f22ba17bc0dc4180ffe70c73a701f3ebf8292c` |
+|  `latest` `1.9.10` `1.9` `1` | April 21st   | `sha256:74eabe8a21f3696ca1b5ddbb070fd4d47c4e27e7e58c366f00189a43b8fd6221` |
 

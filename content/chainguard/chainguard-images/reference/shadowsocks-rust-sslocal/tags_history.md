@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the shadowsocks-rust-sslocal Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:82455f53509d9d954f5b231dd36004ad3973cd6f71e78db149cbde19718f865f` |
-|  `latest`     | March 28th   | `sha256:cdcc69a10d46d3f0662414c74de042a46d0b1e26926176595efe72a6d7ba8526` |
+|  `latest-dev` | April 21st   | `sha256:0749f7721e6033039b77310b088bca76e85f9c7296ec9e0383b67dbdb3151752` |
+|  `latest`     | April 21st   | `sha256:09d62934639a8b9dacdaa16f308e5d89a5196ba4ca73abf9d2c779733df26a15` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.18.2-dev` `1-dev` `latest-dev` `1.18-dev` | April 11th   | `sha256:ce09670ffc5be250f2bb4e391499868016db25125e57390e76adbc06516b818b` |
-|  `1.18.2` `1` `1.18` `latest`                 | March 29th   | `sha256:d06d0a86f755fc59063e206d126fb3a80ff528030f5c634d64f3d64f48dd8654` |
+|  `1` `latest` `1.18` `1.18.3`                 | April 21st   | `sha256:fadedd8e0924010960146081e1d6bbfb8eee2a87a50eb67f078cfb76788ac3e3` |
+|  `1.18-dev` `1.18.3-dev` `1-dev` `latest-dev` | April 21st   | `sha256:2604bdb59ac9c27e908396d261e984f1a03ede3cc330abcb12ddb201f7cb12fa` |
+|  `1.18.2-dev`                                 | April 20th   | `sha256:bae3d3d2cbfa9595334a68817e5f4c9a83489ea52cae565fab17a0ea4c1d462f` |
+|  `1.18.2`                                     | March 29th   | `sha256:d06d0a86f755fc59063e206d126fb3a80ff528030f5c634d64f3d64f48dd8654` |
 

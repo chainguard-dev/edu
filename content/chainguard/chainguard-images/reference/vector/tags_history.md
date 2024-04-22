@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:7d45f1619438827b903566fbb125ac0af25325e91adba3b772d1e2a5eba2b22c` |
+|  `latest-dev` | April 21st   | `sha256:3116cd4630249d0630ab8fde676e6a7bbc737efd32d229fa2b2f900a6bea7df0` |
 |  `latest`     | April 9th    | `sha256:80f9a8eaad3a5b515ccea922d69dcde4b6810705c6805a8456e9b938eb85730e` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.37.1-dev` `0.37-dev` `0-dev` | April 11th   | `sha256:b86a60986f1e13e520a05d130deba79f532c3f179cc2e75da6f1452c209c835e` |
-|  `latest` `0` `0.37.1` `0.37`                 | April 9th    | `sha256:bbe358048b61dd69984cd5a8788135cff875685fb82e678d2eab8b395d4dfb79` |
+|  `0.37.1-dev` `latest-dev` `0.37-dev` `0-dev` | April 22nd   | `sha256:94aa64c6971aeaf1db9c488774fbc85376dd68addc1a71c9c255f8afdd9bbeca` |
+|  `0.37.1` `latest` `0` `0.37`                 | April 22nd   | `sha256:35ec8068622a3b5c2a4991a07893a0a295214f6e559fc41b8b0590d3d09e2086` |
 |  `0.37.0-dev`                                 | April 5th    | `sha256:4f829cb37f6ff10e7f548c5e95c107f1baa27b465f51d7c92fc5a54ce1006c60` |
 |  `0.37.0`                                     | March 28th   | `sha256:42b7ff31f9116f5229b81e3ac3abce7b3c1413aba76c23f55cf9c830826b5020` |
 |  `0.36.1` `0.36`                              | March 25th   | `sha256:f97a85d69342f9f808ccce08ee8efd90171a0b2d45fbb3e5a6038dcb74a5ada2` |

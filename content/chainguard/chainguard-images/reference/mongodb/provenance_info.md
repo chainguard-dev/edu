@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for mongodb Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-17 00:46:08
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ Attestations are provided per image build, so you'll need to specify the correct
 
 | Registry                     | Tags                                                                                                                                                                                                                                                                                                                   |
 |------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                                                                                           |
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                     |
 | `cgr.dev/chainguard-private` | 4, 4-dev, 4.4, 4.4-dev, 4.4.25, 4.4.25-dev, 4.4.26, 4.4.26-dev, 4.4.27, 4.4.27-dev, 4.4.28, 4.4.28-dev, 4.4.29, 4.4.29-dev, 5, 5-dev, 5.0, 5.0-dev, 5.0.22, 5.0.22-dev, 5.0.23, 5.0.23-dev, 5.0.24, 5.0.24-dev, 5.0.25, 5.0.25-dev, 5.0.26, 5.0.26-dev, 6, 6-dev, 6.0, 6.0-dev, 6.0.14, 6.0.14-dev, 6.0.15, 6.0.15-dev |
 
 

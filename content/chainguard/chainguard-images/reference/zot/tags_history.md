@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the zot Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-19 00:39:27
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 21st   | `sha256:e4ba39873664df809594f0af0df522beeddddd72ce098394baa69c026a960301` |
 |  `latest`     | April 12th   | `sha256:28ce5d6b6d12be7f7172f198e077ba5bd0b526940d34b8601b6c8d2626685057` |
-|  `latest-dev` | April 12th   | `sha256:6a932f3461ac0bf12e3697f5802d5c2092ea37737da9e3ad20704be8dcd609fa` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.0.3` `2.0` `latest`                 | April 12th   | `sha256:d10b0b9e6339e1c3bbdeffcfba56ebc8078e2f335b65eba025cbb6c8a1c3a200` |
-|  `2.0-dev` `2.0.3-dev` `latest-dev` `2-dev` | April 12th   | `sha256:6fd0fddf1a63c3c67cd045126ba4454c3daad3a2855fab98d683944da39982d0` |
+|  `latest` `2.0.3` `2.0` `2`                 | April 21st   | `sha256:112627ef5f18c616fee4083e18a008857428702e8dafd1c6ea5ca0bf554761c1` |
+|  `latest-dev` `2.0-dev` `2.0.3-dev` `2-dev` | April 21st   | `sha256:25dafb0e9c053fdeda5dcfefbdb21d8f85adcf4d165b5a22144f373f9783f15e` |
 |  `2.0.2-dev`                                | March 25th   | `sha256:b6b902647e3a99b14533943f9587037f33841ba0052be2958482cdd64d9870b4` |
 

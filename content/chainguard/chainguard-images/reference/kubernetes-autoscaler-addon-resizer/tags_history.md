@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-autoscaler-addon-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-17 00:46:08
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 21st   | `sha256:d6c1a7ef810cc875c73de1725a53039eaa9465c9fc1a864b1406656338d2b439` |
 |  `latest`     | April 15th   | `sha256:ed392c2c31dd93d7b9148140614b6ff077b588dae8d995ba1bcf935575354510` |
-|  `latest-dev` | April 15th   | `sha256:59f44a0315c5d8b54766d3895e1841ea9d54c9c2850fd69d0dd6fc95b24fa442` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.8` `latest` `1.8.20`                 | April 16th   | `sha256:84c0d532e240a0eaed99a024c1b69f3fc8c8f2a5e4a8985d8285006387b5483b` |
-|  `1.8-dev` `latest-dev` `1.8.20-dev` `1-dev` | April 16th   | `sha256:b16061bf2c7ce2da5008e4ebb94655d88806e530724e5293bdfca85acff29728` |
+|  `latest` `1` `1.8` `1.8.20`                 | April 21st   | `sha256:e367b1dea9cd1382c73bc2d0feb8c8b7c461f1afb2dc45f2e0c846c7a0252698` |
+|  `1-dev` `1.8.20-dev` `latest-dev` `1.8-dev` | April 21st   | `sha256:a2058312d80e73c97fdf6d9401c243ecb80c13622e0baec375e1585efe3a8b18` |
 

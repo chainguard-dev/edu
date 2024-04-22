@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rekor-backfill-redis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:5cceb5428fc830551914d219be6a416a097d49500a8422c5c9e1f3032c868cc6` |
+|  `latest-dev` | April 21st   | `sha256:07b0fed3f74af71a6c7579f9af7481ffcc5a623e8219c78b15ba48f3e13cdeb0` |
 |  `latest`     | April 4th    | `sha256:de05cf1b84352deb16d7e765fb50c3774075c975b18232e8750882ec6406c207` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.3.6-dev` `1-dev` `1.3-dev` `latest-dev` | April 11th   | `sha256:bdd01d643b778f68c36e168eeeff02634ffe14f7b829ba2284a4890407d68f87` |
-|  `1.3` `latest` `1` `1.3.6`                 | April 3rd    | `sha256:c574f90c2eef1d9dabad4856515672e24606f0128922f9ec2493087752447b3e` |
+|  `1.3-dev` `latest-dev` `1.3.6-dev` `1-dev` | April 21st   | `sha256:66e1eff9cd61a5ad6dae09970b934c4aa80da07083919410f7f6bb130f14b996` |
+|  `1` `latest` `1.3.6` `1.3`                 | April 21st   | `sha256:1e8954aa2f462d543f2ba8486b7e46843626a7d0b2d60ebb59ce6fe10641b748` |
 |  `1.3.5-dev`                                | April 1st    | `sha256:eb39e0b8ff3c88fcf23f103f0c1efeb3c836852c411098c975ac711450c2af0c` |
 |  `1.3.5`                                    | March 28th   | `sha256:0ff8771d7a8ab65fee28eb413fb7fd79304de1f2d0f4c454db3d7712a99a2d54` |
 

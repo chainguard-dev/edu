@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the php Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-18 00:43:55
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,10 +28,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)               | Last Changed | Digest                                                                    |
 |-----------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-fpm`         | April 17th   | `sha256:c4166e4b58f5d9f463e81647928015ff93db78bb15e79ee93376c814d83f828e` |
-|  `latest-fpm-dev`     | April 17th   | `sha256:ec9b2af56f429f32983130404763a50230b174e73a96854a96e84ca81e5875e4` |
-|  `latest`             | April 11th   | `sha256:cc17d7cc2bf52604db51c75903ee1893bcd914473c9d139f446e3d3e20ed42e8` |
-|  `latest-dev`         | April 11th   | `sha256:94aaff8eec1165db1572b2f832b07640a844906d85fb04c2ba57921db5d665e8` |
+|  `latest-fpm-dev`     | April 21st   | `sha256:c42f49499b143c08bfdc4160c3e76d398f5df097c1c75627fcb29123f862f146` |
+|  `latest-fpm`         | April 21st   | `sha256:4bbb261792534c84f08afcc2a77c87f2231fd081e66b1f5170f5e16ed2400310` |
+|  `latest-dev`         | April 21st   | `sha256:c934152fc3f2b224c4ca898f210e725b81c3b61a08b6ce7637a6d87121147193` |
+|  `latest`             | April 21st   | `sha256:a1251a456480c9b2b1416669c785d0e31a99728cd32ed30c38e19ef9a01aa21b` |
 |  `latest-laravel`     | April 11th   | `sha256:a74ff610496cd5124fbd94f6466140d1eba5f08f8baa88770792417906d7cc2b` |
 |  `latest-laravel-dev` | April 11th   | `sha256:2e4289539792794f789768006d1587edef7312a82980ded2c71ef4aa342cdf6d` |
 
@@ -41,10 +41,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8-fpm` `latest-fpm` `8.2.18-fpm` `8.2-fpm` `8.2.18-r0-fpm`                     | April 17th   | `sha256:79d3391d16223e3488089daab1395beff33b5623e1255e04638a373771f42cdd` |
-|  `8.2-fpm-dev` `latest-fpm-dev` `8.2.18-fpm-dev` `8-fpm-dev` `8.2.18-r0-fpm-dev` | April 17th   | `sha256:8d89115e2281dd5f8551a8582f500683dad2e62b41ad72d5043074622c2cd723` |
-|  `8.2.18-dev` `8.2-dev` `latest-dev` `8-dev`                                     | April 11th   | `sha256:d160bd8ad18fd189102599ceec68aa11cbff4c6029a1fecd1e42563b79556bf9` |
-|  `latest` `8` `8.2` `8.2.18`                                                     | April 11th   | `sha256:0d1bffdf8dd6141dd04f13e929561c91e9fb39c3f962729b5b9789b08a6472c0` |
+|  `8.2.18-fpm-dev` `8.2-fpm-dev` `8.2.18-r0-fpm-dev` `latest-fpm-dev` `8-fpm-dev` | April 21st   | `sha256:4c67f582fc879e2aeb9bc320f9e20064ec5ca309deae0d46f405035334016b6e` |
+|  `latest-dev` `8.2-dev` `8-dev` `8.2.18-dev`                                     | April 21st   | `sha256:85783b774691d9c72c0c060fa7ff2149828f17ea17c495b13e626a792943d39a` |
+|  `8.2.18-r0-fpm` `8-fpm` `8.2-fpm` `8.2.18-fpm` `latest-fpm`                     | April 21st   | `sha256:64a94cec0b0594d312b2496e05afaee67f4171cb40e92f94d6798bc817166255` |
+|  `8.2.18` `latest` `8` `8.2`                                                     | April 21st   | `sha256:16b6e57740818fdd105781848997af191210b4936a93cc2708eed39abdcd6f93` |
 |  `8.2.17-r0-fpm` `8.2.17-fpm`                                                    | April 5th    | `sha256:70df938cfe5ce70f6fdaa7352810df8a5a932e83c7d1f7e6577f461ce540de8f` |
 |  `8.2.17-r0-fpm-dev` `8.2.17-fpm-dev`                                            | April 5th    | `sha256:f3b3275c86c88d9b595bcf988916014dca7f463ab7acf5284374bf59b760810f` |
 |  `8.2.17`                                                                        | April 5th    | `sha256:401ddd0c849f14a91d4da7b65a00003e7200df71b2afbd1c080029e24ae1309b` |

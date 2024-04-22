@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-medusa Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 11th   | `sha256:5e190ee7af6ebda91d7073fc3c4e2d855224c4add20abaa719803a037df473ae` |
-|  `latest-dev` | April 11th   | `sha256:efc3319d7a8b84accd0ec35bf3c36c360fbe5c980f4bcb8305e60ee5b449dc60` |
+|  `latest-dev` | April 21st   | `sha256:53217462eaea9cfe59aaacc7914cbb293554bacb3f1867be0cb3040c77fb3e20` |
+|  `latest`     | April 21st   | `sha256:309df6a9e0efdcc6dd71cd0758eca1892945cb3f79ae35c4fcc5069b78828509` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0` `0.19.1` `0.19`                 | April 11th   | `sha256:ea1818b7d747035ca75503131534805f9f47a0a4a22a663903d6f415251e6b66` |
-|  `0-dev` `latest-dev` `0.19.1-dev` `0.19-dev` | April 11th   | `sha256:e0d7815c242ef975bdbcf9838402b4bfbcc12fc5ba5c9a35a313288d9b2a20d4` |
+|  `latest` `0` `0.20.1` `0.20`                 | April 21st   | `sha256:79cf56dd05cb6da5cd84f5a0239fd2bcfd34213cef3144135e9ad970c9937a88` |
+|  `0.20.1-dev` `0.20-dev` `latest-dev` `0-dev` | April 21st   | `sha256:8781f57e0a0b1869261936538a7e96d4f55b70074057ba5407af29766eb60c0f` |
+|  `0.19.1` `0.19`                              | April 11th   | `sha256:ea1818b7d747035ca75503131534805f9f47a0a4a22a663903d6f415251e6b66` |
+|  `0.19.1-dev` `0.19-dev`                      | April 11th   | `sha256:e0d7815c242ef975bdbcf9838402b4bfbcc12fc5ba5c9a35a313288d9b2a20d4` |
 

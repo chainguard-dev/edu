@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8ssandra-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-19 00:39:27
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:5e578eb6a65bb1e7b3ebb6e10d155b903f88ec99398ed0956c8f18f38b252b90` |
-|  `latest`     | April 5th    | `sha256:a9cb0928d790d50d39d7c2f912ae52812d1f3574571bb274ad603b716abd2419` |
+|  `latest-dev` | April 21st   | `sha256:88baa3b9cd6d97b209c7bef103895e741b2033573e8fb80f2ab4f7915bbafbac` |
+|  `latest`     | April 19th   | `sha256:0c5b5c6ac39b8599146a048305e3073a442e381c5180e3562d839ed34280f0cc` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.15.0-dev` `1-dev` `1.15-dev` `latest-dev` | April 18th   | `sha256:c082d7e4cd6a75f120402537447af8e8afe4b8db3317f1f121e22f10630c9b70` |
+|  `1.15.0-dev` `1.15-dev` `latest-dev` `1-dev` | April 20th   | `sha256:54c1d434c29e16aecd603298b79af60704479363ae72baf8c7dcba6c64d0c25e` |
 |  `1.15.0` `latest` `1.15` `1`                 | April 18th   | `sha256:ac6d001ecd9f87d3b2cc4133bc08cc09edb598400856cc49f516c48193a5c871` |
 |  `1.14-dev` `1.14.0-dev`                      | April 11th   | `sha256:836ad7a15af37e0756b07e42732767977a64a8bacb5ce9d85558947d3a873553` |
 |  `1.14.0` `1.14`                              | April 5th    | `sha256:178ac6dbecde3877b19cb1ee33dfbbc06ffcfeb1e03faba379ebd60d3d5a4068` |

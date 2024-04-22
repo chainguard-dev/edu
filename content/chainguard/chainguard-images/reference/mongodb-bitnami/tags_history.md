@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mongodb-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `5` `5.0` `5.0.26`                 | April 13th   | `sha256:743e1f8a91d77f744448f5a6f70fff1c204d0cba5ee80b63a49b03046b2eb127` |
-|  `latest-dev` `5.0.26-dev` `5-dev` `5.0-dev` | April 13th   | `sha256:a73088b53435cf0ff4ee3bbf5f79b5bce62c0ea66e992afdf3ee2d5b6dd73ba6` |
-|  `4.4-dev` `4-dev`                           | April 11th   | `sha256:6671a6a006a8de12e820fbc1df932646f15271d2b216b94e8d309ae17f98f67a` |
-|  `4.4` `4`                                   | April 11th   | `sha256:d194b47c27da8f3eb9396cc06b4179fb0f1fc106bce7105fea58be9dda12b629` |
-|  `5.0.25`                                    | March 20th   | `sha256:b9d8060d892c318c45cf97ec5ae5bdafda455d271dedca76fab2c25037e4d7f4` |
-|  `5.0.25-dev`                                | March 20th   | `sha256:e12c5aa5cef655a47e2be07716e9033b2a423609ea9709be7368711320fcc581` |
+|  `4-dev` `4.4-dev`                           | April 21st   | `sha256:081f8444eecebdfdc430ae129fbd353278483b676a48681bc9f915d0a62c5d3c` |
+|  `5.0` `5` `5.0.26` `latest`                 | April 21st   | `sha256:9d5b3ae0fa5df4bb2440e2b2debd0ca7b8cc369071836e2295810187765c1b40` |
+|  `4` `4.4`                                   | April 21st   | `sha256:a3c48e2d5b3920684bfc8acf3a6c45a68326080a1f4ab8c853e1b31137eee0c0` |
+|  `latest-dev` `5.0.26-dev` `5-dev` `5.0-dev` | April 21st   | `sha256:27c9e06efc91525236312fcf0e5c5654624e338214c79e397037800b3ff2b74f` |
 

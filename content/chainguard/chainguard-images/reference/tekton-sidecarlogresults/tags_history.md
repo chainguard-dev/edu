@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-sidecarlogresults Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-19 00:39:27
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:855301b199fc071d54d500a06808266a687921f58378761b5b6b90b6ff5eb7a7` |
-|  `latest`     | April 4th    | `sha256:c6ac566d0a66e9ae08b2d92bdc7d477e26d53884fe4289a822a523778705b648` |
+|  `latest-dev` | April 21st   | `sha256:5a1eaea3d3932cce6935d1019eb4fb2b9cbd9fbff93ab2c8d2c9eb8140d264d6` |
+|  `latest`     | April 21st   | `sha256:454e1c08ab1ba8a865d4519064ecd5c441d7ad4c937c618b49eb0347d7b9f335` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.58.0-dev` `0.58-dev` | April 11th   | `sha256:bed1ec6baf7c529071adc1cdd7089bd3c58f81bd403af544337e8fc1afeb4cc1` |
-|  `latest` `0` `0.58.0` `0.58`                 | April 3rd    | `sha256:5e605a136b76ac5c43c7f28866790f4451e26ee909fa4722e4694539f62f2432` |
+|  `latest-dev` `0.58.0-dev` `0-dev` `0.58-dev` | April 21st   | `sha256:bf37efefa96ccde2fe0841b45e98b82a0bfaf46c1e871f43636ee438b207293c` |
+|  `0.58` `0.58.0` `0` `latest`                 | April 21st   | `sha256:2994e0d78bae5e7dcfe2c35138aaa2e96b81bb78d92d540e2aabbf846828b2ed` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rstudio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-19 00:39:27
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 17th   | `sha256:0f702003205e6637d686af19a5a8e933b60e744e78adb45a29c8c7f3618830bc` |
-|  `latest-dev` | April 17th   | `sha256:498e1675e1780ec292083cdb41619794d6a8bdb5f11c4b4cc543f219d1766a00` |
+|  `latest-dev` | April 21st   | `sha256:b72bc3d6e8c0cd675c1fde94565e1b4ebd4231b5ea50f2423158bf89026bedd2` |
+|  `latest`     | April 21st   | `sha256:24823bf0fc93fbe3512fecb4fb069bd8a9f8bf31e0ec538a92cb21a9f5906216` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                     | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2023.12.1_p402-dev` `2023.12-dev` `2023-dev` `latest-dev` | April 18th   | `sha256:22988a345b8a794cb66090cb3b4ac57a23a4d02b0a18de4485b3d1925a11071a` |
-|  `2023.12.1_p402` `2023.12` `2023` `latest`                 | April 18th   | `sha256:c93c1e5b5ed738f494403c4c7b96a1f691c16ea3fe88d809702cc50a237ec918` |
+|  `latest` `2023.12` `2023` `2023.12.1_p402`                 | April 22nd   | `sha256:832a196fffc730e7ba542fbe36077cfd35dca6951ad92388b71ad6208f6b30f7` |
+|  `latest-dev` `2023-dev` `2023.12.1_p402-dev` `2023.12-dev` | April 22nd   | `sha256:e45f5aefac2b7ec00c496f15dbd9a6c472f9e89c23755d4c19fac43430a17ed1` |
 

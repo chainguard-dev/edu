@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for calico-pod2daemon-flexvol-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for calico-pod2daemon-flexvol-fips Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                 |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                                                         |
-| `cgr.dev/chainguard-private` | 3, 3-dev, 3.26, 3.26-dev, 3.26.3, 3.26.3-dev, 3.26.4, 3.26.4-dev, 3.27, 3.27-dev, 3.27.0, 3.27.0-dev, 3.27.2, 3.27.2-dev, latest, latest-dev, v3, v3-dev, v3.26, v3.26-dev, v3.26.3, v3.26.3-dev, v3.26.4, v3.26.4-dev, v3.27, v3.27-dev, v3.27.0, v3.27.0-dev, v3.27.2, v3.27.2-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                                           |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                                                                                                   |
+| `cgr.dev/chainguard-private` | 3, 3-dev, 3.26, 3.26-dev, 3.26.3, 3.26.3-dev, 3.26.4, 3.26.4-dev, 3.27, 3.27-dev, 3.27.0, 3.27.0-dev, 3.27.2, 3.27.2-dev, 3.27.3, 3.27.3-dev, latest, latest-dev, v3, v3-dev, v3.26, v3.26-dev, v3.26.3, v3.26.3-dev, v3.26.4, v3.26.4-dev, v3.27, v3.27-dev, v3.27.0, v3.27.0-dev, v3.27.2, v3.27.2-dev, v3.27.3, v3.27.3-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:7926bcec4a35dca1f84458d86285304728dfd27a57bec3c22001aab0287129bb` |
-|  `latest`     | April 4th    | `sha256:87caae5af017e2bbbdce4d16a92713094944b7cf55a4c1e3387600e3a93b82f7` |
+|  `latest`     | April 21st   | `sha256:77629183e0016fce897bf5a730de24811022383de82be1e1e893170bd343c565` |
+|  `latest-dev` | April 21st   | `sha256:6d25eb635844523d1381b4accad3c97c9b97a50394168aebe0990ef611cd01eb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `latest-dev` `0-dev` `0.6-dev` | April 11th   | `sha256:e69a7c7868b7f4c9aa7aaf5310120abd2fabeec432a2aa137eee7f91a5bdf39a` |
-|  `0.6` `latest` `0` `0.6.17`                 | April 3rd    | `sha256:e31446a712d5da5e374b218c005e97332742c60562612580b1ba62d0662bf38f` |
+|  `0.6-dev` `0.6.17-dev` `latest-dev` `0-dev` | April 21st   | `sha256:c5a808990885a2d03439c7ac0253d413e559e19df5b7f08021284e4ddf3e9088` |
+|  `0.6.17` `0` `latest` `0.6`                 | April 21st   | `sha256:798c7be8e89c4f1e238989e93bed6642429ef35883ca1f01341955b15f99212f` |
 

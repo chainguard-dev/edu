@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:8a7bf4884db149eba3b1d8d9fb26ae665a3d728f9652699d72a06baa9c87b65c` |
+|  `latest-dev` | April 21st   | `sha256:0d447f1f1c2c36c73a38fde227bbee0f5aac0e2662b1a90a44d0a8a536dedbf2` |
 |  `latest`     | April 4th    | `sha256:53859d301d16b5d21f46d2c62766780877db0ff85270cc2004b120c35311ccc2` |
 
 
@@ -37,12 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.10-dev` `latest-dev` `1-dev` `1.10.1-dev` | April 11th   | `sha256:a09273006f532c799685d330738a9306cd9cad7a74e4e29f0c13f68685a905fa` |
-|  `1.9.4-dev` `1.9-dev`                        | April 11th   | `sha256:a140e36940b9ab4cc8c9b58da2e37eba6eb303b2a77618e7d2f5a58d504bb0f0` |
-|  `1.8-dev` `1.8.1-dev`                        | April 11th   | `sha256:9a73bb3bd1119bb7b0f3e67638fb8ab638dbe37dd90a39eab4b907f689ad82f6` |
-|  `1.9.4` `1.9`                                | April 4th    | `sha256:21b84b38b5d38c5e908955a21458f68567f8c8123375af07fed205f9168ab5bc` |
-|  `1.8.1` `1.8`                                | April 4th    | `sha256:f87c67887ca9b76b3efefe95980203c64d49140b8e9044ecee4b6e129167b514` |
-|  `1.10` `1.10.1` `1` `latest`                 | April 3rd    | `sha256:9e90b5653568404a6e866e2e3b9897a6745dbe3da70567ecc128ec133c8898ae` |
+|  `1.8` `1.8.1`                                | April 21st   | `sha256:431382c1460714a580269861e872a2567d80a9b5bcdaf9968c961fadde75ce07` |
+|  `1.10.1-dev` `1-dev` `latest-dev` `1.10-dev` | April 21st   | `sha256:d13f8e851843b22b8e4a934611aa4b3b045b7c34cf05434d4525c9ec22db2b46` |
+|  `1.10` `1.10.1` `latest` `1`                 | April 21st   | `sha256:9d2f12b8126f6d323b9250f990532a8dcecd77df57c0e549a5033d356d863995` |
+|  `1.8-dev` `1.8.1-dev`                        | April 21st   | `sha256:dc39a83319e546c123b3d4bbd2461d7584327faff1ed885d67d6d2f1a766ddc5` |
+|  `1.9.4-dev` `1.9-dev`                        | April 21st   | `sha256:66ad0244cd8a76a495f5e7c4e665aea3fe226bfed1aef0a1a46f89df0b39c72b` |
+|  `1.9.4` `1.9`                                | April 21st   | `sha256:957edaabd5fc6c0b2638087004786c88d7c246fd1662bc536aa6e8b6d8836008` |
 |  `1.10.0-dev`                                 | April 1st    | `sha256:ee18c301faab3727df2bfe32c3bd713a4d61f84ff74081434a8daed15f15d52b` |
 |  `1.10.0`                                     | April 1st    | `sha256:c80cb188a2d9648ebfab013fb366f80042de6d089c1190f781b0c44aee50d038` |
 

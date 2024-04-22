@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createdb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:f403477ad7bc3f835a63cea94c671cd2f88ee39855c31fdb89a9f08659c10c49` |
-|  `latest`     | April 4th    | `sha256:a28296a57ddb23f1609bb41ceab2e9fd1405a51b999192ea6db1d93cfd2b1c18` |
+|  `latest-dev` | April 21st   | `sha256:fe456f626c21f33e3eec99451eb7509d76e41fb8806673a0a1143970ff0169ce` |
+|  `latest`     | April 21st   | `sha256:9fbdcf97e93711a2db817f408f0a63584f42e58a8de0ce7096677fc53e30ea6d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.6.17-dev` `latest-dev` `0.6-dev` | April 11th   | `sha256:e52c9af884318d4e5751b00f59a7a4bac922625a8ce686d1749e8c002f3f97cf` |
-|  `0.6.17` `0` `0.6` `latest`                 | April 3rd    | `sha256:1b0a6f7a40e8493e87e3000e589b29317783fcd63194fcd1fe4b25039905a85c` |
+|  `latest-dev` `0-dev` `0.6-dev` `0.6.17-dev` | April 21st   | `sha256:66e030900c182f64c0190012d77e81edba77adf3572e3c726d9bde5484dc4a53` |
+|  `0.6` `0.6.17` `0` `latest`                 | April 21st   | `sha256:c7091e06ff16a91c3f817c6036d25b5965fc3e4ce84d1cd2a966d4dd782c9971` |
 

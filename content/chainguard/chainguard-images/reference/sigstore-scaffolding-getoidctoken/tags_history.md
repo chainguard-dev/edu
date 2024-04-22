@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-getoidctoken Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:10b165d9a1e07aa8d9294599852aa3a4a332a874abffaea8d375b1a8c7cdc773` |
-|  `latest`     | April 4th    | `sha256:ee367a81d9204e36c42bfe678e96ea2285fb18a4b2f0050c1eb8dfa1a382c69a` |
+|  `latest`     | April 21st   | `sha256:75316caec4a1d6046ad4fdf26bfdcc7dd053c70c232b4e5f65e720f082884efc` |
+|  `latest-dev` | April 21st   | `sha256:45a5a0acda1f75b3ebabb9d223ec3f170d50478653a4d24ccab409242a366bab` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.6.17-dev` `0.6-dev` | April 11th   | `sha256:b428578b2fafc5bcba1e6a25c25a5b2ac6dc6b85e14db6fb75191d66f81c1383` |
-|  `0` `latest` `0.6.17` `0.6`                 | April 3rd    | `sha256:81c9aa638e91200e7045ee2c830d85cf067b5c60e7270c9eaace77cc72e73422` |
+|  `0-dev` `0.6-dev` `0.6.17-dev` `latest-dev` | April 21st   | `sha256:fd3f6708c0926f9fe3a512fa8246aa096c41b700c81df3923521a4d9a475a9eb` |
+|  `0.6.17` `latest` `0.6` `0`                 | April 21st   | `sha256:0d7f09da5f22f77c911978df02d9d5c92f1725949c6bb1f57a6cab86c4417988` |
 

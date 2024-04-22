@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cosign Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:034cd655e64da4f500df03a2212faa1a51b39dc181ba897132b909b072038399` |
+|  `latest-dev` | April 21st   | `sha256:3af3ea308832240531fbd6f506a14887dc1c32dbd05c093d835114e80aaf3cd4` |
 |  `latest`     | April 11th   | `sha256:9c3cff6ab709b56978bb2c4dda23102e669a932c4c41198e427b8b20cbed2baa` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.4-dev` `2-dev` `latest-dev` `2.2-dev` | April 11th   | `sha256:97964e5998d5e0b1cb4be3e37247eda07abe23f52a902d3c8472defbc9e99cf5` |
-|  `latest` `2.2` `2` `2.2.4`                 | April 11th   | `sha256:ffb342633fb870fffe8306dbd21b4569c41fe66c9cd16fc1eed2110507ef096c` |
+|  `2.2.4` `latest` `2.2` `2`                 | April 21st   | `sha256:a478ca1f982fe1992c04e34f2f724d7333142c1671131f06363a8914c33d66d1` |
+|  `2.2-dev` `2.2.4-dev` `latest-dev` `2-dev` | April 21st   | `sha256:c19d2a9b3b575b5dbe68fed02325dbf3185e117175c68585469679fa95a9eafd` |
 |  `2.2.3-dev`                                | April 9th    | `sha256:1da0d2dcea301b70e54b4962bb344ff54e275a8e6024e083c04b1cbd99367c07` |
 |  `2.2.3`                                    | April 3rd    | `sha256:1e547bf52787126db0e5a5e73893dd24e2b98d97eabf9816f7545670bbdaac40` |
 

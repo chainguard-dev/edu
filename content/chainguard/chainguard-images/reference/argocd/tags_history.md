@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-16 00:44:43
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,12 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.9.12` `2.9`                               | April 15th   | `sha256:f08d2dd2c714e46fcd08e982f25b02a66abd6bd209b9a5e5cba275339bcb251f` |
-|  `2.9-dev` `2.9.12-dev`                       | April 15th   | `sha256:91f41e8aac4cd81b58621d0bb185ec928dc37b7c074660c0791441f254b2966b` |
-|  `2.8` `2.8.16`                               | April 15th   | `sha256:8f90908567690d05649a0f465927350876ae5d6ef8a29b6f58152ca0064817e3` |
-|  `2.8-dev` `2.8.16-dev`                       | April 15th   | `sha256:088b3741cf99b407442ab53ca25a2d2bf00b019355a8d2b9e8f9c52e3b4add53` |
-|  `latest` `2` `2.10.7` `2.10`                 | April 15th   | `sha256:87f45043f8376f38cfbb49aeca5318da59919b8bda8a2028dd5c62e104f6d6b7` |
-|  `2.10-dev` `2.10.7-dev` `2-dev` `latest-dev` | April 15th   | `sha256:182ce8f6cb36515cea29b20e6d83a4399f99c2ced7bd6d399bc9294c85e88458` |
+|  `2.8` `2.8.16`                               | April 21st   | `sha256:f81b20ada8339a7d3848a356e20c93765e9d7a6106c6bca6d412c23975a8f5a5` |
+|  `2.9` `2.9.12`                               | April 21st   | `sha256:90b28bf4160d99bff6af800dd334b561bc2867b7e4e96cca198383471f8ce5fe` |
+|  `2-dev` `2.10-dev` `latest-dev` `2.10.7-dev` | April 21st   | `sha256:c22f3564106c3d1ba504dd834a2cc3c936c8b24b97be0063c301bed32cdaf0e8` |
+|  `latest` `2.10.7` `2.10` `2`                 | April 21st   | `sha256:bf23cb09d5a16fe727012a9ef7973e2f92e9c1c2459f1727f113f6db91027823` |
+|  `2.9-dev` `2.9.12-dev`                       | April 21st   | `sha256:617bca4a2f42cb93c93d94d62a78918011b97ed3c37ba73c099254a079963cf2` |
+|  `2.8-dev` `2.8.16-dev`                       | April 21st   | `sha256:056792cc246aced905fb12271501f9eed528a3b22af8d43d937f921e728cdc17` |
 |  `2.10.6-dev`                                 | April 11th   | `sha256:c2277302406e9642d8b57246cf2cc083389e7e7a81f5f25126ebd53c63ef15ca` |
 |  `2.8.15-dev`                                 | April 11th   | `sha256:540f85d39410a3dc4ef0f320db5041f55cb22238a7509ec6797c0f0fa1e7ccee` |
 |  `2.9.11-dev`                                 | April 11th   | `sha256:1ee148b262fe7953c4f201c9ad947c9f14dfef115b59bf546fa2a59804a9b58d` |
@@ -61,6 +61,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.9.9`                                      | March 28th   | `sha256:39586c48eade21d63f61e579ba1fd4ef9a35511eac4bd26cc7bddeae81449837` |
 |  `2.8.13-dev`                                 | March 28th   | `sha256:4d31e6e9ae109f6806e077b718d4ea4d03ce711b129f92dfea78dc65c790785f` |
 |  `2.10.4`                                     | March 28th   | `sha256:b9b7627e97b464ca7541420320a2ca0cdc129ac258dc1314e1363550872db6fc` |
-|  `2.7-dev` `2.7.17-dev`                       | March 20th   | `sha256:ce9025690dafe95ec61e19538fa1d85b84530679763d30cc95f2827f986be7b5` |
-|  `2.7` `2.7.17`                               | March 20th   | `sha256:38a70c1b723ac34546f7e4569adeee45fba69a7b07114aebfa4de497073435c8` |
 

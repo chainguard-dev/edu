@@ -3,8 +3,8 @@ title: "grafana-operator Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-operator Chainguard Image"
-date: 2024-04-19 00:39:27
-lastmod: 2024-04-19 00:39:27
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 18th   | `sha256:81bed3e320e745eba8948a01e55da01570b12502abe8e81f17638989129c0c0f` |
-|  `latest-dev` | April 18th   | `sha256:9424fbd4ab719e47c12dc1bd4744476b529ca4c4391dcc3a507e5db1ec863587` |
+|  `latest`     | April 21st   | `sha256:8c72e9d07414ff48376411b0c798143bd1d2db2874a0983a563f6a2a27968b72` |
+|  `latest-dev` | April 21st   | `sha256:a6c879e2d24fc0f24ab0221ac1e6e543f921699168c27f7ff4fae7cad4fa7aa5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.8` `5.8.1` `5` `latest`                 | April 18th   | `sha256:89792484d9103549b210ad06cee60de16ff38c1b87cdb89a423b143d83f149f9` |
-|  `5.8-dev` `5.8.1-dev` `5-dev` `latest-dev` | April 18th   | `sha256:65b76dba2875f0a12e536638ef83e24dc0db972c87d2014ca53f4873a9953349` |
+|  `5.8-dev` `5-dev` `latest-dev` `5.8.1-dev` | April 21st   | `sha256:623cde353e978b13b60b05d6c5f88fe9145c47f9f14cdceb77a239845d504e57` |
+|  `5.8` `5` `5.8.1` `latest`                 | April 21st   | `sha256:2005e3eece67d88ed636675608eeffc7218420c5a20677b0861bf917f27ea696` |
 

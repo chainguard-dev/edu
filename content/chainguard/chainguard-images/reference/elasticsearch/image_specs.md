@@ -3,8 +3,8 @@ title: "elasticsearch Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public elasticsearch Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,20 +21,56 @@ toc: true
 
 This page shows detailed information about the Chainguard **elasticsearch** Image.
 
-|              |
-|--------------|
-| Default User |
-| Entrypoint   |
-| CMD          |
-| Workdir      |
-| Has apk?     |
-| Has a shell? |
+|              | latest                                        |
+|--------------|-----------------------------------------------|
+| Default User | `elasticsearch`                               |
+| Entrypoint   | `/sbin/tini -- /usr/bin/docker-entrypoint.sh` |
+| CMD          | `eswrapper`                                   |
+| Workdir      | not specified                                 |
+| Has apk?     | no                                            |
+| Has a shell? | yes                                           |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/elasticsearch/tags_history/) for the full list of available tags.
 
 ## Packages Included
 The table shows package distribution across variants.
 
-|  |
-|--|
+|                          | latest |
+|--------------------------|--------|
+| `bash`                   | X      |
+| `busybox`                | X      |
+| `ca-certificates`        | X      |
+| `ca-certificates-bundle` | X      |
+| `chainguard-baselayout`  | X      |
+| `elasticsearch-8`        | X      |
+| `elasticsearch-config`   | X      |
+| `fontconfig-config`      | X      |
+| `freetype`               | X      |
+| `glibc`                  | X      |
+| `glibc-locale-posix`     | X      |
+| `java-cacerts`           | X      |
+| `java-common`            | X      |
+| `ld-linux`               | X      |
+| `libbrotlicommon1`       | X      |
+| `libbrotlidec1`          | X      |
+| `libbz2-1`               | X      |
+| `libcrypt1`              | X      |
+| `libcrypto3`             | X      |
+| `libexpat1`              | X      |
+| `libffi`                 | X      |
+| `libfontconfig1`         | X      |
+| `libpng`                 | X      |
+| `libtasn1`               | X      |
+| `libxcrypt`              | X      |
+| `ncurses`                | X      |
+| `ncurses-terminfo-base`  | X      |
+| `openjdk-17-default-jvm` | X      |
+| `openjdk-17-jre`         | X      |
+| `openjdk-17-jre-base`    | X      |
+| `openssl-config`         | X      |
+| `p11-kit`                | X      |
+| `p11-kit-trust`          | X      |
+| `tini`                   | X      |
+| `wolfi-baselayout`       | X      |
+| `zlib`                   | X      |
 

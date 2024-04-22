@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rust Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-19 00:39:27
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:1417df760e61e54aa7f25234aefa74ed53b989be97d6fe4e901423c72f9fb330` |
-|  `latest`     | April 11th   | `sha256:1f052d4058024982f0a27e81941e7831888a00599a69df48b76c8bf366283447` |
+|  `latest-dev` | April 21st   | `sha256:d34cfeeff05b64e908138f9bf85a2c6f2926817057524f7a91e9073997f89eef` |
+|  `latest`     | April 21st   | `sha256:74665192aa308ed7eb15acd9d38f014b76622ff85d46c96291f8fccbd075a3f9` |
 
 
 ### Private/Dedicated Registry
@@ -37,10 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.77-dev` `1-dev` `1.77.2-dev` `latest-dev` | April 11th   | `sha256:6bce2b2da89c1741e94b9af2fa1d54b78e57ea1a9b201e09e4c874246beb5cb5` |
-|  `1.77.2` `1` `1.77` `latest`                 | April 11th   | `sha256:ad014b5e4f0d1fc42e6ea08fbd127c823f669b5515845a50ecc7610217c9ce0d` |
+|  `1-dev` `latest-dev` `1.77-dev` `1.77.2-dev` | April 21st   | `sha256:333f92b81bbc3b5763f6fb3f901ec823d15611724840c78128bca2f9fac62552` |
+|  `latest` `1.77` `1.77.2` `1`                 | April 21st   | `sha256:dcdf0b3468d8adcac8e4b1471387d74df6df7fd1656627b9d8703fcd89b1e752` |
 |  `1.77.1-dev`                                 | April 9th    | `sha256:4cc61795c56f323c663e2d9f8db7f73a1c986c45effed6745ac90da5c8db1d1c` |
 |  `1.77.1`                                     | April 9th    | `sha256:fc6768016e41996332d8a3e2bb55ae315c9eeff113b860bc4035e48188e8fd00` |
 |  `1.77.0`                                     | March 27th   | `sha256:88a9b5b1d3812d33feca091380987d130b7e722648b618f6492b00b252e7a3aa` |
 |  `1.77.0-dev`                                 | March 27th   | `sha256:4275d3ff66c41b147bead0f4eea5a9dd9c61596348eb8c5758540150ddb9a466` |
+|  `1.68.2` `1.68`                              | April 20th   | `sha256:9fcefb87f2d2179382f8cc3cf666028eb5dfd593b02d300e3b13c3eb928eeda8` |
+|  `1.68.2-dev` `1.68-dev`                      | April 20th   | `sha256:2ca3fcf62bf9979291545612dc6ef56f7aeea601acc1f07274bd51a3a32ec77f` |
 

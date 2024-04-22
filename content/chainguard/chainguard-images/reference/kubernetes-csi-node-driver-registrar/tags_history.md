@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 13th   | `sha256:eb35f21e28228b377ff95717521905e453f032a46cd107afae02a8f97e0ab8b6` |
+|  `latest` | April 21st   | `sha256:44f26174145be8c92d69bd0050c138c9a9fa6435ae7da502b57b9cd4c2dfdcf9` |
 
 
 ### Private/Dedicated Registry
@@ -36,11 +36,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.10` `2` `2.10.1` | April 13th   | `sha256:e2dda0f4cc119fa634fc1cd6a606b84bb1dcc7525fddc981d8fc531d91f73813` |
+|  `2.8.0` `2.8`                | April 21st   | `sha256:4e67bab2da771f3c955e6557f8a0987fd04a1fe63775c0be2c0bf00296fd8281` |
+|  `2.9` `2.9.4`                | April 21st   | `sha256:6e2450b3624006bf25519cc15c2a72171c90153cd9568d349511cf6ffacd6193` |
+|  `2.10.1` `latest` `2.10` `2` | April 21st   | `sha256:4927a4a95ddb058c1bb38660e99a808c10ee11e6aff772c89e72d32fb14d21f4` |
+|  `2.7.0` `2.7`                | April 21st   | `sha256:d68027870eb5e7da36b5034284643115d4d9cc4368782440def36d7cc7aa1519` |
+|  `2.6` `2.6.3`                | April 21st   | `sha256:1731dda985965047f1b1496ffa8481a4539ffb6a64ebe1e3fe00271c5186ff66` |
 |  `2.10.0`                     | April 3rd    | `sha256:117c909c3b8f32720d3ea46078f19feac59b55acd2362ad147404bac10601fdd` |
-|  `2.6` `2.6.3`                | April 3rd    | `sha256:475c6aefe69564e1ede59ac48a0a21e9b4b72ca2c34092f32d0c5b72bd910dc3` |
-|  `2.7.0` `2.7`                | April 3rd    | `sha256:b85f42501f34999f4ea10b034d976090418f5efefdc208ead1bc52cc614b1230` |
-|  `2.8.0` `2.8`                | April 3rd    | `sha256:4b35fcd77508269dbdfd3ef16da038b23765c1ead9c7a0176ab39ba45efa7a00` |
-|  `2.9.4` `2.9`                | April 3rd    | `sha256:d39dbe86961b8f363e901c1555c9c8daf1ec2207b7d91533e4a804ca757c41b3` |
 |  `2.9.3`                      | March 28th   | `sha256:958b13bf0bd42cf6adce3db4e81f7a3c3038dd9786d1ba160d6e4c16b88a9eac` |
 

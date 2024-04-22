@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:615e6973f9c34f638792fcbd305c6e37f27dbc8057fa457b05256035998fe078` |
-|  `latest`     | April 4th    | `sha256:43d3625cd772f7695264ec2fc3c765d028d3fc679834739b93942aaa8a3c7da6` |
+|  `latest-dev` | April 21st   | `sha256:858a71a7887f6690a2e25a81b9deb7d95cd4dd16492f113b1df6648d36a1c706` |
+|  `latest`     | April 21st   | `sha256:7cd6e8facf1931a0bae3b2e0f52bdd8f863bb26fa135919b8395b6baeee85713` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `0-dev` `latest-dev` `0.6-dev` | April 11th   | `sha256:0f7bd45b51202676c5f76bc4a8fae14b785c74e3a79edba32c3b7707dae8af60` |
-|  `latest` `0` `0.6.17` `0.6`                 | April 3rd    | `sha256:c1bc58f6c6072ed7a5b1f32acc3e054a43b7ae032ba3699f9b54e91536f7e57a` |
+|  `0-dev` `0.6-dev` `0.6.17-dev` `latest-dev` | April 21st   | `sha256:08394f1604177cac8b2f63d58440aefb2f62109672d7a3c7a66aef2f574e1653` |
+|  `0.6.17` `0.6` `0` `latest`                 | April 21st   | `sha256:ffe590906d782962a091dccaab8dd1490c4a6665f44b1e77d794871c620b46f2` |
 

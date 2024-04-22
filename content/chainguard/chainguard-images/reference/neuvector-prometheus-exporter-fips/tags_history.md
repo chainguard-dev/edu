@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the neuvector-prometheus-exporter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5-dev` `5.3-dev` `latest-dev` `5.3.0-dev` | April 11th   | `sha256:b4d77ac4c7f8904bc4989192a46bbefdfa7209a8e10ae9073e3025cdc1a90605` |
-|  `5.3` `5` `latest` `5.3.0`                 | April 11th   | `sha256:e1479368b188d2a67cc60ea0d74737121c3397e31efde13cf5c02cb461041c61` |
+|  `latest-dev` `5-dev` `5.3.0-dev` `5.3-dev` | April 21st   | `sha256:be7a01fee8e22443665d6d5ad58c945ccfe2bb8f6935afeb991f8c74ac7ec714` |
+|  `latest` `5` `5.3.0` `5.3`                 | April 21st   | `sha256:073d355a52590b2c5134d57b26fc686b9a29da1e94afb00856ca5f43c13ed222` |
 

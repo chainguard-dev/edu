@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:4f69e5a06df7a8d6ad6a677ef435bfa4c849621bc9ec63882f8298807823e127` |
+|  `latest-dev` | April 21st   | `sha256:ef36f82fc585bc90724efc411d84388563ada76000ecbe1dcf2d48317f318888` |
 |  `latest`     | April 11th   | `sha256:48e73b06e62e04565c2f0047f21c831f2fac2a91e13bdae6154ca07d236a337a` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1` `latest` `1.1.0` `1`                 | April 11th   | `sha256:6a0d893f9f0b3f14c7721a8bcaa8d63d415cfd28e57c8180e03e6200cc20d0bc` |
-|  `latest-dev` `1.1-dev` `1-dev` `1.1.0-dev` | April 11th   | `sha256:4aee41090fe25036c727841078b0dca4e9ceff0bb98d2a01ef808dd72d70a612` |
+|  `1.1.0-dev` `1.1-dev` `latest-dev` `1-dev` | April 21st   | `sha256:304357717a8a163c6a18a3f50335847951a8fb59675f11682b83608f62831b60` |
+|  `1` `1.1.0` `latest` `1.1`                 | April 21st   | `sha256:cbd45889987ebeab2787c49c2d843c916871dfcb017aa67be67d28eb7e588208` |
 |  `1.0-dev` `1.0.0-dev`                      | April 9th    | `sha256:e17605e8f127c51bbd4b17d52d6a7bc1309fd0cc0acb1d05a965a12fe29da3d3` |
 |  `1.0` `1.0.0`                              | April 3rd    | `sha256:fc89f295aa6916684d6d84a716339a04bdcc9798a45a39195bd8c80e0fd55798` |
 

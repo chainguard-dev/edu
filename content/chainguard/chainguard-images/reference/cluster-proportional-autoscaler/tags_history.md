@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:b291766be56f79cffaac27bab1cde2a7d250965083dbd676fdaccf9152b5e1c9` |
-|  `latest`     | April 4th    | `sha256:07e12f697d612862fb21214d63214871b0e71c6780bbe907f019776af18ed384` |
+|  `latest`     | April 21st   | `sha256:58b70f92f4c83720f4d3b4b07ea1998ba63d14238a3f37d1a8198659b12cccc5` |
+|  `latest-dev` | April 21st   | `sha256:3ff40eda18513d918fcf984005ea69611a3c8e8baaaf28eed322004ea78275f4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.8.11-dev` `1.8-dev` `1-dev` | April 11th   | `sha256:3e8f08b079c72ea527d85860c03b4a592fc9aade93ddfe0976bb4902db835dc9` |
-|  `1` `1.8` `latest` `1.8.11`                 | April 4th    | `sha256:1c8b73cc3e066de39735a562ea8f80d00d1652be34fe46bf84ba99fe834f561d` |
+|  `1.8.11` `1.8` `1` `latest`                 | April 21st   | `sha256:2a4baef5161da62720e5ee34b9459592e25672f0a283d70f6dd01a12c361bc0d` |
+|  `latest-dev` `1.8-dev` `1-dev` `1.8.11-dev` | April 21st   | `sha256:ea5bb15660de6237ba3a51639bd51f0e4efed86855a27e3c4017dd59678aec2c` |
 

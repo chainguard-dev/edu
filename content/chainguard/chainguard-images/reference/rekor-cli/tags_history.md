@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rekor-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:95755be5bbe76a0b91d2aa0d7a36e091dbb6b99d047412f480d96e17a0a2c10d` |
+|  `latest-dev` | April 21st   | `sha256:e0e9b8654c24da46522e5373b2926164a9aedea59c86bf90c6b2d270db10452c` |
 |  `latest`     | April 4th    | `sha256:bbc074513b1df61d1dfa3378acf94e6216f794d3ddf82e6b5236654746a2bdb9` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.3.6-dev` `1.3-dev` `1-dev` `latest-dev` | April 11th   | `sha256:3ae82d5ec0baf5ec43d3951616ac935ef64f2aff1e377ff06fe25fa0f3ad0486` |
-|  `1` `1.3` `1.3.6` `latest`                 | April 3rd    | `sha256:3b42a1ac677b6368c8f229af22f0b6b9de5a0cfe5943eb629b08d858f6c1b1e3` |
+|  `1.3-dev` `1-dev` `1.3.6-dev` `latest-dev` | April 21st   | `sha256:c02325c81797f8ec0211d6c2e66c68fc253930330f787caf4e03fb98a715b89f` |
+|  `1` `1.3.6` `latest` `1.3`                 | April 21st   | `sha256:2a0b648888b8e00c7523f2892ad1cba82ebdbad0ef4a4e5f0d6b9840ad90d596` |
 |  `1.3.5-dev`                                | April 1st    | `sha256:2e45abbe81354116186bab5fd35949fd98ea1033250fc58c074fa05186fa2315` |
 |  `1.3.5`                                    | March 28th   | `sha256:21c09126227ecf0fd3fa0047cf01361a8458185f170de99851efbec776598946` |
 

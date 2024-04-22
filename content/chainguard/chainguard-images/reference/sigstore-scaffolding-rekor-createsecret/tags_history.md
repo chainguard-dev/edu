@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-rekor-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:bf9cb130008931926908f4b5f403faa0ff0aaaf1d31ec65ce7869d72ee54fd84` |
-|  `latest`     | April 4th    | `sha256:d8b722e862daa350f82822585035308633befb60420800453cee51ba9a8e878f` |
+|  `latest`     | April 21st   | `sha256:2bbb85b5e564ca79ced4701d8276637d816b6175ea78744f6c2871969519aa96` |
+|  `latest-dev` | April 21st   | `sha256:91ddee5c3284c4681b31abd97e281067f8e9069f26e3464b4599ce4d7a15b467` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `latest-dev` `0.6-dev` `0-dev` | April 11th   | `sha256:fb6bceb1a8514488d4120e76efdc72c0f0ac1f023210282273790585b7020589` |
-|  `0` `0.6` `0.6.17` `latest`                 | April 3rd    | `sha256:f71e2a0dfe282050b745633cea27510818bc3f619c662679856aefa30c04c65a` |
+|  `0-dev` `0.6-dev` `latest-dev` `0.6.17-dev` | April 21st   | `sha256:2e5a062abf71fcaf19df067c520633baaa1e1102c4bdbbdfa08dd185cadc27cf` |
+|  `latest` `0.6.17` `0` `0.6`                 | April 21st   | `sha256:92a51b00eb8a4965f8bb150eb87a8127e748188939b17800a161632a2a835176` |
 

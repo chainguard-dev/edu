@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metrics-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-19 00:39:27
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:01e4a04c15ae598014fd6ca0fc65a20f54f94abb1690f96462ef3cd79aea93e6` |
-|  `latest`     | April 4th    | `sha256:411df5772c6ad4f4643faefe2e2a35b4c1ec7d9386a7ee7673f30a3247e1e175` |
+|  `latest`     | April 21st   | `sha256:4f6c1ceedafc3a1f406147cb6a863730a9088385ad6102c4e2b3aa4491ae3a5d` |
+|  `latest-dev` | April 21st   | `sha256:b047e0d633b5543acec65fbcdb500f33e069ac9079fbba53ce6e292a0afce72a` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.7.1-dev` `0.7-dev` `latest-dev` | April 11th   | `sha256:a071c3b9b1ce49afd9b37f412f54f4ad542fff0640b3d2657ad78865a5639de3` |
-|  `0.7` `0.7.1` `0` `latest`                 | April 3rd    | `sha256:b4bbd2b85b708adf38a1364103cfc9be6a833ec09233dfedeedff43a02f86210` |
+|  `0-dev` `latest-dev` `0.7.1-dev` `0.7-dev` | April 21st   | `sha256:f864604c19cf10f8ebb7401086e390d6e0edec7b2847dff5447074ebd25529c7` |
+|  `0.7.1` `0.7` `latest` `0`                 | April 21st   | `sha256:005b01180e06493ba0f9a0208d6a105b74802f1800421bf2ec57740cd3b51c4d` |
 |  `0.7.0-dev`                                | March 27th   | `sha256:f8c708c097496b2f88d35cadad970215427943ae3fbc2e41731e31ea8d447b81` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-managectroots Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:f313b21ac5f48636b7daedee78cc0849f1a0b3e049579a7fc518601010fe9bb9` |
-|  `latest`     | April 4th    | `sha256:2f0d125b0ac63a863b0ffc98af5f268e598bfc45f90299c5346d99f18c97423e` |
+|  `latest-dev` | April 21st   | `sha256:9a8c12acd3e1adc0abb8cca9fcc87853dce3cc50970dc8b6e5689d003237251f` |
+|  `latest`     | April 21st   | `sha256:086e57044998e473ea43bbb782948ca51bd68fa343810dd0d56f492e125a627e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.6.17-dev` `0.6-dev` | April 11th   | `sha256:eaeb6d0ebbf9be676ce96a1af00622387b4c2c0fcb4ba81e828d6693cccf92a8` |
-|  `0.6.17` `latest` `0.6` `0`                 | April 3rd    | `sha256:cb0a262ab7f04bc16d4d8a78b9877ac313a0d3a6975e6eae1b41987a699cfb0a` |
+|  `0.6.17-dev` `latest-dev` `0-dev` `0.6-dev` | April 21st   | `sha256:11a28279b9a14b940eea1dfa4cec62455cbd10679fc8c1a9d528bcc43fbf54f4` |
+|  `latest` `0.6.17` `0.6` `0`                 | April 21st   | `sha256:53db87afdc78d2bfe57be5ab5ff4f4221c623e376457e7708296544a83244108` |
 

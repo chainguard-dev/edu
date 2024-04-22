@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tsa-createcertchain Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:935e6fcf21ff8f1b19ec1c1e2c2090760ef4c4a3e341e70a2ada388eba483fc7` |
-|  `latest`     | April 4th    | `sha256:7e480c344206aaa351a580f5f36713a27b53c276471979d7f9748578eb21d471` |
+|  `latest`     | April 21st   | `sha256:576c899955f74c26d6e8ea308775a4960b34407167ef750c2c506b00aded00f7` |
+|  `latest-dev` | April 21st   | `sha256:ee46eb65498df7f8f2142a4ee016637ba9b75472493e74395cb7ca801184eea5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `latest-dev` `0.6-dev` `0-dev` | April 11th   | `sha256:0f66d94dadf20c54196af897a22ae91d5cefbf43d22903ab20169c8783887667` |
-|  `latest` `0` `0.6` `0.6.17`                 | April 3rd    | `sha256:4e531f831358f8ec6e33da6c9d4fe8c379008ee6db84bad534352782a153ecb2` |
+|  `0` `latest` `0.6.17` `0.6`                 | April 21st   | `sha256:0a5fb27ba04b114c495ac532bd720f6cf2587859536a5f4d3508f27993ad4342` |
+|  `0.6.17-dev` `latest-dev` `0.6-dev` `0-dev` | April 21st   | `sha256:6156cbd8bfda3bbd6482420063c7e3456ebdab0385eca2c7721070e73476080a` |
 

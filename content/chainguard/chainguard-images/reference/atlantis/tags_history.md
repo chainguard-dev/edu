@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the atlantis Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-18 00:43:55
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:431d8e2f246eadee52308678d4f5a12fe1d127f2ba180714e5e33987dcda0393` |
-|  `latest`     | April 11th   | `sha256:2ff0ac247506532007c7538d1bd2c9bf3e55ccc4f3ac03b8b5a18c24d1cc62ae` |
+|  `latest`     | April 21st   | `sha256:525cfbf061ff86e8e1ad22b0c2fa5ad4047f2cf0f41f172650e2fde6205b698d` |
+|  `latest-dev` | April 21st   | `sha256:c98a17ade211d80b1fb294649141ff7c6381540e07c120b0b62d2adf9359d2a2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.27-dev` `0.27.2-dev` | April 17th   | `sha256:b0cf17218cbf6e1ac1a112f0de9c7911a7525b140717b01484872869b9f42727` |
-|  `latest` `0.27` `0.27.2` `0`                 | April 17th   | `sha256:f1c3a7f90ed3d072ac6470e5c716c420bc5b0509389f60cb08523badc0730410` |
+|  `0.27.2-dev` `0-dev` `0.27-dev` `latest-dev` | April 21st   | `sha256:d3f44131c9f19ddc6dc9ec33e1d5efa00da9cd5f3b07e24e6016419b274b8584` |
+|  `0.27` `0.27.2` `0` `latest`                 | April 21st   | `sha256:ff6f123d61791343fe443a267e336c39fc156ae3d6da4f789c6155d00846ad7e` |
 

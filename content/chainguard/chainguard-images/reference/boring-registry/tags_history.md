@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the boring-registry Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:24301b3117bf552b4f2b278d7b228d655b89412a7418803116007dd33289733c` |
-|  `latest`     | April 4th    | `sha256:e817f12806cba5ee590b465ff42706022535f75ef4cf2ef12a5c7065dfa83601` |
+|  `latest-dev` | April 21st   | `sha256:1327e875b82f13612a25c5642000c545e58bdecd00ee6e5adf081d9f68e1f110` |
+|  `latest`     | April 20th   | `sha256:9f7ed86f11c64013f0d32c9ad741d5ef7d3915c43e1325c27c31f9218f108caa` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.13-dev` `0-dev` `0.13.2-dev` | April 11th   | `sha256:b347e8875a666f7bba810cc0155528dd9409888d396475570a8761c9c8e8b6dc` |
-|  `latest` `0.13` `0` `0.13.2`                 | April 4th    | `sha256:4f5e2ba027435995d0f431c0dd81ff4ce25cf4e8737afc72c353c6d408dfd1ca` |
+|  `latest-dev` `0-dev` `0.14.0-dev` `0.14-dev` | April 21st   | `sha256:c3dc12dcf3c277c7f4a97546eaed9122de1f4c55a4262a3bf0f16e29ce127030` |
+|  `0` `latest` `0.14.0` `0.14`                 | April 21st   | `sha256:45591b28bd585c41e168bae76e6aab630146e0c9056b6322fc7d8624917c7320` |
+|  `0.13-dev` `0.13.2-dev`                      | April 11th   | `sha256:b347e8875a666f7bba810cc0155528dd9409888d396475570a8761c9c8e8b6dc` |
+|  `0.13` `0.13.2`                              | April 4th    | `sha256:4f5e2ba027435995d0f431c0dd81ff4ce25cf4e8737afc72c353c6d408dfd1ca` |
 

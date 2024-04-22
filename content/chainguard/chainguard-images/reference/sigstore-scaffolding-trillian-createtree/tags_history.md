@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createtree Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:0de9e9c3d0e77560150e0a1f59f941a75072def063fa8667788cab81bd5cad92` |
-|  `latest`     | April 4th    | `sha256:df6169b6ad85e0d9de9327b4b5b4144aff841280aa859a7476ba3512bf221838` |
+|  `latest`     | April 21st   | `sha256:05aa232deeec1babd7b5c78c8c56461420ce1aca021c7276864a9bf668e365e2` |
+|  `latest-dev` | April 21st   | `sha256:eade850c438e361189029b3c20bd799f89834af5acc42dcc7de401a92737e44d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `latest-dev` `0-dev` `0.6-dev` | April 11th   | `sha256:11d9269d901d25bb6ada9543f35a2449a737c3b2ccea714e7532f5e65d6cfcc4` |
-|  `0` `0.6.17` `0.6` `latest`                 | April 3rd    | `sha256:705574190141bc9855751f333cf11b8b85f131379bd4e810ecfb5181c0eade0d` |
+|  `latest-dev` `0.6-dev` `0-dev` `0.6.17-dev` | April 21st   | `sha256:ec86072dfc48f0062bd2310cf2011c7d8f9d6de0da55830c5466702c35e3df40` |
+|  `0.6.17` `0` `latest` `0.6`                 | April 21st   | `sha256:a3da06074b2fff68dfef38f02d2dd55c0b7737d2f3ab1a26deb2386e0acf035e` |
 
