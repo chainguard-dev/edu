@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:90032bb2561d615608c77c9b696f1531efc660a4e2a59615f35484efe37cbb62` |
-|  `latest`     | April 4th    | `sha256:74a11cea5c67572fbc4ff9d1e47156dcbd1d5f2ab199b8818d2187c9ee98faf1` |
+|  `latest`     | April 21st   | `sha256:3b5d52aa4068f919b5a3177d0ce2622ef62457a3f091683fdf3121d97dc9010f` |
+|  `latest-dev` | April 21st   | `sha256:cf303ac08da516a1e566019a94dd295b64fb360562dcef37b78a180469d2c286` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.58-dev` `1.58.0-dev` `latest-dev` `1-dev` | April 11th   | `sha256:447a93d84c4c0e136366a63fbc7499aa51c7b8f86bf584f1ccd022653f7e2f68` |
-|  `latest` `1.58.0` `1.58` `1`                 | April 3rd    | `sha256:60f611a930674c3fff75212a540a211b6120154d7d54695f3621dbefc9e3e322` |
+|  `latest` `1.59` `1` `1.59.0`                 | April 21st   | `sha256:49b06acf943625d7a8be2fc9266eca00df7d0537a2d016d35615da6dbfc4ada9` |
+|  `1-dev` `latest-dev` `1.59-dev` `1.59.0-dev` | April 21st   | `sha256:7bf277accede149e66a5331d674b653856522018776eb0d669d933d5cf31a5ce` |
+|  `1.58.0-dev` `1.58-dev`                      | April 20th   | `sha256:889c7e25361c8659bb6b2beffe4a210c4dd7553a94d2ccfc5f1be68b6aa3930a` |
+|  `1.58.0` `1.58`                              | April 3rd    | `sha256:60f611a930674c3fff75212a540a211b6120154d7d54695f3621dbefc9e3e322` |
 

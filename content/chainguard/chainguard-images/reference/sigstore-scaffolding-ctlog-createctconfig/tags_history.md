@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-createctconfig Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:de08e7f3cbbafe23649095b4f95a912f1ef8d25aaacb83dab032dbf60520f962` |
-|  `latest`     | April 4th    | `sha256:2fe4aae8f936e1d5e7fd012f0cb09cdee4aff64afee9c9c51e64cba39e720a93` |
+|  `latest`     | April 21st   | `sha256:7442909dfe15910ec7592aab86a50c338b3b2e8b55e7b42e0620f69da0a602c4` |
+|  `latest-dev` | April 21st   | `sha256:140f3dbc13c49cc46d1b470ff54aa1a3fb92ce0715cfd179d1b8fc2ebf349819` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.6.17-dev` `0.6-dev` `latest-dev` | April 11th   | `sha256:64083627135ee00d2a295c56adeb7fc6f394f1120a34689f0e8b680c2c1d4863` |
-|  `latest` `0.6` `0.6.17` `0`                 | April 3rd    | `sha256:b499d61be28687fc952548da575b1bad17aeb23ed9216e77c4be4f4c2e899d38` |
+|  `0.6` `0` `latest` `0.6.17`                 | April 21st   | `sha256:3eb3a874487022ceb29220dc344cf0f1229f99757b891cec236512af595e6522` |
+|  `0.6.17-dev` `latest-dev` `0.6-dev` `0-dev` | April 21st   | `sha256:efc00f5e69fdb4358b025b237f828f8636ea032a589f2270954c37227d585dc4` |
 

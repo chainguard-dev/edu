@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-updatetree Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:0c64dfcd9e55fd79f29babcfb7eb756e51d86f276ac9757735902111d0a0dad1` |
-|  `latest`     | April 4th    | `sha256:c259e8f5dd9b9240c0b3e0ace430dc8d2d8a54b9a756499b88773b93939ddd7c` |
+|  `latest-dev` | April 21st   | `sha256:ae75517db39809e239a71a7c383dc2b2eec7cccfdce1b888f121bc377db69b28` |
+|  `latest`     | April 21st   | `sha256:5bbcb29f2f1b7047e7b10afb4eabda22a472f4d7c3ab7bfb78909f5b14568860` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6-dev` `0.6.17-dev` `0-dev` `latest-dev` | April 11th   | `sha256:809a97972afb984d56883da5688108f51d2f2f69a150b20e842f478b1d15b005` |
-|  `0.6` `0.6.17` `0` `latest`                 | April 3rd    | `sha256:f952f22e4816d81a9f4060eeb8e5ca1c13942fe86f0bcc8beaf1d01a7f71b6f5` |
+|  `0.6-dev` `0-dev` `latest-dev` `0.6.17-dev` | April 21st   | `sha256:6fc2a1134af622a8ee744d6d8372690656b58a7f1f233f45c080abeadedb150f` |
+|  `0.6.17` `0.6` `latest` `0`                 | April 21st   | `sha256:b3407130303de175e0b4cb0bac524330c4d6a12a2ba98d3c2421b44cba6f10e7` |
 

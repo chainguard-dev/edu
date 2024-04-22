@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 13th   | `sha256:b3efa8e22530be0c7443d329e7ea8a013ef96246dd558c27c588355363d86b57` |
-|  `latest-dev` | April 13th   | `sha256:d0f160422284c26731001b5634f232a229ff20f90d0558a46e12afaefc108052` |
+|  `latest-dev` | April 21st   | `sha256:65dc9169eda13551531f1979d06654e55f6e73bd086511e5c798d830fedf3cba` |
+|  `latest`     | April 21st   | `sha256:fcf21ad78ee3ac60b8a5b862549c5666f31e446ed361ed02219223a5c8c73d08` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.0` `7.0.2` `latest` `7`                 | April 13th   | `sha256:af6c6767f7f74852ac5235466151a3eaf4975cc958ee87e126c29dcc83ab563c` |
-|  `7-dev` `latest-dev` `7.0.2-dev` `7.0-dev` | April 13th   | `sha256:458e0c967c6a3a12879d26db8841051e478cddcc9102d9c6bdb47ea273079a5b` |
+|  `7.0.2-dev` `7.0-dev` `7-dev` `latest-dev` | April 21st   | `sha256:25ff9931b67f55290dfe65defa3f96368de9142d2bc2499fb71c139537e3e182` |
+|  `7.0` `latest` `7` `7.0.2`                 | April 21st   | `sha256:0f48da2ef2cae70f9cbfe8bb3ef86c6726f120f1ecdd0bb6df6515c9807eef5d` |
 |  `7.0.1-dev`                                | April 11th   | `sha256:c676b8fcf867eea8e75b14231e18e272d3d91969675864605d8a0882ab0b6eab` |
 |  `7.0.1`                                    | April 3rd    | `sha256:cf894eee55fb7bf394e74919765d8a06f750b1e56df6f89d924b86399fdd7d6f` |
 

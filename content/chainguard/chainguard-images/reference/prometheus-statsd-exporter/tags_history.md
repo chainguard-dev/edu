@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-statsd-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-19 00:39:27
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:f90942a8d00e50e57fdaec108b97f35f142654763e96371894719fbd18ffa35a` |
+|  `latest-dev` | April 21st   | `sha256:9ef5e29dd04a3542a969eb746900b4ac4d31dfb9fd0e07528dca19067a300113` |
 |  `latest`     | April 4th    | `sha256:ba8f8dd239b3536385becba7f63804a5a7f11512c3b37a69603d4deefdb14c0b` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.26.1-dev` `0.26-dev` | April 11th   | `sha256:c395f8ddcba4c6548cf9f5947f3d8a8de30c3d7cf3f53b44c77b00fb612dde0e` |
-|  `0.22.8-dev` `0.22-dev`                      | April 11th   | `sha256:882ad82eca360a91e123860814f2415dd42e4d1d350ee0302746be4e10451483` |
-|  `0.22.8` `0.22`                              | April 4th    | `sha256:d0b95920098a21dc41c78c24fd0e41802aee1608ede7e00013c15a38f0d48d15` |
-|  `0.26` `0` `0.26.1` `latest`                 | April 3rd    | `sha256:96daaf5b927a1b3d993741680e9da10cec0bb66d5ed1c6ad570842eb37de0dea` |
+|  `0.26.1-dev` `latest-dev` `0-dev` `0.26-dev` | April 21st   | `sha256:bfbdd946801ed8512ad4d073d3968984450eb2c95c32d687816f7db66edc6d7c` |
+|  `latest` `0.26.1` `0` `0.26`                 | April 21st   | `sha256:5ded0469694c500144c819f2e12c4080d06fed61dcbbc44b388e25690d0eebe6` |
+|  `0.22.8-dev` `0.22-dev`                      | April 21st   | `sha256:e75d06c048266ca5fee8f23bf92d7aaed75b1ffbe101d3fb019fd28755c408cb` |
+|  `0.22` `0.22.8`                              | April 21st   | `sha256:75a01e0cac7be26a281e9d4e4a495595a4ed17c953245a3fb95550900bf2e622` |
 

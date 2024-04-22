@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:937e7d4ed8bfba2e6ac42ab44b6dd1d482e108ba4558cdb051ff2162cb03bf2f` |
-|  `latest`     | April 4th    | `sha256:48ec4a0c64fbfdc7f43f7bd2a6998c4df82fd63fddc4367a61bcbf6b2b7f33d1` |
+|  `latest`     | April 21st   | `sha256:fe01d016430f9068754ea25c8eb12541ab945f9a11428d804bb25c012530d119` |
+|  `latest-dev` | April 21st   | `sha256:348f06f312d6ac4e65f5a123ef3e11c136df6c88b9cf437e05ccd1bc72e841ad` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.5.0-dev` `1-dev` `latest-dev` `1.5-dev` | April 11th   | `sha256:47bfac35e1e98eb08722b1ac939920e819c0bfc86dd19d8d62d37c408a5e772a` |
-|  `1` `latest` `1.5.0` `1.5`                 | April 3rd    | `sha256:3c31a46a0c85f204ef5437b48c93d33b6b54a72016a8dce608c706bf8494bd99` |
+|  `1.5-dev` `1-dev` `latest-dev` `1.5.0-dev` | April 21st   | `sha256:422c76e72e75eeb9deefc052fbe0a4dfc4b1526059f9d7ebef307eeadb6dabf5` |
+|  `latest` `1.5` `1.5.0` `1`                 | April 21st   | `sha256:d2d24d53abb1acf1864400390651aa023d3e6f377516ee20a98e734e3b4804ed` |
 

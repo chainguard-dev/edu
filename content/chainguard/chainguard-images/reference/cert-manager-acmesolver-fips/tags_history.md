@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-acmesolver-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.13-dev` `1.13.5-dev`                      | April 11th   | `sha256:98303e1030d82b1e524396177719c4e7849689561a290c25c1378d74b7a85061` |
-|  `latest-dev` `1.14.4-dev` `1-dev` `1.14-dev` | April 11th   | `sha256:595e9b908bb6281e398b02d4979f18782de26760c51f8cf7edf3039bc38825dd` |
-|  `1.14.4` `1.14` `1` `latest`                 | April 11th   | `sha256:8f1f858dc72a04b7a1251e7756c002585aef56507c1246be51829e333087d47b` |
-|  `1.13.5` `1.13`                              | April 11th   | `sha256:c62d81a9f68595cda0be86655558497483e94095b1b938c58b2ea6f833b217ec` |
+|  `latest` `1.14` `1` `1.14.4`                 | April 21st   | `sha256:189d3eb308c81c86f9c20e34553088e4fd32055c5ef662a02d99f9a66457bee9` |
+|  `1-dev` `1.14.4-dev` `latest-dev` `1.14-dev` | April 21st   | `sha256:c25ed16d3f478468b991b4be5de3ba912c51576e4f0cc205c9144daec75e560f` |
+|  `1.13.5-dev` `1.13-dev`                      | April 21st   | `sha256:3b57f44def5cae2e6e821277abe13ba97d7af2e988199654c06231c8dbb7b47d` |
+|  `1.13` `1.13.5`                              | April 21st   | `sha256:63f1dc3cedb90fa56e59d6f5902dd2c35e22ec9d9fbc67bf225771cf5991829c` |
 

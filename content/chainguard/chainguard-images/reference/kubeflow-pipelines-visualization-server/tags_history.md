@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-visualization-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:444487c8c9cc878c9678e7e612d6fb9d6ae57af2d8baa44a671009c722dcb112` |
+|  `latest-dev` | April 21st   | `sha256:6c7fd0af23c01c0247e4f81d3a3760eee1c6f5da103e3ff00a4b232017842ca0` |
 |  `latest`     | April 11th   | `sha256:cbecd1df26eab24a85bf22712b34343811c85daf18952da707ebe9890f4e663e` |
 
 
@@ -37,8 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2-dev` `2.1.0-dev` `latest-dev` `2.1-dev` | April 20th   | `sha256:b4fe87f68a1bb858faaacc80077604c3f1dbee6dfc1c596061d92fca541e79aa` |
 |  `2.1.0` `2` `2.1` `latest`                 | April 11th   | `sha256:1d6ae11b80c748165e1871c018827d8f385172078a771427352d2af2a72a0447` |
-|  `2-dev` `2.1.0-dev` `2.1-dev` `latest-dev` | April 11th   | `sha256:b310f84258e1790c06aa4f6ba9542a9625f2554e19cc6f296758d6078b36a7f0` |
-|  `2.0-dev` `2.0.5-dev`                      | March 20th   | `sha256:7a1b165118a017b860b9696760af132c8878d0029bbde88bacb1a2a8381a0763` |
-|  `2.0.5` `2.0`                              | March 20th   | `sha256:620342adc1515247958bebc4d301766f291517c2243f7197383d08a427e9967f` |
 

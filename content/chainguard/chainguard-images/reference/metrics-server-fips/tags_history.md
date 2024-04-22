@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metrics-server-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-19 00:39:27
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.7.1-dev` `0.7-dev` `0-dev` | April 11th   | `sha256:1a7c837e1e35c18ebcc0a7ee210fc42a310a7549c0545425c49178ca969b1ca4` |
-|  `0` `0.7.1` `0.7` `latest`                 | April 11th   | `sha256:7c6a151df1aafd3cc9bb04ecfe388e82993a2167a1a7aba184dbaebd6b02e342` |
-|  `0.7.0-dev`                                | March 20th   | `sha256:5186c191a22fd77e641c1a07b64c50dd12773bc2449fd46d997c6f6658c9bc6c` |
-|  `0.7.0`                                    | March 20th   | `sha256:687d9c908c9b7cfa9adf4ab2f3479bb5aa3d7b517bc650922cba09e277e3edea` |
+|  `latest-dev` `0.7-dev` `0.7.1-dev` `0-dev` | April 21st   | `sha256:51c664f5981596c6eafff5eb3716300c8f2376d2be96b3c36e35ef3a193deec7` |
+|  `0` `0.7.1` `0.7` `latest`                 | April 21st   | `sha256:1cabd5268b83bf80d9c1299f0a0d2d8f037c3a17d2d637e43d3ce87b4a3c011c` |
 

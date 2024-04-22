@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-17 00:46:08
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 16th   | `sha256:7fd328a9fe4ab8924aabc34bc2432b6acd7f2c998c62cebfa2811a819f2caea1` |
-|  `latest`     | April 16th   | `sha256:84cefde6d7406f7e0ec3308a2b45cf235f9ac50b1945caa54e66991f7080c31b` |
+|  `latest`     | April 21st   | `sha256:8cadbc4505c63ae6120ef9f548b159fe25afb2b1a28134c66366e55ba45cb0e9` |
+|  `latest-dev` | April 21st   | `sha256:895130884d3ec9c12b10a6c230111e259af51c3c540e94885165a2f7cd9b0135` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.10-dev` `1.10.0-dev` `1-dev` | April 16th   | `sha256:68a4214b55f0aec88db88f57d7a936688e75f6c84303525903f1d848a2e6afdf` |
-|  `latest` `1.10` `1` `1.10.0`                 | April 16th   | `sha256:5c67cfcbf8a7e3d3a000bb5fe8401202e51ba7c760ccab582f912936f016361b` |
+|  `1.10` `1.10.0` `latest` `1`                 | April 20th   | `sha256:2a323e07711fb6b5f9f201d89610035cebaf5be7ef2466d92efc8a8031dcfb71` |
+|  `1.10.0-dev` `1-dev` `latest-dev` `1.10-dev` | April 20th   | `sha256:27f7a69e168ba4b48506041601641dafb87118758ef4b408eb01c0e6867d5553` |
 

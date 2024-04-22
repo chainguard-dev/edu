@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-policy-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-16 00:44:43
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 15th   | `sha256:762e1f45480dc340adc2c23b21ca06011434fd5c0fa8a36e9aa66896e503ddea` |
+|  `latest-dev` | April 21st   | `sha256:69f87677863acee501c92acfcfaa93af9caf818c531a0ec425b18eea5033f50a` |
 |  `latest`     | April 15th   | `sha256:bb45fa5a1be36ca3c9b02991001b3cba426495eaf8f7186ea360b5cd7e2ecb52` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.9.0-dev` `0.9-dev` `0-dev` | April 15th   | `sha256:5e2dbebb717653bf52ecfdaeb89957500bdaa9e4b5c10203486e81ee9153268f` |
-|  `0.9` `0.9.0` `0` `latest`                 | April 15th   | `sha256:83cbb98b1d0cd2d48f7d1e8fef5561d2a3f9e7646a29e53ad72caa868ce7b01c` |
+|  `0.9-dev` `latest-dev` `0.9.0-dev` `0-dev` | April 21st   | `sha256:eb99392fcd5f6171a2f4abe8b0dec788044d3e89f7986c05338e5bb8b7a1bf79` |
+|  `0.9.0` `latest` `0` `0.9`                 | April 21st   | `sha256:de5dd7ce257f78d8a3e8580aa8130cda062e86ffeaf2802655cca8fe06f6b198` |
 |  `0.8.4-dev` `0.8-dev`                      | April 11th   | `sha256:a2dd36e249326d43cec3f44ddca2a657ab03e74a33ec770ddd9074321e6cd2f7` |
 |  `0.8` `0.8.4`                              | April 3rd    | `sha256:42315a9fbf22d410c05418f6f7203452f0a5755ace2e79fff6f119624bf4e829` |
 

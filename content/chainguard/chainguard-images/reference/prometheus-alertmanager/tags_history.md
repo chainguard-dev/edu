@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-19 00:39:27
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 18th   | `sha256:7031e9f2dbf289ae6bdbfb7c8ced2f24f278d69b8675fdd23f22380b4008a54b` |
-|  `latest-dev` | April 18th   | `sha256:6a71aea5d5a994f815c838e6904e2df92872ef9d0bf3389613616f3d13a37b46` |
+|  `latest`     | April 21st   | `sha256:6cb238ca3e3f2c40064949625c04a44a6e385dee4f4da4a64ffdae89349c32cd` |
+|  `latest-dev` | April 21st   | `sha256:619403d498dc4af8c0567e8e9ba8c0c7c1ef5280dd08ebe805c040cc2864ff03` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.27-dev` `0-dev` `0.27.0-dev` `latest-dev` | April 19th   | `sha256:7478027cbeb45dce616ee49608c47eaaed3864901e35953c1e85af0d6215b2d0` |
-|  `0` `latest` `0.27.0` `0.27`                 | April 19th   | `sha256:5bae30039b5b994fd222002c8fc6dff4ed19591ae113faf0da21603e410fa97d` |
+|  `0.27` `latest` `0` `0.27.0`                 | April 22nd   | `sha256:50a7e30c2207d5a9eea1adb116581bcc034038b8ab562b41bc15b8ed234ae875` |
+|  `0.27-dev` `0-dev` `latest-dev` `0.27.0-dev` | April 22nd   | `sha256:4d725a6a9c75c02d048fbe4b6a4ce4db56a8787913770ae8d0325841c14c4d69` |
 

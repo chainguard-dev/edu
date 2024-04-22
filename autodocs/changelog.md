@@ -1,3 +1,13 @@
+# 2024-04-22
+New images added:
+
+- gha-runner-scale-set-controller
+- gha-runner-scale-set-controller-fips
+- kube-rbac-proxy
+- valkey
+
+A total of **730** documents were updated.
+
 # 2024-04-19
 New images added:
 

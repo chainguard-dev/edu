@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the squid-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 21st   | `sha256:cbba30ca66a0818d46f78e675c0ae9c4c679f1fb7d91103e3cebb90b9db138ad` |
 |  `latest`     | April 11th   | `sha256:1128e6d2acd4eefed333eb39769e8df0ba0a82aed55a63e53977092294ecd13e` |
-|  `latest-dev` | April 11th   | `sha256:8c0be7fdf52ee61923878e58065134acf2310f069853248159e84275379fbbb9` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.9-dev` `6-dev` `latest-dev` | April 11th   | `sha256:ef267acbca808d6c5dd7866e0a19a2a5313f8388cc7604c3c52b8484d1e33008` |
-|  `6.9` `6` `latest`             | April 11th   | `sha256:a0d3a9c8cbe0ec213c28f67be3b232a4c40410bb70dd4470f9b67ab8bf483661` |
+|  `6-dev` `latest-dev` `6.9-dev` | April 21st   | `sha256:1c61f2a5dd2978523dce7774c35f1fe0f987af00c290dc8a550b858d502bf85d` |
+|  `6` `latest` `6.9`             | April 21st   | `sha256:c28e83abc24ed4c72f9f6066bfb0c330b29b082caaf257e810aab7f4196d6127` |
 |  `6.8-dev`                      | April 5th    | `sha256:69c4e725027a8fbcc3f12879e26dd8cd34676ff14b656101fcaa7861c540e19e` |
 |  `6.8`                          | April 5th    | `sha256:c66fa2e6898c104d55e9df1b249a5adc20917ba7298b54816e4e7e662445e8f6` |
 

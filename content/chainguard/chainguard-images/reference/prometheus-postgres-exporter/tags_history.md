@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:0704bd89c14ec96f81f668ec8602427053a48a76b2ec2f2ddf157d2960c4803f` |
-|  `latest`     | April 4th    | `sha256:abb7a6b53e3badafda832c347f176e4ffa41370d27001cb8cc60fec68c3d46fb` |
+|  `latest`     | April 21st   | `sha256:80467fa11e8b28fa7835daa7b69ec0008b7466ecab52cc50fe37d4a1f9a38b1b` |
+|  `latest-dev` | April 21st   | `sha256:ae55e52267199a0391f6da9b56709b6e83afbec11015a5c8801812fe4fd81abc` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15.0-dev` `0-dev` `latest-dev` `0.15-dev` | April 11th   | `sha256:716384980acb5b3b91d84fa0ba904b448f65e8fda5ff277eb3e88ccc97d8ce79` |
-|  `0.15.0` `latest` `0.15` `0`                 | April 3rd    | `sha256:f1acfc793745896a2435ac7bf50702169c62e81d2055bd95828005e61613ebda` |
+|  `0.15.0-dev` `latest-dev` `0.15-dev` `0-dev` | April 21st   | `sha256:41f3ac46197951d3fca561b28b4e917b251abfd4939425e4c2cb3af1d8f0210f` |
+|  `0.15` `0.15.0` `latest` `0`                 | April 21st   | `sha256:9307cac19f5cd2cb103a1207547d24c340a3b4b10d990979d109b38ea69db9fa` |
 

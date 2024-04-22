@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-19 00:39:27
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:eedcb3c9d3a41f4115c491cc805db2a1a38be607e5cd5a9e4021e7a0f7dad500` |
+|  `latest-dev` | April 21st   | `sha256:39547334e12477325c77da3d5861b0eb5bead7c44a9db30b15d68189657f94d8` |
 |  `latest`     | April 11th   | `sha256:947fe21f6b43c0a6cf801fbb827bd9df4ddbee756796dd37cd5192bfd8bb0106` |
 
 
@@ -37,12 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `20-dev` `20.12-dev` `20.12.2-dev`            | April 11th   | `sha256:2cf5fefc40e4c0167aa7f3a35dbb5dd3d52b923c55fcf93f0d8529b03c13a15a` |
-|  `21-dev` `21.7.3-dev` `latest-dev` `21.7-dev` | April 11th   | `sha256:6688e001ec7677fd108b78afba8f4b3042bbf89b57d6e5c5d6c62410803828ba` |
-|  `18-dev` `18.20.2-dev` `18.20-dev`            | April 11th   | `sha256:b0ac555c388b356140f36b90abd2a9543c3bc633b25359a950641d4743037784` |
-|  `18` `18.20` `18.20.2`                        | April 11th   | `sha256:062fe274614d8072af1678e2bbf9f0b1c0c47b73b554af37c5817821b701b76e` |
-|  `20.12.2` `20.12` `20`                        | April 11th   | `sha256:c7b691a81b7263689f31e6147d2f9df8b8939432c196007d169608c1cf1cf196` |
-|  `latest` `21.7` `21.7.3` `21`                 | April 11th   | `sha256:3d5a6a8c05d2fce544d6f81bcc4176345812ef5a359959f5ff70c2471c83690a` |
+|  `21.7.3-dev` `21.7-dev` `21-dev` `latest-dev` | April 21st   | `sha256:a4dc0c613c7e4baac74b56c04101bc0dfbc2c1d2144ecddb7edf6e6fc4544eab` |
+|  `20` `20.12` `20.12.2`                        | April 21st   | `sha256:00a2441c1fc4c5e318cb3f5dbb486a0c4086d475f3856731137cfd6636a6824b` |
+|  `latest` `21` `21.7` `21.7.3`                 | April 21st   | `sha256:16339b86c250e617adbfa2c97428b5f6a57a59fe812e9b227bf1c9f28bc602c6` |
+|  `20.12.2-dev` `20-dev` `20.12-dev`            | April 21st   | `sha256:ce73bc0f36df7cdff8af9f3e0ca719ce7361b3e88a25a767b13420c824c7d05d` |
+|  `18-dev` `18.20-dev` `18.20.2-dev`            | April 21st   | `sha256:abcdc87d4a29e842f4ec9dc69c9e25490428df0472c804a0a780badbdae9e704` |
+|  `18.20` `18` `18.20.2`                        | April 21st   | `sha256:217bb634a72b2c98c2ebfc97519f3eae1676fb1509e366a3cb5832947a589881` |
 |  `18.20.1-dev`                                 | April 9th    | `sha256:d754b4ac7941229753008026b8e4ae14bac29e0a7d3f2388b2ee23945fb7e24c` |
 |  `20.12.1`                                     | April 9th    | `sha256:13a239cc5bb1fba4cc90e7f3796ace78930915c61f8f3b5a9c9c25df8d4d12a2` |
 |  `20.12.1-dev`                                 | April 9th    | `sha256:2de522e612d199b6df72b706d371f0e3a206d5bbd5f8f721c006fa4af5c67c1f` |
@@ -57,5 +57,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `18.20.0-dev`                                 | April 3rd    | `sha256:1d690ca26b47f51ffc42346a74229e59d6b862eca58e2e4bf4de75b78a1cd6c1` |
 |  `16.19.1-dev` `16.19-dev`                     | April 13th   | `sha256:bba7820a61df3f1a8560ed8e58cc472b63bde7211a28c53408ddc037de324b39` |
 |  `16.19.1` `16.19`                             | April 13th   | `sha256:3cb3f6b898f8cd15aea39688a54a20035e0f62fed358799fcd162283f535bb54` |
-|  `16-dev-dev`                                  | March 19th   | `sha256:a9a5c098defe64c18db8c783553535a791d65301023ba2210cd74da5ee37a985` |
 

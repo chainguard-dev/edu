@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for prometheus-redis-exporter Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for prometheus-redis-exporter Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                       |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                         |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.50, 1.50.0, 1.51, 1.51-dev, 1.51.0, 1.51.0-dev, 1.52, 1.52-dev, 1.52.0, 1.52.0-dev, 1.53, 1.53-dev, 1.53.0, 1.53.0-dev, 1.54, 1.54-dev, 1.54.0, 1.54.0-dev, 1.55, 1.55-dev, 1.55.0, 1.55.0-dev, 1.56, 1.56-dev, 1.56.0, 1.56.0-dev, 1.57, 1.57-dev, 1.57.0, 1.57.0-dev, 1.58, 1.58-dev, 1.58.0, 1.58.0-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                           |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                                                             |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.50, 1.50.0, 1.51, 1.51-dev, 1.51.0, 1.51.0-dev, 1.52, 1.52-dev, 1.52.0, 1.52.0-dev, 1.53, 1.53-dev, 1.53.0, 1.53.0-dev, 1.54, 1.54-dev, 1.54.0, 1.54.0-dev, 1.55, 1.55-dev, 1.55.0, 1.55.0-dev, 1.56, 1.56-dev, 1.56.0, 1.56.0-dev, 1.57, 1.57-dev, 1.57.0, 1.57.0-dev, 1.58, 1.58-dev, 1.58.0, 1.58.0-dev, 1.59, 1.59-dev, 1.59.0, 1.59.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

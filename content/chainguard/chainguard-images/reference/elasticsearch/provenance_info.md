@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for elasticsearch Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for elasticsearch Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                   |
-|------------------------------|------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                           |
-| `cgr.dev/chainguard-private` | 7, 7.17, 7.17.14, 7.17.15, 7.17.16, 7.17.17, 7.17.18, 7.17.19, 7.17.20 |
+| Registry                     | Tags                                                                                            |
+|------------------------------|-------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                    |
+| `cgr.dev/chainguard-private` | 7, 7.17, 7.17.14, 7.17.15, 7.17.16, 7.17.17, 7.17.18, 7.17.19, 7.17.20, 8, 8.13, 8.13.2, latest |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
