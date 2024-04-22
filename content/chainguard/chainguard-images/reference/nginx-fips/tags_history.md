@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nginx-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-17 00:46:08
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.25.5-dev` `1.25-dev` `latest-dev` | April 16th   | `sha256:e59e87a4d98d48aca45ca08d1c9edbbe926efee8af99a14854718c6ce05ecb71` |
-|  `1.25.5` `1.25` `latest` `1`                 | April 16th   | `sha256:20eebc1fe3737915bf92cdfed3546687900037d2e13c3f3cfa6644950b8a3b98` |
+|  `1.24-dev` `1.24.0-dev`                      | April 21st   | `sha256:efdf4f792dcd880ebc8853076994765197f22cf65227c5b1fcfc005c1ff87d00` |
+|  `1.25-dev` `1-dev` `latest-dev` `1.25.5-dev` | April 21st   | `sha256:0c243960560413c3dfc0d60cffff9eb22da5db25f4d3e8cbc8e5883fcc5ac50a` |
+|  `1` `1.25` `latest` `1.25.5`                 | April 21st   | `sha256:3c8cdd95a3eed3a583333ec9bfe7cc6f1c36941d54bb3e0daa502e086fd76d8e` |
+|  `1.24.0` `1.24`                              | April 21st   | `sha256:6b0039d98b602a3d9034ecbbc4acff9a58d7e93438172bb7d68170e54464dbd2` |
 |  `1.25.4`                                     | April 16th   | `sha256:256b352ef01dae87ce7f2561f87e5609551e53feaa2c516de70260c899934754` |
-|  `1.24` `1.24.0`                              | April 16th   | `sha256:f354701a8f4930b389f414c6b2a10c0d80dae412415621df657e1f45436e89d0` |
-|  `1.24-dev` `1.24.0-dev`                      | April 16th   | `sha256:dc81b6c89046dee33e91c64e5e51af5e7c3fdcd14323e52ff6b9f130cdf97f8a` |
 |  `1.25.4-dev`                                 | April 16th   | `sha256:1a31eb5fa24c16f3af01af7f7b244110c2931414f4e96cf8ba25db3cf811d2f3` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:1bd1ac0602736fb8812da38e726dd84fa07a07bf19bf0f5662512f6b27cf74fc` |
-|  `latest`     | April 4th    | `sha256:8fb377b652c15c8d48694662becdd7f259b8453eb0b790cda8a25da5b5ef80d5` |
+|  `latest`     | April 21st   | `sha256:b69a7596ed07e75e07777168a424288eff72218ae9f0fd24418fa0f4e23281e4` |
+|  `latest-dev` | April 21st   | `sha256:0c563ef314a8df560dc3f4a8efa2922aebb899a28b88afdeb633a9fb498ecf00` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.21-dev` `2-dev` `2.21.0-dev` | April 11th   | `sha256:e563a23c92fba0ea0f25b3584ec5150a4ae0d8232705b2d356a9582d2884bf42` |
-|  `2.21` `2` `latest` `2.21.0`                 | April 3rd    | `sha256:02cb44ce95df36a5d7e11e6e71da22a2aa8fa59bfb2ee0614212803a17a4fb33` |
+|  `2.21.0-dev` `2.21-dev` `latest-dev` `2-dev` | April 21st   | `sha256:b64fb63820c562ab9b141ec23cde5faa423070c2b7d961a24a1a5f06fae46ee4` |
+|  `2.21` `2.21.0` `2` `latest`                 | April 21st   | `sha256:2e9857235ee837f80ecf242dc5639e3f8b0b49d67ac0deb8c4590eac9cf8bce3` |
 

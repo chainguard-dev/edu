@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-workingdirinit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-19 00:39:27
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:5261b5b23e9c6b1c0a04ba3f98f345442cd9ace04227e7a65c884c789fc08e28` |
-|  `latest`     | April 4th    | `sha256:c8b9b35b56365ffe79d101618fd0dc108d11d9da381d3eb346370550231893cc` |
+|  `latest`     | April 21st   | `sha256:a1cfe219f3fadb588d3575b13b246364d2e638a415e7e49608668d9a5de5bcb0` |
+|  `latest-dev` | April 21st   | `sha256:53d5bedd88690e3dbd5f9094665f29fed1b779d5e9895a6eb213a63bd2989019` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.58-dev` `0-dev` `0.58.0-dev` `latest-dev` | April 11th   | `sha256:3ff7d66ca9932fd775ab8709ef15f61a0c8774fd858c05b0702ceda30084f25d` |
-|  `0.58.0` `0` `latest` `0.58`                 | April 3rd    | `sha256:0efe06b8d5f6160aee38a429e2598e49032d8320b5b1842b45b989c76a35b277` |
+|  `0-dev` `0.58.0-dev` `latest-dev` `0.58-dev` | April 21st   | `sha256:e94e62e1a17358f3fb7a327e1dff4dfe8819fb88a0301961edc644a77ed8349b` |
+|  `latest` `0.58.0` `0.58` `0`                 | April 21st   | `sha256:61da51ca023f915a8237f63ce3dc9110e4c2b45a1f024bcc703dd1ef7f989652` |
 

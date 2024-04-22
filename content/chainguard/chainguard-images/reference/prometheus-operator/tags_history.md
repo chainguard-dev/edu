@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:465133f4f6b4d8462494f8961899b3b61a405eb6728494500b13bcc985acf8e3` |
-|  `latest`     | April 11th   | `sha256:04f526ad3fa439167c31f1c3c53931598b0fff7ea53dcd0922cd1c20d36464a1` |
+|  `latest-dev` | April 21st   | `sha256:78ccce8b49040e16175e7ff8d57ce8324df926b4d745f0fde4c9e31ee45c3cab` |
+|  `latest`     | April 19th   | `sha256:70b2145698885768b4e7bd82c11da9b52574cb94276f37908c2a255e59a2cb27` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.73.1-dev` `0.73-dev` | April 11th   | `sha256:85d55617f6bf5e6b8e5f26bd91449a5c866a2ee04976631d7b37b59a3a8ad6e7` |
-|  `0.73.1` `latest` `0` `0.73`                 | April 11th   | `sha256:56ab4edaae8f90eade5728ffd8296c69918aaae2c792708c65d08f462c9e83aa` |
+|  `0.73` `0` `latest` `0.73.2`                 | April 21st   | `sha256:44105d84b87af2bff3419ee6eebddeb970560d951967e19ec918d7a0675714d2` |
+|  `0-dev` `latest-dev` `0.73.2-dev` `0.73-dev` | April 21st   | `sha256:d17d1d3e8e856aadc7a1016bf506f2acc9ac851e71a8e32806146672d7e13656` |
+|  `0.73.1`                                     | April 11th   | `sha256:56ab4edaae8f90eade5728ffd8296c69918aaae2c792708c65d08f462c9e83aa` |
+|  `0.73.1-dev`                                 | April 11th   | `sha256:85d55617f6bf5e6b8e5f26bd91449a5c866a2ee04976631d7b37b59a3a8ad6e7` |
 |  `0.73.0-dev`                                 | April 11th   | `sha256:05ea426ac99dee74344f0ba8bfd7620899a8e45f35e3d4930a459ae9a799e90f` |
 |  `0.73.0`                                     | April 4th    | `sha256:b00ac74b1e7e8365ed0f08397e93e7f6d134c0945d0936447b731eb55abd37f6` |
 |  `0.72` `0.72.0`                              | April 3rd    | `sha256:676fe325b8750a8c3df73b8c28a0b2282ec74c621d4799ccd6b1030528348d5c` |

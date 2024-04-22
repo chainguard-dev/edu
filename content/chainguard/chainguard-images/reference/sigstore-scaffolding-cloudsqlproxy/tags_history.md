@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-18 00:43:55
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 17th   | `sha256:7325f3e0e10878085eb3ae9a33842efaeeb0effa018551446767f1640d9ec8ad` |
-|  `latest-dev` | April 17th   | `sha256:89ef4c1c6166a47c50cb159643d18e8556a449689a3bae03aac9fb8eb2187ff4` |
+|  `latest-dev` | April 21st   | `sha256:4d8afa8d951cfb296ee64385d1ce5f612127ca482510379494fb4b4abc1f17aa` |
+|  `latest`     | April 21st   | `sha256:5c0f225c35a0ed2ba6a1556a7aac887c58608b3eaa1fb2bbbacd3782d63b7c33` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.6.17-dev` `0.6-dev` `0-dev` | April 17th   | `sha256:01e1f172b2db728da2ec3f8bfd039c83b0971203d28e6f818a00f04b8c0301b9` |
-|  `0.6.17` `0` `0.6` `latest`                 | April 17th   | `sha256:9c12340038999c3556f1b7498dcc4eb16e69c56fc7aa7f7521a9ffdbb875f61b` |
+|  `latest-dev` `0-dev` `0.6-dev` `0.6.17-dev` | April 21st   | `sha256:85a76a1307b5e77be52e2893e1e819e09ef9ea8ec792156176dc0d42525f5c92` |
+|  `0.6` `latest` `0` `0.6.17`                 | April 21st   | `sha256:858881fb3791d9a80cf2a853ce8ea90e84c570d91a0f32a52b81dbd50059b129` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshotter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 13th   | `sha256:e818e12db73747dbf4c76c7d4757b463fe1291ff4ba1e598fa23d7b5c2bfc4f4` |
+|  `latest` | April 21st   | `sha256:dec6f48e024501e2a2ccb2e0044c7238bd2c7b43b4c6213e6727646b8b6df08b` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.0-dev` `7-dev` `7.0.2-dev` `latest-dev` | April 13th   | `sha256:d72db33e663585bde88a526fb8a75d905b8bc30d3e642d92b259cb5dcd46ca36` |
-|  `7.0.2` `7.0` `latest` `7`                 | April 13th   | `sha256:5c64757ee6994461820e8d66ff8467c3d93c76b2cc283909925809eef96c5636` |
+|  `7.0.2-dev` `latest-dev` `7.0-dev` `7-dev` | April 21st   | `sha256:c48900fd4cae60c7d56b97f54466c2499fc5971cd0f8ba7bea22be2f36385c1c` |
+|  `latest` `7.0.2` `7.0` `7`                 | April 21st   | `sha256:32b02767729c48a840aabf74fcfe68a642059eecb45e4d5e111b0a6053efd9d9` |
 |  `7.0.1-dev`                                | April 11th   | `sha256:e858982812f22a5af481d3c2cd7c4874a6c44676acc1c3cc07267091ea79ccfb` |
 |  `7.0.1`                                    | April 3rd    | `sha256:63f5ee089408cf1c558477ee89c47bf4b2ea7cc3de057133d71772d9f06777f2` |
 

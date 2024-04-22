@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 12th   | `sha256:44fc83d859b055e11bb2e1b0af853a547b8f12c450cc74361756935addbc0d6e` |
-|  `latest-dev` | April 12th   | `sha256:5c05a0df8f27ff5a3e638d30755eb1b88d17240d312195f2b473d48ea8c3ecc6` |
+|  `latest`     | April 21st   | `sha256:19a79b064fca1f55b374f5ad6f220251c6645422a8f3400f2b73605ac2ce78e0` |
+|  `latest-dev` | April 21st   | `sha256:fe433b28e20183ace690d7838617092b0e55bd28502e221e33e23e011db3da0e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.19-dev` `1.19.2-dev` | April 14th   | `sha256:852697d25aaff2c02f00a551712070abca72c6248774222e2a893639465ddd08` |
-|  `1` `1.19` `1.19.2` `latest`                 | April 12th   | `sha256:745127b82030a3126754e741ce3a02b0b385d78672400c6d4ef902f1dee6a552` |
+|  `latest-dev` `1-dev` `1.19-dev` `1.19.2-dev` | April 21st   | `sha256:ed4b9f5b2e1aae0c4f2d050f185fff5069d49baba94ebf16753fd121e533834f` |
+|  `latest` `1` `1.19.2` `1.19`                 | April 21st   | `sha256:222da0a2e62578aa401d30f864f4346fdc07d1f9f11050687dfaae7b3e74f9fc` |
 

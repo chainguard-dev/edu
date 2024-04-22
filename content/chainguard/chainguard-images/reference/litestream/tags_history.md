@@ -3,8 +3,8 @@ title: "litestream Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the litestream Chainguard Image"
-date: 2024-04-19 00:39:27
-lastmod: 2024-04-19 00:39:27
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 18th   | `sha256:45c4343d777a62bcc8ff63d9d77da71b1e7afa2a62d45a4cd1e408baf7579289` |
-|  `latest-dev` | April 18th   | `sha256:008feb9b485b91e253f9b5fbae0a04c949d5306792349c7cabe49760eef916bb` |
+|  `latest-dev` | April 21st   | `sha256:0fa57944d823a2cf43394829319988b5fe2877c387f92937e4b0f3241a5b7e58` |
+|  `latest`     | April 21st   | `sha256:f97b94f118a9ee39108f2ff47000562493dd1f5304239c837ffe81578d45c81e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.3` `0.3.13` `latest`                 | April 18th   | `sha256:30605dc56b4631c9884fc56b0acfb2343c58ab47b7187aa17fc8b1ac77a574d1` |
-|  `latest-dev` `0.3.13-dev` `0.3-dev` `0-dev` | April 18th   | `sha256:f9d53e21f0ba2027c492c09cd47eaa804dbbb88b02a1cf898d3fa6c5cbe62b6e` |
+|  `0.3` `0` `latest` `0.3.13`                 | April 21st   | `sha256:1cfd76348015da59f2a184d2af170203de398bb755915ec8b3ec931ca05e5ae3` |
+|  `0.3.13-dev` `0.3-dev` `0-dev` `latest-dev` | April 21st   | `sha256:9cec95d8fd55862d05087a2163e138952b897058d74dfbcdbcb348e6281bb59a` |
 

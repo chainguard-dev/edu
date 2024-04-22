@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-scheduledworkflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:ee060bdf451347daa71431863194ec5f63a51cea8968935e996a3f4b422690ef` |
+|  `latest-dev` | April 21st   | `sha256:448e0e67252306514b511ff96ad388c11968c54465155b52be434ae3323dcd50` |
 |  `latest`     | April 4th    | `sha256:54fc98a014a3f754ea8cc3c0d13f0e870555e09f021fa6acb40a509b802bd445` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.0.5-dev` `2.0-dev` | April 11th   | `sha256:415dc5634797fb3d215da6a13330fb75302f49f847647a46992e007864d7af17` |
+|  `2.0-dev` `2.0.5-dev` `2-dev` `latest-dev` | April 20th   | `sha256:8b1a771914355d7bdaadb69f3fa9af8a6162f5e72f1739260ae051176e97ec03` |
 |  `2.0.5` `latest` `2.0` `2`                 | April 4th    | `sha256:bf23db257b32a670c0ccae0839c99e4f21d56e51b26f921ed31fb39094118d5a` |
 

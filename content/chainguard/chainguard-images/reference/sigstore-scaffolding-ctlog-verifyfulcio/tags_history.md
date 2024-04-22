@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-verifyfulcio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:08d7fd86824cb1291be9c899aef852f7dbd0269fd698e29bc579be44b45d8031` |
-|  `latest`     | April 4th    | `sha256:12f95acb59e2baf1cd287d7324e20ef5e51c0e9ddf0fc7976fe383946dee0810` |
+|  `latest`     | April 21st   | `sha256:12416e50a4dc5f81c1a02dcc20b91ab2ba3eb5993e59a835a7cfb724a806d8f9` |
+|  `latest-dev` | April 21st   | `sha256:c03045c945ae22123ff7646c4100fccf05246f676f2785891a300a4ac64591c4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6-dev` `latest-dev` `0.6.17-dev` `0-dev` | April 11th   | `sha256:a4c49c44ede3156fef7ea1d73bfa493d367c74d618a5979bec6aaad8931f97b1` |
-|  `0.6.17` `0.6` `0` `latest`                 | April 3rd    | `sha256:71962c7610629e107ea33f8301006831684965972e87d22a9d05d56244fcb0cb` |
+|  `0.6.17-dev` `latest-dev` `0.6-dev` `0-dev` | April 21st   | `sha256:3773e15cc77233556813b4802f155c81fbd75d2b81a2e19533fe32a72afd0509` |
+|  `0.6` `latest` `0` `0.6.17`                 | April 21st   | `sha256:80fdccf680903b26de3edf8726f29bf6a81a5de2322dd857dc5b20815744de28` |
 

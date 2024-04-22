@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-18 00:43:55
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 21st   | `sha256:389eb63e17942ff6c3be3b70a844388d0716d65c677ac2430d6d6455b48ab4bd` |
 |  `latest`     | April 17th   | `sha256:35a9b1667705943d7d609622d5d0f6d6e186e3dfd64b94f725e5632750f87464` |
-|  `latest-dev` | April 17th   | `sha256:776dacac342923ee61f06b27e670d8b0a4787b056e47f6408f996c5148e78e87` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.13.2` `latest` `1.13`                 | April 17th   | `sha256:1d4ec08d088c4da2d50e79f717dc04ef6c086128563e0defdbe9e953e040dce5` |
-|  `1-dev` `1.13.2-dev` `latest-dev` `1.13-dev` | April 17th   | `sha256:9327dbf59bb206a85ed0be310e2f963bcdcaa42e1f839893b611161504c30e48` |
+|  `1.13.2-dev` `1.13-dev` `1-dev` `latest-dev` | April 21st   | `sha256:24a281434bb8c5118f7b0c7def20a6c937ff23202430cc9cda3575f121a09dcb` |
+|  `1` `latest` `1.13` `1.13.2`                 | April 21st   | `sha256:0b4f870b6b4ca2a7c95183dfff9bee4a188fcf9cb14aed4f6c8e914463221b82` |
 |  `1.13.1`                                     | April 11th   | `sha256:ecaaa35afc398d0d51919ddc02d92a4468412db2167d45ff303b0a3192d01650` |
 |  `1.13.1-dev`                                 | April 11th   | `sha256:3915071decc82caab74ed7639ce8e07d7eea7b46d4464f8bdebd37583fe40dcb` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the shadowsocks-rust-ssserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 11th   | `sha256:476503b610709a2567b999767f5b47154cd0f10aa40cc584d6801f892d9098ff` |
-|  `latest`     | March 28th   | `sha256:6ef46b6f116fbf3c7af27bb9e211f6223539b981f8a06e9e1366ef5265e6689a` |
+|  `latest`     | April 21st   | `sha256:03d5e71fd83cae0d6dadce220d3789ac3b3912bd2da0cdc09cb3ea548fb2e2f6` |
+|  `latest-dev` | April 21st   | `sha256:3bc4f72b9f62e1c6c7c52c6f2c022727c05f62933a69efcea0f8f4c56706805c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.18-dev` `latest-dev` `1.18.2-dev` | April 11th   | `sha256:4aaefa1afa0240b5ebec8a8d8d52432cf09c159ae4031e30811ae06caa87025c` |
-|  `1` `latest` `1.18` `1.18.2`                 | March 29th   | `sha256:e00f0321093d0d5882ee3551df9bae734975298506b97ce3c8d91eb4c7264819` |
+|  `latest-dev` `1.18.3-dev` `1-dev` `1.18-dev` | April 21st   | `sha256:5d61846cadfb745804c682db7586155709355ea93f9955dfa982104006c96160` |
+|  `latest` `1.18` `1` `1.18.3`                 | April 21st   | `sha256:2954187bba60172a46b51f36fc6473fb3dbaf8d4bfbf93cbdacb4002cabb24f6` |
+|  `1.18.2-dev`                                 | April 20th   | `sha256:4591bde4ee056e6c86af866e8f73006d69b46084411bfeaad03758360045fa58` |
+|  `1.18.2`                                     | March 29th   | `sha256:e00f0321093d0d5882ee3551df9bae734975298506b97ce3c8d91eb4c7264819` |
 

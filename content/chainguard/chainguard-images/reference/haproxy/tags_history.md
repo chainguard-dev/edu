@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the haproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,10 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.9` `latest` `2.9.7`                 | April 11th   | `sha256:3242127dc59de7ac9825e34b5261fba5ae97f18b8110f2afd8e66b7b495ea662` |
-|  `2.0-dev` `2.0.31-dev`                     | April 11th   | `sha256:dcc900abd61b5c5a47aa63d71d0763fe74d093745768fdf5bc054f421c24e56d` |
-|  `2.0` `2.0.31`                             | April 11th   | `sha256:895a7cc02b4b58a5152604f9feaeed49f5fe1fe824d18a0b5e32f6f208342556` |
-|  `2.9.7-dev` `2-dev` `latest-dev` `2.9-dev` | April 11th   | `sha256:88361ceedc809e9b0b4f7448fc312331c2f0474ac7c4ac025140df65b97d8ce0` |
+|  `2.0-dev` `2.0.31-dev`                     | April 21st   | `sha256:ad2a923e27bcae392ddff992ac0272853711fb5972f4534f9d95e16d5c1ba045` |
+|  `2.9.7-dev` `2-dev` `latest-dev` `2.9-dev` | April 21st   | `sha256:11db929190827193ccb72fe19c3a7a34bc377aa03334946d17267484ba09a9ad` |
+|  `2.0` `2.0.31`                             | April 21st   | `sha256:e0a1834e2c7f80092987639f8e44666edc058462e20f48a1c231b0705c80a11f` |
+|  `2.9.7` `2.9` `2` `latest`                 | April 21st   | `sha256:9accc39f18ccd91d74277cf03ca6ab09066544c6581f77d21e37f56537667c9b` |
 |  `2.9.6`                                    | April 5th    | `sha256:ad768a04741c7c80fe6d33b122110c1b598a3c3a62ec8b9475ece45005a3c185` |
 |  `2.9.6-dev`                                | April 5th    | `sha256:c8531b56101474c3bdb1d749c45e7c05ee7950e6e251826b108c3fe0e5111a60` |
 

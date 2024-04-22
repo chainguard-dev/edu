@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-sentinel Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-12 00:54:01
+lastmod: 2024-04-22 00:45:38
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6-dev` `6.2.13-dev` `6.2-dev` `latest-dev` | April 11th   | `sha256:5f9f1836b314f8afc8f82d73968c3d74107f70309531e63f842805521d2a6af6` |
-|  `latest` `6.2.13` `6.2` `6`                 | April 11th   | `sha256:6e941b7e4ed03fb7f4205dc4983c650a4e1ae001d92bef06ce9d30db62989ebb` |
+|  `6.2-dev` `6-dev` `latest-dev` `6.2.13-dev` | April 21st   | `sha256:fa696a3e6bba015def36525e230f6111eb4a8a7fdc32d633b8e14cf81405cbd5` |
+|  `6` `6.2` `6.2.13` `latest`                 | April 21st   | `sha256:997f410dfa4566a50ee6c67c6768c81fa264909016731aa7ae3091d40d3771cc` |
 
