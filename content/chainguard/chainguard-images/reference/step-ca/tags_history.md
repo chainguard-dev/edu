@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the step-ca Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 22nd   | `sha256:857c33b3d00c087d94f7f6131531f38782ef2544d8a52c82571a5f6c1d2dc8bf` |
 |  `latest`     | April 21st   | `sha256:91404bd2daa5192516a1cb642e179c716a2a771d42185ee90136174bd391449e` |
-|  `latest-dev` | April 21st   | `sha256:52abaaf01aa5a5245529b6e76d36131ca214c9920241c34a0210ff9ac0a8f61a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.26.0` `latest` `0` `0.26`                 | April 21st   | `sha256:9bb95f68d840dd7265936d5a15da28c69cf2b850d5923ba1267f19f41cf6581c` |
-|  `latest-dev` `0.26.0-dev` `0-dev` `0.26-dev` | April 21st   | `sha256:bf9064cbb1cde5a2505930b7569c91c7a8c7b21a09aceea8e732c7f1681d2024` |
+|  `0.26-dev` `0.26.1-dev` `latest-dev` `0-dev` | April 22nd   | `sha256:b409cc8b05aa1c12ba842efca165b2d47764cf9281206031702d77b77eed188a` |
+|  `0.26.1` `0.26` `latest` `0`                 | April 22nd   | `sha256:bf16de8b7c0b0b89288918fbbdab6b30b684b22632413c827da808573dd4342b` |
+|  `0.26.0`                                     | April 21st   | `sha256:9bb95f68d840dd7265936d5a15da28c69cf2b850d5923ba1267f19f41cf6581c` |
+|  `0.26.0-dev`                                 | April 21st   | `sha256:bf9064cbb1cde5a2505930b7569c91c7a8c7b21a09aceea8e732c7f1681d2024` |
 

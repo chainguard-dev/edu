@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-problem-detector Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:142585250e94d40e7784a46924302cb08d13993a3dba9fba5d5977164bee46b9` |
-|  `latest`     | April 21st   | `sha256:2df19f833cad169c017872926a07c5fd955947455694a458190e5d4e5032a01d` |
+|  `latest-dev` | April 22nd   | `sha256:9489e5e3eba6202716ab9b8fc79a161f7866c2b650571644c52450b46b62fdae` |
+|  `latest`     | April 22nd   | `sha256:53c7fbd7024373b77339f1d893bba01941b095b38279a5c60a6a4c97604e48bb` |
 
 
 ### Private/Dedicated Registry

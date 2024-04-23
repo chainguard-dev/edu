@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: falco-no-driver Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -95,10 +95,13 @@ To install falco-no-driver image supporting modern bpf probe,
 
     helm install falco \
     --namespace falco --create-namespace  \
-    --set image.registry=cgr \
+    --set image.registry=cgr.dev \
     --set image.repository=chainguard/falco-no-driver \
     --set image.tag=latest \
     --set driver.kind=modern-bpf \
+    --set falcoctl.image.registry=cgr.dev \
+    --set falcoctl.image.repository=chainguard/falcoctl \
+    --set falcoctl.image.tag=latest \
     --wait falcosecurity/falco
 ```
 <!--body:end-->

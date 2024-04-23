@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the maven Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,12 +28,12 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                        | Last Changed | Digest                                                                    |
 |--------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `openjdk-21-dev` | April 21st   | `sha256:75abac26f050a64396f03e2f31bc707ea0ac3eb85cd37b192a8e4ebfd5fc2c65` |
-|  `openjdk-17-dev`              | April 21st   | `sha256:340b69e18874e7962c0787c05e321ec786378a3d167eb84e3b9fa257253a31e1` |
-|  `openjdk-11-dev`              | April 21st   | `sha256:7c5b1591b6eaccdafa8b9ead12314357bd201190ba2478a36b0d631af99548fe` |
-|  `latest` `openjdk-21`         | April 17th   | `sha256:3c0e7ca99ef5f1f8473328c711884eacbdee87fc1adab6d14ee7d42c0ab448d9` |
-|  `openjdk-11`                  | April 17th   | `sha256:f060dda1205baece2f31e0e2d61018b78aefcda950a51571726956b5612ae2af` |
-|  `openjdk-17`                  | April 17th   | `sha256:068be81a074f98947a962efb5735f45dd175a0b6f03e67372857fbbe969ba8b9` |
+|  `openjdk-17`                  | April 22nd   | `sha256:0a40c03cb1b5af84d83823b4a8161b38dff49c25477db026217580be8947d8d8` |
+|  `openjdk-11-dev`              | April 22nd   | `sha256:768147029f501ba368fb075fc15f7685b24684bd4422f4c6fe80a8fe84fc8368` |
+|  `latest` `openjdk-21`         | April 22nd   | `sha256:853cf8c52000fb11414596ec76d6829ab74ec830095bee212f2e4568c66ad405` |
+|  `latest-dev` `openjdk-21-dev` | April 22nd   | `sha256:bf085d5b2aaaccfeff88d850f867d969c8ee6ae931943227c6e81eb5eeaacbee` |
+|  `openjdk-11`                  | April 22nd   | `sha256:25694fbf5ed0c5070fee70b2b7659edb8c443c788b54a32d0e41bb726e0f4faa` |
+|  `openjdk-17-dev`              | April 22nd   | `sha256:1cb53e75cb435e0947ed3bab5bd79ad26cdc924762b124302056d14217825f52` |
 
 
 ### Private/Dedicated Registry

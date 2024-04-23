@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the go Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:028c14488916350943a86d08bcb846f547b1230ea2fbd9239b5f5516d49cf75b` |
-|  `latest`     | April 21st   | `sha256:12be059da5b1c7868fe21398c103c073a53b3e3c18529ce42f4ad99e319ec5cc` |
+|  `latest-dev` | April 22nd   | `sha256:7c09972ec33719e1b035b8ce48efb825c08b6825f0e413132504de89f24ffaf2` |
+|  `latest`     | April 22nd   | `sha256:159e1bcd846e4244fdb412845b18e91e34342fe4c518087184b944916f9d03fe` |
 
 
 ### Private/Dedicated Registry

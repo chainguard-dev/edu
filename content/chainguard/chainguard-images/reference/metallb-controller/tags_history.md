@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metallb-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:b58629eb1a7d7f889f757edbcad7027f48811085946f72e17b4d3b256849cfee` |
+|  `latest-dev` | April 22nd   | `sha256:b71ef4284f503ac780c7f64f0521e14008726df18565430a7f656cc04fd28176` |
 |  `latest`     | April 20th   | `sha256:380a007ad978a9710837672ff54cc3e42a998b37e57fbdada443201c7a862594` |
 
 

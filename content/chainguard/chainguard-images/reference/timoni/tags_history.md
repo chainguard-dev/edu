@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the timoni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:4390cd465cffb11fed908580cd60962a3cdb88e19dd3ec062965bdca5902bcd4` |
-|  `latest`     | April 21st   | `sha256:9d80ccf43e899de9c740edb986ce068c157b79350ea8cb65e2df4e57871a5859` |
+|  `latest-dev` | April 22nd   | `sha256:22d630a7dc1405595de9e81fddfc1d76d6c66090aa79f3207b03b20b52a22926` |
+|  `latest`     | April 22nd   | `sha256:c482d02b3febeadae8c40c0d1a69242451f0e383f907d206cfe4bd94d78e2d5d` |
 
 
 ### Private/Dedicated Registry

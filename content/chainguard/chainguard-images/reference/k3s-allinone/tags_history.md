@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k3s-allinone Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:77bdc908b308aa9789d70dad36d91b8cb4292d133c52517817a726946aa6c456` |
-|  `latest`     | April 21st   | `sha256:20041407fc22703112c2c19c43702107e638c52dc1d6ed3eaced47cb0a080e33` |
+|  `latest`     | April 22nd   | `sha256:aa4eb17db2096198bda4d6929f6d1eafb330e45411c67da5fb13c400baaf19b6` |
+|  `latest-dev` | April 22nd   | `sha256:abe2ebc0b0ee27501ce9b7b34d3b48f6c5fdddc14b1139d5c0671544b8209e36` |
 
 
 ### Private/Dedicated Registry

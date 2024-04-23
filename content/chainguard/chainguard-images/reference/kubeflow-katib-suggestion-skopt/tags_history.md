@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-skopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:71ef15e0d8c50102dc664f7570cdcf5cb67535ec8275c452b00600a832d25723` |
-|  `latest`     | April 11th   | `sha256:bfe3f430aaa618ee3296db3c6487312bee898f497125b35232651df1ddc469a9` |
+|  `latest`     | April 22nd   | `sha256:556835532252b877b29fde7d5e408e1f2b23d7366c25691699b4f5b5e4f65ab4` |
+|  `latest-dev` | April 22nd   | `sha256:30ebb1b811ed13a294f480f6bbea957f04da3ecf1f08d095ca28fae2303ab28c` |
 
 
 ### Private/Dedicated Registry

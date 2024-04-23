@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the envoy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:22b41e9e003a8c14a9951e72556fd5cfc96103eee1fe16490ea9ef19eeaf162d` |
-|  `latest`     | April 19th   | `sha256:b34a741cc77e5c58be021c0a28e3e89015bb7f0495bd50a17a63a7c8e7946c23` |
+|  `latest-dev` | April 22nd   | `sha256:b07dc382863d14fdb1119edfb25300af98a1f9c91b2565ddc8514469f2363197` |
+|  `latest`     | April 22nd   | `sha256:e6d96a84767fc6f9043fdf1df3054aec32908a6ba3f2b38555c17d7c18dc2fd5` |
 
 
 ### Private/Dedicated Registry

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the buck2 Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:19716d1833cb31fa6370d84f80c6280404d087f8d42346753b5e54e9195801ba` |
-|  `latest`     | April 21st   | `sha256:6aed3ee2501edc968e52cbc6d79def309a820d43ef141d109c19209ff1e44c70` |
+|  `latest`     | April 22nd   | `sha256:6e40aa2de8178ec7b9fbfc7714234aa81035d5145bc9ac700a732dc1c17011b9` |
+|  `latest-dev` | April 22nd   | `sha256:08b85161ccbdad6fbe1103e25b471da47d3f54fe32389df88bfa8f63e6bfb84e` |
 
 
 ### Private/Dedicated Registry

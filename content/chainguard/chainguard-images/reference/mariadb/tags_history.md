@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:6b4e3e205da79f54215ed8d7df06029f6fe77d160b4cc0db056082c10a89ea3d` |
-|  `latest`     | April 11th   | `sha256:1d6161eccd77b2b6b0b96ba1fcd4bbe230db6f56cc7b0e2347179a6fa74fd41c` |
+|  `latest-dev` | April 22nd   | `sha256:7920de54bb3029d71c8624cb9d7ec9dbc81b58b05b844287d64a9a0dc8d98b0d` |
+|  `latest`     | April 22nd   | `sha256:6db1e743bf318700be829639f1fb89b2c367b2b81067f3561be771ba416bf1b2` |
 
 
 ### Private/Dedicated Registry

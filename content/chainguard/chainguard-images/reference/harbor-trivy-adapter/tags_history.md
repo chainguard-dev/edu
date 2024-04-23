@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:f7cf6c5714f0fc66bb125b01b8b5e7da331868e788883956d214eba7cb40f727` |
-|  `latest`     | April 21st   | `sha256:95cf41da6e93e1462b792d12930cf388eb10edc5c6b307afd1f941b8d903b38e` |
+|  `latest`     | April 22nd   | `sha256:aab89b6b0d0b4a41129b1a65746e3027babc9a87c246b13fe951a65afca4daf1` |
+|  `latest-dev` | April 22nd   | `sha256:003dbed760a9147dec583764e14d95f49a916b3ee3bd082c6688acc79e59e760` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.31.0` `latest` `0` `0.31`                 | April 21st   | `sha256:007e1146b7d096a5ccd9412074806130713b26887c108f106668edae07c22cdb` |
-|  `0.31-dev` `latest-dev` `0.31.0-dev` `0-dev` | April 21st   | `sha256:ced73fd86276c6868bb4846e6e6b6cdba3cff845bde4417bbede6bfc1ba680f6` |
+|  `0.31` `0` `latest` `0.31.0`                 | April 22nd   | `sha256:980e79a074def6052accdd78d8142bb44d729cf0b267323f40689363ba13511f` |
+|  `0.31-dev` `0-dev` `0.31.0-dev` `latest-dev` | April 22nd   | `sha256:43020a40e03fd39b29360aa2bf9a14e46333993de01f56d62f2675aff2fa6efc` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-fips-jobservice Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.8-dev` `2.8.6-dev`                        | April 22nd   | `sha256:678a21a571581f64c0f94737c57e974a9a9018a005bb19db7e447f86283fc14e` |
+|  `2.8.6` `2.8`                                | April 22nd   | `sha256:5e3347e4835339f278b983ce7f3db6f17ca5ccc29a146855ab3ce0f99fe254b4` |
 |  `2.9-dev` `2.9.4-dev`                        | April 22nd   | `sha256:5c85c1ddc157d15de3cbf19ab9f8f02f75a41fff5dcceea98d2e67c8b1bf4c33` |
 |  `2-dev` `2.10-dev` `latest-dev` `2.10.2-dev` | April 22nd   | `sha256:fc4f175c18898cde049929aec02c5eec33273f468516c38d0a08bafe07f0030f` |
 |  `2` `2.10` `latest` `2.10.2`                 | April 22nd   | `sha256:70d946c23bc3176173c6e848707e439edf44d8cefb7dd2b5b89efada7fb04370` |
-|  `2.8-dev` `2.8.5-dev`                        | April 22nd   | `sha256:0df2200948652fd85b6a0117d99abd9f82bc072c258af0e798db0a860ebd2e90` |
-|  `2.8.5` `2.8`                                | April 22nd   | `sha256:9cf343eb4d6ba6b067581648ab014d577b045096efd23856f8ad032e7df50a00` |
+|  `2.8.5`                                      | April 22nd   | `sha256:9cf343eb4d6ba6b067581648ab014d577b045096efd23856f8ad032e7df50a00` |
+|  `2.8.5-dev`                                  | April 22nd   | `sha256:0df2200948652fd85b6a0117d99abd9f82bc072c258af0e798db0a860ebd2e90` |
 |  `2.9` `2.9.4`                                | April 22nd   | `sha256:fee920c1df067965ef05e8f8bf86792542662225d4a9d7422df95364beaa7cb1` |
 

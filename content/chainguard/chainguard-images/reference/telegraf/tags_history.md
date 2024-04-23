@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the telegraf Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:3ed76532407ea5b660c0cd98d7cdec5c13030a4a5ffdd9d0c854fd95473e0a4d` |
+|  `latest-dev` | April 22nd   | `sha256:3003b996359205aeedf69029a4d699c761e4d3d564d6aa87e2e6b7a6c7c1f28b` |
 |  `latest`     | April 21st   | `sha256:99288ee8499f095621fe9b1057c54c535f8d3cae98c181367f1fc9b8a6643c06` |
 
 

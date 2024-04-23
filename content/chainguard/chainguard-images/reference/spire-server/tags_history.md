@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:3c4e943f77ad5d7105a5d7f335248275ea8cec255706da61aa7bc782f9c38ed7` |
-|  `latest`     | April 12th   | `sha256:be29edf87996dcee43bf99123290d82cbb903f9a553a692b4a2933b4606bc7c4` |
+|  `latest-dev` | April 22nd   | `sha256:7412a0df79d7f29ecb6de956579a2ca821a6d44a0c72e01c81d6d4be61ee2ea3` |
+|  `latest`     | April 22nd   | `sha256:3569364c904cd412a298e221dd955961c604a3e28167d65907327afbe14574f2` |
 
 
 ### Private/Dedicated Registry

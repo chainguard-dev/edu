@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 22nd   | `sha256:7d2aa4f6182f82f1709f2c364524538c7c2e80a6818559da88a147fb258f6b76` |
 |  `latest`     | April 21st   | `sha256:f41578672cf4926b45652f0e3cb3931711ae49eb1f2fe28a0e025586de733761` |
-|  `latest-dev` | April 21st   | `sha256:4068b3eac21f9d4a818afc755f90f82e9cefadb82d3d11fc6d11c0c9907997f6` |
 
 
 ### Private/Dedicated Registry

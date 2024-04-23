@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the php-fpm_exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:4dc07bd68e07cf3f081f95bba89aeb1b6c3e7a71aa8664f858a657b576a2226d` |
+|  `latest-dev` | April 22nd   | `sha256:680e3989c1cd8206ef73ca0317a938e25741d29a0a42e023d4853d2499c50b97` |
 |  `latest`     | April 4th    | `sha256:f0dae3174b1f0207dc0d9f9204bab9a01536b2e6c5474dfb0e88835be59579ea` |
 
 

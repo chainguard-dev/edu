@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-efs-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:99f299d014507fe3d71b2cf17bbb0eedec49fc8d14e65bda44bd219c5202c8b5` |
-|  `latest`     | April 21st   | `sha256:6f49e2d392cb60695438db017cc39ba4d08275d3ebd7619a9befff8e5226c64d` |
+|  `latest`     | April 22nd   | `sha256:ad2101ec120c74ccc4d4967be717d1af13831f1a3870260e1958b21a2147cb73` |
+|  `latest-dev` | April 22nd   | `sha256:7029068656773ec5e8cf61a855b9bc79d66378d5e979c7864937c5c55122687a` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `latest` `2.0.0` `2.0`                 | April 21st   | `sha256:411e664954d383976600aa4fefaf62896fef8c67609baaa6b7884b2200dca1b9` |
-|  `2.0-dev` `2-dev` `2.0.0-dev` `latest-dev` | April 21st   | `sha256:af847834d39529ffc7fbcf3241a8a75248ccbd406050e62dca019bf7e4d639f1` |
+|  `2` `2.0.0` `latest` `2.0`                 | April 22nd   | `sha256:e4ae2b36a6e0d481e29b1b40ab52dfbbfa256fda263e702f055f476560257704` |
+|  `latest-dev` `2-dev` `2.0.0-dev` `2.0-dev` | April 22nd   | `sha256:e38292b3c8fd64b8fe65a9df46279aff8d201eec0c72f760ffebe702a41d7050` |
 |  `1` `1.7.7` `1.7`                          | April 20th   | `sha256:a76f633d2f525d0144b6a18f44a00dcd64ba456362c2924ed0694f2bfeac74db` |
 |  `1.7-dev` `1-dev` `1.7.7-dev`              | April 20th   | `sha256:15b7236c588680eee123283d1b957b15c563e8f2f0ab224cff9b86f7098904f7` |
 |  `1.7.6`                                    | March 28th   | `sha256:24e438bb725128fd4920d9351b8001f03c0984c1179010d8390b6e746b88d79b` |

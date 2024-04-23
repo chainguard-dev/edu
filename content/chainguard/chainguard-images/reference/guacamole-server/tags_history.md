@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the guacamole-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:13f9b80a796678d9ab2bcbe63bb13a840164e37a6c9e91c787948ad1fd8fb574` |
-|  `latest`     | April 17th   | `sha256:eb6cd3cf3b1a3f7fbbae3c161000baff95fa8d1b1286917883f571f4c001ae2f` |
+|  `latest`     | April 22nd   | `sha256:c2024f30200ed5a9f3e12a376cc473ae5430102adc7d8939c8474b5996e291b3` |
+|  `latest-dev` | April 22nd   | `sha256:e665b3416d6b82bcb04a89024d5c0e1efea799fd1af0fb23a1aff078d9b46845` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.5-dev` `latest-dev` `1.5.4-dev` | April 21st   | `sha256:281906373d9d535bc31a855a48363c93a6ab64df39ae07a2389c54b1491ca2df` |
-|  `latest` `1.5.4` `1.5` `1`                 | April 21st   | `sha256:0b7916a8e2f2cfd804c66c2a6f3500ef3586e72296d33194e91b3ab1edbbe21a` |
+|  `latest` `1.5.5` `1.5` `1`                 | April 22nd   | `sha256:34c4b7d033b2e10fd24ae13c347f81c8ffaea3bfacef12edac0db3e899aab437` |
+|  `1-dev` `latest-dev` `1.5-dev` `1.5.5-dev` | April 22nd   | `sha256:3f39bb0405afc20ce5e65d7b9a69ff24f7124fad3cebc48c0330e60e7a3a4525` |
+|  `1.5.4`                                    | April 22nd   | `sha256:965814796e6cb6bc936f5d29fec9b448680ae1d01530f1d98499c13dffedd6c1` |
+|  `1.5.4-dev`                                | April 22nd   | `sha256:5177a65f0ee98a3664067a87ac285ff8251df974046f2eb623bc4eecbd89fdbc` |
 
