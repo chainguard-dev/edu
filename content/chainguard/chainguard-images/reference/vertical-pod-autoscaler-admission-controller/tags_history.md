@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-admission-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:315940ab004f054871948fd1f8bb3e069f9a0e951d14fe4f2b55581fbe2ab4df` |
+|  `latest-dev` | April 22nd   | `sha256:6ddf1eb941d29db68525eafb1c97550fba5d83106b959c029b81775156a2bd8d` |
 |  `latest`     | April 11th   | `sha256:fade39fa7b7eef6ce11b70d6181b3239fd282fe85bdf95b26b2fe3bcdf38daf0` |
 
 

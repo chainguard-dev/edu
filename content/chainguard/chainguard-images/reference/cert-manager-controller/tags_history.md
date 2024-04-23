@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cert-manager-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 22nd   | `sha256:d526627a8d4811eb88207096c5196ce61502b10ce7be6d7e41c230b40a6d8ea6` |
 |  `latest`     | April 21st   | `sha256:0a6fa890879778e34637b82ff93f4108f2492fa28e0d88e76393aa32fcfd0ce3` |
-|  `latest-dev` | April 21st   | `sha256:2624eab169b7356288bfa1c94fbbe628249fc2f572e65bc26c9575c2a5904da0` |
 
 
 ### Private/Dedicated Registry

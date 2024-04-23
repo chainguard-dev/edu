@@ -3,8 +3,8 @@ title: "valkey Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the valkey Chainguard Image"
-date: 2024-04-22 00:45:38
-lastmod: 2024-04-22 00:45:38
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:a29363595185fe2d5eb6ce16c7d24405f89ea27704e7e428a73f16823d67f8a1` |
-|  `latest`     | April 21st   | `sha256:7b4ae15c973c65e6f85a5a28372bfd49f1bed34c19f317b7bee38225343713af` |
+|  `latest`     | April 22nd   | `sha256:6d3e6fdda0b3b8a3ea76adbc46a3ea1e7bca753a88c9723d433d7ef958faa6c8` |
+|  `latest-dev` | April 22nd   | `sha256:3c4f261e9d78c9873b11d4d8487852488b7a58380eb7ab219ad5c8d35fcb0434` |
 
 
 ### Private/Dedicated Registry

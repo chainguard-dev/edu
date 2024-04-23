@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the postgres Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:8ac6fc030b3014c4c09977ed2b475307e2361ffadf447416dfa0ce5ae7b93020` |
-|  `latest`     | April 11th   | `sha256:b049709fbca141093bbc9c5ca732af5ed44495570724071193fa52406498868c` |
+|  `latest-dev` | April 22nd   | `sha256:02495283acdf366ff1bd1582d08235eff320ba19204c25acd874b5f682cb965b` |
+|  `latest`     | April 22nd   | `sha256:829865d7c1245a0ba8a4a683b844cf8834ceb24abe74f34c536216440b1b1891` |
 
 
 ### Private/Dedicated Registry
