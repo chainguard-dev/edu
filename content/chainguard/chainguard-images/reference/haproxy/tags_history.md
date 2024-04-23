@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the haproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 11th   | `sha256:79565118d2a160cbee2c549b613e4f581993ccfe95fb240cdaf4e4670d433078` |
+|  `latest` | April 22nd   | `sha256:20f00903e4586144fd14e1ec6ee584ca9d19704ab97dbe688aa5615248d7e16b` |
 
 
 ### Private/Dedicated Registry

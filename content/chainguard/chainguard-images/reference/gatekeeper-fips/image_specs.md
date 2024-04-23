@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public gatekeeper-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -42,8 +42,8 @@ The table shows package distribution across variants.
 | `busybox`                     | X          |        |
 | `ca-certificates-bundle`      | X          | X      |
 | `chainguard-baselayout`       | X          | X      |
-| `gatekeeper-fips-3.14`        | X          | X      |
-| `gatekeeper-fips-3.14-compat` | X          | X      |
+| `gatekeeper-fips-3.15`        | X          | X      |
+| `gatekeeper-fips-3.15-compat` | X          | X      |
 | `git`                         | X          |        |
 | `glibc`                       | X          | X      |
 | `glibc-locale-posix`          | X          | X      |

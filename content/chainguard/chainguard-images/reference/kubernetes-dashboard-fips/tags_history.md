@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dashboard-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.0-dev` `1.0.9-dev` | April 21st   | `sha256:9859d99e698d6c6e6e2d7aceea5b6e60dc7f4c3af8be46c0ec390c36d5841810` |
-|  `latest` `2.7` `2.7.0` `2`                 | April 21st   | `sha256:e294797743ba8dd67f2f33473a06168b5e325628a32a53cbaee6e63425cd0053` |
-|  `1.0.9` `1.0` `1`                          | April 21st   | `sha256:9db8a4a700f83e251b9c3f0845b9dd1c226de3ca176c6b92cf2ed5adfc6c3c53` |
-|  `2.7.0-dev` `2.7-dev` `2-dev`              | April 20th   | `sha256:b6b4b9c4aec5efb15af760cf5f32b189bbf5a0c390ed19416e0acdb085fc7cf7` |
+|  `latest-dev` `1-dev` `1.0.9-dev` `1.0-dev` | April 22nd   | `sha256:436211c875bb6846c374788f5d495097ca53143b9aab2da9fb91841f82c8bc6d` |
+|  `latest` `2` `2.7` `2.7.0`                 | April 22nd   | `sha256:40371644b4445c8d2bd70d7f246367d9b4b28e0fe55c31c5c7291d53593ff882` |
+|  `2.7-dev` `2-dev` `2.7.0-dev`              | April 22nd   | `sha256:9e4aa89955d171bbe461520b5046bd5e9d58adb975665b6c2919c9042e025f34` |
+|  `1.0.9` `1` `1.0`                          | April 22nd   | `sha256:c8dcdd198203b7f9ca3b968dbced0f2d6862a3db61579cc229a9ee8533709582` |
 

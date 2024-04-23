@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the apko Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 12th   | `sha256:d94f70f55db14416782623b23d7df7eeafd4e2d68d5bc4eaf91a98fc22fe6cf9` |
+|  `latest` | April 22nd   | `sha256:d26fa880cede54c1fa491617d96d902a651a2cdc3e12d308a317bf4585733961` |
 
 
 ### Private/Dedicated Registry
@@ -36,6 +36,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14.0` `latest` `0.14` `0`                 | April 22nd   | `sha256:5d58f82a7ebe0f2bbc61880b22d55bb0344a3ae7199473863b190b8fdec4e828` |
-|  `latest-dev` `0.14.0-dev` `0.14-dev` `0-dev` | April 22nd   | `sha256:d13ce5ce65cc6d811dbf516c504636975105c7f4f2c57669eef4baeeeab73a66` |
+|  `0.14.0-dev` `latest-dev` `0.14-dev` `0-dev` | April 22nd   | `sha256:ab38154cfba6b131625c7d5610a67411d674c68bc24f873dcacc10dd4e246258` |
+|  `0.14` `0.14.0` `latest` `0`                 | April 22nd   | `sha256:1e182057173f5d27bf439b3ab60952f72a1ded4d0ca04027178ab8a5e1dafad2` |
 

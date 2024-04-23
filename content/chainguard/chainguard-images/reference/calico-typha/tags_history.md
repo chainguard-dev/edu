@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-typha Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 21st   | `sha256:76189190adb5c7a5c8a57a5413747e59b37d5a8533510a037e16748251366f42` |
+|  `latest` | April 22nd   | `sha256:97c3675df39982cb144cb84b8fb742f8c8fec7f8b81e0f997f732de1871d6532` |
 
 
 ### Private/Dedicated Registry

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rstudio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:b72bc3d6e8c0cd675c1fde94565e1b4ebd4231b5ea50f2423158bf89026bedd2` |
-|  `latest`     | April 21st   | `sha256:24823bf0fc93fbe3512fecb4fb069bd8a9f8bf31e0ec538a92cb21a9f5906216` |
+|  `latest-dev` | April 22nd   | `sha256:dd0fd890ad951578522cda7561a8a0e5afae22cb35511609108c1cc065506f81` |
+|  `latest`     | April 22nd   | `sha256:191305582e17d6faad97c617e6254336ad432a37f2a95875294e8fcfe19c541b` |
 
 
 ### Private/Dedicated Registry

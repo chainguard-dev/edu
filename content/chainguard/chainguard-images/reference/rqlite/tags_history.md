@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rqlite Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:7f9c97d5df8acd0e5c5a69b68735dbe07f8fcff5af3b5c8e9ec55e49231b0bde` |
-|  `latest`     | April 5th    | `sha256:7d7969a307375fad362b1a6896982881ef2ed79a0376977fb4aa01ac66bae577` |
+|  `latest-dev` | April 22nd   | `sha256:ca8d1581a1df6ba81212843c81ca1829b332aca8e94704821b6ad3dff84cfa40` |
+|  `latest`     | April 22nd   | `sha256:59d089d739a63ce76c46a70cd250f3cb35b785ca6c6232bbb68b8290dc4f69a9` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `8.23-dev` `latest-dev` `8.23.1-dev` `8-dev` | April 21st   | `sha256:78dd1859eaf86551a1b2da613b3fb563b700ebab91c04aded2542351281db861` |
-|  `8` `8.23.1` `8.23` `latest`                 | April 21st   | `sha256:395eca9ae6980e9142d20a72fb9bdd31f62e65c9240d3db1d1f78d68087bfdf2` |
+|  `latest` `8.23.2` `8.23` `8`                 | April 22nd   | `sha256:9128d9a5efc4bc4ef69c5513ceac8e7c2ddeaf786d4b00083bcdf39a312457a5` |
+|  `8.23-dev` `8-dev` `latest-dev` `8.23.2-dev` | April 22nd   | `sha256:48e27d26c427aaa4220cdf834c7ad8c6782541187065fee08e5effb8fb845214` |
+|  `8.23.1`                                     | April 21st   | `sha256:395eca9ae6980e9142d20a72fb9bdd31f62e65c9240d3db1d1f78d68087bfdf2` |
+|  `8.23.1-dev`                                 | April 21st   | `sha256:78dd1859eaf86551a1b2da613b3fb563b700ebab91c04aded2542351281db861` |
 |  `8.23.0-dev`                                 | April 5th    | `sha256:2c2ce6f14c8d2c2ac527358a847e953d411281bb6c4e9650e2546997946432e8` |
 |  `8.23.0`                                     | April 3rd    | `sha256:926bc0014eba230041653f7add2ffa63bb00d7660601cd5b8eab5c1ec04e3f48` |
 

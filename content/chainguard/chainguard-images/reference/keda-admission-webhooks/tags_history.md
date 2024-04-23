@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda-admission-webhooks Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 21st   | `sha256:8653260178b9f30c1fdd105a35eb467de29b3b0f3a3017265a3d493466f87541` |
-|  `latest-dev` | April 21st   | `sha256:d7f0f3a80a78b068d0f8501221ba99ed22cba7f1861fe841abe6b626ebae503e` |
+|  `latest-dev` | April 22nd   | `sha256:475fb97ec7cb04fb3433862aac21148afb08521c73b7c00b79f2ef242b0b5038` |
+|  `latest`     | April 22nd   | `sha256:5516047b0f3939b4ae4bd0daa01b10c1a64ac9c55dd085b48ac863d4db3576aa` |
 
 
 ### Private/Dedicated Registry

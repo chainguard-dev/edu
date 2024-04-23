@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the caddy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 21st   | `sha256:4c112c30f2f129bd8fa3c0e68ac8afc9af864f339293a9fa2311d9ed249e809e` |
+|  `latest-dev` | April 22nd   | `sha256:932e4d8ee619c9efd2b303a0d26a2b280e996f2683804175385a4f056996b42b` |
 |  `latest`     | April 21st   | `sha256:9b72baef11a288be4dc9bd3e559af78139e52c5bde9d66d6d0ea5e89d06720fe` |
 
 

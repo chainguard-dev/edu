@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-csi Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-23 00:42:59
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 21st   | `sha256:9863788ea8fc965590381366ae35c7182f3c97acc8fa3d6634aa8fae7c34790f` |
+|  `latest` | April 22nd   | `sha256:ff7e51425e513103a4b4fd8f5662bd2c49eac80e96623c8e3475b3e5d68e4711` |
 
 
 ### Private/Dedicated Registry
