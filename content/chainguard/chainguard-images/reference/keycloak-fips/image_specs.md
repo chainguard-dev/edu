@@ -3,8 +3,8 @@ title: "keycloak-fips Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public keycloak-fips Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-04-24 00:53:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -72,6 +72,7 @@ The table shows package distribution across variants.
 | `libssl3`                       | X          |        |
 | `libtasn1`                      | X          | X      |
 | `libunistring`                  | X          |        |
+| `libxcrypt`                     | X          | X      |
 | `ncurses`                       | X          | X      |
 | `ncurses-terminfo-base`         | X          | X      |
 | `openjdk-17-default-jvm-bcfips` | X          | X      |

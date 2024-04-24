@@ -5,7 +5,7 @@ type: "article"
 layout: "single"
 description: "Overview: minio Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-24 00:53:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -74,18 +74,19 @@ To start minio in a server configuration, make sure to override the `MINIO_ROOT_
 and pass a data volume to the `server` command.
 
 ```shell
-$ docker run -v $(pwd):/data -e MINIO_ROOT_USER=MYNAME -e MINIO_ROOT_PASSWORD=nothunter2 cgr.dev/chainguard/minio serve /data
+$ docker run -v $(pwd):/data -e MINIO_ROOT_USER=MYNAME -e MINIO_ROOT_PASSWORD=MYPASSWORD cgr.dev/chainguard/minio server /data
 MinIO Object Storage Server
-Copyright: 2015-2023 MinIO, Inc.
+Copyright: 2015-2024 MinIO, Inc.
 License: GNU AGPLv3 <https://www.gnu.org/licenses/agpl-3.0.html>
-Version: DEVELOPMENT.2023-03-24T21-41-23Z (go1.20.2 linux/arm64)
+Version: DEVELOPMENT.2024-04-18T19-09-19Z (go1.22.2 linux/arm64)
 
-Status:         1 Online, 0 Offline.
-API: http://172.17.0.5:9000  http://127.0.0.1:9000
-Console: http://172.17.0.5:46387 http://127.0.0.1:46387
+API: http://172.17.0.3:9000  http://127.0.0.1:9000 
+WebUI: http://172.17.0.3:37953 http://127.0.0.1:37953 
 
-Documentation: https://min.io/docs/minio/linux/index.html
-Warning: The standard parity is set to 0. This can lead to data loss.
+Docs: https://min.io/docs/minio/linux/index.html
+Status:         1 Online, 0 Offline. 
+STARTUP WARNINGS:
+- The standard parity is set to 0. This can lead to data loss.
 ```
 <!--body:end-->
 
