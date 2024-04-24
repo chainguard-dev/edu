@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tigera-operator-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-24 00:53:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `v1.32.4-dev` `v1-dev` `1-dev` `vlatest-dev` `1.32.4-dev` `v1.32-dev` `latest-dev` `1.32-dev` | April 21st   | `sha256:e35ed2b7e980da40b71f479d2fdf118c74df02a0914725ba3ff2904939996b63` |
-|  `1.29` `v1.29` `v1.29.8` `1.29.8`                                                             | April 21st   | `sha256:2a1c6334b7fc89952dee9397c1e34ad65535bfdf7aaea0a9544d37964151bdda` |
-|  `v1.29-dev` `v1.29.8-dev` `1.29-dev` `1.29.8-dev`                                             | April 21st   | `sha256:c1ab2f8ed5cf6daca89fe1c3de59e58ad02d054d9fe86986fbbea7e58d73eee6` |
-|  `1.32` `v1` `1.32.4` `1` `vlatest` `latest` `v1.32.4` `v1.32`                                 | April 21st   | `sha256:cb2c80aa1cd576912a7704f5feb12de30ead06546d2ba55b90ce2fa271b48ebc` |
+|  `latest` `1` `vlatest` `v1.32` `v1.32.4` `v1` `1.32.4` `1.32`                                 | April 23rd   | `sha256:c8c01211675be6fba5559227a0e117192adb23ba3b3af2c6b8d4b02b04f8bccc` |
+|  `v1-dev` `1-dev` `v1.32.4-dev` `v1.32-dev` `latest-dev` `1.32-dev` `1.32.4-dev` `vlatest-dev` | April 23rd   | `sha256:3d548f3bccccd9ce447a3fb72110c857b6553d50512e7e8f8c68f51dcf44719f` |
+|  `v1.29.8-dev` `1.29.8-dev` `1.29-dev` `v1.29-dev`                                             | April 23rd   | `sha256:ccdee5c11c7c4181b1f2370157d31913c681bd3816b542750aa007cb2c8d5b0b` |
+|  `v1.29` `1.29.8` `v1.29.8` `1.29`                                                             | April 23rd   | `sha256:5118e16c3217b135459b89eff105049ffd0b38844af9082ed79c5c1843b90482` |
 

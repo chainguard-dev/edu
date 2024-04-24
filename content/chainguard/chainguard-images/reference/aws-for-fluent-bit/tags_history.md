@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-for-fluent-bit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-24 00:53:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,10 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                               | Last Changed | Digest                                                                    |
 |-------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.32.2-r0-dev-flb-1.9` `2.32.2-dev-flb-1.9` `2.32-dev-flb-1.9` `2-dev-flb-1.9` `latest-dev-flb-1.9` | April 23rd   | `sha256:55e724d390f22d40fe70651203ff2bec675b5e726d133c9608a33e8933dd4f51` |
+|  `2-flb-1.9` `2.32.2-r0-flb-1.9` `latest-flb-1.9` `2.32.2-flb-1.9` `2.32-flb-1.9`                     | April 23rd   | `sha256:c611c93c7381abdbe09dda4ed9468c6d92e33e6333448f4d3e95c73a1a79498c` |
 |  `2.32.2` `2` `2.32` `latest`                                                                         | April 22nd   | `sha256:6bd95c99238e32787fdfccc86d7ce81acc5f7fe814265fdadac441c8345add4f` |
-|  `2.32-flb-1.9` `2.32.2-flb-1.9` `2.32.2-r0-flb-1.9` `2-flb-1.9` `latest-flb-1.9`                     | April 22nd   | `sha256:3fa120c3082fc4947c9907e9181f03b8b94e4df6d5cada5abc31958bd296bd65` |
 |  `2.32-dev` `2-dev` `latest-dev` `2.32.2-dev`                                                         | April 22nd   | `sha256:65eebe85fca1e897c59c56f5520e2e1397e3c3930852a271def46b432e005162` |
-|  `2.32.2-dev-flb-1.9` `2.32-dev-flb-1.9` `2-dev-flb-1.9` `latest-dev-flb-1.9` `2.32.2-r0-dev-flb-1.9` | April 22nd   | `sha256:c52cb6111e1e5556ae0825376cdcd341f65b336fb351ad56eb5a5e0a5f12a67c` |
 |  `2.32.1-dev`                                                                                         | March 28th   | `sha256:e7738d9598515699b383e721862fad3402d7387236806749ba28904bb34792d8` |
 |  `2.32.1-flb-1.9` `2.32.1-r0-flb-1.9`                                                                 | March 28th   | `sha256:aea4bf412ddc10e03dad733f0dbbaa53f7509fd7f2b709efce28c5912abf2eac` |
 |  `2.32.1-dev-flb-1.9` `2.32.1-r0-dev-flb-1.9`                                                         | March 28th   | `sha256:364f2bc2ea2ebab87d7e7d5bdd6a6a34fdb2bdbcf7a2d5796dd25cce6fd4e147` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-24 00:53:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.27-dev` `0.27.0-dev` | April 23rd   | `sha256:4d725a6a9c75c02d048fbe4b6a4ce4db56a8787913770ae8d0325841c14c4d69` |
-|  `latest` `0.27.0` `0.27` `0`                 | April 23rd   | `sha256:50a7e30c2207d5a9eea1adb116581bcc034038b8ab562b41bc15b8ed234ae875` |
+|  `0.27-dev` `0-dev` `latest-dev` `0.27.0-dev` | April 24th   | `sha256:4d725a6a9c75c02d048fbe4b6a4ce4db56a8787913770ae8d0325841c14c4d69` |
+|  `0.27` `0.27.0` `0` `latest`                 | April 24th   | `sha256:50a7e30c2207d5a9eea1adb116581bcc034038b8ab562b41bc15b8ed234ae875` |
 

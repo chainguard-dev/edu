@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the buildkit Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-24 00:53:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)            | Last Changed | Digest                                                                    |
 |--------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-root-dev` | April 22nd   | `sha256:93036842a4688e9ce4a4c498254fcfbf914df66f90baa9a0423b04999ae7b582` |
-|  `latest-root`     | April 22nd   | `sha256:3b82764c40a9331481da38102067a9fe5e0fe4353f5aa6fd5f2bc46ae2854102` |
+|  `latest-root`     | April 23rd   | `sha256:a70a9f1f4c15bf2b8fa59c0d0b7d6cc63c1b6595cbde552096e1517e09446523` |
+|  `latest-root-dev` | April 23rd   | `sha256:e75d5e6c04a0075eac65a96233cd0808224640e92c4973d3aa3271a73ea6f0b5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.13.1-dev` `latest-dev` `0-dev` `0.13-dev` | April 21st   | `sha256:4236a98e599fb1ddaee7b6222ab0663e41e1fb69fadac94e6003a68e53b265c7` |
-|  `0` `0.13` `latest` `0.13.1`                 | April 21st   | `sha256:ecd82d407d737e5fe1637e8ef09fdfb7ee2b15aab67507fd396310e5ddc116ed` |
+|  `0-dev` `latest-dev` `0.13-dev` `0.13.1-dev` | April 23rd   | `sha256:b72c9fda2c744f40c8f22108c9b07e4c8a369e208cb4c06e8a1cc267ac9efb96` |
+|  `0.13` `0` `latest` `0.13.1`                 | April 23rd   | `sha256:b35e99e7695cf1bfe72bf8feae73dcd8db8cf4923f986e0b502cb9375a4444dd` |
 
