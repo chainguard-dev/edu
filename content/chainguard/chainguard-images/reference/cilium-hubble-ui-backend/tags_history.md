@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-24 00:53:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:234993006ad2a36cb3e7f416d3af5d879adedcec0e271c0fc165229dced23a72` |
-|  `latest`     | April 6th    | `sha256:90ebb19a908f720754104bb42dfa425182253c84c08bd5c6128d745f0f8b8750` |
+|  `latest-dev` | April 23rd   | `sha256:33678741f33f68bc29661c17b7dfaa27afc27ae53472719b62ebe7fde56e2f88` |
+|  `latest`     | April 23rd   | `sha256:d0dfea5dbca83efc762b55e73e31ceff554452309619c228b6987ec074e908a3` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.13.0` `0.13` `0`                 | April 21st   | `sha256:f8336905933493f7e6b173ba69360b50d51955545e90270ed1ead21b0c1f2bbb` |
-|  `0.13.0-dev` `0.13-dev` `0-dev` `latest-dev` | April 21st   | `sha256:b0742543a50e63ad9e82a6b1ed1e1708715d787320e161b41836134481d34cce` |
+|  `0.13-dev` `latest-dev` `0.13.0-dev` `0-dev` | April 23rd   | `sha256:a12c40e8b9d56766734306e73a8c134203b2594edd93935e272bcccf06dba6a5` |
+|  `0` `latest` `0.13` `0.13.0`                 | April 23rd   | `sha256:71e524c4e91a4937cf30361a905a74478546a010e1cc9f625ca7ef7ebcc3a3bf` |
 

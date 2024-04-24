@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the flux-image-automation-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-24 00:53:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:8c5828b042131f4151dc2469dfe72842d4add0de162227757eac42b195b37e29` |
-|  `latest`     | April 4th    | `sha256:08db57bacf49ce807bd4b907608d6f4a08d8cce42fcb882d8a8b3ac6067628c0` |
+|  `latest-dev` | April 23rd   | `sha256:e7b37f2ac72d794acc61b8b1228ed0d85baaf1ea2c7c7f77fabe9178a4316a10` |
+|  `latest`     | April 23rd   | `sha256:47b525aa5e90c8bd3803ea4e5210fee544973d6ffbb6258783f01c6358ec71fb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `latest` `0.37` `0.37.1`                 | April 21st   | `sha256:97718821ef20c16e10642dd1011bb6709db33c781a467347215a91b49d54270b` |
-|  `0-dev` `latest-dev` `0.37-dev` `0.37.1-dev` | April 21st   | `sha256:64a46b70b827c44f9a7cb0cb1a8e5f484ace0521b43164fe45cd8df51d8024f6` |
+|  `0.37-dev` `latest-dev` `0-dev` `0.37.1-dev` | April 23rd   | `sha256:e543d936d7c8bc0f459d75aaa9ecc4bd75e6c94ad62df2a4106edf9d6bc37334` |
+|  `0.37.1` `latest` `0.37` `0`                 | April 23rd   | `sha256:8e5e22662bf0777ca97176cc06a73ecb0e4e6673f6da3e89bdc719fb20bf0b3d` |
 

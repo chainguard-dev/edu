@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-autoscaler-addon-resizer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-24 00:53:13
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:6157e884697ff94f7218be2a4e5a7d422e5d899a0ce85e1c92af2fb96e3b0ec3` |
-|  `latest`     | April 15th   | `sha256:ed392c2c31dd93d7b9148140614b6ff077b588dae8d995ba1bcf935575354510` |
+|  `latest-dev` | April 23rd   | `sha256:fb425271a151c0282d1937552b6f02dbba5d2709e63d38a1e47284fc0fa46dd0` |
+|  `latest`     | April 23rd   | `sha256:46385124521f748b75c6c12f32928c940d1277085eafe5b930d42dbc1e459a37` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1` `1.8` `1.8.20`                 | April 21st   | `sha256:e367b1dea9cd1382c73bc2d0feb8c8b7c461f1afb2dc45f2e0c846c7a0252698` |
-|  `1-dev` `1.8.20-dev` `latest-dev` `1.8-dev` | April 21st   | `sha256:a2058312d80e73c97fdf6d9401c243ecb80c13622e0baec375e1585efe3a8b18` |
+|  `1.8.20-dev` `1.8-dev` `1-dev` `latest-dev` | April 23rd   | `sha256:cce6a7488c0a98e4d773391e708ee772c72744400678a81ecda46c003435c35a` |
+|  `1.8` `latest` `1` `1.8.20`                 | April 23rd   | `sha256:b8c86b6fb48da9a7c8a7cffcb894a9cc757578e79bfcab415f11514d99fa0021` |
 
