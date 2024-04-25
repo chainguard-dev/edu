@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for jre-fips Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-25 00:53:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for jre-fips Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `cgr.dev/chainguard-private` | openjdk-11, openjdk-11-dev, openjdk-11.0, openjdk-11.0-dev, openjdk-11.0.21, openjdk-11.0.21-dev, openjdk-11.0.21.9, openjdk-11.0.21.9-dev, openjdk-11.0.22, openjdk-11.0.22-dev, openjdk-11.0.22.1, openjdk-11.0.22.1-dev, openjdk-17, openjdk-17-dev, openjdk-17.0, openjdk-17.0-dev, openjdk-17.0.10, openjdk-17.0.10-dev, openjdk-17.0.10.1, openjdk-17.0.10.1-dev, openjdk-17.0.9, openjdk-17.0.9-dev, openjdk-17.0.9.9, openjdk-17.0.9.9-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | No public tags are available for this image.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `cgr.dev/chainguard-private` | openjdk-11, openjdk-11-dev, openjdk-11.0, openjdk-11.0-dev, openjdk-11.0.21, openjdk-11.0.21-dev, openjdk-11.0.21.9, openjdk-11.0.21.9-dev, openjdk-11.0.22, openjdk-11.0.22-dev, openjdk-11.0.22.1, openjdk-11.0.22.1-dev, openjdk-11.0.23, openjdk-11.0.23-dev, openjdk-17, openjdk-17-dev, openjdk-17.0, openjdk-17.0-dev, openjdk-17.0.10, openjdk-17.0.10-dev, openjdk-17.0.10.1, openjdk-17.0.10.1-dev, openjdk-17.0.9, openjdk-17.0.9-dev, openjdk-17.0.9.9, openjdk-17.0.9.9-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

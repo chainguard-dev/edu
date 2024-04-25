@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-25 00:53:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,6 +31,12 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s) | Last Changed | Digest |
-|---------|--------------|--------|
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.9.12` `2.9`                               | April 24th   | `sha256:91fda7d2f69a0e5424273d2397cf5ee88c541bcd042aab68a8056ac4233720aa` |
+|  `2` `latest` `2.10` `2.10.7`                 | April 24th   | `sha256:f365b9d31bb1537a5fbaf5f099a6f96c7c6d5674e4d41f3fcbd50a8527d13b06` |
+|  `2-dev` `latest-dev` `2.10.7-dev` `2.10-dev` | April 24th   | `sha256:47a691a04808983c2dbc48be3aa7609b76b6d6c96409ecd340aab881d7fd9243` |
+|  `2.8.16` `2.8`                               | April 24th   | `sha256:2cb6b51ba3a552cffc16f714a7427b7c0fb68fccc808aaab5014d122e79878dc` |
+|  `2.8.16-dev` `2.8-dev`                       | April 24th   | `sha256:efaeb503b6a330ad3a8ffb82f85f13461401f9b4a813a24e2b9a3a162efe45f8` |
+|  `2.9.12-dev` `2.9-dev`                       | April 24th   | `sha256:63c6cf2f86eea25e8ee8ba7a53104b39338c62b0ba2d2d6d073d6a261af74261` |
 

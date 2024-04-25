@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli-v2 Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-25 00:53:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:beedeb67422241b49fdce64346fda43f23d16146c417a0f5bbfe0c5ecfa2dabc` |
-|  `latest`     | April 22nd   | `sha256:38d186502b88927b7a8f9e76cf3ad9fcd7bea098bd8c0e405d0b6ad5e37026ff` |
+|  `latest`     | April 24th   | `sha256:d41e80fe04f7940df80a17bc916d33219f74dc9862370a666a48d40aa08bfcd2` |
+|  `latest-dev` | April 24th   | `sha256:738926aa03e356e702f0d221badbfb7d41bc3fb5920c5bd4a5cdfe83575b3df8` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.15.40` `2` `2.15`                 | April 21st   | `sha256:62619430b9cfa39bc598a0494223a83d48b1358d419bbee9a57aa66494c166d6` |
-|  `latest-dev` `2.15.40-dev` `2-dev` `2.15-dev` | April 21st   | `sha256:54d540174e3903b682291d0aa2889f797810fbca16906d88280bd3c8a814fa27` |
+|  `2.15.41-dev` `latest-dev` `2-dev` `2.15-dev` | April 25th   | `sha256:eb7ea8a29793c74204f004f14c966adf984437c6965797fa5d7af0ec8d12752a` |
+|  `2.15` `latest` `2` `2.15.41`                 | April 25th   | `sha256:2a0b76629380f53bda9d73b843698ee77ea57df8338fadd77f1134c520759144` |
+|  `2.15.40`                                     | April 21st   | `sha256:62619430b9cfa39bc598a0494223a83d48b1358d419bbee9a57aa66494c166d6` |
+|  `2.15.40-dev`                                 | April 21st   | `sha256:54d540174e3903b682291d0aa2889f797810fbca16906d88280bd3c8a814fa27` |
 |  `2.15.39`                                     | April 18th   | `sha256:b1f8fdd7907ec2b966856d30d11958452fa0d825b38a705a626dc4dfd6ee860e` |
 |  `2.15.39-dev`                                 | April 18th   | `sha256:30349fb4f99d6c2f2a1e8083816dad78378d14f25fdf60442d3e3904354728ff` |
 |  `2.15.38-dev`                                 | April 13th   | `sha256:115be1a09dcbd4873f1a2d4695a23231335ff6b9e2fdcddeacac18d11cf70024` |

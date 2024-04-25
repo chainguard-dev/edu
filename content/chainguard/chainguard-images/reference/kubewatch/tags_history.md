@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubewatch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-25 00:53:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 22nd   | `sha256:0b24d51b73bc56964b1b007097bacf76ec770376e5ffbf33e00eb2dd50918d4d` |
-|  `latest-dev` | April 22nd   | `sha256:18d9425f1b2b59378a8ca8898c2e8b31f7d1ce8c3c4f7ba0c496f967f780c262` |
+|  `latest`     | April 24th   | `sha256:0b5e191bb38165bb18ca8fded779a0baa6a0ebfeee7b61c7db98c59712cb5547` |
+|  `latest-dev` | April 24th   | `sha256:6ffb866eb61bb0ba866602d252e616f3103ea3bdb8644bf046cf03f3a96d48e2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.5` `2` `2.5.0`                 | April 21st   | `sha256:ca8ea6d0ba427a9c53d4265d4e9be2340b8c2615aaf307115def8d5bcebcf164` |
-|  `2-dev` `latest-dev` `2.5.0-dev` `2.5-dev` | April 21st   | `sha256:ff0a460bd0b69867f82020810cbc6d09d5184b093ac03b2c0e5bbcde31883f33` |
+|  `2.5.0` `2.5` `2` `latest`                 | April 24th   | `sha256:6345d0bcd6c021e082664a5bb63e255852fd318a6b8132f94407c7d3c8466425` |
+|  `latest-dev` `2.5.0-dev` `2.5-dev` `2-dev` | April 24th   | `sha256:551f46c01926130496232709299d5e3c88f960d8af9b8c5b88457a8a3759c7c5` |
 

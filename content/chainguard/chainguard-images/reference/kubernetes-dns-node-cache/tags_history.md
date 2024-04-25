@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dns-node-cache Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-25 00:53:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 22nd   | `sha256:1794ec001b368a3780f770f265a6b74acde6b627a54ec54128875b3b9d7645d9` |
+|  `latest` | April 24th   | `sha256:40c8f68b43973a9604599fb2769c5a427b4e99fe059191ed06cb358834f99120` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.23` `1` `latest` `1.23.0`                 | April 24th   | `sha256:d0ea1184272ae4d6acf38e09ae918765e93a43f57d73d375510759474616e34f` |
+|  `1.23.0-dev` `1.23-dev` `latest-dev` `1-dev` | April 24th   | `sha256:e8293a624a04a74ca90e1812703e3212ad8dfc1383bb809d36f03dc14265bd33` |
 |  `1.17-dev` `1.17.4-dev`                      | April 21st   | `sha256:43c4cd7561ffcfac2ce22cbfc720ba8d7e001faefd1e509657ef45b9221429d2` |
 |  `1.17` `1.17.4`                              | April 21st   | `sha256:567064d55f903a604a34e12c4533f3cb0d11f20f010fc7ac8744774a6d7303b8` |
-|  `latest` `1` `1.23.0` `1.23`                 | April 21st   | `sha256:205ecbdeb193b64e05632d43d63c220a566c9a0aea52cb638a16ccdb4c44656a` |
-|  `1-dev` `1.23.0-dev` `latest-dev` `1.23-dev` | April 21st   | `sha256:99bc51cfd716b770cda1e757cc78bd074be518ec1d9c4f9d65ceb71404309dfa` |
 

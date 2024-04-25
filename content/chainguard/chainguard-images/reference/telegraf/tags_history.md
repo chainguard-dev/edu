@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the telegraf Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-25 00:53:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,4 +45,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.28.5-dev` `1.28-dev`                      | April 21st   | `sha256:a1f66c0d769bb65e877d778e95c0e064772c9cfc09f2660e3833e5cd330abc6b` |
 |  `1.27-dev` `1.27.4-dev`                      | April 21st   | `sha256:fb746db3e49eb60423c6be3ec7736999275de2da9d125b5cb7626a877ce37515` |
 |  `1.27` `1.27.4`                              | April 21st   | `sha256:e66e1be053de52287fd8f4596d62d96b8e2fec63d69e0f7915156071ed03046d` |
+|  `1.26.1-dev`                                 | April 24th   | `sha256:3e8c70a252b346995897d011435ff1f7f527a4a299ed9573121e0cb4cd6868cd` |
+|  `1.26.1`                                     | April 24th   | `sha256:3e60735e4e27c11e4cccffcf62af4a292b9eb6c36399e06d3224a7ea65087e16` |
 

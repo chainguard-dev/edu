@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for kubeflow-pipelines-cache-server Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-25 00:53:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for kubeflow-pipelines-cache-server Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                             |
-|------------------------------|--------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                               |
-| `cgr.dev/chainguard-private` | 2, 2-dev, 2.0, 2.0-dev, 2.0.3, 2.0.3-dev, 2.0.4, 2.0.4-dev, 2.0.5, 2.0.5-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                             |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                               |
+| `cgr.dev/chainguard-private` | 2, 2-dev, 2.0, 2.0-dev, 2.0.3, 2.0.3-dev, 2.0.4, 2.0.4-dev, 2.0.5, 2.0.5-dev, 2.1, 2.1-dev, 2.1.0, 2.1.0-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

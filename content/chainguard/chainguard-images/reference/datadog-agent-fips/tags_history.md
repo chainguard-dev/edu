@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the datadog-agent-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-25 00:53:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7-dev` `latest-dev` `7.52-dev` `7.52.1-dev` | April 22nd   | `sha256:8f12bfe903ffe908eb44e570624e7c094514db07c10ecf5ec66fa46b41c9eed7` |
-|  `7` `7.52` `latest` `7.52.1`                 | April 22nd   | `sha256:665f75ac0379e81d228af9579c43d382fd2b4c3dbc127f191a3e9365713b1326` |
+|  `latest` `7` `7.52` `7.52.1`                 | April 24th   | `sha256:58267f85e7f50f894f09a87d022ee39701f2c3bc734adf7e33fa4ab4acc42f4a` |
+|  `7-dev` `7.52-dev` `7.52.1-dev` `latest-dev` | April 24th   | `sha256:c5ca6615f480716cd971fa5c6416fdd4add61b411770e418db9b14b8a6fbc116` |
 |  `7.52.0`                                     | April 3rd    | `sha256:bcf25966df4506936cedb2ad88c311a10b2aae1ef8ffe86aa3ca8e10fd983606` |
 |  `7.52.0-dev`                                 | April 3rd    | `sha256:abe28d3e428582c2218ab4d33a19ec2f5a7031ef7f0b5466c278fa5f455e792e` |
 
