@@ -5,8 +5,8 @@ linktitle: "PyTorch / CUDA 12"
 aliases: 
 - /chainguard/chainguard-images/getting-started/getting-started-pytorch-cuda12
 description: "Tutorial on the PyTorch-CUDA12 Chainguard Image"
-date: 2024-04-19:07:52+02:00
-lastmod: 2024-04-19:46:53+00:00
+date: 2024-04-25:08:00+02:00
+lastmod: 2024-04-25:08:00+00:00
 tags: ["Chainguard Images", "Products"]
 draft: false
 images: []
@@ -258,6 +258,3 @@ To fine-tune a model for image classification as we did here, you can replace th
 By fine-tuning a pretrained model, we took advantage of transfer learning, meaning that the pretrained model (resnet18) was already trained on inputs with relevance to our classification task. Because we used transfer learning, the relatively small amount of input data was still sufficient for good accuracy in our fine-tuned model. If you're working with a large amount of input data, you might consider using a larger pretrained model, such as resnet34. In addition, if training using significantly more data or training using limited computation relative to the task, you may consider the more efficient convolutional neural network as fixed feature extractor approach, which trains only one attached layer rather than updates the original model.
 
 PyTorch maintains a [set of guides](https://pytorch.org/tutorials/) that are frequently updated. These provide a good starting point when undertaking a new project in PyTorch. If you're new to the field of deep learning, the book [Deep Learning for Coders with Fastai and PyTorch](https://course.fast.ai/Resources/book.html) hosts [freely available materials on GitHub](https://github.com/fastai/fastbook.0).
-
-
-
