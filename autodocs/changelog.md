@@ -1,3 +1,12 @@
+# 2024-04-25
+New images added:
+
+- datadog-cluster-agent
+- karpenter-fips
+- local-volume-provisioner
+
+A total of **213** documents were updated.
+
 # 2024-04-24
 
 

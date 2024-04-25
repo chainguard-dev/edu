@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the karpenter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-25 00:53:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.36-dev` `latest-dev` `0.36.0-dev` `0-dev` | April 20th   | `sha256:a2da2693bf91e69c65366ed5d6518e0dcb7b1033958663eb87aa5f357ce5d42f` |
-|  `0` `0.36` `0.36.0` `latest`                 | April 11th   | `sha256:9435066652ea84fab4f6970eb8eacfc34c9962c28746767bb665ffdc8daac8de` |
-|  `0.35-dev` `0.35.4-dev`                      | April 9th    | `sha256:8cc27be69489e27ab451f1fef40c01ae809b2d0e4d7497b07354e4d8468958fa` |
-|  `0.35.4` `0.35`                              | April 4th    | `sha256:6832ddcaf4b8f542b81bd5c3ba02ed4b9917688ae997a36e6168318e035a80cb` |
+|  `0.35-dev` `0.35.4-dev`                      | April 24th   | `sha256:09867b03568d076c0646a5e5e72279f55d5e1e1ac302e6aadec9d27fb5bf6a1e` |
+|  `0` `0.36.0` `0.36` `latest`                 | April 24th   | `sha256:0f1a24830639d33071b2b664059e959446c245422e297d1e10767a05c8d45df5` |
+|  `0.35.4` `0.35`                              | April 24th   | `sha256:034abc1b4bb7a96a9bc5a9c4ee7090e3ccb184dcdd9d1598f38c3329ae210ce0` |
+|  `0.36.0-dev` `0.36-dev` `0-dev` `latest-dev` | April 24th   | `sha256:1b83625e12dddb2f149638a7285b740842a4170620be390641c328f205d033f2` |
 |  `0.35.2-dev`                                 | April 2nd    | `sha256:74e3f2c40db018adab0ec934cb1089d3506d311bf1eec2e1a23d2953649660b1` |
 |  `0.35.2`                                     | March 28th   | `sha256:8ec243996c11256ac91c346a1c44b2d5691d37584b410739e57920bd65d699e2` |
 |  `0.27.2`                                     | April 19th   | `sha256:4920dd60eb95cc5ad09a92de21c100c4bfe6f10f9a1b493266009f2400294c73` |
