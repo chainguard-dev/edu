@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kube-fluentd-operator Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-04-25 00:53:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -68,11 +68,13 @@ The table shows package distribution across variants.
 | `libstdc++`                            | X          | X      |
 | `libsystemd`                           | X          | X      |
 | `libunistring`                         | X          |        |
+| `libxcrypt`                            | X          | X      |
 | `ncurses`                              | X          | X      |
 | `ncurses-terminfo-base`                | X          | X      |
 | `openssl-config`                       | X          | X      |
 | `readline`                             | X          | X      |
 | `ruby-3.2`                             | X          | X      |
+| `ruby3.2-bundler`                      | X          | X      |
 | `wget`                                 | X          |        |
 | `wolfi-baselayout`                     | X          | X      |
 | `yaml`                                 | X          | X      |

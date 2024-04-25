@@ -3,8 +3,8 @@ title: "cassandra-reaper Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public cassandra-reaper Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-04-25 00:53:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -72,6 +72,7 @@ The table shows package distribution across variants.
 | `libstdc++`              | X          | X      |
 | `libtasn1`               | X          | X      |
 | `libunistring`           | X          |        |
+| `libxcrypt`              | X          | X      |
 | `mpdecimal`              | X          | X      |
 | `ncurses`                | X          | X      |
 | `ncurses-terminfo-base`  | X          | X      |
@@ -87,6 +88,7 @@ The table shows package distribution across variants.
 | `py3-requests`           | X          | X      |
 | `py3-urllib3`            | X          | X      |
 | `python-3.12`            | X          | X      |
+| `python-3.12-base`       | X          | X      |
 | `readline`               | X          | X      |
 | `sqlite-libs`            | X          | X      |
 | `wget`                   | X          |        |

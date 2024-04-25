@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public kubeflow-volumes-web-app Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-04-25 00:53:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -70,11 +70,6 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`    | X          | X      |
 | `openssl-config`           | X          | X      |
 | `py3-gunicorn`             | X          | X      |
-| `py3-importlib-metadata`   | X          | X      |
-| `py3-packaging`            | X          | X      |
-| `py3-parsing`              | X          | X      |
-| `py3-typing-extensions`    | X          | X      |
-| `py3-zipp`                 | X          | X      |
 | `py3.12-setuptools`        | X          | X      |
 | `python-3.12`              | X          | X      |
 | `python-3.12-base`         | X          | X      |

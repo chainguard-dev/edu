@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-25 00:53:12
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 23rd   | `sha256:b7c22b20f37c6288b7dea704d26d4db37d1f2fed36606678a56c250189d7f725` |
-|  `latest-dev` | April 23rd   | `sha256:a268713845b35f74d7c0b110c8af8e5322f030af029628dd884059f2bfb5c633` |
+|  `latest`     | April 24th   | `sha256:dcd05caa55df7a441381795f14aa87c6eab27d63290a1517144a249ab20eb550` |
+|  `latest-dev` | April 24th   | `sha256:f42b7b976209d181d055998cbc30df42676bdcd7cfd66a69b2aad94cb1d2cf26` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.31.0` `0.31` `latest`                 | April 23rd   | `sha256:a671e74ad0dcb7029571bb545c6f433ae35c407787cb77db57ab36baef012a17` |
-|  `latest-dev` `0.31.0-dev` `0.31-dev` `0-dev` | April 23rd   | `sha256:68714299c9a9842d964fe3745d47df0b785fd2187244d22f5d335c6803d86ed0` |
+|  `latest-dev` `0.31-dev` `0.31.0-dev` `0-dev` | April 24th   | `sha256:41f970352c11013ab9492246485333280a6b0818a18914ff4f8c7f87744d66f7` |
+|  `0` `latest` `0.31.0` `0.31`                 | April 24th   | `sha256:302637b0c39d5879492f1b650b9eef1f905dddc6ec92dfc4d68197d77b5b6fea` |
 
