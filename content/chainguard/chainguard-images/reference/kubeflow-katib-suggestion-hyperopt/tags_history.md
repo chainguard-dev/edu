@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperopt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 22nd   | `sha256:7895bf96faade52fdeefb7daccb209c5d38475b912292f71e6106a5238db6742` |
-|  `latest-dev` | April 22nd   | `sha256:3ed0305a0be92be50d676d5a8a1619de400f3942e9aca117e61d42679b4231b6` |
+|  `latest-dev` | April 25th   | `sha256:672ab156c3e02d672acf38651277eb56083fa172cfcf07bb4c4539cca0424879` |
+|  `latest`     | April 25th   | `sha256:0f3589367fe1aecaf3d9b4beb0e69508d970cf858df802ac1727f795b3cca172` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16` `0` `latest` `0.16.0`                 | April 24th   | `sha256:76db613276d0a40cae5331cba943095474d7a46e8540f2b14ea88f46829cd93c` |
-|  `0-dev` `0.16-dev` `latest-dev` `0.16.0-dev` | April 24th   | `sha256:0c0a15d2607377b6340ccd811dcf80fbc3edf668c7caf59e5de2c32c3890b572` |
+|  `0.16` `latest` `0.16.0` `0`                 | April 25th   | `sha256:53859709ac7b23ca5b5806c64c5f68535dfece46d5fb96dc3d206513bcf7f177` |
+|  `0.16.0-dev` `latest-dev` `0.16-dev` `0-dev` | April 25th   | `sha256:033bfe704b75ad57ecca65beb99b2cdc2cb29c94059d213065272fe811331dc4` |
 

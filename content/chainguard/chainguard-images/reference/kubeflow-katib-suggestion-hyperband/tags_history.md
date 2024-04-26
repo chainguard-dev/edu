@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-hyperband Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 22nd   | `sha256:27f879292e8dacb89638e5fc56c0cd72888f0eb57f402f19a050c20366778533` |
-|  `latest-dev` | April 22nd   | `sha256:4ac4924a8bf9e2e6d5497b04737ef354cf801231595f30bf728c192125809d4b` |
+|  `latest-dev` | April 25th   | `sha256:9f364395b2bb227f5ba1ab90ebe283d9b95b8e81558e10d12eb35721e4f44a96` |
+|  `latest`     | April 25th   | `sha256:f2dfda0fd26a902a4fe96cb8d4310f490bf879ee37373005a9ab868d27ffb5f1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0` `0.16` `latest` `0`                 | April 24th   | `sha256:d8f5e7b0ccea9e66aacc494e01c9e194601105a9dd849966fec6c574cafb6255` |
-|  `0-dev` `0.16.0-dev` `0.16-dev` `latest-dev` | April 24th   | `sha256:7a134e611bdbda90120e95b355523bca36c2aed7a654252ddff359da524a6558` |
+|  `0.16.0-dev` `latest-dev` `0-dev` `0.16-dev` | April 25th   | `sha256:22cda0a25b4f7ddbcc08fd806e47773a0c6d8cc1a891a0692698f1b416fdce10` |
+|  `0` `0.16` `latest` `0.16.0`                 | April 25th   | `sha256:f8b480c924e186c05d7cdccb14fdfe80728d2786ea57044c5b33975c64ade40d` |
 

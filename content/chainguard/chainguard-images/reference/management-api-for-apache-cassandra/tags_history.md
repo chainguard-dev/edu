@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 22nd   | `sha256:552599d53918b6bd295d24e50e42f8004b8fe0accb28f6de969c98a4ba41e953` |
-|  `latest-dev` | April 22nd   | `sha256:f9248d95f87cc46c0ff592014bb13111c1c02e9246d5fcf2d4ce58eb0dc61ab0` |
+|  `latest-dev` | April 25th   | `sha256:866710b732ae608cff89d61931e84c2153154f27c367d471e12c71a1a0186d32` |
+|  `latest`     | April 25th   | `sha256:bd4cdbb7b23c5832410c7d2f29a3c246c06847bc8222ffa46fd0f49f1823974c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.1.74-dev` `latest-dev` `0.1-dev` | April 21st   | `sha256:c2b419c9a254043737be2cebf468ec592a68997af5940841a37a9d033710d385` |
-|  `0.1.74` `0` `0.1` `latest`                 | April 21st   | `sha256:0ae124e3005a8fd29fe448916188af0951e3a8724ed509982b31a13f47e22ebb` |
+|  `latest` `0.1.74` `0` `0.1`                 | April 25th   | `sha256:18d12ef3ccb77db6eeae0268bcfdacda6179f5312c1c3f47603e8eb4332d2dbf` |
+|  `0.1.74-dev` `0.1-dev` `latest-dev` `0-dev` | April 25th   | `sha256:c80ca490b2ec0c84123be0a1014e0c40c85873059d40fa3ff498f21c9ae05230` |
 

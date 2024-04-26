@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public jellyfin Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -85,7 +85,7 @@ The table shows package distribution across variants.
 | `lttng-ust`              | X          | X      |
 | `ncurses`                | X          |        |
 | `ncurses-terminfo-base`  | X          |        |
-| `nodejs-20`              | X          | X      |
+| `nodejs-22`              | X          | X      |
 | `openssl-config`         | X          | X      |
 | `wget`                   | X          |        |
 | `wolfi-baselayout`       | X          | X      |
