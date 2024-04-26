@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:b7cf1bc20ae5a038e64db166d58f8acb00d9f1e7c322be0c41a5a642dcbb0dfa` |
-|  `latest`     | April 22nd   | `sha256:047c40a365fd3e10b9477255274d151e98265e055e390b72f4fa7bacec6b32d4` |
+|  `latest-dev` | April 25th   | `sha256:48a6744fb36799421d552a1fd1dccd5fd7a952d884f6cdc595f69c39058c9350` |
+|  `latest`     | April 25th   | `sha256:056d12309b808c6a16717efc129c62d5776cd1ec74607be459d7268c7a3435d7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `latest-dev` `4.0.18-dev` `4.0-dev` | April 21st   | `sha256:0f28bd4c0f0404caa611ad13ed394e2b1e0a5f5bc691f4e55f1804c967aab026` |
-|  `latest` `4.0` `4.0.18` `4`                 | April 21st   | `sha256:8987803ca1ecc55f0cdf8ede63129dff61395a18de54f34450bc4d612da68b39` |
+|  `latest` `4.0.18` `4.0` `4`                 | April 25th   | `sha256:411299f2d4a5c549d5c91852aae8f516706c2c22d899457197bd829d40868578` |
+|  `4.0.18-dev` `4.0-dev` `4-dev` `latest-dev` | April 25th   | `sha256:586e4f817dc6ba53ce1e683a932481d99372e2a9cbb3bf5682da92cf6bbce11b` |
 

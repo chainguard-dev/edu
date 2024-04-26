@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ingress-nginx-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 23rd   | `sha256:4fa55551c64b3eaae70a06b2e791c2803e79f203f15c54ba74217e2b4b05925a` |
-|  `latest`     | April 23rd   | `sha256:79f87a5cc371a1146d5322097b775b9731b4bea3b2703910d8f36d155472ede0` |
+|  `latest`     | April 25th   | `sha256:c7d5586997025f443aed15422aa0d889ece0f11721ce56cf2196a7dee6c3fb2b` |
+|  `latest-dev` | April 25th   | `sha256:7a4818a3df8c2add6b61b7a8fc55a414ef75fa027e1326144d93c9b8ca0cf268` |
 
 
 ### Private/Dedicated Registry

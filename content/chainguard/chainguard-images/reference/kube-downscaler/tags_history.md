@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 22nd   | `sha256:8210d25d9c8540e53bf8a7df39a8698803db07373189828d8fe2855f1c112ad2` |
-|  `latest-dev` | April 22nd   | `sha256:4ed7e7f100fff6e69298bf782fc88885dc17cb19084261280fa9680fda5f81b9` |
+|  `latest-dev` | April 25th   | `sha256:7e4de90c8ac95e53c19963a70b4261cad80943186ce55e650cc3b9731b98a58a` |
+|  `latest`     | April 25th   | `sha256:f89ca9560e0b47b056729593e731c294abd24ca2a819bd370f5d3848469aa1d1` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.2.0` `23.2` `23` `latest`                 | April 24th   | `sha256:c031e9b40d56aa3b3b724d838281d4a8fb918293b0c6dc3ef52d1b3d1f425f77` |
-|  `23-dev` `23.2.0-dev` `23.2-dev` `latest-dev` | April 24th   | `sha256:5b0c24bdc28dd2ffe8ec209124487a15b911f00d5d72e4f5a0dba149939e7bf0` |
+|  `23.2.0-dev` `23-dev` `23.2-dev` `latest-dev` | April 25th   | `sha256:1240ff457af2647454d6e712e4140fdca70f68de7ff7a83bf96d059163348fc0` |
+|  `23.2` `latest` `23` `23.2.0`                 | April 25th   | `sha256:0cab6a1d5aa173c9c565c680dc4bc2d6862373355907756b8c14fe6947ad08d3` |
 
