@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-optuna Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:1be59ff408c8cff98bd4132e4d38e8c514942f6f8171da5fe393683373853323` |
-|  `latest`     | April 22nd   | `sha256:c39eed4fe4ba1b587819abe0a3034d2abceddfd135a2ccd479c801394a043f41` |
+|  `latest`     | April 25th   | `sha256:6d113896f8f4c4f3807c4a74633b67bda2d74590b9c2a43f9562262eabd2d652` |
+|  `latest-dev` | April 25th   | `sha256:4228fbcc014355a6f3efa9581f0209c89c34598c8c8cddaa414b1ac5e9ed58a8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.16.0` `0.16` `latest`                 | April 24th   | `sha256:656ba7bd8744d97c7ba49e19f3c91e1e45fe6c462ef4f667b1aa8e95031fff83` |
-|  `0.16-dev` `0.16.0-dev` `0-dev` `latest-dev` | April 24th   | `sha256:2cf47e81521cab3b726b5da7346dae118df33b5a5ce53ca4a5cbbee8f3aadefd` |
+|  `0.16.0` `0.16` `latest` `0`                 | April 25th   | `sha256:2f298b695d5ddaa94ff142ce0f33b761a8e46f93cff8952ae6c3568e09d99c33` |
+|  `0.16.0-dev` `0.16-dev` `latest-dev` `0-dev` | April 25th   | `sha256:2fa79615c82c818e58a611848749d407b69de57f08038b5bcf99e35254bb6768` |
 

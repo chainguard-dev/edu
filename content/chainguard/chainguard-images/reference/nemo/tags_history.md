@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nemo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 22nd   | `sha256:3f1ce19326b1fadb017035c5a286895662d79396ddc02bc2fd6005a4b73ef6a3` |
-|  `latest-dev` | April 22nd   | `sha256:e15090b77c0910920f14cf1cfd00fc543e86fffdc67aec11382faeb7ef36d716` |
+|  `latest`     | April 25th   | `sha256:7ea05cb149eac8c5034c51aaa4082c8bbf5eb99e3aa93ee89a33ae159f74361b` |
+|  `latest-dev` | April 25th   | `sha256:351105eb0a8fe99e8eb49cd522534fd338f657ec3408a988737f67f788dffb27` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.23.0-dev` `1-dev` `latest-dev` `1.23-dev` | April 21st   | `sha256:db2834d2f706b4ac7878f641b7a440138b207fcb9da1ee383b4c109061f538d8` |
-|  `1.23.0` `1.23` `1` `latest`                 | April 21st   | `sha256:49d4f1097b8028cb002081d27558ae386e05377e481cafe8744aeffb58852ba4` |
+|  `latest-dev` `1.23-dev` `1.23.0-dev` `1-dev` | April 25th   | `sha256:80e575eaee696dc3e9047df9eea8ce11021a840ac749ee3772a0108a4725b4ab` |
+|  `1` `1.23.0` `1.23` `latest`                 | April 25th   | `sha256:6caa78c1b375b80dac12270b92d6d969ccfd4501fb546009dfc94d7395f71b4b` |
 

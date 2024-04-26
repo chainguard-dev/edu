@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-api-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 24th   | `sha256:ba846724805ec56707aaf2a43002974735820564a67a4850be13c63c6f107c5b` |
-|  `latest`     | April 24th   | `sha256:8dc91692e964755f85ca67a4224445cc98967a959eaaf42f32c2247510e1840c` |
+|  `latest`     | April 25th   | `sha256:6e531a09d8ab7c702100cbb0bc064f6756f547fac6ae8f85e78d2bc2a40d23b5` |
+|  `latest-dev` | April 25th   | `sha256:43a5106f42c458a1634f401ddcf249a60b3e066748287aefb0cb71f2b995aba3` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.1.0-dev` `latest-dev` `2.1-dev` `2-dev` | April 24th   | `sha256:414a1a01939d70e039f078e067ed9fae8a3902c52c145254c4cdefe0baaa26cb` |
-|  `2` `2.1` `2.1.0` `latest`                 | April 24th   | `sha256:74911d9f87b925a6d040b30d6c8c89af7e9edb0e32fa758bb31ebba296cefb41` |
+|  `2.1` `2` `latest` `2.1.0`                 | April 25th   | `sha256:086299cae2a1a82c302b8245628f10339d90a9088c2a32d9c7721f6d5f1669b2` |
+|  `2.1.0-dev` `2-dev` `latest-dev` `2.1-dev` | April 25th   | `sha256:df4ab24f06c204ff557379946128764bcba28fbf9cde3ea8cc5855f8bfbbc871` |
 |  `2.0.5-dev` `2.0-dev`                      | April 24th   | `sha256:51fba8820a0bcbedab0097e9f296f308783acb1ef4fb8d7685ab72cdc0ac1b73` |
 |  `2.0.5` `2.0`                              | April 24th   | `sha256:b0512d5db32cf64dcd2acc4927a547c541a70184e7fcf0154b6fe2f85d6c1f86` |
 

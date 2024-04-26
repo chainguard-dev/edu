@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:a57c19a5edc9dd45bbf187abe127bc9cdd1bc9ba2bd24d4927644478dbd18eda` |
-|  `latest`     | April 22nd   | `sha256:d7046c69c8989f6fb826f72d2493406bba316d099f4b7e1df5b5a76269d57e4e` |
+|  `latest`     | April 25th   | `sha256:663862e9d8d61031a96c7658b8ec1ee3ba9d70f7c791cd4f6dfa6079b2f2db42` |
+|  `latest-dev` | April 25th   | `sha256:4cca4dacc0f772756747addbbbe1991158c08538b16505727cb7b69ca1974845` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.19-dev` `1.19.2-dev` | April 21st   | `sha256:ed4b9f5b2e1aae0c4f2d050f185fff5069d49baba94ebf16753fd121e533834f` |
-|  `latest` `1` `1.19.2` `1.19`                 | April 21st   | `sha256:222da0a2e62578aa401d30f864f4346fdc07d1f9f11050687dfaae7b3e74f9fc` |
+|  `latest` `1.19` `1.19.2` `1`                 | April 25th   | `sha256:3f6d53a2e1c0480bf7f96f8a820a0323b05bfc6abc5a8a7d1dd648d29b27c17e` |
+|  `1.19.2-dev` `1.19-dev` `latest-dev` `1-dev` | April 25th   | `sha256:f48975546fd93be02639c6eb967f39d5a943cb424357ab1738dca5e4c12713da` |
 

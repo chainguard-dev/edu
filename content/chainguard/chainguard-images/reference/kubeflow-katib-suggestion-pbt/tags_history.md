@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-katib-suggestion-pbt Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 22nd   | `sha256:73a7de7c2c27491922c84bc2414eaaf9f0e41498cb91605485964b3570480fae` |
-|  `latest-dev` | April 22nd   | `sha256:903d6a3e62eae192e571f8a3aa5824b93c3dd60b1b351b65d65e0f9a1f88e8e5` |
+|  `latest-dev` | April 25th   | `sha256:297573d0b41582aa221c5eb9c8e2f0fa6928db1fb1d813ac7c215509610fb779` |
+|  `latest`     | April 25th   | `sha256:4f31f12cf743fff0f89f7717c60798c045821746dd046c9ade5d930c8efcf45b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.16.0-dev` `0.16-dev` `0-dev` `latest-dev` | April 24th   | `sha256:6665b395f990b3c7891f041256f5db2a4be264028005566af7cd6527f9fdeace` |
-|  `0.16` `latest` `0.16.0` `0`                 | April 24th   | `sha256:0e19018522059e42e86c168198c4070af0bbcf99ec6964af5bc13ca959f517ac` |
+|  `0.16-dev` `0-dev` `latest-dev` `0.16.0-dev` | April 25th   | `sha256:ea8c232a94feb7102d28a771a58f1c1a31cf2a6753065d06f0fe27c5d5f9e2cd` |
+|  `latest` `0.16.0` `0.16` `0`                 | April 25th   | `sha256:37ef7ced8a09ad972a59ca7059675bb145d1a2fdeeb7cc592956153665e23d16` |
 

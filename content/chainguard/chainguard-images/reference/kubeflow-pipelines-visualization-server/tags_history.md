@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-visualization-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 22nd   | `sha256:a3fe109c9915186a2e5f855f0e4cd78a7f72038547fc36d4844a1a24193be2be` |
-|  `latest-dev` | April 22nd   | `sha256:88dfebfa4e408537f585874ba49e149979291ca1c04d4963722bb8057745bc53` |
+|  `latest-dev` | April 25th   | `sha256:6cc88b4bceb1be699f787af3a5a7c1efd8fd36da88564065deacac729f639805` |
+|  `latest`     | April 25th   | `sha256:a30ed05b5f913445ecf6268d2948cb6eef77f0c28cf74a97ae97c9c20766bee7` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.1-dev` `2-dev` `latest-dev` `2.1.0-dev` | April 22nd   | `sha256:814c81440733a56d388e187111cea7f35feca888e4e48014b07fcc6df3df94e7` |
-|  `latest` `2.1` `2` `2.1.0`                 | April 22nd   | `sha256:f57fd957645c051d6be59cf7e7ba64ad8315ff46925986a5efa6177031ebed00` |
+|  `2.1.0` `2` `latest` `2.1`                 | April 25th   | `sha256:7c2812d1ade9ddbef31997999a9c454fc1178d4a4b15dfa30e90dcfb5645477c` |
+|  `latest-dev` `2.1-dev` `2.1.0-dev` `2-dev` | April 25th   | `sha256:29f00a672d20050a5f471f95329275fcff43bbb53b440076e21e4465a2ae7e71` |
 

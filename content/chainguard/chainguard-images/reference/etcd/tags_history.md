@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the etcd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `3.4.32` `3.4`                              | April 25th   | `sha256:d11026fd3c60e8673b132b6c6e82901287719cdf343c74b521a709f75c098bef` |
+|  `3.4-dev` `3.4.32-dev`                      | April 25th   | `sha256:d3d95fe851d2775eefd586554d13c60d9364b9b85d2ad5017bc9ff5be353b51f` |
 |  `3.5-dev` `3-dev` `latest-dev` `3.5.13-dev` | April 21st   | `sha256:7d32e524725a0decbb15e918b604f14e34f19ab8ad2b1e7a2381ee75f55c06aa` |
-|  `3.4.31` `3.4`                              | April 21st   | `sha256:5d8abbcfb187978ef20eaca3d2b18382debc0f9e4095113a82136db41e34c04a` |
+|  `3.4.31`                                    | April 21st   | `sha256:5d8abbcfb187978ef20eaca3d2b18382debc0f9e4095113a82136db41e34c04a` |
 |  `3` `3.5.13` `latest` `3.5`                 | April 21st   | `sha256:55c42bb6a0403467c637d48379bdfb3278e0055a8114c113f30a09d18f1689ea` |
-|  `3.4-dev` `3.4.31-dev`                      | April 21st   | `sha256:20d7842e9556329750de78172129f388f124a41b10aa679d691d01eec64eecd7` |
+|  `3.4.31-dev`                                | April 21st   | `sha256:20d7842e9556329750de78172129f388f124a41b10aa679d691d01eec64eecd7` |
 |  `3.5.12`                                    | March 28th   | `sha256:72161ffc9e1c4662d0642e9616fd5c61023967fd7216d16531466632d0e93f56` |
 |  `3.5.12-dev`                                | March 28th   | `sha256:b284c96d56c2492126e7df9530cdccc2462f39422cd363097f835756965b818a` |
 

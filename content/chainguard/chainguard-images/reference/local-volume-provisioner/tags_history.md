@@ -3,8 +3,8 @@ title: "local-volume-provisioner Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the local-volume-provisioner Chainguard Image"
-date: 2024-04-25 00:53:12
-lastmod: 2024-04-25 00:53:12
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,11 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 25th   | `sha256:78ec1e51848a36f6687832daf487c31158222316c0ddb9fe9fe74e1fd9f36db0` |
-|  `latest-dev` | April 25th   | `sha256:77966150f8896ebc358a6b749b0c5f04412f12964d6d0bbadca24028011018ae` |
+|  `latest`     | April 25th   | `sha256:9d1de41616c32d1ce8e6228625e594d5f05a2efee84df90a639adc388833a1db` |
+|  `latest-dev` | April 25th   | `sha256:725fd7ba664f61f44d61bb8a58f4ea92e0d998c1944921e4b584a8a150fb59db` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `2.7` `2.7.0` `2`                 | April 25th   | `sha256:5b986375606f0ee24762823fd2f6d884f4af2acd562f58d88d4771d04757914d` |
+|  `2.7.0-dev` `latest-dev` `2-dev` `2.7-dev` | April 25th   | `sha256:c9ad5f9c74335e41e12e064d862cb18e886e541739ceadae9538d962aedb0ea3` |
+

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jupyterhub-k8s-hub-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-26 00:36:54
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,12 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.3.7` `3.3` `latest` `3`                 | April 24th   | `sha256:e7cebaeec7c0bbcb79074f0ca04dd57f7fdaae065b27d607ec5a6a7ec64b5867` |
-|  `3.3-dev` `3-dev` `3.3.7-dev` `latest-dev` | April 24th   | `sha256:086678b6f562e39e4a67fa3cbcb1bb692202935bf155ef87c2139fbf45c7541e` |
+|  `3-dev` `3.3.7-dev` `3.3-dev` `latest-dev` | April 25th   | `sha256:aba41cccef7696396e6a56cc1c4b53d4b8d71a12ec53645d6b876763a6e6da2a` |
+|  `latest` `3.3.7` `3` `3.3`                 | April 25th   | `sha256:b4a0ea0884b466ddf3c9085dbf3233c217baa713df264fbda042f03a6cc64f13` |
 |  `3.3.6`                                    | April 5th    | `sha256:771024011639153658b527b21925900e95930454e23475b427ce1a14ef0bb681` |
 |  `3.3.6-dev`                                | April 5th    | `sha256:24503e253bad5a68015cdb44542967e1f152c994b873e94f7fe455f2f95afd59` |
 |  `3.3.5`                                    | March 29th   | `sha256:d57d7a0d0bfa6625cc8f9041de9d3ad06f2264b97e8291c555746c7473181ee2` |
 |  `3.3.5-dev`                                | March 29th   | `sha256:2652f468cadde40874e1e6c9c4a5b1f01f2ec913b1a503e55081d8b214d9a43d` |
-|  `3.3.4-dev`                                | March 25th   | `sha256:9e0867e6effe3ade63d90546e3dbedcbabe3beba145919570a685dc1371d9ab4` |
-|  `3.3.4`                                    | March 25th   | `sha256:455cbcf4edf74cb74921052ef0d69e67bb80e8c8c7dd7ff3e9d86cec7829d4f4` |
 
