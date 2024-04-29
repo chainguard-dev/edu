@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cosign Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-26 00:36:54
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:bf3e535ebb9470383631199697654a457015066f7dc7e4873def02991803fd3d` |
-|  `latest`     | April 22nd   | `sha256:0d3c0357de0d6b7b5df5178253fe09d07c2ef3f9331b021815358457c2114112` |
+|  `latest`     | April 26th   | `sha256:4045ba01e1b261048856d2fe5a84338b4e4dbfe2df68ea6b66fde1cd9e0aaa37` |
+|  `latest-dev` | April 26th   | `sha256:ceed44af67c37b86f9eb9bf2ae6d649286f0dbf44e7295532b8dd89624b963c7` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.2.4` `latest` `2.2` `2`                 | April 21st   | `sha256:a478ca1f982fe1992c04e34f2f724d7333142c1671131f06363a8914c33d66d1` |
-|  `2.2-dev` `2.2.4-dev` `latest-dev` `2-dev` | April 21st   | `sha256:c19d2a9b3b575b5dbe68fed02325dbf3185e117175c68585469679fa95a9eafd` |
+|  `2.2-dev` `2-dev` `2.2.4-dev` `latest-dev` | April 26th   | `sha256:44f5a1618e11004b5c0ffd92e2a62d53dd3c82a747797ad1755451e342277486` |
+|  `2` `2.2.4` `latest` `2.2`                 | April 26th   | `sha256:54cb093348aaeb602ac459f081ef4c998873bc6eaa6204acd64edac3222b09e2` |
 |  `2.2.3-dev`                                | April 9th    | `sha256:1da0d2dcea301b70e54b4962bb344ff54e275a8e6024e083c04b1cbd99367c07` |
 |  `2.2.3`                                    | April 3rd    | `sha256:1e547bf52787126db0e5a5e73893dd24e2b98d97eabf9816f7545670bbdaac40` |
 |  `2.0.1-dev`                                | April 25th   | `sha256:0f8ffca811eab50fbca70379a3316113075cc46b8a09e880f7d831bdb66f689e` |

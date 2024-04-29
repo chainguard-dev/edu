@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-s3 Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:3526cd15e9c69970eab099635f47530b2d9285e188acb1abfca3758d07a8ef00` |
-|  `latest`     | April 21st   | `sha256:8f894503449a3c78bbf15e66e9a6236c43e443864d75a3f76ae5a8cc1f6559de` |
+|  `latest-dev` | April 26th   | `sha256:16a83e650a9c6593dc1cd5cf2bb8be8f30f66a25d3129e5db3b51c25c23d399a` |
+|  `latest`     | April 26th   | `sha256:b07167725c504a3a6e990433a304f906d0428ffe7ed2274e5345b7d53dead95a` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.3` `1` `latest` `1.3.1` | April 23rd   | `sha256:cba96c962515ab903b6775e73682006edb339c0233d89ecee511bc631fa84d36` |
+|  `1.4.0` `1.4` `1` `latest` | April 26th   | `sha256:a5bb2cf921ffc6d0b27d8da0cb73d7e758138486e5c01ce55d8c272cee0f7624` |
+|  `1.3` `1.3.1`              | April 23rd   | `sha256:cba96c962515ab903b6775e73682006edb339c0233d89ecee511bc631fa84d36` |
 |  `1.3.0`                    | April 3rd    | `sha256:a90ad29751c117c3bc9a8d19f364f96018f0b6048f9cbef57a12661580d55091` |
-|  `1.2.1` `1.2`              | March 28th   | `sha256:3af3710130e64c21a79e66e99b2fdd6fb2b60de901d50f596c2b01fa71384ea1` |
 

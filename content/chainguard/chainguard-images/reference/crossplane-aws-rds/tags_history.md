@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-rds Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:0c832d3678687e008839695f9b965325c22d3dff665401cc237c920a96950c57` |
-|  `latest`     | April 21st   | `sha256:be20058aea8ee2f8472072b825c82cccec8e5f0ca7f9e7f080ea5d2da379e0c8` |
+|  `latest`     | April 26th   | `sha256:4669f65827c93423f417502101ca34c8422db08c6788352c28cb8b959635c35f` |
+|  `latest-dev` | April 26th   | `sha256:bc83f890f162700aea690a1bcd504d4da6faf4659af52e7b823d3ba643d6968d` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.3.1` `1.3` `1` | April 23rd   | `sha256:50235a039aa04728f05cc9339f60c5b688b9f5d8c89a7f8c4883a4e0f4b494ad` |
+|  `latest` `1.4.0` `1.4` `1` | April 26th   | `sha256:e0e698cabcc96fb6546de6982c6fab05d6835129f372646800ff18d74ea89af3` |
+|  `1.3.1` `1.3`              | April 23rd   | `sha256:50235a039aa04728f05cc9339f60c5b688b9f5d8c89a7f8c4883a4e0f4b494ad` |
 |  `1.3.0`                    | April 3rd    | `sha256:4fe2a8cc327c4ff8e5d38533634099c84ab7d9d9f8c4ea0257bbda0207b6a9a0` |
-|  `1.2.1` `1.2`              | March 28th   | `sha256:56d7c4bec7029ae007cbb8bc55f6f6936da7cdcadb1a16fd8d9f460b15d2b532` |
 

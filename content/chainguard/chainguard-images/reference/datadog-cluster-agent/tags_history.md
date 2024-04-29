@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the datadog-cluster-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-26 00:36:54
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 24th   | `sha256:40237303e9d81363a04a38dd26b1800cd137c67c1c27c1d8a792700f661a2efd` |
-|  `latest`     | April 24th   | `sha256:6492d2332d95367a13ab044a1e63e3d687820846e92e406e14ee0631f530476d` |
+|  `latest-dev` | April 26th   | `sha256:d239c6068b998000446a59a9b745486c9850616c35a04200e1af3475c58e7f90` |
+|  `latest`     | April 26th   | `sha256:1546f0f27ca6d50da6fca739eb39e4f0cf5fc146724e0d64b2ee3455192f0f45` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7-dev` `7.52.1-dev` `7.52-dev` `latest-dev` | April 26th   | `sha256:97ea12b18758c336e28710cd4000adf3cf593cb163f814e1f1a9d9ee7af23a52` |
-|  `7.52` `7.52.1` `latest` `7`                 | April 26th   | `sha256:ea63cf7118a90e13e65d94faefe011eb2872b2070116b77b688a16cdd1b24cab` |
+|  `7.52` `7` `7.52.1` `latest`                 | April 29th   | `sha256:a8edb3117e8e85737efc21b760a6ccc56c2f765eb123129a82cda471fc72005b` |
+|  `7.52-dev` `7-dev` `7.52.1-dev` `latest-dev` | April 29th   | `sha256:5f39d5870fbb2df87de31c0cef3e76225504517ddbfa686712f8020f833d217f` |
 

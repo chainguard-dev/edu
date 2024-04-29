@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-ec2 Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:3a0a1b9452e7a293188f753663c9d629d1768f789796a919d1213b4d5bff3dbf` |
-|  `latest`     | April 21st   | `sha256:fafc1cf1a25fb2d79267fe428180f982b176567b21aad608d7416113da000615` |
+|  `latest`     | April 26th   | `sha256:d08ae1da7c5f42010f987fc798fa3b8b624d1db23574402b58d2b857b409238f` |
+|  `latest-dev` | April 26th   | `sha256:0f61f7351514ad76b044096ec9da6e4232c1ea01397a796326dce1ee7326dc7f` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.3.1` `1.3` `1` | April 23rd   | `sha256:11617690bef51d8f2fca3cb476b94fcb00add99b9de0f32e41a40823cf09cdfc` |
+|  `1.4` `1` `latest` `1.4.0` | April 26th   | `sha256:1baf6eb0aa16fe14f722cc3809b3aaf81f521435f32d61b9bea8c1454cbae537` |
+|  `1.3.1` `1.3`              | April 23rd   | `sha256:11617690bef51d8f2fca3cb476b94fcb00add99b9de0f32e41a40823cf09cdfc` |
 |  `1.3.0`                    | April 3rd    | `sha256:fbf1c16bab1e901948942dced53d1243513334037755006808ffcfc303c78e2e` |
-|  `1.2.1` `1.2`              | March 28th   | `sha256:87531c2628d7d4e7dc5acd377704c0f3c0ee9fc3cfa2bbb3f629a7a8c8865f94` |
 

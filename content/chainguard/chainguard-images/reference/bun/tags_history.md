@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the bun Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,6 +41,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1-dev` `latest-dev` `1.1-dev` `1.1.0-dev` | April 21st   | `sha256:65b87a0c054f06dbb46be907cbb1e1ee6c11aa3ff86bf101b7310c1f58579a91` |
 |  `1.0.36` `1.0`                             | March 29th   | `sha256:4a70a3b96ed716ba96b6401d97119d91bdcef2e87a9f2bfb5f24c1acc589b2a0` |
 |  `1.0-dev` `1.0.36-dev`                     | March 29th   | `sha256:343cf981e17fb6155ae0de1e6a485487e904d7672dd099beebea2a1a2f309d65` |
-|  `1.0.35-dev`                               | March 28th   | `sha256:9971b2a0e91759057d97310b1c39959ae7110d4bef2b394066d08000488b2ddd` |
-|  `1.0.35`                                   | March 28th   | `sha256:365cbfb66d4a1d589bed7546edf93b957a0718fffcd7173cf70f83e319b8fee1` |
 

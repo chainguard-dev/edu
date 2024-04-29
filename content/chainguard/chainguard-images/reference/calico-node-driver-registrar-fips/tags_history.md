@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-node-driver-registrar-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -38,6 +38,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `3.27.2`                                                                        | April 13th   | `sha256:3ad96509434bb43b7dc57910ef6223e4a59f5e0a43e071873ceaf3979d700ba9` |
 |  `v2.10.0-dev` `2.10.0-dev`                                                      | April 13th   | `sha256:29ca9acdc71cfb452f3d56d6a57ca1456c6140e9344392a83d56e04b302d55f6` |
 |  `2.10.0` `v2.10.0`                                                              | April 13th   | `sha256:dc10d3cfb4b7acd8adc17e0271517dc89785da7e34a58414484dc8f64dc94515` |
-|  `v2.9` `2.9` `2.9.3` `v2.9.3`                                                   | March 28th   | `sha256:c99ec4a3f4e9923c67f52993632fc573203d99d40d78c7381eee3a428b0dc24b` |
-|  `2.9.3-dev` `2.9-dev` `v2.9-dev` `v2.9.3-dev`                                   | March 28th   | `sha256:95b764084c9d4aa0e723b558dd597d56a56d116466f7ddc3250c2ffaf34f9da4` |
 

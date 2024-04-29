@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cilium-agent-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,9 +43,9 @@ The table shows package distribution across variants.
 | `busybox`                           | X          | X      |
 | `ca-certificates-bundle`            | X          | X      |
 | `chainguard-baselayout`             | X          | X      |
-| `cilium-1.14-container-init`        | X          | X      |
-| `cilium-1.14-container-init-compat` | X          | X      |
-| `cilium-fips-1.14`                  | X          | X      |
+| `cilium-1.15-container-init`        | X          | X      |
+| `cilium-1.15-container-init-compat` | X          | X      |
+| `cilium-fips-1.15`                  | X          | X      |
 | `clang-15`                          | X          | X      |
 | `clang-15-default`                  | X          | X      |
 | `cni-plugins-fips-loopback`         | X          | X      |

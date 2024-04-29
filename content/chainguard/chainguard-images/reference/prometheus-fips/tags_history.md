@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -42,5 +42,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.51.1-dev`                                 | April 11th   | `sha256:7d7605b0b3d3c1d9108aa0cd2da833b8a8d6030b8ddaabd0f6ce623e2a009448` |
 |  `2.51.1`                                     | April 11th   | `sha256:93b538ee1bbeb169b58285486e7150183f197e98743397b9510ac4910a71f482` |
 |  `2.51.0-dev`                                 | April 2nd    | `sha256:036f50c2244c4abb39df212411edf636ef28372ea7d652fc5d6609b5cd820628` |
-|  `2.51.0`                                     | March 28th   | `sha256:6f231e2b9b87e477a05d0cfeab785df589df3573463d62ac5c4106a7a27c68b4` |
 

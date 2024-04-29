@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the argocd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 5th    | `sha256:fe69663fa01f007889fee5d36e08ccadab0337ff795404dffbfde86fbc617c25` |
-|  `latest-dev` | April 5th    | `sha256:fe53c69165514dd9c9c512c3591d36eef877123b2bf97487867c50918d7a63e7` |
+|  `latest-dev` | April 26th   | `sha256:2d57ac37950ff0dae7ea512674e00daaba822df6178b31f15f23c06fa91aee48` |
+|  `latest`     | April 26th   | `sha256:d606ba9970956bbc0336cf5862ccb16b440fcaa21517505f0346418317619252` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.10-dev` `latest-dev` `2.10.7-dev` `2-dev` | April 23rd   | `sha256:6262d1e511833ee8344116e6ab73e8a2f4eb2bb7fcbaf2113f8646552be641f5` |
-|  `2.10.7` `latest` `2` `2.10`                 | April 23rd   | `sha256:50218ae3b33b0af9c793dabba7435b8fb77a39521eda1bfc9d23945f6c54a5db` |
+|  `2-dev` `2.10-dev` `2.10.8-dev` `latest-dev` | April 26th   | `sha256:05e2be6393f4904e0bab8b461e464a5aba278455c00b4ba2366dfbc617a336fc` |
+|  `2.10.8` `latest` `2.10` `2`                 | April 26th   | `sha256:e48c512dff7dbdbd9fdefddf6bfe05e98bd77a4e35a468ef5f2fb0700ea4dfdf` |
+|  `2.10.7`                                     | April 23rd   | `sha256:50218ae3b33b0af9c793dabba7435b8fb77a39521eda1bfc9d23945f6c54a5db` |
+|  `2.10.7-dev`                                 | April 23rd   | `sha256:6262d1e511833ee8344116e6ab73e8a2f4eb2bb7fcbaf2113f8646552be641f5` |
 |  `2.8` `2.8.16`                               | April 21st   | `sha256:f81b20ada8339a7d3848a356e20c93765e9d7a6106c6bca6d412c23975a8f5a5` |
 |  `2.9` `2.9.12`                               | April 21st   | `sha256:90b28bf4160d99bff6af800dd334b561bc2867b7e4e96cca198383471f8ce5fe` |
 |  `2.9-dev` `2.9.12-dev`                       | April 21st   | `sha256:617bca4a2f42cb93c93d94d62a78918011b97ed3c37ba73c099254a079963cf2` |
@@ -55,10 +57,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `2.8.14-dev`                                 | April 3rd    | `sha256:6f92defc78b76776ea203f7f3daa77e4f7d8e53f5174abe353d029e72a56b91f` |
 |  `2.9.9-dev`                                  | April 2nd    | `sha256:ca4341f0ff9da260199e444affa71453656ac54fa7d30283070d26cd4f45a7d7` |
 |  `2.10.5-dev`                                 | April 2nd    | `sha256:c1fe8c05a190e88b614abbfbbe423d78b54021e160d65f589ce1ccbf60eecc00` |
-|  `2.10.5`                                     | March 28th   | `sha256:f357620790b95c3e5c23e894bddc091a55c798039d163b757ddc1221676c0db8` |
-|  `2.10.4-dev`                                 | March 28th   | `sha256:b7c95ad651a2a8c2223439084ba18d42d5d3ab88f9be57bbc358fcaed8ff783d` |
-|  `2.8.13`                                     | March 28th   | `sha256:0b57c67c7295d963b4786de2b58a14cba682f2e0d62eb417267e54f1ff3b9311` |
-|  `2.9.9`                                      | March 28th   | `sha256:39586c48eade21d63f61e579ba1fd4ef9a35511eac4bd26cc7bddeae81449837` |
-|  `2.8.13-dev`                                 | March 28th   | `sha256:4d31e6e9ae109f6806e077b718d4ea4d03ce711b129f92dfea78dc65c790785f` |
-|  `2.10.4`                                     | March 28th   | `sha256:b9b7627e97b464ca7541420320a2ca0cdc129ac258dc1314e1363550872db6fc` |
 

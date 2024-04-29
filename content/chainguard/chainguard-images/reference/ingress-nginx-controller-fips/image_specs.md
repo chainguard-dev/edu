@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public ingress-nginx-controller-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -53,7 +53,7 @@ The table shows package distribution across variants.
 | `git`                                  | X          |        |
 | `glibc`                                | X          | X      |
 | `glibc-locale-posix`                   | X          | X      |
-| `ingress-nginx-controller-fips-1.9`    | X          | X      |
+| `ingress-nginx-controller-fips`        | X          | X      |
 | `ingress-nginx-controller-fips-compat` | X          | X      |
 | `ld-linux`                             | X          | X      |
 | `libavif`                              | X          | X      |
