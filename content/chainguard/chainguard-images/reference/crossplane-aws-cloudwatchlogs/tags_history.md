@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-cloudwatchlogs Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:a32060d2c0ba68f326a216406a8c42b9ce68741fb884a6996ea43cfcde4d5fb6` |
-|  `latest`     | April 21st   | `sha256:e1d54b06f297382f869d12a6268cb31fbb475eb1827d3a45d10d82a7dad9394a` |
+|  `latest`     | April 26th   | `sha256:16ee10b3ac0e685c3ba81f7143c13aa962406d106c212343e2a803e7c1d08a01` |
+|  `latest-dev` | April 26th   | `sha256:55252a23d14e59665aa58e5570bb93269d7deec1f4c552c3341e9793968424f1` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.3.1` `1.3` `1` `latest` | April 23rd   | `sha256:0d095afce30dda9b6f4f2df3185f9dd4c97e990971f0b9a921a6f4c8be843571` |
+|  `latest` `1.4.0` `1.4` `1` | April 26th   | `sha256:fb161455d938620f9d5f1eed71eb0a7c9b3962573c488a942a3cac2b9f71b36e` |
+|  `1.3.1` `1.3`              | April 23rd   | `sha256:0d095afce30dda9b6f4f2df3185f9dd4c97e990971f0b9a921a6f4c8be843571` |
 |  `1.3.0`                    | April 3rd    | `sha256:a90233510ba93d4c4edc713cf4aa2561a6195679b6772ac035dc126eb938612c` |
-|  `1.2.1` `1.2`              | March 28th   | `sha256:8a2b93f77b2a926dc80ae74ca023976e306d05a22496c567a85bc135f8ceeb46` |
 

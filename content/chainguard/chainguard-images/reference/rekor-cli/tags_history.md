@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rekor-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:8b16a93a73fd5455e18ff589a24dfb7c46cab1079151d557f3cfee9cadcfd539` |
-|  `latest`     | April 4th    | `sha256:bbc074513b1df61d1dfa3378acf94e6216f794d3ddf82e6b5236654746a2bdb9` |
+|  `latest`     | April 26th   | `sha256:f469bd353442e3e4a2e4fbdd6ad9522fa5acf00ed1aad8e4b1bd218c8987f0dd` |
+|  `latest-dev` | April 26th   | `sha256:07dfd89025d0ba086c297aad29ffdf1c3c0b2239320b808a9f6f82f8dac208c2` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.3-dev` `1-dev` `1.3.6-dev` `latest-dev` | April 21st   | `sha256:c02325c81797f8ec0211d6c2e66c68fc253930330f787caf4e03fb98a715b89f` |
-|  `1` `1.3.6` `latest` `1.3`                 | April 21st   | `sha256:2a0b648888b8e00c7523f2892ad1cba82ebdbad0ef4a4e5f0d6b9840ad90d596` |
+|  `1.3.6` `1` `latest` `1.3`                 | April 26th   | `sha256:c03c331027329524f9edc043b74f2f49a4eb96131cea1266226d3bb1bff940f4` |
+|  `latest-dev` `1.3-dev` `1-dev` `1.3.6-dev` | April 26th   | `sha256:32e807e2497f7f9f2ad5e3ba7ad8dcd40e45663545515eef094411ae0e9c2af6` |
 |  `1.3.5-dev`                                | April 1st    | `sha256:2e45abbe81354116186bab5fd35949fd98ea1033250fc58c074fa05186fa2315` |
-|  `1.3.5`                                    | March 28th   | `sha256:21c09126227ecf0fd3fa0047cf01361a8458185f170de99851efbec776598946` |
 

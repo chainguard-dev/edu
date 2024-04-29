@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the consul Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -43,10 +43,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.17.4` `1` `latest` `1.17`                 | April 21st   | `sha256:8dbd54154cd9c606cd41868b29799da7cfe8a444d950ce032907bb702d4d45ec` |
 |  `1.17.4-dev` `1.17-dev` `latest-dev` `1-dev` | April 21st   | `sha256:6204ec916a87c7ad95e79c7c6234b8dfd82a4f77e2f67e9c2714702ac021f8f9` |
 |  `1.15-dev` `1.15.11-dev`                     | April 21st   | `sha256:beaf8aded13a5900b23f41cc24f3e453c6bfc210a0ca2e5359607461edf44c98` |
-|  `1.15.10`                                    | March 27th   | `sha256:ef3388d3c82ec8e94fe381c6e8a5fe7168f0bb473e7c7f3a8a248d265eccb4b1` |
-|  `1.16.6`                                     | March 27th   | `sha256:8ea11058c5e154d75519b472d35216e53b5e5c15a38b1e1ae8685d913a3e95b2` |
-|  `1.17.3`                                     | March 27th   | `sha256:ecf74528733871ab4121cbea51281896899b861ac621afb3ded92a4053d5c5b2` |
-|  `1.15.10-dev`                                | March 27th   | `sha256:ff80491b6a7830e628e850a1ba7c7b18217bb55223615c714dc5c7856012829f` |
-|  `1.17.3-dev`                                 | March 27th   | `sha256:cd34c8451c1a9d0339743a7882e389e3eccfa701e69a792e9d8916454f0f67fc` |
-|  `1.16.6-dev`                                 | March 27th   | `sha256:6edd9c866e1c6b3a87363f31557554d498c0d028fdd16decf6fa9c9c72268762` |
 

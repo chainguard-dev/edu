@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-firehose Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:b14f2263b9f5def1de56b5dbea094ec3a170fbe78990bf0d290088a753fb1d87` |
-|  `latest`     | April 21st   | `sha256:dfa89850851ca33299c4420643ec3eb03505e0878bafa1c645ad5b332c335162` |
+|  `latest-dev` | April 26th   | `sha256:e28990d0c94247d0f153ae88c78bf2dd52ecb72133b96384c7326dfa69ea791f` |
+|  `latest`     | April 26th   | `sha256:cb999beaad5ee5beae27694a997dbd80586baf251fb27fb48b75b7dbeb2453eb` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.3.1` `1.3` `1` `latest` | April 23rd   | `sha256:3b279e078e56350313d2667db28f9f191d8cb5fdcb7008e8c9cc8b596a91085b` |
+|  `1.4` `1` `latest` `1.4.0` | April 26th   | `sha256:5353997be53daf66b24ebf876e98056de3d29a3a7b5ccf625daf00dad4ff79e3` |
+|  `1.3.1` `1.3`              | April 23rd   | `sha256:3b279e078e56350313d2667db28f9f191d8cb5fdcb7008e8c9cc8b596a91085b` |
 |  `1.3.0`                    | April 3rd    | `sha256:d783369d68c7ec6bb28d9c7568db84d38e269b922cfe6d84aebe0c708a4e54ba` |
-|  `1.2.1` `1.2`              | March 28th   | `sha256:f982a0e0f31d9bbad895aa73cc42a578e8870ec232633c838087db40d7a380dc` |
 

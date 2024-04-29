@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-26 00:36:54
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 25th   | `sha256:663862e9d8d61031a96c7658b8ec1ee3ba9d70f7c791cd4f6dfa6079b2f2db42` |
-|  `latest-dev` | April 25th   | `sha256:4cca4dacc0f772756747addbbbe1991158c08538b16505727cb7b69ca1974845` |
+|  `latest`     | April 28th   | `sha256:1b6a49210252166f85c548e971d189136033d6e6447bb8bead868cebfe511ab9` |
+|  `latest-dev` | April 28th   | `sha256:d0212073b995a96f8aefb9cc1df12223e986e145b4390e616293bbfe0e5eab68` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.19` `1.19.2` `1`                 | April 25th   | `sha256:3f6d53a2e1c0480bf7f96f8a820a0323b05bfc6abc5a8a7d1dd648d29b27c17e` |
-|  `1.19.2-dev` `1.19-dev` `latest-dev` `1-dev` | April 25th   | `sha256:f48975546fd93be02639c6eb967f39d5a943cb424357ab1738dca5e4c12713da` |
+|  `1.19` `1` `1.19.2` `latest`                 | April 27th   | `sha256:a319510cb4203bb07cfad9249a276c22b7f6c323d34f0f67f2a43e6bf886f037` |
+|  `latest-dev` `1.19.2-dev` `1-dev` `1.19-dev` | April 27th   | `sha256:51d3c2e7335f28d289e85d588a8113c8069b97de50357387c1c172ba65fdd076` |
 
