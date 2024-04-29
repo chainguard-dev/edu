@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jdk-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                    | Last Changed | Digest                                                                    |
 |------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `openjdk-17.0-dev` `openjdk-17-dev` `openjdk-17.0.11-dev` | April 27th   | `sha256:e9cca8effdff9ad1764a210c3ee7d18fe8a8de9de474ffe05fd4d81f15442912` |
+|  `openjdk-17.0` `openjdk-17.0.11` `openjdk-17`             | April 27th   | `sha256:361157ba2bbcbedce4f9e34768fc4e1be22815f28a6f606cb3bd3ce187391902` |
 |  `openjdk-11` `openjdk-11.0.23` `openjdk-11.0`             | April 24th   | `sha256:e1f5556672b2b1ddc38cfc7fd884b3a57502240ba632ffdb8a6d9f3128ea67a9` |
-|  `openjdk-17.0.10` `openjdk-17` `openjdk-17.0`             | April 24th   | `sha256:e877caabafd501bdd6bb49f37f80b358f1e683362c1487cabdbe819e6c5c0b85` |
+|  `openjdk-17.0.10`                                         | April 24th   | `sha256:e877caabafd501bdd6bb49f37f80b358f1e683362c1487cabdbe819e6c5c0b85` |
 |  `openjdk-11.0.23-dev` `openjdk-11.0-dev` `openjdk-11-dev` | April 24th   | `sha256:97bff597210a7adb9899c39fcec70bc4e338816316b1df6a6901b8b00ea68c35` |
-|  `openjdk-17.0-dev` `openjdk-17-dev` `openjdk-17.0.10-dev` | April 24th   | `sha256:b65bd183cac5c5af10f4f00fab30be641ad5f6276a7a30f81e3549089b71f699` |
+|  `openjdk-17.0.10-dev`                                     | April 24th   | `sha256:b65bd183cac5c5af10f4f00fab30be641ad5f6276a7a30f81e3549089b71f699` |
 |  `openjdk-11.0.22-dev`                                     | April 20th   | `sha256:4fba8afb3b26fbfd49d19d6a8cc520fb00706b46ccfcc62c9b6fba84d8efbb0f` |
 |  `openjdk-11.0.22`                                         | April 11th   | `sha256:383d6d7c5d5564d1fa3d35857e9f2616c6308fabce2c16cdb1d635464e28558f` |
 

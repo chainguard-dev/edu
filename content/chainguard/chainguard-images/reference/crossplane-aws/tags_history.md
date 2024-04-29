@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:0d9d03492dc8e8c4769e639c74a3a79d6b6b99255e1172aca550782a3efdddcc` |
-|  `latest`     | April 21st   | `sha256:9c7b7504d737b1da2c35f6cdf6db59b886e7a98355b96738c805bb64e99b250b` |
+|  `latest-dev` | April 26th   | `sha256:4e50308ae369b0fecd17f4ae3cf35d7472826c34e6690064863019907b10f249` |
+|  `latest`     | April 26th   | `sha256:c2e0dcf24c522dbcfeadb4bc4b170b5663f7fed3752cb6280f12636ec95ba2e0` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.3.1` `1.3` `1` `latest` | April 23rd   | `sha256:232749271b0869cb6243c0aa1bdcebe343397d0b0252400733dcf6522dfb8dd5` |
+|  `1.4.0` `1.4` `1` `latest` | April 26th   | `sha256:0433376e66a2c5524d8f8418c63ad8c131a5b5e36b1ee8bb8ee886433137a93f` |
+|  `1.3.1` `1.3`              | April 23rd   | `sha256:232749271b0869cb6243c0aa1bdcebe343397d0b0252400733dcf6522dfb8dd5` |
 |  `1.3.0`                    | April 3rd    | `sha256:c294de44563067d97b92849edc3233884c7a7f73b9da711ce631c8d8ac0625a7` |
-|  `1.2` `1.2.1`              | March 28th   | `sha256:090ba5f9c9411506f090dd430ff4bed690fc9751d823be325bf46a560b0614e6` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-sqs Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:8c51e0463aceb11194a149dcbc84482dafd1eaa983f5fa61bb02fcdcd4816020` |
-|  `latest`     | April 21st   | `sha256:aab944e454498e36e9c7c056d8fb0d3c6bb57ca62677c5e57dd5116eb2b9af14` |
+|  `latest-dev` | April 26th   | `sha256:76dae81850b76cfdf7914adf8b944642c96bc005b1578ad795705a97d988d0fd` |
+|  `latest`     | April 26th   | `sha256:46dcb24215d648c27569bf0b3c49893b76fc4d3d43c0f4bd03ce6cbcc95df663` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.3.1` `1.3` `1` | April 23rd   | `sha256:2404d39f855fa144d41a5f8129f999f01287f61d793311ff9467233ef753c8b3` |
+|  `latest` `1.4.0` `1.4` `1` | April 26th   | `sha256:62297c97d53cff77696e21529e38032d31efb4c298a9acb865fed33bbace00f0` |
+|  `1.3.1` `1.3`              | April 23rd   | `sha256:2404d39f855fa144d41a5f8129f999f01287f61d793311ff9467233ef753c8b3` |
 |  `1.3.0`                    | April 3rd    | `sha256:eeb2966bb2a079b714987c677512edad74029c3d6d6d8f4b23d1c57ab3b65517` |
-|  `1.2.1` `1.2`              | March 28th   | `sha256:b5715177dbff85d27a8c4159b6ce7ef82f0d8319d429e40abf0504b31e655721` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kots Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-26 00:36:54
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,14 +31,15 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                         | Last Changed | Digest                                                                    |
-|---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.108.9` `1.108` `1` | April 25th   | `sha256:5fbb427afba51c2e23b739e05e5a344a678c726ad6b2145ec4f5a624e45f2791` |
-|  `1.108.8`                      | April 24th   | `sha256:c19f25df825fdc2bee4dc810c5540afcbbd6b4f1f72aa6c7f28900bd37d91c99` |
-|  `1.108.7`                      | April 19th   | `sha256:90224590e14df15e3eee72ecae825bae584acbfb47f605dc06705c2b99a7c4a1` |
-|  `1.108.6`                      | April 12th   | `sha256:8e651920fa86c96ac854bac14075e818a02f940de1daa775169d880b42f29d4a` |
-|  `1.108.5`                      | April 11th   | `sha256:58c1cd4d4de58b79d4e23c3f2635d6f4efee65f9deb6ccdd0c9c17d5d55dcb34` |
-|  `1.108.4`                      | April 5th    | `sha256:63b80ecb17708504cba9d712264f844c1025828b9ca02c852b3f0458623f1ea1` |
-|  `1.108.3`                      | April 4th    | `sha256:3e82070ede869ef0da1fc8eb8083446a725faace6afd2682e943c45e955d0afe` |
-|  `1.92.1` `1.92`                | April 23rd   | `sha256:d35851e2f150e8014ee211fc5a3b1ceb1439b97334fcf55579a1dab889438b9a` |
+| Tag (s)                          | Last Changed | Digest                                                                    |
+|----------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.108` `1` `latest` `1.108.10` | April 27th   | `sha256:bdfd5251032838d1105be9fc1fca1006f58a16891866ec570ec5fdb4e0b7b021` |
+|  `1.108.9`                       | April 26th   | `sha256:fb06677f8e05584506b367e0659cb6abc80b564eea9c0a3bb91df60ec6cc93b9` |
+|  `1.108.8`                       | April 24th   | `sha256:c19f25df825fdc2bee4dc810c5540afcbbd6b4f1f72aa6c7f28900bd37d91c99` |
+|  `1.108.7`                       | April 19th   | `sha256:90224590e14df15e3eee72ecae825bae584acbfb47f605dc06705c2b99a7c4a1` |
+|  `1.108.6`                       | April 12th   | `sha256:8e651920fa86c96ac854bac14075e818a02f940de1daa775169d880b42f29d4a` |
+|  `1.108.5`                       | April 11th   | `sha256:58c1cd4d4de58b79d4e23c3f2635d6f4efee65f9deb6ccdd0c9c17d5d55dcb34` |
+|  `1.108.4`                       | April 5th    | `sha256:63b80ecb17708504cba9d712264f844c1025828b9ca02c852b3f0458623f1ea1` |
+|  `1.108.3`                       | April 4th    | `sha256:3e82070ede869ef0da1fc8eb8083446a725faace6afd2682e943c45e955d0afe` |
+|  `1.92.1` `1.92`                 | April 23rd   | `sha256:d35851e2f150e8014ee211fc5a3b1ceb1439b97334fcf55579a1dab889438b9a` |
 

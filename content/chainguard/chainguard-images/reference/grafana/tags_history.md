@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -47,10 +47,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `10.3.5-dev` `10.3-dev`                     | April 21st   | `sha256:e1e6e51de3afa768ac35db96cf6e83a3740b2acbf592565cb1b625cff448ba41` |
 |  `10.4.1-dev`                                | April 11th   | `sha256:4a691d416714b84226b99e339c1fe7ab77c71cc3c870e74ccdf0d3db94404b5e` |
 |  `10.4.1`                                    | April 4th    | `sha256:d25b2d28452b0085fe6636d85dec374c57c358f23e483504ccb8772584fe147b` |
-|  `10.1-dev` `10.1.7-dev`                     | March 28th   | `sha256:33cec03b84aa612447d6ad1c389a235db93b99cc00f1dfaef15b37c493445c5c` |
-|  `10.1.7` `10.1`                             | March 28th   | `sha256:8d82db58149c3ec5bebe50f4d3edf664c71f47f8d64e2ecd5d53407081be0274` |
-|  `10.2` `10.2.5`                             | March 28th   | `sha256:be01da70a7e54d62d5ec0665f4f01b45850216de38585126d92e6d183f029a3d` |
-|  `10.2-dev` `10.2.5-dev`                     | March 28th   | `sha256:59aeb1e1d0f537bb3465d48d8b8368c8fbabe70ac04c4da903086bd84fff74a1` |
-|  `9.5.16`                                    | March 27th   | `sha256:bd9f478afc6e4b7d95f0577ba4fedd9950137044aeae4008680418e476f9704d` |
-|  `9.5.16-dev`                                | March 27th   | `sha256:5ac6c45427ac9fbd2c13deffc2064f2b9b04d6922aaa896a3f4c4cfb07e0ff90` |
 

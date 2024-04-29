@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public postgres-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-26 00:36:54
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -21,14 +21,14 @@ toc: true
 
 This page shows detailed information about the Chainguard **postgres-fips** Image.
 
-|              | latest-dev                                   | latest                                       |
-|--------------|----------------------------------------------|----------------------------------------------|
-| Default User | `root`                                       | `root`                                       |
-| Entrypoint   | `/usr/bin/postgresql-entrypoint.sh postgres` | `/usr/bin/postgresql-entrypoint.sh postgres` |
-| CMD          | not specified                                | not specified                                |
-| Workdir      | `/home/postgres`                             | `/home/postgres`                             |
-| Has apk?     | yes                                          | no                                           |
-| Has a shell? | yes                                          | yes                                          |
+|              | latest-dev                               | latest                                   |
+|--------------|------------------------------------------|------------------------------------------|
+| Default User | `root`                                   | `root`                                   |
+| Entrypoint   | `/usr/bin/docker-entrypoint.sh postgres` | `/usr/bin/docker-entrypoint.sh postgres` |
+| CMD          | not specified                            | not specified                            |
+| Workdir      | `/home/postgres`                         | `/home/postgres`                         |
+| Has apk?     | yes                                      | no                                       |
+| Has a shell? | yes                                      | yes                                      |
 
 Check the [tags history page](/chainguard/chainguard-images/reference/postgres-fips/tags_history/) for the full list of available tags.
 
@@ -70,6 +70,7 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`             | X          | X      |
 | `openssl-config-fipshardened`       | X          | X      |
 | `openssl-provider-fips`             | X          | X      |
+| `posix-libc-utils`                  | X          | X      |
 | `postgresql-16`                     | X          | X      |
 | `postgresql-16-base`                | X          | X      |
 | `postgresql-16-client`              | X          | X      |

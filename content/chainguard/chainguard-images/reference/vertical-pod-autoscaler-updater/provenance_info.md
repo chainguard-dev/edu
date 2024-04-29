@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for vertical-pod-autoscaler-updater Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-11 12:38:02
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for vertical-pod-autoscaler-updater Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                     |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                       |
-| `cgr.dev/chainguard-private` | 0, 0-dev, 0.13, 0.13.0, 0.14, 0.14-dev, 0.14.0, 0.14.0-dev, 1, 1-dev, 1.0, 1.0-dev, 1.0.0, 1.0.0-dev, 1.1, 1.1-dev, 1.1.0, 1.1.0-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                       |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                         |
+| `cgr.dev/chainguard-private` | 0, 0-dev, 0.13, 0.13.0, 0.14, 0.14-dev, 0.14.0, 0.14.0-dev, 1, 1-dev, 1.0, 1.0-dev, 1.0.0, 1.0.0-dev, 1.1, 1.1-dev, 1.1.0, 1.1.0-dev, 1.1.1, 1.1.1-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.

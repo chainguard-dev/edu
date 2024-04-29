@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the qdrant Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -41,6 +41,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1-dev` `latest-dev` `1.9.0-dev` `1.9-dev` | April 22nd   | `sha256:ecefae68837cd268251b8f0d5f73ae6c0c740994f21ccbfed79ae111c75113b3` |
 |  `1.8-dev` `1.8.4-dev`                      | April 21st   | `sha256:717cae0b0841e00d2b8fe637fcfaaa3a41be9b84ae50d4006632239a2152552a` |
 |  `1.8` `1.8.4`                              | April 21st   | `sha256:61ecec505abbe55e9b6a94583ff7628f6af7b9450dc006bb599064d6f6eecbd3` |
-|  `1.8.3-dev`                                | March 28th   | `sha256:006694599f6dd7ea9d33ed825123dfbab4b0693b5f8eec70376837fb898b9384` |
-|  `1.8.3`                                    | March 28th   | `sha256:dca0e3404d1e307a6ca9d300307b7e8d007d04b92c573762d3081e08761c632c` |
 

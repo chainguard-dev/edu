@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-cloudfront Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:78236ac9ef031ebe6738d9246df720157e067c53e59ae9ed9b8f65dc38abfba0` |
-|  `latest`     | April 21st   | `sha256:60b06c4b15227381d49372d70d12400cd8bf3e11f672a4054efc92fa5ff4ed2e` |
+|  `latest`     | April 26th   | `sha256:7d8b994791166221b077c4c69b96dee3f08d8ad7d1426d364f60624b33a35d8d` |
+|  `latest-dev` | April 26th   | `sha256:647a39dabbe9c0a0bab5ea148fb7a92af7c694b7306116794a151ac98ab3ada8` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.3.1` `1.3` `1` `latest` | April 23rd   | `sha256:c3c8c89c3422ec43be3e204097d4f3f7da8f3ef90d54df83cc1a712d6671f348` |
+|  `1` `latest` `1.4.0` `1.4` | April 26th   | `sha256:778e83fe01d68a6ee09b5b5a44b2ba844ac5e11ed01a13e15d7c8753d6b60466` |
+|  `1.3.1` `1.3`              | April 23rd   | `sha256:c3c8c89c3422ec43be3e204097d4f3f7da8f3ef90d54df83cc1a712d6671f348` |
 |  `1.3.0`                    | April 3rd    | `sha256:f5d0a8b4cac6b72ce83c67c2fa407184f6b68db04b8268b249ba2e5aa5486893` |
-|  `1.2.1` `1.2`              | March 28th   | `sha256:0c42d8eb2e304a4779f786488a2cad0b7618ea6d6795fb7c5497284d44bbcebf` |
 

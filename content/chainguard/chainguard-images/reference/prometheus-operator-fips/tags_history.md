@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-operator-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.73.1-dev` `latest-dev` `0-dev` `0.73-dev` | April 21st   | `sha256:01c14d6f0f49ee2f9445fea134cb67edcc189dabc0041bd3459a5b5c0a8d6c4d` |
-|  `0.73` `0` `0.73.1` `latest`                 | April 21st   | `sha256:54a79ac9ae0b84af773026d763869faea5a19724cbd4ad1ab9ae6ce8397b7311` |
+|  `0.73-dev` `0-dev` `latest-dev` `0.73.2-dev` | April 27th   | `sha256:feac25bd29cee6c232de5dd6f9dfc0f39412517c1b9be4a0fe66f44bb7f1bb90` |
+|  `0.73.2` `0` `0.73` `latest`                 | April 27th   | `sha256:82663d7e8b583724e6f54b98acce62f59299f5e46bb3cd261270524113a2c425` |
+|  `0.73.1-dev`                                 | April 21st   | `sha256:01c14d6f0f49ee2f9445fea134cb67edcc189dabc0041bd3459a5b5c0a8d6c4d` |
+|  `0.73.1`                                     | April 21st   | `sha256:54a79ac9ae0b84af773026d763869faea5a19724cbd4ad1ab9ae6ce8397b7311` |
 |  `0.73.0-dev`                                 | April 11th   | `sha256:27824fdfc3be2256e0c1993a5c3712b84f35681197e9429f275867e38ae589ec` |
 |  `0.73.0`                                     | April 10th   | `sha256:e1f20ba6bf55151092e10f582166f8db229e684be16c6100ee5a9f11dfa77930` |
 |  `0.71.2-dev` `0.71-dev`                      | April 5th    | `sha256:a508236a08b01063619c2887178c867fc2195798fd45786fe1cf76eea362cdc4` |
-|  `0.71` `0.71.2`                              | March 28th   | `sha256:f59fdb7fb6a45c04a85ed8cab769d91a369b363b187c9296ec1b24173ea2bda6` |
 

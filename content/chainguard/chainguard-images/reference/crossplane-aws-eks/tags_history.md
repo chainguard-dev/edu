@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-aws-eks Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-29 00:53:42
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:d7a799f31f208d1ec6168e50d55ec7442c64665441e4657e7eb7d4d3d62fdf69` |
-|  `latest`     | April 21st   | `sha256:68a24151e32d28935d6dc3ccd562be2b588c53539e628c2ab5ec7e0d642b6ac3` |
+|  `latest-dev` | April 26th   | `sha256:f77e23f9090f1a4a8a487492c114a48597b6774f7034c71fdcc72e1adb1f6cf4` |
+|  `latest`     | April 26th   | `sha256:ed213ca8abbf7704622ca012bffbf92ae1b432c9faf956d5513136b035d20b1f` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.3.1` `1.3` `1` `latest` | April 23rd   | `sha256:17769f9d03d886d3b0212ca64fd610ee253ce0620c62b88bd0f6030c75bcce66` |
+|  `1.4.0` `1.4` `1` `latest` | April 26th   | `sha256:e024573394affdbc433a2e8dd84edfebaaaecd90b931a08a54c19f2954bf3874` |
+|  `1.3.1` `1.3`              | April 23rd   | `sha256:17769f9d03d886d3b0212ca64fd610ee253ce0620c62b88bd0f6030c75bcce66` |
 |  `1.3.0`                    | April 3rd    | `sha256:c62255f610c7364b6f4335ce93e20fabff32c8fec574a1f095fdfc21dbf63ff5` |
-|  `1.2.1` `1.2`              | March 28th   | `sha256:beee94067af5bb2bdc781b9232e4ee474edea02aec6d64826737b8aef963026c` |
 
