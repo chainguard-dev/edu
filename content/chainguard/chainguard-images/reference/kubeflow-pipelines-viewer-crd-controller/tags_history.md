@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-viewer-crd-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:8c2dc2c60763817f5b4d68483732a3a5356790bab9f5406c6babeec8c1278528` |
 |  `latest`     | April 24th   | `sha256:bf0fc6f5811be0e3bbc3e1c8604a23c03926766f1206fbe37947d594f4e52618` |
-|  `latest-dev` | April 24th   | `sha256:17f0977b0c60a34df9f32ffc9a927c832eba0b01d87daf97acb7db4093330db1` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.1.0-dev` `2.1-dev` `2-dev` `latest-dev` | April 29th   | `sha256:b20e3f3ad93b09dca27855b77dec83ae317af23a8dbe7bf49b29691f3d0b3b39` |
 |  `2.1` `2.1.0` `latest` `2`                 | April 24th   | `sha256:7dce99eaba4e627fdbcd97bc82aa14abce00902b7e3c145fa7c763d6bc882b65` |
-|  `2-dev` `latest-dev` `2.1.0-dev` `2.1-dev` | April 24th   | `sha256:d2e555788fca8045713f0d7174babf2c195e6563d876e0985e88e603a890eac5` |
 |  `2.0.5` `2.0`                              | April 24th   | `sha256:bf5bd0e20acb715d1f6988993b60f63a17c2d8ca3f2605c242133456800bbb9b` |
 |  `2.0.5-dev` `2.0-dev`                      | April 24th   | `sha256:2478dc01eff6174569de985c3d0dc290094a2a9f4144ca3a8ae66d3edcea9337` |
 

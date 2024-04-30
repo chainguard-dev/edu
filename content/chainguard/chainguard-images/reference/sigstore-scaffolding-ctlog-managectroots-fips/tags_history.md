@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-managectroots-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-26 00:36:54
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `0.6-dev` `0-dev` `latest-dev` | April 21st   | `sha256:ac71ea2067a1451d62c884231fdbeceeb94348abdb873476b0264d2e9c81c759` |
+|  `0-dev` `0.6.17-dev` `latest-dev` `0.6-dev` | April 29th   | `sha256:4192de80d8e060e48f0c78c3567c63da804248830d4092edff3a809b891d57ab` |
 |  `0.6.17` `0` `latest` `0.6`                 | April 21st   | `sha256:500e88108df30ede4355bb35c5cb9c6e88f2c0cb992f88df9a9d65c971c45c87` |
 

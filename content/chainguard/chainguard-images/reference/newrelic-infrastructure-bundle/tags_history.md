@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-infrastructure-bundle Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 26th   | `sha256:1872d30f6259a9595f4cba47bf13351df27baeff4896765de20b3e139c6a79dd` |
+|  `latest-dev` | April 29th   | `sha256:e239408a74dda1ab3f09860a5850e3c3339157302f875b5aeb516d5774356af5` |
 |  `latest`     | April 26th   | `sha256:45fa7bf995ba8d0f4a923107c4537ed2078ee818e3d579e02a3ce0941c79f5f2` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `3-dev` `latest-dev` `3.2.39-dev` `3.2-dev` | April 29th   | `sha256:b2836ccacf5ec0532b30a3f4095416a0820159f1032d5f4df781d2d5ad222fbf` |
 |  `3.2` `3` `latest` `3.2.39`                 | April 26th   | `sha256:3ecd7206d8d935fcb41bab62c79e07e88d416dd6eca32b95e9fd5cf1130dae82` |
-|  `3.2-dev` `latest-dev` `3-dev` `3.2.39-dev` | April 26th   | `sha256:208b3e464239eb1f13bd7affde8e3418497e38577312665e43832bcd43516c7d` |
 |  `3.2.38-dev`                                | April 25th   | `sha256:d4c2aff8253d4b2501faae6273ca9412fffb9bd39a68d2b9debd2b4d97a5536c` |
 |  `3.2.38`                                    | April 25th   | `sha256:8ac129f9312ad1a5428d02e76451fd04b0be43af0a2f0660f2e5f5de5fac94b7` |
 |  `3.2.37`                                    | April 18th   | `sha256:524db992da891b16398d097fae9c9becfa27873aee5e08bda4d895e4a6c8471a` |

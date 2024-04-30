@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-trivy-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,16 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:9757db7abee3b344961081f8afebe53b6d890479e8d4de16d485181b48b52677` |
 |  `latest`     | April 24th   | `sha256:dcd05caa55df7a441381795f14aa87c6eab27d63290a1517144a249ab20eb550` |
-|  `latest-dev` | April 24th   | `sha256:f42b7b976209d181d055998cbc30df42676bdcd7cfd66a69b2aad94cb1d2cf26` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed | Digest                                                                    |
-|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.31-dev` `0.31.0-dev` `0-dev` | April 24th   | `sha256:41f970352c11013ab9492246485333280a6b0818a18914ff4f8c7f87744d66f7` |
-|  `0` `latest` `0.31.0` `0.31`                 | April 24th   | `sha256:302637b0c39d5879492f1b650b9eef1f905dddc6ec92dfc4d68197d77b5b6fea` |
+| Tag (s)                          | Last Changed | Digest                                                                    |
+|----------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `0.31-dev` `0-dev` | April 29th   | `sha256:1ca1dffb42ecddaf3847c792d6d80d3f849d6e7e306d000f221b8ddc3af13448` |
+|  `0.31.0-dev`                    | April 29th   | `sha256:f144e6a17cdcf1d1d01dc11a6309e87093e530e9e948e4d39ac99c9e68c5cdd9` |
+|  `0` `latest` `0.31.0` `0.31`    | April 24th   | `sha256:302637b0c39d5879492f1b650b9eef1f905dddc6ec92dfc4d68197d77b5b6fea` |
 

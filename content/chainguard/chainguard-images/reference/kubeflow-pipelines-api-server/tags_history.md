@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-api-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-26 00:36:54
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:f305dc41dadbd37a9cc3202460d81f448afb5a8e748aa9dc0b7b83fb7c6700cd` |
 |  `latest`     | April 25th   | `sha256:6e531a09d8ab7c702100cbb0bc064f6756f547fac6ae8f85e78d2bc2a40d23b5` |
-|  `latest-dev` | April 25th   | `sha256:43a5106f42c458a1634f401ddcf249a60b3e066748287aefb0cb71f2b995aba3` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.1.0-dev` `2.1-dev` `latest-dev` `2-dev` | April 29th   | `sha256:e65b84a1643aebfb4cf5041b54d7e715c11979beff81fde0768cb92005a53179` |
 |  `2.1` `2` `latest` `2.1.0`                 | April 25th   | `sha256:086299cae2a1a82c302b8245628f10339d90a9088c2a32d9c7721f6d5f1669b2` |
-|  `2.1.0-dev` `2-dev` `latest-dev` `2.1-dev` | April 25th   | `sha256:df4ab24f06c204ff557379946128764bcba28fbf9cde3ea8cc5855f8bfbbc871` |
 |  `2.0.5-dev` `2.0-dev`                      | April 24th   | `sha256:51fba8820a0bcbedab0097e9f296f308783acb1ef4fb8d7685ab72cdc0ac1b73` |
 |  `2.0.5` `2.0`                              | April 24th   | `sha256:b0512d5db32cf64dcd2acc4927a547c541a70184e7fcf0154b6fe2f85d6c1f86` |
 

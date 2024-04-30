@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:71e5611e5ac56d9f483248306d3e72810c7e19adba72505ebfb4b077a8daca3b` |
 |  `latest`     | April 24th   | `sha256:22b03be3ef7ba244affcac96dc42c0cd582c0a77f72af3c46bc376fa2e8aba0e` |
-|  `latest-dev` | April 24th   | `sha256:08b79d581936892ea4c5b34ac03d98fb1d8a2b06819352517a14bcce13e51dcd` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.29.0-dev` `1-dev` `latest-dev` `1.29-dev` | April 24th   | `sha256:8afc7dae65a2f0a8050cfb459d41c1515bb8a51218bcd6607ba8f48a2b5387a1` |
+|  `1-dev` `latest-dev` `1.29-dev` `1.29.0-dev` | April 29th   | `sha256:f6a57fb40cdf69d88476fb59b9c73baa9279adcf7b3343f97faac6ab35408c20` |
 |  `1.29.0` `latest` `1` `1.29`                 | April 24th   | `sha256:f3aec295268b9fe36c8a7fef72af7c7012cc05a53b0456b2f45f1852942e3f7f` |
 |  `1.28.5-dev` `1.28-dev`                      | April 21st   | `sha256:19090993b71096ce10eac04759f9423c5904bb7838bf05e0880045961ee31000` |
 |  `1.28` `1.28.5`                              | April 21st   | `sha256:9036b50914188bc5cf61f8cf818d5d573f89d20fe1d3735f960796e490e71bb1` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dex Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:8c997510c487a93696b890ef0238cab77f0e207fc0ee5897720823496e55fc7d` |
 |  `latest`     | April 22nd   | `sha256:ccd81704e9fdc6760b32808344e5c49b72f0f7fca95b3ff551be79c9ff50a1bf` |
-|  `latest-dev` | April 22nd   | `sha256:d9995e714db57a388478f104f4c583389c3f5d2c49f03620a370a42a6b00f32f` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.39.1-dev` `2-dev` `2.39-dev` | April 21st   | `sha256:a0a0a87684bba327e218bbd690f173642ce46387273e4f4fe1e12d69de35d9c4` |
+|  `2-dev` `latest-dev` `2.39-dev` `2.39.1-dev` | April 29th   | `sha256:e64a8cc25e67072f9b541fa60d82bc7b5e4ab75025ed19be9356cd3c197806cb` |
 |  `2.39` `2` `latest` `2.39.1`                 | April 21st   | `sha256:250057b756205b17ba25d2a60aac34f5f7bd1a38f7ac7870882d4fd6c21673b5` |
 |  `2.39.0-dev`                                 | April 5th    | `sha256:c2940b65934c59fceb31679cc01608427176f276e4609f32e006c820e261fe1a` |
 |  `2.39.0`                                     | April 4th    | `sha256:56210af20aef4e340cd1767039c3de192333b69cffda7df88c58613951f565a3` |

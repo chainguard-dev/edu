@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-jupyter-web-app Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-26 00:36:54
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 25th   | `sha256:50091d266a4c2350171ce3ee9e40ed8cf536f0644906261d7228053cc673da81` |
-|  `latest`     | April 25th   | `sha256:21cab0ffc9a7679b3a7638ded3af6fc8eff986893fc1652654b0898f27d6d136` |
+|  `latest-dev` | April 29th   | `sha256:f14755be752218c3ea7ce32b7bd99a22fd8f25e318f679ffd4589a05daa1cede` |
+|  `latest`     | April 29th   | `sha256:9ae4fb7e55bb938e80923dd4d325ebe6ce061750eb7ba599adef6df41c1bbdd0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.8-dev` `latest-dev` `1.8.0-dev` `1-dev` | April 25th   | `sha256:a21df37ae62c5b0043546bc42d687cbf040d579f887db57a5316cd352abf5727` |
-|  `1.8` `1` `latest` `1.8.0`                 | April 25th   | `sha256:c166628efa81c1ac55d2d0c519eeef3007afac7cd720a10bbd1ba940c1582adb` |
+|  `1.8.0` `latest` `1` `1.8`                 | April 29th   | `sha256:af47291ab2b0e81b6e5bd1b2e5edd108a2897bf71336786d800940aef550f5b8` |
+|  `1.8-dev` `1-dev` `1.8.0-dev` `latest-dev` | April 29th   | `sha256:6bc8005a62f42a3a67b8c3e7402b072d242ae5280c6ba9a1be0c8f642b039fbe` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:99245a30da9f0c1591f475c78d7813b5325ea90b555432eebd8e9c99795649dc` |
 |  `latest`     | April 23rd   | `sha256:43fd22ed6afc671b1de52e8a1cb35cb09c35c4df7c497f47c5f3d315e9c4ea77` |
-|  `latest-dev` | April 23rd   | `sha256:d6c751079d13ea0bdd0ede535f27e13e8596de43e9e681fd12356d526c4172cc` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.73-dev` `0-dev` `0.73.2-dev` | April 23rd   | `sha256:7dec9a28c8ca7bead69cc80f82e6114f0dc429492ab4ed0ae567b2645a30c1e0` |
+|  `0.73.2-dev` `0-dev` `latest-dev` `0.73-dev` | April 29th   | `sha256:608ba2dc720ccce461f855e245c6ce6f1862d625a4a0c68e54d098af949b1eb7` |
 |  `0.73.2` `0` `latest` `0.73`                 | April 23rd   | `sha256:380ffc992b5c73214df2c62d0bf24474820efb35d1426f0f4d02fbb73fd399d8` |
 |  `0.73.1`                                     | April 11th   | `sha256:56ab4edaae8f90eade5728ffd8296c69918aaae2c792708c65d08f462c9e83aa` |
 |  `0.73.1-dev`                                 | April 11th   | `sha256:85d55617f6bf5e6b8e5f26bd91449a5c866a2ee04976631d7b37b59a3a8ad6e7` |

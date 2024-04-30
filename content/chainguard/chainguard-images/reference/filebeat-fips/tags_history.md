@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the filebeat-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.17.20-dev` `7-dev` `7.17-dev`             | April 25th   | `sha256:256b201deb938d97f843fb1c704327d4724cb499e2bd265471bf0e80236c4718` |
+|  `7.17.20-dev` `7.17-dev` `7-dev`             | April 29th   | `sha256:88a7a1e24462f2f2fee7de59f27b380240f047899f1fc202588458f831a58dd9` |
+|  `8-dev` `latest-dev` `8.13.2-dev` `8.13-dev` | April 29th   | `sha256:1709ffab62459584814745b41918678fdd475236660791436f1af8f4cf468dc8` |
 |  `7` `7.17` `7.17.20`                         | April 25th   | `sha256:3c2aa83b0b30ba82992c76f8857c0481e3bf678877b6fb4c1f01f70951d4b0bd` |
 |  `8` `8.13` `8.13.2` `latest`                 | April 22nd   | `sha256:78f46d3e4566fec5bfd5449bebcb8d705ae33a268e972fedd334f84f82c52133` |
-|  `8-dev` `8.13.2-dev` `8.13-dev` `latest-dev` | April 22nd   | `sha256:f927f221219a9d070fbb06970a4a7cd431fc4b6e59b0f886c2d3a5b6513366ae` |
 |  `8.13.1-dev`                                 | April 6th    | `sha256:fcd85e0dc413f24e14c00e01a7ff98d15e6bd470916e78aca893ce3611251a12` |
 |  `8.13.1`                                     | April 6th    | `sha256:20631ae57f8cdde743afd920d8734bb9ea2fc1f8d8b2110004dca373f6f47a25` |
 |  `8.13.0-dev`                                 | April 1st    | `sha256:f6cb2c8c3e83e4f948c2609d4eff0610011e112efa6f330126b657ac964fdb29` |

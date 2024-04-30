@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:1b5697b9d259500bee8296c153dcd38bbc56540a19a0f7469e90d1310fc2e9c3` |
+|  `latest-dev` | April 29th   | `sha256:86686b7574c3e863eab8ebf6618a9f96c7d85dda63a0ce9ad6de809bb4f6638b` |
 |  `latest`     | April 21st   | `sha256:fcf21ad78ee3ac60b8a5b862549c5666f31e446ed361ed02219223a5c8c73d08` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.0.2-dev` `7.0-dev` `7-dev` `latest-dev` | April 21st   | `sha256:25ff9931b67f55290dfe65defa3f96368de9142d2bc2499fb71c139537e3e182` |
+|  `7-dev` `7.0.2-dev` `7.0-dev` `latest-dev` | April 29th   | `sha256:b1c3245e0f35952c86a353d6c32db05e17d5564c32e5d978d502d7835294bd5a` |
 |  `7.0` `latest` `7` `7.0.2`                 | April 21st   | `sha256:0f48da2ef2cae70f9cbfe8bb3ef86c6726f120f1ecdd0bb6df6515c9807eef5d` |
 |  `7.0.1-dev`                                | April 11th   | `sha256:c676b8fcf867eea8e75b14231e18e272d3d91969675864605d8a0882ab0b6eab` |
 |  `7.0.1`                                    | April 3rd    | `sha256:cf894eee55fb7bf394e74919765d8a06f750b1e56df6f89d924b86399fdd7d6f` |

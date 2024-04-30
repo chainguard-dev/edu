@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the configmap-reload Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:f41d90fac10eb678395a1eb90c05027ad2e6032db8052844b753d2374c6f5de4` |
-|  `latest`     | April 4th    | `sha256:0cd4e4b3bf14f517d25fdef0519fdf55bc24294bc55ba15d76a9e04dbdfc6a88` |
+|  `latest-dev` | April 29th   | `sha256:56af26b5a8eb812a8b3c89c70f3847b251341ce85aa0eedda2c4aa3671ba94ea` |
+|  `latest`     | April 29th   | `sha256:7b6210d35dbc67939c0967e6d60065fd26f91800ff51ec9b8d7af143b400a278` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.12.0` `0` `latest` `0.12`                 | April 21st   | `sha256:9f6c61ef4a72b990e1437b4b5c0e979d03a04fe74a219b602d80ecbb72b13376` |
-|  `0.12.0-dev` `latest-dev` `0-dev` `0.12-dev` | April 21st   | `sha256:a0fec93f89e107e49420b5bd38b8392a5a35b68072b5372a815ac42cdfce4cc0` |
+|  `0.13.0-dev` `0-dev` `latest-dev` `0.13-dev` | April 29th   | `sha256:f2a8d841ca70ed055cc7d410fa3e9da1bc290d1216a39389e47c3882b52683a7` |
+|  `0.13.0` `latest` `0` `0.13`                 | April 29th   | `sha256:93654036ba285b293e528611f554e5437ed2facad9fd83830f82381248e8e11c` |
+|  `0.12.0` `0.12`                              | April 21st   | `sha256:9f6c61ef4a72b990e1437b4b5c0e979d03a04fe74a219b602d80ecbb72b13376` |
+|  `0.12.0-dev` `0.12-dev`                      | April 21st   | `sha256:a0fec93f89e107e49420b5bd38b8392a5a35b68072b5372a815ac42cdfce4cc0` |
 

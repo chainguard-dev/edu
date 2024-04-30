@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,11 +33,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.51.2-dev` `2-dev` `2.51-dev` | April 21st   | `sha256:5dcd366a13bc6c1d5f65f58f21c3170ad10486c915b8fcef7919be46c1f3f812` |
-|  `2.45-dev` `2.45.4-dev`                      | April 21st   | `sha256:b7b7d90050d3bdfca43a0fba7c8183a5bfa6ede80d6aa817f9895afb980639c2` |
+|  `2.51-dev` `2-dev` `latest-dev` `2.51.2-dev` | April 29th   | `sha256:d7bce119e1a33f13759f3d1de52e280bfeb80eabe6b92aaae8b3efc44e32e8e0` |
+|  `2.38-dev` `2.38.0-dev`                      | April 29th   | `sha256:d2596901ae6d35e2793d07913ad2f943eae0426d51ea5be8d255b829ea9c7c08` |
+|  `2.45.4-dev` `2.45-dev`                      | April 29th   | `sha256:ed73e30c1d5ae4be1084dbe1c01818451d790b16aacdf1fbc6e3eb52182b0ce0` |
 |  `latest` `2.51` `2.51.2` `2`                 | April 21st   | `sha256:572ad53494a2109e5ccf51781b9808748411a03aede86521493a939d930f66c9` |
 |  `2.45.4` `2.45`                              | April 21st   | `sha256:e2bd0fdf521182dc9dddf707df18674c6b4cba545521b94b8460f99e1727878d` |
-|  `2.38.0-dev` `2.38-dev`                      | April 21st   | `sha256:432df78656f7d3ff84ac470fdcc503d2acc00ae4dc4f28602dd47faf059820ec` |
 |  `2.38.0` `2.38`                              | April 21st   | `sha256:fa5dd7bb570e70e7c29de42b7ac919f146e8c4e428c52358b61582df41f330f4` |
 |  `2.51.1-dev`                                 | April 11th   | `sha256:7d7605b0b3d3c1d9108aa0cd2da833b8a8d6030b8ddaabd0f6ce623e2a009448` |
 |  `2.51.1`                                     | April 11th   | `sha256:93b538ee1bbeb169b58285486e7150183f197e98743397b9510ac4910a71f482` |

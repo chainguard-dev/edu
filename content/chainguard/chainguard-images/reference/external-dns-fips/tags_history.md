@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the external-dns-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,8 +31,9 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed | Digest                                                                    |
-|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0` `0.14.1` `0.14`                 | April 22nd   | `sha256:c5d80aa28fc6c9c6095506f705287d1341e2ac41729c35ef19085ae7c9343811` |
-|  `0-dev` `0.14-dev` `0.14.1-dev` `latest-dev` | April 22nd   | `sha256:ea7c9e3ccb1975facdcb731e33c9e15ab0171651e4fe112df63a404972d4dafb` |
+| Tag (s)                          | Last Changed | Digest                                                                    |
+|----------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.14.1-dev`                    | April 29th   | `sha256:8f2c85eaa318c09c9b018f6a9f10ec521d5071203d8ff3bb2b59c7e026f4dd75` |
+|  `0.14-dev` `0-dev` `latest-dev` | April 29th   | `sha256:c0aa4648a9c028df233b2e9b3eb3efdee7f995877d5c3b4ae369684c19198e8d` |
+|  `latest` `0` `0.14.1` `0.14`    | April 22nd   | `sha256:c5d80aa28fc6c9c6095506f705287d1341e2ac41729c35ef19085ae7c9343811` |
 

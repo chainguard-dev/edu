@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mongodb-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `4.4-dev`                           | April 21st   | `sha256:081f8444eecebdfdc430ae129fbd353278483b676a48681bc9f915d0a62c5d3c` |
+|  `latest-dev` `5.0.26-dev` `5-dev` `5.0-dev` | April 29th   | `sha256:e46aad6a0d75b53cac3e6ca557908e995eca7e4c3465a0e94eee519a1417a732` |
+|  `4-dev` `4.4-dev`                           | April 29th   | `sha256:5d64a3fbbb2ce8b80a787368fa044d882d757a1f743e5b1317fb76f2972e8e40` |
 |  `5.0` `5` `5.0.26` `latest`                 | April 21st   | `sha256:9d5b3ae0fa5df4bb2440e2b2debd0ca7b8cc369071836e2295810187765c1b40` |
 |  `4` `4.4`                                   | April 21st   | `sha256:a3c48e2d5b3920684bfc8acf3a6c45a68326080a1f4ab8c853e1b31137eee0c0` |
-|  `latest-dev` `5.0.26-dev` `5-dev` `5.0-dev` | April 21st   | `sha256:27c9e06efc91525236312fcf0e5c5654624e338214c79e397037800b3ff2b74f` |
 

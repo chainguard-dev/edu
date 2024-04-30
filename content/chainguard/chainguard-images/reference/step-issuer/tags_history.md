@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the step-issuer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 23rd   | `sha256:3f36c46f2abe1ac0eab6429b01843339b62f36a6971bfbb90f84c6bcfca78b99` |
+|  `latest-dev` | April 29th   | `sha256:a3c1575f49a2ca24166c6e4cdc7b89f485475b0356d02ecfa37d2347126ec395` |
 |  `latest`     | April 23rd   | `sha256:8cb96047dac74062558050663cc644e9ec468a90d893ab562457901a8f96cc7e` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0-dev` `latest-dev` `0.9-dev` `0.9.1-dev` | April 29th   | `sha256:c9c32fcc98b896a559bf07d5e6a3a1d7b9dbbba0fa71e519c801f5116497a756` |
 |  `0.9` `0.9.1` `0` `latest`                 | April 23rd   | `sha256:bc291eb0e609dbbbf8801244505f2cdb37a84514a9f1578d3906c0d50bb9acf6` |
-|  `0-dev` `0.9-dev` `latest-dev` `0.9.1-dev` | April 23rd   | `sha256:203e8cb0870ebd6f06e45f23b0df11490bdea896c447fe4f5c008bbf8a855055` |
 

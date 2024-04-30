@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gitness Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:2f0e7128c2557e047c0644bd89b5a6fe05fd65c53095708bfff2a72801914974` |
-|  `latest`     | April 22nd   | `sha256:6462e594991d3965f9ce279ad37be90498dc851c050466d8f4e0fd505afcfc69` |
+|  `latest-dev` | April 29th   | `sha256:c2c5a09c6de8b85a91d5feee41666a250eb5f6b0a7c9c69308324570a751156b` |
+|  `latest`     | April 29th   | `sha256:5c98b9279ba7cc2e091fae356e47e3b63579c2d8fd6f58a802f6a493caac9b7d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                           | Last Changed | Digest                                                                    |
 |---------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3` `latest` `3.0` `3.0.0_beta6`                 | April 21st   | `sha256:bce7a7c9a3741966635e9b3fd5bb902de0f35bad4841e9496691a0071926b069` |
-|  `3.0.0_beta6-dev` `3-dev` `latest-dev` `3.0-dev` | April 21st   | `sha256:3b7385b6675eca976d74198ccd8ea3c39f20f227610b8ebee548392ac5eff446` |
+|  `3-dev` `3.0-dev` `3.0.0_beta6-dev` `latest-dev` | April 29th   | `sha256:95f975306ad9b989439f0ec5d1984b29d6a3681b42c57a4ee11971e70718e81f` |
+|  `3` `3.0` `latest` `3.0.0_beta6`                 | April 29th   | `sha256:aa03d9b72d8148009b168d4b7945a4dc70f82c96b1077a84b33efc7908fed349` |
 

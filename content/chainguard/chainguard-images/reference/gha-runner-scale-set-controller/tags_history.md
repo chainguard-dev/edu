@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the gha-runner-scale-set-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,16 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:a943dcb67161379d471f51cb4af7a63ee5fb2a5e8b5e14e1f335005e62c7914e` |
+|  `latest-dev` | April 29th   | `sha256:8f3952d840dae9dbecc6e4f448a5fe739688f4441fbd497e7cb7d5127f5d73fb` |
 |  `latest`     | April 19th   | `sha256:a8748278628c8a9bba53d766e0a47c1c2e051a758b622e6720fbd2e8d3265ec2` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed | Digest                                                                    |
-|---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.9.1-dev` `0.9-dev` `0-dev` `latest-dev` | April 21st   | `sha256:77202f0fe0c60dd40d7be4a890f0fbda0775a789cbf2dbe4ea594a042c1c11d7` |
-|  `latest` `0.9` `0` `0.9.1`                 | April 21st   | `sha256:ec26127c42e379d9456bb8fe84d720f1c3a63445dc9e2adae923e753ce833e3a` |
+| Tag (s)                     | Last Changed | Digest                                                                    |
+|-----------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.9.1-dev` `latest-dev`   | April 29th   | `sha256:9165f21f607c7440e86461b2f1cb4c574aa63690f094c6bb0d26d98f218c7d81` |
+|  `0.9-dev` `0-dev`          | April 29th   | `sha256:df50ea36e925ea544bf47b29411d66ad36b737d4f486a901eb98b510203982ac` |
+|  `latest` `0.9` `0` `0.9.1` | April 21st   | `sha256:ec26127c42e379d9456bb8fe84d720f1c3a63445dc9e2adae923e753ce833e3a` |
 

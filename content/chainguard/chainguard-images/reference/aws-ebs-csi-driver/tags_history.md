@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-ebs-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 23rd   | `sha256:765acfc986431ea12eae0178e494b8382d143195d429ccfb23b0fd617ad6fea2` |
+|  `latest-dev` | April 29th   | `sha256:7b41c76262633dcbacbc1026a85cab6f271c2cfba1e49cd227cb9df6fe5cb2a0` |
 |  `latest`     | April 23rd   | `sha256:00114f7a0f8836f8febfc49af4a98bb8f23aef9f7edaf03d532599cd2093fb1d` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.30-dev` `1.30.0-dev` `1-dev` `latest-dev` | April 23rd   | `sha256:2de5bf82c8cdbc83e367af0a01d5485fe876492ede7b35975cf7d6195308ba82` |
+|  `1-dev` `1.30.0-dev` `1.30-dev` `latest-dev` | April 29th   | `sha256:54579e6a2d7a18fc026868d5242d1c320f8a6169274c03897e19aa40b20d7e99` |
 |  `1` `latest` `1.30` `1.30.0`                 | April 23rd   | `sha256:575fd1f0042d0f6429a1f9dee69a176f5fe39359bd40f465c6b1ec3fcb6c95e5` |
 |  `1.29-dev` `1.29.1-dev`                      | April 21st   | `sha256:8755013872943af6189a60922c683c451408cf37bf9d0ebd14a3a502af5ce043` |
 |  `1.29.1` `1.29`                              | April 21st   | `sha256:1bcad541acf8eb976aeccf7008ffea15c5c5c2de47c027f1aa1d6060a27b8f38` |

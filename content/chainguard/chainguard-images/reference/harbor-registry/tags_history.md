@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the harbor-registry Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,16 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:2888c0d9896f6693ec7e025cf43d36dcaecf0e86c2c2f8d6e78f398e42303b99` |
+|  `latest-dev` | April 29th   | `sha256:a816da3bd952682f5fc9186c641966e1d141238a72031a09e0628e7b2c44e1f1` |
 |  `latest`     | April 16th   | `sha256:2c2de23c3b6d44e63bda14b5f014d6c09fa745b9e7238917749fbe74991f04d8` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                            | Last Changed | Digest                                                                    |
-|----------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3-dev` `latest-dev` `3.0.0_alpha1-dev` `3.0-dev` | April 21st   | `sha256:db65d1ee4c9a26f1f2c0d232bf2e99fbd6a0c73df79c44b747d99b34c7b0a0f6` |
-|  `3` `3.0` `latest` `3.0.0_alpha1`                 | April 21st   | `sha256:ec8f540dc8ade74f931ed7d8520c11fd9b5de40ed0cf9f030e5b337c492f2a84` |
+| Tag (s)                            | Last Changed | Digest                                                                    |
+|------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `3-dev` `3.0-dev`    | April 29th   | `sha256:7c29093a61b161c56f1c37b62ed1a336638147911baa01b21c9903eb296ffb92` |
+|  `3.0.0_alpha1-dev`                | April 29th   | `sha256:f9eec65741787c5cd46298477efe68a4646ac541c3607882505d5c46f42bf3d1` |
+|  `3` `3.0` `latest` `3.0.0_alpha1` | April 21st   | `sha256:ec8f540dc8ade74f931ed7d8520c11fd9b5de40ed0cf9f030e5b337c492f2a84` |
 
