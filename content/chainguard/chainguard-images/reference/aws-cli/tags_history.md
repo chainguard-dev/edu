@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 27th   | `sha256:80fcf683d32200a682e50061e24f78756c1db38779b2ef885f9c75ff18a2e8f3` |
+|  `latest-dev` | April 29th   | `sha256:858ce89f7c40a82ccf68bbf3b453f239e1ac9e9d6e477d98c6c4901e88443c42` |
 |  `latest`     | April 27th   | `sha256:41e2efa1f9af3f525862c68a9d5df388f7fad2b6ac2143551d5d32d8f4656a84` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.32.71-dev` `1-dev` `1.32-dev` `latest-dev` | April 27th   | `sha256:7fdefeaa84366cbe9a01abd08c539f0f804c7908c7d68c426dae6ff15c697f9a` |
+|  `1.32.71-dev` `latest-dev` `1.32-dev` `1-dev` | April 29th   | `sha256:fe2d0a33a29d9f0bba1a8d5078a0381ac2132d9b6725cbd77f5906085519a185` |
 |  `1.32` `1` `latest` `1.32.71`                 | April 27th   | `sha256:e3a22ca7b00124b9e2838f56b1b047fdf2f6dbbd996d80bce74b548a53a9cfcd` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kuberay-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,16 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:d30cee3242f77f012ede260751f3aa88679d98c4e5582eeb04168e768dab5031` |
+|  `latest-dev` | April 29th   | `sha256:a5ebbedfa292b432aafe161c5dc38710abbbd793fc0b3e78081a8f567b14da2d` |
 |  `latest`     | April 21st   | `sha256:80bbca0017fdaa2f08758df806b61978bd838ae40ec8cf2626ecb0c5395aa3b7` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed | Digest                                                                    |
-|---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0.0-dev` `latest-dev` `1.0-dev` `1-dev` | April 21st   | `sha256:958d1c32aef0002df4e73fc72dcbec1d9b2e911dc4f62a149d67be83ffda0ba9` |
-|  `1.0.0` `latest` `1` `1.0`                 | April 21st   | `sha256:d0ec19d9d9ec6bc5559ce2f53c2e16478f2398241ac1bc16559509bac9e5f13d` |
+| Tag (s)                         | Last Changed | Digest                                                                    |
+|---------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1-dev` `1.0-dev` `latest-dev` | April 29th   | `sha256:62fd685062720e0719156fe9f365909ec1c55b107591d52243f0e87a0263fdf3` |
+|  `1.0.0-dev`                    | April 29th   | `sha256:2ded4b908167cba39d01ab3597c99c7959f518d1321b4dedfa1a5fa11d84764f` |
+|  `1.0.0` `latest` `1` `1.0`     | April 21st   | `sha256:d0ec19d9d9ec6bc5559ce2f53c2e16478f2398241ac1bc16559509bac9e5f13d` |
 

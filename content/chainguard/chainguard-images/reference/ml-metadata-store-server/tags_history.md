@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ml-metadata-store-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:f435d9f1164b84fe7907f79dfb983bd19418a2b62964f6e8bdd2de9d4d3e22a8` |
 |  `latest`     | April 22nd   | `sha256:a7e16f21c04bfd4925ef667baff0aef29a9276e5a84fb0918382d058ffb11215` |
-|  `latest-dev` | April 22nd   | `sha256:4b4b0dbd3d3123f986ad9fdfe3821f7058dcb3018dd3f4d8a622cfaab13ca1b0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14.0-dev` `1.14-dev` `1-dev` `latest-dev` | April 21st   | `sha256:cc01d80987bc91bfe3a452fa0d3d9bdf1382c5876379bbf9c49549321b37ff8c` |
+|  `1-dev` `1.14-dev` `1.14.0-dev` `latest-dev` | April 29th   | `sha256:7055a19f96d2a6e893319dea05ef83a692aa570ce64be12ab575f023ac20b4e1` |
 |  `1.14` `1` `latest` `1.14.0`                 | April 21st   | `sha256:bbdfe6b9c8639245ba6f089fd948a8bcade2636c096c91cd26d0afb34d4b5460` |
 

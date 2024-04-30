@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubeflow-pipelines-scheduledworkflow Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:ecffeb1fc20ee7394adac101d4f8761437a138403e592cd326f8eb175c393c5b` |
 |  `latest`     | April 24th   | `sha256:d18d0818956745222fd44ae831eeb6c9762242455438171033391f19b2f6d127` |
-|  `latest-dev` | April 24th   | `sha256:bc25e507a8aca9770a1600c6caa90641dcbcd2630a10f6b22da942cdddb32ebf` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2-dev` `2.1.0-dev` `2.1-dev` `latest-dev` | April 29th   | `sha256:b25224c505e0cca9f422675ec201caed554c888836bee40870e0eeda1f4cf767` |
 |  `2.1.0` `2.1` `latest` `2`                 | April 24th   | `sha256:981dc1a735d33efa19ed041f0be90de701866f71b41dcd00e87fb63128500825` |
-|  `2.1-dev` `latest-dev` `2-dev` `2.1.0-dev` | April 24th   | `sha256:9d25e3262d4d98d9bc4236252067a39dfc990f25e82a9440fb450b676b0296c1` |
 |  `2.0` `2.0.5`                              | April 24th   | `sha256:fb94d98b942e5ab3dcba0be5cee24458460c3ffc775b87aedf9e1ffc14a96206` |
 |  `2.0.5-dev` `2.0-dev`                      | April 24th   | `sha256:de8f78557e544bb79baeae17eb775112aa62f320baeb149cb29956fd3d9453d4` |
 

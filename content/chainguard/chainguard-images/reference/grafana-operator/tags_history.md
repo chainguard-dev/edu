@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,16 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:d05073f90bbf8b4e7f74ae71b79b62f07d922a6eaf5536bb90ae4110219fb500` |
+|  `latest-dev` | April 29th   | `sha256:92a9afcbcc1eecc5df9f49c7ebb11d3f7137affaf3871b825c8cff0484baad22` |
 |  `latest`     | April 21st   | `sha256:8c72e9d07414ff48376411b0c798143bd1d2db2874a0983a563f6a2a27968b72` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                     | Last Changed | Digest                                                                    |
-|---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.8-dev` `5-dev` `latest-dev` `5.8.1-dev` | April 21st   | `sha256:623cde353e978b13b60b05d6c5f88fe9145c47f9f14cdceb77a239845d504e57` |
-|  `5.8` `5` `5.8.1` `latest`                 | April 21st   | `sha256:2005e3eece67d88ed636675608eeffc7218420c5a20677b0861bf917f27ea696` |
+| Tag (s)                         | Last Changed | Digest                                                                    |
+|---------------------------------|--------------|---------------------------------------------------------------------------|
+|  `5.8.1-dev`                    | April 29th   | `sha256:675bda9946ed1cee9e57dbd709a0e3ec1f4f5e8fd296be191a1522941f0fb74c` |
+|  `5.8-dev` `5-dev` `latest-dev` | April 29th   | `sha256:2e35bc575aa5e55e2828cd6f5a7829e4c7248a870a286ca10eb57f1cf280cf3c` |
+|  `5.8` `5` `5.8.1` `latest`     | April 21st   | `sha256:2005e3eece67d88ed636675608eeffc7218420c5a20677b0861bf917f27ea696` |
 

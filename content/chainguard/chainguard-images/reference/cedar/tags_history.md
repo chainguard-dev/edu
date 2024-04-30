@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cedar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:d274e216cdd7b4d56a59782fd4ea4bc17a1ea0fe615f67877c77f61207479fff` |
 |  `latest`     | April 22nd   | `sha256:484dbd8f3df8b13aa4bb118ad958b06eccc0297f64065d7bdd18fd0d82f4eb5f` |
-|  `latest-dev` | April 22nd   | `sha256:8a886b735fdcf4a706572f0f0f42cb65e723af0b1a69e1a6015f4e90a621bc02` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.1-dev` `latest-dev` `3.1.3-dev` `3-dev` | April 21st   | `sha256:21a21dd0dc4e451db251ad48fa4cb65742a636647d74333b0c5b945ec02953f0` |
+|  `3.1-dev` `3-dev` `3.1.3-dev` `latest-dev` | April 29th   | `sha256:8bdbc58e7e80ec50779238d814b2f842cf2a90a90b9a509732ada9ef4637ebe9` |
 |  `3.1.3` `3` `3.1` `latest`                 | April 21st   | `sha256:2634e087663e0ecdd3066b7a734315ad75cdd92562cb0aad4ac95fb222b75cfb` |
 |  `3.1.2-dev`                                | April 11th   | `sha256:5598d4652d7472e1dba0feceebca077a41aba293a39e4dcc28d5dbd0b70dc7b9` |
-|  `3.1.2`                                    | March 30th   | `sha256:ad6d04c507b443831bccc7f964b7d7c79be79ceeafa14c906a9569ad702d9a8b` |
 

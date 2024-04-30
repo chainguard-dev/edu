@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hubble-ui-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` `0.13.0-dev` `0.13-dev` `0-dev` | April 29th   | `sha256:d564490d692b3ddb6d44783dce3ef611625d5d4cc9ccea1e4d420bf6c8ae4662` |
 |  `0.13.0` `0.13` `latest` `0`                 | April 24th   | `sha256:1211738ac3e49d2d3014764049c60fc60d98a09899dbc1fe966e5730aa8f86ab` |
-|  `0.13.0-dev` `0.13-dev` `0-dev` `latest-dev` | April 24th   | `sha256:6800b779c0ec4322810fb976eea12542a896aa561a90be4a21d2dfd996599860` |
 

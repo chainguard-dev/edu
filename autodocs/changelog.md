@@ -1,3 +1,13 @@
+# 2024-04-30
+New images added:
+
+- harbor-db
+- step-ca-fips
+- step-cli-fips
+- wave-fips
+
+A total of **664** documents were updated.
+
 # 2024-04-29
 New images added:
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-external-snapshot-validation-webhook Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,7 +36,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7-dev` `latest-dev` `7.0.2-dev` `7.0-dev` | April 21st   | `sha256:51bf00d8322dc4d3dd9999991eb887a39dd08e54d06071ce4d9461f77e262a3c` |
+|  `7.0-dev` `7-dev` `latest-dev` `7.0.2-dev` | April 29th   | `sha256:0ae7ad87920ed157a3406aa2f0ea899fb5a29cc6ef5bc179663f2994711f102e` |
 |  `7.0.2` `7` `7.0` `latest`                 | April 21st   | `sha256:b2497572ba25f1cdcee46a9c7f0c1180c49ff17a566f7f9032d194dd820ed2b8` |
 |  `7.0.1-dev`                                | April 11th   | `sha256:68842435e6d17a8a3532afa3191ae6c7cb040a4c63530e04ddd17bc9bd238c35` |
 |  `7.0.1`                                    | April 3rd    | `sha256:1e33de31b7f0e9dae53c1d651a03624502647b7b86d0d18a434d18a18e50c6b4` |

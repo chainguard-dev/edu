@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-resolvers Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:b115713d071db59003c448eb03f5f3971f09dd1480c8e11a9b0296d8da42d211` |
 |  `latest`     | April 26th   | `sha256:2c669fd9320e330cd4671c4cd0cc78e88731ea27d14fc277db308643995d987f` |
-|  `latest-dev` | April 26th   | `sha256:a6e56f15fe186f8caaaf85a0a22649c4c55146de7f916239cc864bbe28bffe81` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0-dev` `latest-dev` `0.59-dev` `0.59.0-dev` | April 29th   | `sha256:73abc0f8334955ef49a08a1411641a9eeb016ea29d2460015437b78ef6de2aae` |
 |  `0` `latest` `0.59.0` `0.59`                 | April 26th   | `sha256:ad0828d1fa806860afa170d366accd88afbfe1960c666d7b4bb84dd750191c3a` |
-|  `0.59-dev` `0-dev` `latest-dev` `0.59.0-dev` | April 26th   | `sha256:d36b78006d829fc45ed258c69ce27d402152087098e71763f4a02dc0d7f9539c` |
 |  `0.58` `0.58.0`                              | April 21st   | `sha256:8182413c5498938cebad443a85217dedc5e049136f11f8c27e9c8b233ebb7f37` |
 |  `0.58.0-dev` `0.58-dev`                      | April 21st   | `sha256:40efee79e30ca3e88c01bdfe3a25613c6641862ce76db5292eeeb9b9dc6f7ea7` |
 

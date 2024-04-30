@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jenkins Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 24th   | `sha256:b554d90577f5a1c0053cc352cebcf69d32b281e2f8f8b7b38e62d6f7e8385ec1` |
-|  `latest`     | April 24th   | `sha256:69a197a680b49fc54464e3cd3e3889f803cb4a0eadd1142ed7611af7520345be` |
+|  `latest-dev` | April 29th   | `sha256:238928355c3151b097caf2a4876fbb2658cec13734577afe028bea038edbeb69` |
+|  `latest`     | April 29th   | `sha256:80129b934cf075a05019f138794990b45509d9589e17a4c92feb02c44e200429` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.455-dev` `2-dev` `latest-dev` | April 24th   | `sha256:5942e9ea846253931c0cc7f3968e04e22a30d9d16c222a1581bf0bed008681f1` |
+|  `2.455-dev` `2-dev` `latest-dev` | April 29th   | `sha256:f0a34fbf035243d5780de46f9a7948a1757c03d2c9f13c1b0ee41c5f934d05d4` |
 |  `2.455` `2` `latest`             | April 24th   | `sha256:29e5a74a23ac0a1f1eef1b3002d7e41cd76a447b32288b8c17cf6f3755eb9741` |
 |  `2.454-dev`                      | April 20th   | `sha256:f4bc0160f5c72dd1ee78c6c017fefa5b2f6c8fa211fdc4cd17d9b848923e09ee` |
 |  `2.454`                          | April 19th   | `sha256:752e073a71752fe1b05aa614ae6ead697e9002f8c3147e18a72008f2c795c2f1` |

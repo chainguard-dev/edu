@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cortex Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:82241a5ad34df39f2594cdf2ebcc2575aeae52034e09d0b245074fea1433687e` |
 |  `latest`     | April 24th   | `sha256:a495ca2c4145adccc26278aa1abbb8a1cd9a14cafbb66958ffe3faeae1090526` |
-|  `latest-dev` | April 24th   | `sha256:3c59b9dd9ed944784e16df26063f4d2bd6b073edbe3bd0302b432328d9328bc1` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.16.1-dev` `latest-dev` `1.16-dev` `1-dev` | April 25th   | `sha256:5f5b1ddfdf7087f7f77d011b037580f0bcefef666c6060a15e3870c1a7c70a1c` |
+|  `1.16.1-dev` `1.16-dev` `latest-dev` `1-dev` | April 29th   | `sha256:b7af2164ed452b3c33fee3e6cb472d198129992e0eadc49e62f8354b7643564d` |
 |  `latest` `1.16.1` `1` `1.16`                 | April 25th   | `sha256:3cfb75a6f2f477ff24582ac3c6de44214cb888cec23d68048fdc365778c0b09b` |
 |  `1.16.0-dev`                                 | April 21st   | `sha256:8b9f9e3418a25ecefdf0e56bfd33c9506399c67d6c8c9a0ecabf41e97d249a8f` |
 |  `1.16.0`                                     | April 21st   | `sha256:2f685e3a0ab543eba936bd57a5205754351311fac2ee5988b1f3f58705184645` |

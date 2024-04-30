@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda-adapter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:0b320cbf1c2e91ab7f0c2c780643d9ee367dc9503df6e1900094c47ca9984881` |
 |  `latest`     | April 24th   | `sha256:1258e0a0ccc4eee24abf7fbe3da5e5e4e0d555d2fc8643141190b5a18878cd7a` |
-|  `latest-dev` | April 24th   | `sha256:4b1e5a78910c570fedab857cfaf698ab34de9b3cfdb8b5f4cb9a14f73a36da51` |
 
 
 ### Private/Dedicated Registry

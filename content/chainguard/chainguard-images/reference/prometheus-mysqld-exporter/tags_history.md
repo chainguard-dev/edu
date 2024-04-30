@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:9f205028afd03e891aa48319af57c2be50fb170389a2b5a7fdbc46be0f9478f9` |
 |  `latest`     | April 22nd   | `sha256:f091f781ee687b3d02e78a7c7a083dfd6e89a4182ae36a054fa472ef27ab0331` |
-|  `latest-dev` | April 22nd   | `sha256:2e54783f48dea520cbecc2b6c0189188281ebd64c92afa9666f0ff54cf2fe94e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.15.1-dev` `latest-dev` `0-dev` `0.15-dev` | April 29th   | `sha256:c98bb3f212b8a3eea483821172f7a9ada0b9ea4cb708032921d5f25c4dc97518` |
 |  `latest` `0.15.1` `0` `0.15`                 | April 21st   | `sha256:d37eaab19684f7e32d386273990c6a5c5fab1f0031ffbaffefd19a4cf6e659d6` |
-|  `latest-dev` `0-dev` `0.15.1-dev` `0.15-dev` | April 21st   | `sha256:09a585af85beb54a46ff53c41ceff5bcea5efdada4746e34b297c0444fe35130` |
 
