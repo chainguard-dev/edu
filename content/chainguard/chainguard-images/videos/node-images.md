@@ -30,9 +30,9 @@ toc: true
 ## Transcript
 
 Today, we're going to look at how easy it is to port a Dockerfile for a Node.js application to use
-a Chainguard image base and how it can help improve the image, especially in terms of security.
+a Chainguard Image base and how it can help improve the image, especially in terms of security.
 
-I'll be using the free tier of Chainguard images here, so you can do everything in this video
+I'll be using the free tier of Chainguard Images here, so you can do everything in this video
 yourself today.
 
 OK, over to the terminal.
@@ -63,7 +63,7 @@ And it's sometimes used as a default image for users on a website, such as GitHu
 
 OK, so let's take a look at the Dockerfile for this application.
 
-You can see that it uses the Node official image from a Docker Hub.
+You can see that it uses the Node official image from Docker Hub.
 
 It installs quite a few dependencies that are needed for the graphics capability, creates a non-root
 user, copies over the package JSON, and installs some Node modules.
@@ -97,21 +97,21 @@ low vulnerabilities.
 
 But we're not going to do either of that.
 
-We're going to change to use a Chainguard image and see how that affects things.
+We're going to change to use a Chainguard Image and see how that affects things.
 
-So I'm going to use a Chainguard registry here at cgr.dev.
+So I'm going to use the [Chainguard Registry](/chainguard/chainguard-registry/overview/) here at cgr.dev.
 
 And we're going to use the `latest-dev` image.
 
 So there's a couple of things here.
 
-I'm using a Chainguard registry.
+I'm using a Chainguard Registry.
 
 I could also use the Docker Hub.
 
-So Chainguard images are available on the Docker Hub, just in the Chainguard user or namespace.
+So Chainguard Images are available on the Docker Hub, just in the Chainguard user or namespace.
 
-But in this case, we're using the Chainguard registry.
+But in this case, we're using the Chainguard Registry.
 
 For free, we provide the `latest` and `latest-dev` images.
 
@@ -120,7 +120,7 @@ a shell, which I'm going to need in this case to install some dependencies.
 
 Now, these dependencies are all `apt-get` based.
 
-And Chainguard images, we have APK tools.
+And Chainguard Images, we have APK tools.
 
 We're not an Alpine distribution, we use our own Linux distribution called Wolfi.
 
@@ -130,7 +130,7 @@ So first thing I'm going to do is switch this line to be the equivalent in Wolfi
 
 So first thing you do is change to the root user so I can install software.
 
-So the Chainguard images typically do not run as root by default.
+So the Chainguard Images typically do not run as root by default.
 
 And then I'm going to use APK add to install our software.
 
@@ -162,7 +162,7 @@ We do have another difference down the bottom, though.
 
 This `npm start`.
 
-So because Chainguard images by default don't have a shell, this doesn't work.
+So because Chainguard Images by default don't have a shell, this doesn't work.
 
 Basically, this will get passed to the node binary to be interpreted, which isn't what we want.
 
@@ -212,7 +212,7 @@ And I'm just going to copy one I made before.
 
 So here we're using `wolfi-base`.
 
-I can't use the node `latest` image because we need to install these dependencies.
+I can't use the Node `latest` image because we need to install these dependencies.
 
 So for that reason, I've used `wolfi-base`.
 
@@ -226,7 +226,7 @@ Note that I did have to add `nodejs` to this list to explicitly install Node.js.
 But otherwise, we're just copying over the build assets from the previous stage and setting the
 `entrypoint`.
 
-We no longer have NPM, so I've explicitly set it to call node with `server.js`.
+We no longer have NPM, so I've explicitly set it to call Node with `server.js`.
 
 OK, so let's try building this one.
 
@@ -270,7 +270,7 @@ system to this image.
 
 And we're going to add that to the entrypoint as well.
 
-So now the PID 1 in this container isn't going to be node, it's going to be tini.
+So now the PID 1 in this container isn't going to be Node, it's going to be tini.
 
 And tini will take care of handling signals and also reaping children and things like that.
 
@@ -280,12 +280,12 @@ And if we run it again, should still work.
 
 Yes.
 
-But this time, if I do `docker stop 1ad2`, it stops immediately because tinny has correctly handled
+But this time, if I do `docker stop 1ad2`, it stops immediately because tini has correctly handled
 the signals.
 
 OK, so that's pretty much all I have.
 
-We've seen how moving a Node application to Chainguard images can significantly reduce the size of
+We've seen how moving a Node application to Chainguard Images can significantly reduce the size of
 the image and completely cut the CVE count in the image.
 
 Please do give this a try and let me know how you get on.
