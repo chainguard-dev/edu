@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hugo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-26 00:36:54
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 25th   | `sha256:db3fab151745edd35525e7db7d89d579b3043885a9b1b5e44d22789f2408aa50` |
+|  `latest-dev` | April 29th   | `sha256:56969f238a44b707446c46504d75eeaf1d4612f6b918d37b71beafd5c2643d30` |
 |  `latest`     | April 25th   | `sha256:2507dea4af6f4c81be6ba89baf10f37729839c4f9c6470026ce1c91e97f7b922` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.125-dev` `0-dev` `0.125.4-dev` | April 25th   | `sha256:710d0c194efad1105459f32dd559b4997a08a07cc63f50bc0a73914f9735e750` |
+|  `0.125.4-dev` `latest-dev` `0.125-dev` `0-dev` | April 29th   | `sha256:8624e69c260bf0a4549d5393920e9e443591e707470fb3ff889fa4e9c68b99c1` |
 |  `0.125.4` `0.125` `0` `latest`                 | April 25th   | `sha256:b196d56560ba07b03e57926b6fdf0429fff92fba6340bfd11d3cad6d1c14814f` |
 |  `0.125.3`                                      | April 24th   | `sha256:f9d0a796fbd74d9f502c74e4b52b4e410bc092e0aff76e976eddc0e4e34d7fee` |
 |  `0.125.3-dev`                                  | April 24th   | `sha256:d8e4e682996d1490af2ad9db02257a082d327d9448d14a9e909517062dc13c3b` |

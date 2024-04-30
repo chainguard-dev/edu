@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the squid-proxy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-22 00:45:38
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.9-dev` `6-dev` `latest-dev` | April 21st   | `sha256:17db1db4c5b734644a6dda723f35334cd080933e21d7146999957434d75c6f6b` |
+|  `latest-dev` `6.9-dev` `6-dev` | April 29th   | `sha256:5420b14e24826fd533591a4090da91f448fad6b22306b9268a99157807d7ff86` |
 |  `6.9` `6` `latest`             | April 21st   | `sha256:05106b8d1e45bab8589433fc5f35e81ca756bf8ddf0a3ce17bddfc28ebbbf750` |
 |  `6.8-dev`                      | April 5th    | `sha256:477ffda7832da207135a8fb62ab8aa1e5947cb7168918edef0e09879994b5283` |
 |  `6.8`                          | April 5th    | `sha256:a59c95cbe5c471a4a2cfb4abd697957d4e0999400e8294bca51aaf837a6a138b` |

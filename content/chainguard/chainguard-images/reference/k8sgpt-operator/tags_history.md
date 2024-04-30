@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the k8sgpt-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:65ccabd8a3f725abe8a88e0de686519f0ad96fdfac83cfa3a3d41739ad7f24d9` |
 |  `latest`     | April 22nd   | `sha256:1c16258b45742719885e34abf2aa4af9e18450d5803a4af9da5cce892eeb9f9d` |
-|  `latest-dev` | April 22nd   | `sha256:5b03202522790dede13972aaf659b73840ee6955d4e34a4736bc2799219fef4d` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1-dev` `0-dev` `latest-dev` `0.1.3-dev` | April 24th   | `sha256:c781100e3a9196dab3cc0445f60e613ed288f3e9071480a2a5147220a76223a9` |
+|  `0.1-dev` `0-dev` `0.1.3-dev` `latest-dev` | April 29th   | `sha256:a0dbfb2beec179e685bb5e9ec73ca9766e063442d727c5cdf5529d243a2f98d4` |
 |  `0` `latest` `0.1` `0.1.3`                 | April 24th   | `sha256:610276cdbc05272c1bff123725f05d3427999ae7350041bedd1803e5e4ec4f11` |
 |  `0.1.2-dev`                                | April 4th    | `sha256:dcd74bdde4d4e21bf1f5b94e34c1e3cc27736ffc89dfaf2e6d7b5ea7c1abeed3` |
 |  `0.1.2`                                    | April 4th    | `sha256:db6f7df2c0fb7cf71cba09c183b29faafc047f7112f70384cd43cb4ee78b6254` |

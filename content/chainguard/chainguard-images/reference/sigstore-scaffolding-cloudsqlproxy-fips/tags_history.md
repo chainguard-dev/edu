@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-26 00:36:54
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.6.17-dev` `latest-dev` `0.6-dev` | April 21st   | `sha256:b3e834e08c2caf97e887d6ec23c0fef1c3d31f90ddc92116274b9857213dd62e` |
+|  `latest-dev` `0-dev` `0.6.17-dev` `0.6-dev` | April 29th   | `sha256:2b36f0878805bf5c031e5c146a5f73acc91bea939ccb0d908d5417e0b1c27362` |
 |  `0.6.17` `0.6` `0` `latest`                 | April 21st   | `sha256:de5a510c8e9d95d9ead3b31082337fd516dd354843a77f9c1926f5459de463f8` |
 

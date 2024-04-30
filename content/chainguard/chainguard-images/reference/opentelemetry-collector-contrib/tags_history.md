@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector-contrib Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-24 00:53:13
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 23rd   | `sha256:9099d2143c4e907f2e77db9fac07145df79f417f69e8e5df6ad685af40483b1c` |
+|  `latest-dev` | April 29th   | `sha256:a2cd0032155fb587c915a21149dd152cc7118fb001c66962ba7c69cf37755b2d` |
 |  `latest`     | April 23rd   | `sha256:77aa5fbbeae36544f68f865f44c7361e51096f34a891bc1ce7981179f0f94bee` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.99.0-dev` `0.99-dev` | April 23rd   | `sha256:c559c3365554ee6974df45fb2783300b9e7d7a108b55da498eeb2997d4a3c7e7` |
+|  `latest-dev` `0.99.0-dev` `0-dev` `0.99-dev` | April 29th   | `sha256:c116ba061a828e681c3d202172a0377f60fe647da0e060e03d27478753cefb68` |
 |  `0.99` `0.99.0` `0` `latest`                 | April 23rd   | `sha256:f325770ffd96c90d0be47881f31f02e6ae2f52189f7c46632c0406fab1ecd283` |
 |  `0.98` `0.98.0`                              | April 21st   | `sha256:dcc4f7715b67e8857aa309bc97183068e8096de000c3585c6f357fb9324bf876` |
 |  `0.98.0-dev` `0.98-dev`                      | April 21st   | `sha256:2be5922025028c32c4ec14d50a2515b3ff3b477bad612f4b724a3dfaaecb30fc` |

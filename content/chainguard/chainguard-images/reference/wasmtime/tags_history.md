@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmtime Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:cbda610c9b41308e1446bcfa441ee7409b44964aa356ed0779b9968ed3e3f60d` |
 |  `latest`     | April 23rd   | `sha256:6323880a930e0e8a523d2bef8d01fa725ac6523542c4ffc3ad0d170e7b261dd8` |
-|  `latest-dev` | April 23rd   | `sha256:adf70cd2ace97c6ef2033a3c31e47a99bbd62762bcdbd6cae362e20d07711a65` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `20.0.0-dev` `20.0-dev` `20-dev` `latest-dev` | April 29th   | `sha256:3feb666a1922778d21b51edb5ac6d11136840aadcaa90a36d75305e36b23f16a` |
 |  `latest` `20.0.0` `20.0` `20`                 | April 22nd   | `sha256:0fbe395a14c89c547ceef1b262e4cddf8db0d04e55c036bb68ef536908cc05c1` |
-|  `20.0-dev` `20-dev` `latest-dev` `20.0.0-dev` | April 22nd   | `sha256:dcf066b47d7c38452e51b231cb5221bccdf544d51f5ab0d30a6f7d2643d0b41c` |
 |  `19-dev` `19.0.2-dev` `19.0-dev`              | April 21st   | `sha256:6c541973f81c55a8dfe5368d0e40415ff474bd5ee103a96d12ddff8aa8e65559` |
 |  `19.0` `19.0.2` `19`                          | April 21st   | `sha256:19084f45e28fdbc883f253e842eadd6df8ce3e5926ac38e096de824a3ff09ac7` |
 |  `19.0.1-dev`                                  | April 11th   | `sha256:24274eea05e06b8e47d6c1cf39d6e4e3f158873c1e845dfc283a946b3bbc8e4f` |

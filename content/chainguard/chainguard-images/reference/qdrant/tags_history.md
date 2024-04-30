@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the qdrant Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 22nd   | `sha256:ab357581c715843af9eb7d90646400887fded0a52f41df3d89ba8942ef461d4f` |
-|  `latest-dev` | April 22nd   | `sha256:4790f0d01d1c2acf8524d52f5c830fdb267828a2d82f0d3449315e0d019d059f` |
+|  `latest`     | April 29th   | `sha256:45e23037626eacfb2df3c8e5a3c1b293f61961b6dfff5fd52844a6c3a7d035ca` |
+|  `latest-dev` | April 29th   | `sha256:75cf2491b183df99acbfce61f62ec8c1bfbb6116b8a38e8c1a4e8bfd8615ea31` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.9.0-dev` `latest-dev` `1-dev` `1.9-dev` | April 29th   | `sha256:30bc3e590d3a41152eb17397e3b654e81ec6a039677e6e7fee1ff3e0a98e7b0d` |
 |  `latest` `1` `1.9.0` `1.9`                 | April 22nd   | `sha256:17e6fd7f60496b244134c7c987899c7613ea8b855c6488b02774151367fe06ec` |
-|  `1-dev` `latest-dev` `1.9.0-dev` `1.9-dev` | April 22nd   | `sha256:ecefae68837cd268251b8f0d5f73ae6c0c740994f21ccbfed79ae111c75113b3` |
 |  `1.8-dev` `1.8.4-dev`                      | April 21st   | `sha256:717cae0b0841e00d2b8fe637fcfaaa3a41be9b84ae50d4006632239a2152552a` |
 |  `1.8` `1.8.4`                              | April 21st   | `sha256:61ecec505abbe55e9b6a94583ff7628f6af7b9450dc006bb599064d6f6eecbd3` |
 

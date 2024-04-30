@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the node-feature-discovery Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:ab029e4a3b19ed94b0ffa1e1f59fb4f17bcd4d38c91e76867fa2d714655e921f` |
 |  `latest`     | April 22nd   | `sha256:f301786739bc80b22f0f453243024ea57ad0f224051813bdbdbe61b86a377fb5` |
-|  `latest-dev` | April 22nd   | `sha256:ab33d6da4657ed7c7cd7641ada9479237fe5920a2efc6de5c17195542c80f418` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14-dev` `0.14.6-dev`                      | April 21st   | `sha256:c26f59458c606f4537c8ffab4eb250e727b92e944c1fce49edb3582cf93480b9` |
+|  `0.15.4-dev` `0.15-dev` `0-dev` `latest-dev` | April 29th   | `sha256:283e032276a9c3119c6447c95b11cfebb5d5a5ce3da1e901de03367ce24a2cfb` |
+|  `0.14-dev` `0.14.6-dev`                      | April 29th   | `sha256:58bcf0a7dc72cde2e945e92d65ae461926fa5de453ef3b408ec3ee00ff655816` |
 |  `0.15.4` `0.15` `latest` `0`                 | April 21st   | `sha256:62d87d8f914f147a0fe6cbe24e28ae4f7458e0b156da57db1c6c67179ca26fdf` |
-|  `0.15-dev` `0.15.4-dev` `0-dev` `latest-dev` | April 21st   | `sha256:a6cbc3f31229f561c94237f26d9ea9df30d57a4e8b8b228805ee52dd84cd04a3` |
 |  `0.14.6` `0.14`                              | April 21st   | `sha256:3759abbba93fe528e7057a8d02c924fc5bb3210cf14a38d749980938b992c6b5` |
 

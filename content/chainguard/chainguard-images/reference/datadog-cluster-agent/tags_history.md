@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the datadog-cluster-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 26th   | `sha256:d239c6068b998000446a59a9b745486c9850616c35a04200e1af3475c58e7f90` |
-|  `latest`     | April 26th   | `sha256:1546f0f27ca6d50da6fca739eb39e4f0cf5fc146724e0d64b2ee3455192f0f45` |
+|  `latest-dev` | April 29th   | `sha256:bec7c02abbfff4cd4b3004869fcf7557e8e1f32a80c6da871896c9f492756d5d` |
+|  `latest`     | April 29th   | `sha256:d7c6c46c5a3094ee46e3437245c558c1cbb4bac160286e37254c175d56195747` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.52` `7` `7.52.1` `latest`                 | April 29th   | `sha256:a8edb3117e8e85737efc21b760a6ccc56c2f765eb123129a82cda471fc72005b` |
-|  `7.52-dev` `7-dev` `7.52.1-dev` `latest-dev` | April 29th   | `sha256:5f39d5870fbb2df87de31c0cef3e76225504517ddbfa686712f8020f833d217f` |
+|  `7.52.1-dev` `7.52-dev` `7-dev` `latest-dev` | April 29th   | `sha256:b51e0d7aa33664c59a83f516b37e0e3c420c7269cf834f785586d4eaf5409f32` |
+|  `latest` `7.52.1` `7` `7.52`                 | April 29th   | `sha256:8b17b0353ec83037003f45674e6940815f5d2d004f223dad5ca4ba07dbe508c4` |
 

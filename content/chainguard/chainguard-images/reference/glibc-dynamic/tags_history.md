@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the glibc-dynamic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,15 +28,16 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:d6ab560426560afbabcc205af0d39188bbdbcbb8d6830627bbb09d25209ed799` |
 |  `latest`     | April 22nd   | `sha256:6dff3d81e2edaa0ef48ea87b808c34c4b24959169d9ad317333bdda4ec3c4002` |
-|  `latest-dev` | April 22nd   | `sha256:b7d4872472a926e0ef7c5b67ff5beb5ec4a779fdaab3120c9abe95bb0526c61c` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                        | Last Changed | Digest                                                                    |
-|------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `13.2.0-dev` `latest-dev` `13.2-dev` `13-dev` | April 21st   | `sha256:4f6eeac188985545cfd886083612a1797dd58d548a4f0ba1cbba8b52983fa247` |
-|  `latest` `13.2` `13` `13.2.0`                 | April 21st   | `sha256:3f11fd27b495288760ce54c9b56812204671d199ec4ad09dcbae4bc27d177016` |
+| Tag (s)                        | Last Changed | Digest                                                                    |
+|--------------------------------|--------------|---------------------------------------------------------------------------|
+|  `13-dev` `13.2.0-dev`         | April 29th   | `sha256:8a660968e1aa27dbf495b6c0975bc09f2a709cefc81920dadff9292d6cc3df5c` |
+|  `latest-dev` `13.2-dev`       | April 29th   | `sha256:11297cd5fb0cdb5dd6d2a12b472c52b9d7598ed62a6a4831b2cae6cc5f394468` |
+|  `latest` `13.2` `13` `13.2.0` | April 21st   | `sha256:3f11fd27b495288760ce54c9b56812204671d199ec4ad09dcbae4bc27d177016` |
 

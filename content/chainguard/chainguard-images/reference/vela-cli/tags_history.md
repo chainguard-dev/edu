@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vela-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,14 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 22nd   | `sha256:73aecf5d87b7a93f06d8b22d66ec32512da01d2c36d99be7d6263294cc300e98` |
+|  `latest` | April 29th   | `sha256:72e77f78b37a75c11d4b79c2147379c2e83139b7da0acf62c6c0c521cef0cd12` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                      | Last Changed | Digest                                                                    |
-|------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.9.11` `1.9` `1` `latest` | April 22nd   | `sha256:b5a9df213a1611e0fc4f7fafb839f4376510a3a72d9b4f114e3c6e5712fe175d` |
-|  `1.9.10`                    | April 21st   | `sha256:74eabe8a21f3696ca1b5ddbb070fd4d47c4e27e7e58c366f00189a43b8fd6221` |
+| Tag (s)             | Last Changed | Digest                                                                    |
+|---------------------|--------------|---------------------------------------------------------------------------|
+|  `1.9.11`           | April 29th   | `sha256:e9236bd050124d9965923a5357c80f609e1d1aba8e4dfd542a615265bd416ee8` |
+|  `1.9` `1` `latest` | April 22nd   | `sha256:b5a9df213a1611e0fc4f7fafb839f4376510a3a72d9b4f114e3c6e5712fe175d` |
+|  `1.9.10`           | April 21st   | `sha256:74eabe8a21f3696ca1b5ddbb070fd4d47c4e27e7e58c366f00189a43b8fd6221` |
 

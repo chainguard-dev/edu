@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the powershell Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:bc103b381fce7dfc648be357511385177addbbe56415c99709f6576e9b923e11` |
-|  `latest`     | April 22nd   | `sha256:995b8f2d6efd786e3ece06ff702ba2524d25aa8cb7fb2a493b4642844401aa4e` |
+|  `latest-dev` | April 29th   | `sha256:14410624eaf6bd7d72d37ed85ee4e0e6f566b405438b81401fd2e7d076615cd3` |
+|  `latest`     | April 29th   | `sha256:3c2da864de17fd22ba02d827ac740ad9b1f648242eeaa44c658da303290df5c9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.4` `7` `7.4.1` `latest`                 | April 21st   | `sha256:da2917e4ac05e786299f5fc3bc0cbf6aae7bb79acdbc779d7a6a91d120ebb5df` |
-|  `latest-dev` `7.4-dev` `7-dev` `7.4.1-dev` | April 21st   | `sha256:3d0cff24c3372201c40f2af4126549fb3e5fd1461843b86c44e1d073753d125e` |
+|  `7.4-dev` `7-dev` `latest-dev` `7.4.1-dev` | April 29th   | `sha256:8607d9d2cfac20b78532a52e997961ec4c07226460f82edfa9fc150aa5f805ba` |
+|  `7` `latest` `7.4` `7.4.1`                 | April 29th   | `sha256:f637c3c2285a9d7d2aaea3e4ed5366a208309873eec8917469a1c5f51ec1ed71` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-verifyfulcio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:32a684d71be8e3482effe8bf65bd514c39f4f618cb65c8dec79b6c9d275acc61` |
+|  `latest-dev` | April 29th   | `sha256:3b7fd3e815bdba57a00b4a31a86aa922068ab7f25ce4c70691adfc4d2fde861f` |
 |  `latest`     | April 21st   | `sha256:12416e50a4dc5f81c1a02dcc20b91ab2ba3eb5993e59a835a7cfb724a806d8f9` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `latest-dev` `0.6-dev` `0-dev` | April 21st   | `sha256:3773e15cc77233556813b4802f155c81fbd75d2b81a2e19533fe32a72afd0509` |
+|  `0-dev` `latest-dev` `0.6-dev` `0.6.17-dev` | April 29th   | `sha256:bd33ced84f9b0d5fc1aefa58bbcd7f7bf2c8870872342cace5c29f6139668289` |
 |  `0.6` `latest` `0` `0.6.17`                 | April 21st   | `sha256:80fdccf680903b26de3edf8726f29bf6a81a5de2322dd857dc5b20815744de28` |
 

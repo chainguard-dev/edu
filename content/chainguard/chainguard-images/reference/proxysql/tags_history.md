@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the proxysql Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-04-30 00:52:22
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
+|  `latest-dev` | April 29th   | `sha256:467730a715fff16eb5498648caa986f5e2aa428c443b8e0780ea35b897f30bd1` |
 |  `latest`     | April 22nd   | `sha256:07bc05f45dc6b27a6620929b2d74c61e00c866b3870ecddb55091c75fb63620e` |
-|  `latest-dev` | April 22nd   | `sha256:cb5af6d60a4329c97e871cca9efd9154c987b634e59dc8fe2993b65af5b2cc4b` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.6-dev` `latest-dev` `2-dev` `2.6.2-dev` | April 21st   | `sha256:b58fb3a63f2363aa78628e8e7f731b2e2d4563b89d5fe67a7f20d3730484872c` |
+|  `latest-dev` `2.6-dev` `2.6.2-dev` `2-dev` | April 29th   | `sha256:bcfafcfd2989e1a9e70d9f44358804e88000a46c2acf61177e1e83e742f2e65e` |
 |  `2` `latest` `2.6.2` `2.6`                 | April 21st   | `sha256:f76495134db5f65e2edcba0d78f20904c8cf94737122787da004c8b09cbb8e68` |
 |  `2.6.1-dev`                                | April 1st    | `sha256:2f2e7c1ae184c82d79e5fb7e4a3eb0a243f301e815e981713c720562693f5bb9` |
 
