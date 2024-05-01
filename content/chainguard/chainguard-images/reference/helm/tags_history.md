@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the helm Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,11 +35,10 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                          | Last Changed | Digest                                                                    |
-|----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev`                    | April 29th   | `sha256:a32f30e8530b54e6f06b8ed90225fe91ed2dd0a43bf4bfd5565199037bdaf1aa` |
-|  `3-dev` `3.14.4-dev` `3.14-dev` | April 29th   | `sha256:32656d4c33599fd1340c28b3f0ae353276afa67be130da63ae8095355225489c` |
-|  `3.14.4` `latest` `3` `3.14`    | April 21st   | `sha256:5c60f522f56cf99a20c82de3d020c89a7aa89a71a3c3d4d4ccb2a176d6af58f4` |
-|  `3.14.3-dev`                    | April 9th    | `sha256:16447f5c4665f8cc9a60db890de8f689b9a055921b95412921900e3e255b44c2` |
-|  `3.14.3`                        | April 4th    | `sha256:c57cd32451be1e94046f2359a2edaac2b84e4ecd52b8af40d74c623485302b1a` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `3.14.4-dev` `3-dev` `latest-dev` `3.14-dev` | April 30th   | `sha256:062ea1935204c86f665cf5456bed10d0b5b05af51f5859a35f6873d06d4b554c` |
+|  `3.14.4` `latest` `3` `3.14`                 | April 21st   | `sha256:5c60f522f56cf99a20c82de3d020c89a7aa89a71a3c3d4d4ccb2a176d6af58f4` |
+|  `3.14.3-dev`                                 | April 9th    | `sha256:16447f5c4665f8cc9a60db890de8f689b9a055921b95412921900e3e255b44c2` |
+|  `3.14.3`                                     | April 4th    | `sha256:c57cd32451be1e94046f2359a2edaac2b84e4ecd52b8af40d74c623485302b1a` |
 

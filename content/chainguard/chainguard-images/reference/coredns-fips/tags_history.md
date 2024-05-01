@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the coredns-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.11.1-dev` `1.11-dev` | April 29th   | `sha256:155a9ef7ae37b3eeb6c41aebbd6874b841c1677f59720e48e86f112a73524317` |
-|  `1.11.1` `latest` `1.11` `1`                 | April 23rd   | `sha256:97b127352c74c26be4ad953eb3f34b97260a6c295e457a5ffa7c268372467b12` |
+|  `latest-dev` `1.11-dev` `1-dev` `1.11.1-dev` | April 30th   | `sha256:27e1729389f2185b2ed36291f8f0a59c651cdef551e982c3a9271db4173b58dc` |
+|  `1.11.1` `latest` `1.11` `1`                 | April 30th   | `sha256:e742a1294ede9050554f7d47cfd4f04cb48a3195dcfe1b7c26bd32258ac5c97b` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spark-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:3b0f7ea23bf3067d4eaa51e962b9fcaca25c8d5809ed3c00cc53291fc2cf6166` |
-|  `latest`     | April 29th   | `sha256:2bf6d8d2f7e72625d92274c807b9c4a0e4c4cc3461bd3e02e8affc34caa08c42` |
+|  `latest`     | April 30th   | `sha256:923e2c3edcdfe4f600c4b8d5f5d31e1f323ea035a723a3afd2f75939abb95d9e` |
+|  `latest-dev` | April 30th   | `sha256:3ff55ce8120320610ccf12999e0b4d2cc3104f2f8476f752e2edc012bdb337e8` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.2-dev` `latest-dev` `1.2.14-dev` `1-dev` | April 29th   | `sha256:732d4b16d3f6d26daab7ceb7a96f4ab270455a20951cde060684596605387a71` |
-|  `1` `latest` `1.2.14` `1.2`                 | April 29th   | `sha256:00bf5c35335cb13646e96f7f4d11ddd4eab04684f0e0b6f23b74f2bf15d06119` |
+|  `1.2.14` `latest` `1.2` `1`                 | April 30th   | `sha256:69fa7c9d3811909c30e2a1c323169e54d8d4c34fdbc96bd9ec85fd25ce60eebd` |
+|  `1-dev` `1.2.14-dev` `1.2-dev` `latest-dev` | April 30th   | `sha256:62f6eba0404312e8529a7799fbd32b0c600ea9920b6304abb3ad81644c868849` |
 |  `1.2.13-dev`                                | April 24th   | `sha256:c34206f766685de71db38db1568ddfae1e500df1c4866b2f8485a41d3ebdc4d7` |
 |  `1.2.13`                                    | April 24th   | `sha256:423e7a22a81998500c802f15c885207f3525c16006e4f1f702ba3b72abb04ad8` |
 |  `1.2.12-dev`                                | April 24th   | `sha256:1220c7b3e7ef9041affeaa8fdf37b94fbd0155da113e15fe62753304c99b45ca` |

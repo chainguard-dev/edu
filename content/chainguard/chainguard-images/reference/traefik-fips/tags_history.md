@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the traefik-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,12 +31,14 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                       | Last Changed | Digest                                                                    |
-|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.11-dev` `latest-dev` `2.11.2-dev` `2-dev` | April 29th   | `sha256:1b31071c4a72506ceca3a9e0082a0ee38286fed4e63a0b7be6c5b86ff7babc84` |
-|  `2` `2.11` `2.11.2` `latest`                 | April 21st   | `sha256:05974897f108b68b0d74ec243879c760666d6a88596ffb098ad585a2af77ae2f` |
-|  `2.11.1`                                     | April 11th   | `sha256:408981f3517836229cd7015d6818f0563c5c336bd1c12af4eb47c9325c78009c` |
-|  `2.11.1-dev`                                 | April 11th   | `sha256:5688406b68d5a38ff887149561ec45ef0646094d671c85b1c6e275ccb3dc7373` |
-|  `2.11.0-dev`                                 | April 10th   | `sha256:7c93354ea7b9cbf8408d0a8be4aab1f7d9e28c7b094f1b8b516d1a20582ffc56` |
-|  `2.11.0`                                     | April 10th   | `sha256:066f19e96ccc2edb57b22aa5467a8ef12e4300051ba0c435d6d56d01e0d09b60` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `3.0.0` `3.0` `latest` `3`                 | April 30th   | `sha256:f84a379fd940ee408a8643c6041f06ce7b790f77474c2082c9b8c8eca18f71bc` |
+|  `3-dev` `3.0.0-dev` `latest-dev` `3.0-dev` | April 30th   | `sha256:8886cdf2ce1cb074e3db3178cf695f39dd3a532aee29860ebc2a5562aa306887` |
+|  `2.11.2-dev` `2-dev` `2.11-dev`            | April 30th   | `sha256:ab22fdcebb96f3250959fd71aa231662e38caee5a550a75d0b310c1bdda2e6c8` |
+|  `2` `2.11` `2.11.2`                        | April 21st   | `sha256:05974897f108b68b0d74ec243879c760666d6a88596ffb098ad585a2af77ae2f` |
+|  `2.11.1`                                   | April 11th   | `sha256:408981f3517836229cd7015d6818f0563c5c336bd1c12af4eb47c9325c78009c` |
+|  `2.11.1-dev`                               | April 11th   | `sha256:5688406b68d5a38ff887149561ec45ef0646094d671c85b1c6e275ccb3dc7373` |
+|  `2.11.0-dev`                               | April 10th   | `sha256:7c93354ea7b9cbf8408d0a8be4aab1f7d9e28c7b094f1b8b516d1a20582ffc56` |
+|  `2.11.0`                                   | April 10th   | `sha256:066f19e96ccc2edb57b22aa5467a8ef12e4300051ba0c435d6d56d01e0d09b60` |
 

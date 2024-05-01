@@ -3,8 +3,8 @@ title: "step-ca-fips Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the step-ca-fips Chainguard Image"
-date: 2024-04-30 00:52:22
-lastmod: 2024-04-30 00:52:22
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.26-dev` `latest-dev` `0-dev` `0.26.1-dev` | April 29th   | `sha256:15b38e308ebe6596d41b111032cc64c67e16cf0b0e2e300853ec60e6da9a0a35` |
-|  `0.26.1` `0` `0.26` `latest`                 | April 29th   | `sha256:6c4bb239ff33447154e6d5f731fde2ab3f03d75673accf2d184a681003d60a45` |
+|  `0.26.1` `0.26` `0` `latest`                 | April 30th   | `sha256:1f1eb281a728ea4619b5136de769fd8def35a7fd2f05009db4c90fa7970f7750` |
+|  `0.26.1-dev` `0-dev` `0.26-dev` `latest-dev` | April 30th   | `sha256:0b741c9950404be3628849a764a857a3fd77b8fcb90f7706fe501b84d202a5cc` |
 

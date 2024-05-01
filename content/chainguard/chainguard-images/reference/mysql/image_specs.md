@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public mysql Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-15 03:08:24
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -48,6 +48,7 @@ The table shows package distribution across variants.
 | `krb5-libs`                       | X      |
 | `ld-linux`                        | X      |
 | `libaio`                          | X      |
+| `libbz2-1`                        | X      |
 | `libcom_err`                      | X      |
 | `libcrypt1`                       | X      |
 | `libcrypto3`                      | X      |
@@ -62,7 +63,7 @@ The table shows package distribution across variants.
 | `mysql-8.0-oci-entrypoint-compat` | X      |
 | `ncurses`                         | X      |
 | `ncurses-terminfo-base`           | X      |
-| `openssl-config`                  | X      |
+| `perl`                            | X      |
 | `pwgen`                           | X      |
 | `tzdata`                          | X      |
 | `wolfi-baselayout`                | X      |

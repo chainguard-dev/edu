@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kube-downscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,9 +35,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                        | Last Changed | Digest                                                                    |
-|--------------------------------|--------------|---------------------------------------------------------------------------|
-|  `23.2.0-dev` `23.2-dev`       | April 29th   | `sha256:0cfb52a9692fc2be62905070074b4149a80e8f78eb4f19c13c4316ba59b94044` |
-|  `23-dev` `latest-dev`         | April 29th   | `sha256:bd2a79521b4174eda4c3ae3020d534f79f8029ca3609ebc91d721a39ca21a6a4` |
-|  `23.2` `latest` `23` `23.2.0` | April 25th   | `sha256:0cab6a1d5aa173c9c565c680dc4bc2d6862373355907756b8c14fe6947ad08d3` |
+| Tag (s)                                        | Last Changed | Digest                                                                    |
+|------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `23-dev` `latest-dev` `23.2.0-dev` `23.2-dev` | April 30th   | `sha256:0cfb52a9692fc2be62905070074b4149a80e8f78eb4f19c13c4316ba59b94044` |
+|  `23.2` `latest` `23` `23.2.0`                 | April 25th   | `sha256:0cab6a1d5aa173c9c565c680dc4bc2d6862373355907756b8c14fe6947ad08d3` |
 

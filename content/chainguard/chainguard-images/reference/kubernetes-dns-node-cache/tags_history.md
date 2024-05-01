@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-dns-node-cache Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.17-dev` `1.17.4-dev`                      | April 29th   | `sha256:85430ae088e1129a260f78ab000903c64e318cd015b8dad164cad5237e731132` |
-|  `1.23-dev` `1.23.0-dev` `1-dev` `latest-dev` | April 29th   | `sha256:8517f7a75e2453e9fd2af4644beef6e2395d8c77d1a706e537d131996d8be683` |
+|  `1.17-dev` `1.17.4-dev`                      | April 30th   | `sha256:1e4a5b5dd7383878b1393cac22bf90ddf296c685b8f187d55b13ad8d27fb6337` |
+|  `1.23-dev` `1.23.0-dev` `1-dev` `latest-dev` | April 30th   | `sha256:9aa8913459d074089cf7a42740ade959148f26803c3f293f3d969ff0e0f79320` |
 |  `1.23` `1` `latest` `1.23.0`                 | April 24th   | `sha256:d0ea1184272ae4d6acf38e09ae918765e93a43f57d73d375510759474616e34f` |
 |  `1.17` `1.17.4`                              | April 21st   | `sha256:567064d55f903a604a34e12c4533f3cb0d11f20f010fc7ac8744774a6d7303b8` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:b0bd000c218f1e0f369a84a62eb181faf6ef58c56c96683c16b13158e15f84b2` |
-|  `latest`     | April 22nd   | `sha256:5fea2c2f4c92935d2026dded09debbd7b3a3b20c3d51aea273d6b393249d2997` |
+|  `latest-dev` | April 30th   | `sha256:d724a6d21b6cf6833f135c48a2487ffe45f19a672340a461e056b1f1d3598ef4` |
+|  `latest`     | April 30th   | `sha256:cb2ab16f4de577b771e358470c00dec39b6875eb4938dfb48f2cef9c4cabe839` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15.5-dev` `latest-dev` `0.15-dev` `0-dev` | April 29th   | `sha256:6e09a0f20c7186d2fc9a1b56eaa1eeb8602b5039652fd4949aa1d702803b5a12` |
-|  `0.15.5` `0.15` `latest` `0`                 | April 21st   | `sha256:80b711200780799c166eeca5a1dc36b1950dc23b63724a514c30625b5e775b5f` |
+|  `0.15-dev` `0.15.5-dev` `0-dev` `latest-dev` | April 30th   | `sha256:58f1a655dd87090df63e3a7fbbe2e6c386d468392edb650019faeac1f053ad28` |
+|  `latest` `0.15` `0.15.5` `0`                 | April 30th   | `sha256:c0ed978105fd34288b92726188ceb70679eee21f6d80db22014be14757899b12` |
 

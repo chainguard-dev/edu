@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cassandra-reaper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,17 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:273211d30864ef887ae2c8e267d8a65e1005fdb5d4fbed1649bf999b6aea4e8a` |
-|  `latest`     | April 29th   | `sha256:66f23496dbe0965aab23efbccf5ccf0f3d169f0df2cff11ff99b74f182368803` |
+|  `latest-dev` | April 30th   | `sha256:22e3aef04ad1e7362a13cdc3ea46b03a397cb6392ded07922ccaae20e9920351` |
+|  `latest`     | April 30th   | `sha256:80ef06b0bb7edbdc9881389a7f4215ccd5afb22cfca91558825044af2fb6ec14` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                 | Last Changed | Digest                                                                    |
-|-------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.6.0-dev` `3-dev`    | April 29th   | `sha256:e241f0bda1b93e7b044b8bc3c898c4980ae97ae928f9fbd19667fa94882dd957` |
-|  `3.6.0` `3` `latest`   | April 29th   | `sha256:57b7098886b3bf337558db075c9a5442b59e5ce79a64cd03f1fdcab66721699e` |
-|  `3.6-dev` `latest-dev` | April 29th   | `sha256:241c76888dd737b45992d73cdb10149da139583e65f24c556e84f06033449879` |
-|  `3.6`                  | April 25th   | `sha256:76e3f26e6a1d43f6dd80e67e4693174f9d2862ccc490de1e58d79dca52dd4563` |
+| Tag (s)                                     | Last Changed | Digest                                                                    |
+|---------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `3.6.0-dev` `3-dev` `latest-dev` `3.6-dev` | April 30th   | `sha256:b15c1f040bec412f3337c8e4106cf101505a47a6bb8ba086d9dbeaaf3ab1a0bf` |
+|  `latest` `3.6` `3.6.0` `3`                 | April 30th   | `sha256:b524a89d05abb5f093d078870e746fec3dc0f97d75001457854de9b9ce1f28cb` |
 

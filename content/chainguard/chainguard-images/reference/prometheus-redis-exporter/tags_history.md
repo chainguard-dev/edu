@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:a7faf5339b61e462284e76c5b797e7e17f568fcf981a5b9f8d2adaf3384e6f8e` |
+|  `latest-dev` | April 30th   | `sha256:2115e672955f57784461da256f7951aca187b894ad11a45c428408b4d02346da` |
 |  `latest`     | April 21st   | `sha256:3b5d52aa4068f919b5a3177d0ce2622ef62457a3f091683fdf3121d97dc9010f` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.59-dev` `1.59.0-dev` `1-dev` | April 29th   | `sha256:bf65fe451c46230e5d0fbc3cdc08c37b93a126335ff4d870b0d7133e4ede6c5a` |
+|  `1-dev` `1.59.0-dev` `1.59-dev` `latest-dev` | April 30th   | `sha256:cb27ddabacae088e401c30bbcfd2ed6c9f3a7f99757a64963a9123cf25d514ba` |
 |  `latest` `1.59` `1` `1.59.0`                 | April 21st   | `sha256:49b06acf943625d7a8be2fc9266eca00df7d0537a2d016d35615da6dbfc4ada9` |
 |  `1.58.0-dev` `1.58-dev`                      | April 20th   | `sha256:889c7e25361c8659bb6b2beffe4a210c4dd7553a94d2ccfc5f1be68b6aa3930a` |
 |  `1.58.0` `1.58`                              | April 3rd    | `sha256:60f611a930674c3fff75212a540a211b6120154d7d54695f3621dbefc9e3e322` |

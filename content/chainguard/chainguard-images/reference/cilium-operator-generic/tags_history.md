@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-operator-generic Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:383fc6df461335bed10dc93531925124cbdf7a4f48994b40f3ba623ee404df64` |
+|  `latest-dev` | April 30th   | `sha256:f5a95014e25cdf5a86577c86bc6154428cc53bf5489b6f63c0e36438b59dfb8e` |
 |  `latest`     | April 23rd   | `sha256:3a408a93f7db6846dba872fa356fa185bc5a51c97ba79dc03a71ae56e1583d1a` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14-dev` `1.14.9-dev`                      | April 29th   | `sha256:5462e9f2b4be0888150e1dc6f9cd145eda546c695b390d6dc324b642297fcd56` |
-|  `latest-dev` `1-dev` `1.15.4-dev` `1.15-dev` | April 29th   | `sha256:012e7c7b9ec33eb4c680dece470541fde7a613219e7dd1204f5f3a61092440b9` |
+|  `1-dev` `latest-dev` `1.15.4-dev` `1.15-dev` | April 30th   | `sha256:a2e13079c779ebddc7ef9239e698faecba1b140155975d5d2a0a6cd15ce4bba4` |
+|  `1.14-dev` `1.14.9-dev`                      | April 30th   | `sha256:24e5b709c426aa5c269282216e709ec2c6a4b4847b29717700c1fe575e4b6d4f` |
 |  `1.14` `1.14.9`                              | April 26th   | `sha256:e9215112b89206b4aaca458e78cf8a3e25cd61009f8171d15de25ba0bf969d8e` |
 |  `latest` `1.15` `1.15.4` `1`                 | April 23rd   | `sha256:bb41f2f399c68fcf89886aa431ee54fda05e65e7eaf4ecc33f1b525284f8fe72` |
 |  `1.15.3-dev`                                 | April 20th   | `sha256:d5d81e94913a37b4b271196fd810ece0b97efc7deedbb478c1cce2fc06b63d8f` |

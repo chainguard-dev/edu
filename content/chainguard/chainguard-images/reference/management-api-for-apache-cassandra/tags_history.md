@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:5ac5383537bf0b5a555be629b820a9322e9823bd2b6647f4f33b16a538cbb1c4` |
-|  `latest`     | April 29th   | `sha256:caae32f6d9a690223b07f49b87db03fe6facedfb5cc85f90bfa88593e6701a5c` |
+|  `latest-dev` | April 30th   | `sha256:6792860cb74f2f2149ebebb1d5f29724fc26bbf09082424b8f6bf411a272beaa` |
+|  `latest`     | April 30th   | `sha256:61772c0deb4067cfd54a9aa3aff6ede4839e571d5c5ccab5a9ae986a5caeca48` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.1.74-dev` `latest-dev` `0.1-dev` `0-dev` | April 29th   | `sha256:e098f45546be7fda62872951366ae96a95722a7b29e2d2c869cee0f63de8ffb2` |
-|  `0` `0.1.74` `0.1` `latest`                 | April 26th   | `sha256:58639ca2eae5fc14155464455299e5a00fca43235de484af662b7fe9cd2bd329` |
+|  `latest-dev` `0-dev` `0.1.74-dev` `0.1-dev` | April 30th   | `sha256:2183b4c2ed2373a62b17d236220f5fcec614e731450c1dc27aea9b4973f1e867` |
+|  `latest` `0.1.74` `0.1` `0`                 | April 30th   | `sha256:7dfb4d8311fb7dc980caa53ee4a590595f9b05c7be252a2b344a6937f37fdf24` |
 

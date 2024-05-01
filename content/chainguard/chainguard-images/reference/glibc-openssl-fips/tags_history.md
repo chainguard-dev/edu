@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the glibc-openssl-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,9 +31,8 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                           | Last Changed | Digest                                                                    |
-|-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `13.2.0-dev`                     | April 29th   | `sha256:f3fa4ec3ded770ab84a7e90425cdc4515f92d68ec4e0f82038bacce4159246b2` |
-|  `13-dev` `13.2-dev` `latest-dev` | April 29th   | `sha256:1ac2b4fba5d3f6bf9f3aba17395917f186de5e75ad8035cfe43b8d1b34d57019` |
-|  `latest` `13` `13.2.0` `13.2`    | April 21st   | `sha256:839f05ab589f7c833e0b051a3b9253efa4612e0e4b04bbcf4f12c6302165c063` |
+| Tag (s)                                        | Last Changed | Digest                                                                    |
+|------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `13.2` `latest` `13.2.0` `13`                 | April 30th   | `sha256:c1f32f901f9c0eb14a46dbd1f1619bdb8cfef532a40f6a64a4b1d0dbedaaeb79` |
+|  `13-dev` `latest-dev` `13.2-dev` `13.2.0-dev` | April 30th   | `sha256:452f6600df673128a5b43c7ce6265dec6ee3e9293aaedfe46ff807dc3feb4ba5` |
 

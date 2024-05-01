@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the glibc-openssl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `13.2-dev` `latest-dev` `13.2.0-dev` `13-dev` | April 29th   | `sha256:a4bdd82387d683e68e1bab5903a6cf88ff17058b7f2960c7e34dac5eb55d25bd` |
-|  `latest` `13.2` `13` `13.2.0`                 | April 21st   | `sha256:7206e4f0dab6a7e2c101da027b33c432f9aeb8892ee6e7ff88ae0083e18d3825` |
+|  `latest` `13` `13.2.0` `13.2`                 | April 30th   | `sha256:1c67eda9b85d46bd0cb7a8408e3599f7bb173e43a7584e7fb59610ceca00f288` |
+|  `latest-dev` `13.2.0-dev` `13.2-dev` `13-dev` | April 30th   | `sha256:4c1917ff762dedc80585c6c902d43be8770eceece81e4d9889ee0701ae42ff92` |
 
