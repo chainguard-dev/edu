@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-recommender Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:f82c5c1f4d721df631d275eac9f250f66efb241a966a8a7b89d56253612f5969` |
+|  `latest-dev` | April 30th   | `sha256:e17eba21d6a6a8a7cfdb32d8685ab63aeae0083050a34ee50cc1d83bd3a95c78` |
 |  `latest`     | April 26th   | `sha256:c6109611a52523123727ea2b6c58777b6611dfba8d549be902e719459bb6cff8` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.1.1-dev` `1.1-dev` `latest-dev` | April 29th   | `sha256:b14d0b5cbbde039edc455a5d529ae68e6483815a3d2d41f7665a4dd621996708` |
+|  `1.1.1-dev` `latest-dev` `1.1-dev` `1-dev` | April 30th   | `sha256:389db0bf61dbf2bc435ad867fde02d84906f1c91f67acdf3840ba9822f715dd4` |
 |  `1.1.1` `latest` `1` `1.1`                 | April 26th   | `sha256:6614ffabd161a6676b45ccac5daab0b77f83c848f8421e68e560cc74478d7df8` |
 |  `1.1.0-dev`                                | April 21st   | `sha256:d523d588ada7297449c224c5865ca6af2c36837329a9e5e59676505e19206e99` |
 |  `1.1.0`                                    | April 21st   | `sha256:9767715c084867dc6e56304a36e6f75c95688ebbf198c49a63c36aa6c6c9b14a` |

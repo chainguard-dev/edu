@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the guacamole-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.5-dev` `1.5.5-dev` `1-dev` | April 29th   | `sha256:fd5d4307491fc94ccfd098e83796a782c8f02f841c261fcc7be1ad961100e365` |
-|  `1` `1.5` `latest` `1.5.5`                 | April 26th   | `sha256:66b32d9041f13c3ffacc7faf93e9472c5a6b55fd1043ad6939766c718b6f7e43` |
+|  `1-dev` `1.5-dev` `1.5.5-dev` `latest-dev` | April 30th   | `sha256:fcc10e618459ad7f893379d690c9f35747fc4c18faa6fe6d94ed2ae4c7eae3b2` |
+|  `1.5.5` `1` `1.5` `latest`                 | April 30th   | `sha256:994934e98600dd3d099ab777b3bb0f6aff75342278afaf77ef601815cf2166b6` |
 |  `1.5.4`                                    | April 22nd   | `sha256:965814796e6cb6bc936f5d29fec9b448680ae1d01530f1d98499c13dffedd6c1` |
 |  `1.5.4-dev`                                | April 22nd   | `sha256:5177a65f0ee98a3664067a87ac285ff8251df974046f2eb623bc4eecbd89fdbc` |
 

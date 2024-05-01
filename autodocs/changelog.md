@@ -1,3 +1,10 @@
+# 2024-05-01
+New images added:
+
+- harbor-fips-db
+
+A total of **1016** documents were updated.
+
 # 2024-04-30
 New images added:
 

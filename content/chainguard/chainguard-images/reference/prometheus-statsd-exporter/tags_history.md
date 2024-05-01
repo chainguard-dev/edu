@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-statsd-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:8c800e90b84f859a0205ffe308a0535ed5e148c62499bd989ba36598d4089a56` |
+|  `latest-dev` | April 30th   | `sha256:bcb31a51eced721d17143766a631526c78c05b05c5e43d482e96c8d69450c34d` |
 |  `latest`     | April 4th    | `sha256:ba8f8dd239b3536385becba7f63804a5a7f11512c3b37a69603d4deefdb14c0b` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.22.8-dev` `0.22-dev`                      | April 29th   | `sha256:dbc43f85dbea7520ec39c14f2af563886b0300e97d0e752a4e0158d9aabc6bb8` |
-|  `0-dev` `0.26-dev` `latest-dev` `0.26.1-dev` | April 29th   | `sha256:3707b89c34df793a5fe374c53b3833b9b2291933323c050e18b73069b11ac551` |
+|  `0.26.1-dev` `0-dev` `latest-dev` `0.26-dev` | April 30th   | `sha256:2be46cac41944350cb5d1c3617258cb9cbcc9ad4206d79cf65682ba02f65127d` |
+|  `0.22.8-dev` `0.22-dev`                      | April 30th   | `sha256:e2020c3d602cfa3b8a761f15024ff4b36a374c8717790a1a5cf54d5949648bb3` |
 |  `latest` `0.26.1` `0` `0.26`                 | April 21st   | `sha256:5ded0469694c500144c819f2e12c4080d06fed61dcbbc44b388e25690d0eebe6` |
 |  `0.22` `0.22.8`                              | April 21st   | `sha256:75a01e0cac7be26a281e9d4e4a495595a4ed17c953245a3fb95550900bf2e622` |
 

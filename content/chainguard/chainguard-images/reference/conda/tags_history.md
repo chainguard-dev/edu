@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the conda Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:7e59d20f8840323526fa193be922b7e7f9b70a240187673d8d9a3b76e1dcfe7a` |
-|  `latest`     | April 29th   | `sha256:1eecaa598628362c2450862096d24a815792b02d1492ef5ac58ec7acdb530880` |
+|  `latest-dev` | April 30th   | `sha256:9ea05349f1e91cf246ac4228a29be557847b0ef4818e4eacb1ab374c0c92926a` |
+|  `latest`     | April 30th   | `sha256:5bb908a695c9520ba62fcce5204be718829d1bb69606bff4db79b5d6e9a0fce7` |
 
 
 ### Private/Dedicated Registry
@@ -37,12 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `24.4.0-dev` `24.4-dev`                       | April 29th   | `sha256:4a911b9d42b1dff5121e164a983e748881e50ca871ab42af29203282d1f457cc` |
-|  `24.4` `24.4.0`                               | April 29th   | `sha256:5b82daa0203ee1f78a492de732352b138763dfbf212d6eda263abbe1fc40aff5` |
-|  `latest` `24.1.2` `24` `24.1`                 | April 29th   | `sha256:638c9f980e1d5ebca9c2d5ef8650eb13a700354453636b5edb00d0d7f5281239` |
-|  `24.1-dev` `24-dev` `24.1.2-dev` `latest-dev` | April 29th   | `sha256:2fa8a244dfc130fe24819fbbe759a2b57d9641c3c520edd55b8efc45e5ef32fd` |
-|  `24.1.1`                                      | April 29th   | `sha256:844c3271c5210b6165423f7c3f6e98e9c02b96c0fd0f7c8816d3887e1e3499bb` |
-|  `24.1.1-dev`                                  | April 29th   | `sha256:df832a4f06eb071bc515cd2e270c7bbc8c4842ef6b12561ffba519f9cc7c193b` |
+|  `latest` `24` `24.1.2` `24.1`                 | April 30th   | `sha256:603a8d15ac9f6bde9daa567241c9bcfef58346dc5df46c33e5b9ee62537c13b8` |
+|  `24.1-dev` `latest-dev` `24.1.2-dev` `24-dev` | April 30th   | `sha256:5d9bc8b68ade3495313dd46dbdd6af1141086231bf3f5ca44977214d1acf3572` |
+|  `24.1.1-dev`                                  | April 30th   | `sha256:dfa780613251cc5f4e9ef0e097c58fe8ba8f2d051d4f7b3204977f315bb7cd48` |
+|  `24.4-dev` `24.4.0-dev`                       | April 30th   | `sha256:567880c185b451396b9747c57a352e60635d5f023be8fa960fc41fa959f14ed1` |
+|  `24.4` `24.4.0`                               | April 30th   | `sha256:bbade70c29be9d373e3d1565fefcac3b5465b7b9fcfaf92b682abf334c0d191e` |
+|  `24.1.1`                                      | April 30th   | `sha256:522f90c34471ca35583923fdea1a821e028e5b5ab731d983e72e819a2c103061` |
 |  `24.3-dev` `24.3.0-dev`                       | April 25th   | `sha256:65e9045a3417077a206733bcec75043a1e93822c967c7b576f8a90cd5998c827` |
 |  `24.3` `24.3.0`                               | April 25th   | `sha256:bd669722f6234d0662bb2bfb7860c15ec9fd729f1cbdc474765848a2e591ddfb` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-blackbox-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:8cbdc2be291c98be37c94a12eb91384a2e9ada39e94b084c6d09139feee946f1` |
+|  `latest-dev` | April 30th   | `sha256:14a92969244742b5f90a6dd7dbae63a9ae7a2a47c8c1ef10197132369259e5f6` |
 |  `latest`     | April 9th    | `sha256:3a1cdbbf7003a7aff4245e5537c63c456c84d5484db7716805ad49bf9471755d` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.25.0-dev` `latest-dev` `0.25-dev` | April 29th   | `sha256:fa16b6fb1a225b27dfdcee3328536c5f783d0a927ae77780b06d659a57dc13b4` |
+|  `0.25-dev` `latest-dev` `0.25.0-dev` `0-dev` | April 30th   | `sha256:37e7e77e5730d887972a024b7791065b9c1cfacd07142317a90e8c005d348852` |
 |  `latest` `0` `0.25.0` `0.25`                 | April 21st   | `sha256:2549912ab77993803e90068b11d026b95bca168b976b9de1da21f581509c5e10` |
 |  `0.24-dev` `0.24.0-dev`                      | April 5th    | `sha256:b6c2a46c5431d80caf614e4cbcddb2736491c9d92a97dafa206e0b5c922eb0be` |
 |  `0.24.0` `0.24`                              | April 3rd    | `sha256:cf712e7138afb344d9066f3994b2a90daae7917106667e5da0de63d92616658d` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the terraform Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,9 +28,9 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)                                 | Last Changed | Digest                                                                    |
 |-----------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.5-dev` `latest-mpl-dev` `1.5.7-dev` | April 29th   | `sha256:36bfb862fe18871e1808e489cbe5c58c5a0fcf27f5d7583fb535082c52156948` |
-|  `latest-dev`                           | April 29th   | `sha256:b81fdb1eecf538f11fd3aad95c0d7e6c2de0fd063f2756b2773412eefb23956f` |
-|  `latest`                               | April 29th   | `sha256:f19938e777461baa6111b47a69b32aa5d7c7430165a1e113ccfda3888a886ff8` |
+|  `1.5-dev` `1.5.7-dev` `latest-mpl-dev` | April 30th   | `sha256:3be521cc73348ea0d88d6c4f9fc0a76e1cea267f733218743e927b748ef73155` |
+|  `latest-dev`                           | April 30th   | `sha256:b313c243644b88c6268216c65cf1162b0d1fb4f5f51920083d50f09278c6552e` |
+|  `latest`                               | April 30th   | `sha256:ae807772da52146f7eadaecaa8dfeb358c2e83a64b39cb429602c87d936d3610` |
 |  `latest-mpl` `1.5` `1.5.7`             | April 21st   | `sha256:e08ef4114c746bc7867aa141868a996edd34e2317f7c93e9a9c5bda5d2f8d049` |
 
 
@@ -39,7 +39,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7-dev` `1-dev` `1.7.5-dev` `latest-dev` | April 29th   | `sha256:ac22adcaab31869bab105172394ab2c28a712ee7631d87bd7bad7abede121e35` |
-|  `1` `1.7` `latest` `1.7.5`                 | April 21st   | `sha256:7f403d58033536efea00747fb2886b5c56b455849ec0184eeb1ace27f0a82e01` |
+|  `latest-dev` `1-dev` `1.7.5-dev` `1.7-dev` | April 30th   | `sha256:0a56575ccc32adf4f0618773517f21195bdf30df090e7248e78e82135938156c` |
+|  `1.7` `1.7.5` `latest` `1`                 | April 30th   | `sha256:dafccc7d84f1e1f2efd6d5827214a390699769694936316aaee02ca5809ccc41` |
 |  `1.4.5`                                    | April 25th   | `sha256:ebb240dd113df76b4da3d906f60de7f48a30d58c910fab3a76351f568487324a` |
 

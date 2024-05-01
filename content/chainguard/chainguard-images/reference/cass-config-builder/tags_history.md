@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cass-config-builder Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:3509fa206e2f6a9bf93c93d368bda128ee9d1038d480af92c2fdd9450a19c9dd` |
-|  `latest`     | April 29th   | `sha256:871355ee3cd102d80e9d817b24061726548578345c1b8d12d78e04cbf83b38b2` |
+|  `latest-dev` | April 30th   | `sha256:3524e2041c93b4a16a7b156d8b801d2fbc605b0c00cf80ada30a0d64198ea6df` |
+|  `latest`     | April 30th   | `sha256:3aae0ca314759a9a121b8e91ecae57158c9df09a2a42de4e4bb9e047bde464fc` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.0-dev` `1-dev` `1.0.10-dev` `latest-dev` | April 29th   | `sha256:930a7f85402969c6700e45dee2a3aa55eb5ec8a3f58bafa17cec2c3a16ebe316` |
-|  `latest` `1.0` `1` `1.0.10`                 | April 29th   | `sha256:998e620655fa1443264e038bc2e13960d3fd9fb71cd55875404d2f693abc399d` |
+|  `1.0-dev` `1-dev` `1.0.10-dev` `latest-dev` | April 30th   | `sha256:3a45582c4be18df032688452011ba56d66e50d14f64a0a672d3e1ea63402211f` |
+|  `latest` `1.0` `1` `1.0.10`                 | April 30th   | `sha256:eaa09cc941b7446a52ab24f82ac8f712f1e0295f93ed4da5d3888442073836b3` |
 |  `1.0.8-dev`                                 | April 16th   | `sha256:cec7472804492ac128f8ac3204e4ccd407990a84e87d32244e7de712754047ae` |
 |  `1.0.8`                                     | April 16th   | `sha256:d6570c34ec321648c96162ad9c3fa2cb0d3f946ebe961fdcbbb8502c2dae6a60` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-webhook-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.58.0-dev` `0.58-dev` `latest-dev` | April 29th   | `sha256:a9f7f667d3be0c00403afbdd6605043e3d781ac90c8d3944168e61ceccbe226d` |
-|  `0.58.0` `0.58` `latest` `0`                 | April 21st   | `sha256:3803ac46bd19a784c6b29c9e0f730c39ef9f60ab2205273bd0691cd52d51915a` |
+|  `0.58.0` `latest` `0` `0.58`                 | April 30th   | `sha256:e76138ae32970156c12a9ab4cbe2a8591c2f29437c09ea267e5cf993c20f2a58` |
+|  `0.58.0-dev` `0-dev` `latest-dev` `0.58-dev` | April 30th   | `sha256:6de263a4b769ed31d51f663a60b1cae6d9a2f542c47e52df73143695b4ebb1ca` |
 

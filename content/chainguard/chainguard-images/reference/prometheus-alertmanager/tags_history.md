@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 30th   | `sha256:6cb238ca3e3f2c40064949625c04a44a6e385dee4f4da4a64ffdae89349c32cd` |
-|  `latest-dev` | April 30th   | `sha256:ae341e979adb602b0536737910f0c0d6fcb1b767601a970c6564840ca71563f3` |
+|  `latest-dev` | April 30th   | `sha256:24670769e92f64379c568e35a012be23c2de9fd9d91b6602bb2f23066cf1cd58` |
+|  `latest`     | April 30th   | `sha256:4a8701d4fe19b8781fc5bdff8c22da7ec4e3151283530f8cc0ec4c993926c4fd` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.27-dev` `0.27.0-dev` `0-dev` `latest-dev` | April 29th   | `sha256:c20e6b6a7158d3f7c6245d690c7ef22ee9e45a3d0e5cb92e354d4cad813dfbdc` |
-|  `0.27` `latest` `0.27.0` `0`                 | April 29th   | `sha256:50a7e30c2207d5a9eea1adb116581bcc034038b8ab562b41bc15b8ed234ae875` |
+|  `latest-dev` `0.27-dev` `0.27.0-dev` `0-dev` | May 1st      | `sha256:aadc498478931e017175a3ebb3a71e13a557df5718d08e3823dd9b371bf9ba1c` |
+|  `0.27.0` `latest` `0` `0.27`                 | May 1st      | `sha256:d030a13c038229bf8f22cc3a28f41141fdd15ce18645f1d95aebdd656f0f385e` |
 

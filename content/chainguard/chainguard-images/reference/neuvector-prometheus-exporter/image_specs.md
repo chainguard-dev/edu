@@ -3,8 +3,8 @@ title: "neuvector-prometheus-exporter Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public neuvector-prometheus-exporter Chainguard Image."
-date: 2024-04-08 00:38:35
-lastmod: 2024-04-08 00:38:35
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -68,7 +68,6 @@ The table shows package distribution across variants.
 | `ncurses`                       | X          | X      |
 | `ncurses-terminfo-base`         | X          | X      |
 | `neuvector-prometheus-exporter` | X          | X      |
-| `openssl-config`                | X          | X      |
 | `py3-certifi`                   | X          | X      |
 | `py3-charset-normalizer`        | X          | X      |
 | `py3-idna`                      | X          | X      |

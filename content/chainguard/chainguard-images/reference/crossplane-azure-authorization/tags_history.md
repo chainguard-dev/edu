@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the crossplane-azure-authorization Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:5f6d584d4bb01119df449337268206bd17fa292ce8cae76d3e6f3f1f7592b597` |
+|  `latest-dev` | April 30th   | `sha256:980445e771e8fba4cf9382b24a84a588b3907624eda5106d3505ab61c7d31138` |
 |  `latest`     | April 26th   | `sha256:cdbc933e48f7f30b33ef1f1a98f47c33205c1dca8cb4a80fe46d683e99cbdbc3` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                     | Last Changed | Digest                                                                    |
 |-----------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1.0` `1.1` `1` `latest` | April 29th   | `sha256:3dc57bc53ea2a4829ab630c4f7085953bac517644185f2b8c5be3a88a0220c32` |
+|  `latest` `1.1.0` `1.1` `1` | April 30th   | `sha256:216cb376d64f6682037f33cc5a3222271ac847e6eb3ffe84021abbbcd1c3ddd3` |
 |  `1.0.1` `1.0`              | April 23rd   | `sha256:666fe1128c5af53cc4ca82a7a6872b16db4abe934c13d2c873ff4ea83eb62e73` |
 |  `1.0.0`                    | April 3rd    | `sha256:6309fdf68af5af6bf709220e5b3536571027a88a0d2931a16847b460c00489b2` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public ntia-conformance-checker Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-29 00:47:42
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -67,7 +67,6 @@ The table shows package distribution across variants.
 | `mpdecimal`                    | X          | X      |
 | `ncurses`                      | X          | X      |
 | `ncurses-terminfo-base`        | X          | X      |
-| `openssl-config`               | X          | X      |
 | `py3-beartype`                 | X          | X      |
 | `py3-boolean.py`               | X          | X      |
 | `py3-click`                    | X          | X      |

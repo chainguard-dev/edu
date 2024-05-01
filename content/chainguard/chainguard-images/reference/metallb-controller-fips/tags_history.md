@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metallb-controller-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.14-dev` `0.14.5-dev` | April 29th   | `sha256:2c12abf50a60f5a1310d5d3b5dc756bdeb606026aba1312cbe14451cfde8fd6c` |
-|  `0.14` `latest` `0.14.5` `0`                 | April 22nd   | `sha256:057ed1850fba327ef57327442f49bed4baa8cbf07cda6add06e096a6100378b0` |
+|  `0.14` `latest` `0.14.5` `0`                 | April 30th   | `sha256:ffa05026bb2644e043d80145b977770741f3a3fde2ae83d0686be1bdb9aff22b` |
+|  `0-dev` `latest-dev` `0.14.5-dev` `0.14-dev` | April 30th   | `sha256:37039f9323656f4cf0839b7a017ff34360c7472ce4911df14bce919edac432fd` |
 |  `0.14.4-dev`                                 | April 20th   | `sha256:3dda86d63db195cdc567b113f9bf5fd542d84b81401f0e4996fbb76f9187137a` |
 |  `0.14.4`                                     | April 11th   | `sha256:f8dac37b42a18708296f420ecd777d9cfa32c541c0f518855596a7ca525fba4f` |
 

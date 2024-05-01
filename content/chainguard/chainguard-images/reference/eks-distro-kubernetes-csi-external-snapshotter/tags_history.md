@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-snapshotter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.3.0-eks-1-23-33-dev` `latest-dev` `6.3-dev` `6.3.0-r5-eks-1-23-33-dev` `6-dev` `6-eks-1-23-33-dev` `6.3.0-dev` `6.3-eks-1-23-33-dev` | April 29th   | `sha256:9a19c226bc962e27f6976bc8b7c4ebc3309323dc01f2ef0f942f7e5ee29ebc68` |
+|  `6.3-eks-1-23-33-dev` `6-dev` `6.3-dev` `6.3.0-eks-1-23-33-dev` `6.3.0-dev` `6.3.0-r5-eks-1-23-33-dev` `latest-dev` `6-eks-1-23-33-dev` | April 30th   | `sha256:2be250f934cb1a93dde0b4817e94f94f1ef24a9ccdbefb29e289e2dc2fd0a3e9` |
 |  `6` `6.3.0-eks-1-23-33` `latest` `6.3-eks-1-23-33` `6.3.0` `6.3` `6-eks-1-23-33` `6.3.0-r5-eks-1-23-33`                                 | April 22nd   | `sha256:f2e5a2d418322ce29f06c8587d4d47e07c9ab387e58f375ae1d7c5e34fe2f045` |
 |  `6.3.0-r4-eks-1-23-33-dev`                                                                                                              | April 21st   | `sha256:e7c3b8d3716af81fc5a9a6ad480ab8dd45c72185ceeee73bae7db8e61aed6afc` |
 |  `6.3.0-r4-eks-1-23-33`                                                                                                                  | April 21st   | `sha256:f6669359d4695f28ff44faf188f5bf7e5e8de8c42ef12486753fca230c4cd5b9` |

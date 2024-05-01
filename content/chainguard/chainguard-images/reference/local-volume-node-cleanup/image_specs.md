@@ -3,8 +3,8 @@ title: "local-volume-node-cleanup Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public local-volume-node-cleanup Chainguard Image."
-date: 2024-04-26 00:36:54
-lastmod: 2024-04-26 00:36:54
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -63,7 +63,6 @@ The table shows package distribution across variants.
 | `local-volume-node-cleanup-compat` | X          | X      |
 | `ncurses`                          | X          |        |
 | `ncurses-terminfo-base`            | X          |        |
-| `openssl-config`                   | X          |        |
 | `wget`                             | X          |        |
 | `wolfi-baselayout`                 | X          | X      |
 | `zlib`                             | X          |        |

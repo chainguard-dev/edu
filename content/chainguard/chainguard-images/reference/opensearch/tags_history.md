@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:7fad36bb2ed67516d219617244c8331b0053cabb97a3c592080dfc9dec2e598e` |
-|  `latest`     | April 29th   | `sha256:ea9fd304677f9cafe79b3a7d1e771c19e00c9d4221d68ae2bfe1e761c904c837` |
+|  `latest-dev` | April 30th   | `sha256:d1192bf47f7bc2ed60781a0250d5c6d59eda59f6a9728ce419745c2858866ff2` |
+|  `latest`     | April 30th   | `sha256:68d36a4578ede921623a21dc48517f4724b3cb0c31226cf78111a861141c188c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.13.0` `2` `latest` `2.13`                 | April 29th   | `sha256:135467bf14fd0a0fb97275b2eb3936d94d94ca714991ea06f4b76ba880c07432` |
-|  `2.13-dev` `2.13.0-dev` `latest-dev` `2-dev` | April 29th   | `sha256:1222b3be08235eeca02004191ec6205a16e7f09005642432a98168eacb263bae` |
+|  `2.13-dev` `2-dev` `2.13.0-dev` `latest-dev` | April 30th   | `sha256:22797d97555452d47dfcd82b3eea97d87e07fc39970fe3858b2ef3be24dd454f` |
+|  `2` `2.13.0` `2.13` `latest`                 | April 30th   | `sha256:caf76e977f6943716dd3643d1d7443619439d6f7157aece6f1394b7a2e254ea4` |
 |  `2.12.0-dev` `2.12-dev`                      | April 5th    | `sha256:edad7710d33672fe5ef86eaa70ab502feb6e6cb9009bed9cc49091caf3306a4a` |
 |  `2.12` `2.12.0`                              | April 2nd    | `sha256:663a60d3b502b35cb307ea0b962794df42d3d313dafd2b09ee2f6027227ae039` |
 

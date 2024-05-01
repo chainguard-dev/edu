@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the rust Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:9e30b175bd5f332ac893e51c7ace153128de06a14d021b8cc738ee8db57d1583` |
-|  `latest`     | April 22nd   | `sha256:b97efb37418ec93611b95ed56f0e72754e1b82937cb16ca47816ec6c9e81c9bb` |
+|  `latest-dev` | April 30th   | `sha256:a602087d791395c0fbebac399ad6073b3ff440edee40a3592a7fc1dfd2f97f68` |
+|  `latest`     | April 30th   | `sha256:2b9255b3e3595aa4a2b17ba1c0ecc520d470ff0aaf65d23013459f997cc4f410` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.77.2-dev` `latest-dev` `1.77-dev` | April 29th   | `sha256:edbdd10834c679aa65248fb97d2263655fca901fc00d8f821279b5bf2b265306` |
-|  `latest` `1.77` `1.77.2` `1`                 | April 21st   | `sha256:dcdf0b3468d8adcac8e4b1471387d74df6df7fd1656627b9d8703fcd89b1e752` |
+|  `1` `1.77` `1.77.2` `latest`                 | April 30th   | `sha256:1c7fe142f75ef6368a8a4ef08c8928c6cd8bd9a610642efc892757c9477d7294` |
+|  `latest-dev` `1.77-dev` `1-dev` `1.77.2-dev` | April 30th   | `sha256:0e687b4d1300518342b20a8786c4353d2c74cfb352537e4ff74314c37ef50d14` |
 |  `1.77.1-dev`                                 | April 9th    | `sha256:4cc61795c56f323c663e2d9f8db7f73a1c986c45effed6745ac90da5c8db1d1c` |
 |  `1.77.1`                                     | April 9th    | `sha256:fc6768016e41996332d8a3e2bb55ae315c9eeff113b860bc4035e48188e8fd00` |
 |  `1.68.2` `1.68`                              | April 20th   | `sha256:9fcefb87f2d2179382f8cc3cf666028eb5dfd593b02d300e3b13c3eb928eeda8` |

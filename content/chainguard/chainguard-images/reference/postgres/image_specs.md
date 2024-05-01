@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public postgres Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -68,7 +68,6 @@ The table shows package distribution across variants.
 | `libxcrypt`                         | X          | X      |
 | `ncurses`                           | X          | X      |
 | `ncurses-terminfo-base`             | X          | X      |
-| `openssl-config`                    | X          | X      |
 | `posix-libc-utils`                  | X          | X      |
 | `postgresql-16`                     | X          | X      |
 | `postgresql-16-base`                | X          | X      |

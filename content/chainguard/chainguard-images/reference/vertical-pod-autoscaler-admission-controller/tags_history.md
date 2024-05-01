@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-admission-controller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:54f72c272ab4199d6b49b0b2e42313beb489c6c6b20a7be63c00cdf2a8e8886c` |
+|  `latest-dev` | April 30th   | `sha256:2ebae9147ad4ab4d85e4c907a781d2e2b4311fef7992697591e3ee94d568a79a` |
 |  `latest`     | April 26th   | `sha256:e005b2cb71e8ce85a576cfdba7ab2b197879135c33b18a1ce0f4f0d9d3d43c9e` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.1.1-dev` `1.1-dev` | April 29th   | `sha256:bd85e294003a2e9b417c7994d96e2cf2bd60273a454886f2241ce7b38b194d4b` |
+|  `1.1-dev` `1-dev` `1.1.1-dev` `latest-dev` | April 30th   | `sha256:a3e9b437e2b47a3910ebacd4dfdaf38a6f8dda39bb7421b1020c31f76fbf932f` |
 |  `1.1` `latest` `1` `1.1.1`                 | April 26th   | `sha256:d00b44ccbf755de96363ab841bd376a48572646b52af8ecc5816cf4e78add6d4` |
 |  `1.1.0-dev`                                | April 21st   | `sha256:1ccd5fc4f3573946ff9ca7798712f3ddbcb762a83c01d6e1689ae7cc1f9c30db` |
 |  `1.1.0`                                    | April 21st   | `sha256:d5e913b5599804411c229a30e04f1116e932402addf97e2bb9fba9344d0fb500` |

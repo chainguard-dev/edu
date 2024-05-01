@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the etcd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:4c160409613df376ee9be0c167445666bfd97807512da3c24a7d30c8b1029a9c` |
+|  `latest-dev` | April 30th   | `sha256:2c2c993028a6127c7681085dcbcea9a044cdd75a02a9a72156dd3f5f97a3084a` |
 |  `latest`     | April 22nd   | `sha256:aadc412c8dde0eca6ed3471cf2d29305cd4c40ddeb06481955fe8bb1e77e1ff1` |
 
 
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3-dev` `3.5-dev` `latest-dev` `3.5.13-dev` | April 29th   | `sha256:1e6ce02c426a3d541b6d886f2019bbb9bc8d6bfdad1e4638df284108439e1ce8` |
-|  `3.4-dev` `3.4.32-dev`                      | April 29th   | `sha256:22fa7c381eea2cdf34bcd7da4a9cee68c8cb048426430cac09a12adeb1e65478` |
+|  `3.5-dev` `latest-dev` `3.5.13-dev` `3-dev` | April 30th   | `sha256:33a02663c82ab5ec4ebcc57d8a36d55a7502a81feba55990678bb2cc3e057ce4` |
+|  `3.4-dev` `3.4.32-dev`                      | April 30th   | `sha256:76d4a185c330507326f51eccf3127c5c60e54258ac0d19492df832165e73c9ca` |
 |  `3.4.32` `3.4`                              | April 25th   | `sha256:d11026fd3c60e8673b132b6c6e82901287719cdf343c74b521a709f75c098bef` |
 |  `3.4.31`                                    | April 21st   | `sha256:5d8abbcfb187978ef20eaca3d2b18382debc0f9e4095113a82136db41e34c04a` |
 |  `3` `3.5.13` `latest` `3.5`                 | April 21st   | `sha256:55c42bb6a0403467c637d48379bdfb3278e0055a8114c113f30a09d18f1689ea` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:71e5611e5ac56d9f483248306d3e72810c7e19adba72505ebfb4b077a8daca3b` |
+|  `latest-dev` | April 30th   | `sha256:8f0bd355eab678a563bceed80476cdb11ccf9b29608ad35c4143fff8469a13e3` |
 |  `latest`     | April 24th   | `sha256:22b03be3ef7ba244affcac96dc42c0cd582c0a77f72af3c46bc376fa2e8aba0e` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.29-dev` `1.29.0-dev` | April 29th   | `sha256:f6a57fb40cdf69d88476fb59b9c73baa9279adcf7b3343f97faac6ab35408c20` |
+|  `latest-dev` `1.29.0-dev` `1.29-dev` `1-dev` | April 30th   | `sha256:734bab453451193ac3b11b4ac9b4123d82de2ac7b4ddd1bf70ba55885418c22f` |
 |  `1.29.0` `latest` `1` `1.29`                 | April 24th   | `sha256:f3aec295268b9fe36c8a7fef72af7c7012cc05a53b0456b2f45f1852942e3f7f` |
 |  `1.28.5-dev` `1.28-dev`                      | April 21st   | `sha256:19090993b71096ce10eac04759f9423c5904bb7838bf05e0880045961ee31000` |
 |  `1.28` `1.28.5`                              | April 21st   | `sha256:9036b50914188bc5cf61f8cf818d5d573f89d20fe1d3735f960796e490e71bb1` |

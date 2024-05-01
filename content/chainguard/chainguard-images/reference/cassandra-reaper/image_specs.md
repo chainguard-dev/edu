@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public cassandra-reaper Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -79,7 +79,6 @@ The table shows package distribution across variants.
 | `openjdk-11-default-jvm` | X          | X      |
 | `openjdk-11-jre`         | X          | X      |
 | `openjdk-11-jre-base`    | X          | X      |
-| `openssl-config`         | X          | X      |
 | `p11-kit`                | X          | X      |
 | `p11-kit-trust`          | X          | X      |
 | `py3-certifi`            | X          | X      |
