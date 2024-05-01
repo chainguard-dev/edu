@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,8 +39,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                      | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.16.5-dev` `1-dev` `latest-dev` `1.16-dev`                                | April 29th   | `sha256:bc78497e672315d468fd5700ee84450ed276f040d8e4269746d76ed6a8c2e88e` |
-|  `1.16.5-splunk-dev` `1-splunk-dev` `1.16.5-r0-splunk-dev` `1.16-splunk-dev` | April 29th   | `sha256:d3aac379a22d922cbad1a0c14e0e98d0d20045fcf3065473f5670765892c8f80` |
-|  `1.16.5-r0-splunk` `1.16-splunk` `1.16.5-splunk` `1-splunk`                 | April 25th   | `sha256:544ed4aa98bf82acab7c33a2402706e1125152743a7165e02eacfa99f1ac61f5` |
-|  `1` `1.16` `latest` `1.16.5`                                                | April 25th   | `sha256:eeb60819ca819e2ecb123944f286cc794c55c4f04fefd0358969fcb9f78409e0` |
+|  `1.16.5-splunk` `1.16.5-r0-splunk` `1.16-splunk` `1-splunk`                 | April 30th   | `sha256:b04f27d3e1838ebdf054785792b618a40cdfe7fb1e4e9cd62b2075823db6ec17` |
+|  `1` `latest` `1.16` `1.16.5`                                                | April 30th   | `sha256:985cb914c88c563c6b4e48746b9962d3ea6405a46929d21d5905827d4391d70c` |
+|  `latest-dev` `1.16.5-dev` `1-dev` `1.16-dev`                                | April 30th   | `sha256:1bb24d2be009e679e1c802acd0c20286dc39ff97a3264a673fbb4cf1c06381bf` |
+|  `1-splunk-dev` `1.16.5-r0-splunk-dev` `1.16.5-splunk-dev` `1.16-splunk-dev` | April 30th   | `sha256:b324816f6ea50765d67c140e44fa0329e4ba9dd93e3fe6c842a046fbea522d62` |
 

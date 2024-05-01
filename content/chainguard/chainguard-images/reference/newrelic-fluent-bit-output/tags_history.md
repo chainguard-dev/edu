@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:ab8b2a8bc7768c07f3cc9c3d1d249e65f2b21e2fdd7f06fd99c8d54ceaf57fb3` |
-|  `latest`     | April 28th   | `sha256:1b6a49210252166f85c548e971d189136033d6e6447bb8bead868cebfe511ab9` |
+|  `latest`     | April 30th   | `sha256:66e48039014110ebfb0752ae525e8726f16de9559af413ee7a886fd65683a18d` |
+|  `latest-dev` | April 30th   | `sha256:ffe8f11f3a60def2dbcbcacc665fc4f38bf073f5a8501cd3743ded9ddf79fcea` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.19.2-dev` `1.19-dev` | April 29th   | `sha256:5e097494dcfd3443f49777157d6704609778647976e3308b4e5ab26586796f35` |
-|  `1.19` `1` `1.19.2` `latest`                 | April 27th   | `sha256:a319510cb4203bb07cfad9249a276c22b7f6c323d34f0f67f2a43e6bf886f037` |
+|  `1-dev` `latest-dev` `1.19.2-dev` `1.19-dev` | April 30th   | `sha256:4018e822b1048715b664cf76c099f7706e5687788826c2e3c3bf681aa6c58e0d` |
+|  `latest` `1.19.2` `1` `1.19`                 | April 30th   | `sha256:8df0de498cecb073949b3c8d3cb865c1d8de6eac477889e1feec2e84eb51a98d` |
 

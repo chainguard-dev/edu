@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubectl Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,13 +37,11 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `1.25.16-dev` `1.25-dev`                     | April 30th   | `sha256:a9e35b498daa1a87069c60f7be6d5cd595b3e3dedb77b667b0538396e58d15f5` |
+|  `1.26.15-dev` `1.26-dev`                     | April 30th   | `sha256:debab212b3ba42cd680a120ed99ec07870f479dcaa9633f44a84cc2485af7fac` |
 |  `1.29-dev` `latest-dev` `1-dev` `1.29.4-dev` | April 29th   | `sha256:f4f7c8b2c6d52917441dff62ce80f4e772fc6fe6db2f8cb937ddc46177089b5b` |
-|  `1.25-dev`                                   | April 29th   | `sha256:a9e35b498daa1a87069c60f7be6d5cd595b3e3dedb77b667b0538396e58d15f5` |
 |  `1.27.13-dev` `1.27-dev`                     | April 29th   | `sha256:3fc0197ed9c4ac357b595be27af1dbe388c1e88635311ac549def825eda44788` |
 |  `1.28.9-dev` `1.28-dev`                      | April 29th   | `sha256:68913439e7e1c626a3d149bdcf63883df00aa88185a9c0b8ef2e21d1b5d594d5` |
-|  `1.26-dev`                                   | April 29th   | `sha256:debab212b3ba42cd680a120ed99ec07870f479dcaa9633f44a84cc2485af7fac` |
-|  `1.26.15-dev`                                | April 29th   | `sha256:8edff52acd676e16a1e79a9b186d1661c97bc2c0596d5000795938301c0432b5` |
-|  `1.25.16-dev`                                | April 29th   | `sha256:097b37841c9e0b0fc3e2d3f5d25bfabbd13ad3b399b551650ae681b18e9fc2e2` |
 |  `1.28` `1.28.9`                              | April 26th   | `sha256:6c2a2d1f9425aed34da5e70cf8a7a7b641e79c14fe97aa1fd5585e5abe2ebba3` |
 |  `1.29` `1.29.4` `latest` `1`                 | April 24th   | `sha256:00c18a4cd3d7115ba6ad0adae2c9de1fc6e82bc2f98ee8cf4306c5629ebf782f` |
 |  `1.27` `1.27.13`                             | April 24th   | `sha256:b9e48263617b08ab453ddafc28807894809bcf628d691f33b5f177b19ef83706` |

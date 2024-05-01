@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-bitnami Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,9 +33,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2-dev` `2.51.2-dev` `latest-dev` `2.51-dev` | April 29th   | `sha256:721244d8bfee4447f3a6bb5efe32735668703c763a1df77408b9d117a301251b` |
-|  `2.38-dev` `2.38.0-dev`                      | April 29th   | `sha256:7e4189605d5b2edcbd28813b8777395ab31400e12872f08128dc86e46ee274a8` |
-|  `2.45-dev` `2.45.4-dev`                      | April 29th   | `sha256:31aa7ba2935beb6a5355534e31c4d222db871b7ee9cdbdf383b1bc1441b58470` |
+|  `latest-dev` `2.51.2-dev` `2-dev` `2.51-dev` | April 30th   | `sha256:66e6577d758a1ca1d5b661c0b0f9f9faee6cc7218a0bcfcbb6aa5a5e59804acd` |
+|  `2.38.0-dev` `2.38-dev`                      | April 30th   | `sha256:332fdb84b0911ca9916881781d939e3fa26ad57f99af22300a6c9c8d3ce6bbf8` |
+|  `2.45-dev` `2.45.4-dev`                      | April 30th   | `sha256:732feed342818925381cc9307169f76b4cb7830c6b3b7864b3cce16f17b0d621` |
 |  `2.45` `2.45.4`                              | April 22nd   | `sha256:919207aeceef778eaa4e958d3a0df484caa27a788bfced6e02fdc4c6d4d39c73` |
 |  `2.51.2` `2` `latest` `2.51`                 | April 22nd   | `sha256:bf1b75b77e0ffd87dee20b9d1146faf50add9a352a903bde98df821222436d1c` |
 |  `2.38` `2.38.0`                              | April 22nd   | `sha256:5c6b095b7a8714c165f0bf4e18a58b9be61adadb364b0207ff3d2a36efd3adcc` |

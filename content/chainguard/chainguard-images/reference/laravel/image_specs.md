@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public laravel Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-18 00:43:55
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -68,7 +68,7 @@ The table shows package distribution across variants.
 | `ncurses`                   | X          | X      |
 | `ncurses-terminfo-base`     | X          | X      |
 | `oniguruma`                 | X          | X      |
-| `openssl-config`            | X          | X      |
+| `openssl-config`            | X          |        |
 | `php-8.2`                   | X          | X      |
 | `php-8.2-config`            | X          | X      |
 | `php-8.2-ctype`             | X          | X      |

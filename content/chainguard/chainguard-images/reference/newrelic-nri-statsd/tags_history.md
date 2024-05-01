@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-nri-statsd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:95b327c216e0fa82a156ed02d98f3f09928fa06c7759127d8c5fd297c7169267` |
-|  `latest`     | April 22nd   | `sha256:154590fe46dc0544863b4816a6fc70a4825acffc26879e4010557ec0d3f96e86` |
+|  `latest-dev` | April 30th   | `sha256:f6d6a99e95a64ce372cadd60a03687ce51667cadc425ec90b569026a8c5ed1a4` |
+|  `latest`     | April 30th   | `sha256:2dab12ef4724d5acc945af079b622c4271e96ad5f173595ce130d7ce002a66f9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.9-dev` `latest-dev` `2-dev` `2.9.1-dev` | April 11th   | `sha256:b0a5ee7475fd4d4dde570a464eb95e174edefce1596783790528658fe107c842` |
-|  `2` `2.9` `latest` `2.9.1`                 | April 8th    | `sha256:81095a8bd3e365fbb96c55fbbfbe729b035f09c6057241e0a7190a82c876f85f` |
+|  `2.9.1-dev` `2-dev` `latest-dev` `2.9-dev` | April 30th   | `sha256:d9e064757467f678e62de1f8d395d73655f521d21ead4818c0b8e8d63877064e` |
+|  `2.9.1` `2.9` `latest` `2`                 | April 30th   | `sha256:8fb7d85e43beaf5b5383d680377f2792095e946b22486c3a98351a1f107f0869` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:a19b546f9cc3dd89e0c52401e2432eb77ca4c19aac09aae293b4f9bbd365dc35` |
-|  `latest`     | April 25th   | `sha256:056d12309b808c6a16717efc129c62d5776cd1ec74607be459d7268c7a3435d7` |
+|  `latest`     | April 30th   | `sha256:1bd166d4dce088cc3a0305336bb5478d787e562f3f31738dfef9ec256e70f4e3` |
+|  `latest-dev` | April 30th   | `sha256:2dedfc735158b9433b668f3e30ca5226453968856dd7378576b88d2867627b88` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0-dev` `latest-dev` `4-dev` `4.0.18-dev` | April 29th   | `sha256:e744505feb519477dafb10b88c9f05d402490d1337e0552f54345681723ba4f1` |
-|  `latest` `4.0.18` `4.0` `4`                 | April 25th   | `sha256:411299f2d4a5c549d5c91852aae8f516706c2c22d899457197bd829d40868578` |
+|  `4-dev` `4.0-dev` `latest-dev` `4.0.18-dev` | April 30th   | `sha256:92f35ccfcef587e0a6815c542f01c1ff2194e8f8bf63175a74df0180bf1105ba` |
+|  `latest` `4.0` `4` `4.0.18`                 | April 30th   | `sha256:9e64eed8b5ece27c6916f8c1ec1306fa787db7d76280a79f0b21b171f5bd4682` |
 

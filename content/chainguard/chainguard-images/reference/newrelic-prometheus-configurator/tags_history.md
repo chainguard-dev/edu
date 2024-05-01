@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus-configurator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:7192fd0acd27414b885f1471bf51a5922537e6f08a5a493d77e14fb00f882a4e` |
+|  `latest-dev` | April 30th   | `sha256:c08aec995a81b9493047b7148bae8f4fe6cb2803259e61ed2741a082ce71a298` |
 |  `latest`     | April 29th   | `sha256:0722798a87b96b42379d4fddcf7dfd4ac2da03fb6436b16ab626e07a9cea71f1` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.16-dev` `1.16.0-dev` `1-dev` `latest-dev` | April 29th   | `sha256:793766d002d6c26a97a72c9bb78794468e4e562c30848c051660f89b17e8559f` |
+|  `latest-dev` `1-dev` `1.16-dev` `1.16.0-dev` | April 30th   | `sha256:b46dad74b7f001de87677465403fd6abce3917aa3fd811861cfe17a7cadbcde4` |
 |  `1.16` `1.16.0` `1` `latest`                 | April 29th   | `sha256:25653cbf23c75dc91fc31638e01069a6ad3de0ef568c1194315e45f4721a51b9` |
 |  `1.15-dev` `1.15.0-dev`                      | April 21st   | `sha256:28b5c114c8137d7f6e7b1c138ac8de5f7cbe0e111a0dedb33ab5f0827123c242` |
 |  `1.15` `1.15.0`                              | April 21st   | `sha256:224d774815b5ef1012dfda9cecdeae009cd22a352fb11799da7e6c0616983e4a` |

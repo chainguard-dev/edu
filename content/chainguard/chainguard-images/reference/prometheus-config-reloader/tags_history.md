@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-config-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:f22c0bfca7ee831f30e94d14423816ec15191764a0b559b438171f6a8983ed89` |
+|  `latest-dev` | April 30th   | `sha256:14e05d22cd11cb1aea5c6feacae9d3ee97d2a20a4bd51b11379de002793e3a12` |
 |  `latest`     | April 23rd   | `sha256:f31c412316b5270bb750adfd53e833a573222bef0dbbba30f30cf5be45879f91` |
 
 
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.73-dev` `latest-dev` `0.73.2-dev` `0-dev` | April 29th   | `sha256:5a73c29e071c990fdd2886714be38d26b4ae3ce37060c69062ca26784fc2becc` |
+|  `0.73-dev` `0-dev` `0.73.2-dev` `latest-dev` | April 30th   | `sha256:905bc00de1abd0d54b117b86e1a3e88ccd91791f61714bfe9ca0dec56198cc36` |
 |  `latest` `0.73` `0.73.2` `0`                 | April 23rd   | `sha256:421bb4f5af2a54a9acb76501827db8922fcbe1fbdca74939aa53529ec1d836c7` |
 |  `0.73.1-dev`                                 | April 11th   | `sha256:52e7ed65675919102788a705f709bbec592c14947a89490b5f531fc86c89cb4d` |
 |  `0.73.1`                                     | April 11th   | `sha256:94117506c26b81c9df1f6b777202a28393ece125d93f5325a5dfcbd2fd1010a3` |

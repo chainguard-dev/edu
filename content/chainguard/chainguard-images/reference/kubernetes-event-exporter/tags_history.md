@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-event-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-01 00:46:56
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 29th   | `sha256:535580d780c01d09b5820b2a0c0b960150759007ca63bbcf6def93efc5fbab52` |
+|  `latest-dev` | April 30th   | `sha256:34180c4b57880f6eed239022248a1e58de2af1451fba62a0f01e57c1eac48171` |
 |  `latest`     | April 4th    | `sha256:ddc10494b2803dd06cc2951a8892846f0dd25f337101f2c7f5975f4f1bdb332e` |
 
 
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.7-dev` | April 29th   | `sha256:22e09f6d6e45b25efee041573c904dc74f1c99678124c7ef7cd3d2b6b395a313` |
+|  `latest-dev` `1.7-dev` `1-dev` | April 30th   | `sha256:4a8f3c700687a2e70c8583b5d23bbe588e49c66eb8bb7d6770751e63ba40815d` |
 |  `latest` `1.7` `1`             | April 21st   | `sha256:284a6c64855a70345767d51424dadc677deab7551184e9d8c03d69b47abb6745` |
 
