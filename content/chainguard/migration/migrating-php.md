@@ -17,18 +17,19 @@ Chainguard Images are built on top of [Wolfi](/open-source/wolfi/), a Linux _und
 This article will assist you in the process of migrating your existing PHP Dockerfiles to leverage the benefits of Chainguard Images, including a smaller attack surface and a more secure application footprint.
 
 ## Chainguard PHP Images
+Chainguard offers multiple PHP images and variants catering to distinct use cases. In addition to the regular PHP image that includes CLI and FPM variants, we offer a dedicated [Laravel](https://edu.chainguard.dev/chainguard/chainguard-images/reference/laravel/) image designed for Laravel applications.
 
-Chainguard offers multiple PHP Image variants catering to distinct use cases, such as command-line interfaces (CLI) and web applications. Each variant comes in two flavors: a minimal runtime image (distroless) and a builder image distinguished by the `-dev` suffix (e.g., `latest-dev`).
+Each variant comes in two flavors: a minimal runtime image (distroless) and a builder image distinguished by the `-dev` suffix (e.g., `latest-dev`).
 
 In a nutshell, distroless images don't include a package manager or a shell, being used exclusively as runtimes to keep the environment to a minimum. Builder images, on the other hand, include packages such as `apk` and `composer` for building PHP applications. Builder images can be used _as-is_ to provide a more straightforward migration path. Whenever possible, though, we encourage users to combine both images in a multi-stage environment to build a final distroless image that will function strictly as an application runtime.
 
 For a deeper exploration of distroless images and their differences from standard base images, refer to the guide on [Getting Started with Distroless images](/chainguard/chainguard-images/getting-started-distroless/).
 
-### Migrating from non-apk systems
+## Migrating from non-apk systems
 When migrating from distributions that are not based on the `apk` ecosystem, you'll need to update your Dockerfile accordingly. Our high-level guide on [Migrating to Chainguard Images](https://edu.chainguard.dev/chainguard/migration-guides/migrating-to-chainguard-images/) contains details about distro-based migration and package compatibility when migrating from Debian, Ubuntu, and Red Hat UBI base images.
 
-### Installing PHP Extensions
-Wolfi offers several PHP extensions as optional packages you can install with `apk`. Because PHP extensions are system-level packages, they require `apk` which is only available in our **builder** images (`latest-dev` and `latest-fpm-dev`). The following extensions are already included within all variants:
+## Installing PHP Extensions
+Wolfi offers several PHP extensions as optional packages you can install with `apk`. Because PHP extensions are system-level packages, they require `apk` which is only available in our **builder** images (`latest-dev` and `latest-fpm-dev`). The following extensions are already included within all Chainguard PHP Image variants:
 
 - `php-mbstring`
 - `php-curl`
@@ -42,7 +43,19 @@ Wolfi offers several PHP extensions as optional packages you can install with `a
 - `php-sodium`
 - `php-phar`
 
-To check for available extensions, you can run a temporary container based on the `php:latest-dev` image:
+In addition to those, the Laravel image includes the following extensions:
+- `php-ctype`
+- `php-dom`
+- `php-fileinfo`
+- `php-simplexml`
+
+You can run an ephemeral container with the `php -m` command to see a list of enabled extensions:
+
+```shell
+docker run --rm --entrypoint php cgr.dev/chainguard/php -m
+```
+
+To check for extensions available for installation, you can run a temporary container with the `dev` variant of a given image and use `apk` to search for packages. For instance, this will log you into an ephemeral container based on the `php:latest-dev` image:
 
 ```shell
 docker run -it --rm --entrypoint /bin/sh --user root cgr.dev/chainguard/php:latest-dev
@@ -133,7 +146,7 @@ services:
     restart: unless-stopped
     environment:
       MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 1
-      MARIADB_USER: laravel
+      MARIADB_USER: user
       MARIADB_PASSWORD: password
       MARIADB_DATABASE: php-test
     ports:
@@ -162,7 +175,7 @@ http {
     server {
         listen 8080;
         index index.php index.html;
-        root /app/laravel-demo/public;
+        root /app/public;
         location ~ \.php$ {
             try_files $uri =404;
             fastcgi_split_path_info ^(.+\.php)(/.+)$;
@@ -178,6 +191,79 @@ http {
         }
     }
 }
+```
+
+## Migrating Laravel Applications to use Chainguard Images
+Chainguard has a dedicated [Laravel image](https://edu.chainguard.dev/chainguard/chainguard-images/reference/laravel/) designed for applications built on top of the [Laravel](https://laravel.com) PHP Framework. This image is based on the `php:latest-fpm` variant, with additional extensions required by Laravel. Migration should follow the same steps described in previous sections, with the `laravel:latest-dev` variant as builder and `laravel:latest` as the distroless variant of this image.
+
+In addition to including extensions required by Laravel by default, the image includes a **laravel** system user that facilitates running `composer` and `artisan` commands from a host environment, which enables users to create and develop Laravel applications with the `-dev` variant of this image. Check the section on [Developing Laravel Applications](#developing-laravel-applications) for more information on how to use the builder variant of the Laravel image for development environments.
+
+## Using Builder Images for Development
+Our PHP builder images are minimal yet versatile images that include `apk` and `composer`. You can use these images to create and develop PHP applications on a containerized development environment.
+
+### Running Composer
+The `-dev` variants of our PHP images include [Composer](https://getcomposer.org/) by default. You can use these images to execute Composer commands from a Dockerfile or directly from the command line with `docker run`. This allows users to run Composer without having to install PHP on their host system.
+
+To be able to write to your host's filesystem through a shared volume, you'll need to use the **root** container user when installing dependencies with Composer using the `latest-dev` or `latest-fpm-dev` image variants.
+
+**Example 1: Installing Dependencies**
+```shell
+docker run --rm -v ${PWD}:/app --entrypoint composer --user root \
+    cgr.dev/chainguard/php:latest-dev \
+    install
+```
+
+**Example 2: Requiring a new dependency**
+
+```shell
+docker run --rm -v ${PWD}:/app --entrypoint composer --user root \
+    cgr.dev/chainguard/php:latest-dev \
+    require minicli/minicli
+```
+
+You'll need to fix file permissions once installation is finished:
+
+```shell
+sudo chown -R ${USER}:${USER} .
+```
+
+### Running the Built-in Web Server
+You can use the built-in PHP web server to preview web applications using a `docker run` with a port redirect.
+
+The following command will run the `php:latest-dev` image variant with the built-in server (`php -S`) on port `8000`, redirecting all requests to the same port on the host machine, and using the current folder as document root:
+
+```shell
+docker run -p 8000:8000 --rm -it -v ${PWD}:/work \
+    cgr.dev/chainguard/php:latest-dev \
+    -S 0.0.0.0:8000 -t /work
+```
+
+### Developing Laravel Applications
+
+The `laravel:latest-dev` image has a system user with uid `1000` that can be used for development. This facilitates handling file permissions when working with shared volumes in a development environment.
+
+**Creating a New Laravel Project**
+
+```shell
+docker run --rm -v ${PWD}:/work --entrypoint composer --user laravel \
+    cgr.dev/chainguard/laravel:latest-dev \
+    create-project laravel/laravel demo-laravel --working-dir=/work
+```
+
+**Running Artisan Commands**
+
+```shell
+docker run --rm -v ${PWD}:/app --entrypoint /app/artisan --user laravel \
+    cgr.dev/chainguard/laravel:latest-dev \
+    migrate
+```
+
+**Running the Artisan Web Server**
+
+```shell
+docker run -p 8000:8000 --rm -it -v ${PWD}:/app --entrypoint /app/artisan --user laravel \
+    cgr.dev/chainguard/laravel:latest-dev \
+    serve --host=0.0.0.0
 ```
 
 ## Additional Resources
