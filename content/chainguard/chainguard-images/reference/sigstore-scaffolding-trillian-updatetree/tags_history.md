@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-updatetree Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:2774e7fa2b3af65ae01884fbe1bc1f22ab0f6dc8955cb449916acf3d79a4534f` |
-|  `latest`     | April 21st   | `sha256:5bbcb29f2f1b7047e7b10afb4eabda22a472f4d7c3ab7bfb78909f5b14568860` |
+|  `latest-dev` | May 1st      | `sha256:246a86c2ecdac2c338365916895458c05ec8ab62a8796f449e55f807665a0d7e` |
+|  `latest`     | May 1st      | `sha256:568248d90730ddaa6b9cf323ddf212c26469a117cf7f8338fe15288f7bee1ab4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.6.17-dev` `0.6-dev` | April 30th   | `sha256:c40fdc4e3290503ec3e5fedcfc704ac014a7e0eaf93cd5468696484cd94876b5` |
-|  `0.6.17` `0.6` `latest` `0`                 | April 21st   | `sha256:b3407130303de175e0b4cb0bac524330c4d6a12a2ba98d3c2421b44cba6f10e7` |
+|  `0-dev` `0.6.17-dev` `0.6-dev` `latest-dev` | May 1st      | `sha256:3d6cd2f6560583e916d8fe01a2c696239adf08b2edd1605fd252f555832a9d34` |
+|  `0` `0.6.17` `0.6` `latest`                 | May 1st      | `sha256:1eb6abfb714b39c0a66065e511171aad5f4edf7437546d121c04720c451d1675` |
 

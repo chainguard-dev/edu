@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cadvisor-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `0.49.1` `0.49` `0`                 | April 30th   | `sha256:0e1e084989c1ddbf8564798178234dd4fd782b72eccfde4b76726d302f227788` |
-|  `0.49.1-dev` `0.49-dev` `0-dev` `latest-dev` | April 30th   | `sha256:f03c3705eb8ec0ba8787b75556e265ca02c30b600f1ca8815f4df991e52842ba` |
+|  `latest` `0` `0.49.1` `0.49`                 | May 1st      | `sha256:7371b8fbca85fc4eb05473bf3eed97e64824a7dafae4ed8afeebe14110d73daf` |
+|  `0.49.1-dev` `0.49-dev` `0-dev` `latest-dev` | May 1st      | `sha256:c09f91118ef98116bb663715c73f7ed17ad4c011f3ac128f9a3becb4158aa4bc` |
 

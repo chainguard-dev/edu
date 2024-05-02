@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-redis-exporter-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.44` `1.44.0`                              | April 30th   | `sha256:d7fcbf976d635586afbb1bc616aea27aec3043492772a564e6f4753523021293` |
-|  `1.44-dev` `1.44.0-dev`                      | April 30th   | `sha256:de7a7357e151e49238b0d8776eb895134275ba680699df712cf508c1228ea374` |
-|  `1.59-dev` `1.59.0-dev` `1-dev` `latest-dev` | April 30th   | `sha256:abc9ac19b1206dd01c7982b4115844b544ed9af17d12f13ef9b562eb66b4c6ae` |
-|  `1.59.0` `1` `latest` `1.59`                 | April 30th   | `sha256:ef250f8ca097bf32b8bc3854380994d7e25887b392a7884670fec0ddb3cb2b25` |
+|  `1.44-dev` `1.44.0-dev`                      | May 1st      | `sha256:7b8febd36d877ae7726fae374e208194ec729382ecdf31bfaf8e90ce41bda8fa` |
+|  `1.59.0` `1` `latest` `1.59`                 | May 1st      | `sha256:fee516bca86534097d6ab5efeb2c1d851d11da85058f6cff82946721079b2838` |
+|  `latest-dev` `1-dev` `1.59.0-dev` `1.59-dev` | May 1st      | `sha256:78e514e6be5f01b3804296548634511c519d35c05a6bbc9be6aa837e5e0e51cb` |
+|  `1.44.0` `1.44`                              | May 1st      | `sha256:61a19da1df7be901c8558d402c9584ce5859572494d466f51779d5822cd5458a` |
 |  `1.58.0-dev` `1.58-dev`                      | April 20th   | `sha256:284e59048042ae15421c8e576f9d8feec9a3a8b981614cd32a13a31a628164df` |
 |  `1.58` `1.58.0`                              | April 11th   | `sha256:3ed726f7c7188c3c8580d2325a95969b7be567965b500b296ed2c5ef96acab8d` |
 |  `1.57-dev` `1.57.0-dev`                      | April 5th    | `sha256:2c6f96cbe8344624f919ed53884ea9f5a0e044db0896bdd254b8e7d5d5e2a696` |

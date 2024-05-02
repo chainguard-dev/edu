@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-getoidctoken Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:d285666e7c4c627e9bb896c6008544243407b40542ce5dad3d0f167368febf93` |
-|  `latest`     | April 21st   | `sha256:75316caec4a1d6046ad4fdf26bfdcc7dd053c70c232b4e5f65e720f082884efc` |
+|  `latest-dev` | May 1st      | `sha256:2bf9613ea516194f6fda806030ffa290a7408514991893bdee568dfdeeb65f25` |
+|  `latest`     | May 1st      | `sha256:61a5f4d535cc4f621b36d4c4ad9a42d166e060ac3589881dd08e9a1247555e30` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6-dev` `latest-dev` `0.6.17-dev` `0-dev` | April 30th   | `sha256:3989b6f074569a3350a644286807af10129495349f1340b4509f62f33b9f9ebb` |
-|  `0.6.17` `latest` `0.6` `0`                 | April 21st   | `sha256:0d7f09da5f22f77c911978df02d9d5c92f1725949c6bb1f57a6cab86c4417988` |
+|  `0.6.17-dev` `0-dev` `latest-dev` `0.6-dev` | May 1st      | `sha256:9a245589e8dac8956e673adaa8726b4d53a5943e894a4250ab5f57c913080ff3` |
+|  `0.6.17` `0` `latest` `0.6`                 | May 1st      | `sha256:010a971152fe1209aa5eb5ef9ba99502732315cacf05e2fa0607247d518008bc` |
 

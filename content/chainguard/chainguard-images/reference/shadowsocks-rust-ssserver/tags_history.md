@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the shadowsocks-rust-ssserver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:995cbd76fc44be019d1471ade387d9f731ec6093b88cf07b571be368b4639691` |
-|  `latest`     | April 22nd   | `sha256:5cb75bc048f3e8d6de850abefbd168736b915b08c0a310d14feac48eff28a912` |
+|  `latest-dev` | May 1st      | `sha256:12aef4e5f94751b44bf2d4a47c3c742a07e5397fb1a377bb83954b69acf5f3a7` |
+|  `latest`     | May 1st      | `sha256:18ed040f101513535be59c40e8ac45d664f18832debd70bc84175b479ac826aa` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.18-dev` `latest-dev` `1.18.3-dev` `1-dev` | April 30th   | `sha256:01f50422ef350368f0c8e83868ec588b382901479a3c306fecfa4d0e5b52a8bf` |
-|  `latest` `1.18` `1` `1.18.3`                 | April 21st   | `sha256:2954187bba60172a46b51f36fc6473fb3dbaf8d4bfbf93cbdacb4002cabb24f6` |
+|  `latest` `1.18.3` `1.18` `1`                 | May 1st      | `sha256:bd5d9f59d800ab5a7d7d9b735e85ad9c6961221dde94e6c81894c61f879367fc` |
+|  `1.18.3-dev` `1.18-dev` `1-dev` `latest-dev` | May 1st      | `sha256:bbfae9720bede9778c9eb515176dd6755304e4a85c408908b0d43c70d7a52701` |
 |  `1.18.2-dev`                                 | April 20th   | `sha256:4591bde4ee056e6c86af866e8f73006d69b46084411bfeaad03758360045fa58` |
 

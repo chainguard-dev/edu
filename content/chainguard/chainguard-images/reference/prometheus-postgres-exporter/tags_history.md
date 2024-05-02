@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:59b7f32157a7809ecc17005b50afdae145274893425f24188716d47f90c45da8` |
-|  `latest`     | April 22nd   | `sha256:04dc41b9cb2da84904df252bdde4e079d94a2665082ec7c44acaaa36e087d894` |
+|  `latest-dev` | May 1st      | `sha256:3aa6ef227a8f74437fdc7726fc225d279e8bada1929b477985719c1393e67484` |
+|  `latest`     | May 1st      | `sha256:75c5412ed7924580cb94138fa1f6a41d3958f561336064bcf98f8dc03c411ae9` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.15-dev` `0.15.0-dev` | April 30th   | `sha256:d724bd1d3a38bd0fa24981e06b927ba9b3ab7f0d8282f7177ef697875c565c19` |
-|  `0.15` `0.15.0` `latest` `0`                 | April 21st   | `sha256:9307cac19f5cd2cb103a1207547d24c340a3b4b10d990979d109b38ea69db9fa` |
+|  `0` `0.15.0` `0.15` `latest`                 | May 1st      | `sha256:885d4c157e036248471c1ba7b75839bd48fc54b3e4d355a660059f0601de326e` |
+|  `0.15.0-dev` `latest-dev` `0.15-dev` `0-dev` | May 1st      | `sha256:bf6ece3b91ea3e2f6f53d7f1ff6e5e1d9c118ea9643174aa636e610bb735421d` |
 

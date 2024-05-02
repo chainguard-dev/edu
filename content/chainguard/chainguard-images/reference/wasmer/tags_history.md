@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmer Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:a0bc8695b96e45c8b8590d557ffd9ca4407b8c46af380bd80651afee5aa9f2fa` |
-|  `latest`     | April 22nd   | `sha256:815f1537f76c9462fae0ca5f22d568cc45c43708dd17e73108b95b4cae47dff7` |
+|  `latest-dev` | May 1st      | `sha256:66ba2085203ac8fce4328637e2f57f7dd4a84d3f19313583bdc1cf7317c22526` |
+|  `latest`     | May 1st      | `sha256:8c2c905213c2e30f10e0f3c1d9d33cb5384aeeb3d8c1186f210e8eb2bb828795` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `4.2-dev` `4-dev` `4.2.8-dev` | April 30th   | `sha256:b6275f98b36b281209440ded6b60ace6e8b43345a3ff088365c29d0937eaafe9` |
-|  `4.2` `4` `4.2.8` `latest`                 | April 21st   | `sha256:14eba1f7c67d5ef9815fca614e319c88bf5b4cb4f8eaa5c580d3997248b2ad36` |
+|  `4.2.8` `latest` `4.2` `4`                 | May 1st      | `sha256:6b283f1eec26a0dedbb29cd1ee79390b30f6fd1df8f54131833b0ed7ed233891` |
+|  `4.2-dev` `4.2.8-dev` `latest-dev` `4-dev` | May 1st      | `sha256:a8417188ec1423d43bf85bf1696a9e4ca86d62d42373911b252da0e8ca23b97f` |
 |  `4.2.7-dev`                                | April 5th    | `sha256:a58ff8af8fa4b543a6334874aea138fd45c015f0e7fa74ae8a728ddd9e13018e` |
 

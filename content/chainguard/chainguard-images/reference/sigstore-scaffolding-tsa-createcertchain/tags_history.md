@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tsa-createcertchain Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:15cee27f7838a35df7dd06955cb221baebeeb69aae509322980dd631822e1262` |
-|  `latest`     | April 21st   | `sha256:576c899955f74c26d6e8ea308775a4960b34407167ef750c2c506b00aded00f7` |
+|  `latest-dev` | May 1st      | `sha256:0cc70e209054a5ec6fed5113510abd8b97ba09a234e49571142eb9fc78ebdc8b` |
+|  `latest`     | May 1st      | `sha256:5d9c2a22e552b73a8495c3dfd4835c6a5bd052723c241bfcce4c851a26627ad0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.6.17-dev` `0.6-dev` `0-dev` | April 30th   | `sha256:66325e2ebd44e29b5b332556c0834c012b6b4a3cd9c9b2b008913dea783c8fc9` |
-|  `0` `latest` `0.6.17` `0.6`                 | April 21st   | `sha256:0a5fb27ba04b114c495ac532bd720f6cf2587859536a5f4d3508f27993ad4342` |
+|  `0.6.17-dev` `latest-dev` `0-dev` `0.6-dev` | May 1st      | `sha256:bf8a65bfb98b5f16f1e1a077bab37da8b6b6fd19fc04d3067a344525077446bf` |
+|  `latest` `0` `0.6` `0.6.17`                 | May 1st      | `sha256:9797d7d773cfb4db5bca61949f39b4c18e81b65342e8db5f41bbb1c4ad47f74a` |
 

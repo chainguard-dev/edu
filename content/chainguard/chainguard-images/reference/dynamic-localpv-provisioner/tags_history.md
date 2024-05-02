@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dynamic-localpv-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:5803054d5ec494c9c665e1af16bb466403582909b5aaaf8c0e1c611c27a8d067` |
-|  `latest`     | April 29th   | `sha256:0d371bd5603a5fe7b106d75460225523c4d9fa206ee34d9cff1d2a583a4670ee` |
+|  `latest`     | May 1st      | `sha256:fda8b2bc20e9716c18f4ed3da3fb10346cb2d4c9eb257e2b4b5d57db4f43c819` |
+|  `latest-dev` | May 1st      | `sha256:1cb7ccfcaf04157b77902eadb5e438b9a0054e2dfb1d8a3fdee6798004fbbe06` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4-dev` `4.0.0-dev` `4.0-dev` `latest-dev` | April 30th   | `sha256:82abaaa7d9aae91b79e917ddac3e1f1ee9c3a7de28d3cfbcdfd0e4af86185fc5` |
-|  `latest` `4.0.0` `4` `4.0`                 | April 29th   | `sha256:6dc8bd89f842575a1623b1b44ac333ed438cb6b9612b63dc7243aa4e0a1931f5` |
+|  `4.0.0-dev` `latest-dev` `4.0-dev` `4-dev` | May 1st      | `sha256:7e4c4f9782493d742a2da7259ba246432230e4cdc1d3d8a96738967fdce7ec26` |
+|  `latest` `4.0.0` `4.0` `4`                 | May 1st      | `sha256:c48da4cfcf2b3895e066b6824ee05f5026c1145590551903207b145980aa6e8e` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createtree Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:fa1fb2e9f784556553c215f15ba015731004009551f748b5b7d645d84366868d` |
-|  `latest`     | April 21st   | `sha256:05aa232deeec1babd7b5c78c8c56461420ce1aca021c7276864a9bf668e365e2` |
+|  `latest`     | May 1st      | `sha256:f11e834bdc7b8ea3950c0788c13e61a3b481630be13b33ca041fbc046da09458` |
+|  `latest-dev` | May 1st      | `sha256:d7cf24e9d74e7dd617b5200d12c95a0c41b9a1b55f9da636bfdfca7036f0b3f4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.6-dev` `0-dev` `0.6.17-dev` | April 30th   | `sha256:e98fa538c6517543f51a38404b837454b8215c65442c1e69d01b3fbbbacbb897` |
-|  `0.6.17` `0` `latest` `0.6`                 | April 21st   | `sha256:a3da06074b2fff68dfef38f02d2dd55c0b7737d2f3ab1a26deb2386e0acf035e` |
+|  `latest-dev` `0.6-dev` `0-dev` `0.6.17-dev` | May 1st      | `sha256:36237bd2b92cd3f507a84a4f1a5299a795358870868e358faba4bf7aa3e6c860` |
+|  `0` `0.6.17` `0.6` `latest`                 | May 1st      | `sha256:49ce4510c0b9a6b2714668d3c89910e90d63b1a6450d319e55fc2d3d6c94817a` |
 

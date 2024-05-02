@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the step-cli Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:ea7ca43c2708a65831c4f986757dee0f6e821e1639cbfad0217442856996e76e` |
-|  `latest`     | April 23rd   | `sha256:ffbe6f5df941eb349974cf222f81a455fa0c92360ba6580d27239253d8efa0a2` |
+|  `latest`     | May 1st      | `sha256:d043a33d4cc96cb340578a5f06cf93480aa5808d67064a62f0fb7d7584395421` |
+|  `latest-dev` | May 1st      | `sha256:33c35a15d458e225d5d471097d5c2bbba3f3de55e5eb76044d1ca7f72b42b7e5` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.26.1-dev` `0.26-dev` `latest-dev` | April 30th   | `sha256:902158e2837992d03ca7d5850fe9537db98ad0fd13ff70bdaed53329381a970d` |
-|  `0` `0.26.1` `0.26` `latest`                 | April 23rd   | `sha256:ce9270f52ea28e1b7f44b12aa3f8ac684f57a65bacf28343f5c64db88ca5873c` |
+|  `0.26-dev` `latest-dev` `0-dev` `0.26.1-dev` | May 1st      | `sha256:0f3a0efcd28186a83daf3791992dad56ad4836aa223182fe9a854316f29ca582` |
+|  `0.26` `latest` `0` `0.26.1`                 | May 1st      | `sha256:d0165c16f5c1e254d5dcc9f194bc99e2141f9ee01cd3d09e1090e7090571a486` |
 |  `0.26.0-dev`                                 | April 21st   | `sha256:c58861a16bbf5286470f8608892591da684289394dbebd736841a0cbc9f1dcfa` |
 |  `0.26.0`                                     | April 21st   | `sha256:5f8d80635bbc72c9eae0d69c4cbdd7b0d515cad0980eaa77c466136cc70434d8` |
 

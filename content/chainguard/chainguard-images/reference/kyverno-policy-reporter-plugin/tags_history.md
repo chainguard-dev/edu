@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-policy-reporter-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:9f80b6dbd94c17de13cc1efede5ed0ede243ad856c6f46b08e84f27d8ea26a61` |
-|  `latest`     | April 4th    | `sha256:5ad623e7207407b4054c90df729249fbabd454382024958c837ab47e6411aa02` |
+|  `latest-dev` | May 1st      | `sha256:fa671af5722572f0f307214af30ac1cac227b128e121c88f64c59d2e477d40ae` |
+|  `latest`     | May 1st      | `sha256:5b83381856b55d2790b00cbe6983f90cd6559fd5f3472e79ae19d465d5951616` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.6.3-dev` `1.6-dev` `1-dev` `latest-dev` | April 30th   | `sha256:17e365c0b5997471962b42638ac4314c57285b03fa971921ce99ef70787fab09` |
-|  `1.6` `1` `latest` `1.6.3`                 | April 21st   | `sha256:77edcaebb8f7c92cf913515376bcfa20c0d9072785287f57a989497160ed6405` |
+|  `1.6.3-dev` `latest-dev` `1-dev` `1.6-dev` | May 1st      | `sha256:479f58b608b6760fe4ca7aff51122fab10c4c4230fac50155fdd3fc4f247b32f` |
+|  `1.6.3` `1` `1.6` `latest`                 | May 1st      | `sha256:cc0b0ab6f748c2bd1cc9ccb9517f0d8d23d95b7925ad5b59e541e8ee5b575bb1` |
 

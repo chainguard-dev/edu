@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public jenkins Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -81,7 +81,6 @@ The table shows package distribution across variants.
 | `openjdk-17-default-jvm` | X          | X      |
 | `openjdk-17-jre`         | X          | X      |
 | `openjdk-17-jre-base`    | X          | X      |
-| `openssl-config`         | X          | X      |
 | `p11-kit`                | X          | X      |
 | `p11-kit-trust`          | X          | X      |
 | `ttf-dejavu`             | X          | X      |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mongodb-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:d14217df3756de8f559db3c7249e1fcfbdec0d82ea58f0704b6b3faf298c5f02` |
-|  `latest`     | April 26th   | `sha256:079dfc083d2db5b8d34a2ff13d71d1539a6c4ccd7eac9d3bebd5f49eb84f596a` |
+|  `latest`     | May 1st      | `sha256:88b1c8f2019ffb668b6e4d865d9955dcbe3a107df423800f45fa99cb5bff7ee3` |
+|  `latest-dev` | May 1st      | `sha256:d9e65723fd0aa5fffae3f28c2c83d55b34b1cf6441ba604fd9cc694d766bfc3d` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.40.0-dev` `0.40-dev` `latest-dev` | April 30th   | `sha256:193ff2c9cb93267f8f441ff8361c94d6fa35463feb5f87bbc9c5001bf06fb0c9` |
-|  `0.40.0` `0.40` `0` `latest`                 | April 25th   | `sha256:eaafc248614df2f2ac90142b31045ad255223933d4be0280f4a6beba9ad0f112` |
+|  `0-dev` `latest-dev` `0.40-dev` `0.40.0-dev` | May 1st      | `sha256:25710fb15088d7c5f20c6f9ae5a837920fed33e52ce705d32aba4d20d82f3e3a` |
+|  `latest` `0.40.0` `0` `0.40`                 | May 1st      | `sha256:6010b32dee03593b22e0f8504d33a7ad263e1fc465827099ea5644729e2ed307` |
 

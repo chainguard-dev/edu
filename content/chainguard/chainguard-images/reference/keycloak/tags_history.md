@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keycloak Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-23 00:42:59
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 22nd   | `sha256:17cf43cc6899762ac3be17dc97b8f5967ee15d0414dfcea615b6310c1a47f1fb` |
-|  `latest`     | April 22nd   | `sha256:5365d6077a88263bb8fbcd3101f9493f63bd875e8c315ab31bcfdedfc3546eaa` |
+|  `latest-dev` | May 1st      | `sha256:7f6ed6fabd04bb0e38f9061716fdb35414499694ff3d91e4044b62d43a6938a4` |
+|  `latest`     | May 1st      | `sha256:c45d00fd3673ed4a631cf5dd8f863ff1722bc9ecd7126a4dbdaf14a36e351209` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `24.0.3-dev` `latest-dev` `24-dev` `24.0-dev` | April 20th   | `sha256:005b99574df5003c8ac276e5fdbed69e9c1dc142ba807a84f6bffcba41541007` |
-|  `24.0` `24` `24.0.3` `latest`                 | April 17th   | `sha256:15825ce39eae7331c8bf77dbf145b4b23f2b19bc677159acf7f27588759a9731` |
+|  `24` `24.0` `24.0.3` `latest`                 | May 1st      | `sha256:6944d2bd5ee9e25c5aaff2f73c2d77b229a9e2ab0120969b94dc2565d6406c51` |
+|  `24.0-dev` `24-dev` `latest-dev` `24.0.3-dev` | May 1st      | `sha256:5db1db413fc746757c4298dad56e7e39600fa652a4379fbe42a968e916e5d5f6` |
 |  `24.0.2-dev`                                  | April 17th   | `sha256:97940fe453c4e5eb77eb9e1fbb611a9cd09b7ac74263fe1b1bdc5f153bc6693c` |
 |  `24.0.2`                                      | April 17th   | `sha256:9d686f771d9a426afa7c8e91d55b94e95424734c2614c46f604f388df9477661` |
 

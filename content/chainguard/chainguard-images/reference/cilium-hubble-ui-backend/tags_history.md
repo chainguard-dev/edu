@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:905041b26d872eedccb985f41cabe9d0459cd1969042646f5a00b788a8fcefa8` |
-|  `latest`     | April 23rd   | `sha256:d0dfea5dbca83efc762b55e73e31ceff554452309619c228b6987ec074e908a3` |
+|  `latest-dev` | May 1st      | `sha256:feb0f0e98ff2df16f1eb86aa9319890bf5323c37f87031a9376727567182c782` |
+|  `latest`     | May 1st      | `sha256:f7155a45a16939612f1e2f517d09f75522f26eadfec0b9b10d95d3ec4a4e2781` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.13.0-dev` `0-dev` `0.13-dev` | April 30th   | `sha256:ea5d113802779ad35a1efbf7af591ebcf6da24a52116f10dfcc553efd113f3ff` |
-|  `0` `latest` `0.13` `0.13.0`                 | April 23rd   | `sha256:71e524c4e91a4937cf30361a905a74478546a010e1cc9f625ca7ef7ebcc3a3bf` |
+|  `0.13-dev` `0-dev` `latest-dev` `0.13.0-dev` | May 1st      | `sha256:0f638cd42e1dc81a78d8e3ac1a35b4a25aa220db842b27c6e9378f845347e045` |
+|  `0.13.0` `0` `latest` `0.13`                 | May 1st      | `sha256:4b6bddb34d6b0dfc9f0f63c67634151b49640ed53101fe59852e0f2b4af53422` |
 

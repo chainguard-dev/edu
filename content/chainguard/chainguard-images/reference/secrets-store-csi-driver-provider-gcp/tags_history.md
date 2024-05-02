@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:410ef06f2ce77c145a7b3185e026bc3e410a72b0601c597246538b6b23e4075e` |
-|  `latest`     | April 22nd   | `sha256:25d6c7dd785311c747d0c98e4a72de831a69905bf87bb40462269acfa892b6c4` |
+|  `latest`     | May 1st      | `sha256:9d86f4c8c88e73dec851344d9caf116f18a646e8156e45687884cbadc462740d` |
+|  `latest-dev` | May 1st      | `sha256:a57f3bf74e15ae5174f812898f6042c5667f80a5b76158720ef2f1f0ded9a435` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.5.0-dev` `1.5-dev` `latest-dev` | April 30th   | `sha256:80e9797f5bcfa1bcdee41d66aa8f746597c66758d01517cdafe7a9e66e7e680b` |
-|  `latest` `1.5` `1.5.0` `1`                 | April 21st   | `sha256:d2d24d53abb1acf1864400390651aa023d3e6f377516ee20a98e734e3b4804ed` |
+|  `1.5.0-dev` `latest-dev` `1.5-dev` `1-dev` | May 1st      | `sha256:688b90e4d5be95e6727fa756eb86dbdc380a5f52181fdad2a43d095250a2cae2` |
+|  `1` `1.5` `latest` `1.5.0`                 | May 1st      | `sha256:15bc7f586582b515f50f8c5648095272a388151eb32397660eb3c6cb0c65129a` |
 

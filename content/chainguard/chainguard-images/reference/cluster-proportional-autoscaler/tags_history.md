@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cluster-proportional-autoscaler Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:99a0e6847368785ac3a1d055cce39cf2e6b2b8be425f8e7acd702a84689d5d90` |
-|  `latest`     | April 21st   | `sha256:58b70f92f4c83720f4d3b4b07ea1998ba63d14238a3f37d1a8198659b12cccc5` |
+|  `latest`     | May 1st      | `sha256:1243b88a058d196c5dc7a7f11f9e5c31986264c04e2a32f44c8935851c763748` |
+|  `latest-dev` | May 1st      | `sha256:29518c9baa0ccd5f4be18dfbce2015c728b79204a504dcb8e26a3d6e97dd6a3f` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.8-dev` `1.8.11-dev` | April 30th   | `sha256:cfe74656fbe7ff7fcd581d5533c1d2b990794496df2438bcce9e745384a48f05` |
-|  `1.8.11` `1.8` `1` `latest`                 | April 21st   | `sha256:2a4baef5161da62720e5ee34b9459592e25672f0a283d70f6dd01a12c361bc0d` |
+|  `1.8.11-dev` `1-dev` `1.8-dev` `latest-dev` | May 1st      | `sha256:43d2a8b670ee01c8c0f57055dc6a259dbc836de0c371187009f3fc39359b0295` |
+|  `1.8.11` `1` `latest` `1.8`                 | May 1st      | `sha256:596ffef2c9fcb1483ee9c77a8f8f4f9383600072cefbf90fc999be9538ce3ffa` |
 

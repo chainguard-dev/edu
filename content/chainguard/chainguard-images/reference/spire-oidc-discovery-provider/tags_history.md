@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the spire-oidc-discovery-provider Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:63adc666f6c2bceb7fba7ed40f9dd8f928c32db4d0ffb0c477c76d684f805a69` |
-|  `latest`     | April 22nd   | `sha256:34932b7fcd71ed6bb16cdb0f0a9107a4f54334fa28865ccb3395e6f94d82319b` |
+|  `latest`     | May 1st      | `sha256:2261ced900a97bb8f55873c2a9d992e92adfd29bcb40804b9dbd5320f31aaa13` |
+|  `latest-dev` | May 1st      | `sha256:b91e6883be2303a083cc9c45e08c8b158c8a1a197dd19bdc5c7aa383a20a286b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.9-dev` `1.9.4-dev` | April 30th   | `sha256:89b2535bc9bd3cea66f0f08b6133a78e44a12c43bba4f1a17757ae5c5d658029` |
-|  `1` `1.9` `latest` `1.9.4`                 | April 21st   | `sha256:42ad0628b6207a4a66d22b5f79692507aa97e9ac6773bfa391bd1871aa91a4c2` |
+|  `1.9.4-dev` `1-dev` `1.9-dev` `latest-dev` | May 1st      | `sha256:395499bae79445a796e6532509042fbafdbd284517067f4e3ca64a1a389a5256` |
+|  `1.9.4` `1.9` `latest` `1`                 | May 1st      | `sha256:c10acb31fb4cd75d9f2cb250eda597a1dd2939dc00cc5232d413c49800df7672` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-createctconfig Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:65db83a94f3d51404aac705cc8e8293edcd4e80f98de1db88c3ed23102a928ba` |
-|  `latest`     | April 21st   | `sha256:7442909dfe15910ec7592aab86a50c338b3b2e8b55e7b42e0620f69da0a602c4` |
+|  `latest`     | May 1st      | `sha256:604d766c614ece510311f7b041ef87ffca43e336cf99fe60198fa5ae1e830ec1` |
+|  `latest-dev` | May 1st      | `sha256:f4f5beec6f36a5aba35c4a53f76bf3b103a953b661b955b28b624de2c0ad5dc0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `0.6-dev` `latest-dev` `0-dev` | April 30th   | `sha256:40f5fda25e92604da598c4d81af5ab26391df05b988a23b82916cd6e2b8296a2` |
-|  `0.6` `0` `latest` `0.6.17`                 | April 21st   | `sha256:3eb3a874487022ceb29220dc344cf0f1229f99757b891cec236512af595e6522` |
+|  `0-dev` `0.6.17-dev` `latest-dev` `0.6-dev` | May 1st      | `sha256:6059f6b1cb9e39b68c8d1f317587d6e7ce9e0655c962f97f2fa938d14ebb0514` |
+|  `0` `0.6` `latest` `0.6.17`                 | May 1st      | `sha256:4defad2cf71fc4476fa09d07c4d3684bf358af62f014d8836b2fc02267b99054` |
 

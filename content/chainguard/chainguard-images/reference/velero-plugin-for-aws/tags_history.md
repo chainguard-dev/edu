@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-plugin-for-aws Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:af2178908adb0a6519018701281d2899563ba0240b9028f15879a490e7b289e8` |
-|  `latest`     | April 21st   | `sha256:0c2337f801f2cfd3bfa5ad270cbe1765775272b443e86882fb1979a7a94d5ed1` |
+|  `latest-dev` | May 1st      | `sha256:bcd7953899763c375ef65d47f169ccf732b0fe9c9d899683c08241df0330f16f` |
+|  `latest`     | May 1st      | `sha256:f115bd45f6173e798ec6afd7f86b766d7a173b4bebaa33bdfa7293042552e556` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.9.2-dev` `1-dev` `latest-dev` `1.9-dev` | April 30th   | `sha256:b3b60d8fe1cf89827c0892d841a68e429ff22e97640c39cf6c6f8309106b2f8a` |
-|  `1.9` `latest` `1` `1.9.2`                 | April 21st   | `sha256:224b6a495700978481535ea5057421798353632f020e0643d22ec145eae3e790` |
+|  `1.9-dev` `1.9.2-dev` `1-dev` `latest-dev` | May 1st      | `sha256:b8acc68945417f614ebbe8177ec696cd2ce9560d4cd64adc657307707d35bfff` |
+|  `1.9.2` `1` `latest` `1.9`                 | May 1st      | `sha256:305a037cc07ae9a300178d86cee2f5ed3be37b84a42d8b19ff5b6dc7659a5fe1` |
 |  `1.9.1-dev`                                | April 11th   | `sha256:3da785d400fa1665a3a626da7c15067eb9fe7e10ae3741e8a720934e2045093a` |
 |  `1.9.1`                                    | April 3rd    | `sha256:bc09bdf9fbdc6ab892ba2a50d458c605ac3c2188da8e239688a6bf3cfefdfe48` |
 

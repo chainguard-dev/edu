@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the calico-cni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 21st   | `sha256:ee9361d374042e018590a002ec85e50e841e338d2efcbca47d3f3843c44792de` |
+|  `latest` | May 1st      | `sha256:0c3a6cf784d1c4a25ff5d8af6c126d4ade8be3fe50a9c72d73a5cff042dee589` |
 
 
 ### Private/Dedicated Registry
@@ -36,8 +36,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                          | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `v3-dev` `latest-dev` `3.27-dev` `v3.27.3-dev` `3.27.3-dev` `v3.27-dev` `3-dev` | April 30th   | `sha256:266a70d8874ea3ffa6b2908f1d150306274d2f9af8044f7280ad9b4d20ca8d37` |
-|  `v3.27` `3` `3.27.3` `v3.27.3` `3.27` `latest` `v3`                             | April 21st   | `sha256:9ddb8365cc577a8c213d853de69e101380b780a05943aa6e794107113aab6c77` |
+|  `v3-dev` `3.27.3-dev` `v3.27-dev` `v3.27.3-dev` `3-dev` `latest-dev` `3.27-dev` | May 1st      | `sha256:ecfda96a063a2f0fc7d232554a17b9e6f0d87a4f12e162deba7d278bedf75d85` |
+|  `v3.27.3` `3` `3.27.3` `latest` `3.27` `v3.27` `v3`                             | May 1st      | `sha256:535d5f034ab754c984594507866b73cb0fcb72e24bb7b8f1ff6decb8110608be` |
 |  `v3.27.2` `3.27.2`                                                              | April 4th    | `sha256:7ca75484e31a064e29dbdf21e27a2b22c8509a917ef97de2aac0f19bfd7f91ff` |
 |  `v3.27.2-dev` `3.27.2-dev`                                                      | April 4th    | `sha256:59bf2a24dc292b6a7babc0a4fc7901f0c51817517fd972d484b776297a461772` |
 

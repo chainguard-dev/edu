@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:96c588c940310efa45aa5c75c7940605efe4d11676f6b0303782fd32cbc4b692` |
-|  `latest`     | April 21st   | `sha256:7cd6e8facf1931a0bae3b2e0f52bdd8f863bb26fa135919b8395b6baeee85713` |
+|  `latest-dev` | May 1st      | `sha256:f2ff1b817d25697a0c154194b7513f35b6e40a1fdb7f61d87b403fc3c32afae0` |
+|  `latest`     | May 1st      | `sha256:d96937c16affd5a556cc42c8fba2cb3ccdd6921f3a685309a24525f08b433f51` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.6.17-dev` `0.6-dev` `0-dev` | April 30th   | `sha256:bbabb3bbbf8e3e4461d97fe48825f47142a94fc3ad782f8749f0bccc725a8a61` |
-|  `0.6.17` `0.6` `0` `latest`                 | April 21st   | `sha256:ffe590906d782962a091dccaab8dd1490c4a6665f44b1e77d794871c620b46f2` |
+|  `latest-dev` `0-dev` `0.6-dev` `0.6.17-dev` | May 1st      | `sha256:1086de5a9727761db37b2eb55f30b6156d5e9ea7ea9539e91731d179eb4ca5c7` |
+|  `latest` `0.6.17` `0` `0.6`                 | May 1st      | `sha256:96dba27d6281fb91871981a2889b3ffd17ac6a5c835e5e257a5db07f5c82cde3` |
 

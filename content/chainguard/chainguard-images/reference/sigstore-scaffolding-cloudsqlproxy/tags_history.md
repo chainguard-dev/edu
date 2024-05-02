@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:4161ab3007d68aae387d53c65523a3809b261517d5402ee72feee55e993ec47c` |
-|  `latest`     | April 21st   | `sha256:5c0f225c35a0ed2ba6a1556a7aac887c58608b3eaa1fb2bbbacd3782d63b7c33` |
+|  `latest-dev` | May 1st      | `sha256:9370077fd8723fdb20b6ebb6c25a5a83810c38d0fd2de02522f4d75330bad022` |
+|  `latest`     | May 1st      | `sha256:141ff12dde1baa0fde1ab716daccbfc51294d59d68273f9cfcf0dc18b1a66e77` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.6.17-dev` `0.6-dev` | April 30th   | `sha256:d84c78388be77776783dd2ac6a34bb254ba16c83accc58dadc24dd4ebb7e5678` |
-|  `0.6` `latest` `0` `0.6.17`                 | April 21st   | `sha256:858881fb3791d9a80cf2a853ce8ea90e84c570d91a0f32a52b81dbd50059b129` |
+|  `0.6-dev` `0-dev` `latest-dev` `0.6.17-dev` | May 1st      | `sha256:052a8150650ce47325013128d94550850709048a7bd8d40c559a46506874e438` |
+|  `0.6.17` `latest` `0` `0.6`                 | May 1st      | `sha256:7c1599b2bc3b2d72b921bbd6c33c50d4bda9e4857d674a25d5f19350033311ee` |
 

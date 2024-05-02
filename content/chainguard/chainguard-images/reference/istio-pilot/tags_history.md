@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-pilot Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,12 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.21-dev` `1.21.2-dev` `latest-dev` | April 29th   | `sha256:c162e897e0f189994d73f910775ad82d9fe59dbea21c1c17332a44a427f4a770` |
-|  `1.20-dev` `1.20.6-dev`                      | April 29th   | `sha256:c0b4f8c4f410af56100aa37989d2d375e33a05ed58361993481f3573d7b3443b` |
-|  `1.19-dev` `1.19.10-dev`                     | April 29th   | `sha256:08d611695ed8e0e9491f5b68de5448e8f6d7e51ce370766fb2a6850d1502ca1e` |
-|  `1.20` `1.20.6`                              | April 24th   | `sha256:eebde44887924b76b9673113a85139a0464446035dc4a282be68bb1f5bc4829f` |
-|  `1` `1.21` `1.21.2` `latest`                 | April 24th   | `sha256:00e71405189044665842af0eaa346940b2560ad2ecf92ef21f9b619a9bdfdc96` |
-|  `1.19.10` `1.19`                             | April 24th   | `sha256:a648cd11f9f4ea9e4c5c43eaf6866aa7b2eab8da929b47dd36de1d06a5e49b5b` |
+|  `1.20.6-dev` `1.20-dev`                      | May 1st      | `sha256:e27d793291ff86dd074fbd7fc422781344e1c14f272b52ce7cf3aa931203e888` |
+|  `1.19` `1.19.10`                             | May 1st      | `sha256:bd5a4d350eb3fb120e885557a143f37f4903cbc77031cf2524c687e6630aee40` |
+|  `1.21` `1.21.2` `1` `latest`                 | May 1st      | `sha256:7fba7b6eb0a2110700cd85fb76eed7623756e916fe95e083f235dc0043a5e3f7` |
+|  `1.20.6` `1.20`                              | May 1st      | `sha256:7b526fd1bae3997960f02b2575673e7979864df68b5937295a8448563985686c` |
+|  `1.19-dev` `1.19.10-dev`                     | May 1st      | `sha256:ea7a90645beedbd347e76848bd0baf30ce5c804c3ac7350c4291027157acb5df` |
+|  `1.21-dev` `1.21.2-dev` `1-dev` `latest-dev` | May 1st      | `sha256:523b11ddacf77494a747df54ad121926a9a33899664b5b06c943d9015f0c5535` |
 |  `1.19.9-dev`                                 | April 20th   | `sha256:35ad4df813c8785e544a315fb9e1b63f05cb9b8586cce5b84d57ed5923440c8e` |
 |  `1.20.5-dev`                                 | April 20th   | `sha256:9fa02a22c756906d58e6e77600c62265cf63e65d874f05a955c8f8650d041090` |
 |  `1.21.1-dev`                                 | April 20th   | `sha256:7100e9ab2767c499ee9acb405b41884ca229790c6a237b3f5ec6faf51fae4e71` |

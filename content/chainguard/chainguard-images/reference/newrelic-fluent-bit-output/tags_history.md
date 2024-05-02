@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 30th   | `sha256:66e48039014110ebfb0752ae525e8726f16de9559af413ee7a886fd65683a18d` |
-|  `latest-dev` | April 30th   | `sha256:ffe8f11f3a60def2dbcbcacc665fc4f38bf073f5a8501cd3743ded9ddf79fcea` |
+|  `latest`     | May 1st      | `sha256:0347d3cc38f5ac8997fe4bab734dc243acbaafbe556df272b2d5ec0b9b349ca0` |
+|  `latest-dev` | May 1st      | `sha256:effac36e78f9b4dd609322e651d919641ad007d4accd123f4eee2d61c53c1715` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.19.2-dev` `1.19-dev` | April 30th   | `sha256:4018e822b1048715b664cf76c099f7706e5687788826c2e3c3bf681aa6c58e0d` |
-|  `latest` `1.19.2` `1` `1.19`                 | April 30th   | `sha256:8df0de498cecb073949b3c8d3cb865c1d8de6eac477889e1feec2e84eb51a98d` |
+|  `latest-dev` `1.19-dev` `1-dev` `1.19.2-dev` | May 1st      | `sha256:583e4160927a0bba262be2897dfa45c84efb8d44f6d0ed67c0ea5b6a5df893c0` |
+|  `latest` `1.19.2` `1` `1.19`                 | May 1st      | `sha256:2760db5b5c8d6c5de1373e70f766b048e87de098631c2994c7b6148344acb45f` |
 

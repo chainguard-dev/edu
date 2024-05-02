@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-pushgateway Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:918f4850d2fe5b6b8e6c8f2c65d43fc9b2ff25be1426286799cc3800735ad07c` |
-|  `latest`     | April 21st   | `sha256:3e323c31503a0fc4de9eeb2fd93c8d455554e3dfbc50921d15986bd2885f72b0` |
+|  `latest`     | May 1st      | `sha256:cb6e5391410f56450f7c57d70f7eee34c4e97c33c57f1f35620a13ec584ab1c0` |
+|  `latest-dev` | May 1st      | `sha256:1b4751282b7d36c88fba40a49bae965b7de6a6873fd274c0291e48f658c22e56` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.8-dev` `1.8.0-dev` `1-dev` | April 30th   | `sha256:d7b3678b864ac36932658e308ef57f76599de56b1f06774ee29d5e5b4baf91f1` |
-|  `latest` `1.8.0` `1.8` `1`                 | April 21st   | `sha256:f80b154f0d7862e032391fb31256e4734b38db45058b1f67d549f13b01d890b3` |
+|  `1-dev` `latest-dev` `1.8.0-dev` `1.8-dev` | May 1st      | `sha256:a9060fcec0244f0a109c50fcdd527dc17378b0c6e0f86ce6faceae3cf06bb1fe` |
+|  `latest` `1.8` `1.8.0` `1`                 | May 1st      | `sha256:7c31403ad1134f2f1be5ac0f9bf0acf2512cb72aa282be9a48319e0cc9b98e0b` |
 |  `1.7.0` `1.7`                              | April 3rd    | `sha256:5364b2e7dfa38fc4503f7222a65b4fb595a4682b2f1ef9d93341a0d730efb5a5` |
 |  `1.7.0-dev` `1.7-dev`                      | April 3rd    | `sha256:ede81753e073c9cff34201e9c097170bd3da04a958945a9aaad19a89bebd53c2` |
 

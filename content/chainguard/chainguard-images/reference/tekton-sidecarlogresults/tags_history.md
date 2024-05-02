@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tekton-sidecarlogresults Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:98543e2b4f73241dfa7fcf6f5ec38045da929baec4f40d0877064a744e22755f` |
-|  `latest`     | April 26th   | `sha256:1b78e2aba9249840142f26d189facceb25fe4e28753eac3a535df3cbc3a0135a` |
+|  `latest`     | May 1st      | `sha256:d1981dcc06080a88ba9a301f6bec084408aa3815e62b22299b152ede89907b4d` |
+|  `latest-dev` | May 1st      | `sha256:900bc0b846feed20b5e0c6a922ac441476e56ee402f0896ae0105bec59b05514` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.59.0-dev` `0.59-dev` | April 30th   | `sha256:df51e15181a52f7d152ebd384a17ffa3fb1143a2e7aa70c19f2f9dbefcab2a82` |
-|  `latest` `0` `0.59` `0.59.0`                 | April 26th   | `sha256:dc9c18be1f84314741fcfb2fe750500cd82ddf6a1b1dfe69a0224090f7995a0d` |
+|  `0-dev` `latest-dev` `0.59.0-dev` `0.59-dev` | May 1st      | `sha256:4dee4ad5fa18f67e0ede51fac4d83eda33d8b9e3a3d4ead1764f45cc2fc9ac71` |
+|  `latest` `0.59` `0.59.0` `0`                 | May 1st      | `sha256:ee339640cde7144a6d5f8e3c33ec8af5f399ce9800cdc4b5021095dd75d26fb4` |
 |  `0.58` `0.58.0`                              | April 21st   | `sha256:2994e0d78bae5e7dcfe2c35138aaa2e96b81bb78d92d540e2aabbf846828b2ed` |
 |  `0.58.0-dev` `0.58-dev`                      | April 21st   | `sha256:bf37efefa96ccde2fe0841b45e98b82a0bfaf46c1e871f43636ee438b207293c` |
 
