@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-managectroots Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:8de94db962ce630cc20c7b5b48109acd49f5d209648a7c7a6903ac7d9ae092ff` |
-|  `latest`     | April 21st   | `sha256:086e57044998e473ea43bbb782948ca51bd68fa343810dd0d56f492e125a627e` |
+|  `latest-dev` | May 1st      | `sha256:1f74aa15a4b8049ec530b54314b59ce4c47a03bb3fd1521d7dce16745a1e7a9c` |
+|  `latest`     | May 1st      | `sha256:a3b3d61a0ec17178db73a2c5704883796e63fcadf00cf9bd7ae1db34e50cde56` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `0.6-dev` `latest-dev` `0-dev` | April 30th   | `sha256:1d677e08dc760f7a152548bf2a34be1642011aaae8149b60acfc82e6d17c374f` |
-|  `latest` `0.6.17` `0.6` `0`                 | April 21st   | `sha256:53db87afdc78d2bfe57be5ab5ff4f4221c623e376457e7708296544a83244108` |
+|  `0-dev` `latest-dev` `0.6-dev` `0.6.17-dev` | May 1st      | `sha256:1ab47f47c99dc349e5820e07ee04204595ccc41851ee8febce5780fdde4109de` |
+|  `0.6` `latest` `0.6.17` `0`                 | May 1st      | `sha256:547c4a52b817495bae93210dc38644996d48025c44cb028aacf22c4dc8c20817` |
 

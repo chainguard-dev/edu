@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-config-reloader Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:14e05d22cd11cb1aea5c6feacae9d3ee97d2a20a4bd51b11379de002793e3a12` |
-|  `latest`     | April 23rd   | `sha256:f31c412316b5270bb750adfd53e833a573222bef0dbbba30f30cf5be45879f91` |
+|  `latest-dev` | May 1st      | `sha256:98f4ca8630b301fb8132207dc5a5154c757d2ca243bc76b1985fdedf531b36b0` |
+|  `latest`     | May 1st      | `sha256:918ecde4c02fdce0d212ec94b22b0b607b54760981c403e8483539df2f8d0fbe` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.73-dev` `0-dev` `0.73.2-dev` `latest-dev` | April 30th   | `sha256:905bc00de1abd0d54b117b86e1a3e88ccd91791f61714bfe9ca0dec56198cc36` |
-|  `latest` `0.73` `0.73.2` `0`                 | April 23rd   | `sha256:421bb4f5af2a54a9acb76501827db8922fcbe1fbdca74939aa53529ec1d836c7` |
+|  `0.73.2-dev` `0.73-dev` `0-dev` `latest-dev` | May 1st      | `sha256:9f2a2df25706cb75f0842aac479df288ff6f37ed48e875b569d5cd913800ca4c` |
+|  `0.73` `latest` `0.73.2` `0`                 | May 1st      | `sha256:9900af5af8715a62a04b6c7982eeecac088d5748384a516920dfbc9beafe1fe7` |
 |  `0.73.1-dev`                                 | April 11th   | `sha256:52e7ed65675919102788a705f709bbec592c14947a89490b5f531fc86c89cb4d` |
 |  `0.73.1`                                     | April 11th   | `sha256:94117506c26b81c9df1f6b777202a28393ece125d93f5325a5dfcbd2fd1010a3` |
 |  `0.73.0-dev`                                 | April 11th   | `sha256:852022397f62d32577b2063795dbe67771db12e5f3961badda447fece16d5214` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:ec6dd08d34fc6447199aaef814a11bc0f6f07f5817a26f530bd967bb2faea237` |
-|  `latest`     | April 21st   | `sha256:77629183e0016fce897bf5a730de24811022383de82be1e1e893170bd343c565` |
+|  `latest-dev` | May 1st      | `sha256:9a820df9aaf39e5be137e00748f1d08fb7f7103285401baf8fd801aeba8fe975` |
+|  `latest`     | May 1st      | `sha256:053141dc7de5c3255a7cd5b5ca18041f31dc67e1e01594b7ab0030bcdbb6e2ac` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.6-dev` `0.6.17-dev` | April 30th   | `sha256:110c43bdbc0cd051704aa0dd38996f1b7d499910d08e636f73aa7cc1e0c77924` |
-|  `0.6.17` `0` `latest` `0.6`                 | April 21st   | `sha256:798c7be8e89c4f1e238989e93bed6642429ef35883ca1f01341955b15f99212f` |
+|  `0.6.17-dev` `0-dev` `0.6-dev` `latest-dev` | May 1st      | `sha256:00e1d9cb4a2d55a95c899bae722ccc1bbaee27c5b13f83f254330666ef1db3d0` |
+|  `latest` `0` `0.6` `0.6.17`                 | May 1st      | `sha256:dc64367560ecefada58566555fa7d71f02d2682ab41eb3d46c68189c39113a3c` |
 

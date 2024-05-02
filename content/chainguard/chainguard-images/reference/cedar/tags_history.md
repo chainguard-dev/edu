@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cedar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:ebc3996cd9936763b61c718b393059cbe39b1bc653f78702de11286110ef07e9` |
-|  `latest`     | April 22nd   | `sha256:484dbd8f3df8b13aa4bb118ad958b06eccc0297f64065d7bdd18fd0d82f4eb5f` |
+|  `latest-dev` | May 1st      | `sha256:282ea71f6e6061ab5cc878e87c272983e5839b95c13dd8cb29024474a1d8d69a` |
+|  `latest`     | May 1st      | `sha256:4f00c934e07b98c60ec975aeffe2efd1b90089c6bca2ddbcf97c806848338765` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.1-dev` `latest-dev` `3.1.3-dev` `3-dev` | April 30th   | `sha256:f8666d9567cc6ffb7d5e7c2ea4c635927ecbdd571d0a8e5ba0ce22790ec50f98` |
-|  `3.1.3` `3` `3.1` `latest`                 | April 21st   | `sha256:2634e087663e0ecdd3066b7a734315ad75cdd92562cb0aad4ac95fb222b75cfb` |
+|  `3-dev` `latest-dev` `3.1.3-dev` `3.1-dev` | May 1st      | `sha256:701f024db5533481f10d2bcd805001e48b4979e626a4e1be51bf2baf4a4fd512` |
+|  `latest` `3.1` `3` `3.1.3`                 | May 1st      | `sha256:e549d9654d56fdbe33d4f018f3e7b4d8e8d7bae1fccde111b40388e65f23eeb3` |
 |  `3.1.2-dev`                                | April 11th   | `sha256:5598d4652d7472e1dba0feceebca077a41aba293a39e4dcc28d5dbd0b70dc7b9` |
 

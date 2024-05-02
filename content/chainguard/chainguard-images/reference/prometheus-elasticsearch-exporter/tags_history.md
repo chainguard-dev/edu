@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:46694c26137ad94eb86cac108785bc88aad558961bcc3804ea76d1521919cd9f` |
-|  `latest`     | April 22nd   | `sha256:307fc1079f8ddef114cf55c8f625f88ad879383f0ede4ec1ef80a74b65862610` |
+|  `latest-dev` | May 1st      | `sha256:0aff1a216090b453edb77b79818bc1cc6503fd02754840325c5d38833f1b11e9` |
+|  `latest`     | May 1st      | `sha256:c1f6ffecaf59bb8190f2dc727f17881df106e743934211a7e5e0f9fe514d4523` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.7-dev` `1.7.0-dev` `1-dev` `latest-dev` | April 30th   | `sha256:c6356ad420fbd403416dda7888bf3f4ff435ed074649ee580970c814db0e88df` |
-|  `1` `latest` `1.7.0` `1.7`                 | April 21st   | `sha256:06a9e4de808e518113648e486f06522bafbda9a3727b284c113343ea2293a8b6` |
+|  `1` `1.7.0` `1.7` `latest`                 | May 1st      | `sha256:f5632c94498ae95df216cab5364e56dd49a5016245a276ad5b20f787cd9667ce` |
+|  `latest-dev` `1.7.0-dev` `1.7-dev` `1-dev` | May 1st      | `sha256:8fe5a417206d6534fa209192879c6a546aa8d41fac3a6aed9dd343a89ec73e9e` |
 

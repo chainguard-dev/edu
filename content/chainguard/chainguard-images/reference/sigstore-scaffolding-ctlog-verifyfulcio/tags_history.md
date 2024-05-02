@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-verifyfulcio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:85dfce1050ab85e3fa0bc9f0663860d9bb63fb5db570fd8257d409881cd07554` |
-|  `latest`     | April 21st   | `sha256:12416e50a4dc5f81c1a02dcc20b91ab2ba3eb5993e59a835a7cfb724a806d8f9` |
+|  `latest`     | May 1st      | `sha256:b97ce6b3753eced800ec486ace29dcd37bb4b5b439e1d16c37c04d82395f2da3` |
+|  `latest-dev` | May 1st      | `sha256:aea3c75c70d128b549d45a3f2180dc0c704a7911a9c705af91fc5c9b60b4a16b` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6-dev` `latest-dev` `0.6.17-dev` `0-dev` | April 30th   | `sha256:0aecbfecca4cc658164ec988b8185952acac88f938ea7f59b1b3552e89791512` |
-|  `0.6` `latest` `0` `0.6.17`                 | April 21st   | `sha256:80fdccf680903b26de3edf8726f29bf6a81a5de2322dd857dc5b20815744de28` |
+|  `latest-dev` `0-dev` `0.6.17-dev` `0.6-dev` | May 1st      | `sha256:e6a5067bde281cf0aa5107c1701fd5bdbf90846ac943a894699e81c6a1761738` |
+|  `0.6.17` `0.6` `latest` `0`                 | May 1st      | `sha256:8000c8171ceeaaa879d463ad9a7ebaef5532067964465d1749d98d1a85a4f952` |
 

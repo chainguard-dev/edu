@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-cloudwatch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:d724a6d21b6cf6833f135c48a2487ffe45f19a672340a461e056b1f1d3598ef4` |
-|  `latest`     | April 30th   | `sha256:cb2ab16f4de577b771e358470c00dec39b6875eb4938dfb48f2cef9c4cabe839` |
+|  `latest-dev` | May 1st      | `sha256:73dfc81518ce46f05e8f00f64f1c6e9bddde0e577e93e86bdb637f209e8b1412` |
+|  `latest`     | May 1st      | `sha256:23b02c09bcfa41b2b28e9e6477c0a495fb91bba440d46fb945d31cd7c3e1e035` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15-dev` `0.15.5-dev` `0-dev` `latest-dev` | April 30th   | `sha256:58f1a655dd87090df63e3a7fbbe2e6c386d468392edb650019faeac1f053ad28` |
-|  `latest` `0.15` `0.15.5` `0`                 | April 30th   | `sha256:c0ed978105fd34288b92726188ceb70679eee21f6d80db22014be14757899b12` |
+|  `0` `0.15.5` `latest` `0.15`                 | May 1st      | `sha256:b1b33fe7cc5a7a3dd9cb68be2481242d7a07c4170daa740ded1123efd6b033ea` |
+|  `0.15.5-dev` `0-dev` `0.15-dev` `latest-dev` | May 1st      | `sha256:241b32bf3a4a0bdae7972cba3c635980ee7a86d0d8f502257ff003c237d19d6e` |
 

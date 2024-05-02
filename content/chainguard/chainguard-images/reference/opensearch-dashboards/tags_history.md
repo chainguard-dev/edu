@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 30th   | `sha256:148ebc171a6b245df4f27e1e80f83b18ca24af043ec2dc1b49c4df52d967e0a0` |
-|  `latest-dev` | April 30th   | `sha256:b36b98f3939057d077f8f7c007437db39e5e076c350c921ac3789ef737fbe3d1` |
+|  `latest`     | May 1st      | `sha256:e1f71e8ce0daf0054a8abf01be84d88cd098d30349e4deaaa11ab22bdb1e4d0e` |
+|  `latest-dev` | May 1st      | `sha256:5daa8a661b82d0a157edf581ed4ddf858d3bbcbe855cbbe88239130f2841615e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.13.0` `2.13` `latest`                 | April 30th   | `sha256:8155894f70c30c23e3750e61ccdf307d8265f9efaac4ccda3343927795c7720c` |
-|  `latest-dev` `2-dev` `2.13-dev` `2.13.0-dev` | April 30th   | `sha256:2aed2ead785263db82db867c2148f6568943aeabe1cc05ef9ada61222a515e81` |
+|  `2` `2.13.0` `2.13` `latest`                 | May 1st      | `sha256:72a859b54a884477f4508af4074685bd9936c47dd89b46001f35d2db01cacce0` |
+|  `latest-dev` `2.13.0-dev` `2.13-dev` `2-dev` | May 1st      | `sha256:111e892fb01971ea027509a3f179eb20b1903c5b72cbf88fd515fe38d4a1ff63` |
 

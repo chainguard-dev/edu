@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mysql Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,7 +33,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                      | Last Changed | Digest                                                                    |
 |------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `8.0.37` `8.0` `8` | April 30th   | `sha256:18045229d5d5e789e650dbbd9ff464f2cf7dd252d974b09e465aa206101f1338` |
+|  `8.0.37` `8.0` `8` `latest` | May 2nd      | `sha256:084e1fab80d7bc8edcaa89a28f23742a317ef7c15e62328cc2114639d7c7c5cf` |
 |  `8.0.36`                    | April 30th   | `sha256:02326a25799add08db37baff1ac32f9c5bf152a819f19f3ba5981dcc3134b9a3` |
 |  `8.0.35`                    | April 30th   | `sha256:76d26797b9a3a9399d8fbd7d098d71b1b77dc44376df66a72411ad8fb139b5b8` |
 

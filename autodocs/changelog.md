@@ -1,3 +1,11 @@
+# 2024-05-02
+New images added:
+
+- kube-vip
+- opentelemetry-collector
+
+A total of **815** documents were updated.
+
 # 2024-05-01
 New images added:
 

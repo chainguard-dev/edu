@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the smarter-device-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:8227e849a7fb4320dc1bd74aa7f256b9e07f41a394977a33df337fcc7d9fc63b` |
-|  `latest`     | April 4th    | `sha256:6668de189e46e7abe9cda9e3a5c843d3a23300546ea7ba17269544d47b94b824` |
+|  `latest`     | May 1st      | `sha256:9faf42d290c7c1461a7a74d8541de8b7e2cb833e3a04e16dd0ec012add959ca9` |
+|  `latest-dev` | May 1st      | `sha256:810353ab70f1d6a8e3e01ea0091e565f1ec0276ab0565af044450ff14b9c5737` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.20.11-dev` `1.20-dev` `latest-dev` | April 30th   | `sha256:2a61a044a94112f2d15a2b1e0ac9b450416f3ef003fc63ef4cefbd785fb2aa9e` |
-|  `1.20` `1.20.11` `latest` `1`                 | April 21st   | `sha256:6779d38f47c8c7b2596d7069ba53cc9286746ebe404d59e4f9efdfbafa33a0aa` |
+|  `1.20.11` `1` `latest` `1.20`                 | May 1st      | `sha256:e80a0663de33b80b70593a4d8b43766263f9f32c7ad9708275c4984dac8899c6` |
+|  `1-dev` `1.20-dev` `1.20.11-dev` `latest-dev` | May 1st      | `sha256:644ded92354d668496734bf3040d4075649bce2534893fd1a73fe7eabe7653ed` |
 

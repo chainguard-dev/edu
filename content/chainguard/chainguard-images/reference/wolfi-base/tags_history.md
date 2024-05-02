@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wolfi-base Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 30th   | `sha256:2390110a7dcaaa2157420fe97811c9925578a3263405a1614432c88d8d36d1d3` |
+|  `latest` | May 1st      | `sha256:1cdb7345dcef1501e6b70e10b5f0aeb7b38e4bf1dda3d52cf80fdfb717501927` |
 
 
 ### Private/Dedicated Registry
@@ -36,5 +36,5 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `1` `latest` | April 30th   | `sha256:f072f831508d14ef091bb5ad1099a8b7eb823f97bf30ff0d9a161a6078bb886a` |
+|  `latest` `1` | May 1st      | `sha256:7d5a872f375dc8aed93f390c74f050c4a00975aae89098b2be6153ce5dc29831` |
 

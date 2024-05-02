@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda-admission-webhooks Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.13.1-dev` `2-dev` `2.13-dev` `latest-dev` | April 30th   | `sha256:587f6feeaf31f1d944fd3069e1b08dfdb51d92696c835c57f286685150d50dcd` |
-|  `2.10-dev` `2.10.1-dev`                      | April 30th   | `sha256:81706a32f4df6e283e38b8c32bb0f08b93230973382ede030f8f594dc31e4d39` |
-|  `2.10.1` `2.10`                              | April 24th   | `sha256:0e767b988ed382070b235529d9a5b551f0d8d2626be748044b3928edbe7ce519` |
-|  `latest` `2` `2.13.1` `2.13`                 | April 24th   | `sha256:ef0672ed2ae899b24ef0292b9707ba8c7d522ebe6aed324d1413b87b93a9d986` |
+|  `2.14.0` `2` `2.14` `latest`                 | May 1st      | `sha256:3f8c86d54ece970dfbbf11b25afc87dfe5920ebd41dd37b9fa592472ce2d7e9d` |
+|  `latest-dev` `2-dev` `2.14.0-dev` `2.14-dev` | May 1st      | `sha256:f942a0dde112be0c88bcd6787ba4d761ce803b2d21c0680a80e966cdcbe0f08b` |
+|  `2.10.1-dev` `2.10-dev`                      | May 1st      | `sha256:5b9f6e93dd1574d0f30c681e33be27f82c6a74efd0ed0154723c06c5ad0e355f` |
+|  `2.10.1` `2.10`                              | May 1st      | `sha256:f8020838116b218dd21964addf0669c3274189356ddeb3780e1c750fc565ef8b` |
+|  `2.13.1-dev` `2.13-dev`                      | April 30th   | `sha256:587f6feeaf31f1d944fd3069e1b08dfdb51d92696c835c57f286685150d50dcd` |
+|  `2.13.1` `2.13`                              | April 24th   | `sha256:ef0672ed2ae899b24ef0292b9707ba8c7d522ebe6aed324d1413b87b93a9d986` |
 

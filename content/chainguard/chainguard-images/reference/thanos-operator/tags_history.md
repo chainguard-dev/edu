@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the thanos-operator Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:08cefd2f35185ec2189ac7a1a3d65e5c78d84547c9e49a89b4afaac88ee95dd6` |
-|  `latest`     | April 23rd   | `sha256:8f7f3179d599fced2bf86ca4b1d3c31a7d038b8c7ea5010bd9662d6ee9750f78` |
+|  `latest`     | May 1st      | `sha256:b1fe6327ce06eb7106fb0d1c49119c67615e40458ff882427b216e8ecabe1610` |
+|  `latest-dev` | May 1st      | `sha256:26f36b1456186618623232831eb8b0b81ace640bd2d3a5ba67c2065c4d473e57` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.3.7-dev` `0-dev` `0.3-dev` `latest-dev` | April 30th   | `sha256:42ea82c2f118307e031d726d79968999dd6632e6e56e1240a7dbf0302fe6d86a` |
-|  `0.3.7` `latest` `0.3` `0`                 | April 23rd   | `sha256:e4b0d05e5539e8460d38bb5188e95eaac30ef1b83eec2f6d83f47160a905c0f9` |
+|  `0` `0.3` `latest` `0.3.7`                 | May 1st      | `sha256:5d6b3e865d0f1664aa1a4df5e5ea8c323fb009c2f98b0c2779816059d3163bbe` |
+|  `0.3.7-dev` `0-dev` `latest-dev` `0.3-dev` | May 1st      | `sha256:4ca2a6452d992bad44eb25498abceeed7d089fab2508ee0260c7f7bcae305640` |
 

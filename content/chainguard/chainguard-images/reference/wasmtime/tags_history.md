@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the wasmtime Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:84bd2a778bfbd305cd3d818cbd416ee292910539628a7629773fd2ea6023ad47` |
-|  `latest`     | April 23rd   | `sha256:6323880a930e0e8a523d2bef8d01fa725ac6523542c4ffc3ad0d170e7b261dd8` |
+|  `latest-dev` | May 1st      | `sha256:73791db6b51cdec9885eb8602f0cae04097e20c4584b4088dc4e4fe43cbd9a1d` |
+|  `latest`     | May 1st      | `sha256:d6de89a518eb7a0737271094d1e2c2ee589da1a1f84da48aea34dedee71571ca` |
 
 
 ### Private/Dedicated Registry
@@ -37,11 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `20.0.0-dev` `20-dev` `20.0-dev` `latest-dev` | April 30th   | `sha256:8fc683440795b46b31c6dc2fec2901de6c78903e35e30cadc9c8aa2e06a54858` |
-|  `latest` `20.0.0` `20.0` `20`                 | April 22nd   | `sha256:0fbe395a14c89c547ceef1b262e4cddf8db0d04e55c036bb68ef536908cc05c1` |
+|  `20-dev` `20.0.0-dev` `20.0-dev` `latest-dev` | May 1st      | `sha256:ad6c41a22f238936e254db3c0977f628f35224727c37b601154717b0a30235b2` |
+|  `latest` `20` `20.0.0` `20.0`                 | May 1st      | `sha256:3d73eb5234ac8b3eb57f62c318a2ddaa5dedebf68ddcb1912a58cb0f37945f94` |
 |  `19-dev` `19.0.2-dev` `19.0-dev`              | April 21st   | `sha256:6c541973f81c55a8dfe5368d0e40415ff474bd5ee103a96d12ddff8aa8e65559` |
 |  `19.0` `19.0.2` `19`                          | April 21st   | `sha256:19084f45e28fdbc883f253e842eadd6df8ce3e5926ac38e096de824a3ff09ac7` |
 |  `19.0.1-dev`                                  | April 11th   | `sha256:24274eea05e06b8e47d6c1cf39d6e4e3f158873c1e845dfc283a946b3bbc8e4f` |
 |  `19.0.1`                                      | April 2nd    | `sha256:24f331740d4f2c3cbe0959dbc9282ff5150ac745e1c31095b078496fa169c198` |
-|  `19.0.0-dev`                                  | April 1st    | `sha256:492a6f5655ac8096d9954b97f848e896b310e568e0b011e25b8011f4ecf861fa` |
 

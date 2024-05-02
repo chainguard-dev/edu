@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the deno Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | April 22nd   | `sha256:f81ccc074aad0029d696f58f81b06ec1faba26c6fead29c0122b1b44aa117726` |
+|  `latest` | May 1st      | `sha256:b0f83beaadaec839e268be1a8370d8950a597fab8dbb41f596c72c5b12a422e6` |
 
 
 ### Private/Dedicated Registry
@@ -36,10 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `latest` `1.42.4` `1.42` | April 21st   | `sha256:4d3eb83bb21758ab705698b8aa69f3541854fc1a7f7618f1b2ea556c045df12c` |
+|  `latest` `1.43.0` `1.43` `1` | May 1st      | `sha256:aad7894a7d0e8904a905a4a477e8af82c6e4541818f78639b2ddc22d8fdf0d6a` |
+|  `1.42.4` `1.42`              | May 1st      | `sha256:0d7159085388f2a34737aa12113fed06eb698e35baf8506f082134a202538046` |
 |  `1.42.3`                     | April 12th   | `sha256:5bfe9b00982434aef0330b244ebc417bc83772af69ebe704791256774c6de295` |
 |  `1.42.2`                     | April 11th   | `sha256:219c9455df1292707ac13c51621636c0681fcd68ab6911a83b7ec9e560b959ca` |
-|  `1.42.1`                     | April 1st    | `sha256:71b7d1304914b9f654e71c4f534c51f0135a92838167b7b23efc95dc27a285cc` |
 |  `1.32.5` `1.32`              | April 27th   | `sha256:c31721418ff90bf7063fb52ae9106afd01309a6b2726d6eeb5ced66945a27b39` |
 |  `1.32.3`                     | April 19th   | `sha256:c42b44989c550a5270ca763928f7f8a7e0b40d02852780584615724807f1d464` |
 |  `1.32.4`                     | April 17th   | `sha256:f2979a7b9f96d3256fcbf7d12c9cd34a1c5aa3c975926c9452cb42870161ab06` |

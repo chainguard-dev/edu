@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the qdrant Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:2e1d68591f38f2d44cc1a265ca534e22c6ff1e0a442351f6dd9755df7430562d` |
-|  `latest`     | April 29th   | `sha256:45e23037626eacfb2df3c8e5a3c1b293f61961b6dfff5fd52844a6c3a7d035ca` |
+|  `latest`     | May 1st      | `sha256:bc0d0ec73ff79b1f039c88b10f444dd8eb7eed08a07a5453eba3cc44b82f4425` |
+|  `latest-dev` | May 1st      | `sha256:4fd59a6f8cfc28859e8e003792b4fa863145625322124cfc71a1d9759d615d51` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `latest-dev` `1.9-dev` `1.9.0-dev` | April 30th   | `sha256:b08813f338c4cc4cb09f2b6f15558e7481134d84b6abbd8fa0a2853f91bad848` |
-|  `1.9.0` `latest` `1.9` `1`                 | April 30th   | `sha256:6ffe59858f503e4d1b637cc1c2c4a5ff3af5c731df82c3f3e2b3803b2b25cdac` |
+|  `1.9-dev` `1.9.0-dev` `1-dev` `latest-dev` | May 1st      | `sha256:119618efc532d37b69ab2db4b7a99d1e38f638e74717ace450043ecbea6f38d4` |
+|  `1.9` `latest` `1.9.0` `1`                 | May 1st      | `sha256:18e0cc6240428128cfe3658df378ed213f069ef76a960f20cf96fa983db22070` |
 |  `1.8-dev` `1.8.4-dev`                      | April 21st   | `sha256:717cae0b0841e00d2b8fe637fcfaaa3a41be9b84ae50d4006632239a2152552a` |
 |  `1.8` `1.8.4`                              | April 21st   | `sha256:61ecec505abbe55e9b6a94583ff7628f6af7b9450dc006bb599064d6f6eecbd3` |
 
