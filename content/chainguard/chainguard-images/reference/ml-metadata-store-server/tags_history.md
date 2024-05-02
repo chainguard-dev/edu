@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ml-metadata-store-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:f00ba674e0850deda6b02b3e9e4ebbc1bb85f53ed914529500cbb5b622bc1f5e` |
-|  `latest`     | April 22nd   | `sha256:a7e16f21c04bfd4925ef667baff0aef29a9276e5a84fb0918382d058ffb11215` |
+|  `latest-dev` | May 1st      | `sha256:5bd8f9d2999adc3003ae1938036e70feb5783f6f51ed12f7150ddc0a598f1897` |
+|  `latest`     | May 1st      | `sha256:97cd2a5b64d8b74ebff8aff144ceaeef673a98f9e1de8a1eecef0cc3f2af48bb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.14.0-dev` `latest-dev` `1.14-dev` | April 30th   | `sha256:012a08c436b447e91389a42d1ca45893ae0b68b8dc142d39f4103073f35ceb90` |
-|  `1.14` `1` `latest` `1.14.0`                 | April 21st   | `sha256:bbdfe6b9c8639245ba6f089fd948a8bcade2636c096c91cd26d0afb34d4b5460` |
+|  `1.14-dev` `latest-dev` `1-dev` `1.14.0-dev` | May 1st      | `sha256:3a3551eec123e573b8a18687ef78057a377d211850504d636be0602c7c7e4508` |
+|  `1.14` `1` `1.14.0` `latest`                 | May 1st      | `sha256:fc5f14625d0e48b94fbd09c6c357a5a015ed45c00dac13110d07c8138687c361` |
 

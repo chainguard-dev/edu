@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-csi-node-driver-registrar Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-29 00:53:42
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -36,10 +36,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                       | Last Changed | Digest                                                                    |
 |-------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.8.0` `2.8`                | April 23rd   | `sha256:541af1d13cc4b9a34ba201e92874c8f11527b91ae989c433864a9e003f43ff05` |
-|  `2.6` `2.6.3`                | April 22nd   | `sha256:a15dbda8178c0e98e6888f18b0b3df82fd190c5060a9ec0e5d0ef96778aa7c79` |
-|  `2.9` `2.9.4`                | April 21st   | `sha256:6e2450b3624006bf25519cc15c2a72171c90153cd9568d349511cf6ffacd6193` |
-|  `2.10.1` `latest` `2.10` `2` | April 21st   | `sha256:4927a4a95ddb058c1bb38660e99a808c10ee11e6aff772c89e72d32fb14d21f4` |
-|  `2.7.0` `2.7`                | April 21st   | `sha256:d68027870eb5e7da36b5034284643115d4d9cc4368782440def36d7cc7aa1519` |
+|  `2.6.3` `2.6`                | May 1st      | `sha256:d2962b6efa1f9560a7bbcd61f66e121f941142c590d30d0ff0473d7dc5616d16` |
+|  `2` `2.10.1` `latest` `2.10` | May 1st      | `sha256:33d068a294f2a033ded32f5fa8bd4c543ae47c4c3166b6ff9021f0ae460a067d` |
+|  `2.7` `2.7.0`                | May 1st      | `sha256:360763273722e90b76ce9b4cd97300276d6ef193afb7e0c31d868cc23fcee923` |
+|  `2.9` `2.9.4`                | May 1st      | `sha256:ccaea3470ca251122080f352c4f89f003d21e43484a84000d32fd20a0bfeaae0` |
+|  `2.8.0` `2.8`                | May 1st      | `sha256:507564bc283ab94ce25c99e1cf15094883d2e642be27acefab316e954b030e4c` |
 |  `2.10.0`                     | April 3rd    | `sha256:117c909c3b8f32720d3ea46078f19feac59b55acd2362ad147404bac10601fdd` |
 

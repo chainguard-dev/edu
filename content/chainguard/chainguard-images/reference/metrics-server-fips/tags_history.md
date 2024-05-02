@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metrics-server-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7.1` `0` `latest` `0.7`                 | April 30th   | `sha256:e0c62d7c185e42d51a176fa81093e8cffc127d270640f20da159a59f946d8554` |
-|  `0.7-dev` `latest-dev` `0-dev` `0.7.1-dev` | April 30th   | `sha256:dd7fcf40813d7abf5fad6c771e50d273d84853b7cbf6e2bd07058a70063acf7e` |
+|  `0-dev` `latest-dev` `0.7-dev` `0.7.1-dev` | May 1st      | `sha256:45169441071b503e71274c5797d02c0790b35b0a1c1549aab392e10ece6b4359` |
+|  `0.7.1` `0.7` `0` `latest`                 | May 1st      | `sha256:085f24bc869a3b035a20eb59b6081cb9dc96b5f2749a7d8d8c6445f56060cb81` |
 

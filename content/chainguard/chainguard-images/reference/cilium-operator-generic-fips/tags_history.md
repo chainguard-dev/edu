@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-operator-generic-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.15-dev` `1.15.4-dev` | April 30th   | `sha256:1471ee6828d51ad536aaf4caf13a42d488a97c772ec6db45b8311aa8ec7720a3` |
-|  `1.14-dev` `1.14.9-dev`                      | April 30th   | `sha256:7a476eaab2dbba498b6c2cf5919584083a038586b3b94e138aa10d61dafe5259` |
-|  `1.14.9` `1.14`                              | April 26th   | `sha256:a9a4fab985d088396f32a85dc1c2940281dda2c09b32286581a6f4a46d59e468` |
-|  `1.15` `1.15.4` `latest` `1`                 | April 26th   | `sha256:9009f1f89114a628b1aa98488cf8ee4ed3d6a11d0e4fc85e206b93631fadd48c` |
+|  `1.14-dev` `1.14.9-dev`                      | May 1st      | `sha256:5bf24f7cbc3d9596259ffa8f9217363fb004dd32811f3eed020c00906a17f399` |
+|  `1.15.4` `1.15` `1` `latest`                 | May 1st      | `sha256:5ab7cc7ea020d32ad166052f74007c3f1aaaa213a6cf1781c1459e6dd6dff222` |
+|  `1.14` `1.14.9`                              | May 1st      | `sha256:cae7c723d76dbfb4981d93fdfb6b7c3332ede1542307cd8bbe9d50de4f0e2c9c` |
+|  `1-dev` `1.15.4-dev` `latest-dev` `1.15-dev` | May 1st      | `sha256:9b65d3bf485a221a676fcf8cd4ce0b94af7d2cc1d0edb2655dd5a10fbb715d46` |
 

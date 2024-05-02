@@ -3,8 +3,8 @@ title: "kube-oidc-proxy Image Details"
 type: "article"
 unlisted: true
 description: "Detailed information about the public kube-oidc-proxy Chainguard Image."
-date: 2024-02-29 16:25:55
-lastmod: 2024-02-29 16:25:55
+date: 2023-03-07T11:07:52+02:00
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -45,6 +45,5 @@ The table shows package distribution across variants.
 | `ld-linux`               | X      |
 | `libcrypto3`             | X      |
 | `libssl3`                | X      |
-| `openssl-config`         | X      |
 | `wolfi-baselayout`       | X      |
 

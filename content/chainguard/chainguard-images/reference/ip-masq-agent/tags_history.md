@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ip-masq-agent Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-04-30 00:52:22
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2-dev` `2.9-dev` `2.9.3-dev` | April 29th   | `sha256:e9f347463780ac022a9a7b2e07c746125355830285a71530cb7fbe3ed0024cfb` |
-|  `latest` `2` `2.9` `2.9.3`                 | April 24th   | `sha256:75348e8e3ebd60d0530403660df9b3cfa3b62b6da67cf2703f689c83d84d5f1f` |
+|  `2` `2.9` `2.9.3` `latest`                 | May 1st      | `sha256:b050f041f2fa96bd82efde562fc9dbbcdf253c4522fb025eba70711014e7dc6c` |
+|  `2.9.3-dev` `2.9-dev` `2-dev` `latest-dev` | May 1st      | `sha256:f46a61e0ffb21347c2501a961c3f66101ad5923f70816b704bd40e97e132c512` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | April 30th   | `sha256:c3c159f238e43f80b69098c85075590434283bb6709f44af978b06d399d4a58d` |
-|  `latest-dev` | April 30th   | `sha256:80c2db0eee436f81a7c11985a6daa6ecc8d371eb3b5e6f26cc616ad0b24b4e37` |
+|  `latest`     | May 1st      | `sha256:9b19515c4a9aae56d58f451362e8b21c31915b696f13bb4e8ae9a49ee2a3f906` |
+|  `latest-dev` | May 1st      | `sha256:6e3b160ca30e5d33830229bb2750a39394bf9818c68930c01119649a60bb70c6` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15-dev` `latest-dev` `0.15.1-dev` `0-dev` | April 30th   | `sha256:ec7fb792d67290e41e4fabbc26a2a9e5be344ec8294d88fccc4d077990473ddd` |
-|  `0.15.1` `latest` `0.15` `0`                 | April 30th   | `sha256:4eb1ef4beb8cb4817f37ed71cd1c199a4819a67275a61cd6b189922b4804442b` |
+|  `0.15-dev` `0-dev` `0.15.1-dev` `latest-dev` | May 1st      | `sha256:673fd3c1303bb80af0b309f460e26e757a4b4f558eda72891cee285f9f445b3b` |
+|  `0` `0.15` `latest` `0.15.1`                 | May 1st      | `sha256:12e8d4325a9cee2ada37f0e0de08fd0e6a9d8d9e8b5041027d80e6f91e07a719` |
 

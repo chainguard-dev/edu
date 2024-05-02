@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | April 30th   | `sha256:784c3d92642836ae3a775cbf7d04c19cea36d253806749d27cb905c9e5559d7e` |
-|  `latest`     | April 4th    | `sha256:682e456c8d675c6a51a953dbd6cb4e4482553dd2ae56471c7e513ed9d40aa5da` |
+|  `latest`     | May 1st      | `sha256:7ff68df9444c381807e461a3f429deed9af154eab770c6f68b76e1cc4fc9e537` |
+|  `latest-dev` | May 1st      | `sha256:0aac791ecfb86f82958992e987b1948cfbf0ee9d0a28467b79b3e14e0fd7453e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `4-dev` `4.11.11-dev` `4.11-dev` | April 30th   | `sha256:8af76f996c513aac86e189b0cc28aeecb738cba22ce30d34d1a5c6923ed86c8f` |
-|  `4` `4.11` `latest` `4.11.11`                 | April 21st   | `sha256:4120b1a7099e2281ce047411ad6169df1c79292e91d997eedcb80b58242d6d84` |
+|  `4.11-dev` `4-dev` `latest-dev` `4.11.11-dev` | May 1st      | `sha256:8544a35344e905b985e73367ecf5cd20ecb036b607f20bc636aab303a816b070` |
+|  `4.11.11` `4` `4.11` `latest`                 | May 1st      | `sha256:4cb240750897676fe53f39a8dd759c4abfe4bb58a2ee67f0c5f5c48c93a46154` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the redis-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-02 00:37:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.0.15-dev` `7.0-dev`                     | April 30th   | `sha256:27efb4f639ab8d3838e930452516d95243608c8feb2c08ba6bf17bec664a9727` |
-|  `6-dev` `6.2-dev` `6.2.14-dev`             | April 30th   | `sha256:4d11b96bf27fb0dfddb63d9d5824dbfbecfd8bb6810d914f758bd4d425fa7d7b` |
-|  `7` `7.2` `7.2.4` `latest`                 | April 30th   | `sha256:0fcfaf157fab0b2bca0d1a8ff77839411da2dafbbbc03510b50e651f081145b3` |
-|  `7.2-dev` `latest-dev` `7.2.4-dev` `7-dev` | April 30th   | `sha256:643212f4f9c599b61f8955addacdd2449413d911aaf1345f3ea4f39b0c9d6e96` |
-|  `6.2` `6` `6.2.14`                         | April 30th   | `sha256:d2e6631651fef58c939db41efcc2a506f55e043f96cd540aabcbc6f7b397ad20` |
-|  `7.0` `7.0.15`                             | April 30th   | `sha256:25e7a150ffa9de0b94ce25a9719a2770eca249e2278f0f1081962c0a7b382cf7` |
+|  `6.2-dev` `6.2.14-dev` `6-dev`             | May 1st      | `sha256:13f426d64274f41fc77b90c61b474d9df92872e68f444b446e5c53a0b550502d` |
+|  `latest-dev` `7.2.4-dev` `7-dev` `7.2-dev` | May 1st      | `sha256:9ae734fba5c8dc331ac355e3caff08f9a07abfc1623122369864d0b876625392` |
+|  `7.0.15-dev` `7.0-dev`                     | May 1st      | `sha256:e7d33b92fd455d89c8394ba434680e1fd1f10ce0742b882bb47dbf416cd6b3a5` |
+|  `6` `6.2.14` `6.2`                         | May 1st      | `sha256:aae825b665fbc8673f885f8cdec0527491102b8fea56f8b8374cb142a9215541` |
+|  `7.0` `7.0.15`                             | May 1st      | `sha256:9d51cc3ff6856953a63c168c6645e696d1005ce3e3a6e9613434937f568d2ae4` |
+|  `latest` `7.2.4` `7.2` `7`                 | May 1st      | `sha256:9f9119b2d0f31bd807e0c2dbab5802b29d6b30a18c35354e15af6cdb3d91959e` |
 
