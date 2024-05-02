@@ -5,7 +5,7 @@ type: "article"
 description: "Chainguard Images Overview"
 lead: "A primer on Chainguard Images and the distroless approach"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2024-03-29T08:49:31+00:00
+lastmod: 2024-04-30T08:49:31+00:00
 draft: false
 tags: ["Chainguard Images", "Product", "Overview"]
 images: []
@@ -31,7 +31,7 @@ The main features of Chainguard Images include:
 Chainguard Images are available from the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/) and can be pulled from `cgr.dev`. You can review images files [on GitHub](https://github.com/chainguard-images) and can find complete lists of available Chainguard Images in the [public Images Directory](https://images.chainguard.dev/) or within the [Chainguard Console](https://console.enforce.dev/). 
 
 
-## Why Minimal container images
+## Why Minimal Container Images
 
 The fewer dependencies a given piece of software uses, the lower likelihood that it will be impacted by CVEs. By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard Images inherently contain few to zero CVEs. Chainguard Images are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=docs).
 
