@@ -29,7 +29,7 @@ For a deeper exploration of distroless images and their differences from standar
 When migrating from distributions that are not based on the `apk` ecosystem, you'll need to update your Dockerfile accordingly. Our high-level guide on [Migrating to Chainguard Images](https://edu.chainguard.dev/chainguard/migration-guides/migrating-to-chainguard-images/) contains details about distro-based migration and package compatibility when migrating from Debian, Ubuntu, and Red Hat UBI base images.
 
 ## Installing PHP Extensions
-Wolfi offers several PHP extensions as optional packages you can install with `apk`. Because PHP extensions are system-level packages, they require `apk` which is only available in our **builder** images (`latest-dev` and `latest-fpm-dev`). The following extensions are already included within all Chainguard PHP Image variants:
+Wolfi offers several PHP extensions as optional packages you can install with `apk`. Because PHP extensions are system-level packages, they require `apk` which is only available in our **builder** images. The following extensions are already included within all Chainguard PHP Image variants:
 
 - `php-mbstring`
 - `php-curl`
