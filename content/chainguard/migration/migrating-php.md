@@ -49,13 +49,13 @@ In addition to those, the Laravel image includes the following extensions:
 - `php-fileinfo`
 - `php-simplexml`
 
-You can run an ephemeral container with the `php -m` command to see a list of enabled extensions:
+You can run a temporary container with the `php -m` command to see a list of enabled extensions:
 
 ```shell
 docker run --rm --entrypoint php cgr.dev/chainguard/php -m
 ```
 
-To check for extensions available for installation, you can run a temporary container with the `dev` variant of a given image and use `apk` to search for packages. For instance, this will log you into an ephemeral container based on the `php:latest-dev` image:
+To check for extensions available for installation, you can run a temporary container with the `dev` variant of a given image and use `apk` to search for packages. For instance, this will log you into a container based on the `php:latest-dev` image:
 
 ```shell
 docker run -it --rm --entrypoint /bin/sh --user root cgr.dev/chainguard/php:latest-dev
@@ -201,8 +201,9 @@ In addition to including extensions required by Laravel by default, the image in
 ## Using Builder Images for Development
 Our PHP builder images are minimal yet versatile images that include `apk` and `composer`. You can use these images to create and develop PHP applications on a containerized development environment.
 
+Builder images can be identified by the `-dev` suffix (e.g: `php:latest-dev`). You can use them to execute Composer commands from a Dockerfile or directly from the command line with `docker run`. This allows users to run Composer without having to install PHP on their host system.
+
 ### Running Composer
-The `-dev` variants of our PHP images include [Composer](https://getcomposer.org/) by default. You can use these images to execute Composer commands from a Dockerfile or directly from the command line with `docker run`. This allows users to run Composer without having to install PHP on their host system.
 
 To be able to write to your host's filesystem through a shared volume, you'll need to use the **root** container user when installing dependencies with Composer using the `latest-dev` or `latest-fpm-dev` image variants.
 
@@ -228,7 +229,7 @@ sudo chown -R ${USER}:${USER} .
 ```
 
 ### Running the Built-in Web Server
-You can use the built-in PHP web server to preview web applications using a `docker run` with a port redirect.
+You can use the built-in PHP web server to preview web applications using a `docker run` command with a port redirect.
 
 The following command will run the `php:latest-dev` image variant with the built-in server (`php -S`) on port `8000`, redirecting all requests to the same port on the host machine, and using the current folder as document root:
 
@@ -237,6 +238,7 @@ docker run -p 8000:8000 --rm -it -v ${PWD}:/work \
     cgr.dev/chainguard/php:latest-dev \
     -S 0.0.0.0:8000 -t /work
 ```
+The preview should be live at `locahost:8000`.
 
 ### Developing Laravel Applications
 
@@ -244,13 +246,17 @@ The `laravel:latest-dev` image has a system user with uid `1000` that can be use
 
 **Creating a New Laravel Project**
 
+The following command will create a new Laravel project called **demo-laravel** in the current folder.
+
 ```shell
-docker run --rm -v ${PWD}:/work --entrypoint composer --user laravel \
+docker run --rm -v ${PWD}:/app --entrypoint composer --user laravel \
     cgr.dev/chainguard/laravel:latest-dev \
-    create-project laravel/laravel demo-laravel --working-dir=/work
+    create-project laravel/laravel demo-laravel --working-dir=/app
 ```
 
 **Running Artisan Commands**
+
+To run Artisan commands, you'll need to create a volume to share your Laravel application within the container and set the image entrypoint to `/app/artisan`. The following example runs the `artisan migrate` command from the application folder:
 
 ```shell
 docker run --rm -v ${PWD}:/app --entrypoint /app/artisan --user laravel \
@@ -260,11 +266,14 @@ docker run --rm -v ${PWD}:/app --entrypoint /app/artisan --user laravel \
 
 **Running the Artisan Web Server**
 
+To quickly preview your Laravel application, you can use Artisan's built-in web server. The following command runs the built-in Artisan web server from the application folder:
+
 ```shell
 docker run -p 8000:8000 --rm -it -v ${PWD}:/app --entrypoint /app/artisan --user laravel \
     cgr.dev/chainguard/laravel:latest-dev \
     serve --host=0.0.0.0
 ```
+The preview should be live at `locahost:8000`.
 
 ## Additional Resources
 
