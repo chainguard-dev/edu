@@ -25,7 +25,7 @@ For certain Chainguard Images, customers can receive email notifications when th
 
 The following criteria must by met in order to qualify for an end-of-life email notification:
 
-* A given Image been pulled in your organization registry within the last 30 days.
+* A given Image has been pulled in your organization registry within the last 30 days.
 * A given Image must be based on software with multiple concurrent release tracks, according to our [Product Release Lifecycle document](/chainguard/chainguard-images/versions/). 
     * This means that any Image that only maintains a [single stream of release versions](/chainguard/chainguard-images/versions/#single-release-track-maintained-by-a-given-open-source-project) at a time will not receive EOL notifications. 
 * The software that a given Chainguard Image is named for (the main software package in the Image) must reach an EOL milestone according to Chainguard's internal records, which are based on the records at [endoflife.date](https://endoflife.date/).
