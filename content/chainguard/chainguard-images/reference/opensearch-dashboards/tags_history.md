@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the opensearch-dashboards Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:e1f71e8ce0daf0054a8abf01be84d88cd098d30349e4deaaa11ab22bdb1e4d0e` |
-|  `latest-dev` | May 1st      | `sha256:5daa8a661b82d0a157edf581ed4ddf858d3bbcbe855cbbe88239130f2841615e` |
+|  `latest-dev` | May 2nd      | `sha256:b94e85543ccc6464dc2a2e0bfd130893c2fcf2c3e7d09c86f36f1921b760d4db` |
+|  `latest`     | May 2nd      | `sha256:528015245d7c414dceddeacdc4448188a014a0c5757d3c70b8f4700ddd6b526c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.13.0` `2.13` `latest`                 | May 1st      | `sha256:72a859b54a884477f4508af4074685bd9936c47dd89b46001f35d2db01cacce0` |
-|  `latest-dev` `2.13.0-dev` `2.13-dev` `2-dev` | May 1st      | `sha256:111e892fb01971ea027509a3f179eb20b1903c5b72cbf88fd515fe38d4a1ff63` |
+|  `2.13-dev` `latest-dev` `2-dev` `2.13.0-dev` | May 2nd      | `sha256:00d628e09cb0d0ecdc9b63096513bb1384788ab8d7cb8733abdb7083487d16b4` |
+|  `latest` `2` `2.13` `2.13.0`                 | May 2nd      | `sha256:db66b2dc7d345247c1863dca69f8611669703a4bf3814bf61da69851504a3e01` |
 

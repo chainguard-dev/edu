@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metallb-speaker Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:eeae9c7feffb4d66476a1ec9eeea879ecd846e99357e6be903ea1fe0544d1d04` |
-|  `latest-dev` | May 1st      | `sha256:6ea7584afcf4f0381696ed6e08eebee9f8c4561d91c6ac3834c3b4d7d375fb5c` |
+|  `latest-dev` | May 2nd      | `sha256:5297e270c3c438b4910d0f7aced747ad7c86c0c7ab32284298cf47256912fa7c` |
+|  `latest`     | May 2nd      | `sha256:f5d0144e0eb10d335a6103255aec38c7be8a90247f7bef452e59cf233b23f07c` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.14.5` `latest` `0.14` `0`                 | May 1st      | `sha256:629d5caaefeeee6904310abfe17856b4f2c722226380af9bc43f3c533e0d4318` |
-|  `0-dev` `latest-dev` `0.14.5-dev` `0.14-dev` | May 1st      | `sha256:6fdd74c5eed89040c864073cd4e3a8f93dc804532d06792640ac705ddc796784` |
+|  `0.14-dev` `latest-dev` `0-dev` `0.14.5-dev` | May 2nd      | `sha256:6d52dc47fdce57861c2791f03cbaaf6a9304d6c32880ca735b7b56b8e6bacf4a` |
+|  `latest` `0.14.5` `0` `0.14`                 | May 2nd      | `sha256:e7cfa5044332ff255c48eaec48d714b789c504db9a70d6f44f6529763d3ad230` |
 |  `0.14.4-dev`                                 | April 11th   | `sha256:0837e253a181f4870637d9f917858fbffb4a86ae331495ac2438a3d37555f048` |
 |  `0.14.4`                                     | April 3rd    | `sha256:ce87b31837889ca3f43a2299f0292e0b38aa5e09be23c9073bda55c2844263d6` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-managectroots Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:1f74aa15a4b8049ec530b54314b59ce4c47a03bb3fd1521d7dce16745a1e7a9c` |
-|  `latest`     | May 1st      | `sha256:a3b3d61a0ec17178db73a2c5704883796e63fcadf00cf9bd7ae1db34e50cde56` |
+|  `latest-dev` | May 2nd      | `sha256:2c5c6c948ec7f5a19b6b85a2f635b83d1f1a276bf7db3c19fdf23631d5c33c1e` |
+|  `latest`     | May 2nd      | `sha256:9d72f65e69711cb62cf600b0d6fe55abfc18aaaa92f6d50b754c8b826a835074` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.6-dev` `0.6.17-dev` | May 1st      | `sha256:1ab47f47c99dc349e5820e07ee04204595ccc41851ee8febce5780fdde4109de` |
-|  `0.6` `latest` `0.6.17` `0`                 | May 1st      | `sha256:547c4a52b817495bae93210dc38644996d48025c44cb028aacf22c4dc8c20817` |
+|  `0.6-dev` `latest-dev` `0-dev` `0.6.17-dev` | May 2nd      | `sha256:12659ff0606a60ef20831ab08a9e2d01ec135a1cf06ae2f136e6f3a7667d2254` |
+|  `0.6.17` `latest` `0` `0.6`                 | May 2nd      | `sha256:8669ef885dc1a8ee01919b5740452e721caeb17a0f59d490ac5bf5a4fd62fc8b` |
 

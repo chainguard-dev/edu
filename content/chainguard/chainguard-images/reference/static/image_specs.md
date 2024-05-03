@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public static Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-01 12:14:22
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -38,11 +38,8 @@ The table shows package distribution across variants.
 |                          | latest-glibc | latest |
 |--------------------------|--------------|--------|
 | `ca-certificates-bundle` | X            | X      |
-| `chainguard-baselayout`  | X            |        |
-| `glibc-locale-posix`     | X            |        |
+| `chainguard-baselayout`  | X            | X      |
+| `glibc-locale-posix`     | X            | X      |
 | `tzdata`                 | X            | X      |
-| `wolfi-baselayout`       | X            |        |
-| `alpine-baselayout-data` |              | X      |
-| `alpine-keys`            |              | X      |
-| `alpine-release`         |              | X      |
+| `wolfi-baselayout`       | X            | X      |
 

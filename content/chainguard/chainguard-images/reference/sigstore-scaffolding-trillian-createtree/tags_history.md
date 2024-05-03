@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createtree Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:f11e834bdc7b8ea3950c0788c13e61a3b481630be13b33ca041fbc046da09458` |
-|  `latest-dev` | May 1st      | `sha256:d7cf24e9d74e7dd617b5200d12c95a0c41b9a1b55f9da636bfdfca7036f0b3f4` |
+|  `latest`     | May 2nd      | `sha256:70559aa3604e240916741df0212fcc4e9ff05bb224bad236e27994797f90c97c` |
+|  `latest-dev` | May 2nd      | `sha256:6cbe5d11d6d753eec8a2505826d92501a2d8199154a78f68d937b51cfcabe76e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.6-dev` `0-dev` `0.6.17-dev` | May 1st      | `sha256:36237bd2b92cd3f507a84a4f1a5299a795358870868e358faba4bf7aa3e6c860` |
-|  `0` `0.6.17` `0.6` `latest`                 | May 1st      | `sha256:49ce4510c0b9a6b2714668d3c89910e90d63b1a6450d319e55fc2d3d6c94817a` |
+|  `0` `0.6.17` `0.6` `latest`                 | May 2nd      | `sha256:fe291fc68a532af6260068a8f0d371c19998cf5db972f1efb384a77eb482b055` |
+|  `0.6-dev` `0.6.17-dev` `latest-dev` `0-dev` | May 2nd      | `sha256:1af947ec06094799c70e77f8bfc96129548b31df02da0182d611d8f091989d70` |
 

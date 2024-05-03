@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the metacontroller Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:7ff68df9444c381807e461a3f429deed9af154eab770c6f68b76e1cc4fc9e537` |
-|  `latest-dev` | May 1st      | `sha256:0aac791ecfb86f82958992e987b1948cfbf0ee9d0a28467b79b3e14e0fd7453e` |
+|  `latest-dev` | May 2nd      | `sha256:19a66462bdcc8e21f3fbfb558e70cc63a08ba989964b19c194e5c83cedd109a2` |
+|  `latest`     | May 2nd      | `sha256:4d69b45d1da232ed3520a21ef181e5080d0f0c79f287ad1c813c0cca91ad393c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.11-dev` `4-dev` `latest-dev` `4.11.11-dev` | May 1st      | `sha256:8544a35344e905b985e73367ecf5cd20ecb036b607f20bc636aab303a816b070` |
-|  `4.11.11` `4` `4.11` `latest`                 | May 1st      | `sha256:4cb240750897676fe53f39a8dd759c4abfe4bb58a2ee67f0c5f5c48c93a46154` |
+|  `4.11.11-dev` `4.11-dev` `4-dev` `latest-dev` | May 2nd      | `sha256:f9612e857ea909f465639a070e38c157fe172098ed8601898974f1dc5cbad342` |
+|  `latest` `4.11` `4` `4.11.11`                 | May 2nd      | `sha256:4dcd77a185eb3dcf19511101b183e238de339557dcd1218b0a1c4d0ae2e9f259` |
 

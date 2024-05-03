@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the busybox Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,14 +28,14 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)         | Last Changed | Digest                                                                    |
 |-----------------|--------------|---------------------------------------------------------------------------|
-|  `latest-glibc` | May 1st      | `sha256:e206565a370c9dd184b640f57e9ab4b45af039fc7213c9ea0529f83f10521458` |
+|  `latest-glibc` | May 2nd      | `sha256:a5f0d7885076c9e3178b854a77ae80404be71d42653386b88f4f4adb8b1369c1` |
 |  `latest`       | April 26th   | `sha256:1726ea5cba91da374fe40cd4f07e3c984fa4bac1faab91061e69c62b46b7dd9e` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                                               | Last Changed | Digest                                                                    |
-|-------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-glibc` `glibc-1.36.1` `glibc-1.36` `glibc-1` | May 1st      | `sha256:2009ed574435ba5bf6ecb0a572fb93f741240e5b0f00875c8385933d304a2d5e` |
+| Tag (s)                                                                            | Last Changed | Digest                                                                    |
+|------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `latest` `1.36.1` `1.36` `1` `glibc-1.36.1` `glibc-1.36` `glibc-1` `latest-glibc` | May 2nd      | `sha256:0e144531b4eb952b7d097cd054d619f33795ff43284f7025b7a0ff67fdb95c4e` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vertical-pod-autoscaler-updater Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:d69cf09e718c4eedc7f4746dcf62e164db080a03408915dde4f5d95dac351a83` |
-|  `latest`     | May 1st      | `sha256:aa2749e7d51408ddec16c8df697d38f07057941fd5c766cb4484cd747b1e132a` |
+|  `latest`     | May 2nd      | `sha256:acb46a36f7083da9c7490fee552521d3a84c5e9de8d904927fe126aa322a2eab` |
+|  `latest-dev` | May 2nd      | `sha256:9d210f1c4b04b24f91ef33fb97dde3d486d6f2a31fcdb5e10692ad843d16163a` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.1.1` `latest` `1` `1.1`                 | May 1st      | `sha256:be1bcb1922cacbe199f3dd66190322c7c795890cd1d3a8e37e883fd3747b4820` |
-|  `1.1.1-dev` `latest-dev` `1.1-dev` `1-dev` | May 1st      | `sha256:2fa5853eed67b56313207bf1e35873d422ec9e3c6a0930b9b57c47be9b059b8a` |
+|  `1.1.1-dev` `latest-dev` `1-dev` `1.1-dev` | May 2nd      | `sha256:bb9527e1682bfc0f062df183c1781a24d560d5f6bdb7e1f0436d9b06953accd2` |
+|  `1` `1.1.1` `1.1` `latest`                 | May 2nd      | `sha256:1116580267b3ae83c0d4710e6716c4cfa7e7784bd62950a02991bc51916170e1` |
 |  `1.1.0-dev`                                | April 21st   | `sha256:304357717a8a163c6a18a3f50335847951a8fb59675f11682b83608f62831b60` |
 |  `1.1.0`                                    | April 21st   | `sha256:cbd45889987ebeab2787c49c2d843c916871dfcb017aa67be67d28eb7e588208` |
 |  `1.0-dev` `1.0.0-dev`                      | April 9th    | `sha256:e17605e8f127c51bbd4b17d52d6a7bc1309fd0cc0acb1d05a965a12fe29da3d3` |

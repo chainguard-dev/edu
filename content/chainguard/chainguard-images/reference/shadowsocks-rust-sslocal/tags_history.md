@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the shadowsocks-rust-sslocal Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:7326fb3b09b84ef1237f3af62ae79b6efed84f65a3a1229d9c874a8336be2194` |
-|  `latest`     | May 1st      | `sha256:d6088d47f1f8ca967dcb2db726b66f8e097ea4914294d59e2c61609dfbce31b1` |
+|  `latest`     | May 2nd      | `sha256:9a8c9aace35585d53134a72f951899ecf10fe4622a1e01b75d7337796f54ce53` |
+|  `latest-dev` | May 2nd      | `sha256:6a63140a6021d87bb120983972d69c0ff20dcfd8c9840448b5f58dd17faa424f` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.18.3` `latest` `1.18`                 | May 1st      | `sha256:803e10a57d89c16ee31411da3e11b9149959ee25ec323da62c9e2add4ee9abf7` |
-|  `latest-dev` `1-dev` `1.18.3-dev` `1.18-dev` | May 1st      | `sha256:182c1e5e898e256e49c1ed3d89cde8b0a7b6c2905a366281c9d1da3c20d3d671` |
+|  `1.18.3` `1.18` `1` `latest`                 | May 2nd      | `sha256:c3e3b4970e89566faa3c2566c25d5a56d4ff0ed549e4cf0f7e23d418dac1aa1c` |
+|  `1.18.3-dev` `1-dev` `1.18-dev` `latest-dev` | May 2nd      | `sha256:0b63633f2f809bab39ca6e8c307ecbb1ff65552de5d29b649f7bd7b26cdaad30` |
 |  `1.18.2-dev`                                 | April 20th   | `sha256:bae3d3d2cbfa9595334a68817e5f4c9a83489ea52cae565fab17a0ea4c1d462f` |
 

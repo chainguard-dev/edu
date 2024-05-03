@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the management-api-for-apache-cassandra Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:9446a026a6714296a76259bf19d4dcfdfed5181f6345b67627f14f53dfd1c852` |
-|  `latest`     | May 1st      | `sha256:72528f4b74e9a35a44e714116404d1d9dd408d0d12018083ab2f7c348c479fad` |
+|  `latest-dev` | May 2nd      | `sha256:aad8eb0085ac8e157007602e3ffce8769d8a5751021f8b0fcb188c9e3f56cadf` |
+|  `latest`     | May 2nd      | `sha256:26051d9c13df18644504f9693deddca509d4bbe6485225d0a3313fa75aad60c2` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `latest-dev` `0.1.74-dev` `0.1-dev` | May 1st      | `sha256:7750c432d3c4d7f635c2494cae312443db65bfcc533c98a2b34b9c591707b43e` |
-|  `0` `0.1.74` `0.1` `latest`                 | May 1st      | `sha256:62407499771e2703d775f913e51ab3b48fbe468d377a1100d3b444e32cc069a4` |
+|  `latest-dev` `0.1-dev` `0-dev` `0.1.74-dev` | May 2nd      | `sha256:b929d2e06b3b23000c4d5f6dd3d48ff7248c9427a6648ef12218a0bfbcebe7e5` |
+|  `0.1` `latest` `0.1.74` `0`                 | May 2nd      | `sha256:621080150a2f2e99d072cfb8661f9cb1c38d5f1f93c4ed77a0f76caac58b6a83` |
 

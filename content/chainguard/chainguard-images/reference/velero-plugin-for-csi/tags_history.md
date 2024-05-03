@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-plugin-for-csi Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:acc5bc389f609b64836a5dc522e77a4828940c317a1fb40ee921fc42110bfcca` |
-|  `latest-dev` | May 1st      | `sha256:21bcd320486b134538a26de0dba25a96c0310b116320998eea47bd43e914ed41` |
+|  `latest-dev` | May 2nd      | `sha256:905d667f9caaf334af569c65bc9f3d0f9ea8282abd498434a78829a97154bf72` |
+|  `latest`     | May 2nd      | `sha256:8c1d712e2438b835f47dd96b8d0764433ff79a054434035f37dedb309630fb68` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.7.1-dev` `0-dev` `0.7-dev` `latest-dev` | May 1st      | `sha256:46e53a5196202c35151e1320031f0a28220bb46ca52ee43a707af8fc1c9d9134` |
-|  `0` `0.7` `latest` `0.7.1`                 | May 1st      | `sha256:7e108de975024bde08b0176a35f225363d3b2703b4dc19b000f3e980a0626cbc` |
+|  `0.7.1` `0.7` `0` `latest`                 | May 2nd      | `sha256:79c93ac479fd5b92932152bd56835ea1e75b19c32ed28e27fb7181a08745924d` |
+|  `0.7.1-dev` `latest-dev` `0.7-dev` `0-dev` | May 2nd      | `sha256:53be8e6c8202e71728f5db8530a164a51fd71d8528c6c32de62e5a79d9c3c580` |
 |  `0.7.0-dev`                                | April 11th   | `sha256:4d15648f0bc4e926b8e50ddcdd5360fb361666518bc8321b1eb4aeebbb4f8e08` |
 |  `0.7.0`                                    | April 4th    | `sha256:b3825a66ca0e19002acd5f1919a75dcd4cd22add212af6c3caf92c1341dcf124` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public mysql Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -58,9 +58,9 @@ The table shows package distribution across variants.
 | `libtirpc`                        | X      |
 | `libverto`                        | X      |
 | `libxcrypt`                       | X      |
-| `mysql-8.0`                       | X      |
-| `mysql-8.0-oci-entrypoint`        | X      |
-| `mysql-8.0-oci-entrypoint-compat` | X      |
+| `mysql-8.4`                       | X      |
+| `mysql-8.4-oci-entrypoint`        | X      |
+| `mysql-8.4-oci-entrypoint-compat` | X      |
 | `ncurses`                         | X      |
 | `ncurses-terminfo-base`           | X      |
 | `perl`                            | X      |

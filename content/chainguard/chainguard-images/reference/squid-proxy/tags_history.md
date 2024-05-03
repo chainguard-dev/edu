@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the squid-proxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:e69181eb6e881067ca83970cb9eb89a9219651afbf083463238e94e441e44ec6` |
-|  `latest-dev` | May 1st      | `sha256:a398c4d41714f1ac23af1e97cb96e1463836ab40836b0b87441265923634340b` |
+|  `latest`     | May 2nd      | `sha256:23937610a601fa036e25689ef6385731ddeb8f3dc993b9793e1e2bbbb35f3980` |
+|  `latest-dev` | May 2nd      | `sha256:63146638ec362728dc65eb4399eb6e2060adba194ddde94ba71f3a5534f5d2be` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `6.9-dev` `6-dev` `latest-dev` | May 1st      | `sha256:758aba3a7af6629fc9e2e66f5cd4409800fdebbd42240b759243eac0c36031b6` |
-|  `6.9` `6` `latest`             | May 1st      | `sha256:5939aeb6b0674c91509f13b7c3ab7c71232ecd052de4c3a0af2f03788b304fe7` |
+|  `6.9-dev` `6-dev` `latest-dev` | May 2nd      | `sha256:4e3b0382576c5a43dcb6ec730459cfbbca348808226fdd05299695c56d07d8e2` |
+|  `6.9` `6` `latest`             | May 2nd      | `sha256:202cc345797843e50a4b5351876d4877a4c253d510c01c158c3d4a38dcd579d5` |
 |  `6.8-dev`                      | April 5th    | `sha256:69c4e725027a8fbcc3f12879e26dd8cd34676ff14b656101fcaa7861c540e19e` |
 |  `6.8`                          | April 5th    | `sha256:c66fa2e6898c104d55e9df1b249a5adc20917ba7298b54816e4e7e662445e8f6` |
 
