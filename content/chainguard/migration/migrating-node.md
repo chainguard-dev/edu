@@ -45,8 +45,8 @@ images](/chainguard/chainguard-images/getting-started-distroless/).
 ### Migrating from other Distributions
 
 Dockerfiles will often contain commands specific to the Linux Distribution they are based on. Most
-commonly this will be package installation instructions (e.g. apt vs yum vs apk) but also
-differences in default shell (e.g. bash vs ash) and default utilities (e.g. groupadd vs addgroup).
+commonly this will be package installation instructions (e.g. `apt` vs `yum` vs `apk`) but also
+differences in default shell (e.g. `bash` vs `ash`) and default utilities (e.g. `groupadd` vs `addgroup`).
 Our high-level guide on [Migrating to Chainguard
 Images](https://edu.chainguard.dev/chainguard/migration-guides/migrating-to-chainguard-images/)
 contains details about distro-based migration and package compatibility when migrating from Debian,
@@ -56,7 +56,7 @@ Alpine, Ubuntu and Red Hat UBI base images.
 
 Sometimes your applications will require further dependencies, either at build-time, runtime or
 both. Wolfi has large number of software packaged already, so you are likely to be able to
-install common packages via apk add, but be aware that packages may be named differently to
+install common packages via `apk add`, but be aware that packages may be named differently to
 other distributions.
 
 The easiest way to search for packages is via apk tools. For example:
