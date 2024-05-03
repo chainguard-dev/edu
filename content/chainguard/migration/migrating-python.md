@@ -28,13 +28,24 @@ Because Chainguard Images aim to be minimal, including providing separate develo
 
 ## Chainguard Images for Python Overview
 
-We distribute two versions of our [Python Chainguard Image:](https://edu.chainguard.dev/chainguard/chainguard-images/reference/python/): a development image that includes shells such as bash and package managers such as pip and a production image that removes these tools for increased security. Our production images are tagged as `latest`, while our development images are tagged as `latest-dev`. 
+We distribute two versions of our [Python Chainguard Image:](/chainguard/chainguard-images/reference/python/): a development image that includes shells such as ash/bash and package managers such as pip and a production image that removes these tools for increased security. Ourpublic production images are tagged as `latest`, while our public development images are tagged as `latest-dev`.
+
+## Differences from the Docker Official Image
+
+When migrating your Python application , keep in mind these differences between the [Chainguard Image for Python](/chainguard/chainguard-images/reference/python/) and the [official Docker image](https://hub.docker.com/_/python).
+
+- The entrypoint for the Chainguard Image for Python is `/usr/bin/python`. When running either the `latest` or `latest-dev` versions of the image interactively, you'll be working in the Python interpreter. When using `CMD` in your Dockerfiles, provided commands will be passed to `python` by default. If you change the path to include binaries from a virtual environment , you should manually set the entrypoint or your Dockerfile will continue to use the included system Python as the entrypoint and you will not have access to installed packages in the virtual environment.
+- Chainguard Images for Python run as the `nonroot` user by default. If you need elevated permissions, such as to add packages with `apk`, run the image as `--user root`. You should not use the root user in a production scenario.
+- The `/home` and `/home/nonroot` directories are owned by the nonroot user.
+- The `python:latest` Chainguard Image intended for production does not include a `sh`, `ash`, or `bash`. See the [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide for advice on resolving issues without the use of these shells.
+- The `python:latest` Chainguard Image does not contain package managers such as `pip` or `apk`. See the sections below for guidance on multi-stage builds (recommended)or building your own images on Wolfi (advanced usage).
+- Chainguard Images for Python aim to be lightweight, and you may find that specific packages or dependencies are not included by default. The [image details reference](/chainguard/chainguard-images/reference/python/image_specs/) provides specific information on packages, features, and default environment variables for the image.
 
 ## Migrating a Python Application
 
 When migrating most containerized Python applications, we recommend building a virtual environment with any needed Python packages using our provided development images, then copying over the virtual environment to our stripped-down production image. Chainguard Academy hosts [detailed instructions for a multi-stage build for a CLI-based Python script](/chainguard/chainguard-images/getting-started/python). 
 
-The below Dockerfile provides an example of such a multi-stage build for a simple Flask application. You can view a version of this Dockerfile with included sample Flask application and requirements.txt in [this repository](https://github.com/chainguard-dev/cg-images-python-migration/tree/python-only), and the original unmigrated application in the [v0 branch](https://github.com/chainguard-dev/cg-images-python-migration/tree/v0). A more complex setup with reverse proxy orchestrated with Docker Compose is provided in the next section.
+The below Dockerfile provides an example of such a multi-stage build for a simple Flask application. You can view a version of this Dockerfile with included sample Flask application and `requirements.txt` in [this repository](https://github.com/chainguard-dev/cg-images-python-migration/tree/python-only), and the original unmigrated application in the [v0 branch](https://github.com/chainguard-dev/cg-images-python-migration/tree/v0). A more complex setup with reverse proxy orchestrated with Docker Compose is provided in the next section.
 
 ```Dockerfile
 # syntax=docker/dockerfile:1
@@ -65,11 +76,11 @@ When running an application containerized with the above Dockerfile, the applica
 
 As you can see, the primary difference in this Flask application compared to the pre-migration application is the use of a multistage build. In the initial stage, we copy our requirements into the development version of the Python Chainguard Image, initialize a virtual environment, and install needed packages with pip. In the second stage, we copy the virtual environment from the development image, copy the application from the host, set exposed port metadata, and run the application with the [Gunicorn](https://gunicorn.org/) WSGI server.
 
-By default, the entrypoint for the Python Chainguard Image is `python` rather than `bash`. However, if you replace the included Python binary with the virtual environment binary on the path as we do above, you should set the entrypoint explicitly. Otherwise, you will not have access to the packages included in your virtual environment.
+By default, the entrypoint for the Python Chainguard Image is `/usr/bin/python` rather than `bash`. However, if you shadow the included system `python` with the virtual environment `python`on the path as we do above, you should set the entrypoint explicitly. Otherwise, you will not have access to the packages included in your virtual environment.
 
 We recommend that you pin dependencies to specific versions in your own application. The example Flask application script linked above also enables debug mode, which should be turned off in a production scenario.
 
-You may wish to include the following environmental variables in your Dockerfile. They prevent the buffering of output and prevent the creation of cached bytecode, respectively, and can be included in both stages of the multi-stage build.
+You may wish to include the following environmental variables in your Dockerfile. The first prevents the buffering of output, meaning that all messages printed to standard output are immediately printed rather than being held in a cache. The second prevents the creation of cached bytecode, which can marginally reduce image size.
 
 ```Dockerfile
 ENV PYTHONUNBUFFERED 1
@@ -110,7 +121,7 @@ The backnet and frontnet networks are provided in anticipation of other backend 
 
 ## Advanced Usage
 
-If your project image requires a set of packages that cannot be installed with pip using the multi-stage approach above, you can consider [building your application on the Wolfi base image](/chainguard/chainguard-images/reference/wolfi-base/) and install additional Python and non-Python packages as APKs. If needed packages are not available on Wolfi OS, you can build your own packages with [melange](/open-source/melange/overview).
+If your project image requires a set of packages that cannot be installed with pip using the multi-stage approach above, you can consider [building your application on the Wolfi base image](/chainguard/chainguard-images/reference/wolfi-base/) and installing additional Python and non-Python packages as APKs.
 
 ## Additional Resources
 
