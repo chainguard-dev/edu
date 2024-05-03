@@ -94,25 +94,24 @@ few differences that are important to be aware of.
  - Our images run as the `node` user with UID 65532 by default. If you need elevated privileges
    for a task, such as installing a dependency, you will need to change to the root user. For
    example add a `USER root` statement into a Dockerfile. For security reasons you should make
-   sure that the production application runs with lower privilege user such as `node`.
+   sure that the production application runs with a lower privilege user such as `node`.
  - `WORKDIR` is set to `/app` which is owned by the `node` user.
  - The Docker Official images have a "smart" entrypoint that interprets the CMD setting. So `docker
    run -it node` will launch the Node.js interpreter but `docker run -it node /bin/sh` will launch a
    shell. The latter does not work with Chainguard Images. In the non `-dev` images, there is no
    shell to launch, and in the `-dev` images you will need to change the entrypoint e.g. `docker run
    --entrypoint /bin/sh -it cgr.dev/chainguard/node`.
- - The default shell in the Chainguard Image is ash. You can install bash with `apk add bash`.
  - The image has a defined `NODE_PORT=3000` environment variable which can be used by applications
  - Our Node.js images include [dumb-init](https://github.com/Yelp/dumb-init) which can be used to
    wrap the Node process in order to handle signals properly and allow for graceful shutdown. You
    can use dumb-init by setting an entrypoint such as: `ENTRYPOINT ["/usr/bin/dumb-init", "--"]`
- - In general there a much less libraries and utilities in the Chainguard Image. You may find that
+ - In general there are many less libraries and utilities in the Chainguard Image. You may find that
    your application has an unexpected dependency which needs to be added into the Chainguard Image.
 
 
 ## Migration Example
 
-A typical Dockerfile for a Node.js application may look something like this:
+A typical Dockerfile for a Node.js application using the Docker Official Image may look something like this:
 
 ```Docker
 FROM node:latest
