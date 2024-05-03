@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the memcached Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:112bb163a309130848a6219f03e092c959bd86a3d46f997ea5307cbcaea3b6fe` |
-|  `latest-dev` | May 1st      | `sha256:7d3346d82ff77356981f128670a5476c5843401995b3a3ace76e71f2fde5c368` |
+|  `latest`     | May 2nd      | `sha256:22f59a2b5e35a1396aa24a341b7490ec7f9d6383eb6c8c1fc9b68898caeb3304` |
+|  `latest-dev` | May 2nd      | `sha256:b394382941a6b735b917d1017285c6f632ac351003dfdf5f52aa6c09472dc7da` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.6-dev` `1.6.26-dev` `1-dev` | May 1st      | `sha256:ed72b20792229a3f5aa920fda670b35ad5573f15ef779d3e62fd70d95a6c5e03` |
-|  `1.6` `latest` `1.6.26` `1`                 | May 1st      | `sha256:75c8253ad055fd782918181e1b7706e35ec4dc94a5220b55bdcac52e399bf778` |
+|  `1.6.26` `latest` `1` `1.6`                 | May 2nd      | `sha256:9744fb0b51d906adee6bb9178b961cf6a7c785521a1f19421654ea379bfb9ae4` |
+|  `1.6.26-dev` `1.6-dev` `1-dev` `latest-dev` | May 2nd      | `sha256:5ef373f5e95182067a603db75af50aea20ee8b6c657f85f6643ee72a46609ad5` |
 |  `1.6.25-dev`                                | April 11th   | `sha256:b0aa50e7390897a4f2fccac9fab28d60dd68d03348fcf85fdb2479ef960a963d` |
 |  `1.6.25`                                    | April 11th   | `sha256:ed94e0fce1cbb8230f5697550791bcfb6bba5354f05704a58bba3f73d7399057` |
 

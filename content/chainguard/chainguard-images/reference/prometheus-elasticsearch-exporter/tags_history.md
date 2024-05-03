@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-elasticsearch-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:0aff1a216090b453edb77b79818bc1cc6503fd02754840325c5d38833f1b11e9` |
-|  `latest`     | May 1st      | `sha256:c1f6ffecaf59bb8190f2dc727f17881df106e743934211a7e5e0f9fe514d4523` |
+|  `latest`     | May 2nd      | `sha256:6baa6c539c7520cf11135048e4b22022b87e944fedb7bfb35990a92f19be4c70` |
+|  `latest-dev` | May 2nd      | `sha256:c75243972fb57596a9e4b216a2ca4ea943af6515cad69c4b4fba42578df57a09` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.7.0` `1.7` `latest`                 | May 1st      | `sha256:f5632c94498ae95df216cab5364e56dd49a5016245a276ad5b20f787cd9667ce` |
-|  `latest-dev` `1.7.0-dev` `1.7-dev` `1-dev` | May 1st      | `sha256:8fe5a417206d6534fa209192879c6a546aa8d41fac3a6aed9dd343a89ec73e9e` |
+|  `latest-dev` `1.7.0-dev` `1.7-dev` `1-dev` | May 2nd      | `sha256:d10b220941899a340af99c3424215cb6229afcf044db7d6841d93aad2e400788` |
+|  `latest` `1.7.0` `1.7` `1`                 | May 2nd      | `sha256:27d03088a9c0c424ecccb5e529f36ed520281cad145d356269c3579c2746d153` |
 

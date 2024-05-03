@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the grafana-operator-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,8 +33,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5` `5.9.0` `5.9` `latest`                 | May 1st      | `sha256:6866bcea57f0c8aaf859dee9f4e2b416700df73f345c1a20dc8621c6694794e1` |
-|  `5-dev` `5.9-dev` `5.9.0-dev` `latest-dev` | May 1st      | `sha256:9c43cbf7fe8ccb5a52d1cdb1eef2e3ccaf6827a2b18109d8cae80e9889217cc5` |
+|  `latest-dev` `5-dev` `5.9.0-dev` `5.9-dev` | May 2nd      | `sha256:f69c0ba88ffba7a66b7d5716cd74e597d579d7d11aa1903926e4493a5d4d6a50` |
+|  `5` `5.9` `5.9.0` `latest`                 | May 2nd      | `sha256:f6c706e1061c159eaa12c9a16ca688f12a2dcd6e353e252033c872b38ef1d6c2` |
 |  `5.8.1-dev` `5.8-dev`                      | May 1st      | `sha256:62914abc607a3131680024965f1583f3f05b08fa31585e2e28eed6ad8ac45ca4` |
 |  `5.8` `5.8.1`                              | May 1st      | `sha256:ffa9924c0b9bb01b1f60c2d7da6077fd5d675d0d678f62d135915226755daf33` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-updatetree Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:246a86c2ecdac2c338365916895458c05ec8ab62a8796f449e55f807665a0d7e` |
-|  `latest`     | May 1st      | `sha256:568248d90730ddaa6b9cf323ddf212c26469a117cf7f8338fe15288f7bee1ab4` |
+|  `latest-dev` | May 2nd      | `sha256:9ae335a0d46010aa7803b5ac210dd7c5a1687346a37f5d9adba32a6d3360c966` |
+|  `latest`     | May 2nd      | `sha256:360dc9a3594014a3a2a8910d53638a77eb91ff2f73cd3326c221a9f7f870bedf` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.6.17-dev` `0.6-dev` `latest-dev` | May 1st      | `sha256:3d6cd2f6560583e916d8fe01a2c696239adf08b2edd1605fd252f555832a9d34` |
-|  `0` `0.6.17` `0.6` `latest`                 | May 1st      | `sha256:1eb6abfb714b39c0a66065e511171aad5f4edf7437546d121c04720c451d1675` |
+|  `latest` `0.6` `0.6.17` `0`                 | May 2nd      | `sha256:ababf5b7edb3458ad5eb480a067daa4b036e9600783d9808af82e2356f2d500d` |
+|  `0.6.17-dev` `0-dev` `latest-dev` `0.6-dev` | May 2nd      | `sha256:cab0a1bfca88f7e2901432ef36ff03bd553c7467f90eb095cddcf0a9de33633b` |
 

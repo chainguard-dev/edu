@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the nfs-subdir-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:89ce56d7800b0e83f713244a5c8bcadf4578a48188592b6da02e0524edad42a8` |
-|  `latest-dev` | May 1st      | `sha256:62b1b2367b2559e24c2c945d4030d8be2fab1901532b113feccb06b73e8da430` |
+|  `latest-dev` | May 2nd      | `sha256:fba42eb8589a82081d97de1f531fee91269261018d2252c448a41160380e6ed1` |
+|  `latest`     | May 2nd      | `sha256:6ec547a8575cfe5ce990837206d7ab419fc31781f513e2bf755c68156a3abbac` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.0.18` `4` `latest` `4.0`                 | May 2nd      | `sha256:ad65bd2a989b16ce695e0e89e120161df6023ee7a7b2bb1d6768bb85e528b654` |
-|  `4.0-dev` `4.0.18-dev` `latest-dev` `4-dev` | May 2nd      | `sha256:23d6c71e9608a8b342994e7a59153de4742b1f594ed9be1b0951e977854b4ece` |
+|  `4.0-dev` `4.0.18-dev` `4-dev` `latest-dev` | May 2nd      | `sha256:aebe8b65b122f9aec07a237c20860ecb814efea481d603b49436a4c966f5c90a` |
+|  `latest` `4` `4.0` `4.0.18`                 | May 2nd      | `sha256:fe927f9b8de5af535044768d3cc2afca1e6dc3a6ccff58def0d99778ea34968a` |
 

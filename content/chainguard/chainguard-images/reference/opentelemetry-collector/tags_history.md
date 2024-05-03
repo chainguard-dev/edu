@@ -3,8 +3,8 @@ title: "opentelemetry-collector Image Tags History"
 type: "article"
 unlisted: true
 description: "Image Tags and History for the opentelemetry-collector Chainguard Image"
-date: 2024-05-02 00:37:55
-lastmod: 2024-05-02 00:37:55
+date: 2023-06-22T11:07:52+02:00
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,11 +28,15 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:ccf20e56497c5b33ceb00252c1cf2edd8f1057475ecd52c5a0475378aa77774e` |
-|  `latest`     | May 1st      | `sha256:3639e6c11dd8a30f23495908382933b9711a936d517aba9ec33877b40f921785` |
+|  `latest-dev` | May 2nd      | `sha256:2e723068a601333d6e4ce7b3cbb9c4fa353f128ce254025f4c319dfa36c413b6` |
+|  `latest`     | May 2nd      | `sha256:c770631fd14b926c66bde011ccc77adb89f6f58258740bd5cdcfdd36d92186e1` |
 
 
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-Currently, there are no Production versions of this image available.
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `0.99.0-dev` `0.99-dev` `0-dev` `latest-dev` | May 2nd      | `sha256:426134a7a289f9afe3b728103cacdb83437bb707653aada28f57fe1248380c7a` |
+|  `0` `0.99` `0.99.0` `latest`                 | May 2nd      | `sha256:fd4edcdf64de8cfda943de5887d3a77d78c9fb9eeabceb281e38b693064dffbc` |
+

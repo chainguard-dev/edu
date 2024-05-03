@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the r-base Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:ffef33f160c49aefb29788822fe66aa3a802a7b9aac69a19f37953735eefe124` |
-|  `latest`     | May 1st      | `sha256:1226200f83852c8dd68e1eb309438dc406bfec41226411eaa3d2b14c568c2e70` |
+|  `latest-dev` | May 2nd      | `sha256:9e2e3fb3493d94cb2816c77c3aaacc71bcd959fb812c8d918779420de5fbe1f3` |
+|  `latest`     | May 2nd      | `sha256:a0fd5a9aec97b5fc6db91413017571088fb06b3ff27f58c1543c12a1f1c4e7bb` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `4.3` `4` `4.3.1` `latest`                 | May 1st      | `sha256:fb03f94a5c851e3002246cb87a11f5cc90528e2b458db3babc467b482f6f52b8` |
-|  `4-dev` `4.3.1-dev` `latest-dev` `4.3-dev` | May 1st      | `sha256:bdeee8b6035f10349ae23e72fce64e3987438d3d84daf9f9baa2511da10e5c12` |
+|  `4-dev` `4.3.1-dev` `4.3-dev` `latest-dev` | May 2nd      | `sha256:3baa9547f4491f6dfc946b01a7765024c16aa0568fd9796025626cd9c53477d0` |
+|  `4.3` `4.3.1` `4` `latest`                 | May 2nd      | `sha256:e331c306812138a551529fe03e57c6e8df2a8386a317af1c593f203a923b9fd2` |
 

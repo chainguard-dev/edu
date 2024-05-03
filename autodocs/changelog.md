@@ -1,3 +1,21 @@
+# 2024-05-03
+New images added:
+
+- argocd-repo-server-fips
+- argocd-server-fips
+- grafana-operator-bitnami-fips
+- harbor-core-fips
+- harbor-db-fips
+- harbor-jobservice-fips
+- harbor-portal-fips
+- harbor-registry-fips
+- harbor-registryctl-fips
+- harbor-trivy-adapter-fips
+- kube-vip-fips
+- opentelemetry-collector-fips
+
+A total of **701** documents were updated.
+
 # 2024-05-02
 New images added:
 

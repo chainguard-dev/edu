@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tsa-createcertchain Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:0cc70e209054a5ec6fed5113510abd8b97ba09a234e49571142eb9fc78ebdc8b` |
-|  `latest`     | May 1st      | `sha256:5d9c2a22e552b73a8495c3dfd4835c6a5bd052723c241bfcce4c851a26627ad0` |
+|  `latest-dev` | May 2nd      | `sha256:80a11490b15d07238fdf7c0f43039890a08bc2f4273b99b9ef366ede85b9effa` |
+|  `latest`     | May 2nd      | `sha256:0b3d238c9d7f71740d008d9ee1d4d208d243033ba7f336c3831fb1fe94ee1c27` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `latest-dev` `0-dev` `0.6-dev` | May 1st      | `sha256:bf8a65bfb98b5f16f1e1a077bab37da8b6b6fd19fc04d3067a344525077446bf` |
-|  `latest` `0` `0.6` `0.6.17`                 | May 1st      | `sha256:9797d7d773cfb4db5bca61949f39b4c18e81b65342e8db5f41bbb1c4ad47f74a` |
+|  `latest` `0.6` `0` `0.6.17`                 | May 2nd      | `sha256:1d368a98e2f3ab46ba7e0fce21ce8ba7c3d0a7ae46d9502cdae94e0eef80aae8` |
+|  `0.6.17-dev` `0.6-dev` `0-dev` `latest-dev` | May 2nd      | `sha256:d15d09bb419bc8f2cef1aff78c6050d0c478c1934149330befa9934e599eaf99` |
 

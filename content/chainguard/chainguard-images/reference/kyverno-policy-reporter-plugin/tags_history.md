@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kyverno-policy-reporter-plugin Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:fa671af5722572f0f307214af30ac1cac227b128e121c88f64c59d2e477d40ae` |
-|  `latest`     | May 1st      | `sha256:5b83381856b55d2790b00cbe6983f90cd6559fd5f3472e79ae19d465d5951616` |
+|  `latest`     | May 2nd      | `sha256:9d5818acc6cc1887021c1be1c82e12c453847e0959a66bbbf637393611b4a52d` |
+|  `latest-dev` | May 2nd      | `sha256:a8ed6fb5e8ad5a5ea419caa16548839f5f322a187dd32439e829eb0f5d465122` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.6.3-dev` `latest-dev` `1-dev` `1.6-dev` | May 1st      | `sha256:479f58b608b6760fe4ca7aff51122fab10c4c4230fac50155fdd3fc4f247b32f` |
-|  `1.6.3` `1` `1.6` `latest`                 | May 1st      | `sha256:cc0b0ab6f748c2bd1cc9ccb9517f0d8d23d95b7925ad5b59e541e8ee5b575bb1` |
+|  `1.6.3-dev` `1.6-dev` `1-dev` `latest-dev` | May 2nd      | `sha256:beb44eafb845badea82014be2f83fc7226908551010abfa096a97b05418a4f9f` |
+|  `latest` `1.6` `1` `1.6.3`                 | May 2nd      | `sha256:44a76175c5da51c6ffdb790ca3a6a1646a208a3d6d23228395f87c949ca2d95f` |
 

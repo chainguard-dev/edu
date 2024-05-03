@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the secrets-store-csi-driver-provider-gcp Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:9d86f4c8c88e73dec851344d9caf116f18a646e8156e45687884cbadc462740d` |
-|  `latest-dev` | May 1st      | `sha256:a57f3bf74e15ae5174f812898f6042c5667f80a5b76158720ef2f1f0ded9a435` |
+|  `latest-dev` | May 2nd      | `sha256:8036adda88bc4c32be113a2d47b03f4bf99384ed933e28aa8fbfd8d1e4223c9d` |
+|  `latest`     | May 2nd      | `sha256:17539008d253d95ae17ebe9b394a859129b471e1bcb1229279cda971c90de299` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.5.0-dev` `latest-dev` `1.5-dev` `1-dev` | May 1st      | `sha256:688b90e4d5be95e6727fa756eb86dbdc380a5f52181fdad2a43d095250a2cae2` |
-|  `1` `1.5` `latest` `1.5.0`                 | May 1st      | `sha256:15bc7f586582b515f50f8c5648095272a388151eb32397660eb3c6cb0c65129a` |
+|  `latest` `1` `1.5.0` `1.5`                 | May 2nd      | `sha256:40834fcfdd1c13fbf90d3e4fad09b4b9ac0bb7652d727cdcfa314bb7735ee421` |
+|  `latest-dev` `1-dev` `1.5.0-dev` `1.5-dev` | May 2nd      | `sha256:361f0523a24a73caccbf4e4420c6ea2ac2058d3f8aba3cc194972c5b8e74a3dc` |
 

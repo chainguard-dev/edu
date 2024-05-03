@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-cloudsqlproxy Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:9370077fd8723fdb20b6ebb6c25a5a83810c38d0fd2de02522f4d75330bad022` |
-|  `latest`     | May 1st      | `sha256:141ff12dde1baa0fde1ab716daccbfc51294d59d68273f9cfcf0dc18b1a66e77` |
+|  `latest-dev` | May 2nd      | `sha256:2329edfcb3d52e2c9f556cf356858b9c92bcfa6e20f98d69f7f7b7088fcdf733` |
+|  `latest`     | May 2nd      | `sha256:fe6379a75b0d203ad052fab946555a7fa440f4a14de0bea806edaeba8e6e9905` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6-dev` `0-dev` `latest-dev` `0.6.17-dev` | May 1st      | `sha256:052a8150650ce47325013128d94550850709048a7bd8d40c559a46506874e438` |
-|  `0.6.17` `latest` `0` `0.6`                 | May 1st      | `sha256:7c1599b2bc3b2d72b921bbd6c33c50d4bda9e4857d674a25d5f19350033311ee` |
+|  `0` `0.6.17` `0.6` `latest`                 | May 2nd      | `sha256:3f2318cdfd9184a0b7ed045d45b2409c8afb1bf6ab35e203d0f545b115fddd02` |
+|  `latest-dev` `0-dev` `0.6.17-dev` `0.6-dev` | May 2nd      | `sha256:095a10e19eaf6242494cd1365c020caebbb05377ff1c40a862b2632094c71025` |
 

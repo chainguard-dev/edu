@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-trillian-createdb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:fa256e5b05bdeb0311c6aa82334d062e096e2e48e75e0183f0bd1f5e84938606` |
-|  `latest-dev` | May 1st      | `sha256:d37f462cbfb15a64f79452ae4b96f338dcdffd556736ea85a04e8510dc7d23d8` |
+|  `latest-dev` | May 2nd      | `sha256:1a6d570ebec546cd6f4109288cc4d5fcf587937ef2e113d1dc764a96bd10ec41` |
+|  `latest`     | May 2nd      | `sha256:408c6d2b8d1e074774b427bac64f1a9d4d261ac87e13e6c43bc9dae446013df4` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `latest-dev` `0.6-dev` `0-dev` | May 1st      | `sha256:f0c361830e53dd8e775cd66b82640670bcf48c18fd39218c195e6b828e33e02d` |
-|  `0.6` `latest` `0.6.17` `0`                 | May 1st      | `sha256:38bb2d421d3d9dabe1c9c352472a109fbe1622e94da99fc550d3e4a8f66b53f1` |
+|  `0.6` `0.6.17` `latest` `0`                 | May 2nd      | `sha256:b8231a5adbb56654f29553b0bf8beb6ef45f73d4f2da071a0849f4c756a87ca4` |
+|  `0.6-dev` `latest-dev` `0-dev` `0.6.17-dev` | May 2nd      | `sha256:73495fbb48eab5b0e800d6ab586343a93b098526f901a26420477ab5d18830a8` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-ctlog-verifyfulcio Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:b97ce6b3753eced800ec486ace29dcd37bb4b5b439e1d16c37c04d82395f2da3` |
-|  `latest-dev` | May 1st      | `sha256:aea3c75c70d128b549d45a3f2180dc0c704a7911a9c705af91fc5c9b60b4a16b` |
+|  `latest-dev` | May 2nd      | `sha256:4514cc9565d0c55f5b06e70b17d390b966d43dcf4c56786b703e6162807efa28` |
+|  `latest`     | May 2nd      | `sha256:1643479eeb742f6a41038bcad1bf6f9e9f669c48ce4f32550b7c3dec6b26b708` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.6.17-dev` `0.6-dev` | May 1st      | `sha256:e6a5067bde281cf0aa5107c1701fd5bdbf90846ac943a894699e81c6a1761738` |
-|  `0.6.17` `0.6` `latest` `0`                 | May 1st      | `sha256:8000c8171ceeaaa879d463ad9a7ebaef5532067964465d1749d98d1a85a4f952` |
+|  `0.6` `0` `latest` `0.6.17`                 | May 2nd      | `sha256:dad77ed28bdb2f02b1a12b5ef0cb41bd71cb8fbd3624244ae22b19194b22e3fe` |
+|  `0.6-dev` `latest-dev` `0.6.17-dev` `0-dev` | May 2nd      | `sha256:f19df3a618af4da8ea28ccef3b63cd05ab31ed7bfbcc84d42acb8912e5312e95` |
 

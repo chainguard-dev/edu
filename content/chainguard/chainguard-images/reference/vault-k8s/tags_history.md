@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the vault-k8s Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:bc80acd79f97454eae8ebc1d09b06be4984f7547b596a506a4e442ede4bcc2d2` |
-|  `latest`     | May 1st      | `sha256:594b4cafb079ef1b65535a99c29231c8e4b15230b681136c069bf237a15b8ccd` |
+|  `latest`     | May 2nd      | `sha256:27f7124e9903e018a7fe5c7e801041889b9fa249a674a167144b85d914d86ba3` |
+|  `latest-dev` | May 2nd      | `sha256:81955d96e37ea68dd54acbf69a56e2ababecd18db8d7bdeeb4a000a3c3541050` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `1.4` `1.4.1` `1`                 | May 1st      | `sha256:bde54d820d253d8ef9e037e7ae51cb1a6ed4ce940b8ec11b960f18463253b039` |
-|  `latest-dev` `1.4-dev` `1.4.1-dev` `1-dev` | May 1st      | `sha256:dc7658a686ffcca179a54a694ec2f24af69b652a7c45f18193f90518f15ff665` |
+|  `1.4` `1.4.1` `latest` `1`                 | May 2nd      | `sha256:2b556e21b4c2fbdf3d3479ad3713ae350a4f9823e13c89c4dca6e7d8deecb35a` |
+|  `latest-dev` `1.4.1-dev` `1-dev` `1.4-dev` | May 2nd      | `sha256:84371186375f311879803639cb47e5bc411ed0c5636203b1ad9679da82b57e6a` |
 |  `1.4.0-dev`                                | April 5th    | `sha256:ab8f220bf3cea1e54e79c9920c3c96e4a7d2c1e7db104917a2f6f4e418f626f3` |
 |  `1.4.0`                                    | April 3rd    | `sha256:e763e3954b390877984facc74c7729f8fb36e947aba7ca3930d3bfbc6f2e91a4` |
 

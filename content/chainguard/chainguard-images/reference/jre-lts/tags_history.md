@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jre-lts Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:90e8af1c4c49f83c9a69e1e5f8786f7008903f41ca5004f036456a9e2e0c011e` |
+|  `latest`     | May 2nd      | `sha256:a0112a8636856a09c53f55adee779249c6443a207d85237e36fcb72b50b475fc` |
 |  `latest-dev` | April 17th   | `sha256:ba2be4e163d95bcb3b9205d1cc0a801b57383750a0e9d5eb909d7ef3cdd30055` |
 

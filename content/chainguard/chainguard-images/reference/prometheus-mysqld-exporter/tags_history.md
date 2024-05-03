@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-mysqld-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:9b19515c4a9aae56d58f451362e8b21c31915b696f13bb4e8ae9a49ee2a3f906` |
-|  `latest-dev` | May 1st      | `sha256:6e3b160ca30e5d33830229bb2750a39394bf9818c68930c01119649a60bb70c6` |
+|  `latest`     | May 2nd      | `sha256:f56f5086d17b3860ba00dfa4993d0befd2e4ad854ecb9087998e0de8fbab6ef5` |
+|  `latest-dev` | May 2nd      | `sha256:d6e028d238ecf5569222cfe8adc3b72ddbc352c21a206eaeab5b94cbca319888` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.15-dev` `0-dev` `0.15.1-dev` `latest-dev` | May 1st      | `sha256:673fd3c1303bb80af0b309f460e26e757a4b4f558eda72891cee285f9f445b3b` |
-|  `0` `0.15` `latest` `0.15.1`                 | May 1st      | `sha256:12e8d4325a9cee2ada37f0e0de08fd0e6a9d8d9e8b5041027d80e6f91e07a719` |
+|  `0` `latest` `0.15` `0.15.1`                 | May 2nd      | `sha256:981c1f52efd3ed436969e718a1cbada3166efdda96a9b22c0e2066cc0217fc49` |
+|  `0.15.1-dev` `0-dev` `0.15-dev` `latest-dev` | May 2nd      | `sha256:0bb92bafc4a3222cde2c107fa1e37873bfe2125d3c8b075bc0c913afb406ebcd` |
 
