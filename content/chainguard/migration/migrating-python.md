@@ -28,7 +28,7 @@ Because Chainguard Images aim to be minimal, including providing separate develo
 
 ## Chainguard Images for Python Overview
 
-We distribute two versions of our [Python Chainguard Image](https://edu.chainguard.dev/chainguard/chainguard-images/reference/python/), one for development that includes shells such as bash and package managers such as pip and a production image that removes these tools for increased security. Our production images are tagged as `latest`, while our development images are tagged as `latest-dev`. 
+We distribute two versions of our [Python Chainguard Image:](https://edu.chainguard.dev/chainguard/chainguard-images/reference/python/): a development image that includes shells such as bash and package managers such as pip and a production image that removes these tools for increased security. Our production images are tagged as `latest`, while our development images are tagged as `latest-dev`. 
 
 ## Migrating a Python Application
 
@@ -63,9 +63,9 @@ ENTRYPOINT ["python", "-m", "gunicorn", "-b", "0.0.0.0:8000", "app:app"]
 
 When running an application containerized with the above Dockerfile, the application should be visible on `0.0.0.0:8000`.
 
-As you can see, the primary difference in this Flask application compared to the pre-migration application is the use of a multistage build. In the initial stage, we copy our requirements into the development version of the Python Chainguard Image, initialize a virtual environment, and install needed packages with pip. In the second stage, we copy the virtual environment from the development image, copy the application from the host, set exposed port ;metadata, and run the application with the [Gunicorn](https://gunicorn.org/) WSGI server.
+As you can see, the primary difference in this Flask application compared to the pre-migration application is the use of a multistage build. In the initial stage, we copy our requirements into the development version of the Python Chainguard Image, initialize a virtual environment, and install needed packages with pip. In the second stage, we copy the virtual environment from the development image, copy the application from the host, set exposed port metadata, and run the application with the [Gunicorn](https://gunicorn.org/) WSGI server.
 
-By default, the entrypoint for the Python Chainguard Image is `python` rather than `bash`. However, if you replace the included Python binary with the virtual environment binary on the path as we do above, you should set the entrypoint explicitly, otherwise you will not have access to the packages included in your virtual environment.
+By default, the entrypoint for the Python Chainguard Image is `python` rather than `bash`. However, if you replace the included Python binary with the virtual environment binary on the path as we do above, you should set the entrypoint explicitly. Otherwise, you will not have access to the packages included in your virtual environment.
 
 We recommend that you pin dependencies to specific versions in your own application. The example Flask application script linked above also enables debug mode, which should be turned off in a production scenario.
 
