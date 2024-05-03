@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cadvisor Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:2312c69e8536a43a7c76ec1e6223613b1288fe921090763d6dad9c1aa6ba5f4a` |
-|  `latest-dev` | May 1st      | `sha256:6fc8f5a5ed4598cf123b6303a77fa80172eb4187b8e884e90b0a62e16d0a57ae` |
+|  `latest-dev` | May 2nd      | `sha256:d558720ab7662b78c441adac4f6bbfb35210bd41d0b7aa42bdff6ae1388434d3` |
+|  `latest`     | May 2nd      | `sha256:9d8d79dd5adcacd110ef935254b11faa48f346f5c2da5a197e242d4385629095` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0-dev` `0.49-dev` `latest-dev` `0.49.1-dev` | May 1st      | `sha256:4def7fd4d5f92fad79633b2226081a939a2d8c2560aaebdfdf63af4cb2347fea` |
-|  `0.49` `0` `latest` `0.49.1`                 | May 1st      | `sha256:c5207b514cb16fb6188668dda397bf37f93b68215dfe37d6fd8908a85197abce` |
+|  `0.49` `0.49.1` `latest` `0`                 | May 2nd      | `sha256:1c68985c30887a48b117bff568d5ced76f4af0be78f709fc1662cd4d36470501` |
+|  `latest-dev` `0.49-dev` `0-dev` `0.49.1-dev` | May 2nd      | `sha256:cb2f55da919ecc89a596f041404f62daa37cdb04fc0503209db22927211dcc9c` |
 

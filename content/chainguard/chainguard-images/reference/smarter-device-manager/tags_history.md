@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the smarter-device-manager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:9faf42d290c7c1461a7a74d8541de8b7e2cb833e3a04e16dd0ec012add959ca9` |
-|  `latest-dev` | May 1st      | `sha256:810353ab70f1d6a8e3e01ea0091e565f1ec0276ab0565af044450ff14b9c5737` |
+|  `latest-dev` | May 2nd      | `sha256:5f68eef1760177165c5df63eda03768cd001b6e6b1d2ddccc727427585fdd978` |
+|  `latest`     | May 2nd      | `sha256:3488c6d0b082f5d48a5f21c04ae29b7c67aa8c87c9bf0b8ff978dd025111d739` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                        | Last Changed | Digest                                                                    |
 |------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.20.11` `1` `latest` `1.20`                 | May 1st      | `sha256:e80a0663de33b80b70593a4d8b43766263f9f32c7ad9708275c4984dac8899c6` |
-|  `1-dev` `1.20-dev` `1.20.11-dev` `latest-dev` | May 1st      | `sha256:644ded92354d668496734bf3040d4075649bce2534893fd1a73fe7eabe7653ed` |
+|  `1.20.11-dev` `latest-dev` `1.20-dev` `1-dev` | May 2nd      | `sha256:a2ddaead52daa649fb150ac027072d62a8370aace75f2093e3a0268c18317d42` |
+|  `1` `latest` `1.20.11` `1.20`                 | May 2nd      | `sha256:e3c384153b37970961fd8f6953ca109bd6fa6ba9452e9ccdd787e48f2e5fc225` |
 

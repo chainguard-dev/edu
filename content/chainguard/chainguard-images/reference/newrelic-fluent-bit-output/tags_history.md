@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:0347d3cc38f5ac8997fe4bab734dc243acbaafbe556df272b2d5ec0b9b349ca0` |
-|  `latest-dev` | May 1st      | `sha256:effac36e78f9b4dd609322e651d919641ad007d4accd123f4eee2d61c53c1715` |
+|  `latest`     | May 2nd      | `sha256:9c6e029f39dd3a5ca89802d8290cb0e924e608ea0d7e7567ea6745456b0e41e9` |
+|  `latest-dev` | May 2nd      | `sha256:db9074e47e76f7730cb840697952c56569467b0c29b66543b7962b6c3a2e5e65` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1.19-dev` `1-dev` `1.19.2-dev` | May 1st      | `sha256:583e4160927a0bba262be2897dfa45c84efb8d44f6d0ed67c0ea5b6a5df893c0` |
-|  `latest` `1.19.2` `1` `1.19`                 | May 1st      | `sha256:2760db5b5c8d6c5de1373e70f766b048e87de098631c2994c7b6148344acb45f` |
+|  `latest-dev` `1-dev` `1.19-dev` `1.19.2-dev` | May 2nd      | `sha256:136c77c1502c2996f5bc6a323fc938c00fb8a4406ffeedff2260071162b8bafb` |
+|  `1.19` `1.19.2` `latest` `1`                 | May 2nd      | `sha256:019f8210f8ca0c8cbba22b4279bf08bb2970f3d5e160a349a4e0ba87aa4c11b2` |
 

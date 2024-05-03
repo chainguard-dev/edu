@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-pushgateway-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,10 +33,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.8.0` `1.8` `latest` `1`                 | May 1st      | `sha256:37220d6de28e112e8c23c3dec23ba0a4b193c514e2c395c7409315418ac3d981` |
-|  `1.4` `1.4.3`                              | May 1st      | `sha256:90c49d37ad51a4298c184cdbe0edbc88e00535bd3c7ae2246fa9bb5e656040ec` |
-|  `1.8.0-dev` `1.8-dev` `latest-dev` `1-dev` | May 1st      | `sha256:5709fb7744e92a461bf1c894681925bb87fc482e989fa30ebc9ccddc0899a8ea` |
-|  `1.4.3-dev` `1.4-dev`                      | May 1st      | `sha256:d5420416c771416d512c74f5fefebb4cb62f28f34cc3813c982ee246d10d2be4` |
+|  `1.8.0` `latest` `1.8` `1`                 | May 2nd      | `sha256:b7a930a9e542e3b48ae1c55ba2b919da9a6b6b77ebbfdd61c38d755c6922c7f6` |
+|  `1-dev` `1.8-dev` `latest-dev` `1.8.0-dev` | May 2nd      | `sha256:3be85b42b9aec6b78294f0fa3b318be0162c4c598e0f57cc20a30b61456d2fbf` |
+|  `1.4.3-dev` `1.4-dev`                      | May 2nd      | `sha256:e3d6e41b6e692c0201faa6058e99ee92c34b4d563f4c14da4f0748e08ce77a49` |
+|  `1.4.3` `1.4`                              | May 2nd      | `sha256:f3c4d955ac74451b5a4983f7e990226bca066bd8d5006234a8cf51d3d17615ad` |
 |  `1.7.0-dev` `1.7-dev`                      | April 4th    | `sha256:ee36387b0154d85c5c0993cc28df57362f975dcc7ae55da683d210586c0e8ba5` |
 |  `1.7` `1.7.0`                              | April 4th    | `sha256:144c588df5a9a234f5e755cf147a69f8409ec786fbae5c9812009184ab1282b2` |
 

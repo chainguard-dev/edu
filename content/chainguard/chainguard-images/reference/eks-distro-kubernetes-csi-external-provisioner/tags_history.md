@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the eks-distro-kubernetes-csi-external-provisioner Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,14 +33,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                                                                                  | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.6.0-r5-eks-1-23-33-dev` `3-dev` `3-eks-1-23-33-dev` `3.6.0-dev` `3.6.0-eks-1-23-33-dev` `3.6-eks-1-23-33-dev` `3.6-dev`              | May 1st      | `sha256:15dc78ea196987021d08f437a3adbe765a08811cd356749b3a5c59b094a5b016` |
-|  `4-eks-1-25-33-dev` `4.0.0-dev` `4-dev` `4.0.0-r4-eks-1-25-33-dev` `4.0-eks-1-25-33-dev` `4.0.0-eks-1-25-33-dev` `4.0-dev` `latest-dev` | May 1st      | `sha256:1448bdbe3b19f403935418b8a2bdc15a83963f266f9e51fd2076fab9a230566b` |
-|  `3.6.0-r5-eks-1-23-33` `3.6-eks-1-23-33` `3-eks-1-23-33` `3.6` `3` `3.6.0-eks-1-23-33` `3.6.0`                                          | May 1st      | `sha256:c642a935ca00e19a240b830dabb3db29770c761e20214c65d333db999877ce8c` |
-|  `4.0-eks-1-25-33` `4.0.0` `latest` `4` `4.0.0-r4-eks-1-25-33` `4.0` `4-eks-1-25-33` `4.0.0-eks-1-25-33`                                 | May 1st      | `sha256:923020e48ff26a2b45aab4162cf69167b51f8da6420abde10453ce575d03819e` |
+|  `4.0-dev` `4.0.0-dev` `4-dev` `4.0-eks-1-25-33-dev` `latest-dev` `4.0.0-r4-eks-1-25-33-dev` `4.0.0-eks-1-25-33-dev` `4-eks-1-25-33-dev` | May 2nd      | `sha256:7d22a47baa2320bf0fa0e27a82de81e0d94aed31a3dda9e2323b9f8d98310fca` |
+|  `3.6.0` `3.6.0-eks-1-23-33` `3-eks-1-23-33` `3` `3.6.0-r5-eks-1-23-33` `3.6` `3.6-eks-1-23-33`                                          | May 2nd      | `sha256:443b0c93babe42b64dc5bce4944616dc7dbccbff8c1a95526cdd6e31b4ad7ce5` |
+|  `3.6.0-r5-eks-1-23-33-dev` `3.6.0-eks-1-23-33-dev` `3-dev` `3-eks-1-23-33-dev` `3.6-dev` `3.6-eks-1-23-33-dev` `3.6.0-dev`              | May 2nd      | `sha256:341f66554f0f175226ac8c29a70191469aebce55f5b432eb8512628843b4c5ee` |
+|  `latest` `4.0-eks-1-25-33` `4.0.0` `4.0.0-eks-1-25-33` `4.0.0-r4-eks-1-25-33` `4.0` `4` `4-eks-1-25-33`                                 | May 2nd      | `sha256:2cca40ca539464afcc340127f51dc21112c715cfedff4fc42db108068b8259ef` |
 |  `3.6.0-r4-eks-1-23-33-dev`                                                                                                              | April 20th   | `sha256:ebd072040419030ba393cbeb29b068c06931af56f705274dd116dfaf5187473f` |
 |  `4.0.0-r3-eks-1-25-33-dev`                                                                                                              | April 20th   | `sha256:017970ca0961f69e30b5e26f378978bdaf8b7d6cb6af505a1212abd4bfbf4b32` |
 |  `4.0.0-r3-eks-1-25-33`                                                                                                                  | April 3rd    | `sha256:4c1bfd1bc43490a6b2aabf2f7348cf6a7cc6ef49f31110231910f6fee38559c9` |
 |  `3.6.0-r4-eks-1-23-33`                                                                                                                  | April 3rd    | `sha256:e3775903d3a213ba35b6b4ee5107b373941d449e40cba347d4e763f6cd5dfa73` |
-|  `4.0.0-r2-eks-1-25-33-dev`                                                                                                              | April 2nd    | `sha256:841c7981da62a23ef2b749de7da493535dfa8195291f3bcbd6b9774d547d26ff` |
-|  `3.6.0-r3-eks-1-23-33-dev`                                                                                                              | April 2nd    | `sha256:68637dd4f98ca203da09ed811bcb5862d60d78c5bbc0f95f731e4632bf71b9cb` |
 

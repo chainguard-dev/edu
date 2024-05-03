@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:f2ff1b817d25697a0c154194b7513f35b6e40a1fdb7f61d87b403fc3c32afae0` |
-|  `latest`     | May 1st      | `sha256:d96937c16affd5a556cc42c8fba2cb3ccdd6921f3a685309a24525f08b433f51` |
+|  `latest-dev` | May 2nd      | `sha256:7521defc540eea1179d01c4d366cc4f04600d1f627ab52ce8987a79b2bb7a2c7` |
+|  `latest`     | May 2nd      | `sha256:5a60f9dca2de627daacc5f88a59626c1e872d6fc1073f82f5640d1d665739f9e` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.6-dev` `0.6.17-dev` | May 1st      | `sha256:1086de5a9727761db37b2eb55f30b6156d5e9ea7ea9539e91731d179eb4ca5c7` |
-|  `latest` `0.6.17` `0` `0.6`                 | May 1st      | `sha256:96dba27d6281fb91871981a2889b3ffd17ac6a5c835e5e257a5db07f5c82cde3` |
+|  `0` `0.6.17` `latest` `0.6`                 | May 2nd      | `sha256:14cc3734bbc42e39974be4498c78289fc1191266756d5e17f72fc8b91095312a` |
+|  `0-dev` `latest-dev` `0.6.17-dev` `0.6-dev` | May 2nd      | `sha256:3a64551ea14043fb4d59b154a6d2333118c05d804a0c55d7005e3a4328b42d53` |
 

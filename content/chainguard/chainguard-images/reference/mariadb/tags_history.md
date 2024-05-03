@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the mariadb Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:f7fcd1ffae34bc15bdb23fe57d1746221b5a46bc45b8c385463d507361dd3506` |
-|  `latest`     | May 1st      | `sha256:c4d070df71291b9c0cfc6bf703aae98f902891e9dc8b693cad2b0d909ac8b724` |
+|  `latest-dev` | May 2nd      | `sha256:88ce6575b4ccdd0752d2ded0b576c04f91d052fc54206d415f8240a52635f929` |
+|  `latest`     | May 2nd      | `sha256:cc03b67cc842e77365416bbb3204539f6ed6df89b357cfd6caf8ba2f16fca04a` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                          | Last Changed | Digest                                                                    |
 |--------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `10` `10.11.7` `10.11` `latest`                 | May 1st      | `sha256:061a537366b706514960c152cf1a8a238b1558251cceca864e5c1c39073e0c1a` |
-|  `10.11-dev` `10.11.7-dev` `10-dev` `latest-dev` | May 1st      | `sha256:ad03e6a2be8ac433acb513080fc7eb13e75b6cb5b5961269864e355497879ff5` |
+|  `10.11` `10.11.7` `latest` `10`                 | May 2nd      | `sha256:f214b7c337ab6e66ec91f3b43092bfcfe6fde67ec9503b0018c88019906fd1cf` |
+|  `10-dev` `latest-dev` `10.11-dev` `10.11.7-dev` | May 2nd      | `sha256:26e5b19c700680b5ec5a3d903b8ccc07a720ecde44d7e96d22a93cedc7f3d26d` |
 

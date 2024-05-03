@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ruby Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:e2379750212ead1aa775296f0db782d3725b3f8112066e4d46a133ec64cbcc0d` |
-|  `latest`     | May 1st      | `sha256:43b5f9e18f2c7b530db653a4d6e6daf43d7de83b0443b72ff298c6af260fbd67` |
+|  `latest`     | May 2nd      | `sha256:1c9dac800e81cd84edc4bcf2c9810646a1eeb94ae3ebcbfb1bb4ae23eaf826be` |
+|  `latest-dev` | May 2nd      | `sha256:902bc253f3444ae68136093f7ba1b81715025220b43859e34d47d916d9b7ed5b` |
 
 
 ### Private/Dedicated Registry
@@ -37,14 +37,14 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.2` `3.2.4`                              | May 1st      | `sha256:bd0f9dbba19494486047a3f99b59a1cb5f12b169a9da7273c3da7c256d20698b` |
-|  `3.2-dev` `3.2.4-dev`                      | May 1st      | `sha256:af0b5dd92669d0d7221b015bc9ce8c18ffd3c417e2b2b90905c8c53fdb4392ba` |
-|  `3.0.7-dev` `3.0-dev`                      | May 1st      | `sha256:9d5dbbbb98a3413c3c9b9d15d6588d0d0c2f808600260f293ddec75be8a04749` |
-|  `3.0` `3.0.7`                              | May 1st      | `sha256:8808738d099e2e162c769e3cff82e6e8fb9719ab837298c9a7e3a4fb35e5c4d6` |
-|  `3.1-dev` `3.1.5-dev`                      | May 1st      | `sha256:8bab88763b3801dcf6334167e2f85941cf68ba5d81fec53cbd73839844173221` |
-|  `3.1` `3.1.5`                              | May 1st      | `sha256:7521752e51eb00687cf49f4d18edfc1b4d40215eeb5c8627c537e82b4b4ee3e2` |
-|  `latest-dev` `3-dev` `3.3-dev` `3.3.1-dev` | May 1st      | `sha256:9dd6b9bb4f6dcd9e8e5212abac6a1052ed4d6019a9b5f53345cf0ee420003ae5` |
-|  `latest` `3.3.1` `3.3` `3`                 | May 1st      | `sha256:4402acd3d8ea9ff8fb4a393e5aff362296db0d9f79d5272e6f6af138d39ffb92` |
+|  `3.2-dev` `3.2.4-dev`                      | May 2nd      | `sha256:00869ed5babefa40d51304977e247ee6b19478c270b26bb105293257bf9e77e8` |
+|  `latest-dev` `3-dev` `3.3.1-dev` `3.3-dev` | May 2nd      | `sha256:cbe0fb0da4f6e0ee3ea9bb73ee2a5411ebaadb515eab810236264754ae401b92` |
+|  `3.1-dev` `3.1.5-dev`                      | May 2nd      | `sha256:ff951bb3704615ed67b5d4f45907ef055c07dfb51ef682d89b3431cdb8addb34` |
+|  `3.0-dev` `3.0.7-dev`                      | May 2nd      | `sha256:93178c61a606eba2902fcd5ef17beaa3052ac9b3b7bc073f6dbe831716bd103b` |
+|  `3.2` `3.2.4`                              | May 2nd      | `sha256:482c39b03099e2519102f0f50b846b46336d66199ac55035ae5ed5fbb89272bc` |
+|  `3.1` `3.1.5`                              | May 2nd      | `sha256:f04fe73d8b56ee218822f72cc31a7ec0d27de68459ec2235825e20d9bd796ecd` |
+|  `3` `3.3.1` `3.3` `latest`                 | May 2nd      | `sha256:51ff00ea22eaddbf8e04fdef9b2f3f142277025d6e6b1dbd24072683c9fd171c` |
+|  `3.0` `3.0.7`                              | May 2nd      | `sha256:0a015aa129a2734e2e5e846154915ddfdd7aa86c0cec2a36680c3abd4655e4e7` |
 |  `3.1.4-dev`                                | April 21st   | `sha256:5baab653c1895916001692d787ce6af3afa3fb702b90101693c6858a4aa0cf94` |
 |  `3.3.0`                                    | April 21st   | `sha256:6c8b67c8dea077845d7ad27b2a370f0a91b9fcf7c2e493e46cf754d2a9a58ba2` |
 |  `3.2.3`                                    | April 21st   | `sha256:6b7b7191cf955a27be0895eca98085b7dce3aa5811afdc8cc042877a0f633a47` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the velero-restore-helper Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:4998dff94fc794ae5003946b7799077901f8b3d92e0acefb70f0b09a3ad08244` |
-|  `latest`     | May 1st      | `sha256:718be97bfe0a4c2b2ba8c308cff51e20fd6a0989b6b788decd78e8b1797fa7c3` |
+|  `latest-dev` | May 2nd      | `sha256:c81db9fc04d5101d10bbbbe9aa38ec93935b0f0950c7f32b9d06cf835e0b1a0b` |
+|  `latest`     | May 2nd      | `sha256:d55f3ccd9ce61dce59061929d2d607467811a3e1906fd7b75dfc5cbdef13a7d8` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-dev` `1.13.2-dev` `1.13-dev` `latest-dev` | May 1st      | `sha256:a53134494601a1613b849eacd0f1f32bad261aa46e1858adac52853788d4866c` |
-|  `1.13.2` `1` `1.13` `latest`                 | May 1st      | `sha256:a93290991c053454aef48f94b496579ddf6a3362f289997a4d6035f004bc8cb0` |
+|  `latest-dev` `1.13-dev` `1-dev` `1.13.2-dev` | May 2nd      | `sha256:bf6dc2e9a8ecd3ff3bfa310637e3e2132be3ccafe4bd900654de99d1fbe173aa` |
+|  `latest` `1.13` `1` `1.13.2`                 | May 2nd      | `sha256:5dd9d016e703c5ab40ddafe44297b8396bee80f11118918ab8dbd226e8b21bf1` |
 |  `1.13.1-dev`                                 | April 11th   | `sha256:be76a6131d706d0695ac3f6967b1e107c20bf9f0d3afc4752307f84b94941760` |
 |  `1.13.1`                                     | April 11th   | `sha256:01084c3fb51f1cd1453b30b91f82c0cd08702c54e13c3cccddc3780eeb4aff5e` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-getoidctoken Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:2bf9613ea516194f6fda806030ffa290a7408514991893bdee568dfdeeb65f25` |
-|  `latest`     | May 1st      | `sha256:61a5f4d535cc4f621b36d4c4ad9a42d166e060ac3589881dd08e9a1247555e30` |
+|  `latest-dev` | May 2nd      | `sha256:db3152ed15c66d78a8da01105b112502ccf6ed25fd6a03cd5c369fdb7f752f90` |
+|  `latest`     | May 2nd      | `sha256:70d62c72d494ec97c8b519321e47c2b02ab16fd1960dbd781dca3de339b3a918` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `0-dev` `latest-dev` `0.6-dev` | May 1st      | `sha256:9a245589e8dac8956e673adaa8726b4d53a5943e894a4250ab5f57c913080ff3` |
-|  `0.6.17` `0` `latest` `0.6`                 | May 1st      | `sha256:010a971152fe1209aa5eb5ef9ba99502732315cacf05e2fa0607247d518008bc` |
+|  `0` `0.6.17` `0.6` `latest`                 | May 2nd      | `sha256:5f90c2469026f4250fdb82d79461de3c1ff1e5d74accfe46b36e8a1620353fd0` |
+|  `0-dev` `0.6.17-dev` `0.6-dev` `latest-dev` | May 2nd      | `sha256:d3669985ac8d48a9815a2ea2faa5eff296703ce9cf19e9c9198a9021c480a799` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ffmpeg Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:bf65e1b93d1127f6c9012d449e1ba62941604a3308c90d88bd6a5c5896f800dc` |
-|  `latest-dev` | May 1st      | `sha256:a7861860045b8475524b11fef634db0c877dc0d4fe6a7dcc9fdf9da0d947566e` |
+|  `latest`     | May 2nd      | `sha256:32d72180340a316d02d638cc4281ed366935fa1f18536afbc2067b9fdda3093f` |
+|  `latest-dev` | May 2nd      | `sha256:7d033ef791aea155d3b12373bca8ddaac2c4c642a18596e55ea25b85cb4da0d7` |
 
 
 ### Private/Dedicated Registry
@@ -37,7 +37,7 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `7.0-dev` `7-dev` `latest-dev` | May 1st      | `sha256:67643715e665121254b69aeff358e84f4355755d020ba4e4632755c1ab04367b` |
-|  `7.0` `7` `latest`             | May 1st      | `sha256:e11d39bfe20adeed7959ea644c4679763a6c9602a1310a5e49ab81c3582e0b84` |
+|  `7.0-dev` `7-dev` `latest-dev` | May 2nd      | `sha256:f3ceab87f6787f2b481ccf319c3d2b9794b90c075f75aa30641fe3ed6fbf479c` |
+|  `7.0` `7` `latest`             | May 2nd      | `sha256:d52956eb70338a639ea3b8a0257287fac4811db78315a86700ecab36fbf4c7ae` |
 |  `6.1-dev` `6-dev` `6.1.1-dev`  | April 20th   | `sha256:f2a133849ff5625439ced9df6dfa1199fd32b8945a1c76002ee67b4634b2e796` |
 

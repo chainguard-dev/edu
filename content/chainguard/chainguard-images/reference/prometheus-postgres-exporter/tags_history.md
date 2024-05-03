@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-postgres-exporter Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:3aa6ef227a8f74437fdc7726fc225d279e8bada1929b477985719c1393e67484` |
-|  `latest`     | May 1st      | `sha256:75c5412ed7924580cb94138fa1f6a41d3958f561336064bcf98f8dc03c411ae9` |
+|  `latest-dev` | May 2nd      | `sha256:a30d9e505f3bb737f1c9152f66c14704b71b639544fc0860a9c05002a7d4f1f5` |
+|  `latest`     | May 2nd      | `sha256:8ed978550b0678a7f109844f12373ef0dca42ac834a26568a373c6359f793138` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0` `0.15.0` `0.15` `latest`                 | May 1st      | `sha256:885d4c157e036248471c1ba7b75839bd48fc54b3e4d355a660059f0601de326e` |
-|  `0.15.0-dev` `latest-dev` `0.15-dev` `0-dev` | May 1st      | `sha256:bf6ece3b91ea3e2f6f53d7f1ff6e5e1d9c118ea9643174aa636e610bb735421d` |
+|  `latest` `0.15` `0` `0.15.0`                 | May 2nd      | `sha256:fdeb18c545cda8c54039e84c2a2bfc5b0debe8e54d8abaf7c387b7e9d15d6dcb` |
+|  `0.15.0-dev` `latest-dev` `0-dev` `0.15-dev` | May 2nd      | `sha256:e9bf2ff3044d2c2070916d0214e96ce7119a6c0990fb9a46a407cedf3f4a048c` |
 

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-rekor-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 1st      | `sha256:e141caed5167846e47988df20bad8f1fdb383be7aec13a79e822c08b6ff6e942` |
-|  `latest-dev` | May 1st      | `sha256:826e7246d45db0977974c38772342c15a3b5fe176b84b97964cbddd476b3a93f` |
+|  `latest`     | May 2nd      | `sha256:15590025aaf89bbfd33dabc81afa77ef289420ede61fb66deba0ec62e24cdde2` |
+|  `latest-dev` | May 2nd      | `sha256:07f1f2d80ca04c61dd72d908d0fbbf4a77c7e9c2e303d3b0153197445ce38564` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0.6.17-dev` `0-dev` `0.6-dev` | May 1st      | `sha256:fffd7e1ae78759720bce70f3444408446eac6a4e5af4e362edae0840373f3b1c` |
-|  `0` `latest` `0.6` `0.6.17`                 | May 1st      | `sha256:e9f68a53e50beb96d309eae72deee272ff8a91bf18f6dc83e82339e56e234363` |
+|  `latest` `0` `0.6` `0.6.17`                 | May 2nd      | `sha256:ba030680efad3c55945586ea01cc868df3ec7ac299782393f71fbc1b5556d6f8` |
+|  `latest-dev` `0.6-dev` `0-dev` `0.6.17-dev` | May 2nd      | `sha256:236c9ee73334131e43aea41e46938b94391175bddc28cdc212e00eab76420412` |
 

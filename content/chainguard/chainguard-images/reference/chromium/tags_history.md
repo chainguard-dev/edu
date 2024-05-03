@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the chromium Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:92fdd435402c0789631b0ea09c83c61dbbb0f25ec5f248c082f439a2893456d2` |
-|  `latest`     | May 1st      | `sha256:29d4023ebdc6b1b0a088cb06e8ef1254a9ab8cd54550c5f1dadf7114c1caa3b6` |
+|  `latest`     | May 2nd      | `sha256:f004744e641daa9f3c63cf9f1d25c98a6fd6bc4dbb0b3df6e7d869b598517c63` |
+|  `latest-dev` | May 2nd      | `sha256:60bf914efd91bb0aba9d4621bf51e56a57a8366c10d9b51b2062b185617fd154` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                  | Last Changed | Digest                                                                    |
 |--------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `124.0` `latest` `124.0.6367` `124.0.6367.91` `124`                     | May 1st      | `sha256:a5a1b176ae8e5889d05b38b7bfe2ddc579f151716da7f8c770a6b410aefb8259` |
-|  `124.0.6367.91-dev` `124.0.6367-dev` `124.0-dev` `124-dev` `latest-dev` | May 1st      | `sha256:2d2187f26d5f745585b20958284fc84901ec1c76b3db8e2e301f75e8d9c20ab6` |
+|  `latest-dev` `124.0-dev` `124.0.6367.91-dev` `124-dev` `124.0.6367-dev` | May 2nd      | `sha256:83ec4d6aaeb499d7e95cb7cbbf91ebf414174de5841333c8da34c87c0b1a3b05` |
+|  `124.0.6367.91` `124.0` `124.0.6367` `124` `latest`                     | May 2nd      | `sha256:703cb9a896d229a607407b501c0d4645b3a21085f0975c1081c0a17b5f41ec73` |
 |  `124.0.6367.60-dev`                                                     | April 26th   | `sha256:e3e8fa4482fcb120b39dac8477afb7c5f225f7bfe09930a28ee9b5a8e13f834f` |
 |  `124.0.6367.60`                                                         | April 26th   | `sha256:501ec904d680893fb371c27d96359d77942a81dea645b07de983ae23ad2e09f5` |
 |  `123.0` `123` `123.0.6312.122` `123.0.6312`                             | April 16th   | `sha256:56aa652a4a2871ed6e02dc3f058814244fec31cd610206489e194256531fc220` |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the sigstore-scaffolding-tuf-createsecret Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:9a820df9aaf39e5be137e00748f1d08fb7f7103285401baf8fd801aeba8fe975` |
-|  `latest`     | May 1st      | `sha256:053141dc7de5c3255a7cd5b5ca18041f31dc67e1e01594b7ab0030bcdbb6e2ac` |
+|  `latest-dev` | May 2nd      | `sha256:cdd4cb8a81c0ad2335e723e4408a3242317b1f759ee0b7c9aaf0b6337824204c` |
+|  `latest`     | May 2nd      | `sha256:d8605297efd02187316dbd20e9722562237df966f01cc096c24a9dbceb3f64e0` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                      | Last Changed | Digest                                                                    |
 |----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.6.17-dev` `0-dev` `0.6-dev` `latest-dev` | May 1st      | `sha256:00e1d9cb4a2d55a95c899bae722ccc1bbaee27c5b13f83f254330666ef1db3d0` |
-|  `latest` `0` `0.6` `0.6.17`                 | May 1st      | `sha256:dc64367560ecefada58566555fa7d71f02d2682ab41eb3d46c68189c39113a3c` |
+|  `latest` `0.6` `0` `0.6.17`                 | May 2nd      | `sha256:319730f62759ce06da91a706713bd3c2a0985df75a35e5435c62121b79c02576` |
+|  `latest-dev` `0.6-dev` `0.6.17-dev` `0-dev` | May 2nd      | `sha256:472ab478f138078600eeece6d06558240f122609eb5cb1ab98bbbb8701d6fb5d` |
 

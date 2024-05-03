@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the ml-metadata-store-server Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:5bd8f9d2999adc3003ae1938036e70feb5783f6f51ed12f7150ddc0a598f1897` |
-|  `latest`     | May 1st      | `sha256:97cd2a5b64d8b74ebff8aff144ceaeef673a98f9e1de8a1eecef0cc3f2af48bb` |
+|  `latest`     | May 2nd      | `sha256:083d3c67a34d3b91116f7420eb4c0867aa1349ccbf9b2d91a46e0e08eadf6a4d` |
+|  `latest-dev` | May 2nd      | `sha256:5643453f402974bc4c9e68b7fe71e9b0d55089a8f52c9d4c6ab9cb59bedd7e3c` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1.14-dev` `latest-dev` `1-dev` `1.14.0-dev` | May 1st      | `sha256:3a3551eec123e573b8a18687ef78057a377d211850504d636be0602c7c7e4508` |
-|  `1.14` `1` `1.14.0` `latest`                 | May 1st      | `sha256:fc5f14625d0e48b94fbd09c6c357a5a015ed45c00dac13110d07c8138687c361` |
+|  `1.14-dev` `1-dev` `latest-dev` `1.14.0-dev` | May 2nd      | `sha256:89b423d5b333c26d3c6b6384192d74616056b1628a87243da0e6d2aa25146b97` |
+|  `1` `1.14` `1.14.0` `latest`                 | May 2nd      | `sha256:4540be770c2be20dfb130a7592a33b31216aa3386f15528ef81485aa6bae8742` |
 

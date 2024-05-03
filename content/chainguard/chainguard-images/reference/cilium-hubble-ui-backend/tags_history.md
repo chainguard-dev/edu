@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the cilium-hubble-ui-backend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:feb0f0e98ff2df16f1eb86aa9319890bf5323c37f87031a9376727567182c782` |
-|  `latest`     | May 1st      | `sha256:f7155a45a16939612f1e2f517d09f75522f26eadfec0b9b10d95d3ec4a4e2781` |
+|  `latest-dev` | May 2nd      | `sha256:164f8d1bc021ab9c22b44e31df314bb70f92682263179aa64042c60a3bc6f9d2` |
+|  `latest`     | May 2nd      | `sha256:f127bd9ba7350113881792e03adbd88e1988f84bdb46b844d2c792db8563c871` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.13-dev` `0-dev` `latest-dev` `0.13.0-dev` | May 1st      | `sha256:0f638cd42e1dc81a78d8e3ac1a35b4a25aa220db842b27c6e9378f845347e045` |
-|  `0.13.0` `0` `latest` `0.13`                 | May 1st      | `sha256:4b6bddb34d6b0dfc9f0f63c67634151b49640ed53101fe59852e0f2b4af53422` |
+|  `latest` `0.13.0` `0.13` `0`                 | May 2nd      | `sha256:bfd2182c609659cb80383b74a7ea98356713e0e50cd6a22c3782737a5f88ea94` |
+|  `0.13.0-dev` `latest-dev` `0.13-dev` `0-dev` | May 2nd      | `sha256:2b6ee780eda6a9bb805b5eaa36eabce2f202a29a3b4cd0c0932015ed39161ae0` |
 

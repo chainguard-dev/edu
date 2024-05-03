@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public datadog-agent-fips Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-04-25 00:53:12
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,7 +23,7 @@ This page shows detailed information about the Chainguard **datadog-agent-fips**
 
 |              | latest-dev           | latest               |
 |--------------|----------------------|----------------------|
-| Default User | `nonroot`            | `nonroot`            |
+| Default User | `root`               | `root`               |
 | Entrypoint   | `/bin/entrypoint.sh` | `/bin/entrypoint.sh` |
 | CMD          | not specified        | not specified        |
 | Workdir      | not specified        | not specified        |
@@ -39,13 +39,14 @@ The table shows package distribution across variants.
 |-------------------------------|------------|--------|
 | `apk-tools`                   | X          |        |
 | `bash`                        | X          | X      |
-| `busybox`                     | X          |        |
+| `busybox`                     | X          | X      |
 | `ca-certificates`             | X          | X      |
 | `ca-certificates-bundle`      | X          | X      |
 | `chainguard-baselayout`       | X          | X      |
 | `coreutils`                   | X          | X      |
 | `datadog-agent`               | X          | X      |
 | `datadog-agent-oci-compat`    | X          | X      |
+| `datadog-agent-s6-overlay`    | X          | X      |
 | `findutils`                   | X          | X      |
 | `fontconfig-config`           | X          | X      |
 | `freetype`                    | X          | X      |

@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-prometheus Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:962535494f92c04a30e4f4f240ff8786e50db32a1408f7f47b938c6b0fbf5fe1` |
-|  `latest`     | May 1st      | `sha256:3e85f6db3905f9ce75c376b0a85eaf50fc1c14f829e57b6f5bf16200b591fda0` |
+|  `latest`     | May 2nd      | `sha256:178b60dd253d84e7447d01bb2f64a5aab2674ce7bc375f6430c00ce46ef0c478` |
+|  `latest-dev` | May 2nd      | `sha256:022b8359aa7f74ee04329abfbff89b38d1343ebf391ecfc6fbc98412a0bc250b` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2` `2.21` `latest` `2.21.1`                 | May 1st      | `sha256:a295bd182a79c3447bed5cf6267a17a415d90979da660d51d75fde406b195556` |
-|  `2.21-dev` `2.21.1-dev` `2-dev` `latest-dev` | May 1st      | `sha256:0e0cf84a234223df2436ef54442105ce7409c9a40e5055fbabff7357ccecd5cb` |
+|  `latest` `2.21.1` `2` `2.21`                 | May 2nd      | `sha256:8bf408b7a916f2e20273c47fd75ec4a57f3ce5ba2f179b9f5af3bde472672998` |
+|  `2-dev` `2.21.1-dev` `latest-dev` `2.21-dev` | May 2nd      | `sha256:ce7506e16df4ec930bd457b9bf43fab0c406b2b5629e1bc49b7d4d294e682c18` |
 |  `2.21.0`                                     | May 1st      | `sha256:fe724b41f779ad42ee7b38ff973485cc4b080941a824bc8a85d33e29e1300a45` |
 |  `2.21.0-dev`                                 | May 1st      | `sha256:24b57692adb673c78f4e7109e17087c3121cff053960e02ffa60e1a864e25afc` |
 

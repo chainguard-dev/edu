@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public haproxy Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,39 +35,39 @@ Check the [tags history page](/chainguard/chainguard-images/reference/haproxy/ta
 ## Packages Included
 The table shows package distribution across variants.
 
-|                          | latest-dev | latest |
-|--------------------------|------------|--------|
-| `apk-tools`              | X          |        |
-| `bash`                   | X          | X      |
-| `busybox`                | X          | X      |
-| `ca-certificates-bundle` | X          | X      |
-| `chainguard-baselayout`  | X          | X      |
-| `dataplaneapi`           | X          | X      |
-| `git`                    | X          |        |
-| `glibc`                  | X          | X      |
-| `glibc-locale-posix`     | X          | X      |
-| `haproxy`                | X          | X      |
-| `haproxy-oci-entrypoint` | X          | X      |
-| `ld-linux`               | X          | X      |
-| `libbrotlicommon1`       | X          |        |
-| `libbrotlidec1`          | X          |        |
-| `libcrypt1`              | X          | X      |
-| `libcrypto3`             | X          | X      |
-| `libcurl-openssl4`       | X          |        |
-| `libexpat1`              | X          |        |
-| `libgcc`                 | X          | X      |
-| `libidn2`                | X          |        |
-| `libnghttp2-14`          | X          |        |
-| `libpcre2-8-0`           | X          | X      |
-| `libpcre2-posix-3`       | X          | X      |
-| `libpsl`                 | X          |        |
-| `libssl3`                | X          | X      |
-| `libunistring`           | X          |        |
-| `libxcrypt`              | X          | X      |
-| `ncurses`                | X          | X      |
-| `ncurses-terminfo-base`  | X          | X      |
-| `posix-libc-utils`       | X          | X      |
-| `wget`                   | X          |        |
-| `wolfi-baselayout`       | X          | X      |
-| `zlib`                   | X          |        |
+|                              | latest-dev | latest |
+|------------------------------|------------|--------|
+| `apk-tools`                  | X          |        |
+| `bash`                       | X          | X      |
+| `busybox`                    | X          | X      |
+| `ca-certificates-bundle`     | X          | X      |
+| `chainguard-baselayout`      | X          | X      |
+| `dataplaneapi`               | X          | X      |
+| `git`                        | X          |        |
+| `glibc`                      | X          | X      |
+| `glibc-locale-posix`         | X          | X      |
+| `haproxy`                    | X          | X      |
+| `haproxy-2.9-oci-entrypoint` | X          | X      |
+| `ld-linux`                   | X          | X      |
+| `libbrotlicommon1`           | X          |        |
+| `libbrotlidec1`              | X          |        |
+| `libcrypt1`                  | X          | X      |
+| `libcrypto3`                 | X          | X      |
+| `libcurl-openssl4`           | X          |        |
+| `libexpat1`                  | X          |        |
+| `libgcc`                     | X          | X      |
+| `libidn2`                    | X          |        |
+| `libnghttp2-14`              | X          |        |
+| `libpcre2-8-0`               | X          | X      |
+| `libpcre2-posix-3`           | X          | X      |
+| `libpsl`                     | X          |        |
+| `libssl3`                    | X          | X      |
+| `libunistring`               | X          |        |
+| `libxcrypt`                  | X          | X      |
+| `ncurses`                    | X          | X      |
+| `ncurses-terminfo-base`      | X          | X      |
+| `posix-libc-utils`           | X          | X      |
+| `wget`                       | X          |        |
+| `wolfi-baselayout`           | X          | X      |
+| `zlib`                       | X          |        |
 

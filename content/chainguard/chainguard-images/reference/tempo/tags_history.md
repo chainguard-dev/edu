@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tempo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-03 00:45:55
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` | May 1st      | `sha256:4970a38aea31ae0d23677664eadb6ca8e07c259c235cba7b791b05d5eee09815` |
-|  `latest`     | May 1st      | `sha256:18750e9d781729c88b704d41fe78d83f8bf5c499a674d3f4794b0c36a7c3ec0a` |
+|  `latest-dev` | May 2nd      | `sha256:18e436d4f28107c12ffc94066e15d7243dc0dd9ae11e4d9d97e9a7214cba9415` |
+|  `latest`     | May 2nd      | `sha256:49e2cc9f795223ef94bc43a6592bba96fda4e0224394f2e42e4a55ac5526c1cf` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest` `2.4.1` `2` `2.4`                 | May 1st      | `sha256:8981e84900478f0e5ce370313d0153e26ac6dcb62afa803fe534c5fc64677799` |
-|  `2-dev` `2.4.1-dev` `2.4-dev` `latest-dev` | May 1st      | `sha256:61c0590a2d9e3bc4a24c079b3a3858000bc42e97e14155a89126f8dc38e19477` |
+|  `2.4.1` `2` `2.4` `latest`                 | May 2nd      | `sha256:5fec241f5997209b0d75361ff62c566ca9d9b5692a9319b88a210e3b9d849b2b` |
+|  `2-dev` `2.4.1-dev` `latest-dev` `2.4-dev` | May 2nd      | `sha256:09d54342c23642819ae5f6d5c5267aa0180941dd166e3afa1b03ed5242635505` |
 
