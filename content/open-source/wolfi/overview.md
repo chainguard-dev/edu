@@ -4,7 +4,7 @@ type: "article"
 description: "Getting started with Wolfi, the Linux undistro for secure container images"
 lead: "Introducing Wolfi, the Linux undistro for secure container images"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2023-03-22T08:49:31+00:00
+lastmod: 2024-05-02T08:49:31+00:00
 draft: false
 tags: ["Wolfi", "Overview"]
 images: []
@@ -14,7 +14,8 @@ menu:
 weight: 100
 toc: true
 ---
-[Wolfi](https://github.com/wolfi-dev) is a community Linux [undistro](#why-undistro) designed for the container and cloud-native era. Chainguard started the Wolfi project to enable building  [Chainguard Images](/chainguard/chainguard-images/overview), our collection of curated [distroless](/chainguard/chainguard-images/getting-started-distroless/)  images that meet the requirements of a secure software supply chain. This required a Linux distribution with components at the appropriate granularity and with support for [glibc](https://www.gnu.org/software/libc/).
+
+[Wolfi](https://github.com/wolfi-dev) is a community Linux [undistro](#why-undistro) designed for the container and cloud-native era. Chainguard started the Wolfi project to build [Chainguard Images](/chainguard/chainguard-images/overview), our collection of curated [distroless](/chainguard/chainguard-images/getting-started-distroless/) images that meet the requirements of a secure software supply chain. This required a Linux distribution with components at the appropriate granularity and with support for [glibc](https://www.gnu.org/software/libc/).
 
 Building our own undistro also allows us to ensure packages have full provenance and metadata for supporting modern supply-chain security needs.
 
