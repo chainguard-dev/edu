@@ -61,7 +61,7 @@ other distributions.
 
 The easiest way to search for packages is via apk tools. For example:
 
-```
+```shell
 docker run -it --rm cgr.dev/chainguard/wolfi-base
 f273a9aa3242:/# apk update
 fetch https://packages.wolfi.dev/os/aarch64/APKINDEX.tar.gz
@@ -114,7 +114,7 @@ few differences that are important to be aware of.
 
 A typical Dockerfile for a Node.js application may look something like this:
 
-```
+```Docker
 FROM node:latest
 
 ENV NODE_ENV production
@@ -133,7 +133,7 @@ CMD npm start
 
 Directly porting to Chainguard Images with the least number of changes results in this Dockerfile:
 
-```
+```Docker
 FROM cgr.dev/chainguard/node:latest-dev
 
 ENV NODE_ENV production
@@ -156,7 +156,7 @@ Here we've changed the image to `cgr.dev/chainguard/latest-dev` and the `CMD` co
 We can still do better in terms of size and security. A multi-stage Dockerfile would look like:
 
 
-```
+```Docker
 FROM cgr.dev/chainguard/node:latest-dev as builder
 
 ENV NODE_ENV production
