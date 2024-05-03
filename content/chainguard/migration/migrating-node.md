@@ -42,7 +42,7 @@ deeper exploration of distroless images and their differences from standard base
 the guide on [Getting Started with Distroless
 images](/chainguard/chainguard-images/getting-started-distroless/).
 
-### Migrating from other Distributions
+## Migrating from other Distributions
 
 Dockerfiles will often contain commands specific to the Linux Distribution they are based on. Most
 commonly this will be package installation instructions (e.g. `apt` vs `yum` vs `apk`) but also
@@ -52,7 +52,7 @@ Images](https://edu.chainguard.dev/chainguard/migration-guides/migrating-to-chai
 contains details about distro-based migration and package compatibility when migrating from Debian,
 Alpine, Ubuntu and Red Hat UBI base images.
 
-### Installing further dependencies
+## Installing further dependencies
 
 Sometimes your applications will require further dependencies, either at build-time, runtime or
 both. Wolfi has large number of software packaged already, so you are likely to be able to
