@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the istio-install-cni Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -49,8 +49,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.21.1`                                     | April 12th   | `sha256:0de353ea81508964b73057d4401a67886c8da84929ea563a5f7676e707a70868` |
 |  `1.19.9`                                     | April 9th    | `sha256:6d36a21f1cfda388df7a25f63033133d8cc6c971a0c1bb3f83d5ff9e2b7a4e1f` |
 |  `1.20.5`                                     | April 9th    | `sha256:7a1929644775d06eb63ab2410ed9443d248571da9015f898e66314d9ab0e9218` |
-|  `1.19.8-dev`                                 | April 5th    | `sha256:20c057927264f10c536331242a2ebdce109e86c23d5fa2245f8e650262fabff4` |
-|  `1.20.4-dev`                                 | April 5th    | `sha256:893a5f4b186fdb658efff3a47eccee1cb45f41939dd2a6fad7377c80d815dcfb` |
-|  `1.20.4`                                     | April 3rd    | `sha256:9bb4137eb0441ecb31f072973814d2a1b7f83ccd817de2099d4a8149ffbedc60` |
-|  `1.19.8`                                     | April 3rd    | `sha256:e32dc996bc38e896eea9e7a5285e781a57755e57263017d9bdc0d827cbc07f2a` |
 

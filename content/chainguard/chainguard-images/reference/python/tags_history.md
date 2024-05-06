@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the python Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -47,7 +47,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `3.10.14-dev` `3.10-dev`                     | May 2nd      | `sha256:3d5bec9bac966d6f00f2673f63ad1d36307d1547f29bfc048fd51cc538ff9427` |
 |  `3.10.14` `3.10`                             | May 2nd      | `sha256:b6b4e2f0bbe7e102320a13efa60080df95fb216a1fd25a98075b4cbe70920ef9` |
 |  `3.11.9` `3.11`                              | May 2nd      | `sha256:3425f7b0ca9573c36a970c274a23355ddb3ca6320edb394dc1ee6e5dc54c413d` |
-|  `3.12.2-dev`                                 | April 5th    | `sha256:fe3b74bbd63f8dd86653e72e393078284c714d96d88c9b7f9063633a2db92ea0` |
 |  `3.8.10-dev`                                 | April 23rd   | `sha256:e2d1b74727601b090e38364c0e4437fa5e5dfb694977cee500fe1b05a82e43e4` |
 |  `3.8.10`                                     | April 23rd   | `sha256:44ba816acbfe21fb0bd1d9121c063a35dca1ab51dc3a7d4025f96f58b416c132` |
 

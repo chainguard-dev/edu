@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the loki Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,6 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `3` `latest` `3.0` `3.0.0`                 | May 2nd      | `sha256:8f4cfad760246975be1fd037619699c4d3622b4fac9f5aefb1adaeb4f430d406` |
 |  `latest-dev` `3.0-dev` `3-dev` `3.0.0-dev` | May 2nd      | `sha256:ed8ded42cf8f847471f2178cb3c351f53915793087a51ec6e6241485d1c8bde5` |
-|  `2-dev` `2.9.6-dev` `2.9-dev`              | April 5th    | `sha256:01c011a9aa43a67ac97befaa515f896a34d8a718ca1a141a3fe9ae8b740d1283` |
-|  `2.9.6` `2.9` `2`                          | April 3rd    | `sha256:4863ce4e3e24b48368ab8fca9e10fa86a859813b612096668cd1fcd3e50cd963` |
 

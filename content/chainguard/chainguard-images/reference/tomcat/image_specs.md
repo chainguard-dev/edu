@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public tomcat Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -79,6 +79,7 @@ The table shows package distribution across variants.
 | `p11-kit`                | X          | X      |
 | `p11-kit-trust`          | X          | X      |
 | `tomcat-9`               | X          | X      |
+| `tomcat-9-webapps`       | X          | X      |
 | `tomcat-native`          | X          | X      |
 | `wget`                   | X          |        |
 | `wolfi-baselayout`       | X          | X      |

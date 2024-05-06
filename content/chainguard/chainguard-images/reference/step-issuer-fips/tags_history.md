@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the step-issuer-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -33,6 +33,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.9` `0` `latest` `0.9.1`                 | May 2nd      | `sha256:7cb56e5a38b032488dc84a23c1e094edc043c1fc65dd79ca73c4577e7748b98f` |
-|  `latest-dev` `0.9-dev` `0.9.1-dev` `0-dev` | May 2nd      | `sha256:500848357a5da0137ddae95d1f3277775ad6ada65edaedd0144ba1fac77a78a0` |
+|  `latest-dev` `0-dev` `0.9.1-dev` `0.9-dev` | May 3rd      | `sha256:bc14f7e5fd9bb2ef5444797e7c826f9fc3f0dcd51ef335bf63996cc44c6ae43c` |
+|  `0.9.1` `0` `latest` `0.9`                 | May 3rd      | `sha256:b4201b0cc5416661b7492ec36531afcae97ab2a5b23327eb5d5faa7adc893178` |
 

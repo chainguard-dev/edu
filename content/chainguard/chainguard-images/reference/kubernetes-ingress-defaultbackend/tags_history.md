@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the kubernetes-ingress-defaultbackend Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -42,5 +42,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `1.28.5-dev` `1.28-dev`                      | April 21st   | `sha256:19090993b71096ce10eac04759f9423c5904bb7838bf05e0880045961ee31000` |
 |  `1.28` `1.28.5`                              | April 21st   | `sha256:9036b50914188bc5cf61f8cf818d5d573f89d20fe1d3735f960796e490e71bb1` |
 |  `1.28.4-dev`                                 | April 9th    | `sha256:0300b02d1d61350e8d75cb9e2d2f416585ff5ac8cf9c4eaf5fa7e47cd57afbfa` |
-|  `1.28.4`                                     | April 3rd    | `sha256:0b90c4da0930ba4104cb1dcd593263af730f20ee84b2a3764f88484437ea9467` |
 

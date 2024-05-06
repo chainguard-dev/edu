@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the jenkins Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,14 +37,13 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                           | Last Changed | Digest                                                                    |
 |-----------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `2.456-dev` `2-dev` | May 2nd      | `sha256:755880f5cad019c41df2695f0b66dc2e432d59b93533729650475b3dd9851e4b` |
-|  `latest` `2.456` `2`             | May 2nd      | `sha256:f7ba66a639afec73a11f3f307ef4940b5b87ac0c9e4fe8ed097e0b77d31cba60` |
+|  `2-dev` `latest-dev` `2.456-dev` | May 3rd      | `sha256:931946aa6b2672d0d4ccd93fa34e3e94322a7d6aff8998ed6a78e16589fd5dbe` |
+|  `2` `latest` `2.456`             | May 3rd      | `sha256:7c1da967626ffbc344ff7002869a96ef885d17da738927ee6acca940dd43da3e` |
 |  `2.455-dev`                      | April 30th   | `sha256:c6c70361a2cc0bf7f3b801ca93281127280a1c7559105f7959bd825706ae763d` |
 |  `2.455`                          | April 30th   | `sha256:003a795dbe4a264d127bd667bd2fdfe0397e336c1125b76d927ee701f7c5c4ab` |
 |  `2.454-dev`                      | April 20th   | `sha256:f4bc0160f5c72dd1ee78c6c017fefa5b2f6c8fa211fdc4cd17d9b848923e09ee` |
 |  `2.454`                          | April 19th   | `sha256:752e073a71752fe1b05aa614ae6ead697e9002f8c3147e18a72008f2c795c2f1` |
 |  `2.453-dev`                      | April 11th   | `sha256:5622376414d7b82bcc18ea801b64e760df1879bf7724ab912b0ec6f5e41ba896` |
 |  `2.453`                          | April 11th   | `sha256:5b8dba7e104c6ffdc0e8d0268113d2caeb7373a0d1535e019fcf7ad2855b4cf1` |
-|  `2.452-dev`                      | April 5th    | `sha256:0c8638ab11c39310885bc3e975b1aabdb22202ecee4cae9dd548276abdc63dcc` |
 |  `2.400`                          | April 18th   | `sha256:bd8d42b081d23f5d2ebc04bea7272c42858b40b37c9c4a2dacd89a184373056a` |
 
