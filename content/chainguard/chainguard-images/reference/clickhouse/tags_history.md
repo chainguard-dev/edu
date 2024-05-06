@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the clickhouse Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,12 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                        | Last Changed | Digest                                                                    |
 |----------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `23-dev` `23.8-dev` `23.8.14-dev` `23.8.14.6-dev`             | May 3rd      | `sha256:064499bcfb5166fe98042960b244dab0d7bd7afe793407df1c4982979499f0d3` |
+|  `23.8` `23` `23.8.14` `23.8.14.6`                             | May 3rd      | `sha256:8c2c00a7ae759b2bd3b4043585ea18c6262e0e723dccffb81c7a9149a7907b22` |
 |  `24.2` `24` `24.2.2` `latest` `24.2.2.71`                     | May 2nd      | `sha256:a99a07859734dffc28981c2600159946b453622352b12eeeb86b0382b5a37dcd` |
 |  `24-dev` `24.2.2-dev` `24.2-dev` `24.2.2.71-dev` `latest-dev` | May 2nd      | `sha256:cc899fdd3b3680a668b58a054bb3dd3a79b6bc1d27ff26e3f5c01efb54b83603` |
-|  `23.8-dev` `23-dev` `23.8.13-dev` `23.8.13.25-dev`            | May 2nd      | `sha256:c02c2d21eb5ddbb97fae4146ade1bc2bcd253b7da9173ce17a516ee7c64693f6` |
-|  `23.8` `23.8.13` `23.8.13.25` `23`                            | May 2nd      | `sha256:834217130ff8bfd09b8fe77b243f7a5bc9fb0bde3cb4073e717cffed2736b433` |
+|  `23.8.13` `23.8.13.25`                                        | May 2nd      | `sha256:834217130ff8bfd09b8fe77b243f7a5bc9fb0bde3cb4073e717cffed2736b433` |
+|  `23.8.13-dev` `23.8.13.25-dev`                                | May 2nd      | `sha256:c02c2d21eb5ddbb97fae4146ade1bc2bcd253b7da9173ce17a516ee7c64693f6` |
 |  `23.8.12-dev` `23.8.12.13-dev`                                | April 22nd   | `sha256:55a3d3c73c5f1c6e4581e09da445c36a77fc40dc37b74b39960c16f6597fc107` |
 |  `23.8.12` `23.8.12.13`                                        | April 22nd   | `sha256:2850166985f99857160e0405c50e6a44fdff852943248e302209e6b2493293e3` |
 

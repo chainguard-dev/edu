@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 2nd      | `sha256:9c6e029f39dd3a5ca89802d8290cb0e924e608ea0d7e7567ea6745456b0e41e9` |
-|  `latest-dev` | May 2nd      | `sha256:db9074e47e76f7730cb840697952c56569467b0c29b66543b7962b6c3a2e5e65` |
+|  `latest`     | May 3rd      | `sha256:df10acc1b7f5ee68153c39c20789cba3ed7068491744f063c03dcbfe0d6434a1` |
+|  `latest-dev` | May 3rd      | `sha256:1ad1fe40bd824819d13cd6208b97814f2c8575746d5df402e4fde819d726cd84` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `1-dev` `1.19-dev` `1.19.2-dev` | May 2nd      | `sha256:136c77c1502c2996f5bc6a323fc938c00fb8a4406ffeedff2260071162b8bafb` |
-|  `1.19` `1.19.2` `latest` `1`                 | May 2nd      | `sha256:019f8210f8ca0c8cbba22b4279bf08bb2970f3d5e160a349a4e0ba87aa4c11b2` |
+|  `1` `1.19` `latest` `1.19.2`                 | May 3rd      | `sha256:3ed5fda88a4a7cc44c97db02601381ef8c6b688db96bd359486e5ac8a34ca49f` |
+|  `latest-dev` `1.19.2-dev` `1-dev` `1.19-dev` | May 3rd      | `sha256:b5cb6fea65feef3b37e702a568d51128bf231dd48d1a7cfa31068960ce5d871c` |
 

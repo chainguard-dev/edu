@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the aws-efs-csi-driver Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 2nd      | `sha256:bb8171f18fa720b917f90270a5028f1c31434940653dc9086be6329d31dab210` |
-|  `latest-dev` | May 2nd      | `sha256:f43a4bef3cfa838e69c7fa81911ce0fddd5d949bf6a5596c7f4260c172bdc570` |
+|  `latest-dev` | May 4th      | `sha256:140d9724b283faf3b59ca6e08b9584c16d07cc10d1415e021d89681c704788ea` |
+|  `latest`     | May 4th      | `sha256:e0fa476043992fcaadc99dd8014efd1b443f2b8f8c0e847bce23bdcbca4106b8` |
 
 
 ### Private/Dedicated Registry
@@ -37,8 +37,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.0` `2.0.2` `2` `latest`                 | May 3rd      | `sha256:6656fef6e3221f751f26665d43ea422c7469654cbaf150a1f570402564ce0dcf` |
-|  `2.0-dev` `2-dev` `2.0.2-dev` `latest-dev` | May 3rd      | `sha256:e766d85807749d2b5bfcc6695421e5c34515efffb75a8f4cc7909b373308b94c` |
+|  `latest-dev` `2.0.2-dev` `2.0-dev` `2-dev` | May 3rd      | `sha256:54916425630cd082358d4fa89954dfac6906f127523cc0be02d1db617681395e` |
+|  `latest` `2` `2.0.2` `2.0`                 | May 3rd      | `sha256:a0bb796cd3bed64d9d4d6c1376d51848e3a70c0bedb44d1f5e5df68aa795ca14` |
 |  `2.0.1`                                    | May 1st      | `sha256:05a69f5b5bbbaa3140956270b200daba0dc6827eea79a1667018dcbf71626da8` |
 |  `2.0.1-dev`                                | May 1st      | `sha256:b66bbc6bc6fe91cb94ff273296841427fa3985eb9ac025461ba457b287bf3a1d` |
 |  `2.0.0-dev`                                | April 24th   | `sha256:41090ccbfda8b2fea23e0b1fd6fdda4baf6112c53b1b06265cd2386e6c592bf8` |
