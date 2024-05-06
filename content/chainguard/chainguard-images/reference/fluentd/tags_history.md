@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the fluentd Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,8 +39,8 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                                                      | Last Changed | Digest                                                                    |
 |------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1-splunk` `1.16.5-splunk` `1.16-splunk` `1.16.5-r0-splunk`                 | May 2nd      | `sha256:485f59135f4260553852d3b8c13be9bb8a19d7699de37cb1ea98a7468dfdf170` |
-|  `1-dev` `latest-dev` `1.16-dev` `1.16.5-dev`                                | May 2nd      | `sha256:a64faf77ed2e2e3efe24ae85ca3ccc989786b43a8bdb3362447812417d6aad58` |
-|  `1.16-splunk-dev` `1-splunk-dev` `1.16.5-splunk-dev` `1.16.5-r0-splunk-dev` | May 2nd      | `sha256:adad95176f8297cde9e99521ca6bd587b014089d9e8b457100eded6322597eea` |
-|  `latest` `1.16.5` `1` `1.16`                                                | May 2nd      | `sha256:7ea041442b85a23f127d396c4257df9e5006e589e3331f665202d59756ad9839` |
+|  `1` `latest` `1.16` `1.16.5`                                                | May 3rd      | `sha256:f37ff0019ba55729ec8b200bcb1d3ce605dad459795a586e05a473ce51b79e7b` |
+|  `latest-dev` `1.16-dev` `1-dev` `1.16.5-dev`                                | May 3rd      | `sha256:122b44672f743e81debeccd5df5538943e5e9e0bc6ff73f3ac052ec29a30476e` |
+|  `1-splunk-dev` `1.16-splunk-dev` `1.16.5-r0-splunk-dev` `1.16.5-splunk-dev` | May 3rd      | `sha256:a37f334094e2432c6e10cf089787adfe5ad514d185dddcdb52ef5fe0e84b75fe` |
+|  `1.16-splunk` `1.16.5-r0-splunk` `1.16.5-splunk` `1-splunk`                 | May 3rd      | `sha256:219bbd69b77e4e2d03ea50e9f0bf49239ee2b8421613269c84aba8660e4466e9` |
 

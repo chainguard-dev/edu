@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the tesseract Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                     | Last Changed | Digest                                                                    |
 |---------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `5.3-dev` `5.3.4-dev` `5-dev` `latest-dev` | May 2nd      | `sha256:f4698bbd17bf10da9dc53b0fab65b2b7011a6ae274be85dfd65ca3963ed095f7` |
-|  `latest` `5.3` `5` `5.3.4`                 | May 2nd      | `sha256:48d4ec8a467d3ef456f4e0672d4052f15c27337db769b2eb717141a587046856` |
+|  `latest` `5.3.4` `5.3` `5`                 | May 3rd      | `sha256:6b944edd678afbde54ee35fd84c77b7bc6a8c5178bad29961d05926f46d5ba6f` |
+|  `5-dev` `latest-dev` `5.3-dev` `5.3.4-dev` | May 3rd      | `sha256:5e810512874ce1a6328e19b9ef626b62736874ed0ff33fd525bc7154a11fdf0a` |
 

@@ -1,3 +1,13 @@
+# 2024-05-06
+New images added:
+
+- eck-operator
+- elasticsearch-fips
+- nvidia-container-toolkit
+- superset
+
+A total of **324** documents were updated.
+
 # 2024-05-03
 New images added:
 

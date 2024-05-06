@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public prometheus-alertmanager Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-02 00:37:55
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -23,7 +23,7 @@ This page shows detailed information about the Chainguard **prometheus-alertmana
 
 |              | latest-dev                                                                      | latest                                                                          |
 |--------------|---------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Default User | `nonroot`                                                                       | `alertmanager`                                                                  |
+| Default User | `alertmanager`                                                                  | `alertmanager`                                                                  |
 | Entrypoint   | `/usr/bin/alertmanager`                                                         | `/usr/bin/alertmanager`                                                         |
 | CMD          | `--config.file=/etc/alertmanager/alertmanager.yml --storage.path=/alertmanager` | `--config.file=/etc/alertmanager/alertmanager.yml --storage.path=/alertmanager` |
 | Workdir      | not specified                                                                   | not specified                                                                   |
@@ -63,8 +63,8 @@ The table shows package distribution across variants.
 | `ncurses-terminfo-base`   | X          |        |
 | `prometheus-alertmanager` | X          | X      |
 | `wget`                    | X          |        |
+| `wolfi-base`              | X          | X      |
 | `wolfi-baselayout`        | X          | X      |
+| `wolfi-keys`              | X          | X      |
 | `zlib`                    | X          | X      |
-| `wolfi-base`              |            | X      |
-| `wolfi-keys`              |            | X      |
 

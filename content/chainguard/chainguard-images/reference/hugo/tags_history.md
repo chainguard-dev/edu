@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the hugo Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,8 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                         | Last Changed | Digest                                                                    |
 |-------------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `latest-dev` `0-dev` `0.125.5-dev` `0.125-dev` | May 2nd      | `sha256:c00c2ef79ac4559d0128c040559aac8503ff3874af7149ed46aa2b092eb0d32e` |
-|  `latest` `0` `0.125.5` `0.125`                 | May 2nd      | `sha256:7727816a3599bd3b533520d7ef56d6ecefdead3da3751bf23cc608a11fca6ade` |
+|  `0.125-dev` `0-dev` `0.125.6-dev` `latest-dev` | May 5th      | `sha256:3774bf8753159ad9aeae7d979017a5babf6298c45818f718592646bdba55f9aa` |
+|  `0` `0.125.6` `0.125` `latest`                 | May 5th      | `sha256:682f6e85fb0db9a7dc4f9972d0d94ed34a9e048f1d9b9e3774f5088474e6ef94` |
+|  `0.125.5-dev`                                  | May 2nd      | `sha256:c00c2ef79ac4559d0128c040559aac8503ff3874af7149ed46aa2b092eb0d32e` |
+|  `0.125.5`                                      | May 2nd      | `sha256:7727816a3599bd3b533520d7ef56d6ecefdead3da3751bf23cc608a11fca6ade` |
 |  `0.125.4-dev`                                  | May 1st      | `sha256:06fa418112343c89a70fcaaa49332f198b6ff343122bf6a8b7c409de2c84e316` |
 |  `0.125.4`                                      | May 1st      | `sha256:a6749015824391b4a39f79f3f447feb38afd7f875f9a5db80d25bbdc3d0ca438` |
 |  `0.125.3`                                      | April 24th   | `sha256:f9d0a796fbd74d9f502c74e4b52b4e410bc092e0aff76e976eddc0e4e34d7fee` |
@@ -48,5 +50,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |  `0.125.0-dev`                                  | April 16th   | `sha256:aba3a70dcab303cf4eae2bbad97635cd96940c105e4cace7577c98064100ea2b` |
 |  `0.125.0`                                      | April 16th   | `sha256:071f477e01798ecafe478fe523ddad99dcb2ac98f0876bbe89968dcbff4924e9` |
 |  `0.124.1-dev` `0.124-dev`                      | April 11th   | `sha256:ea065264a10f92736dd66e7cf1c175e23f2cc1a0629a587f01cb13bc37a8415d` |
-|  `0.124` `0.124.1`                              | April 4th    | `sha256:2d37286522291d59fbd0e1673d576f01d6f8d765b6a07ee7d7e186e8c87012ce` |
 

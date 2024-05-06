@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the dex Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-06 00:43:57
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -39,7 +39,4 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
 |  `2.39.1` `2.39` `latest` `2`                 | May 2nd      | `sha256:fd77cd3868378d12e7e11fb12d76fc6e51d611a201d7e14604e8d3c93cc2fc52` |
 |  `2.39-dev` `2-dev` `latest-dev` `2.39.1-dev` | May 2nd      | `sha256:abd34138f8f928cd8d4c0dd0696d2c830adca1ecb90917acc4076c573b4f6dc2` |
-|  `2.39.0-dev`                                 | April 5th    | `sha256:c2940b65934c59fceb31679cc01608427176f276e4609f32e006c820e261fe1a` |
-|  `2.39.0`                                     | April 4th    | `sha256:56210af20aef4e340cd1767039c3de192333b69cffda7df88c58613951f565a3` |
-|  `2.35.3` `2.35`                              | April 5th    | `sha256:691b953618a93398877063833c62c38d5d0b3b5c260ef567fae69f319ab22bd3` |
 
