@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda-admission-webhooks Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-07 00:45:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -37,10 +37,10 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2.13.1` `2.13`                              | May 6th      | `sha256:2c25aec77728f6959c70756ea7e585da049f4962e3a8bba54250eddc275b6a5d` |
+|  `2.13-dev` `2.13.1-dev`                      | May 6th      | `sha256:de66d447a38dcf9c7e2ffc0c63e1307d8f33e4e9aa9e85059f27b14085e2b6ed` |
 |  `latest-dev` `2-dev` `2.14.0-dev` `2.14-dev` | May 2nd      | `sha256:69989d5f637759102d300c260ed77bac213c4ed5d9e98e9c65f3a7d6b08373a3` |
 |  `latest` `2.14.0` `2` `2.14`                 | May 2nd      | `sha256:21b621e6b3e37aa3412a4716e98e0d5b64758cc83c0d254c8fdbc9b41d3cc722` |
 |  `2.10.1-dev` `2.10-dev`                      | May 2nd      | `sha256:46aa31ea6bef44bc982a9b540c341321fc26291ad7d46181b75f3c2f9d55e143` |
 |  `2.10.1` `2.10`                              | May 2nd      | `sha256:a02b36b059510c7cfbc5fba4c8273831ae4223256ec37599b2e425d16f3d497b` |
-|  `2.13.1-dev` `2.13-dev`                      | April 30th   | `sha256:587f6feeaf31f1d944fd3069e1b08dfdb51d92696c835c57f286685150d50dcd` |
-|  `2.13.1` `2.13`                              | April 24th   | `sha256:ef0672ed2ae899b24ef0292b9707ba8c7d522ebe6aed324d1413b87b93a9d986` |
 

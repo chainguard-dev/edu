@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public renovate Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-01 00:46:56
+lastmod: 2024-05-07 00:45:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -185,7 +185,7 @@ The table shows package distribution across variants.
 | `renovate`                      | X          | X      |
 | `ruby-3.2`                      | X          | X      |
 | `ruby3.2-bundler`               | X          | X      |
-| `rust`                          | X          | X      |
+| `rust-1.78`                     | X          | X      |
 | `sqlite-libs`                   | X          | X      |
 | `wget`                          | X          |        |
 | `wolfi-base`                    | X          | X      |

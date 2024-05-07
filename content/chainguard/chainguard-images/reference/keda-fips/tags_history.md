@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the keda-fips Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-07 00:45:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -31,10 +31,10 @@ Currently, there are no Developer versions of this image available.
 ### Private/Dedicated Registry
 The Private/Dedicated Registry contains our **Production Images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-| Tag (s)                               | Last Changed | Digest                                                                    |
-|---------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `2.14.0-dev` `2.14-dev` `latest-dev` | May 3rd      | `sha256:2f667ce5b09b592899ddec26f7a306eb0803db94238e7e60e4febf914c05acc2` |
-|  `2.14.0` `2.14` `latest`             | May 3rd      | `sha256:a1e7461345e2876d3caaa208f6cf09e0b4138c89c7fd223fedb58ef6aac5fe1b` |
-|  `2.13.1-dev` `2.13-dev`              | April 29th   | `sha256:bdb874b8af9929018170d5b7e7e7703ad5130d716d4cc42511c1e211dd5ea82d` |
-|  `2.13.1` `2.13`                      | April 24th   | `sha256:4ea87369c6bef1bad669582ecd5d14e26f147d14e58e15eac9476d80bd5ae0a8` |
+| Tag (s)                                       | Last Changed | Digest                                                                    |
+|-----------------------------------------------|--------------|---------------------------------------------------------------------------|
+|  `2` `2.14.0` `2.14` `latest`                 | May 6th      | `sha256:a1e7461345e2876d3caaa208f6cf09e0b4138c89c7fd223fedb58ef6aac5fe1b` |
+|  `2-dev` `2.14.0-dev` `2.14-dev` `latest-dev` | May 6th      | `sha256:2f667ce5b09b592899ddec26f7a306eb0803db94238e7e60e4febf914c05acc2` |
+|  `2.13.1-dev` `2.13-dev`                      | April 29th   | `sha256:bdb874b8af9929018170d5b7e7e7703ad5130d716d4cc42511c1e211dd5ea82d` |
+|  `2.13.1` `2.13`                              | April 24th   | `sha256:4ea87369c6bef1bad669582ecd5d14e26f147d14e58e15eac9476d80bd5ae0a8` |
 
