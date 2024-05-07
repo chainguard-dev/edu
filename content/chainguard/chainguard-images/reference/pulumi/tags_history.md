@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the pulumi Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-07 00:45:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,7 +28,7 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)   | Last Changed | Digest                                                                    |
 |-----------|--------------|---------------------------------------------------------------------------|
-|  `latest` | May 4th      | `sha256:1759cc98ae09351c8c4b03d799111774178f8803f21a7e0a3b37d166dc5929d1` |
+|  `latest` | May 6th      | `sha256:79cafea004ea4a763a8c220635d6ec9bb91925a689fa660c394febf3287fc5e8` |
 
 
 ### Private/Dedicated Registry
@@ -36,7 +36,9 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                         | Last Changed | Digest                                                                    |
 |---------------------------------|--------------|---------------------------------------------------------------------------|
-|  `3.115.0` `3.115` `3` `latest` | May 3rd      | `sha256:8db0b829e8bd5de33f6e230c1158423b51013e8fd98b815ca94e70617acb0993` |
+|  `3` `latest` `3.115.2` `3.115` | May 6th      | `sha256:712504dfb1cd0531828bdd42de4dd8129d5044360f1b85b33288bd60985a9191` |
+|  `3.115.1`                      | May 6th      | `sha256:41d3a4957cb4890ea8efe33d9b9a5461cd73979fb1b311491c9ffe13d1c79571` |
+|  `3.115.0`                      | May 3rd      | `sha256:8db0b829e8bd5de33f6e230c1158423b51013e8fd98b815ca94e70617acb0993` |
 |  `3.114.0` `3.114`              | May 2nd      | `sha256:b4ddf4307fbbae1485ea829c38635eb6372475f897da5700f19576ee7aed5897` |
 |  `3.113.3` `3.113`              | April 26th   | `sha256:124db1846e143c09425a422f24bf85c9e4d8a65fad97f08a760cbea9f6096c46` |
 |  `3.112.0` `3.112`              | April 20th   | `sha256:50e4cc0256b016eae041b5be150c9fd337c0e4709a8cfe8ddc1880be65c7408c` |

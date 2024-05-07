@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public postgres-helm-compat Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-03-28 00:50:32
+lastmod: 2024-05-07 00:45:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -35,46 +35,48 @@ Check the [tags history page](/chainguard/chainguard-images/reference/postgres-h
 ## Packages Included
 The table shows package distribution across variants.
 
-|                                | latest-dev | latest |
-|--------------------------------|------------|--------|
-| `apk-tools`                    | X          |        |
-| `bash`                         | X          | X      |
-| `busybox`                      | X          | X      |
-| `ca-certificates-bundle`       | X          | X      |
-| `chainguard-baselayout`        | X          | X      |
-| `git`                          | X          |        |
-| `glibc`                        | X          | X      |
-| `glibc-locale-en`              | X          | X      |
-| `glibc-locale-posix`           | X          | X      |
-| `ld-linux`                     | X          | X      |
-| `libbrotlicommon1`             | X          |        |
-| `libbrotlidec1`                | X          |        |
-| `libcrypt1`                    | X          | X      |
-| `libcrypto3`                   | X          | X      |
-| `libcurl-openssl4`             | X          |        |
-| `libedit`                      | X          | X      |
-| `libexpat1`                    | X          |        |
-| `libidn2`                      | X          |        |
-| `libnghttp2-14`                | X          |        |
-| `libpcre2-8-0`                 | X          |        |
-| `libpq-15`                     | X          | X      |
-| `libpsl`                       | X          |        |
-| `libssl3`                      | X          | X      |
-| `libunistring`                 | X          |        |
-| `libuuid`                      | X          | X      |
-| `libxcrypt`                    | X          | X      |
-| `ncurses`                      | X          | X      |
-| `ncurses-terminfo-base`        | X          | X      |
-| `net-tools`                    | X          | X      |
-| `openssl-config`               | X          | X      |
-| `pgaudit-15`                   | X          | X      |
-| `postgresql-15`                | X          | X      |
-| `postgresql-15-bitnami-compat` | X          | X      |
-| `postgresql-15-client`         | X          | X      |
-| `postgresql-15-contrib`        | X          | X      |
-| `postgresql-15-oci-entrypoint` | X          | X      |
-| `su-exec`                      | X          | X      |
-| `wget`                         | X          |        |
-| `wolfi-baselayout`             | X          | X      |
-| `zlib`                         | X          | X      |
+|                                     | latest-dev | latest |
+|-------------------------------------|------------|--------|
+| `apk-tools`                         | X          |        |
+| `bash`                              | X          | X      |
+| `busybox`                           | X          | X      |
+| `ca-certificates-bundle`            | X          | X      |
+| `chainguard-baselayout`             | X          | X      |
+| `git`                               | X          |        |
+| `glibc`                             | X          | X      |
+| `glibc-locale-en`                   | X          | X      |
+| `glibc-locale-posix`                | X          | X      |
+| `ld-linux`                          | X          | X      |
+| `libbrotlicommon1`                  | X          |        |
+| `libbrotlidec1`                     | X          |        |
+| `libcrypt1`                         | X          | X      |
+| `libcrypto3`                        | X          | X      |
+| `libcurl-openssl4`                  | X          |        |
+| `libedit`                           | X          | X      |
+| `libexpat1`                         | X          |        |
+| `libidn2`                           | X          |        |
+| `libnghttp2-14`                     | X          |        |
+| `libpcre2-8-0`                      | X          |        |
+| `libpq-15`                          | X          | X      |
+| `libpsl`                            | X          |        |
+| `libssl3`                           | X          | X      |
+| `libunistring`                      | X          |        |
+| `libuuid`                           | X          | X      |
+| `libxcrypt`                         | X          | X      |
+| `ncurses`                           | X          | X      |
+| `ncurses-terminfo-base`             | X          | X      |
+| `net-tools`                         | X          | X      |
+| `pgaudit-15`                        | X          | X      |
+| `postgresql-15`                     | X          | X      |
+| `postgresql-15-base`                | X          | X      |
+| `postgresql-15-bitnami-compat`      | X          | X      |
+| `postgresql-15-client`              | X          | X      |
+| `postgresql-15-client-base`         | X          | X      |
+| `postgresql-15-contrib`             | X          | X      |
+| `postgresql-15-oci-entrypoint`      | X          | X      |
+| `postgresql-15-oci-entrypoint-base` | X          | X      |
+| `su-exec`                           | X          | X      |
+| `wget`                              | X          |        |
+| `wolfi-baselayout`                  | X          | X      |
+| `zlib`                              | X          | X      |
 
