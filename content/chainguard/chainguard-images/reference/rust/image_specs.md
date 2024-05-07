@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Detailed information about the public rust Chainguard Image."
 date: 2023-03-07T11:07:52+02:00
-lastmod: 2024-05-03 00:45:55
+lastmod: 2024-05-07 00:45:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -85,7 +85,7 @@ The table shows package distribution across variants.
 | `nss-hesiod`             | X          | X      |
 | `pkgconf`                | X          | X      |
 | `posix-cc-wrappers`      | X          | X      |
-| `rust-1.77`              | X          | X      |
+| `rust-1.78`              | X          | X      |
 | `rustup`                 | X          |        |
 | `wget`                   | X          |        |
 | `wolfi-baselayout`       | X          | X      |

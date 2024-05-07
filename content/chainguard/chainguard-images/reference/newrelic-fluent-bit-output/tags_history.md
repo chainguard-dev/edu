@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the newrelic-fluent-bit-output Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-07 00:45:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 3rd      | `sha256:df10acc1b7f5ee68153c39c20789cba3ed7068491744f063c03dcbfe0d6434a1` |
-|  `latest-dev` | May 3rd      | `sha256:1ad1fe40bd824819d13cd6208b97814f2c8575746d5df402e4fde819d726cd84` |
+|  `latest-dev` | May 6th      | `sha256:05c54d68a8cf58727a005c1e24a1fee5c54b5a247e1ab2a185bc5adacf57274a` |
+|  `latest`     | May 6th      | `sha256:702bb883534647adb5efdf97ec4b09830369ed92aa8ff682c31b01224d8a5bf5` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `1` `1.19` `latest` `1.19.2`                 | May 3rd      | `sha256:3ed5fda88a4a7cc44c97db02601381ef8c6b688db96bd359486e5ac8a34ca49f` |
-|  `latest-dev` `1.19.2-dev` `1-dev` `1.19-dev` | May 3rd      | `sha256:b5cb6fea65feef3b37e702a568d51128bf231dd48d1a7cfa31068960ce5d871c` |
+|  `1.19` `1.19.2` `latest` `1`                 | May 6th      | `sha256:bfc25e27fe002eea668b3a4c15e943fe73d425d8e24f5ea33496f2435dfbe209` |
+|  `latest-dev` `1.19.2-dev` `1.19-dev` `1-dev` | May 6th      | `sha256:ef9fd6d1a97230c6440fb954883a829da80a43c5dae27697699fa4d7ce6d1024` |
 

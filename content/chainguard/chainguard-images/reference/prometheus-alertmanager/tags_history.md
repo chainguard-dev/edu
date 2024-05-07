@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Image Tags and History for the prometheus-alertmanager Chainguard Image"
 date: 2023-06-22T11:07:52+02:00
-lastmod: 2024-05-06 00:43:57
+lastmod: 2024-05-07 00:45:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -28,8 +28,8 @@ The Public Registry contains our **Developer Images**, which typically comprise 
 
 | Tag (s)       | Last Changed | Digest                                                                    |
 |---------------|--------------|---------------------------------------------------------------------------|
-|  `latest`     | May 5th      | `sha256:d0c5cf07e17c39ad169d71f87051eea4cce3c0dda71416d1d53241c30800355b` |
-|  `latest-dev` | May 5th      | `sha256:927432f97715abd3bf984fc4394b4ba1f20d7a13973b296796dab4f2724d88ba` |
+|  `latest`     | May 6th      | `sha256:b1fbe1f3746d24e526310562f5e1b1920e7287f5e76e9f656faf6f64d857d640` |
+|  `latest-dev` | May 6th      | `sha256:82fd20f84b91489f19a10bdab83c81e69c34fc92648552f4d4e6738da72d46d8` |
 
 
 ### Private/Dedicated Registry
@@ -37,6 +37,6 @@ The Private/Dedicated Registry contains our **Production Images**, which include
 
 | Tag (s)                                       | Last Changed | Digest                                                                    |
 |-----------------------------------------------|--------------|---------------------------------------------------------------------------|
-|  `0.27-dev` `0-dev` `latest-dev` `0.27.0-dev` | May 6th      | `sha256:6c53a3e564398f68e588e7db920fedb4b3ba1f6922b7accbe705302cab75b767` |
-|  `latest` `0` `0.27.0` `0.27`                 | May 6th      | `sha256:af334dd71e1dd16ef033c789e5f0efa69e3b78ff5002003e44b9825d38ff7395` |
+|  `0.27.0` `0.27` `0` `latest`                 | May 7th      | `sha256:af334dd71e1dd16ef033c789e5f0efa69e3b78ff5002003e44b9825d38ff7395` |
+|  `latest-dev` `0.27.0-dev` `0.27-dev` `0-dev` | May 7th      | `sha256:6c53a3e564398f68e588e7db920fedb4b3ba1f6922b7accbe705302cab75b767` |
 

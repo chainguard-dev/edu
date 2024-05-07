@@ -4,7 +4,7 @@ type: "article"
 unlisted: true
 description: "Provenance information for newrelic-k8s-events-forwarder Chainguard Image"
 date: 2022-11-01T11:07:52+02:00
-lastmod: 2024-04-03 00:49:16
+lastmod: 2024-05-07 00:45:47
 draft: false
 tags: ["Reference", "Chainguard Images", "Product"]
 images: []
@@ -26,10 +26,10 @@ You'll need [cosign](https://docs.sigstore.dev/cosign/overview/) and [jq](https:
 ### Registry and Tags for newrelic-k8s-events-forwarder Image
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`.
 
-| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `cgr.dev/chainguard-private` | 1, 1-dev, 1.43, 1.43-dev, 1.43.2, 1.43.2-dev, 1.44, 1.44.0, 1.45, 1.45.0, 1.46, 1.46.0, 1.46.1, 1.47, 1.47.0, 1.47.1, 1.47.2, 1.48, 1.48-dev, 1.48.0, 1.48.1, 1.48.1-dev, 1.48.3, 1.48.3-dev, 1.48.4, 1.48.4-dev, 1.48.5, 1.48.5-dev, 1.49, 1.49-dev, 1.49.0, 1.49.0-dev, 1.49.1, 1.49.1-dev, 1.50, 1.50-dev, 1.50.0, 1.50.0-dev, 1.51, 1.51-dev, 1.51.0, 1.51.0-dev, 1.52, 1.52-dev, 1.52.0, 1.52.0-dev, latest, latest-dev |
+| Registry                     | Tags                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cgr.dev/chainguard`         | latest, latest-dev                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `cgr.dev/chainguard-private` | 1, 1-dev, 1.43, 1.43-dev, 1.43.2, 1.43.2-dev, 1.44, 1.44.0, 1.45, 1.45.0, 1.46, 1.46.0, 1.46.1, 1.47, 1.47.0, 1.47.1, 1.47.2, 1.48, 1.48-dev, 1.48.0, 1.48.1, 1.48.1-dev, 1.48.3, 1.48.3-dev, 1.48.4, 1.48.4-dev, 1.48.5, 1.48.5-dev, 1.49, 1.49-dev, 1.49.0, 1.49.0-dev, 1.49.1, 1.49.1-dev, 1.50, 1.50-dev, 1.50.0, 1.50.0-dev, 1.51, 1.51-dev, 1.51.0, 1.51.0-dev, 1.52, 1.52-dev, 1.52.0, 1.52.0-dev, 1.52.1, 1.52.1-dev, latest, latest-dev |
 
 
 - `cgr.dev/chainguard` - the Public Registry contains our **Developer Images**, which typically comprise the `latest*` versions of an image.
