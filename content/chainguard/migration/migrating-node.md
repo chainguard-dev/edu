@@ -197,7 +197,7 @@ ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 CMD ["node", "app.js"]
 ```
 
-If you've cloned out the GitHub repository, you can build this image with:
+If you've cloned the GitHub repository, you can build this image with:
 
 ```
 docker build -t node-multi-image -f Dockerfile-multi .
