@@ -120,7 +120,11 @@ few differences that are important to be aware of.
 
 ## Migration Example
 
-A typical Dockerfile for a Node.js application using the Docker Official Image may look something like this:
+This section has a short example of migrating a Node.js application with a Dockerfile building on
+`node:latest` to use the Chainguard Node.js Images. The code for [this example can be found on
+GitHub](https://github.com/chainguard-dev/cg-images-node-migration).
+
+Our starting Dockerfile uses the `node:latest` image from Docker Hub in a single-stage build:
 
 ```Docker
 FROM node:latest
@@ -137,6 +141,12 @@ COPY . .
 EXPOSE 3000
 
 CMD npm start
+```
+
+If you've cloned the GitHub repository, you can build this image with:
+
+```
+docker build -t node-classic-image -f Dockerfile-classic .
 ```
 
 Directly porting to Chainguard Images with the least number of changes results in this Dockerfile:
@@ -187,7 +197,13 @@ ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 CMD ["node", "app.js"]
 ```
 
-The advantages here are:
+If you've cloned out the GitHub repository, you can build this image with:
+
+```
+docker build -t node-multi-image -f Dockerfile-multi .
+```
+
+The advantages of this build are:
 
  - we are using `dumb-init` so the container shuts down cleanly in response to `docker stop`.
  - we do not have all the build tooling in the final image, resulting in a smaller and more secure
