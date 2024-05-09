@@ -24,8 +24,8 @@ The main features of Chainguard Images include:
 
 - Minimalist design, with no unnecessary software bloat
 - Automated nightly builds to ensure Images are completely up-to-date and contain all available security patches
-- [High quality build-time SBOMs](/chainguard/chainguard-images/images-features/retrieve-image-sboms/) (software bill of materials) attesting the provenance of all artifacts within the Image
-- [Verifiable signatures](/chainguard/chainguard-images/images-features/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
+- [High quality build-time SBOMs](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) (software bill of materials) attesting the provenance of all artifacts within the Image
+- [Verifiable signatures](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
 - Reproducible builds with Cosign and apko ([read more about reproducibility](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds))
 
 Chainguard Images are available from the [Chainguard Registry](/chainguard/chainguard-images/registry/overview/) and can be pulled from `cgr.dev`. You can review images files [on GitHub](https://github.com/chainguard-images) and can find complete lists of available Chainguard Images in the [public Images Directory](https://images.chainguard.dev/) or within the [Chainguard Console](https://console.enforce.dev/). 
