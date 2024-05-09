@@ -56,7 +56,7 @@ Alpine, Ubuntu and Red Hat UBI base images.
 ## Installing further dependencies
 
 Sometimes your applications will require further dependencies, either at build-time, runtime or
-both. Wolfi has large number of software packaged already, so you are likely to be able to
+both. Wolfi has large number of software packages available, so you are likely to be able to
 install common packages via `apk add`, but be aware that packages may be named differently than in
 other distributions.
 
