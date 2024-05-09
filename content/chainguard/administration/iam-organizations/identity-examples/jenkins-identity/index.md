@@ -88,7 +88,7 @@ data "chainguard_group" "group" {
 }
 ```
 
-This section looks up a Chainguard IAM group named `my-customer.biz`. This will contain the identity — which will be created by the `jenkins.tf` file — to access when we test it out later on.
+This section looks up a Chainguard IAM organization named `my-customer.biz`. This will contain the identity — which will be created by the `jenkins.tf` file — to access when we test it out later on.
 
 Now you can move on to creating the last of our Terraform configuration files, `jenkins.tf`.
 
@@ -115,7 +115,7 @@ resource "chainguard_identity" "jenkins" {
 }
 ```
 
-First, this section creates a Chainguard Identity tied to the `chainguard_group` looked up in the `sample.tf` file. The identity is named `jenkins` and has a brief description.
+First, this section creates a Chainguard Identity tied to the Chainguard organization looked up in the `sample.tf` file. The identity is named `jenkins` and has a brief description.
 
 The most important part of this section is the `claim_match`. When the Jenkins workflow tries to assume this identity later on, it must present a token matching the `audience`, `issuer` and `subject` specified here in order to do so. The `audience` is the intended recipient of the issued token, while the `issuer` is the entity that creates the token. Finally, the `subject` is the entity (here, the Jenkins pipeline build) that the token represents.
 
@@ -145,7 +145,7 @@ data "chainguard_role" "viewer" {
 }
 ```
 
-The final section grants this role to the identity on the group.
+The final section grants this role to the identity.
 
 ```
 resource "chainguard_rolebinding" "view-stuff" {
@@ -255,13 +255,13 @@ sh '''
     ./chainctl auth login --identity-token $token --identity <your jenkins identity>
     ./chainctl auth configure-docker --identity-token $token --identity <your jenkins identity>
     ./chainctl images repos list
-    docker pull cgr.dev/<group>/<repo>:<tag>
+    docker pull cgr.dev/<organization>/<repo>:<tag>
 '''
 ```
 
 Save the job, and then build it using the `Build with Parameters` option.
 
-Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, listing repositories available to the group.
+Assuming everything works as expected, your pipeline will be able to assume the identity and run the `chainctl images repos list` command, listing repositories available to the organization.
 
 ```
 . . .
@@ -282,11 +282,11 @@ data "chainguard_role" "editor" {
 }
 ```
 
-You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the policies the identity has access to, you could have the workflow inspect the groups.
+You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the policies the identity has access to, you could have the workflow inspect the organizations.
 
 ```
 	. . .
-	- './chainctl iam groups ls'
+	- './chainctl iam organizations ls'
 ```
 
 Of course, the Jenkins pipeline will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.
@@ -299,7 +299,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy the role-binding, and the identity created in this guide. It will not delete the group.
+This will destroy the role-binding, and the identity created in this guide. It will not delete the organization.
 
 You can then remove the working directory to clean up your system.
 
