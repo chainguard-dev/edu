@@ -18,7 +18,7 @@ toc: true
 ---
 
 ## Do I need to understand apko to use Chainguard Images?
-No. Chainguard built [apko](https://github.com/chainguard-dev/apko) as part of its open source tooling under the [Wolfi](/open-source/wolfi) operating system. While you can check out the [project on GitHub]((https://github.com/chainguard-dev/apko)) and learn more, it's not a prerequisite for using or [working with Chainguard Images](/chainguard/chainguard-images/working-with-images). 
+No. Chainguard built [apko](https://github.com/chainguard-dev/apko) as part of its open source tooling under the [Wolfi](/open-source/wolfi) operating system. While you can check out the [project on GitHub](https://github.com/chainguard-dev/apko) and learn more, it's not a prerequisite for using or [working with Chainguard Images](/chainguard/chainguard-images/working-with-images).
 
 ## How are melange packages defined?
 melange apks are defined declaratively using a YAML file.
