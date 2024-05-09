@@ -134,7 +134,7 @@ data "chainguard_role" "viewer" {
 }
 ```
 
-The final section grants this role to the identity on the group.
+The final section grants this role to the identity.
 
 ```
 resource "chainguard_rolebinding" "view-stuff" {
@@ -233,7 +233,7 @@ chainctl auth configure-docker \
   --identity $ID
 ```
 
-After logging in, the pipeline will be able to run any `chainctl` command under the assumed identity. To test out this ability, this configuration runs the `chainctl images repos list` command to list all available image repositories associated associated with the group.
+After logging in, the pipeline will be able to run any `chainctl` command under the assumed identity. To test out this ability, this configuration runs the `chainctl images repos list` command to list all available image repositories associated associated with the organization.
 
 ```sh
 chainctl images repos list
@@ -276,7 +276,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy identity and the role-binding created in this guide. It will not delete the group.
+This will destroy identity and the role-binding created in this guide. It will not delete the organization.
 
 You can then remove the working directory to clean up your system.
 

@@ -74,7 +74,7 @@ data "chainguard_group" "group" {
 }
 ```
 
-This section looks up a Chainguard IAM group named `my-customer.biz`. This will contain the identity — which will be created by the `actions.tf` file — to access when we test it out later on.
+This section looks up a Chainguard IAM organization named `my-customer.biz`. This will contain the identity — which will be created by the `actions.tf` file — to access when we test it out later on.
 
 Now you can move on to creating the last of our Terraform configuration files, `actions.tf`.
 
@@ -100,7 +100,7 @@ resource "chainguard_identity" "actions" {
 }
 ```
 
-First, this section creates a Chainguard Identity tied to the `chainguard_group` looked up in the `sample.tf` file. The identity is named `github-actions` and has a brief description.
+First, this section creates a Chainguard Identity tied to the Chainguard Organization looked up in the `sample.tf` file. The identity is named `github-actions` and has a brief description.
 
 The most important part of this section is the `claim_match`. When the GitHub Actions workflow tries to assume this identity later on, it must present a token matching the `issuer` and `subject` specified here in order to do so. The `issuer` is the entity that creates the token, while the `subject` is the entity (here, the Actions workflow) that the token represents.
 
@@ -122,7 +122,7 @@ data "chainguard_role" "viewer" {
 }
 ```
 
-The final section grants this role to the identity on the group.
+The final section grants this role to the identity.
 
 ```
 resource "chainguard_rolebinding" "view-stuff" {
@@ -226,7 +226,7 @@ jobs:
         identity: <your actions identity>
 
     - run: |
-      docker pull cgr.dev/<your group>/example-image:latest
+      docker pull cgr.dev/<your organization>/example-image:latest
 ```
 
 This workflow is named `actions assume example`. The `permissions` block grants `write` permissions to the workflow for the `id-token` scope. [Per the GitHub Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#adding-permissions-settings), you **must** grant this permission in order for the workflow to be able to fetch an OIDC token.
@@ -234,13 +234,13 @@ This workflow is named `actions assume example`. The `permissions` block grants 
 This workflow performs two actions:
 
 * First, it assumes the identity you just created with Terraform.
-* Second, the workflow runs the `docker pull` command to pull an image from the group's Chainguard registry.
+* Second, the workflow runs the `docker pull` command to pull an image from the organization's Chainguard registry.
 
 Commit the workflow to your repository, then navigate back to the **Actions** tab. The **Assume and Explore** workflow will appear in the left-hand sidebar menu. Click on this, and then click the **Run workflow** button on the resulting page to execute the workflow.
 
 ![Screenshot of the "Assume and Explore" workflow, with the "Run workflow" button showing.](actions-run-workflow.png)
 
-This indicates that the workflow can indeed assume the identity and interact with the group.
+This indicates that the workflow can indeed assume the identity and interact with the organization.
 
 ![Screenshot showing the output of the "Assume and Explore" workflow.](actions-workflow-output.png)
 
@@ -268,7 +268,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy the role-binding, and the identity created in this guide. It will not delete the group.
+This will destroy the role-binding, and the identity created in this guide. It will not delete the organization.
 
 You can then remove the working directory to clean up your system.
 

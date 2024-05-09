@@ -38,9 +38,9 @@ This enables you to create identities that can only be assumed by specific autom
 * [Buildkite](/chainguard/administration/iam-groups/identity-examples/buildkite-identity/)
 * [Bitbucket](/chainguard/administration/iam-groups/identity-examples/bitbucket-identity/)
 
-A notable difference between registered users and identities in Chainguard's IAM model is that identities are tied to a specific [IAM group](/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/). When you create an identity, you must specify a Chainguard group under which the identity will be created.
+A notable difference between registered users and identities in Chainguard's IAM model is that identities are tied to a specific [IAM organization](/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/). When you create an identity, you must specify a Chainguard organization under which the identity will be created.
 
-However, an identity won't automatically have access to the other resources associated with that group. In order for an identity to be able to interact with a group's resources — including the Images, repositories, and users associated with the group — it must be granted the permissions it needs to do so. To do this, you must also tie the identity to a role. Chainguard comes with a few built-in roles, including `viewer`, `editor`, and `owner`. You can also create custom role-bindings with `chainctl`. Check out the [`chainctl iam role-bindings` documentation](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/) for more details. 
+However, an identity won't automatically have access to the other resources associated with that organization. In order for an identity to be able to interact with a organization's resources — including the Images, repositories, and users associated with the organization — it must be granted the permissions it needs to do so. To do this, you must also tie the identity to a role. Chainguard comes with a few built-in roles, including `viewer`, `editor`, and `owner`. You can also create custom role-bindings with `chainctl`. Check out the [`chainctl iam role-bindings` documentation](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/) for more details. 
 
 Now that you have a better understanding of what assumable identities are, let's go over how you can set up an assumable identity. There are currently two main ways you can create an identity: with Terraform and with `chainctl`. Let's first go over how to set up an identity with Terraform.
 
@@ -51,7 +51,7 @@ To set up an assumable identity with Terraform, you will need to add a few speci
 
 ```
 resource "chainguard_identity" "<id-ref>" {
-  parent_id   = <chainguard group ID>
+  parent_id   = <chainguard organization ID>
   name   	 = "<identity name>"
   description = <<EOF
     This is an example description for an identity.
@@ -64,7 +64,7 @@ resource "chainguard_identity" "<id-ref>" {
 }
 ```
 
-Here, `parent_id` defines the Chainguard group that the identity will be tied to. This could be a literal value — like a Chainguard group identification number — or a [local value](https://developer.hashicorp.com/terraform/language/values/locals) that references an existing group. You can enter whatever you'd like for the `name`, though it helps to provide a descriptive name for your identities. The `description` field is optional, but it can be helpful to include to clarify the identity's purpose.
+Here, `parent_id` defines the Chainguard organization that the identity will be tied to. This could be a literal value — like a Chainguard organization identification number — or a [local value](https://developer.hashicorp.com/terraform/language/values/locals) that references an existing organization. You can enter whatever you'd like for the `name`, though it helps to provide a descriptive name for your identities. The `description` field is optional, but it can be helpful to include to clarify the identity's purpose.
 
 The `claim_match` block within this section is what specifies the users and workloads allowed to assume the identity. You must specify an issuer and subject in the claim match block, but you can optionally specify an `audience` here as well.
 
@@ -96,7 +96,7 @@ data "chainguard_roles" "viewer" {
 }
 ```
 
-Then you need to include another `resource` block to create the role-binding using the determined role. The identity will have the permissions of that role over the group specified within this block.
+Then you need to include another `resource` block to create the role-binding using the determined role. The identity will have the permissions of that role over the organization specified within this block.
 
 ```
 resource "chainguard_role-binding" "view-stuff" {
@@ -106,7 +106,7 @@ resource "chainguard_role-binding" "view-stuff" {
 }
 ```
 
-This means that the identity this Terraform configuration will create will only be able to view the resources tied to the same group the identity is tied to.
+This means that the identity this Terraform configuration will create will only be able to view the resources tied to the same organization the identity is tied to.
 
 Applying this configuration will create the assumable identity. You can follow any of our [identity examples](/chainguard/chainguard-enforce/iam-groups/identity-examples/) to create an assumable identity that can be used by a continuous integration workflow to interact with Chainguard. The Terraform files used in the linked tutorials are based closely on the template outlined here.
 
@@ -120,11 +120,11 @@ chainctl iam identities create <identity-name> \
     --identity-issuer=<issuer of the identity> \
     --issuer-keys=<keys for the issuer> \
     --subject=<subject of the identity> \
-    --group=<group name> \
+    --group=<organization name> \
     --role=<role>
 ```
 
-As with Terraform, you must provide `chainctl` with certain information about the identity you want to create, including the issuer and subject of the identity, the role-bindings associated with the identity (if any), and the group under which the identity should be created.
+As with Terraform, you must provide `chainctl` with certain information about the identity you want to create, including the issuer and subject of the identity, the role-bindings associated with the identity (if any), and the organization under which the identity should be created.
 
 You can change an existing identity with the `update` command. The following example would update the identity's issuer.
 

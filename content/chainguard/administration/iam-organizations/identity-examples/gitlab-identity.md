@@ -73,7 +73,7 @@ data "chainguard_group" "group" {
 }
 ```
 
-This section looks up a Chainguard IAM group named `my-customer.biz`. This will contain the identity — which will be created by the `gitlab.tf` file — to access when we test it out later on.
+This section looks up a Chainguard IAM organization named `my-customer.biz`. This will contain the identity — which will be created by the `gitlab.tf` file — to access when we test it out later on.
 
 Now you can move on to creating the last of our Terraform configuration files, `gitlab.tf`.
 
@@ -124,7 +124,7 @@ data "chainguard_role" "viewer" {
 }
 ```
 
-The final section grants this role to the identity on the group.
+The final section grants this role to the identity.
 
 ```
 resource "chainguard_rolebinding" "view-stuff" {
@@ -233,7 +233,7 @@ assume-and-explore:
     chainctl images repos list
 
     # Pull an image.
-    docker pull cgr.dev/<group>/<repo>:<tag>
+    docker pull cgr.dev/<organization>/<repo>:<tag>
 ```
 
 Let's go over what this configuration does.
@@ -244,11 +244,11 @@ Next, this configuration creates a JSON Web Token (JWT) with an [`id_tokens`](ht
 
 Following that, the job runs a few commands to download and install `chainctl`. It then uses `chainctl`, the JWT, and the Chainguard identity's `id` value to log in to Chainguard under the assumed identity. Be sure to replace `<your gitlab identity>` with the identity UIDP you noted down in the previous section.
 
-After logging in, the pipeline is able to run any `chainctl` command under the assumed identity. To test out this ability, this configuration runs the `chainctl images repos list` command to list all available image repos associated associated with the group.
+After logging in, the pipeline is able to run any `chainctl` command under the assumed identity. To test out this ability, this configuration runs the `chainctl images repos list` command to list all available image repos associated associated with the organization.
 
 After updating the configuration, commit the changes and the pipeline will run automatically. A status box in the dashboard will let you know whether the pipeline runs successfully.
 
-Click the **View Pipeline** button, and then click the **assume-and-explore** job button to open the job's output from the last run. There you should see a list of repos accessible to your group.
+Click the **View Pipeline** button, and then click the **assume-and-explore** job button to open the job's output from the last run. There you should see a list of repos accessible to your organization.
 
 This indicates that the GitLab CI/CD pipeline did indeed assume the identity and run the `chainctl images repos list` command.
 
@@ -266,10 +266,10 @@ To retrieve a list of all the available roles — including any custom roles —
 chainctl iam roles list
 ```
 
-You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the image repos the identity has access to, you could have the workflow inspect the groups like in the following exmaple.
+You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the image repos the identity has access to, you could have the workflow inspect the organization like in the following exmaple.
 
 ```
-chainctl iam groups ls
+chainctl iam orgs ls
 ```
 
 Of course, the GitLab pipeline will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.
@@ -283,7 +283,7 @@ To remove the resources Terraform created, you can run the `terraform destroy` c
 terraform destroy
 ```
 
-This will destroy identity and the role-binding created in this guide. It will not delete the group.
+This will destroy identity and the role-binding created in this guide. It will not delete the organization.
 
 You can then remove the working directory to clean up your system.
 
