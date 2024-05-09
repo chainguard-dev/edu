@@ -7,7 +7,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Jenkins Pipeline."
 type: "article"
 date: 2023-05-19T21:23:42+00:00
-lastmod: 2023-12-07T08:48:45+00:00
+lastmod: 2024-05-09T08:48:45+00:00
 draft: false
 tags: ["Chainguard Images", "Product", "Procedural"]
 images: []
