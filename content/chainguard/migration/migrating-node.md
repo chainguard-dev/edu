@@ -13,11 +13,19 @@ toc: true
 ---
 
 Chainguard Images are built on top of [Wolfi](/open-source/wolfi/), a Linux _undistro_ designed
-specifically for containers. Our Node.js images have a minimal design that ensures a smaller attack
-surface, which results in smaller images [with few to
+specifically for containers. Our Node.js images have a minimal design (sometimes known as
+_distroless_) that ensures a smaller attack surface, which results in smaller images [with few to
 zero](/chainguard/chainguard-images/vuln-comparison/node/) CVEs. Nightly builds deliver fresh images
 whenever updated packages are available, which also helps to reduce the toil of manually patching
 CVEs.
+
+{{< details "What is Distroless?" >}}
+{{< blurb/distroless >}}
+{{< /details >}}
+
+{{< details "What is Wolfi OS?" >}}
+{{< blurb/wolfi >}}
+{{< /details >}}
 
 This article is intended as a guide to porting existing Dockerfiles for Node.js applications to a
 Chainguard Images base.
