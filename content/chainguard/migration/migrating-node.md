@@ -3,12 +3,12 @@ title: "Migrating to Node.js Chainguard Images"
 linktitle: "Node Migration"
 type: "article"
 description: "Guidance on how to migrate Node.js Dockerfile workloads to use Chainguard Images"
-date: 2024-05-03T15:56:52-07:00
-lastmod: 2024-05-03T15:56:52-07:00
+date: 2024-05-09T15:56:52-07:00
+lastmod: 2024-05-09T15:56:52-07:00
 draft: false
 tags: ["Images", "Product", "Conceptual"]
 images: []
-weight: 700
+weight: 703
 toc: true
 ---
 
@@ -24,17 +24,18 @@ Chainguard Images base.
 
 ## Chainguard Node.js Images
 
-The Node.js image comes in two main flavours; runtime images intended for production usage and
-builder images intended for use in the build-step of multi-stage builds. The builder images are
-distinguished by the `-dev` suffix (e.g., `latest-dev`).
+The [Node.js](https://images.chainguard.dev/directory/image/node/overview) images come in two main
+flavours; runtime images intended for production usage and builder images intended for use in the
+build-step of multi-stage builds. The builder images are distinguished by the `-dev` suffix (e.g.,
+`latest-dev`).
 
 The production images are intentionally as minimal as possible. They have enough dependencies to run
 a Node.js application but no more. There is no package manager or shell, which reduces the attack
-surface of the image, but also means it is difficult to extend the image. The builder images have
+surface of the image, but can also make it difficult to extend the image. The builder images have
 more build tooling as well as a shell and package manager, allowing them to be easily extended. We
 still aim to keep CVE counts as low as possible in the builder images and they can be used in
-production if neccessary (such as when the application requires extra system dependencies at
-runtime), but we recommend using the builder image as the first step in a mult-stage build with the
+production if necessary (such as when the application requires extra system dependencies at
+runtime), but we recommend using the builder image as the first step in a multi-stage build with the
 production image as the base for the final image.
 
 This extremely minimal approach to the runtime image is sometimes known as "distroless". For a
@@ -56,7 +57,7 @@ Alpine, Ubuntu and Red Hat UBI base images.
 
 Sometimes your applications will require further dependencies, either at build-time, runtime or
 both. Wolfi has large number of software packaged already, so you are likely to be able to
-install common packages via `apk add`, but be aware that packages may be named differently to
+install common packages via `apk add`, but be aware that packages may be named differently than in
 other distributions.
 
 The easiest way to search for packages is via apk tools. For example:
@@ -105,7 +106,7 @@ few differences that are important to be aware of.
  - Our Node.js images include [dumb-init](https://github.com/Yelp/dumb-init) which can be used to
    wrap the Node process in order to handle signals properly and allow for graceful shutdown. You
    can use dumb-init by setting an entrypoint such as: `ENTRYPOINT ["/usr/bin/dumb-init", "--"]`
- - In general there are many less libraries and utilities in the Chainguard Image. You may find that
+ - In general there are many fewer libraries and utilities in the Chainguard Image. You may find that
    your application has an unexpected dependency which needs to be added into the Chainguard Image.
 
 
@@ -189,19 +190,19 @@ instead of `npm install` to ensure the correct version of all dependencies is us
 
 ## Additional Resources
 
-The [Node.js image documentation](https://images.chainguard.dev/directory/image/node/overview)
+ - The [Node.js image documentation](https://images.chainguard.dev/directory/image/node/overview)
 contains full details on our images, including usage documentation, provenance and security
 advisories.
 
-The [How to Port a Sample Application to Chainguard
+ - The [How to Port a Sample Application to Chainguard
 Images](/chainguard/migration/porting-apps-to-chainguard/) article contains an example of porting a
 Node.js Dockerfile for a legacy application.
 
-The [How to Migrate a Node.js Application to Chainguard Images](https://edu.chainguard.dev/chainguard/chainguard-images/videos/node-images/) video works through an example of porting a Node.js Dockerfile.
+ - The [How to Migrate a Node.js Application to Chainguard Images](https://edu.chainguard.dev/chainguard/chainguard-images/videos/node-images/) video works through an example of porting a Node.js Dockerfile.
 
-Bret Fisher has an excellent [guide to creating Node.js container
+ - Bret Fisher has an excellent [guide to creating Node.js container
 images](https://github.com/BretFisher/nodejs-rocks-in-docker/), including advice for using
 distroless.
 
-The [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying Images](/chainguard/chainguard-images/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
+ - The [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying Images](/chainguard/chainguard-images/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
 
