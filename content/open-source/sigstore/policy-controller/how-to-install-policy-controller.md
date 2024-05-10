@@ -1,5 +1,7 @@
 ---
 title: "How to Install Sigstore Policy Controller"
+aliases: 
+- /open-source/sigstore/policy-controller/enforce-sbom-attestation-with-policy-controller/
 type: "article"
 description: "Install the Sigstore Policy Controller into a Kubernetes Cluster"
 lead: "Installing Sigstore Policy Controller"
